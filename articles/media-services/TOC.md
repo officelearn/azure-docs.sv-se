@@ -1,178 +1,180 @@
-# [Overview](media-services-overview.md)
-## [Concepts ](media-services-concepts.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
-## [Release notes](media-services-release-notes.md)
-# Get started
-## [Create and manage account](media-services-portal-create-account.md)
-## [Set up your dev environment](media-services-set-up-computer.md)
-## Video on demand
+# [Översikt](media-services-overview.md)
+## [Koncept](media-services-concepts.md)
+
+
+# Kom igång
+## [Skapa och hantera konto](media-services-portal-create-account.md)
+## [Konfigurera din utvecklingsmiljö](media-services-set-up-computer.md)
+## Leverera video på begäran
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
-## Live streaming
+## Utföra liveuppspelning
 ### [Portal](media-services-portal-live-passthrough-get-started.md)
-### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+### [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
-# How To
-## Manage
-### [Manage streaming endpoints in the portal](media-services-portal-manage-streaming-endpoints.md)
-### Manage entities
-#### [.NET](media-services-dotnet-manage-entities.md)
+# Gör så här för att
+## Hantera
+### [Hantera slutpunkter för direktuppspelning i portalen](media-services-portal-manage-streaming-endpoints.md)
+### Hantera entiteter
+#### [NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Manage accounts with PowerShell](media-services-manage-with-powershell.md)
-### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
-### [How To: Update Media Services after Rolling Storage Access Keys](media-services-roll-storage-access-keys.md)
-### [Quotas and limitations](media-services-quotas-and-limitations.md)
-### Filters
-#### [Creating Filters with Azure Media Services .NET SDK](media-services-dotnet-dynamic-manifest.md)
-#### [How to encode an asset using Media Encoder Standard](media-services-rest-encode-asset.md)
-### Connect programmatically
-#### [.NET](media-services-dotnet-connect-programmatically.md)
+### [Hantera konton med PowerShell](media-services-manage-with-powershell.md)
+### [Beskära videoklipp med Media Encoder Standard](media-services-crop-video.md)
+### [Så gör du för att: Uppdatera Media Services efter återställning av lagringsåtkomstnycklar](media-services-roll-storage-access-keys.md)
+### [Kvoter och begränsningar](media-services-quotas-and-limitations.md)
+### Filter
+#### [Skapa filter med Azure Media Services .NET SDK](media-services-dotnet-dynamic-manifest.md)
+#### [Koda en tillgång med Media Encoder Standard](media-services-rest-encode-asset.md)
+### Ansluta genom programmering
+#### [NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
 
-## Upload content
-### Upload files into an account
+## Överföra innehåll
+### Överföra filer till ett konto
 #### [Portal ](media-services-portal-upload-files.md)
-#### [.NET](media-services-dotnet-upload-files.md)
+#### [NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
-### [Copy existing blobs](media-services-copying-existing-blob.md)
+### [Kopiera befintliga blobbar](media-services-copying-existing-blob.md)
 
-## Encode
-### [Content](media-services-encode-asset.md)
-#### Encode an asset using Media Encoder Standard
+## Koda
+### [Innehåll](media-services-encode-asset.md)
+#### Koda en tillgång med Media Encoder Standard
 ##### [Portal](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-#### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-#### [Advanced encoding](media-services-advanced-encoding-with-mes.md)
-##### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
-##### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
-##### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
-##### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+##### [NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+#### [Generera miniatyrer med Media Encoder Standard med .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+#### [Avancerad kodning](media-services-advanced-encoding-with-mes.md)
+##### [Arbetsflöde för Media Encoder Premium](media-services-encode-with-premium-workflow.md)
+##### [Självstudier för arbetsflödet för Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
+##### [Skapa avancerade arbetsflöden för kodning med Workflow Designer](media-services-workflow-designer.md)
+##### [Premium-arbetsflöde med flera indatafiler](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 
-#### Schemas 
+#### Scheman 
 #####[Media Encoder Standard](media-services-mes-schema.md)
-#####[Input metadata](media-services-input-metadata-schema.md)
-#####[Output metadata](media-services-output-metadata-schema.md)
+#####[Inkommande metadata](media-services-input-metadata-schema.md)
+#####[Utgående metadata](media-services-output-metadata-schema.md)
 
-#### Legacy encoders
-##### [Using the Azure Media Packager](media-services-static-packaging.md)
+#### Äldre kodare
+##### [Använda Azure Media-paketeraren](media-services-static-packaging.md)
 
-### [Live streams](media-services-manage-channels-overview.md)
-#### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
-#### On-premise encoder tutorials
+### [Liveuppspelning](media-services-manage-channels-overview.md)
+#### [Lokala kodare](media-services-live-streaming-with-onprem-encoders.md)
+#### Självstudier för lokala kodare
 ##### [Portal](media-services-portal-live-passthrough-get-started.md)
-##### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
-#### Cloud encoder tutorials
+##### [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [Liveuppspelning med molnkodare](media-services-manage-live-encoder-enabled-channels.md)
+#### Självstudier för molnkodare
 ##### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-##### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-#### [Configure on-premise encoders for use with cloud encoder](media-services-live-encoders-overview.md)
-#### [Handle long-running operations](media-services-dotnet-long-operations.md)
-#### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
-#### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
+##### [NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+#### [Konfigurera lokala kodare för användning med molnkodare](media-services-live-encoders-overview.md)
+#### [Hantera långvariga åtgärder](media-services-dotnet-long-operations.md)
+#### [Specifikation för live-inmatning av fragmenterad MP4](media-services-fmp4-live-ingest-overview.md)
+#### [Dynamisk paketering](media-services-dynamic-packaging-overview.md)
 
-### Media Processing
-#### [.NET](media-services-get-media-processor.md)
+### Mediebearbetning
+#### [NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
 
-### Configure encoders for a single bitrate live stream
-#### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
-#### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
-#### [NewTek TriCaster encoder](media-services-configure-tricaster-live-encoder.md)
-#### [Wirecast encoder](media-services-configure-wirecast-live-encoder.md)
+### Konfigurera kodare för live-uppspelning i enskild bithastighet
+#### [Elemental Live-kodare](media-services-configure-elemental-live-encoder.md)
+#### [FMLE-kodare](media-services-configure-fmle-live-encoder.md)
+#### [NewTek TriCaster-kodare](media-services-configure-tricaster-live-encoder.md)
+#### [Wirecast-kodare](media-services-configure-wirecast-live-encoder.md)
 
-## [Protect](media-services-content-protection-overview.md)
-### [Configure content protection in the portal](media-services-portal-protect-content.md)
-### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
-### [Encrypting your Content with Storage Encryption using AMS REST API](media-services-rest-storage-encryption.md)
-### [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview.md)
-### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
-### [Using partners to deliver Widevine licenses to Azure Media Services](media-services-licenses-partner-integration.md)
-### [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
-### [Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)
-### [CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+## [Skydda](media-services-content-protection-overview.md)
+### [Konfigurera innehållsskydd i portalen](media-services-portal-protect-content.md)
+### [Konfigurera AES-128-klartextnyckel för din dataström](media-services-protect-with-aes128.md)
+### [Kryptera ditt innehåll med lagringskryptering med hjälp av AMS REST API](media-services-rest-storage-encryption.md)
+### [Översikt för Media Services PlayReady-licensmall](media-services-playready-license-template-overview.md)
+### [DRM-licensleverans](media-services-deliver-keys-and-licenses.md)
+### [Använda partner för att leverera Widevine-licenser till Azure Media Services](media-services-licenses-partner-integration.md)
+### [Använda PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
+### [Använda Azure Media Services för att direktuppspela ditt HLS-innehåll som skyddats med Apple FairPlay](media-services-protect-hls-with-fairplay.md)
+### [CENC med Multi-DRM och Access Control: En referensdesign och implementering i Azure och Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
 
-### Asset delivery
-#### Configure asset delivery policies
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+### Tillgångsleverans
+#### Konfigurera tillgångsleveransprinciper
+##### [NET](media-services-dotnet-configure-asset-delivery-policy.md)
 ##### [REST](media-services-rest-configure-asset-delivery-policy.md)
-### Create ContentKeys
-#### [.NET](media-services-dotnet-create-contentkey.md)
+### Skapa ContentKeys
+#### [NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
-### Configure content key authorization policy
+### Konfigurera principen för auktorisering av innehållsnycklar
 #### [Portal](media-services-portal-configure-content-key-auth-policy.md)
-#### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
+#### [NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 
-## [Analyze](media-services-analytics-overview.md)
-### [Process with Indexer 2](media-services-process-content-with-indexer2.md)
-### [Process with Indexer](media-services-index-content.md)
-### [Process with Hyperlapse](media-services-hyperlapse-content.md)
-### [Process with Face Detector](media-services-face-and-emotion-detection.md)
-### [Process with Motion Detector](media-services-motion-detection.md)
-### [Process with Face redaction](media-services-face-redaction.md)
-### [Process with video thumbnails](media-services-video-summarization.md)
-### [Process with OCR](media-services-video-optical-character-recognition.md)
+## [Analysera](media-services-analytics-overview.md)
+### [Bearbeta med Indexer 2](media-services-process-content-with-indexer2.md)
+### [Bearbeta med Indexer](media-services-index-content.md)
+### [Bearbeta med videostabilisering](media-services-hyperlapse-content.md)
+### [Bearbeta med ansiktsigenkänning](media-services-face-and-emotion-detection.md)
+### [Bearbeta med rörelseidentifiering](media-services-motion-detection.md)
+### [Bearbeta med ansiktsredigering](media-services-face-redaction.md)
+### [Bearbeta med videominiatyrer](media-services-video-summarization.md)
+### [Bearbeta med OCR](media-services-video-optical-character-recognition.md)
 
-## Scale
-### [Media Processing](media-services-scale-media-processing-overview.md)
+## Skala
+### [Mediebearbetning](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
-#### [.NET](media-services-dotnet-encoding-units.md)
+#### [NET](media-services-dotnet-encoding-units.md)
 #### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
-### Streaming Endpoints
+### Slutpunkter för direktuppspelning
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
-## [Deliver content](media-services-deliver-content-overview.md)
-### [Filters and dynamic manifests overview](media-services-dynamic-manifest-overview.md)
-### Create filters
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
+## [Leverera innehåll](media-services-deliver-content-overview.md)
+### [Översikt över filter och dynamiska manifest](media-services-dynamic-manifest-overview.md)
+### Skapa filter
+#### [NET](media-services-dotnet-dynamic-manifest.md)
 #### [REST](media-services-rest-dynamic-manifest.md)
-### Publish content
+### Publicera innehåll
 #### [Portal](media-services-portal-publish.md)
-#### [.NET](media-services-deliver-streaming-content.md)
+#### [NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
-### [Deliver by Download](media-services-deliver-asset-download.md)
-### [Failover streaming scenario](media-services-implement-failover.md)
+### [Leverera efter hämtning](media-services-deliver-asset-download.md)
+### [Scenario vid direktuppspelningsredundans](media-services-implement-failover.md)
 
-## Consume
-### [Playback media with existing players](media-services-playback-content-with-existing-players.md)
-### [Playback media with Media Player](media-services-develop-video-players.md)
-### Other playback options
-#### [Smooth streaming Windows Store application](media-services-build-smooth-streaming-apps.md)
-#### [HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
-#### [Adobe Open Source Media Framework players](media-services-use-osmf-smooth-streaming-client-plugin.md)
-### [Insert ads on the client side](media-services-inserting-ads-on-client-side.md)
+## Förbruka
+### [Spela upp media med befintliga spelare](media-services-playback-content-with-existing-players.md)
+### [Spela upp media med Media Player](media-services-develop-video-players.md)
+### Andra uppspelningalternativ
+#### [Jämn direktuppspelning av Windows Store-program](media-services-build-smooth-streaming-apps.md)
+#### [HTML5-program med DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+#### [Adobe Open Source Media Framework-spelare](media-services-use-osmf-smooth-streaming-client-plugin.md)
+### [Infoga annonser på klientsidan](media-services-inserting-ads-on-client-side.md)
 
-## Integrate
-### [CDN Caching Policy in Media Services Extension](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licensing Microsoft†" Smooth Streaming Client Porting Kit](media-services-sspk.md)
-### [Manage assets across multiple Storage accounts](meda-services-managing-multiple-storage-accounts.md)
-### [Using Axinom to deliver Widevine licenses to Azure Media Services  ](media-services-axinom-integration.md)
-### [Using castLabs to deliver Widevine licenses to Azure Media Services](media-services-castlabs-integration.md)
-### [Widevine License Template Overview](media-services-widevine-license-template-overview.md)
+## Integrera
+### [CDN-cachelagringsprincip i Media Services-tillägget](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
+### [Licensiera Microsoft†" Smooth Streaming-klientportningskit](media-services-sspk.md)
+### [Hantera tillgångar över flera lagringskonton](meda-services-managing-multiple-storage-accounts.md)
+### [Använda Axinom för att leverera Widevine-licenser till Azure Media Services](media-services-axinom-integration.md)
+### [Använda castLabs för att leverera Widevine-licenser till Azure Media Services](media-services-castlabs-integration.md)
+### [Översikt över Widevine-licensmallen](media-services-widevine-license-template-overview.md)
 
-## Monitor
-### Check job progress
+## Övervaka
+### Kontrollera jobbförlopp
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
-#### [.NET](media-services-check-job-progress.md)
-### [Queue storage to monitor job notifications](media-services-dotnet-check-job-progress-with-queues.md)
+#### [NET](media-services-check-job-progress.md)
+### [Köa lagring för att övervaka jobbmeddelanden](media-services-dotnet-check-job-progress-with-queues.md)
 
-## Troubleshoot
-### [Frequently asked questions](media-services-frequently-asked-questions.md)
-### [Troubleshooting guide for live streaming](media-services-troubleshooting-live-streaming.md)
-###[Error codes](media-services-error-codes.md)
-###[Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
+## Felsöka
+### [Vanliga frågor och svar](media-services-frequently-asked-questions.md)
+### [Felsökningsguide för liveuppspelning](media-services-troubleshooting-live-streaming.md)
+###[Felkoder](media-services-error-codes.md)
+###[Logik för omprövning](media-services-retry-logic-in-dotnet-sdk.md)
 
-# Reference
-## [Media Services .NET SDK](media-services-dotnet-how-to-use.md)
-## [Media Services REST API](media-services-rest-how-to-use.md)
-## [Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
-## [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
+# Referens
+## [Viktig information](media-services-release-notes.md)
+## [NET](media-services-dotnet-how-to-use.md)
+## [REST](media-services-rest-how-to-use.md)
+## [Arbetsflödesformat och codecs för Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
+## [Format och codecs för Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 
-# Related
-## [Azure Media Services Community](media-services-community.md)
+# Resurser
+## [Prissättning](https://azure.microsoft.com/pricing/details/media-services/)
+## [Azure Media Services-community](media-services-community.md)
 
 
 

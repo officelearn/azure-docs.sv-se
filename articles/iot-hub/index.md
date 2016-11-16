@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#IoT Hub Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 1b5ea8b5b5fb99fa65a1efd0eeff48af2e39346c
+ms.openlocfilehash: 7e3e54511ef1205d04eef1820a3e20f480386ed1
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.  It also provides extensive monitoring for device connectivity and includes device libraries for most popular languages and platforms. 
+---
+#<a name="iot-hub-documentation"></a>Dokumentation om IoT Hub
+
+Azure IoT Hub är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och som tillhandahåller serverdelen för lösningar av den här typen.  Den tillhandahåller även omfattande övervakning för enhetsanslutning och innehåller enhetsbibliotek för de flesta populära språk och plattformar. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure IoT Hub</h3>
+                        <h3>Läs mer om Azure IoT Hub</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure IoT Hub Video Library</h3>
+                        <h3>Videobibliotek för Azure IoT Hub</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using .NET</h3>
+                        <h3>Komma igång med IoT Hub med hjälp av .NET</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Java</h3>
+                        <h3>Komma igång med IoT Hub med hjälp av Java</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Node.js</h3>
+                        <h3>Komma igång med IoT Hub med hjälp av Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -100,26 +104,31 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 
 ---
 
-##Reference
+##<a name="reference"></a>Referens
 
-###Azure CLI 
-[IoT HUB with Azure CLI](/cli/azure/iot)  
+###<a name="azure-cli"></a>Azure CLI 
+[IoT HUB med Azure CLI](/cli/azure/iot)  
 
-###.NET 
-[.NET Managed Reference API](/dotnet/api/) 
+###<a name="net"></a>.NET 
+[.NET-hanterat referens-API](/dotnet/api/) 
 
-###Java 
-[Java SDK Reference](/java/api/) 
+###<a name="java"></a>Java 
+[Java SDK-referens](/java/api/) 
 
-###REST 
-[IoT HUB REST API Reference](/rest/api/iothub) 
+###<a name="rest"></a>REST 
+[IoT HUB REST API-referens](/rest/api/iothub) 
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
         <div class="img"></div>
         <div class="text">
-            Download IoT Hub Documentation
-        </div>
+Ladda ned dokumentation om IoT Hub </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,53 +1,64 @@
-# Overview
-##[Why use Redis cache](https://azure.microsoft.com/services/cache/)
-##[Pricing](https://azure.microsoft.com/pricing/details/cache/)
-##[Redis Cache FAQ](cache-faq.md)
-##[Explore premium tier features](cache-premium-tier-intro.md)
-# Get started
+# Översikt
+##[Varför ska jag använda Redis Cache](https://azure.microsoft.com/services/cache/)
+##[Utforska funktioner på premiumnivå](cache-premium-tier-intro.md)
+## Scenarier
+###[Kom åt objekt i ett cacheminne](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
+###[Konfigurera hög tillgänglighet](https://azure.microsoft.com/pricing/details/cache/)
+###[Anslut säkert med SSL](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
+###[Migrera från Managed Cache Service](cache-migrate-to-redis.md)
+###[Vägledning om mönster och metoder för cachelagring](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
+
+
+# Kom igång
 ##[ASP.NET](cache-web-app-howto.md)
-##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+##[NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)
-# How to
-## Plan
-###[Choose a cache tier](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
-###[Persist your cache with Redis data persistence](cache-how-to-premium-persistence.md)
-###[Secure your cache with a virtual network](cache-how-to-premium-vnet.md)
-###[Distribute your cache with clustering](cache-how-to-premium-clustering.md)
-## Common scenarios
-###[Access items in a cache](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
-###[Configure high availability](https://azure.microsoft.com/pricing/details/cache/)
-###[Connect securely using SSL](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)
-###[Migrate from Managed Cache Service](cache-migrate-to-redis.md)
-###[Patterns & Practices Caching guidance](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
-## Automate
-###[Deploy and manage using Powershell](cache-howto-manage-redis-cache-powershell.md)
-###[Deploy and Manage using Azure CLI](cache-manage-cli.md)
-###[Provision a Redis Cache](cache-redis-cache-arm-provision.md)
-###[Provision a Web App with Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
-## ASP.NET integration
-###[Session state provider](cache-aspnet-session-state-provider.md)
-###[Output cache provider](cache-aspnet-output-cache-provider.md)
-## Manage
-###[Configure in the portal](cache-configure.md)
-###[Import/Export data](cache-how-to-import-export-data.md)
-###[Reboot](cache-administration.md#reboot)
-###[Schedule updates](cache-administration.md#schedule-updates
-## Monitor and troubleshoot
-###[Monitor in the portal](cache-how-to-monitor.md)
-###[Troubleshoot cache issues](cache-how-to-troubleshoot.md)
-###[Set alerts for exceptions](cache-how-to-monitor.md#operations-and-alerts)
-## Scale
-###[Update to a different size and tier](cache-how-to-scale.md)
-###[Use Redis cluster to scale in/out](cache-how-to-premium-clustering.md)
-#Reference
-## [PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/mt634513.aspx)
-## [Redis clients](http://redis.io/clients)
-## [Redis commands](http://redis.io/commands#)
-#Resources
-## [Redis cache samples](cache-redis-samples.md)
+##[Vanliga frågor och svar om Redis-cache](cache-faq.md)
+
+# Gör så här för att
+## Planera
+###[Välja en cache-nivå](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+###[Bevara din cache med Redis-datapersistence](cache-how-to-premium-persistence.md)
+###[Skydda din cache med ett virtuellt nätverk](cache-how-to-premium-vnet.md)
+###[Distribuera din cache med klustring](cache-how-to-premium-clustering.md)
+## Automatisera
+###[Distribuera och hantera med Powershell](cache-howto-manage-redis-cache-powershell.md)
+###[Distribuera och hantera med Azure CLI](cache-manage-cli.md)
+###[Etablera en Redis Cache](cache-redis-cache-arm-provision.md)
+###[Etablera en webbapp med Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
+## Integrera med ASP.NET
+###[Sessionstillståndsprovider](cache-aspnet-session-state-provider.md)
+###[Utdatacacheprovider](cache-aspnet-output-cache-provider.md)
+## Hantera
+###[Konfigurera i portalen](cache-configure.md)
+###[Importera/exportera data](cache-how-to-import-export-data.md)
+###[Starta om](cache-administration.md#reboot)
+###[Schemauppdateringar](cache-administration.md#schedule-updates)
+## Övervaka och felsök
+###[Övervaka i portalen](cache-how-to-monitor.md)
+###[Felsök cacheproblem](cache-how-to-troubleshoot.md)
+###[Ställ in aviseringar för undantag](cache-how-to-monitor.md#operations-and-alerts)
+## Skala
+###[Uppdatera till en annan storlek och nivå](cache-how-to-scale.md)
+###[Använd Redis-kluster för att skala in och ut](cache-how-to-premium-clustering.md)
+
+#Referens
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/)
+## [Java](https://docs.microsoft.com/java/api/)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
+## [Redis-klienter](http://redis.io/clients)
+## [Redis-kommandon](http://redis.io/commands#)
+## [REST](https://docs.microsoft.com/rest/api/redis/)
+## [Exempel på Redis Cache](cache-redis-samples.md)
+
+#Resurser
+##[Prissättning](https://azure.microsoft.com/pricing/details/cache/)
+
+
 
 <!--HONumber=Nov16_HO2-->
 

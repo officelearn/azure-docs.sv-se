@@ -1,39 +1,41 @@
-# Get started
-## [Create free account](https://azure.microsoft.com/free/)
-## [Sign up with Office 365 account](../billing-use-existing-office-365-account-azure-subscription.md)
-## [Subscription pricing](https://azure.microsoft.com/pricing/)
-## [Supported countries and currencies](../billing-countries-and-currencies.md)
-## [Limits and quotas](../azure-subscription-service-limits.md)
-## [Frequently asked questions](../billing-subscription-faq.md)
-# How to
-## Track usage and costs
-### [Download invoice and usage](../billing-download-azure-invoice-daily-usage-date.md)
-### [Understand your bill](billing-understand-your-bill.md)
-### [Understand external service charges](../billing-understand-your-azure-marketplace-charges.md)
-### [Set up billing alerts](../billing-set-up-alerts.md)
-### [Resolve past due balance](../billing-azure-subscription-past-due-balance.md)
-## Manage subscriptions
-### [Manage administrator roles](../billing-add-change-azure-subscription-administrator.md)
-### [Transfer subscription ownership](../billing-subscription-transfer.md)
-### [Reactivate disabled subscription](../billing-subscription-become-disable.md)
-### [Upgrade from free subscription](../billing-upgrade-azure-subscription.md)
-### [Switch to different subscription](../billing-how-to-switch-azure-offer.md)
-### [Cancel subscription](../billing-how-to-cancel-azure-subscription.md)
-## Manage account
-### [Edit profile](../billing-how-to-change-azure-account-profile.md)
-### [Update payment information](../billing-how-to-change-credit-card.md)
-### [Link  Office 365 tenant](../billing-add-office-365-tenant-to-azure-subscription.md)
-# Reference
-## [API Overview](../billing-usage-rate-card-overview.md)
-## [REST API reference](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
-## [Partner solution: Cloud Cruiser](../billing-usage-rate-card-partner-solution-cloudcruiser.md)
-## [Partner solution: Cloudyn](../billing-usage-rate-card-partner-solution-cloudyn.md)
-# Troubleshoot
-## [Sign-up issues](../billing-troubleshoot-azure-sign-up-issues.md)
-## [Declined card](../billing-credit-card-fails-during-azure-sign-up.md)
-## [Sign-in issues](../billing-cannot-login-subscription.md)
-# Support
-## [Contact support](../billing-how-to-create-billing-support-ticket.md)
+# Kom igång
+## [Skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/)
+## [Registrera dig med Office 365-konto](../billing-use-existing-office-365-account-azure-subscription.md)
+## [Prenumerationspriser](https://azure.microsoft.com/pricing/)
+## [Länder och valutor som stöds](../billing-countries-and-currencies.md)
+## [Begränsningar och kvoter](../azure-subscription-service-limits.md)
+## [Vanliga frågor och svar](../billing-subscription-faq.md)
+# Gör så här för att
+## Övervaka användning och kostnader
+### [Ladda ned faktura och användning](../billing-download-azure-invoice-daily-usage-date.md)
+### [Förstå fakturan](billing-understand-your-bill.md)
+### [Förstå externa tjänstavgifter](../billing-understand-your-azure-marketplace-charges.md)
+### [Ställa in faktureringsvarningar](../billing-set-up-alerts.md)
+### [Lösa passerat betalningsdatum](../billing-azure-subscription-past-due-balance.md)
+## Hantera prenumerationer
+### [Hantera administratörsroller](../billing-add-change-azure-subscription-administrator.md)
+### [Överföra äganderätten till prenumerationen](../billing-subscription-transfer.md)
+### [Återaktivera en inaktiverad prenumeration](../billing-subscription-become-disable.md)
+### [Uppgradera från en kostnadsfri prenumeration](../billing-upgrade-azure-subscription.md)
+### [Växla till en annan prenumeration](../billing-how-to-switch-azure-offer.md)
+### [Avbryta prenumerationen](../billing-how-to-cancel-azure-subscription.md)
+## Hantera kontot
+### [Redigera profil](../billing-how-to-change-azure-account-profile.md)
+### [Uppdatera betalningsinformation](../billing-how-to-change-credit-card.md)
+### [Länka Office 365-klientorganisation](../billing-add-office-365-tenant-to-azure-subscription.md)
+## Felsöka
+### [Registreringsproblem](../billing-troubleshoot-azure-sign-up-issues.md)
+### [Nekat kort](../billing-credit-card-fails-during-azure-sign-up.md)
+### [Inloggningsproblem](../billing-cannot-login-subscription.md)
+
+# Referens
+## [API-översikt](../billing-usage-rate-card-overview.md)
+## [REST API-referens](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
+## [Partnerlösning: Cloud Cruiser](../billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Partnerlösning: Cloudyn](../billing-usage-rate-card-partner-solution-cloudyn.md)
+
+# Resurser
+## [Kontakta supporten](../billing-how-to-create-billing-support-ticket.md)
 
 <!--HONumber=Nov16_HO2-->
 

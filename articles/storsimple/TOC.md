@@ -1,177 +1,179 @@
-# StorSimple Overview
+# Översikt över StorSimple
 
-# StorSimple Virtual Array
+# StorSimple virtuell matris
 
-## Overview
-### [What is the solution?](storsimple-ova-overview.md)
+## Översikt
+### [Vad är lösningen?](storsimple-ova-overview.md)
 
-## Get started
-### Plan
-#### [Review requirements](storsimple-ova-system-requirements.md)
-#### [Understand limits](storsimple-ova-limits.md)
-#### [Review best practices](storsimple-ova-best-practices.md)
-### Deploy
-#### [Prepare to deploy](storsimple-ova-deploy1-portal-prep.md)
-#### [Deploy StorSimple Manager service](storsimple-ova-manage-service.md)
-#### [Provision in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-#### [Provision in VMware](storsimple-ova-deploy2-provision-vmware.md)
-#### [Set up as file server](storsimple-ova-deploy3-fs-setup.md)
-#### [Set up as iSCSI server](storsimple-ova-deploy3-iscsi-setup.md)
+## Kom igång
+### Planera
+#### [Granska krav](storsimple-ova-system-requirements.md)
+#### [Förstå begränsningar](storsimple-ova-limits.md)
+#### [Granska metodtips](storsimple-ova-best-practices.md)
+### Distribuera
+#### [Förbered distributionen](storsimple-ova-deploy1-portal-prep.md)
+#### [Använd StorSimple Manager-tjänsten](storsimple-ova-manage-service.md)
+#### [Etablera i Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
+#### [Etablera i VMware](storsimple-ova-deploy2-provision-vmware.md)
+#### [Konfigurera som filserver](storsimple-ova-deploy3-fs-setup.md)
+#### [Konfigurera som iSCSI-server](storsimple-ova-deploy3-iscsi-setup.md)
 
-## How to
-### [Manage via Azure portal](storsimple-ova-manager-service-administration.md)
-#### [Install latest Update](storsimple-ova-install-update-01.md)
-#### [Create & manage backups](storsimple-ova-backup.md)
-#### [Restore from backups](storsimple-ova-restore.md)
-#### [Failover and DR](storsimple-ova-failover-dr.md)
-#### [Deactivate and delete](storsimple-ova-deactivate-and-delete-device.md)
-#### [Monitor service dashboard](storsimple-ova-service-dashboard.md)
-#### [Change device password](storsimple-ova-change-device-admin-password.md)
-#### [Manage ACRs](storsimple-ova-manage-acrs.md)
-#### [Manage storage accounts](storsimple-ova-manage-storage-accounts.md)
-#### [Manage jobs](storsimple-ova-manage-jobs.md)
-#### [Configure MPIO on Windows Server host](storsimple-ova-configure-mpio-windows-server.md)
-### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
+## Gör så här för att
+### [Hantera via Azure Portal](storsimple-ova-manager-service-administration.md)
+#### [Installera den senaste uppdateringen](storsimple-ova-install-update-01.md)
+#### [Skapa och hantera säkerhetskopior](storsimple-ova-backup.md)
+#### [Återställa från säkerhetskopior](storsimple-ova-restore.md)
+#### [Redundans och DR](storsimple-ova-failover-dr.md)
+#### [Inaktivera och ta bort](storsimple-ova-deactivate-and-delete-device.md)
+#### [Instrumentpanel för övervakningstjänsten](storsimple-ova-service-dashboard.md)
+#### [Ändra enhetens lösenord](storsimple-ova-change-device-admin-password.md)
+#### [Hantera ACR:er](storsimple-ova-manage-acrs.md)
+#### [Hantera lagringskonton](storsimple-ova-manage-storage-accounts.md)
+#### [Hantera jobb](storsimple-ova-manage-jobs.md)
+#### [Konfigurera MPIO på Windows Server-värden](storsimple-ova-configure-mpio-windows-server.md)
+### [Konfigurera via lokalt webbgränssnitt](storsimple-ova-web-ui-admin.md)
 
-## Release notes
-### [Update 0.3 - current](storsimple-ova-update-03-release-notes.md)
-### [Update 0.2 and 0.1](storsimple-ova-update-01-release-notes.md)
+## Viktig information
+### [Uppdatering 0.3 – aktuell](storsimple-ova-update-03-release-notes.md)
+### [Uppdatering 0.2 och 0.1](storsimple-ova-update-01-release-notes.md)
 
-# StorSimple 8000 Series
+# StorSimple 8000-serien
 
-## Overview
-### [What is the solution?](storsimple-overview.md)
-### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
-### [Security considerations](storsimple-security.md)
+## Översikt
+### [Vad är lösningen?](storsimple-overview.md)
+### [StorSimple-inlärningskarta](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
+### [Säkerhetsöverväganden](storsimple-security.md)
 
-## Get started
-### Plan
-#### [Review requirements](storsimple-system-requirements.md)
-#### [Review technical specifications](storsimple-technical-specifications-and-compliance.md)
-#### [Understand limits](storsimple-limits.md)
-#### [Best practices](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
+## Kom igång
+### Planera
+#### [Granska krav](storsimple-system-requirements.md)
+#### [Granska tekniska specifikationer](storsimple-technical-specifications-and-compliance.md)
+#### [Förstå begränsningar](storsimple-limits.md)
+#### [Bästa praxis](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
 
-### Install
-#### [Review safety](storsimple-safety.md)
-#### [Unpack, rack, cable an 8100](storsimple-8100-hardware-installation.md)
-#### [Unpack, rack, cable an 8600](storsimple-8600-hardware-installation.md)
-#### [Supported hardware for 10 GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+### Installera
+#### [Granska säkerhet](storsimple-safety.md)
+#### [Packa upp, racka, kabla en 8100](storsimple-8100-hardware-installation.md)
+#### [Packa upp, racka, kabla en 8600](storsimple-8600-hardware-installation.md)
+#### [Maskinvara som stöds för 10 GbE-nätverksgränssnitt](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Deploy 
-#### [StorSimple Manager service](storsimple-manage-service.md)
-#### [Physical device in Azure - current](storsimple-deployment-walkthrough-u2.md)
-##### [Physical device in Azure - Update 1](storsimple-deployment-walkthrough-u1.md)
-##### [Physical device in Azure - GA](storsimple-deployment-walkthrough.md)
-#### [Physical device in Government Portal - current](storsimple-deployment-walkthrough-gov-u2.md)
-#### [Virtual device in Azure](storsimple-virtual-device-u2.md)
+### Distribuera
+#### [StorSimple Manager-tjänsten](storsimple-manage-service.md)
+#### [Fysisk enhet i Azure – aktuell](storsimple-deployment-walkthrough-u2.md)
+##### [Fysisk enhet i Azure – uppdatering 1](storsimple-deployment-walkthrough-u1.md)
+##### [Fysisk enhet i Azure – GA](storsimple-deployment-walkthrough.md)
+#### [Fysisk enhet i Government Portal – aktuell](storsimple-deployment-walkthrough-gov-u2.md)
+#### [Virtuell enhet i Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
-#### [StorSimple Adapter for SharePoint](storsimple-adapter-for-sharepoint.md)
+#### [StorSimple-adapter för SharePoint](storsimple-adapter-for-sharepoint.md)
 
-## How to
-### Manage 
-#### [Using StorSimple Manager service](storsimple-manager-service-administration.md)
-##### [Restore from a backup](storsimple-restore-from-backup-set-u2.md)
-###### [Restore from a backup](storsimple-restore-from-backup-set.md)
-##### [Clone a volume](storsimple-clone-volume-u2.md)
-###### [Clone a volume](storsimple-clone-volume.md)
-##### [Remotely connect to your device](storsimple-remote-connect.md)
-##### [Deactivate and delete your device](storsimple-deactivate-and-delete-device.md)
-##### [Fail over your device](storsimple-device-failover-disaster-recovery.md)
-##### [Manage backup catalog](storsimple-manage-backup-catalog.md)
-##### [Manage backup policies - current](storsimple-manage-backup-policies-u2.md)
-###### [Manage backup policies - Update 1](storsimple-manage-backup-policies.md)
-##### [Manage storage accounts](storsimple-manage-storage-accounts.md)
-##### [Manage volume containers](storsimple-manage-volume-containers.md)
-##### [Manage volumes - current](storsimple-manage-volumes-u2.md)
-###### [FAQ: Locally pinned volumes](storsimple-local-volume-faq.md)
-###### [Manage volumes - Update 1](storsimple-manage-volumes.md)
-##### [Manage ACRs](storsimple-manage-acrs.md)
-##### [Manage bandwidth templates](storsimple-manage-bandwidth-templates.md)
-##### [View and manage jobs - current](storsimple-manage-jobs-u2.md)
-###### [View and manage jobs - Update 1](storsimple-manage-jobs.md)
-##### [Change device mode](storsimple-device-modes.md)
-##### [Change device password](storsimple-change-passwords.md)
-##### [Modify device configuration](storsimple-modify-device-config.md)
-##### [Turn on and turn off](storsimple-turn-device-on-or-off.md)
-##### [Configure MPIO on Windows Server host](storsimple-configure-mpio-windows-server.md)
-##### [Configure MPIO on linux host](storsimple-configure-mpio-on-linux.md)
-##### [Configure CHAP](storsimple-configure-chap.md)
+## Gör så här för att
+### Hantera
+#### [Använd StorSimple Manager-tjänsten](storsimple-manager-service-administration.md)
+##### [Återställ från en säkerhetskopia](storsimple-restore-from-backup-set-u2.md)
+###### [Återställ från en säkerhetskopia](storsimple-restore-from-backup-set.md)
+##### [Klona en volym](storsimple-clone-volume-u2.md)
+###### [Klona en volym](storsimple-clone-volume.md)
+##### [Fjärranslut till din enhet](storsimple-remote-connect.md)
+##### [Inaktivera och ta bort din enhet](storsimple-deactivate-and-delete-device.md)
+##### [Redundansväxla din enhet](storsimple-device-failover-disaster-recovery.md)
+##### [Hantera säkerhetskopieringskatalogen](storsimple-manage-backup-catalog.md)
+##### [Hantera säkerhetskopieringsprinciper – aktuellt](storsimple-manage-backup-policies-u2.md)
+###### [Hantera säkerhetskopieringsprinciper – uppdatering 1](storsimple-manage-backup-policies.md)
+##### [Hantera lagringskonton](storsimple-manage-storage-accounts.md)
+##### [Hantera volymbehållare](storsimple-manage-volume-containers.md)
+##### [Hantera volymer – aktuella](storsimple-manage-volumes-u2.md)
+###### [Vanliga frågor och svar: Lokalt fixerade volymer](storsimple-local-volume-faq.md)
+###### [Hantera volymer – uppdatering 1](storsimple-manage-volumes.md)
+##### [Hantera ACR:er](storsimple-manage-acrs.md)
+##### [Hantera bandbreddsmallar](storsimple-manage-bandwidth-templates.md)
+##### [Visa och hantera jobb – aktuella](storsimple-manage-jobs-u2.md)
+###### [Visa och hantera jobb – uppdatering 1](storsimple-manage-jobs.md)
+##### [Ändra enhetsläge](storsimple-device-modes.md)
+##### [Ändra enhetens lösenord](storsimple-change-passwords.md)
+##### [Ändra enhetskonfigurationen](storsimple-modify-device-config.md)
+##### [Slå på och slå av](storsimple-turn-device-on-or-off.md)
+##### [Konfigurera MPIO på Windows Server-värden](storsimple-configure-mpio-windows-server.md)
+##### [Konfigurera MPIO på Linux-värden](storsimple-configure-mpio-on-linux.md)
+##### [Konfigurera CHAP](storsimple-configure-chap.md)
 
-#### [Using Window PowerShell for StorSimple](storsimple-windows-powershell-administration.md)
-##### [Manage device controller](storsimple-manage-device-controller.md)
-##### [Configure web proxy](storsimple-configure-web-proxy.md)
-##### [Modify DATA 0 settings](storsimple-modify-data-0.md)
+#### [Använd Windows PowerShell för StorSimple](storsimple-windows-powershell-administration.md)
+##### [Hantera enhetskontrollanten](storsimple-manage-device-controller.md)
+##### [Konfigurera webbproxy](storsimple-configure-web-proxy.md)
+##### [Ändra DATA 0-inställningar](storsimple-modify-data-0.md)
 
-#### [Using StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
-##### [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
-##### [About StorSimple Snapshot Manager interface](storsimple-use-snapshot-manager.md)
-##### [Manage devices via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-devices.md)
-##### [Manage backup policies via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-policies.md)
-##### [Manage volume groups via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volume-groups.md)
-##### [Manage backup catalog via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-catalog.md)
-##### [Manage backup jobs via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
-##### [Manage volumes via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
-##### [Use MMC actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+#### [Använd StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
+##### [Vad är StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+##### [Om StorSimple Snapshot Manager-gränssnittet](storsimple-use-snapshot-manager.md)
+##### [Hantera enheter via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-devices.md)
+##### [Hantera säkerhetskopieringsprinciper via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-policies.md)
+##### [Hantera volymgrupper via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volume-groups.md)
+##### [Hantera säkerhetskopieringskatalogen via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-catalog.md)
+##### [Hantera säkerhetskopieringsjobb via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
+##### [Hantera volymer via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
+##### [Använd MMC-aktiviteter i StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
-### Build solutions
-#### [Distributed global namespace](https://www.microsoft.com/download/details.aspx?id=45507)
-#### [Automate file server DR to Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
-#### [StorSimple with Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+### Skapa lösningar
+#### [Distribuerat globalt namnområde](https://www.microsoft.com/download/details.aspx?id=45507)
+#### [Automatisera filserver-DR till Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [StorSimple med Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 
-### Monitor
-#### [Using service dashboard](storsimple-service-dashboard.md)
-#### [Using device dashbaord](storsimple-device-dashboard.md)
-#### [Using service alerts](storsimple-manage-alerts.md)
-#### [Using hardware status](storsimple-monitor-hardware-status.md)
-#### [Using monitoring LEDs](storsimple-monitoring-indicators.md)
+### Övervaka
+#### [Använd tjänstens instrumentpanel](storsimple-service-dashboard.md)
+#### [Använd enhetens instrumentpanel](storsimple-device-dashboard.md)
+#### [Använd tjänstaviseringar](storsimple-manage-alerts.md)
+#### [Använd maskinvarustatus](storsimple-monitor-hardware-status.md)
+#### [Använd övervaknings-LED:ar](storsimple-monitoring-indicators.md)
 
-### Troubleshoot
-#### [Deployment issues](storsimple-troubleshoot-deployment.md)
-#### [Operational issues](storsimple-troubleshoot-operational-device.md)
-#### [Hardware replacement](storsimple-hardware-component-replacement.md)
-##### [Replace device controller](storsimple-controller-replacement.md)
-##### [Replace EBOD controller](storsimple-ebod-controller-replacement.md)
-##### [Replace PCM](storsimple-power-cooling-module-replacement.md)
-##### [Replace disk drive](storsimple-disk-drive-replacement.md)
-##### [Replace backup battery](storsimple-battery-replacement.md)
-##### [Replace chassis](storsimple-chassis-replacement.md)
-#### [Contact Support](storsimple-contact-microsoft-support.md)
-##### [Create Support package](storsimple-create-manage-support-package.md)
+### Felsöka
+#### [Distributionsproblem](storsimple-troubleshoot-deployment.md)
+#### [Driftsproblem](storsimple-troubleshoot-operational-device.md)
+#### [Maskinvaruersättning](storsimple-hardware-component-replacement.md)
+##### [Ersätt enhetskontrollanten](storsimple-controller-replacement.md)
+##### [Ersätt EBOD-kontrollanten](storsimple-ebod-controller-replacement.md)
+##### [Ersätt PCM:en](storsimple-power-cooling-module-replacement.md)
+##### [Ersätt diskenheten](storsimple-disk-drive-replacement.md)
+##### [Ersätt extrabatteriet](storsimple-battery-replacement.md)
+##### [Ersätt chassit](storsimple-chassis-replacement.md)
+#### [Kontakta supporten](storsimple-contact-microsoft-support.md)
+##### [Skapa ett supportpaket](storsimple-create-manage-support-package.md)
 
-### Migrate
-#### [From 5000-7000 series](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
-#### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+### Migrera
+#### [Från 5000–7000-serien](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [Från andra lagringsenheter](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
-### Update
-#### [Install Update 3](storsimple-install-update-3.md)
-#### [Install Update 2.2](storsimple-install-update-21.md)
-#### [Install Update 2](storsimple-install-update-2.md)
-#### [Install Update 1.2](storsimple-install-update-1.md)
-#### [Update your device](storsimple-update-device.md)
+### Uppdatering
+#### [Installera Uppdatering 3](storsimple-install-update-3.md)
+#### [Installera Uppdatering 2.2](storsimple-install-update-21.md)
+#### [Installera Uppdatering 2](storsimple-install-update-2.md)
+#### [Installera Uppdatering 1.2](storsimple-install-update-1.md)
+#### [Uppdatera din enhet](storsimple-update-device.md)
 
-## Release notes
-### [Update 3 - current](storsimple-update3-release-notes.md)
-### [Update 2.2](storsimple-update21-release-notes.md)
-### [Update 2 ](storsimple-update2-release-notes.md)
-### [Update 1 ](storsimple-update1-release-notes.md)
-### [Update 0.3](storsimple-february-2015-release-notes.md)
-### [Update 0.2](storsimple-january-2015-release-notes.md)
-### [Update 0.1](storsimple-october-2014-release-notes.md)
-### [Release - GA](storsimple-july-2014-release-notes.md)
+## Viktig information
+### [Uppdatering 3 – aktuell](storsimple-update3-release-notes.md)
+### [Uppdatering 2.2](storsimple-update21-release-notes.md)
+### [Uppdatering 2](storsimple-update2-release-notes.md)
+### [Uppdatering 1](storsimple-update1-release-notes.md)
+### [Uppdatering 0.3](storsimple-february-2015-release-notes.md)
+### [Uppdatering 0.2](storsimple-january-2015-release-notes.md)
+### [Uppdatering 0.1](storsimple-october-2014-release-notes.md)
+### [Version – GA](storsimple-july-2014-release-notes.md)
 
-## Reference
-### [Azure PowerShell cmdlet reference](https://msdn.microsoft.com/en-us/library/azure/dn920427)
-### [Windows PowerShell for StorSimple cmdlet reference](https://technet.microsoft.com/library/dn688168.aspx)
+## Referens
+### [PowerShell](/powershell/servicemanagement/)
 
-# [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
+# Relaterat
+## [StorSimple 5000-7000-serien](http://onlinehelp.storsimple.com)
 
-# Resources
-## [Azure blog](https://azure.microsoft.com/blog/)
-## [Forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [Marketing blog](http://blogs.technet.com/b/cis/)
-## [Marketing](https://www.microsoft.com/en-us/server-cloud/products/storsimple/explore.aspx)
-## [Support blog](http://blogs.msdn.com/b/storsimple/)
-## [Third party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+# Resurser
+## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Marknadsföringsblogg](http://blogs.technet.com/b/cis/)
+## [Marknadsföring](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [Supportblogg](http://blogs.msdn.com/b/storsimple/)
+## [Meddelanden om tredje part](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=storsimple)
+## [Prissättning](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 <!--HONumber=Nov16_HO2-->

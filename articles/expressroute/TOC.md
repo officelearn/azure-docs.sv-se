@@ -1,78 +1,79 @@
-# Overview
-## [What is ExpressRoute?](expressroute-introduction.md)
-## [Locations and partners](expressroute-locations.md)
-## [Moving circuits from classic to Resource Manager](expressroute-move.md)
-## Best Practices
-### [Best practices for network security and cloud services](../best-practices-network-security.md)
-### [Asymmetric routing](expressroute-asymmetric-routing.md)
+# Översikt
+## [Vad är ExpressRoute?](expressroute-introduction.md)
+## [Platser och partners](expressroute-locations.md)
+## [Flytta kretsar från klassisk till Resource Manager](expressroute-move.md)
+## Metodtips
+### [Bästa metoder för nätverkssäkerhet och molntjänster](../best-practices-network-security.md)
+### [Asymmetrisk routning](expressroute-asymmetric-routing.md)
 
 
-# Get Started
-## [Circuits and routing domains](expressroute-circuit-peerings.md)
-## [Workflows](expressroute-workflows.md)
-## [Prerequisites](expressroute-prerequisites.md)
-## [Routing requirements](expressroute-routing.md)
-## [Optimize routing](expressroute-optimize-routing.md)
-## [NAT requirements](expressroute-nat.md)
-## [QoS requirements](expressroute-qos.md)
-## [Virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md)
-## [ExpressRoute FAQ](expressroute-faqs.md)
+# Kom igång
+## [Kretsar och routningsdomäner](expressroute-circuit-peerings.md)
+## [Arbetsflöden](expressroute-workflows.md)
+## [Krav](expressroute-prerequisites.md)
+## [Routningskrav](expressroute-routing.md)
+## [Optimera routning](expressroute-optimize-routing.md)
+## [NAT-krav](expressroute-nat.md)
+## [QoS-krav](expressroute-qos.md)
+## [Virtuella nätverksgatewayer för ExpressRoute](expressroute-about-virtual-network-gateways.md)
+## [Vanliga frågor och svar för ExpressRoute](expressroute-faqs.md)
 
-# How To
-## Create and modify a circuit
-### [Create and modify a circuit using the Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
-### [Create and modify a circuit using PowerShell](expressroute-howto-circuit-arm.md)
-### [Create and modify a circuit using PowerShell (Classic)](expressroute-howto-circuit-classic.md)
-## Create and modify routing configuration
-### [Create and modify routing configuration using the Azure portal](expressroute-howto-routing-portal-resource-manager.md)
-### [Create and modify routing configuration using PowerShell](expressroute-howto-routing-arm.md)
-### [Create and modify routing configuration using PowerShell (Classic)](expressroute-howto-routing-classic.md)
-## Link a virtual network to an ExpressRoute circuit
-### [Link a virtual network to an ExpressRoute circuit using the Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [Link a virtual network to an ExpressRoute circuit using PowerShell](expressroute-howto-linkvnet-arm.md)
-### [Link a virtual network to an ExpressRoute circuit using PowerShell (Classic)](expressroute-howto-linkvnet-classic.md)
-## Configure a virtual network gateway for ExpressRoute
-### [Configure a virtual network gateway for ExpressRoute using PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [Configure a virtual network gateway for ExpressRoute using PowerShell (Classic)](expressroute-howto-add-gateway-classic.md)
-## [Create Site-to-Site and ExpressRoute coexisting connections](expressroute-howto-coexist-classic.md)
-## [Migrate a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
+# Gör så här för att
+## Skapa och ändra en krets
+### [Skapa och ändra en krets med Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
+### [Skapa och ändra en krets med PowerShell](expressroute-howto-circuit-arm.md)
+### [Skapa och ändra en krets med PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
+## Skapa och ändra routningskonfiguration
+### [Skapa och ändra routningskonfiguration med Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
+### [Skapa och ändra routningskonfiguration med PowerShell](expressroute-howto-routing-arm.md)
+### [Skapa och ändra routningskonfiguration med PowerShell (klassisk)](expressroute-howto-routing-classic.md)
+## Länka ett virtuellt nätverk till en ExpressRoute-krets
+### [Länka ett virtuellt nätverk till en ExpressRoute-krets med Azure-portalen](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [Länka ett virtuellt nätverk till en ExpressRoute-krets med PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Länka ett virtuellt nätverk till en ExpressRoute-krets med PowerShell (klassisk)](expressroute-howto-linkvnet-classic.md)
+## Konfigurera en virtuell nätverksgateway för ExpressRoute
+### [Konfigurera en virtuell nätverksgateway för ExpressRoute med PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Konfigurera en virtuell nätverksgateway för ExpressRoute med PowerShell (klassisk)](expressroute-howto-add-gateway-classic.md)
+## [Skapa anslutningar för samexistens mellan plats-till-plats och ExpressRoute](expressroute-howto-coexist-classic.md)
+## [Flytta en krets från klassisk till Resource Manager](expressroute-howto-move-arm.md)
 
-## Troubleshoot
-### [Getting ARP tables](expressroute-troubleshooting-arp-resource-manager.md)
-### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)
+## Felsöka
+### [Hämta ARP-tabeller](expressroute-troubleshooting-arp-resource-manager.md)
+### [Hämta ARP-tabeller (klassisk)](expressroute-troubleshooting-arp-classic.md)
 
 
-# Reference
-## [APIs-Resource Manager](https://msdn.microsoft.com/library/azure/mt586720)
-## [APIs-Service Management](https://msdn.microsoft.com/library/azure/dn606310)
-## [PowerShell Cmdlets-Resource Manager](https://msdn.microsoft.com/library/azure/mt163510(v=azure.300))
-## [PowerShell Cmdlets-Service Management](https://msdn.microsoft.com/library/azure/dn683813)
-## [Router configuration setup samples](expressroute-config-samples-routing.md)
-## [Router configuration samples for NAT](expressroute-config-samples-nat.md)
+# Referens
 
-# Related 
-## [Virtual Network](../virtual-network/index.md)
-## [VPN Gateway](../vpn-gateway/index.md)
-## [Virtual Machines](../virtual-machines/index.md)
-## [Load Balancer](../load-balancer/index.md)
-## [Traffic Manager](../traffic-manager/index.md)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Exempel på routerkonfigurationer](expressroute-config-samples-routing.md)
+## [Exempel på routerkonfigurationer för NAT](expressroute-config-samples-nat.md)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
+## [Klassisk REST](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Resources
-## [Networking Blog](https://azure.microsoft.com/blog/topics/networking/)
-## [Case Studies](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [Pricing](https://azure.microsoft.com/pricing/details/expressroute/)
+# Relaterat
+## [Virtual Network](/azure/virtual-network/)
+## [VPN-gateway](/azure/vpn-gateway/)
+## [Virtuella datorer](/azure/virtual-machines/)
+## [Belastningsutjämnare](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
+
+# Resurser
+## [Prissättning](https://azure.microsoft.com/pricing/details/expressroute/)
+## [Nätverksblogg](https://azure.microsoft.com/blog/topics/networking/)
+## [Fallstudier](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
-## [Subscription and Service Limits](../azure-subscription-service-limits.md)
-## Videos
-### [Create an ExpressRoute circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
-### [How to set up Private Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
-### [Set up Public Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
-### [Set up Microsoft Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/)
-### [Create a virtual network for ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)
-### [Create a virtual network gateway for ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/)
-### [Cconnect a virtual network gateway to a circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
-### [Evolve your network infrastructure for connectivity](https://go.microsoft.com/fwlink/p/?LinkId=615124)
-### [Hybrid partnerships: Enabling on-premises scenarios](https://go.microsoft.com/fwlink/p/?LinkId=615125)
+## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=expressroute) 
+### [Skapa en ExpressRoute-krets](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
+### [Så här konfigurerar du privat peering för din krets](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
+### [Konfigurera offentlig peering för din krets](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
+### [Konfigurera Microsoft-peering för din krets](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/)
+### [Skapa ett virtuellt nätverk för ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)
+### [Skapa en virtuell nätverksgateway för ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/)
+### [Anslut en virtuell nätverksgateway till en krets](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
+### [Utveckla anslutningarna i nätverksinfrastrukturen](https://go.microsoft.com/fwlink/p/?LinkId=615124)
+### [Hybridpartners: Aktivera scenarier lokalt](https://go.microsoft.com/fwlink/p/?LinkId=615125)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=expressroute) 
 
 <!--HONumber=Nov16_HO2-->
 

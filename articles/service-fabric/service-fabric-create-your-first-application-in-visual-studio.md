@@ -1,22 +1,26 @@
 ---
-title: Skapa ditt första Service Fabric-program i Visual Studio | Microsoft Docs
-description: Skapa, distribuera och felsöka ett Service Fabric-program med Visual Studio
+title: "Skapa ditt första Service Fabric-program i Visual Studio | Microsoft Docs"
+description: "Skapa, distribuera och felsöka ett Service Fabric-program med Visual Studio"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 10/26/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+
 
 ---
-# Skapa ditt första Azure Service Fabric-program
+# <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
 > [!div class="op_single_selector"]
 > * [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -26,17 +30,17 @@ ms.author: ryanwi
 
 Service Fabric SDK innehåller ett tillägg för Visual Studio som tillhandahåller mallar och verktyg som hjälper dig att skapa, distribuera och felsöka Service Fabric-program. Den här artikeln beskriver steg för steg hur du skapar ditt första program i Visual Studio.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan du börjar.
 
-## Videogenomgång
+## <a name="video-walkthrough"></a>Videogenomgång
 Följande videoklipp går igenom stegen i den här självstudiekursen:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
-## Skapa programmet
+## <a name="create-the-application"></a>Skapa programmet
 Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. I guiden Nytt projekt kan du skapa ett programprojekt tillsammans med ditt första tjänstprojekt. Du kan lägga till fler tjänster senare.
 
 1. Starta Visual Studio som administratör.
@@ -65,7 +69,7 @@ Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och 
      
      En översikt över innehållet i tjänstprojektet finns i [Komma igång med Reliable Services](service-fabric-reliable-services-quick-start.md).
 
-## Distribuera och felsöka programmet
+## <a name="deploy-and-debug-the-application"></a>Distribuera och felsöka programmet
 Nu när du har ett program kan du prova att köra det.
 
 1. Tryck på F5 i Visual Studio för att distribuera programmet för felsökning.
@@ -107,24 +111,24 @@ Nu när du har ett program kan du prova att köra det.
     ![Stoppa en nod i Service Fabric Explorer][sfx-stop-node]
    
     Under ett ögonblick kan du se din brytpunkt i Visual Studio när beräkningen som du gjorde på en nod smidigt växlar över till en annan.
-8. Gå tillbaka till loggboken Diagnostik och notera meddelandena. Observera att räknaren har fortsatt att öka, även om händelserna egentligen kommer från en annan nod.
+8. Gå tillbaka till loggboken Diagnostik och notera meddelandena. Räknaren har fortsatt att öka, även om händelserna egentligen kommer från en annan nod.
    
     ![Loggboken Diagnostik efter en redundansväxling][diagnostic-events-viewer-detail-post-failover]
 
-## Växla klusterläge
+## <a name="switch-cluster-mode"></a>Växla klusterläge
 Som standard har det lokala utvecklingsklustret konfigurerats för att köras som ett kluster med fem noder, vilket är användbart för felsökning av tjänster som är distribuerade över flera noder. Det kan dock ta tid att distribuera ett program till utvecklingsklustret med fem noder. Om du vill iterera kodändringar snabbt, utan att köra ditt program på 5 noder, kan du växla utvecklingsklustret till ett läge med bara en nod. Om du vill köra din kod i ett kluster med en nod högerklickar du på den lokala klusterhanteraren i systemfältet och väljer **Växla klusterläge -> 1 nod**.  
 
 ![Växla klusterläge][switch-cluster-mode]
 
 När du ändrar klusterläge återställs utvecklingsklustret och alla program som etablerats eller körs på klustret tas bort.
 
-## Rensa
+## <a name="cleaning-up"></a>Rensa
   Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. Om du stoppar felsökningen tar du bort din instans av programmet och avregistrerar programtypen. Klustret fortsätter dock att köras i bakgrunden. Du kan hantera klustret på flera sätt:
 
 1. Om du vill stänga av klustret, men behålla programdata och spårningar, klickar du på **Stoppa lokalt kluster** i appen i systemfältet.
-2. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Observera att det här alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Ta bara bort klustret om du inte planerar att använda det lokala klustret under en tid eller om du behöver frigöra resurser.
+2. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Ta bara bort klustret om du inte planerar att använda det lokala klustret under en tid eller om du behöver frigöra resurser.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du skapar ett [kluster i Azure](service-fabric-cluster-creation-via-portal.md) eller ett [fristående kluster i Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Prova att skapa en tjänst med hjälp av programmeringsmodellerna [Reliable Services](service-fabric-reliable-services-quick-start.md) eller [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 * Lär dig hur du kan exponera dina tjänster för Internet med en [frontwebbtjänst](service-fabric-add-a-web-frontend.md).
@@ -147,6 +151,6 @@ När du ändrar klusterläge återställs utvecklingsklustret och alla program s
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -3,19 +3,21 @@
    
     Anteckna SDK-sökvägen för användning i ett senare steg. 
    
-    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+       ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 3. Öppna filen **build.gradle** i appkatalogen.
    
     ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 4. Lägg till följande rad under *beroenden*: 
    
-        compile 'com.google.android.gms:play-services-gcm:9.2.0'
+           compile 'com.google.android.gms:play-services-gcm:9.2.0'
 5. Klicka på ikonen **Synkronisera projektet med Gradle-filer** i verktygsfältet.
 6. Öppna **AndroidManifest.xml** och lägg till den här taggen till *program*-taggen.
    
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: QoS-krav för ExpressRoute | Microsoft Docs
-description: Den här sidan innehåller detaljerade krav för att konfigurera och hantera QoS för ExpressRoute-kretsar.
+title: "QoS-krav för ExpressRoute | Microsoft Docs"
+description: "Den här sidan innehåller detaljerade krav för att konfigurera och hantera QoS för ExpressRoute-kretsar."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: db1c1447-0283-4a09-907b-ae481adc40c7
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
+
 
 ---
-# QoS-krav för ExpressRoute
+# <a name="expressroute-qos-requirements"></a>QoS-krav för ExpressRoute
 Skype för företag har olika arbetsbelastningar som kräver särskild QoS-behandling. Om du tänker använda rösttjänster via ExpressRoute bör du följa kraven som beskrivs nedan.
 
 ![](./media/expressroute-qos/expressroute-qos.png)
@@ -40,7 +44,7 @@ Följande tabell innehåller en lista över DSCP-markeringar som används av Sky
 * Du bör konfigurera och ge stöd för flera QoS-köer i nätverket. Röst måste vara en fristående klass och få den EF-behandling som anges i RFC 3246. 
 * Du kan bestämma kömekanism, princip för överbelastningsidentifiering samt bandbreddsallokering per trafikklass. Men DSCP-markeringen för arbetsbelastningar i Skype för företag måste bevaras. Om du använder DSCP-markeringar som inte visas ovan, t.ex. AF31 (26), måste du skriva DSCP-värdet som 0 innan paketet skickas till Microsoft. Microsoft skickar endast paket som har markerats med DSCP-värdet i ovanstående tabellen. 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Se kraven för [Routning](expressroute-routing.md) och [NAT](expressroute-nat.md).
 * Se följande länkar för att konfigurera ExpressRoute-anslutningen.
   
@@ -48,6 +52,9 @@ Följande tabell innehåller en lista över DSCP-markeringar som används av Sky
   * [Konfigurera routning](expressroute-howto-routing-classic.md)
   * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

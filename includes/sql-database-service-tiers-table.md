@@ -1,4 +1,4 @@
-### Grundläggande tjänstenivå
+### <a name="basic-service-tier"></a>Grundläggande tjänstenivå
 |  |  |
 | --- | --- |
 | Maximala DTU:er |5 |
@@ -10,7 +10,7 @@
 | Återställning till tidpunkt |Någon tidpunkt de senaste 7 dagarna |
 | Haveriberedskap |Aktiv geo-replikering |
 
-### Standardtjänstenivå
+### <a name="standard-service-tier"></a>Standardtjänstenivå
 |  |  |
 | --- |:---:|
 | **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
@@ -23,7 +23,7 @@
 | Återställning till tidpunkt |Någon tidpunkt de senaste 35 dagarna |
 | Haveriberedskap |Aktiv geo-replikering |
 
-### Premium tjänstenivån
+### <a name="premium-service-tier"></a>Premium tjänstenivån
 |  |  |
 | --- |:---:|
 | **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
@@ -36,6 +36,8 @@
 | Återställning till tidpunkt |Någon tidpunkt de senaste 35 dagarna |
 | Haveriberedskap |Aktiv geo-replikering |
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: 'Linux-vägledning: Komma igång med Hadoop och Hive | Microsoft Docs'
-description: Följ den här Linux-vägledningen för att komma igång med Hadoop i HDInsight. Lär dig hur du etablerar Linux-kluster och frågar efter data med Hive.
+title: "Linux-vägledning: Komma igång med Hadoop och Hive | Microsoft Docs"
+description: "Följ den här Linux-vägledningen för att komma igång med Hadoop i HDInsight. Lär dig hur du etablerar Linux-kluster och frågar efter data med Hive."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
+
 
 ---
-# Hadoop-vägledning: Komma igång med Linux-baserat Hadoop i HDInsight
+# <a name="hadoop-tutorial-get-started-using-linuxbased-hadoop-in-hdinsight"></a>Hadoop-vägledning: Komma igång med Linux-baserat Hadoop i HDInsight
 > [!div class="op_single_selector"]
 > * [Linux-baserat](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Windows-baserat](hdinsight-hadoop-tutorial-get-started-windows.md)
@@ -28,15 +32,15 @@ Lär dig att skapa Linux-baserade [Hadoop](http://hadoop.apache.org/)-kluster i 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Innan du börjar den här vägledningen måste du ha:
 
 * **Azure-prenumeration**: Gå till  [azure.microsoft.com/free](https://azure.microsoft.com/free) för att skapa ett kostnadsfritt provkonto för en månad.
 
-### Åtkomstkontrollkrav
+### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Skapa kluster
+## <a name="create-cluster"></a>Skapa kluster
 De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och tar sedan bort klustret. I det här avsnittet skapar du ett Linux-baserat Hadoop-kluster i HDInsight med [Azure-resurshanterarmallen](../resource-group-template-deploy.md). Resurshanterarmallen är helt anpassningsbar, vilket gör det enkelt att skapa Azure-resurser som HDInsight. Erfarenhet av Azure-resurshanterarmallen krävs inte för att kunna följa de här självstudierna. Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Den resurshanterarmall som används i de här självstudierna finns i den offentliga blob-behållaren [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
 1. Klicka på följande bild för att logga in på Azure och öppna Resource Manager-mallen i Azure Portal. 
@@ -63,7 +67,7 @@ De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och 
    
    Det finns två resurser i listan, klustret och Storage-kontot av standardtyp.
 
-## Köra Hive-frågor
+## <a name="run-hive-queries"></a>Köra Hive-frågor
 [Apache Hive](hdinsight-use-hive.md) är den populäraste komponenten som används i HDInsight. Det finns många sätt att köra Hive-jobb i HDInsight. I den här vägledningen kommer du att använda Ambari Hive-vyn från portalen för att köra vissa Hive-jobb. Andra metoder för att skicka Hive-jobb beskrivs i [Använda Hive-data i HDInsight](hdinsight-use-hive.md).
 
 1. Gå till **https://&lt;Klusternamn >. azurehdinsight.net**, där &lt;Klusternamn > är klustret du skapade i föregående avsnitt för att öppna Ambari.
@@ -96,7 +100,7 @@ De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och 
 
 När du har slutfört ett Hive-jobb kan du [exportera resultaten till Azure SQL Database eller SQL Server-databasen](hdinsight-use-sqoop-mac-linux.md) och även [visualisera resultat i Excel](hdinsight-connect-excel-power-query.md). Mer information om hur du använder Hive i HDInsight finns i [Använda Hive och HiveQL med Hadoop i HDInsight för att analysera ett exempel på en Apache log4j-fil](hdinsight-use-hive.md).
 
-## Rensa vägledningen
+## <a name="clean-up-the-tutorial"></a>Rensa vägledningen
 När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. 
 
 > [!NOTE]
@@ -110,7 +114,7 @@ När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsig
 2. Gå till portalens instrumentpanel och klicka på panelen med det resursgruppsnamn som du använde när du skapade klustret.
 3. Klicka på **Ta bort** på resursbladet för att ta bort resursgruppen som innehåller klustret och Storage-kontot av standardtyp eller klicka på klusternamnet på panelen **Resurser** och sedan på **Ta bort** på klusterbladet. Tänk på att Storage-kontot tas bort när du tar bort resursgruppen. Välj att bara ta bort klustret om du vill behålla Storage-kontot.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du fått veta hur du skapar ett Linux-baserat HDInsight-kluster med en resurshanterarmall och hur du utför grundläggande Hive-frågor.
 
 Mer information om att analysera data med HDInsight finns här:
@@ -159,6 +163,6 @@ Mer information om att skapa eller hantera HDInsight-kluster hittar du här:
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

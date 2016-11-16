@@ -2,7 +2,7 @@
 <!--author=SharS last changed: 9/15/15-->
 
 
-#### Så här skapar du en manuell säkerhetskopia
+#### <a name="to-create-a-manual-backup"></a>Så här skapar du en manuell säkerhetskopia
 1. På sidan **Enheter** går du till fliken **Principer för säkerhetskopiering**. Den här fliken listar alla principer för säkerhetskopiering i tabulärt format, inklusive principen för den volym som du vill säkerhetskopiera.
 2. Välj princip genom att klicka var som helst på motsvarande rad förutom i den första kolumnen. Längst ned på sidan, klickar du på **Ta säkerhetskopia**. Knappen expanderar för att visa alternativ för säkerhetskopiering: lokal ögonblicksbild och moln-ögonblicksbild. 
 3. När du väljer något av alternativen, kommer du att uppmanas att bekräfta. Klicka på **Ja**. 
@@ -18,6 +18,8 @@
    
    Säkerhetskopian borde visas i listan över säkerhetskopieringsuppsättningar som visas i katalogen.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

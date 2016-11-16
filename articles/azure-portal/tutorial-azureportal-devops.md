@@ -1,12 +1,12 @@
 ---
-title: 'Självstudiekurs: DevOps med Azure Portal | Microsoft Docs'
-description: Lär dig om de olika DevOps-arbetsflödena i Azure Portal.
+title: "Självstudiekurs: DevOps med Azure Portal | Microsoft Docs"
+description: "Lär dig om de olika DevOps-arbetsflödena i Azure Portal."
 services: azure-portal
-documentationcenter: ''
+documentationcenter: 
 author: mlearned
 manager: douge
 editor: mlearned
-
+ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b3ef77cc1b3b13a1603f1ca7c6d4a000b69453e0
+
 
 ---
-# Självstudiekurs: DevOps med Azure Portal
+# <a name="tutorial-devops-with-the-azure-portal"></a>Självstudiekurs: DevOps med Azure Portal
 Azure-plattformen är full av flexibla DevOps-arbetsflöden. I den här självstudiekursen lär du dig hur du utnyttjar funktionerna i Azure Portal för att utveckla, testa, distribuera, felsöka, övervaka och hantera program som körs. Den här självstudiekursen fokuserar på följande:
 
 1. Skapa en webbapp och aktivera kontinuerlig distribution
@@ -24,13 +28,13 @@ Azure-plattformen är full av flexibla DevOps-arbetsflöden. I den här självst
 3. Övervaka och felsöka en app
 4. Allmänna programhanteringsaktiviteter
 
-## Skapa en webbapp och aktivera kontinuerlig distribution
+## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Skapa en webbapp och aktivera kontinuerlig distribution
 Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/app-service/), som du ska använda i resten av den här kursen. Du ska börja med att aktivera kontinuerlig distribution från lagringsplatsen för din källkod till vår aktiva Azure-miljö.
 
 1. Logga in i Azure Portal
 2. Välj **Apptjänster** &gt; **ikonen Lägg till** och ange ett namn. Välj din prenumeration och skapa en ny resursgrupp som ska användas som behållare för tjänsten.
    
-   Du kan använda resursgrupper om du vill hantera olika aspekter av lösningen, t.ex. fakturering, distributioner och övervakning, som en grupp med hjälp av [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
+   Du kan använda resursgrupper om du vill hantera olika aspekter av lösningen, t.ex. fakturering, distributioner och övervakning, som en grupp med hjälp av [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
    ![image1][image1]
 3. Din apptjänst skapas efter en liten stund. Ägna några minuter åt att utforska de olika menyalternativen för tjänsten på portalen.
@@ -79,7 +83,7 @@ Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/ap
     
     Det är enkelt att aktivera kontinuerlig distribution med Azure Portal. Du kan också skapa mer komplexa publiceringskanaler och använda många andra tekniker med befintliga system för källkontroll och kontinuerlig integration för distribution till Azure, t.ex. genom att använda automatiska utvecklings- och versionshanteringssystem.
 
-## Utveckla och testa en app
+## <a name="develop-and-test-an-app"></a>Utveckla och testa en app
 Nu ska du göra några ändringar i kodbasen och snabbt distribuera dina ändringar. Du ska också konfigurera prestandatestning för webbappen.
 
 1. Välj App Services i navigeringsfönstret i Azure Portal och leta upp din apptjänst.
@@ -145,7 +149,7 @@ Nu ska du göra några ändringar i kodbasen och snabbt distribuera dina ändrin
     
     ![image36][image36]
 
-## Övervaka och felsöka en app
+## <a name="monitoring-and-troubleshooting-an-app"></a>Övervaka och felsöka en app
 Azure tillhandahåller många funktioner för övervakning och felsökning av program som körs.
 
 1. Välj Verktyg för vår webbapp i Azure Portal.
@@ -176,7 +180,7 @@ Azure tillhandahåller många funktioner för övervakning och felsökning av pr
    ![image44][image44]
 7. Bläddra ned till funktionskategorin och välj Diagnostikloggar.
    
-    ![image45][image45]
+      ![image45][image45]
 8. Lägg märke till de olika loggningsalternativen. Aktivera webbserverloggning och klicka på Spara.
    
    ![image46][image46]
@@ -208,7 +212,7 @@ Azure tillhandahåller många funktioner för övervakning och felsökning av pr
     
     Azure Portal ger åtkomst till kraftfulla och välbekanta verktygsmiljöer som gör det enkelt att övervaka och felsöka program som körs. Du kan också snabbt vidta åtgärder och till exempel återanvända processer, aktivera och inaktivera olika datasamlingar eller integrera med Microsofts support.
 
-## Allmän programhantering
+## <a name="general-application-management"></a>Allmän programhantering
 När du hanterar program behöver du ofta utföra många olika slags aktiviteter, till exempel konfigurera säkerhetskopieringsstrategier, implementera och hantera identitetsproviders och konfigurera rollbaserad åtkomstkontroll. Precis som med de andra DevOps-miljöerna integrerar Azure-plattformen dessa uppgifter direkt på portalen.
 
 1. För att vara säker på att webbappen är skyddad mot dataförlust måste du konfigurera säkerhetskopieringar. Navigera till området Inställningar för webbappen.
@@ -254,11 +258,11 @@ När du hanterar program behöver du ofta utföra många olika slags aktiviteter
     
      ![image69][image69]
 
-## Sammanfattning
+## <a name="summary"></a>Sammanfattning
 I den här självstudiekursen demonstrerade vi en del av kraften i Azure-plattformen genom att snabbt aktivera kontinuerlig distribution för en webbapp, utföra olika utvecklings- och testningsaktiviteter, övervaka och felsöka en live-app och slutligen hantera nyckelstrategier som haveriberedskap, identiteter och rollbaserad åtkomstkontroll. Dessa DevOps-arbetsflöden kan enkelt integreras med Azure-plattformen, och du kan arbeta effektivt i kontexten för den aktuella aktiviteten.
 
-## Nästa steg
-* Azure Resource Manager är viktigt för att aktivera DevOps på Azure-plattformen.  Mer information finns i [Översikt över Azure Resource Manager](../resource-group-overview.md).
+## <a name="next-steps"></a>Nästa steg
+* Azure Resource Manager är viktigt för att aktivera DevOps på Azure-plattformen.  Mer information finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 * Mer information om Azure App Service-distributioner finns i [Distribuera en app till Azure App Service](../app-service-web/web-sites-deploy.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
@@ -333,6 +337,6 @@ I den här självstudiekursen demonstrerade vi en del av kraften i Azure-plattfo
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

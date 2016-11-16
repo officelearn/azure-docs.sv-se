@@ -1,12 +1,12 @@
 ---
-title: Använd bcp för att läsa in data till SQL Data Warehouse | Microsoft Docs
-description: Läs mer om vad bcp är och hur man använder det för informationslager-scenarier.
+title: "Använd bcp för att läsa in data till SQL Data Warehouse | Microsoft Docs"
+description: "Läs mer om vad bcp är och hur man använder det för informationslager-scenarier."
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5a0519a0fdbfc428530e5b30a3f8e4e8bcdaa50b
+
 
 ---
 # <a name="load-data-with-bcp"></a>Läsa in data med bcp
@@ -180,8 +184,8 @@ Du kan verifiera att data exporterats korrekt genom att öppna den nya filen. De
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Se [Läs in data till SQL Data Warehouse][] för en översikt över inläsning.
-För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][].
+En översikt över inläsning finns i [Läs in data i SQL Data Warehouse][Läs in data i SQL Data Warehouse].
+Flera utvecklingstips finns [Översikt över SQL Data Warehouse-utveckling][Översikt över SQL Data Warehouse-utveckling].
 
 <!--Image references-->
 
@@ -201,6 +205,6 @@ För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][].
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

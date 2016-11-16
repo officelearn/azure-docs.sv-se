@@ -1,12 +1,12 @@
 ---
-title: Använd Redgates Data Platform Studio för att läsa in data till SQL Data Warehouse | Microsoft Docs
-description: Ta reda på hur du använder Redgates Data Platform Studio i olika scenarier för datalagringshantering.
+title: "Använd Redgates Data Platform Studio för att läsa in data till SQL Data Warehouse | Microsoft Docs"
+description: "Ta reda på hur du använder Redgates Data Platform Studio i olika scenarier för datalagringshantering."
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 804b0ba72ca73da1a076bd4dbca8bbca33cb76b1
+
 
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Läs in data med Redgates Data Platform Studio
@@ -116,7 +120,7 @@ När importen är slutförd får du en sammanfattning av dataimporten och en än
 ## <a name="next-steps"></a>Nästa steg
 Om du vill utforska dina data mer i SQL Data Warehouse kan du börja med att läsa följande:
 
-* [Skicka en fråga till Azure SQL Data Warehouse (Visual Studio)][Skicka en fråga till Azure SQL Data Warehouse (Visual Studio)]
+* [Fråga Azure SQL Data Warehouse (Visual Studio)][Fråga Azure SQL Data Warehouse (Visual Studio)]
 * [Visualisera data med Power BI][Visualisera data med Power BI]
 
 Om du vill veta mer om Redgates Data Platform Studio:
@@ -126,7 +130,7 @@ Om du vill veta mer om Redgates Data Platform Studio:
 
 Om du vill ha en översikt över andra sätt att migrera och läsa in dina data i SQL Data Warehouse kan du se:
 
-* [Migrera lösningen till SQL Data Warehouse][Migrera lösningen till SQL Data Warehouse]
+* [Migrera din lösning till SQL Data Warehouse][Migrera din lösning till SQL Data Warehouse]
 * [Läs in data till Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md)
 
 Om du vill ha fler utvecklingstips kan du se [Översikt över SQL Data Warehouse-utveckling](sql-data-warehouse-overview-develop.md).
@@ -149,6 +153,7 @@ Om du vill ha fler utvecklingstips kan du se [Översikt över SQL Data Warehouse
 [Översikt över SQL Data Warehouse-utveckling]: ./sql-data-warehouse-overview-develop.md
 
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

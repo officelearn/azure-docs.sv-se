@@ -8,6 +8,8 @@ Se följande dokument för mer information om arbete med åtkomst hantering:
 * [Kom igång med åtkomsthantering i Azure-portalen](../articles/active-directory/role-based-access-control-what-is.md)
 * [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../articles/active-directory/role-based-access-control-configure.md)
 
-<!--HONumber=Sep16_HO5-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

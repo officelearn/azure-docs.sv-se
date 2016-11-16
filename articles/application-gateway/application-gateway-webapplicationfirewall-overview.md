@@ -1,24 +1,27 @@
 ---
-title: Brandvägg för gateway till webbaserade program| Microsoft Docs
-description: Den här sidan innehåller en översikt över brandväggsfunktionen för gatewayen till webbaserade program.
+title: "Introduktion till Brandvägg för webbaserade program (WAF) för Application Gateway | Microsoft Docs"
+description: "Den här sidan innehåller en översikt över Brandvägg för webbaserade program för Application Gateway "
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 11/10/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 69dd0b2d33c93edfa3073ce297d9a3ff948a037e
+
 
 ---
-# <a name="application-gateway-web-application-firewall-(preview)"></a>Brandvägg för gateway till webbaserade program (förhandsgranskning)
-Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga.
-Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av flera skikt i programtopologin. Ett centraliserat skydd mot webbattacker underlättar säkerhetshanteringen och håller programmet bättre skyddat mot intrång. En brandväggslösning för webbaserade program kan också reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram.
+# <a name="application-gateway-web-application-firewall-preview"></a>Brandvägg för gateway till webbaserade program (förhandsgranskning)
+Brandvägg för webbaserade program (WAF) är en funktion för Azure Application Gateway som ger skydd till webbprogram som utnyttjar programgateway för standard ADC-funktioner (Application Delivery Control). Brandvägg för webbaserade program gör detta genom att skydda dem mot de flesta av de 10 vanligaste OWASP-säkerhetsproblemen. Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av flera skikt i programtopologin. En centraliserad brandvägg mot webbattacker underlättar säkerhetshanteringen och håller programmet bättre skyddat mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en programgateway med brandvägg för webbprogram.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
 
@@ -54,23 +57,25 @@ WAF för programgatewayen erbjuder detaljerad rapportering för varje hot som up
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
 
-    {
-        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-        "operationName": "ApplicationGatewayFirewall",
-        "time": "2016-09-20T00:40:04.9138513Z",
-        "category": "ApplicationGatewayFirewallLog",
-        "properties":     {
-            "instanceId":"ApplicationGatewayRole_IN_0",
-            "clientIp":"108.41.16.164",
-            "clientPort":1815,
-            "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-            "ruleId":"OWASP_973336",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "action":"Logged",
-            "site":"Global",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-    }
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+    "operationName": "ApplicationGatewayFirewall",
+    "time": "2016-09-20T00:40:04.9138513Z",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties":     {
+        "instanceId":"ApplicationGatewayRole_IN_0",
+        "clientIp":"108.41.16.164",
+        "clientPort":1815,
+        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+        "ruleId":"OWASP_973336",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "action":"Logged",
+        "site":"Global",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+}
+```
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Priser för WAF SKU för programgatewayen
 Under förhandsgranskningen tillkommer inga extra kostnader för att använda WAF för programgateway. Du debiteras fortsättningsvis enligt gällande grundavgifter för SKU. Kostnaderna för WAF SKU kommuniceras när den är tillgänglig för allmänheten. För kunder som har valt att distribuera programgatewayen i WAF SKU börjar kostnader genereras för WAF SKU först efter att den gjorts tillgänglig för allmänheten.
@@ -78,6 +83,9 @@ Under förhandsgranskningen tillkommer inga extra kostnader för att använda WA
 ## <a name="next-steps"></a>Nästa steg
 När du har lärt dig mer om funktionerna i WAF går du vidare till [Konfigurera brandväggen för webbaserade program på programgatewayen](application-gateway-web-application-firewall-portal.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

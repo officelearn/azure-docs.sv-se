@@ -1,13 +1,13 @@
 ---
-title: 'SQL Database-självstudier: Komma igång med säkerhet'
-description: Lär dig skapa användarkonton för att få åtkomst till och hantera en databas.
-keywords: ''
+title: "SQL Database-självstudier: Komma igång med säkerhet"
+description: "Lär dig skapa användarkonton för att få åtkomst till och hantera en databas."
+keywords: 
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/17/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a3bd8ac5466ae67df0a1865509c8fb897d1374ec
+
 
 ---
-# SQL Database-självstudier: Skapa användarkonton för en SQL-databas för att få åtkomst till och hantera en databas
+# <a name="sql-database-tutorial-create-sql-database-user-accounts-to-access-and-manage-a-database"></a>SQL Database-självstudier: Skapa användarkonton för en SQL-databas för att få åtkomst till och hantera en databas
 > [!div class="op_single_selector"]
 > * [Självstudier för att komma igång](sql-database-get-started-security.md)
 > * [Bevilja åtkomst](sql-database-manage-logins.md)
@@ -41,9 +45,12 @@ I de här självstudierna får du lära dig hur du använder SQL Server Manageme
 
 [!INCLUDE [Create SQL Database database](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när du har slutfört de här SQL Database-självstudierna och skapat ett användarkonto samt gett användarkontot dbo-behörigheter, är du redo att lära dig mer om [SQL Database-säkerhet](sql-database-manage-logins.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,26 +1,30 @@
 ---
-title: Utvecklarhandbok för Azure Active Directory | Microsoft Docs
-description: Den här artikeln innehåller en heltäckande handbok om utvecklarorienterade resurser för Azure Active Directory.
+title: "Utvecklarhandbok för Azure Active Directory | Microsoft Docs"
+description: "Den här artikeln innehåller en heltäckande handbok om utvecklarorienterade resurser för Azure Active Directory."
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+
 
 ---
-# <a name="azure-active-directory-developer's-guide"></a>Utvecklarhandbok för Azure Active Directory
+# <a name="azure-active-directory-developers-guide"></a>Utvecklarhandbok för Azure Active Directory
 ## <a name="overview"></a>Översikt
 Som en IDMaaS-plattform (IDentity Management as a Service) erbjuder Azure Active Directory (AD) en effektiv lösning med vilken utvecklarna kan integrera identitetshantering i sina program. Följande artiklar innehåller översikter över implementeringen och viktiga funktioner i Azure AD. Vi rekommenderar att du läser dem i ordning eller att du går till [Komma igång](#getting-started) om du är redo att sätta igång.
 
-1. [Fördelarna med Azure AD-integrering](active-directory-how-to-integrate.md): Se varför integrering med Azure AD erbjuder den bästa lösningen för säker inloggning och auktorisering.
+1. [Fördelarna med Azure AD-integrering](develop/active-directory-how-to-integrate.md): Se varför integrering med Azure AD erbjuder den bästa lösningen för säker inloggning och auktorisering.
 2. [Scenarier med Azure AD-autentisering](active-directory-authentication-scenarios.md): Dra nytta av förenklad autentisering i Azure AD för att tillhandahålla inloggning i ditt program.
 3. [Integrera program med Azure AD](active-directory-integrating-applications.md): Lär dig hur du lägger till, uppdaterar och tar bort program från Azure AD och få riktlinjer för varumärkesanpassning för integrerade appar.
 4. [Azure AD Graph-API:et](active-directory-graph-api.md): Använd Azure AD Graph-API:et om du vill ha programmässig åtkomst till Azure AD via REST API-slutpunkter. Azure AD Graph-API:et är också tillgänglig via [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph tillhandahåller ett enhetligt API som ger åtkomst till flera av Microsofts molntjänst-API:er genom en enda REST API-slutpunkt, och med en enda åtkomsttoken.
@@ -29,17 +33,17 @@ Som en IDMaaS-plattform (IDentity Management as a Service) erbjuder Azure Active
 ## <a name="getting-started"></a>Komma igång
 Dessa självstudiekurser är skräddarsydda för flera plattformar och hjälper dig att snabbt börja utveckla med Azure Active Directory. Innan du börjar måste du [skaffa en Azure Active Directory-klient](active-directory-howto-tenant.md).
 
-### <a name="mobile-and-pc-application-quick-start-guides"></a>Snabbstartsguider för mobil- och datorprogram
+### <a name="mobile-and-pc-application-quickstart-guides"></a>Snabbstartsguider för mobil- och datorprogram
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows Universal](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Integrera direkt med OAuth 2.0](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quick-start-guides"></a>Snabbstartsguider för webbappar
+### <a name="web-application-quickstart-guides"></a>Snabbstartsguider för webbappar
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Integrera direkt med OpenID Connect](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quick-start-guides"></a>Snabbstartsguider för webb-API:er
+### <a name="web-api-quickstart-guides"></a>Snabbstartsguider för webb-API:er
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -49,11 +53,11 @@ Dessa självstudiekurser är skräddarsydda för flera plattformar och hjälper 
 |:---:|
 | [Graph API](active-directory-graph-api-quickstart.md) |
 
-## <a name="how-tos"></a>Instruktioner
+## <a name="howtos"></a>Instruktioner
 Dessa artiklar beskriver hur du utför specifika aktiviteter med hjälp av Azure Active Directory:
 
 * [Hämta en Azure AD-klientorganisation](active-directory-howto-tenant.md)
-* [Logga in för valfri Azure AD-användare med programmönstret för flera klienter](active-directory-devhowto-multi-tenant-overview.md) 
+* [Logga in för valfri Azure AD-användare med programmönstret för flera klienter](active-directory-devhowto-multi-tenant-overview.md)
 * Aktivera enkel inloggning mellan appar med hjälp av ADAL på [Android](active-directory-sso-android.md)- och [iOS](active-directory-sso-ios.md)-enheter
 * [AppSource-certifiera ditt program för Azure AD](active-directory-devhowto-appsource-certified.md)
 * [Lista ditt program i Azure AD-programgalleriet](active-directory-app-gallery-listing.md)
@@ -100,7 +104,7 @@ Dessa översiktliga presentationer om hur du utvecklar appar med Azure Active Di
 * [Utveckla moderna interna program med Azure Active Directory](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
 
 ### <a name="azure-friday"></a>Azure Friday
-[Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/) är en återkommande videoserie som varje fredag erbjuder en kort (10–15 minuter) intervju med experter inom olika Azure-ämnen.  Använd funktionen för tjänstfilter på sidan om du vill visa alla videoklipp om Azure Active Directory.
+[Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/) är en återkommande videoserie som varje fredag erbjuder en kort (10–15 minuter) intervju med experter inom olika Azure-ämnen.  Använd funktionen för tjänstfilter på sidan om du vill visa alla videoklipp om Azure Active Directory.
 
 * [Azure Identity 101](https://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 * [Azure Identity 102](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -110,8 +114,17 @@ Dessa översiktliga presentationer om hur du utvecklar appar med Azure Active Di
 * [Active Directory-teamets blogg](http://blogs.technet.com/b/ad/): Den senaste utvecklingen inom Azure Active Directory.
 * [Azure Active Directory Graph-teamets blogg](http://blogs.msdn.com/b/aadgraphteam): Azure Active Directory-information som är specifik för Graph API.
 * [Molnidentitet](http://www.cloudidentity.net): Tankar kring identitetshantering som en tjänst från en framstående Azure Active Directory-programchef.  
-* [Azure Active Directory på Twitter](https://twitter.com/azuread): Azure Active Directory-meddelanden på 140 tecken eller mindre.
+* [Azure Active Directory på Twitter](https://twitter.com/azuread): Azure Active Directory-meddelanden på 140 tecken eller mindre.
 
-<!--HONumber=Oct16_HO3-->
+## <a name="windows-server-onpremises-development"></a>Lokal utveckling med Windows Server
+Råd om hur du använder utveckling med Windows Server och Active Directory Federation Services (AD FS) finns i:
+
+* [AD FS-scenarier för utvecklare](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): Innehåller en översikt över AD FS-komponenter och hur de fungerar, med information om autentiserings-/auktoriseringsscenarier som stöds.
+* [AD FS-genomgångar](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): En lista över genomgångsartiklar som innehåller stegvisa instruktioner om hur du implementerar relaterade autentiserings-/auktoriseringsflöden.
+
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

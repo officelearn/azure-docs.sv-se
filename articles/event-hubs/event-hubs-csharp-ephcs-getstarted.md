@@ -1,12 +1,12 @@
 ---
-title: Kom igång med händelsehubbar i C# | Microsoft Docs
-description: Följ den här kursen och kom igång med händelsehubbar i Azure med C# och EventProcessorHost.
+title: "Kom igång med händelsehubbar i C# | Microsoft Docs"
+description: "Följ den här kursen och kom igång med händelsehubbar i Azure med C# och EventProcessorHost."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2ec2378a-34f7-44c3-b976-cc444c98c338
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/02/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Kom igång med händelsehubbar
@@ -61,9 +65,9 @@ Tryck på **Ctrl + C** i **avsändar**-fönstret för att avsluta avsändarprogr
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har skapat ett fungerande program som skapar en händelsehubb och skickar och tar emot data kan du gå vidare till följande scenarier:
 
-* Ett komplett [exempelprogram som använder händelsehubbar][].
-* Exemplet [Skala ut händelsebearbetning med händelsehubbar][].
-* [Event Hubs-översikt][Event Hubs-översikt]
+* Ett komplett [exempelprogram som använder Event Hubs][exempelprogram som använder Event Hubs].
+* Exemplet [Skala ut händelsebearbetning med händelsehubbar][Skala ut händelsebearbetning med händelsehubbar].
+* [Översikt av händelsehubbar][Översikt av händelsehubbar]
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
@@ -82,6 +86,6 @@ Nu när du har skapat ett fungerande program som skapar en händelsehubb och ski
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

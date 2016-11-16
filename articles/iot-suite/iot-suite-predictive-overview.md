@@ -1,28 +1,32 @@
 ---
-title: Förkonfigurerad lösning för förebyggande underhåll | Microsoft Docs
-description: En beskrivning av den förkonfigurerade lösningen för förebyggande underhåll i Azure IoT.
-services: ''
+title: "Förkonfigurerad lösning för förebyggande underhåll | Microsoft Docs"
+description: "En beskrivning av den förkonfigurerade lösningen för förebyggande underhåll i Azure IoT."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: stevehob
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b370b3d7-2ce5-4906-9818-3aeedd471ee3
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 10/31/2016
 ms.author: araguila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2d44af03b8e16a2bd936fc805ed4f0c4e6c5fbfc
+
 
 ---
-# Översikt över förkonfigurerad lösning för förebyggande underhåll
+# <a name="predictive-maintenance-preconfigured-solution-overview"></a>Översikt över förkonfigurerad lösning för förebyggande underhåll
 Den förkonfigurerade lösningen för *förebyggande underhåll* är en av de [förkonfigurerade lösningarna][lnk_preconfigured_solutions] som ingår i [Microsoft Azure IoT Suite][lnk_iot_suite]. Den här lösningen integrerar realtidsinsamling av enhetstelemetri med en förebyggande modell skapad med [Azure Machine Learning][lnk_machine_learning].
 
 Med Azure IoT Suite kan företag snabbt och enkelt ansluta till och övervaka tillgångar och analysera data i realtid. Den förkonfigurerade lösningen för förebyggande underhåll bearbetar dessa data och använder detaljerade instrumentpaneler och visualiseringar för att ge företagen nya insikter som kan öka effektiviteten och förbättra intäkterna.
 
-## Scenariot
+## <a name="the-scenario"></a>Scenariot
 Fabrikam är ett regionalt flygbolag som fokuserar på bra kundupplevelser till konkurrenskraftiga priser. En orsak till flygförseningar är underhållsproblem, och flygplansmotorernas underhåll är särskilt krävande. Motorfel under flygning måste undvikas till varje pris. Därför inspekterar Fabrikam regelbundet sina motorer och följer en schemalagd underhållsplan. Flygplansmotorer slits dock inte alltid likadant. En del onödigt underhåll utförs på motorerna. Dessutom kan det uppstå problem som gör att planet blir stående tills underhåll har utförts. Detta medför kostsamma fördröjningar, särskilt om ett flygplan finns på en plats där rätt tekniker eller reservdelar inte är tillgängliga.
 
 Motorerna i Fabrikams flygplan är utrustade med sensorer som övervakar motortillståndet under flygning. Fabrikam använder Azure IoT Suite för att samla in de sensordata som inhämtas under flygturerna. Fabrikams dataspecialister har under flera år samlat in data om motorernas drift och eventuella fel och har tagit fram en modell som kan förutse flygplansmotorernas återstående livslängd. Vad man har identifierat är en korrelation mellan data från fyra av motorsensorerna med motorernas slitage som leder till eventuella problem. Fabrikam fortsätter att utföra regelbundna inspektioner för att säkerställa säkerheten, men nu kan man använda modeller för att beräkna varje motors återstående livslängd efter varje flygning med hjälp av telemetrin som samlas in från motorerna under flygningen. Fabrikam kan nu förutsäga framtida tidpunkter för potentiella fel och planera för underhåll och reparation i förväg.
@@ -36,14 +40,14 @@ Genom att förutsäga när underhåll krävs kan Fabrikam optimera verksamheten 
 
 Mer information om hur [Azure IoT Suite][lnk_iot_suite] tillhandahåller de funktioner som kunder behöver för att förverkliga potentialen i förebyggande underhåll finns [här][lnk_infographic].
 
-## Så här är lösningen för förebyggande underhåll uppbyggd
+## <a name="how-the-predictive-maintenance-solution-is-built"></a>Så här är lösningen för förebyggande underhåll uppbyggd
 Lösningen utnyttjar en befintlig Azure Machine Learning-modell som är tillgänglig som en mall för att demonstrera hur dessa funktioner arbetar med enhetstelemetri som samlas in via IoT Suite-tjänster. Microsoft har byggt en [regressionsmodell][lnk_regression_model] av en flygplansmotor och publicerat den fullständiga mallen, data<sup>\[1\]</sup> och stegvisa anvisningar för hur du använder modellen.
 
 Den förkonfigurerade lösningen för förebyggande underhåll i Azure IoT använder regressionsmodellen som skapats från den här mallen. Den distribueras till din Azure-prenumeration och exponeras via ett automatiskt genererat API. Lösningen innehåller en delmängd av testdata som representerar 4 (av totalt 100) motorer och 4 (av totalt 21) dataströmmar från sensorer som ger ett korrekt resultat från den tränade modellen.
 
-*\[1\] A. Saxena och K. Goebel (2008). ”Turbofan Engine Degradation Simulation Data Set”, NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
+*\[1\] A. Saxena och K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Mer information om hur Azure IoT möjliggör scenarier för förebyggande underhåll finns i artikeln [Få ut värde av Internet of Things][lnk_capture_value].
 
 Gå en [genomgång][lnk-predictive-walkthrough] om den förkonfigurerade lösningen för förebyggande underhåll.
@@ -66,6 +70,6 @@ Du kan även utforska några andra funktioner och möjligheter i de förkonfigur
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

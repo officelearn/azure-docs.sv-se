@@ -1,5 +1,6 @@
-# [Overview](notification-hubs-push-notification-overview.md)
-# Get Started
+# Översikt
+## [Vad är Azure Notification Hubs?](notification-hubs-push-notification-overview.md)
+# Kom igång
 ## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
 ## [Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)
 ## [Chrome](notification-hubs-chrome-push-notifications-get-started.md)
@@ -9,63 +10,65 @@
 ## [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)
 ## [Xamarin.Android](xamarin-notification-hubs-push-notifications-android-gcm.md)
 ## [Xamarin.iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)
+## [Vanliga frågor och svar](notification-hubs-push-notification-faq.md)
 
-# How To
+# Gör så här för att
+## Planera och designa
+### [Push-arkitekturvägledning för företag](notification-hubs-enterprise-push-notification-architecture.md)
 
-## Plan and design
-### [Enterprise push architectural guidance](notification-hubs-enterprise-push-notification-architecture.md)
-
-## Develop
-### [Send push notifications to Android using GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
-### [Push geo-fenced notifications with Bing Spatial Data](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-### Push to specific users
+## Utveckla
+### [Skicka push-meddelanden till Android med GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
+### [Push-meddelanden med rumsliga data från Bing](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+### Push till specifika användare
 #### [Android](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 #### [iOS](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
-#### [Register the current user using ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
-### [Send cross-platform notifications](notification-hubs-aspnet-cross-platform-notification.md)
-### Work with server SDKs
-#### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
+#### [Registrera den aktuella användaren med ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
+### [Skicka meddelanden mellan olika plattformar](notification-hubs-aspnet-cross-platform-notification.md)
+### Arbeta med server-SDK:er
+#### [NET](https://msdn.microsoft.com/library/mt414893.aspx)
 #### [Node.js](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)
 #### [Python](notification-hubs-python-push-notification-tutorial.md)
 ### [Rich Push](notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md)
-### [Use tags for targeted push](notification-hubs-tags-segment-push-message.md)
+### [Använda taggar för riktad push](notification-hubs-tags-segment-push-message.md)
 #### [Android](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 #### [iOS](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 #### [Windows](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 #### [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
-### [Use templates for cross-platform push](notification-hubs-templates-cross-platform-push-messages.md)
+### [Använda mallar för distribution över flera plattformar](notification-hubs-templates-cross-platform-push-messages.md)
 #### [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 #### [Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
-## Manage
-### [Registrations](notification-hubs-push-notification-registration-management.md)
+## Hantera
+### [Registreringar](notification-hubs-push-notification-registration-management.md)
 
-## [Secure](notification-hubs-push-notification-security.md)
-### Secure push
+## [Skydda](notification-hubs-push-notification-security.md)
+### Säker push
 #### [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 #### [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
-#### [Windowsh](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
+#### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
+## Automatisera
+### [Distribuera och hantera Notification Hubs med PowerShell](notification-hubs-deploy-and-manage-powershell.md)
+### [Skicka schemalagda meddelanden](notification-hubs-send-push-notifications-scheduled.md)
 
+## Felsöka
+### [Riktlinjer för diagnoser](notification-hubs-push-notification-fixer.md)
 
-## Automate
-### [Deploy and Manage Notification Hubs using PowerShell](notification-hubs-deploy-and-manage-powershell.md)
-### [Send scheduled notifications](notification-hubs-send-push-notifications-scheduled.md)
+# Referens
+## [PowerShell-cmdletar](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/notificationhubs/)
 
-
-## Troubleshoot
-### [Diagnosis guidelines](notification-hubs-push-notification-fixer.md)
-
-# Reference
-
-# Related
-
-# Resources
-## [Frequently Asked Questions](notification-hubs-push-notification-faq.md)
+# Resurser
+## [Prissättning](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
 <!--HONumber=Nov16_HO2-->

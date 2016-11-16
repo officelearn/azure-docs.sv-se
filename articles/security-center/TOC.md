@@ -1,68 +1,69 @@
-# Overview
-## [What is Azure Security Center?](security-center-intro.md)
-## [Service overview](https://azure.microsoft.com/services/security-center/)
-## [Pricing](security-center-pricing.md)
-## [FAQ](security-center-faq.md)
-## [Get insights with Power BI](security-center-powerbi.md)
-## [Data security](security-center-data-security.md)
-## Common scenarios
-### [Incident response](security-center-incident-response.md)
+# Översikt
+## [Vad är Azure Security Center?](security-center-intro.md)
+## [Få insikter med Power BI](security-center-powerbi.md)
+## [Datasäkerhet](security-center-data-security.md)
+## Scenarier
+### [Incidenthantering](security-center-incident-response.md)
 
-# Get started
-## [Quick start](security-center-get-started.md)
-## [Planning and operations](security-center-planning-and-operations-guide.md)
-## [Security Center and SQL Database](security-center-sql-database.md)
+# Kom igång
+## [Snabbstart](security-center-get-started.md)
+## [Planering och drift](security-center-planning-and-operations-guide.md)
+## [Vanliga frågor och svar](security-center-faq.md)
 
-# How to
+# Gör så här för att
 
-## Prevent
-### [Set security policies](security-center-policies.md)
-### [Implement security recommendations](security-center-recommendations.md)
-### [Application recommendations](security-center-application-recommendations.md)
-### [Network recommendations](security-center-network-recommendations.md)
-### [SQL service recommendations](security-center-sql-service-recommendations.md)
-### [Virtual machine recommendations](security-center-virtual-machine-recommendations.md)
-### [Monitor security health](security-center-monitoring.md)
-### [Monitor partner solutions](security-center-partner-solutions.md)
+## Förebygga
+### [Ange säkerhetsprinciper](security-center-policies.md)
+### [Implementera säkerhetsrekommendationer](security-center-recommendations.md)
+### [Programrekommendationer](security-center-application-recommendations.md)
+### [Nätverksrekommendationer](security-center-network-recommendations.md)
+### [Rekommendationer för SQL-tjänster](security-center-sql-service-recommendations.md)
+### [Rekommendationer för virtuella datorer](security-center-virtual-machine-recommendations.md)
+### [Övervaka säkerhetshälsa](security-center-monitoring.md)
+### [Övervaka partnerlösningar](security-center-partner-solutions.md)
 
-## Detect and Respond
-### [Detection capabilities](security-center-detection-capabilities.md)
-### [Manage security alerts](security-center-managing-and-responding-alerts.md)
-### [Manage security incidents](security-center-incident.md)
-### [Azure log integration](security-center-integrating-alerts-with-log-integration.md)
-### [Vulnerability assessment](security-center-vulnerability-assessment-recommendations.md)
-### [Types of security alerts](security-center-alerts-type.md)
-### [Threat intelligence report](security-center-threat-report.md)
+## Identifiera och åtgärda
+### [Identifieringskapacitet](security-center-detection-capabilities.md)
+### [Hantera säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)
+### [Hantera säkerhetsincidenter](security-center-incident.md)
+### [Azure-loggintegrering](security-center-integrating-alerts-with-log-integration.md)
+### [Sårbarhetsbedömning](security-center-vulnerability-assessment-recommendations.md)
+### [Typer av säkerhetsaviseringar](security-center-alerts-type.md)
+### [Hotinformationsrapport](security-center-threat-report.md)
 
-### Manage security alerts
-#### [Add a next generation firewall](security-center-add-next-generation-firewall.md)
-#### [Add a web application firewall](security-center-add-web-application-firewall.md)
-#### [Apply disk encryption](security-center-apply-disk-encryption.md)
-#### [Apply system updates](security-center-apply-system-updates.md)
-#### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
-#### [Enable auditing on SQL servers](security-center-enable-auditing-on-sql-servers.md)
-#### [Enable data collection](security-center-enable-data-collection.md)
-#### [Enable Network Security Groups](security-center-enable-network-security-groups.md)
-#### [Enable Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
-#### [Enable VM Agent](security-center-enable-vm-agent.md)
-#### [Install Endpoint Protection](security-center-install-endpoint-protection.md)
-#### [Provide security contact details](security-center-provide-security-contact-details.md)
-#### [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md)
-#### [Resolve endpoint protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)
-#### [Restrict access through Internet-facing endpoints](security-center-restrict-access-through-internet-facing-endpoints.md)
-#### [Update OS version](security-center-update-os-version.md)
+### Hantera säkerhetsaviseringar
+#### [Lägga till en nästa generations brandvägg](security-center-add-next-generation-firewall.md)
+#### [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md)
+#### [Tillämpa diskkryptering](security-center-apply-disk-encryption.md)
+#### [Tillämpa systemuppdateringar](security-center-apply-system-updates.md)
+#### [Aktivera granskning på SQL-databaser](security-center-enable-auditing-on-sql-databases.md)
+#### [Aktivera granskning på SQL-servrar](security-center-enable-auditing-on-sql-servers.md)
+#### [Aktivera datainsamling](security-center-enable-data-collection.md)
+#### [Aktivera nätverkssäkerhetsgrupper](security-center-enable-network-security-groups.md)
+#### [Aktivera transparent datakryptering](security-center-enable-transparent-data-encryption.md)
+#### [Aktivera VM-Agent](security-center-enable-vm-agent.md)
+#### [Installera slutpunktsskydd](security-center-install-endpoint-protection.md)
+#### [Ange säkerhetskontaktinformation](security-center-provide-security-contact-details.md)
+#### [Åtgärda sårbarheter i operativsystem](security-center-remediate-os-vulnerabilities.md)
+#### [Lösa slutpunktsskydd för hälsovarningar](security-center-resolve-endpoint-protection-health-alerts.md)
+#### [Begränsa åtkomst via Internet-riktade slutpunkter](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Uppdatera OS-versionen](security-center-update-os-version.md)
 
-## Troubleshoot
-### [Troubleshooting guide](security-center-troubleshooting-guide.md)
+## Felsöka
+### [Felsökningsguide](security-center-troubleshooting-guide.md)
 
-# Reference
-## [REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
+# Referens
+## [REST-API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
-# Related
-## [Azure Security Information](../security/azure-security-getting-started.md)
+# Relaterat
+## [Säkerhet i Azure](/azure/security/)
 
-# Resources
-## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
+# Resurser
+## [Blogg om säkerhet, sekretess och efterlevnad i Azure](http://blogs.msdn.com/b/azuresecurity/)
+## [Prissättning](security-center-pricing.md)
+## [Tjänstöversikt](https://azure.microsoft.com/services/security-center/)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=security-center)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
 <!--HONumber=Nov16_HO2-->

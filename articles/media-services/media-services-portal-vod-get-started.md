@@ -1,12 +1,12 @@
 ---
 title: " Komma igång med att leverera innehåll på begäran med hjälp av Azure Portal | Microsoft Docs"
-description: De här självstudierna visar dig stegen för att implementera ett grundläggande leveransprogram för Video-on-Demand-innehåll (VoD) med Azure Media Services-appen (AMS) med hjälp av Azure Portal.
+description: "De här självstudierna visar dig stegen för att implementera ett grundläggande leveransprogram för Video-on-Demand-innehåll (VoD) med Azure Media Services-appen (AMS) med hjälp av Azure Portal."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25d8b204f328514ebcfc69228dcbf9342bdf205b
+
 
 ---
-# Komma igång med att leverera innehåll på begäran med hjälp av Azure Portal
+# <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>Komma igång med att leverera innehåll på begäran med hjälp av Azure Portal
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 De här självstudierna visar dig stegen för att implementera ett grundläggande leveransprogram för Video-on-Demand-innehåll (VoD) med Azure Media Services-appen (AMS) med hjälp av Azure Portal.
@@ -35,11 +39,11 @@ Vägledningen innehåller följande uppgifter:
 5. Publicera tillgången och få URL:er för strömning och progressiv överföring.  
 6. Spela upp ditt innehåll.
 
-## Skapa ett Azure Media Services-konto
+## <a name="create-an-azure-media-services-account"></a>Skapa ett Azure Media Services-konto
 Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **+New** > **Media + CDN** > **Media Services**.
+2. Klicka på **+Ny** > **Webb + mobilt** > **Media Services**.
    
     ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. Ange de erfordrade värdena i **SKAPA MEDIA SERVICES-KONTO**.
@@ -48,7 +52,7 @@ Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
    
    1. Ange namnet på det nya AMS-kontot vid **Kontonamn**. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.
    2. Vid Prenumeration väljer du mellan de olika Azure-prenumerationer som du har åtkomst till.
-   3. I **Resursgrupp** väljer du ny eller befintlig resurs.  En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Lär dig mer [här](../resource-group-overview.md#resource-groups).
+   3. I **Resursgrupp** väljer du ny eller befintlig resurs.  En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Lär dig mer [här](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. För **Plats** väljer du den geografiska region som ska användas för att lagra media och metadataposter för ditt Media Services-konto. Den här regionen används för att bearbeta och strömma dina media. Endast de tillgängliga Media Services-regionerna visas i listrutan. 
    5. Vid **Storage-konto** väljer du ett lagringskonto för att tillhandahålla Blob Storage av medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett lagringskonto. Ett nytt lagringskonto skapas i samma region. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
       
@@ -62,7 +66,7 @@ Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
    
     För att hantera AMS-kontot (till exempel överföra videor, koda tillgångar och övervaka jobbförlopp) använder du fönstret **Inställningar**.
 
-## Hantera nycklar
+## <a name="manage-keys"></a>Hantera nycklar
 Du behöver kontonamnet och den primära nyckelinformationen för att genom programmering få åtkomst till Media Services-kontot.
 
 1. Välj ditt konto i Azure-portalen. 
@@ -75,7 +79,7 @@ Du behöver kontonamnet och den primära nyckelinformationen för att genom prog
    
     ![Media Services-nycklar](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## Konfigurera strömningsslutpunkter
+## <a name="configure-streaming-endpoints"></a>Konfigurera strömningsslutpunkter
 När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera video via strömning med anpassad bithastighet till dina klienter. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare).
 
 Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-kodade innehåll med anpassad bithastighet i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) direkt när du så önskar, utan att du behöver lagra på förhand packade versioner av vart och ett av dessa strömningsformat.
@@ -103,7 +107,7 @@ Om du vill skapa och ändra antalet reserverade enheter för strömning gör du 
    > 
    > 
 
-## Överföra filer
+## <a name="upload-files"></a>Överföra filer
 För att strömma videor med Azure Media Services behöver du överföra källvideorna, koda dem till flera olika bithastigheter och publicera resultatet. I det här avsnittet beskrivs det första steget. 
 
 1. I fönstret **Inställning** klickar du på **Tillgångar**.
@@ -123,7 +127,7 @@ För att strömma videor med Azure Media Services behöver du överföra källvi
 
 När överföringen är klar visas den nya tillgången i listan **Tillgångar**. 
 
-## Koda tillgångar
+## <a name="encode-assets"></a>Koda tillgångar
 När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare). För att förbereda dina videor för strömning med anpassad bithastighet måste du koda källvideon till filer i multibithastighet. Du bör använda kodaren **Media Encoder Standard** för att koda dina videor.  
 
 Media Services tillhandahåller också en dynamisk paketering som gör att du kan leverera dina MP4-filer med multibithastighet i följande strömningsformat: MPEG DASH, HLS, Smooth Streaming eller HDS utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
@@ -133,25 +137,25 @@ Om du vill använda dynamisk paketering ska du göra följande:
 * Koda din källfil till en uppsättning MP4-filer med multibithastighet (kodningsstegen visas längre fram i det här avsnittet).
 * Hämta minst en strömmande enhet för den strömmande slutpunkten från vilken du planerar att leverera ditt innehåll. Mer information finns i avsnittet om att [konfigurera strömningsslutpunkter](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
 
-### Använda portalen för att koda
+### <a name="to-use-the-portal-to-encode"></a>Använda portalen för att koda
 I det här avsnittet beskrivs de steg som du kan vidta för att koda ditt innehåll med Media Encoder Standard.
 
 1. I fönstret **Inställningar** väljer du **Tillgångar**.  
 2. I fönstret **Tillgångar** väljer du den tillgång som du vill koda.
 3. Tryck på knappen **Koda**.
-4. I fönstret **Koda en tillgång** väljer du processorn ”Media Encoder Standard” och en förinställning. Om du till exempel vet att din indatavideo har en upplösning på 1 920 x 1 080 bildpunkter, kan du använda förinställningen ”H264 multibithastighet 1080p”. Mer information om förinställningar finns i [denna](https://msdn.microsoft.com/library/azure/mt269960.aspx) artikel – det är viktigt att välja den förinställning som är mest lämplig för din videoinmatning. Om du har en video med låg upplösning (640 x 360) bör du inte använda standardförinställningen ”H264 multibithastighet 1080p”.
+4. I fönstret **Koda en tillgång** väljer du processorn ”Media Encoder Standard” och en förinställning. Om du till exempel vet att din indatavideo har en upplösning på 1 920 x 1 080 bildpunkter, kan du använda förinställningen ”H264 multibithastighet 1080p”. Mer information om förinställningar finns i [denna](https://msdn.microsoft.com/library/azure/mt269960.aspx) artikel – det är viktigt att välja den förinställning som är mest lämplig för din videoinmatning. Om du har en video med låg upplösning (640 x 360) bör du inte använda standardförinställningen ”H264 multibithastighet 1080p”.
    
    Du kan redigera namnet på utdatatillgången och namnet på jobbet för enklare hantering.
    
    ![Koda tillgångar](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Tryck på **Skapa**.
 
-### Övervaka förloppet för kodningsjobb
+### <a name="monitor-encoding-job-progress"></a>Övervaka förloppet för kodningsjobb
 Klicka på **Inställningar** (överst på sidan) för att övervaka förloppet för kodningsjobbet och välj sedan **Jobb**.
 
 ![Jobb](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-## Publicera innehåll
+## <a name="publish-content"></a>Publicera innehåll
 För att ge din användare en URL som kan användas för att strömma eller hämta ditt innehåll måste du först ”publicera” din tillgång genom att skapa en lokaliserare. Lokaliserare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av lokaliserare: 
 
 * Strömningslokaliserare (OnDemandOrigin), som används för anpassad strömning (till exempel för strömning av MPEG DASH, HLS och Smooth Streaming). Om du vill skapa en strömningslokaliserare måste din tillgång innehålla en .ism-fil. 
@@ -181,7 +185,7 @@ En SAS-URL har följande format.
 
 Du uppdaterar ett utgångsdatum för en lokaliserare med [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator)- eller [.NET](http://go.microsoft.com/fwlink/?LinkID=533259)-API:er. URL:en ändras när du uppdaterar en SAS-lokaliserare.
 
-### Använda portalen för att publicera en tillgång
+### <a name="to-use-the-portal-to-publish-an-asset"></a>Använda portalen för att publicera en tillgång
 Gör följande för att använda portalen för att publicera en tillgång:
 
 1. Välj **Inställningar** > **Tillgångar**.
@@ -194,7 +198,7 @@ Gör följande för att använda portalen för att publicera en tillgång:
 
 URL:en läggs till i listan över **publicerade URL:er**.
 
-## Spela upp innehåll från portalen
+## <a name="play-content-from-the-portal"></a>Spela upp innehåll från portalen
 Azure Portal har en innehållsspelare som du kan använda för att testa videon.
 
 Klicka på önskad video och klicka sedan på knappen **Spela upp**.
@@ -206,14 +210,17 @@ Vissa förutsättningar gäller:
 * Kontrollera att videon har publicerats.
 * Denna**Media Player** spelar upp från den strömningsslutpunkt som är standard. Klicka för att kopiera URL:en och använd en annan spelare om du vill spela upp från en strömningsslutpunkt som inte är standard. Till exempel [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Granska sökvägarna för Media Services-utbildning.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Ge feedback
+## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

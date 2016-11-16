@@ -1,11 +1,11 @@
-## Etablera lösningen
+## <a name="provision-the-solution"></a>Etablera lösningen
 1. Logga in på [azureiotsuite.com][lnk-azureiotsuite] med autentiseringsuppgifterna för ditt Azure-konto och klicka på **+** för att skapa en ny lösning.
 2. Klicka på **Välj** på panelen **Fjärrövervakning**.
 3. Ange ett **lösningsnamn** för den förkonfigurerade lösningen för fjärrövervakning.
 4. Välj den **region** och **prenumeration** som du vill använda för att etablera lösningen.
 5. Klicka på **Skapa lösning** för att påbörja etableringen. Den här åtgärden tar normalt flera minuter.
 
-### Vänta tills etableringsprocessen har slutförts
+### <a name="wait-for-the-provisioning-process-to-complete"></a>Vänta tills etableringsprocessen har slutförts
 1. Klicka på panelen för din lösning med statusen **Etablerar**.
 2. Observera **etableringsstatusen** när Azure-tjänsterna distribueras i din Azure-prenumeration.
 3. När etableringen har slutförts ändras statusen till **Klar**.
@@ -23,6 +23,6 @@ Finns det något som du förväntar dig att se men som inte visas för din lösn
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

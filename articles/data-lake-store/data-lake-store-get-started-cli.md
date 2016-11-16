@@ -1,12 +1,12 @@
 ---
-title: Kom igång med Data Lake Store med hjälp av kommandoradsgränssnitt över flera plattformar  | Microsoft Docs
-description: Använd Azure-kommandoraden över flera plattformar för att skapa ett Data Lake Store-konto och utföra grundläggande åtgärder
+title: "Kom igång med Data Lake Store med hjälp av kommandoradsgränssnitt över flera plattformar | Microsoft Docs"
+description: "Använd Azure-kommandoraden över flera plattformar för att skapa ett Data Lake Store-konto och utföra grundläggande åtgärder"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 380788f3-041d-4ae5-b6be-37ca74ca333d
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b4b2449f00e298385579c4d7b229ceea18dcc598
+
 
 ---
-# Kom igång med Azure Data Lake Store med Azure Command Line
+# <a name="get-started-with-azure-data-lake-store-using-azure-command-line"></a>Kom igång med Azure Data Lake Store med Azure Command Line
 > [!div class="op_single_selector"]
-> * [Portalen](data-lake-store-get-started-portal.md)
+> * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
+> * [REST-API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > 
@@ -32,16 +36,16 @@ Lär dig mer om att använda Azure-kommandoradsgränssnitt för att skapa ett Az
 
 Azure CLI är implementerat i Node.js. Det kan användas på alla plattformar som har stöd för Node.js, inklusive Windows, Mac- och Linux. Azure CLI är öppen källkod. Källkoden hanteras i GitHub på <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Den här artikeln beskriver bara hur man använder Azure CLI med hjälp av Data Lake Store. En allmän vägledning om hur du använder Azure CLI finns i [Så här använder du Azure CLI][azure-command-line-tools].
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Innan du påbörjar den här artikeln måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI** - Se [Installera och konfigurera Azure CLI](../xplat-cli-install.md) för information om installation och konfiguration. Se till att datorn startas om när du har installerat CLI.
 
-## Autentisering
+## <a name="authentication"></a>Autentisering
 Den här artikeln använder en enklare metod för autentisering med Data Lake Store där du loggar in som en användare av slutanvändaren. Åtkomstnivå till Data Lake Store-kontot och filsystemet styrs av åtkomstnivån för den inloggade användaren. Det finns dock olika sätt att autentisera med Data Lake Store: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Autentisera med Data Lake Store med Azure Active Directory (Authenticate with Data Lake Store using Azure Active Directory)](data-lake-store-authenticate-using-active-directory.md).
 
-## Logga in till din Azure-prenumeration
+## <a name="login-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 1. Följ stegen i [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet (Azure CLI)](../xplat-cli-connect.md) och anslut till din prenumeration med hjälp av metoden `azure login`.
 2. Lista över prenumerationer som är kopplade till ditt konto med hjälp av kommandot `azure account list`.
    
@@ -56,7 +60,7 @@ Den här artikeln använder en enklare metod för autentisering med Data Lake St
    
         azure account set Azure-sub-2
 
-## Skapa ett Azure Data Lake Store-konto
+## <a name="create-an-azure-data-lake-store-account"></a>Skapa ett Azure Data Lake Store-konto
 Öppna en kommandotolk, gränssnitt, eller en terminalsession och kör följande kommandon.
 
 1. Växla till läget Azure Resource Manager, med följande kommando:
@@ -71,7 +75,7 @@ Den här artikeln använder en enklare metod för autentisering med Data Lake St
    
         azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
 
-## Skapa mappar i din Data Lake Store
+## <a name="create-folders-in-your-data-lake-store"></a>Skapa mappar i din Data Lake Store
 Du kan skapa mappar under Azure Data Lake Store-kontot för att hantera och lagra data. Använd följande kommando för att skapa en mapp med namnet "mynewfolder" i roten på Data Lake Store.
 
     azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
@@ -80,7 +84,7 @@ Exempel:
 
     azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
 
-## Ladda upp data till din Data Lake Store
+## <a name="upload-data-to-your-data-lake-store"></a>Ladda upp data till din Data Lake Store
 Du kan ladda upp data till Data Lake Store direkt på rotnivå eller till en mapp som du har skapat i kontot. Fragmenten nedan visar hur du laddar upp exempeldata till mappen (**mynewfolder**) som du skapade i föregående avsnitt.
 
 Om du behöver exempeldata att ladda upp, kan du hämta mappen **Ambulansdata** från [Azure Data Lake Git-lagringsplatsen](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Hämta filen och lagra den på en lokal katalog på din dator, till exempel C:\sampledata\.
@@ -92,7 +96,7 @@ Exempel:
     azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
 
 
-## Lista över filer i Data Lake Store
+## <a name="list-files-in-data-lake-store"></a>Lista över filer i Data Lake Store
 Använd följande kommando för att visa filer i ett Data Lake Store-konto.
 
     azure datalake store filesystem list <dataLakeStoreAccountName> <path>
@@ -117,7 +121,7 @@ Resultatet av detta ska se ut ungefär så här:
     data:    ------------------------------------------------------------------------------------
     info:    datalake store filesystem list command OK
 
-## Byt namn, hämta och ta bort data från din Data Lake Store
+## <a name="rename-download-and-delete-data-from-your-data-lake-store"></a>Byt namn, hämta och ta bort data från din Data Lake Store
 * **Byt namn på en fil** med hjälp av följande kommando:
   
         azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
@@ -142,7 +146,7 @@ Resultatet av detta ska se ut ungefär så här:
   
     När du uppmanas, trycker du på **Y** för att ta bort objektet.
 
-## Visa åtkomstkontrollistan för en mapp i Data Lake Store
+## <a name="view-the-access-control-list-for-a-folder-in-data-lake-store"></a>Visa åtkomstkontrollistan för en mapp i Data Lake Store
 Använd följande kommando om du vill visa ACL:er i en Data Lake Store-mapp. I den aktuella versionen kan ACL:er endast anges i roten på Data Lake Store. Sökvägsparametern kommer därför attvara rot (/).
 
     azure datalake store permissions show <dataLakeStoreName> <path>
@@ -152,7 +156,7 @@ Exempel:
     azure datalake store permissions show mynewdatalakestore /
 
 
-## Ta bort ditt Data Lake Store-konto
+## <a name="delete-your-data-lake-store-account"></a>Ta bort ditt Data Lake Store-konto
 Använd följande kommando för att ta bort ett Data Lake Store-konto.
 
     azure datalake store account delete <dataLakeStoreAccountName>
@@ -163,7 +167,7 @@ Exempel:
 
 När du uppmanas, anger du **Y** för att ta bort kontot.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
 * [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Använd Azure HDInsight med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -172,6 +176,6 @@ När du uppmanas, anger du **Y** för att ta bort kontot.
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

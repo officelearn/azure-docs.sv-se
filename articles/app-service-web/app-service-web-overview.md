@@ -1,19 +1,23 @@
 ---
-title: Översikt över Web Apps | Microsoft Docs
-description: Ta reda på hur Azure App Service hjälper dig att utveckla och hantera webbappar.
+title: "Översikt över Web Apps | Microsoft Docs"
+description: "Ta reda på hur Azure App Service hjälper dig att utveckla och hantera webbappar."
 services: app-service\web
-documentationcenter: ''
-author: jaime-espinosa
-manager: wpickett
-editor: ''
-
+documentationcenter: 
+author: cephalin
+manager: erikre
+editor: 
+ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2016
-ms.author: rachelap
+ms.date: 10/28/2016
+ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d366fc36e2731be34d70fd4e4fa082370c452d63
+
 
 ---
 # <a name="web-apps-overview"></a>Översikt över Web Apps
@@ -21,14 +25,15 @@ ms.author: rachelap
 
 I följande 5 minuter långa video får du en introduktion till App Service Web Apps.
 
-[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Web-Apps-with-Yochay-Kiriaty/player]
-
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Web-Apps-with-Yochay-Kiriaty/player]
+>
+>
 
 > [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
 > 
 > 
 
-## <a name="what-is-a-web-app-in-app-service?"></a>Vad är en webbapp i App Service för något?
+## <a name="what-is-a-web-app-in-app-service"></a>Vad är en webbapp i App Service för något?
 I App Service är en *webbapp* de beräkningsresurser som Azure tillhandahåller för hantering av en webbplats eller webbapp.  
 
 Beräkningsresurserna kan finnas på delade eller dedikerade virtuella datorer, beroende på prisnivå. Programkoden körs på en hanterad virtuell dator som är isolerad från andra kunder.
@@ -37,12 +42,12 @@ Koden kan vara i valfritt språk eller ramverk som hanteras av [Azure App Servic
 
 Exempel på vanliga programscenarier som du kan använda Web Apps för finns i avsnitten [Webbapp-scenarier](https://azure.microsoft.com/documentation/scenarios/web-app/) och **Scenarier och rekommendationer** i [Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services](choose-web-site-cloud-service-vm.md#scenarios).
 
-## <a name="why-use-web-apps?"></a>Fördelar med att använda Web Apps
+## <a name="why-use-web-apps"></a>Fördelar med att använda Web Apps
 Här följer några funktioner i App Service som gäller för Web Apps:
 
 * **Flera språk och ramverk** – App Service har förstklassigt stöd för ASP.NET, Node.js, Java, PHP och Python. Du kan också köra [PowerShell och andra skript och körbara filer](web-sites-create-web-jobs.md) på virtuella datorer i App Service.
 * **DevOps-optimering** – Konfigurera [kontinuerlig integrering och distribution](app-service-continuous-deployment.md) med Visual Studio Team Services, GitHub eller BitBucket. Flytta upp uppdateringar via [test- och mellanlagringsmiljöer](web-sites-staged-publishing.md). Utför [A/B-test](app-service-web-test-in-production-get-start.md). Hantera dina appar i App Service med [Azure PowerShell](../powershell-install-configure.md) eller det [plattformsoberoende kommandoradsgränssnittet (CLI)](../xplat-cli-install.md).
-* **Global skala med hög tillgänglighet** – skala [upp](web-sites-scale.md) och [ned](../azure-portal/insights-how-to-scale.md) manuellt och automatiskt. Hantera appar var som helst i Microsofts globala datacenterinfrastruktur med hög tillgänglighet tack vare [serviceavtalet](https://azure.microsoft.com/support/legal/sla/app-service/) för App Service.
+* **Global skala med hög tillgänglighet** – skala [upp](web-sites-scale.md) och [ned](../monitoring-and-diagnostics/insights-how-to-scale.md) manuellt och automatiskt. Hantera appar var som helst i Microsofts globala datacenterinfrastruktur med hög tillgänglighet tack vare [serviceavtalet](https://azure.microsoft.com/support/legal/sla/app-service/) för App Service.
 * **Anslutningar till SaaS-plattformar och lokala data ** – välj bland fler än 50 [anslutningsappar](../connectors/apis-list.md) för företagssystem (till exempel SAP, Siebel och Oracle), SaaS-tjänster (till exempel Salesforce och Office 365) och internettjänster (till exempel Facebook och Twitter). Åtkomst till lokala data via [hybridanslutningar ](../biztalk-services/integration-hybrid-connection-overview.md) och [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Säkerhet och efterlevnad** – App Service [uppfyller ISO, SOC och PCI](https://www.microsoft.com/TrustCenter/).
 * **Programmallar** – välj från en omfattande lista med programmallar i [Azure Marketplace](https://azure.microsoft.com/marketplace/) där du kan använda en guide till att installera populära program med öppen källkod som WordPress, Joomla och Drupal.
@@ -57,6 +62,9 @@ Kom igång med att distribuera exempelkod för en ny webbapp i App Service genom
 
 Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inget kreditkort krävs, och du gör inga åtaganden.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

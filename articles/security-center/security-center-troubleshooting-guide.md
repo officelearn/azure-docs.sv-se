@@ -1,25 +1,29 @@
 ---
-title: Felsökningsguide för Azure Security Center | Microsoft Docs
-description: Det här dokumentet hjälper dig att felsöka problem i Azure Security Center.
+title: "Felsökningsguide för Azure Security Center | Microsoft Docs"
+description: "Det här dokumentet hjälper dig att felsöka problem i Azure Security Center."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2016
+ms.date: 10/18/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0413d5c87d6df4d07b0e3197599aad154b589bb2
+
 
 ---
-# Felsökningsguide för Azure Security Center
+# <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.
 
-## Felsökningsguide
+## <a name="troubleshooting-guide"></a>Felsökningsguide
 I den här guiden förklaras hur du felsöker Security Center-relaterade problem. Den mesta felsökningen i Security Center kommer att ske genom att först granska [Granskningslogg](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/)-posterna för den felaktiga komponenten. Via granskningsloggarna kan du fastställa:
 
 * Vilka åtgärder som har vidtagits
@@ -30,7 +34,7 @@ I den här guiden förklaras hur du felsöker Security Center-relaterade problem
 
 Granskningsloggen innehåller alla skrivåtgärder (PUT, POST, DELETE) som utförs på dina resurser, men omfattar inte läsåtgärder (GET).
 
-## Felsöka övervakningsagentinstallation i Windows
+## <a name="troubleshooting-monitoring-agent-installation-in-windows"></a>Felsöka övervakningsagentinstallation i Windows
 Övervakningsagenten i Security Center används för att samla in data. När datainsamling är aktiverat och agenten är korrekt installerad i måldatorn, ska de här processerna köras:
 
 * ASMAgentLauncher.exe – Azure Monitoring Agent 
@@ -50,7 +54,7 @@ Du kan också få mer information om installationsprocessen genom att läsa de a
 > 
 > 
 
-## Felsöka installationen av övervakningsagenten i Linux
+## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Felsöka installationen av övervakningsagenten i Linux
 När du felsöker en VM-agentinstallation i ett Linux-system bör du kontrollera att tillägget har laddats ned till /var/lib/waagent/. Du kan köra kommandot nedan för att kontrollera om det är installerat:
 
 `cat /var/log/waagent.log` 
@@ -64,12 +68,12 @@ Du bör se en anslutning till mdsd-processen på TCP 29130 i ett fungerande syst
 
 `netstat -plantu | grep 29130`
 
-## Kontakta Microsoft Support
+## <a name="contacting-microsoft-support"></a>Kontakta Microsoft Support
 Vissa problem kan identifieras med hjälp av riktlinjerna i den här artikeln, andra hittar du också dokumenterade i Security Centers offentliga [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). Om du behöver ytterligare felsökning kan du öppna en ny supportbegäran med hjälp av Azure Portal enligt nedan: 
 
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## Se även
+## <a name="see-also"></a>Se även
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md) – Här får du lära dig att planera och vad du behöver tänka på när det gäller design när du ska börja använda Azure Security Center.
@@ -79,6 +83,9 @@ I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i A
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

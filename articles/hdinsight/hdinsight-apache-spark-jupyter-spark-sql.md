@@ -1,30 +1,34 @@
 ---
-title: Skapa ett Spark-kluster i HDInsight Linux och använda Spark SQL från Jupyter för interaktiv analys | Microsoft Docs
-description: Stegvisa instruktioner om hur du snabbt skapar ett Apache Spark-kluster i HDInsight och sedan använder Spark SQL från Jupyter-anteckningsböcker för att köra interaktiva frågor.
+title: "Skapa ett Spark-kluster i HDInsight Linux och använda Spark SQL från Jupyter för interaktiv analys | Microsoft Docs"
+description: "Stegvisa instruktioner om hur du snabbt skapar ett Apache Spark-kluster i HDInsight och sedan använder Spark SQL från Jupyter-anteckningsböcker för att köra interaktiva frågor."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/05/2016
+ms.date: 10/28/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 906d78b3177289dc5d2806ec9fbdb868a5bcb6fb
+
 
 ---
-# Komma igång: Skapa ett Apache Spark-kluster i HDInsight Linux och köra interaktiva frågor med Spark SQL
+# <a name="get-started-create-apache-spark-cluster-on-hdinsight-linux-and-run-interactive-queries-using-spark-sql"></a>Komma igång: Skapa ett Apache Spark-kluster i HDInsight Linux och köra interaktiva frågor med Spark SQL
 Lär dig hur du skapar ett Apache Spark-kluster i HDInsight och sedan använder  [Jupyter](https://jupyter.org)-anteckningsboken för att köra interaktiva Spark SQL-frågor i Spark-klustret.
 
    ![Komma igång med Apache Spark i HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Krav
+## <a name="prerequisites"></a>Krav
 * **En Azure-prenumeration**. Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **En Secure Shell-klient (SSH)**: Linux-, Unix- och OS X-system etablerar en SSH-klient via `ssh`-kommandot. För Windows-system rekommenderar vi [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 * **Secure Shell-nycklar (SSH) (valfritt)**: Du kan skydda det SSH-konto som används för att ansluta till klustret med ett lösenord eller en offentlig nyckel. Med hjälp av ett lösenord kommer du snabbt igång och du bör använda det här alternativet om du snabbt vill skapa ett kluster och köra några testjobb. Att använda en nyckel är säkrare men kräver ytterligare inställningar. Du kanske vill använda den här metoden när du skapar ett produktionskluster. I den här artikeln använder vi lösenordsmetoden. Instruktioner om hur du skapar och använder SSH-nycklar med HDInsight finns i följande artiklar:
@@ -37,10 +41,10 @@ Lär dig hur du skapar ett Apache Spark-kluster i HDInsight och sedan använder 
 > 
 > 
 
-### Åtkomstkontrollkrav
+### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Skapa Spark-kluster
+## <a name="create-spark-cluster"></a>Skapa Spark-kluster
 I det här avsnittet skapar du ett HDInsight-version 3.4 kluster (Sparkversion 1.6.1) med hjälp av en mall för Azure-resurshanteraren. Information om HDInsight-versioner och deras serviceavtal finns i [Versionshantering för HDInsight-komponenter](hdinsight-component-versioning.md). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Klicka på följande bild för att öppna mallen i Azure Portal.         
@@ -63,16 +67,20 @@ I det här avsnittet skapar du ett HDInsight-version 3.4 kluster (Sparkversion 1
      > 
      > Mer information om hur du använder SSH med HDInsight finns i följande artiklar:
      > 
-     > * [Använda SSH med Linux-baserat Hadoop i HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-     > * [Använda SSH med Linux-baserat Hadoop i HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+     > * [Använd SSH med Linux-baserad Hadoop på HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+     > * [Använd SSH med Linux-baserad Hadoop på HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
      > 
      > 
+
 3. Spara parametrarna genom att klicka på **OK**.
+
 4. I bladet **Anpassad distribution** klickar du på listrutan **Resursgrupp** och sedan på **Ny** för att skapa en ny resursgrupp. Resursgruppen är en behållare som grupperar klustret, det beroende lagringskontot och andra länkade resurser.
+
 5. Klicka på **Juridiska villkor** och sedan på **Skapa**.
+
 6. Klicka på **Skapa**. En ny panel visas med rubriken Skicka distribution för malldistribution. Det tar cirka 20 minuter att skapa klustret och SQL Database.
 
-## Köra Spark SQL-frågor med en Jupyter-anteckningsbok
+## <a name="run-spark-sql-queries-using-a-jupyter-notebook"></a>Köra Spark SQL-frågor med en Jupyter-anteckningsbok
 I det här avsnittet använder du Jupyter-anteckningsboken för att köra Spark SQL-frågor mot Spark-klustret. HDInsight Spark-kluster tillhandahåller två kernlar som du kan använda med Jupyter-anteckningsboken. Dessa är:
 
 * **PySpark** (för appar som skrivits i Python)
@@ -84,7 +92,7 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 * Du kan använda användbara cellfunktioner som `%%sql` för att köra dina SQL- eller Hive-frågor direkt utan några föregående kodfragment.
 * Utdata för SQL- eller Hive-frågor visualiseras automatiskt.
 
-### Skapa en Jupyter-anteckningsbok med PySpark-kernel
+### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Skapa en Jupyter-anteckningsbok med PySpark-kernel
 1. På startsidan i [Azure-portalen](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.   
 2. Från Spark-klusterbladet, klickar du på **Snabblänkar** och sedan på **Jupyter Notebook**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
    
@@ -131,20 +139,20 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 8. När jobbet har slutförts visas följande tabellutdata som standard.
    
-    ![Tabellutdata från frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Table output of query result")
+     ![Tabellutdata från frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Table output of query result")
    
     Du kan också visa resultaten i andra visualiseringar. Ett områdesdiagram för samma utdata skulle som exempel se ut enligt nedan.
    
     ![Områdesdiagram över frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Area graph of query result")
 9. När du har kört appen bör du stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Då avslutas anteckningsboken och stängs ned.
 
-## Ta bort klustret
+## <a name="delete-the-cluster"></a>Ta bort klustret
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Se även
+## <a name="see-also"></a>Se även
 * [Översikt: Apache Spark i Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-### Scenarier
+### <a name="scenarios"></a>Scenarier
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -152,11 +160,11 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 * [Webbplatslogganalys med Spark i HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 * [Application Insight-telemetridataanalys i HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
 
-### Skapa och köra program
+### <a name="create-and-run-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Verktyg och tillägg
+### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att felsöka Spark-program via fjärranslutning](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
@@ -164,7 +172,7 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 * [Använda externa paket med Jupyter-anteckningsböcker](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### Hantera resurser
+### <a name="manage-resources"></a>Hantera resurser
 * [Hantera resurser för Apache Spark-klustret i Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](hdinsight-apache-spark-job-debugging.md)
 
@@ -180,6 +188,6 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

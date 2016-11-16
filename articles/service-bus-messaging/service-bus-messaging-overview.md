@@ -1,12 +1,12 @@
 ---
-title: Översikt över Service Bus-meddelanden | Microsoft Docs
-description: 'Service Bus-meddelanden: flexibel dataöverföring i molnet'
+title: "Översikt över Service Bus-meddelanden | Microsoft Docs"
+description: "Service Bus-meddelanden: flexibel dataöverföring i molnet"
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a1a0ac3fd09cccaffe65aff1350d5ea01174780d
+
 
 ---
-# <a name="service-bus-messaging:-flexible-data-delivery-in-the-cloud"></a>Service Bus-meddelanden: flexibel dataöverföring i molnet
+# <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Service Bus-meddelanden: flexibel dataöverföring i molnet
 Microsoft Azure Service Bus är en tillförlitlig tjänst för informationsleverans. Syftet med den här tjänsten är att underlätta kommunikation. När två eller flera parter vill utbyta information behöver de en kommunikationsmekanism. Service Bus är en asynkron kommunikationsmekanism, det vill säga via en tredje part. Den liknar posttjänster i den fysiska världen. Med posttjänster är det mycket enkelt att skicka olika typer av brev och paket med en rad olika leveransgarantier vart som helst i världen.
 
 På ett liknande sätt som posttjänster levererar brev ger Service Bus en flexibel informationsleverans från både avsändaren och mottagaren. Meddelandetjänsten säkerställer att informationen levereras även om båda parterna aldrig är online samtidigt, eller om de inte är tillgängliga i exakt samma ögonblick. På så vis liknar meddelanden brev, medan icke asynkron kommunikation liknar att ringa ett telefonsamtal (eller hur telefonsamtal brukade vara innan vi hade väntande samtal och nummerpresentatörer, som är mycket mer likt asynkrona meddelanden).
@@ -32,23 +36,26 @@ Den vidarebefordrande tjänsten stöder traditionella envägsmeddelanden, fråga
 
 Du upprättar anslutningen mellan din lokala tjänst och den vidarebefordrande tjänsten med hjälp av en uppsättning ”vidarebefordrande” WCF-bindningar. I bakgrunden mappas vidarebefordringsbindningarna till transportbindningselement som är utformade för att skapa WCF-kanalkomponenter som integreras med Service Bus i molnet.
 
-Service Bus Relay ger många fördelar men kräver att både servern och klienten är online på samma gång för att kunna skicka och ta emot meddelanden. Det är inte optimalt för kommunikation med HTTP-format, där frågorna kanske vanligtvis inte är långlivade, eller för klienter som ansluter bara ibland, till exempel webbläsare, mobila program, och så vidare. Asynkrona meddelandetjänster stöder frikopplad kommunikation och har sina fördelar. Klienter och servrar kan ansluta vid behov och utföra sina åtgärder på ett asynkront sätt.
+Service Bus WCF Relay ger många fördelar men kräver att både servern och klienten är online på samma gång för att kunna skicka och ta emot meddelanden. Det är inte optimalt för kommunikation med HTTP-format, där frågorna kanske vanligtvis inte är långlivade, eller för klienter som ansluter bara ibland, till exempel webbläsare, mobila program, och så vidare. Asynkrona meddelandetjänster stöder frikopplad kommunikation och har sina fördelar. Klienter och servrar kan ansluta vid behov och utföra sina åtgärder på ett asynkront sätt.
 
 ## <a name="brokered-messaging"></a>Asynkron meddelandetjänst
 Till skillnad från det vidarebefordrande schemat kan [asynkrona meddelandetjänster](service-bus-queues-topics-subscriptions.md) betraktas som icke-synkroniserade, eller ”tillfälligt frånkopplade”. Producenter (avsändare) och konsumenter (mottagare) behöver inte vara online samtidigt. Meddelandeinfrastrukturen lagrar meddelanden på ett tillförlitligt sätt hos en ”mellanhand” (till exempel en kö) tills konsumentparten är redo att ta emot dem. Detta gör att komponenterna i den distribuerade appen kan frikopplas, antingen frivilligt, till exempel för underhåll, eller på grund av en komponentkrasch, utan att detta påverkar hela systemet. Dessutom behöver det mottagande programmet bara vara anslutet vid vissa tidpunkter på dagen, till exempel ett lagersystem som endast behöver köras i slutet av arbetsdagen.
 
 Kärnkomponenterna i infrastrukturen för den asynkrona meddelandetjänsten i Service Bus är köer, ämnen och prenumerationer.  Den viktigaste skillnaden är att avsnitt stöder funktioner för publicering/prenumereration som kan användas för avancerad innehållsbaserad routning och leveranslogik, inklusive sändning till flera mottagare. De här komponenterna möjliggör nya asynkrona meddelandescenarier, till exempel temporär frikoppling, publicera/prenumerera och belastningsutjämning. Mer information om dessa meddelandeenheter finns på [Service Bus-köer, -ämnen och -prenumerationer](service-bus-queues-topics-subscriptions.md).
 
-Som med infrastrukturen för vidarebefordrande har den asynkrona meddelandetjänsten funktioner för WCF- och .NET Framework-programmerare och även via REST.
+Som med WCF-infrastrukturen för vidarebefordrande har den asynkrona meddelandetjänsten funktioner för WCF- och .NET Framework-programmerare och även via REST.
 
 ## <a name="next-steps"></a>Nästa steg
 I följande ämnen kan du lära dig mer om Service Bus-meddelanden.
 
-* [Service Bus-grunder](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Använd Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

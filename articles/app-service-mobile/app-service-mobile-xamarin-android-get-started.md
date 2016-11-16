@@ -1,12 +1,12 @@
 ---
-title: Kom igång med Azure Mobile Apps för Xamarin.Android-appar
-description: I den här kursen får du hjälp att komma igång med Azure Mobile Apps för Xamarin Android-utveckling
+title: "Kom igång med Azure Mobile Apps för Xamarin.Android-appar"
+description: "I den här kursen får du hjälp att komma igång med Azure Mobile Apps för Xamarin Android-utveckling"
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+
 
 ---
-# <a name="create-a-xamarin.android-app"></a>Skapa en Xamarin.Android-app
+# <a name="create-a-xamarinandroid-app"></a>Skapa en Xamarin.Android-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Översikt
@@ -49,10 +53,10 @@ Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilk
 ## <a name="configure-the-server-project"></a>Konfigurera serverprojektet
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarin.android-app"></a>Hämta och kör Xamarin.Android-appen
+## <a name="download-and-run-the-xamarinandroid-app"></a>Hämta och kör Xamarin.Android-appen
 1. Under **Hämta och kör ditt Xamarin.Android-projekt** klickar du på **Hämta**.
    
-    Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
+      Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
 2. Tryck på **F5** för att skapa projektet och starta appen.
 3. Ange en beskrivande text i appen, till exempel *Slutför kursen*, och klicka sedan på **Lägg till**.
    
@@ -61,7 +65,7 @@ Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilk
     Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobilappsserverdelen och data visas i listan.
    
    > [!NOTE]
-   > Du kan se koden som ansluter till mobilappsserverdelen för att fråga efter och infoga data i C#-filen ToDoActivity.cs.
+   >  Du kan se koden som ansluter till mobilappsserverdelen för att fråga efter och infoga data i C#-filen ToDoActivity.cs.
    > 
    > 
 
@@ -84,6 +88,6 @@ Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilk
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

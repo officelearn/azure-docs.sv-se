@@ -1,13 +1,13 @@
 ---
-title: En översikt över Apache Spark i HDInsight | Microsoft Docs
-description: En introduktion till Apache Spark i HDInsight och scenarier där du kan använda Spark på HDInsight i dina program.
+title: "En översikt över Apache Spark i HDInsight | Microsoft Docs"
+description: "En introduktion till Apache Spark i HDInsight och scenarier där du kan använda Spark på HDInsight i dina program."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 82334b9e-4629-4005-8147-19f875c8774e
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/25/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f7dafd3808b688cf1a7aff43ab996fb8e3d48cb9
+
 
 ---
-# Översikt: Apache Spark i HDInsight Linux
+# <a name="overview-apache-spark-on-hdinsight-linux"></a>Översikt: Apache Spark i HDInsight Linux
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> är ett ramverk för parallellbearbetning med öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordataanalys. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks funktioner för beräkning i minnet gör det till ett bra alternativ för iterativa algoritmer i Machine Learning och grafberäkningar. Spark är kompatibelt med Azure Blob Storage (WASB). Det gör att dina befintliga data som lagras i Azure enkelt kan bearbetas via Spark.
 
 När du skapar ett Spark-kluster i HDInsight skapas Azure-beräkningsresurser med Spark installerat och konfigurerat. Det tar bara ungefär tio minuter att skapa ett Spark-kluster i HDInsight. De data som ska bearbetas lagras i Azure Blob Storage. Se [Använda Azure Blob Storage med HDInsight][hdinsight-storage].
@@ -31,7 +35,7 @@ När du skapar ett Spark-kluster i HDInsight skapas Azure-beräkningsresurser me
 > 
 > 
 
-## Skäl till att använda Apache Spark i Azure HDInsight
+## <a name="why-use-spark-on-azure-hdinsight"></a>Skäl till att använda Apache Spark i Azure HDInsight
 Med Azure HDInsight får du tillgång till en helt hanterad Spark-tjänst. Fördelar med att använda Spark i HDInsight:
 
 | Funktion | Beskrivning |
@@ -48,29 +52,29 @@ Med Azure HDInsight får du tillgång till en helt hanterad Spark-tjänst. Förd
 | Integrering med BI-verktyg |Spark för HDInsight tillhandahåller anslutningsappar för BI-verktyg som [Power BI](http://www.powerbi.com/) och [Tableau](http://www.tableau.com/products/desktop) för dataanalys. |
 | Förinstallerade Anaconda-bibliotek |Spark-kluster i HDInsight kommer med förinstallerade Anaconda-bibliotek. [Anaconda](http://docs.continuum.io/anaconda/) innehåller närmare 200 bibliotek för Machine Learning, dataanalys, visualisering med mera. |
 | Skalbarhet |Du kan ange antalet noder i klustret när du skapar det, men du kan ibland behöva öka eller minska klustrets storlek så att det matchar arbetsbelastningen. Du kan ändra antalet noder i alla HDInsight-kluster. Dessutom kan du ta bort Spark-kluster utan någon dataförlust eftersom alla data lagras i Azure Blob Storage. |
-| Dygnet runt-support hela veckan |Spark på HDInsight levereras med dygnet runt-support på företagsnivå veckans alla dagar och ett serviceavtal för 99,9 % drifttid. |
+| Dygnet runt-support hela veckan |Spark på HDInsight levereras med dygnet runt-support på företagsnivå veckans alla dagar och ett serviceavtal för 99,9 % drifttid. |
 
-## Hur kan Spark i HDInsight användas?
+## <a name="what-are-the-use-cases-for-spark-on-hdinsight"></a>Hur kan Spark i HDInsight användas?
 Med Apache Spark i HDInsight kan du göra följande.
 
-### Interaktiv dataanalys och BI
+### <a name="interactive-data-analysis-and-bi"></a>Interaktiv dataanalys och BI
 [Titta på en genomgång](hdinsight-apache-spark-use-bi-tools.md)
 
 Apache Spark i HDInsight lagrar data i Azure Blob. Affärsexperter och beslutsfattare kan analysera och skapa rapporter över dessa data och använda Microsoft Power BI till att skapa interaktiva rapporter utifrån analyserade data. Analytiker kan utgå ifrån ostrukturerade/halvstrukturerade data i Azure Storage, definiera ett schema för data med anteckningsböcker och sedan skapa datamodeller med Microsoft Power BI. Spark i HDInsight har också stöd för ett antal BI-verktyg från tredje part, bland annat Tableau, Qlikview och SAP Lumira. Det gör det till en utmärkt plattform för dataanalytiker, affärsexperter och beslutsfattare.
 
-### Iterativ Machine Learning
+### <a name="iterative-machine-learning"></a>Iterativ Machine Learning
 [Titta på en genomgång: Förutsäga temperaturer i en byggnad med hjälp av HVAC-data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 [Titta på en genomgång: Förutsäga resultatet av en livsmedelskontroll](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
 Med Apache Spark medföljer Machine Learning-biblioteket [MLlib](http://spark.apache.org/mllib/) som är byggt på Spark. Dessutom innehåller Spark i HDInsight Anaconda, en Python-distribution med en rad olika paket för Machine Learning. Ihop med det inbyggda stödet för Jupyter-anteckningsböcker ger det en förstklassig miljö att skapa Machine Learning-program i.  
 
-### Strömning och dataanalys i realtid
+### <a name="streaming-and-realtime-data-analysis"></a>Strömning och dataanalys i realtid
 [Titta på en genomgång](hdinsight-apache-spark-eventhub-streaming.md)
 
 Dataanalys i realtid används för allt från att förkorta tiden för datainsikter, i och med att data bearbetas direkt, till att skapa en lösning för verklig strömning. Spark i HDInsight innehåller omfattande stöd för att skapa lösningar för realtidsanalys. Spark har anslutningsappar för att föra in data från ett flertal källor som Kafka, Flume, Twitter, ZeroMQ och TCP-socket. Med Spark i HDInsight får du dessutom förstklassig stöd för att föra in data från Azure Event Hubs. Event Hubs är den vanligast använda kötjänsten på Azure. Det inbyggda stödet för Event Hubs gör HDInsight till en perfekt plattform för att skapa en pipeline för realtidsanalyser.
 
-## <a name="next-steps"></a>Vilka komponenter medföljer som en del i ett Spark-kluster?
+## <a name="a-namenextstepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>Vilka komponenter medföljer som en del i ett Spark-kluster?
 Spark i HDInsight innehåller följande komponenter som är tillgängliga i klustren som standard.
 
 * [Spark Core](https://spark.apache.org/docs/1.5.1/). Omfattar Spark Core, Spark SQL, Spark-API:er för strömning, GraphX och MLlib.
@@ -80,22 +84,22 @@ Spark i HDInsight innehåller följande komponenter som är tillgängliga i klus
 
 Spark i HDInsight tillhandahåller även en [ODBC-drivrutin](http://go.microsoft.com/fwlink/?LinkId=616229) för anslutning till Spark-kluster i HDInsight från BI-verktyg som Microsoft Power BI och Tableau.
 
-## Vad ska jag börja med?
+## <a name="where-do-i-start"></a>Vad ska jag börja med?
 Börja med att skapa ett Spark-kluster i HDInsight Linux. Se [Snabbstart: skapa ett Spark-kluster i HDInsight Linux och köra exempelprogram med Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
-## Nästa steg
-### Scenarier
+## <a name="next-steps"></a>Nästa steg
+### <a name="scenarios"></a>Scenarier
 * [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](hdinsight-apache-spark-eventhub-streaming.md)
 * [Webbplatslogganalys med Spark i HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### Skapa och köra program
+### <a name="create-and-run-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Verktyg och tillägg
+### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att felsöka Spark-program via fjärranslutning](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
@@ -103,7 +107,7 @@ Börja med att skapa ett Spark-kluster i HDInsight Linux. Se [Snabbstart: skapa 
 * [Använda externa paket med Jupyter-anteckningsböcker](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### Hantera resurser
+### <a name="manage-resources"></a>Hantera resurser
 * [Hantera resurser för Apache Spark-klustret i Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](hdinsight-apache-spark-job-debugging.md)
 
@@ -111,6 +115,6 @@ Börja med att skapa ett Spark-kluster i HDInsight Linux. Se [Snabbstart: skapa 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

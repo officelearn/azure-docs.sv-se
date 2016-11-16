@@ -1,10 +1,11 @@
 ---
-title: Skicka frågor mot ditt Azure Search-index med .NET SDK | Microsoft Docs
-description: Skapa en sökfråga i Azure Search och använd sökparametrar för att filtrera och sortera sökresultat.
+title: "Skicka frågor mot ditt Azure Search-index med hjälp av .NET SDK | Microsoft Docs"
+description: "Skapa en sökfråga i Azure Search och använd sökparametrar för att filtrera och sortera sökresultat."
 services: search
-documentationcenter: ''
+manager: jhubbard
+documentationcenter: 
 author: brjohnstmsft
-
+ms.assetid: 12c3efba-ea99-4187-9d2d-f63b5ec7040d
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -12,13 +13,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f85c3a0d3bb9fb61802ba3ce070ead2e650a29cc
+
 
 ---
-# Skicka frågor till ditt Azure Search-index med hjälp av .NET-SDK
+# <a name="query-your-azure-search-index-using-the-net-sdk"></a>Skicka frågor till ditt Azure Search-index med hjälp av .NET-SDK
 > [!div class="op_single_selector"]
 > * [Översikt](search-query-overview.md)
 > * [Portalen](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
+> * [NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
 > 
 > 
@@ -29,7 +34,7 @@ Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Sea
 
 Observera att all exempelkod i den här artikeln är skriven i C#. Du hittar den fullständiga källkoden [på GitHub](http://aka.ms/search-dotnet-howto).
 
-## I. Identifiera API-frågenyckeln för Azure Search-tjänsten
+## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Identifiera API-frågenyckeln för Azure Search-tjänsten
 Nu när du har skapat ett Azure Search-index är du nästan redo att skicka frågor med hjälp av .NET SDK. Först måste du skaffa en av API-frågenycklarna som genererades för söktjänsten som du etablerade. .NET SDK skickar den här API-nyckeln vid varje begäran till tjänsten. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
@@ -43,7 +48,7 @@ Tjänsten har *administratörsnycklar* och *frågenycklar*.
 
 Du kan använda en av din frågenycklar för att skicka frågor till ett index. Administratörsnycklarna kan även användas för frågor, men du bör använda en frågenyckel i programkoden eftersom detta bättre överensstämmer med [principen om lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## II. Skapa en instans av klassen SearchIndexClient
+## <a name="ii-create-an-instance-of-the-searchindexclient-class"></a>II. Skapa en instans av klassen SearchIndexClient
 Om du vill skicka frågor med Azure Search .NET SDK måste du skapa en instans av klassen `SearchIndexClient`. Den här klassen har flera konstruktorer. Den som du vill använda har namnet på din söktjänst, ett indexnamn och ett `SearchCredentials`-objekt som parametrar. `SearchCredentials` omsluter din API-nyckel.
 
 Koden nedan skapar en ny `SearchIndexClient` för indexet ”hotels” (skapas i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md)) med värdena för söktjänstens namn och API-nyckel som lagras i programmets konfigurationsfil (`app.config` eller `web.config`):
@@ -57,15 +62,15 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 
 `SearchIndexClient` har en `Documents`-egenskap. Den här egenskapen tillhandahåller alla metoder som du behöver för att skicka frågor mot Azure Search-index.
 
-## III. Skicka frågor mot ditt index
+## <a name="iii-query-your-index"></a>III. Skicka frågor mot ditt index
 Det är enkelt att söka med .NET SDK. Du anropar bara `Documents.Search`-metoden för din `SearchIndexClient`. Den här metoden stöder några parametrar, inklusive söktexten, tillsammans med ett `SearchParameters`-objekt som kan användas för att ytterligare förfina frågan.
 
-#### Typer av frågor
+#### <a name="types-of-queries"></a>Typer av frågor
 De två viktigaste [frågetyperna](search-query-overview.md#types-of-queries) som du använder är `search` och `filter`. En `search`-fråga söker efter en eller flera termer i alla *sökbara* fält i ditt index. En `filter`-fråga utvärderar ett booleskt uttryck i alla *filtrerbara* fält i ett index.
 
 Både sökningar och filtreringar utförs med hjälp av metoden `Documents.Search`. En sökfråga kan skickas i parametern `searchText`, medan ett filteruttryck kan skickas i `Filter`-egenskapen för klassen `SearchParameters`. Om du vill filtrera utan sökning skickar du bara `"*"` för `searchText`-parametern. Om du vill söka utan filtrering lämnar du bara `Filter`-egenskapen odefinierad eller väljer att inte skicka den i en `SearchParameters`-instans över huvud taget.
 
-#### Exempelfrågor
+#### <a name="example-queries"></a>Exempelfrågor
 Följande exempelkod visar hur du kan skicka frågor mot ”hotels”-indexet som beskrivs i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md#DefineIndex) på några olika sätt. Observera att dokumenten som returneras med sökresultaten är instanser av `Hotel`-klassen som definierades i [Dataimport i Azure Search med .NET SDK](search-import-data-dotnet.md#HotelClass). Exempelkoden utnyttjar en `WriteDocuments`-metod för att mata ut sökresultaten till konsolen. Den här metoden beskrivs i nästa avsnitt.
 
 ```csharp
@@ -122,7 +127,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## IV. Hantera sökresultat
+## <a name="iv-handle-search-results"></a>IV. Hantera sökresultat
 Metoden `Documents.Search` returnerar ett `DocumentSearchResult`-objekt som innehåller resultatet av frågan. I exemplet i föregående avsnitt användes metoden `WriteDocuments` för att mata ut sökresultatet till konsolen:
 
 ```csharp
@@ -162,6 +167,9 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 Exempelkoden ovan använder konsolen för att mata ut sökresultat. Du behöver också visa sökresultat i ditt eget program. Ett exempel på hur du kan visa sökresultat i en ASP.NET MVC-baserad webbapp finns i [det här exemplet på GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

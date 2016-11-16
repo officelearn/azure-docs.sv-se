@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Så här lägger du till ett nytt lagringskonto i StorSimple Release-versionen (GA)
+#### <a name="to-add-a-new-storage-account-in-storsimple-release-version-ga"></a>Så här lägger du till ett nytt lagringskonto i StorSimple Release-versionen (GA)
 1. På StorSimple Manager-tjänstens startsida väljer du din tjänst och dubbelklickar på den. Då kommer du till **Snabbstart**-sidan. Välj fliken **Konfigurera**.
 2. Klicka på **Lägg till/redigera lagringskonto**.
 3. I dialogrutan **lägg till/redigera lagringskonto**, gör du följande:
@@ -14,6 +14,8 @@
       ![Lägg till lagringskonto](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. Det nyligen skapade lagringskontot kommer att visas på sidan **Konfigurera**, under **Lagringskonton**. Klicka på **Spara** för att spara det nyligen skapade lagringskontot. Klicka på **OK** när du uppmanas att bekräfta.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

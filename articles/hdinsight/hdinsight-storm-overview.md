@@ -1,13 +1,13 @@
 ---
-title: Introduktion till Apache Storm på HDInsight | Microsoft Docs
-description: Få en introduktion till Apache Storm och lär dig hur du kan använda Storm på HDInsight för att skapa lösningar för dataanalys i realtid i molnet.
+title: "Introduktion till Apache Storm på HDInsight | Microsoft Docs"
+description: "Få en introduktion till Apache Storm och lär dig hur du kan använda Storm på HDInsight för att skapa lösningar för dataanalys i realtid i molnet."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,15 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+
 
 ---
-# Introduktion till Apache Storm på HDInsight: analys i realtid för Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Introduktion till Apache Storm på HDInsight: analys i realtid för Hadoop
 Apache Storm på HDInsight gör att du kan skapa distribuerade analyslösningar i realtid i Azure-miljön med [Apache Hadoop](http://hadoop.apache.org).
 
-## Vad är Apache Storm?
+## <a name="what-is-apache-storm"></a>Vad är Apache Storm?
 Apache Storm är ett distribuerat, feltolerant, öppet system för källkodsberäkning som gör det möjligt att bearbeta data i realtid med Hadoop. Storm-lösningar kan även ge garanterad bearbetning av data med möjlighet att på nytt spela upp data som inte bearbetades första gången.
 
-## Varför använda Storm på HDInsight?
+## <a name="why-use-storm-on-hdinsight"></a>Varför använda Storm på HDInsight?
 Apache Storm på HDInsight är ett hanterat kluster som är integrerat i Azure-miljön. Det ger följande viktiga fördelar:
 
 * Utförs som en hanterad tjänst med ett SLA för 99,9 % drifttid
@@ -45,7 +49,7 @@ En lista över företag som använder Apache Storm för sina lösningar för ana
 
 Information om att komma igång med Storm finns i [Kom igång med Storm på HDInsight][gettingstarted].
 
-### Enkel etablering
+### <a name="ease-of-provisioning"></a>Enkel etablering
 Du kan etablera ett nytt Storm på HDInsight-kluster på bara några minuter. Ange klusternamn, storlek, administratörskonto och lagringskonto. Azure skapar klustret, inklusive exempeltopologier och en instrumentpanel för webbhantering.
 
 > [!NOTE]
@@ -55,7 +59,7 @@ Du kan etablera ett nytt Storm på HDInsight-kluster på bara några minuter. An
 
 Inom 15 minuter från det att du har skickat förfrågan har du ett nytt Storm-kluster redo för din första pipeline för realtidsanalys.
 
-### Användarvänlighet
+### <a name="ease-of-use"></a>Användarvänlighet
 **För Linux-baserade Storm på HDInsight-kluster** kan du ansluta till klustret med SSH och använda `storm`-kommandot för att starta och hantera topologier. Du kan dessutom använda Ambari och övervaka Storm-tjänsten och Storm-gränssnittet för att övervaka och hantera topologier som körs.
 
 Mer information om att arbeta med Linux-baserade Storm-kluster finns i [Kom igång med Apache Storm på Linux-baserade HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
@@ -83,7 +87,7 @@ Storm på HDInsight ger även enkel integrering med Azure Event Hubs via **Event
 * [Utveckla en C#-topologi som använder Azure Event Hubs](hdinsight-storm-develop-csharp-event-hub-topology.md)
 * [Utveckla en Java-topologi som använder Azure Event Hubs](hdinsight-storm-develop-java-event-hub-topology.md)
 
-### Tillförlitlighet
+### <a name="reliability"></a>Tillförlitlighet
 Apache Storm garanterar alltid att varje inkommande meddelande  bearbetas fullständigt, även om dataanalysen är utspridd på hundratals noder.
 
 **Nimbus-noden** ger liknande funktionalitet till Hadoop JobTracker och tilldelar aktiviteter till andra noder i klustret via **Zookeeper**. Zookeeper-noder samordnar för klustret och underlättar kommunikationen mellan Nimbus och **Övervakar**-processen på arbetsnoderna. Om en nod för bearbetning kraschar informeras Nimbus-noden och uppgiften och tillhörande data tilldelas till en annan nod.
@@ -92,7 +96,7 @@ Standardkonfigurationen för Apache Storm är att bara ha en Nimbus-nod. Storm p
 
 ![Diagram över nimbus och zookeeper och övervakaren](./media/hdinsight-storm-overview/nimbus.png)
 
-### Skala
+### <a name="scale"></a>Skala
 Du kan ange antalet noder i klustret när du skapar det men du kan ibland behöva öka eller minska klustret så att det matchar arbetsbelastningen. Du kan ändra antalet noder i alla HDInsight-kluster, även under bearbetning av data.
 
 > [!NOTE]
@@ -100,10 +104,10 @@ Du kan ange antalet noder i klustret när du skapar det men du kan ibland behöv
 > 
 > 
 
-### Support
+### <a name="support"></a>Support
 Storm på HDInsight levereras med fullständig support på företagsnivå, dygnet runt. Storm på HDInsight har också ett SLA för 99,9 %. Det innebär att vi garanterar att klustret ska ha extern anslutning minst 99,9 % av tiden.
 
-## Vanliga användning för realtidsanalys
+## <a name="common-use-cases-for-realtime-analytics"></a>Vanliga användning för realtidsanalys
 Nedan följer några vanliga scenarier där du kan använda Apache storm på HDInsight. Information om verkliga scenarier finns i [Hur företag använder Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Sakernas Internet (IoT)
@@ -114,7 +118,7 @@ Nedan följer några vanliga scenarier där du kan använda Apache storm på HDI
 * Söka
 * Mobile engagement
 
-## Hur bearbetas data i HDInsight Storm?
+## <a name="how-is-data-in-hdinsight-storm-processed"></a>Hur bearbetas data i HDInsight Storm?
 Apache Storm kör **topologier** i stället för de MapReduce-jobb som du kanske känner till från HDInsight eller Hadoop. Ett Storm på HDInsight-kluster innehåller två typer av noder: huvudnoder som kör **Nimbus** och arbetsnoder som kör **Övervakare**.
 
 * **Nimbus**: liknar JobTracker i Hadoop och ansvarar för att distribuera kod i hela klustret, att tilldela uppgifter till virtuella datorer och att övervaka så att det inte uppstår fel. HDInsight tillhandahåller två Nimbus-noder så det finns inte en enskild felpunkt för Storm på HDInsight
@@ -136,15 +140,15 @@ Apache Storm kör **topologier** i stället för de MapReduce-jobb som du kanske
 
 Mer information om Storm-komponenter finns i [Storm-självstudierna][apachetutorial] på apache.org.
 
-## Vilka programmeringsspråk kan jag använda?
+## <a name="what-programming-languages-can-i-use"></a>Vilka programmeringsspråk kan jag använda?
 Storm på HDInsight-klustret har stöd för C# och Java och Python.
 
-### C&#35;
+### <a name="c35"></a>C&#35;
 HDInsight Tools för Visual Studio gör att .NET-utvecklare kan utforma och implementera en topologi i C#. Du kan också skapa hybridtopologier som använder Java- och C#-komponenter.
 
 Mer information finns i [Utveckla C#-topologier för Apache Storm på HDInsight med Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-### Java
+### <a name="java"></a>Java
 De flesta Java-exempel du ser är vanlig Java eller Trident. Trident är en abstraktion på hög nivå som gör det enklare att göra sådant som kopplingar, aggregeringar, gruppering och filtrering. Trident fungerar dock på batchar av tupplar, medan en rå Java-lösning bearbetar en ström med en tuppel i taget.
 
 Mer information om Trident finns i [Trident-självstudierna](https://storm.apache.org/documentation/Trident-tutorial.html) på apache.org.
@@ -153,43 +157,43 @@ Exempel på Java- och Trident-topologier finns i [listan över exempel på Storm
 
 Storm-startexemplen finns i katalogen ** /usr/hdp/current/storm-client/contrib/storm-starter** på Linux-baserade kluster och **%storm_home%\contrib\storm-starter** på Windows-baserade kluster.
 
-## Vilka är några vanliga utvecklingsmönster?
-### Garanterad meddelandebehandling
+## <a name="what-are-some-common-development-patterns"></a>Vilka är några vanliga utvecklingsmönster?
+### <a name="guaranteed-message-processing"></a>Garanterad meddelandebehandling
 Storm kan ge olika nivåer av garanterad meddelandebehandling. Ett grundläggande Storm-program kan till exempel garantera bearbetning minst en gång och Trident kan garantera bearbetning exakt en gång.
 
 Mer information finns i [Garantier om databearbetning](https://storm.apache.org/about/guarantees-data-processing.html) på apache.org.
 
-### IBasicBolt
+### <a name="ibasicbolt"></a>IBasicBolt
 Ett mycket vanligt mönstret är att läsa en inkommande tuppel, sända noll eller flera tupplar och sedan kvittera den inkommande tuppeln omedelbart i slutet av metoden och Storm tillhandahåller [IBasicBolt](https://storm.apache.org/apidocs/backtype/storm/topology/IBasicBolt.html) -gränssnittet för att automatisera detta mönster.
 
-### Kopplingar
+### <a name="joins"></a>Kopplingar
 Hur två dataströmmar kopplas samman varierar mellan program. Du kan till exempel koppla samman varje tuppel från flera strömmar  till en ny ström eller så kan du koppla bara batchar av tupplar för ett specifikt fönster. Hur du än gör kan du koppla samman genom att använda  [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29), vilket är ett sätt att definiera hur tupplar skickas till bultar.
 
 I Java-exemplet nedan används fieldsGrouping för att dirigera tupplar som kommer från komponenterna ”1”, ”2” och ”3” till bulten **MyJoiner**.
 
     builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
 
-### Batchbearbetning
+### <a name="batching"></a>Batchbearbetning
 Batchbearbetning kan utföras på flera olika sätt. Med en grundläggande Storm Java-topologi kan du använda enkla räknare för att skapa batchar av X antal tupplar innan de sänds. Du kan även använda en intern tidsmekanism som kallas ”tidstuppel” för att generera en batch var X sekund.
 
 Ett exempel på hur du använder tidstupplar finns i [Analysera sensordata med Storm och HBase på HDInsight](hdinsight-storm-sensor-data-analysis.md).
 
 Om du använder Trident baseras det på att bearbeta batchar av tupplar.
 
-### Cachelagring
+### <a name="caching"></a>Cachelagring
 Minnesintern cachelagring används ofta som en mekanism för snabbare bearbetning eftersom den bevarar ofta använda tillgångar i minnet. Eftersom en topologi distribueras över flera noder och flera processer i varje nod bör du använda [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29) så att tupplar som innehåller de fält som används för cache-sökning alltid dirigeras till samma process. Detta förhindrar duplicering av cacheposter mellan processer.
 
-### Strömma högsta N
+### <a name="streaming-top-n"></a>Strömma högsta N
 När topologin beror på att beräkna ett värde för ”högsta N”, t.ex. de 5 främsta trenderna på Twitter, bör du beräkna det högsta N-värdet parallellt och sedan sammanfoga resultatet av dessa beräkningar i ett globalt värde. Det kan du göra med hjälp av [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29) för att dirigera till de parallella bultarna (som partitionerar data efter fältvärde) och sedan dirigera till en bult som globalt avgör det högsta N-värdet.
 
 Ett exempel på detta finns i [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java).
 
-## Vilken typ av loggning använder Storm?
+## <a name="what-type-of-logging-does-storm-use"></a>Vilken typ av loggning använder Storm?
 Storm använder Apache Log4j för att logga information. Stora mängder data loggas som standard och det kan vara svårt att gå igenom informationen. Du kan ta med en konfigurationsfil för loggning som en del av Storm-topologin för att styra loggningsbeteendet.
 
 En exempeltopologi som visar hur du konfigurerar loggning finns i ett exempel på [Java-baserad WordCount](hdinsight-storm-develop-java-topology.md) för Storm på HDInsight.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Läs mer om lösningarna för realtidsanalys med Apache Storm i HDInsight:
 
 * [Komma igång med Storm på HDInsight][gettingstarted]
@@ -202,6 +206,6 @@ Läs mer om lösningarna för realtidsanalys med Apache Storm i HDInsight:
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

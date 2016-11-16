@@ -1,12 +1,12 @@
 ---
-title: Kom igång med Azure Mobile Engagement för Unity iOS-distribution
-description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Unity-appar som distribueras till iOS-enheter.
+title: "Kom igång med Azure Mobile Engagement för Unity iOS-distribution"
+description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Unity-appar som distribueras till iOS-enheter."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 7ddfbac3-8d13-4ebe-b061-c865f357297f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-ios
@@ -14,30 +14,34 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
+
 
 ---
-# Kom igång med Azure Mobile Engagement för Unity iOS-distribution
+# <a name="get-started-with-azure-mobile-engagement-for-unity-ios-deployment"></a>Kom igång med Azure Mobile Engagement för Unity iOS-distribution
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 I den här artikeln beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i ett Unity-program när du distribuerar till en iOS-enhet.
 Den här kursen använder den klassiska kursen Unity Roll a Ball som startpunkt. Följ stegen i den här [kursen](mobile-engagement-unity-roll-a-ball.md) innan du fortsätter med Mobile Engagement-integreringen som visas i kursen nedan. 
 
-För den här kursen behöver du följande:
+Följande krävs för den här självstudiekursen:
 
 * [Unity Editor](http://unity3d.com/get-unity)
 * [Mobile Engagement Unity SDK](https://aka.ms/azmeunitysdk)
 * XCode Editor
 
 > [!NOTE]
-> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer info om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started).
+> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Konfigurera Mobile Engagement för din iOS-app
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Konfigurera Mobile Engagement för din iOS-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Ansluta appen till Mobile Engagement-serverdelen
-### Importera Unity-paketet
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
+### <a name="import-the-unity-package"></a>Importera Unity-paketet
 1. Hämta [Mobile Engagement Unity-paketet](https://aka.ms/azmeunitysdk) och spara det på din lokala dator. 
 2. Gå till **Assets -> Import Package -> Custom Package** (Tillgångar -> Importera paket -> Anpassat paket) och välj paketet som du hämtade i steget ovan. 
    
@@ -49,13 +53,13 @@ För den här kursen behöver du följande:
    
     ![][72] 
 
-### Uppdatera EngagementConfiguration
+### <a name="update-the-engagementconfiguration"></a>Uppdatera EngagementConfiguration
 1. Öppna skriptfilen **EngagementConfiguration** i SDK-mappen och uppdatera **IOS\_CONNECTION\_STRING** med den anslutningssträng som du tidigare hämtade i Azure Portal.  
    
     ![][73]
 2. Spara filen. 
 
-### Konfigurera appen för grundläggande spårning
+### <a name="configure-the-app-for-basic-tracking"></a>Konfigurera appen för grundläggande spårning
 1. Öppna **PlayerController**-skriptet som är kopplat till Player-objektet för redigering. 
 2. Lägg till följande med instruktionen:
    
@@ -65,7 +69,7 @@ För den här kursen behöver du följande:
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-### Distribuera och kör appen
+### <a name="deploy-and-run-the-app"></a>Distribuera och kör appen
 1. Anslut en iOS-enhet till datorn. 
 2. Öppna **File -> Build Settings** (Arkiv -> Inställningar för byggande). 
    
@@ -90,10 +94,10 @@ För den här kursen behöver du följande:
     ![][75]
 9. Kör appen i XCode så att paketet distribueras till den anslutna enheten. Sedan kan du se Unity-spelet på din mobil. 
 
-## <a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
 Du behöver inte konfigurera något annat i appen för att ta emot meddelanden utan den är redan inställd för det.
 
@@ -115,6 +119,6 @@ Du behöver inte konfigurera något annat i appen för att ta emot meddelanden u
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

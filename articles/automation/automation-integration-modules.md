@@ -1,12 +1,12 @@
 ---
 title: Skapa en Azure Automation-integreringsmodul | Microsoft Docs
-description: Självstudie som steg för steg beskriver hur du skapar, testar och använder integreringsmoduler i Azure Automation.
+description: "Självstudie som steg för steg beskriver hur du skapar, testar och använder integreringsmoduler i Azure Automation."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ca2343c8915690184e63396afa4e45a22a16ec2b
+
 
 ---
-# Azure Automation-integreringsmoduler
+# <a name="azure-automation-integration-modules"></a>Azure Automation-integreringsmoduler
 PowerShell är den grundläggande tekniken bakom Azure Automation. Eftersom Azure Automation bygger på PowerShell är PowerShell-moduler fundamentala för att kunna expandera Azure Automation. I den här artikeln beskriver vi steg för steg hur Azure Automation använder PowerShell-moduler, även kallade ”integreringsmoduler”. Artikeln innehåller också metodtips som hjälper dig att skapa egna PowerShell-moduler som fungerar som integreringsmoduler i Azure Automation. 
 
-## Vad är en PowerShell-modul?
+## <a name="what-is-a-powershell-module"></a>Vad är en PowerShell-modul?
 En PowerShell-modul är en grupp med PowerShell-cmdlets som **Get-Date** eller **Copy-Item**, som kan användas från PowerShell-konsolen, skript, arbetsflöden, runbooks och PowerShell DSC-resurser som WindowsFeature eller File, som kan användas från PowerShell DSC-konfigurationer. Alla funktioner i PowerShell är tillgängliga via cmdlets och DSC-resurser, och varje cmdlet/DSC-resurs backas upp av en PowerShell-modul. Många av dessa medföljer själva PowerShell. Exempelvis är cmdleten **Get-Date** en del av PowerShell-modulen Microsoft.PowerShell.Utility, cmdleten **Copy-Item** en del av PowerShell-modulen Microsoft.PowerShell.Management och Package DSC-resursen en del av PowerShell-modulen PSDesiredStateConfiguration. Båda dessa moduler medföljer PowerShell. Men många PowerShell-moduler levereras inte som en del av PowerShell och distribueras i stället med tillverkarens produkter eller med tredjepartsprodukter som System Center 2012 Configuration Manager eller av den stora PowerShell-communityn, t.ex. via PowerShell-galleriet.  Modulerna är användbara eftersom de gör avancerade uppgifter enklare genom kapslade funktioner.  Du kan lära dig mer om [PowerShell-moduler på MSDN](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx). 
 
-## Vad är en Azure Automation-integreringsmodul?
+## <a name="what-is-an-azure-automation-integration-module"></a>Vad är en Azure Automation-integreringsmodul?
 En integreringsmodul skiljer sig inte så mycket från en PowerShell-modul. Det är bara en PowerShell-modul som kan innehålla ytterligare en fil – en metadatafil som anger en Azure Automation-anslutningstyp som ska användas med modulens cmdletar i runbooks. Oavsett om det gäller valfria filer eller inte kan dessa PowerShell-moduler importeras till Azure Automation så att deras cmdlets kan användas i runbooks och deras DSC-resurser i DSC-konfigurationer. Azure Automation lagrar dessa moduler i bakgrunden och när runbook-jobben och DSC-kompileringsjobben körs läser tjänsten in dem i begränsade Azure Automation-lägen där runbooks körs och DSC-konfigurationer kompileras.  DSC-resurser i moduler placeras också automatiskt på Automation DSC-hämtningsservern så att de kan hämtas av datorer som försöker använda DSC-konfigurationer.  Vi levererar ett antal färdiga Azure PowerShell-moduler med Azure Automation som du kan använda för att snabbt komma igång med automatiseringen av Azure-hanteringen, men du kan enkelt importera PowerShell-moduler för det system, den tjänst eller det verktyg som du vill integrera med. 
 
 > [!NOTE]
@@ -62,7 +66,7 @@ Om modulen ska innehålla en Azure Automation-anslutningstyp måste den också i
 
 Om du har distribuerat Service Management Automation och skapat integreringsmodulpaket för dina Automation-runbooks bör du känna igen detta. 
 
-## Metodtips för redigering
+## <a name="authoring-best-practices"></a>Metodtips för redigering
 Att integreringsmodulerna i stort sett är PowerShell-moduler betyder inte att det inte finns vissa riktlinjer för att redigera dem. Det finns fortfarande ett antal saker som vi rekommenderar att du har i åtanke när du redigerar en PowerShell-modul så att den är så användbar som möjligt i Azure Automation. Vissa av dessa är specifika för Azure Automation och några av dem är användbara för att dina moduler ska fungerar bra i PowerShell Workflow, oavsett om du använder Automation eller inte. 
 
 1. Lägg till en sammanfattning, beskrivning och hjälp-URI för varje cmdlet i modulen. I PowerShell kan du definiera viss hjälpinformation för cmdlets så att användaren kan få hjälp med att använda dem genom att köra cmdleten **Get-Help**. Så här kan du till exempel definiera en sammanfattning och hjälp-URI för en PowerShell-modul som skrivits i en .psm1-fil.<br>  
@@ -101,8 +105,7 @@ Att integreringsmodulerna i stort sett är PowerShell-moduler betyder inte att d
     $response.TwilioResponse.IncomingPhoneNumbers.IncomingPhoneNumber
     }
     ```
-   <br> 
-   Om du lägger till den här informationen visas den med cmdleten **Get-Help** i PowerShell-konsolen och hjälpfunktionen exponeras även i Azure Automation, till exempel när aktiviteter infogas i samband med redigeringen av runbooks. Om du klickar på ”Visa detaljerad hjälp” öppnas hjälp-URI:n på en annan flik i webbläsaren som du använder för att få åtkomst till Azure Automation.<br>![Hjälp med integreringsmoduler](media/automation-integration-modules/automation-integration-module-activitydesc.png)
+   <br> Om du lägger till den här informationen visas den med cmdleten **Get-Help** i PowerShell-konsolen och hjälpfunktionen exponeras även i Azure Automation, till exempel när aktiviteter infogas i samband med redigeringen av runbooks. Om du klickar på ”Visa detaljerad hjälp” öppnas hjälp-URI:n på en annan flik i webbläsaren som du använder för att få åtkomst till Azure Automation.<br>![Hjälp med integreringsmoduler](media/automation-integration-modules/automation-integration-module-activitydesc.png)
 2. Om modulen körs mot ett fjärrsystem: a. Den bör innehålla en metadatafil för integreringsmodulen som definierar informationen som behövs för att ansluta till fjärrsystemet, eller anslutningstypen. b. Varje cmdlet i modulen ska kunna använda ett anslutningsobjekt (en instans av anslutningstypen) som en parameter.  
     Cmdlets i modulen blir enklare att använda i Azure Automation om ett objekt kan skickas med fälten för anslutningstypen som en parameter till cmdleten. På så sätt behöver inte användarna mappa parametrar för anslutningstillgången till cmdletens motsvarande parametrar varje gång de anropar en cmdlet. Baserat på runbook-exemplet ovan används en Twilio-anslutningstillgång kallad CorpTwilio för att komma åt Twilio och returnera alla telefonnummer i kontot.  Observera hur den mappar fälten för anslutningen till parametrarna för cmdleten?<br>
    
@@ -117,7 +120,7 @@ Att integreringsmodulerna i stort sett är PowerShell-moduler betyder inte att d
     }
     ```
    <br>
-    Ett enklare och bättre sätt är att skicka anslutningsobjektet direkt till cmdleten:
+    Ett enklare och bättre sätt är att skicka anslutningsobjektet direkt till cmdleten -
    
     ```
     workflow Get-CorpTwilioPhones
@@ -200,10 +203,13 @@ Att integreringsmodulerna i stort sett är PowerShell-moduler betyder inte att d
    <br>
 6. Modulen bör finnas i ett Xcopy-aktiverat paket. Eftersom Azure Automation-moduler distribueras till begränsat Automation-läge när runbooks behöver köra, måste de fungera oberoende av värden som de körs på. Det innebär att du måste kunna dekomprimera modulpaketet, flytta det till en annan värd med samma eller en senare version av PowerShell och se till att det fungerar som vanligt när det importeras till den värdens PowerShell-miljö. För att det ska ske får modulen inte vara beroende av några filer utanför modulmappen (den mapp som dekomprimeras vid importen till Azure Automation) eller av unika registerinställningar på en värd, till exempel de som anges av installationsprogrammet för en produkt. Om du inte följer denna riktlinje kan modulen inte användas i Azure Automation.  
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Se hur du kommer igång med runbooks baserade på PowerShell-arbetsflöden i [Min första PowerShell-arbetsflödesbaserade runbook](automation-first-runbook-textual.md)
 * Mer information om hur du skapar PowerShell-moduler finns i [Skriva en Windows PowerShell-modul](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

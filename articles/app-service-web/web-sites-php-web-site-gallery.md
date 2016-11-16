@@ -1,22 +1,26 @@
 ---
 title: Skapa en WordPress-webbapp i Azure App Service | Microsoft Docs
-description: Lär dig hur du skapar en ny Azure-webbapp för en WordPress-blogg i Azure Portal.
+description: "Lär dig hur du skapar en ny Azure-webbapp för en WordPress-blogg i Azure Portal."
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 193ae094-0d7c-4749-a09b-ff4b1240149e
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0bb3fcf1963819b5e8787c042fa895348dc69e12
+
 
 ---
-# Skapa en WordPress-webbapp i Azure App Service
+# <a name="create-a-wordpress-web-app-in-azure-app-service"></a>Skapa en WordPress-webbapp i Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 I den här kursen får du veta hur du distribuerar en WordPress-bloggwebbplats från Azure Marketplace.
@@ -42,7 +46,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
 > 
 > 
 
-## Välj WordPress och konfigurera för Azure App Service
+## <a name="select-wordpress-and-configure-for-azure-app-service"></a>Välj WordPress och konfigurera för Azure App Service
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **Ny**.
    
@@ -59,10 +63,10 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
 6. Om du har fler än en prenumeration väljer du den du vill använda. 
 7. Välj en **Resursgrupp** eller skapa en ny.
    
-    Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../resource-group-overview.md).
+    Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 8. Välj en **App Service-plan/plats** eller skapa en ny.
    
-    Mer information om App Service-planer finns i [Översikt över Azure App Service-planer](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 
+    Mer information om App Service-planer finns i [Översikt över Azure App Service-planer](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)    
 9. Klicka på **Databas** och ange sedan i bladet **Ny MySQL-databas** de värden som krävs för att konfigurera MySQL-databasen.
    
     a. Ange ett nytt namn eller låt standardnamnet stå kvar.
@@ -81,7 +85,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
     
      ![Förloppsindikator](./media/web-sites-php-web-site-gallery/progress.png)
 
-## Starta och hantera WordPress-webbappen
+## <a name="launch-and-manage-your-wordpress-web-app"></a>Starta och hantera WordPress-webbappen
 1. När webbappen har skapats kan du visa webbappen och databasen genom att gå till den resursgrupp i Azure Portal där du skapade programmet.
    
     Extraresursen med lampikonen är [Application Insights](/services/application-insights/) som tillhandahåller övervakningstjänster för webbappen.
@@ -99,12 +103,12 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
    
     ![WordPress-webbplats](./media/web-sites-php-web-site-gallery/wpdashboard.png)
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Du har fått veta hur du skapar och distribuerar en PHP-webbapp från galleriet. Mer information om hur du använder PHP i Azure finns i [PHP Developer Center](/develop/php/).
 
 Du hittar mer information om hur du arbetar med App Service Web Apps via länkarna till vänster på sidan (breda webbläsarfönster) eller längst upp på sidan (smala webbläsarfönster). 
 
-## Nyheter
+## <a name="whats-changed"></a>Nyheter
 * En guide till övergången från Webbplatser till App Service finns i: [Azure App Service och dess påverkan på befintliga Azure-tjänster](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
@@ -113,6 +117,6 @@ Du hittar mer information om hur du arbetar med App Service Web Apps via länkar
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

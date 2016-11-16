@@ -5,6 +5,8 @@ Om du redan är bekant med Notification Hubs, vill du kanske välja ett annat ä
 
 Vi tar din feedback på allvar. Om du har problem med att slutföra det här ämnet, eller om du har tips på hur innehållet kan förbättras, tar vi tacksamt emot din feedback längst ner på sidan.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

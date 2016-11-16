@@ -1,47 +1,51 @@
-# [Overview](functions-overview.md)
+# Översikt
+## [Vad är Azure Functions?](functions-overview.md)
+# Kom igång
+## [Skapa din första funktion](functions-create-first-azure-function.md)
+## [Skapa en webhook-funktion](functions-create-a-web-hook-or-api-function.md)
+## [Skapa en Azure-ansluten funktion](functions-create-an-azure-connected-function.md)
+## [Skapa en händelsebearbetande funktion](functions-create-an-event-processing-function.md)
+# Gör så här för att
+## Planera och designa
+### [Välj mellan Flow, Logic Apps, Functions och WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
+### [Välj mellan förbrukning och App Service-plan](functions-scale.md)
 
-# Get Started
-## [Create your first function](functions-create-first-azure-function.md)
-## [Create a webhook function](functions-create-a-web-hook-or-api-function.md)
-## [Create an Azure connected function](functions-create-an-azure-connected-function.md)
-## [Create an event processing function](functions-create-an-event-processing-function.md)
-# How To
-## Plan and design
-### [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Choose between Consumption and App Service Plan](functions-scale.md)
-
-## Develop
-### [Develop function apps](functions-reference.md)
+## Utveckla
+### [Utveckla funktionsappar](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
 #### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
-### [Work with triggers and bindings](functions-triggers-bindings.md)
-#### [Event Hub bindings](functions-bindings-event-hubs.md)
-#### [HTTP and webhook bindings](functions-bindings-http-webhook.md)
-#### [Mobile Apps bindings](functions-bindings-mobile-apps.md)
-#### [Notification Hub output binding](functions-bindings-notification-hubs.md)
-#### [Service Bus triggers and bindings for queues and topics](functions-bindings-service-bus.md)
+### [Arbeta med utlösare och bindningar](functions-triggers-bindings.md)
+#### [Händelsehubbindningar](functions-bindings-event-hubs.md)
+#### [HTTP- och webhook-bindningar](functions-bindings-http-webhook.md)
+#### [Mobile Apps-bindningar](functions-bindings-mobile-apps.md)
+#### [Notification Hub-utdatabindning](functions-bindings-notification-hubs.md)
+#### [Service Bus-utlösare och bindningar för köer och ämnen](functions-bindings-service-bus.md)
 #### Storage
-##### [Blob bindings](functions-bindings-storage-blob.md)
-##### [Queue bindings](functions-bindings-storage-queue.md)
-##### [Table bindings](functions-bindings-storage-table.md)
-#### [Timer trigger](functions-bindings-timer.md)
-#### [Twilio output binding](functions-bindings-twilio.md)
-### [Create a function from the Azure portal](functions-create-first-azure-function-azure-portal.md)
-### [Testing Azure Functions](functions-test-a-function.md)
-### [Develop and debug locally](functions-run-local.md)
-### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
+##### [Blobbindningar](functions-bindings-storage-blob.md)
+##### [Köbindningar](functions-bindings-storage-queue.md)
+##### [Tabellbindningar](functions-bindings-storage-table.md)
+#### [Timerutlösare](functions-bindings-timer.md)
+#### [Twilio-utdatabindning](functions-bindings-twilio.md)
+### [Skapa en funktion från Azure Portal](functions-create-first-azure-function-azure-portal.md)
+### [Testa Azure Functions](functions-test-a-function.md)
+### [Utveckla och felsöka lokalt](functions-run-local.md)
+### [Använd Azure Functions för att utföra en schemalagd rensningsåtgärd](functions-scenario-database-table-cleanup.md)
 
-## Manage
-### [Configure settings for a function app](functions-how-to-use-azure-function-app-settings.md)
+## Hantera
+### [Konfigurera inställningar för en funktionsapp](functions-how-to-use-azure-function-app-settings.md)
 
-## Deploy
-### [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
+## Distribuera
+### [Löpande distribution för Azure Functions](functions-continuous-deployment.md)
 
+# Referens
+## [.NET-API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 
-# Resources
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+# Resurser
+## [Prissättning](https://azure.microsoft.com/pricing/details/functions/)  
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->

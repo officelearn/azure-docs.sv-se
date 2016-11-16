@@ -1,12 +1,12 @@
 ---
-title: Komma igång med IoT Hub Gateway SDK | Microsoft Docs
-description: Den här genomgången av Azure IoT Hub Gateway SDK använder Linux för att illustrera viktiga begrepp som du bör känna till när du använder Azure IoT Hub Gateway SDK.
+title: "Komma igång med IoT Hub Gateway SDK | Microsoft Docs"
+description: "I den här genomgången av Azure IoT Gateway SDK används Linux för att illustrera viktiga begrepp som du bör känna till när du använder Azure IoT Gateway SDK."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: cf537bdd-2352-4bb1-96cd-a283fcd3d6cf
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: get-started-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+
 
 ---
-# IoT Gateway SDK (beta) – komma igång med Linux
+# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Azure IoT Gateway SDK (beta) – komma igång med Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
-## Hur du skapar provet
+## <a name="how-to-build-the-sample"></a>Hur du skapar provet
 Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] för att arbeta med SDK i Linux.
 
 1. Öppna ett gränssnitt.
@@ -31,7 +35,7 @@ Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] 
 > 
 > 
 
-## Köra exemplet
+## <a name="how-to-run-the-sample"></a>Köra exemplet
 1. Skriptet **build.sh** genererar sina utdata i mappen **build** i din lokala kopia av databasen **azure-iot-gateway-sdk**. Detta omfattar de två moduler som används i det här exemplet.
    
     Build-skriptet placerar **liblogger_hl.so** i mappen **build/modules/logger/** och **libhello_world_hl.so** i mappen **build/modules/hello_world/**. Använd dessa sökvägar för **modulsökvägens** värde som visas i JSON-inställningsfilen nedan.
@@ -46,7 +50,9 @@ Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] 
       [ 
         {
           "module name" : "logger_hl",
-          "module path" : "./build/modules/logger/liblogger_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/logger/liblogger_hl.so"
+          },
           "args" : 
           {
             "filename":"./log.txt"
@@ -54,7 +60,9 @@ Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] 
         },
         {
           "module name" : "hello_world",
-          "module path" : "./build/modules/hello_world/libhello_world_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
+          },
           "args" : null
         }
       ],
@@ -81,6 +89,6 @@ Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] 
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

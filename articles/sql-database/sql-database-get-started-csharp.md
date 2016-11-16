@@ -1,13 +1,13 @@
 ---
-title: 'Testa SQL Database: Använd C# för att skapa en SQL-databas | Microsoft Docs'
-description: Testa SQL Database för att utveckla SQL- och C#-appar och skapa en Azure SQL Database med C# med hjälp av SQL Database-biblioteket för .NET.
-keywords: försök sql, sql-c#
+title: "Testa SQL Database: Använd C# för att skapa en SQL-databas | Microsoft Docs"
+description: "Testa SQL Database för att utveckla SQL- och C#-appar och skapa en Azure SQL Database med C# med hjälp av SQL Database-biblioteket för .NET."
+keywords: "försök sql, sql-c#"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+
 
 ---
-# Testa SQL Database: Använd C# för att skapa en SQL-databas med SQL Database-biblioteket för .NET
+# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Testa SQL Database: Använd C# för att skapa en SQL-databas med SQL Database-biblioteket för .NET
 > [!div class="op_single_selector"]
-> * [Azure-portalen](sql-database-get-started.md)
+> * [Azure-portal](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
 > * [PowerShell](sql-database-get-started-powershell.md)
 > 
@@ -27,10 +31,10 @@ ms.author: sstein
 
 Läs om hur man använder C# för att skapa en Azure SQL-databas med [Microsoft Azure SQL Management-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Den här artikeln beskriver hur du skapar en enkel databas med SQL och C#. För att skapa elastiska databaspooler, se [Skapa en elastisk databaspool](sql-database-elastic-pool-create-csharp.md).
 
-Azure SQL Database Management-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+Azure SQL Database Management-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
 > [!NOTE]
-> Flera nya funktioner i SQL Database stöds bara när du använder [distributionsmodellen Azure Resource Manager](../resource-group-overview.md) så du bör alltid använda det senaste **Azure SQL Database Management-biblioteket för .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De äldre [klassiska distributionsmodellbaserade biblioteken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) stöds enbart för bakåtkompatibilitet så det rekommenderas att du använder de nyare Resource Manager-baserade biblioteken.
+> Flera nya funktioner i SQL Database stöds bara när du använder [distributionsmodellen Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) så du bör alltid använda det senaste **Azure SQL Database Management-biblioteket för .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De äldre [klassiska distributionsmodellbaserade biblioteken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) stöds enbart för bakåtkompatibilitet så det rekommenderas att du använder de nyare Resource Manager-baserade biblioteken.
 > 
 > 
 
@@ -44,7 +48,7 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 > 
 > 
 
-## Skapa en konsolapp och installera nödvändiga bibliotek
+## <a name="create-a-console-app-and-install-the-required-libraries"></a>Skapa en konsolapp och installera nödvändiga bibliotek
 1. Starta Visual Studio.
 2. Klicka på **Arkiv** > **Nytt** > **Projekt**.
 3. Skapa ett C#-baserat **konsolprogram** och ge det namnet *SqlDbConsoleApp*
@@ -61,7 +65,7 @@ Skapa en SQL-databas med C# genom att läsa in nödvändiga hanteringsbibliotek 
 > 
 > 
 
-## Skapa en SQL Database-server, brandväggsregel och SQL-databas – C#-baserat exempel
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Skapa en SQL Database-server, brandväggsregel och SQL-databas – C#-baserat exempel
 Följande exempel skapar en resursgrupp, server, brandväggsregel och en SQL-databas. Information om hur du hämtar `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`-variablerna finns i [Skapa ett tjänstobjekt för att komma åt resurser](#create-a-service-principal-to-access-resources).
 
 Ersätt innehållet i **Program.cs** med följande och uppdatera `{variables}` med dina appvärden (utelämna `{}`).
@@ -223,7 +227,7 @@ Ersätt innehållet i **Program.cs** med följande och uppdatera `{variables}` m
 
 
 
-## Skapa ett tjänstobjekt för att komma åt resurser
+## <a name="create-a-service-principal-to-access-resources"></a>Skapa ett tjänstobjekt för att komma åt resurser
 Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänstobjektet som vi behöver för att autentisera vår C#-app. Skriptet matar ut värden som vi behöver för det föregående C#-exemplet. Detaljerad information finns i [Skapa ett tjänstobjekt med Azure PowerShell för att komma åt resurser](../resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
@@ -266,12 +270,12 @@ Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänsto
 
 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 När du nu har testat SQL Database och ställt in en databas med C#, är du redo för följande artiklar:
 
 * [Anslut till SQL Database med SQL Server Management Studio och kör en exempelfråga i T-SQL](sql-database-connect-query-ssms.md)
 
-## Ytterligare resurser
+## <a name="additional-resources"></a>Ytterligare resurser
 * [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Databasklass](https://msdn.microsoft.com/library/azure/microsoft.azure.management.sql.models.database.aspx)
 
@@ -288,6 +292,6 @@ När du nu har testat SQL Database och ställt in en databas med C#, är du redo
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

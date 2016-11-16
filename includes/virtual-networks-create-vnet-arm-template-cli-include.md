@@ -1,4 +1,4 @@
-## Distribuera ARM-mallen med Azure CLI
+## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Distribuera ARM-mallen med Azure CLI
 Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI.
 
 1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../articles/xplat-cli-install.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
@@ -9,7 +9,7 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
     Följande utdata förväntas från kommandot ovan:
    
         info:    New mode is arm
-3. Vid behov kan du köra **`azure group create`** för att skapa en ny resursgrupp, enligt nedan. Notera kommandots utdata. Listan som visas efter alla utdata förklarar parametrarna som använts. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/resource-group-overview.md).
+3. Vid behov kan du köra **`azure group create`** för att skapa en ny resursgrupp, enligt nedan. Notera kommandots utdata. Listan som visas efter alla utdata förklarar parametrarna som använts. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         azure group create -n TestRG -l centralus
    
@@ -85,6 +85,8 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
         data:
         info:    network vnet show command OK
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

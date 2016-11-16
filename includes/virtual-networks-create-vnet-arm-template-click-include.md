@@ -1,4 +1,4 @@
-## Distribuera ARM-mallen med klicka för att distribuera
+## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>Distribuera ARM-mallen med klicka för att distribuera
 Du kan återanvända fördefinierade ARM-mallar som finns i en github-databas som hanteras av Microsoft och är öppen för allmänheten. De här mallarna kan distribueras direkt från github, eller hämtas och ändras för att passa dina behov. Följ stegen nedan om du vill distribuera en mall som skapar ett VNet med två undernät.
 
 1. Från en webbläsare, navigerar du till [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
@@ -22,6 +22,8 @@ Du kan återanvända fördefinierade ARM-mallar som finns i en github-databas so
     
      ![Skapa VNet i preview-portalen](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

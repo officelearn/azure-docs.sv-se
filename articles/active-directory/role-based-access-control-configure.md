@@ -1,12 +1,12 @@
 ---
-title: Använda rollbaserad åtkomstkontroll på Azure-portalen | Microsoft Docs
-description: Kom igång med åtkomsthantering med rollbaserad åtkomstkontroll på Azure Portal. Använd rolltilldelningar för att tilldela behörigheter i dina resurser.
+title: "Använd rollbaserad åtkomstkontroll i Azure Portal | Microsoft-dokument"
+description: "Kom igång med åtkomsthantering med rollbaserad åtkomstkontroll på Azure Portal. Använd rolltilldelningar för att tilldela behörigheter i dina resurser."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,22 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+
 
 ---
-# Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser
+# <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser
 > [!div class="op_single_selector"]
-> * [Hantera åtkomst efter användare eller grupp](role-based-access-control-manage-assignments.md)
-> * [Hantera åtkomst efter resurs](role-based-access-control-configure.md)
+> * [Hantera åtkomst enligt användare eller grupp](role-based-access-control-manage-assignments.md)
+> * [Hantera åtkomst enligt resurs](role-based-access-control-configure.md)
 > 
 > 
 
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete. Den här artikeln hjälper dig att komma igång med RBAC på Azure-portalen. Mer information om hur RBAC kan hjälpa dig att hantera åtkomsten finns i [Vad är rollbaserad åtkomstkontroll?](role-based-access-control-what-is.md)
 
-## Visa åtkomst
+## <a name="view-access"></a>Visa åtkomst
 Du kan se vem som har åtkomst till en resurs, resursgrupp eller prenumeration från dess huvudblad på [Azure-portalen](https://portal.azure.com). Vi vill till exempel se vem som har åtkomst till en av våra resursgrupper:
 
 1. Välj **Resursgrupper** i navigeringsfältet till vänster.  
-    ![Resursgrupper – ikon](./media/role-based-access-control-configure/resourcegroups_icon.png)
+    ![Resursgrupper - ikon](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. Välj namnet på resursgruppen från bladet **Resursgrupper**.
 3. Välj **Åtkomstkontroll (IAM)** från den vänstra menyn.  
 4. Åtkomstkontroll-bladet listar alla användare, grupper och program som har getts åtkomst till resursgruppen.  
@@ -43,7 +47,7 @@ Observera att vissa användare har **tilldelats** åtkomst medan andra har **är
 > 
 > 
 
-## Lägga till åtkomst
+## <a name="add-access"></a>Lägga till åtkomst
 Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som rolltilldelningen omfattar.
 
 1. Välj **Lägg till** på åtkomstkontroll-bladet.  
@@ -52,32 +56,35 @@ Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som 
    
     ![Skärmbild av bladet Lägg till användare – sök](./media/role-based-access-control-configure/grant-access2.png)
 4. Skapa tilldelningen genom att välja **OK**. Du kan följa förloppet på popup-menyn **Lägger till användare**.  
-    ![Förloppsfält för Lägger till användare – skärmbild](./media/role-based-access-control-configure/addinguser_popup.png)
+    ![Lägga till användarförloppsindikatorn - skärmbild](./media/role-based-access-control-configure/addinguser_popup.png)
 
 När du har lagt till en rolltilldelning visas den på bladet **Användare**.
 
-## Ta bort åtkomst
+## <a name="remove-access"></a>Ta bort åtkomst
 1. Välj rolltilldelning på Åtkomstkontroll-bladet.
 2. Välj **Ta bort** på bladet Tilldelningsinformation.  
 3. Bekräfta borttagningen genom att välja **Ja**.  
-    ![Skärmbild av bladet Användare – ta bort från roll](./media/role-based-access-control-configure/remove-access1.png)
+    ![Användarblad - ta bort från rollskärmbilden](./media/role-based-access-control-configure/remove-access1.png)
 
 Ärvda tilldelningar kan inte tas bort. Observera att knappen Ta bort är nedtonad i bilden nedan. Titta i stället på informationen för **Tilldelad vid**. Gå till resursen som visas där om du vill ta bort rolltilldelningen.
 
 ![Skärmbild av bladet Användare – ärvd åtkomst inaktiverar knappen Ta bort](./media/role-based-access-control-configure/remove-access2.png)
 
-## Andra verktyg för att hantera åtkomst
+## <a name="other-tools-to-manage-access"></a>Andra verktyg för att hantera åtkomst
 Du kan tilldela roller och hantera åtkomst med Azure RBAC-kommandon i andra verktyg än Azure-portalen.  Följ länkarna om du vill lära dig mer om kraven och komma igång med Azure RBAC-kommandona.
 
 * [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
-* [Azure-kommandoradsgränssnittet](role-based-access-control-manage-access-azure-cli.md)
-* [REST API](role-based-access-control-manage-access-rest.md)
+* [Azure kommandoradsgränssnittet](role-based-access-control-manage-access-azure-cli.md)
+* [REST-API](role-based-access-control-manage-access-rest.md)
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Skapa en rapport över åtkomständringshistorik](role-based-access-control-access-change-history-report.md)
 * Gå till [Inbyggda RBAC-roller](role-based-access-built-in-roles.md)
 * Definiera egna [anpassade roller i Azure RBAC](role-based-access-control-custom-roles.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,44 +1,48 @@
 ---
-title: Create an internal load balancer for cloud services in the classic deployment model | Microsoft Docs
-description: Learn how to create an internal load balancer using PowerShell in the classic deployment model
+title: "Skapa en intern belastningsutjämnare för molntjänster i den klassiska distributionsmodellen | Microsoft Docs"
+description: "Lär dig hur du skapar en intern belastningsutjämnare med hjälp av PowerShell i den klassiska distributionsmodellen"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85e22954c19d7d51579029c7426f0ee79b780504
 
 ---
-# Get started creating an internal load balancer (classic) for cloud services
-[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
-<BR>
+# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Komma igång med att skapa en intern belastningsutjämnare (klassisk) för molntjänster
+
+[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
+Lär dig hur du [utför dessa steg med hjälp av Resource Manager-modellen](load-balancer-get-started-ilb-arm-ps.md).
 
-## Configure internal load balancer for cloud services
-Internal load balancer is supported for both virtual machines and cloud services. An internal load balancer endpoint created in a cloud service that is outside a regional virtual network will be accessible only within the cloud service.
+## <a name="configure-internal-load-balancer-for-cloud-services"></a>Konfigurera en intern belastningsutjämnare för molntjänster
 
-The internal load balancer configuration has to be set during the creation of the first deployment in the cloud service, as shown in the sample below.
+Interna belastningsutjämnare stöds för både virtuella datorer och molntjänster. Slutpunkten för en intern belastningsutjämnare som skapas i en molntjänst som finns utanför ett regionalt virtuellt nätverk kan endast nås i molntjänsten.
+
+Du måste konfigurera interna belastningsutjämnare när du skapar den första distributionen i molntjänsten, som du ser i exemplet nedan.
 
 > [!IMPORTANT]
-> A prerequisite to run the steps below is to have a virtual network already created for the cloud deployment. You will need the virtual network name and subnet name to create the Internal Load Balancing.
-> 
-> 
+> Innan du kör stegen nedan måste du ha ett virtuellt nätverk för molndistributionen. Du behöver namnet på det virtuella nätverket och undernätet för att kunna skapa den interna belastningsutjämningen.
 
-### Step 1
-Open the service configuration file (.cscfg) for your cloud deployment in Visual Studio and add the following section to create the Internal Load Balancing under the last "`</Role>`" item for the network configuration.
+### <a name="step-1"></a>Steg 1
 
+Öppna tjänstkonfigurationsfilen (.cscfg) för din distribution i Visual Studio och lägg till följande avsnitt för att skapa den interna belastningsutjämningen under det sista ”`</Role>`”-objektet för nätverkskonfigurationen.
+
+```xml
     <NetworkConfiguration>
       <LoadBalancers>
         <LoadBalancer name="name of the load balancer">
@@ -46,10 +50,11 @@ Open the service configuration file (.cscfg) for your cloud deployment in Visual
         </LoadBalancer>
       </LoadBalancers>
     </NetworkConfiguration>
+```
 
+Nu ska vi lägga till värdena för nätverkskonfigurationsfilen så att du ser hur det ser ut. I det här exemplet antar vi att du har skapat ett undernät med namnet ”test_vnet” med undernätet 10.0.0.0/24 med namnet test_subnet och den statiska IP-adressen 10.0.0.4. Belastningsutjämnaren ges namnet testLB.
 
-Let's add the values for the network configuration file to show how it will look. In the example, assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
-
+```xml
     <NetworkConfiguration>
       <LoadBalancers>
         <LoadBalancer name="testLB">
@@ -57,30 +62,43 @@ Let's add the values for the network configuration file to show how it will look
         </LoadBalancer>
       </LoadBalancers>
     </NetworkConfiguration>
+```
 
-For more information about the load balancer schema, see [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx).
+Mer information om belastningsutjämningsschemat finns i [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx) (Lägga till en belastningsutjämnare).
 
-### Step 2
-Change the service definition (.csdef) file to add endpoints to the Internal Load Balancing. The moment a role instance is created, the service definition file will add the role instances to the Internal Load Balancing.
+### <a name="step-2"></a>Steg 2
 
+Ändra tjänstdefinitionsfilen (.csdef) för att lägga till slutpunkter för den interna belastningsutjämningen. Så fort en rollinstans skapas lägger tjänstdefinitionsfilen till rollinstansen i den interna belastningsutjämningen.
+
+```xml
     <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
       <Endpoints>
         <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
       </Endpoints>
     </WorkerRole>
+```
 
-Following the same values from the example above, let's add the values to the service definition file.
+Vi använder värdena i exemplet ovan och lägger till dem i tjänstdefinitionsfilen.
 
-    <WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+```xml
+    <WorkerRole name="WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
       <Endpoints>
         <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
       </Endpoints>
     </WorkerRole>
+```
 
-The network traffic will be load balanced using the testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80.
+Nätverkstrafiken kommer att belastningsutjämnas med belastningsutjämnaren testLB. Port 80 används för inkommande förfrågningar och samma port används för att skicka trafik till arbetsrollinstanser.
 
-## Next steps
-[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
+## <a name="next-steps"></a>Nästa steg
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[Konfigurera ett distributionsläge för belastningsutjämnare med hjälp av käll-IP-tilldelning](load-balancer-distribution-mode.md)
+
+[Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

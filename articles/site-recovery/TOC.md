@@ -1,61 +1,66 @@
-# Overview
-## [What is Site Recovery?](site-recovery-overview.md)
-## [How does Site Recovery work?](site-recovery-components.md)
-## [What workloads can you protect?](site-recovery-workload.md)
-## [What operating systems are supported?](site-recovery-support-matrix.md)
-## [FAQ](site-recovery-faq.md)
-## [Watch an introduction](https://www.youtube.com/watch?v=eOOwMQPBKfM)
+# Översikt
+## [Vad är Site Recovery?](site-recovery-overview.md)
+## [Hur fungerar Site Recovery?](site-recovery-components.md)
+## [Vilka arbetsbelastningar kan du skydda?](site-recovery-workload.md)
+## [Vilka operativsystem stöds?](site-recovery-support-matrix.md)
+## [Vanliga frågor och svar](site-recovery-faq.md)
+## [Titta på en presentation](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
-# Get Started
-## [Prepare for deployment](site-recovery-best-practices.md)
+# Kom igång
+## [Förbereda för distribution](site-recovery-best-practices.md)
 
-# How To
-## Plan
-### [Capacity planning](site-recovery-capacity-planner.md)
-### [Performance and scale test results](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
-### [Network infrastructure considerations](site-recovery-network-design.md)
-### [Network mapping (VMM)](site-recovery-network-mapping.md)
-### [Storage mapping between on-premises sites](site-recovery-storage-mapping.md)
-## Replicate
-### [VMWare VMs and servers to Azure](site-recovery-vmware-to-azure.md)
-### [VMware VMs and servers to secondary site](site-recovery-vmware-to-vmware.md)
-### [Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
-### [Hyper-V VMs to Azure (no VMM)](site-recovery-hyper-v-site-to-azure.md)
-### [Hyper-V VMs to secondary site](site-recovery-vmm-to-vmm.md)
-### [Hyper-V VMs to secondary site with SAN](site-recovery-vmm-san.md)
-### [Hyper-V VMs with single VMM server](site-recovery-single-vmm.md)
-## Migrate
-### [Migrate between Azure regions](site-recovery-migrate-azure-to-azure.md)
-### [AWS Windows instances to Azure](site-recovery-migrate-aws-to-azure.md)
-## Workloads
-### [Active Directory and DNS](site-recovery-active-directory.md)
+# Gör så här för att
+## Planera
+### [Kapacitetsplanering](site-recovery-capacity-planner.md)
+### [Resultat för prestanda och skalningstestning](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
+### [Saker att tänka på gällande nätverksinfrastruktur](site-recovery-network-design.md)
+### [Nätverksmappning (VMM)](site-recovery-network-mapping.md)
+### [Lagringsmappning mellan lokala platser](site-recovery-storage-mapping.md)
+## Replikera
+### [VMwares virtuella datorer och servrar till Azure](site-recovery-vmware-to-azure.md)
+### [VMwares virtuella datorer och servrar till en sekundär plats](site-recovery-vmware-to-vmware.md)
+### [Virtuella Hyper-V-datorer till Azure (med VMM)](site-recovery-vmm-to-azure.md)
+### [Virtuella Hyper-V-datorer till Azure (ingen VMM)](site-recovery-hyper-v-site-to-azure.md)
+### [Hyper-V-VM:ar till en sekundär plats](site-recovery-vmm-to-vmm.md)
+### [Hyper-V-VM:ar till en sekundär plats med SAN](site-recovery-vmm-san.md)
+### [Virtuella Hyper-V-datorer med en enkel VMM-server](site-recovery-single-vmm.md)
+## Migrera
+### [Migrera mellan Azure-regioner](site-recovery-migrate-azure-to-azure.md)
+### [AWS Windows-instanser till Azure](site-recovery-migrate-aws-to-azure.md)
+## Arbetsbelastningar
+### [Active Directory och DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
 ### [SharePoint](site-recovery-workload.md#protect-sharepoint)
 ### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
-### [Other workloads](site-recovery-workload.md#workload-summary)
-## Automate Replication
-### [Hyper-V VMs (with VMM)](site-recovery-deploy-with-powershell.md)
-### [Hyper-V VMs (no VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
-### [Add automation to recovery plans](site-recovery-runbook-automation.md)
-### [Automate Mobility service deployment](site-recovery-automate-mobility-service-install.md)
-## Manage
-### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
-### [Set up recovery plans](site-recovery-create-recovery-plans.md)
-### [Fail over in Site Recovery](site-recovery-failover.md)
-### [Fail back VMware VMs and physical servers](site-recovery-failback-azure-to-vmware.md)
-## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
+### [Övriga arbetsbelastningar](site-recovery-workload.md#workload-summary)
+## Automatisera replikering
+### [Virtuella Hyper-V-datorer (med VMM) till Azure](site-recovery-deploy-with-powershell.md)
+### [Virtuella Hyper-V-datorer (med VMM) till Azure](site-recovery-deploy-with-powershell-resource-manager.md)
+### [Lägg till automatisering i återställningsplaner](site-recovery-runbook-automation.md)
+### [Automatisera tjänstdistribution med Mobility](site-recovery-automate-mobility-service-install.md)
+## Hantera
+### [Ta bort servrar och inaktivera skydd](site-recovery-manage-registration-and-protection.md)
+### [Konfigurera återställningsplaner](site-recovery-create-recovery-plans.md)
+### [Redundans i Site Recovery](site-recovery-failover.md)
+### [Återställ virtuella VMware-datorer och fysiska servrar](site-recovery-failback-azure-to-vmware.md)
+## [Övervaka och felsök](site-recovery-monitoring-and-troubleshooting.md)
 
-# Related
+# Referens
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell – Klassisk](/powershell/servicemanagement/)
+
+# Relaterat
 ## [Azure Automation](/azure/automation/)
 
-# Resources
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
+# Resurser
+## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
-## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
-## [Pricing](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Blogg](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
+## [Prissättning](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
 <!--HONumber=Nov16_HO2-->

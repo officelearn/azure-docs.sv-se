@@ -1,13 +1,13 @@
 ---
-title: Förutsägelseanalys för kreditrisk med Machine Learning | Microsoft Docs
-description: En detaljerad genomgång av hur du skapar en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning Studio.
-keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning
+title: "Förutsägelseanalys för kreditrisk med Machine Learning | Microsoft Docs"
+description: "En detaljerad genomgång av hur du skapar en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning Studio."
+keywords: "kreditrisk, lösning för förutsägelseanalys, riskbedömning"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aa64dc7f5bb3e928aac30987b0904435c603829c
+
 
 ---
-# Genomgång: Utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning
+# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Genomgång: Utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning
 Tänk dig att du behöver förutsäga kreditrisken för en person baserat på informationen personen fyller i på en kreditansökan.  
 
 Kreditriskbedömning är förstås komplicerat, men vi kan förenkla frågeparametrarna en aning. Vi kan sedan använda det som ett exempel på hur du kan använda Microsoft Azure Machine Learning med Machine Learning Studio och Machine Learning-webbtjänsten för att skapa en sådan förutsägelseanalys.  
@@ -44,6 +48,9 @@ Vi skapar en lösning för kreditriskbedömning enligt följande steg:
 
 Den här genomgången är baserad på en förenklad version av exempelexperimentet [Binär klassificering: kreditriskanalys](http://go.microsoft.com/fwlink/?LinkID=525270) i [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

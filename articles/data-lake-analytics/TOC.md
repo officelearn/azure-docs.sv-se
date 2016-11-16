@@ -1,53 +1,55 @@
-# Overview
-## [What is Data Lake Analytics?](data-lake-analytics-overview.md)
+# Översikt
+## [Vad är Data Lake Analytics?](data-lake-analytics-overview.md)
 
-# Get started
-## [Using Portal](data-lake-analytics-get-started-portal.md)
-## [Using PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
-## [Using Java SDK](data-lake-analytics-get-started-java-sdk.md)
-## [Using Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [Using CLI](data-lake-analytics-get-started-cli.md)
-## [Using REST API](data-lake-analytics-get-started-rest-api.md)
-## [Interactive tutorial: Analyze website logs](data-lake-analytics-use-interactive-tutorials.md)
+# Kom igång
+## [Använda portalen](data-lake-analytics-get-started-portal.md)
+## [Använda PowerShell](data-lake-analytics-get-started-powershell.md)
+## [Använda .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+## [Använda Java SDK](data-lake-analytics-get-started-java-sdk.md)
+## [Använda Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Använda CLI](data-lake-analytics-get-started-cli.md)
+## [Använda REST-API](data-lake-analytics-get-started-rest-api.md)
+## [Interaktiva självstudier: Analysera webbplatsloggar](data-lake-analytics-use-interactive-tutorials.md)
 
-# How to
-## Develop
-### [Using U-SQL](data-lake-analytics-u-sql-get-started.md)
-### [Using Visual Studio Tools](data-lake-analytics-data-lake-tools-get-started.md)
-### [Using U-SQL window functions](data-lake-analytics-use-window-functions.md)
-### [Using U-SQL user-defined operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+# Gör så här för att
+## Utveckla
+### [Använda U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Använda Visual Studio-verktyg](data-lake-analytics-data-lake-tools-get-started.md)
+### [Använda U-SQL-fönsterfunktioner](data-lake-analytics-use-window-functions.md)
+### [Använda användardefinierade U-SQL-operatorer](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-## Create solutions
-### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
+## Skapa lösningar
+### [Analysera webbplatsloggar](data-lake-analytics-analyze-weblogs.md)
 
-## Manage
-### [Using Portal](data-lake-analytics-manage-use-portal.md)
-### [Using CLI](data-lake-analytics-manage-use-cli.md)
-### [Using PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [Using .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Using Node.js](data-lake-analytics-manage-use-nodejs.md)
-### [Use U-SQL Catalog to structure code and data](data-lake-analytics-use-u-sql-catalog.md)
+## Hantera
+### [Använda portalen](data-lake-analytics-manage-use-portal.md)
+### [Använda CLI](data-lake-analytics-manage-use-cli.md)
+### [Använda PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [Använda .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Använda Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Använd U-SQL-katalogen för att strukturera kod och data](data-lake-analytics-use-u-sql-catalog.md)
 
-## Troubleshoot
-### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
-### [Debug C# code in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
-### [Use Job Browser and Job View](data-lake-analytics-data-lake-tools-view-jobs.md)
-### [Use Vertex Execution View](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+## Felsöka
+### [Övervaka och felsöka jobb](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Få åtkomst till diagnostikloggar](data-lake-analytics-diagnostic-logs.md)
+### [Felsöka C#-kod i U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
+### [Använd jobbwebbläsare och jobbvy](data-lake-analytics-data-lake-tools-view-jobs.md)
+### [Använda körningsvy för brytpunkter](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
-# Reference
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt572197(Azure.100).aspx)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt607124.aspx)
-## [U-SQL Language Reference](https://msdn.microsoft.com/library/azure/mt591959(Azure.100).aspx)
+# Referens
+
+## [PowerShell](/powershell/resourcemanager/)
+## [Java](/java/api/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959(Azure.100))
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [REST](/rest/api/datalakeanalytics/)
 
-
-# Resources
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataLake)
-## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
-## [Azure Data Lake Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
+# Resurser
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataLake)
+## [Stack Overflow-forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Ge feedback på UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Azure Data Lake-blogg](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
 <!--HONumber=Nov16_HO2-->

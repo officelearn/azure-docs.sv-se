@@ -1,12 +1,12 @@
 ---
-title: Så här utför du en liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med .NET  | Microsoft Docs
-description: Den här självstudien visar dig stegen för att skapa en kanal som tar emot en direktsänd dataström med enkel bithastighet och kodar den till en dataström med multibithastighet med hjälp av .NET SDK.
+title: "Så här utför du en liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med .NET  | Microsoft Docs"
+description: "Den här självstudien visar dig stegen för att skapa en kanal som tar emot en direktsänd dataström med enkel bithastighet och kodar den till en dataström med multibithastighet med hjälp av .NET SDK."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98498da5a8aaf10e37c355f05d6f6d83fd4df584
+
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-.net"></a>Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-net"></a>Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -68,7 +72,7 @@ Se till att du har minst en strömningsreserverad enhet på den strömningsslutp
 3. Stoppa programmet när du vill stoppa strömningen och arkiveringen av händelsen.
 4. Ta bort programmet (och ta eventuellt bort tillgången).
 
-## <a name="what-you'll-learn"></a>Detta får du får lära dig
+## <a name="what-youll-learn"></a>Detta får du får lära dig
 I det här avsnittet visas hur du utför olika åtgärder i kanaler och program med hjälp av Media Services .NET SDK. Eftersom många åtgärder är långvariga används .NET-API:er som hanterar långvariga åtgärder.
 
 I avsnittet visas hur du gör följande:
@@ -101,7 +105,7 @@ Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto p�
 ## <a name="download-sample"></a>Hämta exempel
 Hämta och kör ett exempel [här](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
-## <a name="set-up-for-development-with-media-services-sdk-for-.net"></a>Konfigurera för utveckling med Media Services SDK för .NET
+## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Konfigurera för utveckling med Media Services SDK för .NET
 1. Skapa en konsoltillämpning med Visual Studio.
 2. Lägga till Media Services SDK för .NET i konsoltillämpning med Media Services NuGet-paketet.
 
@@ -341,7 +345,7 @@ Lägg till avsnittet appSettings i filen app.config och ange Media Services-kont
             /// <returns></returns>
             public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
             {
-                // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+                 // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
                 var locator = _context.Locators.CreateLocator
                     (
                         LocatorType.OnDemandOrigin,
@@ -509,7 +513,7 @@ Lägg till avsnittet appSettings i filen app.config och ange Media Services-kont
                     operationId ?? string.Empty);
             }
         }
-    }   
+    }    
 
 
 ## <a name="next-step"></a>Nästa steg
@@ -520,9 +524,12 @@ Granska sökvägarna för Media Services-utbildning.
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else?"></a>Letar du efter något annat?
+### <a name="looking-for-something-else"></a>Letar du efter något annat?
 Om inte det här ämnet innehåller det som du väntade dig, saknar något eller på något annat sätt inte motsvarade dina behov, får du gärna ge oss feedback i Disqus-tråden nedan.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

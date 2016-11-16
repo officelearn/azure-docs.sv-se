@@ -7,6 +7,8 @@ Använd följande exempel för att hitta den offentliga IP-adressen för din vir
 
 Du kan också se den offentliga IP-adressen för din virtuella nätverksgateway med hjälp av Azure-portalen. Gå till **Virtuella nätverksgatewayer** och klicka på namnet för din gateway.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

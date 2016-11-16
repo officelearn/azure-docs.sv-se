@@ -1,25 +1,29 @@
 ---
 title: " Överför filer till ett Media Services-konto med Azure-portalen | Microsoft Docs"
-description: Den här kursen vägleder dig igenom steg som överför filer till ett Media Services-konto med Azure-portalen
+description: "Den här kursen vägleder dig igenom steg som överför filer till ett Media Services-konto med Azure-portalen"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2016
+ms.date: 10/14/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
+
 
 ---
-# Överför filer till ett Media Services-konto med Azure-portalen
+# <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Överför filer till ett Media Services-konto med Azure-portalen
 > [!div class="op_single_selector"]
-> * [Portalen](media-services-portal-upload-files.md)
-> * [.NET](media-services-dotnet-upload-files.md)
+> * [Portal](media-services-portal-upload-files.md)
+> * [NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > 
 > [!NOTE]
@@ -29,10 +33,11 @@ ms.author: juliako
 
 I Media Services överför du dina digitala filer till en tillgång. Tillgång kan innehålla video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning (samt metadata om dessa filer.) När filerna har överförts lagras innehållet på ett säkert sätt i molnet för ytterligare bearbetning och strömning.
 
-1. I fönstret **Inställning** klickar du på **Tillgångar**.
+1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
+2. I bladet **Inställningar** klickar du på **Tillgångar**.
    
     ![Överföra filer](./media/media-services-portal-vod-get-started/media-services-upload.png)
-2. Klicka på knappen **Överför**.
+3. Klicka på knappen **Överför**.
    
     Fönstret **Överför en videotillgång** visas.
    
@@ -40,21 +45,24 @@ I Media Services överför du dina digitala filer till en tillgång. Tillgång k
    > Det finns inga filstorleksbegränsningar.
    > 
    > 
-3. Bläddra till den önskade videon på datorn, markera den och tryck på OK.  
+4. Bläddra till den önskade videon på datorn, markera den och tryck på OK.  
    
     Överföringen startar och du kan följa förloppet under filnamnet.  
 
 När överföringen är klar visas den nya tillgången i listan **Tillgångar**. 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Du kan nu koda överförda tillgångar. Mer information finns i [Koda tillgångar](media-services-portal-encode.md).
 
-## Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Ge feedback
+## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

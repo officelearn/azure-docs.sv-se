@@ -3,11 +3,11 @@
 Kopiera resurserna för aviseringar via app nedan och klistra in dem i din Manifest.xml-fil mellan taggarna `<application>` och `</application>`.
 
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
-            <intent-filter>
+              <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
-            </intent-filter>
+              </intent-filter>
         </activity>
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
             <intent-filter>
@@ -92,6 +92,8 @@ För riktiga appar kan du använda en ikon som passar för aviseringar enligt [d
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

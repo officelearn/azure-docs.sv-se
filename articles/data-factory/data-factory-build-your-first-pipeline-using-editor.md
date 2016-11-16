@@ -1,12 +1,12 @@
 ---
-title: Skapa din första datafabrik (Azure Portal) | Microsoft Docs
-description: I den här självstudien skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av Data Factory-redigeraren i Azure Portal.
+title: "Skapa din första datafabrik (Azure Portal) | Microsoft Docs"
+description: "I den här självstudien skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av Data Factory-redigeraren i Azure Portal."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,26 +14,30 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/14/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e9353889305f747f3807ddc6c6403d327708eece
+
 
 ---
-# Självstudier: Skapa din första Azure-datafabrik med Azure-portalen
+# <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Självstudier: Skapa din första Azure-datafabrik med Azure-portalen
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 > 
 > 
 
 I den här artikeln får du lära dig hur du använder [Azure Portal](https://portal.azure.com/) till att skapa din första Azure Data Factory. 
 
-## Krav
+## <a name="prerequisites"></a>Krav
 1. Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen.
 2. Den här artikeln ger inte någon konceptuell översikt över Azure Data Factory-tjänsten. Vi rekommenderar att du läser igenom den detaljerade översikt över tjänsten som finns i [Introduktion till Azure Data Factory](data-factory-introduction.md).  
 
-## Skapa en datafabrik
+## <a name="create-data-factory"></a>Skapa en datafabrik
 En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Det kan exempelvis vara en kopieringsaktivitet som kopierar data från en källa till ett måldataarkiv och en HDInsight Hive-aktivitet som kör Hive-skript för att transformera indata till produktutdata. Låt oss börja med att skapa datafabriken i det här steget. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
@@ -61,16 +65,16 @@ En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en ell
 7. Du ser att datafabriken skapas på **startsidan** i Azure Portal enligt följande:   
    
    ![Skapar datafabrikstatus](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
-8. Grattis! Du har skapat din första datafabrik. När datafabriken har skapats visas datafabrikssidan med innehållet i datafabriken.   
+8. Grattis! Du har skapat din första datafabrik. När datafabriken har skapats visas datafabrikssidan med innehållet i datafabriken.     
    
     ![Bladet Datafabrik](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
 Du måste först skapa några Data Factory-entiteter innan du skapar en pipeline i datafabriken. Du skapar först länkade tjänster för att länka datalager/beräkningar till ditt datalager, sedan definierar du de indata- och utdatauppsättningar som ska representera in- och utdata i länkade datalager och därefter skapar du pipelinen med en aktivitet som använder dessa datauppsättningar. 
 
-## Skapa länkade tjänster
+## <a name="create-linked-services"></a>Skapa länkade tjänster
 I det här steget länkar du ditt Azure Storage-konto och ett Azure HDInsight-kluster på begäran till din datafabrik. In- och utdata för pipelinen i det här exemplet lagras i Azure Storage-kontot. En länkad HDInsight-tjänst används för att köra Hive-skriptet som anges i pipeline-aktiviteten i det här exemplet. Identifiera vilka [beräkningstjänster](data-factory-data-movement-activities.md)/[för datalager](data-factory-compute-linked-services.md) som används i scenariot och länka dessa tjänster till datafabriken genom att skapa länkade tjänster.  
 
-### Skapa en länkad Azure-lagringstjänst
+### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
 I det här steget länkar du ditt Azure Storage-konto till din datafabrik. I de här självstudierna använder du samma Azure Storage-konto för att lagra indata/utdata och HQL-skriptfilen. 
 
 1. Klicka på **Författare och distribution** på bladet **DATA FACTORY** för **GetStartedDF**. Du bör se Data Factory-redigeraren. 
@@ -88,9 +92,9 @@ I det här steget länkar du ditt Azure Storage-konto till din datafabrik. I de 
     ![Knappen Distribuera](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
    
    När den länkade tjänsten har distribuerats, bör fönstret **Draft-1** försvinna och du ser **AzureStorageLinkedService** i trädvyn till vänster. 
-    ![Länkad lagringstjänst i menyn](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)   
+    ![Länkad lagringstjänst i menyn](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
-### Skapa en Azure HDInsight-länkad tjänst
+### <a name="create-azure-hdinsight-linked-service"></a>Skapa en Azure HDInsight-länkad tjänst
 I det här steget ska du länka ett HDInsight-kluster på begäran till datafabriken. HDInsight-klustret skapas automatiskt vid körning och tas bort när bearbetningen är klar. Det är inaktivt under en angiven tidsrymd. 
 
 1. I **Data Factory-redigeraren**, klicka på **... Fler**, klicka på **Ny beräkning**, och välj **På begäran HDInsight-kluster**.
@@ -136,10 +140,10 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
    
     ![Trädvy med länkade tjänster](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
-## Skapa datauppsättningar
+## <a name="create-datasets"></a>Skapa datauppsättningar
 I det här steget skapar du datauppsättningar som ska representera in- och utdata för Hive-bearbetning. Dessa datauppsättningar avser den **AzureStorageLinkedService** som du skapade tidigare i självstudien. Den länkade tjänsten pekar på ett Azure-lagringskonto och datauppsättningarna anger behållare, mapp och filnamn i det lagringsutrymme som innehåller indata och utdata.   
 
-### Skapa indatauppsättning
+### <a name="create-input-dataset"></a>Skapa indatauppsättning
 1. I **Data Factory-redigeraren**, klicka på **... Fler** på kommandofältet klickar du på **Ny datamängd** och välj **Azure Blob-lagring**.
    
     ![Ny datauppsättning](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
@@ -180,7 +184,7 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
    | extern |den här egenskapen anges som true om indatan inte skapades av Data Factory-tjänsten. |
 3. Klicka på **Distribuera** i kommandofältet för att distribuera den nyskapade datauppsättningen. Du bör se datauppsättningen i trädvyn till vänster. 
 
-### Skapa datauppsättning för utdata
+### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
 Nu skapar du den utdatauppsättning som representerar de utdata som lagras i Azure Blob Storage. 
 
 1. I **Data Factory-redigeraren**, klicka på **... Fler** på kommandofältet klickar du på **Ny datamängd** och välj **Azure Blob-lagring**.  
@@ -211,7 +215,7 @@ Nu skapar du den utdatauppsättning som representerar de utdata som lagras i Azu
    
     ![Trädvy med länkade tjänster](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
-## Skapa pipeline
+## <a name="create-pipeline"></a>Skapa pipeline
 I det här steget ska du skapa din första pipeline med en **HDInsightHive**-aktivitet. Indatasektorn är tillgänglig månadsvis (frequency: Month, Interval: 1), utdatasektorn skapas varje månad och schemaegenskapen för aktiviteten har också inställningen Month. Inställningarna för utdatauppsättningen och aktivitetsschemaläggaren måste matcha. För närvarande är det utdatauppsättningen som skapar schemat. Därför måste du skapa en utdatauppsättning även om aktiviteten inte genererar några utdata. Om aktiviteten inte får några indata, kan du hoppa över att skapa indatauppsättningen. I slutet av det här avsnittet beskrivs de egenskaper som användes i följande JSON. 
 
 1. I **Data Factory-redigeraren** klickar du på **Tre punkter (...) Fler kommandon** och sedan på **Ny pipeline**.
@@ -292,8 +296,8 @@ I det här steget ska du skapa din första pipeline med en **HDInsightHive**-akt
     ![Trädvy med pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 6. Grattis, du har skapat din första pipeline!
 
-## Övervaka pipeline
-### Övervaka pipeline med diagramvyn
+## <a name="monitor-pipeline"></a>Övervaka pipeline
+### <a name="monitor-pipeline-using-diagram-view"></a>Övervaka pipeline med diagramvyn
 1. Klicka på **X** för att stänga bladen i Data Factory-redigeraren och för att gå tillbaka till Data Factory-bladet och klicka på **Diagram**.
    
     ![Ikonen Diagram](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
@@ -316,44 +320,45 @@ I det här steget ska du skapa din första pipeline med en **HDInsightHive**-akt
    
    ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 8. När bearbetningen är klar visas sektorn med statusen **Klar**.
-   
-   > [!IMPORTANT]
-   > Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att det tar **cirka 30 minuter** för pipelinen att bearbeta sektorn.    
-   > 
-   > 
-   
-    ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png) 
-9. När sektorn har statusen **Klar**, kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i blobblagringen för utdatan.  
+
+> [!IMPORTANT]
+> Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att det tar **cirka 30 minuter** för pipelinen att bearbeta sektorn.    
+> 
+> 
+
+    ![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)    
+
+1. När sektorn har statusen **Klar**, kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i blobblagringen för utdatan.  
    
    ![utdata](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
-10. Klicka på sektorn om du vill se information om den i ett **Datasektor**-blad.
-    
-    ![Information om datasektorn](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)  
-11. Klicka på en aktivitet som körs i **Lista med aktivitetskörningar** för att se information om en aktivitetskörning (Hive-aktivitet i vårt exempel) i ett fönster med **Aktivitetskörningsinformation**.   
-    
-    ![Aktivitetskörningsinformation](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)  
-    
-    Du kan se Hive-frågan som kördes och statusinformation i loggfilerna. Dessa loggar är användbara vid felsökning av eventuella problem.
-    Se artikeln [Övervaka och hantera pipelines med Azure-portalblad](data-factory-monitor-manage-pipelines.md) för mer information. 
+2. Klicka på sektorn om du vill se information om den i ett **Datasektor**-blad.
+   
+   ![Information om datasektorn](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)  
+3. Klicka på en aktivitet som körs i **Lista med aktivitetskörningar** för att se information om en aktivitetskörning (Hive-aktivitet i vårt exempel) i ett fönster med **Aktivitetskörningsinformation**.   
+   
+   ![Aktivitetskörningsinformation](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
+   
+   Du kan se Hive-frågan som kördes och statusinformation i loggfilerna. Dessa loggar är användbara vid felsökning av eventuella problem.
+   Se artikeln [Övervaka och hantera pipelines med Azure-portalblad](data-factory-monitor-manage-pipelines.md) för mer information. 
 
 > [!IMPORTANT]
 > Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen överför du därför indatafilen (input.log) till indatamappen i behållaren adfgetstarted.
 > 
 > 
 
-### Övervaka pipeline med övervaknings- och hanteringsappen
+### <a name="monitor-pipeline-using-monitor-manage-app"></a>Övervaka pipeline med övervaknings- och hanteringsappen
 Du kan också använda övervaknings- och hanteringsprogrammet till att övervaka dina pipelines. Se [Övervaka och hantera Azure Data Factory-pipelines med övervaknings- och hanteringsappen](data-factory-monitor-manage-app.md) för mer information om att använda programmet.
 
 1. Klicka på ikonen **Övervaka och hantera** på datafabrikens startsida.
    
     ![Ikonen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png) 
-2. Du bör se **Övervakaren och hantera program**. Ändra **Starttid** och **Sluttid** till att matcha starttid (04-01-2016 12:00:00) och sluttid (04-02-2016 12:00:00) i pipelinen. Klicka sedan på **Tillämpa**.
+2. Du bör se **Övervakaren och hantera program**. Ändra **Starttid** och **Sluttid** till att matcha starttid (04-01-2016 12:00:00) och sluttid (04-02-2016 12:00:00) i pipelinen. Klicka sedan på **Tillämpa**.
    
     ![Appen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png) 
 3. Välj ett aktivitetsfönster i listan **Aktivitetsfönster** om du vill se information om det. 
-    ![Information om aktivitetsfönstret](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
+    ![Aktivitetsfönsterinformation](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
-## Sammanfattning
+## <a name="summary"></a>Sammanfattning
 I den här självstudien skapade du en Azure-datafabrik som bearbetar data genom att köra ett Hive-skript i ett Hadoop-kluster i HDInsight. Du utförde följande steg med hjälp av Data Factory-redigeraren i Azure Portal:  
 
 1. Du skapade en Azure **Data Factory**.
@@ -363,10 +368,10 @@ I den här självstudien skapade du en Azure-datafabrik som bearbetar data genom
 3. Du skapade två **datauppsättningar** som beskriver in- och utdata för Hive-aktiviteten för HDInsight i pipelinen. 
 4. Du skapade en **pipeline** med en **HDInsight Hive**-aktivitet. 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript på ett HDInsight-kluster på begäran. Om du vill se hur du använder en kopieringsaktivitet till att kopiera data från en Azure-blobb till Azure SQL kan du läsa mer i [Självstudie: Kopiera data från en Azure-blobb till Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## Se även
+## <a name="see-also"></a>Se även
 | Avsnitt | Beskrivning |
 |:--- |:--- |
 | [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) |Den här artikeln innehåller en lista med de datatransformeringsaktiviteter (till exempel HDInsight Hive-transformeringen som du använde i självstudien) som stöds av Azure Data Factory. |
@@ -375,6 +380,9 @@ I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (H
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

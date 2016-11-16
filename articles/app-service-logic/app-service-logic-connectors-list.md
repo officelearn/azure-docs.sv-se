@@ -1,12 +1,12 @@
 ---
-title: Lista över tillgängliga kopplingar och API Apps | Microsoft Docs
-description: Läs mer om kopplingar och API Apps i Azure Apptjänst
+title: "Lista över tillgängliga kopplingar och API Apps | Microsoft Docs"
+description: "Läs mer om kopplingar och API Apps i Azure Apptjänst"
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
 editor: cgronlun
-
+ms.assetid: 984a425d-ba64-48cc-90dc-bb624411e0f0
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6028fc53661978f63bbac89be6214ffebdc22405
+
 
 ---
-# Lista över kopplingar och API Apps att använda i dina Logic Apps
+# <a name="list-of-connectors-and-api-apps-to-use-in-your-logic-apps"></a>Lista över kopplingar och API Apps att använda i dina Logic Apps
 > [!NOTE]
 > Den här versionen av artikeln gäller förhandsvisning av schemaversionen för Logic Apps 2014-12-01. Versionsinformation för Logic Apps General Availability (GA) finns i [Lista över anslutningsappar](../connectors/apis-list.md).
 > 
@@ -31,7 +35,7 @@ Prisinformation och en lista över vad som ingår i varje tjänstnivå finns i [
 > 
 > 
 
-## Core-kopplingar
+## <a name="core-connectors"></a>Core-kopplingar
 I följande tabell visas alla tillgängliga kopplingar och API Apps som skapats av Microsoft och som är tillgängliga som Core-kopplingar:
 
 | Namn | Beskrivning |
@@ -40,7 +44,7 @@ I följande tabell visas alla tillgängliga kopplingar och API Apps som skapats 
 | [HTTP](app-service-logic-connector-http.md) |HTTP-lyssnaren öppnar en slutpunkt som fungerar som en HTTP-server och lyssnar efter inkommande begäranden för HTTP eller HTTPS. HTTP-åtgärden kräver inte en API-app och stöds internt inom Logic Apps. |
 | [Slack](app-service-logic-connector-slack.md) |Anslut till Slack och skicka meddelanden till Slack-kanaler. |
 
-## Enterprise Integration-kopplingar
+## <a name="enterprise-integration-connectors"></a>Enterprise Integration-kopplingar
 I följande tabell visas alla tillgängliga kopplingar och API Apps som skapats av Microsoft och som är tillgängliga som Enterprise Integration-kopplingar:
 
 | Namn | Beskrivning |
@@ -53,25 +57,28 @@ I följande tabell visas alla tillgängliga kopplingar och API Apps som skapats 
 | [Microsoft SQL Server](app-service-logic-connector-sql.md) |Ansluter till en lokal SQLServer eller en Azure SQL-databas. Du kan skapa, uppdatera, hämta och ta bort poster i en SQL-databastabell. |
 | MQ |Ansluter till en IBM WebSphere MQ-server version 8, lokalt och på en virtuell Azure-dator som kör ett Windows-operativsystem. Vid lokal användning kan VPN eller Azure ExpressRoute  användas. Kopplingen inkluderar även Microsoft Client för MQ.<br/><br/>Inga utlösare. Inga åtgärder.<br/><br/>**Obs**! Kan för närvarande inte användas med Logic Apps. |
 
-## Kopplingar som utlösare
+## <a name="connectors-as-triggers"></a>Kopplingar som utlösare
 Flera kopplingar skapar utlösare för Logic Apps. Dessa utlösare är av två typer:
 
 1. Avsökningsutlösare: Dessa utlösare avsöker din tjänst med en frekvens som är angiven för att söka efter nya data. När det finns nya data körs en ny instans av din logikapp med data som indata. För att förhindra att samma data används flera gånger kan utlösaren rensa data som har lästs in och skickats till logikappen. Exempel på sådana kopplingar är File, SQL och Azure Storage.
 2. Push-utlösare: dessa utlösare lyssnar efter data på en slutpunkt eller för att en händelse ska inträffa. Sedan utlöser de en ny instans av logikappen. Exempel på sådana kopplingar är HTTP-lyssnare och Twitter.
 
-## Kopplingar som åtgärder
+## <a name="connectors-as-actions"></a>Kopplingar som åtgärder
 Kopplingar kan också användas som åtgärder i din logikapp. Åtgärder är användbara för att söka efter data i logikappen som sedan kan användas i körningen. Du kan till exempel behöva söka efter data från en SQL-databas för ytterligare information om en kund vid bearbetning av en order. Eller så kan du behöva skriva, uppdatera eller ta bort data i en destination. Du kan göra detta med de åtgärder som tillhandahålls av kopplingarna. Åtgärder som mappar till åtgärder i API Apps (som definieras av deras Swagger-metadata).
 
-## Skapa egna kopplingar och API Apps
+## <a name="create-your-own-connectors-and-api-apps"></a>Skapa egna kopplingar och API Apps
 [Kopplingar och referenser för API Apps](http://aka.ms/appservicesconnectorreference)  
-[Utlösare för API Apps i Azure Apptjänst](../app-service-api/app-service-api-dotnet-triggers.md)  
-[Referens för logikapp](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+[Utlösare för API Apps i Azure App Service](../app-service-api/app-service-api-dotnet-triggers.md)  
+[Referens för Logic App](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
-## Mer om kopplingar och API Apps
-[Vad är kopplingar och BizTalk-API Apps](app-service-logic-what-are-biztalk-api-apps.md)  
-[Använda hybridanslutningshanteraren i Azure Apptjänst](app-service-logic-hybrid-connection-manager.md)  
+## <a name="more-on-connectors-and-api-apps"></a>Mer om kopplingar och API Apps
+[Vad är anslutningsappar och BizTalk API-appar?](app-service-logic-what-are-biztalk-api-apps.md)  
+[Använda hybridanslutningshanteraren i Azure App Service](app-service-logic-hybrid-connection-manager.md)  
 [Hantera och övervaka inbyggda API Apps och kopplingar](app-service-logic-monitor-your-connectors.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

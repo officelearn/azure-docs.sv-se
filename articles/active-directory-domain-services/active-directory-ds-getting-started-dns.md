@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD DS: Uppdatera DNS-inställningarna för det virtuella Azure-nätverket | Microsoft Docs'
-description: Komma igång med Azure Active Directory Domain Services
+title: "Azure AD DS: Uppdatera DNS-inställningarna för det virtuella Azure-nätverket | Microsoft Docs"
+description: "Komma igång med Azure Active Directory Domain Services"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 81c0564390c57c7ee001ce5a574ab670faf898b4
+
 
 ---
-# Azure AD Domain Services – Uppdatera DNS-inställningarna för det virtuella Azure-nätverket
-## Uppgift 4 – Uppdatera DNS-inställningarna för det virtuella Azure-nätverket
+# <a name="azure-ad-domain-services-update-dns-settings-for-the-azure-virtual-network"></a>Azure AD Domain Services – Uppdatera DNS-inställningarna för det virtuella Azure-nätverket
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Uppgift 4 – Uppdatera DNS-inställningarna för det virtuella Azure-nätverket
 I de tidigare konfigurationsuppgifterna har du aktiverat Azure AD Domain Services för katalogen. Härnäst ska du se till att datorerna i det virtuella nätverket kan ansluta och använda tjänsterna. Uppdatera DNS-serverinställningarna för det virtuella nätverket så att de pekar på de bägge IP-adresserna där Azure AD Domain Services är tillgängliga i det virtuella nätverket.
 
 > [!NOTE]
@@ -46,9 +50,12 @@ Utför följande konfigurationssteg för att uppdatera DNS-serverinställningen 
 > 
 > 
 
-## Uppgift 5 – Aktivera lösenordssynkronisering till Azure AD Domain Services
+## <a name="task-5-enable-password-synchronization-to-azure-ad-domain-services"></a>Uppgift 5 – Aktivera lösenordssynkronisering till Azure AD Domain Services
 Nästa konfigurationsåtgärd är att [aktivera lösenordssynkronisering till Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

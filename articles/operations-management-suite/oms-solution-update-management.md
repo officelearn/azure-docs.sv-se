@@ -1,242 +1,247 @@
 ---
-title: Update Management solution in OMS | Microsoft Docs
-description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
+title: "Uppdateringshanteringslösning i OMS | Microsoft Docs"
+description: "Den här artikeln är avsedd att hjälpa dig att förstå hur du använder den här lösningen för att hantera uppdateringar för dina Windows- och Linux-datorer."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2016
+ms.date: 10/14/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+
 
 ---
-# ![Update Management Solution in OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Update Management solution in OMS
-The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers. 
+# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![Uppdateringshanteringslösning i OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Uppdateringshanteringslösning i OMS
+Uppdateringshanteringslösningen i OMS gör att du kan du hantera uppdateringar för dina Windows- och Linux-datorer.  Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och starta processen för att installera nödvändiga uppdateringar för servrar. 
 
-## Prerequisites
-* Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
+## <a name="prerequisites"></a>Krav
+* Windows-agenter måste antingen konfigureras för att kommunicera med en WSUS-server (Windows Server Update Services) eller ha åtkomst till Microsoft Update.  
   
   > [!NOTE]
-  > The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
+  > Windows-agenten kan inte hanteras samtidigt av System Center Configuration Manager.  
   > 
   > 
-* Linux agents must have access to an update repository.  The OMS Agent for Linux can be downloaded from [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
+* Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.  OMS-agenten för Linux hämtas från [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
-## Configuration
-Perform the following steps to add the Update Management solution to your OMS workspace and add Linux agents.  Windows agents are added automatically with no additional configuration.
+## <a name="configuration"></a>Konfiguration
+Utför följande steg för att lägga till uppdateringshanteringslösningen till din OMS-arbetsyta och lägga till Linux-agenter.  Windows-agenter läggs till automatiskt utan någon ytterligare konfiguration.
 
-1. Add the Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
-2. In the OMS portal, select **Settings** and then **Connected Sources**.  Note the **Workspace ID** and either the **Primary Key** or **Secondary Key**.
-3. Perform the following steps for each Linux computer.
+1. Lägg till uppdateringshanteringslösningen i din OMS-arbetsyta med hjälp av den process som beskrivs i [Lägg till OMS-lösningar](../log-analytics/log-analytics-add-solutions.md) från lösningsgalleriet.  
+2. I OMS-portalen OMS väljer du **Inställningar** och sedan **Anslutna källor**.  Observera **arbetsyte-ID** och antingen **primärnyckel** eller **sekundärnyckel**.
+3. Utför följande steg för varje Linux-dator.
    
-   a.  Install the latest version of the OMS Agent for Linux by running the following commands.  Replace <Workspace ID> with the Workspace ID and <Key> with either the Primary or Secondary Key.
+   a.    Installera den senaste versionen av OMS-agent för Linux genom att köra följande kommandon.  Ersätt <Workspace ID> med arbetsyte-ID och <Key> med antingen primär- eller sekundärnyckel.
    
-       cd ~
-       wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
    
-    b. To remove the agent, run the following command.
+   b. Kör följande kommando för att ta bort agenten.
    
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
-## Management packs
-If your System Center Operations Manager management group is connected to your OMS workspace, then the following management packs will be installed in Operations Manager when you add this solution. There is no configuration or maintenance of these management packs required. 
+## <a name="management-packs"></a>Hanteringspaket
+Om din hanteringsgrupp för System Center Operations Manager är ansluten till din OMS-arbetsytan installeras därefter följande hanteringspaket i Operations Manager när du lägger till den här lösningen. Det krävs ingen konfigurering eller underhåll av dessa hanteringspaket. 
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
-* Update Deployment MP
+* Uppdatera distributions-MP
 
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
+Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
-## Data collection
-### Supported agents
-The following table describes the connected sources that are supported by this solution.
+## <a name="data-collection"></a>Datainsamling
+### <a name="supported-agents"></a>Agenter som stöds
+I följande tabell beskrivs de anslutna källor som stöds av den här lösningen.
 
-| Connected Source | Supported | Description |
+| Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| Windows agents |Yes |The solution collects information about system updates from Windows agents and initiates installation of required updates. |
-| Linux agents |Yes |The solution collects information about system updates from Linux agents. |
-| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the OMS repository. |
-| Azure storage account |No |Azure storage does not include information about system updates. |
+| Windows-agenter |Ja |Lösningen samlar in information om systemuppdateringar från Windows-agenter och initierar installationen av nödvändiga uppdateringar. |
+| Linux-agenter |Ja |Lösningen samlar in information om systemuppdateringar från Linux-agenter. |
+| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.<br>En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Data vidarebefordras från hanteringsgruppen till OMS-databasen. |
+| Azure Storage-konto |Nej |Azure Storage inkluderar inte information om systemuppdateringar. |
 
-### Collection frequency
-For each managed Windows computer, a scan is performed twice per day.  When an update is installed, its information is updated within 15 minutes.  
+### <a name="collection-frequency"></a>Insamlingsfrekvens
+För varje hanterad Windows-dator utförs en genomsökning två gånger per dag.  När en uppdatering har installerats uppdateras dess information inom 15 minuter.  
 
-For each managed Linux computer, a scan is performed every 3 hours.  
+För varje hanterad Linux-dator utförs en sökning var tredje timme.  
 
-## Using the solution
-When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment currently requiring system updates.<br><br>
-![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
+## <a name="using-the-solution"></a>Använda lösningen
+När du lägger till uppdateringshanteringslösningen i OMS-arbetsytan läggs panelen **Uppdateringshantering** till på OMS-instrumentpanelen. Den här panelen visar antal och en grafisk representation av hur många datorer i din miljö som för närvarande kräver systemuppdateringar.<br><br>
+![Sammanfattningspanel uppdateringshantering](media/oms-solution-update-management/update-management-summary-tile.png)  
 
-## Viewing Update Assessments
-Click on the **Update Management** tile to open the **Update Management** dashboard. The dashboard includes the columns in the following table. Each column lists up to ten items matching that column's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the column or by clicking the column header.
+## <a name="viewing-update-assessments"></a>Visning av kontroll av uppdateringar
+Klicka på ikonen **Uppdateringshantering** för att öppna instrumentpanelen **Uppdateringshantering**. Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn listar upp till tio objekt som matchar denna kolumns kriterier för specificerat omfång och tidsintervall. Du kan köra en loggsökning som returnerar alla poster genom att klicka på **Se alla** längst ned i kolumnen eller genom att klicka på kolumnrubriken.
 
-| Column | Description |
+| Kolumn | Beskrivning |
 | --- | --- |
-| **Computers Missing Updates** | |
-| Critical or Security Updates |Lists the top ten computers that are missing updates sorted by the number of updates they're missing. Click on a computer name to run a log search returning all update records for that computer. |
-| Critical or Security Updates older than 30 days |Identifies number of computers that are missing critical or security updates grouped by the length of time since the update was published. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Required Missing Updates** | |
-| Critical or Security Updates |Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a classification to run a log search returning all update records for that classification. |
-| **Update Deployments** | |
-| Update Deployments |Number of currently scheduled update deployments and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new deployment. |
+| **Datorer som saknar uppdateringar** | |
+| Kritiska eller säkerhetsuppdateringar |Visar upp de tio datorer som främst saknar uppdateringar, sorterade efter antalet uppdateringar som saknas. Klicka på ett datornamn för att köra en loggsökning som returnerar alla uppdateringsposter för denna dator. |
+| Kritiska eller säkerhetsuppdateringar som är äldre än 30 dagar |Identifierar antalet datorer som saknar kritiska eller säkerhetsuppdateringar, grupperade efter hur lång tid det är sedan uppdateringen publicerades. Klicka på någon av posterna för att köra en loggsökning som returnerar alla saknade och kritiska uppdateringar. |
+| **Nödvändiga uppdateringar som saknas** | |
+| Kritiska eller säkerhetsuppdateringar |Visar klassificeringar av uppdateringar som datorer saknar, sorterat efter antalet datorer som saknar uppdateringar i kategorin. Klicka på en klassificering för att köra en loggsökning som returnerar alla uppdateringsposter för denna klassificering. |
+| **Distributioner av uppdateringar** | |
+| Distributioner av uppdateringar |Antalet aktuella, schemalagda distributioner av uppdateringar och tiden fram till nästa schemalagda körning.  Klicka på panelen för att visa scheman, körningar som för närvarande görs och slutförda uppdateringar eller för att schemalägga en ny distribution. |
 
 <br>  
-![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
+![Instrumentpanel för sammanfattning av uppdateringshantering](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
 <br>
-![Update Management Dashboard Computer View](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
+![Instrumentpanelsvy över uppdateringshantering för dator](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
 <br>
-![Update Management Dashboard Package View](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
+![Instrumentpanelsvy över uppdateringshantering för paket](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
 
-## Installing updates
-Once updates have been assessed for all of the computers in your environment, you can have required updates installed by creating an *Update Deployment*.  An Update Deployment is a scheduled installation of required updates for one or more Windows computers.  You specify the date and time for the deployment in addition to a computer or group of computers that should be included.  
+## <a name="installing-updates"></a>Installera uppdateringar
+När uppdateringar har utvärderats för alla Windows-datorer i din miljö kan du installera nödvändiga uppdateringar genom att skapa en *Uppdateringsdistribution*.  En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera Windows-datorer.  Du kan ange datum och tid för distributionen förutom den dator eller grupp av datorer som ska inkluderas.  
 
-Updates are installed by runbooks in Azure Automation.  You cannot currently view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule in that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each Windows agent that performs installation of required updates.  
+Uppdateringar installeras av runbooks i Azure Automation.  För närvarande kan du inte kan se dessa runbooks och de kräver inte någon konfigurering.  När en uppdateringsdistribution skapas så skapar den ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för de datorer som ingår.  Denna master-runbook startar en underordnad runbook på varje Windows-agent som utför installationen av de nödvändiga uppdateringarna.  
 
-### Viewing update deployments
-Click the **Update Deployment** tile to view the list of existing Update Deployments.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Deployments Schedule Page](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
+### <a name="viewing-update-deployments"></a>Visa uppdateringsdistributioner
+Klicka på ikonen **Uppdateringsdistribution** för att visa en lista över befintliga uppdateringsdistributioner.  De grupperas efter status – **Schemalagda**, **Kör** och **Slutförda**.<br><br> ![Uppdatera sidan med scheman över uppdateringsdistributioner](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
 
-The properties displayed for each Update Deployment are described in the following table.
+De egenskaper som visas för varje uppdateringsdistribution beskrivs i följande tabell.
 
-| Property | Description |
+| Egenskap | Beskrivning |
 | --- | --- |
-| Name |Name of the Update Deployment. |
-| Schedule |Type of schedule.  *OneTime* is currently the only possible value. |
-| Start Time |Date and time that the Update Deployment is scheduled to start. |
-| Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Servers |Number of computers affected by the Update Deployment. |
-| Status |Current status of the Update Deployment.<br><br>Possible values are:<br>-  Not Started<br>- Running<br>- Finished |
+| Namn |Uppdateringsdistributionens namn. |
+| Schema |Typ av schema.  *OneTime* är för närvarande det enda möjliga värdet. |
+| Starttid |Datum och tid då uppdateringsdistributionen har schemalagts att starta. |
+| Varaktighet |Antalet minuter som uppdateringsdistributionen har tillåtelse att köra.  Om alla uppdateringar inte installeras inom denna tidsrymd måste de återstående uppdateringarna vänta tills nästa uppdateringsdistribution. |
+| Servrar |Antal datorer som påverkas av uppdateringsdistributionen. |
+| Status |Uppdateringsdistributionens aktuella status.<br><br>Möjliga värden:<br>-    Ej startad<br>- Kör<br>- Färdig |
 
-Click on an Update Deployment to view its detail screen which includes the columns in the following table.  These columns will not be populated if the Update Deployment has not yet started.<br>
+Klicka på en uppdateringsdistribution för att visa detaljerad information inklusive kolumnerna i följande tabell.  Dessa kolumner är inte ifyllda inte om uppdateringsdistributionen inte har startats.<br>
 
-| Column | Description |
+| Kolumn | Beskrivning |
 | --- | --- |
-| **Computer Results** | |
-| Completed Successfully |Lists the number of computers in the Update Deployment by status.  Click on a status to run a log search returning all update records with that status for the Update Deployment. |
-| Computer Installation Status |Lists the computers involved in the Update Deployment and the percentage of updates that successfully installed. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Update Instance Results** | |
-| Instance Installation Status |Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a computer to run a log search returning all update records for that computer. |
+| **Datorresultat** | |
+| Slutförda |Visar antalet datorer i uppdateringsdistributionen efter status.  Klicka på en status för att köra en loggsökning som returnerar alla uppdaterade poster med denna status för uppdateringsdistributionen. |
+| Installationsstatus för datorer |Visar vilka datorer som ingår i uppdateringsdistributionen och andelen uppdateringar som har installerats i procent. Klicka på någon av posterna för att köra en loggsökning som returnerar alla saknade och kritiska uppdateringar. |
+| **Uppdatera instansresultat** | |
+| Installationsstatus för instanser |Visar klassificeringar av uppdateringar som datorer saknar, sorterat efter antalet datorer som saknar uppdateringar i kategorin. Klicka på en dator för att köra en loggsökning som returnerar alla uppdateringsposter för denna dator. |
 
-<br><br> ![Overview of Update Deployment Results](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
+<br><br> ![Översikt över uppdateringsdistributionens resultat](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
 
-### Creating an Update Deployment
-Create a new Update Deployment by clicking the **Add** button at the top of the screen to open the **New Update Deployment** page.  You must provide values for the properties in the following table.
+### <a name="creating-an-update-deployment"></a>Skapa en uppdateringsdistribution
+Skapa en ny uppdateringsdistribution genom att klicka på knappen **Lägg till** längst upp på skärmen för att öppna sidan **Ny uppdateringsdistribution**.  Du måste ange värden för egenskaperna i följande tabell.
 
-| Property | Description |
+| Egenskap | Beskrivning |
 | --- | --- |
-| Name |Unique name to identify the update deployment. |
-| Time Zone |Time zone to use for the start time. |
-| Start Time |Date and time to start the update deployment. |
-| Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Computers |Names of computers or computer groups to include in the Update Deployment.  Select one or more entries from the drop down list. |
+| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
+| Tidszon |Tidszonen för starttiden. |
+| Starttid |Datum och tidpunkt för start av uppdateringsdistributionen. |
+| Varaktighet |Antalet minuter som uppdateringsdistributionen har tillåtelse att köra.  Om alla uppdateringar inte installeras inom denna tidsrymd måste de återstående uppdateringarna vänta tills nästa uppdateringsdistribution. |
+| Datorer |Namnen på datorer eller datorgrupper som ska ingå i uppdateringsdistributionen.  Markera en eller flera poster i listrutan. |
 
-<br><br> ![New Update Deployment Page](./media/oms-solution-update-management/update-newupdaterun-page.png)
+<br><br> ![Ny sida för uppdateringsdistribution](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
-### Time range
-By default, the scope of the data analyzed in the Update Management solution is from all connected management groups generated within the last 1 day. 
+### <a name="time-range"></a>Tidsintervall
+Som standard är omfånget för de data som analyseras i uppdateringshanteringslösningen från alla anslutna hanteringsgrupper genererade inom den senaste dagen. 
 
-To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.<br><br> ![Custom Time Range Option](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
+Om du vill ändra tidsintervallet för data väljer du **Databaserat för** längst upp på instrumentpanelen. Du kan välja poster som skapats eller uppdaterats under de senaste 7 dagarna, senaste dagen eller 6 timmarna. Du kan även välja **Anpassat** och ange ett eget datumintervall.<br><br> ![Anpassat alternativ för tidsintervall](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
 
-## Log Analytics records
-The Update Management solution creates two types of records in the OMS repository.
+## <a name="log-analytics-records"></a>Log Analytics-poster
+Uppdateringshanteringslösningen skapar två typer av poster i OMS-databasen.
 
-### Update records
-A record with a type of **Update** is created for each update that is either installed or needed on each computer. Update records have the properties in the following table.
+### <a name="update-records"></a>Uppdateringsposter
+En post med typen av **uppdatering** skapas för varje uppdatering som antingen installerats eller behövs på varje dator. Uppdateringsposter har egenskaper enligt följande tabell.
 
-| Property | Description |
+| Egenskap | Beskrivning |
 | --- | --- |
-| Type |*Update* |
-| SourceSystem |The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>-  Windows Update<br>- SCCM<br>- Linux Servers (Fetched from Package Managers) |
-| Approved |Specifies whether the update has been approved for installation.<br> For Linux servers this is currently optional as patching is not managed by OMS. |
-| Classification for Windows |Classification of the update.<br>Possible values are:<br>- Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates |
-| Classification for Linux |Cassification of the update.<br>Possible values are:<br>-Critical Updates<br>- Security Updates<br>- Other Updates |
-| Computer |Name of the computer. |
-| InstallTimeAvailable |Specifies whether the installation time is available from other agents that installed the same update. |
-| InstallTimePredictionSeconds |Estimated installation time in seconds based on other agents that installed the same update. |
-| KBID |ID of the KB article that describes the update. |
-| ManagementGroupName |Name of the management group for SCOM agents.  For other agents, this is AOI-<workspace ID>. |
-| MSRCBulletinID |ID of the Microsoft security bulletin describing the update. |
-| MSRCSeverity |Severity of the Microsoft security bulletin.<br>Possible values are:<br>- Critical<br>- Important<br>- Moderate |
-| Optional |Specifies whether the update is optional. |
-| Product |Name of the product the update is for.  Click **View** to open the article in a browser. |
-| PackageSeverity |The severity of the vulnerability fixed in this update, as reported by the  Linux distro vendors. |
-| PublishDate |Date and time that the update was installed. |
-| RebootBehavior |Specifies if the update forces a reboot.<br>Possible values are:<br>- canrequestreboot<br>- neverreboots |
-| RevisionNumber |Revision number of the update. |
-| SourceComputerId |GUID to uniquely identify the computer. |
-| TimeGenerated |Date and time that the record was last updated. |
-| Title |Title of the update. |
-| UpdateID |GUID to uniquely identify the update. |
-| UpdateState |Specifies whether the update is installed on this computer.<br>Possible values are:<br>- Installed - The update is installed on this computer.<br>- Needed - The update is not installed and is needed on this computer. |
+| Typ |*Uppdatering* |
+| SourceSystem |Källan som godkände installationen av uppdateringen.<br>Möjliga värden:<br>- Microsoft Update<br>-    Windows Update<br>-    SCCM<br>- Linux-servrar (hämtade från pakethanterare) |
+| Godkända |Anger om uppdateringen har godkänts för installation.<br> För Linux-servrar är detta för närvarande valfritt eftersom korrigeringar inte hanteras av OMS. |
+| Klassificering för Windows |Uppdateringens klassificering.<br>Möjliga värden:<br>-    Program<br>- Kritisk uppdatering<br>- Definitionsuppdatering<br>- Funktionspaket<br>- Säkerhetsuppdatering<br>- Service pack<br>- Samlad uppdatering<br>- Uppdatering |
+| Klassificering för Linux |Uppdateringens klassificering.<br>Möjliga värden:<br>- Kritisk uppdatering<br>- Säkerhetsuppdatering<br>- Övriga uppdateringar |
+| Dator |Datorns namn. |
+| InstallTimeAvailable |Anger om tidpunkten för installationen är tillgänglig från andra agenter som installerat samma uppdatering. |
+| InstallTimePredictionSeconds |Beräknad installationstid i sekunder baserat på andra agenter som installerat samma uppdatering. |
+| KBID |ID för den KB-artikel som beskriver uppdateringen. |
+| ManagementGroupName |Namnet på hanteringsgruppen för SCOM-agenter.  För övriga agenter är detta AOI-<workspace ID>. |
+| MSRCBulletinID |ID för den säkerhetsbulletin från Microsoft som beskriver uppdateringen. |
+| MSRCSeverity |Allvarlighetsgraden i säkerhetsbulletinen från Microsoft.<br>Möjliga värden:<br>- Kritiskt<br>- Viktig<br>- Mellan |
+| Valfri |Anger om uppdateringen är valfri. |
+| Produkt |Namnet på den produkt som uppdateringen gäller för.  Klicka på **Visa** för att öppna artikeln i en webbläsare. |
+| PackageSeverity |Allvarlighetsgraden för de problem som åtgärdas i den här uppdateringen, enligt rapport från Linux distributionsleverantörer. |
+| PublishDate |Datum och tid när uppdateringen installerades. |
+| RebootBehavior |Anger om uppdateringen kräver omstart.<br>Möjliga värden:<br>- canrequestreboot<br>- neverreboots |
+| RevisionNumber |Uppdateringens revisionsnummer. |
+| SourceComputerId |GUID för unik identifiering av datorn. |
+| TimeGenerated |Datum och tid då posten senast uppdaterades. |
+| Rubrik |Uppdateringens titel. |
+| UpdateID |GUID för unik identifiering av uppdateringen. |
+| UpdateState |Anger om uppdateringen är installerad på den här datorn.<br>Möjliga värden:<br>- Installerad - Uppdateringen är installerad på den här datorn.<br>- Krävs - Uppdateringen är inte installerad och krävs på den här datorn. |
 
 <br>
-When you perform any log search that returns records with a type of **Update** you can select the **Updates** view which displays a set of tiles summarizing the updates returned by the search. You can click on the entries in the **Missing and applied updates** and **Required and optional updates** tiles to scope the view to that set of updates. Select the **List** or **Table** view to return the individual records.<br> 
+När du utför en loggsökning som returnerar poster med typ av **Uppdatering** kan du välja vyn **Uppdateringar** som visar en uppsättning paneler som sammanfattar de uppdateringar som returneras av sökningen. Du kan klicka på posterna i panelerna **Saknade och tillämpade uppdateringar** och **Nödvändiga och valfria uppdateringar** för att vyn ska omfatta dessa uppdateringar. Välj vyn **Lista** eller **Tabell** för att returnera de enskilda posterna.<br> 
 
-![Log Search Update View with Record Type Update](./media/oms-solution-update-management/update-la-view-updates.png)  
+![En loggsöknings uppdateringsvy med poster över uppdateringstyp](./media/oms-solution-update-management/update-la-view-updates.png)  
 
-In the **Table** view, you can click on the **KBID** for any record to open a browser with the KB article. This allows you to quickly read about the details of the particular update.<br> 
+I vyn **Tabell** kan du klicka på **KBID** tillhörande en post för att öppna en webbläsare med KB-artikeln. Detta gör att du snabbt kan läsa information om en viss uppdatering.<br> 
 
-![Log Search Table View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-table.png)
+![En loggsöknings tabellvy med paneler med poster över uppdateringstyp](./media/oms-solution-update-management/update-la-view-table.png)
 
-In the **List** view, you click the **View** link next to the KBID to open the KB article.<br>
+I vyn **Lista** kan du klicka på länken **Visa** bredvid KBID för att öppna KB-artikeln.<br>
 
-![Log Search List View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-list.png)
+![En loggsöknings listvy med paneler med poster över uppdateringstyp](./media/oms-solution-update-management/update-la-view-list.png)
 
-### UpdateSummary records
-A record with a type of **UpdateSummary** is created for each Windows agent computer. This record is updated each time the computer is scanned for updates. **UpdateSummary** records have the properties in the following table.
+### <a name="updatesummary-records"></a>UpdateSummary-poster
+En post med en typ av **UpdateSummary** skapas för varje Windows-agentdator. Den här posten uppdateras varje gång datorn genomsöks efter uppdateringar. **UpdateSummary**-poster har egenskaper enligt följande tabell.
 
-| Property | Description |
+| Egenskap | Beskrivning |
 | --- | --- |
-| Type |UpdateSummary |
+| Typ |UpdateSummary |
 | SourceSystem |OpsManager |
-| Computer |Name of the computer. |
-| CriticalUpdatesMissing |Number of critical updates missing on the computer. |
-| ManagementGroupName |Name of the management group for SCOM agents. For other agents, this is AOI-<workspace ID>. |
-| NETRuntimeVersion |Version of the .NET runtime installed on the computer. |
-| OldestMissingSecurityUpdateBucket |Bucket to categorize the time since the oldest missing security update on this computer was published.<br>Possible values are:<br>- Older<br>-  180 days ago<br>- 150 days ago<br>- 120 days ago<br>- 90 days ago<br>- 60 days ago<br>- 30 days go<br>- Recent |
-| OldestMissingSecurityUpdateInDays |Number of days since the oldest missing security update on this computer was published. |
-| OsVersion |Version of the operating system installed on the computer. |
-| OtherUpdatesMissing |Number of other updates missing on the computer. |
-| SecurityUpdatesMissing |Number of security updates missing on the computer. |
-| SourceComputerId |GUID to uniquely identify the computer. |
-| TimeGenerated |Date and time that the record was last updated. |
-| TotalUpdatesMissing |Total number of updates missing on the computer. |
-| WindowsUpdateAgentVersion |Version number of the Windows Update agent on the computer. |
-| WindowsUpdateSetting |Setting for how the computer will install important updates.<br>Possible values are:<br>- Disabled<br>- Notify before installation<br>- Scheduled installation |
-| WSUSServer |URL of WSUS server if the computer is configured to use one. |
+| Dator |Datorns namn. |
+| CriticalUpdatesMissing |Antalet kritiska uppdateringar som datorn saknar. |
+| ManagementGroupName |Namnet på hanteringsgruppen för SCOM-agenter. För övriga agenter är detta AOI-<workspace ID>. |
+| NETRuntimeVersion |Den version av .NET-Runtime som finns installerad på datorn. |
+| OldestMissingSecurityUpdateBucket |Bucket för att kategorisera den tidpunkt då den äldsta saknade säkerhetsuppdateringen på den här datorn publicerades.<br>Möjliga värden:<br>- Äldre<br>-    180 dagar sedan<br>- 150 dagar sedan<br>-    120 dagar sedan<br>- 90 dagar sedan<br>- 60 dagar sedan<br>-    30 dagar sedan<br>-    Nyligen |
+| OldestMissingSecurityUpdateInDays |Antalet dagar sedan den äldsta saknade säkerhetsuppdateringen på den här datorn publicerades. |
+| OsVersion |Den version av operativsystemet som finns installerad på datorn. |
+| OtherUpdatesMissing |Antalet andra uppdateringar som datorn saknar. |
+| SecurityUpdatesMissing |Antalet andra säkerhetsuppdateringar som datorn saknar. |
+| SourceComputerId |GUID för unik identifiering av datorn. |
+| TimeGenerated |Datum och tid då posten senast uppdaterades. |
+| TotalUpdatesMissing |Det totala antalet uppdateringar som datorn saknar. |
+| WindowsUpdateAgentVersion |Windows Update-agentens versionsnummer på datorn. |
+| WindowsUpdateSetting |Inställningen för hur datorn ska installera viktiga uppdateringar.<br>Möjliga värden:<br>- Inaktiverad<br>- Meddela innan installation<br>- Schemalagd installation |
+| WSUSServer |URL för WSUS-servern om datorn är konfigurerad för att använda en sådan. |
 
-## Sample log searches
-The following table provides sample log searches for update records collected by this solution. 
+## <a name="sample-log-searches"></a>Exempel på loggsökningar
+Följande tabell innehåller exempel på sökningar i loggen för uppdateringsposter som har samlats in av den här lösningen. 
 
-| Query | Description |
+| Fråga | Beskrivning |
 | --- | --- |
-| All computers with missing updates |Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
-| Missing updates for computer "COMPUTER01.contoso.com" (replace with your own computer name) |Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |
-| All computers with missing critical or security updates |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |
-| Critical or security updates needed by machines where updates are manually applied |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |
-| Error events for machines that have missing critical or security required updates |Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |
-| All computers with missing update rollups |Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
-| Distinct missing updates across all computers |Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |
-| WSUS computer membership |Type=UpdateSummary &#124; measure count() by WSUSServer |
-| Automatic update configuration |Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |
-| Computers with automatic update disabled |Type=UpdateSummary WindowsUpdateSetting=Manual |
-| List of all the Linux machines which have a package update available |Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |
-| List of all the Linux machines which have a package update available which addresses Critical or Security vulnerability |Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |
-| List of all packages that have an update available |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| List of all packages that have an update available which addresses Critical or Security vulnerability |Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |
-| List of all the “Ubuntu” machines with any update available |Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |
+| Alla datorer med saknade uppdateringar |Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
+| Saknade uppdateringar för datorn "COMPUTER01.contoso.com" (ersätt med namnet på din egen dator) |Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |
+| Alla datorer som saknar kritiska uppdateringar eller säkerhetsuppdateringar |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |
+| Kritiska uppdateringar eller säkerhetsuppdateringar som krävs för datorer där uppdateringarna görs manuellt |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |
+| Felhändelser för datorer som saknar kritiska uppdateringar eller säkerhetsuppdateringar |Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |
+| Alla datorer med saknade samlade uppdateringar |Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
+| Separata, saknade uppdateringar bland samtliga datorer |Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |
+| WSUS datormedlemskap |Type=UpdateSummary &#124; measure count() by WSUSServer |
+| Konfigurering av automatiska uppdateringar |Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |
+| Datorer med automatiska uppdateringar inaktiverat |Type=UpdateSummary WindowsUpdateSetting=Manual |
+| Lista över alla Linux-datorer som har en tillgänglig paketuppdatering |Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |
+| Lista över alla Linux-datorer som har en tillgänglig paketuppdatering vilken åtgärdar kritiska problem eller säkerhetsproblem |Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |
+| Lista över alla paket som har en tillgänglig uppdatering |Type=Update and OSType=Linux and UpdateState!="Not needed" |
+| Lista över alla paket som har en tillgänglig uppdatering vilken åtgärdar kritiska problem eller säkerhetsproblem |Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |
+| Lista över alla "Ubuntu"-datorer med en tillgänglig uppdatering |Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |
 
-## Next steps
-* Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
-* [Create your own dashboards](../log-analytics/log-analytics-dashboards.md) showing update compliance for your managed computers.
-* [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or a computer has automatic updates disabled.  
+## <a name="next-steps"></a>Nästa steg
+* Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-searches.md) för att visa detaljerad uppdateringsinformation.
+* [Skapa egna instrumentpaneler](../log-analytics/log-analytics-dashboards.md) som visar dina hanterade datorers regelefterlevnad.
+* [Skapa aviseringar](../log-analytics/log-analytics-alerts.md) när kritiska uppdateringar har identifierats som saknade i datorer eller när en dator har automatisk uppdatering inaktiverat.  
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

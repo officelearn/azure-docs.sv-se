@@ -1,4 +1,4 @@
-### Bevilja Mobile Engagement åtkomst till ditt Push-certifikat
+### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Bevilja Mobile Engagement åtkomst till ditt Push-certifikat
 Om du vill låta Mobile Engagement skicka push-meddelanden för dig, måste du bevilja Mobile Engagement åtkomst till ditt certifikat. Det görs genom att konfigurera och ange ditt certifikat i Mobile Engagement-portalen. Kontrollera att du har fått ditt .p12-certifikat enligt beskrivningen i [Apples dokumentation](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
 1. Gå till din Mobile Engagement-portal. Se till att du befinner dig i rätt och klicka sedan på **Engage**-knappen längst ned:
@@ -11,7 +11,7 @@ Om du vill låta Mobile Engagement skicka push-meddelanden för dig, måste du b
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a id="send"></a>Skicka ett meddelande till din app
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Skicka ett meddelande till din app
 Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push till vår app:
 
 1. Gå till **Reach**-fliken i din Mobile Engagement-portal.
@@ -40,6 +40,8 @@ Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push till vår a
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

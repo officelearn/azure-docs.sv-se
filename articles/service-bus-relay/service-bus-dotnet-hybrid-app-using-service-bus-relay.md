@@ -1,12 +1,12 @@
 ---
 title: Hybridprogram lokalt/i molnet (.NET) | Microsoft Docs
-description: Lär dig hur du skapar ett .NET-hybridprogram lokalt/i molnet genom att använda Azure Service Bus Relay.
+description: "Lär dig hur du skapar ett .NET-hybridprogram lokalt/i molnet genom att använda Azure Service Bus Relay."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3c9d542edf04c119f5d97f80eacdfd0521acd77d
+
 
 ---
-# <a name=".net-on-premises/cloud-hybrid-application-using-azure-service-bus-relay"></a>.NET-hybridprogram lokalt/i molnet med hjälp av Azure Service Bus Relay
+# <a name="net-onpremisescloud-hybrid-application-using-azure-service-bus-wcf-relay"></a>.NET-hybridprogram lokalt/i molnet med hjälp av Azure Service Bus WCF Relay
 ## <a name="introduction"></a>Introduktion
 I den här artikeln beskriver vi hur du skapar ett hybridprogram i molnet med Microsoft Azure och Visual Studio. Den här självstudiekursen förutsätter att du inte har några tidigare erfarenheter av att använda Azure. På mindre än 30 minuter kommer du att ha ett program färdigt i molnet som använder en rad Azure-resurser.
 
 Du kommer att lära dig:
 
 * Hur du skapar eller anpassar en befintlig webbtjänst för att den ska kunna användas av en webblösning.
-* Hur du använder Azure Service Bus Relay-tjänsten för att dela data mellan ett Azure-program och en webbtjänst som är värdbaserad någon annanstans.
+* Hur du använder Azure Service Bus WCF Relay-tjänsten för att dela data mellan ett Azure-program och en webbtjänst som är värdbaserad någon annanstans.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -32,7 +36,7 @@ Företagslösningar består normalt av en kombination av anpassad kod – som sk
 
 Lösningsarkitekter har börjat använda molnet för enklare hantering av skalkrav och lägre driftskostnader. När de gör detta upptäcker de att de befintliga tjänstetillgångarna, som de vill utnyttja som byggblock för sina lösningar, ligger innanför företagets brandvägg och därför är svåra att nå för de lösningar som ligger i molnet. Många interna tjänster är inte skapade eller värdbaserade på ett sätt som gör att de enkelt kan exponeras vid företagets nätverksgräns.
 
-Service Bus Relay är avsett för användningsfall där man tar befintliga WCF-webbtjänster (Windows Communication Foundation) och gör dessa tjänster helt tillgängliga för lösningar som finns utanför företagets perimeter, utan att behöva utföra störande ändringar i företagets nätverksinfrastruktur. Sådana Service Bus Relay-tjänster är fortfarande inhysta i sin befintliga miljö men de delegerar lyssnandet efter inkommande sessioner och förfrågningar till den Service Bus som är molnbaserad. Denna Service Bus skyddar även tjänsterna från obehörig åtkomst med hjälp av [SAS-autentisering](../service-bus/service-bus-sas-overview.md) (signatur för delad åtkomst).
+Service Bus Relay är avsett för användningsfall där man tar befintliga WCF-webbtjänster (Windows Communication Foundation) och gör dessa tjänster helt tillgängliga för lösningar som finns utanför företagets perimeter, utan att behöva utföra störande ändringar i företagets nätverksinfrastruktur. Sådana Service Bus Relay-tjänster är fortfarande inhysta i sin befintliga miljö men de delegerar lyssnandet efter inkommande sessioner och förfrågningar till den Service Bus som är molnbaserad. Denna Service Bus skyddar även tjänsterna från obehörig åtkomst med hjälp av [SAS-autentisering](../service-bus-messaging/service-bus-sas-overview.md) (signatur för delad åtkomst).
 
 ## <a name="solution-scenario"></a>Lösningsscenario
 I den här självstudiekursen kommer du att skapa en ASP.NET-webbplats som gör att du kan se en lista över produkter på sidan för inventarieförteckningar.
@@ -59,7 +63,7 @@ För att komma igång med Service Bus-funktionerna i Azure måste du först skap
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-an-on-premises-server"></a>Skapa en lokal server
+## <a name="create-an-onpremises-server"></a>Skapa en lokal server
 Först ska du skapa ett lokalt produktkatalogsystem (ett fingerat sådant). Det kan vara ett ganska enkel system. Du kan se detta som en representation av ett faktiskt, lokalt produktkatalogsystem med en fullständig serviceyta som vi försöker integrera.
 
 Det här projektet är ett konsolprogram för Visual Studio som använder [Azure Service Bus NuGet-paketet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) för att inkludera Service Bus-bibliotek och -konfigurationsinställningar.
@@ -197,14 +201,14 @@ Det här projektet är ett konsolprogram för Visual Studio som använder [Azure
     
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
 14. Tryck på **Ctrl+Shift+B**, eller på **Skapa lösning** från menyn **Skapa**, för att skapa programmet och kontrollera att allt du gjort hittills är korrekt.
 
-## <a name="create-an-asp.net-application"></a>Skapa ett ASP.NET-program
+## <a name="create-an-aspnet-application"></a>Skapa ett ASP.NET-program
 I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hämtats från din produkttjänst.
 
 ### <a name="create-the-project"></a>Skapa projektet
@@ -234,7 +238,7 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
    
    ```
    // Declare properties for the products inventory.
-   namespace ProductsWeb.Models
+    namespace ProductsWeb.Models
    {
        public class Product
        {
@@ -278,31 +282,31 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
    @model IEnumerable<ProductsWeb.Models.Product>
    
    @{
-           ViewBag.Title = "Index";
+            ViewBag.Title = "Index";
    }
    
    <h2>Prod Inventory</h2>
    
    <table>
-           <tr>
-               <th>
-                   @Html.DisplayNameFor(model => model.Name)
-               </th>
+             <tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Name)
+                 </th>
                  <th></th>
-               <th>
-                   @Html.DisplayNameFor(model => model.Quantity)
-               </th>
-           </tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Quantity)
+                 </th>
+             </tr>
    
    @foreach (var item in Model) {
-           <tr>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Name)
-               </td>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Quantity)
-               </td>
-           </tr>
+             <tr>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Name)
+                 </td>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Quantity)
+                 </td>
+             </tr>
    }
    
    </table>
@@ -469,6 +473,6 @@ Om du vill lära dig mer om Service Bus kan du använda följande resurser:
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

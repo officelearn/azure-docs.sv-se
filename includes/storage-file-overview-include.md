@@ -5,6 +5,8 @@ Eftersom en fillagringsresurs är en vanlig SMB-filresurs kan program som körs 
 
 Du kan skapa Azure-filresurser med hjälp av [Azure Portal](https://portal.azure.com), PowerShell-cmdlets för Azure Storage, klientbiblioteken för Azure Storage eller Azure Storage REST-API:et. Och eftersom alla dessa filresurser är SMB-resurser kan du dessutom komma åt dem via vanliga och välbekanta filsystem-API:er.
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

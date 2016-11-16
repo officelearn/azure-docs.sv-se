@@ -1,28 +1,32 @@
 ---
 title: Anpassa utvecklarportalen i Azure API Management | Microsoft Docs
-description: Lär dig hur du anpassar utvecklarportalen i Azure API Management.
+description: "Lär dig hur du anpassar utvecklarportalen i Azure API Management."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+
 
 ---
-# Anpassa utvecklarportalen i Azure API Management
+# <a name="customize-the-developer-portal-in-azure-api-management"></a>Anpassa utvecklarportalen i Azure API Management
 I den här guiden lär du dig hur du anpassar utvecklarportalen i Azure API Management till ditt varumärke.
 
 ## <a name="change-page-headers"> </a>Ändra text eller logotyp i sidhuvudet
 En av de viktigaste aspekterna när du anpassar portalen är att ersätta texten längst upp på alla sidor med ditt företagsnamn eller en logotyp.
 
-Du ändrar innehållet på utvecklarportalen från utgivarportalen, som du kommer åt via den klassiska Azure-portalen. Du kommer till API-utgivarportalen genom att klicka på **Hantera** på den klassiska Azure-portalen för API Management-tjänsten.
+Du ändrar innehållet på utvecklarportalen från utgivarportalen, som du kommer åt via Azure-portalen. För att nå den, klickar du på **utgivarportalen** i API Management-verktygsfältet.
 
 ![Utgivarportalen][api-management-management-console]
 
@@ -49,7 +53,7 @@ Du kan välja mellan två huvudlägen när du redigerar formatregler. Med **Redi
 
 I det här avsnittet vill vi bara ändra formatet på rubrikerna. Klicka på alternativet **Välj ett element** i verktygsfältet i formatredigeraren och klicka sedan på **Markera ett element som du vill anpassa**. Nu markeras elementen när du hovrar över dem med musen så att du ser vilket elements format som du kommer att redigera om du klickar. Flytta muspekaren över texten som representerar företagets namn i sidhuvudet (”Fabrikam Developer Portal” om du följde anvisningarna i föregående avsnitt) och klicka på den. En uppsättning namngivna och kategoriserade formatregler visas i formatredigeraren.
 
-Varje regel representerar en formategenskap för det valda elementet. Exempelvis har texten i rubrikerna som du valde ovan storleken @font-size-h1, och namnet på teckensnittet med varianter är @headings-font-family.
+Varje regel representerar en formategenskap för det valda elementet. Exempelvis har den markerade rubriktexten ovan storleken @font-size-h1, och namnet på teckensnittet med varianter är @headings-font-family.
 
 > Om du är bekant med [bootstrap][bootstrap] (starttjänsten) så är dessa regler i själva verket [LESS-variabler][LESS-variabler] i starttemat som används på utvecklarportalen.
 > 
@@ -88,7 +92,7 @@ Klicka på **välkomstsidan** om du vill ändra vad som visas på utvecklarporta
 [Redigera innehållet på en sida]: #edit-page-contents
 [Nästa steg]: #next-steps
 
-[Den klassiska Azure-portalen]: https://manage.windowsazure.com/
+[Klassisk Azure-portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -103,6 +107,6 @@ Klicka på **välkomstsidan** om du vill ändra vad som visas på utvecklarporta
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

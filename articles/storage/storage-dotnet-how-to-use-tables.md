@@ -1,12 +1,12 @@
 ---
-title: Komma igång med Azure Table Storage med hjälp av .NET | Microsoft Docs
-description: Lagra strukturerade data i molnet med hjälp av Azure Table Storage, en NoSQL-databas.
+title: "Komma igång med Azure Table Storage med hjälp av .NET | Microsoft Docs"
+description: "Lagra strukturerade data i molnet med hjälp av Azure Table Storage, en NoSQL-databas."
 services: storage
 documentationcenter: .net
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0e6effa1e74a06a99a2a6bea9df3cfc6deedeb0e
+
 
 ---
-# <a name="get-started-with-azure-table-storage-using-.net"></a>Komma igång med Azure Table Storage med hjälp av .NET
+# <a name="get-started-with-azure-table-storage-using-net"></a>Komma igång med Azure Table Storage med hjälp av .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -51,25 +55,25 @@ Ytterligare exempel med Table Storage finns i [Komma igång med Azure Table Stor
 
 ### <a name="add-namespace-declarations"></a>Lägga till namnrymdsdeklarationer
 Lägg till följande `using`-instruktioner överst i `program.cs`-filen:
-
+```csharp
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
-
+```
 ### <a name="parse-the-connection-string"></a>Parsa anslutningssträngen
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-table-service-client"></a>Skapa tabelltjänstens klient
 Med klassen **CloudTableClient** kan du hämta tabeller och de entiteter som lagras i Table Storage. Här är ett sätt att skapa tjänstklienten:
-
+```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
+```
 Nu är det dags att skriva kod som läser data från och skriver data till Table Storage.
 
 ## <a name="create-a-table"></a>Skapa en tabell
 Det här exemplet illustrerar hur du skapar en tabell om den inte redan finns:
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -82,11 +86,11 @@ Det här exemplet illustrerar hur du skapar en tabell om den inte redan finns:
 
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
-
+```
 ## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
 Entiteter mappar till C\#-objekt med hjälp av en anpassad klass som härleds från **TableEntity**. Om du vill lägga till en entitet i en tabell skapar du en klass som definierar egenskaperna för entiteten. Följande kod definierar en entitetsklass som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Det går snabbare att fråga entiteter med samma partitionsnyckel än entiteter som har olika partitionsnycklar, men skalbarheten och möjligheten att utföra parallella åtgärder är större med olika partitionsnycklar.  För egenskaper som ska lagras i tabelltjänsten måste egenskapen vara en offentlig egenskap för en typ som stöds och som exponerar både `get` och `set`.
 Dessutom *måste* entitetstypen exponera en parameterlös konstruktor.
-
+```csharp
     public class CustomerEntity : TableEntity
     {
         public CustomerEntity(string lastName, string firstName)
@@ -101,9 +105,9 @@ Dessutom *måste* entitetstypen exponera en parameterlös konstruktor.
 
         public string PhoneNumber { get; set; }
     }
-
+```
 Tabellåtgärder som rör entiteter utförs via **CloudTable**-objektet som du skapade tidigare i avsnittet Skapa en tabell. Åtgärden som ska utföras representeras av ett **TableOperation**-objekt.  Följande kodexempel visar hur **CloudTable**-objektet skapas och sedan ett **CustomerEntity**-objekt.  För att förbereda åtgärden skapas ett **TableOperation**-objekt som infogar kundentiteten i tabellen.  Slutligen körs åtgärden genom att **CloudTable.Execute** anropas.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -124,18 +128,18 @@ Tabellåtgärder som rör entiteter utförs via **CloudTable**-objektet som du s
 
     // Execute the insert operation.
     table.Execute(insertOperation);
-
+```
 ## <a name="insert-a-batch-of-entities"></a>Infoga en batch med entiteter
 Du kan infoga en batch med entiteter i en tabell i samma skrivåtgärd. Några anmärkningar om batchåtgärder:
 
 * Du kan utföra uppdateringar, borttagningar och infogningar i samma batchåtgärd.
-* En batchåtgärd kan omfatta upp till 100 entiteter.
+* En batchåtgärd kan omfatta upp till 100 entiteter.
 * Alla entiteter i samma batchåtgärd måste ha samma partitionsnyckel.
 * Även om det går att köra en fråga som en batchåtgärd måste den vara den enda åtgärden i batchen.
 
 <!-- -->
 Följande kod skapar två entitetsobjekt och lägger till vart och ett i **TableBatchOperation** med hjälp av **Insert**-metoden. Därefter anropas **CloudTable.Execute** för att köra åtgärden.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -165,11 +169,11 @@ Följande kod skapar två entitetsobjekt och lägger till vart och ett i **Table
 
     // Execute the batch operation.
     table.ExecuteBatch(batchOperation);
-
+```
 ## <a name="retrieve-all-entities-in-a-partition"></a>Hämta alla entiteter i en partition
 Om du vill fråga en tabell efter alla entiteter i en partition använder du ett **TableQuery**-objekt.
 I följande kodexempel anges ett filter för entiteter där partitionsnyckeln är ”Smith”. Det här exemplet skriver ut fälten för varje entitet i frågeresultatet till konsolen.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -189,10 +193,10 @@ I följande kodexempel anges ett filter för entiteter där partitionsnyckeln ä
         Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
             entity.Email, entity.PhoneNumber);
     }
-
+```
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Hämta ett intervall med enheter i en partition
 Om du inte vill fråga efter alla entiteter i en partition kan du ange ett intervall genom att kombinera partitionsnyckelfiltret med ett radnyckelfilter. I följande kodexempel används två filter för att hämta alla entiteter i partitionen ”Smith” där radnyckeln (förnamn) börjar med en bokstav som kommer före ”E” i alfabetet, varefter frågeresultatet skrivs ut.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -216,12 +220,12 @@ Om du inte vill fråga efter alla entiteter i en partition kan du ange ett inter
         Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
             entity.Email, entity.PhoneNumber);
     }
-
+```
 ## <a name="retrieve-a-single-entity"></a>Hämta en enda entitet
 Du kan skriva en fråga för att hämta en enda, specifik entitet. I följande kod används **TableOperation** för att ange kunden ”Ben Smith”.
 Den här metoden returnerar endast en entitet i stället för en samling, och värdet som returneras i **TableResult.Result** är ett **CustomerEntity**-objekt.
 Det snabbaste sättet att hämta en enskild entitet från tabelltjänsten är att ange både partitions- och radnycklar i en fråga.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -243,10 +247,10 @@ Det snabbaste sättet att hämta en enskild entitet från tabelltjänsten är at
        Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
     else
        Console.WriteLine("The phone number could not be retrieved.");
-
+```
 ## <a name="replace-an-entity"></a>Ersätta en entitet
 Om du vill uppdatera en entitet hämtar du den från tabelltjänsten, ändrar entitetsobjektet och sparar sedan ändringarna till tabelltjänsten igen. Följande kod ändrar en befintlig kunds telefonnummer. I stället för att anropa **Insert** använder den här koden **Replace**. Detta leder till att entiteten ersätts helt på servern, såvida inte entiteten på servern har ändrats sedan den hämtades. I så fall misslyckas åtgärden.  Det här felet är avsett att förhindra att ditt program oavsiktligt skriver över ändringar mellan hämtningen och uppdateringen av en annan komponent i ditt program.  Du hanterar det här felet genom att hämta entiteten igen, göra dina ändringar (om de fortfarande behövs) och sedan köra en **Replace**-åtgärd igen.  I nästa avsnitt visar vi hur du kan åsidosätta detta beteende.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -282,11 +286,11 @@ Om du vill uppdatera en entitet hämtar du den från tabelltjänsten, ändrar en
 
     else
        Console.WriteLine("Entity could not be retrieved.");
-
-## <a name="insert-or-replace-an-entity"></a>Infoga eller ersätta en entitet
+```
+## <a name="insertorreplace-an-entity"></a>Infoga eller ersätta en entitet
 **Replace**-åtgärder misslyckas om entiteten har ändrats sedan den hämtades från servern.  Dessutom måste du hämta entiteten från servern först för att **Replace**-åtgärden ska lyckas.
 Ibland vet du dock inte om entiteten finns på servern, och vilka värden som för närvarande lagras i den är irrelevanta. Dina uppdateringar ska skriva över alla.  För att åstadkomma detta använder du en **InsertOrReplace**-åtgärd.  Den här åtgärden infogar entiteten om den inte finns, eller ersätter den om den finns, oavsett när den senaste uppdateringen gjordes.  I följande kodexempel hämtas fortfarande kundentiteten för Ben Still, men den sparas sedan tillbaka till servern via **InsertOrReplace**.  Uppdateringar som görs i entiteten mellan hämtnings- och uppdateringsåtgärderna skrivs över.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -322,10 +326,10 @@ Ibland vet du dock inte om entiteten finns på servern, och vilka värden som f�
 
     else
        Console.WriteLine("Entity could not be retrieved.");
-
+```
 ## <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
-En tabellfråga kan hämta bara några få egenskaper från en entitet i stället för alla entitetsegenskaper. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod returnerar bara e-postadresserna för entiteter i tabellen. Detta görs med hjälp av en fråga med **DynamicTableEntity** och **EntityResolver**. Du kan lära dig mer om projektion i blogginlägget [Introducing Upsert and Query Projection][]. Observera att projektion inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs när du använder ett konto i tabelltjänsten.
-
+En tabellfråga kan hämta bara några få egenskaper från en entitet i stället för alla entitetsegenskaper. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod returnerar bara e-postadresserna för entiteter i tabellen. Detta görs med hjälp av en fråga med **DynamicTableEntity** och **EntityResolver**. Du kan lära dig mer om projektion på [Blogginlägget Introduktion av Upsert och frågeprojektion][Blogginlägget Introduktion av Upsert och frågeprojektion]. Observera att projektion inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs när du använder ett konto i tabelltjänsten.
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -346,10 +350,10 @@ En tabellfråga kan hämta bara några få egenskaper från en entitet i ställe
     {
         Console.WriteLine(projectedEmail);
     }
-
+```
 ## <a name="delete-an-entity"></a>Ta bort en entitet
 Du kan enkelt ta bort en enhet när du har hämtat den genom att använda samma mönster som när du uppdaterar en entitet.  Följande kod hämtar och tar bort en kundentitet.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -382,10 +386,10 @@ Du kan enkelt ta bort en enhet när du har hämtat den genom att använda samma 
 
     else
        Console.WriteLine("Could not retrieve the entity.");
-
+```
 ## <a name="delete-a-table"></a>Ta bort en tabell
 I det sista kodexemplet tas en tabell bort från ett lagringskonto. En tabell som har tagits bort kan inte återskapas under en viss tid efter borttagningen.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -398,10 +402,10 @@ I det sista kodexemplet tas en tabell bort från ett lagringskonto. En tabell so
 
     // Delete the table it if exists.
     table.DeleteIfExists();
-
+```
 ## <a name="retrieve-entities-in-pages-asynchronously"></a>Hämta entiteter på sidor asynkront
 Om du läser ett stort antal entiteter och du vill bearbeta/visa entiteter i takt med att de hämtas i stället för att vänta på att alla ska returneras kan du hämta entiteter med hjälp av en segmenterad fråga. Det här exemplet visar hur du returnerar resultat på sidor med mönstret Async-Await så att körningen inte blockeras medan du väntar på att ett stort antal resultat ska returneras. Mer information om hur du använder mönstret Async-Await i .NET finns i [Asynkron programmering med Async och Await (C# och Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
-
+```csharp
     // Initialize a default TableQuery to retrieve all the entities in the table.
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
 
@@ -423,7 +427,7 @@ Om du läser ett stort antal entiteter och du vill bearbeta/visa entiteter i tak
 
     // Loop until a null continuation token is received, indicating the end of the table.
     } while(continuationToken != null);
-
+```
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar för att lära dig mer om komplexa lagringsuppgifter:
 
@@ -445,7 +449,7 @@ Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar f
 [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
 [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-[Introduktion av Upsert och frågeprojicering, blogginlägg]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [.NET-klientbiblioteksreferens]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
 [Azure Storage Teamblogg]: http://blogs.msdn.com/b/windowsazurestorage/
 [Konfigurera anslutningssträngar för Azure Storage]: http://msdn.microsoft.com/library/azure/ee758697.aspx
@@ -456,6 +460,6 @@ Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar f
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

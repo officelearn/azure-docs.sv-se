@@ -1,4 +1,4 @@
-## Skicka meddelanden till Event Hubs
+## <a name="send-messages-to-event-hubs"></a>Skicka meddelanden till Event Hubs
 I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till din Event Hub.
 
 1. I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av projektmallen **Konsolprogram**. Namnge projektet **Avsändare**.
@@ -48,7 +48,7 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
     }
     ```
    
-    Den här metoden skickar kontinuerligt händelser till din Event Hub med en fördröjning på 200 ms.
+    Den här metoden skickar kontinuerligt händelser till din Event Hub med en fördröjning på 200 ms.
 7. Slutligen lägger du till följande rader till **Main**-metoden:
    
     ```
@@ -58,6 +58,8 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
     SendingRandomMessages();
     ```
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -2,6 +2,8 @@ Azure Functions är en händelsedriven beräkna-på-begäran-upplevelse som utö
 
 Den här videon visar hur du kommer igång med att skapa en funktionsapp, hur du ändrar koden och hur du interagerar med de olika utlösarna och bindningarna.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

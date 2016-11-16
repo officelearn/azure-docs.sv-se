@@ -1,12 +1,12 @@
 ---
-title: Läs in data från CSV-filen till Azure SQL Database (bcp) | Microsoft Docs
-description: För mindre datastorlekar används bcp för att importera data till Azure SQL Database.
+title: "Läs in data från CSV-filen till Azure SQL Database (bcp) | Microsoft Docs"
+description: "För mindre datastorlekar används bcp för att importera data till Azure SQL Database."
 services: sql-database
 documentationcenter: NA
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 09/13/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8d6e201ba5fb8283d883272e0cb2b8e7c11f43e5
+
 
 ---
-# Läs in data från CSV till Azure SQL Data Warehouse (flat-filer)
+# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>Läs in data från CSV till Azure SQL Data Warehouse (flat-filer)
 Du kan använda kommandoradsverktyget bcp för att importera data från en CSV-fil till Azure SQL Database.
 
-## Innan du börjar
-### Förutsättningar
+## <a name="before-you-begin"></a>Innan du börjar
+### <a name="prerequisites"></a>Förutsättningar
 För att gå igenom de här självstudierna, behöver du:
 
 * Skapa en logisk Azure SQL Database-server och -databas
@@ -29,10 +33,10 @@ För att gå igenom de här självstudierna, behöver du:
 
 Du kan hämta verktygen bcp och sqlcmd från [Microsoft Download Center][Microsoft Download Center].
 
-### Data i ASCII- eller UTF-16-format
+### <a name="data-in-ascii-or-utf16-format"></a>Data i ASCII- eller UTF-16-format
 Om du använder egna data i självstudierna, måste de använda sig av ASCII- eller UTF-16-kodning eftersom bcp inte stöder UTF-8. 
 
-## 1. Skapa en måltabell
+## <a name="1-create-a-destination-table"></a>1. Skapa en måltabell
 Definiera en tabell i SQL Database som måltabellen. Kolumnerna i tabellen måste motsvara data i varje rad i din datafil.
 
 För att skapa en tabell, öppnar du en kommandotolk och använder sqlcmd.exe för att köra följande kommando:
@@ -50,7 +54,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## 2. Skapa en källdatafil
+## <a name="2-create-a-source-data-file"></a>2. Skapa en källdatafil
 Öppna Anteckningar och kopiera följande datarader till en ny textfil. Spara sedan filen till din lokala temp-katalog, C:\Temp\DimDate2.txt. Den här datan är i ASCII-format.
 
 ```
@@ -74,7 +78,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
 ```
 
-## 3. Läs in data
+## <a name="3-load-the-data"></a>3. Läs in data
 För att läsa in data, öppnar du en kommandotolk och kör följande kommando, där du ersätter värdena för servernamn, databasnamn, användarnamn och lösenord med din egen information.
 
 ```sql
@@ -104,7 +108,7 @@ Resultatet borde se ut så här:
 | 20151101 |4 |2 |
 | 20151201 |4 |2 |
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Om du vill migrera en SQL Server-databas hittar du mer information i [SQL Server-databasmigrering](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->
@@ -116,6 +120,6 @@ Om du vill migrera en SQL Server-databas hittar du mer information i [SQL Server
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

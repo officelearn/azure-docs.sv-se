@@ -1,9 +1,9 @@
-## Ta emot meddelanden med EventProcessorHost
-[EventProcessorHost][EventProcessorHost] är en .NET-klass som förenklar mottagandet av händelser från Event Hubs genom att hantera permanenta kontrollpunkter och parallella mottaganden från Event Hubs. Med hjälp av [EventProcessorHost][EventProcessorHost] kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder [EventProcessorHost][EventProcessorHost] för en enda mottagare. Exemplet på [utskalad händelsebearbetning][utskalad händelsebearbetning] visar hur man använder [EventProcessorHost][EventProcessorHost] med flera mottagare.
+## <a name="receive-messages-with-eventprocessorhost"></a>Ta emot meddelanden med EventProcessorHost
+[EventProcessorHost][EventProcessorHost] är en .NET-klass som förenklar mottagandet av händelser från Event Hubs genom att hantera permanenta kontrollpunkter och parallella mottaganden från Event Hubs. Med hjälp av [EventProcessorHost][EventProcessorHost] kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder [EventProcessorHost][EventProcessorHost] för en enda mottagare. Exemplet [Skala ut händelsebehandlingen][Skala ut händelsebehandlingen] visar hur du använder [EventProcessorHost][EventProcessorHost] med flera mottagare.
 
-För att kunna använda [EventProcessorHost][EventProcessorHost] behöver du ett [Azure Storage-konto][Azure Storage-konto]:
+För att använda [EventProcessorHost][EventProcessorHost] måste du ha ett [Azure-lagringskonto][Azure-lagringskonto]:
 
-1. Logga in på [Azure Portal][Azure Portal] och klicka på **Ny** högst upp till vänster på skärmen.
+1. Logga in på [Azure-portalen][Azure-portalen] och klicka på **Ny** högst upp till vänster på skärmen.
 2. Klicka på **Data + lagring** och klicka sedan på **Lagringskonto**.
    
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
@@ -109,18 +109,18 @@ För att kunna använda [EventProcessorHost][EventProcessorHost] behöver du ett
      ```
 
 > [!NOTE]
-> Den här guiden använder en enda instans av [EventProcessorHost][EventProcessorHost]. För att öka genomströmning rekommenderas att du kör flera instanser av [EventProcessorHost][EventProcessorHost], enligt exemplet [utskalad händelsebearbetning][utskalad händelsebearbetning]. I de fallen koordineras de olika instanserna automatiskt sinsemellan för att kunna belastningsutjämna de mottagna händelserna. Om du vill att flera mottagare bearbetar *alla* händelser, måste du använda konceptet **ConsumerGroup**. När du tar emot händelser från olika datorer, kan det vara praktiskt att ange namn för [EventProcessorHost][EventProcessorHost]-instanser baserat på de datorer (eller roller) som de har distribuerats i. Mer information om de här ämnena finns i [Översikt över Event Hubs][Översikt över Event Hubs] och [Programmeringsguide för Event Hubs][Programmeringsguide för Event Hubs].
+> Den här guiden använder en enda instans av [EventProcessorHost][EventProcessorHost]. För att öka genomströmning rekommenderas att du kör flera instanser av [EventProcessorHost][EventProcessorHost], enligt exemplet [Utskalad händelsebearbetning][Utskalad händelsebearbetning]. I de fallen koordineras de olika instanserna automatiskt sinsemellan för att kunna belastningsutjämna de mottagna händelserna. Om du vill att flera mottagare bearbetar *alla* händelser, måste du använda konceptet **ConsumerGroup**. När du tar emot händelser från olika datorer, kan det vara praktiskt att ange namn för [EventProcessorHost][EventProcessorHost]-instanser baserat på de datorer (eller roller) som de har distribuerats i. Mer information om de här ämnena finns i [Översikt över Event Hubs][Översikt över Event Hubs] och [Programmeringsguide för Event Hubs][Programmeringsguide för Event Hubs].
 > 
 > 
 
 <!-- Links -->
-[Översikt över Event Hubs]: event-hubs-overview.md
-[Programmeringsguide för Event Hubs]: event-hubs-programming-guide.md
-[utskalad händelsebearbetning]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage-konto]: ../storage/storage-create-storage-account.md
+[Översikt av Event Hubs]: ../articles/event-hubs/event-hubs-overview.md
+[Programmeringsguide för Event Hubs]: ../articles/event-hubs/event-hubs-programming-guide.md
+[Utskalad händelsebearbetning]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Azure Storage-konto]: ../articles/storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Azure Portal]: https://portal.azure.com
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

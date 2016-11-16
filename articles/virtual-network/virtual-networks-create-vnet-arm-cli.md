@@ -1,13 +1,13 @@
 ---
-title: Skapa ett virtuellt nätverk med Azure CLI | Microsoft Docs
-description: Lär dig hur du skapar ett virtuellt nätverk med Azure CLI i ARM | Resource Manager.
+title: "Skapa ett virtuellt nätverk med Azure CLI | Microsoft Docs"
+description: "Lär dig hur du skapar ett virtuellt nätverk med Azure CLI i ARM | Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 066697c61006dedc2b139941eab146607b50933f
+
 
 ---
-# Skapa ett virtuellt nätverk med hjälp av Azure CLI
+# <a name="create-a-virtual-network-by-using-the-azure-cli"></a>Skapa ett virtuellt nätverk med hjälp av Azure CLI
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -30,6 +34,9 @@ Det här dokumentet går igenom hur man skapar ett VNet med hjälp av Resource M
 
 [!INCLUDE [virtual-networks-create-vnet-arm-cli-include](../../includes/virtual-networks-create-vnet-arm-cli-include.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

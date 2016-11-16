@@ -1,12 +1,12 @@
 ---
-title: Översikt över Azure CDN | Microsoft Docs
-description: Lär dig vad Azure CDN (Content Delivery Network) är och hur du använder det för att leverera innehåll med hög bandbredd genom att cachelagra blobbar och statiskt innehåll.
+title: "Översikt över Azure CDN | Microsoft Docs"
+description: "Lär dig vad Azure CDN (Content Delivery Network) är och hur du använder det för att leverera innehåll med hög bandbredd genom att cachelagra blobbar och statiskt innehåll."
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/30/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 838a9ca3b77d5cd152ad2b8a54387149eafb6202
+
 
 ---
-# Översikt över Azure CDN (Content Delivery Network)
+# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Översikt över Azure CDN (Content Delivery Network)
 > [!NOTE]
 > Det här dokumentet beskriver vad Azure CDN (Content Delivery Network) är och hur det fungerar samt funktionerna i respektive Azure CDN-produkt.  Om du vill hoppa över den här informationen och gå direkt till självstudiekursen om hur du skapar en CDN-slutpunkt läser du [Använda Azure CDN](cdn-create-new-endpoint.md).  Om du vill visa en lista över aktuella CDN-nodplatser läser du [POP-platser för Azure CDN](cdn-pop-locations.md).
 > 
@@ -30,7 +34,7 @@ Här är några exempel på fördelarna med att använda CDN för att cachelagra
 * Skalning för effektiv hantering av plötsliga belastningstoppar, t.ex. i början av en produktlansering.
 * Genom att distribuera användarförfrågningar och hämta innehåll från edge-servrar skickas mindre trafik till ursprunget.
 
-## Hur det fungerar
+## <a name="how-it-works"></a>Hur det fungerar
 ![Översikt över CDN](./media/cdn-overview/cdn-overview.png)
 
 1. En användare (Alice) begär en fil (även kallad tillgång eller resurs) med hjälp av en URL med ett särskilt domännamn, t.ex. `<endpointname>.azureedge.net`.  DNS omdirigerar begäran till den bästa tillgängliga POP-platsen (Point-of-Presence).  Detta är vanligtvis den POP-plats som ligger närmast användaren geografiskt sett.
@@ -40,12 +44,12 @@ Här är några exempel på fördelarna med att använda CDN för att cachelagra
 5. Fler användare kan begära samma fil med samma URL och kan också dirigeras till samma POP.
 6. Om filens TTL inte har gått ut returnerar edge-servern filen från cachen.  Detta resulterar i en snabbare och mer responsiv användarupplevelse.
 
-## Funktioner i Azure CDN
+## <a name="azure-cdn-features"></a>Funktioner i Azure CDN
 Det finns tre Azure CDN-produkter:  **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon**.  I följande tabell ser du vilka funktioner som är tillgängliga med respektive produkt.
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
-| Enkel integrering med Azure-tjänster som [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) och [Media Services](../media-services/media-services-manage-origins.md#enable-cdn) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Enkel integrering med Azure-tjänster som [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) och [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Hantering via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) eller [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | HTTPS-stöd |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Belastningsutjämning |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -53,7 +57,7 @@ Det finns tre Azure CDN-produkter:  **Azure CDN Standard från Akamai**, **Azure
 | Dual stack-IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Stöd för anpassade domännamn](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Cachelagring av frågesträngar](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Landsfiltrering](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Geo-filtrering](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
 | [Snabbrensning](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Inläsning av tillgångar i förväg](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Grundläggande analys](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -71,7 +75,7 @@ Det finns tre Azure CDN-produkter:  **Azure CDN Standard från Akamai**, **Azure
 > 
 > 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Information om hur du kommer igång med CDN finns i [Använda Azure CDN](cdn-create-new-endpoint.md).
 
 Om du är en befintlig CDN-kund kan du nu hantera dina CDN-slutpunkter via [Microsoft Azure-portalen](https://portal.azure.com) eller med [PowerShell](cdn-manage-powershell.md).
@@ -82,6 +86,9 @@ Läs mer om hur man automatiserar Azure CDN med [.NET](cdn-app-dev-net.md) eller
 
 Information om priser finns i avsnittet om [CDN-priser](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

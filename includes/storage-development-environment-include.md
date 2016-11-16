@@ -1,7 +1,7 @@
-## Ställ in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
 Härnäst ska du ställa in din utvecklingsmiljö i Visual Studio så att du är redo att testa kodexemplen i den här guiden.
 
-### Skapa ett Windows-konsolprogramprojekt
+### <a name="create-a-windows-console-application-project"></a>Skapa ett Windows-konsolprogramprojekt
 Skapa ett nytt Windows-konsolprogram i Visual Studio så här:
 
 ![Skapa ett Windows-konsolprogram](./media/storage-development-environment-include/storage-development-environment-include-1.png)
@@ -10,7 +10,7 @@ Alla kodexempel i den här guiden kan läggas till i **Main()**-metoden i `progr
 
 Observera att du kan använda Azure Storage-klientbiblioteket från valfri typ av .NET-program, inklusive en Azure-molntjänst, en Azure-webbapp, ett skrivbordsprogram eller ett mobilprogram. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
-### Använd NuGet för att installera de paket som behövs
+### <a name="use-nuget-to-install-the-required-packages"></a>Använd NuGet för att installera de paket som behövs
 Du kommer att behöva installera två paket till ditt projekt för att slutföra den här guiden:
 
 * [Microsoft Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): det här paketet ger programmatisk åtkomst till dataresurser i ditt lagringskonto.
@@ -29,7 +29,7 @@ Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 > 
 > 
 
-### Fastställ målmiljön
+### <a name="determine-your-target-environment"></a>Fastställ målmiljön
 Du har två miljöalternativ för att köra exemplen i den här guiden:
 
 * Du kan köra din kod mot ett Azure Storage-konto i molnet. 
@@ -42,7 +42,7 @@ Om målet är ett lagringskonto i molnet, kopierar du den primära åtkomstnycke
 > 
 > 
 
-### Konfigurera anslutningssträngen för lagring
+### <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 Azure Storage-klientbiblioteket för .NET stöder användning av en anslutningssträng för lagring för att konfigurera slutpunkter och autentiseringsuppgifter för åtkomst till lagringstjänster. Det bästa sättet att underhålla anslutningssträngen för lagring är i en konfigurationsfil. 
 
 Mer information om anslutningssträngar finns i [Konfigurera en anslutningssträng för Azure Storage](../articles/storage/storage-configure-connection-string.md).
@@ -58,9 +58,9 @@ För att konfigurera din anslutningssträng öppnar du `app.config`-filen i Solu
         <startup> 
             <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
         </startup>
-        <appSettings>
+          <appSettings>
             <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-        </appSettings>
+          </appSettings>
     </configuration>
 
 Konfigurationsinställningen kan till exempel likna följande:
@@ -73,6 +73,6 @@ För att använda lagringsemulatorn kan du använda ett kortkommando som mappar 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

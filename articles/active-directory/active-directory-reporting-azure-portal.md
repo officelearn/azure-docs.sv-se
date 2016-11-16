@@ -1,22 +1,26 @@
 ---
-title: Azure Active Directory Reporting - förhandsgranskning | Microsoft Docs
-description: Visar de olika tillgängliga rapporterna i Azure Active Directory-förhandsgranskning
+title: "Azure Active Directory Reporting - förhandsgranskning | Microsoft Docs"
+description: "Visar de olika tillgängliga rapporterna i Azure Active Directory-förhandsgranskning"
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+
 
 ---
-# Azure Active Directory Reporting - förhandsgranskning
+# <a name="azure-active-directory-reporting-preview"></a>Azure Active Directory Reporting - förhandsgranskning
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-reporting-azure-portal.md)
 > * [Klassisk Azure-portal](active-directory-reporting-guide.md)
@@ -34,8 +38,8 @@ Det finns två huvudområden för rapportering:
 
 Beroende på omfånget för de data som du söker har du åtkomst till dessa rapporter antingen genom att klicka på **Användare och grupper** eller **Företagsprogram** i listan över tjänster i [Azure-portalen](https://portal.azure.com).
 
-## Inloggningsaktiviteter
-### Användarinloggningsaktiviteter
+## <a name="signin-activities"></a>Inloggningsaktiviteter
+### <a name="user-signin-activities"></a>Användarinloggningsaktiviteter
 Med den information som tillhandahålls av rapporten över användarinloggningsaktiviteter får du svar på frågor som:
 
 * Vilket inloggningsmönster har en användare?
@@ -62,7 +66,7 @@ Varje rad i aktivitetslistan över inloggningar ger dig detaljerad information o
 * Vilken IP-adress hade inloggningen?
 * Vad var status för inloggningen?
 
-### Användning av hanterade program
+### <a name="usage-of-managed-applications"></a>Användning av hanterade program
 Med en programcentrerad vy över dina inloggningsuppgifter kan du få svar på frågor som:
 
 * Vem använder mina program?
@@ -93,17 +97,23 @@ Med hjälp av kolumnväljaren kan du välja datafält som du vill visa.
 
 ![Rapportering](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### Filtrera inloggningar
-Du kan filtrera inloggningar efter ett tidsintervall som begränsar mängden visad data.
+### <a name="filtering-signins"></a>Filtrera inloggningar
+Du kan filtrera inloggningar efter ett tidsintervall som begränsar mängden visad data:
 
-![Rapportering](./media/active-directory-reporting-azure-portal/927.png "Reporting")
+* Datum och tid 
+* Användarens huvudnamn
+* Programnamn
+* Klientnamn
+* Inloggningsstatus
+
+![Rapportering](./media/active-directory-reporting-azure-portal/293.png "Reporting")
 
 En annan metod för att filtrera inloggningsaktivitetsposterna är att söka efter specifika poster.
 Sökmetoden gör att du kan definiera omfattningen av din inloggningar runt specifika **Användare**, **Grupper** eller **Program**.
 
 ![Rapportering](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Granskningsloggar
+## <a name="audit-logs"></a>Granskningsloggar
 Granskningsloggarna i Azure Active Directory ger dokumentation över systemaktiviteter för kontroll av överensstämmelse.
 
 Det finns tre huvudkategorier för granskningsrelaterade aktiviteter i Azure-portalen:
@@ -126,7 +136,7 @@ Genom att klicka på ett objekt i listvyn kan du få mer information.
 
 ![Granskning](./media/active-directory-reporting-azure-portal/873.png "Auditing")
 
-### Granskningsloggar för användare och grupper
+### <a name="users-and-groups-audit-logs"></a>Granskningsloggar för användare och grupper
 Med användar- och gruppbaserade granskningsrapporter kan du få svar på frågor som:
 
 * Vilka typer av uppdateringar har getts användare?
@@ -142,7 +152,7 @@ Om du bara vill kontrollera granskningsdata som relateras till användare och gr
 
 ![Granskning](./media/active-directory-reporting-azure-portal/93.png "Auditing")
 
-### Granskningsloggar för program
+### <a name="application-audit-logs"></a>Granskningsloggar för program
 Med programbaserade granskningsrapporter kan du få svar på frågor som:
 
 * Vilka program har lagts till eller uppdaterats?
@@ -155,18 +165,44 @@ Om du bara vill kontrollera granskningsdata som relateras till program kan du hi
 
 ![Granskning](./media/active-directory-reporting-azure-portal/134.png "Auditing")
 
-### Filtrera granskningsloggar
-Du kan filtrera en granskningsrapport efter ett tidsintervall som begränsar mängden visad data.
+### <a name="filtering-audit-logs"></a>Filtrera granskningsloggar
+Du kan filtrera inloggningar efter ett tidsintervall som begränsar mängden visad data:
 
-![Granskning](./media/active-directory-reporting-azure-portal/324.png "Auditing")
+* Datum och tid
+* Användarens huvudnamn
+* Aktivitetstyp
+* Aktivitet
+
+![Granskning](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+
+Innehållet i **aktivitetstypslistan** är knutet till din åtkomstpunkt för det här bladet.  
+Om din startpunkt är Azure Active Directory innehåller den här listan alla möjliga aktivitetstyper:
+
+* Program 
+* Grupp 
+* Användare
+* Enhet
+* Katalog
+* Princip
+* Annat
+
+![Granskning](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+
+De angivna aktiviteterna omfattas av aktivitetstypen.
+Om du har till exempel valt en **grupp** som **aktivitetstyp**, innehåller listan **aktivitet** endast gruppaktiviteter.   
+
+![Granskning](./media/active-directory-reporting-azure-portal/654.png "Auditing")
 
 En annan metod för att filtrera posterna i en granskningslogg är att söka efter specifika poster.
 
 ![Granskning](./media/active-directory-reporting-azure-portal/237.png "Auditing")
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Se guiden [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

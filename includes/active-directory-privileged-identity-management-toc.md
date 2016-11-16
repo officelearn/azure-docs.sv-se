@@ -12,6 +12,8 @@
 * [Kräva MFA](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 * [Använda spårningsloggen](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

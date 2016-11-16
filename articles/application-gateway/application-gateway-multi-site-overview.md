@@ -1,19 +1,23 @@
 ---
 title: Ha flera webbplatser i Application Gateway | Microsoft Docs
-description: Den här sidan ger en översikt över Application Gateways stöd för flera webbplatser.
+description: "Den här sidan ger en översikt över Application Gateways stöd för flera webbplatser."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.date: 10/25/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85fc1315f32811873c577fe75d88eb08a2bbac26
+
 
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Flera webbplatser i Application Gateway
@@ -25,7 +29,7 @@ Begäranden för http://contoso.com dirigeras till ContosoServerPool och http://
 
 På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara http://blog.contoso.com och http://app.contoso.com på samma distribution av en programgateway.
 
-## <a name="host-headers-and-server-name-indication-(sni)"></a>Värdhuvuden och servernamnsindikator (SNI)
+## <a name="host-headers-and-server-name-indication-sni"></a>Värdhuvuden och servernamnsindikator (SNI)
 Det finns tre vanliga mekanismer för att aktivera flera platser inom samma infrastruktur.
 
 1. Flera webbprogram på varsin unik IP-adress.
@@ -117,6 +121,9 @@ Inga ändringar behövs i routingregeln. Routingregeln Basic ska fortfarande vä
 ## <a name="next-steps"></a>Nästa steg
 När du har lärt dig om flera webbplatser, kan du gå till [skapa en programgateway med flera webbplatser](application-gateway-create-multisite-azureresourcemanager-powershell.md) för att skapa en programgateway som stöder flera en ett webbprogram.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

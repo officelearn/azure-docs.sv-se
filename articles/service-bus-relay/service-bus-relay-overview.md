@@ -1,12 +1,12 @@
 ---
-title: Översikt över Service Bus Relay | Microsoft Docs
-description: Översikt över Service Bus-vidarebefordran
+title: "Översikt över Service Bus Relay | Microsoft Docs"
+description: "Översikt över Service Bus-vidarebefordran"
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1038a2d8-5def-4f48-8703-cb0070fc5f10
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0482096cbec6a5e4b7b13ea662a180cd9b96e85f
+
 
 ---
 # <a name="overview-of-service-bus-relay"></a>Översikt över Service Bus Relay
 En central komponent i Service Bus är en centraliserad (men med hög belastningsutjämning) tjänst för *vidarebefordran* som gör att du kan skapa hybridprogram som körs i både ett Azure-datacenter och i din egen lokala företagsmiljö.  Service Bus Relay stöder en mängd olika transportprotokoll och webbtjänststandarder. Detta inkluderar SOAP, WS-*, och även REST. Tjänsten underlättar för dina hybridprogram genom att på ett säkert sätt exponera tjänster för Windows Communication Foundation (WCF) i ett företagsnätverk mot det offentliga molnet, utan att behöva öppna en brandväggsanslutning eller kräva störande ändringar i företagets nätverksinfrastruktur. 
 
-![Relay-begrepp](./media/service-bus-relay-overview/sb-relay-01.png)
+![WCF Relay-begrepp](./media/service-bus-relay-overview/sb-relay-01.png)
 
 Den vidarebefordrande tjänsten stöder traditionella envägsmeddelanden, fråga-och-svar-meddelanden och peer-to-peer-meddelanden. Den stöder även händelsedistribution på Internet-skala för att möjliggöra publicerings- och prenumerationsscenarier och dubbelriktad socketkommunikation för ökad effektivitet punkt till punkt. 
 
@@ -30,9 +34,12 @@ Du upprättar anslutningen mellan din lokala tjänst och den vidarebefordrande t
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Service Bus-vidarebefordran finns i följande avsnitt.
 
-* [Arkitekturell översikt för Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Använd Service Bus Relay-tjänsten](service-bus-dotnet-how-to-use-relay.md)
+* [Arkitekturell översikt för Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [Använd Service Bus WCF Relay-tjänsten](service-bus-dotnet-how-to-use-relay.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

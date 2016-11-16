@@ -1,12 +1,12 @@
 ---
-title: Komma igång med Azure IoT Hub för Node.js | Microsoft Docs
-description: Självstudiekurs om hur du kommer igång med Azure IoT Hub med Node.js. Använd Azure IoT Hub och Node.js med Microsoft Azure IoT-SDK:er för att implementera en IoT-lösning (Internet of Things).
+title: "Komma igång med Azure IoT Hub för Node.js | Microsoft Docs"
+description: "Självstudiekurs om hur du kommer igång med Azure IoT Hub med Node.js. Använd Azure IoT Hub och Node.js med Microsoft Azure IoT-SDK:er för att implementera en IoT-lösning (Internet of Things)."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 56618522-9a31-42c6-94bf-55e2233b39ac
 ms.service: iot-hub
 ms.devlang: javascript
 ms.topic: hero-article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ddd9c1ed88e30eaaa200dc6b83d34746da14aa8
+
 
 ---
-# Komma igång med Azure IoT Hub för Node.js
+# <a name="get-started-with-azure-iot-hub-for-nodejs"></a>Komma igång med Azure IoT Hub för Node.js
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 I slutet av de här självstudierna har du tre Node.js-konsolprogram:
 
 * **CreateDeviceIdentity.js**, som skapar en enhetsidentitet och en associerad säkerhetsnyckel för att ansluta dina simulerade enheter.
 * **ReadDeviceToCloudMessages.js**, som visar telemetri som skickas av den simulerade enheten.
-* **SimulatedDevice.js**, som ansluter till din IoT Hub med enhetsidentiteten som skapades tidigare och som skickar ett telemetrimeddelande varje sekund med hjälp av AMQPS-protokollet.
+* **SimulatedDevice.js**, som ansluter till din IoT Hub med enhetsidentiteten som skapades tidigare och som skickar ett telemetrimeddelande varje sekund med hjälp av AMQP-protokollet.
 
 > [!NOTE]
 > Artikeln [IoT Hub SDK][lnk-hub-sdks] innehåller information om de olika SDK:er som du kan använda för att skapa båda programmen för körning på enheter och serverdelen i din lösning.
@@ -33,13 +37,13 @@ I slutet av de här självstudierna har du tre Node.js-konsolprogram:
 För att kunna genomföra den här kursen behöver du följande:
 
 * Node.js version 0.10.x eller senare.
-* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure][lnk-free-trial].)
+* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 Nu har du skapat din IoT-hubb. Du har det IoT Hub-värdnamn och den IoT Hub-anslutningssträng som du behöver för att slutföra resten av de här självstudierna.
 
-## Skapa en enhetsidentitet
+## <a name="create-a-device-identity"></a>Skapa en enhetsidentitet
 I det här avsnittet skapar du en Node.js-konsolapp som skapar en enhetsidentitet i identitetsregistret i IoT-hubben. En enhet kan inte ansluta till IoT-hubbar om den inte har en post i enhetsidentitetsregistret. Mer information finns i avsnittet om **enhetsidentitetsregistret** i [IoT Hub Developer Guide][lnk-devguide-identity]. När du kör den här konsolappen genererar det ett unikt enhets-ID och en nyckel som din enhet kan använda för att identifiera sig själv när den skickar ”enhet-till-molnet”-meddelanden till IoT Hub.
 
 1. Skapa en ny tom mapp med namnet **createdeviceidentity**. I mappen **createdeviceidentity** skapar du en package.json-fil med följande kommando i Kommandotolken. Acceptera alla standardvärden:
@@ -101,11 +105,11 @@ I det här avsnittet skapar du en Node.js-konsolapp som skapar en enhetsidentite
 > 
 > 
 
-## Ta emot meddelanden från enheten till molnet
-I det här avsnittet skapar du en Node.js-konsolapp som läser ”enhet till molnet”-meddelanden från IoT Hub. En IoT-hubb exponerar en [Event Hubs][lnk-event-hubs-overview]-kompatibel slutpunkt så att du kan läsa meddelanden från enheten till molnet. För att göra det så enkelt som möjligt skapar vi en grundläggande läsare i den härs självstudiekursen som inte passar för distributioner med hög genomströmning. I självstudiekursen [Behandla meddelanden från enheten till molnet][lnk-process-d2c-tutorial] lär du dig hur du bearbetar ”enhet till molnet”-meddelanden i hög skala. Självstudierna [Komma igång med Event Hubs][lnk-eventhubs-tutorial] innehåller ytterligare information om hur du bearbetar meddelanden från Event Hubs och gäller Event Hubs-kompatibla slutpunkter i IoT Hub.
+## <a name="receive-devicetocloud-messages"></a>Ta emot meddelanden från enheten till molnet
+I det här avsnittet skapar du en Node.js-konsolapp som läser ”enhet till molnet”-meddelanden från IoT Hub. En IoT-hubb exponerar en [Event Hubs][lnk-event-hubs-overview]-kompatibel slutpunkt så att du kan läsa meddelanden från enheten till molnet. För att göra det så enkelt som möjligt skapar vi en grundläggande läsare i den härs självstudiekursen som inte passar för distributioner med hög genomströmning. I självstudiekursen [Behandla meddelanden från enheten till molnet][lnk-process-d2c-tutorial] lär du dig hur du bearbetar ”enhet till molnet”-meddelanden i hög skala. Självstudiekursen [Komma igång med Event Hubs][lnk-eventhubs-tutorial] innehåller ytterligare information om hur du bearbetar meddelanden från Event Hubs och gäller Event Hubs-kompatibla slutpunkter i IoT Hub.
 
 > [!NOTE]
-> Event Hubs-kompatibla slutpunkter för läsning av meddelanden från enheter till molnet använder alltid AMQPS-protokollet.
+> Event Hub-kompatibla slutpunkter för läsning av meddelanden från enheter till molnet använder alltid AMQP-protokollet.
 > 
 > 
 
@@ -164,7 +168,7 @@ I det här avsnittet skapar du en Node.js-konsolapp som läser ”enhet till mol
     ```
 8. Spara och stäng filen **ReadDeviceToCloudMessages.js**.
 
-## Skapa en simulerad enhetsapp
+## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 I det här avsnittet skapar du en Node.js-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT-hubb.
 
 1. Skapa en ny tom mapp med namnet **simulateddevice**. I mappen **simulateddevice** skapar du en package.json-fil med hjälp av följande kommando i Kommandotolken. Acceptera alla standardvärden:
@@ -235,7 +239,7 @@ I det här avsnittet skapar du en Node.js-konsolapp som simulerar en enhet som s
 > 
 > 
 
-## Köra programmen
+## <a name="run-the-applications"></a>Köra programmen
 Nu är det dags att köra programmen.
 
 1. I Kommandotolken i mappen **readdevicetocloudmessages** kör du följande kommando för att börja övervaka IoT-hubben:
@@ -256,14 +260,14 @@ Nu är det dags att köra programmen.
    
     ![Azure-portal Användningspanel som visar antalet meddelanden som har skickats till IoT Hub][43]
 
-## Nästa steg
-I den här självstudiekursen konfigurerade du en ny IoT-hubb på portalen och skapade sedan en enhetsidentitet i hubbens identitetsregister. Du använde den här enhetsidentiteten så att den simulerade enhetsappen kunde skicka ”enhet till molnet”-meddelanden till hubben. Du skapade också en app som visar meddelandena som tagits emot av hubben. 
+## <a name="next-steps"></a>Nästa steg
+I den här självstudiekursen konfigurerade du en ny IoT-hubb på Azure-portalen och skapade sedan en enhetsidentitet i hubbens identitetsregister. Du använde den här enhetsidentiteten så att den simulerade enhetsappen kunde skicka ”enhet till molnet”-meddelanden till hubben. Du skapade också en app som visar meddelandena som tagits emot av hubben. 
 
 För att fortsätta komma igång med IoT-hubb och utforska andra IoT-scenarier, se:
 
 * [Ansluta din enhet][lnk-connect-device]
 * [Komma igång med enhetshantering][lnk-device-management]
-* [Komma igång med Gateway-SDK][lnk-gateway-SDK]
+* [Komma igång med IoT Gateway SDK][lnk-gateway-SDK]
 
 I självstudien [Behandla meddelanden från enheten till molnet][lnk-process-d2c-tutorial] lär du dig hur du utökar din IoT-lösning och behandlar ”enhet till molnet”-meddelanden i hög skala.
 
@@ -292,6 +296,6 @@ I självstudien [Behandla meddelanden från enheten till molnet][lnk-process-d2c
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

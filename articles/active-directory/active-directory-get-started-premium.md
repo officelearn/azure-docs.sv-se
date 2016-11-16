@@ -1,22 +1,26 @@
 ---
-title: Komma igång med Azure Active Directory Premium
-description: Ett avsnitt som förklarar hur du registrerar dig för Azure Active Directory Premium-versionen via webbplatsen för volymlicensiering.
+title: "Komma igång med Azure Active Directory Premium"
+description: "Ett avsnitt som förklarar hur du registrerar dig för Azure Active Directory Premium-versionen via webbplatsen för volymlicensiering."
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4f5341ecd0256d6268b9247ef5ec391809b7071a
+
 
 ---
-# Komma igång med Azure Active Directory Premium
+# <a name="getting-started-with-azure-active-directory-premium"></a>Komma igång med Azure Active Directory Premium
 Om du vill registrera dig för Active Directory Premium kan du välja mellan flera alternativ: 
 
 **Azure eller Office 365** – Som prenumerant på Azure eller Office 365 kan du köpa Active Directory Premium online. Detaljerade anvisningar finns i [Köpa Azure Active Directory Premium – befintliga kunder](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) eller [Köpa Azure Active Directory Premium – nya kunder](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
@@ -32,10 +36,10 @@ Det här avsnittet beskriver hur du kommer igång med Azure Active Directory Pre
 > 
 > 
 
-## Steg 1: Registrera dig för Active Directory Premium
+## <a name="step-1-sign-up-for-active-directory-premium"></a>Steg 1: Registrera dig för Active Directory Premium
 Om du vill registrera dig läser du [Köpa genom volymlicensiering](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
-## Steg 2: Aktivera din licensplan
+## <a name="step-2-activate-your-license-plan"></a>Steg 2: Aktivera din licensplan
 Är det här den första licensplanen som du köper genom volymlicensieringprogrammet från Microsoft?
 I så fall får du ett bekräftelsemeddelande via e-post när köpet är klart.
 Du behöver det här e-postmeddelandet för att kunna aktivera din första licensplan.
@@ -58,7 +62,7 @@ När du är klar visas följande dialogruta som en bekräftelse på aktiveringen
 
 ![Bekräftelse][3]
 
-## Steg 3: Aktivera din åtkomst till Azure Active Directory
+## <a name="step-3-activate-your-azure-active-directory-access"></a>Steg 3: Aktivera din åtkomst till Azure Active Directory
 Om du har använt Microsoft Azure förut kan du gå vidare till [Steg 4](#step-4-assign-license-to-user-accounts). 
 
 När licenserna har etablerats i din katalog skickas ett **välkomstmeddelande** till din e-postadresss. E-postmeddelandet bekräftar att du kan börja hantera dina licenser och funktioner för Azure Active Directory Premium eller Enterprise Mobility Suite. 
@@ -92,7 +96,7 @@ Du kanske redan har haft tillgång till Azure från tidigare användning. Du kan
 
 ![Azure-funktioner][8]
 
-## Steg 4: Tilldela användarkonton licenser
+## <a name="step-4-assign-license-to-user-accounts"></a>Steg 4: Tilldela användarkonton licenser
 Innan du kan börja använda planen som du har köpt måste du manuellt tilldela licenser till användarkonton i organisationen så att de kan använda de omfattande funktioner som tillhandahålls med Premium. Utför följande steg för att tilldela licenser till användare så att de kan använda Azure Active Directory Premium-funktioner.
 
 **Utför följande steg för att tilldela licenser till användare:**
@@ -106,17 +110,17 @@ Innan du kan börja använda planen som du har köpt måste du manuellt tilldela
    
     ![Tilldela licenser][11]
 
-### Licensbegränsningar
+### <a name="license-restrictions"></a>Licensbegränsningar
 Vissa licensplaner är underordnade eller överordnade uppsättningar av andra licensplaner. Normalt kan användare inte tilldelas en licensplan som de redan har tilldelats. Om du vill tilldela en överordnad licensplan måste du först ta bort den underordnade licensplanen.
 
-### Licenskrav
+### <a name="license-requirements"></a>Licenskrav
 När du tilldelar en licens till en användare kan du ange en primär användningsplats i egenskaperna för användarens konto. Om ingen användningsplats anges tilldelas användaren automatiskt klientens plats.
 
 ![Användarplats][12]
 
 Tillgängligheten av tjänster och funktioner för en Microsoft-molntjänst varierar beroende på land eller region. En tjänst, till exempel VoIP (Voice over Internet Protocol), kan vara tillgänglig i ett land eller en region men inte i en annan. Funktioner i en tjänst kan vara begränsade av juridiska skäl i vissa länder eller regioner. Leta upp ditt land eller din region på webbplatsen för licensbegränsningar för en tjänst om du vill veta om en tjänst är tillgänglig med eller utan begränsningar.
 
-## Nästa steg
+## <a name="whats-next"></a>Nästa steg
 * [Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag](active-directory-add-company-branding.md)
 * [Visa åtkomst- och användningsrapporterna](active-directory-view-access-usage-reports.md)
 
@@ -136,6 +140,6 @@ Tillgängligheten av tjänster och funktioner för en Microsoft-molntjänst vari
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

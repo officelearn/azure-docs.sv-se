@@ -1,12 +1,12 @@
 ---
-title: 'Självstudie: Skapa en pipeline med en Resource Manager-mall | Microsoft Docs'
-description: I den här självstudien skapar du en Azure Data Factory-pipeline med en kopieringsaktivitet genom att använda en Azure Resource Manager-mall.
+title: "Självstudie: Skapa en pipeline med en Resource Manager-mall | Microsoft Docs"
+description: "I den här självstudien skapar du en Azure Data Factory-pipeline med en kopieringsaktivitet genom att använda en Azure Resource Manager-mall."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 535eb3c22dad35da3c1dbc10be5a7c11c6bb8d00
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-azure-resource-manager-template"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av en Azure Resource Manager-mall
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-resource-manager-template"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av en Azure Resource Manager-mall
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
@@ -276,9 +280,9 @@ Skapa en JSON-fil med namnet **ADFCopyTutorialARM-Parameters.json** som innehål
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": { 
-            "storageAccountName": { "value": "<Name of the Azure storage account>"  },
+            "storageAccountName": {    "value": "<Name of the Azure storage account>"    },
             "storageAccountKey": {
-                "value": "<Key for the Azure storage account>"
+                     "value": "<Key for the Azure storage account>"
             },
             "sourceBlobContainer": { "value": "adftutorial" },
             "sourceBlobName": { "value": "emp.txt" },
@@ -386,11 +390,11 @@ Du anger Azure SQL-servernamnet, databasnamnet, användarnamnet och lösenordet 
         ],
         "apiVersion": "2015-10-01",
         "properties": {
-            "type": "AzureSqlDatabase",
-            "description": "Azure SQL linked service",
-            "typeProperties": {
+              "type": "AzureSqlDatabase",
+              "description": "Azure SQL linked service",
+              "typeProperties": {
                 "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-            }
+              }
         }
     }
 
@@ -409,30 +413,30 @@ Du anger namnen på blob-behållare, mappar och filer som innehåller indatan. S
         "apiVersion": "2015-10-01",
         "properties": {
             "type": "AzureBlob",
-            "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+              "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
             "structure": [
             {
-                "name": "Column0",
-                "type": "String"
+                  "name": "Column0",
+                  "type": "String"
             },
             {
-                "name": "Column1",
-                "type": "String"
+                  "name": "Column1",
+                  "type": "String"
             }
-            ],
-            "typeProperties": {
+              ],
+              "typeProperties": {
                 "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
                 "fileName": "[parameters('sourceBlobName')]",
                 "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
+                      "type": "TextFormat",
+                      "columnDelimiter": ","
                 }
-            },
-            "availability": {
+              },
+              "availability": {
                 "frequency": "Day",
                 "interval": 1
-            },
-            "external": true
+              },
+              "external": true
         }
     }
 
@@ -444,29 +448,29 @@ Du anger namnet på tabellen i Azure SQL-databasen som innehåller kopierade dat
         "name": "[variables('sqlOutputDatasetName')]",
         "dependsOn": [
             "[variables('dataFactoryName')]",
-            "[variables('azureSqlLinkedServiceName')]"
+              "[variables('azureSqlLinkedServiceName')]"
         ],
         "apiVersion": "2015-10-01",
         "properties": {
-            "type": "AzureSqlTable",
-            "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
-            "structure": [
+              "type": "AzureSqlTable",
+              "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
+              "structure": [
             {
-                "name": "FirstName",
-                "type": "String"
+                  "name": "FirstName",
+                  "type": "String"
             },
             {
-                "name": "LastName",
-                "type": "String"
+                  "name": "LastName",
+                  "type": "String"
             }
-            ],
-            "typeProperties": {
+              ],
+              "typeProperties": {
                 "tableName": "[parameters('targetSQLTable')]"
-            },
-            "availability": {
+              },
+              "availability": {
                 "frequency": "Day",
                 "interval": 1
-            }
+              }
         }
     }
 
@@ -478,51 +482,51 @@ Du definierar en pipeline som kopierar data från Azure-blobdatauppsättningen t
         "name": "[variables('pipelineName')]",
         "dependsOn": [
             "[variables('dataFactoryName')]",
-            "[variables('azureStorageLinkedServiceName')]",
-            "[variables('azureSqlLinkedServiceName')]",
-            "[variables('blobInputDatasetName')]",
-            "[variables('sqlOutputDatasetName')]"
+              "[variables('azureStorageLinkedServiceName')]",
+              "[variables('azureSqlLinkedServiceName')]",
+              "[variables('blobInputDatasetName')]",
+              "[variables('sqlOutputDatasetName')]"
         ],
         "apiVersion": "2015-10-01",
         "properties": {
-            "activities": [
+              "activities": [
             {
-                "name": "CopyFromAzureBlobToAzureSQL",
-                "description": "Copy data frm Azure blob to Azure SQL",
-                "type": "Copy",
-                "inputs": [
+                  "name": "CopyFromAzureBlobToAzureSQL",
+                  "description": "Copy data frm Azure blob to Azure SQL",
+                  "type": "Copy",
+                  "inputs": [
                 {
-                    "name": "[variables('blobInputDatasetName')]"
+                      "name": "[variables('blobInputDatasetName')]"
                 }
-                ],
-                "outputs": [
+                  ],
+                  "outputs": [
                 {
-                    "name": "[variables('sqlOutputDatasetName')]"
+                      "name": "[variables('sqlOutputDatasetName')]"
                 }
-                ],
-                "typeProperties": {
+                  ],
+                  "typeProperties": {
                     "source": {
-                        "type": "BlobSource"
+                          "type": "BlobSource"
                     },
                     "sink": {
-                        "type": "SqlSink",
-                        "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
+                          "type": "SqlSink",
+                          "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
                     },
                     "translator": {
-                        "type": "TabularTranslator",
-                        "columnMappings": "Column0:FirstName,Column1:LastName"
+                          "type": "TabularTranslator",
+                          "columnMappings": "Column0:FirstName,Column1:LastName"
                     }
-                },
-                "Policy": {
+                  },
+                  "Policy": {
                     "concurrency": 1,
                     "executionPriorityOrder": "NewestFirst",
                     "retry": 3,
                     "timeout": "01:00:00"
-                }
+                  }
             }
-            ],
-            "start": "2016-10-02T00:00:00Z",
-            "end": "2016-10-03T00:00:00Z"
+              ],
+              "start": "2016-10-02T00:00:00Z",
+              "end": "2016-10-03T00:00:00Z"
         }
     }
 
@@ -539,8 +543,11 @@ Exempel:
 
 Observera att det första kommandot använder parameterfilen för utvecklingsmiljön, det andra för testmiljön och det tredje för produktionsmiljön.  
 
-Du kan även återanvända mallen för att göra upprepade uppgifter. Du behöver till exempel skapa många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage och Azure SQL Database. I det här scenariot använder du samma mall i samma miljö (dev-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.   
+Du kan även återanvända mallen för att utföra upprepade uppgifter. Du behöver till exempel skapa många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage och Azure SQL Database. I det här scenariot använder du samma mall i samma miljö (dev-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.   
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

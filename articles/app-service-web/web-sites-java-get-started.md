@@ -1,22 +1,26 @@
 ---
 title: Skapa en Java-webbapp i Azure App Service | Microsoft Docs
-description: I den här kursen får du lära dig hur du distribuerar en Java-webbapp till Azure App Service.
+description: "I den här kursen får du lära dig hur du distribuerar en Java-webbapp till Azure App Service."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d6e73cc3-8b71-4742-a197-3edeabc6a289
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: get-started-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+
 
 ---
-# Skapa en Java-webbapp i Azure App Service
+# <a name="create-a-java-web-app-in-azure-app-service"></a>Skapa en Java-webbapp i Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 I den här kursen får du veta hur du skapar en Java-[webbapp i Azure App Service] med hjälp av [Azure Portal]. Azure Portal är ett webbgränssnitt som du kan använda till att hantera dina Azure-resurser.
@@ -28,7 +32,7 @@ I den här kursen får du veta hur du skapar en Java-[webbapp i Azure App Servic
 > 
 > 
 
-## Alternativ för Java-program
+## <a name="java-application-options"></a>Alternativ för Java-program
 Det finns flera sätt att konfigurera ett Java-program i en webbapp i App Service. 
 
 1. Skapa en app och konfigurera **Programinställningar**.
@@ -48,7 +52,7 @@ Det finns flera sätt att konfigurera ett Java-program i en webbapp i App Servic
      
      I dessa fall kan du skapa en app i Azure Portal och ange rätt körningsfiler manuellt. När du gör det räknas filerna av mot lagringskvoten för din App Service-plan. Mer information finns i [Ladda upp en anpassad Java-webbapp till Azure].
 
-## <a name="portal"></a> Skapa och konfigurera en Java-webbapp
+## <a name="a-nameportala-create-and-configure-a-java-web-app"></a><a name="portal"></a>Skapa och konfigurera en Java-webbapp
 I det här avsnittet får du veta hur du skapar en webbapp och konfigurerar den för Java med hjälp av bladet **Programinställningar** i portalen.
 
 1. Logga in på [Azure Portal].
@@ -85,7 +89,7 @@ I det här avsnittet får du veta hur du skapar en webbapp och konfigurerar den 
     
     På webbsidan bekräftas att du har skapat en Java-baserad webbapp.
 
-## <a name="marketplace"></a> Använda en Java-mall från Azure Marketplace
+## <a name="a-namemarketplacea-use-a-java-template-from-the-azure-marketplace"></a><a name="marketplace"></a> Använda en Java-mall från Azure Marketplace
 I det här avsnittet får du veta hur du använder Azure Marketplace till att skapa en Java-webbapp. Med samma grundläggande metod kan du också skapa Java-baserade mobilappar och API Apps. 
 
 1. Logga in på [Azure Portal]
@@ -131,7 +135,7 @@ I det här avsnittet får du veta hur du använder Azure Marketplace till att sk
 
 Nu när du har skapat webbappen med en appbehållare går du till avsnittet [Nästa steg](#next-steps) där du hittar information om hur du överför appen till webbappen.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu körs en Java-programserver i webbappen i Azure App Service. Information om hur du distribuerar egen kod till webbappen finns i [Lägga till ett program eller en webbsida i Java-webbappen].
 
 Mer information om hur du utvecklar Java-program i Azure finns i [Java-utvecklingscenter].
@@ -140,10 +144,10 @@ Mer information om hur du utvecklar Java-program i Azure finns i [Java-utvecklin
 
 [Lägga till ett program eller en webbsida i Java-webbappen]: ./web-sites-java-add-app.md
 [Översikt över Azure App Service-planer]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [aktivera Visual Studio-prenumerantförmåner]: http://go.microsoft.com/fwlink/?LinkId=623901
 [registrera dig för en kostnadsfri utvärderingsversion]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Prova App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Prova Apptjänst]: http://go.microsoft.com/fwlink/?LinkId=523751
 [webbapp i Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java-utvecklingscenter]: /develop/java/
 [Hantera Azure-resurser med hjälp av Azure Portal]: ../azure-portal/resource-group-portal.md
@@ -154,7 +158,7 @@ Mer information om hur du utvecklar Java-program i Azure finns i [Java-utvecklin
 [newwebapp]: ./media/web-sites-java-get-started/newwebapp.png
 [newwebapp2]: ./media/web-sites-java-get-started/newwebapp2.png
 [selectwebapp]: ./media/web-sites-java-get-started/selectwebapp.png
-[versions]: ./media/web-sites-java-get-started/versions.png
+[versioner]: ./media/web-sites-java-get-started/versions.png
 [newmarketplace]: ./media/web-sites-java-get-started/newmarketplace.png
 [webmobilejetty]: ./media/web-sites-java-get-started/webmobilejetty.png
 [jettyblade]: ./media/web-sites-java-get-started/jettyblade.png
@@ -165,6 +169,6 @@ Mer information om hur du utvecklar Java-program i Azure finns i [Java-utvecklin
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

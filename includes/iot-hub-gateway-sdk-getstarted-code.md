@@ -1,4 +1,4 @@
-## Vanliga utdata
+## <a name="typical-output"></a>Vanliga utdata
 Nedan visas ett exempel på utdata som skrivits till loggfilen av Hello World-exemplet. Tecken för ny rad och flik har lagts till för anpassning:
 
 ```
@@ -29,10 +29,10 @@ Nedan visas ett exempel på utdata som skrivits till loggfilen av Hello World-ex
 }]
 ```
 
-## Kodfragment
+## <a name="code-snippets"></a>Kodfragment
 Det här avsnittet beskriver viktiga delar av koden i Hello World-exemplet.
 
-### Skapa en gateway
+### <a name="gateway-creation"></a>Skapa en gateway
 Utvecklaren måste skriva *gateway-processen*. Det här programmet skapar den interna infrastrukturen (asynkron meddelandekö), läser in moduler och ställer in så att allt ska fungera korrekt. SDK innehåller funktionen **Gateway_Create_From_JSON** för att du ska kunna starta en gateway från en JSON-fil. För att använda funktionen **Gateway_Create_From_JSON** måste du ange sökvägen till en JSON-fil som anger vilka moduler som ska läsas in. 
 
 Du hittar koden för gateway-processen i Hello World-exemplet i filen [main.c][lnk-main-c]. För att göra det enklare, visas fragmentet nedan som en förkortad version av gateway-processkoden. Det här programmet skapar en gateway och väntar sedan på att användaren ska trycka på tangenten **RETUR** innan den monterar ned gatewayen. 
@@ -77,12 +77,16 @@ I följande exempel visas JSON-inställningsfilen som används för att konfigur
     [ 
         {
             "module name" : "logger",
-            "module path" : "./modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./modules/logger/liblogger_hl.so"
+            },
             "args" : {"filename":"log.txt"}
         },
         {
             "module name" : "hello_world",
-            "module path" : "./modules/hello_world/libhello_world_hl.so",
+            "loading args": {
+              "module path" : "./modules/hello_world/libhello_world_hl.so"
+            },
             "args" : null
         }
     ],
@@ -96,7 +100,7 @@ I följande exempel visas JSON-inställningsfilen som används för att konfigur
 }
 ```
 
-### Meddelandepublicering från Hello World-modulen
+### <a name="hello-world-module-message-publishing"></a>Meddelandepublicering från Hello World-modulen
 Du kan hitta koden som används av modulen "hello world" för att publicera meddelanden i filen ['hello_world.c'][lnk-helloworld-c]. Fragmentet nedan visar en ändrad version med ytterligare kommentarer och viss felhanteringskod tas bort för att förenkla:
 
 ```
@@ -145,7 +149,7 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Meddelandebearbetning från Hello World-modulen
+### <a name="hello-world-module-message-processing"></a>Meddelandebearbetning från Hello World-modulen
 Modulen Hello World måste aldrig bearbeta några meddelanden som andra moduler publicerar till den asynkrona meddelandekön. Detta gör implementeringen av meddelandets återanrop i modulen Hello World till en icke-alternativ funktion.
 
 ```
@@ -155,7 +159,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-### Loggningsmodulens meddelandepublicering och bearbetning
+### <a name="logger-module-message-publishing-and-processing"></a>Loggningsmodulens meddelandepublicering och bearbetning
 Loggningsmodulen tar emot meddelanden från den asynkrona meddelandekön och skriver dem till en fil. Den publicerar aldrig meddelanden. Därför anropar koden för loggningsmodulen aldrig funktionen **Broker_Publish**.
 
 Funktionen **Logger_Recieve** i filen [logger.c][lnk-logger-c] är det återanrop som den asynkrona meddelandekön anropar för att skicka meddelanden till loggningsmodulen. Fragmentet nedan visar en ändrad version med ytterligare kommentarer och viss felhanteringskod tas bort för att förenkla:
@@ -199,8 +203,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## Nästa steg
-Mer information om hur du använder Gateway-SDK finns i följande:
+## <a name="next-steps"></a>Nästa steg
+Mer information om hur du använder IoT Gateway SDK finns i:
 
 * [IoT Gateway SDK – skicka enhet-till-moln-meddelanden med en simulerad enhet med Linux][lnk-gateway-simulated].
 * [Azure IoT Gateway SDK][lnk-gateway-sdk] på GitHub.
@@ -212,6 +216,6 @@ Mer information om hur du använder Gateway-SDK finns i följande:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

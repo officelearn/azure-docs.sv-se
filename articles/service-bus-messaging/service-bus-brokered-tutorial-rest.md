@@ -1,12 +1,12 @@
 ---
-title: REST-självstudiekurs om asynkrona meddelanden i Service Bus | Microsoft Docs
-description: REST-självstudiekurs om asynkrona meddelanden.
+title: "REST-självstudiekurs om asynkrona meddelanden i Service Bus | Microsoft Docs"
+description: "REST-självstudiekurs om asynkrona meddelanden."
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+
 
 ---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>REST-självstudiekurs om asynkrona meddelanden i Service Bus
@@ -22,7 +26,7 @@ ms.author: sethm
 Den här kursen visar hur du skapar en grundläggande REST-baserad Azure Service Bus-kö och -ämne/-prenumeration.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
-Det första steget är att skapa ett namnområde för tjänsten och hämta en nyckel till [signatur för delad åtkomst](../service-bus/service-bus-sas-overview.md) (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet för tjänsten och SAS-nyckeln ger en referens för Service Bus som används för att tillåta åtkomst till ett program.
+Det första steget är att skapa ett namnområde för tjänsten och hämta en nyckel till [signatur för delad åtkomst](service-bus-sas-overview.md) (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområdet för tjänsten och SAS-nyckeln ger en referens för Service Bus som används för att tillåta åtkomst till ett program.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -31,7 +35,7 @@ Service Bus-köer gör att du kan lagra meddelanden i en kö av typen först in,
 
 Koden i den här självstudiekursen gör följande.
 
-* Den använder namnområdet och [SAS-nyckeln](../service-bus/service-bus-sas-overview.md) (signatur för delad åtkomst) för att ge åtkomst till dina namnområdesresurser för Service Bus.
+* Den använder namnområdet och [SAS-nyckeln](service-bus-sas-overview.md) (signatur för delad åtkomst) för att ge åtkomst till dina namnområdesresurser för Service Bus.
 * Den skapar en kö, skickar ett meddelande till den och läser meddelandet från den.
 * Den skapar ett ämne, en prenumeration på detta ämne och skickar och läser meddelandet från prenumerationen.
 * Den hämtar all information om kön, ämnet och prenumerationen, inklusive prenumerationsregler, från Service Bus.
@@ -139,7 +143,7 @@ När du har fått namnområdet och autentiseringsuppgifterna i det första stege
 ## <a name="create-management-credentials"></a>Skapa autentiseringsuppgifter för hantering
 Nästa steg är att skriva en metod som bearbetar det namnområde och den SAS-nyckel som du angav i föregående steg och som returnerar en SAS-token. I det här exemplet skapas en SAS-token som är giltig i en timme.
 
-### <a name="create-a-getsastoken()-method"></a>Skapa en GetSASToken()-metod
+### <a name="create-a-getsastoken-method"></a>Skapa en GetSASToken()-metod
 Klistra in följande kod efter `Main()`-metoden i `Program`-klassen:
 
 ```
@@ -594,9 +598,12 @@ namespace Microsoft.ServiceBus.Samples
 Läs följande artiklar om du vill lära dig mer:
 
 * [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
-* [Grunderna i Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Grunderna i Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Självstudie för Service Bus-relä REST](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

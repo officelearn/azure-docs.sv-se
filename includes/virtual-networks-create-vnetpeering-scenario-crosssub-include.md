@@ -1,4 +1,4 @@
-## Peering över prenumerationer
+## <a name="peering-across-subscriptions"></a>Peering över prenumerationer
 I det här scenariot skapar du en peering mellan två VNet som hör till olika prenumerationer.
 
 ![scenario för flera prenumerationer](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
@@ -10,6 +10,8 @@ VNet-peering bygger på rollbaserad åtkomstkontroll (RBAC) för auktorisering. 
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

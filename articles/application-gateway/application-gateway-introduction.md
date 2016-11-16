@@ -1,28 +1,30 @@
 ---
 title: Introduktion till Application Gateway | Microsoft Docs
-description: Den här sidan ger en översikt över Application Gateway-tjänsten layer 7 belastningsutjämning, inklusive gatewaystorlekar, HTTP-belastningsutjämning, cookie-baserad sessionstillhörighet och SSL-avlastning.
+description: "Den här sidan ger en översikt över Application Gateway-tjänsten layer 7 belastningsutjämning, inklusive gatewaystorlekar, HTTP-belastningsutjämning, cookie-baserad sessionstillhörighet och SSL-avlastning."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
 manager: carmonm
 editor: tysonn
-
+ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 10/25/2016
 ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
+ms.openlocfilehash: b365a44d59b7d6f4d0f1eec42aa02a565412b18e
+
 
 ---
 # <a name="application-gateway-overview"></a>Översikt över Application Gateway
 ## <a name="what-is-application-gateway"></a>Vad är Application Gateway
-Microsoft Azure Application Gateway erbjuder ADC (Application Delivery Controller) som en tjänst, vilket ger flera layer 7-belastningsutjämningsfunktioner. Enkelt sett så fungerar det genom att acceptera trafik och dirigera trafiken till rätt serverdelsinstanser baserat på definierade regler.
+Microsoft Azure Application Gateway erbjuder ADC (Application Delivery Controller) som en tjänst, vilket ger flera layer 7-belastningsutjämningsfunktioner för ditt program. Detta gör det möjligt för kunder att optimera webbservergruppens produktivitet genom att avlasta CPU-intensiv SSL-avslutning till Application Gateway. Här finns även andra layer 7-routningsfunktioner inklusive resursallokeringsdistribution av inkommande trafik, cookiebaserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. Application Gateway har även en brandvägg för webbaserade program (WAF) som skyddar ditt program mot de flesta av OWASP topp 10 vanligaste webbsårbarheterna. Gateway kan konfigureras som internetuppkopplad gateway, endast intern gateway eller en kombination av båda. Application Gateway är helt Azure-hanterat, skalbart och med hög tillgänglighet. Det innehåller en omfattande uppsättning diagnostik- och loggningsfunktioner för bättre hanterbarhet. Application Gateway fungerar med virtuella datorer, molntjänster och interna eller externa internetuppkopplade webbappar.
 
-Belastningsutjämning låter IT-administratörer och utvecklare skapa rouringregler för nätverkstrafik baserat på HTTP-protokollet.  Application Gateway-tjänsten har hög tillgänglighet och är mätbar. För SLA och prissättning, kan du referera till sidorna [SLA](https://azure.microsoft.com/support/legal/sla/) och [prissättning](https://azure.microsoft.com/pricing/details/application-gateway/).
-
-Application Gateway tillämper routingregler till HTTP-trafik, vilket ger layer 7 (HTTP)-belastningsutjämning. När du skapar en Application Gateway, kopplas en slutpunkt (VIP) och används som offentlig IP-adress för inkommande nätverkstrafik. Azure tillhandahåller layer 4 belastningsutjämning via Azure Load Balancer som arbetar på transportnivån (TCP/UDP) och gör att alla inkommande nätverkstrafik belastningsutjämnas till Application Gateway-tjänsten. Application Gateway routar HTTP-trafik baserat på sin konfiguration, oavsett om det är en virtuell dator, molntjänst eller en extern IP-adress.
+Application Gateway är en särskild virtuell tillämpning för ditt program och består av flera arbetsinstanser för skalbarhet och hög tillgänglighet. När du skapar en programgateway, kopplas en slutpunkt (offentlig VIP eller intern ILB IP) och används för inkommande nätverkstrafik. Denna VIP eller ILB IP tillhandahålls av Azure Load Balancer som arbetar på transportnivån (TCP/UDP) och gör att all inkommande nätverkstrafik belastningsutjämnas till Application Gateway-arbetsinstanser. Application Gateway dirigerar sedan HTTP-/HTTPS-trafik baserat på konfigurationen, oavsett om det är en virtuell dator, molntjänst, intern eller en extern IP-adress. För SLA och prissättning, kan du referera till sidorna [SLA](https://azure.microsoft.com/support/legal/sla/) och [prissättning](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## <a name="features"></a>Funktioner
 Application Gateway stöder för närvarande programleverans med layer 7 med följande funktioner:
@@ -36,6 +38,7 @@ Application Gateway stöder för närvarande programleverans med layer 7 med fö
 * **[Routing till flera platser](application-gateway-multi-site-overview.md)** –Application gateway låter dig konsolidera upp till 20 webbplatser på en enda Application Gateway.
 * **[Websocket-stöd](application-gateway-websocket.md)** – En annan bra funktion i Application Gateway är inbyggt stöd för Websocket.
 * **[Övervakning av hälsotillstånd](application-gateway-probe-overview.md)** –Application gateway övervakar standard hälsotillstånd för serverdelsresurser och anpassade avsökningar för att övervaka mer specifika scenarier.
+* **[Avancerad diagnostik](application-gateway-diagnostics.md)** – Application gateway ger fullständig diagnostik och åtkomst till loggar. Brandväggsloggar är tillgängliga för Application Gateway-resurser som har WAF aktiverat.
 
 ## <a name="benefits"></a>Fördelar
 Application Gateway är användbar för:
@@ -46,6 +49,10 @@ Application Gateway är användbar för:
 * Program som stöder websocket-trafik
 * Skydda webbprogrammen från vanliga webbaserade attacker som SQL-injection, cross-site skriptattacker och sessionsövertaganden.
 
+Application Gateway belastningsutjämning som en Azure-hanterad tjänst tillåter etablering av en belastningsutjämnare för layer 7 bakom Azures belastningsutjämnare som programvara. Traffic Manager kan användas för att färdigställa scenariot som visas i följande bild, där Traffic Manager tillhandahåller omdirigering och åtkomst för trafik till flera Application Gateway-resurser i olika områden, medan Application Gateway ger layer 7 belastningsutjämning i flera regioner. Ett exempel på det här scenariot finns här: [Använda tjänster för belastningsutjämning i Azure-molnet](../traffic-manager/traffic-manager-load-balancing-azure.md)
+
+![scenario för traffic manager och application gateway](./media/application-gateway-introduction/tm-lb-ag-scenario.png)
+
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## <a name="gateway-sizes-and-instances"></a>Gateway-storlekar och instanser
@@ -53,7 +60,7 @@ Application Gateway finns för närvarande i tre storlekar: liten, medel eller s
 
 Det finns för tillfället två SKU:er för Application Gateway: WAF och Standard.
 
-Du kan skapa upp till 50 Application Gateways per prenumeration och varje Application Gateway kan ha upp till 10 instanser styck. Varje Application Gateway kan bestå av 20 http-lyssnare. Application Gateway belastningsutjämning som en Azure-hanterad tjänst tillåter etablering av en belastningsutjämnare för layer 7 bakom Azures belastningsutjämnare som programvara.
+Du kan skapa upp till 50 Application Gateways per prenumeration och varje Application Gateway kan ha upp till 10 instanser styck. Varje Application Gateway kan bestå av 20 http-lyssnare. En fullständig lista över Application Gateway-begränsningar gränser finns [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](../azure-subscription-service-limits.md).
 
 Följande tabell visar ett genomsnittligt prestanda-dataflöde för varje Application Gateway-instans:
 
@@ -64,8 +71,8 @@ Följande tabell visar ett genomsnittligt prestanda-dataflöde för varje Applic
 
 > [!NOTE]
 > De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. För exakta prestandasiffror bör du köra dina egna tester. De här värdena tillhandahålls bara för vägledning vid kapacitetsplanering.
-> 
-> 
+>
+>
 
 ## <a name="health-monitoring"></a>Hälsoövervakning
 Azure Application Gateway övervakar automatiskt hälsan för serverdels-instanser via grundläggande eller anpassade hälsotillståndsavsökningar. Med hjälp av hälsotillståndsavsökningar säkerställer det här att enbart felfria värdar svarar på trafik. Mer information finns i [Översikt över Application Gateway hälsoövervakning](application-gateway-probe-overview.md).
@@ -80,6 +87,8 @@ När du läst om Application Gateway så kan du [skapa en application gateway](a
 
 För att läsa hur man skapar en Application Gateway med hjälp av URL-baserad innehållsroutning, kan du gå till [Skapa en Application Gateway med hjälp av URL-baserad routning](application-gateway-create-url-route-arm-ps.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -2,11 +2,11 @@
 title: Publicera appar med Azure AD Application Proxy | Microsoft Docs
 description: Publicera lokala program till molnet med Azure AD Application Proxy.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/19/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0ba28b2708045a216e1b9fdd7601010b2b554737
+
 
 ---
-# Publicera program med Azure AD Application Proxy
+# <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicera program med Azure AD Application Proxy
 Azure AD-programproxyn hjälper dig att stödja fjärranvändare genom att publicera lokala program som kan nås via Internet. I det här läget bör du redan ha [aktiverat programproxyn i den klassiska Azure-portalen](active-directory-application-proxy-enable.md). Den här artikeln beskriver hur du publicerar program som körs i nätverket och hur du tillhandahåller säker fjärråtkomst utanför nätverket. När du är klar med den här artikeln kan du konfigurera programmet med personlig information eller säkerhetskrav.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ Azure AD-programproxyn hjälper dig att stödja fjärranvändare genom att publi
 > 
 > 
 
-## Publicera en app med hjälp av guiden
+## <a name="publish-an-app-using-the-wizard"></a>Publicera en app med hjälp av guiden
 1. Logga in som administratör på [den klassiska Azure-portalen](https://manage.windowsazure.com/).
 2. Gå till Active Directory och välj den katalog där du aktiverade Application Proxy.
    
@@ -52,7 +56,7 @@ Azure AD-programproxyn hjälper dig att stödja fjärranvändare genom att publi
      ![Egenskaper för program](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)  
 6. Slutför guiden genom att klicka på bockmarkeringen längst ned på skärmen. Nu har programmet definierats i Azure AD.
 
-## Tilldela användare och grupper till programmet
+## <a name="assign-users-and-groups-to-the-application"></a>Tilldela användare och grupper till programmet
 För att dina användare ska få åtkomst till ditt publicerade program måste du tilldela dem antingen individuellt eller i grupper. (Kom ihåg att även tilldela dig själv åtkomst.) Detta kräver att varje användare har en licens för Azure Basic eller högre. Du kan tilldela licenser individuellt eller till grupper. Mer information finns i [Tilldela ett program användare](active-directory-applications-guiding-developers-assigning-users.md). 
 
 För appar som kräver förautentisering ger detta behörighet att använda appen. För appar som inte kräver förautentisering kan användarna fortfarande vara tilldelade till appen så att den visas i deras programlista, t.ex. MyApps.
@@ -62,7 +66,7 @@ För appar som kräver förautentisering ger detta behörighet att använda appe
     ![Snabbstart för att tilldela användare för Application Proxy – skärmbild](./media/active-directory-application-proxy-publish/aad_appproxy_usersgroups.png)
 2. Sök efter specifika grupper i katalogen, eller visa alla användare. Visa sökresultatet genom att klicka på kryssmarkeringen.
    
-    ![Söka efter grupper eller användare – skärmbild](./media/active-directory-application-proxy-publish/aad_appproxy_search.png)
+      ![Söka efter grupper eller användare – skärmbild](./media/active-directory-application-proxy-publish/aad_appproxy_search.png)
 3. Välj alla användare eller grupper som du vill tilldela den här appen och klicka på **Tilldela**. Du ombeds att bekräfta åtgärden.
 
 > [!NOTE]
@@ -70,10 +74,10 @@ För appar som kräver förautentisering ger detta behörighet att använda appe
 > 
 > 
 
-## Testa ditt publicerade program
+## <a name="test-your-published-application"></a>Testa ditt publicerade program
 När du har publicerat programmet kan du testa det genom att navigera till den URL som du har publicerat. Kontrollera att du har åtkomst till det, att det återges korrekt och att allt fungerar som förväntat. Om det uppstår problem eller om ett felmeddelande visas, så gå till [felsökningsguiden](active-directory-application-proxy-troubleshoot.md).
 
-## Konfigurera ditt program
+## <a name="configure-your-application"></a>Konfigurera ditt program
 Du kan ändra publicerade appar eller konfigurera avancerade alternativ på sidan Konfigurera. På den här sidan kan du anpassa din app genom att ändra namnet eller genom att ladda upp en logotyp. Du kan också hantera åtkomstregler som förautentiseringsmetoden eller Multi-Factor Authentication.
 
 ![Avancerad konfiguration](./media/active-directory-application-proxy-publish/aad_appproxy_configure.png)
@@ -86,7 +90,7 @@ Om du vill visa ett program och förvissa dig om att det är tillgängligt dubbe
 
 Om du vill ta bort ett program markerar du programmet i listan och klickar sedan på **Ta bort**.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Publicera program med ditt domännamn](active-directory-application-proxy-custom-domains.md)
 * [Aktivera enkel inloggning](active-directory-application-proxy-sso-using-kcd.md)
 * [Aktivera villkorlig åtkomst](active-directory-application-proxy-conditional-access.md)
@@ -94,6 +98,9 @@ Om du vill ta bort ett program markerar du programmet i listan och klickar sedan
 
 Läs mer om de senaste nyheterna och uppdateringarna i [bloggen om Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

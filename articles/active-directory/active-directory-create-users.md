@@ -1,12 +1,12 @@
 ---
-title: Lägga till nya användare i Azure Active Directory | Microsoft Docs
-description: Beskriver hur du lägger till nya användare eller ändrar användarinformation i Azure Active Directory.
+title: "Lägga till nya användare i Azure Active Directory | Microsoft Docs"
+description: "Beskriver hur du lägger till nya användare eller ändrar användarinformation i Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e3673727-6bec-4fdc-87a4-d65b213c4c3c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 09293d71b99e325a417edf59172550ef6e5f5b71
+
 
 ---
-# Lägga till nya användare eller användare med Microsoft-konton i Azure Active Directory
+# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Lägga till nya användare eller användare med Microsoft-konton i Azure Active Directory
 Lägg till användare i din katalog. Den här artikeln förklarar hur du lägger till nya användare i din organisation och hur du lägger till användare som har Microsoft-konton. Mer information om hur du lägger till användare från andra kataloger i Azure Active Directory eller hur du lägger till användare från partnerföretag finns i [Lägga till användare från andra kataloger eller partnerföretag i Azure Active Directory](active-directory-create-users-external.md). Tillagda användare har inte administratörsbehörighet som standard, men du kan tilldela roller till dem när som helst.
 
-## Lägga till en användare
+## <a name="add-a-user"></a>Lägga till en användare
 1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) med ett konto som är en global administratör för katalogen.
 2. Välj **Active Directory** och välj sedan namnet på din organisationskatalog.
 3. Välj fliken **Användare** och sedan **Lägg till användare** i kommandofältet.
@@ -34,12 +38,12 @@ Lägg till användare i din katalog. Den här artikeln förklarar hur du lägger
 > [!IMPORTANT]
 > Om din organisation använder mer än en domän bör du vara medveten om följande problem när du lägger till ett användarkonto:
 > 
-> * Om du vill lägga till användarkonton med samma UPN (användarens huvudnamn) i olika domäner lägger du **först** till exempelvis geoffgrisso@contoso.onmicrosoft.com, **följt av** geoffgrisso@contoso.com.
-> * Lägg **inte** till geoffgrisso@contoso.com innan du lägger till geoffgrisso@contoso.onmicrosoft.com. Den här ordningen är viktig och kan vara krånglig att ångra.
+> * Om du vill lägga till användarkonton med samma UPN (användarens huvudnamn) i olika domäner lägger du **först** till exempelvis geoffgrisso@contoso.onmicrosoft.com, ** följt av** geoffgrisso@contoso.com.
+> * **Lägg inte till** geoffgrisso@contoso.com innan du läger till geoffgrisso@contoso.onmicrosoft.com. Den här ordningen är viktig och kan vara krånglig att ångra.
 > 
 > 
 
-## Ändra användarinformation
+## <a name="change-user-information"></a>Ändra användarinformation
 Du kan ändra valfria användarattribut utom objekt-ID:t.
 
 1. Öppna din katalog.
@@ -48,7 +52,7 @@ Du kan ändra valfria användarattribut utom objekt-ID:t.
 
 Om användaren som du ändrar synkroniseras med din lokala Active Directory-tjänst kan du inte ändra användarinformationen med den här proceduren. Om du vill ändra användaren använder du dina lokala Active Directory-hanteringsverktyg.
 
-## Hantering av och begränsningar för gästanvändare
+## <a name="guest-user-management-and-limitations"></a>Hantering av och begränsningar för gästanvändare
 Gästkonton är användare från andra kataloger som bjudits in till din katalog för att få åtkomst till SharePoint-dokument, program eller andra Azure-resurser. Det underliggande UserType-attributet för ett gästkonto i din katalog är ”Gäst”. Vanliga användare (särskilt medlemmar i din katalog) har UserType-attributet ”Medlem”.
 
 Gäster har en begränsad uppsättning rättigheter i katalogen. Dessa rättigheter begränsar möjligheten för gäster att identifiera information om andra användare i katalogen. Gästanvändare kan dock fortfarande interagera med användare och grupper som är associerade med de resurser som de arbetar med. Gästanvändare kan:
@@ -60,7 +64,7 @@ Gäster har en begränsad uppsättning rättigheter i katalogen. Dessa rättighe
 * Hämta en lista över verifierade domäner i katalogen.
 * Samtycka till program som ger dem samma åtkomst som medlemmar har i din katalog.
 
-## Ange åtkomstprinciper för gästanvändare
+## <a name="set-guest-user-access-policies"></a>Ange åtkomstprinciper för gästanvändare
 Fliken **Konfigurera** för en katalog innehåller alternativ som du kan använda för att kontrollera åtkomsten för gästanvändare. Dessa alternativ kan bara ändras på den klassiska Azure-portalen av en global katalogadministratör. För närvarande finns det ingen PowerShell- eller API-metod.
 
 Öppna fliken **Konfigurera** på den klassiska Azure-portalen genom att välja **Active Directory** och sedan namnet på katalogen.
@@ -71,7 +75,7 @@ Sedan kan du redigera alternativen för att kontrollera gästanvändarnas åtkom
 
 ![Alternativ för åtkomstkontroll för gästanvändare][2]
 
-## Nästa steg
+## <a name="whats-next"></a>Nästa steg
 * [Lägga till användare från andra kataloger eller partnerföretag i Azure Active Directory](active-directory-create-users-external.md)
 * [Administrera Azure AD](active-directory-administer.md)
 * [Hantera lösenord i Azure AD](active-directory-manage-passwords.md)
@@ -83,6 +87,6 @@ Sedan kan du redigera alternativen för att kontrollera gästanvändarnas åtkom
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

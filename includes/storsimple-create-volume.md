@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 02/04/2016-->
 
-#### Skapa en volym
+#### <a name="to-create-a-volume"></a>Skapa en volym
 1. På enhetens **Snabbstart**-sida, klickar du på **Lägg till en volym**. Det startar guiden lägg till en volym.
 2. I guiden Lägg till en volym, i **Grundläggande inställningar**, gör du följande:
    
@@ -30,6 +30,8 @@
 
 Om du vill se en video som visar hur du skapar en StorSimple-volym klickar du [här](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

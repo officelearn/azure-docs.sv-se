@@ -1,42 +1,47 @@
 ---
-title: Azure Container Service-hantering av behållare via webbgränssnittet | Microsoft Docs
-description: Distribuera behållare till en klustertjänst i Azure Container Service med Marathons webbgränssnitt.
+title: "Azure Container Service-hantering av behållare via webbgränssnittet | Microsoft Docs"
+description: "Distribuera behållare till en klustertjänst i Azure Container Service med Marathons webbgränssnitt."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, behållare, Micro-tjänster, Mesos, Azure
-
+keywords: "Docker, behållare, Micro-tjänster, Mesos, Azure"
+ms.assetid: d148ed1e-b582-4d51-944f-1ac7ae3c4fd6
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2016
-ms.author: nepeters
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ae2945b0025da3bc933a1e4a8f10f21fd35cb51c
+
 
 ---
-# Behållarhantering via webbgränssnittet
+# <a name="container-management-through-the-web-ui"></a>Behållarhantering via webbgränssnittet
 DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastningar samtidigt som den underliggande maskinvaran abstraheras. Utöver DC/OS finns det ett ramverk som hanterar schemaläggning och beräkning av arbetsbelastningar.
+
 
 Även om ramverk är tillgängliga för många populära arbetsbelastningar beskriver det här dokumentet hur du kan skapa och skala distribution i behållare med Marathon. Innan du börjar med de här exemplen måste du ha ett DC/OS-kluster som har konfigurerats i Azure Container Service. Du måste också kunna fjärransluta till det här klustret. Mer information finns i följande artiklar:
 
 * [Distribuera ett Azure Container Service-kluster](container-service-deployment.md)
 * [Ansluta till ett Azure Container Service-kluster](container-service-connect.md)
 
-## Utforska gränssnittet för DC/OS
+## <a name="explore-the-dcos-ui"></a>Utforska gränssnittet för DC/OS
 Gå till http://localhost/ med en SSH-tunnel (Secure Shell) upprättad. Då läses webbgränssnittet för DC/OS in och du kan se information om klustret, till exempel använda resurser, aktiva agenter och tjänster som körs.
 
 ![DC/OS-gränssnitt:](media/dcos/dcos2.png)
 
-## Utforska Marathon-gränssnittet
+## <a name="explore-the-marathon-ui"></a>Utforska Marathon-gränssnittet
 Gå till http://localhost/Marathon om du vill se användargränssnittet för Marathon. Från den här skärmbilden kan du starta en ny behållare eller ett annat program på DC/OS-klustret för Azure Container Service. Du kan även se information om att köra behållare och program.  
 
 ![Gränssnittet i Marathon](media/dcos/dcos3.png)
 
-## Distribuera en Docker-formaterad behållare
+## <a name="deploy-a-dockerformatted-container"></a>Distribuera en Docker-formaterad behållare
 För att distribuera en ny behållare med Marathon klickar du på knappen **Skapa program** och anger följande information i formuläret:
 
 | Fält | Värde |
@@ -77,7 +82,7 @@ Du kan också se klusternoden som aktiviteten körs på.
 
 ![DC/OS-webbgränssnitt – klusternod](media/dcos/dcos9.png)
 
-## Skala behållarna
+## <a name="scale-your-containers"></a>Skala behållarna
 Du kan använda gränssnittet i Marathon för att skala instansantalet för en behållare. Det gör du genom att gå till **Marathon**-sidan, markera den behållare som du vill skala och klicka på knappen **Skala**. I dialogrutan **Skala program** anger du önskat antal behållarinstanser och väljer sedan **Skala program**.
 
 ![Marathon-gränssnitt – dialogrutan Skala program](media/dcos/dcos10.png)
@@ -88,15 +93,18 @@ När skalningsåtgärden har slutförts visas flera instanser av samma aktivitet
 
 ![DC/OS-webbgränssnitt – noder](media/dcos/dcos12.png)
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Arbeta med API för DC/OS och Marathon API](container-service-mesos-marathon-rest.md)
 
 Ingående om Azure Container Service med Mesos
 
-> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

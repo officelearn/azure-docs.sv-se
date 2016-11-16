@@ -1,40 +1,45 @@
 ---
-title: Fråga Azure SQL Data Warehouse (Visual Studio) | Microsoft Docs
-description: Fråga SQL Data Warehouse med Visual Studio.
+title: "Fråga Azure SQL Data Warehouse (Visual Studio) | Microsoft Docs"
+description: "Fråga SQL Data Warehouse med Visual Studio."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: daace889-95e5-4826-b2fc-047eac9d6d95
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/16/2016
-ms.author: sonyama;barbkess
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
+
 
 ---
-# Fråga SQL Data Warehouse (Visual Studio)
+# <a name="query-azure-sql-data-warehouse-visual-studio"></a>Fråga SQL Data Warehouse (Visual Studio)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
 Använd Visual Studio för att ställa frågor till Azure SQL Data Warehouse på bara några minuter. Den här metoden använder tillägget SQL Server Data Tools (SSDT) i Visual Studio. 
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Du behöver följande för att använda de här självstudierna:
 
-* Ett befintligt SQL Data Warehouse. Se [Skapa ett SQL Data Warehouse][Skapa ett SQL Data Warehouse] för att se hur man skapar det.
+* Ett befintligt SQL Data Warehouse. Information om att skapa ett finns i [Skapa ett SQL Data Warehouse][Skapa ett SQL Data Warehouse].
 * SSDT för Visual Studio. Om du har Visual Studio har du förmodligen redan det här. Installationsinstruktioner och alternativ finns i [Installera Visual Studio och SSDT][Installera Visual Studio och SSDT].
-* Det fullständigt kvalificerade servernamnet. [Anslut till SQL Data Warehouse][Anslut till SQL Data Warehouse] för att hitta detta.
+* Det fullständigt kvalificerade servernamnet. Du hittar det här [Anslut till SQL Data Warehouse][Anslut till SQL Data Warehouse].
 
-## 1. Anslut till din SQL Data Warehouse
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Anslut till din SQL Data Warehouse
 1. Öppna Visual Studio 2013 eller 2015.
 2. Öppna SQL Server Object Explorer. Gör det genom att markera **Visa** > **SQL Server Object Explorer**.
    
@@ -54,7 +59,7 @@ Du behöver följande för att använda de här självstudierna:
    
     ![Utforska AdventureWorksDW][4]
 
-## 2. Kör en exempelfråga
+## <a name="2-run-a-sample-query"></a>2. Kör en exempelfråga
 När du nu etablerat en anslutning till din databas, är det dags att skriva en fråga.
 
 1. Högerklicka på din databas i SQL Server Object Explorer.
@@ -73,8 +78,8 @@ När du nu etablerat en anslutning till din databas, är det dags att skriva en 
    
     ![Frågeresultat][7]
 
-## Nästa steg
-Nu när du anslutit och frågat, kan du [visualisera dina data med PowerBI][visualisera dina data med PowerBI].
+## <a name="next-steps"></a>Nästa steg
+Nu när du kan ansluta och fråga, prova att [visualisera data med PowerBI][visualisera data med PowerBI].
 
 För att konfigurera din miljö för Azure Active Directory-autentisering, se [Autentisera till SQL Data Warehouse][Autentisera till SQL Data Warehouse].
 
@@ -86,7 +91,7 @@ För att konfigurera din miljö för Azure Active Directory-autentisering, se [A
 [visualisera dina data med PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 <!--Image references-->
 
@@ -100,6 +105,6 @@ För att konfigurera din miljö för Azure Active Directory-autentisering, se [A
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

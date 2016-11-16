@@ -1,12 +1,12 @@
 ---
 title: Katalogintegrering mellan Azure Multi-Factor Authentication och Active Directory
-description: Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du integrerar Azure Multi-Factor Authentication Server med Active Directory så att du kan synkronisera katalogerna.
+description: "Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du integrerar Azure Multi-Factor Authentication Server med Active Directory så att du kan synkronisera katalogerna."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da64189de722b5ee3552530bb1276539e5c6c323
+
 
 ---
-# Katalogintegrering mellan Azure MFA Server och Active Directory
+# <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Katalogintegrering mellan Azure MFA Server och Active Directory
 I avsnittet Katalogintegrering kan du konfigurera servern för integrering med Active Directory eller en annan LDAP-katalog.  På så sätt kan du konfigurera attribut för att matcha katalogschemat och ställa in automatisk synkronisering av användare.
 
-## Inställningar
+## <a name="settings"></a>Inställningar
 Som standard konfigureras Azure Multi-Factor Authentication Server att importera eller synkronisera användare från Active Directory.  På fliken kan du åsidosätta standardbeteendet och binda till en annan LDAP-katalog, en ADAM-katalog eller en särskild Active Directory-domänkontrollant.  Fliken innehåller också inställningar för användning av LDAP-autentisering via proxy eller för LDAP-bindning som ett RADIUS-mål, förautentisering för IIS-autentisering eller primär autentisering för användarportalen.  De enskilda inställningarna beskrivs i följande tabell.
 
 ![Inställningar](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
@@ -45,7 +49,7 @@ LDAP-inställningarna beskrivs i följande tabell.
 | Storleksgränsen för fråga |Ange storleksgränsen för det högsta antalet användare som en katalogsökning ska returnera.  Den här gränsen måste matcha LDAP-katalogens konfiguration.  För stora sökningar som inte stöder sidindelning försöker importerna och synkroniseringarna att hämta användare batchvis.  Om storleksgränsen som anges här är större än den gräns som konfigurerats för LDAP-katalogen kanske vissa användare missas. |
 | Knappen Testa |Klicka på knappen Testa om du vill testa bindningen till LDAP-servern.  <br><br> Obs! Du måste inte välja alternativet Använd LDAP för att testa en bindning.  På så sätt kan bindningen testas innan LDAP-konfigurationen används. |
 
-## Filter
+## <a name="filters"></a>Filter
 Med filter kan du ange villkor för att kvalificera poster när du utför en katalogsökning.  Genom att ange filtret kan du definiera de objekt som du vill synkronisera.  
 
 ![Filter](./media/multi-factor-authentication-get-started-server-dirint/dirint2.png)
@@ -56,7 +60,7 @@ Azure Multi-Factor Authentication har följande tre alternativ.
 * **Säkerhetsgruppfilter** – Ange filtervillkoren som används för att kvalificera säkerhetsposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  För andra LDAP-kataloger bör filtervillkoren som kvalificerar varje typ av säkerhetsgruppsobjekt användas beroende på katalogschemat.  <br>Obs! Om det lämnas tomt används (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) som standard.
 * **Användarfilter** – Ange filtervillkoren som används för att kvalificera användarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectClass=user)(objectCategory=person)).  För andra LDAP-kataloger bör (objectClass=inetOrgPerson) eller något liknande användas beroende på katalogschemat. <br>Obs! Om det lämnas tomt används (&(objectCategory=person)(objectClass=user)) som standard.
 
-## Attribut
+## <a name="attributes"></a>Attribut
 Attributen kan anpassas efter behov för en viss katalog.  På så sätt kan du lägga till anpassade attribut och finjustera synkroniseringen till endast de attribut som du behöver.  Värdet för varje attributfält bör vara namnet på attributet så som det definieras i katalogschemat.  Mer information finns i tabellen nedan.
 
 ![Attribut](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
@@ -96,7 +100,7 @@ Om du vill redigera attribut klickar du på redigeringsknappen på fliken Attrib
 
 ![Redigera attribut](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
-## Synkronisering
+## <a name="synchronization"></a>Synkronisering
 Synkroniseringen ser till att Azure Multi-Factor databasen är synkroniserad med användarna i Active Directory eller en annan LDAP-katalog (Lightweight Directory Access Protocol.  Processen påminner om när du importerar användare manuellt från Active Directory, men söker regelbundet efter ändringar i Active Directory-användare och säkerhetsgrupper som behöver bearbetas.  Den ger också möjlighet att inaktivera eller ta bort användare som har tagits bort från en behållare eller säkerhetsgrupp och att ta bort användare som har tagits bort från Active Directory.
 
 Tjänsten Multi-Factor Auth ADSync är en Windows-tjänst som utför den periodiska avsökningen av Active Directory.  Detta ska inte förväxlas med Azure AD Sync eller Azure AD Connect.  Multi-Factor Auth ADSync bygger visserligen på en liknande kodbas, men är specifik för Azure Multi-Factor Authentication-servern.  Den installeras i stoppat läge och startas av Multi-Factor Auth  Server-tjänsten när den konfigurerats att köra.  Om du har en Multi-Factor Auth Server-konfiguration med flera servrar kan Multi-Factor Auth ADSync endast köras på en enskild server.
@@ -135,11 +139,14 @@ Med knapparna Flytta upp och Flytta ned kan administratören ändra ordning på 
 > 
 > 
 
-## Multi-Factor Auth-servrar
+## <a name="multifactor-auth-servers"></a>Multi-Factor Auth-servrar
 Ytterligare Multi-Factor Auth-servrar kan konfigureras och fungera som ett reservalternativ i form av en RADIUS-proxy, LDAP-proxy eller för IIS-autentisering. Synkroniseringskonfigurationen delas mellan alla agenter. Men Multi-Factor Auth Server-tjänsten kan bara köras på en av dessa agenter. På den här fliken kan du välja den Multi-Factor Auth-server som ska aktiveras för synkronisering.
 
 ![Multi-Factor Auth-servrar](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,4 @@
-## Vad är Tabelltjänsten
+## <a name="what-is-the-table-service"></a>Vad är Tabelltjänsten
 Azure Table Storage-tjänsten lagrar stora mängder strukturerade data. Tjänsten är ett NoSQL-datalager som tar emot autentiserade anrop inuti och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data. Vanliga användningsområden för Tabelltjänsten är:
 
 * Lagring av flera TB med strukturerade data som kan serva webbaserade skalningsbara program
@@ -8,7 +8,7 @@ Azure Table Storage-tjänsten lagrar stora mängder strukturerade data. Tjänste
 
 Du kan använda Tabelltjänsten för att lagra och fråga stora mängder strukturerad, icke-relationell data och dina tabeller skalar upp efter behov.
 
-## Tabelltjänst-koncept
+## <a name="table-service-concepts"></a>Tabelltjänst-koncept
 Tabelltjänsten består av följande komponenter:
 
 ![Tabell1][Table1]
@@ -24,11 +24,10 @@ Tabelltjänsten består av följande komponenter:
 
 Mer information om namngivning av tabeller och egenskaper finns i [Förstå Tabelltjänst-datamodellen](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-[Tabell1]: ./media/storage-table-concepts-include/table1.png
+[Table1]: ./media/storage-table-concepts-include/table1.png
 [OData.org]: http://www.odata.org/
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

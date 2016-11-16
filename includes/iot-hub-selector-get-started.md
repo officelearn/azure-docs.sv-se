@@ -5,7 +5,7 @@
 > 
 > 
 
-## Introduktion
+## <a name="introduction"></a>Introduktion
 Azure IoT Hub är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och som tillhandahåller serverdelen för lösningar av den här typen. En av de största utmaningarna i ett IoT-projekt är att på ett tillförlitligt och säkert sätt kunna ansluta enheter till lösningens serverdel. IoT Hub löser detta problem genom att:
 
 * Erbjuda tillförlitlig meddelandehantering i hög skala från enhet till moln och från moln till enhet.
@@ -18,6 +18,8 @@ I den här självstudiekursen lär du dig att:
 * Skapa en enhetsidentitet i din IoT-hubb.
 * Skapa en simulerad enhet som skickar telemetri till serverdelen i molnet och som tar emot kommandon från serverdelen i molnet.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

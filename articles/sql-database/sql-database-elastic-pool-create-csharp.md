@@ -1,12 +1,12 @@
 ---
 title: Skapa en elastisk databaspool med C# | Microsoft Docs
-description: Använd utvecklingstekniker för C#-databaser, för att skapa en skalbar elastisk databaspool i Azure SQL Database så att du kan dela resurser över flera databaser.
+description: "Använd utvecklingstekniker för C#-databaser, för att skapa en skalbar elastisk databaspool i Azure SQL Database så att du kan dela resurser över flera databaser."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+
 
 ---
-# Skapa en elastisk databaspool med C&#x23;
+# <a name="create-an-elastic-database-pool-with-cx23"></a>Skapa en elastisk databaspool med C&#x23;
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
+> * [Azure-portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
@@ -26,10 +30,10 @@ ms.author: sstein
 
 Den här artikeln beskriver hur du använder C# för att skapa en elastisk databaspool i Azure SQL med [Azure SQL Database-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Om du vill skapa en fristående SQL-databas läser du [Använda C# för att skapa en SQL-databas med SQL Database-biblioteket för .NET](sql-database-get-started-csharp.md).
 
-Azure SQL Database-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+Azure SQL Database-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
 > [!NOTE]
-> Flera nya funktioner i SQL Database stöds bara när du använder [distributionsmodellen Azure Resource Manager](../resource-group-overview.md) så du bör alltid använda det senaste **Azure SQL Database Management-biblioteket för .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De äldre [klassiska distributionsmodellbaserade biblioteken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) stöds enbart för bakåtkompatibilitet så det rekommenderas att du använder de nyare Resource Manager-baserade biblioteken.
+> Flera nya funktioner i SQL Database stöds bara när du använder [distributionsmodellen Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) så du bör alltid använda det senaste **Azure SQL Database Management-biblioteket för .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. De äldre [klassiska distributionsmodellbaserade biblioteken](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) stöds enbart för bakåtkompatibilitet så det rekommenderas att du använder de nyare Resource Manager-baserade biblioteken.
 > 
 > 
 
@@ -38,7 +42,7 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 * En Azure-prenumeration. Om du behöver en Azure-prenumeration klickar du bara på **KOSTNADSFRITT KONTO** överst på sidan och går tillbaka till den här artikeln efteråt.
 * Visual Studio. För en kostnadsfri version av Visual Studio, kan du gå till sidan [Visual Studio-hämtningar](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
-## Skapa en konsolapp och installera nödvändiga bibliotek
+## <a name="create-a-console-app-and-install-the-required-libraries"></a>Skapa en konsolapp och installera nödvändiga bibliotek
 1. Starta Visual Studio.
 2. Klicka på **Arkiv** > **Nytt** > **Projekt**.
 3. Skapa ett C#-baserat **konsolprogram** och ge det namnet *SqlElasticPoolConsoleApp*
@@ -55,7 +59,7 @@ Skapa en SQL-databas med C# genom att läsa in nödvändiga hanteringsbibliotek 
 > 
 > 
 
-## Skapa en elastisk SQL-databaspool – C#-baserat exempel
+## <a name="create-a-sql-elastic-database-pool-c-example"></a>Skapa en elastisk SQL-databaspool – C#-baserat exempel
 I följande exempel skapas en resursgrupp, server, brandväggsregel, elastisk pool och sedan en SQL-databas i poolen. Information om hur du hämtar `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`-variablerna finns i [Skapa ett tjänstobjekt för att komma åt resurser](#create-a-service-principal-to-access-resources).
 
 Ersätt innehållet i **Program.cs** med följande och uppdatera `{variables}` med dina appvärden (utelämna `{}`).
@@ -254,7 +258,7 @@ namespace SqlElasticPoolConsoleApp
 
 
 
-## Skapa ett tjänstobjekt för att komma åt resurser
+## <a name="create-a-service-principal-to-access-resources"></a>Skapa ett tjänstobjekt för att komma åt resurser
 Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänstobjektet som vi behöver för att autentisera vår C#-app. Skriptet matar ut värden som vi behöver för det föregående C#-exemplet. Detaljerad information finns i [Skapa ett tjänstobjekt med Azure PowerShell för att komma åt resurser](../resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
@@ -298,15 +302,18 @@ Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänsto
 
 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Hantera din pool](sql-database-elastic-pool-manage-csharp.md)
 * [Skapa elastiska jobb](sql-database-elastic-jobs-overview.md): Elastiska jobb låter dig köra T-SQL-skript mot valfritt antal databaser i en pool.
 * [Skala ut med Azure SQL Database](sql-database-elastic-scale-introduction.md): Använd elastisk databasverktyg för att skala ut.
 
-## Ytterligare resurser
+## <a name="additional-resources"></a>Ytterligare resurser
 * [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Azure Resource Manager API:er](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

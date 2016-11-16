@@ -1,12 +1,12 @@
 ---
-title: Skapa en universell Windowsplattform (UWP) som använder Mobile Apps | Microsoft Docs
-description: Följ den här kursen och kom igång med att använda serverdelar för mobilappar i Azure för utveckling av appar med den universella Windowsplattformen (UWP) i C#, Visual Basic eller JavaScript.
+title: "Skapa en universell Windowsplattform (UWP) som använder Mobile Apps | Microsoft Docs"
+description: "Följ den här kursen och kom igång med att använda serverdelar för mobilappar i Azure för utveckling av appar med den universella Windowsplattformen (UWP) i C#, Visual Basic eller JavaScript."
 services: app-service\mobile
 documentationcenter: windows
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1a9e01c161b0c81d4a2fd079824a427f7f135476
+
 
 ---
-# Skapa en Windows-app
+# <a name="create-a-windows-app"></a>Skapa en Windows-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Översikt
+## <a name="overview"></a>Översikt
 I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en app i den universella Windowsplattformen (UWP). Mer information om Mobile Apps finns [här](app-service-mobile-value-prop.md). Nedan visas skärmdumpar från den färdiga appen:
 
 ![Färdig skrivbordsapp](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
@@ -30,7 +34,7 @@ Visad på en telefon
 
 Du måste slutföra den här kursen innan du går någon annan kurs om Mobilappar för UWP-appar. 
 
-## Krav
+## <a name="prerequisites"></a>Krav
 För att kunna genomföra den här kursen behöver du följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/).
@@ -41,17 +45,17 @@ För att kunna genomföra den här kursen behöver du följande:
 > 
 > 
 
-## Skapa en ny mobilappsserverdel i Azure
+## <a name="create-a-new-azure-mobile-app-backend"></a>Skapa en ny mobilappsserverdel i Azure
 Skapa en ny mobilappsserverdel genom att följa instruktionerna nedan.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilklientprogram. I nästa steg får du ladda ned ett serverprojekt för en enkel todo-list-serverdel och publicera den på Azure.
 
-## Konfigurera serverprojektet
+## <a name="configure-the-server-project"></a>Konfigurera serverprojektet
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Hämta och kör klientprojektet
+## <a name="download-and-run-the-client-project"></a>Hämta och kör klientprojektet
 När du har konfigurerat serverdelen för mobilappen kan du antingen skapa en ny klientapp eller modifiera en befintlig app som ansluts till Azure. I det här avsnittet får du ladda du ned en UWP-appsmall som är särskilt anpassad för att ansluta till din mobilappsserverdel.
 
 1. Gå tillbaka till bladet **Snabbstart** för din mobilappsserverdel och klicka på **Skapa ny app** > **Hämta**. Extrahera sedan den komprimerade filen lokalt på din dator.
@@ -70,7 +74,7 @@ När du har konfigurerat serverdelen för mobilappen kan du antingen skapa en ny
    
     Observera att data som sparades i föregående steg läses in från Azure när UWP-appen startar. 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Lägg till autentisering i appen](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Läs om hur du autentiserar användare i appen med en identitetsleverantör.
 * [Lägg till push-meddelanden i appen](app-service-mobile-windows-store-dotnet-get-started-push.md)  
@@ -87,6 +91,6 @@ När du har konfigurerat serverdelen för mobilappen kan du antingen skapa en ny
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,28 +1,32 @@
 ---
-title: Komma igång med Azure Storage på fem minuter | Microsoft Docs
-description: Kom snabbt igång med blobbar, tabeller och köer i Microsoft Azure med hjälp av snabbstarterna för Azure Storage, Visual Studio och Azure Storage-emulatorn. Kör ditt första Azure Storage-program inom fem minuter.
+title: "Komma igång med Azure Storage på fem minuter | Microsoft Docs"
+description: "Kom snabbt igång med blobbar, tabeller och köer i Microsoft Azure med hjälp av snabbstarterna för Azure Storage, Visual Studio och Azure Storage-emulatorn. Kör ditt första Azure Storage-program inom fem minuter."
 services: storage
 documentationcenter: .net
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 582f76f8-c814-4a69-8a5c-1fd0e0d5d8f2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/20/2016
-ms.author: dineshm;tamram
+ms.date: 10/18/2016
+ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+
 
 ---
-# Komma igång med Azure Storage på fem minuter
-## Översikt
+# <a name="get-started-with-azure-storage-in-five-minutes"></a>Komma igång med Azure Storage på fem minuter
+## <a name="overview"></a>Översikt
 Det är enkelt att börja utveckla med Azure Storage. I den här självstudiekursen lär du dig hur du snabbt kommer igång och kör ett Azure Storage-program. Du ska använda snabbstartsmallarna som ingår i Azure SDK för .NET. Dessa snabbstarter innehåller färdig kod som demonstrerar några grundläggande programmeringsscenarier för Azure Storage.
 
 Om du vill lära dig mer om Azure Storage innan du dyker in i koden går du till [Nästa steg](#next-steps).
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Du behöver följande innan du börjar:
 
 1. För att kompilera och bygga programmet behöver du en version av [Visual Studio](https://www.visualstudio.com/) installerad på datorn.
@@ -35,7 +39,7 @@ Du behöver följande innan du börjar:
    * Om du vill skaffa en Azure-prenumeration besöker du sidorna för [en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/), [köpalternativ](https://azure.microsoft.com/pricing/purchase-options/) och [medlemserbjudanden](https://azure.microsoft.com/pricing/member-offers/) (för medlemmar i MSDN, Microsoft Partner Network, BizSpark och andra Microsoft-program).
    * Om du vill skapa ett lagringskonto i Azure går du till [Skapa ett lagringskonto](storage-create-storage-account.md#create-a-storage-account).
 
-## Köra ditt första Azure Storage-program mot Azure Storage i molnet
+## <a name="run-your-first-azure-storage-application-against-azure-storage-in-the-cloud"></a>Köra ditt första Azure Storage-program mot Azure Storage i molnet
 När du har ett konto kan du skapa ett enkelt Azure Storage-program med hjälp av något av Azure-snabbstartsexempelprojekten i Visual Studio. Den här självstudiekursen fokuserar på exempelprojekten för Azure Storage: **Azure Storage: Blobbar**, **Azure Storage: Filer**, **Azure Storage: Köer** och **Azure Storage: Tabeller**:
 
 1. Starta Visual Studio.
@@ -62,7 +66,7 @@ Kör exempelprogrammet:
 4. Klicka på **Skapa lösning** på **Skapa**-menyn.
 5. Tryck på **F11** på **Felsök**-menyn om du vill köra lösningen steg för steg eller på **F5** om du vill köra lösningen från början till slut.
 
-## Köra ditt första Azure Storage-program lokalt mot Azure Storage-emulatorn
+## <a name="run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator"></a>Köra ditt första Azure Storage-program lokalt mot Azure Storage-emulatorn
 [Azure Storage-emulatorn](storage-use-emulator.md) tillhandahåller en lokal miljö som emulerar Azures blobb-, kö- och tabelltjänster för utvecklingsändamål. Du kan använda lagringsemulatorn för att testa ditt lagringsprogram lokalt, utan att skapa en Azure-prenumeration eller ett lagringskonto och utan några kostnader.
 
 Vill du prova? Då ska vi skapa ett enkelt Azure Storage-program med hjälp av ett av snabbstartsexempelprojekten för Azure i Visual Studio. I den här självstudiekursen fokuserar vi på exempelprojekten för **Azure Blob Storage**, **Azure Table Storage** och **Azure Queue Storage**:
@@ -87,7 +91,7 @@ Kör exempelprogrammet i Azure Storage-emulatorn:
 2. I Visual Studio klickar du på **Skapa lösning** på **Skapa**-menyn.
 3. Tryck på **F11** på **Felsök**-menyn om du vill köra lösningen steg för steg eller på **F5** om du vill köra lösningen från början till slut.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Se dessa resurser om du vill lära dig mer om Azure Storage:
 
 * [Introduktion till Microsoft Azure Storage](storage-introduction.md)
@@ -105,6 +109,6 @@ Se dessa resurser om du vill lära dig mer om Azure Storage:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

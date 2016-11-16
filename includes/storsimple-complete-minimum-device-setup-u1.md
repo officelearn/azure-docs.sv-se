@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### Slutför den minimala StorSimple-enhetsinställningen
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Slutför den minimala StorSimple-enhetsinställningen
 1. Välj enheten och klicka på **Snabbstart**. Klicka på **Slutför enhetsinställningar** för att starta guiden för enhetskonfiguration.
 2. I guiden för enhetskonfiguration, i dialogrutan **Grundläggande inställningar**, gör du följande:
    
@@ -31,6 +31,6 @@
 <!--Link reference-->
 [Testa]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

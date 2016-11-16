@@ -1,4 +1,4 @@
-#### Skapa en virtuell enhet
+#### <a name="to-create-a-virtual-device"></a>Skapa en virtuell enhet
 1. I Azure-portalen går du till **StorSimple Manager**-tjänsten.
 2. Gå till **Enheter**-sidan. Klicka på **Skapa virtuell enhet** längst ned på **Enheter**-sidan.
 3. I **dialogrutan Skapa virtuell enhet** anger du följande information.
@@ -26,6 +26,8 @@
       
       ![Skapandefas för virtuell StorSimple-enhet](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

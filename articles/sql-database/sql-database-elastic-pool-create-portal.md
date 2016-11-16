@@ -1,13 +1,13 @@
 ---
 title: Skapa en ny elastisk pool med Azure-portalen | Microsoft Docs
-description: Så här lägger du till en skalbar elastisk databaspool till din SQL-databaskonfiguration för enklare administration och resursdelning över flera databaser.
+description: "Så här lägger du till en skalbar elastisk databaspool till din SQL-databaskonfiguration för enklare administration och resursdelning över flera databaser."
 keywords: skalbar databas, databaskonfiguration
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ninarn
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
 ms.devlang: NA
 ms.date: 07/20/2016
@@ -15,11 +15,15 @@ ms.author: ninarn
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f83e1aa30cfee86137c13c3a15c0e989558c0df8
+
 
 ---
-# Skapa en ny elastisk databaspool med Azure-portalen
+# <a name="create-a-new-elastic-database-pool-with-the-azure-portal"></a>Skapa en ny elastisk databaspool med Azure-portalen
 > [!div class="op_single_selector"]
-> * [Azure-portalen](sql-database-elastic-pool-create-portal.md)
+> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
@@ -34,7 +38,7 @@ Du kan lägga till flera pooler till en server, men du kan inte lägga till data
 > 
 > 
 
-## Steg 1: Skapa en ny pool
+## <a name="step-1-create-a-new-pool"></a>Steg 1: Skapa en ny pool
 Den här artikeln visar hur du skapar en ny pool på ett befintligt **serverblad** i portalen, vilket är det enklaste sättet för att flytta befintliga databaser till en pool. 
 
 > [!NOTE]
@@ -47,7 +51,7 @@ Den här artikeln visar hur du skapar en ny pool på ett befintligt **serverblad
    
     ![Lägg till poolen till en server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
    
-    **ELLER**
+    **-ELLER-**
    
     Så kan du få ett meddelande om att det finns rekommenderade elastiska databaspooler för servern (enbart V12). Klicka på meddelandet för att se de rekommenderade poolerna baserat på historisk telemetri över databasanvändningen och klicka på nivån för att visa mer information och anpassa poolen. Se [Förstå pool-rekommendationer](#understand-pool-recommendations) lite senare i ämnet för hur rekommendationen görs.
    
@@ -58,7 +62,7 @@ Den här artikeln visar hur du skapar en ny pool på ett befintligt **serverblad
     ![Konfigurera elastisk pool](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 3. Ange ett namn för den elastiska poolen, eller lämna den som standard.
 
-## Steg 2: Välj prisnivå.
+## <a name="step-2-choose-a-pricing-tier"></a>Steg 2: Välj prisnivå.
 Prisnivån för poolen avgör vilka funktioner som finns tillgängliga för de elastiska databaserna i poolen och maximala antalet eDTU:er (eDTU MAX) och lagringsutrymme (GB) som finns tillgängliga för varje databas. Mer information finns i tjänstnivåer.
 
 Om du vill ändra prisnivå för poolen klickar du på **Prisnivå**, klickar på den prisnivå du vill ha och klickar sedan på **Välj**.
@@ -70,7 +74,7 @@ Om du vill ändra prisnivå för poolen klickar du på **Prisnivå**, klickar p�
 
 ![Välj en prisnivå](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
-## Steg 3: Konfigurera poolen
+## <a name="step-3-configure-the-pool"></a>Steg 3: Konfigurera poolen
 Efter att du ställt in prisnivå, klickar du på Konfigurera pool, där du lägger till databaser, ställer in pool-eDTU:er och lagrings (pool-GB) och ställer in min och mas eDTU:er för de elastiska databaserna i poolen.
 
 1. Klicka på **Konfigurera pool**
@@ -86,7 +90,7 @@ Efter att du ställt in prisnivå, klickar du på Konfigurera pool, där du läg
 4. Klicka på **Välj** på bladet **Konfigurera pool**, efter att du har ändrat inställningarna.
 5. Klicka på **OK** för att skapa poolen.
 
-## Förstå poolrekommendationer
+## <a name="understand-pool-recommendations"></a>Förstå poolrekommendationer
 SQL Database-tjänsten utvärderar användningshistorik och rekommenderar en eller flera pooler när det är mer kostnadseffektivt än att använda enskilda databaser. Varje rekommendation är konfigurerad med en unik delmängd av serverns databaser som bäst passar i poolen.
 
 ![rekommenderad pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
@@ -102,17 +106,20 @@ Tjänsten tar hänsyn till de senaste 30 dagarnas telemetri vid rekommendation a
 
 Tjänsten utvärderar resursbehov och kostnadseffektivitet vid flytt av de enskilda databaserna i varje tjänstnivå till pooler inom samma nivå. Alla standard-databaser på servern utvärderas exempelvis för hur de skulle passa in i en standard elastisk pool. Det innebär att tjänsten inte göra rekommendationer mellan olika nivåer, som att flytta en standard-databas till en premium-pool.
 
-### Dynamiska rekommendationer
+### <a name="dynamic-recommendations"></a>Dynamiska rekommendationer
 Efter att databaserna lagts till i poolen, kommer rekommendationer att genereras dynamiskt baserat på historisk användning av databaserna du har valt. De här rekommendationerna kommer att visas i användningsdiagrammen eDTU och GB samt i en rekommendations-banderoll överst på **Konfigurera pool**-bladet. De här rekommendationerna är avsedda att hjälpa dig att skapa en pool som är optimerad för dina specifika databaser.
 
 ![dynamiska rekommendationer](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
-## Ytterligare resurser
+## <a name="additional-resources"></a>Ytterligare resurser
 * [Hantera en SQL Database-elastisk pool med portalen](sql-database-elastic-pool-manage-portal.md)
 * [Hantera en SQL Database-elastisk pool med PowerShell](sql-database-elastic-pool-manage-powershell.md)
 * [Hantera en SQL Database-elastisk pool med C#](sql-database-elastic-pool-manage-csharp.md)
 * [Skala ut med Azure SQL Database](sql-database-elastic-scale-introduction.md) 
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

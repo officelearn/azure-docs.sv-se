@@ -1,12 +1,12 @@
 ---
-title: Distribuera användarportalen för Azure Multi-Factor Authentication Server
-description: Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och användarportalen.
+title: "Distribuera användarportalen för Azure Multi-Factor Authentication Server"
+description: "Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och användarportalen."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,24 +14,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
+
 
 ---
-# Distribuera användarportalen för Azure Multi-Factor Authentication Server
+# <a name="deploying-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Distribuera användarportalen för Azure Multi-Factor Authentication Server
 På användarportalen kan administratören installera och konfigurera Azure Multi-Factor Authentication-användarportalen. Användarportalen är en IIS-webbplats där användarna kan registrera sig i Azure Multi-Factor Authentication och hantera sina konton. Användarna kan ändra sina telefonnummer, ändra sina PIN-koder eller kringgå Azure Multi-Factor Authentication vid nästa inloggning.
 
 Användarna kan logga in på användarportalen med sina vanliga användarnamn och lösenord och genomför antingen ett Azure Multi-Factor Authentication-samtal eller svarar på säkerhetsfrågor för att slutföra autentiseringen. Om användarregistrering tillåts konfigurerar användarna sina telefonnummer och sina PIN-koder första gången de loggar in på användarportalen.
 
 Administratörer av användarportalen kan konfigureras och beviljas behörighet att lägga till nya användare och uppdatera befintliga användare.
 
-<center>![Konfiguration](./media/multi-factor-authentication-get-started-portal/install.png)</center>
+<center>![Installation](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
-## Distribuera användarportalen på samma server som Azure Multi-Factor Authentication Server
+## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multifactor-authentication-server"></a>Distribuera användarportalen på samma server som Azure Multi-Factor Authentication Server
 Följande krav måste vara uppfyllda för att du ska kunna installera användarportalen på samma server som Azure Multi-Factor Authentication-servern:
 
 * IIS måste vara installerat inklusive asp.net och IIS 6 Metabase-kompatibilitet (för IIS 7 eller senare)
 * Den inloggade användaren måste ha administratörsrättigheter för datorn och domänen om tillämpligt.  Detta beror på att kontot måste ha behörighet att skapa Active Directory-säkerhetsgrupper.
 
-### Så här distribuerar du användarportalen för Azure Multi-Factor Authentication Server
+### <a name="to-deploy-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Så här distribuerar du användarportalen för Azure Multi-Factor Authentication Server
 1. På Azure Multi-Factor Authentication-servern: Klicka på ikonen för användarportalen på den vänstra menyn och klicka på knappen Installera användarportal.
 2. Klicka på Nästa.
 3. Klicka på Nästa.
@@ -41,9 +45,9 @@ Följande krav måste vara uppfyllda för att du ska kunna installera användarp
 7. Klicka på Stäng.
 8. Öppna en webbläsare från valfri dator och gå till URL:en där användarportalen installerades (t.ex. https://www.publicwebsite.com/MultiFactorAuth). Se till att inga certifikatvarningar eller fel visas.
 
-<center>![Konfiguration](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
+<center>![Installation](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## Distribuera Azure Multi-Factor Authentication Server-användarportalen på en separat server
+## <a name="deploying-the-azure-multifactor-authentication-server-user-portal-on-a-separate-server"></a>Distribuera Azure Multi-Factor Authentication Server-användarportalen på en separat server
 För att du ska kunna använda Azure Multi-Factor Authentication-appen krävs följande så att appen kan kommunicera med användarportalen:
 
 Se avsnittet Maskin- och programvarukrav för maskin- och programvarukrav:
@@ -64,18 +68,18 @@ Om du installerar användarportalen på en annan server än Azure Multi-Factor A
 2. Installera användarportalen
 3. Konfigurera inställningarna för användarportalen i Azure Multi-Factor Authentication Server
 
-### Installera webbtjänst-SDK
+### <a name="install-the-web-service-sdk"></a>Installera webbtjänst-SDK
 Om Azure Multi-Factor Authentication webbtjänst-SDK inte redan är installerat på Azure Multi-Factor Authentication-servern går du till den servern och öppnar Azure Multi-Factor Authentication-servern. Klicka på ikonen för webbtjänst-SDK, klicka på Installera webbtjänst-SDK och följ instruktionerna. Webbtjänst-SDK måste skyddas med ett SSL-certifikat. Ett självsignerat certifikat kan användas för detta ändamål, men det måste importeras till arkivet ”Betrodda rotcertifikatutfärdare” för det lokala datorkontot på webbservern för användarportalen så att det litar på certifikatet när SSL-anslutningen initieras.
 
-<center>![Konfiguration](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
+<center>![Installation](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
 
-### Installera användarportalen
+### <a name="install-the-user-portal"></a>Installera användarportalen
 Tänk på följande innan du installerar användarportalen på en separat server:
 
 * Det kan vara bra att öppna en webbläsare på den Internetuppkopplade webbservern och gå till URL:en för webbtjänst-SDK som har angetts i web.config-filen. Om webbläsaren kan ansluta till webbtjänsten bör du uppmanas att ange dina autentiseringsuppgifter. Ange användarnamnet och lösenordet som har angetts i web.config-filen exakt som de visas i filen. Se till att inga certifikatvarningar eller fel visas.
 * Om en omvänd proxy eller brandvägg finns framför webbservern för användarportalen och utför SSL-avlastning kan du redigera filen web.config för användarportalen och lägga till följande nyckel i avsnittet <appSettings> så att användarportalen kan använda http i stället för https. <add key="SSL_REQUIRED" value="false"/>
 
-#### Så här installerar du användarportalen
+#### <a name="to-install-the-user-portal"></a>Så här installerar du användarportalen
 1. Öppna Utforskaren på Azure Multi-Factor Authentication-servern och navigera till mappen där Azure Multi-Factor Authentication Server är installerat (t.ex. C:\Program\Microsoft Files\Multi-Factor Authentication Server). Välj 32- eller 64-bitarsversionen av MultiFactorAuthenticationUserPortalSetup-installationsfilen beroende på vilken server som användarportalen ska installeras på. Kopiera installationsfilen till den Internetuppkopplade servern.
 2. Installationsfilen måste köras med administratörsbehörighet på den Internetuppkopplade webbservern. Det enklaste sättet att göra detta är att öppna en kommandotolk som administratör och navigera till den plats som installationsfilen kopierades till.
 3. Kör MultiFactorAuthenticationUserPortalSetup64-installationsfilen och ändra namnet på platsen och den virtuella katalogen om du vill.
@@ -85,7 +89,7 @@ Tänk på följande innan du installerar användarportalen på en separat server
 7. Om webbplatsen som användarportalen installerades under (t.ex. Standardwebbplats) inte redan har bundits till ett offentligt signerat certifikat installerar du certifikatet på servern om det inte redan har installerats, öppnar IIS-hanteraren och binder certifikatet till webbplatsen.
 8. Öppna en webbläsare från valfri dator och gå till URL:en där användarportalen installerades (t.ex. https://www.publicwebsite.com/MultiFactorAuth). Se till att inga certifikatvarningar eller fel visas.
 
-## Konfigurera inställningarna för användarportalen i Azure Multi-Factor Authentication Server
+## <a name="configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Konfigurera inställningarna för användarportalen i Azure Multi-Factor Authentication Server
 Nu när portalen har installerats måste du konfigurera Azure Multi-Factor Authentication-server så att den fungerar med portalen.
 
 Azure Multi-Factor Authentication-servern tillhandahåller flera alternativ för användarportalen.  Följande tabell innehåller en lista över dessa alternativ och en förklaring av hur de används.
@@ -96,7 +100,7 @@ Azure Multi-Factor Authentication-servern tillhandahåller flera alternativ för
 | Primär autentisering |Gör att du kan ange vilken typ av autentisering som ska användas för inloggning på portalen.  Du kan välja mellan Windows-, RADIUS- eller LDAP-autentisering. |
 | Tillåt användare att logga in |Gör att användaren kan ange ett användarnamn och lösenord på inloggningssidan för användarportalen.  Om den här inställningen inte är vald är rutorna nedtonade. |
 | Tillåt användarregistrering |Gör att användaren kan registrera sig i Multi-Factor Authentication. En installationsskärm visas där användaren uppmanas att ange ytterligare information, till exempel telefonnummer.  Inställningen Fråga efter reservtelefonnummer gör att användaren kan ange ett sekundärt telefonnummer.  Inställningen Fråga efter utomstående OATH-token gör att användaren kan ange en OATH-token från en tredje part. |
-| Tillåt användare att starta en engångsförbikoppling |Gör att användaren kan initiera en engångsförbikoppling.  Om en användare väljer att göra detta börjar inställningen gälla nästa gång användaren loggar in.  Inställningen Fråga efter antal förbikopplingssekunder visar en ruta där användaren kan ändra standardinställningen på 300 sekunder.  Annars är engångsförbikopplingen bara giltig i 300 sekunder. |
+| Tillåt användare att starta en engångsförbikoppling |Gör att användaren kan initiera en engångsförbikoppling.  Om en användare väljer att göra detta börjar inställningen gälla nästa gång användaren loggar in.  Inställningen Fråga efter antal förbikopplingssekunder visar en ruta där användaren kan ändra standardinställningen på 300 sekunder.  Annars är engångsförbikopplingen bara giltig i 300 sekunder. |
 | Tillåt användare att välja metod |Gör att användaren kan ange sin primära kontaktmetod.  Detta kan vara ett telefonsamtal, ett textmeddelande, en mobilapp eller en OATH-token. |
 | Tillåt användare att välja språk |Gör att användaren kan ändra språket som används för telefonsamtalet, textmeddelandet, mobilappen eller OATH-token. |
 | Tillåt användare att aktivera mobilapp |Gör att användare kan generera en aktiveringskod för att slutföra aktiveringen för mobilappar som används med servern.  Du kan också ange antalet enheter som de kan aktivera detta på.  Mellan 1 och 10. |
@@ -109,36 +113,36 @@ De flesta av dessa inställningar är synliga för användaren när de är aktiv
 
 ![Inställningar för användarportalen](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
-### Så här konfigurerar du inställningarna för användarportalen i Azure Multi-Factor Authentication Server
+### <a name="to-configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Så här konfigurerar du inställningarna för användarportalen i Azure Multi-Factor Authentication Server
 1. Klicka på ikonen för användarportalen i Azure Multi-Factor Authentication Server. På fliken Inställningar anger du URL:en för användarportalen i textrutan URL till användarportalen. Den här URL:en infogas i e-postmeddelanden som skickas till användare när de importeras till Azure Multi-Factor Authentication-servern om e-postfunktionen har aktiverats.
 2. Välj de inställningar som du vill använda på användarportalen. Om användarna till exempel kan styra sina autentiseringsmetoder kontrollera du att Tillåt användare att välja metod är markerat samt de metoder som de kan välja mellan.
 3. Klicka på länken Hjälp längst upp till höger om du vill visa hjälp om de tillgängliga inställningarna.
 
-<center>![Konfiguration](./media/multi-factor-authentication-get-started-portal/config.png)</center>
+<center>![Installation](./media/multi-factor-authentication-get-started-portal/config.png)</center>
 
 
-## Fliken Administratörer
+## <a name="administrators-tab"></a>Fliken Administratörer
 På den här fliken kan du lägga till användare som har administratörsbehörighet.  När du lägger till en administratör kan du finjustera de behörigheter som de ska beviljas.  På så sätt kan du vara säker på att administratörerna endast beviljas de behörigheter som de behöver.  Klicka bara på knappen Lägg till, välj en användare och dennes behörigheter och klicka sedan på Lägg till.
 
 ![Administratörer av användarportalen](./media/multi-factor-authentication-get-started-portal/admin.png)
 
-## Säkerhetsfrågor
+## <a name="security-questions"></a>Säkerhetsfrågor
 På den här fliken kan du ange säkerhetsfrågorna som användarna måste besvara om alternativet Använd säkerhetsfrågor som reserv har valts.  Azure Multi-Factor Authenticaton Server har ett antal standardfrågor som du kan använda.  Du kan också ändra ordningen eller lägga till egna frågor.  Om du lägger till egna frågor kan du även ange på vilket språk frågorna ska visas.
 
 ![Säkerhetsfrågor för användarportalen](./media/multi-factor-authentication-get-started-portal/secquestion.png)
 
-## Slutförda sessioner
-## SAML
+## <a name="passed-sessions"></a>Slutförda sessioner
+## <a name="saml"></a>SAML
 Gör att du kan konfigurera användarportalen så att den accepterar anspråk från en identitetsprovider med hjälp av SAML.  Du kan ange tidsgränser för sessioner, ange verifieringscertifikatet och omdirigerings-URL:en för utloggning.
 
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
-## Tillförlitliga IP-adresser
+## <a name="trusted-ips"></a>Tillförlitliga IP-adresser
 På den här fliken kan du ange antingen enstaka IP-adresser eller IP-adressintervall som kan läggas till så att multifaktorautentiseringen kringgås om en användare loggar in från någon av dessa IP-adresser.
 
 ![Tillförlitliga IP-adresser för användarportalen](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
-## Användarregistrering via självbetjäning
+## <a name="selfservice-user-enrollment"></a>Användarregistrering via självbetjäning
 Om du vill att användarna ska logga in och registrera sig måste du markera alternativen Tillåt användare att logga in och Tillåt användarregistrering. Kom ihåg att de inställningar som du väljer påverkar användarens inloggningsupplevelse.
 
 Om användaren till exempel loggar in på användarportalen och klickar på knappen Logga in visas sidan för Azure Multi-Factor Authentication-användarinställningar.  Beroende på hur du har konfigurerat Azure Multi-Factor Authentication kan användaren välja autentiseringsmetod.  
@@ -170,6 +174,9 @@ Om administratörerna har konfigurerat Azure Multi-Factor Authentication Server 
 
 Nu är självregistreringen klar och användaren loggas in på användarportalen.  Användare kan logga in på användarportalen igen när som helst för att ändra sina telefonnummer, PIN-koder, autentiseringsmetoder och säkerhetsfrågor om detta tillåts av administratören.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

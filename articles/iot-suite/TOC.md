@@ -1,40 +1,41 @@
-# Overview
-## [Azure and IoT](iot-suite-what-is-azure-iot.md)
-## [What is IoT Suite?](iot-suite-overview.md)
-## [What are the preconfigured solutions?](iot-suite-what-are-preconfigured-solutions.md)
-## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+# Översikt
+## [Azure och IoT](iot-suite-what-is-azure-iot.md)
+## [Vad är IoT Suite?](iot-suite-overview.md)
+## [Vilka är de förkonfigurerade lösningarna?](iot-suite-what-are-preconfigured-solutions.md)
 
-# Get Started
-## [Get started with the preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
-## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
-## [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
-## [Remote monitoring solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md)
-## [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
 
-# How To
-## [Connect your device to the remote monitoring solution (Windows)](iot-suite-connecting-devices.md)
-## [Connect your device to the remote monitoring solution (Linux)](iot-suite-connecting-devices-linux.md)
-## [Connect your device to the remote monitoring solution (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Connect your device to the remote monitoring solution (Node)](iot-suite-connecting-devices-node.md)
-## [Connect a Logic App to the remote monitoring solution](iot-suite-logic-apps-tutorial.md)
-## [Customize a preconfigured solution](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
-## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
-## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
+# Kom igång
+## [Kom igång med förkonfigurerade lösningar](iot-suite-getstarted-preconfigured-solutions.md)
+## [Behörigheter på azureiotsuite.com](iot-suite-permissions.md)
+## [Översikt över förebyggande underhållslösning](iot-suite-predictive-overview.md)
+## [Genomgång av lösning för fjärrövervakning](iot-suite-remote-monitoring-sample-walkthrough.md)
+## [Genomgång av lösning för förebyggande underhåll](iot-suite-predictive-walkthrough.md)
 
-# Reference
-## [Security architecture](iot-security-architecture.md)
-## [Security best practices](iot-security-best-practices.md)
-## [Secure your IoT deployment](iot-suite-security-deployment.md)
-## [Security from the ground up](securing-iot-ground-up.md)
+# Gör så här för att
+## [Anslut enheten till fjärrövervakningslösningen (Windows)](iot-suite-connecting-devices.md)
+## [Anslut enheten till fjärrövervakningslösningen (Linux)](iot-suite-connecting-devices-linux.md)
+## [Anslut enheten till fjärrövervakningslösningen (mbed)](iot-suite-connecting-devices-mbed.md)
+## [Anslut enheten till fjärrövervakningslösningen (Node)](iot-suite-connecting-devices-node.md)
+## [Anslut en logikapp till fjärrövervakningslösningen](iot-suite-logic-apps-tutorial.md)
+## [Anpassa en förkonfigurerad lösning](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
+## [Använd dynamisk telemetri med fjärrövervakningslösningen](iot-suite-dynamic-telemetry.md)
+## [Enhetsinformation i fjärrövervakningslösningen](iot-suite-remote-monitoring-device-info.md)
 
-# Related
-## [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
-## [Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-## [IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-## [Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+# Referens
+## [Säkerhetsarkitektur](iot-security-architecture.md)
+## [Metodtips för säkerhet](iot-security-best-practices.md)
+## [Skydda distributionen av IoT](iot-suite-security-deployment.md)
+## [Säkerhet från grunden](securing-iot-ground-up.md)
 
-# Resources
-## [FAQ](iot-suite-faq.md)
+# Relaterat
+## [Stream Analytics](/azure/stream-analytics/)
+## [Event Hubs](/azure/event-hubs/)
+## [IoT Hub](/azure/iot-hub/)
+## [Machine Learning](/azure/machine-learning/)
+
+# Resurser
+## [Vanliga frågor och svar](iot-suite-faq.md)
+## [Utbildningsväg för IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
 

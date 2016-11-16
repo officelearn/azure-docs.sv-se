@@ -1,23 +1,27 @@
 ---
-title: Create an internal load balancer using a template in Resource Manager | Microsoft Docs
-description: Learn how to create an internal load balancer using a template in Resource Manager
+title: "Skapa en intern belastningsutjämnare med hjälp av en mall i Resource Manager | Microsoft Docs"
+description: "Lär dig hur du skapar en intern belastningsutjämnare med hjälp av en mall i Resource Manager"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 64150862-6ced-42de-85dc-89d323257d7c
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2016
+ms.date: 10/24/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 482c9cd46902d9e3f4e1e0f001182fdb43ce9367
+
 
 ---
-# Get started creating an internal load balancer using a template
+# <a name="create-an-internal-load-balancer-using-a-template"></a>Skapa en intern belastningsutjämnare med hjälp av en mall
 [!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
 <BR>
@@ -25,45 +29,49 @@ ms.author: sewhee
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+[klassisk distributionsmodell](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## Deploy the template by using click to deploy
-The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-2-vms-internal-load-balancer%2Fazuredeploy.json), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
+## <a name="deploy-the-template-by-using-click-to-deploy"></a>Distribuera mallen genom att klicka för att distribuera
+Exempelmallen som är tillgänglig i den offentliga databasen använder en parameterfil som innehåller standardvärdena som används för att generera scenariot som beskrivs ovan. Om du vill distribuera den här mallen genom att klicka för att distribuera följer du [den här länken](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer), klickar på **Deploy to Azure** (Distribuera till Azure), ersätter standardparametervärdena om det behövs och följer anvisningarna på portalen.
 
-## Deploy the template by using PowerShell
-To deploy the template you downloaded by using PowerShell, follow the steps below.
+## <a name="deploy-the-template-by-using-powershell"></a>Distribuera mallen med hjälp av PowerShell
+Följ stegen nedan om du vill distribuera mallen som du hämtat med hjälp av PowerShell.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. Download the [parameters](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) file to your local disk.
-3. Edit the file and save it.
-4. Run the **New-AzureRmResourceGroupDeployment** cmdlet to create a resource group using the template. 
-
+1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
+2. Hämta parameterfilen till din lokala disk.
+3. Redigera filen och spara den.
+4. Kör cmdleten **New-AzureRmResourceGroupDeployment** för att skapa en resursgrupp med hjälp av mallen.
+   
         New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
             -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
             -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
 
+## <a name="deploy-the-template-by-using-the-azure-cli"></a>Distribuera mallen med hjälp av Azure CLI
+Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
 
-
-## Deploy the template by using the Azure CLI
-To deploy the template by using the Azure CLI, follow the steps below.
-
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../xplat-cli-install.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
+2. Kör kommandot **azure config mode** för att växla till Resource Manager-läge, som det visas nedan.
    
         azure config mode arm
    
-    Here is the expected output for the command above:
+    Följande utdata förväntas från kommandot ovan:
    
         info:    New mode is arm
-3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json), select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.
-4. Run the **azure group deployment create** command to deploy the new internal load balancer by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+3. Öppna parameterfilen, markerar innehållet och spara det till en fil på din dator. I det här exemplet sparade vi parameterfilen till *parameters.json*.
+4. Kör kommandot **azure group distribution create** för att distribuera den nya interna belastningsutjämnaren med hjälp av mall- och parameterfilerna som du hämtade och ändrade ovan. Listan som visas efter alla utdata förklarar parametrarna som använts.
    
-        azure group create -n TestRG -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json -e parameters.json
+        azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
 
-## Next steps
-[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
+## <a name="next-steps"></a>Nästa steg
+[Konfigurera ett distributionsläge för belastningsutjämnare med hjälp av käll-IP-tilldelning](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

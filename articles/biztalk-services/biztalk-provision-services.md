@@ -1,22 +1,26 @@
 ---
 title: Skapa Azure BizTalk Services i Azure-portalen | Microsoft Docs
-description: Lär dig hur du etablerar eller skapar Azure BizTalk Services i Azure-portalen; MABS, WABS
+description: "Lär dig hur du etablerar eller skapar Azure BizTalk Services i Azure-portalen; MABS, WABS"
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
-manager: erikre
-editor: ''
-
+manager: anneta
+editor: 
+ms.assetid: 3ad18876-a649-40d6-9aa0-1509c1d62c43
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
+ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+
 
 ---
-# Skapa BizTalk Services med Azure-portalen
+# <a name="create-biztalk-services-using-the-azure-portal"></a>Skapa BizTalk Services med Azure-portalen
 Skapa Azure BizTalk Services i Azure-portalen.
 
 > [!TIP]
@@ -24,7 +28,7 @@ Skapa Azure BizTalk Services i Azure-portalen.
 > 
 > 
 
-## Skapa en BizTalk-tjänst
+## <a name="create-a-biztalk-service"></a>Skapa en BizTalk-tjänst
 Beroende på vilken utgåva du har är det inte säkert att alla BizTalk Services-inställningar finns tillgängliga.
 
 1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -112,12 +116,12 @@ När du är klar har Azure BizTalk-tjänsten skapats och är redo för dina prog
 
 Det finns vissa åtgärder som inte går att slutföra beroende på status för BizTalk-tjänsten. En lista över dessa åtgärder finns i [Statusdiagram för BizTalk Services](biztalk-service-state-chart.md).
 
-## Steg efter etableringen
+## <a name="postprovisioning-steps"></a>Steg efter etableringen
 * [Installera certifikatet på en lokal dator](#InstallCert)
 * [Lägg till ett produktionsklart certifikat](#AddCert)
 * [Hämta namnområdet Access Control](#ACS)
 
-#### <a name="InstallCert"></a>Installera certifikatet på en lokal dator
+#### <a name="a-nameinstallcertainstall-the-certificate-on-a-local-computer"></a><a name="InstallCert"></a>Installera certifikatet på en lokal dator
 Som en del av etableringen av BizTalk-tjänsten skapas ett självsignerat certifikat som associeras med prenumerationen på BizTalk-tjänsten. Du måste hämta certifikatet och installera det på de datorer som du antingen distribuerar BizTalk-tjänstprogram eller skickar meddelanden till en BizTalk-tjänstslutpunkt ifrån.
 
 1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -127,13 +131,13 @@ Som en del av etableringen av BizTalk-tjänsten skapas ett självsignerat certif
    ![Ändra SSL-certifikat][QuickGlance]
 5. Dubbelklicka på certifikatet och använd guiden för att installera det. Kontrollera att du installerar certifikatet under arkivet **Betrodda rotcertifikatutfärdare**.
 
-#### <a name="AddCert"></a>Lägg till ett produktionsklart certifikat
+#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>Lägg till ett produktionsklart certifikat
 Det självsignerade certifikat som skapas automatiskt när du skapar BizTalk Services är endast avsett att användas i utvecklingsmiljöer. I produktionsscenarier ersätter du det med ett produktionsklart certifikat.
 
 1. På fliken **Instrumentpanel** väljer du **Uppdatera SSL-certifikat**.
 2. Bläddra till ditt privata SSL-certifikat (*CertificateName*.pfx) som innehåller namnet på din BizTalk-tjänst, ange lösenordet och klicka sedan på bockmarkeringen.
 
-#### <a name="ACS"></a>Hämta namnområdet Access Control
+#### <a name="a-nameacsaget-the-access-control-namespace"></a><a name="ACS"></a>Hämta namnområdet Access Control
 1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Välj **BIZTALK SERVICES** i den vänstra navigeringsrutan och sedan din BizTalk-tjänst.
 3. I aktivitetsfältet väljer du **Anslutningsinformation**:  
@@ -156,7 +160,7 @@ Tjänstidentiteten för Access Control är en uppsättning autentiseringsuppgift
 
 I [Hantera ditt ACS-namnområde](https://msdn.microsoft.com/library/azure/hh674478.aspx) visas några riktlinjer och rekommendationer.
 
-## Kraven beskrivs
+## <a name="requirements-explained"></a>Kraven beskrivs
 Dessa krav gäller inte för Free-utgåvan.
 
 <table border="1">
@@ -168,7 +172,7 @@ Dessa krav gäller inte för Free-utgåvan.
 <td>Azure-prenumeration</td>
 <td>Prenumerationen styr vem som kan logga in på Azure-portalen. Kontoinnehavaren skapar prenumerationen i <a HREF="https://account.windowsazure.com/Subscriptions"> Azure-prenumerationer</a>.
 <br/><br/>
-Azure-kontot kan ha flera prenumerationer och kan hanteras av vem som helst som är behörig. Till exempel kan din Azure-kontoinnehavare skapa en prenumeration med namnet <em>BizTalkServiceSubscription</em> och ge BizTalk-administratörerna i företaget (till exempel ContosoBTSAdmins@live.com) åtkomst till prenumerationen. I det här scenariot loggar BizTalk-administratörerna in på Azure-portalen och har fullständiga administratörsbehörigheter till alla värdtjänster i prenumerationen, inklusive Azure BizTalk Services. BizTalk-administratörerna är inte Azure-kontoinnehavare och har därför inte tillgång till någon faktureringsinformation.
+Azure-kontot kan ha flera prenumerationer och kan hanteras av vem som helst som är behörig. Till exempel kan din Azure-kontoinnehavare skapa en prenumeration med namnet <em>BizTalkServiceSubscription</em> och ge BizTalk-administratörerna i företaget (till exempel ContosoBTSAdmins@live.com)) åtkomst till prenumerationen. I det här scenariot loggar BizTalk-administratörerna in på Azure-portalen och har fullständiga administratörsbehörigheter till alla värdtjänster i prenumerationen, inklusive Azure BizTalk Services. BizTalk-administratörerna är inte Azure-kontoinnehavare och har därför inte tillgång till någon faktureringsinformation.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Hantera prenumerationer och lagringskonton i Azure-portalen</a> innehåller mer information.
 </td>
@@ -240,7 +244,7 @@ Ett nytt eller annat certifikat kan läggas till när BizTalk-tjänsten har skap
 
 
 
-## Hybridanslutningar
+## <a name="hybrid-connections"></a>Hybridanslutningar
 När du skapar en Azure BizTalk-tjänst är fliken **Hybridanslutningar** tillgänglig:
 
 ![Fliken Hybridanslutningar][HybridConnectionTab]
@@ -249,10 +253,10 @@ Hybridanslutningar används för att ansluta en Azure-webbplats eller mobil Azur
 
  Se [Hybridanslutningar](integration-hybrid-connection-overview.md) för mer information, inklusive att skapa och hantera hybridanslutningar.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när en BizTalk-tjänst har skapats kan du bekanta dig med [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md). Din BizTalk-tjänst är redo för dina program. Om du vill börja skapa program går du till [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## Se även
+## <a name="see-also"></a>Se även
 * [BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: Statusdiagram](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md)<br/>
@@ -271,6 +275,6 @@ Nu när en BizTalk-tjänst har skapats kan du bekanta dig med [BizTalk Services:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

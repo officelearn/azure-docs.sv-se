@@ -4,12 +4,11 @@
 3. Tryck på knappen **Kör app** för att skapa projektet och starta appen i Android-simulatorn.
 4. Ange en beskrivande text i appen, till exempel *Slutför guiden*, och klicka sedan på Lägg till-knappen. Detta skickar en POST-begäran till den Azure-serverdel som du distribuerade tidigare. Serverdelen infogar data från begäran i TodoItem-SQL-tabellen och returnerar information om det nyligen lagrade objektet tillbaka till mobilappen. Mobilappen visar dessa data i listan. 
    
-    ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
+    ![](./media/app-service-mobile-android-quickstart/mobile-quickstart-startup-android.png)
 
 [Azure Portal]: https://portal.azure.com/
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,25 +1,29 @@
 ---
-title: Så här utför du direktsänd strömning med lokala kodare med hjälp av Azure-portalen | Microsoft Docs
-description: Den här vägledningen visar dig stegen för att skapa en kanal som är konfigurerad för en genomströmningsleverans.
+title: "Så här utför du liveuppspelning med lokala kodare med hjälp av Azure-portalen | Microsoft Docs"
+description: "Den här vägledningen visar dig stegen för att skapa en kanal som är konfigurerad för en genomströmningsleverans."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Så här utför du direktsänd strömning med lokala kodare med hjälp av Azure-portalen
+# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Så här utför du direktsänd strömning med lokala kodare med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
-> * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+> * [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 > * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 > 
 > 
@@ -30,7 +34,7 @@ Den här vägledningen visar dig stegen för att använda Azure-portalen för at
 Följande krävs för att kunna genomföra vägledningen:
 
 * Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
+* Ett Media Services-konto.    Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * En webbkamera. Till exempel [Telestream Wirecast-kodaren](http://www.telestream.net/wirecast/overview.htm).
 
 Vi rekommenderar att du tittar närmare på följande artiklar:
@@ -39,7 +43,7 @@ Vi rekommenderar att du tittar närmare på följande artiklar:
 * [Översikt över liveuppspelning med Azure Media Services](media-services-manage-channels-overview.md)
 * [Liveuppspelning med lokala kodare som skapar strömmar med flera bithastigheter](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Vanligt scenario för liveuppspelning
+## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Vanligt scenario för liveuppspelning
 Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för direktsänd strömning som använder kanaler som har konfigurerats för genomströmningsleverans. Den här vägledningen visar hur du skapar och hanterar en genomströmningskanal och direktsända händelser.
 
 1. Anslut en videokamera till en dator. Starta och konfigurera en lokal direktsänd kodare som matar ut en RTMP- eller fragmenterad MP4-dataström i multibithastighet. Mer information finns i [Support och direktsända kodare för Azure Media Services RTMP](http://go.microsoft.com/fwlink/?LinkId=532824).
@@ -97,7 +101,7 @@ Om du vill skapa och ändra antalet reserverade enheter för strömning gör du 
    > 
    > 
 
-## <a name="create-and-start-pass-through-channels-and-events"></a>Skapa och starta genomströmningskanaler och händelser
+## <a name="create-and-start-passthrough-channels-and-events"></a>Skapa och starta genomströmningskanaler och händelser
 En kanal är associerad med händelser och program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar händelser. 
 
 Du kan ange det antal timmar som du vill behålla inspelat innehåll för programmet genom att ställa in längden för **Arkivfönster**. Det här värdet kan anges från minst 5 minuter till högst 25 timmar. Även arkivfönstrets längd påverkar den maximala tid som klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Händelser kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
@@ -121,15 +125,16 @@ Detta avsnitt visar hur du använder alternativet **Snabbregistrering** för att
 
 Mer information om genomströmningskanaler finns i [Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md).
 
-1. I fönstret **Inställningar** klickar du på **Direktsänd strömning**. 
+1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
+2. I fönstret **Inställningar** klickar du på **Direktsänd strömning**. 
    
     ![Komma igång](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
     Fönstret **Direktsänd strömning** visas.
-2. Klicka på **Snabbregistrering** för att skapa en genomströmningskanal med RTMP-infogningsprotokollet.
+3. Klicka på **Snabbregistrering** för att skapa en genomströmningskanal med RTMP-infogningsprotokollet.
    
     Fönstret **SKAPA EN NY KANAL** visas.
-3. Namnge den nya kanalen och klicka på **Skapa**. 
+4. Namnge den nya kanalen och klicka på **Skapa**. 
    
     Detta skapar en genomströmningskanal med RTMP-infogningsprotokollet.
 
@@ -172,6 +177,9 @@ Granska sökvägarna för Media Services-utbildning.
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: 'Apache Storm-kurs: Komma igång med Linux-baserat Storm på HDInsight | Microsoft Docs'
-description: Kom igång med analyser av stordata med Apache Storm och Storm Starter-exempel på Linux-baserade HDInsight. Ta reda på hur du använder Storm till att bearbeta data i realtid.
-keywords: apache storm, apache storm självstudier, stordata-analys, storm starter
+title: "Apache Storm-kurs: Komma igång med Linux-baserat Storm på HDInsight | Microsoft Docs"
+description: "Kom igång med analyser av stordata med Apache Storm och Storm Starter-exempel på Linux-baserade HDInsight. Ta reda på hur du använder Storm till att bearbeta data i realtid."
+keywords: "apache storm, apache storm självstudier, stordata-analys, storm starter"
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d710dcac-35d1-4c27-a8d6-acaf8146b485
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/12/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 84567b646e9cb5e95b2aaf5c3ce19fc227decc82
+
 
 ---
-# <a name="apache-storm-tutorial:-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Apache Storm-kurs: Komma igång med Storm Starter-exempel för analys av stordata i HDInsight
+# <a name="apache-storm-tutorial-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Apache Storm-kurs: Komma igång med Storm Starter-exempel för analys av stordata i HDInsight
 Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkningar i realtid för bearbetning av dataströmmar. Du kan skapa ett molnbaserat Storm-kluster som utför analyser av stordata i realtid med Storm på Azure HDInsight.
 
 > [!NOTE]
@@ -66,9 +70,13 @@ I det här avsnittet skapar du ett HDInsight-kluster av version 3.2 (Storm-versi
      > * [Använd SSH med Linux-baserad Hadoop på HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
      > 
      > 
+
 3. Spara parametrarna genom att klicka på **OK**.
+
 4. I bladet **Anpassad distribution** klickar du på listrutan **Resursgrupp** och sedan på **Ny** för att skapa en ny resursgrupp. Resursgruppen är en behållare som grupperar klustret, det beroende lagringskontot och andra länkade resurser.
+
 5. Klicka på **Juridiska villkor** och sedan på **Skapa**.
+
 6. Klicka på **Skapa**. En ny panel visas med rubriken Skicka distribution för malldistribution. Det tar cirka 20 minuter att skapa klustret och SQL Database.
 
 ## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Köra ett Storm Starter-exempel i HDInsight
@@ -169,10 +177,16 @@ Gå tillbaka till sidan **Topology summary** (Topologiöversikt) för ordräknin
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Nästa steg
+## <a name="a-idnextanext-steps"></a><a id="next"></a>Nästa steg
 I den här kursen om Apache Storm har du fått använda Storm Starter för att lära dig hur du skapar en Storm i HDInsight-klustret och använda Storm-instrumentpanelen till att distribuera, övervaka och hantera Storm-topologier. Härnäst får du lära dig att [Utveckla Java-baserade topologier med Maven](hdinsight-storm-develop-java-topology.md).
 
 Om du redan är bekant med att utveckla Java-baserad topologier och vill distribuera en befintlig topologi till HDInsight kan du läsa [Distribuera och hantera Apache Storm-topologier i HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md).
+
+Om du är en .NET-utvecklare kan du skapa C#- eller C#/Java-hybridtopologier med Visual Studio. Mer information finns i [Utveckla C#-topologier för Apache Storm på HDInsight med Hadoop-verktyg för Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+
+Se följande exempel för exempeltopologier som kan användas med Storm på HDInsight:
+
+    * [Exempeltopologier för Storm på HDInsight](hdinsight-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
@@ -184,6 +198,6 @@ Om du redan är bekant med att utveckla Java-baserad topologier och vill distrib
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

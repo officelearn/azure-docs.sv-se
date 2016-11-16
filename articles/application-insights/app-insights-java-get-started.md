@@ -1,11 +1,11 @@
 ---
 title: Analysera Java-webbappar med Application Insights | Microsoft Docs
-description: 'Övervaka prestanda och användningen av din Java-webbplats med Application Insights. '
+description: "Övervaka prestanda och användningen av din Java-webbplats med Application Insights. "
 services: application-insights
 documentationcenter: java
 author: alancameronwills
 manager: douge
-
+ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cc0167ef78eb3ca84e959599473af5935e5da0d0
+
 
 ---
-# Komma igång med Application Insights i ett Java-webbprojekt
+# <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 *Application Insights finns endast som förhandsversion.*
 
-[!INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
-[Application Insights](https://azure.microsoft.com/services/application-insights/) är en utökningsbar analystjänst som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Tjänsten hjälper dig att [identifiera och diagnostisera prestandaproblem och undantag](app-insights-detect-triage-diagnose.md) samt att [skriva kod][api] för att se vad användarna gör med din app.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Tjänsten hjälper dig att [identifiera och diagnostisera prestandaproblem och undantag](app-insights-detect-triage-diagnose.md) samt att [skriva kod][api] för att se vad användarna gör med din app.
 
 ![exempeldata](./media/app-insights-java-get-started/5-results.png)
 
@@ -31,9 +33,9 @@ Du behöver:
 * Oracle JRE 1.6 eller senare eller Zulu JRE 1.6 eller senare
 * En prenumeration på [Microsoft Azure](https://azure.microsoft.com/). (Du kan börja med [den kostnadsfria utvärderingsversionen](https://azure.microsoft.com/pricing/free-trial/).)
 
-*Om du har en webbapp som redan är aktiv kan du följa den alternativa proceduren för att [lägga till SDK vid körningen på webbservern](app-insights-java-live.md). Med det alternativet undviker du att behöva återskapa koden, men du kan inte skriva kod för att spåra användaraktivitet.*
+*Om du har en webbapp som redan är aktiv kan du följa den alternativa proceduren [för att lägga till SDK vid körningen på webbservern](app-insights-java-live.md). Med det alternativet undviker du att behöva återskapa koden, men du kan inte skriva kod för att spåra användaraktivitet.*
 
-## 1. Hämta en Application Insights-instrumenteringsnyckel
+## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Hämta en Application Insights-instrumenteringsnyckel
 1. Logga in på [Microsoft Azure-portalen](https://portal.azure.com).
 2. Skapa en Application Insights-resurs. Ange programtypen till Java-webbapp.
    
@@ -42,13 +44,13 @@ Du behöver:
    
     ![I den nya resursöversikten klickar du på Egenskaper och kopierar instrumenteringsnyckeln.](./media/app-insights-java-get-started/03-key.png)
 
-## 2. Lägga till Application Insights SDK för Java till ditt projekt
+## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Lägga till Application Insights SDK för Java till ditt projekt
 *Välj lämplig metod för ditt projekt.*
 
-#### Om du använder Eclipse för att skapa ett Maven- eller Dynamic Web-projekt …
+#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Om du använder Eclipse för att skapa ett Maven- eller Dynamic Web-projekt …
 Använd [plugin-programmet Application Insights SDK för Java][eclipse].
 
-#### Om du använder Maven …
+#### <a name="if-youre-using-maven"></a>Om du använder Maven …
 Om ditt projekt redan har konfigurerats för utveckling med Maven sammanfogar du följande kod i pom.xml-filen.
 
 Uppdatera sedan projektberoendena för att få binärfilerna.
@@ -74,7 +76,7 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
 * *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `<version>1.0.n</version>`. Du hittar den senaste versionen i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Behöver du uppdatera till en ny SDK?* Uppdatera ditt projekts beroenden.
 
-#### Om du använder Gradle …
+#### <a name="if-youre-using-gradle"></a>Om du använder Gradle …
 Om ditt projekt redan har konfigurerats för utveckling med Gradle sammanfogar du följande kod i build.gradle-filen.
 
 Uppdatera sedan projektberoendena för att få binärfilerna.
@@ -92,14 +94,14 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
 * *Så här uppdaterar du till ett nytt SDK*
   * Uppdatera ditt projekts beroenden.
 
-#### Eller …
+#### <a name="otherwise-"></a>Eller …
 Lägg till SDK manuellt:
 
 1. Ladda ned [Application Insights SDK för Java](https://aka.ms/aijavasdk).
 2. Extrahera binärfilerna från ZIP-filen och lägg till dem i projektet.
 
-### Frågor …
-* *Vad är relationen mellan `-core`- och `-web`-komponenterna i ZIP-filen?*
+### <a name="questions"></a>Frågor …
+* *Vad är relationen mellan `-core` och `-web`-komponenterna i ZIP-filen?*
   
   * `applicationinsights-core` ger dig det avskalade API:et. Du behöver alltid ha den här komponenten.
   * `applicationinsights-web` ger dig mått som spårar antalet HTTP-förfrågningar och svarstider. Du kan utelämna den här komponenten om du inte vill att den här telemetrin ska samlas in automatiskt. Till exempel om du vill skriva din egen.
@@ -108,7 +110,7 @@ Lägg till SDK manuellt:
   * Ladda ned senaste [Application Insigths SDK för Java](https://aka.ms/qqkaq6) och ersätt det gamla.
   * Ändringar beskrivs i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-## 3. Lägga till en XML-fil för Application Insights
+## <a name="3-add-an-application-insights-xml-file"></a>3. Lägga till en XML-fil för Application Insights
 Lägg till ApplicationInsights.xml i resursmappen i ditt projekt eller se till att den läggs till i sökvägen för projektets distributionsklass. Kopiera följande XML-kod till den.
 
 Ersätt instrumenteringsnyckeln som du fick från Azure-portalen.
@@ -149,7 +151,7 @@ Ersätt instrumenteringsnyckeln som du fick från Azure-portalen.
 * Händelsekorrelation är ett tillägg till komponenten HTTP-begäran. Det tilldelar en identifierare för varje förfrågan som tas emot av servern och lägger till denna identifierare som en egenskap för alla objekt i telemetrin som egenskapen Operation.Id. Detta gör att du kan korrelera telemetrin som är associerad med varje begäran genom att ange ett filter i [Diagnostiksökning][diagnostic].
 * Application Insights-nyckeln kan skickas dynamiskt från Azure-portalen som en systemegenskap (-DAPPLICATION_INSIGHTS_IKEY = your_ikey). Om det finns inte någon definierad sker sökning efter miljövariabeln (APPLICATION_INSIGHTS_IKEY) i Azure App-inställningarna. Om båda egenskaperna är odefinierade används som standard InstrumentationKey från ApplicationInsights.xml. Med hjälp av den här sekvensen kan du på ett dynamiskt sätt hantera olika InstrumentationKeys för olika miljöer.
 
-### Olika sätt att konfigurera instrumenteringsnyckeln på
+### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Olika sätt att konfigurera instrumenteringsnyckeln på
 Application Insights SDK:n söker efter nyckeln i följande ordning:
 
 1. Systemegenskap: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
@@ -161,7 +163,7 @@ Du kan också [ange den i koden](app-insights-api-custom-events-metrics.md#ikey)
     telemetryClient.InstrumentationKey = "...";
 
 
-## 4. Lägga till ett HTTP-filter
+## <a name="4-add-an-http-filter"></a>4. Lägga till ett HTTP-filter
 Det sista konfigurationssteget gör att komponenten HTTP-begäran kan logga varje webbegäran. (Krävs inte om du bara vill ha det avskalade API:et.)
 
 Leta upp och öppna filen web.xml i projektet och sammanfoga följande kod under webbappens nod, där dina programfiler är konfigurerade.
@@ -179,7 +181,7 @@ För bästa resultat bör filtret mappas före alla andra filter.
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-#### Om du använder Spring Web MVC 3.1 or later
+#### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Om du använder Spring Web MVC 3.1 or later
 Redigera dessa element så att Application Insights-paketet tas med:
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
@@ -191,7 +193,7 @@ Redigera dessa element så att Application Insights-paketet tas med:
         </mvc:interceptor>
     </mvc:interceptors>
 
-#### Om du använder Struts 2
+#### <a name="if-youre-using-struts-2"></a>Om du använder Struts 2
 Lägg till det här objektet i Struts-konfigurationsfilen (vanligtvis struts.xml eller struts-default.xml):
 
      <interceptors>
@@ -201,10 +203,10 @@ Lägg till det här objektet i Struts-konfigurationsfilen (vanligtvis struts.xml
 
 (Om det finns spärrar som har definierats i en standardstack lägger du bara till spärren till den stacken.)
 
-## 5. Köra ditt program
+## <a name="5-run-your-application"></a>5. Köra ditt program
 Kör programmet i felsökningsläge på utvecklingsdatorn eller publicera det till servern.
 
-## 6. Visa telemetrin i Application Insights
+## <a name="6-view-your-telemetry-in-application-insights"></a>6. Visa telemetrin i Application Insights
 Gå tillbaka till Application Insights-resursen på [Microsoft Azure-portalen](https://portal.azure.com).
 
 Data om HTTP-förfrågningar visas på översiktsbladet. (Om informationen inte visas väntar du några sekunder och klickar på Uppdatera.)
@@ -221,7 +223,7 @@ Klicka dig vidare i diagrammen om du vill visa mer detaljerade aggregerade mätv
 > 
 > 
 
-### Instansdata
+### <a name="instance-data"></a>Instansdata
 Klicka dig vidare inom en specifik begärandetyp om du vill visa enskilda instanser. 
 
 Två typer av data visas i Application Insights: aggregerade data, som lagras och visas som medelvärden, antal och belopp; och instansdata, som är enskilda rapporter över HTTP-begäranden, undantag, sidvisningar eller anpassade händelser.
@@ -230,12 +232,12 @@ När du visar egenskaperna för en begäran kan du se telemetrihändelserna som 
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
-### Analytics: Kraftfullt frågespråk
+### <a name="analytics-powerful-query-language"></a>Analytics: Kraftfullt frågespråk
 Allt eftersom du ackumulerar mer data kan du köra frågor både för att aggregera data och för att hitta enskilda instanser. [Analytics]() är ett kraftfullt verktyg både för att bättre förstå prestanda och användning, och för diagnostikändamål.
 
 ![Exempel med Analytics](./media/app-insights-java-get-started/025.png)
 
-## 7. Installera din app på servern
+## <a name="7-install-your-app-on-the-server"></a>7. Installera din app på servern
 Publicera appen på servern, låt användarna använda den och se hur telemetrin visas på portalen.
 
 * Kontrollera att din brandvägg tillåter programmet att skicka telemetri till följande portar:
@@ -248,7 +250,7 @@ Publicera appen på servern, låt användarna använda den och se hur telemetrin
     
     (Den här komponenten gör det möjligt att använda prestandaräknare.)
 
-## Fel relaterade till begäranden och undantag
+## <a name="exceptions-and-request-failures"></a>Fel relaterade till begäranden och undantag
 Ohanterade undantag samlas in automatiskt:
 
 ![Öppna Inställningar, Fel](./media/app-insights-java-get-started/21-exceptions.png)
@@ -258,25 +260,25 @@ Om du vill samla in data om andra undantag kan du välja mellan två alternativ:
 * [Infoga anrop till trackException() i koden][apiexceptions]. 
 * [Installera Java-agenten på servern](app-insights-java-agent.md). Du anger de metoder som du vill övervaka.
 
-## Övervaka metodanrop och externa beroenden
+## <a name="monitor-method-calls-and-external-dependencies"></a>Övervaka metodanrop och externa beroenden
 [Installera Java-agenten](app-insights-java-agent.md) om du vill logga angivna interna metoder och anrop som görs via JDBC, med tidsinställningsdata.
 
-## Prestandaräknare
+## <a name="performance-counters"></a>Prestandaräknare
 Öppna **Inställningar**, **Servrar**, om du vill se ett utbud av prestandaräknare.
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
 
-### Anpassa samlingen med prestandaräknare
+### <a name="customize-performance-counter-collection"></a>Anpassa samlingen med prestandaräknare
 Om du vill inaktivera datainsamlingen från standarduppsättningen med prestandaräknare lägger du till följande kod under rotnoden i filen ApplicationInsights.xml:
 
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
 
-### Samla in data från fler prestandaräknare
+### <a name="collect-additional-performance-counters"></a>Samla in data från fler prestandaräknare
 Du kan ange ytterligare prestandaräknare som du vill samla in data från.
 
-#### JMX-räknare (exponeras av Java Virtual Machine)
+#### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>JMX-räknare (exponeras av Java Virtual Machine)
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
@@ -286,13 +288,13 @@ Du kan ange ytterligare prestandaräknare som du vill samla in data från.
 
 * `displayName` – Namnet visas på Application Insights-portalen.
 * `objectName` – JMX-objektnamnet.
-* `attribute` – Attributet för JMX-objektnamnet som ska hämtas.
+* `attribute` – Attributet för JMX-objektnamnet som ska hämtas
 * `type` (valfritt) – Typen för JMX-objektets attribut:
   * Standardvärde: en enkel typ, till exempel int eller long.
   * `composite`: prestandaräknardata har formatet ”Attribute.Data”
   * `tabular`: prestandaräknardata har tabellradsformat
 
-#### Windows-prestandaräknare
+#### <a name="windows-performance-counters"></a>Windows-prestandaräknare
 Varje [Windows-prestandaräknare](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) är medlem i en kategori (på samma sätt som ett fält är medlem i en klass). Kategorier kan antingen vara globala eller ha numrerade eller namngivna instanser.
 
     <PerformanceCounters>
@@ -311,25 +313,25 @@ Dina prestandaräknare visas som anpassade mått i [Metrics Explorer][metrics].
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
-### Unix-prestandaräknare
+### <a name="unix-performance-counters"></a>Unix-prestandaräknare
 * [Installera collectd med Application Insights-plugin-programmet](app-insights-java-collectd.md) om du vill samla in en mängd olika system- och nätverksdata.
 
-## Samla in användar- och sesionsdata
+## <a name="get-user-and-session-data"></a>Samla in användar- och sesionsdata
 Du skickar telemetri från webbservern. Men för att få en heltäckande bild av ditt program kan du lägga till ännu mer övervakning:
 
 * [Lägg till telemetri till webbsidor][usage] om du vill övervaka sidvisningar och användarmått.
 * [Konfigurera webbtester][availability] för att försäkra dig om att programmet är aktivt och att det svarar.
 
-## Samla in loggspårningar
+## <a name="capture-log-traces"></a>Samla in loggspårningar
 Du kan använda Application Insights om du vill arbeta med loggar från Log4J, Logback eller andra loggningsramverk. Du kan korrelera loggarna med HTTP-förfrågningar och annan telemetri. [Lär dig hur du gör][javalogs].
 
-## Skicka din egen telemetri
+## <a name="send-your-own-telemetry"></a>Skicka din egen telemetri
 Nu när du har installerat SDK kan du använda API:et för att skicka din egen telemetri.
 
 * [Spåra anpassade händelser och mått][api] och ta reda på vad användare gör med ditt program.
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem.
 
-## Webbtester för tillgänglighet
+## <a name="availability-web-tests"></a>Webbtester för tillgänglighet
 Application Insights kan testa din webbplats med jämna mellanrum för att kontrollera att tjänsten är tillgänglig och att den svarar. [Om du vill konfigurera][availability], klickar du på Webbtester.
 
 ![Klicka först på Webbtester och sedan på Lägg till webbtest](./media/app-insights-java-get-started/31-config-web-test.png)
@@ -340,11 +342,17 @@ Du kan visa diagram över svarstider, samt få e-postaviseringar om platsen kras
 
 [Läs mer om webbtester för tillgänglighet.][availability] 
 
-## Har du några frågor? Har du problem?
+## <a name="questions-problems"></a>Har du några frågor? Har du problem?
 [Felsöka Java](app-insights-java-troubleshoot.md)
 
-## Nästa steg
-Mer information finns på [Java Developer Center](/develop/java/).
+## <a name="next-steps"></a>Nästa steg
+* [Övervaka beroende anrop](app-insights-java-agent.md)
+* [Övervaka Unix-prestandaräknare](app-insights-java-collectd.md)
+* Lägg till [övervakning till dina webbsidor](app-insights-javascript.md) för att övervaka sidans belastning, AJAX-anrop, webbläsarundantag.
+* Skriv [anpassad telemetri](app-insights-api-custom-events-metrics.md) att spåra användningen i webbläsaren eller på servern.
+* Skapa [instrumentpaneler](app-insights-dashboards.md) för att samordna nyckeldiagram för övervakning av systemet.
+* Använd [Analytics](app-insights-analytics.md) för kraftfulla frågor via telemetri från din app
+* Mer information finns på [Java Developer Center](/develop/java/).
 
 <!--Link references-->
 
@@ -355,10 +363,10 @@ Mer information finns på [Java Developer Center](/develop/java/).
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[användning]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

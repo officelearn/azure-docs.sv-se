@@ -1,38 +1,39 @@
-# Overview 
-## [Azure portal overview](azure-portal-overview.md)
-## [Azure resource manager overview](resource-group-overview.md)
+# [Översikt](../azure-portal-overview.md)
+## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
-# Get Started
-## [Deploy using resource manager template](resource-group-template-deploy.md)
+# Kom igång
+## [Distribuera med Resource Manager-mall](../resource-group-template-deploy.md)
 
-# How To
-## Deploy
-### [Troubleshooting resource group deployments in Azure](resource-group-deploy-debug.md)
-### [Authoring Azure resource manager templates](resource-group-authoring-templates.md)
-### [Azure resource manager template functions](resource-group-template-functions.md)
-### [Deploy resources using .NET libraries and a template](arm-template-deployment.md)
-### [Advanced template operations](resource-group-advanced-template.md)
-## Manage
-### [Use preview portal to manage resources](resource-group-portal.md)
-### [Manage and audit access to resources](resource-group-rbac.md)
-### [Role based access control in the preview portal](role-based-access-control-configure.md)
-### [Use tags to organize resources](resource-group-using-tags.md)
-### [How to scale your resources](insights-how-to-scale.md)
-### [Create a new Azure service principal using the Azure portal](resource-group-create-service-principal-portal.md)
-## Monitor
-### [Monitor service metrics](insights-how-to-customize-monitoring.md)
-### [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md)
-### [Monitor availability and responsiveness of any web site](app-insights-monitor-web-app-availability.md)
-### [Monitor application performance](app-insights-azure-web-apps.md)
-### [View events and audit logs](insights-debugging-with-events.md)
-### [Receive alert notifications](insights-receive-alert-notifications.md)
-### [Best practices for Autoscale](insights-autoscale-best-practices.md)
-### [Common metrics for Autoscale](insights-autoscale-common-metrics.md)
-### [Webhooks for Autoscale notifications](insights-autoscale-to-webhook-email.md)
-### [Webhooks for alerts on audit logs](insights-auditlog-to-webhook-email.md)
-### [Webhooks for alerts on metrics](insights-webhooks-alerts.md)
-### [Azure Insights PowerShell quick start samples](insights-powershell-samples.md)
-### [Azure Insights CLI quick start samples](insights-cli-samples.md)
+# Gör så här för att
+## Distribuera
+### [Skapa Azure Resource Manager-mallar](../resource-group-authoring-templates.md)
+
+## Hantera
+### [Använd Preview Portal för att hantera resurser](resource-group-portal.md)
+### [Hantera åtkomst med RBAC](../active-directory/role-based-access-control-configure.md)
+### [Använd taggar för att organisera resurser](../resource-group-using-tags.md)
+### [Skala dina resurser](../monitoring-and-diagnostics/insights-how-to-scale.md)
+### [Skapa den nya Azure-tjänstens huvudnamn](../resource-group-create-service-principal-portal.md)
+## Övervaka
+### [Övervaka tjänstmått](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
+### [Aktivera övervakning och diagnostik](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
+### [Övervaka tillgänglighet och svarstider på valfri webbplats](../application-insights/app-insights-monitor-web-app-availability.md)
+### [Övervaka programprestanda](../application-insights/app-insights-azure-web-apps.md)
+### [Visa händelser och granskningsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md)
+### [Få varningsmeddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+
+# Referens
+## [Funktioner för Azure Resource Manager-mall](../resource-group-template-functions.md)
+## [Bästa metoder för autoskalning](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+## [Vanliga mått för autoskalning](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
+## [Webhooks för autoskalningsaviseringar](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
+## [Webhooks för aviseringar i granskningsloggar](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+## [Webhooks för aviseringar i mått](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+## [Snabbstartsexempel för Azure Insights PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Snabbstartsexempel för Azure Insights CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
+
+
+
 
 
 <!--HONumber=Nov16_HO2-->

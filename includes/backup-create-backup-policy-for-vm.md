@@ -1,4 +1,4 @@
-## Definiera en princip för säkerhetskopiering
+## <a name="defining-a-backup-policy"></a>Definiera en princip för säkerhetskopiering
 En princip för säkerhetskopiering definierar en matris över när ögonblicksbilder av data tas och hur länge de kvarhålls. När du definierar en princip för säkerhetskopiering av en VM, kan du utlösa ett säkerhetskopieringsjobb *en gång per dag*. När du skapar en ny princip, tillämpas den för valvet. Gränssnittet för säkerhetskopieringsprincipen ser ut så här:
 
 ![Princip för säkerhetskopiering](./media/backup-create-policy-for-vms/backup-policy.png)
@@ -26,6 +26,8 @@ Så här skapar du en princip:
    
     Den nya principen tillämpas omedelbart på valvet.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

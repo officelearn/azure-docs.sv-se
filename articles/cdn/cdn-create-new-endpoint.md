@@ -1,12 +1,12 @@
 ---
-title: Använda Azure CDN | Microsoft Docs
-description: Det här avsnittet beskriver hur du aktiverar CDN (Content Delivery Network) för Azure. Självstudiekursen beskriver steg för steg hur du skapar en ny CDN-profil och CDN-slutpunkt.
+title: "Använda Azure CDN | Microsoft Docs"
+description: "Det här avsnittet beskriver hur du aktiverar CDN (Content Delivery Network) för Azure. Självstudiekursen beskriver steg för steg hur du skapar en ny CDN-profil och CDN-slutpunkt."
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
+
 
 ---
-# Använda Azure CDN
+# <a name="using-azure-cdn"></a>Använda Azure CDN
 Det här avsnittet beskriver steg för steg hur du aktiverar Azure CDN genom att skapa en ny profil och slutpunkt för CDN.
 
 > [!IMPORTANT]
@@ -24,7 +28,7 @@ Det här avsnittet beskriver steg för steg hur du aktiverar Azure CDN genom att
 > 
 > 
 
-## Skapa en ny CDN-profil
+## <a name="create-a-new-cdn-profile"></a>Skapa en ny CDN-profil
 En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller flera CDN-slutpunkter.  Du kanske vill använda flera profiler för att organisera dina CDN-slutpunkter efter Internetdomän, webbapp eller andra kriterier.
 
 > [!NOTE]
@@ -36,7 +40,7 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## Skapa en ny CDN-slutpunkt
+## <a name="create-a-new-cdn-endpoint"></a>Skapa en ny CDN-slutpunkt
 **Så här skapar du en ny CDN-slutpunkt**
 
 1. Gå till din CDN-profil på [Azure-portalen](https://portal.azure.com).  Du kanske fäste den på instrumentpanelen i föregående steg.  Om du inte hittar den klicka du på **Bläddra**, sedan på **CDN-profiler** och sedan på den profil som du vill lägga till slutpunkten till.
@@ -88,7 +92,7 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
     > 
     > 
 
-## Se även
+## <a name="see-also"></a>Se även
 * [Kontrollera cachelagringsbeteendet för begäranden med frågesträngar](cdn-query-string.md)
 * [Mappa CDN-innehåll till en anpassad domän](cdn-map-content-to-custom-domain.md)
 * [Läsa in tillgångar för en Azure CDN-slutpunkt i förväg](cdn-preload-endpoint.md)
@@ -102,6 +106,6 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

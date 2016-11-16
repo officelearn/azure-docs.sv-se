@@ -1,8 +1,12 @@
-An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
+En Azure belastningsutjämnare är en Layer 4-belastningsutjämnare (TCP, UDP). Belastningsutjämnaren ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfria tjänstinstanser i molntjänster eller virtuella datorer i en belastningsutjämningsuppsättning. Azure belastningsutjämnare kan även presentera dessa tjänster på flera portar, flera IP-adresser eller både och.
 
-You can configure a load balancer to:
+Du kan konfigurera en belastningsutjämnare för att:
 
-* Load balance incoming Internet traffic to virtual machines (VMs). We refer to a load balancer in this scenario as an [Internet-facing load balancer](../articles/load-balancer/load-balancer-internet-overview.md).
-* Load balance traffic between VMs in a virtual network (VNet), between VMs in cloud services, or between on-premises computers and VMs in a cross-premises virtual network. We refer to a load balancer in this scenario as an [internal load balancer (ILB)](../articles/load-balancer/load-balancer-internal-overview.md).
-* Forward external traffic to a specific VM instance.
+* Belastningsutjämna inkommande Internettrafik till virtuella datorer (VM). Vi refererar till en belastningsutjämnare i det här scenariot som en [Internetuppkopplad belastningsutjämnare](../articles/load-balancer/load-balancer-internet-overview.md).
+* Belastningsutjämna trafik mellan virtuella datorer i ett virtuellt nätverk (VNet), mellan virtuella datorer i molntjänster eller mellan lokala datorer och virtuella datorer i ett virtuellt nätverk mellan olika platser. Vi refererar till en belastningsutjämnare i det här scenariot som en [Intern belastningsutjämnare (ILB)](../articles/load-balancer/load-balancer-internal-overview.md).
+* Vidarebefordra extern trafik till en viss VM-instans.
+
+
+<!--HONumber=Nov16_HO2-->
+
 

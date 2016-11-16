@@ -1,12 +1,12 @@
 ---
-title: Skapa ett handelspartneravtal i Azure Apptjänst | Microsoft Docs
+title: "Skapa ett handelspartneravtal i Azure Apptjänst | Microsoft Docs"
 description: Skapa handelspartneravtal
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: rajram
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 319e46fa-fd81-4730-a742-768bf1676972
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/23/2016
 ms.author: rajram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e41ac0e91bd66fbc7df08b4397e78377021fcbca
+
 
 ---
-# Skapa ett handelspartneravtal
+# <a name="creating-a-trading-partner-agreement"></a>Skapa ett handelspartneravtal
 [!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Handelspartner är de enheter som ingår i B2B-kommunikation (Business to Business). När två parter upprättar en relation kallas det för ett *avtal*. Det definierade avtalet baseras på den kommunikation som de två parterna vill uppnå och är protokoll- eller transportspecifikt. De olika B2B-protokollen och B2B-transporterna som stöds av Azure Apptjänst är:
@@ -25,10 +29,10 @@ Handelspartner är de enheter som ingår i B2B-kommunikation (Business to Busine
 * EDIFACT (FN:s regler om elektroniskt datautbyte inom administration, handel och transport (FN/EDIFACT))
 * X12 (ASC X12)
 
-### BizTalk-API Apps som stöder B2B-scenarier
+### <a name="biztalk-api-apps-that-support-b2b-scenarios"></a>BizTalk-API Apps som stöder B2B-scenarier
 Följande API Apps aktiverar de här funktionerna med en omfattande och intuitiv upplevelse i Azure Portal:
 
-## BizTalk-handelspartnerhantering (TPM)
+## <a name="biztalk-trading-partner-management-tpm"></a>BizTalk-handelspartnerhantering (TPM)
 * Skapa och hantera partner, profiler och identiteter
 * Lagra och hantera EDI-scheman
 * Lagra och hantera certifikat (som används i AS2-protokoll)
@@ -38,23 +42,23 @@ Följande API Apps aktiverar de här funktionerna med en omfattande och intuitiv
 
 ![][1]
 
-## AS2-koppling
+## <a name="as2-connector"></a>AS2-koppling
 * Kör AS2-avtal enligt definitionen i den relaterade TPM-API-app-instansen
 * Hämtar AS2-bearbetnings/-spårningsinformation för felsökning
 
-## BizTalk EDIFACT
+## <a name="biztalk-edifact"></a>BizTalk EDIFACT
 * Kör EDIFACT-avtal enligt definitionen i den relaterade TPM-API-app-instansen
 * Hämtar EDIFACT-bearbetnings/-spårningsinformation för felsökning
 * Tillhandahåller tillståndshantering av batchar (start och stopp) enligt definitionen i EDIFACT-avtalen i den relaterade TPM-API-app-instansen
 
-## BizTalk X12
+## <a name="biztalk-x12"></a>BizTalk X12
 * Kör X12-avtal enligt definitionen i den relaterade TPM-API-app-instansen 
 * Hämtar X12-bearbetnings/-spårningsinformation för felsökning
 * Tillhandahåller tillståndshantering av batchar (start och stopp) enligt definitionen i X12-avtalen i den relaterade TPM-API-app-instansen
 
 Som tidigare beskrivits kräver AS2-, X12- och EDIFACT-API Appsna en TPM-API-app för att fungera som förväntat.
 
-## Komma igång
+## <a name="getting-started"></a>Komma igång
 Skapa handelspartneravtal:
 
 1. Skapa en instans av kopplingen **BizTalk-handelspartnerhantering**. För att det ska fungera behövs en tom SQL-databas. Innan du börjar bör du ha en tom databas tillgänglig och redo för användning.
@@ -75,6 +79,6 @@ Skapa handelspartneravtal:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

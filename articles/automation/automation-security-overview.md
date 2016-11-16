@@ -1,13 +1,13 @@
 ---
-title: Säkerheten i Azure Automation | Microsoft Docs
-description: Den här artikeln innehåller en översikt över automatiseringssäkerheten och de olika tillgängliga autentiseringsmetoderna för Automation-konton i Azure Automation.
+title: "Säkerheten i Azure Automation | Microsoft Docs"
+description: "Den här artikeln innehåller en översikt över automatiseringssäkerheten och de olika tillgängliga autentiseringsmetoderna för Automation-konton i Azure Automation."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-keywords: Säkerheten i Azure Automation
-
+keywords: "Säkerheten i Azure Automation"
+ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5cd87c888a5e3407da2bad1bc3f2ef10aa75312b
+
 
 ---
-# Säkerheten i Azure Automation
+# <a name="azure-automation-security"></a>Säkerheten i Azure Automation
 Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders, till exempel Amazon Web Services (AWS).  För att en runbook ska kunna utföra sina åtgärder måste den ha behörighet att komma åt resurserna på ett säkert sätt med den minsta behörighet som krävs i prenumerationen.  
 Den här artikeln täcker de olika autentiseringsscenarier som stöds av Azure Automation och visar hur du kommer igång baserat på den eller de miljöer som du behöver hantera.  
 
-## Översikt för Automation-konton
+## <a name="automation-account-overview"></a>Översikt för Automation-konton
 När du startar Azure Automation för första gången måste du skapa minst ett Automation-konto. Automation-konton gör att du kan isolera dina Automation-resurser (runbooks, tillgångar, konfigurationer) från resurserna som finns i andra Automation-konton. Du kan använda Automation-konton för att hålla resurser åtskilda i separata logiska miljöer. Du kan exempelvis använda ett konto för utveckling, ett annat för produktion och ett annat för din lokala miljö.  Ett Azure Automation-konto skiljer sig från ditt eller dina Microsoft-konton som skapats i Azure-prenumerationen.
 
 Automation-resurserna för varje Automation-konto associeras med en enda Azure-region, men Automation-konton kan hantera resurser i alla regioner. Huvudskälet till att skapa Automation-konton i olika regioner är om du har principer som kräver att data och resurser är isolerade i en specifik region.
@@ -42,7 +46,7 @@ Rollbaserad åtkomstkontroll är tillgängligt i Azure Resource Manager-läge f�
 
 Runbooks som körs i en Hybrid Runbook Worker i ditt datacenter eller mot beräkningstjänster i AWS kan inte använda samma metod som normalt används för runbooks-autentisering mot Azure-resurser.  Detta beror på att resurserna körs utanför Azure och därför kräver sina egna säkerhetsreferenser i Automation för att autentisera mot resurser som de ska komma åt lokalt.  
 
-## Autentiseringsmetoder
+## <a name="authentication-methods"></a>Autentiseringsmetoder
 Följande tabell sammanfattar de olika autentiseringsmetoderna för varje miljö som stöds av Azure Automation och artikeln som beskriver hur du konfigurerar autentisering för dina runbooks.
 
 | Metod | Miljö | Artikel |
@@ -53,6 +57,9 @@ Följande tabell sammanfattar de olika autentiseringsmetoderna för varje miljö
 | Windows-autentisering |Lokalt datacenter |[Autentisera runbooks för Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) |
 | AWS-autentiseringsuppgifter |Amazon Web Services |[Autentisera runbooks med Amazon Web Services (AWS)](automation-sec-configure-aws-account.md) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: AD FS-distribution med hög tillgänglighet över geografiska områden i Azure med Azure Traffic Manager | Microsoft Docs
-description: I det här dokumentet lär du dig hur du distribuerar AD FS i Azure för hög tillgänglighet.
+title: "AD FS-distribution med hög tillgänglighet över geografiska områden i Azure med Azure Traffic Manager | Microsoft Docs"
+description: "I det här dokumentet lär du dig hur du distribuerar AD FS i Azure för hög tillgänglighet."
 keywords: AD FS med Azure traffic manager, AD FS med Azure Traffic Manager, geografisk, multidatacenter, geografiska datacenter, multigeografiska datacenter, distribuera AD FS i azure, distribuera azure adfs, azure adfs, azure ad fs, distribuera adfs, distribuera ad fs, adfs i azure, distribuera adfs i azure, distribuera AD FS i azure, adfs azure, introduktion till AD FS, Azure, AD FS i Azure, iaas, ADFS, flytta adfs till azure
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: anandyadavmsft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+
 
 ---
-# AD FS-distribution med hög tillgänglighet över geografiska områden i Azure med Azure Traffic Manager
+# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>AD FS-distribution med hög tillgänglighet över geografiska områden i Azure med Azure Traffic Manager
 [AD FS-distribution i Azure](active-directory-aadconnect-azure-adfs.md) innehåller detaljerade riktlinjer för hur du kan distribuera en enkel AD FS-infrastruktur för din organisation i Azure. Den här artikeln innehåller nästa steg för att skapa en distribution av AD FS i Azure med hög tillgänglighet över geografiska områden med hjälp av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager hjälper till att skapa en högpresterande AD FS-infrastruktur med geografisk spridning och hög tillgänglighet för din organisation genom användning av metoder som finns tillgängliga för att passa infrastrukturens olika behov.
 
 En AD FS-infrastruktur med hög tillgänglighet och geografisk spridning möjliggör:
@@ -25,7 +29,7 @@ En AD FS-infrastruktur med hög tillgänglighet och geografisk spridning möjlig
 * **Eliminering av enskild felpunkt:** Med redundansfunktionerna i Azure Traffic Manager kan du uppnå en AD FS-infrastruktur med hög tillgänglighet även om ett av datacentren i någon del av världen kraschar
 * **Förbättrad prestanda:** Du kan använda distributionen som föreslås i den här artikeln för att tillhandahålla en högpresterande AD FS-infrastruktur som hjälper användare att autentisera snabbare. 
 
-## Designprinciper
+## <a name="design-principles"></a>Designprinciper
 ![Övergripande design](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)
 
 De grundläggande designprinciperna blir samma som de som anges i designprinciperna i artikeln AD FS-distribution i Azure. Diagrammet ovan visar ett enkelt tillägg i den grundläggande distributionen till en annan geografisk region. Nedan visas några saker du bör tänka på när du utökar din distributionen till ett nytt geografiskt område
@@ -38,16 +42,16 @@ De grundläggande designprinciperna blir samma som de som anges i designprincipe
 * **Azure Traffic Manager:** Microsoft Azure Traffic Manager låter dig styra distributionen av användartrafik till dina tjänstslutpunkter som körs i olika datacenter runtom i världen. Azure Traffic Manager arbetar på DNS-nivå. DNS-svar används för att dirigera användartrafik till globalt distribuerade slutpunkter. Klienterna ansluter därefter till dessa slutpunkter direkt. Med olika routningsalternativ för prestanda, viktat och prioritet kan du enkelt välja det routningsalternativ som passar bäst för din organisations behov. 
 * **V-net till V-net anslutningsmöjlighet mellan två områden:** Du behöver inte ha anslutning mellan de virtuella nätverken i sig. Eftersom varje virtuellt nätverk har åtkomst till domänkontrollanter och själva har AD FS och WAP-server i sig kan de fungera utan någon anslutning mellan virtuella nätverk i olika områden. 
 
-## Steg för att integrera Azure Traffic Manager
-### Distribuera AD FS i det nya geografiska området
+## <a name="steps-to-integrate-azure-traffic-manager"></a>Steg för att integrera Azure Traffic Manager
+### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>Distribuera AD FS i det nya geografiska området
 Följ stegen och riktlinjerna i [AD FS-distribution i Azure](active-directory-aadconnect-azure-adfs.md) för att distribuera samma topologi i det nya geografiska området.
 
-### DNS-etiketter för offentliga IP-adresser till internetuppkopplade (offentliga) belastningsutjämnare
+### <a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-public-load-balancers"></a>DNS-etiketter för offentliga IP-adresser till internetuppkopplade (offentliga) belastningsutjämnare
 Som nämns ovan kan Azure Traffic Manager endast referera till DNS-etiketter som slutpunkter och därför är det viktigt att skapa DNS-etiketter för den externa belastningsutjämnarens offentliga IP-adresser. Skärmbilden nedan visar hur du kan konfigurera din DNS-etikett för den offentliga IP-adressen. 
 
 ![DNS-etikett](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)
 
-### Distribuera Azure Traffic Manager
+### <a name="deploying-azure-traffic-manager"></a>Distribuera Azure Traffic Manager
 Följ stegen nedan om du vill skapa en Traffic Manager-profil. Mer information finns även i [Hantera en Azure Traffic Manager-profil](../traffic-manager/traffic-manager-manage-profiles.md).
 
 1. **Skapa en Traffic Manager-profil:** Ge din Traffic Manager-profil ett unikt namn. Namnet på profilen är en del av DNS-namnet och fungerar som ett prefix för Traffic Managers domännamnsetikett. Namn/prefix läggs till i .trafficmanager.net för att skapa en DNS-etikett för din Traffic Manager. Skärmbilden nedan visa Traffic Manager DNS-prefix angett som mysts och den resulterande DNS-etiketten kommer att bli mysts.trafficmanager.net. 
@@ -90,16 +94,17 @@ Följ stegen nedan om du vill skapa en Traffic Manager-profil. Mer information f
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## Testa routning och AD FS-inloggning
-### Routningtest
+## <a name="test-the-routing-and-ad-fs-signin"></a>Testa routning och AD FS-inloggning
+### <a name="routing-test"></a>Routningtest
 Ett mycket grundläggande test för routningen är att försöka pinga federationstjänstens DNS-namn från en dator i varje geografiskt område. Beroende på vald routningmetod kommer den slutpunkt som den faktiskt pingar att reflekteras i pingvisningen. Om du till exempel har valt prestandaroutning kommer slutpunkten närmast klientens område att nås. Nedan visas en ögonblicksbild av två pingar från två klientdatorer i olika regioner, en i Östasien och en i västra USA. 
 
 ![Routningtest](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### AD FS-inloggningstest
+### <a name="ad-fs-signin-test"></a>AD FS-inloggningstest
 Det enklaste sättet är att testa AD FS är med hjälp av sidan IdpInitiatedSignon.aspx. För att kunna göra det måste IdpInitiatedSignOn vara aktiverat i AD FS-egenskaperna. Kontrollera din AD FS-konfiguration genom att följa stegen nedan.
 
-1. Kör cmdleten nedan på AD FS-servern med hjälp av PowerShell för att aktivera egenskapen. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
+1. Kör cmdleten nedan på AD FS-servern med hjälp av PowerShell för att aktivera egenskapen. 
+   Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
 2. Gå till https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx från valfri extern dator
 3. Du bör se en AD FS-sida som den här:
    
@@ -109,15 +114,18 @@ Det enklaste sättet är att testa AD FS är med hjälp av sidan IdpInitiatedSig
    
     ![AD FS-test - lyckad autentisering](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
 
-## Relaterade länkar
+## <a name="related-links"></a>Relaterade länkar
 * [Grundläggande AD FS-distribution i Azure](active-directory-aadconnect-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Traffic Manager routningsmetoder](../traffic-manager/traffic-manager-routing-methods.md)
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Hantera en Azure Traffic Manager-profil](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Lägga till, inaktivera, aktivera eller ta bort slutpunkter](../traffic-manager/traffic-manager-endpoints.md) 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Skapa en webbapp från Azure Marketplace | Microsoft Docs
-description: Läs om hur du skapar en ny WordPress-webbapp från Azure Marketplace med hjälp av Azure Portal.
+title: "Skapa en webbapp från Azure Marketplace | Microsoft Docs"
+description: "Läs om hur du skapar en ny WordPress-webbapp från Azure Marketplace med hjälp av Azure Portal."
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: rmcmurray
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 972a296d-f927-470b-8534-0f2cb9eac223
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 73fafeff227061feae1fbc0a1c50e5056116e3ea
+
 
 ---
+# <a name="create-a-web-app-from-the-azure-marketplace"></a>Skapa en webbapp i Azure Marketplace
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
 
-# Skapa en webbapp i Azure Marketplace
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Via Azure Marketplace får du tillgång till en mängd olika populära webbappar som har utvecklats av Microsoft och tredjepartsföretag samt programvara med öppen källkod, till exempel WordPress, Umbraco CMS, Drupal med flera. Webbapparna är baserade på en mängd olika populära ramverk, bland annat [PHP], som i det här WordPress-exemplet, [.NET], [Node.js], [Java] och [Python]. När du skapar en webbapp från Azure Marketplace är den enda programvara du behöver den webbläsare du använder för [Azure Portal].
@@ -42,7 +46,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
 > 
 > 
 
-## Hitta och skapa en webbapp i Azure App Service
+## <a name="find-and-create-a-web-app-in-azure-app-service"></a>Hitta och skapa en webbapp i Azure App Service
 1. Logga in på [Azure Portal].
 2. Klicka på **Ny**.
    
@@ -54,7 +58,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
    
     ![Skapa WordPress-webbapp][MarketplaceCreate]
 
-## Konfigurera Azure App Service-inställningarna för din nya webbapp.
+## <a name="configure-azure-app-service-settings-for-your-new-web-app"></a>Konfigurera Azure App Service-inställningarna för din nya webbapp.
 1. När du har skapat en ny webbapp, visas bladet med inställningar för WordPress som du använder för att genomföra följande steg:
    
     ![Konfigurera inställningar för WordPress-webbappen][ConfigStart]
@@ -63,7 +67,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
     Det här namnet måste vara unikt i domänen azurewebsites.net eftersom webbappens webbadress kommer att vara *{namn}*.azurewebsites.net. Om namnet inte är unikt visas ett rött utropstecken i textrutan.
    
     ![Ställ in namnet på WordPress-webbappen][ConfigAppName]
-3. Om du har mer än en prenumeration väljer du den du vill använda. 
+3. Om du har mer än en prenumeration väljer du den du vill använda.
    
     ![Konfigurera prenumerationen för webbappen][ConfigSubscription]
 4. Välj en **Resursgrupp** eller skapa en ny.
@@ -73,7 +77,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
     ![Konfigurera resursgruppen för webbappen][ConfigResourceGroup]
 5. Välj en **Apptjänstplan/plats** eller skapa en ny.
    
-    Mer information om Apptjänstplaner finns i [Översikt över Azure Apptjänstplaner][AzureAppServicePlans]. 
+    Mer information om Apptjänstplaner finns i [Översikt över Azure Apptjänstplaner][AzureAppServicePlans].
    
     ![Konfigurera Apptjänstplanen för webbappen][ConfigServicePlan]
 6. Klicka på **Databas**. I bladet **Ny MySQL-databas** anger du de värden som behövs för att konfigurera MySQL-databasen.
@@ -86,10 +90,10 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
    
     d. Välj prisnivå. **Mercury** – För den här kursen räcker det bra med Mercury (kostnadsfri med det lägsta antalet tillåtna anslutningar och lägst mängd diskutrymme).
    
-    e. I bladet **Ny MySQL-databas** godkänner du de juridiska villkoren och klickar på **OK**. 
+    e. I bladet **Ny MySQL-databas** godkänner du de juridiska villkoren och klickar på **OK**.
    
     ![Konfigurera databasinställningarna för webbappen][ConfigDatabase]
-7. I bladet **WordPress** godkänner du de juridiska villkoren och klickar på **Skapa**. 
+7. I bladet **WordPress** godkänner du de juridiska villkoren och klickar på **Skapa**.
    
     ![Slutföra webbappsinställningarna och klicka på OK][ConfigFinished]
    
@@ -97,7 +101,7 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
    
     ![Förloppsindikator][ConfigProgress]
 
-## Starta och hantera WordPress-webbappen
+## <a name="launch-and-manage-your-wordpress-web-app"></a>Starta och hantera WordPress-webbappen
 1. När webbappen har skapats kan du se webbappen och databasen genom att gå till den resursgrupp i Azure Portal där du skapade programmet.
    
     Extraresursen med lampikonen är [Application Insights][ApplicationInsights] som tillhandahåller övervakningstjänster för webbappen.
@@ -118,28 +122,28 @@ För WordPress-webbplatsen du distribuerar under den här kursen används MySQL 
    
     ![Öppna instrumentpanelen i WordPress][WordPressDashboard2]
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 I den här kursen har du fått lära dig hur du skapar och distribuerar en exempelwebbapp från Azure Marketplace.
 
 Du hittar mer information om hur du arbetar med webbappar i Apptjänst via länkarna till vänster på sidan (i breda webbläsarfönster) eller längst upp på sidan (i smala webbläsarfönster).
 
-Mer information om att utveckla WordPress-webbappar på Azure Apptjänst finns [här ][WordPressOnAzure]. 
+Mer information om att utveckla WordPress-webbappar på Azure Apptjänst finns [här ][WordPressOnAzure].
 
 <!-- URL List -->
 
 [PHP]: https://azure.microsoft.com/develop/php/
-[.NET]: https://azure.microsoft.com/develop/net/
+[NET]: https://azure.microsoft.com/develop/net/
 [Node.js]: https://azure.microsoft.com/develop/nodejs/
 [Java]: https://azure.microsoft.com/develop/java/
 [Python]: https://azure.microsoft.com/develop/python/
 [aktivera]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[kostnadsfri utvärderingsversion]: https://azure.microsoft.com/pricing/free-trial/
+[kostnadsfri prov]: https://azure.microsoft.com/pricing/free-trial/
 [Prova Apptjänst]: http://go.microsoft.com/fwlink/?LinkId=523751
-[ResourceGroups]: ../resource-group-overview.md
+[ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
-[Azure Portal]: https://portal.azure.com/
-[Project Nami]: http://projectnami.org/
+[Azure-portalen]: https://portal.azure.com/
+[Projektet Nami]: http://projectnami.org/
 [WordPressOnAzure]: ./develop-wordpress-on-app-service-web-apps.md
 
 <!-- IMG List -->
@@ -164,6 +168,6 @@ Mer information om att utveckla WordPress-webbappar på Azure Apptjänst finns [
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Komma igång med Azure File Storage i Windows | Microsoft Docs
-description: Lagra fildata i molnet med Azure File Storage och montera din molnbaserade filresurs från en virtuell Azure-dator eller från ett lokalt program som kör Windows.
+title: "Komma igång med Azure File Storage i Windows | Microsoft Docs"
+description: "Lagra fildata i molnet med Azure File Storage och montera din molnbaserade filresurs från en virtuell Azure-dator eller från ett lokalt program som kör Windows."
 services: storage
 documentationcenter: .net
 author: mine-msft
 manager: aungoo
 editor: tysonn
-
+ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Komma igång med Azure File Storage i Windows
@@ -31,7 +35,7 @@ Information om skalbarhets- och prestandamål för File Storage finns i [Skalbar
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
-## <a name="video:-using-azure-file-storage-with-windows"></a>Video: Använda Azure File Storage med Windows
+## <a name="video-using-azure-file-storage-with-windows"></a>Video: Använda Azure File Storage med Windows
 Här är en video som visar hur du skapar och använder Azure-filresurser i Windows.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
@@ -76,7 +80,7 @@ Nu stöds fillagring för alla lagringskonton, så du kan antingen använda ett 
 5. Klicka på ”Filresurser” och följ länken för att skapa din första filresurs.
    
     ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-dotnet-how-to-use-files/files-create-share-3.png)
-6. Fyll i filresursens namn och storleken på filresursen (upp till 5 120 GB) för att skapa din första filresurs. När filresursen har skapats kan du montera den från alla filsystem som stöder SMB 2.1 eller SMB 3.0.
+6. Fyll i filresursens namn och storleken på filresursen (upp till 5 120 GB) för att skapa din första filresurs. När filresursen har skapats kan du montera den från alla filsystem som stöder SMB 2.1 eller SMB 3.0.
    
     ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-dotnet-how-to-use-files/files-create-share-4.png)
 
@@ -92,7 +96,7 @@ Nu stöds fillagring för alla lagringskonton, så du kan antingen använda ett 
     ![Skärmbild som visar hur du laddar ned en fil från portalen](./media/storage-dotnet-how-to-use-files/files-upload-download-3.png)
 
 ### <a name="manage-file-share"></a>Hantera en filresurs
-1. Klicka på **Kvot** om du vill ändra storleken på filresursen (upp till 5 120 GB).
+1. Klicka på **Kvot** om du vill ändra storleken på filresursen (upp till 5 120 GB).
    
     ![Skärmbild som visar hur du konfigurerar kvoten för filresursen](./media/storage-dotnet-how-to-use-files/files-manage-1.png)
 2. Klicka på **Anslut** om du vill hämta kommandoraden för att montera filresursen från Windows.
@@ -128,14 +132,18 @@ Nu är det dags att skapa kontexten för lagringskontot. Kontexten innehåller l
 
 Ersätt `storage-account-name` och `storage-account-key` med lagringskontots namn och nyckel i följande exempel.
 
+```powershell
     # create a context for account and key
     $ctx=New-AzureStorageContext storage-account-name storage-account-key
+```
 
 ### <a name="create-a-new-file-share"></a>Skapa en ny filresurs
 Nu ska du skapa en ny resurs, med namnet `logs`.
 
+```powershell
     # create a new share
     $s = New-AzureStorageShare logs -Context $ctx
+```
 
 Nu har du en filresurs i File Storage. Härnäst ska vi lägga till en katalog och en fil.
 
@@ -147,31 +155,39 @@ Nu har du en filresurs i File Storage. Härnäst ska vi lägga till en katalog o
 ### <a name="create-a-directory-in-the-file-share"></a>Skapa en katalog i filresursen
 Nu ska du skapa en katalog i resursen. I följande exempel heter katalogen `CustomLogs`.
 
+```powershell
     # create a directory in the share
     New-AzureStorageDirectory -Share $s -Path CustomLogs
+```
 
 ### <a name="upload-a-local-file-to-the-directory"></a>Ladda upp en lokal fil till katalogen
 Nu ska du ladda upp en lokal fil till katalogen. I följande exempel laddar vi upp en fil från `C:\temp\Log1.txt`. Ändra sökvägen till filen så att den pekar på en giltig fil på den lokala datorn.
 
+```powershell
     # upload a local file to the new directory
     Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
+```
 
 ### <a name="list-the-files-in-the-directory"></a>Visa en lista med filerna i katalogen
 Om du vill visa filen i katalogen kan du visa en lista med alla filer i katalogen. Det här kommandot returnerar filer och underkataloger (om det finns några) i katalogen CustomLogs.
 
+```powershell
     # list files in the new directory
     Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+```
 
 Get-AzureStorageFile returnerar en lista över filer och kataloger för det katalogobjekt som du har angett. ”Get-AzureStorageFile -Share $s” returnerar en lista över filer och kataloger i rotkatalogen. Om du vill hämta en lista över filerna i en underkatalog måste du skicka underkatalogen till Get-AzureStorageFile. Detta händer: den första delen av kommandot fram till pipe returnerar en kataloginstans av underkatalogen CustomLogs. Därefter skickas detta till Get-AzureStorageFile, som returnerar filerna och katalogerna i CustomLogs.
 
 ### <a name="copy-files"></a>Kopiera filer
 Från och med version 0.9.7 av Azure PowerShell kan du kopiera en fil till en annan fil, en fil till en blobb eller en blobb till en fil. Nedan ser du hur du utför dessa kopieringsåtgärder med PowerShell-cmdlets.
 
+```powershell
     # copy a file to the new directory
     Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
 
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
+```
 
 ## <a name="mount-the-file-share"></a>Montera filresursen
 Med stöd för SMB 3.0 stöder File Storage nu kryptering och beständiga referenser från SMB 3.0-klienter. Stöd för kryptering innebär att SMB 3.0-klienter kan montera en filresurs från var som helst, inklusive från:
@@ -226,7 +242,7 @@ Nu kan du arbeta med File Storage-resursen från den virtuella datorn precis som
 
 Du kan också montera filresursen från en roll som körs i en Azure-molntjänst genom att fjärransluta till rollen.
 
-### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Montera filresursen från en lokal klient som kör Windows
+### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Montera filresursen från en lokal klient som kör Windows
 Innan du monterar filresursen från en lokal klient måste du göra följande:
 
 * Installera en version av Windows som stöder SMB 3.0. Windows använder SMB 3.0-kryptering för att överföra data på ett säkert sätt mellan din lokala klient och Azure-filresursen i molnet.
@@ -253,7 +269,7 @@ Du installerar Azure Configuration Manager-paketet genom att högerklicka på pr
 
 Du måste inte använda Azure Configuration Manager. Du kan också använda ett API som .NET Frameworks [ConfigurationManager-klass](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
 
-### <a name="save-your-storage-account-credentials-to-the-app.config-file"></a>Spara autentiseringsuppgifterna för ditt lagringskonto i app.config-filen
+### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Spara autentiseringsuppgifterna för ditt lagringskonto i app.config-filen
 Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redigera app.config-filen så att den ser ut som i följande exempel. Ersätt `myaccount` med namnet på ditt lagringskonto och `mykey` med din åtkomstnyckel för lagring.
 
     <?xml version="1.0" encoding="utf-8" ?>
@@ -275,16 +291,19 @@ Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redige
 ### <a name="add-namespace-declarations"></a>Lägga till namnrymdsdeklarationer
 Öppna filen `program.cs` från Solution Explorer och lägg till följande namnrymdsdeklarationer överst i filen.
 
+```csharp
     using Microsoft.Azure; // Namespace for Azure Configuration Manager
     using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
     using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
+```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="access-the-file-share-programmatically"></a>Ansluta till filresursen via programmering
 Lägg till följande kod i `Main()`-metoden (efter koden som visas ovan) för att hämta anslutningssträngen. Den här koden hämtar en referens till den fil som vi skapade tidigare och returnerar filens innehåll i konsolfönstret.
 
+```csharp
     // Create a CloudFileClient object for credentialed access to File storage.
     CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
@@ -314,6 +333,7 @@ Lägg till följande kod i `Main()`-metoden (efter koden som visas ovan) för at
             }
         }
     }
+```
 
 Visa resultatet genom att köra konsolprogrammet.
 
@@ -324,6 +344,7 @@ Genom att ange kvoten för en resurs kan du begränsa den totala storleken på f
 
 Exemplet nedan visar hur du kontrollerar användningen av en resurs och hur du ställer in kvoten för resursen.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -351,12 +372,14 @@ Exemplet nedan visar hur du kontrollerar användningen av en resurs och hur du s
         share.FetchAttributes();
         Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
     }
+```
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Generera en signatur för delad åtkomst för en fil eller filresurs
 Från och med version 5.x av klientbiblioteket för Azure Storage kan du generera en signatur för delad åtkomst (SAS) för en filresurs eller för en enskild fil. Du kan också skapa en princip för delad åtkomst på en filresurs för att hantera signaturer för delad åtkomst. Vi rekommenderar att du skapar en princip för delad åtkomst eftersom det ger dig möjlighet att återkalla signaturen för delad åtkomst om det behövs.
 
 I följande exempel skapar vi en princip för delad åtkomst på en resurs och använder sedan principen för att ange begränsningarna för en signatur för delad åtkomst på en fil i resursen.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -398,6 +421,7 @@ I följande exempel skapar vi en princip för delad åtkomst på en resurs och a
         fileSas.UploadText("This write operation is authenticated via SAS.");
         Console.WriteLine(fileSas.DownloadText());
     }
+```
 
 Mer information om hur du skapar och använder signaturer för delad åtkomst finns i [Använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md) och [Skapa och använda en SAS med Blob Storage](storage-dotnet-shared-access-signature-part-2.md).
 
@@ -415,6 +439,7 @@ Du kan också använda AzCopy för att kopiera en fil till en annan eller för a
 
 I följande exempel kopierar vi en fil till en annan fil i samma resurs. Eftersom den här kopieringsåtgärden kopierar mellan filer i samma lagringskonto kan du använda autentisering med delad nyckel för att utföra kopieringen.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -454,12 +479,13 @@ I följande exempel kopierar vi en fil till en annan fil i samma resurs. Efterso
             }
         }
     }
-
+```
 
 **Kopiera en fil till en blobb**
 
 I följande exempel skapar vi en fil och kopierar den till en blobb inom samma lagringskonto. I exemplet skapas en SAS för källfilen, som tjänsten använder för att autentisera åtkomsten till källfilen under kopieringen.
 
+```csharp
     // Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -501,6 +527,7 @@ I följande exempel skapar vi en fil och kopierar den till en blobb inom samma l
     // Write the contents of the file to the console window.
     Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
     Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+```
 
 Du kan kopiera en blobb till en fil på samma sätt. Om källobjektet är en blobb skapar du en SAS för att autentisera åtkomsten till blobben under kopieringen.
 
@@ -513,11 +540,14 @@ Följande exempel visar hur du använder klientbiblioteket för Azure Storage f�
 
 Lägg först till följande `using`-instruktioner i filen program.cs, förutom de som du lade till ovan:
 
+```csharp
     using Microsoft.WindowsAzure.Storage.File.Protocol;
     using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+```
 
 Observera att medan blobb-, tabell- och kölagringen använder den delade `ServiceProperties`-typen i namnrymden `Microsoft.WindowsAzure.Storage.Shared.Protocol` så använder File Storage sin egen typ, typen `FileServiceProperties` i namnrymden `Microsoft.WindowsAzure.Storage.File.Protocol`. Din kod måste dock referera till båda namnrymderna för att följande kod ska kompileras.
 
+```csharp
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -556,7 +586,9 @@ Observera att medan blobb-, tabell- och kölagringen använder den delade `Servi
     Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
     Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
     Console.WriteLine(serviceProperties.MinuteMetrics.Version);
+```
 
+Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoot-file-connection-problems.md) för felsökningsinformation från slutpunkt till slutpunkt. 
 
 ## <a name="file-storage-faq"></a>Vanliga frågor och svar om File Storage
 1. **Stöds Active Directory-baserad autentisering av File Storage?**
@@ -603,6 +635,9 @@ Observera att medan blobb-, tabell- och kölagringen använder den delade `Servi
 14. **Använd Azure File Storage med IBM MQ**
     
     IBM har publicerat ett dokument som hjälper IBM MQ-kunder att konfigurera Azure File Storage med deras tjänst. Mer information finns i [Konfigurera IBM MQ MIQM (Multi Instance Queue Manager) med Microsoft Azures filtjänst](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
+15. **Hur felsöker jag Azure File Storage-fel?**
+    
+    Du kan gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoot-file-connection-problems.md) för felsökningsinformation från slutpunkt till slutpunkt.               
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure File Storage finns på följande länkar.
@@ -626,6 +661,9 @@ Mer information om Azure File Storage finns på följande länkar.
 * [Introduktion till Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Bevara anslutningar till Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

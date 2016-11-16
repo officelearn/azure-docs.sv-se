@@ -1,12 +1,12 @@
 ---
-title: Vad är Logic Apps?
-description: Läs mer om Apptjänst Logic Apps
+title: "Vad är Logic Apps?"
+description: "Läs mer om Apptjänst Logic Apps"
 author: kevinlam1
 manager: dwrede
-editor: ''
+editor: 
 services: logic-apps
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: klam
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 44941876c976fdad0303b3c638ed6a3811136634
+
 
 ---
-# <a name="what-are-logic-apps?"></a>Vad är Logic Apps?
+# <a name="what-are-logic-apps"></a>Vad är Logic Apps?
 Logic Apps är ett sätt att förenkla och implementera skalbara integreringar och arbetsflöden i molnet. Tjänsten tillhandahåller ett visuellt designverktyg för modellering och automatisering av processer som en serie steg kallade ett arbetsflöde.  Det finns [många anslutningsappar](../connectors/apis-list.md) för molnet och lokala infrastrukturer för snabb integrering mellan tjänster och protokoll.  En logikapp börjar med en utlösare (t.ex. ”när ett konto läggs till i Dynamics CRM”) och kan när den utlösts starta många kombinationer av åtgärder, konverteringar och villkorslogik.
 
 Här är några exempel på fördelarna med att använda Logic Apps:  
@@ -40,7 +44,7 @@ Som vi redan nämnt kan du automatisera affärsprocesser med Logic Apps. Här f�
 
 Alla scenarier av den här typen kan konfigureras från den visuella designern utan att du behöver skriva en enda rad kod. Kom igång med att [skapa din logikapp nu][skapa].  När den har skrivits kan en logikapp [snabbt distribueras och konfigureras om](app-service-logic-create-deploy-template.md) i flera miljöer och områden.
 
-## <a name="why-logic-apps?"></a>Vad är Logic Apps till för?
+## <a name="why-logic-apps"></a>Vad är Logic Apps till för?
 Logic Apps levererar hastighet och skalbarhet för företagsintegreringar.  Det användarvänliga designverktyget, de många tillgängliga utlösarna och åtgärderna och de kraftfulla hanteringsverktygen gör det enklare än någonsin att centralisera dina API:er.  Företag som rör sig mot digitalisering kan använda Logic Apps för att koppla ihop äldre och moderna system.
 
 Med vårt [Enterprise-integrationskonto][biztalk] kan du dessutom skala till mogna integrationsscenarier med kraften i [XML-meddelanden][xml], [partnerhantering][tpm] och mer.
@@ -76,6 +80,6 @@ Följande är några av de viktiga punkter som ingår i logikappupplevelsen.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
 title: Ett enkelt experiment i Machine Learning Studio | Microsoft Docs
-description: Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
-keywords: experiment, linjär regression,machine learning algoritmer, machine learning självstudier, teknik för förutsägbar modellering, dataexperiment
+description: "Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm."
+keywords: "experiment, linjär regression,machine learning algoritmer, machine learning självstudier, teknik för förutsägbar modellering, dataexperiment"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,23 +15,27 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 210e19cbc581ce5fc17898abe184b96c48370e7f
+
 
 ---
-# Självstudie om Machine Learning: Skapa ditt första dataexperiment i Azure Machine Learning Studio
+# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Självstudie om Machine Learning: Skapa ditt första dataexperiment i Azure Machine Learning Studio
 Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer att skapa en linjär regressionsmodell som beräknar priset på en bil utifrån olika variabler som märke och tekniska specifikationer. Vi ska göra detta genom att utveckla och iterera ett enkelt experiment med en förutsägelseanalys med hjälp av Azure Machine Learning Studio.
 
 *Förutsägelseanalys* är en typ av datavetenskap som använder aktuella data för att förutsäga framtida resultat. Om du vill se ett mycket enkelt exempel på förutsägelseanalys ska du se på Data Science for Beginners video 4 (Datavetenskap för nybörjare, video 4): [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (Förutsäga ett svar med en enkel modell) (längd: 7:42).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Hur kan Machine Learning Studio hjälpa?
+## <a name="how-does-machine-learning-studio-help"></a>Hur kan Machine Learning Studio hjälpa?
 Machine Learning Studio gör det enkelt att konfigurera ett experiment med dra och släpp-moduler som har förprogrammerats med tekniker för förutsägbar modellering. Om du vill köra experimentet och förutsäga ett svar ska du använda Machine Learning Studio för att *skapa en modell*, *träna modellen* och *bedöma och testa modellen*.
 
 Gå till Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net). Om du har loggat in Machine Learning Studio förut klickar du på **Logga in här**. Annars klickar du på **Registrera dig** och väljer mellan den kostnadsfria versionen och betalversionen.
 
 Mer allmän information om Machine Learning Studio finns i [Vad är Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
-## Fem steg för att skapa ett experiment
+## <a name="five-steps-to-create-an-experiment"></a>Fem steg för att skapa ett experiment
 Den här självstudiekursen om maskininlärning består av fem grundläggande steg där du bygger ett experiment i Machine Learning Studio för att skapa, träna och betygsätta din modell:
 
 * Skapa en modell
@@ -50,7 +54,7 @@ Den här självstudiekursen om maskininlärning består av fem grundläggande st
 [Steg 5: Förutsäga nya bilpriser]: #step-5-predict-new-automobile-prices
 
 
-## Steg 1: Hämta data
+## <a name="step-1-get-data"></a>Steg 1: Hämta data
 Du kan välja någon av flera exempeluppsättningar med data som ingår i Machine Learning Studio och du kan importera data från flera källor. I det här exemplet kommer vi att använda den medföljande exempeluppsättningen **Automobile price data (Raw)**.
 Den här datauppsättningen innehåller poster för ett antal olika bilar, inklusive uppgifter om modell, tekniska specifikationer och pris.
 
@@ -72,7 +76,7 @@ Variablerna i datauppsättningen visas som kolumner och varje instans av en bil 
 
 Stäng visualiseringsfönstret genom att klicka på ”**x**” i det övre högra hörnet.
 
-## Steg 2: Förbearbeta data
+## <a name="step-2-preprocess-data"></a>Steg 2: Förbearbeta data
 En datauppsättning kräver vanligtvis viss bearbetning i förväg innan den kan analyseras. Du kanske har lagt märke till värdena som saknas i kolumnerna på olika rader. Dessa värden som saknas måste rensas bort så att modellen kan analysera informationen korrekt. I vårt fall ska vi ta bort alla rader som har värden som saknas. Dessutom har kolumnen **normalized-losses** många värden som saknas, så vi ska utesluta kolumnen från modellen helt och hållet.
 
 > [!TIP]
@@ -113,7 +117,7 @@ Allt vi har gjort i experimentet hittills är att rensa bort data. Om du vill vi
 
 Nu när vi har rensat bort data kan vi ange vilka funktioner som vi vill använda i förutsägelsemodellen.
 
-## Steg 3: Definiera funktioner
+## <a name="step-3-define-features"></a>Steg 3: Definiera funktioner
 Inom maskininlärning är *funktioner* enskilda mätbara egenskaper av något du är intresserad av. I vår datauppsättning representerar varje rad en bil och varje kolumn är en funktion i den bilen.
 
 Det krävs en del experimenterande och kunskap om det problem som ska lösas för att hitta en bra uppsättning funktioner för att skapa en förutsägelsemodell. Vissa funktioner är bättre för att förutsäga målet än andra. Dessutom har vissa funktioner en stark korrelation med andra funktioner (till exempel city-mpg kontra highway-mpg), så de tillför inte mycket ny information till modellen och kan därför tas bort.
@@ -138,14 +142,14 @@ Vi ska skapa en modell som använder en delmängd av funktionerna i vår dataupp
 
 Nu genereras datauppsättningen som vi ska använda i inlärningsalgoritmen i nästa steg. Du kan komma tillbaka senare och försöka igen med andra funktioner.
 
-## Steg 4: Välja och tillämpa en inlärningsalgoritm
+## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>Steg 4: Välja och tillämpa en inlärningsalgoritm
 Nu när våra data är klara är det dags att gå vidare och träna och testa vår förutsägelsemodell. Vi ska använda våra data för att träna modellen och sedan testa den för att se hur väl den kan förutsäga priser. För tillfället behöver du inte bry dig om varför vi behöver träna och testa en modell.
 
 *Klassificering* och *regression* är två typer av övervakade maskininlärningstekniker. Klassificering förutsäger ett svar från en definierad uppsättning kategorier, till exempel en färg (röd, blå eller grön). Regression används för att förutsäga ett tal.
 
 Eftersom vi vill förutsäga pris, vilket är ett tal, använder vi en regressionsmodell. I det här exemplet ska vi träna en enkel *linjär regressionsmodell* och i nästa steg ska vi testa den.
 
-1. Vi använder våra data både för träning och testning genom att dela in dem i separata tränings- och testningsuppsättningar. Markera och dra modulen [Dela data][split] till arbetsytan för experimentet och koppla den till utdataporten för den senaste modulen av typen [Välj kolumner i datauppsättning][select-columns]. Ange **Del av rader i den första utdatauppsättningen** till 0,75. På så sätt kan vi använda 75 procent av våra data för att träna modellen, och lämna 25 procent för testning.
+1. Vi använder våra data både för träning och testning genom att dela in dem i separata tränings- och testningsuppsättningar. Markera och dra modulen [Dela data][split] till arbetsytan för experimentet och koppla den till utdataporten för den senaste modulen av typen [Välj kolumner i datauppsättning][select-columns]. Ange **Del av rader i den första utdatauppsättningen** till 0,75. På så sätt kan vi använda 75 procent av våra data för att träna modellen, och lämna 25 procent för testning.
    
    > [!TIP]
    > Genom att ändra parametern **Slumptal** kan du generera olika slumpmässiga prov för träning och testning. Den här parametern styr den pseudoslumpmässiga talgeneratorns startvärden (seeding).
@@ -165,8 +169,8 @@ Resultatet är en tränad regressionsmodell som kan användas för att poängsä
 
 ![Tillämpa maskininlärningsalgoritmen][screen8]
 
-## Steg 5: Förutsäga nya bilpriser
-Nu när vi har tränat modellen med 75 procent av våra data kan vi använda den för att bedöma de övriga 25 procenten av dessa data och se hur bra vår modell fungerar.
+## <a name="step-5-predict-new-automobile-prices"></a>Steg 5: Förutsäga nya bilpriser
+Nu när vi har tränat modellen med 75 procent av våra data kan vi använda den för att bedöma de övriga 25 procenten av dessa data och se hur bra vår modell fungerar.
 
 1. Leta upp och dra modulen [Poängsätta modell][score-model] till arbetsytan för experimentet och koppla den vänstra indataporten till utdataporten för modulen [Träna modell][train-modell]. Koppla den högra indataporten till utdataporten för testning (den högra porten) för modulen [Dela data][split].  
    
@@ -191,7 +195,7 @@ Det slutliga experimentet bör se ut så här:
 
 ![Självstudie om maskininlärning: Experiment med linjär regression som använder tekniker för förutsägelsemodellering.][screen10]
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när du har slutfört en första självstudie om maskininlärning och har skapat ett experiment kan du iterera det för att förbättra modellen. Du kan till exempel ändra funktionerna som du använder i din förutsägelse. Du kan också ändra egenskaperna för algoritmen för [Linear Regression][linear-regression] eller prova med en helt annan algoritm. Du kan också lägga till flera maskininlärningsalgoritmer i experimentet samtidigt och jämföra två med hjälp av modulen [Utvärdera modell][evaluate-model].
 
 > [!TIP]
@@ -203,7 +207,7 @@ Nu när du har slutfört en första självstudie om maskininlärning och har ska
 
 När du är nöjd med din modell kan du distribuera den som en webbtjänst som kan användas för att förutsäga bilpriser med hjälp av nya data. Mer information finns i [Distribuera en Azure Machine Learning-webbtjänst][publish].
 
-[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[publicera]: machine-learning-publish-a-machine-learning-web-service.md
 
 En mer omfattande och detaljerad genomgång av tekniker för förutsägelsemodellering för att skapa, träna, värdera och distribuera en modell finns i [Utveckla en förutsägelselösning med hjälp av Azure Machine Learning][walkthrough].
 
@@ -238,6 +242,6 @@ En mer omfattande och detaljerad genomgång av tekniker för förutsägelsemodel
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

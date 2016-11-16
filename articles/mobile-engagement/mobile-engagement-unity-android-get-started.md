@@ -1,12 +1,12 @@
 ---
-title: Kom igång med Azure Mobile Engagement för Unity Android-distribution
-description: Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Unity-appar som distribueras till iOS-enheter.
+title: "Kom igång med Azure Mobile Engagement för Unity Android-distribution"
+description: "Lär dig hur du använder Azure Mobile Engagement med analyser och push-meddelanden för Unity-appar som distribueras till iOS-enheter."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d5f0ef79-be00-4cec-97a5-a0b2fdaa380e
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-android
@@ -14,30 +14,34 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
+
 
 ---
-# Kom igång med Azure Mobile Engagement för Unity Android-distribution
+# <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Kom igång med Azure Mobile Engagement för Unity Android-distribution
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 I den här artikeln beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i ett Unity-program när du distribuerar till en Android-enhet.
 Den här kursen använder den klassiska kursen Unity Roll a Ball som startpunkt. Följ stegen i den här [kursen](mobile-engagement-unity-roll-a-ball.md) innan du fortsätter med Mobile Engagement-integreringen som visas i kursen nedan. 
 
-För den här kursen behöver du följande:
+Följande krävs för den här självstudiekursen:
 
 * [Unity Editor](http://unity3d.com/get-unity)
 * [Mobile Engagement Unity SDK](https://aka.ms/azmeunitysdk)
 * Google Android SDK
 
 > [!NOTE]
-> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer info om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
+> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Konfigurera Mobile Engagement för din Android-app
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Konfigurera Mobile Engagement för din Android-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Ansluta appen till Mobile Engagement-serverdelen
-### Importera Unity-paketet
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
+### <a name="import-the-unity-package"></a>Importera Unity-paketet
 1. Hämta [Mobile Engagement Unity-paketet](https://aka.ms/azmeunitysdk) och spara det på din lokala dator. 
 2. Gå till **Assets -> Import Package -> Custom Package** (Tillgångar -> Importera paket -> Anpassat paket) och välj paketet som du hämtade i steget ovan. 
    
@@ -49,7 +53,7 @@ För den här kursen behöver du följande:
    
     ![][72] 
 
-### Uppdatera EngagementConfiguration
+### <a name="update-the-engagementconfiguration"></a>Uppdatera EngagementConfiguration
 1. Öppna skriptfilen **EngagementConfiguration** i SDK-mappen och uppdatera **ANDROID\_CONNECTION\_STRING** med den anslutningssträng som du hämtade tidigare i Azure Portal.  
    
     ![][73]
@@ -63,7 +67,7 @@ För den här kursen behöver du följande:
 > 
 > 
 
-### Konfigurera appen för grundläggande spårning
+### <a name="configure-the-app-for-basic-tracking"></a>Konfigurera appen för grundläggande spårning
 1. Öppna **PlayerController**-skriptet som är kopplat till Player-objektet för redigering. 
 2. Lägg till följande med instruktionen:
    
@@ -73,7 +77,7 @@ För den här kursen behöver du följande:
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-### Distribuera och kör appen
+### <a name="deploy-and-run-the-app"></a>Distribuera och kör appen
 Kontrollera att Android SDK är installerat på datorn innan du försöker distribuera den här Unity-appen till din enhet. 
 
 1. Anslut en Android-enhet till datorn. 
@@ -94,13 +98,13 @@ Kontrollera att Android SDK är installerat på datorn innan du försöker distr
 6. Du kan bli ombedd att ange ett mappnamn där Android-paketet ska lagras. 
 7. Om allt går bra distribueras paketet till den anslutna enheten. Sedan kan du se Unity-spelet på din mobil. 
 
-## <a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-### Uppdatera EngagementConfiguration
+### <a name="update-the-engagementconfiguration"></a>Uppdatera EngagementConfiguration
 1. Öppna skriptfilen **EngagementConfiguration** i SDK-mappen och uppdatera **ANDROID\_GOOGLE\_NUMBER** med det **Google-projektnummer** som du tidigare hämtade från Google Cloud Developer-portalen. Det här är ett strängvärde så var noga med att omge det med dubbla citattecken. 
    
     ![][75]
@@ -109,7 +113,7 @@ Kontrollera att Android SDK är installerat på datorn innan du försöker distr
    
     ![][74]
 
-### Konfigurera appen för att ta emot meddelanden
+### <a name="configure-the-app-to-receive-notifications"></a>Konfigurera appen för att ta emot meddelanden
 1. Öppna **PlayerController**-skriptet som är kopplat till Player-objektet för redigering. 
 2. Lägg till följande i metoden `Start()`
    
@@ -133,6 +137,6 @@ Kontrollera att Android SDK är installerat på datorn innan du försöker distr
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

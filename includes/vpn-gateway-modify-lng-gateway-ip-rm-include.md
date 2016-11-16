@@ -1,6 +1,6 @@
 För att ändra IP-adress till gatewayen, använd `New-AzureRmVirtualNetworkGatewayConnection`-cmdlet. Så länge du håller namnet på den lokala nätverksgatewayen exakt på samma sätt som det befintliga namnet, skriver inställningarna över. För tillfället stöder inte cmdlet:en "Ange" ändring av IP-adress till gateway.
 
-### <a name="gwipnoconnection"></a>Så här ändrar du IP-adress till gateway - ingen gatewayanslutning
+### <a name="a-namegwipnoconnectionahow-to-modify-the-gateway-ip-address-no-gateway-connection"></a><a name="gwipnoconnection"></a>Så här ändrar du IP-adress till gateway – ingen gatewayanslutning
 Använd exemplet nedan för att uppdatera IP-adressen till gatewayen för din lokala nätverksgateway som ännu inte har en anslutning. Du kan också uppdatera adressprefix på samma gång. De inställningar du anger skriver över de befintliga inställningarna. Se till att använda det befintliga namnet på din lokala nätverksgateway. Om du inte gör detta skapar du en ny lokal nätverksgateway, och skriver inte över den befintliga.
 
 Använd följande exempel och ersätt värdena för dina egna.
@@ -10,7 +10,7 @@ Använd följande exempel och ersätt värdena för dina egna.
     -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 
 
-### <a name="gwipwithconnection"></a>Så här ändrar du IP-adress till gateway - existerande gatewayanslutning
+### <a name="a-namegwipwithconnectionahow-to-modify-the-gateway-ip-address-existing-gateway-connection"></a><a name="gwipwithconnection"></a>Så här ändrar du IP-adress till gateway – existerande gatewayanslutning
 Om det redan finns en gatewayanslutning, måste du först ta bort anslutningen. Sedan kan du ändra IP-adressen till gatewayen och skapa en ny anslutning. Det kommer leda till en del avbrott för din VPN-anslutning.
 
 > [!IMPORTANT]
@@ -42,6 +42,8 @@ Om det redan finns en gatewayanslutning, måste du först ta bort anslutningen. 
         -LocalNetworkGateway2 $local `
         -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

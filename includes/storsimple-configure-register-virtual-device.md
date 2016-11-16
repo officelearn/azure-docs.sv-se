@@ -1,10 +1,12 @@
 <!---author: alkohli, last updated: 11/05/2015 --->
 
-#### Konfigurera och registrera den virtuella enheten
+Konfigurera och registrera den virtuella enheten
+
 1. Välj den virtuella StorSimple-enhet som du just skapade på **Enheter**-sidan. 
 2. Klicka på **Slutför enhetskonfiguration**. Guiden Konfigurera enhet startas.
    
     ![Slutför enhetskonfiguration på Enheter-sidan i StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    
 3. Ange **krypteringsnyckel för tjänstdata** i det avsedda området.
 4. Ange lösenord för Snapshot Manager och enhetsadministratör av den längd och inställningar som specificerades.
 5. Klicka på kryssmarkeringen för att slutföra den inledande konfiguration och registrering av den virtuella enheten. 
@@ -15,6 +17,8 @@ När konfigurationen och registreringen är klar, kommer enheten online. (Det ka
 
 ![Onlinefas för virtuell StorSimple-enhet](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

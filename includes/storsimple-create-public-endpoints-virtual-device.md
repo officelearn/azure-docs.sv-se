@@ -1,4 +1,4 @@
-#### Skapa offentliga slutpunkter på den virtuella enheten
+#### <a name="to-create-public-endpoints-on-the-virtual-device"></a>Skapa offentliga slutpunkter på den virtuella enheten
 1. Logga in på den klassiska Azure-portalen.
 
 * Klicka på **Virtual Machines** och välj sedan den virtuella datorn som används som din virtuella enhet.
@@ -12,6 +12,8 @@
 
 När slutpunkten har skapats kan du se information om den för att avgöra den offentliga virtuella IP-adressen (VIP). Anteckna den adressen.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

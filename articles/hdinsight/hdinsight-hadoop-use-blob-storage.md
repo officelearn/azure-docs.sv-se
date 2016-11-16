@@ -1,14 +1,14 @@
 ---
-title: Fråga efter data i HDFS-kompatibla Blob Storage | Microsoft Docs
-description: HDInsight använder Azure Blob Storage som stordataarkiv för HDFS. Lär dig mer om hur du frågar efter data från Blob Storage och lagrar resultatet av dina analyser.
+title: "Fråga efter data i HDFS-kompatibla Blob Storage | Microsoft Docs"
+description: "HDInsight använder Azure Blob Storage som stordataarkiv för HDFS. Lär dig mer om hur du frågar efter data från Blob Storage och lagrar resultatet av dina analyser."
 keywords: blob-lagring, hdf, strukturerade data, ostrukturerade data
 services: hdinsight,storage
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -16,9 +16,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7baf1aa756221df62a36cd975ffb92fc8cd27232
+
 
 ---
-# Använd HDFS-kompatibla Azure Blob Storage med Hadoop i HDInsight
+# <a name="use-hdfscompatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>Använd HDFS-kompatibla Azure Blob Storage med Hadoop i HDInsight
 Lär dig använda det prisvärda Azure Blob Storage med HDInsight, skapa ett Azure Storage-konto och en behållare för Blob Storage och hantera sedan de data som ingår.
 
 Azure Blob Storage är en robust lagringslösning för allmänna ändamål som smidigt kan integreras med HDInsight. Genom ett gränssnitt för Hadoop-distribuerat filsystem (HDFS) kan alla komponenter i HDInsight tillämpas direkt på strukturerade eller ostrukturerade data i Blob Storage.
@@ -32,7 +36,7 @@ Om du lagrar data i Blob Storage kan du ta bort HDInsight-kluster som används f
 
 Information om hur du skapar ett HDInsight-kluster finns i [Komma igång med HDInsight][hdinsight-get-started] eller [Skapa HDInsight-kluster][hdinsight-creation].
 
-## Lagringsarkitekturen i HDInsight
+## <a name="hdinsight-storage-architecture"></a>Lagringsarkitekturen i HDInsight
 Följande diagram visar en abstrakt vy av lagringsarkitekturen i HDInsight:
 
 ![Hadoop-kluster använder HDFS API för att komma åt och lagra strukturerade och ostrukturerade data i Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
@@ -69,7 +73,7 @@ Flera WebHCat-jobb, inklusive Hive, MapReduce, Hadoop-strömning och Pig, kan ha
 
 Blob Storage kan användas för strukturerade och ostrukturerade data. I behållare för Blob Storage förvaras data som nyckel/värde-par och det finns ingen kataloghierarki. Däremot kan snedstreck (/) användas i nyckelnamnet så att det visas som om det vore en fil som lagrats i en katalogstruktur. Nyckeln för en blob kan till exempel vara *input/log1.txt*. Det finns ingen faktisk katalog för *indata*, men eftersom det finns ett snedstreck i nyckelnamnet ser namnet ut som en filsökväg.
 
-### <a id="benefits"></a>Fördelar med Blob Storage
+### <a name="a-idbenefitsabenefits-of-blob-storage"></a><a id="benefits"></a>Fördelar med Blob Storage
 Den implicerade prestandakostnaden för att inte samplacera beräkningsklustren och lagringsresurserna minskar på grund av sättet på vilket beräkningsklustren skapas nära lagringskontoresurserna i Azure-regionen där höghastighetsnätverket gör att beräkningsnoderna kan komma åt data i Azure Blob Storage på ett mycket effektivt sätt.
 
 Det finns flera fördelar med att lagra data i Azure Blob Storage i stället för i HDFS:
@@ -87,19 +91,19 @@ Vissa MapReduce-jobb och -paket kan skapa mellanresultat som du inte egentligen 
 > 
 > 
 
-## Skapa blob-behållare
+## <a name="create-blob-containers"></a>Skapa blob-behållare
 För att använda blobar måste du först skapa ett [Azure Storage-konto][azure-storage-create]. Som en del av detta kan du ange en Azure-region där objekten som du skapar med det här kontot kommer att lagras. Klustret och lagringskontot måste finnas i samma region. SQL Server-databasen för Hive metastore och SQL Server-databasen för Oozie metastore måste också finnas i samma region.
 
 Oavsett var den finns tillhör varje blob som du skapar en behållare på ditt Azure Storage-konto. Den här behållaren kan vara en befintlig blob som skapats utanför HDInsight eller en behållare som skapats för ett HDInsight-kluster.
 
 Standardbehållaren lagrar klusterspecifik information, till exempel jobbhistorik och loggar. Låt inte flera HDInsight-kluster dela en standardblob-behållare. Detta kan förstöra jobbhistoriken och klustret kommer inte att fungera som det ska. Du rekommenderas att använda en annan behållare för varje kluster och publicera delade data på ett konto för länkad lagring som anges vid distributionen av alla relevanta kluster snarare än på standardkontot för lagring. Mer information om hur du konfigurerar länkade lagringskonton finns i [Skapa HDInsight-kluster][hdinsight-creation]. Du kan emellertid återanvända en standardbehållare för lagring när det ursprungliga HDInsight-klustret har tagits bort. När det gäller HBase-kluster kan du faktiskt behålla HBase-tabellschemat och data genom att skapa en ny Blob Storage som standard som använts av ett HBase-kluster som har tagits bort.
 
-### Använda Azure-portalen
+### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 När du skapar ett HDInsight-kluster från portalen kan du använda ett befintligt lagringskonto eller skapa ett nytt lagringskonto:
 
 ![hdinsight hadoop, skapa datakälla](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
-### Använda Azure CLI
+### <a name="using-azure-cli"></a>Använda Azure CLI
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 Om du har [installerat och konfigurerat Azure CLI](../xplat-cli-install.md) kan du använda följande kommando för att skapa ett lagringskonto och en behållare.
@@ -121,7 +125,7 @@ Om du vill skapa en behållare använder du följande kommando:
 
     azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-### Använda Azure PowerShell
+### <a name="using-azure-powershell"></a>Använda Azure PowerShell
 Om du har [installerat och konfigurerat Azure PowerShell][powershell-install] kan du använda följande från Azure PowerShell-prompten för att skapa ett lagringskonto och en behållare:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -147,7 +151,7 @@ Om du har [installerat och konfigurerat Azure PowerShell][powershell-install] ka
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-## Adressera filer i Blob Storage
+## <a name="address-files-in-blob-storage"></a>Adressera filer i Blob Storage
 Följande URI-schema används för att komma åt filer i Blob Storage från HDInsight:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
@@ -178,7 +182,7 @@ Om varken &lt;BlobStorageContainerName&gt; eller &lt;StorageAccountName&gt; har 
 > 
 > 
 
-## Komma åt blobar med hjälp av Azure CLI
+## <a name="access-blobs-using-azure-cli"></a>Komma åt blobar med hjälp av Azure CLI
 Använd följande kommando för att visa en lista över blob-relaterade kommandon:
 
     azure storage blob
@@ -199,7 +203,7 @@ Använd följande kommando för att visa en lista över blob-relaterade kommando
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-## Komma åt blobar med hjälp av Azure Powershell
+## <a name="access-blobs-using-azure-powershell"></a>Komma åt blobar med hjälp av Azure Powershell
 > [!NOTE]
 > Kommandona i det här avsnittet ger grundläggande exempel på hur du använder PowerShell för att komma åt data som är lagrade i blobar. Om du vill ha ett mer komplett exempel som är anpassat för att arbeta med HDInsight, se [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools).
 > 
@@ -211,10 +215,10 @@ Använd följande kommando för att visa en lista över blob-relaterade cmdlets:
 
 ![Lista över blob-relaterade PowerShell-cmdlets.][img-hdi-powershell-blobcommands]
 
-### Överföra filer
+### <a name="upload-files"></a>Överföra filer
 Se [Överföra data till HDInsight][hdinsight-upload-data].
 
-### Hämta filer
+### <a name="download-files"></a>Hämta filer
 Följande skript hämtar en block-blob till den aktuella mappen. Innan du kör skriptet ändrar du katalogen till en mapp där du har skrivbehörighet.
 
     $resourceGroupName = "<AzureResourceGroupName>"
@@ -251,13 +255,13 @@ Om du anger resursgruppens namn och klusternamnet kan du använda följande kod:
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
-### Ta bort filer
+### <a name="delete-files"></a>Ta bort filer
     Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
 
-### Lista filer
+### <a name="list-files"></a>Lista filer
     Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 
-### Köra Hive-frågor med ett odefinierat lagringskonto
+### <a name="run-hive-queries-using-an-undefined-storage-account"></a>Köra Hive-frågor med ett odefinierat lagringskonto
 Det här exemplet visar hur du listar en mapp från lagringskontot som inte har definierats under skapandeprocessen.
 $clusterName = "<HDInsightClusterName>"
 
@@ -273,7 +277,7 @@ $clusterName = "<HDInsightClusterName>"
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du använder HDFS-kompatibla Azure Blob Storage med HDInsight och att Azure Blob Storage är en grundläggande komponent i HDInsight. Du kan skapa skalbara, långsiktiga lösningar för datainsamling med Azure Blob Storage och använda HDInsight för att få tillgång till informationen i lagrade strukturerade och ostrukturerade data.
 
 Mer information finns i:
@@ -301,6 +305,6 @@ Mer information finns i:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

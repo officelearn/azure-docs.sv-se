@@ -1,12 +1,12 @@
 ---
-title: Vad är kopplingar och BizTalk-API Apps
-description: Läs om API Apps, kopplingar och BizTalk API Apps
+title: "Vad är kopplingar och BizTalk-API Apps"
+description: "Läs om API Apps, kopplingar och BizTalk API Apps"
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1295ea9c-30e0-4b5c-931e-51aefae2d4fe
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c89b0714a5c6e606cf8517a40be62cc856d5959c
+
 
 ---
-# Vad är kopplingar och BizTalk-API Apps
+# <a name="what-are-connectors-and-biztalk-api-apps"></a>Vad är kopplingar och BizTalk-API Apps
 [!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 En *koppling* är en typ av API-app som fokuserar på anslutningsbarhet. Precis som alla andra API Apps används kopplingar från webbappar, Mobile Apps och Logic Apps. Kopplingar gör det enkelt att ansluta till befintliga tjänster och bidrar till att hantera autentisering, tillhandahålla övervakning, analyser och mycket annat.
@@ -31,7 +35,7 @@ Det finns olika tillgängliga servicenivåer. Alla nivåer omfattar alla kopplin
 
 [Priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/) beskriver de här servicenivåerna och visar också vad som ingår i nivåerna. I följande avsnitt beskrivs de olika kategorierna av BizTalk-API Apps och kopplingar.
 
-## Hybridkopplingar
+## <a name="hybrid-connectors"></a>Hybridkopplingar
 Hybridanslutningarna utökar räckvidden i företaget och ger anslutningsbarhet till [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) och WebSphere MQ. 
 
 Ytterligare resurser: [B2B-kopplingar (business-to-business) och API Apps](app-service-logic-b2b-connectors.md)  
@@ -39,12 +43,15 @@ Ytterligare resurser: [B2B-kopplingar (business-to-business) och API Apps](app-s
 [Skapa ett handelspartneravtal](app-service-logic-create-a-trading-partner-agreement.md)  
 [Spåra dina B2B-meddelanden](app-service-logic-track-b2b-messages.md)  
 
-## Regler
+## <a name="rules"></a>Regler
 Affärsregler är de principer och beslut som styr affärsprocesser. Normalt sett är regler dynamiska och ändras med tiden av olika skäl, till exempel affärsplaner, lagändringar och många andra orsaker. Med [BizTalk-reglerna](app-service-logic-use-biztalk-rules.md) kan du frikoppla de här principerna från din programkod och göra ändringprocessen enklare och snabbare.
 
-## Lista över kopplingar och API Apps
+## <a name="connector-and-api-app-list"></a>Lista över kopplingar och API Apps
 Se [listan över kopplingar och API Apps](app-service-logic-connectors-list.md) för en fullständig lista över kopplingar och API Apps som ingår i respektive kategori, till exempel standard-, BizTalk EAI- och premiumkopplingarna och så vidare.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

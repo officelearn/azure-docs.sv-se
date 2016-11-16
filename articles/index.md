@@ -1,5 +1,9 @@
 --- 
-layout: HubPage 
+layout: HubPage
+translationtype: Human Translation
+ms.sourcegitcommit: ae13eb84d8a28259ba3c737abbac1181d5ebbe0b
+ms.openlocfilehash: b5010bedfb6a0edceaec6f96209cd73b066d683c
+
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -15,7 +19,7 @@ layout: HubPage
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Get Started Guide for Azure Developers</h3>
+                                    <h3>Utvecklarens startguide för Azure</h3>
                                 </div>
                             </div>
                         </div>
@@ -33,7 +37,7 @@ layout: HubPage
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Get Started Guide for Azure IT Operators</h3>
+                                    <h3>IT-teknikerns startguide för Azure</h3>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +55,7 @@ layout: HubPage
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>5-Minute Getting Started Videos</h3>
+                                    <h3>Videoklipp som hjälper dig att komma igång på 5 minuter</h3>
                                 </div>
                             </div>
                         </div>
@@ -63,10 +67,10 @@ layout: HubPage
     <div class="container">
         <ul class="pivots">
             <li>
-                <a href="#services">Services</a>
+                <a href="#services">Tjänster</a>
                 <ul id="services">
                     <li>
-                        <a href="#Compute">Compute</a>
+                        <a href="#Compute">Beräkningar</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -79,8 +83,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Linux Virtual Machines</h3>
-                                                    <p>Provision virtual machines of Ubuntu, Red Hat, and more</p>
+                                                    <h3>Virtuella Linux-datorer</h3>
+                                                    <p>Etablera virtuella datorer med Ubuntu, Red Hat med flera</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,8 +102,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Windows Virtual Machines</h3>
-                                                    <p>Provision virtual machines for SQL Server, SharePoint and more</p>
+                                                    <h3>Virtuella Windows-datorer</h3>
+                                                    <p>Etablera virtuella datorer för SQL Server, SharePoint med flera</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -117,8 +121,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Virtual Machine Scale Sets</h3>
-                                                    <p>Create highly available, auto scalable Linux or Windows virtual machines</p>
+                                                    <h3>Skalningsuppsättningar för Virtual Machines</h3>
+                                                    <p>Skapa högtillgängliga, automatiskt skalbara virtuella Linux- eller Windows-datorer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -137,7 +141,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Create web and mobile apps for any platform and any device</p>
+                                                    <p>Skapa webb- och mobilappar för alla plattformar och enheter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -156,7 +160,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service</h3>
-                                                    <p>Use Docker based tools to deploy and manage containers</p>
+                                                    <p>Använd Docker-baserade verktyg för att distribuera och hantera behållare</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -174,8 +178,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Functions</h3>
-                                                    <p>Process events with serverless code</p>
+                                                    <h3>Funktioner</h3>
+                                                    <p>Bearbeta händelser med serverlös kod</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -194,7 +198,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Build and operate always-on, scalable, distributed applications</p>
+                                                    <p>Skapa och använd skalbara distribuerade program som alltid är igång</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,7 +217,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Run large-scale parallel and batch compute jobs</p>
+                                                    <p>Kör storskaliga compute-jobb parallellt eller i en batch</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -231,8 +235,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cloud Services</h3>
-                                                    <p>Create Highly Available, infinitely scalable cloud applications and APIs</p>
+                                                    <h3>Molntjänster</h3>
+                                                    <p>Skapa högtillgängliga, obegränsat skalbara molnprogram och API:er</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -242,7 +246,7 @@ layout: HubPage
                         </ul>
                     </li>
                     <li>
-                        <a href="#network">Networking</a>
+                        <a href="#network">Nätverk</a>
                         <ul id="network" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-network/">
@@ -256,7 +260,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Virtual Network</h3>
-                                                    <p>Provision private networks, optionally connect to on-premises datacenters</p>
+                                                    <p>Etablera privata nätverk, med möjlighet att ansluta till lokala datacenter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -274,8 +278,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Load Balancer</h3>
-                                                    <p>Deliver high availability and network performance to your applications</p>
+                                                    <h3>Belastningsutjämnare</h3>
+                                                    <p>Leverera hög tillgänglighet och nätverksprestanda till dina program</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -294,8 +298,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>Layer 7 Load Balancer with built-in HTTP load balancing and delivery
-                                                        control</p>
+                                                    <p>Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveranskontroll</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -313,8 +316,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>VPN Gateway</h3>
-                                                    <p>Establish secure, cross-premises connectivity</p>
+                                                    <h3>VPN-gateway</h3>
+                                                    <p>Etablera säker anslutning mellan olika platser</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -333,7 +336,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DNS</h3>
-                                                    <p>Host your DNS domain in Azure</p>
+                                                    <p>Använd Azure som värd för din DNS-domän</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -352,8 +355,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CDN</h3>
-                                                    <p>Deliver content to end-users through a robust network of global data
-                                                        centers </p>
+                                                    <p>Leverera innehåll till slutanvändare via ett robust nätverk med globala datacenter </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -372,7 +374,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Traffic Manager</h3>
-                                                    <p>Route incoming traffic for high performance and availability</p>
+                                                    <p>Vidarebefordra inkommande trafik för hög prestanda och tillgänglighet</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -391,7 +393,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
-                                                    <p>Dedicated private network fiber connections to Azure</p>
+                                                    <p>Dedikerade fiberanslutningar för privata nätverk till Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -415,7 +417,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Storage</h3>
-                                                    <p>Durable, highly available and massively scalable cloud storage</p>
+                                                    <p>Hållbar, högtillgänglig och massivt skalbar molnlagring</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -434,7 +436,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>Hyperscale repository for big data analytics workloads</p>
+                                                    <p>Lagringsplats i hyperskala för resurskrävande stordataanalyser</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -453,7 +455,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Hybrid cloud storage for enterprises that improves data security</p>
+                                                    <p>Hybridlagring i molnet för företag förbättrar datasäkerheten</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -472,7 +474,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Backup</h3>
-                                                    <p>Simple and reliable server backup to the cloud</p>
+                                                    <p>Enkel och tillförlitlig säkerhetskopiering av servern till molnet</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -490,8 +492,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Site Recovery</h3>
-                                                    <p>Orchestrate protection and recovery of private clouds</p>
+                                                    <h3>Webbplatsåterställning</h3>
+                                                    <p>Dirigera skydd och återställning av privata moln</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -501,7 +503,7 @@ layout: HubPage
                         </ul>
                     </li>
                     <li>
-                        <a href="#web">Web + Mobile</a>
+                        <a href="#web">Webb och mobilt</a>
                         <ul id="web" class="cardsA">
                             <li>
                                 <a href="/azure/app-service/">
@@ -515,7 +517,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Learn about building scalable web and mobile apps</p>
+                                                    <p>Läs mer om hur du skapar skalbara webb- och mobilappar</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -534,7 +536,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Web Apps</h3>
-                                                    <p>Quickly create and deploy mission critical Web apps at scale</p>
+                                                    <p>Skapa och distribuera affärskritiska webbappar snabbt och efter behov</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -553,7 +555,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Mobile Apps</h3>
-                                                    <p>Build and host the backend for any mobile app</p>
+                                                    <p>Bygg och hantera serverdelen för alla sorters mobilappar</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -572,7 +574,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Apps</h3>
-                                                    <p>Easily build and consume Cloud API</p>
+                                                    <p>Bygg och använd enkelt API:er i molnet</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -591,7 +593,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Logic Apps</h3>
-                                                    <p>Automate the access and use of data across clouds without writing code</p>
+                                                    <p>Automatisera åtkomsten och användningen av data mellan moln utan att skriva kod</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -610,8 +612,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CDN</h3>
-                                                    <p>Deliver content to end-users through a robust network of global data
-                                                        centers </p>
+                                                    <p>Leverera innehåll till slutanvändare via ett robust nätverk med globala datacenter </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -630,7 +631,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Media Services</h3>
-                                                    <p>Encode, store, and stream video and audio at scale</p>
+                                                    <p>Koda, lagra och strömma video och ljud i olika skalor</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -649,7 +650,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Search</h3>
-                                                    <p>Fully-managed search-as-a-service</p>
+                                                    <p>Fullständigt hanterad sökning som en tjänst</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -668,7 +669,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Mobile Engagement</h3>
-                                                    <p>Increase app usage and user retention</p>
+                                                    <p>Öka appanvändning och användarkvarhållning</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -678,7 +679,7 @@ layout: HubPage
                         </ul>
                     </li>
                     <li>
-                        <a href="#databases">Databases</a>
+                        <a href="#databases">Databaser</a>
                         <ul id="databases" class="cardsA">
                             <li>
                                 <a href="/azure/sql-database/">
@@ -692,7 +693,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>Managed relational database-as-a-service</p>
+                                                    <p>Hanterad relationsdatabas som tjänst</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -711,7 +712,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Data Warehouse</h3>
-                                                    <p>Elastic data warehouse-as-a-service with enterprise-class features</p>
+                                                    <p>Elastiskt informationslager som en tjänst med funktioner i företagsklass</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -730,7 +731,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Stretch Database</h3>
-                                                    <p>Dynamically stretch on-premises SQL Server databases to Azure</p>
+                                                    <p>Sträck ut lokala SQL Server-databaser dynamiskt till Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -749,7 +750,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>DocumentDB</h3>
-                                                    <p>Managed NoSQL document database-as-a-service</p>
+                                                    <p>Hanterad NoSQL-dokumentdatabas som en tjänst</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -768,7 +769,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Redis Cache</h3>
-                                                    <p>High throughput, low latency data access to build fast/scalable applications</p>
+                                                    <p>Dataåtkomst med stora dataflöden och korta svarstider för snabba/skalbara program</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -787,7 +788,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
-                                                    <p>Orchestrate and manage data transformation and movement</p>
+                                                    <p>Dirigera och hantera dataomvandling och rörelse</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -797,7 +798,7 @@ layout: HubPage
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Intelligence + Analytics</a>
+                        <a href="#analytics">Intelligens och analys</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -811,7 +812,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Provision cloud Hadoop, Spark, R Server, Hbase, and Storm clusters</p>
+                                                    <p>Tillhandahåll Hadoop, Spark, R Server, Hbase och Storm-kluster i molnet</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -830,7 +831,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>Powerful cloud based predictive analytics tool to enable predictive maintenance</p>
+                                                    <p>Kraftfullt verktyg för molnbaserad förutsägelseanalys som möjliggör förutsägande underhåll</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -849,7 +850,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>Real-time data stream processing from millions of IoT devices</p>
+                                                    <p>Dataströmningsbearbetning i realtid från miljontals IoT-enheter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -868,7 +869,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
+                                                    <p>Lägg till smarta API-funktioner för att aktivera sammanhangsbaserad interaktion</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -887,7 +888,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Analytics</h3>
-                                                    <p>Distributed analytics service that makes big data easy</p>
+                                                    <p>Distribuerad analystjänst som förenklar stordata</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -906,7 +907,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>Hyperscale repository for big data analytics workloads</p>
+                                                    <p>Lagringsplats i hyperskala för resurskrävande stordataanalyser</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -925,7 +926,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
-                                                    <p>Orchestrate and manage data transformation and movement</p>
+                                                    <p>Dirigera och hantera dataomvandling och rörelse</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -943,8 +944,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>PowerBI Embedded</h3>
-                                                    <p>Embed fully interactive, stunning data visualizations in your applications</p>
+                                                    <h3>Inbäddad PowerBI</h3>
+                                                    <p>Bädda in fantastiska, helt interaktiva datavisualiseringar i dina appar</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -968,7 +969,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Developer Center</h3>
-                                                    <p>Get started connecting your devices</p>
+                                                    <p>Kom igång med att ansluta dina enheter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -987,7 +988,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure IoT Hub</h3>
-                                                    <p>Connect, monitor, and control billions of IoT assets</p>
+                                                    <p>Anslut, övervaka och styr flera miljarder IoT-tillgångar</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1006,7 +1007,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Event Hubs</h3>
-                                                    <p>Receive telemetry from millions of devices</p>
+                                                    <p>Få telemetri från miljontals enheter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1025,7 +1026,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>Real-time data stream processing from millions of IoT devices</p>
+                                                    <p>Dataströmningsbearbetning i realtid från miljontals IoT-enheter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1044,7 +1045,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>Powerful cloud based predictive analytics tool to enable predictive maintenance</p>
+                                                    <p>Kraftfullt verktyg för molnbaserad förutsägelseanalys som möjliggör förutsägande underhåll</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1063,7 +1064,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>A scalable, push notification engine for quickly sending millions of messages</p>
+                                                    <p>En skalbar motor som snabbt kan skicka miljontals push-meddelanden</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1073,7 +1074,7 @@ layout: HubPage
                         </ul>
                     </li>
                     <li>
-                        <a href="#integration">Enterprise Integration</a>
+                        <a href="#integration">Enterprise-integration</a>
                         <ul id="integration" class="cardsA">
                             <li>
                                 <a href="/azure/logic-apps/">
@@ -1087,7 +1088,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Logic Apps</h3>
-                                                    <p>Automate the access and use of data across clouds without writing code</p>
+                                                    <p>Automatisera åtkomsten och användningen av data mellan moln utan att skriva kod</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1106,7 +1107,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Biztalk Services</h3>
-                                                    <p>Seamlessly integrate the enterprise and the cloud</p>
+                                                    <p>Integrera företaget i molnet på ett smidigt sätt</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1125,7 +1126,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Bus</h3>
-                                                    <p>Connect across private and public cloud environments</p>
+                                                    <p>Anslut via privata och offentliga moln</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1144,7 +1145,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
-                                                    <p>Publish APIs to developers, partners and employees securely and at scale</p>
+                                                    <p>Publicera API:er till utvecklare, partner och anställda på ett säkert sätt och efter behov</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1163,7 +1164,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Hybrid cloud storage for enterprises that improves data security</p>
+                                                    <p>Hybridlagring i molnet för företag förbättrar datasäkerheten</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1182,7 +1183,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Stretch Database</h3>
-                                                    <p>Dynamically stretch on-premises SQL Server databases to Azure</p>
+                                                    <p>Sträck ut lokala SQL Server-databaser dynamiskt till Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1201,7 +1202,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
-                                                    <p>Orchestrate and manage data transformation and movement</p>
+                                                    <p>Dirigera och hantera dataomvandling och rörelse</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1211,7 +1212,7 @@ layout: HubPage
                         </ul>
                     </li>
                     <li>
-                        <a href="#security">Security + Identity</a>
+                        <a href="#security">Säkerhet och identitet</a>
                         <ul id="security" class="cardsA">
                             <li>
                                 <a href="/azure/security-center">
@@ -1225,7 +1226,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
-                                                    <p>Prevent, detect and respond to threats with increased visibility</p>
+                                                    <p>Förhindra, identifiera och svara på hot med ökad insyn</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1244,7 +1245,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Key Vault</h3>
-                                                    <p>Learn how to manage cryptographic keys and secrets</p>
+                                                    <p>Lär dig hantera kryptografiska nycklar och hemligheter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1263,7 +1264,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Active Directory</h3>
-                                                    <p>Synchronize on-premises directories and enable single sign-on</p>
+                                                    <p>Synkronisera lokala kataloger och aktivera enkel inloggning</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1282,7 +1283,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Active Directory B2C</h3>
-                                                    <p>Consumer identity and access management in the cloud</p>
+                                                    <p>Kundidentitets- och åtkomsthantering i molnet</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1301,7 +1302,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Active Directory Domain Services</h3>
-                                                    <p>Join Azure virtual machines to a domain without domain controllers</p>
+                                                    <p>Anslut virtuella Azure-datorer till en domän utan domänkontrollanter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1320,7 +1321,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>Safeguard access to your data and apps with an extra level of authentication</p>
+                                                    <p>Skydda åtkomsten till dina data och appar med en extra autentiseringsnivå</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1338,8 +1339,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Security Information</h3>
-                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
+                                                    <h3>Säkerhetsinformation</h3>
+                                                    <p>Läs mer om hur du tryggt och säkert baserar dina molnlösningar på Azures säkra infrastruktur</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1349,7 +1350,7 @@ layout: HubPage
                         </ul>
                     </li> 
                     <li>
-                        <a href="#devtools">Developer Tools</a>
+                        <a href="#devtools">Utvecklarverktyg</a>
                         <ul id="devtools" class="cardsA">
                             <li>
                                 <a href="https://www.visualstudio.com/en-us/docs/overview">
@@ -1363,7 +1364,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio Team Services</h3>
-                                                    <p>Services for teams to share code, track work, and ship software</p>
+                                                    <p>Tjänster för team som gör att de kan dela kod, spåra arbete och leverera programvara</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1382,7 +1383,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure DevTest Labs</h3>
-                                                    <p>Quickly create environments using reusable templates and artifacts</p>
+                                                    <p>Skapa snabbt miljöer med återanvändbara mallar och artefakter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1401,7 +1402,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio Application Insights</h3>
-                                                    <p>Detect, triage, and diagnose issues in your web apps and services</p>
+                                                    <p>Identifiera, sortera och diagnostisera problem i dina webbappar och tjänster</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1420,7 +1421,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
-                                                    <p>Publish APIs to developers, partners and employees securely and at scale</p>
+                                                    <p>Publicera API:er till utvecklare, partner och anställda på ett säkert sätt och efter behov</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1439,7 +1440,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HockeyApp</h3>
-                                                    <p>Deploy mobile apps, collect feedback and crash reports, and monitor usage</p>
+                                                    <p>Distribuera mobilappar, samla in feedback och kraschrapporter, och hantera användning</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1449,7 +1450,7 @@ layout: HubPage
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Monitoring + Management</a>
+                        <a href="#mgmt">Övervakning och hantering</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/azure/application-insights/">
@@ -1463,7 +1464,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio Application Insights</h3>
-                                                    <p>Detect, triage, and diagnose issues in your web apps and services</p>
+                                                    <p>Identifiera, sortera och diagnostisera problem i dina webbappar och tjänster</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1482,7 +1483,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Learn how to transform machine data into operational intelligence</p>
+                                                    <p>Lär dig att omvandla maskindata till driftsinformation</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1501,7 +1502,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Automation</h3>
-                                                    <p>Simplify cloud management with process automation</p>
+                                                    <p>Förenkla molnhantering med processautomatisering</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1520,7 +1521,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Backup</h3>
-                                                    <p>Simple and reliable server backup to the cloud</p>
+                                                    <p>Enkel och tillförlitlig säkerhetskopiering av servern till molnet</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1538,8 +1539,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Site Recovery</h3>
-                                                    <p>Orchestrate protection and recovery of private clouds</p>
+                                                    <h3>Webbplatsåterställning</h3>
+                                                    <p>Dirigera skydd och återställning av privata moln</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1558,7 +1559,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Scheduler</h3>
-                                                    <p>Run your jobs on simple or comples recurring schedules</p>
+                                                    <p>Kör jobb enligt enkla eller komplexa återkommande scheman</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1577,7 +1578,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Traffic Manager</h3>
-                                                    <p>Route incoming traffic for high performance and availability</p>
+                                                    <p>Vidarebefordra inkommande trafik för hög prestanda och tillgänglighet</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1596,7 +1597,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Monitor</h3>
-                                                    <p>Highly granular and real-time monitorign data for any Azure resource</p>
+                                                    <p>Mycket detaljerad dataövervakning i realtid för alla Azure-resurser</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1614,8 +1615,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Billing</h3>
-                                                    <p>Learn how to read/understand the usage and bill for your Azure subscription</p>
+                                                    <h3>Fakturering</h3>
+                                                    <p>Lär dig hur du läser och förstår användningen och fakturan för Azure-prenumerationen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1653,7 +1654,7 @@ layout: HubPage
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Resource Manager</h3>
-                                                    <p>Work with the resources in as a group for Azure Services</p>
+                                                    <p>Arbeta med resurser som en grupp av Azure-tjänster</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1663,7 +1664,7 @@ layout: HubPage
                         </ul>
                     </li>
                     <li>
-                        <a href="#all">All</a>
+                        <a href="#all">Alla</a>
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
@@ -1672,19 +1673,19 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/virtual-machines/linux/">
                                                 <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>Linux Virtual Machines</p>
+                                                <p>Virtuella Linux-datorer</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/virtual-machines/windows/">
                                                 <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>Windows Virtual Machines</p>
+                                                <p>Virtuella Windows-datorer</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Virtual Machine Scale Sets</p>
+                                                <p>Skalningsuppsättningar för Virtual Machines</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1702,7 +1703,7 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
-                                                <p>Functions</p>
+                                                <p>Funktioner</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1720,13 +1721,13 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/cloud-services/">
                                                 <img src="media/index/CloudService.svg" alt="" />
-                                                <p>Cloud Services</p>
+                                                <p>Molntjänster</p>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Networking</h3>
+                                    <h3>Nätverk</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/virtual-network/">
@@ -1737,7 +1738,7 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Load Balancer</p>
+                                                <p>Belastningsutjämnare</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1749,7 +1750,7 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/vpn-gateway/">
                                                 <img src="media/index/VPNGateway.svg" alt="" />
-                                                <p>VPN Gateway</p>
+                                                <p>VPN-gateway</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1816,8 +1817,7 @@ layout: HubPage
                              </li>
                             <li>
                                 <div class="group">
-                                    <h3>Web + Mobile
-                                    </h3>
+                                    <h3>Webb och mobilt </h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service/">
@@ -1876,7 +1876,7 @@ layout: HubPage
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Databases</h3>
+                                    <h3>Databaser</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/sql-database/">
@@ -1917,7 +1917,7 @@ layout: HubPage
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Intelligence + Analytics</h3>
+                                    <h3>Intelligens och analys</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -1964,7 +1964,7 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/power-bi-embedded/">
                                                 <img src="media/index/PowerBIEmbedded.svg" alt="" />
-                                                <p>PowerBI Embedded</p>
+                                                <p>Inbäddad PowerBI</p>
                                             </a>
                                         </li>
                                         <!-- <li>
@@ -2019,7 +2019,7 @@ layout: HubPage
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Enterprise Integration</h3>
+                                    <h3>Enterprise-integration</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/logic-apps/">
@@ -2066,8 +2066,7 @@ layout: HubPage
                                     </ul>
                                 </div>
                                  <div class="group">
-                                    <h3>Security + Identity
-                                    </h3>
+                                    <h3>Säkerhet och identitet </h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/security-center">
@@ -2108,7 +2107,7 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Security Information</p>
+                                                <p>Säkerhetsinformation</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2116,7 +2115,7 @@ layout: HubPage
                             </li>
                             <li>
                                 <div class="group">
-                                    <h3>Developer Tools</h3>
+                                    <h3>Utvecklarverktyg</h3>
                                     <ul>
                                         <li>
                                             <a href="https://www.visualstudio.com/docs/overview">
@@ -2151,8 +2150,7 @@ layout: HubPage
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Monitoring + Management
-                                    </h3>
+                                    <h3>Övervakning och hantering </h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/application-insights/">
@@ -2205,7 +2203,7 @@ layout: HubPage
                                         <li>
                                             <a href="/azure/billing/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Billing</p>
+                                                <p>Fakturering</p>
                                             </a>
                                         </li>
                                         <!-- <li>
@@ -2231,7 +2229,7 @@ layout: HubPage
                 <a href="#developer">Developer</a>
                 <ul id="developer">
                     <li>
-                        <a href="#languages">Languages &amp; Frameworks</a>
+                        <a href="#languages">Språk &amp; ramverk</a>
                         <ul id="languages" class="cardsF">
                             <li>
                                 <div class="cardSize">
@@ -2244,16 +2242,16 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/downloads/">Get the .NET SDK</a>
+                                                    <a href="https://azure.microsoft.com/en-us/downloads/">Hämta .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/net/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/net/">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/rest/api">API reference</a>
+                                                    <a href="/rest/api">API-referens</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=dotnet">Get examples</a>
+                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=dotnet">Hämta exempel</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2271,16 +2269,16 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Get the Python SDK</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Hämta Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/python/">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API-referens</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=node">Get examples</a>
+                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=node">Hämta exempel</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2298,16 +2296,16 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/nodejs/">Get the Nodejs SDK</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/nodejs/">Hämta Nodejs SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/nodejs">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/nodejs">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
+                                                    <a href="http://azure.github.io/azure-storage-node/index.html">API-referens</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=node">Get  examples</a>
+                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=node">Hämta exempel</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2325,16 +2323,16 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=690320">Get the Java SDK</a>
+                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=690320">Hämta Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/java/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/java/">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/">API reference</a>
+                                                    <a href="/java/api/">API-referens</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=java">Get examples</a>
+                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=java">Hämta exempel</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2352,16 +2350,16 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/en-us/downloads/">Get the Ruby SDK</a>
+                                                    <a href="https://azure.microsoft.com/en-us/downloads/">Hämta Ruby SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/develop/ruby/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/develop/ruby/">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API reference</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API-referens</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=ruby">Get examples</a>
+                                                    <a href="https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=ruby">Hämta exempel</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2379,13 +2377,13 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="">Get started with REST</a>
+                                                    <a href="">Kom igång med REST</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/rest/api">Reference</a>
+                                                    <a href="/rest/api">Referens</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=rest">Get examples</a>
+                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=rest">Hämta exempel</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2395,7 +2393,7 @@ layout: HubPage
                         </ul>
                     </li>
                     <li>
-                        <a href="#cli">Command Line Interface (CLI)</a>
+                        <a href="#cli">Kommandoradsgränssnitt (CLI)</a>
                         <ul id="cli" class="cardsF">
                             <li>
                                 <div class="cardSize">
@@ -2407,16 +2405,15 @@ layout: HubPage
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 Preview
-                                                </h3>
+                                                <h3>Förhandsversion av Azure CLI 2.0 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/cli/azure/get-started/">Get Started</a>
+                                                    <a href="https://docs.microsoft.com/cli/azure/get-started/">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">Download Azure CLI 2.0</a>
+                                                    <a href="https://github.com/Azure/azure-cli">Hämta Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure">Reference</a>
+                                                    <a href="/cli/azure">Referens</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2435,13 +2432,13 @@ layout: HubPage
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell">Get Started</a>
+                                                    <a href="https://github.com/PowerShell/PowerShell/tree/master/docs/learning-powershell">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">Download PowerShell</a>
+                                                    <a href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">Ladda ned PowerShell</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/">Reference</a>
+                                                    <a href="/powershell/">Referens</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2458,22 +2455,21 @@ layout: HubPage
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI
-                                                </h3>
+                                                <h3>Azure CLI </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Get Started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">Download Azure CLI for Linux</a>
+                                                    <a href="http://aka.ms/linux-azure-cli">Ladda ned Azure CLI för Linux</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">Download Azure CLI for Mac</a>
+                                                    <a href="http://aka.ms/mac-azure-cli">Ladda ned Azure CLI för Mac</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">Download Azure CLI for Windows</a>
+                                                    <a href="http://aka.ms/webpi-azure-cli">Ladda ned Azure CLI för Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/">Reference</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/">Referens</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2483,7 +2479,7 @@ layout: HubPage
                         </ul>
                     </li>
                     <li>
-                        <a href="#tools">Tools &amp; Extensions</a>
+                        <a href="#tools">Verktyg &amp; tillägg</a>
                         <ul id="tools" class="cardsF">
                             <li>
                                 <div class="cardSize">
@@ -2496,10 +2492,10 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools för Azure</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">Download</a>
+                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">Ladda ned</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2517,19 +2513,19 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/DockerToolsDocs">Docker Tools</a>
+                                                    <a href="https://github.com/Microsoft/DockerToolsDocs">Docker-verktyg</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Get Started</a>
+                                                    <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680&clcid=0x409">Download for Visual Studio</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680&clcid=0x409">Ladda ned till Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681&clcid=0x409">Download for Visual Studio Code</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681&clcid=0x409">Ladda ned till Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682&clcid=0x409">Download for Team Services</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682&clcid=0x409">Ladda ned till Team Services</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2547,10 +2543,10 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
+                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools för Visual Studio</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Download</a>
+                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Ladda ned</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2571,16 +2567,16 @@ layout: HubPage
                                                     <a href="http://storageexplorer.com/">Storage Explorer</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Get Started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Kom igång</a>
                                                 </p>
                                                 <p>
-                                                     <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>
+                                                     <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Ladda ned till Linux</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Download for Mac</a>
+                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Ladda ned till Mac</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Download for Windows</a>
+                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Ladda ned till Windows</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2598,13 +2594,13 @@ layout: HubPage
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/PTVS/releases/v2.2.4">Python Tools for Visual Studio 2015</a>
+                                                    <a href="https://github.com/Microsoft/PTVS/releases/v2.2.4">Python Tools för Visual Studio 2015</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://ptvs.azureedge.net/download/PTVS%20Samples%202.2.4.vsix">Samples</a>
+                                                    <a href="https://ptvs.azureedge.net/download/PTVS%20Samples%202.2.4.vsix">Exempel</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://ptvs.azureedge.net/download/PTVS%202.2.4%20VS%202015.msi">Download</a>
+                                                    <a href="https://ptvs.azureedge.net/download/PTVS%202.2.4%20VS%202015.msi">Ladda ned</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2616,16 +2612,14 @@ layout: HubPage
                 </ul>
             </li>
             <li>
-                <a href="#architecture">Architecture</a>
+                <a href="#architecture">Arkitektur</a>
                 <ul id="architecture">
                     <li>
                         <a href="#architecture1"></a>
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>A set of recommended architectures for cloud applications. Each architecture includes
-                                        recommended practices, prescriptive steps, and an executable component that embodies
-                                        the recommendations.</p>
+                                    <p>En uppsättning rekommenderade arkitekturer för molnprogram. Varje arkitektur innehåller rekommendationer, ingående anvisningar och en körbar komponent som återspeglar rekommendationerna.</p>
                                 </div>
                             </li>
                             <li>
@@ -2639,8 +2633,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cloud Fundamentals</h3>
-                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
+                                                    <h3>Grunderna för molnet</h3>
+                                                    <p>Skaffa dig grundläggande kunskaper för att lyckas i molnet. Börja här om du är nybörjare i molnet eller Azure.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2658,8 +2652,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Reference Architectures</h3>
-                                                    <p>A set of recommended architectures for the cloud. Each architecture includes best practices, prescriptive steps, and a deployable solution.</p>
+                                                    <h3>Referensarkitekturer</h3>
+                                                    <p>En uppsättning rekommenderade arkitekturer för molnet. Varje arkitektur innehåller bästa praxis, ingående anvisningar och en distribuerbar lösning.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2677,8 +2671,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cloud Design Patterns</h3>
-                                                    <p>Design patterns for the cloud. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.</p>
+                                                    <h3>Designmönster för molnet</h3>
+                                                    <p>Utforma mönster för molnet. Varje mönster beskriver problem, ett mönster som åtgärdar problemet och ett exempel baserat på Azure.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2696,9 +2690,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Best Practices for Cloud Applications</h3>
-                                                    <p>A set of best practices for cloud applications, covering aspects such
-                                                        as auto-scaling, caching, data partitioning, API design, and monitoring.</p>
+                                                    <h3>Bästa praxis för molnprogram</h3>
+                                                    <p>En uppsättning rekommenderade metoder för molnprogram som omfattar områden som automatisk skalning, cachelagring, datapartitionering, API-design och övervakning.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2716,9 +2709,8 @@ layout: HubPage
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Scenario Guides</h3>
-                                                    <p>Guidance for various end-to-end application scenarios in the cloud. Includes
-                                                        written guidance and reference implementations.</p>
+                                                    <h3>Scenarioguider</h3>
+                                                    <p>Riktlinjer för olika end-to-end-programscenarier i molnet. Innehåller skriftlig vägledning och referensimplementeringar.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2732,3 +2724,9 @@ layout: HubPage
         </ul>
     </div>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

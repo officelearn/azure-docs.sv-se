@@ -1,4 +1,4 @@
-### Bevilja Mobile Engagement åtkomst till din GCM API-nyckel
+### <a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>Bevilja Mobile Engagement åtkomst till din GCM API-nyckel
 Om du vill låta Mobile Engagement skicka push-meddelanden för dig, måste du bevilja Mobile Engagement åtkomst till din API-nyckel. Detta görs genom att konfigurera och ange nyckeln i Mobile Engagement-portalen.
 
 1. Kontrollera via din klassiska Azure-portal att du befinner dig i appen som vi använder för det här projektet och klicka sedan på **Starta**-knappen längst ned:
@@ -14,7 +14,7 @@ Om du vill låta Mobile Engagement skicka push-meddelanden för dig, måste du b
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a id="send"></a>Skicka ett meddelande till din app
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Skicka ett meddelande till din app
 Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push-meddelande till vår app.
 
 1. Gå till **REACH**-fliken i din Mobile Engagement-portal.
@@ -42,6 +42,8 @@ Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push-meddelande 
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

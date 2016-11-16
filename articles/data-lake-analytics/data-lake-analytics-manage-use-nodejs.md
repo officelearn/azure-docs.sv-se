@@ -1,12 +1,12 @@
 ---
-title: Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Node.js | Microsoft Docs
-description: Lär dig att hantera Data Lake Analytics-konton, -datakällor, -jobb och -användare med hjälp av Azure SDK för Node.js
+title: "Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Node.js | Microsoft Docs"
+description: "Lär dig att hantera Data Lake Analytics-konton, -datakällor, -jobb och -användare med hjälp av Azure SDK för Node.js"
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 10ec0b63e1867f5f62d30d879a4497c0880d9494
+
 
 ---
-# Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Node.js
+# <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Azure SDK för Node.js kan användas för att hantera Azure Data Lake Analytics-konton, -jobb och -kataloger. Om du vill se hanteringsämnen med hjälp av andra verktyg klickar du på flikväljaren ovan.
@@ -28,17 +32,17 @@ Just nu stöds:
 * **REST API-version för katalog: 2015-10-01-preview**
 * **REST API-version för jobb: 2016-03-20-preview**
 
-## Funktioner
+## <a name="features"></a>Funktioner
 * Kontohantering: skapa, hämta, visa, uppdatera och ta bort.
 * Jobbhantering: skicka, hämta, lista, avbryta.
 * Kataloghantering: hämta, visa, skapa (hemligheter), uppdatera (hemligheter), ta bort (hemligheter).
 
-## Så här installerar du
+## <a name="how-to-install"></a>Så här installerar du
 ```bash
 npm install azure-arm-datalake-analytics
 ```
 
-## Autentisera med hjälp av Azure Active Directory
+## <a name="authenticate-using-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -47,7 +51,7 @@ npm install azure-arm-datalake-analytics
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-## Skapa Data Lake Analytics-klient
+## <a name="create-the-data-lake-analytics-client"></a>Skapa Data Lake Analytics-klient
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
 var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
@@ -55,7 +59,7 @@ var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azur
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
 
-## Skapa ett Data Lake Analytics-konto
+## <a name="create-a-data-lake-analytics-account"></a>Skapa ett Data Lake Analytics-konto
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -104,7 +108,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-## Hämta en lista över jobb
+## <a name="get-a-list-of-jobs"></a>Hämta en lista över jobb
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -117,7 +121,7 @@ jobClient.job.list(accountName, function (err, result, request, response) {
 });
 ```
 
-## Hämta en lista över databaser i katalogen Data Lake Analytics
+## <a name="get-a-list-of-databases-in-the-data-lake-analytics-catalog"></a>Hämta en lista över databaser i katalogen Data Lake Analytics
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -130,10 +134,13 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## Se även
+## <a name="see-also"></a>Se även
 * [Microsoft Azure SDK för Node.js](https://github.com/azure/azure-sdk-for-node)
 * [Microsoft Azure SDK för Node.js – Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,4 @@
-* [Vad är Azure Apptjänst?](../articles/app-service/app-service-value-prop-what-is.md)
+* [Vad är Azure App Service?](../articles/app-service/app-service-value-prop-what-is.md)
   * [Webbapp](../articles/app-service-web/app-service-web-overview.md)
   * [Mobilapp](../articles/app-service-mobile/app-service-mobile-value-prop.md)
   * [API-app](../articles/app-service-api/app-service-api-apps-why-best-platform.md)
@@ -10,9 +10,11 @@
   * [Övning: Skapa en App Service-miljö](../articles/app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [Azure App Service-stöd för utvecklingsstackar](/blog/windows-azure-websites-development-stacks-support/)
 
-## Videoklipp
+## <a name="videos"></a>Videoklipp
 * [Azure App Service-arkitektur](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

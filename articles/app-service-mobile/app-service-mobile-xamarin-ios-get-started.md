@@ -1,12 +1,12 @@
 ---
-title: Kom igång med Azure Apptjänst Mobile Apps för Xamarin.iOS-appar | Microsoft Docs
-description: I den här kursen får du hjälp att komma igång med Mobile Apps för Xamarin.iOS-utveckling.
+title: "Kom igång med Azure Apptjänst Mobile Apps för Xamarin.iOS-appar | Microsoft Docs"
+description: "I den här kursen får du hjälp att komma igång med Mobile Apps för Xamarin.iOS-utveckling."
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cf8f9a06c4d720dade11ea67fc1befe07a56cf85
+
 
 ---
-# <a name="create-a-xamarin.ios-app"></a>Skapa en Xamarin.iOS-app
+# <a name="create-a-xamarinios-app"></a>Skapa en Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Översikt
@@ -32,7 +36,7 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 * En Mac med Xcode v7.0 eller senare och Xamarin Studio Community installerat. Se avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) och om [konfiguration, installation och verifieringar för Mac-användare](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 > [!NOTE]
-> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto, kan du gå till [Testa App Service](https://tryappservice.azure.com/?appServiceName=mobile). Där kan du direkt skapa en tillfällig startmobilapp i App Service. Det krävs inget kreditkort och du gör inga åtaganden.
+> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://tryappservice.azure.com/?appServiceName=mobile). Där kan du direkt skapa en tillfällig startmobilapp i App Service. Det krävs inget kreditkort och du gör inga åtaganden.
 > 
 > 
 
@@ -48,11 +52,11 @@ Följ följande steg för att konfigurera serverprojektet att använda sig av an
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarin.ios-app"></a>Hämta och kör Xamarin.iOS-appen
+## <a name="download-and-run-the-xamarinios-app"></a>Hämta och kör Xamarin.iOS-appen
 1. Öppna [Azure-portalen] i ett webbläsarfönster.
 2. På inställningsbladet för mobilappen klickar du på **Kom igång** > **Xamarin.iOS**. Vid steg 3, klickar du på **Skapa en ny app** om det inte redan är valt.  Klicka sedan på **Hämta**.
    
-    Ett klientprogram som ansluter till din mobila serverdel hämtas. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
+      Ett klientprogram som ansluter till din mobila serverdel hämtas. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
 3. Extrahera projektet som du laddade ned och öppna det i Xamarin Studio (eller Visual Studio).
    
     ![][9]
@@ -92,6 +96,6 @@ Följ följande steg för att konfigurera serverprojektet att använda sig av an
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

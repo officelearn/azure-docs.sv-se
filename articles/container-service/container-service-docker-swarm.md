@@ -1,24 +1,28 @@
 ---
-title: Azure Container Service-hantering av behållare med Docker Swarm | Microsoft Docs
-description: Distribuera behållare till Docker Swarm i Azure Container Service
+title: "Azure Container Service-hantering av behållare med Docker Swarm | Microsoft Docs"
+description: "Distribuera behållare till Docker Swarm i Azure Container Service"
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, behållare, Micro-tjänster, Mesos, Azure
-
+keywords: "Docker, behållare, Micro-tjänster, Mesos, Azure"
+ms.assetid: af8f6fb2-13dc-429c-b82a-24a741168d42
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: nepeters
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 99953be1a9d99cc1fdd5cd46522ccd262c09e25b
+
 
 ---
-# Behållarhantering med Docker Swarm
+# <a name="container-management-with-docker-swarm"></a>Behållarhantering med Docker Swarm
 Med Docker Swarm skapas en miljö för distribuering av arbetsbelastningar i behållare över en pooluppsättning med Docker-värdar. Docker Swarm använder interna Docker API. Arbetsflödet för att hantera behållare i Docker Swarm är ungefär detsamma som det skulle ha varit på en enskild behållarvärd. Det här dokumentet innehåller enkla exempel på distribution av arbetsbelastningar i behållare i en Azure Container Service-instans av Docker Swarm. Mer detaljerad dokumentation om Docker Swarm finns i [Docker Swarm på Docker.com](https://docs.docker.com/swarm/).
 
 Förutsättningar för att kunna göra övningarna i det här dokumentet:
@@ -27,7 +31,7 @@ Förutsättningar för att kunna göra övningarna i det här dokumentet:
 
 [Anslut till Swarm-klustret i Azure Container Service](container-service-connect.md)
 
-## Distribuera en ny behållare
+## <a name="deploy-a-new-container"></a>Distribuera en ny behållare
 För att skapa en ny behållare i Docker Swarm använder du `docker run`-kommandot (se till att du har öppnat en SSH-tunnel till huvudservrarna enligt kraven ovan). I det här exemplet skapas en behållare från avbildningen `yeasy/simple-web`:
 
 ```bash
@@ -51,7 +55,7 @@ Du kan nu komma åt programmet som körs i den här behållaren via det offentli
 
 Som standard har belastningsutjämnaren portarna 80, 8080 och 443 öppna. Om du vill ansluta till en annan port måste du öppna den porten på Azure Load Balancer för agentpoolen.
 
-## Distribuera flera behållare
+## <a name="deploy-multiple-containers"></a>Distribuera flera behållare
 När flera behållare startas, genom att köra i ”docker run” flera gånger, kan du använda kommandot `docker ps` för att se vilka värdar som behållarna körs på. I det här exemplet är tre behållare jämnt fördelade över de tre Swarm-agenterna:  
 
 ```bash
@@ -63,7 +67,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   2 minutes ago       Up 2 minutes        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-## Distribuera behållare med Docker Compose
+## <a name="deploy-containers-by-using-docker-compose"></a>Distribuera behållare med Docker Compose
 Du kan använda Docker Compose för att automatisera distribution och konfiguration av flera behållare. Om du vill göra det måste du kontrollera att en SSH-tunnel (Secure Shell) har skapats och att variabeln DOCKER_HOST har angetts (se kraven ovan).
 
 Skapa filen docker-compose.yml på ditt lokala system. Använd det här [exemplet](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml) för att göra det.
@@ -109,9 +113,12 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 Naturligtvis kan du använda `docker-compose ps` för att bara undersöka de behållare som definieras i din `compose.yml`-fil.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 [Mer information om Docker Swarm](https://docs.docker.com/swarm/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

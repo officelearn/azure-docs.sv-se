@@ -1,5 +1,5 @@
-## Skapa en händelsehubb
-1. Logga in på [Azure Portal][Azure Portal] och klicka på **Ny** högst upp till vänster på skärmen.
+## <a name="create-an-event-hub"></a>Skapa en händelsehubb
+1. Logga in på [Azure-portalen][Azure-portalen] och klicka på **Ny** högst upp till vänster på skärmen.
 2. Klicka på **Data + Analytics** och därefter på **Händelsehubbar**.
    
     ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
@@ -34,6 +34,6 @@ Din händelsehubb har nu skapats och du har de anslutningssträngar som du behö
 
 [Azure Portal]: https://portal.azure.com/
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

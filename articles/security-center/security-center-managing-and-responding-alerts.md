@@ -1,30 +1,34 @@
 ---
-title: Hantera och åtgärda säkerhetsaviseringar i Azure Security Center | Microsoft Docs
-description: I det här dokumentet beskrivs hur du hanterar och åtgärdar säkerhetsaviseringar med hjälp av funktionerna i Azure Security Center.
+title: "Hantera och åtgärda säkerhetsaviseringar i Azure Security Center | Microsoft Docs"
+description: "I det här dokumentet beskrivs hur du hanterar och åtgärdar säkerhetsaviseringar med hjälp av funktionerna i Azure Security Center."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+ms.date: 10/17/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8bf0ca0768939cbc99947191eab80a789f551363
+
 
 ---
-# Hantera och åtgärda säkerhetsaviseringar i Azure Security Center
+# <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Hantera och åtgärda säkerhetsaviseringar i Azure Security Center
 Det här dokumentet beskriver hur du använder Azure Security Center för att hantera och svara på säkerhetsvarningar.
 
 > [!NOTE]
-> För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. En kostnadsfri 90-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
+> För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. En kostnadsfri 90-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
 > 
 > 
 
-## Vad är säkerhetsaviseringar?
+## <a name="what-are-security-alerts"></a>Vad är säkerhetsaviseringar?
 Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar som brandväggs- och slutpunktsskyddslösningar för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. En lista över prioriterade säkerhetsvarningar visas i Security Center tillsammans med den information som du behöver för att snabbt undersöka problemet, samt rekommendationer för hur du åtgärdar ett angrepp. Azure Security Center visar också varningar om ”kill chain”-mönster i [Incidenter](security-center-incident.md). 
 
 > [!NOTE]
@@ -32,7 +36,7 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 > 
 > 
 
-## Hantera säkerhetsaviseringar
+## <a name="managing-security-alerts"></a>Hantera säkerhetsaviseringar
 Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)**. Öppna Azure Portal och följ stegen nedan om du vill ha mer information om varje typ av varning:
 
 1. På instrumentpanelen i Security Center hittar du rutan **Security alerts (Säkerhetsaviseringar)**.
@@ -54,7 +58,7 @@ Längst ned i bladet visas information om de olika aviseringarna. Du kan sortera
   * **Dismissed (Avvisad)**: Säkerhetsaviseringen har avvisats av användaren. Den här statusen visas oftast för problem som undersökts men som avhjälpts eller som visat sig inte vara något verkligt angrepp.
 * **Severity (Allvarlighetsgrad)**: kan vara hög, medelhög eller låg
 
-### Filtrera varningar
+### <a name="filtering-alerts"></a>Filtrera varningar
 Aviseringarna kan filtreras efter datum, status och allvarlighetsgrad. Att filtrera kan vara bra när du vill begränsa hur många aviseringar du vill se. Kanske vill du till exempel se säkerhetsaviseringar från det senaste dygnet eftersom du undersöker ett potentiellt angrepp i systemet under den här tiden.
 
 1. Klicka på **Filter** på bladet **Security Alerts (Säkerhetsaviseringar)**. Bladet **Filter** öppnas där du kan välja datum, status och vilka allvarlighetsgrader du vill se.
@@ -64,7 +68,7 @@ Aviseringarna kan filtreras efter datum, status och allvarlighetsgrad. Att filtr
    
    ![Ignorera varningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4-ga.png)
 
-### Åtgärda säkerhetsaviseringar
+### <a name="respond-to-security-alerts"></a>Åtgärda säkerhetsaviseringar
 Om du klickar på en säkerhetsavisering får du se vad det var som utlöste aviseringen och om det finns något du kan göra för att stoppa ett pågående angrepp. Säkerhetsaviseringarna är indelade i grupper efter typ och datum. När du klickar på en säkerhetsavisering öppnas ett blad med en lista över de gruppindelade aviseringarna.
 
 ![Åtgärda säkerhetsaviseringar i Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
@@ -82,15 +86,18 @@ Vilka åtgärder som rekommenderas varierar beroende på typ av säkerhetsaviser
 > 
 > 
 
-## Se även
+## <a name="see-also"></a>Se även
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Hantera säkerhetsincidenter i Azure Security Center](security-center-incident.md)
 * [Identifieringsfunktioner i Azure Security Center](security-center-detection-capabilities.md)
-* [Planering- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här finns vanliga frågor om tjänsten.
+* [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
+* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

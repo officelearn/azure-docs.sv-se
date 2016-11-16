@@ -1,27 +1,32 @@
 ---
 title: Analysera data med Azure Machine Learning | Microsoft Docs
-description: Använd Azure Machine Learning för att skapa en förutsägbar Machine Learning-modell som baseras på data lagrade i Azure SQL Data Warehouse.
+description: "Använd Azure Machine Learning för att skapa en förutsägbar Machine Learning-modell som baseras på data lagrade i Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/14/2016
-ms.author: kevin;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: kevin;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+
 
 ---
-# Analysera data med Azure Machine Learning
+# <a name="analyze-data-with-azure-machine-learning"></a>Analysera data med Azure Machine Learning
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,12 +36,12 @@ Denna självstudie använder Azure Machine Learning för att skapa en förutsäg
 > 
 > 
 
-## Krav
+## <a name="prerequisites"></a>Krav
 För att gå igenom de här självstudierna, behöver du:
 
 * Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta, se [Skapa ett SQL Data Warehouse][Skapa ett SQL Data Warehouse] och välj att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt][läsa in exempeldata manuellt].
 
-## 1. Hämta data
+## <a name="1-get-data"></a>1. Hämta data
 Aktuella data finns i dbo.vTargetMail-vyn i AdventureWorksDW-databasen. Så här läser du in dessa data:
 
 1. Logga in på [Azure Machine Learning-studio][Azure Machine Learning-studio] och klicka på mina experiment.
@@ -72,7 +77,7 @@ Kör försöket genom att klicka på **Kör** under experimentets arbetsyta.
 När experimentet har körts, klicka på utdataporten längst ned i läsarmodulen och välj **Visualisera** för att se data som importerats.
 ![Visa data som importerats][3]
 
-## 2. Rensa data
+## <a name="2-clean-the-data"></a>2. Rensa data
 För att rensa data kommer vi att släppa vissa kolumner som inte är relevanta för modellen. Gör så här:
 
 1. Dra modulen **Projektkolumner** till arbetsytan.
@@ -81,7 +86,7 @@ För att rensa data kommer vi att släppa vissa kolumner som inte är relevanta 
 3. Exkludera två kolumner: CustomerAlternateKey och GeographyKey.
    ![Ta bort onödiga kolumner][5]
 
-## 3. Skapa modellen
+## <a name="3-build-the-model"></a>3. Skapa modellen
 Vi delar data 80–20: 80 % för att träna en maskininlärningsmodell och 20 % för att testa modellen. Vi använder ”Tvåklassalgoritmer” för detta binära klassificeringsproblem.
 
 1. Dra modulen **Dela** till arbetsytan.
@@ -95,11 +100,11 @@ Vi delar data 80–20: 80 % för att träna en maskininlärningsmodell och 20 % 
 5. Välj kolumnen **BikeBuyer** som kolumn att förutsäga.
    ![Välj kolumn att förutsäga][8]
 
-## 4. Poängsätt modellen
+## <a name="4-score-the-model"></a>4. Poängsätt modellen
 Vi kommer nu att testa hur modellen presterar på testdata. Vi kommer att jämföra algoritmen vi valt med en annan algoritm för att se vilken som presterar bäst.
 
 1. Dra modulen **Poängmodell** till arbetsytan.
-    Första indata: tränad modell, Andra indata: testdata ![poängsätt modellen][9]
+    Första indata: tränad modell, andra indata: testdata ![poängsätt modellen][9]
 2. Dra **Tvåklass, Bayes Point-dator** till arbetsytan för experimentet. Vi kommer att jämföra hur den här algoritmen presterar i jämförelse med det tvåklassförhöjda beslutsträdet.
 3. Kopiera och klistra in modulerna Träningsmodell och Poängmodell i arbetsytan.
 4. Dra modulen **Utvärdera modell** till arbetsytan för att jämföra de två algoritmerna.
@@ -118,7 +123,7 @@ Du ser två kolumner som läggs till i testdata.
 
 Genom att jämföra kolumnen BikeBuyer (faktiska) med Poängsatta etiketter (förutsagda), kan du se hur väl modellen har utförts. Du kan använda den här modellen som nästa steg för att göra förutsägelser för nya kunder och publicera den här modellen som en webbtjänst eller skriva resultaten tillbaka till SQL Data Warehouse.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Mer information om hur du skapar förutsägbara maskininlärningsmodeller finns i [Introduktion till Machine Learning på Azure][Introduktion till Machine Learning på Azure].
 
 <!--Image references-->
@@ -144,6 +149,6 @@ Mer information om hur du skapar förutsägbara maskininlärningsmodeller finns 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

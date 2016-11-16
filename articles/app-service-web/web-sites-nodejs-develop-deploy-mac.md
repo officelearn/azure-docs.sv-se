@@ -1,22 +1,26 @@
 ---
 title: Skapa en Node.js-webbapp i Azure App Service | Microsoft Docs
-description: Lär dig hur du distribuerar ett Node.js-program till en webbapp i Azure App Service.
+description: "Lär dig hur du distribuerar ett Node.js-program till en webbapp i Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 85af23df-54af-4430-8d77-a1f97e2f5b10
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+
 
 ---
-# Skapa en Node.js-webbapp i Azure App Service
+# <a name="create-a-nodejs-web-app-in-azure-app-service"></a>Skapa en Node.js-webbapp i Azure App Service
 > [!div class="op_single_selector"]
 > * [.Net](web-sites-dotnet-get-started.md)
 > * [Node.js](web-sites-nodejs-develop-deploy-mac.md)
@@ -47,7 +51,7 @@ I [Node.js Developer Center](/develop/nodejs/) hittar du kurser och exempelkod f
 > 
 > 
 
-## Skapa en webbapp och aktivera Git-publicering
+## <a name="create-a-web-app-and-enable-git-publishing"></a>Skapa en webbapp och aktivera Git-publicering
 Följ de här anvisningarna för att skapa en webbapp i Azure App Service och aktivera Git-publicering. 
 
 [Git](http://git-scm.com/) är ett kontrollsystem för distribuerade versioner som du kan använda till att distribuera din Azure-webbplats. Du lagrar koden du skriver för webbappen på en lokal Git-lagringsplats och du distribuerar koden till Azure genom att push-överföra den till en fjärransluten lagringsplats. Den här distributionsmetoden gäller för App Service-webbappar.  
@@ -63,7 +67,7 @@ Följ de här anvisningarna för att skapa en webbapp i Azure App Service och ak
 5. Välj en **prenumeration**.
 6. Välj en **Resursgrupp** eller skapa en ny.
    
-    Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../resource-group-overview.md).
+    Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 7. Välj en **App Service-plan/plats** eller skapa en ny.
    
     Mer information om App Service-planer finns i [Översikt över Azure App Service-planer](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
@@ -97,7 +101,7 @@ Följ de här anvisningarna för att skapa en webbapp i Azure App Service och ak
     
     ![][git-url]
 
-## Skapa och testa programmet lokalt
+## <a name="build-and-test-your-application-locally"></a>Skapa och testa programmet lokalt
 I det här avsnittet får du skapa en **server.js**-fil som innehåller en något justerad version av exemplet med hälsningsmeddelandet"Hello World" från [nodejs.org]. Koden lägger till process.env.PORT som port för inkommande kommunikation när den körs i en Azure-webbapp.
 
 1. Skapa en katalog med namnet *helloworld*.
@@ -119,7 +123,7 @@ I det här avsnittet får du skapa en **server.js**-fil som innehåller en någo
    
     ![Webbläsare med hälsningsmeddelande][helloworld-localhost]
 
-## Publicera programmet
+## <a name="publish-your-application"></a>Publicera programmet
 1. Installera Git om du inte redan gjort det.
    
     Installationsanvisningar för din plattform finns på [Git-nedladdningssidan](http://git-scm.com/download).
@@ -158,7 +162,7 @@ I det här avsnittet får du skapa en **server.js**-fil som innehåller en någo
    
     ![Hälsningsmeddelande i Azure](./media/web-sites-nodejs-develop-deploy-mac/helloworldazure.png)
 
-## Publicera ändringar i programmet
+## <a name="publish-changes-to-your-application"></a>Publicera ändringar i programmet
 1. Öppna **server.js**-filen i en textredigerare och ändra 'Hello World\n' till 'Hello Azure\n'. 
 2. Spara filen.
 3. Från kommandoraden ändrar du katalog till katalogen **helloworld** och kör följande kommandon.
@@ -172,10 +176,10 @@ I det här avsnittet får du skapa en **server.js**-fil som innehåller en någo
    
     ![En webbsida med hälsningsmeddelandet "Hello Azure"][helloworld-completed]
 
-## Återställa en distribution
+## <a name="roll-back-a-deployment"></a>Återställa en distribution
 Från bladet **Webbapp** kan du klicka på **Inställningar > Kontinuerlig distribution** om du vill visa distributionshistoriken i bladet **Distributioner**. Om du behöver återställa till en tidigare distribution kan du välja den och sedan klicka på **Distribuera om** i bladet **Distributionsinformation**.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Du har distribuerat ett Node.js-program till en webbapp i Azure App Service. Läs mer om hur Webbappar i App Service kör Node.js-program i [Azure App Service Web Apps](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) och [ Ange en Node.js-version i ett Azure-program](../nodejs-specify-node-version-azure-apps.md).
 
 Med Node.js får du tillgång till ett omfattande utbud moduler som kan användas av programmen. Läs mer om hur Web Apps fungerar med moduler i [Använda Node.js-moduler med Azure-program](../nodejs-use-node-modules-azure-apps.md).
@@ -198,6 +202,6 @@ Mer information om hur du utvecklar Node.js-program i Azure finns i [Node.js Dev
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

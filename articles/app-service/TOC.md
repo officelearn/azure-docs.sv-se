@@ -1,16 +1,17 @@
-# [Overview](app-service-how-works-readme.md)
-## [What is App Service](app-service-value-prop-what-is.md)
-## [App Service plans](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+# Översikt
+## [Vad är App Service?](app-service-value-prop-what-is.md)
+## [Hur det fungerar](app-service-how-works-readme.md)
+## [App Service-planer](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-# Get started
+# Kom igång
 
-## Create API app
+## Skapa en API-app
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
 ### [Java](../app-service-api/app-service-api-java-api-app.md)
 ### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
 ### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
 
-## Create mobile app
+## Skapa en mobilapp
 ### [Android](../app-service-mobile/app-service-mobile-android-get-started.md)
 ### [Cordova](../app-service-mobile/app-service-mobile-cordova-get-started.md)
 ### [iOS](../app-service-mobile/app-service-mobile-ios-get-started.md)
@@ -19,145 +20,144 @@
 ### [Xamarin.Forms](../app-service-mobile/app-service-mobile-xamarin-forms-get-started.md)
 ### [Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md)
 
-## Create web app
+## Skapa webbapp
 ### [.NET](../app-service-web/web-sites-dotnet-get-started.md)
 ### [Node.js](../app-service-web/app-service-web-nodejs-get-started.md)
 ### [Python](../app-service-web/web-sites-python-ptvs-django-mysql.md)
 ### [Java](../app-service-web/web-sites-java-get-started.md)
-### [Marketplace app](../app-service-web/web-sites-php-web-site-gallery.md)
+### [Marketplace-app](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# How to
+# Gör så här för att
 
-## Plan & design
-### [Best Practices for Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Azure App Service and existing Azure services](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [App Service plans in-depth](azure-web-sites-web-hosting-plans-in-depth-overview.md)
-### [High-density hosting](app-service-high-density-hosting.md)
-### [App Service on Linux](app-service-linux-readme.md)
-### [Using WebJobs in Azure App Service](app-service-webjobs-readme.md)
+## Planera och designa
+### [Metodtips för Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Azure App Service och befintliga Azure-tjänster](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Detaljerad översikt över App Service-planer](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+### [Högdensitetsvärd](app-service-high-density-hosting.md)
+### [App Service på Linux](app-service-linux-readme.md)
+### [Använda WebJobs i Azure App Service](app-service-webjobs-readme.md)
 ### [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [App Service Environment documentation](app-service-app-service-environments-readme.md)
+#### [Dokumentation för App Service Environment](app-service-app-service-environments-readme.md)
 
-## Develop
+## Utveckla
 
-### Web Jobs
-#### [What is the Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Create a .NET WebJob in Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [How to use Azure queue storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [How to use Azure Service Bus with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [How to use Azure table storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### Webbjobb
+#### [Vad är Azure WebJobs-SDK?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Skapa ett .NET WebJob i Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Använda Azure Blob Storage med WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Använda Azure Queue Storage med WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Använda Azure Service Bus med WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Använda Azure Table Storage med WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### App Service Environment
-#### [Create a web app in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [How To Create an ILB ASE Using Azure Resource Manager Templates](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Using an Internal Load Balancer](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Skapa en webbapp i en App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Skapa en ILB ASE med hjälp av Azure Resource Manager-mallar](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Använda en intern belastningsutjämnare](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-## [Deploy](app-service-deployment-readme.md)
-### [Deploy to App Service](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Cloud sync deployment](../app-service-web/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Continuous deployment](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Staging environments](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Local Git deployment](../app-service-web/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Deploy WebJobs using Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Distribuera](app-service-deployment-readme.md)
+### [Distribuera till App Service](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Molnsynkronisera distributionen](../app-service-web/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Kontinuerlig distribution](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Mellanlagringsmiljöer](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Lokal Git-distribution](../app-service-web/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Distribuera WebJobs med hjälp av Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-## [Scale](app-service-scale-readme.md)
-### [Scale-up an app](../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Skalning](app-service-scale-readme.md)
+### [Skala upp en app](../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [App Service Environment](app-service-app-service-environments-readme.md)
-#### [Geo Distributed Scale with App Service Environments](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Scaling apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
-#### [Autoscale in App Service Environment](app-service-environment-auto-scale.md)
+#### [Geodistribuerad skalning med App Service Environment](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Skala appar i en App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+#### [Skala automatiskt i App Service Environment](app-service-environment-auto-scale.md)
 
-## Manage
-### [Configure](../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### Custom domains
-#### [Buy and configure custom domains](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Map your own custom domain](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Configure GoDaddy domains](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Custom domains with Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## Hantera
+### [Konfigurera](../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### Anpassade domäner
+#### [Köpa och konfigurera anpassade domäner](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Mappa din egen anpassade domän](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Konfigurera GoDaddy-domäner](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Anpassade domäner med Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-### [Clone an existing app](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [On-premises connections](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Klona en befintlig app](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Lokala anslutningar](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Advanced configuration](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Resource groups](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Web Jobs](app-service-webjobs-readme.md)
-#### [Run Background tasks with WebJobs](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Avancerad konfiguration](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Resursgrupper](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Webbjobb](app-service-webjobs-readme.md)
+#### [Köra bakgrundsuppgifter med WebJobs](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [App Service Environment](app-service-app-service-environments-readme.md)
-#### [Configure](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Custom configuration settings](../app-service-web/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [How to control inbound traffic](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Network architecture overview](../app-service-web/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Network configuration details with ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Konfigurera](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Anpassade konfigurationsinställningar](../app-service-web/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Kontrollera inkommande trafik](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Översikt över nätverksarkitekturen](../app-service-web/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Nätverkskonfigurationsinformation med ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-## [Secure](app-service-security-readme.md)
-### [Secure an app in Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Authentication and authorization](app-service-authentication-overview.md)
-### Authenticate with identity providers
-#### [Azure Active Directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Facebook authentication](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Google authentication](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Microsoft Account authentication](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Twitter authentication](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Authenticate with on-premises Active Directory](../app-service-web/web-sites-authentication-authorization.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Skydda](app-service-security-readme.md)
+### [Skydda en app i Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Autentisering och auktorisering](app-service-authentication-overview.md)
+### Autentisera med identitetsproviders
+#### [Azure Active Directory-autentisering](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Facebook-autentisering](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Google-autentisering](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Microsoft-kontoautentisering](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Twitter-autentisering](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Autentisera med lokal Active Directory](../app-service-web/web-sites-authentication-authorization.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### HTTPS
-#### [Configure TLS Mutual Authentication ](../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Buy an SSL certificate in Azure](../app-service-web/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Use an SSL certificate obtained elsewhere](../app-service-web/web-sites-configure-ssl-certificate.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Konfigurera ömsesidig TLS-autentisering](../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Köpa ett SSL-certifikat i Azure](../app-service-web/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Använda ett SSL-certifikat som hämtats någon annanstans](../app-service-web/web-sites-configure-ssl-certificate.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-### Secure an App Service Environment
-#### [Configure a web application firewall](../app-service-web/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Implement a layered security architecture](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Securely Connecting to Backend Resources](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### Skydda en App Service Environment
+#### [Konfigurera en brandvägg för en webbapp](../app-service-web/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Implementera en arkitektur med flernivåsäkerhet](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Ansluta säkert till serverdelsresurser](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## Backup
-### [Back up your app in Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Restore an app in Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Use REST to back up and restore App Service apps](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Säkerhetskopiera din app i Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Återställa en app i Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Använda REST för att säkerhetskopiera och återställa App Service-appar](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-## [Monitor](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Enable diagnostics logging ](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Troubleshoot using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Övervaka](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Aktivera diagnostikloggning](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Felsöka med hjälp av Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-## Automate
-### [Agile development](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Azure Resource Manager deployment](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web + GitHub ](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web + SQL ](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [MSDeploy with custom hostname and SSL certificate](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### Powershell
-#### [Automate backup and restore](app-service-powershell-backup.md)
-#### [App cloning](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [SSL Certificate Binding](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Use Azure Resource Manager with PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Manage apps using Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## Automatisera
+### [Smidig utveckling](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Azure Resource Manager-distribution](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Webb och GitHub](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Webb och SQL](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [MSDeploy med anpassat värdnamn och SSL-certifikat](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### PowerShell
+#### [Automatisera säkerhetskopiering och återställning](app-service-powershell-backup.md)
+#### [Appkloning](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [SSL-certifikatbindning](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Använda Azure Resource Manager med PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Hantera appar med Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-## Integrate
-### [Access on-premises resources using hybrid connections](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Send email using SendGrid with Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## Integrera
+### [Få tillgång till lokala resurser med hjälp av hybridanslutningar](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Skicka e-post med hjälp av SendGrid med Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-## Troubleshoot
-### [Enable diagnostics logging](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Streaming logs and the console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Troubleshoot using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## Felsöka
+### [Aktivera diagnostikloggning](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Strömningsloggar och konsolen](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Felsöka med hjälp av Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# Reference
-## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [App Service reference](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [Best practices](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [WebJob resources](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
+# Referens
+## [Azure-portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [App Service-referens](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Bästa praxis](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [WebJob-resurser](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
 
-# Related
-## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-
-
-
-
-
-
+# Resurser
+## [Prissättning](https://azure.microsoft.com/pricing/details/app-service/)  
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=app-service) 
 
 <!--HONumber=Nov16_HO2-->
 

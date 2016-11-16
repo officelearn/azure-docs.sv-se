@@ -1,198 +1,201 @@
-# Overview
-## [What is Service Fabric?](service-fabric-overview.md)
-## [Understand microservices](service-fabric-overview-microservices.md)
-## [Application scenarios](service-fabric-application-scenarios.md)
-## [Architecture](service-fabric-architecture.md)
+# Översikt
+## [Vad är Service Fabric?](service-fabric-overview.md)
+## [Förstå mikrotjänster](service-fabric-overview-microservices.md)
+## [Programscenarier](service-fabric-application-scenarios.md)
+## [Arkitektur](service-fabric-architecture.md)
 
-# Get Started
-## Set up your development environment
+# Kom igång
+## Ställ in din utvecklingsmiljö
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-## Create your first application
-### [C# on Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-### [Java on Linux](service-fabric-create-your-first-linux-application-with-java.md)
-### [C# on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-## [Deploy apps on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
+## Skapa ditt första program
+### [C# i Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+### [Java i Linux](service-fabric-create-your-first-linux-application-with-java.md)
+### [C# i Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+## [Distribuera appar i ett lokalt kluster](service-fabric-get-started-with-a-local-cluster.md)
 
-# How To
-## Build an application
-### Basics
-#### [Programming model](service-fabric-choose-framework.md)
-#### [Application model](service-fabric-application-model.md)
-#### [Service communication](service-fabric-connect-and-communicate-with-services.md)
-#### [Tools](service-fabric-manage-application-in-visual-studio.md)
-#### [Debug](service-fabric-debugging-your-application.md)
-#### Monitor and diagnose
+# Gör så här för att
+## Skapa ett program
+### Grundläggande inställningar
+#### [Programmeringsmodell](service-fabric-choose-framework.md)
+#### [Programmodell](service-fabric-application-model.md)
+#### [Tjänstkommunikation](service-fabric-connect-and-communicate-with-services.md)
+#### [Verktyg](service-fabric-manage-application-in-visual-studio.md)
+#### [Felsökning](service-fabric-debugging-your-application.md)
+#### Övervaka och diagnostisera
 ##### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ##### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-#### [Configure security policies for your application](service-fabric-application-runas-security.md)
-#### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
+#### [Konfigurera säkerhetsprinciper för ditt program](service-fabric-application-runas-security.md)
+#### [Konfigurera ditt program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md)
 
-### Reliable Service application
-#### [Overview](service-fabric-reliable-services-introduction.md)
-#### Get started
-##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
-##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Architecture](service-fabric-reliable-services-platform-architecture.md)
-#### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-#### [Use Reliable Collections](service-fabric-work-with-reliable-collections.md)
-#### [Configure](service-fabric-reliable-services-configuration.md)
-#### [Notifications](service-fabric-reliable-services-notifications.md)
-#### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
-#### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
+### Reliable Services-program
+#### [Översikt](service-fabric-reliable-services-introduction.md)
+#### Kom igång
+##### [C# i Windows](service-fabric-reliable-services-quick-start.md)
+##### [Java i Linux](service-fabric-reliable-services-quick-start-java.md)
+#### [Arkitektur](service-fabric-reliable-services-platform-architecture.md)
+#### [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
+#### [Använd Reliable Collections](service-fabric-work-with-reliable-collections.md)
+#### [Konfigurera](service-fabric-reliable-services-configuration.md)
+#### [Meddelanden](service-fabric-reliable-services-notifications.md)
+#### [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
+#### [Kommunicera med Reliable Services](service-fabric-reliable-services-communication.md)
 ##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
-##### [Service Remoting](service-fabric-reliable-services-communication-remoting.md)
+##### [Fjärrtjänst](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
-##### [Reverse Proxy](service-fabric-reverseproxy.md)
-#### [Advanced usage](service-fabric-reliable-services-advanced-usage.md)
+##### [Omvänd proxy](service-fabric-reverseproxy.md)
+#### [Avancerad användning](service-fabric-reliable-services-advanced-usage.md)
 
-### Reliable Actor application
-#### [Overview](service-fabric-reliable-actors-introduction.md)
-#### Get Started
-##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
-#### [Architecture](service-fabric-reliable-actors-platform.md)
-#### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-#### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
-#### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
-#### [Timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
-#### [Events](service-fabric-reliable-actors-events.md)
-#### [State management](service-fabric-reliable-actors-state-management.md)
-#### [Configure state provider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+### Reliable Actor-program
+#### [Översikt](service-fabric-reliable-actors-introduction.md)
+#### Kom igång
+##### [C# i Windows](service-fabric-reliable-actors-get-started.md)
+##### [Java i Linux](service-fabric-reliable-actors-get-started-java.md)
+#### [Arkitektur](service-fabric-reliable-actors-platform.md)
+#### [Livscykel och skräpinsamling](service-fabric-reliable-actors-lifecycle.md)
+#### [Polymorfism](service-fabric-reliable-actors-polymorphism.md)
+#### [Återinträde](service-fabric-reliable-actors-reentrancy.md)
+#### [Timers och påminnelser](service-fabric-reliable-actors-timers-reminders.md)
+#### [Händelser](service-fabric-reliable-actors-events.md)
+#### [Tillståndshantering](service-fabric-reliable-actors-state-management.md)
+#### [Konfigurera tillståndsprovider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [Typserialisering](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
-### Guest executable application
-#### [Deploy a guest executable](service-fabric-deploy-existing-app.md)
-#### [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
+### Körbart gästprogram
+#### [Distribuera en körbar gäst](service-fabric-deploy-existing-app.md)
+#### [Distribuera flera körbara gäster](service-fabric-deploy-multiple-apps.md)
 
-### Container application
-#### [Overview](service-fabric-containers-overview.md)
-#### [Deploy Windows container](service-fabric-deploy-container.md)
-#### [Deploy Docker container](service-fabric-deploy-container-linux.md)
+### Behållarprogram
+#### [Översikt](service-fabric-containers-overview.md)
+#### [Distribuera Windows-behållare](service-fabric-deploy-container.md)
+#### [Distribuera Docker-behållare](service-fabric-deploy-container-linux.md)
 
-## Migrate from Cloud Services
-### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
-### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+## Migrera från Cloud Services
+### [Jämför Cloud Services med Service Fabric](service-fabric-cloud-services-migration-differences.md)
+### [Migrera till Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
-## Create and manage clusters
+## Skapa och hantera kluster
 
-### Basics
-#### [Overview](service-fabric-deploy-anywhere.md)
-#### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Capacity planning](service-fabric-cluster-capacity.md)
-#### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
-#### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
-#### [Security](service-fabric-cluster-security.md)
-#### [Disaster recovery](service-fabric-disaster-recovery.md)
+### Grundläggande inställningar
+#### [Översikt](service-fabric-deploy-anywhere.md)
+#### [Beskriv ett kluster](service-fabric-cluster-resource-manager-cluster-description.md)
+#### [Kapacitetsplanering](service-fabric-cluster-capacity.md)
+#### [Visualisera ett kluster](service-fabric-visualizing-your-cluster.md)
+#### [Ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md)
+#### [Säkerhet](service-fabric-cluster-security.md)
+#### [Haveriberedskap](service-fabric-disaster-recovery.md)
 
-### Clusters on Azure
-#### Create a cluster on Azure
-##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
+### Kluster i Azure
+#### Skapa ett kluster på Azure
+##### [Azure-portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-#### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
-#### [Scale a cluster](service-fabric-cluster-scale-up-down.md)
-#### [Upgrade a cluster](service-fabric-cluster-upgrade.md)
-#### [Delete a cluster](service-fabric-cluster-delete.md)
-#### [Access control](service-fabric-cluster-security-roles.md)
-#### [Configure a cluster](service-fabric-cluster-fabric-settings.md)
-#### [Try a Party Cluster for free](http://aka.ms/tryservicefabric)
+#### [Nodtyper och skalningsuppsättningar för virtuella datorer](service-fabric-cluster-nodetypes.md)
+#### [Skala ett kluster](service-fabric-cluster-scale-up-down.md)
+#### [Uppgradera ett kluster](service-fabric-cluster-upgrade.md)
+#### [Ta bort ett kluster](service-fabric-cluster-delete.md)
+#### [Åtkomstkontroll](service-fabric-cluster-security-roles.md)
+#### [Konfigurera ett kluster](service-fabric-cluster-fabric-settings.md)
+#### [Testa ett Party-kluster utan kostnad](http://aka.ms/tryservicefabric)
 
-### Standalone clusters
-#### [Create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md)
-#### [Scale a cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
-#### [Upgrade a cluster](service-fabric-cluster-upgrade-windows-server.md)
-#### [Secure a cluster](service-fabric-windows-cluster-x509-security.md)
-#### [Access control](service-fabric-cluster-security-roles.md)
-#### [Configure a cluster](service-fabric-cluster-manifest.md)
+### Fristående kluster
+#### [Skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md)
+#### [Skala ett kluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
+#### [Uppgradera ett kluster](service-fabric-cluster-upgrade-windows-server.md)
+#### [Säkra ett kluster](service-fabric-windows-cluster-x509-security.md)
+#### [Åtkomstkontroll](service-fabric-cluster-security-roles.md)
+#### [Konfigurera ett kluster](service-fabric-cluster-manifest.md)
 
-## Manage and orchestrate cluster resources
-### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
-### [Cluster Resource Manager architecture](service-fabric-cluster-resource-manager-architecture.md)
-### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-### [Application groups overview](service-fabric-cluster-resource-manager-application-groups.md)
-### [Configure Cluster Resource Manager settings](service-fabric-cluster-resource-manager-configure-services.md)
-### [Resource consumption metrics](service-fabric-cluster-resource-manager-metrics.md)
-### [Use service affinity](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-### [Service placement policies](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-### [Manage a cluster](service-fabric-cluster-resource-manager-management-integration.md)
-### [Cluster defragmentation](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-### [Balance a cluster](service-fabric-cluster-resource-manager-balancing.md)
-### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
-### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
+## Hantera och dirigera klusterresurser
+### [Översikt över Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+### [Cluster Resource Manager-arkitektur](service-fabric-cluster-resource-manager-architecture.md)
+### [Beskriv ett kluster](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Översikt över programgrupper](service-fabric-cluster-resource-manager-application-groups.md)
+### [Konfigurera inställningar för Cluster Resource Manager](service-fabric-cluster-resource-manager-configure-services.md)
+### [Statistik över resursförbrukning](service-fabric-cluster-resource-manager-metrics.md)
+### [Använd tjänsttillhörighet](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+### [Placeringsprinciper av tjänster](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+### [Hantera ett kluster](service-fabric-cluster-resource-manager-management-integration.md)
+### [Klusterdefragmentering](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+### [Balansera ett kluster](service-fabric-cluster-resource-manager-balancing.md)
+### [Begränsning](service-fabric-cluster-resource-manager-advanced-throttling.md)
+### [Tjänstflöde](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Manage application lifecycle
-### [Overview](service-fabric-application-lifecycle.md)
-### [Set up continuous integration](service-fabric-set-up-continuous-integration.md)
-### Deploy or remove applications
+## Hantera programlivscykel
+### [Översikt](service-fabric-application-lifecycle.md)
+### [Konfigurera kontinuerlig integrering](service-fabric-set-up-continuous-integration.md)
+### Distribuera eller ta bort program
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
-### [Application upgrade overview](service-fabric-application-upgrade.md)
-### [Configure application upgrade](service-fabric-visualstudio-configure-upgrade.md)
-### [Application upgrade parameters](service-fabric-application-upgrade-parameters.md)
-### Upgrade an application
+### [Översikt över programuppgradering](service-fabric-application-upgrade.md)
+### [Konfigurera programuppgradering](service-fabric-visualstudio-configure-upgrade.md)
+### [Programuppgraderingsparametrar](service-fabric-application-upgrade-parameters.md)
+### Uppgradera ett program
 #### [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [Visual Studio](service-fabric-application-upgrade-tutorial.md)
-### [Troubleshoot application upgrades](service-fabric-application-upgrade-troubleshooting.md)
-### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
-### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
-### [REST-based application lifecycle sample](service-fabric-rest-based-application-lifecycle-sample.md)
+### [Felsök programuppgraderingar](service-fabric-application-upgrade-troubleshooting.md)
+### [Dataserialisering i programuppgraderingar](service-fabric-application-upgrade-data-serialization.md)
+### [Programuppgraderingar: avancerade ämnen](service-fabric-application-upgrade-advanced.md)
+### [Exempel på REST-baserad livscykel för program](service-fabric-rest-based-application-lifecycle-sample.md)
 
-## Inspect application and cluster health
-### [Monitor Service Fabric health](service-fabric-health-introduction.md)
-### [Report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [Add custom health reports](service-fabric-report-health.md)
-### [Troubleshoot with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [View health reports](service-fabric-view-entities-aggregated-health.md)
+## Inspektera program- och klusterhälsa
+### [Övervaka Service Fabrics hälsa](service-fabric-health-introduction.md)
+### [Rapportera och kontrollera hälsan hos tjänster](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+### [Lägg till anpassade hälsorapporter](service-fabric-report-health.md)
+### [Felsök med systemhälsorapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+### [Visa hälsorapporter](service-fabric-view-entities-aggregated-health.md)
 
-## Monitor and diagnose
-### Monitor and diagnose services locally
+## Övervaka och diagnostisera
+### Övervaka och diagnostisera tjänster lokalt
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Azure Diagnostics logs
+### Azure Diagnostics-loggar
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Service Fabric application trace](service-fabric-diagnostic-how-to-use-elasticsearch.md)
-### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
-### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Troubleshoot common issues](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
+### [Service Fabric-programspårning](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+### [Diagnostik i Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Diagnostik för tillståndskänslig Reliable Services](service-fabric-reliable-services-diagnostics.md)
+### [Felsök ditt lokala kluster](service-fabric-troubleshoot-local-cluster-setup.md)
+### [Felsök vanliga problem](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
-## Scale applications
-### [Partition Reliable Services](service-fabric-concepts-partitioning.md)
-### [Availability of services](service-fabric-availability-services.md)
-### [Scale applications](service-fabric-concepts-scalability.md)
-### [Plan capacity of applications](service-fabric-capacity-planning.md)
+## Skala program
+### [Partitionera Reliable Services](service-fabric-concepts-partitioning.md)
+### [Tillgänglighet för tjänster](service-fabric-availability-services.md)
+### [Skala program](service-fabric-concepts-scalability.md)
+### [Planera programkapacitet](service-fabric-capacity-planning.md)
 
-## Test applications and services
-### [Fault Analysis overview](service-fabric-testability-overview.md)
-### [Test service-to-service communication](service-fabric-testability-scenarios-service-communication.md)
-### Simulate failures
-#### [Using controlled Chaos](service-fabric-controlled-chaos.md)
-#### [Using Test actions](service-fabric-testability-actions.md)
-#### [During workloads](service-fabric-testability-workload-tests.md)
-#### [By invoking data loss](service-fabric-use-data-loss-api.md)
-#### [Using Test scenarios](service-fabric-testability-scenarios.md)
-### [Load test your application](service-fabric-vso-load-test.md)
+## Testa program och tjänster
+### [Översikt av felanalyser](service-fabric-testability-overview.md)
+### [Testa tjänst-till-tjänst-kommunikation](service-fabric-testability-scenarios-service-communication.md)
+### Simulera fel
+#### [Använda kontrollerat kaos](service-fabric-controlled-chaos.md)
+#### [Använda teståtgärder](service-fabric-testability-actions.md)
+#### [Under arbetsbelastningar](service-fabric-testability-workload-tests.md)
+#### [Genom att aktivera dataförlust](service-fabric-use-data-loss-api.md)
+#### [Använda testscenarier](service-fabric-testability-scenarios.md)
+### [Belastningstesta ditt program](service-fabric-vso-load-test.md)
 
-# Reference
-## [Terminology](service-fabric-technical-overview.md)
+# Referens
+## [Terminologi](service-fabric-technical-overview.md)
 ## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
 ## [Reliable Actors WCF](https://go.microsoft.com/fwlink/p/?linkid=833401)
 ## [Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
 ## [Reliable Services WCF](https://go.microsoft.com/fwlink/p/?linkid=833403)
 ## [Data](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Data Interfaces](https://go.microsoft.com/fwlink/p/?linkid=833406)
+## [Gränssnitt för data](https://go.microsoft.com/fwlink/p/?linkid=833406)
 ## [System](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [PowerShell](https://go.microsoft.com/fwlink/p/?linkid=833408)
-## [REST API](https://go.microsoft.com/fwlink/p/?LinkID=532910)
-## [Java API](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [Sample code](http://aka.ms/servicefabricsamples)
+## [Exempelkod](http://aka.ms/servicefabricsamples)
+## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
+## [Java-API](https://go.microsoft.com/fwlink/p/?linkid=833410)
+## [NET](/dotnet/api)
+## [REST](/rest/api/servicefabric/)
 
-# Resources
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric&updatetype=&platform=)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+# Resurser
+## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+## [Prissättning](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=service-fabric)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
 <!--HONumber=Nov16_HO2-->

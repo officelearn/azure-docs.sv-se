@@ -1,12 +1,12 @@
 ---
-title: Ange säkerhetsprinciper i Azure Security Center | Microsoft Docs
-description: I det här avsnittet berättar vi hur du ställer in säkerhetsprinciper i Azure Security Center.
+title: "Ange säkerhetsprinciper i Azure Security Center | Microsoft Docs"
+description: "I det här avsnittet berättar vi hur du ställer in säkerhetsprinciper i Azure Security Center."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7fba0338f6a61998b1c103210cd60c1d37eeffd5
+
 
 ---
-# Ange säkerhetsprinciper i Azure Security Center
+# <a name="set-security-policies-in-azure-security-center"></a>Ange säkerhetsprinciper i Azure Security Center
 I det här avsnittet får du genom instruktioner hjälp med att ställa in säkerhetsprinciper i Security Center.
 
-## Vad är säkerhetsprinciper?
+## <a name="what-are-security-policies"></a>Vad är säkerhetsprinciper?
 En säkerhetsprincip är ett antal kontrollfunktioner som rekommenderas för resurser inom en viss prenumeration eller resursgrupp. I Security Center ställer du in principer för dina prenumerationer och resursgrupper i Azure enligt ditt företags behov och typ av program eller efter känslighetsnivån på datauppgifterna i respektive prenumeration.
 
 De resurser som används för utveckling eller testning har kanske andra säkerhetskrav än de resurser som används för program i produktionen. På samma sätt behövs det kanske en högre säkerhetsnivå för sådant som det finns lagar om, till exempel personuppgifter. Säkerhetsprinciperna i Azure Security Center innehåller säkerhetsrekommendationer och möjlighet till övervakning som gör att du kan upptäcka potentiella säkerhetsrisker och avhjälpa hot. I [Planering- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md) finns mer information om hur du avgör vilket alternativ som passar dig bäst.
 
-## Ställa in säkerhetsprinciper för prenumerationer
+## <a name="set-security-policies-for-subscriptions"></a>Ställa in säkerhetsprinciper för prenumerationer
 Det går att ställa in särskilda säkerhetsprinciper för varje prenumeration och resursgrupp. För att kunna ändra en säkerhetsprincip måste du vara ägare eller deltagare i den aktuella prenumerationen. Logga in på Azure-portalen och följ föregående steg för att konfigurera säkerhetsprinciper i Security Center:
 
 1. Klicka på rutan **Policy** (Princip) i instrumentpanelen i Security Center.
@@ -80,7 +84,7 @@ Använd följande tabell som referens för vad de olika alternativen innebär:
 
 När du har ställt in alla alternativ klickar du på **OK** i bladet **Säkerhetsprincip** med rekommendationerna och sedan på **Spara** i bladet **Säkerhetsprincip** med grundinställningarna.
 
-## Ställa in säkerhetsprinciper för resursgrupper
+## <a name="set-security-policies-for-resource-groups"></a>Ställa in säkerhetsprinciper för resursgrupper
 Om du hellre vill ställa in säkerhetsprinciper för resursgrupper går det till på ungefär samma sätt som när du ställer in säkerhetsprinciper för prenumerationer. Den största skillnaden är att du måste expandera prenumerationsnamnet och markera den resursgrupp som du vill ställa in en unik säkerhetsprincip för:
 
 ![Val av resursgrupp](./media/security-center-policies/security-center-policies-fig5-ga.png)
@@ -94,7 +98,7 @@ När du har markerat en resursgrupp öppnas bladet **Säkerhetsprincip**. Som st
 > 
 > 
 
-## Se även
+## <a name="see-also"></a>Se även
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md). Lär dig mer om planering och viktiga designaspekter när du ska börja använda Azure Security Center.
@@ -104,6 +108,9 @@ I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i A
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Här finns vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

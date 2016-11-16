@@ -1,13 +1,13 @@
 ---
-title: 'Självstudiekurs om ASP.NET MVC för DocumentDB: utveckling av webbappar | Microsoft Docs'
-description: Självstudiekurs om ASP.NET MVC för att skapa en MVC-webbapp med DocumentDB. Du kommer att lagra JSON- och åtkomstdata från en ”att göra”-app på Azure Websites – stegvis självstudiekurs om ASP NET MVC.
-keywords: asp.net mvc självstudier, webbprogramsutveckling, mvc-webbprogram, asp net mvc självstudier steg för steg
+title: "Självstudiekurs om ASP.NET MVC för DocumentDB: utveckling av webbappar | Microsoft Docs"
+description: "Självstudiekurs om ASP.NET MVC för att skapa en MVC-webbapp med DocumentDB. Du kommer att lagra JSON- och åtkomstdata från en ”att göra”-app på Azure Websites – stegvis självstudiekurs om ASP NET MVC."
+keywords: "asp.net mvc självstudier, webbprogramsutveckling, mvc-webbprogram, asp net mvc självstudier steg för steg"
 services: documentdb
 documentationcenter: .net
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: syamk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: af5563f875c532c0b902685219818b1cd0945a66
+
 
 ---
-# <a name="_Toc395809351"></a>ASP.NET MVC-självstudie: Webbprogramsutveckling med DocumentDB
+# <a name="a-nametoc395809351aaspnet-mvc-tutorial-web-application-development-with-documentdb"></a><a name="_Toc395809351"></a>ASP.NET MVC-självstudie: Webbprogramsutveckling med DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -37,16 +41,16 @@ I den här beskrivningen visas hur du använder DocumentDB-tjänsten som tillhan
 > 
 > 
 
-## <a name="_Toc395637760"></a>Förhandskrav för den här databas-självstudien
+## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Förhandskrav för den här databas-självstudien
 Se till att du har följande innan du börjar följa anvisningarna i den här artikeln:
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio 2015](http://www.visualstudio.com/) eller Visual Studio 2013 uppdatering 4 eller högre. Om du använder Visual Studio 2013 måste du installera [Microsoft.Net.Compilers nuget-paketet](https://www.nuget.org/packages/Microsoft.Net.Compilers/) för att lägga till stöd för C# 6.0. 
-* Azure SDK för .NET, version 2.5.1 eller senare, tillgängligt via [Microsoft Web Platform Installer][].
+* Azure SDK för .NET, version 2.5.1 eller senare, tillgängligt via [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
 
 Alla skärmdumpar i den här artikeln har tagits med Visual Studio 2013, uppdatering 4, och Azure SDK för .NET version 2.5.1. Om ditt system är konfigurerat med andra versioner kan det hända att skärmbilder och alternativ inte ser riktigt likadana ut, men om ovanstående förutsättningar är uppfyllda ska lösningen fungera.
 
-## <a name="_Toc395637761"></a>Steg 1: Skapa ett DocumentDB-databaskonto
+## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Steg 1: Skapa ett DocumentDB-databaskonto
 Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå vidare till [Skapa en ny MVC-app med ASP.NET](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
@@ -56,69 +60,69 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå 
 <br/>
 Vi kommer att gå igenom hur du skapar en ny MVC-app från grunden i ASP.NET. 
 
-## <a name="_Toc395637762"></a>Steg 2: Skapa ett nytt ASP.NET MVC-program
+## <a name="a-nametoc395637762astep-2-create-a-new-aspnet-mvc-application"></a><a name="_Toc395637762"></a>Steg 2: Skapa ett nytt ASP.NET MVC-program
 När du har ett konto skapar du ett nytt ASP.NET-projekt.
 
 1. I Visual Studio klickar du på menyn **Arkiv**, pekar på **Nytt** och klickar sedan på **Projekt**.
    
-    Dialogrutan **Nytt projekt** visas.
+       The **New Project** dialog box appears.
 2. I panelen **Projekttyper** expanderar du **Mallar**, **Visual C#**, **Webb** och väljer sedan **ASP.NET webbtillämpningsprogram**.
    
-    ![Skärmdump som visar dialogrutan Nytt projekt med projekttypen ASP.NET-webbtillämpningsprogram markerad](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image10.png)
+      ![Skärmdump som visar dialogrutan Nytt projekt med projekttypen ASP.NET-webbtillämpningsprogram markerad](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image10.png)
 3. I rutan **Namn** skriver du namnet på projektet. I den här självstudiekursen används namnet ”todo”. Om du väljer att använda något annat än det måste du ändra de angivna kodexemplen så att de använder det namn du gav din app på alla ställen där namnområdet todo nämns. 
 4. Klicka på **Bläddra** och navigera till mappen där du vill skapa projektet och klicka sedan på **OK**.
    
-    Dialogrutan **Nytt ASP.NET-projekt** visas.
+      Dialogrutan **Nytt ASP.NET-projekt** visas.
    
-    ![Skärmdump som visar dialogrutan Nytt ASP.NET-projekt med MVC-appmallen markerad och rutan Värd i molnet ikryssad](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image11.png)
+      ![Skärmdump som visar dialogrutan Nytt ASP.NET-projekt med MVC-appmallen markerad och rutan Värd i molnet ikryssad](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image11.png)
 5. Välj **MVC** i mallpanelen.
 6. Om du planerar att ha appen på Azure markerar du **Värd i molnet** nere till höger, så drivs appen via Azure. Vi har valt att använda värd i molnet och köra appen från en Azure-webbplats. När du markerar det här alternativet företableras en Azure-webbplats för dig, vilket gör saker och ting mycket enklare när det blir dags att distribuera den slutliga fungerande appen. Om du vill lagra den på en annan plats eller inte vill konfigurera Azure med en gång avmarkerar du bara **Värd i molnet**.
 7. Klicka på **OK** och låt Visual Studio generera ett kodskelett för den tomma ASP.NET MVC-mallen. 
 8. Om du väljer värden i molnet kommer du att se minst en extra skärm där du uppmanas att logga in på ditt Azure-konto och ange några värden för din nya webbplats. Ange alla ytterligare värden och fortsätt. 
    
-    Jag har inte valt någon databasserver eftersom vi inte använder någon Azure SQL-databasserver här. Vi kommer att skapa ett nytt Azure DocumentDB-konto senare i Azure Portal.
+      Jag har inte valt någon databasserver eftersom vi inte använder någon Azure SQL-databasserver här. Vi kommer att skapa ett nytt Azure DocumentDB-konto senare i Azure Portal.
    
     Mer information om hur du väljer en **apptjänstplan** och **resursgrupp** finns i den [djupgående översikten över Azure-apptjänstplaner](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
    
-    ![Skärmdump av dialogrutan Konfigurera Microsoft Azure-webbplats](./media/documentdb-dotnet-application/image11_1.png)
+      ![Skärmdump av dialogrutan Konfigurera Microsoft Azure-webbplats](./media/documentdb-dotnet-application/image11_1.png)
 9. När Visual Studio har skapat den formaterade MVC-appen har du en tom ASP.NET-app som du kan köra lokalt.
    
     Vi kör inte projektet lokalt nu eftersom du säkert har sett ASP.NET-appen ”Hello World”. Vi hoppar direkt till att lägga till DocumentDB i projektet och bygga vår app.
 
-## <a name="_Toc395637767"></a>Steg 3: Lägg till DocumentDB till ditt MVC-webbprogramsprojekt
+## <a name="a-nametoc395637767astep-3-add-documentdb-to-your-mvc-web-application-project"></a><a name="_Toc395637767"></a>Steg 3: Lägg till DocumentDB till ditt MVC-webbprogramsprojekt
 Nu har vi i princip de ASP.NET MVC-grunder vi behöver för lösningen och det är dags för det verkliga syftet med den här självstudiekursen, vilket är att lägga till Azure DocumentDB i vår MVC-webbapp.
 
 1. DocumentDB .NET SDK paketeras och distribueras som ett NuGet paket. Hämta NuGet-paketet i Visual Studio med hjälp av NuGet-pakethanteraren i Visual Studio genom att högerklicka på projektet i **Solution Explorer** och sedan klicka på **Hantera NuGet-paket**.
    
-    ![Skärmdump som visar alternativen vid högerklick för webbapprojektet i Solution Explorer, med Hantera NuGet-paket markerat.](./media/documentdb-dotnet-application/image21.png)
+      ![Skärmdump som visar alternativen vid högerklick för webbapprojektet i Solution Explorer, med Hantera NuGet-paket markerat.](./media/documentdb-dotnet-application/image21.png)
    
     Dialogrutan **Hantera NuGet-paket** öppnas.
 2. I NuGet-rutan **Bläddra** klickar du på ***Azure DocumentDB***.
    
     Från resultatet installerar du paketet **Microsoft Azure DocumentDB klientbibliotek**. Då hämtas och installeras paketet DocumentDB samt alla beroenden, som Newtonsoft.Json. Klicka på **OK** i fönstret **Förhandsgranskning** och **Jag godkänner** i fönstret **Godkännande av licens** för att slutföra installationen.
    
-    ![Skärmdump av fönstret Hantera NuGet-paket, med Microsoft Azure DocumentDB klientbiblioteket markerat](./media/documentdb-dotnet-application/nuget.png)
+      ![Skärmdump av fönstret Hantera NuGet-paket, med Microsoft Azure DocumentDB klientbiblioteket markerat](./media/documentdb-dotnet-application/nuget.png)
    
-    Du kan också installera paketen med Pakethanterarkonsolen. Om du vill göra det klickar du på menyn **Verktyg**, **NuGet-pakethanteraren** och sedan på **Pakethanterarkonsolen**. Skriv följande i prompten:
+      Du kan också installera paketen med Pakethanterarkonsolen. Om du vill göra det klickar du på menyn **Verktyg**, **NuGet-pakethanteraren** och sedan på **Pakethanterarkonsolen**. Skriv följande i prompten:
    
         Install-Package Microsoft.Azure.DocumentDB
 3. När paketet har installerats bör din Visual Studio-lösning likna nedanstående, med två nya referenser: Microsoft.Azure.Documents.Client och Newtonsoft.Json.
    
-    ![Skärmdump av de två referenser som lagts till JSON-dataprojektet i Solution Explorer](./media/documentdb-dotnet-application/image22.png)
+      ![Skärmdump av de två referenser som lagts till JSON-dataprojektet i Solution Explorer](./media/documentdb-dotnet-application/image22.png)
 
-## <a name="_Toc395637763"></a>Steg 4: Ställ in ASP.NET MVC-programmet
+## <a name="a-nametoc395637763astep-4-set-up-the-aspnet-mvc-application"></a><a name="_Toc395637763"></a>Steg 4: Ställ in ASP.NET MVC-programmet
 Nu ska vi lägga till modeller, vyer och styrenheter till MVC-appen:
 
 * [Lägga till en modell](#_Toc395637764).
 * [Lägga till en styrenhet](#_Toc395637765).
 * [Lägga till vyer](#_Toc395637766).
 
-### <a name="_Toc395637764"></a>Lägg till en JSON-datamodell
+### <a name="a-nametoc395637764aadd-a-json-data-model"></a><a name="_Toc395637764"></a>Lägg till en JSON-datamodell
 Vi börjar med att skapa **M** i MVC, dvs. modellen. 
 
 1. I **Solution Explorer** högerklickar du på mappen **Modeller**. Klicka sedan på **Lägg till** och på **Klass**.
    
-    Dialogrutan **Lägg till nytt objekt** visas.
+      Dialogrutan **Lägg till nytt objekt** visas.
 2. Namnge den nya klassen **Objekt.cs** och klicka på **Lägg till**. 
 3. I den nya **Item.cs**-filen lägger du till nedanstående efter den senaste *using-satsen*.
    
@@ -150,7 +154,7 @@ Vi börjar med att skapa **M** i MVC, dvs. modellen.
    
     Du kan inte bara styra egenskapsnamnets format när det matas in i JSON, utan helt byta namn på dina .NET-egenskaper så som jag gjorde med egenskapen **Beskrivning**. 
 
-### <a name="_Toc395637765"></a>Lägg till en controller
+### <a name="a-nametoc395637765aadd-a-controller"></a><a name="_Toc395637765"></a>Lägg till en controller
 Nu har vi tagit hand om **M** och det är dags för vårt **C** i MVC, dvs. en styrenhetsklass (controller).
 
 1. I **Solution Explorer** högerklickar du på mappen **Styrenheter**. Klicka sedan på **Lägg till** och på **Styrenhet**.
@@ -169,14 +173,14 @@ Nu har vi tagit hand om **M** och det är dags för vårt **C** i MVC, dvs. en s
    
     Du kan stänga ItemController.cs, vi återkommer till den senare. 
 
-### <a name="_Toc395637766"></a>Lägg till vyer
+### <a name="a-nametoc395637766aadd-views"></a><a name="_Toc395637766"></a>Lägg till vyer
 Nu skapar vi vårt **V** i MVC, dvs. vyerna:
 
 * [Lägga till Vyn Objektindex](#AddItemIndexView).
 * [Lägga till vyn Nytt objekt](#AddNewIndexView).
 * [Lägga till vyn Redigera objekt](#_Toc395888515).
 
-#### <a name="AddItemIndexView"></a>Lägg till en objektindexvy
+#### <a name="a-nameadditemindexviewaadd-an-item-index-view"></a><a name="AddItemIndexView"></a>Lägg till en objektindexvy
 1. I **Solution Explorer** expanderar du mappen **Vyer** och högerklickar på den tomma **objektmappen** som Visual Studio skapade när du lade till **ItemController** tidigare. Klicka på **Lägg till** och sedan på **Vy**.
    
     ![Skärmdump av Solution Explorer som visar den objektmapp som Visual Studio skapade med kommandot Lägg till vy markerat](./media/documentdb-dotnet-application/image17.png)
@@ -191,7 +195,7 @@ Nu skapar vi vårt **V** i MVC, dvs. vyerna:
      ![Skärmdump som visar dialogrutan Lägg till vy](./media/documentdb-dotnet-application/image18.png)
 3. När du har angett samtliga dessa värden klickar du på **Lägg till**  och låter Visual Studio skapa en ny mallvy. När det är klart öppnas cshtml-filen som skapades. Du kan stänga filen i Visual Studio eftersom vi återkommer till den senare.
 
-#### <a name="AddNewIndexView"></a>Lägg till en nytt objektsvy
+#### <a name="a-nameaddnewindexviewaadd-a-new-item-view"></a><a name="AddNewIndexView"></a>Lägg till en nytt objektsvy
 På liknande sätt som vi skapade vyn **Objektindex** ska vi nu skapa en ny vy där  nya **objekt** kan skapas.
 
 1. I **Solution Explorer** högerklickar du på mappen **Objekt** en gång till. Klicka sedan på **Lägg till** och på **Vy**.
@@ -204,7 +208,7 @@ På liknande sätt som vi skapade vyn **Objektindex** ska vi nu skapa en ny vy d
    * Skriv ***~/Views/Shared/_Layout.cshtml*** i rutan på layoutsidan.
    * Klicka på **Lägg till**.
 
-#### <a name="_Toc395888515"></a>Lägg till en redigera objektsvy
+#### <a name="a-nametoc395888515aadd-an-edit-item-view"></a><a name="_Toc395888515"></a>Lägg till en redigera objektsvy
 Lägg slutligen till en vy för redigering av ett **objekt**, på samma sätt som tidigare.
 
 1. I **Solution Explorer** högerklickar du på mappen **Objekt** en gång till. Klicka sedan på **Lägg till** och på **Vy**.
@@ -219,7 +223,7 @@ Lägg slutligen till en vy för redigering av ett **objekt**, på samma sätt so
 
 När det är klart stänger du alla cshtml-dokument i Visual Studio eftersom vi återkommer till dem senare.
 
-## <a name="_Toc395637769"></a>Steg 5: Koppla samma DocumentDB
+## <a name="a-nametoc395637769astep-5-wiring-up-documentdb"></a><a name="_Toc395637769"></a>Steg 5: Koppla samma DocumentDB
 Nu när standarddelarna i MVC är klara är det dags att lägga till koden för DocumentDB. 
 
 I det här avsnittet vi lägger till kod som hanterar följande:
@@ -228,7 +232,7 @@ I det här avsnittet vi lägger till kod som hanterar följande:
 * [Lägga till objekt](#_Toc395637771).
 * [Redigera objekt](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>Lista ofullständiga objekt i ditt MVC-webbprogram
+### <a name="a-nametoc395637770alisting-incomplete-items-in-your-mvc-web-application"></a><a name="_Toc395637770"></a>Lista ofullständiga objekt i ditt MVC-webbprogram
 Det första du gör här är att lägga till en klass som innehåller all logik för att ansluta till och använda DocumentDB. I den här självstudiekursen kapslar vi in all denna logik i en centrallagerklass kallad DocumentDBRepository. 
 
 1. Högerklicka på projektet i **Solution Explorer**. Klicka sedan på **Lägg till** och på **Klass**. Ge den nya klassen namnet **DocumentDBRepository** och klicka på **Lägg till**.
@@ -379,7 +383,7 @@ Om du bygger och kör det här projektet nu bör det se ut ungefär så här.
 
 ![Skärmdump av den webbapp med att göra-lista som skapats i denna självstudie om databaser](./media/documentdb-dotnet-application/image23.png)
 
-### <a name="_Toc395637771"></a>Lägg till objekt
+### <a name="a-nametoc395637771aadding-items"></a><a name="_Toc395637771"></a>Lägg till objekt
 Vi lägger in några objekt i databasen så att vi kan titta på något mer än ett tomt rutnät.
 
 Vi lägger till lite kod i DocumentDBRepository och ItemController för att spara posten i DocumentDB.
@@ -419,13 +423,13 @@ Vi lägger till lite kod i DocumentDBRepository och ItemController för att spar
    
     Den här koden anropar DocumentDBRepository och använder metoden CreateItemAsync för att spara det nya todo-objektet i databasen. 
    
-    **Säkerhetsmeddelande**: Attributet **ValidateAntiForgeryToken** används här för att skydda appen mot attacker med förfalskning av begäran mellan webbplatser. Det är inte bara att lägga till attributet, även dina vyer behöver fungera med denna  antiförfalskningstoken. Mer information om ämnet och exempel på korrekt implementering finns i [Förhindra förfalskning av begäran mellan webbplatser][]. Källkoden på [GitHub][GitHub] har detta fullständigt implementerat.
+    **Säkerhetsmeddelande**: Attributet **ValidateAntiForgeryToken** används här för att skydda appen mot attacker med förfalskning av begäran mellan webbplatser. Det är inte bara att lägga till attributet, även dina vyer behöver fungera med denna  antiförfalskningstoken. Mer information om ämnet och exempel på korrekt implementering finns i [Förhindra förfalskning av begäran mellan webbplatser][Förhindra förfalskning av begäran mellan webbplatser]. Källkoden på [GitHub][GitHub] har detta fullständigt implementerat.
    
     **Säkerhetsmeddelande**: Vi använder också attributet **binda** på metodparametern för att skydda mot overpostingattacker. Mer information finns i [Grundläggande CRUD-åtgärder i ASP.NET MVC][Grundläggande CRUD-åtgärder i ASP.NET MVC].
 
 Detta avslutar den kod som krävs för att lägga till nya objekt i vår databas.
 
-### <a name="_Toc395637772"></a>Redigera objekt
+### <a name="a-nametoc395637772aediting-items"></a><a name="_Toc395637772"></a>Redigera objekt
 Det finns en sista åtgärd vi ska utföra, vilket är att lägga till möjligheten att redigera **objekt** i databasen och markera dem som slutförda. Vi har redan lagt till redigeringsvyn i projektet, så vi behöver bara lägga till lite kod i vår styrenhet och i klassen **DocumentDBRepository**.
 
 1. Lägg till nedanstående i klassen **DocumentDBRepository**.
@@ -499,7 +503,7 @@ Det finns en sista åtgärd vi ska utföra, vilket är att lägga till möjlighe
 
 Det är allt som behövs för att köra vår app – en lista över ofullständiga **objekt** samt möjlighet att lägga till nya **objekt** och att redigera **objekt**.
 
-## <a name="_Toc395637773"></a>Steg 6: Kör programmet lokalt
+## <a name="a-nametoc395637773astep-6-run-the-application-locally"></a><a name="_Toc395637773"></a>Steg 6: Kör programmet lokalt
 Testa appen på din lokala dator enligt nedanstående:
 
 1. Tryck på F5 i Visual Studio för att bygga appen i felsökningsläge. Den ska bygga appen och starta en webbläsare med den tomma rutnätssidan vi såg tidigare:
@@ -520,7 +524,7 @@ Testa appen på din lokala dator enligt nedanstående:
     ![Skärmdump av indexvyn med rutan Slutförd ikryssad](./media/documentdb-dotnet-application/image27.png)
 5. När du har testat appen trycker du på Ctrl + F5 för att avsluta felsökningen. Nu är du redo att distribuera!
 
-## <a name="_Toc395637774"></a>Steg 7: Distribuera programmet till Azure Websites
+## <a name="a-nametoc395637774astep-7-deploy-the-application-to-azure-websites"></a><a name="_Toc395637774"></a>Steg 7: Distribuera programmet till Azure Websites
 När hela appen fungerar som den ska med DocumentDB är det dags att distribuera webbappen till Azure Websites. Om du valde **Värd i molnet** när du skapade det tomma ASP.NET MVC-projektet, behöver du knappt göra något eftersom Visual Studio gör största delen av arbetet. 
 
 1. Allt du behöver göra för att publicera appen är högerklicka på projektet i **Solution Explorer** och klicka på **Publicera**.
@@ -532,7 +536,7 @@ När hela appen fungerar som den ska med DocumentDB är det dags att distribuera
 
 Efter några sekunder har Visual Studio publicerat din webbapp och öppnar en webbläsare där du kan se ditt arbete köras i Azure!
 
-## <a name="_Toc395637775"></a>Nästa steg
+## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Nästa steg
 Grattis! Du har precis skapat din första ASP.NET MVC-webbapp med Azure DocumentDB och publicerat den på Azure Websites. Källkoden för hela appen, inklusive detalj- och ta bort-funktionerna som inte fanns med i den här självstudiekursen, kan hämtas eller klonas från [GitHub][GitHub]. Om du vill lägga till det i din app hämtar du koden och lägger till den i appen.
 
 Om du vill lägga till ytterligare funktioner i appen tar du en titt på de API:er som finns i [Document DB .NET-biblioteket](https://msdn.microsoft.com/library/azure/dn948556.aspx). Lägg gärna till bidrag i DocumentDB-.NET-biblioteket på [GitHub][GitHub]. 
@@ -546,6 +550,6 @@ Om du vill lägga till ytterligare funktioner i appen tar du en titt på de API:
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

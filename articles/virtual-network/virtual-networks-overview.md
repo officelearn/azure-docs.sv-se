@@ -1,12 +1,12 @@
 ---
-title: Översikt över Azure Virtual Network (VNet)
-description: Läs mer om virtuella nätverk (VNet) i Azure.
+title: "Översikt över Azure Virtual Network (VNet)"
+description: "Läs mer om virtuella nätverk (VNet) i Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e08966567a8545c1b37ec856f836b976b5a9ab2a
+
 
 ---
-# Översikt över virtuella nätverk
+# <a name="virtual-network-overview"></a>Översikt över virtuella nätverk
 Ett Azure-virtuellt nätverk (VNet) är en representation av ditt eget nätverk i molnet.  Det är en logisk isolering av Azure-molnet dedikerad till din prenumeration. Du kan helt styra IP-adressblocken, DNS-inställningarna, säkerhetsprinciperna och routingtabellerna inom det här nätverket. Du kan dessutom ytterligare segmentera ditt VNet i undernät och köra Azure IaaS-virtuella datorer (VM:ar) och/eller [Molntjänst (PaaS rollinstanser)](../cloud-services/cloud-services-choose-me.md). Du kan dessutom ansluta det virtuella nätverket till ditt lokala nätverk med ett av [anslutningsalternativen](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) som finns i Azure. I princip kan du expandera ditt nätverk till Azure, med fullständig kontroll över IP-adressblock och de fördelar som Azure på företagsnivå erbjuder.
 
 För att förstå VNet bättre, kolla på bilden nedan som visar ett förenklat lokalt nätverk.
@@ -36,28 +40,28 @@ Observera hur Azure-infrastrukturen tar på sig rollen som router och tillåter 
 > 
 > 
 
-## Fördelar med virtuella nätverk
+## <a name="virtual-network-benefits"></a>Fördelar med virtuella nätverk
 * **Isolering**. VNet är helt isolerade från varandra. Det låter dig skapa sönderdelade nätverk för utveckling, testning och produktion som använder sig av samma CIDR-adressblock.
 * **Åtkomst till offentligt Internet**. Alla IaaS-VM:ar och PaaS-rollinstanser i ett VNet har åtkomst till det offentliga Internet som standard. Du kan styra åtkomsten genom att använda nätverkssäkerhetsgrupper (NSG:er).
 * **Åtkomst till VM:ar inom VNet**. PaaS-rollinstanser och IaaS-VM:ar kan köras i samma virtuella nätverk och de kan ansluta till varandra med privata IP-adresser även om de befinner sig på olika undernät utan att behöva konfigurera en gateway eller använda sig av offentliga IP-adresser.
 * **Namnmatchning**. Azure erbjuder intern namnmatchning för IaaS-VM:ar och PaaS-rollinstanser som finns distribuerade på ditt VNet. Du kan också distribuera dina egna DNS-servrar och konfigurera VNet att använda sig av dem.
 * **Säkerhet**. Inkommande och utgående trafik från den virtuella datorn och PaaS-rollinstanserna i ett VNet kan kontrolleras med nätverkssäkerhetsgrupper.
-* **Anslutning**. VNet kan anslutas till varandra och till och med till ditt lokala datacenter genom att använda plats-till-plats VPN-anslutningar eller en ExpressRoute-anslutning. Mer information om VPN-gatewayer finns i [Om VPN-gatewayer](../vpn-gateway/vpn-gateway-about-vpngateways.md). Mer information om ExpressRoute finns i [Teknisk översikt för ExpressRoute](../expressroute/expressroute-introduction.md).
+* **Anslutning**. Virtuella nätverk kan anslutas till varandra med hjälp av nätverksgateways eller VNet-peering. Virtuella nätverk kan anslutas till lokala datacenter via VPN-nätverk för plats till plats eller Azure ExpressRoute. Mer information om VPN-anslutningar för plats till plats finns i artikeln om [VPN-gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site). Mer information om ExpressRoute finns i [Teknisk översikt för ExpressRoute](../expressroute/expressroute-introduction.md). Mer information om VNet-peering finns på sidan om [VNet-peering](virtual-network-peering-overview.md).
   
   > [!NOTE]
   > Se till att du skapar ett VNet innan du distribuerar några IaaS-VM:ar eller PaaS-rollinstanser till din Azure-miljö. ARM-baserade VM:ar kräver ett VNet och om du inte anger ett existerande VNet, kommer Azure att skapa ett standard-VNet som kan ha ett CIDR-adressblock som krockar med ditt lokala nätverk. Vilket gör det omöjligt för dig att ansluta ditt VNet till ditt lokala nätverk.
   > 
   > 
 
-## Undernät
+## <a name="subnets"></a>Undernät
 Ett undernät är ett IP-adressintervall i VNet. Du kan dela upp ett VNet i flera undernät av organisations- och säkerhetsskäl. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera route-tabeller och NSG:er till ett undernät.
 
-## IP-adresser
+## <a name="ip-addresses"></a>IP-adresser
 Det finns två typer av IP-adresser som tilldelas resurser i Azure: *offentliga* och *privata*. Offentliga IP-adresser låter Azure-resurser kommunicera med Internet och andra Azure-resurser som är offentligt riktade som [Azure Redis-cache](https://azure.microsoft.com/services/cache/) och [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Privata IP-adresser tillåter kommunikation mellan resurser i ett virtuellt nätverk, samt de som är anslutna via en VPN, utan att använda Internet-dirigerbara IP-adresser.
 
 Om du vill veta mer om IP-adresser i Azure kan du besöka [IP-adresser i virtuella nätverk](virtual-network-ip-addresses-overview-arm.md)
 
-## Azure belastningsutjämnare
+## <a name="azure-load-balancers"></a>Azure belastningsutjämnare
 Virtuella datorer och molntjänster i ett virtuellt nätverk kan exponeras mot Internet med Azure belastningsutjämnare. Verksamhetsspecifika program som bara är internt riktade kan belastningsutjämnas med interna belastningsutjämnare.
 
 * **Externa belastningsutjämnare**. Du kan använda en extern belastningsutjämnare för att tillhandahålla hög tillgänglighet för IaaS-VM:ar och PaaS-rollinstanser som nås via det offentliga Internet.
@@ -65,28 +69,31 @@ Virtuella datorer och molntjänster i ett virtuellt nätverk kan exponeras mot I
 
 För att få veta mer om belastningsutjämning i Azure, kan du besöka [Översikt över belastningsutjämnare](../load-balancer/load-balancer-overview.md).
 
-## Nätverkssäkerhetsgrupp (NSG)
+## <a name="network-security-group-nsg"></a>Nätverkssäkerhetsgrupp (NSG)
 Du kan skapa NSG:er för att kontrollera inkommande och utgående åtkomst till nätverksgränssnitt (NIC:ar), VM:ar och undernät. Varje NSG innehåller en eller flera regler som anger om trafik godkänns eller nekas baserat på käll-IP-adress, källport, mål-IP-adress och målport. Mer information om NSG:ar finns i [Vad är en nätverkssäkerhetsgrupp](virtual-networks-nsg.md).
 
-## Virtuella installationer
+## <a name="virtual-appliances"></a>Virtuella installationer
 En virtuell installation är en VM på ditt VNet som kör en programvarubaserad installationsfunktion, som en brandvägg, WAN-optimering eller intrångsidentifiering. Du kan skapa en väg i Azure för att dirigera din VNet-trafik via en virtuell installation och använda dess funktioner.
 
 NSG:er kan till exempel användas för att tillhandahålla säkerhet på ditt VNet. Dock erbjuder NSG:er lager 4 åtkomstkontrollistor (ACL) för inkommande och utgående paket. Om du vill använda en lager 7 säkerhetsmodell, behöver du använda en brandväggsinstallation.
 
 Virtuella installationer beror på [användardefinierade vägar och IP-vidarebefordring](virtual-networks-udr-overview.md).
 
-## Begränsningar
+## <a name="limits"></a>Begränsningar
 Det finns begränsningar för antalet virtuella nätverk som tillåts för en prenumeration, referera till [Azure nätverksbegränsningar](../azure-subscription-service-limits.md#networking-limits) för mer information.
 
-## Priser
-Det finns inget extra kostnad för att använda Virtual Networks i Azure. De compute-instanser som startas inom VNet kommer att debiteras till standardpriser enligt [Priser för Azure VM](https://azure.microsoft.com/pricing/details/virtual-machines/). [VPN-gatewayer](https://azure.microsoft.com/pricing/details/vpn-gateway/) och [offentliga IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/) som används i VNet kommer också att debiteras till standardpris.
+## <a name="pricing"></a>Priser
+Det finns inget extra kostnad för att använda Virtual Networks i Azure. De compute-instanser som startas inom VNet kommer att debiteras till standardpriser enligt [Priser för Azure VM](https://azure.microsoft.com/pricing/details/virtual-machines/). De [VPN-gatewayer](https://azure.microsoft.com/pricing/details/vpn-gateway/) och [offentliga IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/) som används i VNet kommer att debiteras med standardpriser.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Skapa en VNet](virtual-networks-create-vnet-arm-pportal.md) och undernät.
 * [Skapa en VM i VNet](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 * Läs mer om [NSG:er](virtual-networks-nsg.md).
 * Läs mer om [användardefinierade vägar och IP-vidarebefordring](virtual-networks-udr-overview.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

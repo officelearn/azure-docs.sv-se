@@ -1,12 +1,12 @@
 ---
-title: Konfigurera en utvecklingsmiljö i Mac OS X | Microsoft Docs
-description: Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program i Mac OS X.
+title: "Konfigurera en utvecklingsmiljö i Mac OS X | Microsoft Docs"
+description: "Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program i Mac OS X."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b25afa13010716188eab0623b1d8ea0d525a2b36
+
 
 ---
-# Konfigurera din utvecklingsmiljö i Mac OS X
+# <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
 Du kan skapa Service Fabric-program som körs i Linux-kluster i Mac OS X. Den här artikeln visar hur du konfigurerar din utvecklingsmiljö i Mac.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 Service Fabric kan inte köras internt i OS X. För att du ska kunna köra ett lokalt Service Fabric-kluster tillhandahåller vi en förkonfigurerad virtuell Ubuntu-dator med Vagrant och VirtualBox. Innan du börjar behöver du:
 
 * [Vagrant (v1.8.4 eller senare)](http://wwww.vagrantup.com/downloads)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
-## Skapa den lokala virtuella datorn
+## <a name="create-the-local-vm"></a>Skapa den lokala virtuella datorn
 Så här skapar du en lokal virtuell dator med ett Service Fabric-kluster med fem noder:
 
 1. Klona Vagrantfile-repon
@@ -67,7 +71,7 @@ Så här skapar du en lokal virtuell dator med ett Service Fabric-kluster med fe
    
     ![Service Fabric Explorer på Mac-värddatorn][sfx-mac]
 
-## Installera Service Fabric-plugin-programmet för Eclipse Neon (valfritt)
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon-optional"></a>Installera Service Fabric-plugin-programmet för Eclipse Neon (valfritt)
 Service Fabric innehåller ett plugin-program för Eclipse Neon IDE som förenklar processen att skapa och distribuera Java-tjänster.
 
 1. Kontrollera att du har Buildship version 1.0.17 eller senare installerat i Eclipse. Du kan kontrollera vilka versioner de installerade komponenterna har genom att välja **Help > Installation Details** (Hjälp > Installationsinformation). Du kan uppdatera Buildship med instruktionerna som finns [här][buildship-update].
@@ -79,7 +83,7 @@ Service Fabric innehåller ett plugin-program för Eclipse Neon IDE som förenkl
 5. Välj Service Fabric-plugin-programmet och klicka på Next (Nästa).
 6. Fortsätt med installationen och acceptera licensvillkoren.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Skapa ditt första Service Fabric-program för Linux](service-fabric-create-your-first-linux-application-with-java.md)
 
 <!-- Links -->
@@ -96,6 +100,6 @@ Service Fabric innehåller ett plugin-program för Eclipse Neon IDE som förenkl
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

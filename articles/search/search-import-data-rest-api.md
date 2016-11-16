@@ -1,13 +1,13 @@
 ---
-title: Dataöverföring i Azure Search med hjälp av REST-API:et | Microsoft Docs
-description: Lär dig hur du laddar upp data till ett index i Azure Search med hjälp av REST-API:et.
+title: "Överföra data med Azure Search-index med hjälp av REST API | Microsoft Docs"
+description: "Lär dig hur du laddar upp data till ett index i Azure Search med hjälp av REST-API:et."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: ashmaka
-manager: ''
-editor: ''
-tags: ''
-
+manager: jhubbard
+editor: 
+tags: 
+ms.assetid: 8d0749fb-6e08-4a17-8cd3-1a215138abc6
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -15,12 +15,16 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
+ms.openlocfilehash: 340287e4a3331eba441bce7feb957f27aca38b2b
+
 
 ---
-# Ladda upp data till Azure Search med hjälp av REST-API:et
+# <a name="upload-data-to-azure-search-using-the-rest-api"></a>Ladda upp data till Azure Search med hjälp av REST-API:et
 > [!div class="op_single_selector"]
 > * [Översikt](search-what-is-data-import.md)
-> * [.NET](search-import-data-dotnet.md)
+> * [NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
 > 
 > 
@@ -31,7 +35,7 @@ Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Sea
 
 För att skicka dokument till ditt index med hjälp av REST-API:et skickar du en HTTP POST-begäran till URL-slutpunkten för indexet. HTTP-begärandetexten är ett JSON-objekt som innehåller de dokument som ska läggas till, ändras eller tas bort.
 
-## I. Identifiera Azure Search-tjänstens API-administratörsnyckel
+## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identifiera Azure Search-tjänstens API-administratörsnyckel
 När HTTP-begäranden skickas mot din tjänst med hjälp av REST-API:et måste *varje* API-begäran innehålla API-nyckeln som genererades för Search-tjänsten som du etablerade. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
@@ -45,7 +49,7 @@ Tjänsten har *administratörsnycklar* och *frågenycklar*.
 
 För att importera data till ett index kan du antingen använda din primära eller sekundära administratörsnyckel.
 
-## II. Bestäm vilken indexeringsåtgärd som du vill använda
+## <a name="ii-decide-which-indexing-action-to-use"></a>II. Bestäm vilken indexeringsåtgärd som du vill använda
 När du använder REST-API:et skickar du HTTP POST-begäranden med JSON-begärandetext till URL:en för Azure Search-indexets slutpunkt. JSON-objektet i HTTP-begärandetexten innehåller en enstaka JSON-matris med namnet ”value” som innehåller JSON-objekt som representerar dokument som du vill lägga till i ditt index, uppdatera eller ta bort.
 
 Varje JSON-objekt i ”value”-matrisen representerar ett dokument som ska indexeras. Vart och ett av dessa objekt innehåller dokumentets nyckel och anger önskad indexeringsåtgärd (ladda upp, sammanfoga, ta bort osv.). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
@@ -57,17 +61,17 @@ Varje JSON-objekt i ”value”-matrisen representerar ett dokument som ska inde
 | `mergeOrUpload` |Den här åtgärden fungerar som `merge` om ett dokument med den angivna nyckeln redan finns i indexet. Om dokumentet inte finns fungerar den som `upload` med ett nytt dokument. |nyckel plus eventuella andra fält som du vill definiera |- |
 | `delete` |Tar bort det angivna dokumentet från indexet. |endast nyckel |Andra fält som du anger än nyckelfältet ignoreras. Om du vill ta bort ett enstaka fält från ett dokument använder du `merge` i stället och anger bara fältet till null. |
 
-## III. Skapa HTTP-begäran och begärandetexten
+## <a name="iii-construct-your-http-request-and-request-body"></a>III. Skapa HTTP-begäran och begärandetexten
 Nu när du har samlat in nödvändiga fältvärden för dina indexåtgärder är det dags att skapa själva HTTP-begärandena och JSON-begärandetexten för att importera dina data.
 
-#### Begäran och begärandehuvuden
+#### <a name="request-and-request-headers"></a>Begäran och begärandehuvuden
 I URL:en måste du ange tjänstnamnet, indexnamnet (”hotels” i detta fall) samt API-versionen (den aktuella API-versionen är `2015-02-28` vid tidpunkten för publiceringen av det här dokumentet). Du måste definiera `Content-Type`- och `api-key`-begärandehuvuden. För det senare använder du någon av administratörsnycklarna för tjänsten.
 
     POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
     Content-Type: application/json
     api-key: [admin key]
 
-#### Begärandetext
+#### <a name="request-body"></a>Begärandetext
 ```JSON
 {
     "value": [
@@ -119,10 +123,10 @@ I detta fall använder vi `upload`, `mergeOrUpload` och `delete` som våra sök�
 
 Anta att exempelindexet ”hotels” redan fyllts med ett antal dokument. Observera att vi inte behövde ange alla tillgängliga dokumentfält när vi använde `mergeOrUpload` och att vi bara angav dokumentnyckeln (`hotelId`) när vi använde `delete`.
 
-Observera också att du bara kan ta med upp till 1 000 dokument (eller 16 MB) i samma indexeringsbegäran.
+Observera också att du bara kan ta med upp till 1 000 dokument (eller 16 MB) i samma indexeringsbegäran.
 
-## IV. Förstå HTTP-svarskoden
-#### 200
+## <a name="iv-understand-your-http-response-code"></a>IV. Förstå HTTP-svarskoden
+#### <a name="200"></a>200
 När du har skickat en lyckad indexeringsbegäran får du ett HTTP-svar med statuskoden `200 OK`. JSON-texten i HTTP-svaret är:
 
 ```JSON
@@ -138,7 +142,7 @@ När du har skickat en lyckad indexeringsbegäran får du ett HTTP-svar med stat
 }
 ```
 
-#### 207
+#### <a name="207"></a>207
 Statuskoden `207` returneras om minst ett objekt inte indexerades. JSON-texten i HTTP-svaret innehåller information om det eller de dokument som misslyckades.
 
 ```JSON
@@ -159,10 +163,10 @@ Statuskoden `207` returneras om minst ett objekt inte indexerades. JSON-texten i
 > 
 > 
 
-#### 429
+#### <a name="429"></a>429
 Statuskoden `429` returneras om du överskrider kvoten för antal dokument per index.
 
-#### 503
+#### <a name="503"></a>503
 Statuskoden `503` returneras om inget av objekten i begäran indexerades. Detta fel innebär att systemet är hårt belastat och att det inte går att bearbeta din begäran just nu.
 
 > [!NOTE]
@@ -172,9 +176,12 @@ Statuskoden `503` returneras om inget av objekten i begäran indexerades. Detta 
 
 Mer information om dokumentåtgärder och svar om lyckade/misslyckade åtgärder finns i [Lägga till, uppdatera eller ta bort dokument](https://msdn.microsoft.com/library/azure/dn798930.aspx). Mer information om andra HTTP-statuskoder som kan returneras om det uppstår fel finns i [HTTP-statuskoder (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-## Nästa
+## <a name="next"></a>Nästa
 När du har fyllt Azure Search-indexet kan du börja skicka frågor för att söka efter dokument. Mer information finns i [Fråga ditt Azure Search-index](search-query-overview.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

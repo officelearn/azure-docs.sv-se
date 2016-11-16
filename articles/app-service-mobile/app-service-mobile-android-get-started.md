@@ -1,12 +1,12 @@
 ---
-title: Skapa en Android-app i Azure Apptjänst Mobile Apps | Microsoft Docs
-description: Följ den här kursen och kom igång med att använda mobilappserverdelar i Azure för Android-utveckling
+title: "Skapa en Android-app i Azure Apptjänst Mobile Apps | Microsoft Docs"
+description: "Följ den här kursen och kom igång med att använda mobilappserverdelar i Azure för Android-utveckling"
 services: app-service\mobile
 documentationcenter: android
-author: yuaxu
+author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-android
@@ -14,40 +14,42 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e4aa29329242a7397fdb5939fa7b5b04340b53c5
+
 
 ---
-# Skapa en Android-app
+# <a name="create-an-android-app"></a>Skapa en Android-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Översikt
+## <a name="overview"></a>Översikt
 I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Android-mobilapp genom att använda en mobilappsserverdel i Azure.  Du skapar både en ny mobilappsserverdel och en enkel Android-app med en *att göra-lista* som lagrar appdata i Azure.
 
 Du måste slutföra den här kursen innan du påbörjar någon annan Androidkurs om att använda funktionen Mobile Apps i Azure Apptjänst.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 För att kunna genomföra den här kursen behöver du följande:
 
 * [Utvecklingsverktyg för Android](https://developer.android.com/sdk/index.html), vilket omfattar Android Studio Integrated Development Environment och den senaste Android-plattformen.
 * Azure Mobile Android SDK, som refereras automatiskt som en del av det snabbstartsprojekt du hämtar.
 * Ett [aktivt Azure-konto](https://azure.microsoft.com/pricing/free-trial/).
 
-## Skapa en ny mobilappsserverdel i Azure
+## <a name="create-a-new-azure-mobile-app-backend"></a>Skapa en ny mobilappsserverdel i Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Konfigurera serverprojektet
+## <a name="configure-the-server-project"></a>Konfigurera serverprojektet
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Hämta och köra Android-appen
+## <a name="download-and-run-the-android-app"></a>Hämta och köra Android-appen
 [!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
-<!-- Images. -->
-
 <!-- URLs -->
-[Azure-portalen]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

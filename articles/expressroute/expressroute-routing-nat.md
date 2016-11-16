@@ -1,12 +1,12 @@
 ---
-title: Routningskrav för ExpressRoute | Microsoft Docs
-description: Den här sidan innehåller detaljerade krav för att konfigurera och hantera routning för ExpressRoute-kretsar.
+title: "Routningskrav för ExpressRoute | Microsoft Docs"
+description: "Den här sidan innehåller detaljerade krav för att konfigurera och hantera routning för ExpressRoute-kretsar."
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: ganesr
-editor: ''
-
+editor: 
+ms.assetid: eaaf0393-d384-4496-9a5c-328e94c262a7
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bd7537a81661bc175a770fdbd6388ba07ea912ae
+
 
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
@@ -97,7 +101,7 @@ Vi stöder upp till 4 000 prefix som annonseras till oss via Azures privata peer
 
 BGP-sessionen kommer att tas bort om antalet prefix överskrider gränsen. Vi kommer endast att acceptera standardvägar på den privata peeringlänken. Leverantören måste filtrera ut standardvägen och privata IP-adresser (RFC 1918) från Azures offentliga och Microsofts peeringsökvägar. 
 
-## <a name="transit-routing-and-cross-region-routing"></a>Överföringsroutning och routning mellan regioner
+## <a name="transit-routing-and-crossregion-routing"></a>Överföringsroutning och routning mellan regioner
 ExpressRoute kan inte konfigureras som överföringsroutrar. Du måste förlita dig på din anslutningsleverantör vid överföring av routningstjänster.
 
 ## <a name="advertising-default-routes"></a>Annonsering av standardvägar
@@ -113,7 +117,7 @@ Standardvägar tillåts bara i Azures privata peeringsessioner. I dessa fall kom
 > 
 > 
 
-## <a name="support-for-bgp-communities-(preview)"></a>Stöd för BGP-communities (förhandsgranskning)
+## <a name="support-for-bgp-communities-preview"></a>Stöd för BGP-communities (förhandsgranskning)
 Det här avsnittet innehåller en översikt över hur BGP-communities kommer att användas med ExpressRoute. Microsoft kommer att annonsera vägar i offentliga och Microsofts peeringsökvägar med vägar som är taggade med lämpliga community-värden. Anledningen till att man gör detta samt information om community-värden beskrivs nedan. Microsoft använder dock inte några community-värden som är taggade på vägar som annonserats till Microsoft.
 
 Om du ansluter till Microsoft via ExpressRoute på valfri peeringplats i en geopolitisk region, får du åtkomst till alla Microsoft-molntjänster i alla regioner inom den geopolitiska gränsen. 
@@ -187,6 +191,9 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
   * [Konfigurera routning för den klassiska distributionsmodellen](expressroute-howto-routing-classic.md) eller [Konfigurera routning för Resource Manager-distributionsmodellen](expressroute-howto-routing-arm.md)
   * [Länka ett klassiskt VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md) eller [Länka ett Resource Manager-VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

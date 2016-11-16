@@ -1,12 +1,12 @@
 ---
-title: Sessionstillstånd med Azure Redis-cache i Azure App Service
-description: Lär dig hur du använder Azure Cache-tjänsten till att hantera cachelagring av ASP.NET-sessionstillstånd.
+title: "Sessionstillstånd med Azure Redis-cache i Azure App Service"
+description: "Lär dig hur du använder Azure Cache-tjänsten till att hantera cachelagring av ASP.NET-sessionstillstånd."
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
 manager: wpickett
 editor: none
-
+ms.assetid: 4f98d289-2698-464d-85cd-99ec40fad1f2
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,19 +14,23 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: riande
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ac0fde19d61a9c3a9f54b42982c7096434cb965
+
 
 ---
-# Sessionstillstånd med Azure Redis-cache i Azure App Service
+# <a name="session-state-with-azure-redis-cache-in-azure-app-service"></a>Sessionstillstånd med Azure Redis-cache i Azure App Service
 I det här avsnittet får du veta hur du använder tjänsten Azure Redis-cache för sessionstillstånd.
 
 Om din ASP.NET-webbapp använder sessionstillstånd måste du konfigurera en extern sessionstillståndsprovider (tjänsten Redis-cache eller en sessionstillståndsprovider för SQL Server). Om du använder sessionstillstånd och inte använder en extern provider begränsas du till en instans av webbappen. Tjänsten Redis-cache är den som det går snabbast och enklast att aktivera.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a id="createcache"></a>Skapa cachen
+## <a name="a-idcreatecacheacreate-the-cache"></a><a id="createcache"></a>Skapa cachen
 Skapa cachen genom att följa [de här anvisningarna](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-cache).
 
-## <a id="configureproject"></a>Lägga till NuGet-paketet RedisSessionStateProvider till webbappen
+## <a name="a-idconfigureprojectaadd-the-redissessionstateprovider-nuget-package-to-your-web-app"></a><a id="configureproject"></a>Lägga till NuGet-paketet RedisSessionStateProvider till webbappen
 Installera NuGet-paketet `RedisSessionStateProvider`.  Installera från pakethanterarkonsolen med hjälp av följande kommando (**Tools** > **NuGet Package Manager** > **Package Manager Console**) (Verktyg, NuGet-pakethanteraren, Pakethanterarkonsol):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -35,7 +39,7 @@ Om du vill installera från **Tools** > **NuGet Package Manager** > **Manage Nug
 
 Mer information finns i [NuGet RedisSessionStateProvider-sidan](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) och [Konfigurera cacheklienten](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-## <a id="configurewebconfig"></a>Ändra filen web.config
+## <a name="a-idconfigurewebconfigamodify-the-webconfig-file"></a><a id="configurewebconfig"></a>Ändra filen web.config
 Med NuGet-paketet skapas inte bara sammansättningsreferenser för cachen, med det läggs också stub-poster till i filen *web.config*. 
 
 1. Öppna *web.config* och leta reda på elementet **sessionState**.
@@ -69,7 +73,7 @@ Med NuGet-paketet skapas inte bara sammansättningsreferenser för cachen, med d
             </sessionState>;
           </system.web>;
 
-## <a id="usesessionobject"></a> Använda sessionsobjektet i kod
+## <a name="a-idusesessionobjecta-use-the-session-object-in-code"></a><a id="usesessionobject"></a>Använda sessionsobjektet i kod
 Det sista steget är att börja använda sessionsobjektet i ASP.NET-koden. Du lägger till objekt till sessionstillstånd med hjälp av metoden **Session.Add**. I den här metoden används nyckel/värde-par till att lagra objekt i sessionstillståndscachen.
 
     string strValue = "yourvalue";
@@ -79,7 +83,7 @@ Följande kod hämtar värdet från sessionstillstånd.
 
     object objValue = Session["yourkey"];
     if (objValue != null)
-       strValue = (string)objValue; 
+       strValue = (string)objValue;    
 
 Du kan också använda Redis-cache för cacheobjekt i webbappen. Mer information finns i [MVC-filmapp med Azure Redis-cache på 15 minuter](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
 Mer information om hur du använder sessionstillståndet ASP.NET finns i [Översikt över sessionstillståndet ASP.NET][Översikt över sessionstillståndet ASP.NET].
@@ -89,7 +93,7 @@ Mer information om hur du använder sessionstillståndet ASP.NET finns i [Övers
 > 
 > 
 
-## Nyheter
+## <a name="whats-changed"></a>Nyheter
 * En guide till övergången från Webbplatser till App Service finns i: [Azure App Service och dess påverkan på befintliga Azure-tjänster](http://go.microsoft.com/fwlink/?LinkId=529714)
   
   *Av [Rick Anderson](https://twitter.com/RickAndMSFT)*
@@ -104,11 +108,11 @@ Mer information om hur du använder sessionstillståndet ASP.NET finns i [Övers
 [OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
 [CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
 [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
-[Managekeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+[ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

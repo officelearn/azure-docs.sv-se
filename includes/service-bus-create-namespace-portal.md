@@ -1,4 +1,4 @@
-1. Logga in på [Azure Portal][Azure Portal].
+1. Logga in på [Azure-portalen][Azure-portalen].
 2. I det vänstra navigationsfältet i portalen klickar du på **Nytt**, på **Enterprise Integration** och sedan på **Service Bus**.
 3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
 4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic, Standard eller Premium).
@@ -9,7 +9,7 @@
     ![Skapa namnområde][create-namespace]
 8. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
 
-### Hämta autentiseringsuppgifterna för hantering
+### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
 1. I listan över namnområden, klickar du på det nyligen skapade namnområdet.
 2. På namnområdesbladet klickar du på **Principer för delad åtkomst**.
 3. På bladet **Principer för delad åtkomst** klickar du på **RootManageSharedAccessKey**.
@@ -28,6 +28,6 @@
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure Portal]: https://portal.azure.com
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

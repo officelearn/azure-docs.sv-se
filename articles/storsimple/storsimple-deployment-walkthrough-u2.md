@@ -1,24 +1,28 @@
 ---
 title: Distribuera din StorSimple-enhet (Uppdatering 2) | Microsoft Docs
-description: Beskriver stegen och bästa praxis för att distribuera StorSimple-enheten och tjänsten för Uppdatering 2.
+description: "Beskriver stegen och bästa praxis för att distribuera StorSimple-enheten och tjänsten för Uppdatering 2."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7dff0612-617b-4fc8-a3fe-994c24bc7c51
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+
 
 ---
-# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>Distribuera din lokala StorSimple-enhet (Uppdatering 2)
+# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Distribuera din lokala StorSimple-enhet (Uppdatering 2)
 > [!div class="op_single_selector"]
-> * [Uppdatering 2](storsimple-deployment-walkthrough-u2.md)
+> * [Uppdatering 2 och senare ](storsimple-deployment-walkthrough-u2.md)
 > * [Uppdatering 1](storsimple-deployment-walkthrough-u1.md)
 > * [GA-version](storsimple-deployment-walkthrough.md)
 > 
@@ -91,10 +95,10 @@ Innan du börjar ska du kontrollera att:
 
 * Portarna i ditt datacenters brandvägg är öppna för att möjliggöra iSCSI- och molntrafik enligt beskrivningen i [Nätverkskrav för din StorSimple-enhet](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="step-by-step-deployment"></a>Steg för steg-distribution
+## <a name="stepbystep-deployment"></a>Steg för steg-distribution
 Utför nedanstående steg för steg-instruktioner för att distribuera StorSimple-enheten i datacentret.
 
-## <a name="step-1:-create-a-new-service"></a>Steg 1: Skapa en ny tjänst
+## <a name="step-1-create-a-new-service"></a>Steg 1: Skapa en ny tjänst
 En StorSimple Manager-tjänst kan hantera flera StorSimple-enheter. Utför följande steg för att skapa en ny instans av StorSimple Manager-tjänsten.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -107,19 +111,19 @@ En StorSimple Manager-tjänst kan hantera flera StorSimple-enheter. Utför följ
 > 
 > 
 
-## <a name="step-2:-get-the-service-registration-key"></a>Steg 2: Hämta nyckel för tjänstregistrering
+## <a name="step-2-get-the-service-registration-key"></a>Steg 2: Hämta nyckel för tjänstregistrering
 När StorSimple Manager-tjänsten är igång hämtar du nyckeln för tjänstregistrering. Den här nyckeln används för att registrera och ansluta din StorSimple-enhet till tjänsten.
 
 Utför följande steg i hanteringsportalen.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple
 Använd Windows PowerShell för StorSimple för att slutföra den förberedande inställningen av StorSimple-enheten enligt nedanstående procedur. Du måste använda programvara för terminalemulering för att slutföra det här steget. Mer information finns i [Använda PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## <a name="step-4:-complete-minimum-device-setup"></a>Steg 4: Slutför de inställningar som krävs som minimum
+## <a name="step-4-complete-minimum-device-setup"></a>Steg 4: Slutför de inställningar som krävs som minimum
 Som minimikrav för konfigurationen av din StorSimple-enhet måste du: 
 
 * Ställa in den sekundära DNS-servern.
@@ -130,14 +134,14 @@ Utför följande steg i hanteringsportalen för att uppfylla enhetens minimikrav
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## <a name="step-5:-create-a-volume-container"></a>Steg 5: Skapa en volymbehållare
+## <a name="step-5-create-a-volume-container"></a>Steg 5: Skapa en volymbehållare
 En volymbehållare har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den. Du måste skapa en volymbehållare innan du kan börja etablera volymer på StorSimple-enheten. 
 
 Utför följande steg i hanteringsportalen för att skapa en volymbehållare.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## <a name="step-6:-create-a-volume"></a>Steg 6: Skapa en volym
+## <a name="step-6-create-a-volume"></a>Steg 6: Skapa en volym
 När du skapar en volymbehållare kan du etablera du en lagringsvolym på StorSimple-enheten för dina servrar. Utför följande steg i hanteringsportalen för att skapa en volym.
 
 > [!IMPORTANT]
@@ -147,7 +151,7 @@ När du skapar en volymbehållare kan du etablera du en lagringsvolym på StorSi
 
 [!INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>Steg 7: Montera, initiera och formatera en volym
+## <a name="step-7-mount-initialize-and-format-a-volume"></a>Steg 7: Montera, initiera och formatera en volym
 Följande steg utförs på din Windows Server-värd. 
 
 > [!IMPORTANT]
@@ -161,7 +165,7 @@ Utför nedanstående steg för att montera, initiera och formatera dina StorSimp
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## <a name="step-8:-take-a-backup"></a>Steg 8: Gör en säkerhetskopia
+## <a name="step-8-take-a-backup"></a>Steg 8: Gör en säkerhetskopia
 Säkerhetskopieringar ger tidpunktsskydd för volymer och förbättrar återställningsmöjligheterna samtidigt som återställningstiderna minimeras. Du kan utföra två typer av säkerhetskopiering på StorSimple-enheten: lokala ögonblicksbilder och molnögonblicksbilder. Båda av dessa säkerhetskopieringstyper kan vara **schemalagda** eller **manuella**. 
 
 Utför följande steg i hanteringsportalen för att skapa en schemalagd säkerhetskopiering.
@@ -217,6 +221,9 @@ Utför följande steg i hanteringsportalen för att på begäran kunna skapa en 
 * Konfigurera en [virtuell enhet](storsimple-virtual-device-u2.md).
 * Använd [StorSimple Manager-tjänsten](storsimple-manager-service-administration.md) för att hantera en virtuell enhet.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

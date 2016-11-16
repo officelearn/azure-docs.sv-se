@@ -1,13 +1,13 @@
 ---
-title: Använda SSH-nycklar med Linux-baserade Hadoop från Linux, Unix eller OS X | Microsoft Docs
+title: "Använda SSH-nycklar med Linux-baserade Hadoop från Linux, Unix eller OS X | Microsoft Docs"
 description: " Du kan komma åt Linux-baserade HDInsight med hjälp av SSH (Secure Shell). Det här dokumentet innehåller information om att använda SSH med HDInsight från Linux-, Unix- eller OS X-klienter."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/13/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 476d9ce8b64f3442031310bd9170c682a9940b2b
+
 
 ---
-# Använda SSH med Linux-baserade Hadoop på HDInsight från Linux, Unix eller OS X
+# <a name="use-ssh-with-linuxbased-hadoop-on-hdinsight-from-linux-unix-or-os-x"></a>Använda SSH med Linux-baserat Hadoop i HDInsight från Linux, Unix eller OS X
 > [!div class="op_single_selector"]
 > * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 > * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -33,7 +37,7 @@ ms.author: larryfr
 > 
 > 
 
-## Krav
+## <a name="prerequisites"></a>Krav
 * **ssh-keygen** och **ssh** för Linux-, Unix- och OS X-klienter. Dessa verktyg följer vanligen med operativsystemet eller är tillgängliga via systemet för pakethantering.
 * En modern webbläsare som stöder HTML5.
 
@@ -43,20 +47,20 @@ ELLER
   
     [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
-## Vad är SSH?
+## <a name="what-is-ssh"></a>Vad är SSH?
 SSH är ett verktyg för att logga in till och från en annan dator fjärrstyra kommandon på en fjärrserver. Med Linux-baserat HDInsight etablerar SSH en krypterad anslutning till klustrets huvudnod och etablerar en kommandorad som du använder för att skriva in kommandon. Kommandona körs sedan direkt på servern.
 
-### SSH-användarnamn
+### <a name="ssh-user-name"></a>SSH-användarnamn
 Ett SSH-användarnamn är det namn som du använder för att autentisera för HDInsight-klustret. Om du anger ett SSH-användarnamn när klustret skapas kommer den här användaren att skapas på alla noder i klustret. Du kan använda det här användarnamnet för att ansluta till HDInsight-klustrets huvudnoder när klustret har skapats. Från huvudnoderna kan du därefter ansluta till de enskilda arbetsnoderna.
 
-### SSH-lösenord eller offentlig nyckel
+### <a name="ssh-password-or-public-key"></a>SSH-lösenord eller offentlig nyckel
 En SSH-användare kan använda ett lösenord eller en offentlig nyckel för autentisering. Ett lösenord är bara en textsträng som du hittar på medan en offentlig nyckel är en del av ett krypterat nyckelpar som genereras för unik identifiering av dig.
 
 En nyckel är säkrare än ett lösenord, men det krävs ytterligare steg för att generera nyckeln och du måste lagra filerna som innehåller nyckeln på en säker plats. Om någon får tillgång till nyckelfilerna får de tillgång till ditt konto. Och om du förlorar nyckelfilerna kan du inte kan logga in på ditt konto.
 
 Ett nyckelpar består av en offentlig nyckel (som skickas till HDInsight-servern) och en privat nyckel (som sparas på klientdatorn.) När du ansluter till HDInsight-servern med SSH använder SSH-klienten den privata nyckeln på datorn för att autentisera med servern.
 
-## Skapa en SSH-nyckel
+## <a name="create-an-ssh-key"></a>Skapa en SSH-nyckel
 Använd följande information om du tänker använda SSH-nycklar med ditt kluster. Om du tänker använda ett lösenord kan du hoppa över det här avsnittet.
 
 1. Öppna en terminalsession och använd följande kommando för att se om du har några befintliga SSH-nycklar:
@@ -85,7 +89,7 @@ Använd följande information om du tänker använda SSH-nycklar med ditt kluste
      
      När kommandot har slutförts får du två nya filer, den privata nyckeln (till exempel **id\_rsa**) och den offentliga nyckeln (till exempel **id\_rsa.pub**).
 
-## Skapa ett Linux-baserat HDInsight-kluster
+## <a name="create-a-linuxbased-hdinsight-cluster"></a>Skapa ett Linux-baserat HDInsight-kluster
 När du skapar ett Linux-baserat HDInsight-kluster måste du ange den offentliga nyckeln som skapats tidigare. Det finns två sätt att skapa ett HDInsight-kluster från Linux-, Unix- eller OS X-klienter:
 
 * **Azure-portalen** – använder en webbaserad portal för att skapa klustret.
@@ -93,8 +97,8 @@ När du skapar ett Linux-baserat HDInsight-kluster måste du ange den offentliga
 
 Var och en av dessa metoder kräver ett lösenord eller en offentlig nyckel. Fullständig information om hur du skapar ett Linux-baserat HDInsight-kluster finns i [Etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
-### Azure Portal
-När du använder [Azure-portalen][Preview Portal] för att skapa ett Linux-baserat HDInsight-kluster, måste du ange ett **SSH-ANVÄNDARNAMN** och välja att ange ett **lösenord** eller en **offentlig SSH- NYCKEL**.
+### <a name="azure-portal"></a>Azure Portal
+När du använder [Azure-portalen][preview-portal] för att skapa ett Linux-baserat HDInsight-kluster, måste du ange ett **SSH-ANVÄNDARNAMN** och välja att ange ett **lösenord** eller en **offentlig SSH- NYCKEL**.
 
 Om du väljer **SSH PUBLIC KEY** kan du antingen klistra in den offentliga nyckeln (finns i filen med **pub**-tillägget) i fältet **SSH PublicKey** eller välja **Välj en fil** för att bläddra och välja filen för den offentliga nyckeln.
 
@@ -111,12 +115,12 @@ Om du väljer **SSH PUBLIC KEY** kan du antingen klistra in den offentliga nycke
 
 Detta skapar en inloggning för den angivna användaren med hjälp av det lösenord eller den offentliga nyckel som du anger.
 
-### Azure-kommandoradsgränssnittet för Mac, Linux och Windows
+### <a name="azure-commandline-interface-for-mac-linux-and-windows"></a>Azure-kommandoradsgränssnittet för Mac, Linux och Windows
 Du kan använda  [Azure CLI för Mac, Linux och Windows](../xplat-cli-install.md) för att skapa ett nytt kluster med hjälp av `azure hdinsight cluster create`-kommandot.
 
 Mer information om hur du använder det här kommandot finns i [Etablera Hadoop Linux-kluster i HDInsight med anpassade alternativ](hdinsight-hadoop-provision-linux-clusters.md).
 
-## Ansluta till ett Linux-baserat HDInsight-kluster
+## <a name="connect-to-a-linuxbased-hdinsight-cluster"></a>Ansluta till ett Linux-baserat HDInsight-kluster
 Använd SSH-kommandot från en terminalsession för att ansluta till klustrets huvudnod med adressen och användarnamnet:
 
 * **SSH-adress** – det finns två adresser som kan användas för att ansluta till ett kluster med SSH:
@@ -142,7 +146,7 @@ Om du har använt en SSH-nyckel som är skyddad med en lösenfras uppmanas du at
 
 Om ingen port anges när du ansluter med adressen för huvudnoden blir SSH som standard port 22. I dessa fall ansluter du till den primära huvudnoden på HDInsight-klustret. Om du använder port 23 ansluter du till den sekundära. Mer information om huvudnoderna finns i [Tillgänglighet och tillförlitlighet för Hadoop-kluster i HDInsight](hdinsight-high-availability-linux.md).
 
-### Ansluta till arbetsnoder
+### <a name="connect-to-worker-nodes"></a>Ansluta till arbetsnoder
 Arbetsnoderna är inte direkt åtkomliga från utanför Azure-datacentret men de kan nås från klustrets huvudnod via SSH.
 
 Om du använder en SSH-nyckel för att verifiera ditt användarkonto måste du utföra följande steg på klienten:
@@ -197,7 +201,22 @@ Använd följande steg för att ansluta till arbetsnoderna för klustret.
 4. När sessionen har upprättats ändras uppmaningen från `username@hn#-clustername` till `username@wk#-clustername` för att indikera att du är ansluten till arbetsnoden. Alla kommandon som du kör nu kommer att köras på arbetsnoden.
 5. När du är klar med att utföra åtgärder på arbetsnoden använder du `exit`-kommandot för att stänga sessionen till arbetsnoden. Detta återför dig till `username@hn#-clustername`-tolken.
 
-## Lägga till fler konton
+## <a name="connect-to-a-domainjoined-hdinsight-cluster"></a>Ansluta till ett domänanslutet HDInsight-kluster
+[Domänanslutna HDInsight](hdinsight-domain-joined-introduction.md) integrerar Kerberos med Hadoop i HDInsight. Eftersom SSH-användaren inte är en domänanvändare för Active Directory kan det här användarkontot inte köra Hadoop-kommandon direkt från SSH-skal i ett domänanslutet kluster. Du måste först köra *kinit*. 
+
+**Köra Hive-frågor i ett domänanslutet HDInsight-kluster med SSH**
+
+1. Anslut till ett domänanslutet HDInsight-kluster med SSH.  Anvisningar finns i [Ansluta till ett Linux-baserat HDInsight-kluster](#connect-to-a-linux-based-hdinsight-cluster).
+2. Kör kinit. Du blir ombedd om användarnamn och lösenord för domänanvändaren. Mer information om att konfigurera domänanvändare för domänanslutna HDInsight-kluster finns i [Konfigurera domänanslutna HDInisight kluster](hdinsight-domain-joined-configure.md).
+   
+    ![HDInsight Hadoop domänanslutna kinit](./media/hdinsight-hadoop-linux-use-ssh-unix/hdinsight-domain-joined-hadoop-kinit.png)
+3. Öppna Hive-konsolen genom att ange:
+   
+        hive
+   
+    Därefter kan du köra Hive-kommandon.
+
+## <a name="add-more-accounts"></a>Lägga till fler konton
 1. Generera en ny offentlig nyckel och privat nyckel för det nya användarkontot enligt beskrivningen i avsnittet [Skapa en SSH-nyckel](#create-an-ssh-key-optional).
    
    > [!NOTE]
@@ -222,7 +241,7 @@ Använd följande steg för att ansluta till arbetsnoderna för klustret.
         sudo chown -hR <username>:<username> /home/<username>/.ssh
 6. Du bör nu kunna autentisera till servern med det nya användarkontot och den privata nyckeln.
 
-## <a id="tunnel"></a>SSH-tunnel
+## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH-tunnel
 SSH kan användas för lokala tunnelbegäranden, till exempel webbegäranden, till HDInsight-klustret. Begäran dirigeras sedan till den begärda resursen som om den hade sitt ursprung i HDInsight-klustrets huvudnod.
 
 > [!IMPORTANT]
@@ -232,17 +251,17 @@ SSH kan användas för lokala tunnelbegäranden, till exempel webbegäranden, ti
 
 Mer information om hur du skapar och använder en SSH-tunnel finns i [Använda SSH-tunnlar för att komma åt Ambari-webbgränssnittet, resurshanteraren, jobbhistorik, NameNode, Oozie och andra webbgränssnitt](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när du vet hur du autentiserar genom att använda en SSH-nyckel kan du lära dig hur du använder MapReduce med Hadoop på HDInsight.
 
 * [Använda Hive med HDInsight](hdinsight-use-hive.md)
 * [Använda Pig med HDInsight](hdinsight-use-pig.md)
 * [Använda MapReduce-jobb med HDInsight](hdinsight-use-mapreduce.md)
 
-[Preview Portal]: https://portal.azure.com/
+[preview-portal]: https://portal.azure.com/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Komma igång med Azure Search i Java | Microsoft Docs
-description: Här lär du dig hur du skapar ett värdbaserat sökprogram i molnet med Azure och Java som programmeringsspråk.
+title: "Komma igång med Azure Search i Java| Microsoft Docs"
+description: "Här lär du dig hur du skapar ett värdbaserat sökprogram i molnet med Azure och Java som programmeringsspråk."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: EvanBoyle
 manager: pablocas
 editor: v-lincan
-
+ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -14,12 +14,16 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
+
 
 ---
-# Komma igång med Azure Search i Java
+# <a name="get-started-with-azure-search-in-java"></a>Komma igång med Azure Search i Java
 > [!div class="op_single_selector"]
-> * [Portalen](search-get-started-portal.md)
-> * [.NET](search-howto-dotnet-sdk.md)
+> * [Portal](search-get-started-portal.md)
+> * [NET](search-howto-dotnet-sdk.md)
 > 
 > 
 
@@ -33,17 +37,17 @@ Vi använde följande programvara när vi skapade och testade det här exemplet:
 * [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-## Om de data som används
+## <a name="about-the-data"></a>Om de data som används
 Det här exempelprogrammet använder data från [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), som har filtrerats på delstaten Rhode Island för att minska datauppsättningens storlek. Vi ska använda dessa data för att skapa ett sökprogram som returnerar viktiga byggnader som sjukhus och skolor, samt geologiska element som vattendrag, sjöar och bergstoppar.
 
 I det här programmet bygger och läser programmet **SearchServlet.java** in indexet med hjälp av en [indexeringskonstruktion](https://msdn.microsoft.com/library/azure/dn798918.aspx) och hämtar den filtrerade USGS-datauppsättningen från en offentlig Azure SQL-databas. Fördefinierade autentiseringsuppgifter och anslutningsinformation för onlinedatakällan finns i programkoden. Ingen ytterligare konfiguration krävs vad gäller dataåtkomsten.
 
 > [!NOTE]
-> Vi har använt ett filter för den här datauppsättningen för att hålla oss under gränsen på 10 000 dokument för den kostnadsfria prisnivån. Om du använder standardnivån så gäller inte den här gränsen och du kan ändra koden om du vill använda en större datauppsättning. Mer information om kapaciteten för varje prisnivå finns i [Gränser och begränsningar](search-limits-quotas-capacity.md).
+> Vi har använt ett filter för den här datauppsättningen för att hålla oss under gränsen på 10 000 dokument för den kostnadsfria prisnivån. Om du använder standardnivån så gäller inte den här gränsen och du kan ändra koden om du vill använda en större datauppsättning. Mer information om kapaciteten för varje prisnivå finns i [Gränser och begränsningar](search-limits-quotas-capacity.md).
 > 
 > 
 
-## Om programfilerna
+## <a name="about-the-program-files"></a>Om programfilerna
 Följande lista beskriver de filer som är relevanta för det här exemplet.
 
 * Search.JSP: Tillhandahåller användargränssnittet
@@ -56,7 +60,7 @@ Följande lista beskriver de filer som är relevanta för det här exemplet.
 
 <a id="sub-2"></a>
 
-## Leta upp tjänstnamnet och API-nyckeln för Azure Search-tjänsten
+## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Leta upp tjänstnamnet och API-nyckeln för Azure Search-tjänsten
 Alla REST API-anrop till Azure Search kräver att du anger tjänstens URL och en API-nyckel. 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -64,17 +68,17 @@ Alla REST API-anrop till Azure Search kräver att du anger tjänstens URL och en
 3. Markera den tjänst som du vill använda.
 4. På instrumentpanelen för tjänsten ser du paneler för viktig information samt nyckelikonen för att komma åt administatörsnycklarna.
    
-    ![][3]
+      ![][3]
 5. Kopiera tjänstens URL och en administratörsnyckel. Du behöver dem senare när du lägger till dem i filen **config.properties**.
 
-## Ladda ned exempelfilerna
+## <a name="download-the-sample-files"></a>Ladda ned exempelfilerna
 1. Gå till [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) på Github.
 2. Klicka på **Ladda ned ZIP**, spara ZIP-filen på disk och extrahera sedan alla filer som den innehåller. Om du vill kan du extrahera filerna till Java-arbetsytan så att det blir lättare att hitta projektet senare.
 3. Exempelfilerna är skrivskyddade. Högerklicka på Mappegenskaper och ta bort skrivskyddet.
 
 Alla efterföljande filändringar och körningsinstruktioner görs mot filer i den här mappen.  
 
-## Importera projekt
+## <a name="import-project"></a>Importera projekt
 1. I Eclipse väljer du **File** > **Import** > **General** > **Existing Projects into Workspace**.
    
     ![][4]
@@ -84,14 +88,14 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 3. Klicka på **Finish**.
 4. Använd **Project Explorer** för att visa och redigera filerna. Om den inte redan är öppen klickar du på **Window** > **Show view** > **Project Explorer** eller använder genvägen för att öppna den.
 
-## Konfigurera tjänstens URL och API-nyckel
+## <a name="configure-the-service-url-and-apikey"></a>Konfigurera tjänstens URL och API-nyckel
 1. I **Project Explorer** dubbelklickar du på **config.properties** för att redigera konfigurationsinställningarna som innehåller servernamnet och API-nyckeln.
 2. Följ stegen ovan i den här artikeln, där du letade upp tjänstens URL och API-nyckeln på [Azure Portal](https://portal.azure.com), för att hämta de värden som du nu ska ange i **config.properties**.
 3. I **config.properties** ersätter du ”Api Key” med API-nyckeln för tjänsten. Därefter ska tjänstnamnet (den första delen av URL:en http://servicename.search.windows.net) ersätta ”service name” i samma fil.
    
     ![][5]
 
-## Konfigurera projektet, versionen och runtime-miljöerna
+## <a name="configure-the-project-build-and-runtime-environments"></a>Konfigurera projektet, versionen och runtime-miljöerna
 1. I Eclipse högerklickar du på projektet i Project Explorer > **Properties** > **Project Facets**.
 2. Välj **Dynamic Web Module**, **Java** och **JavaScript**.
    
@@ -117,7 +121,7 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 
 Nu har du slutfört konfigurationsåtgärderna. Nu är det dags att bygga och köra projektet.
 
-## Bygga projektet
+## <a name="build-the-project"></a>Bygga projektet
 1. Högerklicka på projektets namn i Project Explorer och välj **Run as** > **Maven build** för att konfigurera projektet.
    
     ![][10]
@@ -125,7 +129,7 @@ Nu har du slutfört konfigurationsåtgärderna. Nu är det dags att bygga och k�
 
 Statusmeddelanden visas i konsolfönstret. Meddelandet BUILD SUCCESS bör visas som anger att projektet har skapats utan fel.
 
-## Kör appen
+## <a name="run-the-app"></a>Kör appen
 I det sista steget ska du köra programmet i körningsmiljön för en lokal server.
 
 Om du inte har angett serverkörningsmiljön i Eclipse än så måste du göra det först.
@@ -142,7 +146,7 @@ När du kör programmet bör du se ett webbläsarfönster med en sökruta där d
 
 Vänta ungefär en minut innan du klickar på **Search** så att tjänsten får tid på sig att skapa och läsa in indexet. Om ett HTTP 404-fel returneras väntar du bara lite längre innan du försöker igen.
 
-## Söka i USGS-data
+## <a name="search-on-usgs-data"></a>Söka i USGS-data
 USGS-datauppsättningen innehåller poster som är relevanta för delstaten Rhode Island. Om du klickar på **Search** i en tom sökrutan returneras 50 poster, vilket är standard.
 
 Om du skriver en sökterm ger du sökmotorn något att gå på. Prova att skriva namnet på någon från regionen. ”Roger Williams” var Rhode Islands första guvernör. Många parker, byggnader och skolor bär hans namn.
@@ -155,7 +159,7 @@ Du kan också prova någon av dessa söktermer:
 * Pembroke
 * goose +cape
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Det här är den första Azure Search-självstudiekursen som baseras på Java och USGS-datauppsättningen. Med tiden kommer vi att utöka den här självstudiekursen och demonstrera ytterligare sökfunktioner som du kanske vill använda i dina anpassade lösningar.
 
 Om du redan har viss erfarenhet av Azure Search kan du använda det här exemplet som en utgångspunkt för ytterligare experiment och kanske utöka [söksidan](search-pagination-page-layout.md) eller implementera [aspektbaserad navigering](search-faceted-navigation.md). Du kan även förbättra sidan med sökresultat genom att lägga till antal och batchbearbeta dokument så att användarna kan bläddra igenom resultaten.
@@ -178,6 +182,6 @@ Har du inte provat Azure Search än? Vi rekommenderar att du går andra självst
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

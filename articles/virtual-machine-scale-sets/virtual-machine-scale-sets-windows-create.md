@@ -1,20 +1,24 @@
 ---
-title: Skapa en skaluppsättning för virtuella datorer med PowerShell | Microsoft Docs
-description: Skapa en skaluppsättning för virtuella datorer med PowerShell
+title: "Skapa en skaluppsättning för virtuella datorer med PowerShell | Microsoft Docs"
+description: "Skapa en skaluppsättning för virtuella datorer med PowerShell"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7bb03323-8bcc-4ee4-9a3e-144ca6d644e2
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+
 
 ---
 # <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Skapa en Windows-skaluppsättning för virtuella datorer med Azure PowerShell
@@ -22,41 +26,18 @@ Här följer en ”fyll i tomrummen-strategi” för hur du skapar en skaluppsä
 
 Det bör ta cirka 30 minuter att slutföra stegen i den här artikeln.
 
-## <a name="step-1:-install-azure-powershell"></a>Steg 1: Installera Azure PowerShell
+## <a name="step-1-install-azure-powershell"></a>Steg 1: Installera Azure PowerShell
 Se [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
 
-## <a name="step-2:-create-resources"></a>Steg 2: Skapa resurser
+## <a name="step-2-create-resources"></a>Steg 2: Skapa resurser
 Skapa de resurser som krävs för den nya skaluppsättningen.
 
 ### <a name="resource-group"></a>Resursgrupp
 En skaluppsättning för virtuella datorer måste ingå i en resursgrupp.
 
-1. Hämta en lista över tillgängliga platser och tjänster som stöds:
+1. Hämta en lista över tillgängliga platser där resurser kan placeras:
    
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-   
-    Du bör se något som liknar det här exemplet:
-   
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 2. Välj en plats som passar dig bäst och ersätt värdet **$locName** med platsens namn och skapa sedan variabeln:
    
         $locName = "location name from the list, such as Central US"
@@ -132,36 +113,6 @@ Ett virtuellt nätverk krävs för de virtuella datorerna i skaluppsättningen.
 4. Skapa det virtuella nätverket:
    
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### <a name="public-ip-address"></a>Offentlig IP-adress
-Innan du kan skapa ett nätverksgränssnitt måste du skapa en offentlig IP-adress.
-
-1. Ersätt värdet för **$domName** med domännamnsetiketten som du vill använda med din offentliga IP-adress och skapa sedan variabeln:  
-   
-        $domName = "domain name label"
-   
-    Etiketten får endast innehålla bokstäver, siffror och bindestreck, och det sista tecknet måste vara en bokstav eller en siffra.
-2. Testa om namnet är unikt:
-   
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-   
-    Om svaret är **Sant** är det föreslagna namnet unikt.
-3. Ersätt värdet för **$pipName** med namnet som du vill använda för den offentliga IP-adressen och skapa sedan variabeln. 
-   
-        $pipName = "public ip address name"
-4. Skapa den offentliga IP-adressen:
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### <a name="network-interface"></a>Nätverksgränssnitt
-När du nu har den offentliga IP-adressen kan du skapa nätverksgränssnittet.
-
-1. Ersätt värdet för **$nicName** med namnet som du vill använda för nätverksgränssnittet och skapa sedan variabeln: 
-   
-        $nicName = "network interface name"
-2. Skapa nätverksgränssnittet:
-   
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### <a name="configuration-of-the-scale-set"></a>Konfiguration av skaluppsättningen
 Du har alla resurser som du behöver för konfigurationen av skaluppsättningen, så nu skapar vi den.  
@@ -253,7 +204,7 @@ Slutligen kan du skapa skaluppsättningen.
         Location              : centralus
         Tags                  :
 
-## <a name="step-3:-explore-resources"></a>Steg 3: Utforska resurser
+## <a name="step-3-explore-resources"></a>Steg 3: Utforska resurser
 Använd dessa resurser för att utforska den skaluppsättning för virtuella datorer som du skapade:
 
 * Azure Portal – En begränsad mängd information är tillgänglig genom portalen.
@@ -271,6 +222,9 @@ Använd dessa resurser för att utforska den skaluppsättning för virtuella dat
 * Överväg att konfigurera automatisk skalning av skaluppsättningen med hjälp av informationen i [Automatisk skalning och skaluppsättningar för virtuella datorer](virtual-machine-scale-sets-autoscale-overview.md)
 * Läs mer om vertikal skalning i [Vertikal automatisk skalning med skaluppsättningar för virtuella datorer](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

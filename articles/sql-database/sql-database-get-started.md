@@ -1,13 +1,13 @@
 ---
-title: 'SQL Database-självstudier: Skapa en SQL-databas | Microsoft Docs'
-description: Lär dig hur du ställer in en logisk SQL Database-server, serverbrandväggsregel, SQL-databas och exempeldata. Lär dig också att ansluta till klientverktyg, konfigurera användare och ställa in en brandväggsregel för databasen.
-keywords: sql database-självstudier, skapa en sql-databas
+title: "SQL Database-självstudier: Skapa en SQL-databas | Microsoft Docs"
+description: "Lär dig hur du ställer in en logisk SQL Database-server, serverbrandväggsregel, SQL-databas och exempeldata. Lär dig också att ansluta till klientverktyg, konfigurera användare och ställa in en brandväggsregel för databasen."
+keywords: "sql database-självstudier, skapa en sql-databas"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/07/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+
 
 ---
-# SQL Database-självstudier: Skapa en SQL-databas på bara några minuter med hjälp av Azure Portal
+# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>SQL Database-självstudier: Skapa en SQL-databas på bara några minuter med hjälp av Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure-portalen](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
@@ -36,7 +40,7 @@ Du kan utföra samma åtgärder, antingen med [C#](sql-database-get-started-csha
 
 <a name="create-logical-server-bk"></a>
 
-## Skapa din första Azure SQL Database
+## <a name="create-your-first-azure-sql-database"></a>Skapa din första Azure SQL Database
 1. Om du inte är ansluten ansluter du till [Azure Portal](http://portal.azure.com).
 2. Klicka på **Ny**, klicka på **Data + lagring**, och leta sedan upp **SQL Database**.
    
@@ -69,7 +73,7 @@ Du kan utföra samma åtgärder, antingen med [C#](sql-database-get-started-csha
 12. Ange ett användarnamn för administratörinloggning för denna server – till exempel "mitt-adminkonto" under **Inloggning för serveradministratör**. Den här inloggningen kallas den primära server-inloggningen. En grön kryssmarkering visar att du har angett ett giltigt namn.
     
     ![Ny sql database 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. Ange ett lösenord för serverns huvudsakliga inloggningskonto, till exempel "p@ssw0rd1" under **Lösenord** och **Bekräfta lösenord**. En grön kryssmarkering visar att du har angett ett giltigt lösenord.
+13. Ange ett lösenord för serverns huvudsakliga inloggningskonto, till exempel "p@ssw0rd1". under **Lösenord** och **Bekräfta lösenord**. En grön kryssmarkering visar att du har angett ett giltigt lösenord.
     
     ![Ny sql database 11](./media/sql-database-get-started/sql-database-new-database-11.png)
 14. Välj ett datacenter som är lämpligt för din plats – till exempel "Australien, östra" under **Plats**.
@@ -101,7 +105,7 @@ Du kan utföra samma åtgärder, antingen med [C#](sql-database-get-started-csha
 
 [!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Nu när du har slutfört de här SQL Database-självstudierna och skapat en databas med lite exempeldata, är du redo att börja använda dina favoritverktyg.
 
 * Om du är bekant med Transact-SQL och SQL Server Management Studio (SSMS), lär du dig hur man [Ansluter och frågar en SQL-databas med SSMS](sql-database-connect-query-ssms.md).
@@ -111,9 +115,12 @@ Nu när du har slutfört de här SQL Database-självstudierna och skapat en data
 * Om du vill läsa in data i en ny tabell från en CSV-fil med kommandoradsverktyget BCP, se [Läs in data i SQL Database från en CSV-fil med BCP](sql-database-load-from-csv-with-bcp.md).
 * Om du vill börja utforska Azure SQL Database-säkerhet se [Komma igång med säkerhet](sql-database-get-started-security.md)
 
-## Ytterligare resurser
+## <a name="additional-resources"></a>Ytterligare resurser
 [Vad är SQL Database?](sql-database-technical-overview.md)
 
-<!---HONumber=sep12_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

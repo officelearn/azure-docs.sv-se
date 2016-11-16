@@ -1,94 +1,104 @@
 ---
-title: Get started creating an Internal load balancer in Resource Manager using the Azure portal | Microsoft Docs
-description: Learn how to create an Internal load balancer in Resource Manager using the Azure portal
+title: "Kom igång med att skapa en intern belastningsutjämnare i Resource Manager med hjälp av Azure Portal | Microsoft Docs"
+description: "Lär dig hur du skapar en intern belastningsutjämnare i Resource Manager med hjälp av Azure Portal"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 10/24/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
+
 
 ---
-# Get started creating an Internal load balancer in the Azure portal
+# <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Skapa en intern belastningsutjämnare i Azure Portal
 [!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+[klassisk distributionsmodell](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## Get started creating an Internal load balancer using Azure portal
-To create an internal load balancer from the Azure portal, follow the steps below.
+## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Kom igång med att skapa en intern belastningsutjämnare med hjälp av Azure Portal
+Använd följande steg för att skapa en intern belastningsutjämnare från Azure Portal.
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. In the upper left hand side of the screen, click **New** > **Networking** > **Load balancer**.
-3. In the **Create load balancer** blade, type a **Name** for your load balancer.
-4. Under **Scheme**, click **Internal**.
-5. Click **Virtual network**, and then select the virtual network where you want to create the load balancer.
+1. Öppna en webbläsare, navigera till [Azure Portal](http://portal.azure.com) och logga in med ditt Azure-konto.
+2. Längst upp till vänster på skärmen klickar du på **Nytt** > **Nätverk** > **Belastningsutjämnare**.
+3. På bladet **Skapa belastningsutjämnare** skriver du ett **namn** för belastningsutjämnaren.
+4. Under **Schema** klickar du på **Intern**.
+5. Klicka på **Virtuellt nätverk** och välj sedan det virtuella nätverket där du vill skapa belastningsutjämnaren.
    
    > [!NOTE]
-   > If you do not see the virtual network you want to use, check the **Location** you are using for the load balancer, and change it accordingly.
+   > Om du inte hittar det virtuella nätverk som du vill använda, kontrollerar du vilken **plats** du använder för belastningsutjämnaren och gör ändringar därefter.
    > 
    > 
-6. Click **Subnet**, and then select the subnet where you want to create the load balancer.
-7. Under **IP address assignment**, click either **Dynamic** or **Static**, depending on whether you want the IP address for the load balancer to be fixed (static) or not.
+6. Klicka på **Undernät** och välj sedan undernätet där du vill skapa belastningsutjämnaren.
+7. Under **IP-adresstilldelning** klickar du antingen på **Dynamisk** eller **Statisk**, beroende på om du vill att IP-adressen för belastningsutjämnaren ska vara fast (statisk) eller inte.
    
    > [!NOTE]
-   > If you select to use a static IP address, you will have to provide an address for the load balancer.
+   > Om du väljer att använda en statisk IP-adress måste du ange en adress för belastningsutjämnaren.
    > 
    > 
-8. Under **Resource group** either specify the name of a new resource group for the load balancer, or click **select existing** and select an existing resource group.
-9. Click **Create**.
+8. Under **Resursgrupp** anger du antingen namnet på en ny resursgrupp för belastningsutjämnaren eller så klickar du på **Välj befintlig** och väljer en befintlig resursgrupp.
+9. Klicka på **Skapa**.
 
-## Configure load balancing rules
-After the load balancer creation, navigate to the load balancer resource to configure it.
-You need to configure first a back-end address pool and a probe before configuring a load balancing rule.
+## <a name="configure-load-balancing-rules"></a>Konfigurera belastningsutjämningsregler
+När du har skapat en belastningsutjämnare navigerar du till belastningsutjämningsresursen för att konfigurera den.
+Du behöver konfigurera en serverdelsadresspool och en avsökning innan du kan konfigurera en belastningsutjämningsregel.
 
-### Step 1: Configure a back-end pool
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
-2. In the **Settings** blade, click **Backend pools**.
-3. In the **Backend address pools** blade, click **Add**.
-4. In the **Add backend pool** blade, type a **Name** for the backend pool, and then click **OK**.
+### <a name="step-1-configure-a-backend-pool"></a>Steg 1: Konfigurera en serverdelspool
+1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure Portal och klicka sedan på belastningsutjämnaren som du skapade ovan.
+2. På bladet **Inställningar** klickar du på **Serverdelspooler**.
+3. På bladet **Serverdelspooler** klickar du på **Lägg till**.
+4. På bladet **Lägg till serverdelspool** anger du ett **namn** för serverdelspoolen och sedan klickar du på **OK**.
 
-### Step 2: Configure a probe
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
-2. In the **Settings** blade, click **Probes**.
-3. In the **Probes**  blade, click **Add**.
-4. In the **Add probe** blade, type a **Name** for the probe.
-5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
-6. Under **Port**, specify the port to use when accessing the probe.
-7. Under **Path** (for HTTP probes only), specify the path to use as a probe.
-8. Under **Interval** specify how frequently to probe the application.
-9. Under **Unhealthy threshold**, specify how many attempts should fail before the backend VM is marked as unhealthy.
-10. click **OK** to create probe.
+### <a name="step-2-configure-a-probe"></a>Steg 2: Konfigurera en avsökning
+1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure Portal och klicka sedan på belastningsutjämnaren som du skapade ovan.
+2. På bladet **Inställningar** klickar du på **Avsökningar**.
+3. På bladet **Avsökningar** klickar du på **Lägg till**.
+4. På bladet **Lägg till avsökning** anger du ett **namn** för avsökningen.
+5. Under **Protokoll** väljer du **HTTP** (för webbplatser) eller **TCP** (för andra TCP-baserade program).
+6. Under **Port** anger du porten som ska användas vid åtkomst till avsökningen.
+7. Under **Sökväg** (endast för HTTP-avsökningar) anger du sökvägen som används som avsökning.
+8. Under **Intervall** anger du hur ofta avsökning av programmet ska ske.
+9. Under **Unhealthy threshold** (Tröskelvärde för felstatus) anger du hur många försök som får misslyckas innan den virtuella datorn på serversidan markeras som felaktig.
+10. Klicka på **OK** för att skapa avsökningen.
 
-### Step 3: Configure load balancing rules
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
-2. In the **Settings** blade, click **Load balancing rules**.
-3. In the **Load balancing rules** blade, click **Add**.
-4. In the **Add load balancing rule** blade, type a **Name** for the rule.
-5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
-6. Under **Port**, specify the port clients connect to int he load balancer.
-7. Under **Backend port**, specify the port to be used in the backend pool (usually, the load balancer port and the backend port are the same).
-8. Under **Backend pool**, select the backend pool you created above.
-9. Under **Session persistence**, select how you want sessions to persist.
-10. Under **Idle timeout (minutes)**, specify the idle timeout.
-11. Under **Floating IP (direct server return)**, click **Disabled** or **Enabled**.
-12. Click **OK**.
+### <a name="step-3-configure-load-balancing-rules"></a>Steg 3: Konfigurera belastningsutjämningsregler
+1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure Portal och klicka sedan på belastningsutjämnaren som du skapade ovan.
+2. På bladet **Inställningar** klickar du på **Belastningsutjämningsregler**.
+3. På bladet **Belastningsutjämningsregler** klickar du på **Lägg till**.
+4. På bladet **Add load balancing rule** (Lägg till belastningsutjämningsregel) anger du ett **namn** för regeln.
+5. Under **Protokoll** väljer du **HTTP** (för webbplatser) eller **TCP** (för andra TCP-baserade program).
+6. Under **Port** anger du den port som klienter ansluter till i belastningsutjämnaren.
+7. Under **Serverdelsport** anger du porten som ska användas i serverdelspoolen (vanligtvis är belastningsutjämnarporten och serverdelsporten densamma).
+8. Under **Serverdelspool** väljer du den serverdelspool du skapade ovan.
+9. Under **Sessionspermanens** väljer du hur du vill att sessioner ska sparas.
+10. Under **Timeout för inaktivitet (minuter)** anger du tidsgränsen för inaktivitet.
+11. Under **Flytande IP (direkt serverreturnering)** klickar du på **Inaktiverad** eller **Aktiverad**.
+12. Klicka på **OK**.
 
-## Next steps
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+## <a name="next-steps"></a>Nästa steg
+[Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

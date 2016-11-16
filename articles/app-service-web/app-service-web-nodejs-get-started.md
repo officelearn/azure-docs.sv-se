@@ -1,12 +1,12 @@
 ---
-title: Kom igång med Node.js-webbappar i Azure Apptjänst
-description: Lär dig hur du distribuerar ett Node.js-program till en webbapp i Azure Apptjänst.
+title: "Kom igång med Node.js-webbappar i Azure Apptjänst"
+description: "Lär dig hur du distribuerar ett Node.js-program till en webbapp i Azure Apptjänst."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+
 
 ---
-# Kom igång med Node.js-webbappar i Azure Apptjänst
+# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Kom igång med Node.js-webbappar i Azure Apptjänst
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 I den här kursen får du lära dig hur du skapar ett enkelt [Node.js]-program och distribuerar det till [Azure App Service] från en kommandoradmiljö, t.ex. cmd.exe eller bash. Anvisningarna i den här kursen kan användas för alla operativsystem som kan köra Node.js.
@@ -27,7 +31,7 @@ I den här kursen får du lära dig hur du skapar ett enkelt [Node.js]-program o
 
 <a name="prereq"></a>
 
-## Krav
+## <a name="prerequisites"></a>Krav
 * [Node.js]
 * [Bower]
 * [Yeoman]
@@ -35,7 +39,7 @@ I den här kursen får du lära dig hur du skapar ett enkelt [Node.js]-program o
 * [Azure CLI]
 * Ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion] eller [aktivera Visual Studio-prenumerantförmåner].
 
-## Skapa och distribuera en enkel Node.js-webbapp
+## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Skapa och distribuera en enkel Node.js-webbapp
 1. Öppna önskat kommandoradsverktyg och installera [Express generator for Yeoman].
    
         npm install -g generator-express
@@ -99,10 +103,10 @@ I den här kursen får du lära dig hur du skapar ett enkelt [Node.js]-program o
    
     ![Exempel på hur du bläddrar till det distribuerade programmet.][deployed-express-app]
 
-## Uppdatera Node.js-webbappen
+## <a name="update-your-nodejs-web-app"></a>Uppdatera Node.js-webbappen
 Om du vill uppdatera Node.js-webbappen som körs i Apptjänst, kör du bara `git add`, `git commit` och `git push` precis som du gjorde när du distribuerade webbappen för första gången.
 
-## Så här distribuerar Apptjänst Node.js-appen
+## <a name="how-app-service-deploys-your-nodejs-app"></a>Så här distribuerar Apptjänst Node.js-appen
 Azure Apptjänst använder [iisnode] för att köra Node.js-appar. Azure CLI och Kudu-motorn (Git-distribution) arbetar tillsammans för att göra det enklare när du utvecklar och distribuerar Node.js-appar från kommandoraden. 
 
 * `azure site create --git` känner igen det vanliga Node.js-mönstret i server.js eller app.js och skapar iisnode.yml i rotkatalogen. Du kan använda den här filen för att anpassa iisnode.
@@ -112,7 +116,7 @@ Azure Apptjänst använder [iisnode] för att köra Node.js-appar. Azure CLI och
   * Skapa en Web.config för iisnode som pekar på startskriptet i package.json (t.ex. server.js eller app.js).
   * Anpassa Web.config för att förbereda appen för felsökning med Node-Inspector.
 
-## Använda ett Node.js-ramverk
+## <a name="use-a-nodejs-framework"></a>Använda ett Node.js-ramverk
 Om du använder ett populärt Node.js-ramverk, t.ex. [Sails.js][SAILSJS] eller [MEAN.js][MEANJS], för att utveckla appar kan du distribuera dessa till Apptjänst. Populära Node.js-ramverk har specifika egenskaper, och deras paketberoenden uppdateras hela tiden. Men App Service tillgängliggör stdout- och stderr-loggarna så att du kan veta exakt vad som händer med din app och göra ändringar därefter. Mer information finns i [Hämta stdout- och stderr-loggar från iisnode](#iisnodelog).
 
 Följande kurser visar hur du arbetar med ett specifikt ramverk i Apptjänst:
@@ -123,7 +127,7 @@ Följande kurser visar hur du arbetar med ett specifikt ramverk i Apptjänst:
 
 <a name="version"></a>
 
-## Använda en specifik Node.js-motor
+## <a name="use-a-specific-nodejs-engine"></a>Använda en specifik Node.js-motor
 I ditt vanliga arbetsflöde kan du ange att App Service ska använda en specifik Node.js-motor som du vanligtvis använder i package.json.
 Några exempel:
 
@@ -144,7 +148,7 @@ Kudu-distributionsmotorn avgör vilken Node.js-motor som ska användas i följan
 
 <a name="iisnodelog"></a>
 
-## Hämta stdout- och stderr-loggar från iisnode
+## <a name="get-stdout-and-stderr-logs-from-iisnode"></a>Hämta stdout- och stderr-loggar från iisnode
 Utför dessa steg om du vill läsa iisnode-loggar.
 
 > [!NOTE]
@@ -182,7 +186,7 @@ Utför dessa steg om du vill läsa iisnode-loggar.
    
     ![Studera en iisnode-loggfil.][iislog-kudu-console-read]
 
-## Felsöka appen med Node-Inspector
+## <a name="debug-your-app-with-nodeinspector"></a>Felsöka appen med Node-Inspector
 Om du använder Node-Inspector för att felsöka dina Node.js-appar, kan du använda det för din aktiva Apptjänst-app. Node-Inspector förinstalleras i iisnode-installationen för Apptjänst. Om du distribuerar via Git innehåller den automatiskt skapade Web.config från Kudu redan all konfiguration du behöver för att aktivera Node-Inspector.
 
 Följ de här stegen om du vill aktivera Node-Inspector:
@@ -204,9 +208,9 @@ Följ de här stegen om du vill aktivera Node-Inspector:
    
         http://{appname}.azurewebsites.net/app.js/debug
 
-## Fler resurser
+## <a name="more-resources"></a>Fler resurser
 * [Ange en Node.js-version i ett Azure-program](../nodejs-specify-node-version-azure-apps.md)
-* [Bästa praxis och felsökningsguide för Node.js-program om Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
+* [Bästa praxis och felsökningsguid för Node.js-program på Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 * [Felsöka en Node.js-webbapp i Azure Apptjänst](web-sites-nodejs-debug.md)
 * [Använda Node.js-moduler med Azure-program](../nodejs-use-node-modules-azure-apps.md)
 * [Webbappar i Azure Apptjänst: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
@@ -243,6 +247,6 @@ Följ de här stegen om du vill aktivera Node-Inspector:
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

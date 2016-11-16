@@ -1,12 +1,12 @@
 ---
-title: Använda VS Code med Resource Manager-mallar | Microsoft Docs
-description: Visar hur du konfigurerar Visual Studio Code för att skapa Azure Resource Manager-mallar.
+title: "Använda VS Code med Resource Manager-mallar | Microsoft Docs"
+description: "Visar hur du konfigurerar Visual Studio Code för att skapa Azure Resource Manager-mallar."
 services: azure-resource-manager
 documentationcenter: na
 author: cmatskas
 manager: timlt
 editor: tysonn
-
+ms.assetid: 78f2aa22-df1d-41bd-92ec-dabd1175db88
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: chmatsk;tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+
 
 ---
-# Arbeta med Azure Resource Manager-mallar i Visual Studio Code
+# <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Arbeta med Azure Resource Manager-mallar i Visual Studio Code
 Azure Resource Manager-mallar är JSON-filer som beskriver en resurs och relaterade beroenden. Eftersom dessa filer ibland kan vara stora och komplicerade är det viktigt att ha tillgång till bra verktyg. Visual Studio Code är en ny, enkel, plattformsoberoende kodredigerare med öppen källkod. Den har stöd för att skapa och redigera Resource Manager-mallar via ett [nytt tillägg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code kan köras var som helst och kräver inte Internetåtkomst såvida du inte vill distribuera dina Resource Manager-mallar.
 
 Om du inte redan har VS Code kan du installera verktyget från [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
-## Installera Resource Manager-tillägget
+## <a name="install-the-resource-manager-extension"></a>Installera Resource Manager-tillägget
 Du måste installera ett tillägg för att kunna arbeta med JSON-mallar i VS Code. Följande steg beskriver hur du laddar ned och installerar språkstödet för JSON-mallar för Resource Manager:
 
 1. Starta VS Code 
@@ -33,7 +37,7 @@ Du måste installera ett tillägg för att kunna arbeta med JSON-mallar i VS Cod
    
    Klart!
 
-## Konfigurera Resource Manager-kodfragment
+## <a name="set-up-resource-manager-snippets"></a>Konfigurera Resource Manager-kodfragment
 I föregående steg installerade vi verktygsstöd. Nu ska vi konfigurera VS Code att använda kodfragment i JSON-mallar.
 
 1. Kopiera innehållet i filen från [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json)-databasen till Urklipp.
@@ -51,7 +55,7 @@ I föregående steg installerade vi verktygsstöd. Nu ska vi konfigurera VS Code
 
 Det är allt som behövs för att börja använda Resource Manager-kodfragment. Nu ska vi testa våra inställningar.
 
-## Arbeta med en mall i VS Code
+## <a name="work-with-template-in-vs-code"></a>Arbeta med en mall i VS Code
 Det enklaste sättet att börja arbeta med en mall är att hämta någon av snabbstartsmallarna som är tillgängliga på [Github](https://github.com/Azure/azure-quickstart-templates) eller att använda en egen mall. Du kan enkelt [exportera en mall](resource-manager-export-template.md) för valfria resursgrupper via portalen. 
 
 1. Om du har exporterat en mall från en resursgrupp öppnar du de extraherade filerna i VS Code.
@@ -80,10 +84,10 @@ Det enklaste sättet att börja arbeta med en mall är att hämta någon av snab
    
     ![felmeddelande](./media/resource-manager-vs-code/unrecognized-function.png)
 
-## Distribuera dina nya resurser
+## <a name="deploy-your-new-resources"></a>Distribuera dina nya resurser
 När mallen är redo kan du distribuera de nya resurserna genom att följa anvisningarna nedan: 
 
-### Windows
+### <a name="windows"></a>Windows
 1. Öppna en PowerShell-kommandotolk 
 2. Logga in genom att skriva: 
    
@@ -98,7 +102,7 @@ När mallen är redo kan du distribuera de nya resurserna genom att följa anvis
 4. Uppdatera parametrarna i filen parameters.json
 5. Distribuera mallen i Azure genom att köra Deploy.ps1
 
-### OSX/Linux
+### <a name="osxlinux"></a>OSX/Linux
 1. Öppna ett terminalfönster 
 2. Logga in genom att skriva:
    
@@ -111,11 +115,14 @@ När mallen är redo kan du distribuera de nya resurserna genom att följa anvis
    
         azure group deployment create -f <PathToTemplate> 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 * Mer information om mallfunktioner finns i [Funktioner i en Azure Resource Manager-mall](resource-group-template-functions.md).
 * Fler exempel på hur du arbetar med Visual Studio Code finns i [Skapa molnappar med Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) från [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect-[demonstrationen](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Fler snabbstartsguider från HealthClinic.biz-demonstrationen finns i [Snabbstartsguider för Azure Developer Tools](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

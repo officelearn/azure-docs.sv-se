@@ -1,13 +1,13 @@
 ---
-title: Översikt över skaluppsättningar för virtuella datorer | Microsoft Docs
-description: Mer information om skaluppsättningar för virtuell dator
+title: "Översikt över skaluppsättningar för virtuella datorer | Microsoft Docs"
+description: "Mer information om skaluppsättningar för virtuell dator"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/13/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7d833b7aaab8680d555f6503ec27994134a2519d
+
 
 ---
 # <a name="virtual-machine-scale-sets-overview"></a>Översikt över skaluppsättningar för virtuella datorer
@@ -141,6 +145,9 @@ Det här avsnittet innehåller några vanliga scenarier för VM-skaluppsättning
 
 **S.** Ja. En VM-skaluppsättning är en implicit tillgänglighetsuppsättning med 5 FD och 5 UD.  Du behöver inte konfigurera något under virtualMachineProfile. I framtida versioner kommer VM-skaluppsättningar sannolikt att sträcka sig över flera klienter, men för närvarande är en skaluppsättning en enda tillgänglighetsuppsättning.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

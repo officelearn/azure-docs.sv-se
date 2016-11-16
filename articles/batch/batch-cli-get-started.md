@@ -1,12 +1,12 @@
 ---
-title: Komma igång med Azure Batch CLI | Microsoft Docs
-description: Få en snabb introduktion till Batch-kommandon i Azure CLI för att hantera Azure Batch-tjänstens resurser
+title: "Komma igång med Azure Batch CLI | Microsoft Docs"
+description: "Få en snabb introduktion till Batch-kommandon i Azure CLI för att hantera Azure Batch-tjänstens resurser"
 services: batch
-documentationcenter: ''
+documentationcenter: 
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,25 +14,29 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/30/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+
 
 ---
-# Komma igång med Azure Batch CLI
+# <a name="get-started-with-azure-batch-cli"></a>Komma igång med Azure Batch CLI
 Med det plattformsoberoende Azure-kommandoradsgränssnittet (Azure CLI) kan du hantera Batch-konton och resurser, till exempel pooler, jobb och aktiviteter i Linux-, Mac- och Windows-kommandogränssnitt. Med Azure CLI kan du genomföra och skriva många av de uppgifter som du utför med Batch-API:erna, Azure-portalen och Batch PowerShell-cmdletarna.
 
 Den här artikeln är baserad på Azure CLI version 0.10.5.
 
-## Krav
+## <a name="prerequisites"></a>Krav
 * [Installera Azure CLI](../xplat-cli-install.md)
 * [Ansluta Azure CLI till din Azure-prenumeration](../xplat-cli-connect.md)
-* Växla till **Resource Manager-läge**: `azure config mode arm`
+* Växla till **Resource Manager-läge**:`azure config mode arm`
 
 > [!TIP]
 > Vi rekommenderar att du uppdaterar Azure CLI-installationen ofta för att dra nytta av tjänstuppdateringar och förbättringar.
 > 
 > 
 
-## Kommandohjälp
-Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` som det enda alternativet efter kommandot. Några exempel:
+## <a name="command-help"></a>Kommandohjälp
+Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` som det enda alternativet efter kommandot. Exempel:
 
 * Om du vill få hjälp med `azure`-kommandot anger du: `azure -h`
 * Om du vill hämta en lista över alla Batch-kommandon i CLI använder du: `azure batch -h`
@@ -40,7 +44,7 @@ Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h
 
 Om du är tveksam ska du använda kommandoradsalternativet `-h` för att få hjälp med samtliga Azure CLI-kommandon.
 
-## Skapa ett Batch-konto
+## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
 Användning:
 
     azure batch account create [options] <name>
@@ -58,7 +62,7 @@ Skapar ett nytt Batch-konto med de angivna parametrarna. Du måste ange minst en
 > 
 > 
 
-### Länkat lagringskonto (autostorage)
+### <a name="linked-storage-account-autostorage"></a>Länkat lagringskonto (autostorage)
 Du kan (om du vill) länka ett **allmänt** lagringskonto till ditt Batch-konto när du skapar det. [Programpaketfunktionen](batch-application-packages.md) i Batch använder blobblagring i ett länkat allmänt Storage-konto, precis som [.NET-biblioteket för filkonventioner i Batch](batch-task-output.md). Med dessa valfria funktioner kan du distribuera de program som körs av Batch-aktiviteterna och spara de data som de genererar.
 
 För att länka ett befintligt Azure Storage-konto till ett nytt Batch-konto när du skapar det anger du `--autostorage-account-id`-alternativet. Det här alternativet kräver det fullständigt kvalificerade resurs-ID:t för lagringskontot.
@@ -71,7 +75,7 @@ Använd sedan **Url**-värdet för `--autostorage-account-id`alternativet. Url-v
 
     azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"
 
-## Ta bort ett Batch-konto
+## <a name="delete-a-batch-account"></a>Ta bort ett Batch-konto
 Användning:
 
     azure batch account delete [options] <name>
@@ -82,10 +86,10 @@ Exempel:
 
 Tar bort det angivna Batch-kontot. När du uppmanas till det, bekräftar du att du vill ta bort kontot (det kan ta lite tid att ta bort kontot).
 
-## Hantera kontots åtkomstnycklar
+## <a name="manage-account-access-keys"></a>Hantera kontots åtkomstnycklar
 Du behöver en åtkomstnyckel för att [skapa och ändra resurser](#create-and-modify-batch-resources) i ditt Batch-konto.
 
-### Lista åtkomstnycklar
+### <a name="list-access-keys"></a>Lista åtkomstnycklar
 Användning:
 
     azure batch account keys list [options] <name>
@@ -96,7 +100,7 @@ Exempel:
 
 Listar kontonycklarna för det givna Batch-kontot.
 
-### Generera en ny åtkomstnyckel
+### <a name="generate-a-new-access-key"></a>Generera en ny åtkomstnyckel
 Användning:
 
     azure batch account keys renew [options] --<primary|secondary> <name>
@@ -107,10 +111,10 @@ Exempel:
 
 Återskapar den angivna kontonyckeln för det angivna Batch-kontot.
 
-## Skapa och ändra Batch-resurser
+## <a name="create-and-modify-batch-resources"></a>Skapa och ändra Batch-resurser
 Du kan använda Azure CLI för att skapa, läsa, uppdatera och ta bort (CRUD) Batch-resurser som pooler, beräkningsnoder, jobb och uppgifter. Dessa CRUD-åtgärder kräver Batch-kontonamn, åtkomstnyckel och slutpunkt. Du kan ange dem med alternativen `-a`, `-k` och `-u` eller ange [miljövariabler](#credential-environment-variables) som CLI använder automatiskt (om de fyllts i).
 
-### Miljövariabler för autentiseringsuppgifter
+### <a name="credential-environment-variables"></a>Miljövariabler för autentiseringsuppgifter
 Du kan ställa in miljövariablerna `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY` och `AZURE_BATCH_ENDPOINT` i stället för att ange alternativen `-a`, `-k` och `-u` på kommandoraden för alla kommandon som du kör. Batch CLI använder dessa variabler (om de har angetts) så att du kan hoppa över alternativen `-a`, `-k`, och `-u`. Resten av den här artikeln förutsätter att du använder dig av dessa miljövariabler.
 
 > [!TIP]
@@ -118,7 +122,7 @@ Du kan ställa in miljövariablerna `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_K
 > 
 > 
 
-### JSON-filer
+### <a name="json-files"></a>JSON-filer
 När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Några exempel:
 
 `azure batch pool create my_batch_pool.json`
@@ -132,7 +136,7 @@ För att hitta den JSON-fil som krävs för att skapa en resurs ska du gå till 
 > 
 > 
 
-## Skapa en pool
+## <a name="create-a-pool"></a>Skapa en pool
 Användning:
 
     azure batch pool create [options] [json-file]
@@ -160,7 +164,7 @@ Ta bort en pool med:
 > 
 > 
 
-## Skapa ett jobb
+## <a name="create-a-job"></a>Skapa ett jobb
 Användning:
 
     azure batch job create [options] [json-file]
@@ -175,13 +179,13 @@ Ta bort ett jobb med:
 
     azure batch job delete [job-id]
 
-## Lista pooler, jobb, uppgifter och andra resurser
+## <a name="list-pools-jobs-tasks-and-other-resources"></a>Lista pooler, jobb, uppgifter och andra resurser
 Varje Batch-resurstyp stöder ett `list`-kommando som frågar Batch-kontot och visar en lista över resurser av den typen. Du kan till exempel ange poolerna i ditt konto och aktiviteterna i ett jobb:
 
     azure batch pool list
     azure batch task list --job-id "job001"
 
-### Visa en lista över resurser på ett effektivt sätt
+### <a name="listing-resources-efficiently"></a>Visa en lista över resurser på ett effektivt sätt
 För snabbare frågor kan du ange satsalternativen **välj**, **filtrera** och **expandera** för `list`-åtgärder. Med dessa alternativ kan du begränsa mängden data som returneras av Batch-tjänsten. Eftersom all filtrering utförs på serversidan överförs endast de data som du är intresserad av. Använd dessa satser för att spara bandbredd (och därmed tid) när du utför liståtgärder.
 
 Exempelvis returnerar detta endast pooler vars ID-nummer som börjar med ”renderTask”:
@@ -190,13 +194,13 @@ Exempelvis returnerar detta endast pooler vars ID-nummer som börjar med ”rend
 
 Batch-CLI stöder alla tre satser som stöds av Batch-tjänsten:
 
-* `--select-clause [select-clause]`  Returnera en delmängd av egenskaperna för varje entitet
-* `--filter-clause [filter-clause]`  Returnera endast de enheter som matchar det angivna OData-uttrycket
-* `--expand-clause [expand-clause]`  Hämta entitetsinformationen i ett enda underliggande REST-anrop. Expandera-satsen stöder endast `stats`-egenskapen för tillfället.
+* `--select-clause [select-clause]` Returnera en delmängd av egenskaperna för varje entitet
+* `--filter-clause [filter-clause]` Returnera endast de enheter som matchar det angivna OData-uttrycket
+* `--expand-clause [expand-clause]` Hämta entitetsinformationen i ett enda underliggande REST-anrop. Expandera-satsen stöder endast `stats`-egenskapen för tillfället.
 
 Mer information om de tre satserna och hur man utför listfrågor med dem finns i [Skicka effektiva frågor till Azure Batch-tjänsten](batch-efficient-list-queries.md).
 
-## Hantera programpaket
+## <a name="application-package-management"></a>Hantera programpaket
 Programpaket är ett förenklat sätt att distribuera program till beräkningsnoder i dina pooler. Med Azure-CLI kan du överföra programpaket, hantera paketversioner och ta bort paket.
 
 Så här skapar du ett nytt program och lägger till en paketversion:
@@ -217,7 +221,7 @@ Ange **standardversionen** för programmet:
 
     azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
-### Distribuera ett programpaket
+### <a name="deploy-an-application-package"></a>Distribuera ett programpaket
 Du kan ange ett eller flera programpaket för distribution när du skapar en ny pool. När du anger ett paket när poolen skapas distribueras den till varje nod när noden ansluter till poolen. Paket distribueras också när en nod startas om eller när en avbildning återställs.
 
 Ange alternativet `--app-package-ref` när du skapar en pool för att distribuera ett programpaket till poolen noder efterhand som de ansluts till poolen. Alternativet `--app-package-ref` accepterar en semikolonavgränsad lista med program-ID för distribution till datornoder.
@@ -233,7 +237,7 @@ Du hittar mer information om programpaket i [programdistribution med Azure Batch
 > 
 > 
 
-### Uppdatera programpaket för en pool
+### <a name="update-a-pools-application-packages"></a>Uppdatera programpaket för en pool
 Om du vill uppdatera program som är tilldelade till en befintlig pool använder du kommandot `azure batch pool set` med alternativet `--app-package-ref`:
 
     azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
@@ -249,7 +253,7 @@ Du måste starta om eller återavbilda noderna för att distribuera nya programp
 
 Tänk på att du måste ha konfigurerat programmet med en standardversion innan den distribueras (`azure batch application set [options] --default-version <version-id>`).
 
-## Felsökningstips
+## <a name="troubleshooting-tips"></a>Felsökningstips
 I det här avsnittet finns resurser som du kan använda när du felsöker problem med Azure CLI. Det kanske inte finns lösningar på alla problem, men du kan få hjälp med att begränsa orsaken och tips om hjälpresurser.
 
 * Använd `-h` för att hämta **hjälptext** för alla CLI-kommandon
@@ -258,7 +262,7 @@ I det här avsnittet finns resurser som du kan använda när du felsöker proble
 * [Batch-forumet på MSDN][batch_forum] är en bra hjälpresurs och följs nära av Batch-gruppmedlemmar. Skicka dina frågor dit om du får problem eller behöver hjälp med en viss åtgärd.
 * Azure CLI stöder för närvarande inte alla Batch-resursåtgärder. För tillfället kan du till exempel inte ange ett programpakets *version* för en pool, bara paketets ID. I sådana fall kanske du måste ange en `--json-file` för ett kommando i stället för att använda kommandoradsalternativ. Se till att hålla dig uppdaterad med den senaste CLI-versionen för framtida förbättringar.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Se [Programdistribution med Azure Batch-programpaket](batch-application-packages.md) för att lära dig hur du använder den här funktionen för att hantera och distribuera de program som du kör på Batch-beräkningsnoder.
 * Mer information om hur du minskar antalet objekt och vilken typ av information som returneras för frågor till Batch finns i [Skicka effektiva frågor till Batch-tjänsten](batch-efficient-list-queries.md).
 
@@ -268,6 +272,7 @@ I det här avsnittet finns resurser som du kan använda när du felsöker proble
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
 
-<!--HONumber=Oct16_HO1-->
+
+<!--HONumber=Nov16_HO2-->
 
 

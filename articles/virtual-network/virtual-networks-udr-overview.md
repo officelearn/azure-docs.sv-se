@@ -1,12 +1,12 @@
 ---
-title: Vad är användardefinierade vägar och IP-vidarebefordring?
-description: Lär dig hur du använder användardefinierade vägar (UDR) och IP-vidarebefordring för att vidarebefordra trafik till nätverks-virtuella installationer i Azure.
+title: "Vad är användardefinierade vägar och IP-vidarebefordring?"
+description: "Lär dig hur du använder användardefinierade vägar (UDR) och IP-vidarebefordring för att vidarebefordra trafik till nätverks-virtuella installationer i Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+
 
 ---
-# Vad är användardefinierade vägar och IP-vidarebefordring?
+# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>Vad är användardefinierade vägar och IP-vidarebefordring?
 När du lägger till virtuella datorer (VM:ar) till ett virtuellt nätverk (VNet) i Azure, märker du att VM:arna kan kommunicera automatiskt med varandra över nätverket. Du behöver inte ange någon gateway, även om VM:arna befinner sig på olika undernät. Samma sak gäller för kommunikation från VM:arna till det offentliga Internet samt till ditt lokala nätverk när det finns en hybridanslutning från Azure till ditt eget datacenter.
 
 Det här flödet av kommunikation är möjligt eftersom Azure använder en uppsättning systemvägar för att definiera hur IP-trafiken flödar. Systemvägar kontrollerar kommunikationsflödet i följande scenarier:
@@ -42,14 +46,14 @@ Bilden nedan visar ett exempel på användardefinierade vägar och IP-vidarebefo
 > 
 > 
 
-## Routeresurs
+## <a name="route-resource"></a>Routeresurs
 Paketen dirigeras över ett TCP/IP-nätverk som baseras på en routingtabell som definierats vid varje nod på det fysiska nätverket. En routingtabell är en samling individuella vägare som används för att bestämma var paket ska vidarebefordras baserat på mål-IP-adress. En väg består av följande:
 
 | Egenskap | Beskrivning | Villkor | Överväganden |
 | --- | --- | --- | --- |
 | Adressprefix |Mål-CIDR som vägen gäller för, till exempel 10.1.0.0/16. |Måste vara ett giltigt CIDR-intervall som representerar adresser på det offentliga Internet, Azure-virtuella nätverk eller lokala datacenter. |Kontrollera att **Adressprefix** inte innehåller adressen för **Nexthop-adress**, annars hamnar dina paket i en evig loop från källan till nexthop utan att någonsin nå målet. |
 | Nexthop-typ |Den typ av Azure-hop som paketet ska skickas till. |Måste vara ett av följande värden: <br/> **Virtuellt nätverk**. Representerar det lokala virtuella nätverket. Om du till exempel har två undernät, 10.1.0.0/16 och 10.2.0.0/16 i samma virtuella nätverk, kommer vägen för varje undernät i routingtabellen att ha nexthop-värdet *Virtuellt nätverk*. <br/> **Virtuell nätverksgateway**. Representerar en Azure S2S VPN-gateway. <br/> **Internet**. Representerar standard Internet-gatewayen från Azure-infrastrukturen. <br/> **Virtuell installation**. Representerar en virtuell installation som du lagt till i ditt Azure-virtuella nätverk. <br/> **Ingen**. Representerar ett svart hål. Paket som vidarebefordras till en svart hål, vidarebefordras inte alls. |Du kan använda en **Ingen**-typ för att stoppa paket från att flöda till ett givet mål. |
-| Nexthop-adress |Nexthop-adressen innehåller IP-adressen som paket ska vidarebefordras till. Nexthop-värden tillåts bara i vägar där nexthop-typen är *virtuell installation*. |Måste vara en nåbar IP-adress. |Om IP-adressen representerar en VM, bör du se till att aktivera [IP-vidarebefordring](#IP-forwarding) i Azure för den VM:n. |
+| Nexthop-adress |Nexthop-adressen innehåller IP-adressen som paket ska vidarebefordras till. Nexthop-värden tillåts bara i vägar där nexthop-typen är *virtuell installation*. |Måste vara en IP-adress som kan nås i det virtuella nätverket där den användardefinierad vägen används. |Om IP-adressen representerar en VM, bör du se till att aktivera [IP-vidarebefordring](#IP-forwarding) i Azure för den VM:n. |
 
 I Azure PowerShell har vissa "NextHopType"-värden har olika namn:
 
@@ -59,14 +63,14 @@ I Azure PowerShell har vissa "NextHopType"-värden har olika namn:
 * Internet är Internet
 * Ingen är Ingen
 
-### Systemvägar
+### <a name="system-routes"></a>Systemvägar
 Varje undernät som skapats i ett virtuellt nätverk, kopplas automatiskt till en routingtabell som innehåller följande regler för systemvägar:
 
 * **Lokal VNet-regel**: Den här regeln skapas automatiskt för varje undernät i ett virtuellt nätverk. Det anger att det finns en direktlänk mellan VM:arna på VNet och att det inte finns något mellanliggande nexthop.
 * **Lokal regel**: Den här regeln gäller för all trafik till det lokala adressintervallet och använder VPN-gatewayer som nexthop-mål.
-* **Internetregel**: Den här regeln hanterar all trafik med mål i det offentliga Internet och använder sig av infrastrukturens internet-gateway som nexthop för all trafik med mål i Internet.
+* **Internetregel**: Den här regeln hanterar all trafik mot det offentliga Internet (address prefix 0.0.0.0/0) och använder sig av infrastrukturens Internet-gateway som nexthop för all trafik mot Internet.
 
-### Användardefinierade vägar
+### <a name="user-defined-routes"></a>Användardefinierade vägar
 För de flesta miljöer behöver du bara systemvägarna som definierats i Azure. Du kan dock behöva skapa en routingtabell och lägga till en eller flera vägar i vissa fall, som när du vill:
 
 * Tvinga tunneling till Internet via ditt lokala nätverk.
@@ -87,7 +91,7 @@ Information om hur man skapar användardefinierade vägar finns i [Så här skap
 > 
 > 
 
-### BGP-vägar
+### <a name="bgp-routes"></a>BGP-vägar
 Om du har en ExpressRoute-anslutning mellan ditt lokala nätverk och Azure, kan du aktivera BGP för att sprida väga från ditt lokala nätverk till Azure. BGP-vägarna används på samma sätt som systemvägar och användardefinierade vägar på varje Azure-undernät. Mer information finns i [Introduktion till ExpressRoute](../expressroute/expressroute-introduction.md).
 
 > [!IMPORTANT]
@@ -95,15 +99,18 @@ Om du har en ExpressRoute-anslutning mellan ditt lokala nätverk och Azure, kan 
 > 
 > 
 
-## IP-vidarebefordran
+## <a name="ip-forwarding"></a>IP-vidarebefordran
 Som det beskrivs ovan, är en av de huvudsakliga skälen att skapa en användardefinierad väg att vidarebefordra trafik till en virtuell installation. En virtuell installation är helt enkelt en VM som kör ett program som används för att hantera nätverkstrafik på något sätt, som en brandvägg eller en NAT-enhet.
 
 Den här virtuella installations-VM:en måste kunna ta emot inkommande trafik som inte är adresserad till den. För att låta en VM ta emot trafik som är adresserad till andra mål, behöver du aktivera IP-vidarebefordran för VM:en. Det är en Azure-inställning, inte en inställning i gästoperativsystemet.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [skapar vägar i Resource Manager-distributionsmodellen](virtual-network-create-udr-arm-template.md) och kopplar dem till undernät. 
 * Lär dig hur du [skapar vägar i den klassiska distributionsmodellen](virtual-network-create-udr-classic-ps.md) och kopplar dem till undernät.
 
-<!--HONumber=sep16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

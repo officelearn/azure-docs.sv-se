@@ -1,13 +1,13 @@
 ---
 title: Skapa VNet-peering med Powershell-cmdletar | Microsoft Docs
-description: Lär dig hur du skapar ett virtuellt nätverk med Azure Portal i Resource Manager.
+description: "Lär dig hur du skapar ett virtuellt nätverk med Azure-portalen i Resource Manager."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: NarayanAnnamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: dac579bd-7545-461a-bdac-301c87434c84
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai; annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 348b23b277c80867f600a408736e13b8ceb665f4
+
 
 ---
-# Skapa VNet-peering med Powershell-cmdletar
+# <a name="create-vnet-peering-using-powershell-cmdlets"></a>Skapa VNet-peering med Powershell-cmdletar
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -39,47 +43,47 @@ Följ stegen nedan för att skapa en VNet-peering med PowerShell:
         $vnet2 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet2
 2. För att etablera VNet.peering, måste du skapa två länkar, en för varje riktning. Följ nedanstående steg för att först skapa en VNet-peeringlänk för VNet1 till VNet2:
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.Id
    
     Utdata visar:
    
         Name            : LinkToVNet2
         Id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ResourceGroupName   : vnet101
-        VirtualNetworkName  : vnet1
+        ResourceGroupName    : vnet101
+        VirtualNetworkName    : vnet1
         PeeringState        : Initiated
-        ProvisioningState   : Succeeded
+        ProvisioningState    : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
-        AllowVirtualNetworkAccess   : True
-        AllowForwardedTraffic   : False
-        AllowGatewayTransit : False
-        UseRemoteGateways   : False
-        RemoteGateways      : null
+        AllowVirtualNetworkAccess    : True
+        AllowForwardedTraffic    : False
+        AllowGatewayTransit    : False
+        UseRemoteGateways    : False
+        RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
 3. Det här steget skapar en VNet-peeringlänk för VNet2 till VNet1:
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.Id
    
     Utdata visar:
    
         Name            : LinkToVNet1
-        Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2/virtualNetworkPeerings/LinkToVNet1
+        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2/virtualNetworkPeerings/LinkToVNet1
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ResourceGroupName   : vnet101
-        VirtualNetworkName  : vnet2
+        ResourceGroupName    : vnet101
+        VirtualNetworkName    : vnet2
         PeeringState        : Connected
-        ProvisioningState   : Succeeded
+        ProvisioningState    : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
                                         }
-        AllowVirtualNetworkAccess   : True
-        AllowForwardedTraffic   : False
-        AllowGatewayTransit : False
-        UseRemoteGateways   : False
-        RemoteGateways      : null
+        AllowVirtualNetworkAccess    : True
+        AllowForwardedTraffic    : False
+        AllowGatewayTransit    : False
+        UseRemoteGateways    : False
+        RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
 4. När VNet-peeringlänken har skapats kan du se länkstatusen nedan:
    
@@ -88,16 +92,16 @@ Följ stegen nedan för att skapa en VNet-peering med PowerShell:
     Utdata visar:
    
         Name            : LinkToVNet2
-        Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
+        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ResourceGroupName   : vnet101
-        VirtualNetworkName  : vnet1
+        ResourceGroupName    : vnet101
+        VirtualNetworkName    : vnet1
         PeeringState        : Connected
-        ProvisioningState   : Succeeded
+        ProvisioningState    : Succeeded
         RemoteVirtualNetwork    : {
                                              "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
-        AllowVirtualNetworkAccess   : True
+        AllowVirtualNetworkAccess    : True
         AllowForwardedTraffic            : False
         AllowGatewayTransit              : False
         UseRemoteGateways                : False
@@ -109,7 +113,7 @@ Följ stegen nedan för att skapa en VNet-peering med PowerShell:
    | Alternativ | Beskrivning | Standard |
    |:--- |:--- |:--- |
    | AllowVirtualNetworkAccess |Om adressrymden för peer-VNet som ska tas med som en del av taggen Virtual_network |Ja |
-   | AllowForwardedTraffic |Tillåter att trafik som inte kommer från ett peer-kopplat VNet godkänns eller utelämnas |Nej |
+   | AllowForwardedTraffic |Oavsett om trafik som inte kommer från ett peer-kopplat VNet godkänns eller tas bort |Nej |
    | AllowGatewayTransit |Tillåter att ett peer VNet använder din VNet-gateway |Nej |
    | UseRemoteGateways |Använd din peers VNet-gateway. En gateway måste konfigureras för det peer-kopplade virtuella nätverket och AllowGatewayTransit måste väljas. Du kan inte använda det här alternativet om du har en konfigurerad gateway |Nej |
    
@@ -119,23 +123,23 @@ Följ stegen nedan för att skapa en VNet-peering med PowerShell:
         $LinktoVNet2.AllowForwardedTraffic = $true
         Set-AzureRmVirtualNetworkPeering -VirtualNetworkPeering $LinktoVNet2
    
-    Du kan köra Get-AzureRmVirtualNetworkPeering för att dubbelkontrollera egenskapsvärdet efter ändringen.  Från utdatan kan du se AllowForwardedTraffic-förändringar som är inställda på Sant efter att ovanstående cmdlets har körts.
+    Du kan köra Get-AzureRmVirtualNetworkPeering för att dubbelkontrollera egenskapsvärdet efter ändringen. Från utdatan kan du se AllowForwardedTraffic-förändringar som är inställda på Sant efter att ovanstående cmdlets har körts.
    
         Name            : LinkToVNet2
-        Id          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
+        Id            : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ResourceGroupName   : vnet101
-        VirtualNetworkName  : vnet1
+        ResourceGroupName    : vnet101
+        VirtualNetworkName    : vnet1
         PeeringState        : Connected
-        ProvisioningState   : Succeeded
+        ProvisioningState    : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
-        AllowVirtualNetworkAccess   : True
-        AllowForwardedTraffic       : True
-        AllowGatewayTransit     : False
-        UseRemoteGateways       : False
-        RemoteGateways      : null
+        AllowVirtualNetworkAccess    : True
+        AllowForwardedTraffic        : True
+        AllowGatewayTransit        : False
+        UseRemoteGateways        : False
+        RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
    
     När peering har upprättats i det här scenariot, bör du kunna initiera anslutningarna från en valfri virtuell dator till en annan valfri virtuell dator för båda VNets. Som standard är AllowVirtualNetworkAccess inställt på True och VNet-peering etablerar rätt ACL:er för att tillåta kommunikation mellan VNets. Du kan fortfarande tillämpa gruppregler för nätverkssäkerhet för att blockera anslutningen mellan specifika undernät eller virtuella datorer för att få noggrann kontroll över åtkomsten mellan två virtuella nätverk.  Mer information om hur du skapar gruppregler för nätverkssäkerhet finns i denna [artikel](virtual-networks-create-nsg-arm-ps.md).
@@ -148,7 +152,7 @@ Följ stegen nedan för att skapa VNet-peering inom prenumerationerna med PowerS
    
         New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet5
    
-    Detta är inget krav, peering kan upprättas även om användarna individuellt skickar peering-begäranden för sina respektive virtuella nätverk så länge begärandena matchar. Om du lägger en privilegierad användare av det andra virtuella nätverket som användare i det lokala virtuella nätverket blir det lättare att konfigurera inställningen.
+    Detta är inget krav, peering kan upprättas även om användarna individuellt skickar peering-begäranden för sina respektive VNet så länge begärandena matchar. Om du lägger en privilegierad användare av det andra virtuella nätverket som användare i det lokala virtuella nätverket blir det lättare att konfigurera inställningen.
 2. Logga in till Azure med privilegierad användare B:s konto för prenumeration B och kör följande cmdlet:
    
         New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet3
@@ -156,24 +160,24 @@ Följ stegen nedan för att skapa VNet-peering inom prenumerationerna med PowerS
    
         $vnet3 = Get-AzureRmVirtualNetwork -ResourceGroupName hr-vnets -Name vnet3
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet5 -VirtualNetwork $vnet3 -RemoteVirtualNetworkId "/subscriptions/<Subscriptoin-B-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet5" -BlockVirtualNetworkAccess
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet5 -VirtualNetwork $vnet3 -RemoteVirtualNetworkId "/subscriptions/<Subscription-B-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet5" -BlockVirtualNetworkAccess
 4. I användare B:s inloggningssession kör du cmdleten nedan:
    
         $vnet5 = Get-AzureRmVirtualNetwork -ResourceGroupName vendor-vnets -Name vnet5
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet3 -VirtualNetwork $vnet5 -RemoteVirtualNetworkId "/subscriptions/<Subscriptoin-A-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet3" -BlockVirtualNetworkAccess
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet3 -VirtualNetwork $vnet5 -RemoteVirtualNetworkId "/subscriptions/<Subscriptoin-A-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet3" -BlockVirtualNetworkAccess
 5. När peering har upprättats ska alla virtuella datorer i VNet3 kunna kommunicera med valfri virtuell dator i VNet5.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. I det här scenariot kan du köra de PowerShell-cmdletar som visas nedan för att upprätta VNet-peeringen.  Du måste ange egenskapen AllowForwardedTraffic till True och länka VNET1 till HubVnet, vilket tillåter inkommande trafik från utanför peering-VNet-adressutrymmet.
+1. I det här scenariot kan du köra de PowerShell-cmdletar som visas nedan för att upprätta VNet-peeringen.  Du måste ange egenskapen AllowForwardedTraffic som True och länka VNET1 till HubVNet, vilket tillåter inkommande trafik från utanför peering-VNet-adressutrymmet.
    
         $hubVNet = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name HubVNet
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToHub -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $HubVNet.id -AllowForwardedTraffic
+        Add-AzureRmVirtualNetworkPeering -Name LinkToHub -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $HubVNet.Id -AllowForwardedTraffic
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $HubVNet -RemoteVirtualNetworkId $vnet1.id
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet1 -VirtualNetwork $HubVNet -RemoteVirtualNetworkId $vnet1.Id
 2. När peering har upprättats kan du referera till denna [artikel](virtual-network-create-udr-arm-ps.md) och definiera en användardefinierad väg (UDR) för att omdirigera VNet1-trafik via en virtuell installation för att använda dess funktioner. När du anger ”nästa hopp”-adressen i vägen kan du ange den till IP-adressen för en virtuell enhet i det virtuella peer-nätverket för HubVNet. Nedan ges ett exempel:
    
         $route = New-AzureRmRouteConfig -Name TestNVA -AddressPrefix 10.3.0.0/16 -NextHopType VirtualAppliance -NextHopIpAddress 192.0.1.5
@@ -188,16 +192,20 @@ Följ stegen nedan för att skapa VNet-peering inom prenumerationerna med PowerS
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
-Följ stegen nedan om du vill skapa en VNet-peering mellan ett klassiskt virtuellt nätverk och ett Azure Resource Manager virtuellt nätverk i PowerShell:
+Följ stegen nedan om du vill skapa en VNet-peering mellan ett klassiskt virtuellt nätverk och ett virtuellt Azure Resource Manager-nätverk i PowerShell:
 
-1. Läs virtuellt nätverksobjekt för **VNET1**, Azure Resource Manager virtuellt nätverk som följer:      $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
-2. Endast en länk krävs för att etablera VNet-peering i detta scenario, nämligen en länk från **VNET1** till **VNET2**. Det här steget kräver att man vet sitt klassiska VNet:s resurs-ID. Resursgruppens ID-format ser ut så här: /subscriptions/SubscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.ClassicNetwork/virtualNetworks/VirtualNetworkName
+1. Läs virtuellt nätverksobjekt för **VNET1**, virtuellt Azure Resource Manager-nätverk på följande sätt:
+   
+        $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
+2. Endast en länk krävs för att etablera VNet-peering i detta scenario, nämligen en länk från **VNET1** till **VNET2**. Det här steget kräver att man vet sitt klassiska VNet:s resurs-ID. Resursgruppens ID-format ser ut på följande sätt:
+   
+        /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
    
     Se till att ersätta SubscriptionID, ResourceGroupName och VirtualNetworkName med rätt namn.
    
     Detta kan åstadkommas med följande:
    
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2
+        Add-AzureRmVirtualNetworkPeering -Name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2
 3. När VNet-peeringlänken har skapats kan du se länkstatus enligt utdatan nedan:
    
         Name                             : LinkToVNet2
@@ -217,17 +225,19 @@ Följ stegen nedan om du vill skapa en VNet-peering mellan ett klassiskt virtuel
         RemoteGateways                   : null
         RemoteVirtualNetworkAddressSpace : null
 
-## Ta bort VNet-peering
-1. För att ta bort VNet-peering, måste du köra följande cmdlet:
+## <a name="remove-vnet-peering"></a>Ta bort VNet-peering
+1. För att ta bort VNet-peering måste du köra följande cmdlet:
    
-       Remove-AzureRmVirtualNetworkPeering  
+     Remove-AzureRmVirtualNetworkPeering  
    
-       remove both links, as shown below:
+     Ta bort båda länkarna, med hjälp av följande kommandon:
    
-       Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
-       Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
+     Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2   Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
 2. När du tar bort en länk i en VNET-peering ändras peer-länkens status till frånkopplad. I det här tillståndet kan du inte återskapa länken förrän peer-länkens status ändras till Initierad. Vi rekommenderar att du tar bort båda länkarna innan du återskapar VNET-peeringen.
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Visual Studio-projekt för Azure-resursgrupper | Microsoft Docs
-description: Använd Visual Studio för att skapa ett Azure-resursgruppsprojekt och distribuera resurserna till Azure.
+title: "Visual Studio-projekt för Azure-resursgrupper | Microsoft Docs"
+description: "Använd Visual Studio för att skapa ett Azure-resursgruppsprojekt och distribuera resurserna till Azure."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-
+ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2016
 ms.author: tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26b4349aa808719832c6b6e878d3e836f0dabc2a
+
 
 ---
-# Skapa och distribuera Azure-resursgrupper via Visual Studio
-Med Visual Studio och [Azure SDK](https://azure.microsoft.com/downloads/) kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel definiera webbvärden, webbplatsen och databasen för din app och distribuera den infrastrukturen tillsammans med koden. Eller så kan du definiera en virtuell dator, ett virtuellt nätverk och ett lagringskonto och distribuera den infrastrukturen tillsammans med ett skript som körs på den virtuella datorn. Med ett projekt för distribution av en **Azure-resursgrupp** kan du distribuera alla nödvändiga resurser i en enda, repeterbara åtgärd. Mer information om hur du distribuerar och hanterar dina resurser finns i [Översikt över Azure Resource Manager](resource-group-overview.md).
+# <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
+Med Visual Studio och [Azure SDK](https://azure.microsoft.com/downloads/) kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel definiera webbvärden, webbplatsen och databasen för din app och distribuera den infrastrukturen tillsammans med koden. Eller så kan du definiera en virtuell dator, ett virtuellt nätverk och ett lagringskonto och distribuera den infrastrukturen tillsammans med ett skript som körs på den virtuella datorn. Med ett projekt för distribution av en **Azure-resursgrupp** kan du distribuera alla nödvändiga resurser i en enda, repeterbara åtgärd. Mer information om hur du distribuerar och hanterar dina resurser finns i [Översikt över Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
 
 Projekt med Azure-resursgrupper innehåller JSON-baserade Azure Resource Manager-mallar, som definierar de resurser som du distribuerar till Azure. Mer information om elementen i Resource Manager-mallen finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md). I Visual Studio kan du redigera dessa mallar och använda verktyg som gör det lättare att arbeta med mallar.
 
@@ -25,7 +29,7 @@ I det här avsnittet ska du distribuera en webbapp och SQL Database. Stegen är 
 
 I den här artikeln använder vi Visual Studio 2015 Update 2 och Microsoft Azure SDK för .NET 2.9. Om du har Visual Studio 2013 med Azure SDK 2.9 blir din upplevelse i stort sett densamma. Du kan använda valfri version av Azure SDK från 2.6 och senare. Din upplevelse av användargränssnittet kan dock skilja sig något mot vad du ser i den här artikeln. Vi rekommenderar starkt att du installerar den senaste versionen av [Azure SDK](https://azure.microsoft.com/downloads/) innan du börjar med stegen. 
 
-## Skapa ett projekt för en Azure-resursgrupp
+## <a name="create-azure-resource-group-project"></a>Skapa ett projekt för en Azure-resursgrupp
 I den här proceduren ska du skapa ett projekt för en Azure-resursgrupp med en mall av typen **Webbapp + SQL**.
 
 1. I Visual Studio väljer du **Arkiv**, **Nytt projekt** och väljer sedan **C#** eller **Visual Basic**. Välj **Moln** och sedan projektet **Azure-resursgrupp**.
@@ -57,7 +61,7 @@ I den här proceduren ska du skapa ett projekt för en Azure-resursgrupp med en 
    
     Alla distributionsprojekt för resursgrupper innehåller dessa grundläggande filer. Andra projekt kan innehålla ytterligare filer som ger stöd för andra funktioner.
 
-## Anpassa Resource Manager-mallen
+## <a name="customize-the-resource-manager-template"></a>Anpassa Resource Manager-mallen
 Du kan anpassa ett distributionsprojekt genom att ändra JSON-mallarna som beskriver de resurser som du vill distribuera. JSON står för JavaScript Object Notation och är ett format för serialiserade data som är lätt att arbeta med. JSON-filerna använder ett schema som du refererar till längst upp i varje fil. Om du vill granska schemat kan du hämta och analysera det. Schemat definierar vilka element som är giltiga, typer och format för fält, de möjliga värdena för uppräknade värden och så vidare. Mer information om elementen i Resource Manager-mallen finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 
 Du kan arbeta med din mall genom att öppna **WebSiteSQLDatabase.json**.
@@ -106,7 +110,7 @@ Du kan ställa in **numberOfWorkers** till 1.
       "numberOfWorkers": 1
     }
 
-## Distribuera resursgruppsprojektet till Azure
+## <a name="deploy-the-resource-group-project-to-azure"></a>Distribuera resursgruppsprojektet till Azure
 Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resursgruppsprojekt distribuerar du det till en Azure-resursgrupp. Resursgruppen är en logisk gruppering av resurser som har en gemensam livscykel.
 
 1. På snabbmenyn för distributionsprojektets nod väljer du **Distribuera** > **Ny distribution**.
@@ -157,7 +161,7 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
    
     ![Azure-resursgrupp som har distribuerats](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
-## Distribuera kod med din infrastruktur
+## <a name="deploy-code-with-your-infrastructure"></a>Distribuera kod med din infrastruktur
 Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt kod som distribueras med projektet. Det här avsnittet beskriver hur du distribuerar en webbapp och SQL Database-tabeller under distributionen. Om du distribuerar en virtuell dator i stället för en webbapp vill du köra en del kod på datorn som en del av distributionen. Processen för att distribuera koden för en webbapp eller för att konfigurera en virtuell dator är nästan desamma.
 
 1. Lägga till ett projekt i din Visual Studio-lösning. Högerklicka på lösningen och välj **Lägg till** > **nytt projekt**.
@@ -208,10 +212,13 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt 
     
      ![visa distribuerad app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Information om hur du hanterar dina resurser via portalen finns i [Hantera Azure-resurser med hjälp av Azure-portalen](azure-portal/resource-group-portal.md).
 * Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

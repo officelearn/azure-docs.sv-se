@@ -17,6 +17,8 @@ Azure Data Factory stöder följande transformeringsaktiviteter som kan läggas 
 > 
 > 
 
-<!--HONumber=Sep16_HO4-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

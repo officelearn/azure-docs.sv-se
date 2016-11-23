@@ -47,7 +47,7 @@ När du säkerhetskopierar en virtuell dator utför du fem huvudsteg:
 >
 >
 
-## <a name="step-1-create-a-backup-vault-for-a-vm"></a>Steg 1 – Skapa ett säkerhetskopieringsvalv för en virtuell dator
+## <a name="step-1---create-a-backup-vault-for-a-vm"></a>Steg 1 – Skapa ett säkerhetskopieringsvalv för en virtuell dator
 Ett säkerhetskopieringsvalv är en entitet som lagrar alla säkerhetskopior och återställningspunkter som har skapats med tiden. Säkerhetskopieringsvalvet innehåller även säkerhetskopieringspolicyerna som tillämpas på de virtuella datorer som säkerhetskopieras.
 
 1. Logga in på den [klassiska Azure-portalen](http://manage.windowsazure.com/).
@@ -86,7 +86,7 @@ Ett säkerhetskopieringsvalv är en entitet som lagrar alla säkerhetskopior och
 
 När du har valt lagringsalternativet för valvet är det dags att associera den virtuella datorn med valvet. Du börjar kopplingen genom att identifiera och registrera de virtuella Azure-datorerna.
 
-## <a name="step-2-discover-and-register-azure-virtual-machines"></a>Steg 2 – Identifiera och registrera virtuella datorer i Azure
+## <a name="step-2---discover-and-register-azure-virtual-machines"></a>Steg 2 – Identifiera och registrera virtuella datorer i Azure
 Innan du registrerar den virtuella datorn med ett valv kör du identifieringsprocessen för att identifiera nya virtuella datorer. När du gör det returneras en lista över virtuella datorer i prenumerationen, jämte ytterligare information som molntjänstens namn och regionen.
 
 1. Logga in på den [klassiska Azure-portalen](http://manage.windowsazure.com/).
@@ -133,12 +133,12 @@ Innan du registrerar den virtuella datorn med ett valv kör du identifieringspro
 
     ![Registreringsstatus 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3-install-the-vm-agent-on-the-virtual-machine"></a>Steg 3 – Installera VM-agenten på den virtuella datorn
+## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>Steg 3 – Installera VM-agenten på den virtuella datorn
 VM-agenten i Azure måste installeras på den virtuella Azure-datorn för att säkerhetskopieringstillägget ska fungera. Om den virtuella datorn skapades från Azure-galleriet finns VM-agenten redan på den virtuella datorn. Du kan gå vidare till [Skydda dina virtuella datorer](backup-azure-vms-first-look.md#step-4---create-the-backup-policy).
 
 Om en virtuell dator migreras från ett lokalt datacenter är VM-agenten antagligen inte installerad på den virtuella datorn. Du måste installera VM-agenten på den virtuella datorn innan du fortsätter att skydda den virtuella datorn. Detaljerade anvisningar om hur du installerar VM-agenten finns i [avsnittet om VM-agenten i artikeln om säkerhetskopiering av virtuella datorer](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="step-4-create-the-backup-policy"></a>Steg 4 – Skapa säkerhetskopieringspolicyn
+## <a name="step-4---create-the-backup-policy"></a>Steg 4 – Skapa säkerhetskopieringspolicyn
 Innan du initierar det första säkerhetskopieringsjobbet definierar du schemat som anger när ögonblicksbilder av säkerhetskopior ska tas. Schemat som definierar när ögonblicksbilder av säkerhetskopior tas och hur länge dessa ögonblicksbilder bevaras utgör säkerhetskopieringspolicyn. Bevarandeinformationen baseras på ett säkerhetsrotationsschema av typen ”farfar-far-son”.
 
 1. Gå till säkerhetskopieringsvalvet under **Recovery Services** på den klassiska Azure-portalen och klicka på **Registrerade objekt**.
@@ -175,7 +175,7 @@ Innan du initierar det första säkerhetskopieringsjobbet definierar du schemat 
 
     Nu när du har skapat principen går du till nästa steg och kör den första säkerhetskopieringen.
 
-## <a name="step-5-initial-backup"></a>Steg 5 – Den första säkerhetskopieringen
+## <a name="step-5---initial-backup"></a>Steg 5 – Den första säkerhetskopieringen
 När en virtuell dator har skyddats med en princip kan du visa den relationen på fliken **Skyddade objekt**. Innan den första säkerhetskopieringen har körts visas **Skyddsstatus** som **Skyddade – (första säkerhetskopiering väntar)**. Som standard är den första säkerhetskopieringen den *inledande säkerhetskopieringen*.
 
 ![Säkerhetskopiering väntar](./media/backup-azure-vms-first-look/protection-pending-border.png)

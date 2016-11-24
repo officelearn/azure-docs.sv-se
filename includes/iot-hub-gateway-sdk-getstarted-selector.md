@@ -36,7 +36,7 @@ SDK innehåller ett abstraktionslager som gör att du kan skapa gateways som ska
 ### <a name="messages"></a>Meddelanden
 Tänk på att även om moduler som skickar meddelanden till varandra är ett bekvämt sätt att få en överblick över hur en gateway fungerar, så återspeglar det inte korrekt vad som händer. Modulerna använder en asynkron meddelandekö för att kommunicera med varandra. De publicerar meddelanden till meddelandekön (bus, pubsub eller andra meddelandemönster) och låter sedan meddelandekön dirigera meddelandet till de moduler som är anslutna till den.
 
-Modulerna använder funktionen **Broker_Publish** för att publicera ett meddelande till meddelandekön. Den asynkrona meddelandekön levererar meddelanden till en modul genom att anropa en återanropsfunktion. Ett meddelande består av en uppsättning nyckel-/värdeegenskaper och innehåll som skickas som ett block med minne.
+En modul använder funktionen **Broker_Publish** för att publicera ett meddelande till meddelandekön. Den asynkrona meddelandekön levererar meddelanden till en modul genom att anropa en återanropsfunktion. Ett meddelande består av en uppsättning nyckel-/värdeegenskaper och innehåll som skickas som ett block med minne.
 
 ![Rollen för meddelandekön i Azure IoT Gateway SDK][3]
 
@@ -72,6 +72,6 @@ Bilden ovan illustrerar arkitekturen i Hello World-exemplet och de relativa sök
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

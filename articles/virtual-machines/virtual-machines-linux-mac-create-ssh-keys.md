@@ -13,22 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 11/14/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 689445bc656b5cdebc7689f7fec6e2ea2683576e
+ms.sourcegitcommit: b80fb49929ce53f33b9a4064ba6ad14d0108d690
+ms.openlocfilehash: c879231fac37ae3c69bac4d201b01469ca18240c
 
 
 ---
 # <a name="create-ssh-keys-on-linux-and-mac-for-linux-vms-in-azure"></a>Skapa SSH-nycklar för Linux och Mac för virtuella Linux-datorer i Azure
-Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering som standard, vilket gör att inga lösenord krävs för att logga in.  Det går att gissa sig fram till lösenord och dina virtuella datorer blir sårbara för råstyrkeattacker som försöker gissa ditt lösenord. Virtuella datorer som skapas med Azure-mallar eller `azure-cli` kan inkludera din offentliga SSH-nyckel som en del av distributionen, så att ingen distributionskonfiguration krävs i efterhand.  Om du ansluter till en virtuell Linux-dator från Windows läser du [det här dokumentet.](virtual-machines-linux-ssh-from-windows.md)
+Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering som standard, vilket gör att inga lösenord krävs för att logga in.  Det går att gissa sig fram till lösenord och dina virtuella datorer blir sårbara för råstyrkeattacker som försöker gissa ditt lösenord. Virtuella datorer som skapas med Azure-mallar eller `azure-cli` kan inkludera din offentliga SSH-nyckel som en del av distributionen, så att ingen distributionskonfiguration krävs i efterhand.  Om du ansluter till en virtuell Linux-dator från Windows läser du [Skapa SSH-nycklar i Windows.](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Artikeln kräver:
-
-* ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/)).
-* [Azure CLI](../xplat-cli-install.md) inloggad med`azure login`
-* Azure CLI *måste vara i* Azure Resource Manager-läge`azure config mode arm`
 
 ## <a name="quick-commands"></a>Snabbkommandon
 Ersätt exemplen i följande kommandon med dina egna alternativ.
@@ -92,7 +87,7 @@ Den här artikeln skapar *ssh-rsa*-formaterade nyckelfiler, vilket rekommenderas
 ## <a name="create-the-ssh-keys"></a>Skapa SSH-nycklarna
 Azure kräver offentliga och privata nycklar med minst 2048 bitar i ssh-rsa-format. Skapa nycklarna med `ssh-keygen`, som ställer ett antal frågor och sedan skriver en privat nyckel och en matchande offentlig nyckel. När en virtuell Azure-dator skapas kopieras den offentliga nyckeln till `~/.ssh/authorized_keys`.  SSH-nycklar i `~/.ssh/authorized_keys` används för att tvinga klienten att matcha motsvarande privata nyckel vid en SSH-inloggningsanslutning.
 
-## <a name="using-sshkeygen"></a>Använda ssh-keygen
+## <a name="using-ssh-keygen"></a>Använda ssh-keygen
 Med det här kommandot skapas ett lösenordsskyddat (krypterat) SSH-nyckelpar med 2048 bitars RSA. Kommentarer har lagts till som gör det lättare att identifiera det.  
 
 Börja med att ändra katalog, så att alla dina ssh-nycklar skapas i den katalogen.
@@ -126,7 +121,7 @@ Så här skapar du en PEM-formaterad nyckel från en befintlig offentlig SSH-nyc
 ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ```
 
-## <a name="example-of-sshkeygen"></a>Exempel på ssh-keygen
+## <a name="example-of-ssh-keygen"></a>Exempel på ssh-keygen
 ```bash
 ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
 Generating public/private rsa key pair.
@@ -170,7 +165,7 @@ Nyckellösenord:
 
 `ssh-keygen` refererar till ett lösenord som ”en lösenfras”.  Vi rekommenderar *starkt* att du skapar ett lösenord för dina nyckelpar. Utan ett lösenord som skyddar nyckelparet kan vem som helst som har tillgång till filen med den privata nyckeln använda den för att logga in på en server som har motsvarande offentliga nyckel. Genom att lägga till ett lösenord har du därför bättre skydd om någon lyckas få åtkomst till filen med din privata nyckel, så att du har tid att ändra nycklarna som används för att autentisera dig.
 
-## <a name="using-sshagent-to-store-your-private-key-password"></a>Lagra lösenordet för din privata nyckel med hjälp av ssh-agent
+## <a name="using-ssh-agent-to-store-your-private-key-password"></a>Lagra lösenordet för din privata nyckel med hjälp av ssh-agent
 Om du inte vill skriva lösenordet för filen med den privata nyckeln vid varje SSH-inloggning kan du cachelagra lösenordet med hjälp av `ssh-agent`. Om du använder en Mac skyddas lösenorden för privata nycklar i OSX-nyckelringen när du anropar `ssh-agent`.
 
 Kontrollera först att `ssh-agent` körs
@@ -247,13 +242,12 @@ När `ssh fedora22` körs letar SSH först upp och läser in inställningarna fr
 ## <a name="next-steps"></a>Nästa steg
 Nästa uppgift är att skapa virtuella Azure Linux-datorer med den nya offentliga SSH-nyckeln.  Virtuella Azure-datorer som skapas med en offentlig SSH-nyckel för inloggning är bättre skyddade än virtuella datorer som skapas med vanliga lösenordsbaserade inloggningsmetoder.  Lösenord är som standard inaktiverade för Virtuella Azure-datorer som skapas med SSH-nycklar för att undvika råstyrkeattacker som försöker gissa lösenord.
 
-* [Skapa en säker virtuell Linux-dator med hjälp av en Azure-mall](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-* [Skapa en säker virtuell Linux-dator med hjälp av Azure-portalen](virtual-machines-linux-quick-create-portal.md)
-* [Skapa en säker virtuell Linux-dator med hjälp av Azure CLI](virtual-machines-linux-quick-create-cli.md)
+* [Skapa en säker virtuell Linux-dator med hjälp av en Azure-mall](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Skapa en säker virtuell Linux-dator med hjälp av Azure-portalen](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Skapa en säker virtuell Linux-dator med hjälp av Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

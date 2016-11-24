@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59a4c270be4bb9a0d247ce81da548b58ce4baf3f
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 17057b78cbba962022afc92cdff4e506bcc0e46e
 
 
 ---
@@ -32,7 +32,7 @@ I den här kursen går vi igenom ett enkelt scenario för sändning med Mobile E
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Konfigurera Mobile Engagement för din universella Windows-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 I den här kursen behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. Den fullständiga integrationsdokumentationen finns i [Mobile Engagement Windows Universal SDK integration](mobile-engagement-windows-store-sdk-overview.md).
 
 Du skapar en grundläggande app i Visual Studio för att demonstrera integrationen.
@@ -42,7 +42,7 @@ I följande steg används Visual Studio 2015, men stegen är ganska lika i tidig
 
 1. Starta Visual Studio och välj **New Project** (Nytt projekt) på **startskärmen**.
 2. Välj **Windows** -> **Universal** -> **Blank App (Universal Windows)** (Tom app [Universellt Windows]) i popup-fönstret. Ange appens **namn** och **lösningens namn**, och klicka sedan på **OK**.
-   
+
     ![][1]
 
 Du har nu skapat ett universellt Windows-app-projekt där du sedan integrerar Azure Mobile Engagement SDK.
@@ -50,86 +50,85 @@ Du har nu skapat ett universellt Windows-app-projekt där du sedan integrerar Az
 ### <a name="connect-your-app-to-mobile-engagement-backend"></a>Ansluta appen till Mobile Engagement-serverdelen
 1. Installera Nuget-paketet [MicrosoftAzure.MobileEngagement] i projektet. Om du utvecklar för både Windows- och Windows Phone-plattformen måste du göra det här för båda projekten. Samma Nuget-paket placerar rätt plattformsspecifika binärfiler i varje projekt för Windows 8.x och Windows Phone 8.1.
 2. Öppna **Package.appxmanifest** och kontrollera att följande funktion har lagts till:
-   
+
         Internet (Client)
-   
+
     ![][2]
 3. Ta sedan anslutningssträngen som du kopierade tidigare för Mobile Engagement-appen och klistra in den i filen `Resources\EngagementConfiguration.xml`, mellan taggarna `<connectionString>` och `</connectionString>`:
-   
+
     ![][3]
 
-    >[AZURE.TIP] Om appen används på både Windows- och Windows Phone-plattformen ska du fortfarande skapa två Mobile Engagement-program – ett för varje plattform som stöds. Genom att ha två appar säkerställer du att du kan skapa rätt segmentering av målgruppen och skicka lämpliga målanpassade meddelanden för varje plattform.
+    > [!TIP]
+    > Om appen används på både Windows- och Windows Phone-plattformen ska du fortfarande skapa två Mobile Engagement-program – ett för varje plattform som stöds. Genom att ha två appar säkerställer du att du kan skapa rätt segmentering av målgruppen och skicka lämpliga målanpassade meddelanden för varje plattform.
 
-    > [AZURE.IMPORTANT] NuGet kopierar inte SDK-resurserna automatiskt i ditt program för Windows 10 UWP. Du måste göra det manuellt via de steg som visas (readme.txt) när NuGet-paketet installeras.  
+    > [!IMPORTANT]
+    > NuGet kopierar inte SDK-resurserna automatiskt i ditt program för Windows 10 UWP. Du måste göra det manuellt via de steg som visas (readme.txt) när NuGet-paketet installeras.  
 
 1. I filen `App.xaml.cs`:
-   
+
     a. Lägg till instruktionen `using`:
-   
+
             using Microsoft.Azure.Engagement;
-   
+
     b. Lägg till en metod som initierar Engagement:
-   
+
            private void InitEngagement(IActivatedEventArgs e)
            {
              EngagementAgent.Instance.Init(e);
-   
+
              //... rest of the code
            }
-   
+
     c. Initiera SDK:n i metoden **OnLaunched**:
-   
+
             protected override void OnLaunched(LaunchActivatedEventArgs e)
             {
               InitEngagement(e);
-   
+
               //... rest of the code
             }
-   
+
     c. Infoga följande i metoden **OnActivated** och lägg till metoden om den inte redan finns:
-   
+
             protected override void OnActivated(IActivatedEventArgs e)
             {
               InitEngagement(e);
-   
+
               //... rest of the code
             }
 
-## <a name="a-idmonitoraenable-realtime-monitoring"></a><a id="monitor"></a>Aktivera realtidsövervakning
+## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>Aktivera realtidsövervakning
 För att kunna börja skicka data och försäkra dig om att användarna är aktiva måste du skicka minst en skärm (aktivitet) till Mobile Engagement-serverdelen.
 
 1. Lägg till följande `using`-instruktion i **MainPage.xaml.cs**:
-   
+
     using Microsoft.Azure.Engagement.Overlay;
 2. Byt ut grundklassen för **MainPage** från **Page** mot **EngagementPageOverlay**:
-   
+
         class MainPage : EngagementPageOverlay
 3. I filen `MainPage.xaml`:
-   
+
     a. Lägg till följande i namnområdesdeklarationerna:
-   
+
         xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
-   
+
     b. Ersätt **Page** i XML-taggnamnet med **engagement:EngagementPageOverlay**
 
 > [!IMPORTANT]
 > Om sidan åsidosätter metoden `OnNavigatedTo` ska du anropa `base.OnNavigatedTo(e)`. Annars rapporteras inte aktiviteten (`EngagementPage` anropar `StartActivity` i tillhörande `OnNavigatedTo`-metod). Detta är i synnerhet viktigt i ett Windows Phone-projekt där standardmallen har en `OnNavigatedTo`-metod.
-> 
-> [!IMPORTANT]
-> För **universella appar i Windows 10** ska du använda [den här rekommenderade metoden](mobile-engagement-windows-store-advanced-reporting.md#recommended-method-overload-your-codepagecode-classes) snarare än den som nämns ovan.
-> 
-> 
+>
+> För **Windows 10 Universal-appar** använder du den metod som rekommenderas i avsnittet ”Recommended method: overload your Page classes” (Rekommenderad metod: överbelasta dina sidklasser) i [Advanced Reporting with the Windows Universal Apps Engagement SDK](mobile-engagement-windows-store-advanced-reporting.md) (Avancerad rapportering med Engagement-SDK för Windows Universal-appar) i stället för den som nämns ovan.
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
 I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 ### <a name="enable-your-app-to-receive-wns-push-notifications"></a>Konfigurera appen för att ta emot push-meddelanden med WNS
 1. Ställ in **Toast capable** (Popup-kompatibel) på **Yes** (Ja) i filen `Package.appxmanifest` på fliken **Application** (Program) under **Notifications** (Meddelanden).
-   
+
     ![][5]
 
 ### <a name="initialize-the-reach-sdk"></a>Initiera REACH SDK
@@ -146,24 +145,25 @@ Du är redo att skicka ett popup-meddelande. Sedan kontrollerar vi att den grund
 ### <a name="grant-access-to-mobile-engagement-to-send-notifications"></a>Tillåt Mobile Engagement att skicka meddelanden
 1. Öppna [Windows Store Dev Center] i webbläsaren, logga in och skapa ett konto om det behövs.
 2. Klicka på **instrumentpanelen** längst upp till höger och klicka sedan på **Create a new app** (Skapa en ny app) på menyn i den vänstra panelen.
-   
+
     ![][9]
 3. Skapa din app genom att reservera dess namn.
-   
+
     ![][10]
 4. Navigera till **Services -> Push notifications** (Tjänster -> Push-meddelanden) på den vänstra menyn när appen har skapats.
-   
+
     ![][11]
 5. Klicka på länken **Live Services site** (Plats med livetjänster) i push-meddelandeavsnittet.
-   
+
     ![][12]
 6. Då kommer du till avsnittet för push-autentiseringsuppgifter. Kontrollera att du befinner dig i avsnittet **App Settings** (Appinställningar) och kopiera sedan **Package SID** (Paket-SID) och **Client secret** (Klienthemlighet).
-   
+
     ![][13]
 7. Navigera till **Settings** (Inställningar) i Mobile Engagement-portalen, och klicka på avsnittet **Native Push** (Systemspecifik push-avisering) till vänster. Klicka sedan på knappen **Edit** (Redigera) för att ange **Package security identifier (SID)** (Säkerhetsidentifierare för paket [SID]) och **Secret Key** (Hemlig nyckel) enligt bilden:
-   
+
     ![][6]
 8. Kontrollera slutligen att du har associerat Visual Studio-appen med den här skapade appen i appbutiken. Klicka på**Associate App with Store** (Associera appen med Store) i Visual Studio.
+
     ![][7]
 
 ## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Skicka ett meddelande till din app

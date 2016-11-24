@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 370978187cffa2e5a9544bf99e6a15e13f97ac53
+ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
+ms.openlocfilehash: afc0249def57095e58e4d57230faee01daf7bb52
 
 
 ---
@@ -34,11 +34,11 @@ Nu måste du skapa en app i B2C-katalogen. Det ger Azure AD den information som 
 * Lägga till en **webbapp** eller ett **webb-API** i programmet.
 * Använda **omdirigerings-URI:n** `https://localhost:44316/` för webbappen. Det här är standardplatsen för klienten för webbappen i det här kodexemplet.
 * Kopiera **program-ID:t** som har tilldelats din app. Du behöver det senare.
-  
+
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Skapa dina principer
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Klienten i det här kodexemplet innehåller tre identitetsmiljöer: registrering, inloggning och profilredigering. Du måste skapa en princip för varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Tänk på följande när du skapar dina tre principer:
+I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Klienten i det här kodexemplet innehåller tre identitetsmiljöer: registrering, inloggning och profilredigering. Du måste skapa en princip för varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Tänk på följande när du skapar dina tre principer:
 
 * Välj antingen **Registrering med användar-ID** eller **Registrering med e-postadress** i bladet för identitetsproviders.
 * Välj **Visningsnamn** och andra registreringsattribut i registreringsprincipen.

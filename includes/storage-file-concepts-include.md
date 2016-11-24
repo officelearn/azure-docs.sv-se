@@ -15,7 +15,7 @@ Vanliga användningsområden för File Storage är:
 ## <a name="file-storage-concepts"></a>File Storage-koncept
 File Storage består av följande komponenter:
 
-![filkoncept][files-concepts]
+![filkoncept](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Se [Skalbarhets- och prestandamål för Azure Storage](../articles/storage/storage-scalability-targets.md) för information om kapacitet för lagringskonton.
 * **Resurs:** en File Storage-resurs är en SMB-filresurs i Azure. 
@@ -31,8 +31,7 @@ File Storage består av följande komponenter:
 
 Mer information om hur du namnger resurser, kataloger och filer finns i [namnge och referera till resurser, kataloger, filer och metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-[filkoncept]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

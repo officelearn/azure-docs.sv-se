@@ -1,6 +1,6 @@
 ---
 title: "Kom igång med Azure Data Lake Analytics med hjälp av Azure PowerShell | Microsoft Docs"
-description: "Lär dig att skapa ett Data Lake Store-konto med hjälp av Azure PowerShell samt skapa ett Data Lake Analytics-jobb med hjälp av U-SQL och skicka jobbet. "
+description: "Lär dig hur du skapar ett Data Lake Analytics-konto med hjälp av Azure PowerShell, hur du skapar ett Data Lake Analytics-jobb med hjälp av U-SQL och hur du skickar jobbet. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/21/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 59efa050944059c737654a3f039a058c50865ea6
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: 57c52a8c28e5a87a63fded3db7d0a2a785e47a53
 
 
 ---
@@ -209,6 +209,6 @@ När jobbet har slutförts kan du använda följande cmdletar för att visa och 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

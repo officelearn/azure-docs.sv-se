@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 
 
 ---
@@ -82,6 +82,8 @@ Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av 
     `<InstrumentationKey>` *instrumenteringsnyckeln som du kopierade* `</InstrumentationKey>`
 * Kontrollera att egenskaperna för ApplicationInsights.config i Solution Explorer är inställda på **Byggåtgärd = Innehåll, Kopiera till utdatakatalog = Kopiera**.
 
+Det är bra att ange instrumenteringsnyckeln i kod om du vill [byta nyckel för olika versionskonfigurationer](app-insights-separate-resources.md). Om du anger nyckeln i koden behöver du inte ange den i `.config`-filen.
+
 ## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Köra projektet
 Använd **F5** när du vill köra programmet och testa det: öppna olika sidor för att generera telemetri.
 
@@ -132,6 +134,6 @@ Mer information finns i [det här felsökningsavsnittet](app-insights-asp-net-tr
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

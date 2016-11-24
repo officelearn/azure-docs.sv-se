@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 09/13/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53bc8d8f2093955afaf25007e10be230b3eb94db
+ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
+ms.openlocfilehash: f001bc76161565bd07606d366c07b15edf819e81
 
 
 ---
@@ -43,7 +43,7 @@ När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valf
 | Använda ett befintligt tjänstkonto |Som standard skapar Azure AD Connect ett lokalt tjänstkonto som ska användas av synkroniseringstjänsterna. Lösenordet genereras automatiskt och är inte känt för den person som installerar Azure AD Connect. Om du använder en fjärransluten SQL-server eller om du använder en proxyserver som kräver autentisering så behöver du ett tjänstkonto i domänen och måste även känna till lösenordet. I detta fall anger du det tjänstkonto som ska användas. Kontrollera att användaren som kör installationen är en SA i SQL så att en inloggning för tjänstkontot kan skapas. Se [Azure AD Connect: Konton och behörigheter](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 | Ange anpassade synkroniseringsgrupper |Som standard skapar Azure AD Connect fyra grupper som är lokala på servern när synkroniseringstjänsterna installeras. Dessa grupper är: gruppen Administratörer, gruppen Operatorer, gruppen Bläddra och gruppen Återställning av lösenord. Du kan ange dina egna grupper här. Grupperna måste vara lokala på servern och de kan inte hittas i domänen. |
 
-### <a name="user-signin"></a>Användarinloggning
+### <a name="user-sign-in"></a>Användarinloggning
 När du har installerat de nödvändiga komponenterna uppmanas du att välja användaruppgifter för enkel inloggning. Följande tabell innehåller en kort beskrivning av de tillgängliga alternativen. En fullständig beskrivning av inloggningsmetoderna finns i [Användarinloggning](../active-directory-aadconnect-user-signin.md).
 
 ![Användarinloggning](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
@@ -73,7 +73,7 @@ För att kunna ansluta till Azure Directory Domain Service behöver AD Connect a
 
 ![Anslut katalog](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
-### <a name="azure-ad-signin-configuration"></a>Inloggningskonfiguration för Azure AD
+### <a name="azure-ad-sign-in-configuration"></a>Inloggningskonfiguration för Azure AD
 På den här sidan kan du granska de UPN-domäner som finns i lokala AD DS och som har verifierats i Azure AD. På den här sidan kan du också konfigurera attributet som ska användas för userPrincipalName.
 
 ![Overifierade domäner](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
@@ -83,8 +83,8 @@ Granska varje domän som markerats med **Inte tillagd** och **Inte verifierad**.
 
 > [!WARNING]
 > Det går inte att använda ett alternativt ID med alla Office 365-arbetsbelastningar. Mer information finns i [Konfigurera alternativt inloggnings-ID](https://technet.microsoft.com/library/dn659436.aspx).
-> 
-> 
+>
+>
 
 ### <a name="domain-and-ou-filtering"></a>Domän- och organisationsenhetsfiltrering
 Som standard synkroniseras alla domäner och organisationsenheter. Om det finns vissa domäner och organisationsenheter som du inte vill synkronisera till Azure AD kan du avmarkera dessa domäner och organisationsenheter.  
@@ -101,13 +101,13 @@ Med funktionen Matchande mellan skogar kan du definiera hur användare från AD 
 
 | Inställning | Beskrivning |
 | --- | --- |
-| [Dina användare representeras endast en gång över alla skogar](../active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) |Alla användare skapas som enskilda objekt i Azure AD. Objekten är inte anslutna i metaversum. |
-| [E-postattribut](../active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) |Det här alternativet kopplar ihop användare och kontakter om e-postattributet har samma värde i olika skogar. Använd det här alternativet om dina kontakter har skapats med hjälp av GALSync. |
-| [ObjectSID och msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest) |Det här alternativet kopplar ihop en aktiverad användare i en kontoskog med en inaktiverad användare i en resursskog. I Exchange kallas den här konfigurationen för en länkad postlåda. Det här alternativet kan också användas om du bara använder Lync och Exchange inte finns i resursskogen. |
+| [Dina användare representeras endast en gång över alla skogar](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Alla användare skapas som enskilda objekt i Azure AD. Objekten är inte anslutna i metaversum. |
+| [E-postattribut](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Det här alternativet kopplar ihop användare och kontakter om e-postattributet har samma värde i olika skogar. Använd det här alternativet om dina kontakter har skapats med hjälp av GALSync. |
+| [ObjectSID och msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Det här alternativet kopplar ihop en aktiverad användare i en kontoskog med en inaktiverad användare i en resursskog. I Exchange kallas den här konfigurationen för en länkad postlåda. Det här alternativet kan också användas om du bara använder Lync och Exchange inte finns i resursskogen. |
 | sAMAccountName och MailNickName |Det här alternativet kopplar ihop attribut om det förväntas att inloggnings-ID:t för användaren kan hittas. |
 | Ett specifikt attribut |Med det här alternativet kan du välja ett eget attribut. **Begränsning:** Se till att välja ett attribut som redan finns i metaversum. Om du väljer ett anpassat attribut (inte i metaversum) kan guiden inte slutföras. |
 
-**Källfästpunkt** – Attributet sourceAnchor är ett attribut som inte kan ändras under ett användarobjekts livslängd. Det är den primära nyckeln som länkar den lokala användaren med användaren i Azure AD. Eftersom attributet inte kan ändras måste du planera för ett lämpligt attribut som ska användas. En bra kandidat är objectGUID. Det här attributet ändras inte, såvida inte användarkontot flyttas mellan skogar/domäner. I en miljö med flera skogar där du flyttar konton mellan skogar måste ett annat attribut användas, till exempel ett attribut med employeeID. Undvik attribut som kan ändras när en person gifter sig eller får nya uppgifter. Du kan inte använda attribut med ett @-sign,. Det betyder att du inte kan använda email eller userPrincipalName. Attributet är också skiftlägeskänsligt. Därför är det viktigt att du inte ändrar gemener/versaler om du flyttar ett objekt mellan skogar. Binära attribut är base64-kodade, men andra attributtyper är kvar i kodat tillstånd. I federationsscenarier och i vissa Azure AD-gränssnitt kallas det här attributet även för immutableID. Mer information om källfästpunkten finns i [designbegreppen](../active-directory-aadconnect-design-concepts.md#sourceAnchor).
+**Källfästpunkt** – Attributet sourceAnchor är ett attribut som inte kan ändras under ett användarobjekts livslängd. Det är den primära nyckeln som länkar den lokala användaren med användaren i Azure AD. Eftersom attributet inte kan ändras måste du planera för ett lämpligt attribut som ska användas. En bra kandidat är objectGUID. Det här attributet ändras inte, såvida inte användarkontot flyttas mellan skogar/domäner. I en miljö med flera skogar där du flyttar konton mellan skogar måste ett annat attribut användas, till exempel ett attribut med employeeID. Undvik attribut som kan ändras när en person gifter sig eller får nya uppgifter. Du kan inte använda attribut med ett @-sign,. Det betyder att du inte kan använda email eller userPrincipalName. Attributet är också skiftlägeskänsligt. Därför är det viktigt att du inte ändrar gemener/versaler om du flyttar ett objekt mellan skogar. Binära attribut är base64-kodade, men andra attributtyper är kvar i kodat tillstånd. I federationsscenarier och i vissa Azure AD-gränssnitt kallas det här attributet även för immutableID. Mer information om källfästpunkten finns i [designbegreppen](../active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Synkroniseringsfiltrering baserat på grupper
 Med funktionen för gruppfiltrering kan du synkronisera en mindre deluppsättning objekt för en pilotdistribution. Om du vill använda den här funktionen skapar du en grupp för detta ändamål i din lokala Active Directory. Lägg sedan till användare och grupper som ska synkroniseras till Azure AD som direkta medlemmar. Senare kan du lägga till och ta bort användare i den här gruppen så att du har en lista med objekt som ska finnas i Azure AD. Alla objekt som du vill synkronisera måste vara direkta medlemmar i gruppen. Användare, grupper, kontakter och datorer/enheter måste vara direkta medlemmar. Kapslade gruppmedlemskap stöds inte. När du lägger till en grupp som en medlem läggs bara själva gruppen till, inte dess medlemmar.
@@ -116,8 +116,8 @@ Med funktionen för gruppfiltrering kan du synkronisera en mindre deluppsättnin
 
 > [!WARNING]
 > Den här funktionen är endast avsedd att användas vid en pilotdistribution. Använd den inte i en fullständig produktionsdistribution.
-> 
-> 
+>
+>
 
 I en komplett produktionsdistribution blir det svårt att underhålla en enda grupp med alla objekt som ska synkroniseras. I stället bör du använda någon av metoderna i [Konfigurera filtrering](../active-directory-aadconnectsync-configure-filtering.md).
 
@@ -128,8 +128,8 @@ På den här sidan kan du välja de valfria funktionerna för dina specifika sce
 
 > [!WARNING]
 > Om DirSync eller Azure AD Sync är aktiverat för närvarande ska du inte aktivera någon av tillbakaskrivningsfunktionerna i Azure AD Connect.
-> 
-> 
+>
+>
 
 | Valfria funktioner | Beskrivning |
 | --- | --- |
@@ -152,8 +152,8 @@ Beroende på vilka tjänster du valde i det föregående steget visas alla attri
 
 > [!WARNING]
 > Funktionaliteten kan påverkas om du tar bort attribut. Bästa praxis och rekommendationer finns i [attribut som synkroniseras](../active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
-> 
-> 
+>
+>
 
 ### <a name="directory-extension-attribute-sync"></a>Synkronisering av katalogtilläggsattribut
 Du kan utvidga schemat i Azure AD med anpassade attribut som läggs till av din organisation eller andra attribut i Active Directory. Om du vill använda den här funktionen väljer du **Synkronisering av katalogtilläggsattribut** på sidan **Valfria funktioner**. Du kan markera fler attribut som ska synkroniseras på den här sidan.
@@ -169,7 +169,7 @@ Du kan konfigurera AD FS med Azure AD Connect med bara några klickningar. Du be
 * En Windows Server 2012 R2-server för webbprogramproxyservern med fjärrhantering aktiverat
 * Ett SSL-certifikat för federationstjänstnamnet som du tänker använda (t.ex. sts.contoso.com)
 
-### <a name="ad-fs-configuration-prerequisites"></a>Förutsättningar för AD FS-konfiguration
+### <a name="ad-fs-configuration-pre-requisites"></a>Förutsättningar för AD FS-konfiguration
 Om du vill konfigurera din AD FS-servergrupp med hjälp av Azure AD Connect kontrollerar du att WinRM är aktiverat på fjärrservrarna. Gå också igenom portkraven som anges i [Tabell 3 – Azure AD Connect och federationsservrar/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Skapa en ny AD FS-servergrupp eller använd en befintlig AD FS-servergrupp
@@ -184,8 +184,8 @@ Ange de servrar som du vill installera AD FS på. Du kan lägga till en eller fl
 
 > [!NOTE]
 > Se till att alla servrar är anslutna till en AD-domän innan du gör den här konfigurationen.
-> 
-> 
+>
+>
 
 ![AD FS-servrar](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
@@ -195,7 +195,8 @@ Ange de servrar som du vill använda som dina webbprogramproxyservrar. Webbprogr
 > [!NOTE]
 > <li> Om det konto som du använder inte är en lokal administratör på AD FS-servrarna uppmanas du att ange administratörsautentiseringsuppgifter.</li>
 > <li> Kontrollera att det finns en HTTP/HTTPS-anslutning mellan Azure AD Connect-servern och webbprogramproxyservern innan du utför det här steget.</li>
-> <li> Kontrollera att det finns en HTTP/HTTPS-anslutning mellan webbappservern och AD FS-servern så att autentiseringsförfrågningar kan passera.</li>> 
+> <li> Kontrollera att det finns en HTTP/HTTPS-anslutning mellan webbappservern och AD FS-servern så att autentiseringsförfrågningar kan passera.</li>
+>
 
 ![Webbapp](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 
@@ -225,16 +226,16 @@ När du väljer domänen som ska vara federerad får du nödvändig information 
 
 > [!NOTE]
 > AD Connect försöker verifiera domänen under konfigurationsfasen. Om du fortsätter att konfigurera utan att lägga till de nödvändiga DNS-posterna kan guiden inte slutföra konfigurationen.
-> 
-> 
+>
+>
 
 ## <a name="configure-and-verify-pages"></a>Konfigurera och verifiera sidor
 Konfigurationen sker på den här sidan.
 
 > [!NOTE]
 > Innan du fortsätter installationen, och om du har konfigurerat federation, kontrollerar du att du har konfigurerat [namnmatchning för federationsservrar](../active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
-> 
-> 
+>
+>
 
 ![Klart att konfigurera](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -278,7 +279,6 @@ Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Director
 | Installera med standardinställningar |
 | Uppgradera från DirSync |
 | Konton som används för installation |
-
 
 
 

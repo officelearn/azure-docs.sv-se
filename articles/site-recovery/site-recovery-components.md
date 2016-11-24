@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94250becb238adad7983d4b45939eb988411fca3
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: ef9a7da86e7528d3052f89dbe1eaac6fbb90527c
 
 
 ---
@@ -94,7 +94,7 @@ Du behöver det här:
 * [Lär dig mer](site-recovery-failback-azure-to-vmware.md) om redundans på Azure-portalen.
 * [Lär dig mer](site-recovery-failback-azure-to-vmware-classic.md) om redundans på den klassiska portalen.
 
-## <a name="replicate-to-azure-hyperv-vms-not-managed-by-vmm"></a>Replikera till Azure: Virtuella Hyper-V-datorer som inte hanteras av VMM
+## <a name="replicate-to-azure-hyper-v-vms-not-managed-by-vmm"></a>Replikera till Azure: Virtuella Hyper-V-datorer som inte hanteras av VMM
 Du kan replikera virtuella Hyper-V-datorer som inte hanteras av System Center VMM till Azure med Site Recovery på följande sätt:
 
 * **Med hjälp av Azure-portalen**: När du distribuerar Site Recovery på Azure-portalen kan du växla över virtuella datorer till klassisk lagring eller till Resource Manager. [Läs mer](site-recovery-hyper-v-site-to-azure.md).
@@ -120,7 +120,7 @@ Du behöver det här:
 * [Lär dig mer](site-recovery-hyper-v-site-to-azure.md#azure-prerequisites) om kraven för distributioner på Azure-portalen.
 * [Lär dig mer](site-recovery-hyper-v-site-to-azure-classic.md#azure-prerequisites) om kraven för distributioner på den klassiska portalen.
 
-## <a name="replicate-to-azure-hyperv-vms-managed-by-vmm"></a>Replikera till Azure: Virtuella Hyper-V-datorer som hanteras av VMM
+## <a name="replicate-to-azure-hyper-v-vms-managed-by-vmm"></a>Replikera till Azure: Virtuella Hyper-V-datorer som hanteras av VMM
 Du kan replikera virtuella Hyper-V-datorer i VMM-moln till Azure med Site Recovery på följande sätt:
 
 * **Med hjälp av Azure-portalen**: När du distribuerar Site Recovery på Azure-portalen kan du växla över virtuella datorer till klassisk lagring eller till Resource Manager. [Läs mer](site-recovery-vmm-to-azure.md).
@@ -144,8 +144,8 @@ Du behöver det här:
 
 ![VMM till Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
-* [Lär dig mer](site-recovery-vmm-to-azure.md#azure-requirements) om kraven för distributioner på Azure-portalen.
-* [Lär dig mer](site-recovery-vmm-to-azure-classic.md#before-you-start) om kraven för distributioner på den klassiska portalen.
+* [Lär dig mer](site-recovery-vmm-to-azure.md#azure-prerequisites) om kraven för distributioner på Azure-portalen.
+* [Lär dig mer](site-recovery-vmm-to-azure-classic.md) om kraven för distributioner på den klassiska portalen.
 
 ## <a name="replicate-to-a-secondary-site-vmware-virtual-machines-or-physical-servers"></a>Replikera till en sekundär plats: Virtuella VMware-datorer eller fysiska servrar
 Om du vill replikera virtuella VMware-datorer eller fysiska servrar till en sekundär plats laddar du ned InMage Scout som ingår i Azure Site Recovery-prenumerationen. Du kan ladda ned verktyget från Azure-portalen eller från den klassiska Azure-portalen.
@@ -167,7 +167,7 @@ Du behöver det här:
 
 ![VMware till VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
-## <a name="replicate-to-a-secondary-site-hyperv-vms-managed-by-vmm"></a>Replikera till en sekundär plats: Virtuella Hyper-V- datorer som hanteras av VMM
+## <a name="replicate-to-a-secondary-site-hyper-v-vms-managed-by-vmm"></a>Replikera till en sekundär plats: Virtuella Hyper-V- datorer som hanteras av VMM
 Du kan replikera virtuella Hyper-V-datorer som hanteras av System Center VMM till ett sekundärt datacenter med Site Recovery på följande sätt:
 
 * **Med hjälp av Azure-portalen**: När du distribuerar Site Recovery på Azure-portalen. [Läs mer](site-recovery-hyper-v-site-to-azure.md).
@@ -193,7 +193,7 @@ Du behöver det här:
 * [Lär dig mer](site-recovery-vmm-to-vmm.md#azure-prerequisites) om distributionskraven på Azure-portalen.
 * * [Lär dig mer](site-recovery-vmm-to-vmm-classic.md#before-you-start) om distributionskraven på den klassiska Azure-portalen.
 
-## <a name="replicate-to-a-secondary-site-with-san-replication-hyperv-vms-managed-by-vmm"></a>Replikera till en sekundär plats med SAN-replikering: Virtuella Hyper-V-datorer som hanteras av VMM
+## <a name="replicate-to-a-secondary-site-with-san-replication-hyper-v-vms-managed-by-vmm"></a>Replikera till en sekundär plats med SAN-replikering: Virtuella Hyper-V-datorer som hanteras av VMM
 Du kan replikera virtuella Hyper-V-datorer som hanteras i VMM-moln till en sekundär plats med hjälp av SAN-replikering på den klassiska Azure-portalen. Det här scenariot stöds inte för närvarande på den nya Azure-portalen.
 
 I det här scenariot installerar du Azure Site Recovery-providern på VMM-servrarna under distributionen av Site Recovery. Providern samordnar och styr replikeringen med Site Recovery-tjänsten via Internet. Data replikeras mellan de primära och sekundära lagringsmatriserna med hjälp av synkron SAN-replikering.
@@ -213,8 +213,8 @@ Du behöver det här:
 
 [Lär dig mer](site-recovery-vmm-san.md#before-you-start) om distributionskraven.
 
-### <a name="onpremises"></a>Lokal
-## <a name="hyperv-protection-lifecycle"></a>Livscykel för Hyper-V-skydd
+### <a name="on-premises"></a>Lokal
+## <a name="hyper-v-protection-lifecycle"></a>Livscykel för Hyper-V-skydd
 Det här arbetsflödet visar processen för att skydda, replikera och redundansväxla virtuella Hyper-V-datorer.
 
 1. **Aktivera skydd**: Du konfigurerar Site Recovery-valvet, konfigurerar replikeringsinställningar för ett VMM-moln eller en Hyper-V-plats och aktiverar skydd för virtuella datorer. Jobbet **Aktivera skydd** initieras och kan övervakas på fliken **Jobb**. Jobbet kontrollerar att datorn uppfyller kraven och anropar sedan metoden [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) som konfigurerar replikering till Azure med de inställningar som du har konfigurerat. Jobbet **Aktivera skydd** anropar också metoden [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) för att initiera en fullständig replikering av virtuella datorer.
@@ -229,7 +229,6 @@ Det här arbetsflödet visar processen för att skydda, replikera och redundansv
 
 ## <a name="next-steps"></a>Nästa steg
 [Förbereda för distribution](site-recovery-best-practices.md)
-
 
 
 

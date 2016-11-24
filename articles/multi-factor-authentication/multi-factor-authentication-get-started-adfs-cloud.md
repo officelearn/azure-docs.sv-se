@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 4a2d271be7fbd0d27163ead8f8eb2c05a43f7fbc
 
 
 ---
-# <a name="securing-cloud-resources-with-azure-multifactor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
 Om din organisation är federerad med Azure Active Directory använder du Azure Multi-Factor Authentication eller Active Directory Federation Services för att skydda dessa resurser. Skydda dina resurser i Azure Active Directory med Azure Multi-Factor Authentication eller Active Directory Federation Services genom att använda följa steg.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Skydda Azure AD-resurser med hjälp av AD FS
 För att skydda din molnresurs ska du först aktivera ett konto för användare och sedan skapa en anspråksregel. Följ dessa steg:
 
-1. Följ anvisningarna i [Aktivera Multi-Factor-Authentication för användare](multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) för att aktivera ett konto.
+1. Följ anvisningarna i [Aktivera Multi-Factor-Authentication för användare](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) för att aktivera ett konto.
 2. Starta AD FS-hanteringskonsolen.
    ![Moln](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 3. Gå till **Förlitande partsförtroenden** och högerklicka på Förlitande partsförtroenden. Välj **Redigera anspråksregler...**
@@ -34,13 +34,13 @@ För att skydda din molnresurs ska du först aktivera ett konto för användare 
 5. Välj **Skicka anspråk med hjälp av en anpassad regel** i listrutan och klicka på **Nästa**.
 6. Ange ett namn för anspråksregeln.
 7. Lägg till följande text under Anpassad regel:
-   
+
     ```
     => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
     ```
-   
+
     Motsvarande anspråk:
-   
+
     ```
     <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
     <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
@@ -74,7 +74,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Vi ska skapa t
 10. I guiden Lägg till anspråksregel för transformering väljer du **Skicka anspråk med hjälp av en anpassad regel** i listrutan och klickar sedan på **Nästa**.
 11. I rutan under Anspråksregelns namn skriver du *Håll användarna inloggade*.
 12. I rutan Anpassad regel anger du:
-    
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -83,7 +83,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Vi ska skapa t
 15. Klicka på **OK**.
 16. Stäng AD FS-hantering.
 
-### <a name="configure-azure-multifactor-authentication-trusted-ips-with-federated-users"></a>Konfigurera tillförlitliga IP-adresser med federerade användare i Azure Multi-Factor Authentication
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurera tillförlitliga IP-adresser med federerade användare i Azure Multi-Factor Authentication
 När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 
 1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
@@ -97,7 +97,6 @@ När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 8. Klicka på **Stäng**när uppdateringarna har tillämpats.
 
 Klart! I det här läget behöver federerade Office 365-användare endast  använda MFA när ett anspråk kommer utifrån företagets intranät.
-
 
 
 

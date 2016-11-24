@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fb80168b38be88ab18952569e6b6f9bcb53d473a
+ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
+ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
 
 
 ---
 # <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Övervaka din Node.js-app genom att lägga till Application Insights SDK
-*Application Insights finns endast som förhandsversion.*
 
-Med [Visual Studio Application Insights](app-insights-overview.md) kan du övervaka ditt liveprogram och [identifiera och diagnostisera prestandaproblem och undantag](app-insights-detect-triage-diagnose.md) och [se hur din app används](app-insights-overview-usage.md). Tjänsten kan användas med appar som finns på dina lokala IIS-servrar eller på virtuella datorer i Azure, samt för Azure-webbappar.
+
+Med [Azure Application Insights](app-insights-overview.md) kan du övervaka ditt liveprogram och [identifiera och diagnostisera prestandaproblem och undantag](app-insights-detect-triage-diagnose.md) och [se hur din app används](app-insights-overview-usage.md). Tjänsten kan användas med appar som finns på dina lokala IIS-servrar eller på virtuella datorer i Azure, samt för Azure-webbappar.
 
 SDK tillhandahåller automatisk insamling av frekvens och svar för inkommande HTTP-förfrågningar, prestandaräknare (processor, minne, RPS) och ohanterade undantag. Du kan också lägga till anpassade anrop om du vill spåra beroenden, mätvärden och andra händelser.
 
@@ -95,7 +95,7 @@ Distribuera ditt program till IIS eller Azure och se hur data ackumuleras.
 Mer information finns i [det här felsökningsavsnittet](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 ## <a name="customized-usage"></a>Anpassad användning
-### <a name="disabling-autocollection"></a>Inaktivera automatisk insamling
+### <a name="disabling-auto-collection"></a>Inaktivera automatisk insamling
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -200,6 +200,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

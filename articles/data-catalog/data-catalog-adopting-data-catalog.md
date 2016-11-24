@@ -16,8 +16,8 @@ ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
+ms.openlocfilehash: 4c6a07c4b3597e357c520bcafde501bc0850e685
 
 
 ---
@@ -102,8 +102,8 @@ Ditt första pilotprojekt bör innehålla några personer som skapar data och n�
 
 Ett av de verksamhetsproblem som **Azure Data Catalog** löser är sammankoppling av**dataproducenter** och **datakonsumenter**. Katalogen fungerar som ett centrallager för information om företagets datakällor. David registrerar Adventure Works- och SQL Server-datakällor i Data Catalog. Eftersom alla användare kan bidra, kan alla användare som identifierar datakällan dela med sig av sina åsikter om den och hur den kan användas. Till exempel identifierar Nancy datakällor genom att söka i katalogen och delar med sig av sina specialkunskaper om dem.  Nu kan andra i organisationen dra nytta av kunskapen hon delat med sig av genom att bara söka i datakatalogen.
 
-* Mer information om hur du registrerar datakällor finns i [Registrera datakällor](data-catalog-get-started.md#exercise-2-registering-data-sources).
-* Mer information om hur du identifierar datakällor finns i [Söka efter datakällor](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Mer information om hur du registrerar datakällor finns i [Registrera datakällor](data-catalog-get-started.md).
+* Mer information om hur du identifierar datakällor finns i [Söka efter datakällor](data-catalog-get-started.md).
 
 ### <a name="start-small-and-focused"></a>Börja litet och fokuserat
 För de flesta pilotprojekt i företag bör du fylla katalogen med värdefulla datakällor så att användare i verksamheten snabbt kan se värdet av Data Catalog. IT-avdelningen är en bra plats att börja identifiera gemensamma datakällor som kan vara av intresse för pilotteamet. Vi rekommenderar att du använder registreringsverktyget för datakällor i **Azure Data Catalog** för de datakällor som stöds, till exempel SQL Server. Med registreringsverktyget för datakällor kan du registrera många olika typer av datakällor, till exempel SQL Server- och Oracle-databaser samt rapporter i SQL Server Reporting Services. En fullständig lista över aktuella datakällor finns i [Datakällor som stöds i Azure Data Catalog](data-catalog-dsr.md).
@@ -123,8 +123,8 @@ Som en del i pilotprojektet använder Nancys team även datakällor som beskrivs
 
 > [!NOTE]
 > Vi har skrivit ett exempelverktyg där API:et för **Azure Data Catalog** används för att migrera en Excel-arbetsbok till Data Catalog. Mer information om Data Catalog-API:et och exempelverktyget finns i [Ladda ned kodexempel för ad hoc-arbetsbok](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) och i dokumentationen för [Azure Data Catalog-REST-API:et](https://msdn.microsoft.com/library/azure/mt267593.aspx).
-> 
-> 
+>
+>
 
 När pilotprojektet är slutfört är det dags att genomföra implementeringsplanen.
 
@@ -142,9 +142,9 @@ Här följer några tips för att komma igång:
 Boka in ett inledande möte för att diskutera förväntningar på pilotprojektet och ge grundläggande utbildning innan pilotteamet börjar använda Data Catalog.
 
 ### <a name="set-expectations"></a>Fastslå förväntningar
-Förväntningar och mål hjälper användare i verksamheten att fokusera på specifika resultat. För att se till att projektet framskrider som önskat kan du ge regelbundna hemuppgifter (kanske dagliga eller veckovisa, beroende på pilotprojektets omfattning och längd). En av de mest värdefulla funktionerna i Data Catalog är att flera användare kan bidra till datatillgångarna, så att användare i verksamheten kan dra nytta av de kunskaper som finns om företagets data. En bra hemuppgift är att be alla medlemmar i pilotteamet att registrera eller kommentera minst en datakälla de har använt. Se [Registrera en datakälla](data-catalog-get-started.md#exercise-2-registering-data-sources) och [Så här kommenterar du datakällor](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Förväntningar och mål hjälper användare i verksamheten att fokusera på specifika resultat. För att se till att projektet framskrider som önskat kan du ge regelbundna hemuppgifter (kanske dagliga eller veckovisa, beroende på pilotprojektets omfattning och längd). En av de mest värdefulla funktionerna i Data Catalog är att flera användare kan bidra till datatillgångarna, så att användare i verksamheten kan dra nytta av de kunskaper som finns om företagets data. En bra hemuppgift är att be alla medlemmar i pilotteamet att registrera eller kommentera minst en datakälla de har använt. Se [Registrera en datakälla](data-catalog-get-started.md) och [Så här kommenterar du datakällor](data-catalog-get-started.md).
 
-Träffa gruppen regelbundet och gå igenom några av anteckningarna. Bra anteckningar om datakällorna är kärnan i en lyckad implementering av Data Catalog eftersom de ger meningsfull information om datakällan på en central plats. Utan bra anteckningar förblir kunskapen om datakällor utspridd i hela företaget. Se [Så här kommenterar du datakällor](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Träffa gruppen regelbundet och gå igenom några av anteckningarna. Bra anteckningar om datakällorna är kärnan i en lyckad implementering av Data Catalog eftersom de ger meningsfull information om datakällan på en central plats. Utan bra anteckningar förblir kunskapen om datakällor utspridd i hela företaget. Se [Så här kommenterar du datakällor](data-catalog-get-started.md).
 
 Det ultimata testet av projektet är förstås om användarna kan hitta nödvändiga datakällor och förstå hur de ska användas. Pilotanvändarna bör regelbundet testa katalogen för att kontrollera att datakällorna de använder i sitt dagliga arbete är relevanta. Om en datakälla som behövs saknas eller inte är korrekt kommenterad, ska detta fungera som en påminnelse om att registrera ytterligare datakällor eller ange ytterligare anteckningar. På så vis läggs mervärde till pilotprojektet. Det skapar också effektiva vanor som sprids till övriga team när pilotprojektet är avslutat.
 
@@ -162,11 +162,10 @@ Den här artikeln handlar om att komma igång med **Azure Data Catalog** i din o
 * [Produktsida för Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/)
 * [Dokumentation för Azure Data Catalog](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Vanliga scenarier för Azure Data Catalog](data-catalog-common-scenarios.md)
-* [Registrera datakällor](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [Söka efter datakällor](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [Kommentera datakällor](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [Gemensamt skapade metadata](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
+* [Registrera datakällor](data-catalog-get-started.md)
+* [Söka efter datakällor](data-catalog-get-started.md)
+* [Kommentera datakällor](data-catalog-get-started.md)
+* [Gemensamt skapade metadata](data-catalog-get-started.md)
 
 
 

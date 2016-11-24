@@ -1,6 +1,6 @@
 ---
 title: "Kom igång med Azure Data Lake Analytics med hjälp av Azure-kommandoradsgränssnittet | Microsoft Docs"
-description: "Lär dig att skapa ett Data Lake Store-konto med hjälp av Azure-kommandoradsgränssnittet samt skapa ett Data Lake Analytics-jobb med hjälp av U-SQL och skicka jobbet. "
+description: "Lär dig hur du skapar ett Data Lake Analytics-konto med hjälp av Azure-kommandoradsgränssnittet, hur du skapar ett Data Lake Analytics-jobb med hjälp av U-SQL och hur du skickar jobbet. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,12 +15,12 @@ ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av Azure-kommandoradsgränssnittet (CLI)
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av Azure-kommandoradsgränssnittet (CLI)
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Lär dig hur du använder Azure CLI för att skapa Azure Data Lake Analytics-konton, definiera Data Lake Analytics-jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md) och skicka jobb till Data Lake Analytics-konton. Mer information om Data Lake Analytics finns i [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -165,6 +165,6 @@ När jobbet har slutförts kan du använda följande cmdletar för att visa och 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

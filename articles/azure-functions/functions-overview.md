@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 08/29/2016
 ms.author: cfowler;mahender;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 601c5a61023fe1565dc0f8e22d9826ae5705fe22
+ms.sourcegitcommit: a06126707ad9942ba3b269b0e2e2a52f9cf0c61e
+ms.openlocfilehash: 7d6bcf84b8d1de1b9f77385909d81ad6baafe9d9
 
 
 ---
@@ -30,7 +30,7 @@ Det här ämnet innehåller en översikt över Azure Functions. Om du vill komma
 ## <a name="features"></a>Funktioner
 Här följer några funktioner i Azure Functions:
 
-* **Val av språk** – Skriv funktioner med hjälp av C#, F#, Node.js, Python, PHP, batch, bash, Java eller andra körbara filer.
+* **Val av språk** – Skriv funktioner med hjälp av C#, F#, Node.js, Python, PHP, batch, bash eller andra körbara filer.
 * **Prismodell – Betala per användning** – Betala endast för tiden som använts för att köra koden. Se alternativet dynamisk apptjänstplan i [prissättningsavsnittet](#pricing) nedan.  
 * **Ta med dina egna beroenden** – Functions stöder NuGet och NPM, så du kan använda dina favoritbibliotek.  
 * **Integrerad säkerhet** – Skydda HTTP-utlösta funktioner med OAuth-providrar, till exempel Azure Active Directory, Facebook, Google, Twitter och Microsoft Account.  
@@ -90,6 +90,6 @@ Mer information om att skala dina funktioner finns i [Så här skalar du Azure F
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

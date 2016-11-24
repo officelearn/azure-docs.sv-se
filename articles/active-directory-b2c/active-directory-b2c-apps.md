@@ -15,13 +15,13 @@ ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d36102549550515e516522ecbd964cc7bd1b4d4
+ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
+ms.openlocfilehash: a7c95f9219920932d56487c0e9b96499cc963af0
 
 
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: Typer av program
-Azure AD (Active Directory Azure) B2C stöder autentisering för en rad olika moderna apparkitekturer. Alla baseras på standardprotokollen [OAuth 2.0](active-directory-b2c-reference-protocols.md) och [OpenID Connect](active-directory-b2c-reference-protocols.md). I det här dokumentet beskrivs kortfattat de olika typer av appar som du kan skapa, oberoende av plattform eller språk. Du får också förståelse för de övergripande scenarierna innan du [börjar utveckla program](active-directory-b2c-overview.md#getting-started).
+Azure AD (Active Directory Azure) B2C stöder autentisering för en rad olika moderna apparkitekturer. Alla baseras på standardprotokollen [OAuth 2.0](active-directory-b2c-reference-protocols.md) och [OpenID Connect](active-directory-b2c-reference-protocols.md). I det här dokumentet beskrivs kortfattat de olika typer av appar som du kan skapa, oberoende av plattform eller språk. Du får också förståelse för de övergripande scenarierna innan du [börjar utveckla program](active-directory-b2c-overview.md#get-started).
 
 ## <a name="the-basics"></a>Grunderna
 Alla appar som använder Azure AD B2C måste vara registrerade i din [B2C-katalog](active-directory-b2c-get-started.md) via [Azure Portal](https://portal.azure.com/). Registreringsprocessen samlar in och tilldelar några värden till din app:
@@ -75,7 +75,7 @@ I en webbapp utförs följande övergripande steg för varje körning av en [pri
 
 Valideringen av `id_token` med hjälp av en offentlig signeringsnyckel som fås från Azure AD är tillräckligt för att verifiera användarens identitet. Åtgärden konfigurerar även en sessions-cookie som kan användas för att identifiera användaren vid efterföljande sidförfrågningar.
 
-Om du vill se hur det här scenariot fungerar i praktiken provar du något av kodexemplen för inloggning med webbappar i [Komma igång-avsnittet](active-directory-b2c-overview.md#getting-started).
+Om du vill se hur det här scenariot fungerar i praktiken provar du något av kodexemplen för inloggning med webbappar i [Komma igång-avsnittet](active-directory-b2c-overview.md#get-started).
 
 Förutom att underlätta enkel inloggning kan en webbserverapp också behöva åtkomst till en backend-webbtjänst. I detta fall kan webbappen köra ett något annorlunda [OpenID Connect-flöde](active-directory-b2c-reference-oidc.md) och hämta token genom att använda auktoriseringskoder och uppdateringstoken. Det här scenariot illustreras i följande avsnitt om [webb-API:er](#web-apis).
 
@@ -96,8 +96,8 @@ Webb-API:et kan sedan använda token för att verifiera API-anroparens identitet
 
 > [!NOTE]
 > Azure AD B2C stöder för närvarande endast webb-API:er som används av egna välkända klienter. Din fullständiga app kan exempelvis omfatta en iOS-app, en Android-app och ett backend-webb-API. Den här arkitekturen stöds fullt ut. För närvarande kan du inte ge en partnerklient, till exempel en annan iOS-app, åtkomst till samma webb-API. Alla komponenter i en fullständig app måste dela samma program-ID.
-> 
-> 
+>
+>
 
 Ett webb-API kan ta emot token från många typer av klienter, inklusive webbappar, skrivbordsappar och mobilappar, appar med en enda sida, server-deamon och andra webb-API:er. Här är ett exempel på det fullständiga flödet för en webbapp som anropar ett webb-API:
 
@@ -105,7 +105,7 @@ Ett webb-API kan ta emot token från många typer av klienter, inklusive webbapp
 
 Mer information om auktoriseringskoder, uppdateringstoken och stegen för att hämta token finns i [OAuth 2.0-protokollet](active-directory-b2c-reference-oauth-code.md).
 
-Mer information om hur du skyddar ett webb-API med hjälp av Azure AD B2C finns i självstudiekurserna om webb-API:er i [Komma igång-avsnittet](active-directory-b2c-overview.md#getting-started).
+Mer information om hur du skyddar ett webb-API med hjälp av Azure AD B2C finns i självstudiekurserna om webb-API:er i [Komma igång-avsnittet](active-directory-b2c-overview.md#get-started).
 
 ## <a name="mobile-and-native-apps"></a>Mobila och interna appar
 Appar som installeras på enheter, till exempel mobilappar och skrivbordsappar, behöver ofta åtkomst till backend-tjänster eller webb-API:er. Du kan lägga till anpassade identitetshanteringsmiljöer i dina interna appar och på ett säkert sätt anropa backend-tjänster med hjälp av Azure AD B2C och [OAuth 2.0-auktoriseringskodflödet](active-directory-b2c-reference-oauth-code.md).  
@@ -114,8 +114,8 @@ I det här flödet kör appen [principer](active-directory-b2c-reference-policie
 
 > [!NOTE]
 > Azure AD B2C stöder för närvarande endast token som används för att komma åt en apps egen backend-webbtjänst. Din fullständiga app kan exempelvis omfatta en iOS-app, en Android-app och ett backend-webb-API. Den här arkitekturen stöds fullt ut. För närvarande går det inte att ge en iOS-app åtkomst till ett partnerwebb-API med hjälp av OAuth 2.0-åtkomsttoken. Alla komponenter i en fullständig app måste dela samma program-ID.
-> 
-> 
+>
+>
 
 ![Bild i spaltformat som illustrerar en intern app](./media/active-directory-b2c-apps/native.png)
 
@@ -125,16 +125,15 @@ Azure AD-B2C stöder för närvarande inte följande typer av appar, men det är
 ### <a name="single-page-apps-javascript"></a>Appar med enstaka sidor (JavaScript)
 Klientdelen i många moderna appar innehåller en app med en enda sida som främst är skriven i JavaScript. De använder ofta ett ramverk som AngularJS, Ember.js eller Durandal. Den allmänt tillgängliga Azure AD-tjänsten har stöd för dessa appar genom det implicita flödet för OAuth 2.0. Detta flöde är dock inte tillgängligt i Azure AD B2C än.
 
-### <a name="daemonsserverside-apps"></a>Daemon/appar på serversidan
+### <a name="daemonsserver-side-apps"></a>Daemon/appar på serversidan
 Appar som innehåller tidskrävande processer eller som fungerar utan närvaron av en användare måste också kunna komma åt skyddade resurser, till exempel webb-API:er. Dessa appar kan autentisera och hämta token genom att använda appens identitet (i stället för en användares delegerade identitet) och genom att använda flödet för OAuth 2.0-klientautentiseringsuppgifter.
 
 För närvarande stöds inte detta flöde av Azure AD B2C. De här apparna kan bara hämta token efter ett interaktivt användarflöde.
 
-### <a name="web-api-chains-onbehalfof-flow"></a>Webb-API-länkar (On-Behalf-Of-flöde)
+### <a name="web-api-chains-on-behalf-of-flow"></a>Webb-API-länkar (On-Behalf-Of-flöde)
 Många arkitekturer har ett webb-API som måste anropa ett annat underordnat webb-API, där både skyddas av Azure AD B2C. Det här scenariot är vanligt i interna klienter som har ett webb-API på serversidan. Detta anropar sedan en Microsoft-onlinetjänst som Azure AD Graph API.
 
 Det här scenariot med länkade webb-API:er kan användas genom en tilldelning av OAuth 2.0 JWT-ägarautentiseringsuppgifter, även kallat On-Behalf-Of-flöde.  Detta flöde är emellertid inte implementerat i Azure AD B2C.
-
 
 
 

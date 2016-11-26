@@ -1,12 +1,13 @@
 # Översikt
-## [Om skalningsuppsättningar](virtual-machine-scale-sets-overview.md)
-## [Att tänka på gällande utformning av skalningsuppsättningar](virtual-machine-scale-sets-design-overview.md)
+## [Vad är skalningsuppsättningar för virtuella datorer?](virtual-machine-scale-sets-overview.md)
 
 # Kom igång
 ## [Skapa en Windows-skalningsuppsättning](virtual-machine-scale-sets-windows-create.md)
 ## [Skapa en Linux-skalningsuppsättning](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Gör så här för att
+## Planera och designa
+### [Designöverväganden](virtual-machine-scale-sets-design-overview.md)
 ## Distribuera
 ### [Skalningsuppsättning med portalen](virtual-machine-scale-sets-portal-create.md)
 ### [Skalningsuppsättning med Visual Studio](virtual-machine-scale-sets-vs-create.md)
@@ -19,21 +20,24 @@
 ### [Automatisk skalning och skalningsuppsättningar](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Vertikal skalning i en skalningsuppsättning](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Uppgraderingar för skalningsuppsättningar](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Avancerad automatisk skalning](virtual-machine-scale-sets-advanced-autoscale.md)
+### [Avancerad automatisk skalning](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Använda DSC och skalningsuppsättningar](virtual-machine-scale-sets-dsc.md)
 
 ## Felsöka
-### [Felsök automatisk skalning](virtual-machine-scale-sets-troubleshoot.md)
+### [Automatisk skalning](virtual-machine-scale-sets-troubleshoot.md)
 
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/compute/)
 
 # Resurser
-## [Prissättning](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
+## Priser 
+### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
+### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -22,7 +22,7 @@
 ### [Visa händelser och granskningsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Få varningsmeddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-# Referens
+# Relaterat
 ## [Funktioner för Azure Resource Manager-mall](../resource-group-template-functions.md)
 ## [Bästa metoder för autoskalning](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Vanliga mått för autoskalning](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
@@ -32,10 +32,16 @@
 ## [Snabbstartsexempel för Azure Insights PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Snabbstartsexempel för Azure Insights CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
 
+# Resurser
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

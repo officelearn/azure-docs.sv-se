@@ -1,24 +1,27 @@
 # Översikt
-## [Vad är vidarebefordran?](service-bus-relay-overview.md)
-## [Vanliga frågor och svar](../service-bus-messaging/service-bus-faq.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Vad är vidarebefordran?](relay-what-is-it.md)
+## [Vanliga frågor och svar](relay-faq.md)
 
 # Kom igång
-## [Använda vidarebefordran](service-bus-dotnet-how-to-use-relay.md)
+## [Skapa ett namnområde](relay-create-namespace-portal.md)
+## [Kom igång med hybridanslutningar](relay-hybrid-connections-dotnet-get-started.md)
+## [Kom igång med WCF-relä](service-bus-dotnet-how-to-use-relay.md)
 ## [Signaturer för delad åtkomst](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Skapa hybridappar med hjälp av Service Bus Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Självstudier om Relay .NET](service-bus-relay-tutorial.md)
-## [Självstudier om Relay REST](service-bus-relay-rest-tutorial.md)
+## [Självstudier för WCF-relä hybrid](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+## [Självstudier för WCF-relä .NET](service-bus-relay-tutorial.md)
+## [Självstudier för WCF-relä REST](service-bus-relay-rest-tutorial.md)
 
 # Gör så här för att
 ## [Autentisera och auktorisera](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [Planera för avbrott och katastrofer](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Hybridanslutningsprotokoll](relay-hybrid-connections-protocol.md)
+## [Vanliga undantag](relay-exceptions.md)
 
 # Referens
 ## [Exempel](service-bus-relay-samples.md)
-## [Undantag](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Kvoter](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [.NET API för hybridanslutningar](/dotnet/api/microsoft.servicebus)
+## [WCF-relä .NET API](/dotnet/api/microsoft.servicebus)
+
 
 # Resurser
 ## [Blogg](https://blogs.msdn.microsoft.com/servicebus/)
@@ -30,6 +33,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

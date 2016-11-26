@@ -28,10 +28,9 @@
 
 ### [Översikt](sql-data-warehouse-connect-overview.md)
 ### [Anslutningssträngar](sql-data-warehouse-connection-strings.md)
-### Fråga
-#### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-#### [SSMS](sql-data-warehouse-query-ssms.md)
-#### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [SSMS](sql-data-warehouse-query-ssms.md)
+### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Installera Visual Studio](sql-data-warehouse-install-visual-studio.md)
 
 ## Utveckla
@@ -82,8 +81,7 @@
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [BCP från SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-### [Data Factory från Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [PolyBase-vägledning](sql-data-warehouse-load-polybase-guide.md)
 ### [PolyBase från Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
@@ -111,6 +109,7 @@
 ## Prestanda
 
 ### [Översikt](sql-data-warehouse-overview-manage-user-queries.md)
+### [Columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Frågor](sql-data-warehouse-manage-monitor.md)
 ### [Arbetsbelastning](sql-data-warehouse-develop-concurrency.md)
 ### [Felsöka](sql-data-warehouse-troubleshoot.md)
@@ -146,6 +145,6 @@
 ### [Datahantering](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -9,6 +9,7 @@
 ### [Metodtips för datasäkerhet och kryptering](azure-security-data-encryption-best-practices.md)
 ### [Lagringssäkerhetsguide](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Compute-säkerhet](security-virtual-machines-overview.md)
+### [Metodtips för IaaS-arbetsbelastningar ](azure-security-iaas.md)
 ### [Microsoft-programvara mot skadlig kod](azure-security-antimalware.md)
 ### [Diskkryptering](azure-security-disk-encryption.md)
 ### [Kryptera Azure-VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -51,6 +52,6 @@
 ## [Säkerhetskurser från Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Säkerhetsvideor på Channel 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

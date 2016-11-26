@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 80001fda921c4504237b1c5e3812a84924814dfd
-ms.openlocfilehash: c0c908d2597c6570511d6a15ea3f1f48b2dab6c8
+ms.sourcegitcommit: a7f5894e445cad808f38195838376c620a6b5944
+ms.openlocfilehash: 87fab3c99228f127326609a3e614020a982192f0
 
 ---
 #<a name="documentdb-documentation"></a>Dokumentation om DocumentDB
@@ -71,11 +71,11 @@ Azure DocumentDB är en helt hanterad NoSQL-databastjänst för snabba och föru
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Komma igång med DocumentDB med hjälp av .NET</h3>
+                        <h3>Kom igång med DocumentDB med .NET</h3>
                     </div>
                 </div>
             </div>
@@ -89,11 +89,11 @@ Azure DocumentDB är en helt hanterad NoSQL-databastjänst för snabba och föru
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Komma igång med DocumentDB med hjälp av ASP.NET MVC</h3>
+                        <h3>Kom igång med DocumentDB med ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -107,11 +107,11 @@ Azure DocumentDB är en helt hanterad NoSQL-databastjänst för snabba och föru
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Komma igång med DocumentDB med hjälp av Node.js</h3>
+                        <h3>Kom igång med DocumentDB med Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -125,11 +125,11 @@ Azure DocumentDB är en helt hanterad NoSQL-databastjänst för snabba och föru
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Komma igång med DocumentDB med hjälp av Node.js Express</h3>
+                        <h3>Kom igång med DocumentDB med Node.js Express</h3>
                     </div>
                 </div>
             </div>
@@ -143,11 +143,11 @@ Azure DocumentDB är en helt hanterad NoSQL-databastjänst för snabba och föru
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Komma igång med DocumentDB med hjälp av en Java JSP-app</h3>
+                        <h3>Kom igång med DocumentDB med en Java JSP-app</h3>
                     </div>
                 </div>
             </div>
@@ -161,7 +161,7 @@ Azure DocumentDB är en helt hanterad NoSQL-databastjänst för snabba och föru
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -176,18 +176,29 @@ Azure DocumentDB är en helt hanterad NoSQL-databastjänst för snabba och föru
 
 ---
 
-##<a name="reference"></a>Referens
-
-###<a name="net"></a>.NET
-[.NET-hanterad referens](/dotnet/api)
+## <a name="reference"></a>Referens
 
 ### <a name="java"></a>Java
-[Java SDK-referens](/java/api)
+[Java SDK-referens](http://azure.github.io/azure-documentdb-java)
 
-###<a name="rest"></a>REST
-[DocumentDB REST API-referens](https://msdn.microsoft.com/library/azure/dn781481)
+### <a name="net"></a>.NET
+[.NET-hanterad referens](https://msdn.microsoft.com/library/azure/dn948556)
 
+### <a name="node"></a>Node
+[Node SDK-referens](http://azure.github.io/azure-documentdb-node/DocumentClient)
 
+### <a name="python"></a>Python
+[Python-referens](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
+
+### <a name="sql"></a>SQL
+[SQL-referens](https://msdn.microsoft.com/library/azure/dn782250)
+
+### <a name="rest"></a>REST
+[REST API-referens](/rest/api/documentdb)
+
+[Resursprovider API-Referens](/rest/api/documentdbresourceprovider)
+
+---
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
@@ -199,6 +210,6 @@ Ladda ned dokumentation om DocumentDB </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -27,6 +27,7 @@
 ### [Utforma mönster för flera innehavare](search-modeling-multitenant-saas-applications.md)
 ## Utveckla
 ### [Uppgradera SDK](search-dotnet-sdk-migration.md)
+### [Uppgradera REST API](search-api-migration.md)
 ### [Skapa modeller över komplexa datatyper](search-howto-complex-data-types.md)
 ## Hantera
 ### Administrera Azure Search
@@ -37,12 +38,14 @@
 ### [Söktrafikanalys](search-traffic-analytics.md)
 ### [Prestanda och optimering](search-performance-optimization.md)
 ## Läsa in data
-### [Indexera datakällor](search-indexer-overview.md)
-#### [Blob Storage](search-howto-indexing-azure-blob-storage.md)
-#### [Azure-tabeller](search-howto-indexing-azure-tables.md)
-#### [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-#### [CSV-blobbar](search-howto-index-csv-blobs.md)
-### [Konfiguration av SQL Server Azure VM-anslutning](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Översikt över indexeraren](search-indexer-overview.md)
+### [Azure Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md)
+### [Azure Table Storage-indexeraren](search-howto-indexing-azure-tables.md)
+### [Azure SQL-indexeraren](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+### [Azure DocumentDB-indexeraren](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Index CSV-blobbar](search-howto-index-csv-blobs.md)
+### [Index JSON-blobbar](search-howto-index-json-blobs.md)
+### [Konfigurera indexerarens anslutningar till SQL Server på Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Fältmappningar i indexerare](search-indexer-field-mappings.md)
 ##  Design av sökupplevelse
 ### [Exempel på Lucene-syntaxfråga](search-query-lucene-examples.md)
@@ -56,13 +59,13 @@
 
 # Referens
 ## [API-versioner](search-api-versions.md)
-## [Java](/java/api/)
-## [NET](/dotnet/api/)
-## [Lucene-frågesyntax](https://msdn.microsoft.com/library/azure/mt589323)
-## [Enkel frågesyntax](https://msdn.microsoft.com/library/azure/dn798920)
+## [Tjänst-.NET](/dotnet/api/microsoft.azure.search)
+## [Hanterings-.NET](/dotnet/api/microsoft.azure.management.search)
 ## [Tjänst-REST](/rest/api/searchservice/)
 ## [Tjänst-REST (förhandsversion)](search-api-2015-02-28-preview.md)
 ## [Hanterings-REST](/rest/api/searchmanagement/)
+## [Lucene-frågesyntax](https://msdn.microsoft.com/library/azure/mt589323)
+## [Enkel frågesyntax](https://msdn.microsoft.com/library/azure/dn798920)
 
 # Resurser
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=search)
@@ -82,6 +85,6 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

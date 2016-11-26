@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Azure Machine Learning Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 2b15ee71010c4c2aa66621e9ac84c0b90c19ca51
+ms.openlocfilehash: 2ab86738ccbc48c39b6357c62b73de3053d13c75
 
-Azure Machine Learning is a cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions. Azure Machine Learning provides tools to model predictive analytics as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services.
+---
+#<a name="azure-machine-learning-documentation"></a>Dokumentation om Azure Machine Learning
+
+Azure Machine Learning ger tillgång till verktyg för att modellera förutsägelseanalyser, och tillhandahåller också en fullständigt hanterad tjänst som du kan använda för att distribuera förutsägelsemodeller som användningsklara webbtjänster.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Machine Learning</h3>
+                        <h3>Läs om Azure Machine Learning</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Machine Learning Video Library</h3>
+                        <h3>Azure Machine Learning-videobibliotek</h3>
                     </div>
                 </div>
             </div>
@@ -43,7 +47,7 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
         </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/machine-learning-data-science-for-beginnings-the-5-questions-data-science-answers">
+        <a href="/azure/machine-learning/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -53,7 +57,7 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Data Science</h3>
+                        <h3>Kom igång med Data Science</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +71,11 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first Azure Machine Learning experiment</h3>
+                        <h3>Kom igång med Azure Machine Learning-experiment</h3>
                     </div>
                 </div>
             </div>
@@ -82,22 +86,63 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
 
 ---
 
-##Reference
+## <a name="reference"></a>Referens
 
-###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
-
-###REST
-[Machine Learning REST API Reference](/rest/api/machinelearning)
-
-###Net#
-[Net# Neural Networks Language Reference](/azure/machine-learning/machine-learning-azure-ml-netsharp-reference-guide)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell-referens</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/machinelearning">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>REST API-referens för Machine Learning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Algoritmer</h3>
+                        <p>Algoritmer och modulreferens</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Machine Learning Documentation
-        </div>
+Hämta dokumentation om Machine Learning </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

@@ -1,7 +1,5 @@
 # Översikt
 ## [Vad är Machine Learning?](machine-learning-what-is-machine-learning.md)
-## [Nyheter](machine-learning-whats-new.md)
-## [Få hjälp från live-chatt](machine-learning-live-chat.md)
 ## Machine Learning Studio
 ### [Vad är Studio?](machine-learning-what-is-ml-studio.md)
 ### [Studiofunktioner](machine-learning-studio-overview-diagram.md)
@@ -9,56 +7,13 @@
 ## TDSP (Team Data Science Process)
 ### [Översikt](http://aka.ms/datascienceprocess)
 ### [Livscykel](data-science-process-overview.md)
-### [Verktyg och hjälpmedel](machine-learning-data-science-environment-setup.md)
 ### [Genomgångar](data-science-process-walkthroughs.md)
-## [Identifiera scenario](machine-learning-data-science-plan-your-environment.md)
-## [Visa exempelscenarier](machine-learning-data-science-plan-sample-scenarios.md)
-## Exempel
-### [Exempelexperiment](machine-learning-sample-experiments.md)
-### [Exempeldatauppsättningar](machine-learning-use-sample-datasets.md)
-### [Kundomsättningsexempel](machine-learning-azure-ml-customer-churn-scenario.md)
-## API:er
-### [Avvikelseidentifiering](machine-learning-apps-anomaly-detection.md)
-### [Textanalys](machine-learning-apps-text-analytics.md)
-### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-### Rekommendationer
-#### [Översikt](machine-learning-recommendation-api-sample-application.md)
-#### [Snabbstart](machine-learning-recommendation-api-quick-start-guide.md)
-#### [Referens](machine-learning-recommendation-api-documentation.md)
-#### [Använda JavaScript](machine-learning-recommendation-api-javascript-integration.md)
-#### [Vanliga frågor och svar](machine-learning-recommendation-api-faq.md)
-## Cortana Analytics
-### Förebyggande underhåll
-#### [Översikt](cortana-analytics-playbook-predictive-maintenance.md)
-#### [Arkitektur](cortana-analytics-architecture-predictive-maintenance.md)
-#### [Teknisk guide](cortana-analytics-technical-guide-predictive-maintenance.md)
-### Fordonstelemetri
-#### [Översikt](cortana-analytics-playbook-vehicle-telemetry.md)
-#### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
-#### [Installation](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
-## Datavetenskapsprocess
-### [Använda Hadoop-kluster](machine-learning-data-science-process-hive-walkthrough.md)
-### [Använda Hadoop med 1TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-### [Använda SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-### [Använda SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-## Webbtjänster
-### [Exempel med R](machine-learning-r-csharp-web-service-examples.md)
-### [Binär klassificerare](machine-learning-r-csharp-binary-classifier.md)
-### [Klustermodell](machine-learning-r-csharp-cluster-model.md)
-### [Multivarierad linjär regression](machine-learning-r-csharp-multivariate-linear-regression.md)
-### [Prognostisering – Exponentiell utjämning](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-### [Prognostisering – ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-### [Prognostisering – ARIMA](machine-learning-r-csharp-arima.md)
-### [Analys av fortsatt giltighet](machine-learning-r-csharp-survival-analysis.md)
-### [Lexikonbaserad attitydanalys](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-### [Skillnad i proportionstest](machine-learning-r-csharp-difference-in-two-proportions.md)
-### [Normalt fördelningspaket](machine-learning-r-csharp-normal-distribution.md)
-### [Binomialt fördelningspaket](machine-learning-r-csharp-binomial-distribution.md)
-### [Marketplace, vanliga frågor och svar](machine-learning-marketplace-faq.md)
-
+## [Vanliga frågor och svar](machine-learning-faq.md)
+## [Nyheter](machine-learning-whats-new.md)
 # Kom igång
 ## [Skapa ditt första experiment](machine-learning-create-experiment.md)
-## [Skapa en förebyggande lösning](machine-learning-walkthrough-develop-predictive-solution.md)
+## Exempelgenomgång
+### [Skapa en förebyggande lösning](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: Skapa en arbetsyta](machine-learning-walkthrough-1-create-ml-workspace.md)
 ### [2: Överför data](machine-learning-walkthrough-2-upload-data.md)
 ### [3: Skapa experiment](machine-learning-walkthrough-3-create-new-experiment.md)
@@ -71,96 +26,97 @@
 ### [3: Ställ rätt fråga](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4: Förutsäg ett svar](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Kopiera andras arbete](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
-## [Vanliga frågor och svar](machine-learning-faq.md)
-
 # Gör så här för att
-## Installera verktygen 
+## Konfigurera verktyg och hjälpmedel
 ### [Konfigurera miljöer](machine-learning-data-science-environment-setup.md)
 ### [Konfigurera virtuella datorer](machine-learning-data-science-virtual-machines.md)
 ### [Anpassa Hadoop](machine-learning-data-science-customize-hadoop-cluster.md)
-## Konfigurera en virtuell dator
-### [Översikt över DS VM](machine-learning-data-science-virtual-machine-overview.md)
-### [Använda DS VM](machine-learning-data-science-vm-do-ten-things.md)
-### [Etablera DS VM](machine-learning-data-science-provision-vm.md)
-### [Konfigurera Azure VM](machine-learning-data-science-setup-virtual-machine.md)
-### [Konfigurera SQL VM](machine-learning-data-science-setup-sql-server-virtual-machine.md)
-### [Etablera Linux VM](machine-learning-data-science-linux-dsvm-intro.md)
-### [Använda Linux VM](machine-learning-data-science-linux-dsvm-walkthrough.md)
-## Hantera en arbetsyta
-### [Skapa en arbetsyta](machine-learning-create-workspace.md)
-### [Hantera en arbetsyta](machine-learning-manage-workspace.md)
-### [Felsöka](machine-learning-troubleshooting-creating-ml-workspace.md)
-### [Distribuera med ARM](machine-learning-deploy-with-resource-manager-template.md)
-### [Skapa i en annan region](machine-learning-multi-geo.md)
-## Läs in data i lagringsutrymme
-### [Översikt](machine-learning-data-science-ingest-data.md)
-### [Blob Storage](machine-learning-data-science-move-azure-blob.md)
-### [Använda Storage Explorer](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
-### [Använda AzCopy](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
-### [Använda Python](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
-### [Använda SSIS](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
-### [Flytta till en virtuell dator](machine-learning-data-science-move-sql-server-virtual-machine.md)
-### [Flytta till SQL Database](machine-learning-data-science-move-sql-azure.md)
-### [Läs in till Hive-tabeller](machine-learning-data-science-move-hive-tables.md)
-### [Läs in från en lokal SQL](machine-learning-data-science-move-sql-azure-adf.md)
-## Importera utbildningsdata
-### [Översikt](machine-learning-data-science-import-data.md)
-### [Från en lokal fil](machine-learning-import-data-from-local-file.md)
-### [Från onlinekällor](machine-learning-import-data-from-online-sources.md)
-### [Från ett experiment](machine-learning-import-data-from-an-experiment.md)
-### [Använda SQL-partitionstabeller](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
-### [Använda lokal SQL](machine-learning-use-data-from-an-on-premises-sql-server.md)
-## Utforska och visualisera data
-### [Förbereda data](machine-learning-data-science-prepare-data.md)
-### Utforska data
-#### [Översikt](machine-learning-data-science-explore-data.md)
-#### [Använda Pandas](machine-learning-data-science-explore-data-blob.md)
-#### [Använda SQL VM](machine-learning-data-science-explore-data-sql-server.md)
-#### [Använda Hive-tabeller](machine-learning-data-science-explore-data-hive-tables.md)
-### Exempeldata
-#### [Översikt](machine-learning-data-science-sample-data.md)
-#### [Använda Blob Storage](machine-learning-data-science-sample-data-blob.md)
-#### [Använda SQL Server](machine-learning-data-science-sample-data-sql-server.md)
-#### [Använda Hive-tabeller](machine-learning-data-science-sample-data-hive.md)
-### Bearbeta data
-#### [Åtkomst med Python](machine-learning-python-data-access.md)
-#### [Bearbeta blobdata](machine-learning-data-science-process-data-blob.md)
-#### [Använda Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
-#### [Använda SQL VM](machine-learning-data-science-process-sql-server-virtual-machine.md)
-#### [Använda datapipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
-### Använda Spark
-#### [Översikt](machine-learning-data-science-spark-overview.md)
-#### [Utforska data](machine-learning-data-science-spark-data-exploration-modeling.md)
-#### [Poängmodeller](machine-learning-data-science-spark-model-consumption.md)
-#### [Avancerad datagranskning](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-#### [Använda Scala och Spark](machine-learning-data-science-process-scala-walkthrough.md)
-## Modelldata
-### Funktionstekniker
+### Konfigurera en virtuell dator
+#### [Översikt över DS VM](machine-learning-data-science-virtual-machine-overview.md)
+#### [Använda DS VM](machine-learning-data-science-vm-do-ten-things.md)
+#### [Etablera DS VM](machine-learning-data-science-provision-vm.md)
+#### [Konfigurera Azure VM](machine-learning-data-science-setup-virtual-machine.md)
+#### [Konfigurera SQL VM](machine-learning-data-science-setup-sql-server-virtual-machine.md)
+#### [Etablera Linux VM](machine-learning-data-science-linux-dsvm-intro.md)
+#### [Använda Linux VM](machine-learning-data-science-linux-dsvm-walkthrough.md)
+### Hantera en arbetsyta
+#### [Skapa](machine-learning-create-workspace.md)
+#### [Hantera](machine-learning-manage-workspace.md)
+#### [Felsöka](machine-learning-troubleshooting-creating-ml-workspace.md)
+#### [Distribuera med ARM](machine-learning-deploy-with-resource-manager-template.md)
+#### [Skapa i en annan region](machine-learning-multi-geo.md)
+## Analysera verksamhetsbehov
+### [Tekniska behov](machine-learning-data-science-plan-your-environment.md)
+### [Identifiera ditt scenario](machine-learning-data-science-plan-sample-scenarios.md)
+## Skaffa och förstå data
+### Läs in data i lagringsutrymme
+#### [Översikt](machine-learning-data-science-ingest-data.md)
+#### [Blob Storage](machine-learning-data-science-move-azure-blob.md)
+#### [Använda Storage Explorer](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
+#### [Använda AzCopy](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
+#### [Använda Python](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
+#### [Använda SSIS](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
+#### [Flytta till en virtuell dator](machine-learning-data-science-move-sql-server-virtual-machine.md)
+#### [Flytta till SQL Database](machine-learning-data-science-move-sql-azure.md)
+#### [Läs in till Hive-tabeller](machine-learning-data-science-move-hive-tables.md)
+#### [Läs in från en lokal SQL](machine-learning-data-science-move-sql-azure-adf.md)
+#### [Läs in från SQL-partitionstabeller](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
+### Importera utbildningsdata
+#### [Översikt](machine-learning-data-science-import-data.md)
+#### [Från en lokal fil](machine-learning-import-data-from-local-file.md)
+#### [Från onlinekällor](machine-learning-import-data-from-online-sources.md)
+#### [Från ett experiment](machine-learning-import-data-from-an-experiment.md)
+#### [Använda lokal SQL](machine-learning-use-data-from-an-on-premises-sql-server.md)
+### Utforska och visualisera data
+#### [Förbereda data](machine-learning-data-science-prepare-data.md)
+#### Utforska data
+##### [Översikt](machine-learning-data-science-explore-data.md)
+##### [Använda Pandas](machine-learning-data-science-explore-data-blob.md)
+##### [Använda SQL VM](machine-learning-data-science-explore-data-sql-server.md)
+##### [Använda Hive-tabeller](machine-learning-data-science-explore-data-hive-tables.md)
+#### Exempeldata
+##### [Översikt](machine-learning-data-science-sample-data.md)
+##### [Använda Blob Storage](machine-learning-data-science-sample-data-blob.md)
+##### [Använda SQL Server](machine-learning-data-science-sample-data-sql-server.md)
+##### [Använda Hive-tabeller](machine-learning-data-science-sample-data-hive.md)
+#### Bearbeta data
+##### [Åtkomst med Python](machine-learning-python-data-access.md)
+##### [Bearbeta blobdata](machine-learning-data-science-process-data-blob.md)
+##### [Använda Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
+##### [Använda SQL VM](machine-learning-data-science-process-sql-server-virtual-machine.md)
+##### [Använda datapipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
+#### Bearbeta data med Spark
+##### [Översikt](machine-learning-data-science-spark-overview.md)
+##### [Utforska data](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Poängmodeller](machine-learning-data-science-spark-model-consumption.md)
+##### [Avancerad datagranskning](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+##### [Använda Scala och Spark](machine-learning-data-science-process-scala-walkthrough.md)
+## Utveckla modeller
+### Ta fram och välj funktioner
 #### [Översikt](machine-learning-data-science-create-features.md)
 #### [Använda Pandas](machine-learning-data-science-create-features-blob.md)
 #### [Använda SQL + Python](machine-learning-data-science-create-features-sql-server.md)
 #### [Använda Hive-frågor](machine-learning-data-science-create-features-hive.md)
-#### [TDSP-översikt](machine-learning-data-science-select-features.md)
+#### [TDSP-funktionsval](machine-learning-data-science-select-features.md)
 ### Skapa och träna modeller
-#### [Skapa ditt första experiment](machine-learning-create-experiment.md)
 #### [Omvandla till bedömning](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Hantera iterationer](machine-learning-manage-experiment-iterations.md)
+#### [Använda PowerShell för att skapa modeller](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Välja algoritmer
 ##### [Välja algoritmer](machine-learning-algorithm-choice.md)
 ##### [Algoritmfacit](machine-learning-algorithm-cheat-sheet.md)
 ##### [Använda linjär regression](machine-learning-linear-regression-in-azure.md)
 ##### [Använda textanalys](machine-learning-text-analytics-module-tutorial.md)
-##### [Algoritmreferens](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 #### Utvärdera och tolka resultaten
 ##### [Utvärdera prestanda](machine-learning-evaluate-model-performance.md)
 ##### [Optimera parametrar](machine-learning-algorithm-parameters-optimize.md)
 ##### [Tolka resultaten](machine-learning-interpret-model-results.md)
 ##### [Felsökning](machine-learning-debug-models.md)
-#### Använda R och Python
+#### Använd R och Python
 ##### [Köra R-skript](machine-learning-extend-your-experiment-with-r.md)
 ##### [Skapa anpassade R-moduler](machine-learning-custom-r-modules.md)
 ##### [Köra Python-skript](machine-learning-execute-python-scripts.md)
-## Distribuera
+## Distribuera och använd modeller
 ### [Översikt](machine-learning-deploy-consume-web-service-guide.md)
 ### Distribuera modeller
 #### [Hur det fungerar](machine-learning-model-progression-experiment-to-web-service.md)
@@ -188,14 +144,36 @@
 #### [Använda Excel](machine-learning-consuming-from-excel.md)
 #### [Använda Excel-tillägg](machine-learning-excel-add-in-for-web-services.md)
 #### [Använda en mall för webbappar](machine-learning-consume-web-service-with-web-app-template.md)
-
-#Referens
+## Exempel
+### [Exempelexperiment](machine-learning-sample-experiments.md)
+### [Exempeldatauppsättningar](machine-learning-use-sample-datasets.md)
+### [Kundomsättningsexempel](machine-learning-azure-ml-customer-churn-scenario.md)
+### Slutpunkt-till-slutpunkt-scenarier
+#### [Använda Hadoop-kluster](machine-learning-data-science-process-hive-walkthrough.md)
+#### [Använda Hadoop med 1TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
+#### [Använda SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+#### [Använda SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+### Webbtjänstexempel
+#### [Exempel med R](machine-learning-r-csharp-web-service-examples.md)
+#### [Binär klassificerare](machine-learning-r-csharp-binary-classifier.md)
+#### [Klustermodell](machine-learning-r-csharp-cluster-model.md)
+#### [Multivarierad linjär regression](machine-learning-r-csharp-multivariate-linear-regression.md)
+#### [Prognostisering – Exponentiell utjämning](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
+#### [Prognostisering – ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
+#### [Prognostisering – ARIMA](machine-learning-r-csharp-arima.md)
+#### [Analys av fortsatt giltighet](machine-learning-r-csharp-survival-analysis.md)
+#### [Lexikonbaserad attitydanalys](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
+#### [Skillnad i proportionstest](machine-learning-r-csharp-difference-in-two-proportions.md)
+#### [Normalt fördelningspaket](machine-learning-r-csharp-normal-distribution.md)
+#### [Binomialt fördelningspaket](machine-learning-r-csharp-binomial-distribution.md)
+#### [Marketplace, vanliga frågor och svar](machine-learning-marketplace-faq.md)
+# Referens
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell-modul för Machine Learning](machine-learning-powershell-module.md)
+## [Algoritmreferens](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [R-snabbstart](machine-learning-r-quickstart.md)
-## [PowerShell-översikt](machine-learning-powershell-module.md)
-## [Använda PowerShell för att skapa modeller](machine-learning-create-models-and-endpoints-with-powershell.md)
-## [Webbtjänsten REST API](https://msdn.microsoft.com/library/azure/dn950030.aspx)
 ## [Net# Neural Networks-språk](machine-learning-azure-ml-netsharp-reference-guide.md)
-
+## [Management REST API:er](/rest/api/machinelearning/index)
 # Relaterat
 ## Cortana Intelligence-galleri
 ### [Översikt](machine-learning-gallery-how-to-use-contribute-publish.md)
@@ -208,12 +186,34 @@
 ### [Självstudier](machine-learning-gallery-tutorials.md)
 ### [Samlingar](machine-learning-gallery-collections.md)
 ### [Anpassade moduler](machine-learning-gallery-custom-modules.md)
-
+## Cortana Analytics
+### API:er
+#### [Avvikelseidentifiering](machine-learning-apps-anomaly-detection.md)
+#### [Textanalys](machine-learning-apps-text-analytics.md)
+#### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
+#### Rekommendationer
+##### [Översikt](machine-learning-recommendation-api-sample-application.md)
+##### [Snabbstart](machine-learning-recommendation-api-quick-start-guide.md)
+##### [Referens](machine-learning-recommendation-api-documentation.md)
+##### [Använda JavaScript](machine-learning-recommendation-api-javascript-integration.md)
+##### [Vanliga frågor och svar](machine-learning-recommendation-api-faq.md)
+#### Förebyggande underhåll
+##### [Översikt](cortana-analytics-playbook-predictive-maintenance.md)
+##### [Arkitektur](cortana-analytics-architecture-predictive-maintenance.md)
+##### [Teknisk guide](cortana-analytics-technical-guide-predictive-maintenance.md)
+#### Fordonstelemetri
+##### [Översikt](cortana-analytics-playbook-vehicle-telemetry.md)
+##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
+##### [Installation](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 # Resurser
+## [Prissättning](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blogg](http://blogs.technet.com/b/machinelearning/)
-## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+## [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
+## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+## [Få hjälp från live-chatt](machine-learning-live-chat.md)
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -40,13 +40,17 @@
 ### [Hantera med hjälp av automatisering](automation-manage-api-management.md)
 ### [Konfigurera med Git](api-management-configuration-repository-git.md)
 #Referens
-## [Resurshantering PowerShell-cmdlet]/powershell/resourcemanager()
-## [Referens för PowerShell-cmdleten för klassisk distribution](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-## [REST-API](/rest/api/apimanagement/)
-## [Principer](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [Mallar](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Klassisk PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
+## [REST](/rest/api/apimanagement/)
+## [Principer](https://msdn.microsoft.com/library/azure/dn894081)
+## [Mallar](https://msdn.microsoft.com/library/azure/mt697540)
 #Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/api-management/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=api-management)
 ## [Vitbok: Molnbaserad API Management](http://j.mp/ms-apim-whitepaper)
 ## [Vägledning för API-design](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Vägledning för API-implementering](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -54,11 +58,11 @@
 ## [Anslut Event Hubs till API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [API Management – fungerar bra med andra Azure-tjänster](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [Tillhandahåll RBAC-liknande åtkomst med REST-API:et](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-## [Konfigurera PostMan att anropa API:er för API Management](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [Konfigurera PostMan att anropa API Management API:er](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [API Management plugin för SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

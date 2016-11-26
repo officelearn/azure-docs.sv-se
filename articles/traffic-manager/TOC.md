@@ -17,10 +17,11 @@
 ## [Konfigurera en routningsmetod](traffic-manager-configure-routing-method.md)
 ## [Testa dina inställningar](traffic-manager-testing-settings.md)
 ## [Felsöka en degraderad slutpunkt](traffic-manager-troubleshooting-degraded.md)
-## [Använda nätverksresurser](../virtual-network/resource-groups-networking.md)
+## [Kombinera tjänster för belastningsutjämning](traffic-manager-load-balancing-azure.md)
+## [Använda nätverksresurser](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell (klassisk)](/powershell/servicemanagement/)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
@@ -30,14 +31,15 @@
 ## [Azure DNS](/azure/dns/)
 
 # Resurser
-##[Prissättning](https://azure.microsoft.com/pricing/details/traffic-manager/)
-##[SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-##[Tjänstbegränsningar](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Prissättning](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Tjänstbegränsningar](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Blogg](https://azure.microsoft.com/blog/topics/networking/)
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

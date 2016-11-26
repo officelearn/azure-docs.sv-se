@@ -55,7 +55,7 @@
 ## [Exempel](service-bus-samples.md)
 ## [Undantag](service-bus-messaging-exceptions.md)
 ## [Kvoter](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
+## [NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
 
 # Resurser
@@ -69,6 +69,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

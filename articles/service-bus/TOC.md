@@ -1,6 +1,6 @@
 # Översikt
 ## [Meddelandetjänster](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
-## [Vidarebefordran](../service-bus-relay/service-bus-relay-overview.md)
+## [Vidarebefordran](../service-bus-relay/relay-what-is-it.md)
 # Referens
 ## [PowerShell-cmdletar för Resource Manager](/powershell/resourcemanager)
 ## [Service Bus-hanterat referens-API](/dotnet/api/) 
@@ -15,6 +15,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

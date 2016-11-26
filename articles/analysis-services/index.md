@@ -1,27 +1,27 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: cc7cf80b26a0bdc79448fc87d2d8b6fff1931d49
-ms.openlocfilehash: eb675cc7a401583cf0f2dc0605a16d5dda8b306f
+ms.sourcegitcommit: 1cea7999fcb9ba3d4f0febdac5acb298ec5a489a
+ms.openlocfilehash: 76a07ecf333fec4d7e406a6c6b4dc796058e664b
 
 ---
-#<a name="azure-stack-documentation"></a>Azure Stack-dokumentation
+# <a name="analysis-services-documentation"></a>Dokumentation för Analysis Services
 
-Microsoft Azure Stack är en ny plattformsprodukt för hybridmoln som gör att du kan leverera Azure-tjänster från organisationens datacenter. Microsoft Azure Stack Technical Preview 2 görs tillgängligt via Proof of Concept (POC). POC är en miljö för utbildning och demonstration av Azure Stack-funktioner. Den låter dig distribuera alla nödvändiga komponenter på en enskild fysisk dator för att skapa en miljö för utvärdering av viktiga begrepp och funktioner och att validera utökningsmodellen för API:er.
+Azure Analysis Services, som skapats på den bevisade analytiska motorn i Microsoft SQL Server Analysis Services, ger datamodellering i företagsklass i molnet.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/azure-stack/azure-stack-poc">
+        <a href="/azure/analysis-services/analysis-services-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/azure-stack.svg" alt="" />
+                            <img src="media/index/analysis-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Läs mer om Azure Stack</h3>
+                        <h3>Läs mer om Analysis Services</h3>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@ Microsoft Azure Stack är en ny plattformsprodukt för hybridmoln som gör att d
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/search/videos/?q=azure+stack">
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -39,7 +39,7 @@ Microsoft Azure Stack är en ny plattformsprodukt för hybridmoln som gör att d
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Videobibliotek för Azure Stack</h3>
+                        <h3>Azure videobibliotek</h3>
                     </div>
                 </div>
             </div>
@@ -47,17 +47,37 @@ Microsoft Azure Stack är en ny plattformsprodukt för hybridmoln som gör att d
         </a>
     </li>
     <li>
-        <a href="/azure/azure-stack/azure-stack-run-powershell-script"> 
+        <a href="/azure/analysis-services/analysis-services-create-server">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/deploy.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Distribuera Azure Stack POC</h3>
+                        <h3>Skapa en Analysis Services-server</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>    
+</ul>
+
+---
+## <a name="reference"></a>Referens
+
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>PowerShell med Azure Resource Manager-cmdletar</p>
                     </div>
                 </div>
             </div>
@@ -65,17 +85,13 @@ Microsoft Azure Stack är en ny plattformsprodukt för hybridmoln som gör att d
         </a>
     </li>
     <li>
-        <a href="/azure/azure-stack/azure-stack-provision-vm">
+        <a href="/rest/api/analysisservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Kom igång med etablering av en virtuell dator </h3>
+                        <h3>REST</h3>
+                        <p>REST med Azure Analysis Services REST API-referens</p>
                     </div>
                 </div>
             </div>
@@ -87,10 +103,10 @@ Microsoft Azure Stack är en ny plattformsprodukt för hybridmoln som gör att d
 ---
 
 <div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-stack.pdf">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
         <div class="img"></div>
         <div class="text">
-Ladda ned Azure Stack-dokumentation </div>
+Hämta dokumentationen för Analysis Services </div>
     </a>
 </div>
 

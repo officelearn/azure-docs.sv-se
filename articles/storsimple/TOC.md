@@ -1,7 +1,4 @@
-# Översikt över StorSimple
-
 # StorSimple virtuell matris
-
 ## Översikt
 ### [Vad är lösningen?](storsimple-ova-overview.md)
 
@@ -54,6 +51,7 @@
 ### Installera
 #### [Granska säkerhet](storsimple-safety.md)
 #### [Packa upp, racka, kabla en 8100](storsimple-8100-hardware-installation.md)
+
 #### [Packa upp, racka, kabla en 8600](storsimple-8600-hardware-installation.md)
 #### [Maskinvara som stöds för 10 GbE-nätverksgränssnitt](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -63,6 +61,7 @@
 ##### [Fysisk enhet i Azure – uppdatering 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Fysisk enhet i Azure – GA](storsimple-deployment-walkthrough.md)
 #### [Fysisk enhet i Government Portal – aktuell](storsimple-deployment-walkthrough-gov-u2.md)
+##### [Fysisk enhet i Government Portal – aktuell](storsimple-deployment-walkthrough-gov.md)
 #### [Virtuell enhet i Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [StorSimple-adapter för SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -120,7 +119,7 @@
 
 ### Övervaka
 #### [Använd tjänstens instrumentpanel](storsimple-service-dashboard.md)
-#### [Använd enhetens instrumentpanel](storsimple-device-dashboard.md)
+#### [Använd tjänstens instrumentpanel](storsimple-device-dashboard.md)
 #### [Använd tjänstaviseringar](storsimple-manage-alerts.md)
 #### [Använd maskinvarustatus](storsimple-monitor-hardware-status.md)
 #### [Använd övervaknings-LED:ar](storsimple-monitoring-indicators.md)
@@ -139,7 +138,7 @@
 ##### [Skapa ett supportpaket](storsimple-create-manage-support-package.md)
 
 ### Migrera
-#### [Från 5000–7000-serien](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [Från 5000–7000-serien](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Från andra lagringsenheter](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Uppdatering
@@ -160,22 +159,26 @@
 ### [Version – GA](storsimple-july-2014-release-notes.md)
 
 ## Referens
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [Windows PowerShell för StorSimple-cmdletar] (https://technet.microsoft.com/library/dn688168.aspx)
 
 # Relaterat
 ## [StorSimple 5000-7000-serien](http://onlinehelp.storsimple.com)
 
 # Resurser
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Prissättning](https://azure.microsoft.com/pricing/details/storsimple/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Marknadsföringsblogg](http://blogs.technet.com/b/cis/)
 ## [Marknadsföring](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Supportblogg](http://blogs.msdn.com/b/storsimple/)
-## [Meddelanden om tredje part](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=storsimple)
-## [Prissättning](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Meddelanden från tredje part](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

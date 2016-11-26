@@ -67,23 +67,24 @@
 ### [Runbook-jobb som pausats](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
 
 # Referens
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Klassisk PowerShell](/powershell/servicemanagement)
+## [NET](/dotnet/api)
+## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [Klassisk REST](https://msdn.microsoft.com/library/azure/mt163781)
 ## [Viktig information](https://azure.microsoft.com/updates/?product=automation)
-## [PowerShell-cmdletar](https://msdn.microsoft.com/library/azure/dn690262)
-## [Resource Manager REST API](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [Klassisk distributions-REST](https://msdn.microsoft.com/library/azure/mt163781)
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/automation/)  
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
-## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
-## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=automation) 
-## [Azure Automation-utbildning](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=automation)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=automation)
+## [Azure Automation-utbildning](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Introduktionsvideo för Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

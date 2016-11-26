@@ -1,11 +1,11 @@
 # Översikt
-## [Vad är Azure Government?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Vad är Azure Government?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Domstol och allmän säkerhet](documentation-government-overview-jps.md)
 ## [USA:s försvarsdepartement](documentation-government-overview-dod.md)
 
 # Kom igång
-## [Utvecklarguide](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Utvecklarguide](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
 
 # Gör så här för att
 ## Planera
@@ -15,10 +15,10 @@
 ### [Avbildningar](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ### [Marketplace för partners](documentation-government-manage-marketplace-partners.md)
+### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ### [Prenumeration](documentation-government-manage-subscriptions.md)
 
 # Referens
-## [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ## [Tjänster](documentation-government-services.md)
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
@@ -28,10 +28,10 @@
 ### [Övervakning och hantering](documentation-government-services-monitoringandmanagement.md)
 
 # Resurser
-## [Utvärdering](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Prissättning](https://azure.microsoft.com/pricing/)
+## [Utvärdering](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

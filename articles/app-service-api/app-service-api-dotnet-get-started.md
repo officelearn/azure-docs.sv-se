@@ -236,7 +236,6 @@ I det här avsnittet använder du Azure-verktyg som är inbyggda i Visual Studio
     I följande steg får du skapa en Apptjänstplan för den nya resursgruppen. I en Apptjänstplan anges beräkningsresurserna som API-appen körs på. Om du till exempel väljer den kostnadsfria nivån körs API-appen på delade virtuella datorer medan den körs på dedikerade virtuella datorer för vissa betalnivåer. Information om Apptjänstplaner finns i [Översikt över Apptjänstplaner](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 8. I dialogrutan **Konfigurera Apptjänstplan** anger du "ToDoListPlan" eller ett annat namn om du föredrar det.
 9. I listrutan **Plats** väljer du den plats som är närmast dig.
-
    
     Den här inställningen anger vilket Azure-datacenter appen ska köras i. Välj en plats i närheten av dig för att minimera [svarstiden](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 10. I listrutan **Nivå** klickar du på **Kostnadsfri**.

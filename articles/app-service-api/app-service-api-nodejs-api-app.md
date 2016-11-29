@@ -41,7 +41,7 @@ Med Apptjänst kan du distribuera din kod till en API-app på många olika sätt
    
     Exempel-API:n ger två slutpunkter: en Hämta-begäran till `/contacts` returnerar en lista med namn och e-postadresser i JSON-format, medan `/contacts/{id}` bara returnerar den valda kontakten.
 
-## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Autogenererad Node.js-kod baserat på Swagger-metadata
+## <a name="scaffold-auto-generate-nodejs-code-based-on-swagger-metadata"></a>Autogenererad Node.js-kod baserat på Swagger-metadata
 [Swagger](http://swagger.io/) är ett filformat för metadata som beskriver ett RESTful-API. Azure Apptjänst har [inbyggt stöd för Swagger-metadata](app-service-api-metadata.md). Det här avsnittet av kursen visar ett arbetsflöde för API-utveckling där du först skapar Swagger-metadata och använder dem för att autogenerera en serverkod för API:et. 
 
 > [!NOTE]
@@ -183,7 +183,6 @@ I det här avsnittet använder du Azure-portalen för att skapa en ny API-app i 
     I följande steg får du skapa en apptjänstplan för den nya resursgruppen. I en apptjänstplan anges beräkningsresurserna som API-appen körs på. Om du till exempel väljer den kostnadsfria nivån körs API-appen på delade virtuella datorer medan den körs på dedikerade virtuella datorer för vissa betalnivåer. Information om apptjänstplaner finns i [Översikt över Apptjänstplaner](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 6. I bladet **Apptjänstplan** anger du "NodejsAPIAppPlan" eller ett annat namn om du föredrar det.
 7. I listrutan **Plats** väljer du den plats som är närmast dig.
-
    
     Den här inställningen anger vilket Azure-datacenter appen ska köras i. I den här kursen kan du välja en region utan att det gör någon märkbar skillnad. Men för en produktionsapp är det bra om servern finns så nära klienterna som använder den som möjligt för att minimera [fördröjningen](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 8. Klicka på **Prisnivå > Visa alla > F1 kostnadsfri**.

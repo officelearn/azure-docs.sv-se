@@ -25,7 +25,7 @@ API Management hjälper organisationer att publicera API:er till externa partner
 
 Följande videoklipp innehåller en översikt över Azure API Management och demonstrerar hur du använder API Management för att lägga till många funktioner i ditt API, inklusive åtkomstkontroll, frekvensbegränsning, övervakning, händelseloggning och cachelagring av svar med minimalt arbete från din sida.
 
-> [! VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-API-Management-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-API-Management-Overview/player]
 > 
 > 
 
@@ -92,7 +92,7 @@ Principuttryck kan användas som attributvärden eller textvärden i API Managem
 
 En fullständig lista över API Management-principer finns i [Principreferens][Principreferens]. Mer information om hur du använder och konfigurerar principer finns i [API Management-principer][API Management-principer]. En självstudiekurs om hur du skapar en produkt med principer för frekvensbegränsning och kvoter finns i [Skapa och konfigurera avancerade produktinställningar][Skapa och konfigurera avancerade produktinställningar]. Om du vill se en demonstration tittar du på följande videoklipp.
 
-> [! VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
 > 
 
@@ -104,7 +104,7 @@ Du kan anpassa utvecklingsportalen genom att lägga till eget innehåll, anpassa
 ## <a name="api-management-and-the-api-economy"></a>Ekonomin bakom API Management och API:er
 Om du vill veta mer om API Management tittar du på följande presentation från Microsoft Ignite 2015-konferensen.
 
-> [! VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3708/player]
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3708/player]
 > 
 > 
 
@@ -118,7 +118,7 @@ Om du vill veta mer om API Management tittar du på följande presentation från
 [Skapa API:er]: api-management-howto-create-apis.md
 [Lägga till åtgärder till ett API]: api-management-howto-add-operations.md
 [Skapa och publicera en produkt]: api-management-howto-add-products.md
-[Skapa och använda grupper]: api-management-howto-create-groups.md
+[Skapa och använda grupper i Azure API Management]: api-management-howto-create-groups.md
 [Associera grupper med utvecklare]: api-management-howto-create-groups.md#associate-group-developer
 [Skapa och konfigurera avancerade produktinställningar]: api-management-howto-product-with-rules.md
 [Skapa eller bjuda in utvecklare]: api-management-howto-create-or-invite-developers.md

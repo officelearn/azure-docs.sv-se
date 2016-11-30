@@ -23,7 +23,7 @@ ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Skydda ditt API med frekvensbegränsningar med hjälp av Azure API Management
 Den här guiden beskriver hur du enkelt kan skydda ditt backend-API genom att konfigurera principer för kvoter och frekvensbegränsningar med Azure API Management.
 
-I den här självstudiekursen ska du skapa en API-produkt av typen ”kostnadsfri utvärdering” som gör att utvecklare kan göra upp till 10 anrop per minut och upp till högst 200 anrop per vecka till ditt API. För att åstadkomma detta ska du använda principerna [Begränsa anropsfrekvensen per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) och [Ange användningskvot per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). När du är klar ska du publicera API:et och testa frekvensbegränsningsprincipen.
+I den här självstudiekursen ska du skapa en API-produkt av typen ”kostnadsfri utvärdering” som gör att utvecklare kan göra upp till 10 anrop per minut och upp till högst 200 anrop per vecka till ditt API. För att åstadkomma detta ska du använda principerna [Begränsa anropsfrekvensen per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) och [Ange användningskvot per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). När du är klar ska du publicera API:et och testa frekvensbegränsningsprincipen.
 
 Mer avancerade begränsningsscenarier med principerna [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) och [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) finns i [Avancerad begränsning av förfrågningar med Azure API Management](api-management-sample-flexible-throttling.md).
 
@@ -39,7 +39,7 @@ Börja genom att klicka på **Publisher-portal** på Azure-portalen för API Man
 
 ![Utgivarportalen][api-management-management-console]
 
-> Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][Skapa en API Management-tjänstinstans] i självstudiekursen [Komma igång med Azure API Management][Komma igång med Azure API Management].
+> Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][Skapa en API Management-tjänstinstans] i självstudiekursen [Hantera ditt första API i Azure API Management][Hantera ditt första API i Azure API Management].
 > 
 > 
 
@@ -53,7 +53,7 @@ Klicka på **Lägg till produkt**. Dialogrutan **Lägg till ny produkt** öppnas
 
 I rutan **Rubrik** skriver du **Kostnadsfri utvärdering**.
 
-I rutan **Beskrivning** skriver du följande text:  **Prenumeranter kan köra 10 anrop per minut upp till högst 200 anrop per vecka, varefter åtkomsten nekas.**
+I rutan **Beskrivning** skriver du följande text:  **Prenumeranter kan köra 10 anrop per minut upp till högst 200 anrop per vecka, varefter åtkomsten nekas.**
 
 Produkter i API Management kan skyddas eller vara öppna. Skyddade produkter kräver en prenumeration innan de kan användas. Öppna produkter kan användas utan en prenumeration. Se till att **Kräv prenumeration** har valts om du vill skapa en skyddad produkt som kräver en prenumeration. Det här är standardinställningen.
 
@@ -147,7 +147,7 @@ Kvoter kan baseras på antalet anrop per intervall, på bandbredden eller båda.
     <quota calls="number" renewal-period="seconds">
     </quota>
 
-I produkten ”Kostnadsfri utvärdering” är kvoten 200 anrop per vecka. Ange **200** som värde för attributet **calls** och ange sedan **604800** som värde för attributet **renewal-period**.
+I produkten ”Kostnadsfri utvärdering” är kvoten 200 anrop per vecka. Ange **200** som värde för attributet **calls** och ange sedan **604800** som värde för attributet **renewal-period**.
 
     <quota calls="200" renewal-period="604800">
     </quota>
@@ -250,12 +250,12 @@ Klicka på **Skicka** med en frekvens som är högre än de 10 anropen per minut
 
 **Svarsinnehållet** anger det återstående intervallet innan omförsök kommer att lyckas.
 
-När frekvensbegränsningsprincipen som begränsar antalet anrop till 10 per minut tillämpas misslyckas efterföljande anrop tills 60 sekunder har förflutit från det första av de 10 lyckade anropen till produkten innan frekvensgränsen överskreds. I det här exemplet är det återstående intervallet 54 sekunder.
+När frekvensbegränsningsprincipen som begränsar antalet anrop till 10 per minut tillämpas misslyckas efterföljande anrop tills 60 sekunder har förflutit från det första av de 10 lyckade anropen till produkten innan frekvensgränsen överskreds. I det här exemplet är det återstående intervallet 54 sekunder.
 
 ## <a name="next-steps"> </a>Nästa steg
 * Titta på en demonstration om hur du ställer in frekvensbegränsningar och kvoter i följande videoklipp.
 
-> [! VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
 > 
 

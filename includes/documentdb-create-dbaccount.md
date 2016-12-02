@@ -1,5 +1,5 @@
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. I Jumpbar klickar du på **Ny**, **Data + lagring** och sedan på **DocumentDB (NoSQL)**.
+2. I snabbåtkomstfältet klickar du på **Ny**, **Databaser** och sedan på **NoSQL (DocumentDB)**.
    
    ![Skärmbild av Azure Portal, med fokus på Fler tjänster och DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 3. På **Nytt konto**-bladet anger du önskad konfiguration för DocumentDB-kontot.
@@ -16,11 +16,11 @@
    ![Skapa databaser snabbt – Skärmbild av Meddelandehubben som visar att DocumentDB-kontot håller på att skapas](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
    
    ![Skärmbild av Meddelandehubben som visar att DocumentDB-kontot har skapats och distribuerats till en resursgrupp – Meddelande från online-databasskaparen](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. När DocumentDB-kontot har skapats är det redo att användas med standardinställningarna. Standardkonsekvensen för DocumentDB-kontot har angetts till **Session**.  Du kan justera standardkonsekvensen genom att klicka på **Standardkonsekvens** på resursmenyn. Mer information om de konsekvensnivåer som finns för DocumentDB finns i [Konsekvensnivåer i DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
-   
-   ![Skärmbild av Resursgrupp-bladet – starta apputveckling](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
-   
-   ![Skärmbild av Konsekvensnivå-bladet – sessionskonsekvens](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+5. När DocumentDB-kontot har skapats är det redo att användas med standardinställningarna. Om du vill granska standardinställningarna klickar du på ikonen för **NoSQL (DocumentDB)** i snabbåtkomstfältet, klickar på det nya kontot och sedan på **Standardkonsekvens** på Resurs-menyn.
+
+   ![Skärmbild som visar hur du öppnar ditt Azure DocumentDB-databaskonto på Azure Portal](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
+
+   Standardkonsekvensen för DocumentDB-kontot har angetts till **Session**.  Du kan justera standardkonsekvensen genom att klicka på **Standardkonsekvens** på resursmenyn. Mer information om de konsekvensnivåer som finns för DocumentDB finns i [Konsekvensnivåer i DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
 [Så här skapar du ett DocumentDB-konto]: #Howto
 [Nästa steg]: #NextSteps

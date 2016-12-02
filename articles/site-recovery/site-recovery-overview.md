@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 10/30/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 64d085bff08d9a824204851d32504fac3e79024c
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
 
 
 ---
@@ -30,7 +30,7 @@ Site Recovery bidrar till din BCDR-strategi genom att dirigera replikering av lo
 Vid avbrott på den primära platsen så växlar du över till den sekundära platsen så att arbetsbelastningar fortsätter att vara åtkomliga och tillgängliga. Du växlar tillbaka till den primära platsen när den har återgått till normal drift.
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery på Azure Portal
-Azure har två olika [distributionsmodeller](../resource-manager-deployment-model.md) för att skapa och arbeta med resurser. Azure Resource Manager-modellen och den klassiska tjänstehanteringsmodellen. Azure har även två portaler. Den [klassiska Azure-portalen](https://manage.windowsazure.com/) och [Azure Portal](https://portal.azure.com).
+Azure har två olika [distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md) för att skapa och arbeta med resurser. Azure Resource Manager-modellen och den klassiska tjänstehanteringsmodellen. Azure har även två portaler. Den [klassiska Azure-portalen](https://manage.windowsazure.com/) och [Azure Portal](https://portal.azure.com).
 
 * Site Recovery kan distribueras både i den klassiska portalen och i Azure Portal.
 * På den klassiska Azure-portalen kan du använda Site Recovery med den klassiska tjänsthanteringsmodellen.
@@ -79,6 +79,6 @@ Site Recovery tillhandahåller programmedveten replikering, vilket gör att arbe
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

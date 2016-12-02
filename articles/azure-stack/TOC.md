@@ -79,7 +79,6 @@
 
 # Felsöka
 ## [Felsök Azure Stack](azure-stack-troubleshooting.md)
-## [Web Apps-resursprovider](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Resurser
 ## [Verktyg](azure-stack-tools-paas-services.md)

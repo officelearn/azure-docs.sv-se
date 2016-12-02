@@ -13,7 +13,7 @@
 ### [Importera en API-definition](api-management-howto-import-api.md)
 ## Skydda din serverdel
 ### [Skydda Webb-API-serverdelen med AAD](api-management-howto-protect-backend-with-aad.md)
-### [Ansluta via VPN eller ExpressRoute](api-management-howto-setup-vpn.md)
+### [Skapa ett virtuellt nätverk](api-management-using-with-vnet.md)
 ### [Ömsesidig certifikatautentisering](api-management-howto-mutual-certificates.md)
 ## Konfigurera principer
 ### [Anpassad cachelagring](api-management-sample-cache-by-key.md)
@@ -63,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

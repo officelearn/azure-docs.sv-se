@@ -111,7 +111,7 @@
 ### Läs mer
 #### [Översikt](sql-database-business-continuity.md)
 #### [Säkerhetskopior av databasen](sql-database-automated-backups.md)
-#### [Långsiktig kvarhållning](sql-database-long-term-retention.md) 
+#### [Långsiktig kvarhållning](sql-database-long-term-retention.md)
 #### [Återställning av databas med hjälp av säkerhetskopior](sql-database-recovery-using-backups.md)
 #### [Autentiseringskrav för haveriberedskap](sql-database-geo-replication-security-config.md)
 #### [Designscenarier för företagskontinuitet](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -220,7 +220,7 @@
 #### [Azure AD-autentisering](sql-database-aad-authentication.md)
 #### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
 ### Brandväggsregler
-#### [Azure Portal](sql-database-configure-firewall-settings.md)
+#### [Azure-portal](sql-database-configure-firewall-settings.md)
 #### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 #### [REST-API](sql-database-configure-firewall-settings-rest.md)
 #### [T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->

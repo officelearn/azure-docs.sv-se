@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
 ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
 
 
@@ -27,22 +27,22 @@ Förutom att själv tillhandahålla värdefulla tjänster kan OMS integreras med
 
 Följande avsnitt innehåller en översiktlig beskrivning av de olika områdena i OMS och de tjänster som implementerar dem.  Avsnittet om OMS-arkitekturen innehåller en översikt över de olika OMS-komponenterna, som du kan titta igenom innan du läser den detaljerade dokumentationen för varje komponent.
 
-## <a name="insight-and-analyticsmediaoperationsmanagementsuiteoverviewiconinsightanalyticspng-insight-and-analytics"></a>![Insikter och analys](media/operations-management-suite-overview/icon-insight-analytics.png) Insikter och analys
+## <a name="insight-and-analyticsmediaoperations-management-suite-overviewicon-insight-analyticspng-insight-and-analytics"></a>![Insikter och analys](media/operations-management-suite-overview/icon-insight-analytics.png) Insikter och analys
 Med [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) kan du samla in, korrelera, söka i och agera på logg- och prestandadata som genereras av operativsystem och program. Funktionen ger realtidsinsyn i användningen med hjälp av integrerade sökinstrumentpaneler och anpassade instrumentpaneler så att du snabbt kan analysera flera miljoner poster över alla arbetsbelastningar och servrar oavsett deras fysiska plats.
 
 Du kan enkelt lägga till lösningar i Log Analytics som definierar de data som ska samlas in och logiken för analys.  Lösningar kan innehålla ytterligare funktioner som skickas automatiskt till agenter med minimal eller ingen konfiguration.  Förutom att använda analysverktygen som tillhandahålls av enskilda lösningar kan du göra anpassade sökningar i hela datauppsättningen för att korrelera data mellan system och program.  
 
-## <a name="automation-controlmediaoperationsmanagementsuiteoverviewiconautomationcontrolpng-automation-control"></a>![Automatisering och kontroll](media/operations-management-suite-overview/icon-automation-control.png) Automatisering och kontroll
+## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Automatisering och kontroll](media/operations-management-suite-overview/icon-automation-control.png) Automatisering och kontroll
 Azure Automation automatiserar administrativa processer med [runbooks](../automation/automation-runbook-types.md) som baseras på PowerShell och som körs i Azure-molnet.  Runbooks kan komma åt alla produkter eller tjänster som kan hanteras med PowerShell, inklusive resurser i andra moln, till exempel Amazon Web Services (AWS).  Runbooks kan också köras på en server i ditt lokala datacenter för att hantera lokala resurser.
 
 Azure Automation tillhandahåller konfigurationshantering med [PowerShell DSC](../automation/automation-dsc-overview.md).  Du kan skapa och hantera DSC-resurser som finns i Azure och använda dem i molnbaserade och lokala system för att definiera och automatiskt genomdriva deras konfiguration.
 
-## <a name="protection-and-recoverymediaoperationsmanagementsuiteoverviewiconprotectionrecoverypng-protection-and-disaster-recovery"></a>![Skydd och återställning](media/operations-management-suite-overview/icon-protection-recovery.png) Skydd och haveriberedskap
+## <a name="protection-and-recoverymediaoperations-management-suite-overviewicon-protection-recoverypng-protection-and-disaster-recovery"></a>![Skydd och återställning](media/operations-management-suite-overview/icon-protection-recovery.png) Skydd och haveriberedskap
 [Azure Backup](http://azure.microsoft.com/documentation/services/backup) skyddar dina programdata och behåller dem i flera år utan stora investeringar och med minimala driftskostnader.  Funktionen kan säkerhetskopiera data från fysiska och virtuella Windows-servrar och programarbetsbelastningar som SQL Server och SharePoint.  Den kan också användas av System Center Data Protection Manager (DPM) för att replikera skyddade data till Azure för redundans och långsiktig lagring.
 
 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att samordna replikering, redundansväxling och återställning av lokal virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows- eller Linux-servrar. Du kan replikera datorer till ett sekundärt datacenter eller utöka ditt datacenter genom att replikera dem till Azure. Site Recovery tillhandahåller också enkel redundansväxling och återställning för arbetsbelastningar. Funktionen kan integreras med mekanismer för haveriberedskap som SQL Server AlwaysOn och tillhandahåller återställningsplaner för enkel redundansväxling av arbetsbelastningar som är nivåindelade över flera datorer.
 
-## <a name="oms-security-and-compliancemediaoperationsmanagementsuiteoverviewiconsecuritycompliancepng-security-and-compliance"></a>![Säkerhet och efterlevnad i OMS](media/operations-management-suite-overview/icon-security-compliance.png) Säkerhet och efterlevnad
+## <a name="oms-security-and-compliancemediaoperations-management-suite-overviewicon-security-compliancepng-security-and-compliance"></a>![Säkerhet och efterlevnad i OMS](media/operations-management-suite-overview/icon-security-compliance.png) Säkerhet och efterlevnad
 Säkerhets- och efterlevnadsfunktionen hjälper dig att identifiera, utvärdera och undvika säkerhetsrisker i din infrastruktur.  Dessa funktioner i OMS implementeras genom flera lösningar i Log Analytics som analyserar loggdata och konfigurationer från agentsystem för att hjälpa dig att upprätthålla säkerheten i din miljö.
 
 * [Säkerhets- och granskningslösningen](oms-security-getting-started.md) samlar in och analyserar säkerhetshändelser på hanterade datorer för att identifiera misstänkt aktivitet.
@@ -58,6 +58,6 @@ Säkerhets- och efterlevnadsfunktionen hjälper dig att identifiera, utvärdera 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

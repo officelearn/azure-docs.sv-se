@@ -3,7 +3,7 @@
 2. Gå till **Enheter**-sidan. Klicka på **Skapa virtuell enhet** längst ned på **Enheter**-sidan.
 3. I **dialogrutan Skapa virtuell enhet** anger du följande information.
    
-     ![StorSimple skapa virtuell enhet](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+    ![StorSimple skapa virtuell enhet](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
    
    1. **Namn** – ett unikt namn för din virtuella enhet.
    2. **Modell** – välj modell för den virtuella enheten. Det här fältet visas bara om du kör uppdatering 2 eller senare. Enhetsmodellen 8010 erbjuder 30 TB standardlagring medan 8020 har 64 TB premiumlagring. Välj 8010
@@ -28,6 +28,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

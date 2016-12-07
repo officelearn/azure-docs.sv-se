@@ -5,6 +5,7 @@
 
 # Kom igång
 ## [Skapa och hantera jobb](scheduler-get-started-portal.md)
+## [Koncept och terminologi](scheduler-concepts-terms.md)
 
 # Gör så här för att
 ## Planera och designa
@@ -14,7 +15,7 @@
 
 ## Utveckla
 ### [Avancerade scheman med REST API](scheduler-advanced-complexity.md)
-### [Koncept och terminologi](scheduler-concepts-terms.md)
+
 
 ## Skydda
 ### [Utgående autentisering](scheduler-outbound-authentication.md)
@@ -25,13 +26,16 @@
 ## [REST](/rest/api/scheduler/)
 
 # Resurser
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/scheduler/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=scheduler)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

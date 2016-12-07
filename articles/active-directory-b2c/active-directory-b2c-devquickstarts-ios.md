@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/26/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
+ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
+ms.openlocfilehash: bdf08cad54f4c59bb09988fae0db3699dc5b2bff
 
 
 ---
@@ -28,9 +28,9 @@ Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID
 Om du inte har erfarenhet av OAuth2 eller OpenID Connect kanske du inte får ut så mycket av den här exempelkonfigurationen. Vi rekommenderar att du läser en kort [översikt över protokollet som vi har dokumenterat här](active-directory-b2c-reference-protocols.md).
 
 > [!NOTE]
-> Vissa funktioner för vår plattform som använder dessa standarder, till exempel Villkorlig åtkomst och Intune-principhantering, kräver att du använder våra Microsoft Azure-identitetsbibliotek med öppen källkod. 
-> 
-> 
+> Vissa funktioner för vår plattform som använder dessa standarder, till exempel Villkorlig åtkomst och Intune-principhantering, kräver att du använder våra Microsoft Azure-identitetsbibliotek med öppen källkod.
+>
+>
 
 Alla Azure Active Directory-scenarier och Azure AD-funktioner stöds inte av B2C-plattformen.  Information som hjälper dig att avgöra om du ska använda B2C-plattformen finns i [B2C-begränsningar](active-directory-b2c-limitations.md).
 
@@ -46,7 +46,7 @@ Därefter måste du skapa en app i B2C-katalogen. Det ger Azure AD den informati
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Skapa principer
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Den här appen innehåller en identitetslösning: en kombinerad inloggning och registrering. Du måste skapa den här principen för varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Tänk på följande när du skapar principen:
+I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Den här appen innehåller en identitetslösning: en kombinerad inloggning och registrering. Du måste skapa den här principen för varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Tänk på följande när du skapar principen:
 
 * Välj **Visningsnamn** och registreringsattribut i principen.
 * Välj det **visningsnamn** och **objekt-ID** som programmet gör anspråk på i varje princip. Du kan också välja andra anspråk.
@@ -63,7 +63,7 @@ Koden för den här självstudiekursen [finns på GitHub](https://github.com/Azu
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-Eller så laddar du bara ned den färdiga koden och sätter igång direkt: 
+Eller så laddar du bara ned den färdiga koden och sätter igång direkt:
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
@@ -240,7 +240,7 @@ Vi måste skapa en AccountStore och sedan skicka informationen som vi just har l
 
 Det finns några saker som du bör känna till om B2C-tjänsten som gör koden lättare att förstå:
 
-1. Azure AD B2C använder *principen* på det sätt som anges av frågeparametrarna för att utföra din begäran. Detta gör att Azure Active Directory kan fungera som en oberoende tjänst för ditt program. För att tillhandahålla dessa extra frågeparametrar måste vi ange `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:`-metoden med våra anpassade principparametrar. 
+1. Azure AD B2C använder *principen* på det sätt som anges av frågeparametrarna för att utföra din begäran. Detta gör att Azure Active Directory kan fungera som en oberoende tjänst för ditt program. För att tillhandahålla dessa extra frågeparametrar måste vi ange `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:`-metoden med våra anpassade principparametrar.
 2. Azure AD-B2C använder omfång på ungefär på samma sätt som andra OAuth2-servrar. Men eftersom användningen av B2C handlar lika mycket om att autentisera en användare som att komma åt resurser är vissa resurser absolut nödvändiga för att flödet ska fungera korrekt. Det här är `openid`-omfånget. Våra Microsoft Identity-SDK:er tillhandahåller `openid`-omfånget automatiskt, så du ser inte detta i vår SDK-konfiguration. Eftersom vi använder ett bibliotek från tredje part måste vi dock ange det här omfånget.
 
 ```objc
@@ -274,7 +274,7 @@ Det finns några saker som du bör känna till om B2C-tjänsten som gör koden l
                                         forAccountType:data.accountIdentifier];
 }
 ```
-Försäkra dig om att du anropar det i AppDelegate under `didFinishLaunchingWithOptions:`-metoden. 
+Försäkra dig om att du anropar det i AppDelegate under `didFinishLaunchingWithOptions:`-metoden.
 
 ```
 [self setupOAuth2AccountStore];
@@ -299,16 +299,16 @@ Vi skapar var och en av dessa metoder nedan.
 
 > [!NOTE]
 > Se till att du binder `loginView` till själva webbvyn inuti din storyboard. Annars kommer inte webbvyn att dyka upp när det är dags att autentisera.
-> 
-> 
+>
+>
 
 * Skapa en `LoginViewController.m`-klass
 * Lägg till några tillståndsvariabler för autentiseringen
 
 ```objc
-NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory
 NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
-bool loginFlow = FALSE; 
+bool loginFlow = FALSE;
 bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
 NSURL *authcode; \\ A placeholder for our auth code.
 ```
@@ -387,7 +387,7 @@ Vi måste berätta för webbvyn vilket beteende vi vill ha när en användare lo
 
 * Skriv koden för att hantera resultatet från OAuth2-begäran
 
-Vi behöver kod som hanterar RedirectUrl:en som skickas tillbaka från webbvyn. Om den inte lyckas försöker vi igen. Under tiden visar biblioteket felet som du kan se i konsolen eller hantera asynkront. 
+Vi behöver kod som hanterar RedirectUrl:en som skickas tillbaka från webbvyn. Om den inte lyckas försöker vi igen. Under tiden visar biblioteket felet som du kan se i konsolen eller hantera asynkront.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSURL *)accessResult {
@@ -487,7 +487,7 @@ Nu ska vi skapa en metod som anropas när vi får en autentiseringsförfrågan. 
 Nu har du skapat den huvudsakliga metoden för att interagera med våra program för inloggning. När vi har loggat in måste vi använda de token som vi har fått. Det gör vi genom att skapa en del hjälpkod som anropar REST-API:er med hjälp av det här biblioteket.
 
 ## <a name="create-a-graphapicaller-class-to-handle-our-requests-to-a-rest-api"></a>Skapa en `GraphAPICaller`-klass för att hantera begäranden till ett REST-API
-Vi har en konfiguration som läses in varje gång vi läser in vår app. Nu måste vi göra något med den när vi har fått en token. 
+Vi har en konfiguration som läses in varje gång vi läser in vår app. Nu måste vi göra något med den när vi har fått en token.
 
 * Skapa en `GraphAPICaller.h`-fil
 
@@ -511,7 +511,7 @@ Nu när vi har skapat vårt gränssnitt ska vi lägga till själva implementerin
 ```objc
 @implementation GraphAPICaller
 
-// 
+//
 // Gets the tasks from our REST endpoint we specified in settings
 //
 
@@ -564,7 +564,7 @@ Nu när vi har skapat vårt gränssnitt ska vi lägga till själva implementerin
       }];
 }
 
-// 
+//
 // Adds a task from our REST endpoint we specified in settings
 //
 
@@ -628,7 +628,6 @@ Du kan nu gå vidare till mer avancerade B2C-ämnen. Du kan prova följande:
 [Anropa ett webb-API för Node.js från en Node.js-webbapp]()
 
 [Anpassa UX för en B2C-app]()
-
 
 
 

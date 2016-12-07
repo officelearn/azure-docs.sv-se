@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/25/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+ms.sourcegitcommit: fb085ca229beba1757efa100ffca1e42089aedfa
+ms.openlocfilehash: 827ecc587dabfba58e87d192001c2714a1d7ce4a
 
 
 ---
-# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Azure IoT Gateway SDK (beta) – komma igång med Linux
+# <a name="azure-iot-gateway-sdk-beta---get-started-using-linux"></a>Azure IoT Gateway SDK (beta) – komma igång med Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Hur du skapar provet
@@ -38,30 +38,30 @@ Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] 
 ## <a name="how-to-run-the-sample"></a>Köra exemplet
 1. Skriptet **build.sh** genererar sina utdata i mappen **build** i din lokala kopia av databasen **azure-iot-gateway-sdk**. Detta omfattar de två moduler som används i det här exemplet.
    
-    Build-skriptet placerar **liblogger_hl.so** i mappen **build/modules/logger/** och **libhello_world_hl.so** i mappen **build/modules/hello_world/**. Använd dessa sökvägar för **modulsökvägens** värde som visas i JSON-inställningsfilen nedan.
-2. Filen **hello_world_lin.json** i mappen **src-prover per hello_world** är ett exempel på en JSON-inställningsfil för Linux som du kan använda för att köra exemplet. De exempel på JSON-inställningar som visas nedan förutsätter att du kör exemplet från roten på din lokala kopia av **azure-iot-gateway-sdk**-databasen.
-3. För modulen **logger_hl** i avsnittet **args** anger du värdet för **filnamn** till namn och sökväg för den fil som kommer att innehålla loggdata.
-   
-    Det här är ett exempel på en JSON-inställningsfil för Linux som skriver till **log.txt** till den mapp där du kör exemplet.
+    Build-skriptet placerar **liblogger.so** i mappen **build/modules/logger/** och **libhello_world.so** i mappen **build/modules/hello_world/**. Använd dessa sökvägar för **modulsökvägens** värde som visas i JSON-inställningsfilen nedan.
+2. Hello_world_sample-processen använder sökvägen till en JSON-konfigurationsfil som ett argument på kommandoraden. En JSON-exempelfil tillhandahålls i databasen på **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json** och kopieras nedan. Den fungerar som den är såvida du inte har ändrat build-skriptet och placerat moduler eller körbara exempelfiler på andra platser än standardplatserna.
+
+   > [!NOTE]
+   > Modulernas sökvägar är relativa till den aktuella arbetskatalogen som den körbara filen hello_world_sample startas från, inte katalogen som den körbara filen finns i. JSON-exempelkonfigurationsfilen skriver som standard ”log.txt” i din aktuella arbetskatalog.
    
     ```
     {
       "modules" :
       [ 
         {
-          "module name" : "logger_hl",
+          "module name" : "logger",
           "loading args": {
-            "module path" : "./build/modules/logger/liblogger_hl.so"
+            "module path" : "./build/modules/logger/liblogger.so"
           },
           "args" : 
           {
-            "filename":"./log.txt"
+            "filename":"log.txt"
           }
         },
         {
           "module name" : "hello_world",
           "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
+            "module path" : "./build/modules/hello_world/libhello_world.so"
           },
           "args" : null
         }
@@ -70,13 +70,13 @@ Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] 
       [
         {
           "source": "hello_world",
-          "sink": "logger_hl"
+          "sink": "logger"
         }
       ]
     }
     ```
-4. I ditt gränssnitt navigerar du till mappen **azure-iot-gateway-sdk**.
-5. Kör följande kommando:
+3. Gå till mappen **azure-iot-gateway-sdk**.
+4. Kör följande kommando:
    
    ```
    ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
@@ -89,6 +89,6 @@ Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

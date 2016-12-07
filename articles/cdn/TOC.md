@@ -1,5 +1,6 @@
 # [Översikt](cdn-overview.md)
 ## [Vad är Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+
 # Kom igång
 ## [Aktivera Azure CDN](cdn-create-new-endpoint.md)
 
@@ -23,6 +24,8 @@
 #### [Premiumnivå](cdn-query-string-premium.md)
 ### [Rensa cachelagrade tillgångar](cdn-purge-endpoint.md)
 ### [Ladda in cachelagrade tillgångar i förväg](cdn-preload-endpoint.md)
+### [Tokenautentisering](cdn-token-auth.md)
+### [Övervaka resurser](cdn-resource-health.md)
 ### [Åsidosätt beteende med regler](cdn-rules-engine.md)
 ### [Få aviseringar i realtid](cdn-real-time-alerts.md)
 
@@ -41,19 +44,19 @@
 ### [Filkomprimering](cdn-troubleshoot-compression.md)
 
 # Referens
-## [PowerShell-cmdletar](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [.NET-API](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [NET](/dotnet/api/)
 ## [Azure CDN POP-platser](cdn-pop-locations.md)
-## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
+## [REST](/rest/api/cdn/)
 
 # Resurser
-## [Prissättning](https://azure.microsoft.com/pricing/details/cdn/)
-## [MSDN-forum](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
-## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=cdn)
+## [Prissättning](https://azure.microsoft.com/pricing/details/cdn/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

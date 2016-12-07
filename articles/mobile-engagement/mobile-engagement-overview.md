@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58d8043e09cb04ef2cdf4f5c005d549a6cb6f73c
+ms.sourcegitcommit: a3e619d6e130212064093150d22d971a562a6601
+ms.openlocfilehash: 758680cf8ff8a9e2f0a6c241613a2ba254462f4a
 
 
 ---
@@ -30,10 +30,10 @@ Azure Mobile Engagement är en plattform som erbjuder programvara som en tjänst
 
 Med Azure Mobile Engagement kan programutgivare och marknadsföringspersonal få en bättre förståelse för hur appanvändarna tänker och interagera med dem på ett bättre sätt.
 
-## <a name="realtime-actionable-analytics-to-maximize-return-on-investment"></a>Realtidsanalys med handlingsbarhet ger maximal avkastning på investeringen
+## <a name="real-time-actionable-analytics-to-maximize-return-on-investment"></a>Realtidsanalys med handlingsbarhet ger maximal avkastning på investeringen
 Utlös scenarier med interaktion utifrån användarbeteenden och demografi genom att kombinera insamling av `big data` med meddelandebehandling i realtid. Mobile Engagement kan besvara i princip alla frågor som är relevanta för dina specifika affärsbehov. Du kan till exempel skapa anpassade instrumentpaneler för att mäta KPI:er (Key Performance Indicators), snabbt hitta och åtgärda flaskhalsar i ett användarflöde, registrera kvarhållning och användarens varaktighet och på så sätt avgöra vilka kampanjer som ger högsta avkastning på investeringen. Tack vare Mobile Engagements 360-gradersvy av användarsökvägen blir det möjligt att kontinuerligt förenkla och optimera användarupplevelsen samt att förlänga kvarhållningsperioden och öka appanvändningen.
 
-## <a name="valueadded-push-and-communications-platform"></a>Plattform med push-meddelanden och kommunikation som skapar mervärde
+## <a name="value-added-push-and-communications-platform"></a>Plattform med push-meddelanden och kommunikation som skapar mervärde
 Mobile Engagement tillhandahåller meddelandefunktioner i appen och fungerar sömlöst med interna gateways för push-meddelanden, som Google GCM, Apple APNS och Microsoft MPNS. Dessutom får du möjlighet att skapa riktade kampanjer genom att analysera användarbeteenden och identifiera unika kundsegment.
 
 Det här är goda nyheter för apputvecklare som vill nå sina kunder på ett effektivt sätt som inte känns påträngande för mottagarna.
@@ -47,7 +47,7 @@ Microsoft bedriver ett långsiktigt sekretessarbete eftersom integritet utgör e
 ### <a name="next-steps"></a>Nästa steg:
 [Bästa praxis och processer för Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Komma igång](/documentation/services/mobile-engagement/)
+[Komma igång](/index.md)
 
 [Ladda ned demoappar med källkod](https://aka.ms/azmedemoapps)
 

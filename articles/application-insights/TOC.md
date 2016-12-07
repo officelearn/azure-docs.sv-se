@@ -1,6 +1,6 @@
 # Översikt
 ## [Vad är Application Insights?](app-insights-overview.md)
-## [Hur det fungerar](app-insights-detect-triage-diagnose.md)
+## [Prestandaövervakning i en devOps cykel](app-insights-detect-triage-diagnose.md)
 
 # Kom igång
 ## Övervaka Azure
@@ -63,8 +63,8 @@
 #### [Måttaviseringar](app-insights-alerts.md)
 
 ### [Smart identifiering](app-insights-proactive-diagnostics.md)
-#### [Felidentifiering](app-insights-proactive-failure-diagnostics.md)
-#### [Avvikelseidentifiering](app-insights-proactive-performance-diagnostics.md)
+#### [Felavvikelser](app-insights-proactive-failure-diagnostics.md)
+#### [Prestandaavvikelser](app-insights-proactive-performance-diagnostics.md)
 
 ## Analysera
 
@@ -128,10 +128,10 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Referens
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [Java-API](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [.NET-API](https://docs.microsoft.com/dotnet/api)
 ## [JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Analys](app-insights-analytics-reference.md)
+## [Analytics-referens](app-insights-analytics-reference.md)
 ## [Sampling](app-insights-sampling.md)
 ## [IP-adresser](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
@@ -145,7 +145,7 @@
 ## [Viktig information för Application Insights SDK för Windows Phone och Store](app-insights-release-notes-windows.md)
 ## [Viktig information för Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Viktig information för SDK i Application Insights](app-insights-release-notes.md)
-## [REST-API](https://dev.applicationinsights.io/)
+## [Dataåtkomst REST API](https://dev.applicationinsights.io/)
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/application-insights/)  
@@ -157,6 +157,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

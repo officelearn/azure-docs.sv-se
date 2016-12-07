@@ -1,10 +1,14 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 3cee8c74ed77a27c8a2006dcd28729f9c077aea9
+ms.openlocfilehash: 330f2c0efed16ae587c6f069d3feae1bb80f3097
+
 ---
 
-#Active Directory B2C Documentation
+#<a name="active-directory-b2c-documentation"></a>Dokumentation om Active Directory B2C
 
-Azure Active Directory B2C is a comprehensive cloud identity management solution for your consumer-facing web and mobile applications. It is a highly available global service that scales to hundreds of millions of consumer identities. Built on an enterprise-grade secure platform, Azure Active Directory B2C keeps your applications, your business, and your consumers protected.
+Azure Active Directory B2C är en heltäckande lösning för identitetshantering i molnet för konsumentinriktade webb- och mobilprogram. Det är en global tjänst med hög tillgänglighet som kan skalas till flera hundra miljoner konsumentidentiteter. Azure Active Directory B2C bygger på en säker plattform i företagsklass och ser till att dina program, ditt företag och dina användare är skyddade.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +22,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Active Directory B2C</h3>
+                        <h3>Läs mer om Active Directory B2C</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Active Directory B2C Video Library</h3>
+                        <h3>Azure Active Directory B2C videobibliotek</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure AD B2C tenant</h3>
+                        <h3>Skapa en Azure AD B2C-klient</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an iOS app using a third-party libraryC</h3>
+                        <h3>Skapa en iOS-app med en libraryC från tredje part</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +94,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Android application</h3>
+                        <h3>Skapa ett Android-program</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +112,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Node.js Web API</h3>
+                        <h3>Skapa ett Node.js webb-API</h3>
                     </div>
                 </div>
             </div>
@@ -126,7 +130,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a .NET web app</h3>
+                        <h3>Skapa en .NET-webbapp</h3>
                     </div>
                 </div>
             </div>
@@ -144,7 +148,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a .NET web API</h3>
+                        <h3>Skapa ett .NET webb-API</h3>
                     </div>
                 </div>
             </div>
@@ -162,7 +166,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create Windows desktop app</h3>
+                        <h3>Skapa en Windows-skrivbordsapp</h3>
                     </div>
                 </div>
             </div>
@@ -177,7 +181,12 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-b2c.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Active Directory B2C Documentation
-        </div>
+Ladda ned dokumentation om Active Directory B2C </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

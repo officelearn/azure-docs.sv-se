@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18af1ce4f6ebb235e66e17d99dc5ae6156b84a59
+ms.sourcegitcommit: 1c6ccbeef1fb40ce4f7242bb2cc4ee958659bd3c
+ms.openlocfilehash: 02ad118a175b66b3958adb413f5f48ef156695ef
 
 ---
 
@@ -152,7 +152,7 @@ Du kan ändra innehållet i ett meddelande direkt i kön. Om meddelandet represe
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 ```
 
-## <a name="dequeue-the-next-message"></a>Ta bort nästa meddelande från kön
+## <a name="de-queue-the-next-message"></a>Ta bort nästa meddelande från kön
 Koden tar bort ett meddelande från en kö i två steg. När du anropar **GetMessage** hämtas nästa meddelande i en kö. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. För att slutföra borttagningen av meddelandet från kön måste du även anropa **DeleteMessage**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Koden anropar **DeleteMessage** direkt efter att meddelandet har bearbetats.
 
 ```csharp
@@ -173,7 +173,7 @@ Koden tar bort ett meddelande från en kö i två steg. När du anropar **GetMes
     queue.DeleteMessage(retrievedMessage);
 ```
 
-## <a name="use-asyncawait-pattern-with-common-queue-storage-apis"></a>Använda Async-Await-mönstret med vanliga Queue Storage-API:er
+## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Använda Async-Await-mönstret med vanliga Queue Storage-API:er
 Det här exemplet illustrerar hur du använder Async-Await-mönstret med vanliga Queue Storage-API:er. Exemplet anropar den asynkrona versionen av var och en av de angivna metoderna, vilket du ser på *Async*-suffixet för varje metod. När en async-metod används pausar async-await-mönstret den lokala körningen tills anropet har slutförts. Detta gör att den aktuella tråden kan arbeta med annat, vilket innebär att flaskhalsar kan undvikas samtidigt som programmets svarstider förbättras. Mer information om hur du använder Async-Await-mönstret i .NET finns i [Async och Await (C# och Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
 ```csharp
@@ -203,7 +203,7 @@ Det här exemplet illustrerar hur du använder Async-Await-mönstret med vanliga
     Console.WriteLine("Deleted message");
 ```
     
-## <a name="leverage-additional-options-for-dequeuing-messages"></a>Använda fler alternativ för att hämta meddelanden ur kön
+## <a name="leverage-additional-options-for-de-queuing-messages"></a>Använda fler alternativ för att hämta meddelanden ur kön
 Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö.
 För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kodexempel används metoden **GetMessage** för att hämta 20 meddelanden i ett anrop. Sedan bearbetas varje meddelande med hjälp av en **foreach**-loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att de fem minuterna startar för alla meddelanden samtidigt, vilket betyder att när det här har gått fem minuter sedan anropet till **GetMessage** så blir alla meddelanden som inte har tagits bort synliga igen.
 

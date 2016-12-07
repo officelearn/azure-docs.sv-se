@@ -65,7 +65,7 @@ JSON-inställningsfilen innehåller en lista med moduler att läsa in. Varje mod
 JSON-filen innehåller också länkar mellan moduler som kommer att skickas till den asynkrona meddelandekön. En länk har två egenskaper:
 
 * **källa**: ett modulnamn från avsnittet `modules` eller ”\*”.
-* **mottagare**: ett modulnamn från avsnittet `modules`
+* **mottagare**: ett modulnamn från avsnittet `modules`.
 
 Varje länk definierar en meddelandeväg och -riktning. Meddelanden från modul `source` ska levereras till modul `sink`. `source` kan anges till ”\*”, som anger att meddelanden från alla moduler tas emot av `sink`.
 
@@ -216,6 +216,6 @@ Mer information om hur du använder IoT Gateway SDK finns i:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

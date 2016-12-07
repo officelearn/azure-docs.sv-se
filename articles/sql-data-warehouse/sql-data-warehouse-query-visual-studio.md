@@ -1,5 +1,5 @@
 ---
-title: "Fråga Azure SQL Data Warehouse (Visual Studio) | Microsoft Docs"
+title: "Ansluta till Azure SQL Data Warehouse – VSTS | Microsoft Docs"
 description: "Fråga SQL Data Warehouse med Visual Studio."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 71a56d0e99308d3f7f514283792a2155a05a7172
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-visual-studio"></a>Fråga SQL Data Warehouse (Visual Studio)
+# <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Ansluta till SQL Data Warehouse med Visual Studio och SSDT
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -88,7 +88,7 @@ För att konfigurera din miljö för Azure Active Directory-autentisering, se [A
 [Skapa ett SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Installera Visual Studio och SSDT]: sql-data-warehouse-install-visual-studio.md
 [Autentisera till SQL Data Warehouse]: sql-data-warehouse-authentication.md
-[visualisera dina data med PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
+[visualisera data med PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
 [Azure Portal]: https://portal.azure.com
@@ -105,6 +105,6 @@ För att konfigurera din miljö för Azure Active Directory-autentisering, se [A
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

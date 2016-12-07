@@ -2,18 +2,20 @@
 
 För att referera till CloudConfigurationManager-paketet lägger du till följande `using`-uttryck till din klass:
 
-    using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+```csharp
+using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+```
 
 Här är ett exempel som visar hur du hämtar en anslutningssträng från en konfigurationsfil:
-
-    // Parse the connection string and return a reference to the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
+```csharp
+// Parse the connection string and return a reference to the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+```
 Du måste inte använda Azure Configuration Manager. Du kan också använda ett API som .NET Frameworks [ConfigurationManager-klass](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

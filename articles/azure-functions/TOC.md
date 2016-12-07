@@ -8,7 +8,7 @@
 # Gör så här för att
 ## Planera och designa
 ### [Välj mellan Flow, Logic Apps, Functions och WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Välj mellan förbrukning och App Service-plan](functions-scale.md)
+### [Välj mellan värdplaner](functions-scale.md)
 
 ## Utveckla
 ### [Utveckla funktionsappar](functions-reference.md)
@@ -21,7 +21,7 @@
 #### [Mobile Apps-bindningar](functions-bindings-mobile-apps.md)
 #### [Notification Hub-utdatabindning](functions-bindings-notification-hubs.md)
 #### [Service Bus-utlösare och bindningar för köer och ämnen](functions-bindings-service-bus.md)
-#### Storage
+#### Lagringsbindningar
 ##### [Blobbindningar](functions-bindings-storage-blob.md)
 ##### [Köbindningar](functions-bindings-storage-queue.md)
 ##### [Tabellbindningar](functions-bindings-storage-table.md)
@@ -30,6 +30,7 @@
 ### [Skapa en funktion från Azure Portal](functions-create-first-azure-function-azure-portal.md)
 ### [Testa Azure Functions](functions-test-a-function.md)
 ### [Utveckla och felsöka lokalt](functions-run-local.md)
+### [Metodtips för Azure Functions](functions-best-practices.md)
 ### [Använd Azure Functions för att utföra en schemalagd rensningsåtgärd](functions-scenario-database-table-cleanup.md)
 
 ## Hantera
@@ -38,8 +39,8 @@
 ## Distribuera
 ### [Löpande distribution för Azure Functions](functions-continuous-deployment.md)
 
-# Referens
-## [.NET-API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## Övervaka
+### [Övervaka Azure Functions](functions-monitoring.md)
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/functions/)  
@@ -48,6 +49,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,10 +1,10 @@
 # Översikt
 ## [Vad är Azure Backup?](backup-introduction-to-azure-backup.md)
 # Kom igång
-## [Vanliga frågor och svar](backup-azure-backup-faq.md)
 ## [Säkerhetskopiera filer och mappar](backup-try-azure-backup-in-10-mins.md)
 ## [Säkerhetskopiera virtuella Azure-datorer](backup-azure-vms-first-look.md)
 ## [Om virtuella Azure-datorer](backup-azure-vms-first-look-arm.md)
+## [Vanliga frågor och svar](backup-azure-backup-faq.md)
 # Gör så här för att
 ## Automatisera säkerhetskopiering med PowerShell
 ### [Virtuella Azure-datorer i Azure-portalen](backup-azure-vms-automation.md)
@@ -52,7 +52,13 @@
 ### [Fel vid säkerhetskopiering av virtuell Azure-dator: Det gick inte att kommunicera med VM-agenten för ögonblicksbildstatus – Tidsgränsen uppnåddes för underåtgärden för ögonblicksbilds-VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Långsam säkerhetskopiering av filer och mappar i Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Resurser
+## [Prissättning](https://azure.microsoft.com/pricing/details/backup/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=backup)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

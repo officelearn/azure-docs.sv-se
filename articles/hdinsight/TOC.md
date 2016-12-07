@@ -6,14 +6,16 @@
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
 ## [Domänansluten HDInsight-förhandsversion](hdinsight-domain-joined-introduction.md)
+## [Kafka förhandsgranskning](hdinsight-apache-kafka-introduction.md)
 
 # Kom igång
 ## [Börja med Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Börja med interaktiv Hive-förhandsversion](hdinsight-hadoop-use-interactive-hive.md)
-## [Börja med R Server-förhandsversion](hdinsight-hadoop-r-server-get-started.md)
+## [Börja med R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Börja med Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Börja med HBase och NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Börja med Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Börja med Kafka förhandsgranskning](hdinsight-apache-kafka-get-started.md)
 ## [Begränsat Hadoop-läge](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake-verktyg med begränsat Hortonworks-läge](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Verktyg för Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -47,11 +49,12 @@
 ### [Använda DataFu med Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Kluster på begäran](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Skicka Hadoop-jobb](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Använda R Server-förhandsversion
+## Använd R Server
 ### [Lagringsalternativ](hdinsight-hadoop-r-server-storage.md)
 ### [Installera RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Compute-sammanhang](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Använda Spark för minnesintern bearbetning
+### [Med Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Med BI-verktyg](hdinsight-apache-spark-use-bi-tools.md)
 ### [Fristående app](hdinsight-apache-spark-create-standalone-application.md)
 ### [Bearbeta strömningshändelser](hdinsight-apache-spark-eventhub-streaming.md)
@@ -94,6 +97,10 @@
 ### [Konfigurera](hdinsight-domain-joined-configure.md)
 ### [Hantera](hdinsight-domain-joined-manage.md)
 ### [Konfigurera Hive-principer](hdinsight-domain-joined-run-hive.md)
+## Använd Kafka förhandsvisning
+### [Replikera Kafka-data](hdinsight-apache-kafka-mirroring.md)
+### [Använd med Spark](hdinsight-apache-spark-with-kafka.md)
+### [Använd med Storm](hdinsight-apache-storm-with-kafka.md)
 ## Utveckla
 ### [Utveckla Java MapReduce-program](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Utveckla Scalding MapReduce-jobb](hdinsight-hadoop-mapreduce-scalding.md)
@@ -174,12 +181,12 @@
 #### [Prestanda för Hive-frågor](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referens
-## [REST API-referens](https://msdn.microsoft.com/library/mt622197.aspx)
-## [Spark REST-API för fjärrstyrda jobb](https://msdn.microsoft.com/library/mt613023.aspx)
-## [PowerShell-cmdletar](https://msdn.microsoft.com/library/mt438705.aspx)
+## [PowerShell-cmdletar](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
 ## [.NET SDK för Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET SDK för HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET-bibliotek för Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST API-referens](/rest/api/hdinsight/)
+## [Spark REST-API för fjärrstyrda jobb](/rest/api/hdinsightspark/)
 
 # Relaterat
 ## Windows-kluster
@@ -217,6 +224,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

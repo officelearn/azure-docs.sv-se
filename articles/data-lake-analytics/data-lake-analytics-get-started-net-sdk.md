@@ -1,6 +1,6 @@
 ---
 title: "Kom igång med Azure Data Lake Analytics med hjälp av .NET SDK | Azure Docs"
-description: "Lär dig hur du använder .NET SDK för att skapa Data Lake Store-konton, skapa Data Lake Analytics-jobb och skicka jobb som skrivits i U-SQL. "
+description: "Lär dig hur du använder .NET SDK för att skapa Data Lake Analytics-konton, skapa Data Lake Analytics-jobb och skicka jobb som skrivits i U-SQL. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/26/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60deb681b1090444f5c178fb0c9b0458ea83f73d
+ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
+ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
 
 
 ---
@@ -196,7 +196,6 @@ Du måste använda absoluta sökvägar för att få åtkomst till filer i länka
                     Console.WriteLine(nextAction);
             }
 
-
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -217,6 +216,7 @@ Du måste använda absoluta sökvägar för att få åtkomst till filer i länka
 
                 return accounts;
             }
+
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -241,10 +241,10 @@ Du måste använda absoluta sökvägar för att få åtkomst till filer i länka
           }
         }
 
-1. Tryck på **F5** för att köra programmet. Utdata ser ut ungefär så här:
+5. Tryck på **F5** för att köra programmet. Utdata ser ut ungefär så här:
    
     ![Azure Data Lake Analytics job U-SQL .NET SDK output](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Kontrollera utdatafilen.  Standardsökvägen och -filnamnet är c:\Temp\SearchLog-from-Data-Lake.csv.
+6. Kontrollera utdatafilen.  Standardsökvägen och -filnamnet är c:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## <a name="see-also"></a>Se även
 * Klicka på flikväljarna överst på sidan om du vill se samma självstudier med andra verktyg.
@@ -257,6 +257,6 @@ Du måste använda absoluta sökvägar för att få åtkomst till filer i länka
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

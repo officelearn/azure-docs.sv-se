@@ -1,7 +1,4 @@
-# Översikt över StorSimple
-
 # StorSimple virtuell matris
-
 ## Översikt
 ### [Vad är lösningen?](storsimple-ova-overview.md)
 
@@ -10,16 +7,41 @@
 #### [Granska krav](storsimple-ova-system-requirements.md)
 #### [Förstå begränsningar](storsimple-ova-limits.md)
 #### [Granska metodtips](storsimple-ova-best-practices.md)
-### Distribuera
+
+### Distribuera (Azure portal)
+#### [Förbered distributionen](storsimple-virtual-array-deploy1-portal-prep.md)
+##### [Använd StorSimple Manager-tjänsten](storsimple-virtual-array-manage-service.md)
+#### [Etablera i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
+#### [Etablera i VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
+#### [Konfigurera som filserver](storsimple-virtual-array-deploy3-fs-setup.md)
+#### [Konfigurera som iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md)
+
+### Distribuera (klassisk portal)
 #### [Förbered distributionen](storsimple-ova-deploy1-portal-prep.md)
-#### [Använd StorSimple Manager-tjänsten](storsimple-ova-manage-service.md)
+##### [Använd StorSimple Manager-tjänsten](storsimple-ova-manage-service.md)
 #### [Etablera i Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
 #### [Etablera i VMware](storsimple-ova-deploy2-provision-vmware.md)
 #### [Konfigurera som filserver](storsimple-ova-deploy3-fs-setup.md)
 #### [Konfigurera som iSCSI-server](storsimple-ova-deploy3-iscsi-setup.md)
 
 ## Gör så här för att
-### [Hantera via Azure Portal](storsimple-ova-manager-service-administration.md)
+### [Hantera via Azure Portal](storsimple-virtual-array-manager-service-administration.md)
+#### [Installera den senaste uppdateringen](storsimple-virtual-array-install-update.md)
+#### [Skapa och hantera säkerhetskopior](storsimple-virtual-array-backup.md)
+#### [Klona från säkerhetskopior](storsimple-virtual-array-clone.md)
+#### [Redundans och DR](storsimple-virtual-array-failover-dr.md)
+#### [Inaktivera och ta bort](storsimple-virtual-array-deactivate-and-delete-device.md)
+#### [Manage shares](storsimple-virtual-array-manage-shares.md)
+#### [Hantera volymer](storsimple-virtual-array-manage-volumes.md)
+#### [Visa sammanfattning av tjänst](storsimple-virtual-array-service-summary.md)
+#### [Visa sammanfattning av enhet](storsimple-virtual-array-device-summary.md)
+#### [Hantera lagringskonton](storsimple-virtual-array-manage-storage-accounts.md)
+#### [Hantera ACR:er](storsimple-virtual-array-manage-acrs.md)
+#### [Hantera jobb](storsimple-virtual-array-manage-jobs.md)
+#### [Ändra enhetens lösenord](storsimple-virtual-array-change-device-admin-password.md)
+#### [Konfigurera MPIO på Windows Server-värden](storsimple-virtual-array-configure-mpio-windows-server.md)
+
+### [Hantera via den klassiska Azure-portalen](storsimple-ova-manager-service-administration.md)
 #### [Installera den senaste uppdateringen](storsimple-ova-install-update-01.md)
 #### [Skapa och hantera säkerhetskopior](storsimple-ova-backup.md)
 #### [Återställa från säkerhetskopior](storsimple-ova-restore.md)
@@ -54,6 +76,7 @@
 ### Installera
 #### [Granska säkerhet](storsimple-safety.md)
 #### [Packa upp, racka, kabla en 8100](storsimple-8100-hardware-installation.md)
+
 #### [Packa upp, racka, kabla en 8600](storsimple-8600-hardware-installation.md)
 #### [Maskinvara som stöds för 10 GbE-nätverksgränssnitt](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -63,6 +86,7 @@
 ##### [Fysisk enhet i Azure – uppdatering 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Fysisk enhet i Azure – GA](storsimple-deployment-walkthrough.md)
 #### [Fysisk enhet i Government Portal – aktuell](storsimple-deployment-walkthrough-gov-u2.md)
+##### [Fysisk enhet i Government Portal – Uppdatering 1](storsimple-deployment-walkthrough-gov.md)
 #### [Virtuell enhet i Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [StorSimple-adapter för SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -114,13 +138,15 @@
 ##### [Använd MMC-aktiviteter i StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Skapa lösningar
-#### [Distribuerat globalt namnområde](https://www.microsoft.com/download/details.aspx?id=45507)
 #### [Automatisera filserver-DR till Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple med Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+#### [StorSimple med VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
+#### [StorSimple med Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
+#### [Distribuerat globalt namnområde](https://www.microsoft.com/download/details.aspx?id=45507)
 
 ### Övervaka
 #### [Använd tjänstens instrumentpanel](storsimple-service-dashboard.md)
-#### [Använd enhetens instrumentpanel](storsimple-device-dashboard.md)
+#### [Använd tjänstens instrumentpanel](storsimple-device-dashboard.md)
 #### [Använd tjänstaviseringar](storsimple-manage-alerts.md)
 #### [Använd maskinvarustatus](storsimple-monitor-hardware-status.md)
 #### [Använd övervaknings-LED:ar](storsimple-monitoring-indicators.md)
@@ -139,7 +165,7 @@
 ##### [Skapa ett supportpaket](storsimple-create-manage-support-package.md)
 
 ### Migrera
-#### [Från 5000–7000-serien](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [Från 5000–7000-serien](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Från andra lagringsenheter](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Uppdatering
@@ -160,22 +186,37 @@
 ### [Version – GA](storsimple-july-2014-release-notes.md)
 
 ## Referens
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [Windows PowerShell för StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
+
+# StorSimple Data Manager (privat förhandsgranskning)
+
+## Översikt
+### [Vad är lösningen?](storsimple-data-manager-overview.md)
+
+## Kom igång
+### [Använda StorSimple Data Manager](storsimple-data-manager-ui.md)
+
+## Gör så här för att
+### [Använd .NET för att omvandla data](storsimple-data-manager-dotnet-jobs.md)
 
 # Relaterat
 ## [StorSimple 5000-7000-serien](http://onlinehelp.storsimple.com)
 
 # Resurser
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Prissättning](https://azure.microsoft.com/pricing/details/storsimple/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Marknadsföringsblogg](http://blogs.technet.com/b/cis/)
 ## [Marknadsföring](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Supportblogg](http://blogs.msdn.com/b/storsimple/)
-## [Meddelanden om tredje part](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=storsimple)
-## [Prissättning](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Meddelanden från tredje part](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

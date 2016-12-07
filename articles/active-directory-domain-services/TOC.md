@@ -1,6 +1,5 @@
 # Översikt
-## [Vad är Azure AD Domain Services?](https://azure.microsoft.com/services/active-directory-ds/)
-## [Hur det fungerar](active-directory-ds-overview.md)
+## [Vad är Azure AD Domain Services?](active-directory-ds-overview.md)
 ## [Passar det dig?](active-directory-ds-comparison.md)
 ## [Funktioner](active-directory-ds-features.md)
 ## [Scenarier](active-directory-ds-scenarios.md)
@@ -36,9 +35,11 @@
 
 # Resurser 
 ## [Prissättning](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Kontakta oss](active-directory-ds-contact-us.md)
 ## [Azures feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Kontakta oss](active-directory-ds-contact-us.md)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0e6effa1e74a06a99a2a6bea9df3cfc6deedeb0e
+ms.sourcegitcommit: ee390dcdeefbc1ed87317ae2e167b3c054911723
+ms.openlocfilehash: a8149b38872a8d5b5a5e30280712ca38d983f80c
 
 
 ---
@@ -287,7 +287,7 @@ Om du vill uppdatera en entitet hämtar du den från tabelltjänsten, ändrar en
     else
        Console.WriteLine("Entity could not be retrieved.");
 ```
-## <a name="insertorreplace-an-entity"></a>Infoga eller ersätta en entitet
+## <a name="insert-or-replace-an-entity"></a>Infoga eller ersätta en entitet
 **Replace**-åtgärder misslyckas om entiteten har ändrats sedan den hämtades från servern.  Dessutom måste du hämta entiteten från servern först för att **Replace**-åtgärden ska lyckas.
 Ibland vet du dock inte om entiteten finns på servern, och vilka värden som för närvarande lagras i den är irrelevanta. Dina uppdateringar ska skriva över alla.  För att åstadkomma detta använder du en **InsertOrReplace**-åtgärd.  Den här åtgärden infogar entiteten om den inte finns, eller ersätter den om den finns, oavsett när den senaste uppdateringen gjordes.  I följande kodexempel hämtas fortfarande kundentiteten för Ben Still, men den sparas sedan tillbaka till servern via **InsertOrReplace**.  Uppdateringar som görs i entiteten mellan hämtnings- och uppdateringsåtgärderna skrivs över.
 ```csharp
@@ -449,7 +449,7 @@ Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar f
 [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
 [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-[Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[Blogginlägget Introduktion av Upsert och frågeprojektion]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [.NET-klientbiblioteksreferens]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
 [Azure Storage Teamblogg]: http://blogs.msdn.com/b/windowsazurestorage/
 [Konfigurera anslutningssträngar för Azure Storage]: http://msdn.microsoft.com/library/azure/ee758697.aspx

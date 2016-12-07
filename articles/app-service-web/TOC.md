@@ -15,7 +15,7 @@
 ### [PHP](app-service-web-php-get-started.md)   
 
 ## API Apps
-### [NET](../app-service-api/app-service-api-dotnet-get-started.md)
+### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
 ### [Java](../app-service-api/app-service-api-java-api-app.md)
 ### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
 ### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
@@ -153,6 +153,7 @@
 ### [Lokala anslutningar](web-sites-hybrid-connection-get-started.md)
 ### [Azure Virtual Network](web-sites-integrate-with-vnet.md)
 ### [Avancerad konfiguration](web-sites-transform-extend.md)
+### [Konfigurera behållaren för App Service på Linux](app-service-linux-using-custom-docker-image.md)
 ### [Resursgrupper](app-service-move-resources.md)
 ### [Konvertera WordPress till Multisite](web-sites-php-convert-wordpress-multisite.md) 
 
@@ -169,7 +170,7 @@
 ## Säkerhetskopiering
 ### [Säkerhetskopiera din app i Azure](web-sites-backup.md)
 ### [Återställa en app i Azure](web-sites-restore.md)
-### [Använda REST för att säkerhetskopiera och återställa App Service-appar](websites-csm-backup.md)
+### [Använd REST för att säkerhetskopiera och återställa App Service-appar](websites-csm-backup.md)
 
 ## [Övervaka](web-sites-monitor.md)
 ### [Aktivera diagnostikloggning](web-sites-enable-diagnostic-log.md)
@@ -187,7 +188,7 @@
 ### [Autentisera med lokal Active Directory](web-sites-authentication-authorization.md)
 
 ### HTTPS
-#### [Konfigurera ömsesidig TSL-autentisering](app-service-web-configure-tls-mutual-auth.md)
+#### [Konfigurera ömsesidig TLS-autentisering](app-service-web-configure-tls-mutual-auth.md)
 #### [Köpa ett SSL-certifikat i Azure](web-sites-purchase-ssl-web-site.md)
 #### [Använda ett SSL-certifikat som hämtats någon annanstans](web-sites-configure-ssl-certificate.md)
 
@@ -265,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

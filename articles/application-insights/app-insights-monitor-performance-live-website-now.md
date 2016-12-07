@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: 5159e7fc47d320d52eb7b94b5775158a3f09c769
+ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
+ms.openlocfilehash: 79819619ff7f25ba1097fe12f2da7453a1fcb4f1
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentera webbappar vid körning med Application Insights
-*Application Insights finns endast som förhandsversion.*
 
-Du kan instrumentera en live-webbapp med Visual Studio Application Insights utan att behöva ändra eller omdistribuera din kod. Om dina appar finns på en lokal IIS-server installerar du Statusövervakare. Om de är Azure-webbappar eller körs i en virtuell Azure-dator kan du installera Application Insights-tillägget. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).)
+
+Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Om dina appar finns på en lokal IIS-server installerar du Statusövervakare. Om de är Azure-webbappar eller körs i en virtuell Azure-dator kan du installera Application Insights-tillägget. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).)
 
 ![exempeldiagram](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -38,8 +38,8 @@ Här är en sammanfattning av vad du får med respektive väg:
 | --- | --- | --- |
 | Förfrågningar och undantag |Ja |Ja |
 | [Mer detaljerade undantag](app-insights-asp-net-exceptions.md) | |Ja |
-| [Beroendediagnostik](app-insights-asp-net-dependencies.md) |Om .NET 4.6 + |Ja |
-| [Systemprestandaräknare](app-insights-performance-counters.md) | |IIS- eller Azure-molntjänster, inte Azure webbapp |
+| [Beroendediagnostik](app-insights-asp-net-dependencies.md) |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP Verb|
+| [Systemprestandaräknare](app-insights-performance-counters.md) | |IIS- eller Azure-molntjänst, men inte Azure-webbapp |
 | [API för anpassad telemetri-][api] |Ja | |
 | [Spårningsloggsintegrering](app-insights-asp-net-trace-logs.md) |Ja | |
 | [Sidvy och användardata](app-insights-javascript.md) |Ja | |
@@ -232,6 +232,6 @@ Ta reda på vilka appar som övervakas:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

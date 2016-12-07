@@ -8,31 +8,31 @@
 # Gör så här för att
 ## Planera och designa
 ### [Uppgiftslista för administratörer och utvecklare](biztalk-services-administration-and-development-task-list.md)
-
 ## [Säkerhetskopiera och återställa](biztalk-backup-restore.md)
-
 ## Konfigurera
 ### [Begränsning](biztalk-throttling-thresholds.md)
 ### [Tjänstinställningar och övervakning](biztalk-dashboard-monitor-scale-tabs.md)
-
 ## Integrera
 ### [Hybridanslutningar](integration-hybrid-connection-create-manage.md)
-
 ## Migrera
 ### [BizTalk Server EDI-lösningar till BizTalk Services](biztalk-migrating-to-edi-guide.md)
-
 ## Övervaka
 ### [Uppgifter som är beroende av tjänsttillstånd](biztalk-service-state-chart.md)
-
 ## Skydda
 ### [Åtkomstkontroll](biztalk-issuer-name-issuer-key.md)
-
 ## [Felsöka](biztalk-troubleshoot-using-ops-logs.md)
 
 # Referens
 ## [Viktig information](biztalk-release-notes.md)
 
+# Resurser
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=biztalk-services)
+## [Prissättning](https://azure.microsoft.com/pricing/details/biztalk-services/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,6 +1,5 @@
 # Översikt
-## [Vad är Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)
-## [Hur det fungerar](active-directory-b2c-overview.md)
+## [Översikt](active-directory-b2c-overview.md)
 ## [Typer av program](active-directory-b2c-apps.md)
 ## [Produktionsskala vs förhandsgranska B2C-klienter](active-directory-b2c-reference-tenant-type.md)
 
@@ -51,10 +50,12 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Resurser
-## [Support](active-directory-b2c-support.md)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Azures feedbackforum](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=active-directory-b2c)
+## [Support](active-directory-b2c-support.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

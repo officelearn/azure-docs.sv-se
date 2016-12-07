@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 11/15/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+ms.sourcegitcommit: 408a5fb25ef7b285a76e8f5b65890dc625574437
+ms.openlocfilehash: fba738575ee9a60cc930adfb68b7c34323bbe747
 
 
 ---
@@ -58,8 +58,8 @@ Titta på följande videor för att komma igång med Data Lake Store.
    * **Plats**: Välj en plats där du vill skapa Data Lake Store-kontot.
    * **Krypteringsinställningar**. Du kan välja om du vill kryptera Data Lake Store-kontot. Om du väljer att kryptera kan ange du hur du hanterar masterkrypteringsnyckeln för datakryptering i ditt konto.
      
-     * (Standard) Välj **Aktivera inte kryptering** från listrutan att välja bort kryptering.
-     * (Valfritt) Välj **Använd nycklar som hanteras av Azure Data Lake** om du vill att Azure Data Lake Store ska hantera dina krypteringsnycklar.
+     * (Valfritt) Välj **Aktivera inte kryptering** från listrutan om du vill välja bort kryptering.
+     * (Standard) Välj **Använd nycklar som hanteras av Azure Data Lake** om du vill att Azure Data Lake Store ska hantera dina krypteringsnycklar.
        
          ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
      * (Valfritt) Välj **Välj nycklar från Azure Key Vault** om du vill använda egna nycklar i Azure Key Vault. Med det här alternativet kan du också skapa ett Key Vault-konto och nycklar även om du inte redan har ett konto.
@@ -136,6 +136,6 @@ Om du vill ta bort ett Azure Data Lake Store-konto från dina Data Lake Store-bl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -12,7 +12,7 @@
 ## [Hantera AD-licensiering](active-directory-licensing-what-is.md)
 ## [Skaffa Azure till din organisation](sign-up-organization.md)
 ## [Vanliga frågor och svar](active-directory-faq.md)
-
+## [Självstudier för SaaS-appar](active-directory-saas-tutorial-list.md)
 
 # Gör så här för att
 ## Hantera användare
@@ -279,7 +279,7 @@
 # Referens
 ## [PowerShell-cmdletar](/powershell/ )
 ## [Java API-referens](/java/api)
-## [.NET-API](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [.NET-API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Tjänstens begränsningar](active-directory-service-limits-restrictions.md)
 
 # Relaterat
@@ -291,12 +291,12 @@
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Azures feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

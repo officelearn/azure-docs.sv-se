@@ -5,11 +5,11 @@
 
 # Kom igång
 ## Information och analyser
-###[Registrera dig för Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Registrera dig för Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automatisering och kontroll
-###[Min första Runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Min första Runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Skydd och återställning
-###[Introduktion till Azure Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Introduktion till Azure Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Säkerhet och efterlevnad
 ### [Säkerhet och granskning](oms-security-getting-started.md)
 ### [Datasäkerhet](oms-security-data-security.md)
@@ -44,8 +44,8 @@
 #### [AD-bedömning](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD-replikeringsstatus](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Varningshantering](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Application Dependency Monitor](operations-management-suite-application-dependency-monitor.md)
-##### [Konfigurera](operations-management-suite-application-dependency-monitor-configure.md)
+#### [Tjänstkarta](operations-management-suite-service-map.md)
+##### [Konfigurera](operations-management-suite-service-map-configure.md)
 #### [Azure-nätverksanalys](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Behållare](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Key Vault-analys](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -64,6 +64,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

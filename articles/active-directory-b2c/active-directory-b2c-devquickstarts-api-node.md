@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/30/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 833ba11df57e27cf1f5e4045d144550bb14ca1c2
+ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
+ms.openlocfilehash: 6ac89d753ccbdd188e473b5d13a30b4622ad848d
 
 
 ---
@@ -27,8 +27,8 @@ Med Azure Active Directory (Active AD) B2C kan du skydda ett webb-API med hjälp
 
 > [!NOTE]
 > Det är tänkt att du ska ansluta till det här exemplet genom att använda vårt [iOS B2C-exempelprogram](active-directory-b2c-devquickstarts-ios.md). Gör den här genomgången först och följ sedan det exemplet.
-> 
-> 
+>
+>
 
 **Passport** är ett mellanprogram för autentisering för Node.js. Modulbaserade Passport är flexibelt och kan diskret installeras i alla Express-baserade webbappar eller Restify-webbappar. En omfattande uppsättning strategier stöder autentisering med användarnamn och lösenord, Facebook, Twitter och mycket mer. Vi har utvecklat en strategi för Azure Active Directory (Azure AD). Du installerar den här modulen och lägger sedan till Azure AD-plugin-programmet `passport-azure-ad`.
 
@@ -52,7 +52,7 @@ Därefter måste du skapa en app i B2C-katalogen som ger Azure AD information so
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Skapa principer
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här programmet innehåller två identitetsupplevelser: registrera sig och logga in. Du måste skapa en princip av varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  Tänk på följande när du skapar dina tre principer:
+I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här programmet innehåller två identitetsupplevelser: registrera sig och logga in. Du måste skapa en princip av varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Tänk på följande när du skapar dina tre principer:
 
 * Välj **visningsnamnet** och andra registreringsattribut i registreringsprincipen.
 * Välj det **visningsnamn** och **objekt-ID** som programmet gör anspråk på i varje princip.  Du kan också välja andra anspråk.
@@ -74,7 +74,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Nod
 Den färdiga appen finns också [som en ZIP-fil](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/complete.zip) eller i `complete`-grenen för samma centrallager.
 
 ## <a name="download-nodejs-for-your-platform"></a>Ladda ned Node.js för plattformen
-Du behöver en fungerande installation av Node.js. för att kunna använda det här exemplet. 
+Du behöver en fungerande installation av Node.js. för att kunna använda det här exemplet.
 
 Installera Node.js från [nodejs.org](http://nodejs.org).
 
@@ -85,8 +85,8 @@ Installera MongoDB från [mongodb.org](http://www.mongodb.org).
 
 > [!NOTE]
 > Den här genomgången förutsätter att du använder standardslutpunkterna för MongoDB, vilket (när detta skrivs) är `mongodb://localhost`.
-> 
-> 
+>
+>
 
 ## <a name="install-the-restify-modules-in-your-web-api"></a>Installera Restify-modulerna i ditt webb-API
 Vi använder Restify för att skapa REST-API. Restify är ett minimalt och flexibelt Node.js-program härlett från Express. Det har kraftfulla och stabila funktioner för att skapa REST API:er utöver Connect.
@@ -163,13 +163,13 @@ Resultatet av kommandot ska se ut ungefär som den här texten:
     ├── pause@0.0.1
     └── pkginfo@0.2.3
 
-## <a name="add-passportazuread-to-your-web-api"></a>Lägg till passport-azuread i ditt webb-API
+## <a name="add-passport-azuread-to-your-web-api"></a>Lägg till passport-azuread i ditt webb-API
 Lägg sedan till OAuth-strategin genom att använda `passport-azuread`, en uppsättning strategier som ansluter Azure AD med Passport. Använd den här strategin för ägar-token i REST API-exemplet.
 
 > [!NOTE]
 > Även om OAuth2 erbjuder ett ramverk där alla kända token-typer kan utfärdas, är det bara vissa token-typer som används ofta. De token som skyddar slutpunkter är ägar-token. Dessa typer av token är de mest utfärdade i OAuth2. Många olika implementeringar utgår ifrån att ägar-token är den enda typ av token som utfärdas.
-> 
-> 
+>
+>
 
 Ändra katalogen till `azuread` från kommandoraden, om den inte redan finns där.
 
@@ -215,7 +215,7 @@ Installera moduler i din `node_modules`-katalog:
 * `npm install bunyan`
 
 ## <a name="create-a-serverjs-file-with-your-dependencies"></a>Skapa en server.js-fil med dina beroenden
-`server.js`-filen innehåller de flesta funktioner för Webb-API-servern. 
+`server.js`-filen innehåller de flesta funktioner för Webb-API-servern.
 
 Ändra katalogen till `azuread` från kommandoraden, om den inte redan finns där:
 
@@ -258,7 +258,7 @@ clientID: <your client ID for this Web API you created in the portal>
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
 audience: '<your audience URI>', // the Client ID of the application that is calling your API, usually a web API or native client
 identityMetadata: 'https://login.microsoftonline.com/<tenant name>/.well-known/openid-configuration', // Make sure you add the B2C tenant name in the <tenant name> area
-tenantName:'<tenant name>', 
+tenantName:'<tenant name>',
 policyName:'b2c_1_<sign in policy name>' // This is the policy you'll want to validate against in B2C. Usually this is your Sign-in policy (as users sign in to this API)
 passReqToCallback: false // This is a node.js construct that lets you pass the req all the way back to any upstream caller. We turn this off as there is no upstream caller.
 };
@@ -270,9 +270,9 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 ### <a name="required-values"></a>Värden som krävs
 `clientID`: Klient-ID för programmet Web API.
 
-`IdentityMetadata`: Det är där `passport-azure-ad` letar efter konfigurationsdata för din identitetsprovider. Den letar också efter nycklarna för att validera JSON-webb-token. 
+`IdentityMetadata`: Det är där `passport-azure-ad` letar efter konfigurationsdata för din identitetsprovider. Den letar också efter nycklarna för att validera JSON-webb-token.
 
-`audience`: Den URI (Uniform Resource Identifier) från portalen som identifierar ditt anropande program. 
+`audience`: Den URI (Uniform Resource Identifier) från portalen som identifierar ditt anropande program.
 
 `tenantName`: Ditt klientnamn (till exempel **contoso.onmicrosoft.com**).
 
@@ -280,8 +280,8 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 
 > [!NOTE]
 > Använd samma principer för både klient- och serverinstallationen när det gäller B2C-förhandsgranskning. Om du har redan gjort en genomgång och skapat dessa principer behöver du inte göra det igen. Eftersom du har gjort genomgången ska du inte behöva ställa in nya principer för klientgenomgångarna på webbplatsen.
-> 
-> 
+>
+>
 
 ## <a name="add-configuration-to-your-serverjs-file"></a>Lägg till konfigurationen i din server.js-fil
 För att läsa värdena från `config.js`-filen du skapade, lägg till `.config`-filen som en nödvändig resurs i ditt program och sedan ange de globala variablerna till dem i `config.js`-dokumentet.
@@ -386,7 +386,7 @@ Du skapar först schemat och sedan ett modellobjekt som du använder för att la
 Lägg till de vägar du ska använda för REST API-servern nu när du har en databasmodell att arbeta med.
 
 ### <a name="about-routes-in-restify"></a>Om vägar i Restify
-I Restify fungerar vägar på samma sätt som när de använder Express-stacken. Du definierar vägar genom att använda den URI som du förväntar dig att klientprogram anropar. 
+I Restify fungerar vägar på samma sätt som när de använder Express-stacken. Du definierar vägar genom att använda den URI som du förväntar dig att klientprogram anropar.
 
 Ett typiskt mönster för en Restify-väg är:
 
@@ -544,7 +544,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ## <a name="create-your-server"></a>Skapa servern
 Du har nu definierat databasen och placerat ut vägarna. Det som är kvar är att lägga till serverinstansen som hanterar dina anrop.
 
-Med Restify och Express kan anpassa för en REST API-server på en mycket ingående nivå, men här använder vi den mest grundläggande installationen. 
+Med Restify och Express kan anpassa för en REST API-server på en mycket ingående nivå, men här använder vi den mest grundläggande installationen.
 
 ```Javascript
 
@@ -664,7 +664,7 @@ server.listen(serverPort, function() {
 
 });
 
-``` 
+```
 
 ## <a name="add-authentication-to-your-rest-api-server"></a>Lägg till autentisering i REST API-servern
 Nu när du har en aktiv REST API-server kan du använda den med Azure AD.
@@ -673,11 +673,11 @@ Nu när du har en aktiv REST API-server kan du använda den med Azure AD.
 
 `cd azuread`
 
-### <a name="use-the-oidcbearerstrategy-that-is-included-with-passportazuread"></a>Använd den OIDC-ägarstrategi som ingår i passport-azure-ad
+### <a name="use-the-oidcbearerstrategy-that-is-included-with-passport-azure-ad"></a>Använd den OIDC-ägarstrategi som ingår i passport-azure-ad
 > [!TIP]
 > När du skriver API: er bör du alltid länka dina data till något unikt från token, något som användaren inte kan förfalska. När servern lagrar ToDo-objekt, sker det baserat på **oid** för användaren i token (anropas via token.oid). Det anges i fältet ”ägare”. Det här värdet garanterar att bara denna användaren kan komma åt sina egna ToDo-objekt. Ägarens API exponeras aldrig, så en extern användare kan begära andras ToDo-objekt, även om de autentiseras.
-> 
-> 
+>
+>
 
 Använd sedan den ägarstrategi som kommer med `passport-azure-ad`.
 
@@ -722,8 +722,8 @@ Passport använder samma mönster för alla strategier. Du skickar en `function(
 
 > [!IMPORTANT]
 > Koden ovan tar alla användare som autentiserar till servern. Denna process kallas autoregistrering. I produktionsservrar ska du inte ge alla användare åtkomst till API:en utan att de först går igenom en registreringsprocess. Denna process är oftast det mönster du ser i konsumentappar. Det gör att du kan registrera dig med hjälp av Facebook men du blir sedan uppmanad att fylla i ytterligare information. Om detta program inte var ett kommandoradsprogram hade vi kunnat extrahera mejladressen från det token-objekt som returneras och sedan bett användarna att fylla i ytterligare information. Eftersom det här är ett exempel, lägger vi till dem till en databas i minnet.
-> 
-> 
+>
+>
 
 ## <a name="run-your-server-application-to-verify-that-it-rejects-you"></a>Kör serverprogrammet för att verifiera att det avvisar dig
 Du kan använda `curl` om du vill kontrollera att du nu har OAuth2-skydd mot dina slutpunkter. De rubriker som returneras borde räcka för att se om att du är på rätt väg.
@@ -760,7 +760,6 @@ Du har implementerat en REST API med Restify och OAuth! Du har nu tillräcklig k
 Du kan nu gå vidare  till mer avancerade ämnen, till exempel:
 
 [Ansluta till ett webb-API genom att använda iOS med B2C](active-directory-b2c-devquickstarts-ios.md)
-
 
 
 

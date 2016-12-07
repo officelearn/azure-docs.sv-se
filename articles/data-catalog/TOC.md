@@ -2,12 +2,11 @@
 ## [Vad är Data Catalog?](data-catalog-what-is-data-catalog.md)
 ## [Vanliga scenarier](data-catalog-common-scenarios.md)
 ## [Datakällor som stöds](data-catalog-dsr.md)
-## [Nyheter](data-catalog-whats-new.md)
 
 # Kom igång
 ## [Kom igång med Azure Data Catalog](data-catalog-get-started.md)
 ## [Börja använda Azure Data Catalog](data-catalog-adopting-data-catalog.md)
-## [Förutsättningar för Azure Data Catalog](data-catalog-prerequisites.md)
+## [Krav](data-catalog-prerequisites.md)
 ## [Vanliga frågor och svar](data-catalog-frequently-asked-questions.md)
 
 # Gör så här för att
@@ -30,12 +29,16 @@
 ## [Kortkommandon för Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
 ## [Terminologi](data-catalog-terminology.md)
 ## [Viktig information](data-catalog-release-notes.md)
-## [REST](https://docs.microsoft.com/rest/api/datacatalog/)
+## [REST](/rest/api/datacatalog/)
 
 # Resurser
+## [Viktig information](data-catalog-whats-new.md)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

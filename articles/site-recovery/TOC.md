@@ -2,7 +2,7 @@
 ## [Vad är Site Recovery?](site-recovery-overview.md)
 ## [Hur fungerar Site Recovery?](site-recovery-components.md)
 ## [Vilka arbetsbelastningar kan du skydda?](site-recovery-workload.md)
-## [Vilka operativsystem stöds?](site-recovery-support-matrix.md)
+## [Site Recovery-stödmatris](site-recovery-support-matrix.md)
 ## [Vanliga frågor och svar](site-recovery-faq.md)
 ## [Titta på en presentation](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -49,7 +49,7 @@
 ## [Övervaka och felsök](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell – Klassisk](/powershell/servicemanagement/)
 
 # Relaterat
@@ -63,6 +63,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

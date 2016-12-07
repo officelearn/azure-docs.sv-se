@@ -98,9 +98,9 @@
 ### [Vanliga frågor och svar om Cloud Services](cloud-services-faq.md)
 
 # Referens
-## [NET](https://msdn.microsoft.com/library)
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 ## [Gästoperativsystemets korrigeringsfiler](cloud-services-guestos-msrc-releases.md)
 ## Gästoperativsystem, indragning
 ### [Indragningsprincip](cloud-services-guestos-retirement-policy.md)
@@ -116,6 +116,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

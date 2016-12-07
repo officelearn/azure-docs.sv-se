@@ -18,6 +18,7 @@
 #### [Azure Storage](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
+#### [OMS Gateway](log-analytics-oms-gateway.md)
 ### Datakällor
 #### [Översikt över datakällor](log-analytics-data-sources.md)
 #### [Windows-händelser](log-analytics-data-sources-windows-events.md)
@@ -38,7 +39,6 @@
 #### [Varningshantering](log-analytics-solution-alert-management.md)
 #### [Kapacitetshantering](log-analytics-capacity.md)
 #### [Spårning av ändringar](log-analytics-change-tracking.md)
-#### [Konfigurationsbedömning](log-analytics-configuration-assessment.md)
 #### [Behållare](log-analytics-containers.md)
 #### [Key Vault](log-analytics-azure-key-vault.md)
 #### [Utvärdering av skadlig kod](log-analytics-malware.md)
@@ -48,9 +48,9 @@
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [SQL-bedömning](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
-#### [Systemuppdateringsbedömning](log-analytics-system-update.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
+#### [SCOM-utvärdering](log-analytics-scom-assessment.md)
 ## Analysera
 ### [Instrumentpaneler](log-analytics-dashboards.md)
 ### [Vydesigner](log-analytics-view-designer.md)
@@ -63,11 +63,10 @@
 
 # Resurser
 ## [Uppgraderingsanalys](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Prissättning](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

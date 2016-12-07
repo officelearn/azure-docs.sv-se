@@ -47,7 +47,7 @@
 ### [Kopplade namnområden](service-bus-paired-namespaces.md)
 ### [Chain-enheter med automatisk vidarebefordran](service-bus-auto-forwarding.md)
 ## Hantera
-### [Använda ARM-mallar](service-bus-resource-manager-overview.md)
+### [Använda Azure Resource Manager-mallar](service-bus-resource-manager-overview.md)
 ### [Etablera entiteter med PowerShell](service-bus-powershell-how-to-provision.md)
 
 # Referens
@@ -55,8 +55,12 @@
 ## [Exempel](service-bus-samples.md)
 ## [Undantag](service-bus-messaging-exceptions.md)
 ## [Kvoter](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
+## [NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [SQLFilter-syntax](service-bus-messaging-sql-filter.md)
+## [SQLRuleAction-syntax](service-bus-messaging-sql-rule-action.md)
+## [AMQP1.0-protokollguide](service-bus-amqp-protocol-guide.md)
+### [AMQP 1.0 begärande-svar-baserade åtgärder](service-bus-amqp-request-response.md)
 
 # Resurser
 ## [Blogg](https://blogs.msdn.microsoft.com/servicebus/)
@@ -69,6 +73,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

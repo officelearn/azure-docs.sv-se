@@ -1,10 +1,14 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 14e447744ba2aa89a50783916a42af2e0314c5cd
+ms.openlocfilehash: 531a1066195512504e2417c1661b13c36649b3e9
+
 
 ---
-# Mobile Apps Documentation
+# <a name="mobile-apps-documentation"></a>Dokumentation om Mobile Apps
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+Mobile Apps i Azure App Service är en skalbar plattform för mobilappsutveckling tänkt att användas av utvecklare av företagsprogram och systemintegrerare. Den ger mobilutvecklare tillgång till ett stort utbud av funktioner.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +22,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Mobile Apps</h3>
+                        <h3>Läs om Mobile Apps</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Library</h3>
+                        <h3>Videobibliotek för Azure App Service</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Andriod app</h3>
+                        <h3>Kom igång med att skapa en Android-app</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Apache Cordova app</h3>
+                        <h3>Kom igång med att skapa en Apache Cordova-app</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +94,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an iOS app</h3>
+                        <h3>Kom igång med att skapa en iOS-app</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +112,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Windows app</h3>
+                        <h3>Kom igång med att skapa en Windows-app</h3>
                     </div>
                 </div>
             </div>
@@ -126,7 +130,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.Andriod app</h3>
+                        <h3>Kom igång med att skapa en xamarin.Android-app</h3>
                     </div>
                 </div>
             </div>
@@ -144,7 +148,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.Forms app</h3>
+                        <h3>Kom igång med att skapa en xamarin.Forms-app</h3>
                     </div>
                 </div>
             </div>
@@ -162,7 +166,7 @@ API Management helps organizations publish APIs to external, partner and interna
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a xamarin.iOS app</h3>
+                        <h3>Kom igång med att skapa en Xamarin.iOS-app</h3>
                     </div>
                 </div>
             </div>
@@ -173,16 +177,21 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ---
 
-## Reference
+## <a name="reference"></a>Referens
 
-### .NET
-[Mobile Apps .NET Reference](https://msdn.microsoft.com/library/azure/dn961176)
+### <a name="net"></a>.NET
+[Mobile Apps .NET-referens](https://msdn.microsoft.com/library/azure/dn961176)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-mobile.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Mobile Apps Documentation
-        </div>
+Ladda ned dokumentation om Mobile Apps </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

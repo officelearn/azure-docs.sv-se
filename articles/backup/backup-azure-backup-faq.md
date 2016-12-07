@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: f85b3210fc1bdab65da29c3355ed3e1eb35da2ab
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: adee77b102d9c9326dad864f6f2f906f7b8acd0b
 
 
 ---
-# <a name="azure-backup-service-faq"></a>Vanliga frågor och svar om tjänsten Azure Backup
+# <a name="azure-backup-service--faq"></a>Vanliga frågor och svar om tjänsten Azure Backup
 Den här artikeln innehåller en lista över vanliga frågor och svar om Azure Backup-tjänsten. Vår community svarar snabbt, och vanliga frågor publiceras i den här artikeln. Svaren på frågorna innehåller ofta referens- eller supportinformation. Du kan ställa frågor om Azure Backup i Disqus-rutan i den här eller en relaterad artikel. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Från vilka operativsystem kan jag säkerhetskopiera till Azure med hjälp av Azure Backup? <br/>
@@ -43,7 +43,7 @@ Azure Backup stöder operativsystemen i följande lista för säkerhetskopiering
 
 Säkerhetskopiering av virtuell Azure-dator:
 
-* **Linux**: Azure Backup stöder [en lista över distributioner som godkänts av Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) med undantag för Core OS Linux.  Andra Bring-Your-Own-Linux-distributioner kan också fungera så länge som den virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns.
+* **Linux**: Azure Backup stöder [en lista över distributioner som godkänts av Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) med undantag för Core OS Linux.  Andra Bring-Your-Own-Linux-distributioner kan också fungera så länge som den virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns.
 * **Windows Server**: versioner som är äldre än Windows Server 2008 R2 stöds inte.
 
 ## <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Var kan jag hämta den senaste Azure Backup-agenten? <br/>
@@ -127,7 +127,7 @@ Absolut. Azure Backup stöder säkerhetskopiering på VM-nivå för virtuella da
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Kan jag installera Azure Backup-agenten på en virtuell dator i Azure om jag vill säkerhetskopiera filer och mappar med tillfällig lagring på den virtuella Azure-datorn? <br/>
 Du kan installera Azure Backup-agenten i Windows-gästoperativsystemet och säkerhetskopiera filer och mappar till ett tillfälligt lagringsutrymme. Observera dock att säkerhetskopieringen misslyckas om du rensar data i tillfällig lagring. Om data i tillfällig lagring har tagits bort kan du bara återställa till beständig lagring.
 
-## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-onpremises-applicationvm-workloads-to-azure-br"></a>Jag har installerat Azure Backup-agenten för att skydda mina filer och mappar. Kan jag nu installera SCDPM för användning med Azure Backup-agenten om jag vill skydda lokala program/VM-arbetsbelastningar i Azure? <br/>
+## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>Jag har installerat Azure Backup-agenten för att skydda mina filer och mappar. Kan jag nu installera SCDPM för användning med Azure Backup-agenten om jag vill skydda lokala program/VM-arbetsbelastningar i Azure? <br/>
 Om du vill använda Azure Backup med SCDPM rekommenderar vi att du installerar SCDPM först och sedan installerar Azure Backup-agenten. Detta säkerställer en smidig integrering av Azure Backup-agenten med SCDPM och gör att du kan skydda filer/mappar, program och arbetsbelastningar och virtuella datorer i Azure direkt från SCDPM-hanteringskonsolen. Installera inte SCDPM efter det att du har installerat Azure Backup-agenten för ovan nämnda ändamål. Detta varken rekommenderas eller stöds.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Vilken längd på filsökvägar stöds i Azure Backup-principen när Azure Backup-agenten används? <br/>
@@ -240,13 +240,13 @@ Nyckeln som används för att kryptera säkerhetskopierade data finns bara hos k
 
   När säkerhetskopian har skapats på den nya cachelagringsplatsen kan du ta bort den ursprungliga cachelagringsmappen.
 
-## <a name="where-can-i-put-the-cachefolder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Var kan jag placera cachelagringsmappen så att Azure Backup Agent fungerar korrekt?<br/>
+## <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Var kan jag placera cachelagringsmappen så att Azure Backup Agent fungerar korrekt?<br/>
 Följande platser rekommenderas inte för cachelagringsmappen:
 
 * Nätverksresurs eller flyttbart medium: Cachelagringsmappen måste vara lokal på servern som ska säkerhetskopieras med onlinesäkerhetskopiering. Nätverksplatser eller flyttbara medier som USB-enheter stöds inte.
 * Offlinevolymer: Cachelagringsmappen måste vara online för säkerhetskopiering med Azure Backup Agent.
 
-## <a name="are-there-any-attributes-of-the-cachefolder-that-are-not-supportedbr"></a>Finns det några attribut för cachelagringsmappen som inte stöds?<br/>
+## <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Finns det några attribut för cachelagringsmappen som inte stöds?<br/>
  Följande attribut eller deras kombinationer stöds inte för cachelagringsmappen:
 
 * Krypterade

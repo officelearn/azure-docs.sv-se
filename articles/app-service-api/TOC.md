@@ -50,7 +50,7 @@
 ### Webbjobb
 #### [Vad är Azure WebJobs-SDK?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Skapa ett .NET WebJob i Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Använda Azure Blob Storage med WebJobs SDK:n](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Använda Azure Blob Storage med WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Använda Azure Queue Storage med WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Använd Azure Service Bus med WebJobs SDK:n](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Använda Azure Table Storage med WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -167,6 +167,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -10,34 +10,47 @@
 ### [Kom igång med IoT Hub (Node)](iot-hub-node-node-getstarted.md)
 ## Kom igång med en Raspberry Pi
 ### [Kom igång med Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
-### [Konfigurera din enhet](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
-### [Hämta verktygen (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-### [Hämta verktygen (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-### [Hämta verktygen (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
-### [Skapa och distribuera blinkningsprogrammet](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-### [Hämta Azure-verktygen (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
-### [Hämta Azure-verktygen (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
-### [Hämta Azure-verktygen (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
-### [Skapa din IoT-hubb och registrera Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-### [Skapa en Azure-funktionsapp och ett lagringskonto](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
-### [Kör exempelprogrammet för att skicka meddelanden](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
-### [Lästa meddelanden sparas i minnet](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
-### [Kör exempelprogrammet för att ta emot meddelanden](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
-### [Valfritt: Ändra LED-beteende](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
-### [Felsökning](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
+### Lektion 1: Konfigurera din enhet
+#### [Konfigurera din enhet](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
+#### [Hämta verktygen (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+#### [Hämta verktygen (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
+#### [Hämta verktygen (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
+#### [Skapa och distribuera blinkningsprogrammet](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
+### Lektion 2: Skapa din IoT-hubb
+#### [Hämta Azure-verktygen (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
+#### [Hämta Azure-verktygen (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
+#### [Hämta Azure-verktygen (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
+#### [Skapa din IoT-hubb och registrera Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
+### Lektion 3: Skicka meddelanden från enheten till molnet
+#### [Skapa en Azure-funktionsapp och ett lagringskonto](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+#### [Kör exempelprogrammet för att skicka meddelanden](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
+#### [Lästa meddelanden sparas i minnet](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
+### Lektion 4: Skicka meddelanden från molnet till enheten
+#### [Kör exempelprogrammet för att ta emot meddelanden](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
+#### [Valfritt: Ändra LED-beteende](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
+### [Felsöka](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Kom igång med SDK för gateway (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Kom igång med SDK för gateway (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
-## självstudiekurserna
-### [Självstudier för att bearbeta meddelanden från enhet till moln (.NET)](iot-hub-csharp-csharp-process-d2c.md)
-### [Självstudier för att bearbeta meddelanden från enhet till moln (Java)](iot-hub-java-java-process-d2c.md)
-### [Självstudier för att ladda upp filer från enheter](iot-hub-csharp-csharp-file-upload.md)
-### [Skicka meddelanden från moln till enhet (.NET)](iot-hub-csharp-csharp-c2d.md)
-### [Skicka meddelanden från moln till enhet (Java)](iot-hub-java-java-c2d.md)
-### [Skicka meddelanden från moln till enhet (Node)](iot-hub-node-node-c2d.md)
-### [Kom igång med enhetstvillingar](iot-hub-node-node-twin-getstarted.md)
-### [Så här använder du tvillingegenskaper](iot-hub-node-node-twin-how-to-configure.md)
 
 # Gör så här för att
+## [Självstudier för att bearbeta meddelanden från enhet till moln (.NET)](iot-hub-csharp-csharp-process-d2c.md)
+## [Självstudier för att bearbeta meddelanden från enhet till moln (Java)](iot-hub-java-java-process-d2c.md)
+## [Självstudier för att ladda upp filer från enheter](iot-hub-csharp-csharp-file-upload.md)
+## [Skicka meddelanden från moln till enhet (.NET)](iot-hub-csharp-csharp-c2d.md)
+## [Skicka meddelanden från moln till enhet (Java)](iot-hub-java-java-c2d.md)
+## [Skicka meddelanden från moln till enhet (Node)](iot-hub-node-node-c2d.md)
+## [Kom igång med enhetstvillingar (Node)](iot-hub-node-node-twin-getstarted.md)
+## [Kom igång med enhetstvillingar (.NET/Node)](iot-hub-csharp-node-twin-getstarted.md)
+## [Använd direkta metoder för Node.js](iot-hub-node-node-direct-methods.md)
+## [Använd direkta metoder för .NET/Node](iot-hub-csharp-node-direct-methods.md)
+## [Kom igång med enhetshantering för Node.js](iot-hub-node-node-device-management-get-started.md)
+## [Kom igång med enhetshantering för .NET/Node](iot-hub-csharp-node-device-management-get-started.md)
+## [Använd tvillingegenskaper (Node)](iot-hub-node-node-twin-how-to-configure.md)
+## [Använd tvillingegenskaper (.NET/Node)](iot-hub-csharp-node-twin-how-to-configure.md)
+## [Använd enhetsjobb för att uppdatera enhetens inbyggda programvara för Node.js](iot-hub-node-node-firmware-update.md)
+## [Använd enhetsjobb för att uppdatera enhetens inbyggda programvara för .NET/Node](iot-hub-csharp-node-firmware-update.md)
+## [Schemalägg och sänd jobb för Node.js](iot-hub-node-node-schedule-jobs.md)
+## [Schemalägg och sänd jobb för .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
 ## Planera distributionen
 ### [Jämförelse mellan IoT Hub och Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Skala din lösning](iot-hub-scaling.md)
@@ -46,6 +59,8 @@
 ## Utveckla
 ### [Introduktion](iot-hub-devguide.md)
 ### [Skicka och ta emot meddelanden](iot-hub-devguide-messaging.md)
+### [Funktionsguide enheten till molnet](iot-hub-devguide-d2c-guidance.md)
+### [Funktionsguide molnet till enheten](iot-hub-devguide-c2d-guidance.md)
 ### [Ladda upp filer från en enhet](iot-hub-devguide-file-upload.md)
 ### [Hantera enhetsidentiteter](iot-hub-devguide-identity-registry.md)
 ### [Styra åtkomst till IoT Hub](iot-hub-devguide-security.md)
@@ -55,6 +70,7 @@
 ### [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md)
 ### [Frågespråk](iot-hub-devguide-query-language.md)
 ### [Kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md)
+### [Prissättningsexempel](iot-hub-devguide-pricing.md)
 ### [SDK:er för tjänst och enhet](iot-hub-devguide-sdks.md)
 ### [MQTT-support](iot-hub-mqtt-support.md)
 ### [Ordlista](iot-hub-devguide-glossary.md)
@@ -68,28 +84,29 @@
 ### [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
 ### [Användningsstatistik](iot-hub-metrics.md)
 ### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
-
+### [Konfigurera IP-filtrering](iot-hub-ip-filtering.md)
+## SDK för gateway
+### [Självstudier för att simulera en enhet med SDK för gateway (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
+### [Självstudier för att simulera en enhet med SDK för gateway (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
+### [Självstudier för att skicka meddelanden från en riktig enhet med SDK för gateway](iot-hub-gateway-sdk-physical-device.md)
 ## Skydda
 ### [Säkerhet från grunden](iot-hub-security-ground-up.md)
 ### [Metodtips för säkerhet](iot-hub-security-best-practices.md)
 ### [Säkerhetsarkitektur](iot-hub-security-architecture.md)
 ### [Skydda distributionen av IoT](iot-hub-security-deployment.md)
 
-
 # Referens
 ## [Azure CLI](https://docs.microsoft.com/cli/azure)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [.NET-API](https://docs.microsoft.com/dotnet/api)
-## SDK för gateway
-### [Självstudier för att simulera en enhet med SDK för gateway (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
-### [Självstudier för att simulera en enhet med SDK för gateway (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Självstudier för att skicka meddelanden från en riktig enhet med SDK för gateway](iot-hub-gateway-sdk-physical-device.md)
-## [SDK API för enhet](http://azure.github.io/azure-iot-sdks/)
+## [Azure IoT SDK:er](http://azure.github.io/azure-iot-sdks/)
 ## [SDK API för gateway](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST API för resursprovider](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST API för enhetsidentiteter](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [REST API för enhetsmeddelanden](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 ## [Introduktion till SDK för C för Azure IoT-enheter](iot-hub-device-sdk-c-intro.md)
 ## [IoT-enhetens SDK för C: mer om IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ## [IoT-enhetens SDK för C: mer om serialiserare](iot-hub-device-sdk-c-serializer.md)
-## [REST](https://docs.microsoft.com/en-us/rest/api/iothub/)
 
 # Relaterat
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -99,16 +116,15 @@
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/iot-hub/)
-## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub) 
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
-## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub) 
-## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=iot-hub) 
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT-enhetskatalog](https://catalog.azureiotsuite.com/)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

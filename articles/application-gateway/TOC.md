@@ -6,37 +6,38 @@
 ## [Flera platser](application-gateway-multi-site-overview.md)
 ## [Slutpunkt till slutpunkt för SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md#application-gateway-limits.md)
+## [Tjänstbegränsningar](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 # Kom igång
 ## Skapa en Application Gateway
 ### Offentlig
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
-#### [CLI](application-gateway-create-gateway-arm-template.md)
-#### [PowerShell (klassisk)](application-gateway-create-gateway-arm-template.md)
+#### [CLI](application-gateway-create-gateway-cli.md)
+#### [PowerShell (klassisk)](application-gateway-create-gateway.md)
 ### Intern
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell (klassisk)](application-gateway-ilb.md)
 # Gör så här för att
-## Skapa med brandväggen för webbappar
+## Konfigurera brandväggen för webbprogram
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-## Konfigurera för SSL
+## Konfigurera för SSL-avlastning
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (klassisk)](application-gateway-ssl.md)
 ### [Princip och slutpunkt till slutpunkt](application-gateway-end-to-end-ssl-powershell.md)
-## Skapa URL-sökvägsbaserad routning
+## Konfigurera URL-baserad sökvägsroutning
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
 ## Konfigurera värdtjänster för flera webbplatser
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Skapa hälsotillståndsavsökningar
+## Konfigurera hälsotillståndsavsökningar
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (klassisk)](application-gateway-create-probe-classic-ps.md)
+## [Kombinera tjänster för belastningsutjämning](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Hantera
 ### [Diagnostik](application-gateway-diagnostics.md)
 ### [Felsöka](application-gateway-troubleshooting-502.md)
@@ -54,11 +55,12 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/application-gateway/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

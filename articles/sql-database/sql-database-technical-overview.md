@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: 9fc8295aaa68a0d41a34f714b34642585b13b67d
-ms.openlocfilehash: 37da0020c8fc51a422ce6c70fed26329863a90f0
+ms.sourcegitcommit: 1c603d37735bbbfdfaaf4a191e2ad1ce6ff5b2b7
+ms.openlocfilehash: 67f3e923680a9a2f399c0839d2ec11ef4615da00
 
 
 ---
@@ -37,12 +38,12 @@ För många företag och appar, räcker det att kunna skapa databaser och regler
 
 [Elastiska pooler](sql-database-elastic-pool.md) i SQL Database löser det här problemet. Konceptet är enkelt. Du allokerar prestanda till en pool och betalar för den samlade prestandan för poolen istället för prestandan för en enskild databas. Du behöver inte reglera databasprestanda hela tiden. Databaserna i poolen, som kallas *elastiska databaser*, skalar automatiskt upp eller ned för att möta efterfrågan. Elastiska databaser förbrukar, men överskrider inte begränsningarna i poolen. Dina kostnader förblir förutsägbara även om databasanvändningen inte är det. Dessutom kan du [lägga till och ta bort databaser i poolen](sql-database-elastic-pool-manage-portal.md) och därmed skala din app från några få databaser till tusentals, inom en budget som du själv styr över. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-Vilket du än väljer, enskild eller elastisk, så är du inte låst. Du kan blanda enskilda databaser med elastiska databaspooler och ändra tjänstnivåer för enskilda databaser och pooler för att skapa innovativa upplägg. Med den kraft och räckvidd som Azure har, kan du dessutom blanda Azure-tjänster med SQL Database, allt för att möta designbehoven för just din unika, moderna app, samt styra kostnader och upptäcka nya affärsmöjligheter.
+Vilket du än väljer, enskild eller elastisk, så är du inte låst. Du kan blanda enskilda databaser med elastiska databaspooler och snabbt och enkelt ändra tjänstnivåerna för enskild databaser och pooler efter behov. Med den kraft och räckvidd som Azure har, kan du dessutom blanda andra Azure-tjänster med SQL Database, allt för att möta designbehoven för just din unika app, samt styra kostnader och upptäcka nya affärsmöjligheter.
 
-Men hur kan man jämföra den relativa prestandan för databaser och databaspooler? Hur vet man rätt värden när man reglerar upp eller ner? Svaret är Database Transaction Units (DTU:er) för enskilda databaser och elastiska DTU:er (eDTU:er) för elastiska databaser och databaspooler. Se [SQL Database, alternativ och prestanda: Förstå vad varje tjänstnivå erbjuder](sql-database-service-tiers.md) för mer information.
+Men hur kan man jämföra den relativa prestandan för databaser och databaspooler? Hur vet man rätt värden när man reglerar upp eller ner? Svaret finns i de inbyggda prestandaövervaknings- och aviseringsverktygen, kombinerat med prestandaklassificeringarna som baseras på databastransaktionsenheter (DTU:er) för enskilda databaser och elastiska DTU:er (eDTU:er) för elastiska databaser och databaspooler, som gör att du snabbt kan utvärdera effekten av en upp- eller nedskalning utifrån dina aktuella behov eller baserat på prestandabehoven för projektet. Se [SQL Database, alternativ och prestanda: Förstå vad varje tjänstnivå erbjuder](sql-database-service-tiers.md) för mer information.
 
 ## <a name="keep-your-app-and-business-running"></a>Håll igång din app och din verksamhet
-Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/legal/sla/) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. Med varje SQL-databas, drar du nytta av inbyggt dataskydd och feltolerans som du annars skulle behöva utforma, köpa, bygga och hantera. Men det är möjligt, beroende på dina verksamhetskrav, att du ändå behöver ytterligare skyddslager för att tillse att din app och din verksamhet kan återhämta sig snabbt vid en katastrof, ett fel eller något annat. Med SQL Database, erbjuder varje tjänstnivå en meny med funktioner som du kan använda för att komma igång och fortsätta vara igång. Du kan använda point-in-time-återställning för att återställa en databas till ett tidigare skede, så långt tillbaka som 35 dagar. Om datacentret som är värd för dina databaser skulle få ett avbrott, kan du dessutom växla över till databasrepliker i en annan region. Eller så kan du använda repliker för uppgraderingar eller flytt till andra regioner.
+Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/legal/sla/) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. Med varje SQL-databas drar du nytta av inbyggd säkerhet, feltolerans och dataskydd som du annars skulle behöva köpa, utforma, utveckla och hantera. Men det är möjligt, beroende på dina verksamhetskrav, att du ändå behöver ytterligare skyddslager för att se till att din app och din verksamhet kan återhämta sig snabbt vid en katastrof, ett fel eller ett annat avbrott. Med SQL Database erbjuder varje tjänstnivå en omfattande uppsättning funktioner för affärskontinuitet och alternativ som du kan använda för att komma igång. Du kan använda point-in-time-återställning för att återställa en databas till ett tidigare skede, så långt tillbaka som 35 dagar. Om det uppstår ett avbrott i datacentret som är värd för dina databasmiljöer kan du återställa databaser från geo-redundanta kopior av säkerhetskopior som nyligen skapats, eller växla över till databasrepliker i en annan region. Du kan också använda repliker för uppgraderingar eller flytt till andra regioner.
 
 ![SQL Database Geo-replikering](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -59,11 +60,9 @@ Nu när du har läst en introduktion till SQL Database och besvarat frågan "Vad
 * Kom igång genom att [skapa din första databas](sql-database-get-started.md).
 * [Anslut och fråga med SSMS](sql-database-connect-query-ssms.md)
 * Skapa din första app i C#, Java, Node.js, PHP, Python eller Ruby: [Anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md)
-* Se ett index med rubriker och beskrivningar för [Alla ämnen för Azure SQL Database-tjänsten](sql-database-index-all-articles.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

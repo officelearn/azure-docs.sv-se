@@ -1,4 +1,5 @@
 ---
+redirect_url: /azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory
 title: "Läs in data med Azure Data Factory | Microsoft Docs"
 description: "Lär dig hur man läser in data med Azure Data Factory"
 services: sql-data-warehouse
@@ -16,8 +17,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 960225117a1c9b0802004455353fb9015a80b07b
+ms.sourcegitcommit: 3d41671920d40335e3e0931599a434f9d5f58bba
+ms.openlocfilehash: 0fcbd492f1f26efb67dec90a5ba25ba27172065c
 
 
 ---
@@ -64,7 +65,7 @@ När du väl har alla bitar på plats så är du redo att kopiera exempeldata ti
 ## <a name="step-2-connect-resources-to-azure-data-factory"></a>Steg 2: Anslut resurser till Azure Data Factory.
 Nu när du har dina data på plats, kan vi skapa Azure Data Factory-pipelinen för att flytta data från Azure Blob-lagring till SQL Data Warehouse.
 
-Kom igång genom att öppna [Azure-portalen][Azure-portalen] och välj din Data Factory i den vänstra menyn.
+Kom igång genom att öppna [Azure Portal][Azure Portal] och välj din Data Factory i den vänstra menyn.
 
 ### <a name="step-21-create-linked-service"></a>Steg 2.1: Skapa länkad tjänst
 Länka ditt Azure-lagringskonto och SQL Data Warehouse till din Data Factory.  
@@ -202,34 +203,34 @@ Lär dig mer genom att se:
 De här ämnena ger detaljerad information om Azure Data Factory. De behandlar Azure SQL Database eller HDinsight, men informationen är också relevant för Azure SQL Data Warehouse.
 
 * [Självstudier: Kom igång med Azure Data Factory][Självstudier: Kom igång med Azure Data Factory] Det här är de grundläggande självstudierna för databearbetning med Azure Data Factory. I den här självstudien skapar du din första pipeline som använder sig av HDInsight för att transformera och analysera webbloggar på månatlig basis. Observera att det inte sker några kopieringsaktiviteter i självstudierna.
-* [Självstudier: Kopiera data från Azure Storage Blob till Azure SQL Database][Självstudier: kopiera data från Azure Storage Blob till Azure SQL Database]. I den här självstudien skapar du en pipeline i Azure Data Factory för att kopiera data från Azure Storage Blob till Azure SQL Database.
+* [Självstudier: Kopiera data från Azure Storage Blob till Azure SQL Database][Självstudier: Kopiera data från Azure Storage Blob till Azure SQL Database]. I den här självstudien skapar du en pipeline i Azure Data Factory för att kopiera data från Azure Storage Blob till Azure SQL Database.
 
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy-dokumentation]: ../storage/storage-use-azcopy.md
-[Azure SQL Data Warehouse-anslutningsapp]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[AZCopy-dokumentationen]: ../storage/storage-use-azcopy.md
+[Azure SQL Data Warehouse-anslutning]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
 [Skapa ett SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Skapa ett lagringskonto]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[skapar ett lagringskonto]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
-[Kom igång med Azure Data Factory (Data Factory-redigeraren)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
+[Kom igång med Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Introduktion till Azure Data Factory]: ../data-factory/data-factory-introduction.md
-[Läs in exempeldata i SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
+[läs in exempeldata i SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Flytta data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Självstudie: Kopiera data från Azure Storage Blob till Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[Självstudie: Kom igång med Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
+[Självstudier: Kopiera data från Azure Storage Blob till Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[Självstudier: Kom igång med Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory, inlärningsväg]: https://azure.microsoft.com/documentation/learning-paths/data-factory
+[Utbildningsväg för Azure Data Factory]: https://azure.microsoft.com/documentation/learning-paths/data-factory
 [Azure Portal]: https://portal.azure.com
 [Hämta exempeldata]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

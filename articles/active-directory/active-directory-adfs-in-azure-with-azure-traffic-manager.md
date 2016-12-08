@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
+ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
 
 
 ---
-# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>AD FS-distribution med hög tillgänglighet över geografiska områden i Azure med Azure Traffic Manager
+# <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>AD FS-distribution med hög tillgänglighet över geografiska områden i Azure med Azure Traffic Manager
 [AD FS-distribution i Azure](active-directory-aadconnect-azure-adfs.md) innehåller detaljerade riktlinjer för hur du kan distribuera en enkel AD FS-infrastruktur för din organisation i Azure. Den här artikeln innehåller nästa steg för att skapa en distribution av AD FS i Azure med hög tillgänglighet över geografiska områden med hjälp av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager hjälper till att skapa en högpresterande AD FS-infrastruktur med geografisk spridning och hög tillgänglighet för din organisation genom användning av metoder som finns tillgängliga för att passa infrastrukturens olika behov.
 
 En AD FS-infrastruktur med hög tillgänglighet och geografisk spridning möjliggör:
@@ -76,7 +76,7 @@ Följ stegen nedan om du vill skapa en Traffic Manager-profil. Mer information f
    
    **Målresurstyp:** Välj offentlig IP-adress som värde för denna egenskap. 
    
-   **Målresurs:** Detta ger dig möjlighet att välja från olika DNS-etiketter som finns tillgängliga i din prenumeration. Välj DNS-etikett för till.
+   **Målresurs:** Detta ger dig möjlighet att välja från olika DNS-etiketter som finns tillgängliga i din prenumeration. Välj DNS-etiketten som motsvarar den slutpunkt som du konfigurerar.
    
    Lägg till slutpunkt för varje geografiskt område som du vill att Azure Traffic Manager ska dirigera trafik till.
    Mer information och detaljerade steg för hur du lägger till/konfigurerar slutpunkter i Traffic Manager finns i [Lägg till, inaktivera, aktivera eller ta bort slutpunkter](../traffic-manager/traffic-manager-endpoints.md)
@@ -94,13 +94,13 @@ Följ stegen nedan om du vill skapa en Traffic Manager-profil. Mer information f
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## <a name="test-the-routing-and-ad-fs-signin"></a>Testa routning och AD FS-inloggning
+## <a name="test-the-routing-and-ad-fs-sign-in"></a>Testa routning och AD FS-inloggning
 ### <a name="routing-test"></a>Routningtest
 Ett mycket grundläggande test för routningen är att försöka pinga federationstjänstens DNS-namn från en dator i varje geografiskt område. Beroende på vald routningmetod kommer den slutpunkt som den faktiskt pingar att reflekteras i pingvisningen. Om du till exempel har valt prestandaroutning kommer slutpunkten närmast klientens område att nås. Nedan visas en ögonblicksbild av två pingar från två klientdatorer i olika regioner, en i Östasien och en i västra USA. 
 
 ![Routningtest](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### <a name="ad-fs-signin-test"></a>AD FS-inloggningstest
+### <a name="ad-fs-sign-in-test"></a>AD FS-inloggningstest
 Det enklaste sättet är att testa AD FS är med hjälp av sidan IdpInitiatedSignon.aspx. För att kunna göra det måste IdpInitiatedSignOn vara aktiverat i AD FS-egenskaperna. Kontrollera din AD FS-konfiguration genom att följa stegen nedan.
 
 1. Kör cmdleten nedan på AD FS-servern med hjälp av PowerShell för att aktivera egenskapen. 
@@ -126,6 +126,6 @@ Det enklaste sättet är att testa AD FS är med hjälp av sidan IdpInitiatedSig
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

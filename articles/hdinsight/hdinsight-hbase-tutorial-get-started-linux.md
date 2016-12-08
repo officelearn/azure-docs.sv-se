@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecac06a51bee157d88634a13c5749dc16f4b505a
+ms.sourcegitcommit: 2c7b46521c5da3290af244652b5ac20d4c309d5d
+ms.openlocfilehash: 5ec4b260ce82ec78b614ae442d3f14063ce590b5
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linuxbased-hadoop-in-hdinsight"></a>Självstudier för HBase: Komma igång med Apache HBase med Linux-baserade Hadoop i HDInsight
+# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>Självstudier för HBase: Komma igång med Apache HBase med Linux-baserade Hadoop i HDInsight
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Lär dig skapa ett HBase-kluster i HDInsight, skapa HBase-tabeller och frågetabeller med Hive. Allmän HBase-information finns i [Översikt över HDInsight HBase][hdinsight-hbase-overview].
@@ -95,7 +95,7 @@ Det kommer att klarna mer efter att du har avslutat nästa procedur.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![hdinsight hadoop hbase shell][img-hbase-shell]
+    ![HDInsight Hadoop HBase shell][img-hbase-shell]
 4. Hämta en rad
    
         get 'Contacts', '1000'
@@ -113,16 +113,16 @@ HBase innehåller flera metoder för att läsa in data i tabeller.  Mer informat
 
 En exempeldatafil har överförts till en offentlig blobbehållaren *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Innehållet i datafilen är:
 
-    8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
-    4324    Karl Xie        508-555-0163    230-555-0193    4912 La Vuelta
-    16891    Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
+    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
+    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
+    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
     3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-    3588    Osa Agbonile    592-555-0152    230-555-0196    1873 Lion Circle
-    10272    Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes        599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
+    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
+    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
 Du kan skapa en textfil och överföra filen till ditt eget lagringskonto om du vill. Anvisningarna finns i [Överföra data för Hadoop-jobb i HDInsight][hdinsight-upload-data].
 
@@ -142,10 +142,18 @@ Du kan skapa en textfil och överföra filen till ditt eget lagringskonto om du 
 ## <a name="use-hive-to-query-hbase"></a>Använd Hive för att ställa frågor till HBase
 Du kan fråga efter data i HBase-tabeller med hjälp av Hive. I det här avsnittet skapas en Hive-tabell som mappar till HBase-tabellen och använder den för att fråga efter data i din HBase-tabell.
 
+> [!NOTE]
+> Om Hive och HBase är på olika kluster i samma VNet måste du passera zookeeperkvorum samtidigt som du anropar Hive-gränssnittet:
+>
+>       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
+>
+>
+
 1. Öppna **PuTTY** och anslut till klustret.  Se anvisningarna i föregående procedur.
 2. Öppna Hive-gränssnittet.
    
        hive
+       
 3. Kör följande HiveQL-skript för att skapa en Hive-tabell som mappar till HBase-tabellen. Kontrollera att du har skapat den exempeltabell som vi hänvisade till tidigare i den här självstudien med hjälp av HBase-gränssnittet innan du kör den här instruktionen.
    
         CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -221,53 +229,21 @@ Mer information om HBase Rest finns i [Referensguiden för Apache HBase](https:/
 ## <a name="check-cluster-status"></a>Kontrollera klusterstatus
 HBase i HDInsight levereras med ett webbgränssnitt för övervakning av kluster. Du kan använda webbgränssnittet för att begära statistik eller information om regioner.
 
-SSH kan även användas för lokala tunnelbegäranden, till exempel webbegäranden, till HDInsight-klustret. Begäran dirigeras sedan till den begärda resursen som om den hade sitt ursprung i HDInsight-klustrets huvudnod. Mer information finns i [Använda SSH med Linux-baserade Hadoop i HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+**Så här får du åtkomst till HBase Master UI**
 
-**Etablera en SSH-tunnelsession**
+1. Öppna Ambari-webbgränssnittet på https://&lt;Clustername>.azurehdinsight.net.
+2. Klicka på **HBase** på den vänstra menyn.
+3. Klicka på **Snabblänkar** överst på sidan, peka på den aktiva Zookeeper-nodlänken och klicka sedan på **HBase Master UI**.  Gränssnittet har öppnats i en annan webbläsarflik:
 
-1. Öppna **PuTTY**.  
-2. Om du angav en SSH-nyckel när du skapade ditt användarkonto, ska du under skapandeprocessen utföra följande steg för att välja den privata nyckel som ska användas vid autentisering för klustret:
-   
-    I **Kategori** expanderar du **Anslutning**, expanderar **SSH** och väljer **Aut**. Klicka slutligen på **Bläddra** och välj den .ppk-fil som innehåller din privata nyckel.
-3. Klicka på **Session** i **Kategori**.
-4. Ange följande värden från skärmen Grundalternativ för din PuTTY-session:
-   
-   * **Värdnamn**: SSH-adressen för din HDInsight-server i fältet för värdnamnet (eller IP-adressen). SSH-adressen är ditt klusternamn, därefter **-ssh.azurehdinsight.net**. Till exempel *mycluster-ssh.azurehdinsight.net*.
-   * **Port**: 22. Ssh-porten på den primära huvudnoden är 22.  
-5. Expandera **Anslutning** i avsnittet **Kategori** till vänster om dialogrutan, och sedan **SSH** och klicka därefter på **Tunnlar**.
-6. Ange följande information på formuläret för alternativ som styr SSH-portvidarebefordran :
-   
-   * **Källport** – Porten på den klient som du vill vidarebefordra. Till exempel 9876.
-   * **Dynamisk** – Aktiverar dynamisk SOCKS-proxyroutning.
-7. Klicka på **Lägg till** för att lägga till inställningarna.
-8. Klicka på **Öppna** längst ned i dialogrutan för att öppna en SSH-anslutning.
-9. Logga in på servern med ett SSH-konto när du uppmanas till detta. Detta upprättar en SSH-session och aktiverar tunneln.
+  ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-**Hitta FQDN för zookeepers med Ambari**
+  HBase Master UI innehåller följande avsnitt:
 
-1. Bläddra till https://<ClusterName>.azurehdinsight.net/.
-2. Ange autentiseringsuppgifterna för ditt klusteranvändarkonto två gånger.
-3. I den vänstra menyn klickar du på **zookeeper**.
-4. Klicka på någon av de tre **ZooKeeper-server**-länkarna från sammanfattningslistan.
-5. Kopiera **Värdnamn**. Till exempel zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
-
-**Konfigurera ett klientprogram (Firefox) och kontrollera klusterstatus**
-
-1. Öppna Firefox.
-2. Klicka på knappen **Öppna menyn**.
-3. Klicka på **Alternativ**.
-4. Klicka på **Avancerat**, på **Nätverk** och sedan på **Inställningar**.
-5. Välj **Manuell proxykonfiguration**.
-6. Ange följande värden:
-   
-   * **Socks-värd**: localhost
-   * **Port**: Använd samma port som du konfigurerade för Putty SSH-tunneln.  Till exempel 9876.
-   * **SOCKS v5**: (valt)
-   * **Fjärr-DNS**: (valt)
-7. Spara ändringarna genom att klicka på **OK**.
-8. Bläddra till http://&lt;det fullständiga domännamnet för en ZooKeeper >: 60010/master-status.
-
-I ett kluster med hög tillgänglighet hittar du en länk till den aktuella aktiva överordnade HBase-nod som är värd för webbgränssnittet.
+  - regionservrar
+  - huvudservrar för säkerhetskopiering
+  - tabeller
+  - uppgifter
+  - attribut för programvara
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret.
@@ -310,6 +286,6 @@ Du kan läsa mer här:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

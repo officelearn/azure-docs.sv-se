@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
+ms.openlocfilehash: af8f20beb8899ff1df733d1a4c544c75c6889ea6
 
 
 ---
@@ -133,16 +133,16 @@ Nu är det dags att skapa kontexten för lagringskontot. Kontexten innehåller l
 Ersätt `storage-account-name` och `storage-account-key` med lagringskontots namn och nyckel i följande exempel.
 
 ```powershell
-    # create a context for account and key
-    $ctx=New-AzureStorageContext storage-account-name storage-account-key
+# create a context for account and key
+$ctx=New-AzureStorageContext storage-account-name storage-account-key
 ```
 
 ### <a name="create-a-new-file-share"></a>Skapa en ny filresurs
 Nu ska du skapa en ny resurs, med namnet `logs`.
 
 ```powershell
-    # create a new share
-    $s = New-AzureStorageShare logs -Context $ctx
+# create a new share
+$s = New-AzureStorageShare logs -Context $ctx
 ```
 
 Nu har du en filresurs i File Storage. Härnäst ska vi lägga till en katalog och en fil.
@@ -156,24 +156,24 @@ Nu har du en filresurs i File Storage. Härnäst ska vi lägga till en katalog o
 Nu ska du skapa en katalog i resursen. I följande exempel heter katalogen `CustomLogs`.
 
 ```powershell
-    # create a directory in the share
-    New-AzureStorageDirectory -Share $s -Path CustomLogs
+# create a directory in the share
+New-AzureStorageDirectory -Share $s -Path CustomLogs
 ```
 
 ### <a name="upload-a-local-file-to-the-directory"></a>Ladda upp en lokal fil till katalogen
 Nu ska du ladda upp en lokal fil till katalogen. I följande exempel laddar vi upp en fil från `C:\temp\Log1.txt`. Ändra sökvägen till filen så att den pekar på en giltig fil på den lokala datorn.
 
 ```powershell
-    # upload a local file to the new directory
-    Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
+# upload a local file to the new directory
+Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
 ```
 
 ### <a name="list-the-files-in-the-directory"></a>Visa en lista med filerna i katalogen
 Om du vill visa filen i katalogen kan du visa en lista med alla filer i katalogen. Det här kommandot returnerar filer och underkataloger (om det finns några) i katalogen CustomLogs.
 
 ```powershell
-    # list files in the new directory
-    Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+# list files in the new directory
+Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
 ```
 
 Get-AzureStorageFile returnerar en lista över filer och kataloger för det katalogobjekt som du har angett. ”Get-AzureStorageFile -Share $s” returnerar en lista över filer och kataloger i rotkatalogen. Om du vill hämta en lista över filerna i en underkatalog måste du skicka underkatalogen till Get-AzureStorageFile. Detta händer: den första delen av kommandot fram till pipe returnerar en kataloginstans av underkatalogen CustomLogs. Därefter skickas detta till Get-AzureStorageFile, som returnerar filerna och katalogerna i CustomLogs.
@@ -182,11 +182,11 @@ Get-AzureStorageFile returnerar en lista över filer och kataloger för det kata
 Från och med version 0.9.7 av Azure PowerShell kan du kopiera en fil till en annan fil, en fil till en blobb eller en blobb till en fil. Nedan ser du hur du utför dessa kopieringsåtgärder med PowerShell-cmdlets.
 
 ```powershell
-    # copy a file to the new directory
-    Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
+# copy a file to the new directory
+Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
 
-    # copy a blob to a file directory
-    Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
+# copy a blob to a file directory
+Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 
 ## <a name="mount-the-file-share"></a>Montera filresursen
@@ -210,14 +210,16 @@ Vilken SMB-version som används när en klient ansluter till File Storage beror 
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Montera filresursen från en virtuell Azure-dator som kör Windows
 För att demonstrera hur du monterar en Azure-filresurs ska vi nu skapa en virtuell Azure-dator som kör Windows och fjärransluta till den för att montera resursen.
 
-1. Börja med att skapa en ny virtuell Azure-dator genom att följa anvisningarna i [Skapa en virtuell Windows-dator på Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Fjärranslut sedan till den virtuella datorn genom att följa anvisningarna i [Logga in på en Windows-dator från Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md).
+1. Börja med att skapa en ny virtuell Azure-dator genom att följa anvisningarna i [Skapa en virtuell Windows-dator på Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Fjärranslut sedan till den virtuella datorn genom att följa anvisningarna i [Logga in på en Windows-dator från Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Öppna ett PowerShell-fönster på den virtuella datorn.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Spara autentiseringsuppgifterna för ditt lagringskonto för den virtuella datorn
 Innan du monterar till filresursen sparar du autentiseringsuppgifterna för ditt lagringskonto på den virtuella datorn. Det här steget gör att Windows kan återansluta till filresursen automatiskt när den virtuella datorn startar om. För att spara dina kontouppgifterna kör du kommandot `cmdkey` från PowerShell-fönstret på den virtuella datorn. Ersätt `<storage-account-name>` med namnet på ditt lagringskonto och `<storage-account-key>` med din åtkomstnyckel för lagring.
 
-    cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+```
+cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+```
 
 Nu återansluter Windows till din filresurs när den virtuella datorn startas om. Du kan kontrollera att resursen har återanslutit genom att köra kommandot `net use` från ett PowerShell-fönster.
 
@@ -226,23 +228,27 @@ Observera att autentiseringsuppgifter endast sparas i kontexten där `cmdkey` k�
 ### <a name="mount-the-file-share-using-the-persisted-credentials"></a>Montera filresursen med de sparade autentiseringsuppgifterna
 När du har en fjärranslutning till den virtuella datorn kan du köra kommandot `net use` för att montera filresursen med följande syntax. Ersätt `<storage-account-name>` med namnet på ditt lagringskonto och `<share-name>` med namnet på din File Storage-resurs.
 
-    net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+```
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 
-    example :
-    net use z: \\samples.file.core.windows.net\logs
+example :
+net use z: \\samples.file.core.windows.net\logs
+```
 
 Eftersom du sparade autentiseringsuppgifterna för ditt lagringskonto i föregående steg så behöver du inte ange dem med kommandot `net use`. Om du inte redan har sparat dina autentiseringsuppgifter tar du med dem som en parameter som skickas till kommandot `net use`, som du ser i följande exempel.
 
-    net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+```
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
 
-    example :
-    net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+example :
+net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+```
 
 Nu kan du arbeta med File Storage-resursen från den virtuella datorn precis som med andra enheter. Du kan köra standardfilkommandon från Kommandotolken eller visa den monterade resursen och dess innehåll från Utforskaren. Du kan också köra kod på den virtuella datorn som ansluter till filresursen med standard-I/O-API:er för Windows-filer, till exempel de som finns i [System.IO-namnrymderna](http://msdn.microsoft.com/library/gg145019.aspx) i .NET Framework.
 
 Du kan också montera filresursen från en roll som körs i en Azure-molntjänst genom att fjärransluta till rollen.
 
-### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Montera filresursen från en lokal klient som kör Windows
+### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Montera filresursen från en lokal klient som kör Windows
 Innan du monterar filresursen från en lokal klient måste du göra följande:
 
 * Installera en version av Windows som stöder SMB 3.0. Windows använder SMB 3.0-kryptering för att överföra data på ett säkert sätt mellan din lokala klient och Azure-filresursen i molnet.
@@ -272,16 +278,17 @@ Du måste inte använda Azure Configuration Manager. Du kan också använda ett 
 ### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Spara autentiseringsuppgifterna för ditt lagringskonto i app.config-filen
 Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redigera app.config-filen så att den ser ut som i följande exempel. Ersätt `myaccount` med namnet på ditt lagringskonto och `mykey` med din åtkomstnyckel för lagring.
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <configuration>
-        <startup>
-            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-        </startup>
-        <appSettings>
-            <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
-        </appSettings>
-    </configuration>
-
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+    </startup>
+    <appSettings>
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
+    </appSettings>
+</configuration>
+```
 
 > [!NOTE]
 > Den senaste versionen av Azure Storage-emulatorn har inte stöd för File Storage. Anslutningssträngen måste peka på ett Azure-lagringskonto i molnet för att fungera med File Storage.
@@ -292,10 +299,10 @@ Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redige
 Öppna filen `program.cs` från Solution Explorer och lägg till följande namnrymdsdeklarationer överst i filen.
 
 ```csharp
-    using Microsoft.Azure; // Namespace for Azure Configuration Manager
-    using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
-    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
-    using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
+using Microsoft.Azure; // Namespace for Azure Configuration Manager
+using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
+using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
@@ -304,35 +311,35 @@ Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redige
 Lägg till följande kod i `Main()`-metoden (efter koden som visas ovan) för att hämta anslutningssträngen. Den här koden hämtar en referens till den fil som vi skapade tidigare och returnerar filens innehåll i konsolfönstret.
 
 ```csharp
-    // Create a CloudFileClient object for credentialed access to File storage.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Create a CloudFileClient object for credentialed access to File storage.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Get a reference to the file share we created previously.
-    CloudFileShare share = fileClient.GetShareReference("logs");
+// Get a reference to the file share we created previously.
+CloudFileShare share = fileClient.GetShareReference("logs");
 
-    // Ensure that the share exists.
-    if (share.Exists())
+// Ensure that the share exists.
+if (share.Exists())
+{
+    // Get a reference to the root directory for the share.
+    CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+    // Get a reference to the directory we created previously.
+    CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+    // Ensure that the directory exists.
+    if (sampleDir.Exists())
     {
-        // Get a reference to the root directory for the share.
-        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+        // Get a reference to the file we created previously.
+        CloudFile file = sampleDir.GetFileReference("Log1.txt");
 
-        // Get a reference to the directory we created previously.
-        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
-
-        // Ensure that the directory exists.
-        if (sampleDir.Exists())
+        // Ensure that the file exists.
+        if (file.Exists())
         {
-            // Get a reference to the file we created previously.
-            CloudFile file = sampleDir.GetFileReference("Log1.txt");
-
-            // Ensure that the file exists.
-            if (file.Exists())
-            {
-                // Write the contents of the file to the console window.
-                Console.WriteLine(file.DownloadTextAsync().Result);
-            }
+            // Write the contents of the file to the console window.
+            Console.WriteLine(file.DownloadTextAsync().Result);
         }
     }
+}
 ```
 
 Visa resultatet genom att köra konsolprogrammet.
@@ -345,33 +352,33 @@ Genom att ange kvoten för en resurs kan du begränsa den totala storleken på f
 Exemplet nedan visar hur du kontrollerar användningen av en resurs och hur du ställer in kvoten för resursen.
 
 ```csharp
-    // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Parse the connection string for the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create a CloudFileClient object for credentialed access to File storage.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Create a CloudFileClient object for credentialed access to File storage.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Get a reference to the file share we created previously.
-    CloudFileShare share = fileClient.GetShareReference("logs");
+// Get a reference to the file share we created previously.
+CloudFileShare share = fileClient.GetShareReference("logs");
 
-    // Ensure that the share exists.
-    if (share.Exists())
-    {
-        // Check current usage stats for the share.
-        // Note that the ShareStats object is part of the protocol layer for the File service.
-        Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
-        Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
+// Ensure that the share exists.
+if (share.Exists())
+{
+    // Check current usage stats for the share.
+    // Note that the ShareStats object is part of the protocol layer for the File service.
+    Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
+    Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
 
-        // Specify the maximum size of the share, in GB.
-        // This line sets the quota to be 10 GB greater than the current usage of the share.
-        share.Properties.Quota = 10 + stats.Usage;
-        share.SetProperties();
+    // Specify the maximum size of the share, in GB.
+    // This line sets the quota to be 10 GB greater than the current usage of the share.
+    share.Properties.Quota = 10 + stats.Usage;
+    share.SetProperties();
 
-        // Now check the quota for the share. Call FetchAttributes() to populate the share's properties.
-        share.FetchAttributes();
-        Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
-    }
+    // Now check the quota for the share. Call FetchAttributes() to populate the share's properties.
+    share.FetchAttributes();
+    Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+}
 ```
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Generera en signatur för delad åtkomst för en fil eller filresurs
@@ -380,47 +387,47 @@ Från och med version 5.x av klientbiblioteket för Azure Storage kan du generer
 I följande exempel skapar vi en princip för delad åtkomst på en resurs och använder sedan principen för att ange begränsningarna för en signatur för delad åtkomst på en fil i resursen.
 
 ```csharp
-    // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Parse the connection string for the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create a CloudFileClient object for credentialed access to File storage.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Create a CloudFileClient object for credentialed access to File storage.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Get a reference to the file share we created previously.
-    CloudFileShare share = fileClient.GetShareReference("logs");
+// Get a reference to the file share we created previously.
+CloudFileShare share = fileClient.GetShareReference("logs");
 
-    // Ensure that the share exists.
-    if (share.Exists())
-    {
-        string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
+// Ensure that the share exists.
+if (share.Exists())
+{
+    string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
 
-        // Create a new shared access policy and define its constraints.
-        SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
-            {
-                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-                Permissions = SharedAccessFilePermissions.Read | SharedAccessFilePermissions.Write
-            };
+    // Create a new shared access policy and define its constraints.
+    SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
+        {
+            SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+            Permissions = SharedAccessFilePermissions.Read | SharedAccessFilePermissions.Write
+        };
 
-        // Get existing permissions for the share.
-        FileSharePermissions permissions = share.GetPermissions();
+    // Get existing permissions for the share.
+    FileSharePermissions permissions = share.GetPermissions();
 
-        // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
-        permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
-        share.SetPermissions(permissions);
+    // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+    permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+    share.SetPermissions(permissions);
 
-        // Generate a SAS for a file in the share and associate this access policy with it.
-        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
-        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
-        CloudFile file = sampleDir.GetFileReference("Log1.txt");
-        string sasToken = file.GetSharedAccessSignature(null, policyName);
-        Uri fileSasUri = new Uri(file.StorageUri.PrimaryUri.ToString() + sasToken);
+    // Generate a SAS for a file in the share and associate this access policy with it.
+    CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+    CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+    CloudFile file = sampleDir.GetFileReference("Log1.txt");
+    string sasToken = file.GetSharedAccessSignature(null, policyName);
+    Uri fileSasUri = new Uri(file.StorageUri.PrimaryUri.ToString() + sasToken);
 
-        // Create a new CloudFile object from the SAS, and write some text to the file.
-        CloudFile fileSas = new CloudFile(fileSasUri);
-        fileSas.UploadText("This write operation is authenticated via SAS.");
-        Console.WriteLine(fileSas.DownloadText());
-    }
+    // Create a new CloudFile object from the SAS, and write some text to the file.
+    CloudFile fileSas = new CloudFile(fileSasUri);
+    fileSas.UploadText("This write operation is authenticated via SAS.");
+    Console.WriteLine(fileSas.DownloadText());
+}
 ```
 
 Mer information om hur du skapar och använder signaturer för delad åtkomst finns i [Använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md) och [Skapa och använda en SAS med Blob Storage](storage-dotnet-shared-access-signature-part-2.md).
@@ -440,45 +447,45 @@ Du kan också använda AzCopy för att kopiera en fil till en annan eller för a
 I följande exempel kopierar vi en fil till en annan fil i samma resurs. Eftersom den här kopieringsåtgärden kopierar mellan filer i samma lagringskonto kan du använda autentisering med delad nyckel för att utföra kopieringen.
 
 ```csharp
-    // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Parse the connection string for the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create a CloudFileClient object for credentialed access to File storage.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Create a CloudFileClient object for credentialed access to File storage.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Get a reference to the file share we created previously.
-    CloudFileShare share = fileClient.GetShareReference("logs");
+// Get a reference to the file share we created previously.
+CloudFileShare share = fileClient.GetShareReference("logs");
 
-    // Ensure that the share exists.
-    if (share.Exists())
+// Ensure that the share exists.
+if (share.Exists())
+{
+    // Get a reference to the root directory for the share.
+    CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+    // Get a reference to the directory we created previously.
+    CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+    // Ensure that the directory exists.
+    if (sampleDir.Exists())
     {
-        // Get a reference to the root directory for the share.
-        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+        // Get a reference to the file we created previously.
+        CloudFile sourceFile = sampleDir.GetFileReference("Log1.txt");
 
-        // Get a reference to the directory we created previously.
-        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
-
-        // Ensure that the directory exists.
-        if (sampleDir.Exists())
+        // Ensure that the source file exists.
+        if (sourceFile.Exists())
         {
-            // Get a reference to the file we created previously.
-            CloudFile sourceFile = sampleDir.GetFileReference("Log1.txt");
+            // Get a reference to the destination file.
+            CloudFile destFile = sampleDir.GetFileReference("Log1Copy.txt");
 
-            // Ensure that the source file exists.
-            if (sourceFile.Exists())
-            {
-                // Get a reference to the destination file.
-                CloudFile destFile = sampleDir.GetFileReference("Log1Copy.txt");
+            // Start the copy operation.
+            destFile.StartCopy(sourceFile);
 
-                // Start the copy operation.
-                destFile.StartCopy(sourceFile);
-
-                // Write the contents of the destination file to the console window.
-                Console.WriteLine(destFile.DownloadText());
-            }
+            // Write the contents of the destination file to the console window.
+            Console.WriteLine(destFile.DownloadText());
         }
     }
+}
 ```
 
 **Kopiera en fil till en blobb**
@@ -486,47 +493,47 @@ I följande exempel kopierar vi en fil till en annan fil i samma resurs. Efterso
 I följande exempel skapar vi en fil och kopierar den till en blobb inom samma lagringskonto. I exemplet skapas en SAS för källfilen, som tjänsten använder för att autentisera åtkomsten till källfilen under kopieringen.
 
 ```csharp
-    // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Parse the connection string for the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create a CloudFileClient object for credentialed access to File storage.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Create a CloudFileClient object for credentialed access to File storage.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Create a new file share, if it does not already exist.
-    CloudFileShare share = fileClient.GetShareReference("sample-share");
-    share.CreateIfNotExists();
+// Create a new file share, if it does not already exist.
+CloudFileShare share = fileClient.GetShareReference("sample-share");
+share.CreateIfNotExists();
 
-    // Create a new file in the root directory.
-    CloudFile sourceFile = share.GetRootDirectoryReference().GetFileReference("sample-file.txt");
-    sourceFile.UploadText("A sample file in the root directory.");
+// Create a new file in the root directory.
+CloudFile sourceFile = share.GetRootDirectoryReference().GetFileReference("sample-file.txt");
+sourceFile.UploadText("A sample file in the root directory.");
 
-    // Get a reference to the blob to which the file will be copied.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
-    container.CreateIfNotExists();
-    CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
+// Get a reference to the blob to which the file will be copied.
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+container.CreateIfNotExists();
+CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
 
-    // Create a SAS for the file that's valid for 24 hours.
-    // Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
-    // to authenticate access to the source object, even if you are copying within the same
-    // storage account.
-    string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
-    {
-        // Only read permissions are required for the source file.
-        Permissions = SharedAccessFilePermissions.Read,
-        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
-    });
+// Create a SAS for the file that's valid for 24 hours.
+// Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
+// to authenticate access to the source object, even if you are copying within the same
+// storage account.
+string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
+{
+    // Only read permissions are required for the source file.
+    Permissions = SharedAccessFilePermissions.Read,
+    SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
+});
 
-    // Construct the URI to the source file, including the SAS token.
-    Uri fileSasUri = new Uri(sourceFile.StorageUri.PrimaryUri.ToString() + fileSas);
+// Construct the URI to the source file, including the SAS token.
+Uri fileSasUri = new Uri(sourceFile.StorageUri.PrimaryUri.ToString() + fileSas);
 
-    // Copy the file to the blob.
-    destBlob.StartCopy(fileSasUri);
+// Copy the file to the blob.
+destBlob.StartCopy(fileSasUri);
 
-    // Write the contents of the file to the console window.
-    Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
-    Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+// Write the contents of the file to the console window.
+Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
+Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
 Du kan kopiera en blobb till en fil på samma sätt. Om källobjektet är en blobb skapar du en SAS för att autentisera åtkomsten till blobben under kopieringen.
@@ -541,51 +548,51 @@ Följande exempel visar hur du använder klientbiblioteket för Azure Storage f�
 Lägg först till följande `using`-instruktioner i filen program.cs, förutom de som du lade till ovan:
 
 ```csharp
-    using Microsoft.WindowsAzure.Storage.File.Protocol;
-    using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+using Microsoft.WindowsAzure.Storage.File.Protocol;
+using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
 Observera att medan blobb-, tabell- och kölagringen använder den delade `ServiceProperties`-typen i namnrymden `Microsoft.WindowsAzure.Storage.Shared.Protocol` så använder File Storage sin egen typ, typen `FileServiceProperties` i namnrymden `Microsoft.WindowsAzure.Storage.File.Protocol`. Din kod måste dock referera till båda namnrymderna för att följande kod ska kompileras.
 
 ```csharp
-    // Parse your storage connection string from your application's configuration file.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    // Create the File service client.
-    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+// Parse your storage connection string from your application's configuration file.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Create the File service client.
+CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
-    // Set metrics properties for File service.
-    // Note that the File service currently uses its own service properties type,
-    // available in the Microsoft.WindowsAzure.Storage.File.Protocol namespace.
-    fileClient.SetServiceProperties(new FileServiceProperties()
+// Set metrics properties for File service.
+// Note that the File service currently uses its own service properties type,
+// available in the Microsoft.WindowsAzure.Storage.File.Protocol namespace.
+fileClient.SetServiceProperties(new FileServiceProperties()
+{
+    // Set hour metrics
+    HourMetrics = new MetricsProperties()
     {
-        // Set hour metrics
-        HourMetrics = new MetricsProperties()
-        {
-            MetricsLevel = MetricsLevel.ServiceAndApi,
-            RetentionDays = 14,
-            Version = "1.0"
-        },
-        // Set minute metrics
-        MinuteMetrics = new MetricsProperties()
-        {
-            MetricsLevel = MetricsLevel.ServiceAndApi,
-            RetentionDays = 7,
-            Version = "1.0"
-        }
-    });
+        MetricsLevel = MetricsLevel.ServiceAndApi,
+        RetentionDays = 14,
+        Version = "1.0"
+    },
+    // Set minute metrics
+    MinuteMetrics = new MetricsProperties()
+    {
+        MetricsLevel = MetricsLevel.ServiceAndApi,
+        RetentionDays = 7,
+        Version = "1.0"
+    }
+});
 
-    // Read the metrics properties we just set.
-    FileServiceProperties serviceProperties = fileClient.GetServiceProperties();
-    Console.WriteLine("Hour metrics:");
-    Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
-    Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
-    Console.WriteLine(serviceProperties.HourMetrics.Version);
-    Console.WriteLine();
-    Console.WriteLine("Minute metrics:");
-    Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
-    Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
-    Console.WriteLine(serviceProperties.MinuteMetrics.Version);
+// Read the metrics properties we just set.
+FileServiceProperties serviceProperties = fileClient.GetServiceProperties();
+Console.WriteLine("Hour metrics:");
+Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
+Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
+Console.WriteLine(serviceProperties.HourMetrics.Version);
+Console.WriteLine();
+Console.WriteLine("Minute metrics:");
+Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
+Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
+Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
 Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoot-file-connection-problems.md) för felsökningsinformation från slutpunkt till slutpunkt. 
@@ -662,8 +669,6 @@ Mer information om Azure File Storage finns på följande länkar.
 * [Bevara anslutningar till Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

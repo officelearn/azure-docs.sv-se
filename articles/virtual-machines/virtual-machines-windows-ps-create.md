@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
+ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
 
 
 ---
@@ -114,7 +114,7 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
     $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
    
-    En lista med tillgängliga storlekar för virtuella datorer finns i [Storlekar för virtuella datorer i Azure](virtual-machines-windows-sizes.md).
+    En lista med tillgängliga storlekar för virtuella datorer finns i [Storlekar för virtuella datorer i Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Konfigurera inställningarna för operativsystemet för den virtuella datorn. Det här kommandot anger datornamn, typ av operativsystem och autentiseringsuppgifter för den virtuella datorn.
    
     ```powershell
@@ -128,13 +128,13 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
         -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
    
-    Mer information hur du väljer vilken avbildning som ska användas finns i [Navigera och välja virtuella Windows-avbildningar i Azure med PowerShell eller CLI](virtual-machines-windows-cli-ps-findimage.md).
+    Mer information hur du väljer vilken avbildning som ska användas finns i [Navigera och välja virtuella Windows-avbildningar i Azure med PowerShell eller CLI](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Lägg till nätverksgränssnittet som du skapade i konfigurationen.
    
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. Definiera namn och plats för den virtuella hårddisken. Den virtuella hårddiskfilen lagras i en behållare. Det här kommandot skapar disken i en behållare med namnet **vhds/WindowsVMosDisk.vhd** i lagringskontot som du skapade.
+6. Definiera namn och plats för den virtuella hårddisken. Den virtuella hårddiskfilen lagras i en behållare. Det här kommandot skapar disken i en behållare med namnet **vhds/myOsDisk1.vhd** i lagringskontot som du skapade.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -143,7 +143,7 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
 7. Lägg till diskinformation om operativsystemet i VM-konfigurationen. Ersätt värdet för **$diskName** med ett namn för disken med operativsystemet. Skapa variabeln och lägg till diskinformationen i konfigurationen.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. Skapa slutligen den virtuella datorn.
    
@@ -153,12 +153,12 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 * Om det var problem med distributionen, är nästa steg att titta på [Felsöka resursgruppdistribueringar med Azure-portalen](../resource-manager-troubleshoot-deployments-portal.md)
-* Läs [Hantera virtuella datorer med Azure Resource Manager och PowerShell](virtual-machines-windows-ps-manage.md) för att lära dig mer om hur du hanterar din virtuella dator.
-* Utnyttja fördelarna med att använda en mall för att skapa en virtuell dator. Mer information finns i [Skapa en virtuell Windows-dator med en Resource Manager-mall](virtual-machines-windows-ps-template.md)
+* Läs [Hantera virtuella datorer med Azure Resource Manager och PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att lära dig mer om hur du hanterar din virtuella dator.
+* Utnyttja fördelarna med att använda en mall för att skapa en virtuell dator. Mer information finns i [Skapa en virtuell Windows-dator med en Resource Manager-mall](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

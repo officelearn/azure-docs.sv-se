@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 019395d76a1e2d8e75b4ac1474abe45ce1b8aeb1
+ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
+ms.openlocfilehash: 63d31ae31703a8d43bf2ffec2e6ccdc5da3a46a3
 
 
 ---
-# <a name="about-vpn-devices-for-sitetosite-vpn-gateway-connections"></a>Om VPN-enheter för VPN Gateway-anslutningar från plats till plats
-En VPN-enhet krävs för att konfigurera en plats-till-plats-anslutning (S2S) i VPN. Plats-till-plats-anslutningar kan användas för att skapa en hybridlösning, eller när du vill skapa en säker anslutning mellan ditt lokala nätverk och ditt virtuella nätverk. I den här artikeln beskrivs kompatibla VPN-enheter och konfigurationsparametrar. 
+# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter för VPN Gateway-anslutningar från plats till plats
+En VPN-enhet krävs för att konfigurera en plats-till-plats-anslutning (S2S) i VPN. Plats-till-plats-anslutningar kan användas för att skapa en hybridlösning, eller när du vill skapa en säker anslutning mellan ditt lokala nätverk och ditt virtuella nätverk. I den här artikeln beskrivs kompatibla VPN-enheter och konfigurationsparametrar.
 
 > [!NOTE]
 > När du konfigurerar en plats-till-plats-anslutning krävs en offentlig IPv4-adress för VPN-enheten.                                                                                                                                                                               
-> 
-> 
+>
+>
 
 Om enheten inte finns med i tabellen med [verifierade VPN-enheter](#devicetable) kan du gå till avsnittet [Icke-verifierade VPN-enheter](#additionaldevices) i den här artikeln. Det är möjligt att enheten fungerar med Azure ändå. Kontakta enhetstillverkaren för att se vilket stöd som finns för VPN-enheter.
 
@@ -36,10 +36,10 @@ Om enheten inte finns med i tabellen med [verifierade VPN-enheter](#devicetable)
 * Terminologin har ändrats för statisk och dynamisk routning. Du kommer troligen stöta på båda termerna. Funktionen har inte ändrats, bara namnen.
   * Statisk routning = Principbaserad
   * Dynamisk routning = Routningsbaserad
-* Specifikationerna för en VPN-gateway med hög kapacitet och en routningsbaserad VPN-gateway är samma, om inget annat anges. Till exempel är verifierade VPN-enheter som är kompatibla med routningsbaserade VPN-gatewayer också kompatibla med Azure VPN-gatewayen med hög kapacitet. 
+* Specifikationerna för en VPN-gateway med hög kapacitet och en routningsbaserad VPN-gateway är samma, om inget annat anges. Till exempel är verifierade VPN-enheter som är kompatibla med routningsbaserade VPN-gatewayer också kompatibla med Azure VPN-gatewayen med hög kapacitet.
 
 ## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Verifierade VPN-enheter
-Vi har verifierat en uppsättning VPN-standardenheter tillsammans med våra enhetsleverantörer. Alla enheter i enhetsfamiljerna som finns i följande lista ska fungera med Azures VPN-gatewayer. I [Om VPN-gatewayer](vpn-gateway-about-vpngateways.md) kan du kontrollera vilken typ av gateway som du måste skapa för den lösning som du vill konfigurera. 
+Vi har verifierat en uppsättning VPN-standardenheter tillsammans med våra enhetsleverantörer. Alla enheter i enhetsfamiljerna som finns i följande lista ska fungera med Azures VPN-gatewayer. I [Om VPN-gatewayer](vpn-gateway-about-vpngateways.md) kan du kontrollera vilken typ av gateway som du måste skapa för den lösning som du vill konfigurera.
 
 Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig enhetsfamilj. Kontakta enhetstillverkaren för att se vilket stöd som finns för VPN-enheter.
 
@@ -66,19 +66,19 @@ Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig
 | Open Systems AG |Mission Control Security Gateway |Saknas |[Installationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Installationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Kommer snart) |Inte kompatibel |
 | Palo Alto Networks |Alla enheter som kör PAN-OS |PAN-OS 6.1.5 eller senare (Principbaserad), PAN-OS 7.0.5 eller senare (Routningsbaserad) |[Konfigurationsanvisningar](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Konfigurationsanvisningar](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| Watchguard |Alla |Fireware XTM v11.x |[Konfigurationsanvisningar](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) |Inte kompatibel |
+| Watchguard |Alla |Fireware XTM v11.x |[Konfigurationsanvisningar](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network) |Inte kompatibel |
 
 (*) ISR 7200 serie routrar stöder endast principbaserade VPN.
 
-## <a name="a-nameadditionaldevicesanonvalidated-vpn-devices"></a><a name="additionaldevices"></a>Icke-verifierade VPN-enheter
-Om du inte hittar din enhet i tabellen med verifierade VPN-enheter kan den ändå fungera med en plats-till-plats-anslutning. Kontrollera att VPN-enheten uppfyller de minimikrav som beskrivs i avsnittet Gateway-krav i artikeln [Om VPN Gateway](vpn-gateway-about-vpngateways.md#gateway-requirements). Enheter som uppfyller minimikraven bör också fungera bra med VPN-gatewayer. Kontakta enhetstillverkaren för ytterligare information om support och konfiguration.
+## <a name="a-nameadditionaldevicesanon-validated-vpn-devices"></a><a name="additionaldevices"></a>Icke-verifierade VPN-enheter
+Om du inte hittar din enhet i tabellen med verifierade VPN-enheter kan den ändå fungera med en plats-till-plats-anslutning. Kontrollera att VPN-enheten uppfyller de minimikrav som beskrivs i avsnittet Gateway-krav i artikeln [Om VPN-gateway](vpn-gateway-about-vpngateways.md). Enheter som uppfyller minimikraven bör också fungera bra med VPN-gatewayer. Kontakta enhetstillverkaren för ytterligare information om support och konfiguration.
 
 ## <a name="editing-device-configuration-samples"></a>Redigera enhetens konfigurationsexempel
-När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du byta ut vissa värden så att de motsvarar inställningarna för din miljö. 
+När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du byta ut vissa värden så att de motsvarar inställningarna för din miljö.
 
 **Så här redigerar du ett exempel:**
 
-1. Öppna exemplet med Anteckningar. 
+1. Öppna exemplet med Anteckningar.
 2. Sök och ersätt alla <*text*>-strängar med de värden som gäller för din miljö. Var noga med att inkludera < och >. När ett namn anges måste det vara unikt. Om ett kommando inte fungerar kan du läsa mer i din enhetstillverkares dokumentation.
 
 | **Exempeltext** | **Ändra till** |
@@ -98,8 +98,8 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 ## <a name="ipsec-parameters"></a>IPsec-parametrar
 > [!NOTE]
 > Även om de värden som anges i följande tabell stöds av Azure VPN Gateway går det för närvarande inte att ange eller välja en specifik kombination från Azure VPN Gateway. Du måste ange eventuella begränsningar från den lokala VPN-enheten. Du måste dessutom foga ihop MSS vid 1350.
-> 
-> 
+>
+>
 
 ### <a name="ike-phase-1-setup"></a>Installation av IKE, fas 1
 | **Egenskap** | **Principbaserad** | **Routningsbaserad och standard eller VPN-gateway med hög kapacitet** |
@@ -153,7 +153,6 @@ Följande tabellen visar IPsec, SA-kryptering och autentiseringserbjudanden. Erb
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

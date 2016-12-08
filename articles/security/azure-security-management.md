@@ -1,6 +1,6 @@
 ---
 title: "Säkerhetshantering i Azure | Microsoft Docs"
-description: " Den här artikeln beskriver hur du ökar säkerheten för fjärrhantering när du administrerar Microsoft Azure-miljöer, inklusive molntjänster, virtuella datorer och anpassade program."
+description: "Den här artikeln beskriver hur du ökar säkerheten för fjärrhantering när du administrerar Microsoft Azure-miljöer, inklusive molntjänster, Virtual Machines och anpassade program."
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/21/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 83d13b9b104ae19c6d49103d6a2ffdc6e57dd956
+ms.sourcegitcommit: f44ecd49d034ef6ec82baa402e613308a5b3e1a9
+ms.openlocfilehash: 5cee18e58bcf505547315e14dd378b36c0b3f651
 
 
 ---
@@ -70,12 +70,12 @@ Azure tillhandahåller säkerhetsmekanismer som hjälper administratörer som ha
 * En webbhanteringsportal.
 * Filtrering av nätverkspaket.
 
-I kombination med säkerhetskonfiguration på klientsidan  och datacenterdistribution av en Management Gateway går det att begränsa och övervaka administratörsåtkomst till molnprogram och data.
+Med säkerhetskonfiguration på klientsidan och datacenterdistribution av en hanterings-gateway går det att begränsa och övervaka administratörsåtkomsten till molnbaserade program och data.
 
 > [!NOTE]
 > Vissa rekommendationerna i den här artikeln kan leda till ökad användning av data, nätverk eller beräkningsresurser och öka kostnaderna för din licens eller prenumeration.
-> 
-> 
+>
+>
 
 ## <a name="hardened-workstation-for-management"></a>Förstärkt dator för hantering
 Målet med att förstärka en dator är att ta bort alla utom de mest kritiska funktioner som krävs för att den ska fungera. Det minimerar risken för potentiella attacker så mycket som möjligt. Systemförstärkning handlar bland annat om att minimera antalet installerade produkter och program, begränsa programkörning, begränsa nätverksåtkomsten bara till vad som behövs och se till att datorn alltid är uppdaterad. Dessutom separeras administrativa verktyg och aktiviteter från andra slutanvändaraktiviteter när man arbetar med en förstärkt dator.
@@ -92,7 +92,7 @@ Administratören kör ett vanligt användarkonto (som blockerar körning på adm
 * Begränsning av körning. Tillåt endast en uppsättning fördefinierade körbara filer som behövs för hantering (kallas ”standardneka”). Som standard bör användare nekas behörighet att köra alla program, om det inte definieras uttryckligen i listan över tillåtna.
 * Lägsta behörighet. Användare av hanteringsdatorn bör inte ha administrativ behörighet på själva lokala datorn. På så sätt kan de inte ändra systemkonfigurationen eller systemfiler, oavsiktligt eller avsiktligt.
 
-Du kan säkerställa allt detta genom att använda [grupprincipobjekt](https://www.microsoft.com/download/details.aspx?id=2612) (GPO:er) i AD DS (Active Directory Domain Services) och tillämpa dem i din (lokala) hanteringsdomän för alla hanteringskonton.
+Du kan framtvinga allt detta genom att använda [grupprincipobjekt](https://www.microsoft.com/download/details.aspx?id=2612) (GPO:er) i AD DS (Active Directory Domain Services) och genom att använda dem i din (lokala) hanteringsdomän för alla hanteringskonton.
 
 ### <a name="managing-services-applications-and-data"></a>Hantera tjänster, program och data
 Konfiguration av Azure Cloud Services utförs antingen via Azure Portal eller SMAPI, via kommandoradsgränssnittet Windows PowerShell eller ett specialbyggt program som utnyttjar dessa RESTful-gränssnitt. Produkter som använder dessa mekanismer är bland annat Azure AD (Active Directory Azure), Azure Storage, Azure Websites och Azure Virtual Network.
@@ -106,9 +106,9 @@ Centralisera all administrativ åtkomst och förenkla övervakning och loggning 
 
 En  fjärrskrivbordsgateway  är en principbaserad RDP-proxytjänst som tillämpar säkerhetskrav. Genom att implementera RD Gateway tillsammans med Windows Server NAP (Network Access Protection) kan du se till att bara klienter som uppfyller de specifika hälsokriterier som upprättats av grupprincipobjekt för AD DS (Active Directory Domain Services) kan ansluta. Följande gäller också:
 
-* Etablera ett [Azure-hanteringscertifikat](http://msdn.microsoft.com/library/azure/gg551722.aspx) på RD Gateway så att det är den enda värd som får tillgång till Azure-hanteringsportalen.
+* Etablera ett [Azure-hanteringscertifikat](http://msdn.microsoft.com/library/azure/gg551722.aspx) på RD Gateway så att det är den enda värden som får tillgång till Azure Portal.
 * Koppla RD Gateway till samma [hanteringsdomän](http://technet.microsoft.com/library/bb727085.aspx) som administratörsdatorerna. Detta är nödvändigt när du använder plats-till-plats IPsec VPN eller ExpressRoute i en domän som har ett enkelriktat förtroende till Azure AD, eller om du federerar autentiseringsuppgifter mellan din lokala AD DS-instans och Azure AD.
-* Konfigurera en [auktoriseringsprincip för klientanslutning](http://technet.microsoft.com/library/cc753324.aspx) så att RD Gateway kan verifiera att klientdatorns namn är giltigt (domänanslutet) och har tillgång till Azure-hanteringsportalen.
+* Konfigurera en [auktoriseringsprincip för klientanslutning](http://technet.microsoft.com/library/cc753324.aspx) så att RD Gateway kan verifiera att klientdatorns namn är giltigt (domänanslutet) och har tillgång till Azure Portal.
 * Skydda hanteringstrafiken ytterligare från tjuvlyssnande och token-stöld med IPsec för [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/). Du kan även överväga en isolerad Internet-anslutning via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 * Aktivera multifaktorautentisering (via [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) eller smartkortsautentisering för administratörer som loggar in via RD Gateway.
 * Minimera antalet tillåtna hanteringsslutpunkter genom att konfigurera [begränsningar för IP-adress](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) eller [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) i Azure.
@@ -117,12 +117,12 @@ En  fjärrskrivbordsgateway  är en principbaserad RDP-proxytjänst som tillämp
 Vanligtvis kan du se till att administratörsdatorerna är säkra att använda med molnet på ungefär samma sätt som för övriga lokala datorer. Det handlar till exempel om att minimera byggnadsbehörigheterna och de restriktiva behörigheterna. Vissa unika aspekter av molnhantering liknar mer företagshantering via fjärranslutning eller utanför IP-nätverket. Det gäller bland annat att använda och granska autentiseringsuppgifter, fjärråtkomst med ökad säkerhet och hotidentifiering och -svar.
 
 ### <a name="authentication"></a>Autentisering
-Du kan använda inloggningsbegränsningar för Azure om du vill begränsa källans IP-adresser från åtkomst till administrativa verktyg och granska förfrågningar. Du kan hjälpa Azure att identifiera hanteringsklienter (datorer och/eller program) genom att konfigurera att både SMAPI (via kundutvecklade verktyg som Windows PowerShell-cmdlets) och Azure-hanteringsportalen ska kräva hanteringscertifikat (utöver SSL-certifikat) på klientsidan för att installeras. Vi rekommenderar också att administratörsåtkomst kräver multifaktorautentisering.
+Du kan använda inloggningsbegränsningar för Azure om du vill begränsa källans IP-adresser från åtkomst till administrativa verktyg och granska förfrågningar. Du kan hjälpa Azure att identifiera hanteringsklienter (datorer och/eller program) genom att konfigurera både SMAPI (via kundutvecklade verktyg som Windows PowerShell-cmdlets) och Azure Portal så att de kräver hanteringscertifikat på klientsidan, förutom SSL-certifikat, för att installeras. Vi rekommenderar också att administratörsåtkomst kräver multifaktorautentisering.
 
 Vissa program eller tjänster som du distribuerar i Azure kan ha sina egna autentiseringsmekanismer för både slutanvändare och administratörer, medan andra utnyttjar Azure AD fullt ut. Beroende på om du federerar autentiseringsuppgifter via AD FS (Active Directory Federation Services), via katalogsynkronisering eller genom underhåll av användarkonton enbart i molnet kan du med hjälp av [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (del av Azure AD Premium) hantera identitetslivscykler mellan resurserna.
 
 ### <a name="connectivity"></a>Anslutning
-Du kan säkra klientanslutningar till dina virtuella Azure-nätverk med hjälp av andra tillgängliga mekanismer. Med två av dessa mekanismer, [plats-till-plats-VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) och [punkt-till-plats-VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S) kan du aktivera användning av branschstandarden IPsec (S2S) eller [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) för kryptering och tunnlar. När Azure ansluter till offentliga Azure-tjänster för hantering, till exempel Azure-hanteringsportalen, kräver Azure Hypertext Transfer Protocol Secure (HTTPS).
+Du kan säkra klientanslutningar till dina virtuella Azure-nätverk med hjälp av andra tillgängliga mekanismer. Med två av dessa mekanismer, [plats-till-plats-VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) och [punkt-till-plats-VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S) kan du aktivera användning av branschstandarden IPsec (S2S) eller [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) för kryptering och tunnlar. När Azure ansluter till offentliga Azure-tjänster för hantering, till exempel Azure Portal, kräver Azure Hypertext Transfer Protocol Secure (HTTPS).
 
 En fristående förstärkt dator som inte ansluter till Azure via en RD Gateway ska använda det SSTP-baserade punkt-till-plats-VPN-nätverket för den första anslutningen till det virtuella Azure-nätverket. Därefter ska RDP-anslutning upprättas till enskilda virtuella datorer från VPN-tunneln.
 
@@ -139,13 +139,13 @@ Vi rekommenderar tre primära konfigurationer för en förstärkt dator. De stö
 | Konfiguration | Fördelar | Nackdelar |
 | --- | --- | --- |
 | Fristående förstärkt dator |Strikt kontrollerad dator |högre kostnader för dedikerade stationära datorer |
-| Minskad risk för programtrojaner |Ökat hanteringsarbete | |
-| Tydlig uppdelning av uppgifter | | |
-| Företagets dator som virtuell dator |Minskade maskinvarukostnader | |
-| Uppdelning av roll och program | | |
+| - | Minskad risk för programtrojaner |Ökat hanteringsarbete |
+| - | Tydlig uppdelning av uppgifter | - |
+| Företagets dator som virtuell dator |Minskade maskinvarukostnader | - |
+| - | Uppdelning av roll och program | - |
 | Windows To Go med BitLocker-diskkryptering |Kompatibilitet med de flesta datorer |Tillgångar |
-| Kostnadseffektivitet och portabilitet | | |
-| Isolerad hanteringsmiljö | | |
+| - | Kostnadseffektivitet och portabilitet | - |
+| - | Isolerad hanteringsmiljö |- |
 
 Det är viktigt att den förstärkta datorn är värden och inte gäst, utan något mellan värdoperativsystemet och maskinvaran. Att följa ”principen om ren källa” (även kallat ”säkert ursprung”) innebär att värden ska vara den som är mest förstärkt. I annat fall kan den förstärkta datorn (gäst) utsättas för angrepp i det system som är värd.
 
@@ -153,7 +153,7 @@ Du kan särskilja administrativa funktioner ytterligare via dedikerade systemavb
 
 För IT-miljöer som inte har lokal infrastruktur (till exempel ingen åtkomst till en lokal AD DS-instans för grupprincipobjekt eftersom alla servrar finns i molnet) kan en tjänst som [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) förenkla distribution och underhåll av datorkonfigurationer.
 
-### <a name="standalone-hardened-workstation-for-management"></a>Fristående strikt dator för hantering
+### <a name="stand-alone-hardened-workstation-for-management"></a>Fristående strikt dator för hantering
 Med en fristående strikt dator  har administratörer en stationär eller bärbar dator som de använder för administrativa uppgifter och en annan separat stationär eller bärbar dator för icke-administrativa uppgifter. En dator som är dedikerad för att hantera Azure-tjänster behöver inte ha andra program installerade. Dessutom hjälper datorer som stöder en [Trusted Platform Module](https://technet.microsoft.com/library/cc766159) (TPM) eller liknande krypteringsteknik på maskinvarunivå till med att autentisera enheter och skydda från vissa angrepp. TPM kan också använda fullständigt skydd för systemenhet genom att använda [BitLocker-diskkryptering](https://technet.microsoft.com/library/cc732774.aspx).
 
 I situationen med den fristående strikta datorn (visas nedan) har den lokala instansen av Windows-brandväggen (eller en klientbrandvägg från en annan leverantör än Microsoft) konfigurerats för att blockera inkommande anslutningar, till exempel RDP. Administratören kan logga in på strikt arbetsstationen och starta en RDP-session som ansluter till Azure när du har etablerat en VPN-anslutning ansluta med ett virtuellt Azure-nätverk men det går inte att logga in på en dator som företagets och RDP för att ansluta till strikt arbetsstationen själva.
@@ -176,7 +176,7 @@ I bilden nedan är den bärbara avbildningen ett domänanslutet system som är f
 
 ![][4]
 
-Det är viktigt att komma ihåg att USB-flash-enheter försvinner lättare än en genomsnittlig stationär dator. Om du använder BitLocker för att kryptera hela volymen, tillsammans med ett starkt lösenord, blir det mindre troligt att en angripare kan använda enhetsavbildningen i skadliga syften. Dessutom kan du minska exponeringen genom att återkalla och [utfärda ett nytt certifikat](https://technet.microsoft.com/library/hh831574.aspx) samt göra en snabb återställning av lösenordet om USB-flash-enheten skulle försvinna. Med hjälp av administrativa granskningsloggar i Azure, inte på klienten, kan du ytterligare reducera potentiella dataförluster.
+Det är viktigt att komma ihåg att USB-flash-enheter försvinner lättare än en genomsnittlig stationär dator. Om du använder BitLocker för att kryptera hela volymen, tillsammans med ett starkt lösenord, minskar risken för att en angripare kan använda enhetsavbildningen i skadliga syften. Dessutom kan du minska exponeringen genom att återkalla och [utfärda ett nytt certifikat](https://technet.microsoft.com/library/hh831574.aspx) samt göra en snabb återställning av lösenordet om USB-flash-enheten skulle försvinna. Med hjälp av administrativa granskningsloggar i Azure, inte på klienten, kan du ytterligare reducera potentiella dataförluster.
 
 ## <a name="best-practices"></a>Bästa praxis
 Tänk även på följande riktlinjer när du hanterar program och data i Azure.
@@ -187,14 +187,14 @@ Utgå inte ifrån att andra vanliga säkerhetskrav kan åsidosättas om en dator
 | Gör inte följande | Gör följande |
 | --- | --- |
 | Skicka inte autentiseringsuppgifter för administratörsåtkomst eller andra hemligheter via mejl (t.ex. SSL eller hanteringscertifikat) |Upprätthåll sekretessen genom att lämna ut kontonamn och -lösenord via telefon (men lagrar dem inte i röstmeddelanden), utför en fjärrinstallation av klient-/servercertifikat (via en krypterad session), ladda ned från en skyddad nätverksresurs eller distribuera manuellt via flyttbara medier. |
-| Hantera hanteringscertifikatets livscyklar proaktivt. | |
+| - | Hantera hanteringscertifikatets livscyklar proaktivt. |
 | Lagra inte lösenord okrypterade eller icke-hashformaterade i programlagring (till exempel i kalkylblad, SharePoint-webbplatser eller filresurser). |Fastställa säkerhetsprinciper och principer för systemhärdning och använd dem i din utvecklingsmiljö. |
-| Använd regler för att fästa certifikat i [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) för lämplig åtkomst till Azure SSL/TLS-webbplatser. | |
+| - | Använd regler för att fästa certifikat i [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) för lämplig åtkomst till Azure SSL/TLS-webbplatser. |
 | Använd inte samma konton och lösenord för flera administratörer. Återanvänd inte heller lösenord i flera användarkonton eller -tjänster, särskilt de för sociala medier eller andra icke-administrativa aktiviteter. |Skapa ett särskilt Microsoft-konto för hantering av din Azure-prenumeration. Det ska vara ett konto som inte används för privat mejl. |
 | Skicka inte konfigurationsfiler via mejl. |Konfigurationsfiler och profiler ska installeras från en betrodd källa (till exempel en krypterad USB-flash-enhet), inte från en mekanism som lätt kan äventyras, till exempel mejl. |
 | Använd inte svaga eller enkla lösenord för inloggning. |Tillämpa principer för starka lösenord, förfallotider (ändra vid första användning), tidsgränser för konsolen och automatiska kontolåsningar. Använd ett hanteringssystem för klientlösenord med multifaktorautentisering för valvåtkomst med lösenord. |
 | Exponera inte hanteringsportar på Internet. |Begränsa hanteringsåtkomsten genom att låsa Azure-portar och IP-adresser. Mer information finns i faktabladet [Azure Network Security](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). |
-| Använd brandväggar, VPN:er och NAP för alla hanteringsanslutningar. | |
+| - | Använd brandväggar, VPN:er och NAP för alla hanteringsanslutningar. |
 
 ## <a name="azure-operations"></a>Åtgärder i Azure
 Inom Microsofts Azure-åtgärder använder operationstekniker och supportpersonal som har åtkomst till Azures produktionssystem  [härdade datorer med virtuella datorer](#stand-alone-hardened-workstation-for-management) etablerade på dem för intern åtkomst till företagsnätverk och -program (till exempel mejl, intranät o.s.v.). Alla hanteringsdatorer har TPM:er, värdens startenheten är krypterad med BitLocker och de är anslutna till en särskild organisationsenhet (OU) i Microsofts primära företagsdomän.
@@ -210,11 +210,11 @@ Genom att minimera antalet uppgifter som administratörer kan utföra på en hä
 * Standardanvändare. När du kör som en vanlig användare får du ett antal fördelar. Den största är att det blir svårare att stjäla administratörers autentiseringsuppgifter via skadlig kod. Dessutom har ett vanligt användarkonto inte utökade privilegier på rotoperativsystemet, och många konfigurationsalternativ och API:er är låsta som standard.
 * AppLocker. Du kan begränsa vilka program och skript som användarna kan köra med hjälp av [AppLocker](http://technet.microsoft.com/library/ee619725.aspx) . Du kan köra AppLocker i granskningsläge eller tvingande läge. Som standard har AppLocker en regel för Tillåt som gör att användare med en admin-token kan köra all kod på klienten. Den här regeln finns för att förhindra att administratörer låser sig ut och den tillämpas bara för upphöjda token. Se även Kodintegritet som en del av Windows Servers [grundläggande säkerhet](http://technet.microsoft.com/library/dd348705.aspx).
 * Kodsignering. Att kodsignera alla verktyg och skript som används av administratörer ger en hanterbar mekanism för att distribuera principer för programlåsning. Hashvärden skalas inte med snabba kodändringar och filsökvägar ger inte en hög säkerhetsnivå. Du bör kombinera AppLocker-regler med en PowerShell [-körningsprincip](http://technet.microsoft.com/library/ee176961.aspx) som bara tillåter att viss signerad kod och vissa signerade skript [körs](http://technet.microsoft.com/library/hh849812.aspx).
-* Grupprincip. Skapa en global administrativ princip att tillämpa för alla domändatorer som används för hantering (och blockera åtkomst från alla andra) samt för användarkonton som autentiseras på datorerna.
+* Grupprincip. Skapa en global administrativ princip som tillämpas på alla domändatorer som används för hantering (och blockera åtkomst från alla andra) samt för användarkonton som autentiseras på datorerna.
 * Säkrare etablering. Skydda dig mot manipulation genom att skydda baslinjens härdade datoravbildning. Använd säkerhetsåtgärder som kryptering och isolering för att lagra avbildningar, virtuella datorer och skript och begränsa åtkomsten (till exempel genom att använda en granskningsbar in-/utcheckningsprocess).
 * Korrigering. Underhåll en konsekvent avbildning (eller ha separata avbildningar för utveckling, åtgärder och andra administrativa uppgifter), sök regelbundet efter ändringar och skadlig kod, uppdatera kontinuerligt  och aktivera bara datorer när de behövs.
 * Kryptering. Kontrollera att hanteringsdatorerna har en TPM så att du kan aktivera [krypterande filsystem](https://technet.microsoft.com/library/cc700811.aspx) (EFS) och BitLocker på ett säkert sätt. Om du använder Windows To Go använder du bara krypterade USB-nycklar tillsammans med BitLocker.
-* Styrning. Styr alla av administratörens Windows-gränssnitt (till exempel fildelning) genom att använda AD DS-grupprincipobjekt. Inkludera hanteringsdatorer processerna för granskning, övervakning och loggning. Spåra alla administratörers och utvecklares åtkomst och användning.
+* Styrning. Styr alla administratörens Windows-gränssnitt (till exempel fildelning) genom att använda AD DS-grupprincipobjekt. Inkludera hanteringsdatorer processerna för granskning, övervakning och loggning. Spåra alla administratörers och utvecklares åtkomst och användning.
 
 ## <a name="summary"></a>Sammanfattning
 Genom att använda en härdad datorkonfiguration för administrering av dina Azure-molntjänster, virtuella datorer och program kan du undvika flera risker och hot som kan uppstå när du fjärrhanterar kritiska IT-infrastrukturer. Både Azure och Windows erbjuder funktioner som du kan använda för att skydda och styra beteenden för kommunikation, autentisering och klienten.
@@ -235,6 +235,6 @@ Följande resurser med allmän information om Azure och relaterade Microsoft-tj�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

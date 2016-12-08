@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73510d618f414ebedd7cd1df979397e0b00570b8
+ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
+ms.openlocfilehash: 5852808ad0f5cf02908df7ff969ab2106d9f5abd
 
 
 ---
@@ -192,7 +192,7 @@ Om du klickar på databasen för att utföra rekommendationen öppnas bladet **G
 Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning**.
 
 ### <a name="monitor-applications"></a>Övervakning av program
-Om din arbetsbelastning i Azure innehåller program som ligger på [virtuella datorer (skapade via Azure Resource Manager)](../resource-manager-deployment-model.md) med exponerade webbportar (TCP-portarna 80 och 443) kan de övervakas i Security Center. Då identifieras potentiella säkerhetsproblem och du får rekommendationer om hur problemen kan lösas. Om du klickar på rutan **Program** öppnas bladet **Program** med olika rekommendationer i den översta delen med **Skyddsåtgärder**. Här visas även program uppdelade efter värd/virtuell IP-adress såsom visas på följande skärmbild.
+Om din arbetsbelastning i Azure innehåller program som ligger på [virtuella datorer (skapade via Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) med exponerade webbportar (TCP-portarna 80 och 443) kan de övervakas i Security Center. Då identifieras potentiella säkerhetsproblem och du får rekommendationer om hur problemen kan lösas. Om du klickar på rutan **Program** öppnas bladet **Program** med olika rekommendationer i den översta delen med **Skyddsåtgärder**. Här visas även program uppdelade efter värd/virtuell IP-adress såsom visas på följande skärmbild.
 
 ![Programsäkerhetshälsa](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
@@ -216,6 +216,6 @@ I den här artikeln har du fått lära dig hur du använder övervakningsfunktio
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

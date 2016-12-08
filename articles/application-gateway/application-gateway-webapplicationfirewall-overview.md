@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 11/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 69dd0b2d33c93edfa3073ce297d9a3ff948a037e
+ms.sourcegitcommit: 928a93793b0b5e346fc02427c670a4c5c6ad80cc
+ms.openlocfilehash: 5d0609b826d489eb789cc86612b495bbd05afbe0
 
 
 ---
 # <a name="application-gateway-web-application-firewall-preview"></a>Brandvägg för gateway till webbaserade program (förhandsgranskning)
+
 Brandvägg för webbaserade program (WAF) är en funktion för Azure Application Gateway som ger skydd till webbprogram som utnyttjar programgateway för standard ADC-funktioner (Application Delivery Control). Brandvägg för webbaserade program gör detta genom att skydda dem mot de flesta av de 10 vanligaste OWASP-säkerhetsproblemen. Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av flera skikt i programtopologin. En centraliserad brandvägg mot webbattacker underlättar säkerhetshanteringen och håller programmet bättre skyddat mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en programgateway med brandvägg för webbprogram.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
@@ -35,6 +36,7 @@ Konfigurering av WAF vid programgatewayen ger följande fördelar:
 * Vissa kompatibilitetskontroller kräver att alla slutpunkter som är internetanslutna ska skyddas av en WAF-lösning. Genom att använda programgatewayen med WAF aktiverat kan du uppfylla dessa kompatibilitetskrav.
 
 ## <a name="overview"></a>Översikt
+
 WAF för programmets gateway erbjuds i en ny SKU (WAF SKU) och levereras förinställd med ModSecurity och OWASP Core Rule Set för att ge skydd vid baslinjen mot de flesta av OWASP:s 10 vanligaste webbsäkerhetsproblem.
 
 * Skydd mot SQL-inmatning
@@ -42,17 +44,18 @@ WAF för programmets gateway erbjuds i en ny SKU (WAF SKU) och levereras förins
 * Skydd mot vanliga webbattacker, som kommandoinmatning, dold HTTP-begäran, delning av HTTP-svar och attack genom införande av fjärrfil
 * Skydd mot åtgärder som inte följer HTTP-protokollet
 * Skydd mot avvikelser i HTTP-protokollet som att användaragent för värden och accept-huvud saknas
-* HTTP DoS-skydd, inklusive HTTP-översvämning och förhindrande av långsam HTTP DoS
 * Skydd mot robotar, crawlers och skannrar
 * Identifiering av vanliga felkonfigureringar i program (t.ex. Apache, IIS osv.)
 
 ## <a name="waf-modes"></a>WAF-lägen
+
 WAF för programmets gateway kan konfigureras för att köras i följande två lägen:
 
 * **Identifieringsläge** – När WAF för programgatewayen körs i identifieringsläge övervakas och loggas alla hotvarningar i en loggfil. Du måste säkerställa att loggningsdiagnostik för programgatewayen är aktiverat i diagnostikavsnittet. Du måste också se till att WAF-loggen har valts och är aktiverad.
 * **Förhindringsläge** – När programgatewayen har konfigurerats för att köras i förhindringsläge blockerar den aktivt intrång och attacker som identifieras enligt reglerna för den. Attackeraren erhåller undantag 403 för obehörig åtkomst och anslutningen avbryts. Förhindringsläget fortsätter logga sådana attacker i WAF-loggarna.
 
 ## <a name="application-gateway-waf-reports"></a>WAF-rapporter för programgatewayen
+
 WAF för programgatewayen erbjuder detaljerad rapportering för varje hot som upptäcks. Loggning integreras med Azure-diagnostikloggar och varningar registreras i JSON-format.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
@@ -78,14 +81,16 @@ WAF för programgatewayen erbjuder detaljerad rapportering för varje hot som up
 ```
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Priser för WAF SKU för programgatewayen
+
 Under förhandsgranskningen tillkommer inga extra kostnader för att använda WAF för programgateway. Du debiteras fortsättningsvis enligt gällande grundavgifter för SKU. Kostnaderna för WAF SKU kommuniceras när den är tillgänglig för allmänheten. För kunder som har valt att distribuera programgatewayen i WAF SKU börjar kostnader genereras för WAF SKU först efter att den gjorts tillgänglig för allmänheten.
 
 ## <a name="next-steps"></a>Nästa steg
+
 När du har lärt dig mer om funktionerna i WAF går du vidare till [Konfigurera brandväggen för webbaserade program på programgatewayen](application-gateway-web-application-firewall-portal.md).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

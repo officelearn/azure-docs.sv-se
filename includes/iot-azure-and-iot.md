@@ -13,7 +13,7 @@ I följande diagram visas en typisk IoT-lösningsarkitektur. Diagrammet innehål
 ![IoT-lösningsarkitektur][img-solution-architecture]
 
 > [!NOTE]
-> En detaljerad beskrivning av IoT-arkitekturen finns i [Referensarkitektur för Microsoft Azure IoT][lnk-refarch].
+> En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Referensarkitektur för Microsoft Azure IoT).
 > 
 > 
 
@@ -30,9 +30,9 @@ En av de största utmaningarna med IoT-projekt är att på ett tillförlitligt o
 * Kan behöva använda patentskyddade, anpassade eller branschspecifika programprotokoll.
 * Kan skapas med en stor mängd populära maskinvaru- och programvaruplattformar.
 
-Förutom kraven ovan behöver alla IoT-lösningar också erbjuda skalbarhet, säkerhet och tillförlitlighet. Den resulterande uppsättningen anslutningskrav är svår och tidskrävande att implementera med traditionella teknologier, till exempel webbehållare och asynkrona meddelandeköer. Azure IoT Hub och SDK för Azure IoT-enheter gör det lättare att implementera lösningar som uppfyller de här kraven.
+Förutom kraven ovan behöver alla IoT-lösningar också erbjuda skalbarhet, säkerhet och tillförlitlighet. Den resulterande uppsättningen anslutningskrav är svår och tidskrävande att implementera med traditionella teknologier, till exempel webbehållare och asynkrona meddelandeköer. Azure IoT Hub och enhets-SDK:erna för Azure IoT gör det enklare att implementera lösningar som uppfyller dessa krav.
 
-En enhet kan kommunicera direkt med en slutpunkt för en molngateway, eller om enheten inte kan använda sig av något av de kommunikationsprotokoll som molgatewayen stöder så kan den ansluta via en mellanliggande gateway. Till exempel så kan [Azure IoT-protokollgatewayen][Ink-protokollgateway] utföra protokollöversättningar om enheter inte kan använda sig av något av de protokoll som stöds av IoT Hub.
+En enhet kan kommunicera direkt med en slutpunkt för en molngateway, eller om enheten inte kan använda sig av något av de kommunikationsprotokoll som molgatewayen stöder så kan den ansluta via en mellanliggande gateway. Till exempel kan [Azure IoT-protokollgatewayen][lnk-protocol-gateway] utföra protokollöversättningar om enheter inte kan använda sig av något av de protokoll som stöds av IoT Hub.
 
 ### <a name="data-processing-and-analytics"></a>Databearbetning och analys
 Det är i IoT-lösningens serverdel i molnet som den största delen av databearbetningen sker, speciellt vad gäller filtrering och sammanställning av telemetri och vidarebefordran till andra tjänster. Serverdelen för IoT-lösningen:
@@ -60,6 +60,6 @@ Slutanvändarna kan interagera med IoT-lösningen och enheterna via ett presenta
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

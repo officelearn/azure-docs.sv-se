@@ -15,19 +15,18 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567a998102558626df73878865b317b830ba1faa
+ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
+ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
 
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
-> -[ Windows](service-fabric-get-started.md)
-> 
+> * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
-> 
+>  
 
  För att kunna skapa och köra [Azure Service Fabric-program](service-fabric-application-model.md) på en Linux-utvecklingsdator måste du installera runtime och SDK. Du kan även installera SDK:er för Java och .NET Core.
 
@@ -71,7 +70,7 @@ När källorna har uppdaterats kan du installera SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-## <a name="set-up-the-azure-crossplatform-cli"></a>Konfigurera Azures plattformsoberoende CLI
+## <a name="set-up-the-azure-cross-platform-cli"></a>Konfigurera Azures plattformsoberoende CLI
 [Azures plattformsoberoende CLI][azure-xplat-cli-github] innehåller kommandon för att interagera med Service Fabric-entiteter, t.ex. kluster och program. Det är baserat på Node.js. Det innebär att du måste [installera Node][install-node] innan du fortsätter med instruktionerna nedan.
 
 1. Klona github-repon till din utvecklingsdator.
@@ -168,6 +167,6 @@ Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse Neon I
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

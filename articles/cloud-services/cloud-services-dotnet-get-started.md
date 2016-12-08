@@ -12,20 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/10/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: a3fc284a436173f1a1debc205a83d55cc1869b32
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 81fd8f40d8f939e68fbe2cf9ef7b413073a8c363
 
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
-> [!div class="op_single_selector"]
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [NET](cloud-services-dotnet-get-started.md)
->
->
 
 ## <a name="overview"></a>Översikt
 Under den här kursen får du lära dig hur du skapar ett .NET-program på flera nivåer med en ASP.NET MVC-klientdel, samt att distribuera det till en [Azure-molntjänst](cloud-services-choose-me.md). Programmet använder [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob-tjänsten](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) och [Azure-kötjänsten](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Du kan [hämta Visual Studio-projektet](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) från MSDN Code Gallery.
@@ -415,7 +410,7 @@ I de följande avsnitten beskrivs den kod som gäller när du arbetar med Azure-
 * [Kom igång med EF 6 och MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Introduktion till asynkron programmering i .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
-### <a name="contosoadscommon-adcs"></a>ContosoAdsCommon – Ad.cs
+### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon – Ad.cs
 Filen Ad.cs definierar en uppräkning för annonskategorier och en POCO-entitetsklass för annonsinformation.
 
 ```csharp
@@ -459,7 +454,7 @@ public class Ad
 }
 ```
 
-### <a name="contosoadscommon-contosoadscontextcs"></a>ContosoAdsCommon – ContosoAdsContext.cs
+### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon – ContosoAdsContext.cs
 ContosoAdsContext-klassen anger att annonsklassen används i en DbSet-samling som Entity Framework lagrar i en SQL-databas.
 
 ```csharp
@@ -478,7 +473,7 @@ public class ContosoAdsContext : DbContext
 
 Klassen har två konstruktorer. Den första används av webbprojektet och anger namnet på en anslutningssträng som lagras i Web.config-filen. Den andra konstruktorn gör att du kan överföra den faktiska anslutningssträngen. Det krävs av arbetsrollsprojektet eftersom det inte har en Web.config-fil. Du såg tidigare var den här anslutningssträngen lagras, och du kommer längre fram att få se hur koden hämtar anslutningssträngen när den instantierar DbContext-klassen.
 
-### <a name="contosoadsweb-globalasaxcs"></a>ContosoAdsWeb – Global.asax.cs
+### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb – Global.asax.cs
 Kod som anropas från metoden `Application_Start` skapar en blobbehållare för *images* och en kö för *images* om dessa inte redan finns. Det innebär att när du börjar använda ett nytt lagringskonto eller börjar använda lagringsemulatorn på en ny dator, skapas den nödvändiga blobbehållaren och kön automatiskt.
 
 Koden får tillgång till lagringskontot genom att använda lagringsanslutningssträngen från *.cscfg*-filen.
@@ -511,10 +506,10 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb-layoutcshtml"></a>ContosoAdsWeb – \_Layout.cshtml
+### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb – \_Layout.cshtml
 Filen *_Layout.cshtml* anger appnamnet i sidhuvudet och sidfoten, och skapar en menypost som heter ”Ads”.
 
-### <a name="contosoadsweb-viewshomeindexcshtml"></a>ContosoAdsWeb – Views\Home\Index.cshtml
+### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb – Views\Home\Index.cshtml
 Filen *Views\Home\Index.cshtml* visar kategorilänkar på startsidan. Länkarna överför heltalsvärdet för uppräkningen `Category` i en QueryString-variabel till Ads-indexsidan. 
 
 ```razor
@@ -524,7 +519,7 @@ Filen *Views\Home\Index.cshtml* visar kategorilänkar på startsidan. Länkarna 
 <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 ```
 
-### <a name="contosoadsweb-adcontrollercs"></a>ContosoAdsWeb – AdController.cs
+### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb – AdController.cs
 I filen *AdController.cs* anropar konstruktorn metoden `InitializeStorage` för att skapa Azure Storage-klientbiblioteksobjekt som tillhandahåller en API som kan användas för blobbar och köer.
 
 Sedan hämtar koden en referens till blobbehållaren för *images* som du såg tidigare i *Global.asax.cs*. När den gör det anger den en [standardpolicy för återförsök](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) som är lämplig för en webbapp. Standardpolicyn för återförsök med exponentiell begränsning kan hänga webbappen längre än en minut vid upprepade återförsök för ett tillfälligt fel. Återförsökspolicyn som anges här väntar i tre sekunder efter varje försök i upp till tre försök.
@@ -621,7 +616,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 }
 ```
 
-### <a name="contosoadsweb-viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb – Views\Ad\Index.cshtml och Details.cshtml
+### <a name="contosoadsweb---viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb – Views\Ad\Index.cshtml och Details.cshtml
 Filen *Index.cshtml* visar miniatyrbilder med andra annonsdata.
 
 ```razor
@@ -634,7 +629,7 @@ Filen *Details.cshtml* visar bilden i full storlek.
 <img src="@Html.Raw(Model.ImageURL)" />
 ```
 
-### <a name="contosoadsweb-viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb – Views\Ad\Create.cshtml och Edit.cshtml
+### <a name="contosoadsweb---viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb – Views\Ad\Create.cshtml och Edit.cshtml
 Filerna *Create.cshtml* och *Edit.cshtml* anger formkodning som gör att kontrollanten kan hämta objektet `HttpPostedFileBase`.
 
 ```razor
@@ -647,7 +642,7 @@ Ett `<input>`-element instruerar webbläsaren att tillhandahålla en dialogruta 
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 ```
 
-### <a name="contosoadsworker-workerrolecs-onstart-method"></a>ContosoAdsWorker – WorkerRole.cs – OnStart-metoden
+### <a name="contosoadsworker---workerrolecs---onstart-method"></a>ContosoAdsWorker – WorkerRole.cs – OnStart-metoden
 Azure-arbetsrollsmiljön anropar metoden `OnStart` i klassen `WorkerRole` när arbetsrollen påbörjas, och den anropar metoden `Run` när metoden `OnStart` avslutas.
 
 Metoden `OnStart` hämtar databasanslutningssträngen från *.cscfg*-filen och skickar den till Entity Framework DbContext-klassen. SQLClient-leverantören används som standard så leverantören behöver inte anges.
@@ -659,7 +654,7 @@ db = new ContosoAdsContext(dbConnString);
 
 Därefter hämtar metoden en referens till lagringskontot och skapar blobbehållaren och kön om de inte redan finns. Koden för den åtgärden liknar det du redan har sett i metoden `Application_Start` för webbrollen.
 
-### <a name="contosoadsworker-workerrolecs-run-method"></a>ContosoAdsWorker – WorkerRole.cs – Run-metoden
+### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker – WorkerRole.cs – Run-metoden
 Metoden `Run` anropas när metoden `OnStart` har avslutat initieringsarbetet. Metoden kör en oändlig loop som söker efter nya kömeddelanden och bearbetar dem när de kommer in.
 
 ```csharp
@@ -777,6 +772,6 @@ Mer information finns i följande resurser:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

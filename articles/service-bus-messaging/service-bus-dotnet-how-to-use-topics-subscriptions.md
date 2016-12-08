@@ -1,13 +1,13 @@
 ---
 title: "Använda Service Bus-ämnen med .NET | Microsoft Azure"
 description: "Lär dig hur du använder Service Bus-ämnen och -prenumerationer med .NET i Azure. Kodexemplen är skrivna för .NET-program."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: 71d0049c831b9bbcdef548bc129d6e15256a25b4
 
 
 ---
@@ -51,7 +51,7 @@ Service Bus använder en anslutningssträng för att lagra slutpunkter och auten
 I båda fallen kan du hämta din anslutningssträng genom att använda metoden `CloudConfigurationManager.GetSetting`, som visas lite längre fram i denna artikel.
 
 ### <a name="configure-your-connection-string"></a>Konfigurera anslutningssträngen
-Med tjänstkonfigurationen kan du på ett dynamiskt sätt ändra konfigurationsinställningarna från [Azure portal][Azure portal] utan att behöva distribuera ditt program en gång till. Du kan till exempel lägga till en `Setting`-etikett till tjänstdefinitionsfilen (***.csdef**), enligt nästa exempel.
+Med tjänstkonfigurationen kan du på ett dynamiskt sätt ändra konfigurationsinställningarna från [Azure Portal][Azure Portal] utan att behöva distribuera ditt program en gång till. Du kan till exempel lägga till en `Setting`-etikett till tjänstdefinitionsfilen (***.csdef**), enligt nästa exempel.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -94,7 +94,7 @@ När du använder webbplatser eller Virtual Machines rekommenderar vi att du anv
 </configuration>
 ```
 
-Använd det SAS-namn och de nyckelvärden som du hämtade från [Azure portal][Azure portal], enligt den tidigare beskrivningen.
+Använd det SAS-namn och de nyckelvärden som du hämtade från [Azure Portal][Azure Portal], enligt den tidigare beskrivningen.
 
 ## <a name="create-a-topic"></a>Skapa ett ämne
 Du kan utföra hanteringsåtgärder för Service Bus-ämnen och -prenumerationer genom att använda klassen [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Den här klassen innehåller metoder för att skapa, räkna upp och ta bort ämnen.
@@ -311,7 +311,7 @@ Nu när du har lärt dig grunderna om Service Bus-ämnen och -prenumerationer, k
 * [Exempel på ämnesfilter][Exempel på ämnesfilter]
 * API-referens för [SqlFilter][SqlFilter].
 * Skapa ett fungerande program som skickar och tar emot meddelanden till och från en Service Bus-kö: [.NET-självstudie om asynkrona meddelanden i Service Bus][Service Bus brokered messaging .NET tutorial].
-* Service Bus-exempel: Hämta från [Azure-exempel][Azure samples] eller gå till [översikt](service-bus-samples.md).
+* Service Bus-exempel: Hämta från [Azure-exempel][Azure-exempel] eller gå till [översikt](service-bus-samples.md).
 
 [Azure Portal]: https://portal.azure.com
 
@@ -321,11 +321,11 @@ Nu när du har lärt dig grunderna om Service Bus-ämnen och -prenumerationer, k
 [Exempel på ämnesfilter]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
 [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Service Bus asynkrona meddelanden i .NET-självstudie]: service-bus-brokered-tutorial-dotnet.md
+[Service Bus brokered messaging .NET tutorial]: service-bus-brokered-tutorial-dotnet.md
 [Azure-exempel]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

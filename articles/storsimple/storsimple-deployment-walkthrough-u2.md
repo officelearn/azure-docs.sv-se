@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: f71c7e080b2c0b382f241d55b9ca0c7507c24a88
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Distribuera din lokala StorSimple-enhet (Uppdatering 2)
+# <a name="deploy-your-on-premises-storsimple-device-update-2"></a>Distribuera din lokala StorSimple-enhet (Uppdatering 2)
 > [!div class="op_single_selector"]
 > * [Uppdatering 2 och senare ](storsimple-deployment-walkthrough-u2.md)
 > * [Uppdatering 1](storsimple-deployment-walkthrough-u1.md)
@@ -56,7 +56,7 @@ Utför de här obligatoriska stegen för att konfigurera din StorSimple-enhet oc
 | [Steg 1: Skapa en ny tjänst](#step-1-create-a-new-service) |Ställ in hantering och lagring i molnet för din StorSimple-enhet. *Hoppa över det här steget om du har en befintlig tjänst för andra StorSimple-enheter*. |
 | [Steg 2: Hämta tjänstregistreringsnyckeln](#step-2-get-the-service-registration-key) |Använd nyckeln för att registrera och ansluta din StorSimple-enhet till hanteringstjänsten. |
 | [Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Anslut enheten till nätverket och registrera den med Azure för att slutföra installationen med hjälp av hanteringstjänsten. |
-| [Steg 4: Slutför de minsta enhetsinställningarna](#step-4-complete-minimum-device-setupd)</br>[Valfritt: Uppdatera din StorSimple-enhet](#scan-for-and-apply-updates) |Använd hanteringstjänsten för att slutföra installationen av enheten och aktivera den för att tillhandahålla lagring. |
+| [Steg 4: Slutför de minsta enhetsinställningarna](#step-4-complete-minimum-device-setup)</br>[Valfritt: Uppdatera din StorSimple-enhet](#scan-for-and-apply-updates) |Använd hanteringstjänsten för att slutföra installationen av enheten och aktivera den för att tillhandahålla lagring. |
 | [Steg 5: Skapa en volymbehållare](#step-5-create-a-volume-container) |Skapa en behållare för att etablera volymer. En volymbehållare har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den. |
 | [Steg 6: Skapa en volym](#step-6-create-a-volume) |Etablera lagringsvolymer på StorSimple-enheten för dina servrar. |
 | [Steg 7: Montera, initiera och formatera en volym](#step-7-mount-initialize-and-format-a-volume)</br>[Valfritt: Konfigurera MPIO](storsimple-configure-mpio-windows-server.md) |Anslut dina servrar till den iSCSI-lagring som ingår i enheten. Du kan även välja att konfigurera MPIO för att säkerställa att dina servrar klarar av länk-, nätverks- samt gränssnittsfel. |
@@ -95,7 +95,7 @@ Innan du börjar ska du kontrollera att:
 
 * Portarna i ditt datacenters brandvägg är öppna för att möjliggöra iSCSI- och molntrafik enligt beskrivningen i [Nätverkskrav för din StorSimple-enhet](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="stepbystep-deployment"></a>Steg för steg-distribution
+## <a name="step-by-step-deployment"></a>Steg för steg-distribution
 Utför nedanstående steg för steg-instruktioner för att distribuera StorSimple-enheten i datacentret.
 
 ## <a name="step-1-create-a-new-service"></a>Steg 1: Skapa en ny tjänst
@@ -224,6 +224,6 @@ Utför följande steg i hanteringsportalen för att på begäran kunna skapa en 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

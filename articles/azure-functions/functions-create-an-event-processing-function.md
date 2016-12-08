@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
+ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
+ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
 
 
 ---
@@ -29,7 +29,7 @@ Det här ämnet visar hur du skapar en ny funktion i C# som körs baserat på en
 ## <a name="prerequisites"></a>Krav
 Innan du kan skapa en funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto, [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/).
 
-## <a name="create-a-timertriggered-function-from-the-template"></a>Skapa en timerutlöst funktion från mallen
+## <a name="create-a-timer-triggered-function-from-the-template"></a>Skapa en timerutlöst funktion från mallen
 En funktionsapp är värd för körningen av dina funktioner i Azure. Innan du kan skapa en funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto, [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/). 
 
 1. Gå till [Azure Functions-portalen](https://functions.azure.com/signin) och logga in med ditt Azure-konto.
@@ -72,13 +72,13 @@ Mer information om Azure Functions finns i dessa ämnen.
 * [Testa Azure Functions](functions-test-a-function.md)  
   Beskriver olika verktyg och tekniker för att testa funktioner.
 * [Så här skalar du Azure Functions](functions-scale.md)  
-  Beskriver tillgängliga serviceplaner för Azure Functions, inklusive den dynamiska serviceplanen, och hur du väljer rätt plan.  
+  Beskriver tillgängliga serviceplaner för Azure Functions, inklusive värdplanen för förbrukning, och hur du väljer rätt plan.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

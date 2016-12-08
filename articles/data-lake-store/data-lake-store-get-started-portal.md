@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 408a5fb25ef7b285a76e8f5b65890dc625574437
-ms.openlocfilehash: fba738575ee9a60cc930adfb68b7c34323bbe747
+ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
+ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: fba738575ee9a60cc930adfb68b7c34323bbe747
 > * [REST-API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Lär dig mer om att använda Azure Portal för att skapa ett Azure Data Lake Store-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta filer, ta bort ditt konto, osv. Mer information om Data Lake Store finns i [Översikt över Azure Data Lake Store](data-lake-store-overview.md).
@@ -136,6 +137,6 @@ Om du vill ta bort ett Azure Data Lake Store-konto från dina Data Lake Store-bl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

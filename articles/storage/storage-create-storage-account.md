@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/26/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5b24b28f82c53b880e025dc43169aaad49e8434
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: fd5ca2dfb12b7527f49d32d9642a91df9e590b14
 
 
 ---
@@ -68,7 +68,7 @@ Du kan också konfigurera ett eget domännamn som ska användas med ditt lagring
    > Namnet på ditt lagringskonto måste vara unikt i Azure. Azure Portal anger om det namn du valt för lagringskontot redan används.
    > 
    > 
-4. Ange vilken distributionsmodell som ska användas: **Resource Manager** eller **Klassisk**. **Resource Manager** är den rekommenderade distributionsmodellen. Mer information finns i [Förstå Resource Manager-distribution och klassisk distribution](../resource-manager-deployment-model.md).
+4. Ange vilken distributionsmodell som ska användas: **Resource Manager** eller **Klassisk**. **Resource Manager** är den rekommenderade distributionsmodellen. Mer information finns i [Förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
    
    > [!NOTE]
    > Blob Storage-konton kan bara skapas med Resource Manager-distributionsmodellen.
@@ -162,6 +162,6 @@ Mer information finns i [dokumentationen för Azure Virtual Machines](http://azu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

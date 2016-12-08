@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2016
+ms.date: 11/28/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 86b7d396307761acb8baee5761f08a3e1120cddc
+ms.sourcegitcommit: eb618aea1ee5aba24cebd4d8518e9c7f546f5f4f
+ms.openlocfilehash: ae1e750a5f97325df064a02ed156610b4576f1d3
 
 
 ---
@@ -28,7 +28,10 @@ ExpressRoute stöds i alla Azures regioner och platser. Följande karta innehål
 
 ![Platskarta][0]
 
-Du har åtkomst till Azure-tjänster i alla regioner inom en geopolitisk region, om du är ansluten till minst en ExpressRoute-plats inom den geopolitiska regionen. Följande tabell innehåller en karta över Azures regioner till ExpressRoute-platser inom en geopolitisk region.
+Du har åtkomst till Azure-tjänster i alla regioner inom en geopolitisk region, om du är ansluten till minst en ExpressRoute-plats inom den geopolitiska regionen. 
+
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Azure-regioner till ExpressRoute-platser inom en geopolitisk region
+Följande tabell innehåller en karta över Azures regioner till ExpressRoute-platser inom en geopolitisk region.
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- |
@@ -40,6 +43,7 @@ Du har åtkomst till Azure-tjänster i alla regioner inom en geopolitisk region,
 | **Australien** |Sydöstra Australien, östra Australien |Melbourne, Sydney |
 | **Indien** |Västra Indien, centrala Indien, södra Indien |Chennai, Mumbai |
 
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
 Tabellen nedan innehåller information om regioner och geopolitiska gränser för nationella moln.
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
@@ -50,10 +54,10 @@ Tabellen nedan innehåller information om regioner och geopolitiska gränser fö
 
 Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i ExpressRoute. Du måste aktivera ExpressRoutes premiumtillägg som stöder global anslutning. Anslutning till nationella molnmiljöer stöds inte. Kontakta din anslutningsleverantör om detta behov uppstår.
 
-## <a name="connectivity-provider-locations"></a>Anslutningsleverantörens platser
+## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Platser för anslutningsleverantörer
 > [!div class="op_single_selector"]
-> [Platser efter leverantör](expressroute-locations.md#connectivity-provider-locations)
-> [Leverantörer efter plats](expressroute-locations-providers.md#connectivity-provider-locations)
+> * [Platser efter leverantör](expressroute-locations.md#locations)
+> * [Leverantörer efter plats](expressroute-locations-providers.md#locations)
 > 
 > 
 
@@ -83,13 +87,14 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **Toronto** |Cologix, Equinix, Zayo Group |
+| **Toronto** |Cologix, Equinix, Megaport, Zayo Group |
 | **Washington DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** kommer snart
 
 ### <a name="national-cloud-environments"></a>Nationella molnmiljöer
-#### <a name="us-government-cloud"></a>U.S. Government-moln
+
+### <a name="us-government-cloud"></a>U.S. Government-moln
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -97,7 +102,7 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **New York** |Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### <a name="china"></a>Kina
+### <a name="china"></a>Kina
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Peking** |China Telecom |
@@ -105,7 +110,7 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 
 Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expressroute/).
 
-#### <a name="germany"></a>Tyskland
+### <a name="germany"></a>Tyskland
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Berlin** |Colt+, e-shelter |
@@ -115,13 +120,13 @@ Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expres
 Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fortfarande skapa en anslutning.
 
 * Fråga anslutningsleverantören om de är anslutna till något av utbytena i tabellen ovan. Du kan använda följande länkar för att samla in mer information om tjänster som erbjuds av utbytesleverantörer. Flera anslutningsleverantörer är redan ansluten till Ethernet-utbyten.
-  
+  * [Cologix](http://www.cologix.com/)
+  * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
   * [InterXion](http://www.interxion.com/)
   * [NextDC](http://www.nextdc.com/)
-  * [CoreSite](http://www.coresite.com/)
-  * [Cologix](http://www.cologix.com/)
+  * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 * Låt anslutningsleverantören utöka ditt nätverk till den valda peeringplatsen.
   * Se till att anslutningsleverantören utökar anslutningen med hög tillgänglighet så att det inte finns några enskilda problempunkter.
 * Beställ en ExpressRoute-krets med utbyte så att anslutningsleverantören kan ansluta till Microsoft.
@@ -153,6 +158,6 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 07/27/2016
+ms.date: 11/17/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a91c56d774ea81e175fa170e09b39548c6ae4d2
+ms.sourcegitcommit: 088d3d55a437165607e73ac2d6a3abe27e9b2639
+ms.openlocfilehash: 755fafcbc01e1da89d7ef3fa99b92da60c95bf8c
 
 
 ---
@@ -65,7 +65,7 @@ När Batch- och HPC-program körs används ofta en *klusterhanterare* och ett *j
 * **Klusterhanterare** – Etablerar, frisläpper och administrerar beräkningsresurser (eller beräkningsnoder). En klusterhanterare kan automatisera installationen av operativsystemavbildningar och program på datornoder, skala beräkningsresurser efter behov och övervaka nodernas prestanda.
 * **Jobbschema** – Anger vilka resurser (t.ex. processorer eller minne) som ett program behöver och villkoren då det körs. En jobbschemat har en kö med jobb och tilldelar resurser till dem utifrån en tilldelad prioritet eller andra egenskaper.
 
-Kluster- och schemaläggningsverktyg för Windows- och Linux-baserade kluster kan migreras till Azure. Exempelvis har [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), Microsofts kostnadsfria beräkningsklusterlösning för Windows- och Linux HPC-arbetsbelastningar, flera alternativ för körning i Azure. Du kan också skapa Linux-kluster för att köra verktyg baserade på öppen källkod, som till exempel Torque och SLURM. Du kan också hämta kommersiella lösningar till Azure, exempelvis [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) och [Univa Grid Engine](http://www.univa.com/products/grid-engine).
+Kluster- och schemaläggningsverktyg för Windows- och Linux-baserade kluster kan migreras till Azure. Exempelvis har [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), Microsofts kostnadsfria beräkningsklusterlösning för Windows- och Linux HPC-arbetsbelastningar, flera alternativ för körning i Azure. Du kan också skapa Linux-kluster för att köra verktyg baserade på öppen källkod, som till exempel Torque och SLURM. Du kan också hämta kommersiella lösningar till Azure, exempelvis [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/), [IBM Spectrum Symphony och Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/) och [Univa Grid Engine](http://www.univa.com/products/grid-engine).
 
 Som du ser i följande avsnitt kan du också dra nytta av Azure-tjänster för att hantera beräkningsresurser och schemalägga jobb utan (eller förutom) traditionella klusterhanteringsverktyg.
 
@@ -87,10 +87,10 @@ Här finns mer information om beräkningar, data, nätverk och relaterade tjäns
 > 
 
 ### <a name="compute-services"></a>Beräkningstjänster
-Azures beräkningstjänster är kärnan i en Big Compute-lösning och olika beräkningstjänster har olika fördelar för olika scenarier. På en grundläggande nivå erbjuder dessa tjänster olika lägen som program kan köras i på VM-baserade beräkningsinstanser som Azure tillhandahåller med hjälp av Windows Server Hyper-V-teknik. Dessa instanser kan köra standardiserade eller anpassade Linux- och Windows-baserade operativsystem och verktyg. Azure ger dig möjlighet att välja [instansstorlekar](../virtual-machines/virtual-machines-windows-sizes.md) med olika konfigurationer av CPU-kärnor, minne, diskutrymme och andra egenskaper. Beroende på dina behov kan du skala instanser till flera tusen kärnor och sedan skala ned när du behöver färre resurser.
+Azures beräkningstjänster är kärnan i en Big Compute-lösning och olika beräkningstjänster har olika fördelar för olika scenarier. På en grundläggande nivå erbjuder dessa tjänster olika lägen som program kan köras i på VM-baserade beräkningsinstanser som Azure tillhandahåller med hjälp av Windows Server Hyper-V-teknik. Dessa instanser kan köra standardiserade eller anpassade Linux- och Windows-baserade operativsystem och verktyg. Azure ger dig möjlighet att välja [instansstorlekar](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) med olika konfigurationer av CPU-kärnor, minne, diskutrymme och andra egenskaper. Beroende på dina behov kan du skala instanser till flera tusen kärnor och sedan skala ned när du behöver färre resurser.
 
 > [!NOTE]
-> Dra nytta av Azures beräkningsintensiva instanser så att du kan förbättra prestanda och skalbarhet för vissa HPC-arbetsbelastningar, däribland parallella MPI-program som kräver ett programnätverk med låg fördröjning och hög genomströmning. Se [About H-series and compute-intensive A-series VMs (Om H-serien och beräkningsintensiva virtuella datorer i A-serien)](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).  
+> Dra nytta av Azures [beräkningsintensiva instanser, till exempel H-serien](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att förbättra prestanda och skalbarhet för HPC-arbetsbelastningar. Dessa instanser stöder även parallella MPI-program som kräver ett nätverk med låg latens och hög genomströmning. Även virtuella datorer med NVIDIA-grafikprocessorer i [N-serien](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) är tillgängliga för att utöka utbudet av databehandlings- och visualiseringsscenarier i Azure.  
 > 
 > 
 
@@ -124,7 +124,7 @@ Din Big Compute-lösning kan behöva andra Azure-tjänster för att ansluta till
 
 ## <a name="next-steps"></a>Nästa steg
 * Teknisk hjälp med att skapa en egen lösning finns i [Tekniska resurser för Batch och HPC](big-compute-resources.md).
-* Diskutera dina Azure-alternativ med partner, inklusive Cycle Computing och UberCloud.
+* Diskutera dina Azure-alternativ med partner, inklusive Cycle Computing, Rescale och UberCloud.
 * Läs mer om Big Compute-lösningar i Azure från [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), [ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/) och [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088).
 * Du hittar den senaste informationen i [Microsoft HPC- och Batch-bloggen](http://blogs.technet.com/b/windowshpc/) och i [Azure-bloggen](https://azure.microsoft.com/blog/tag/hpc/).
 
@@ -137,6 +137,6 @@ Din Big Compute-lösning kan behöva andra Azure-tjänster för att ansluta till
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

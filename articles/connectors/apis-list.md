@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: bb74c4e5e7712220f666324f6ba301c8019432f0
-ms.openlocfilehash: 8a0048c180c62ef2b76aac2a2337cfd640683bac
+ms.sourcegitcommit: 89239cf97da19a634e1eda516a6b43028cde96a0
+ms.openlocfilehash: 23b6e29b7e0c2da14cfa76e04e4e1fe9b6b71906
 
 
 ---
@@ -46,7 +46,7 @@ Markera en anslutningsapp för att lära dig hur du skapar arbetsflöden snabbt.
 |![API-ikon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API-ikon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
 |![API-ikon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
 |![API-ikon][Vimeoicon]<br/>**Vimeo**|![API-ikon][Visual-Studio~Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API-ikon][WordPressicon]<br/>**WordPress**|
-|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API-ikon][YouTubeicon]<br/>**YouTube**
+|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API-ikon][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]
 
 > [!NOTE]
 > Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto går du till [Prova logikapp](https://tryappservice.azure.com/?appservice=logic). Du kan genast skapa en tillfällig startlogikapp i Apptjänsten. Inget kreditkort krävs, och du gör inga åtaganden.
@@ -143,6 +143,7 @@ a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka m
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Ansluter till Mandrill och kan användas för kommunikation."
 [youtubedoc]: ./connectors-create-api-youtube.md "Ansluter till YouTube och kan interagera med videor och kanaler."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Ansluter till SparkPost och kan användas för kommunikation."
+[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Använd filsystemets anslutningsapp för att kommunicera med det lokala filsystemet."
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -227,6 +228,7 @@ a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka m
 [API/Web-Appicon]: ./media/apis-list/api.png
 [Nested~Logic-Appicon]: ./media/apis-list/workflow.png
 [Recurrenceicon]: ./media/apis-list/recurrence.png
+[FileSystemIcon]: ./media/apis-list/filesystem.png
 
 <!-- EIP Icons -->
 [as2icon]: ./media/apis-list/as2new.png
@@ -238,6 +240,6 @@ a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

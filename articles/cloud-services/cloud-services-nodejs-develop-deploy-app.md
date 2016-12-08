@@ -15,17 +15,12 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 5a6b743d69e1716ae3f48ddf0dfcb0f042133f5c
 
 
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Skapa och distribuera en Node.js-app till en Azure-molntjänst
-> [!div class="op_single_selector"]
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [NET](cloud-services-dotnet-get-started.md)
->
->
 
 I den här kursen får du lära dig hur du skapar en enkel Node.js-app som körs i en Azure-molntjänst. Cloud Services är byggblocken för skalbara molnprogram i Azure. De gör att det går att separera och på ett oberoende sätt hantera och skala ut klient- och serverkomponenter i ditt program.  Cloud Services ger en robust avsedd virtuell dator som på ett pålitligt sätt kan vara värd åt varje roll.
 
@@ -196,6 +191,6 @@ Mer information finns i [Node.js Developer Center].
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

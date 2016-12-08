@@ -2,9 +2,9 @@
 EventProcessorHost är en .Java-klass som förenklar mottagandet av händelser från Event Hubs genom att hantera permanenta kontrollpunkter och parallella mottaganden från Event Hubs. Med hjälp av EventProcessorHost kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder EventProcessorHost för en enda mottagare.
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
-För att använda EventProcessorHost, måste du ha ett [Azure Storage-konto][Azure Storage-konto]:
+För att använda EventProcessorHost, måste du ha ett [Azure-lagringskonto][Azure-lagringskonto]:
 
-1. Logga in på den [klassiska Azure-portalen][klassiska Azure-portalen] och klicka på **NY** längst ned på skärmen.
+1. Logga in på den [Klassisk Azure-portal][Klassisk Azure-portal] och klicka på **NY** längst ned på skärmen.
 2. Klicka på **Data Services**, sedan på **Storage**, sedan på **Snabbregistrering** och ange ett namn för ditt lagringskonto. Välj önskad region och klicka sedan på **Skapa lagringskonto**.
    
     ![][11]
@@ -17,7 +17,7 @@ För att använda EventProcessorHost, måste du ha ett [Azure Storage-konto][Azu
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Skapa ett Java-projekt med EventProcessor-värden
 Java-klientbibliotek för Event Hubs är tillgängligt för användning i Maven-projekt från [Maven Central Repository][Maven Package], och kan refereras med följande beroendedeklaration i Maven-projektfilen:    
 
-``` XML
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
@@ -34,7 +34,7 @@ För olika typer av versionsmiljöer kan du uttryckligen hämta de senast utgivn
 
 1. För följande exempel skapar du först ett nytt Maven-projekt för ett konsol-/gränssnittsprogram i din favorit Java Development Environment. Klassen kommer att anropas ```ErrorNotificationHandler```.     
    
-    ``` Java
+    ```Java
     import java.util.function.Consumer;
     import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
    
@@ -167,7 +167,7 @@ För olika typer av versionsmiljöer kan du uttryckligen hämta de senast utgivn
     ```
 4. Ersätt följande fält med värden som används när du skapade Event Hub och lagringskontot.
    
-    ``` Java
+    ```Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
     final String eventHubName = "----EventHubName-----";
    
@@ -184,10 +184,10 @@ För olika typer av versionsmiljöer kan du uttryckligen hämta de senast utgivn
 > 
 
 <!-- Links -->
-[Event Hubs-översikt]: ../articles/event-hubs/event-hubs-overview.md
-[Azure Storage-konto]: ../articles/storage/storage-create-storage-account.md
+[Översikt över Event Hubs]: ../articles/event-hubs/event-hubs-overview.md
+[Azure-lagringskonto]: ../articles/storage/storage-create-storage-account.md
 [Klassisk Azure-portal]: http://manage.windowsazure.com
-[Maven-paket]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
+[Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
@@ -195,6 +195,6 @@ För olika typer av versionsmiljöer kan du uttryckligen hämta de senast utgivn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2016
+ms.date: 12/12/2016
 ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
@@ -50,7 +50,7 @@ När du har fått namnområdet och autentiseringsuppgifterna i det första stege
 2. Skapa ett nytt konsolprogramsprojekt. Klicka på **Arkiv**-menyn och på **Nytt**. Klicka sedan på **Projekt**. I dialogrutan **Nytt projekt** klickar du på **Visual C#** (om **Visual C#** inte visas tittar du under **Andra språk**). Sedan väljer du mallen **Konsolprogram**  och ger den namnet **Microsoft.ServiceBus.Samples**. Använd den förvalda platsen. Klicka på **OK** för att skapa projektet.
 3. Se till att `using`-uttrycken visas på följande sätt i Program.cs:
    
-    ```
+    ```csharp
     using System;
     using System.Globalization;
     using System.IO;
@@ -62,7 +62,7 @@ När du har fått namnområdet och autentiseringsuppgifterna i det första stege
 4. Om så krävs byter du namn på namnområdet för programmet från Visual Studios förvalda namn till `Microsoft.ServiceBus.Samples`.
 5. Lägg till följande globala variabler i `Program`-klassen:
    
-    ```
+    ```csharp
     static string serviceNamespace;
     static string baseAddress;
     static string token;
@@ -70,7 +70,7 @@ När du har fått namnområdet och autentiseringsuppgifterna i det första stege
     ```
 6. Klistra in följande kod inuti `Main()`:
    
-    ```
+    ```csharp
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
    
@@ -146,7 +146,7 @@ Nästa steg är att skriva en metod som bearbetar det namnområde och den SAS-ny
 ### <a name="create-a-getsastoken-method"></a>Skapa en GetSASToken()-metod
 Klistra in följande kod efter `Main()`-metoden i `Program`-klassen:
 
-```
+```csharp
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
 {
   TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
@@ -165,7 +165,7 @@ Nästa steg är att skriva en metod som använder kommandot HTTP PUT i REST-form
 
 Klistra in följande kod direkt efter den `GetSASToken()`-kod som du lade till i det förra steget:
 
-```
+```csharp
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
@@ -193,7 +193,7 @@ I det här steget kan du lägga till en metod som använder kommandot HTTP POST 
 
 1. Klistra in följande kod direkt efter den `CreateQueue()`-kod som du lade till i det förra steget:
    
-    ```
+    ```csharp
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
     // Uses an HTTP POST request.
     private static void SendMessage(string queueName, string body)
@@ -208,7 +208,7 @@ I det här steget kan du lägga till en metod som använder kommandot HTTP POST 
     ```
 2. Standardegenskaperna för asynkrona meddelanden placeras i en HTTP-rubrik av typen `BrokerProperties`. De asynkrona egenskaperna måste serialiseras i JSON-format. Om du vill ange ett **TimeToLive**-värde på 30 sekunder och lägga till meddelandeetiketten ”M1” i meddelandet, ska du lägga till följande kod direkt före det `webClient.UploadData()`-anrop som visas i det förra exemplet:
    
-    ```
+    ```csharp
     // Add brokered message properties "TimeToLive" and "Label"
     webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
     ```
@@ -216,7 +216,7 @@ I det här steget kan du lägga till en metod som använder kommandot HTTP POST 
     Observera att egenskaper för asynkrona meddelanden har lagts till och kommer att läggas till. Därför måste sändbegäran ange en API-version som har stöd för alla egenskaper för asynkrona meddelanden som är en del av begäran. Om den angivna API-versionen inte stöder en egenskap för asynkrona meddelanden, kommer den egenskapen att ignoreras.
 3. Anpassade meddelandeegenskaper definieras som en uppsättning nyckelvärdespar. Alla anpassade egenskaper lagras i sin egen TPPT-rubrik. Om du vill lägga till de anpassade egenskaperna ”Prioritet” och ”Kund”, lägger du till följande kod direkt före det `webClient.UploadData()`-anrop som visas i det förra exemplet:
    
-    ```
+    ```csharp
     // Add custom properties "Priority" and "Customer".
     webClient.Headers.Add("Priority", "High");
     webClient.Headers.Add("Customer", "12345");
@@ -227,7 +227,7 @@ Nästa steg är att lägga till en metod som använder kommandot HTTP DELETE i R
 
 Klistra in följande kod direkt efter den `SendMessage()`-kod som du lade till i det förra steget:
 
-```
+```csharp
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
 // using the resourceName and an HTTP DELETE request
 private static string ReceiveAndDeleteMessage(string resourceName)
@@ -251,7 +251,7 @@ Nästa steg är att skriva en metod som använder kommandot HTTP PUT i REST-form
 ### <a name="create-a-topic"></a>Skapa ett ämne
 Klistra in följande kod direkt efter den `ReceiveAndDeleteMessage()`-kod som du lade till i det förra steget:
 
-```
+```csharp
 // Using an HTTP PUT request.
 private static string CreateTopic(string topicName)
 {
@@ -276,7 +276,7 @@ private static string CreateTopic(string topicName)
 ### <a name="create-a-subscription"></a>Skapa en prenumeration
 Följande kod skapar en prenumeration på det ämne som du skapade i det förra steget. Lägg till följande kod direkt efter definitionen `CreateTopic()`:
 
-```
+```csharp
 private static string CreateSubscription(string topicName, string subscriptionName)
 {
     var subscriptionAddress = baseAddress + topicName + "/Subscriptions/" + subscriptionName;
@@ -303,7 +303,7 @@ I det här steget lägger du till kod som hämtar meddelandeegenskaperna och sed
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Hämta ett Atom-flöde med de angivna resurserna
 Lägg till följande kod direkt efter den `CreateSubscription()`-metod som du lade till i det förra steget:
 
-```
+```csharp
 private static string GetResources(string resourceAddress)
 {
     string fullAddress = baseAddress + resourceAddress;
@@ -317,7 +317,7 @@ private static string GetResources(string resourceAddress)
 ### <a name="delete-messaging-entities"></a>Ta bort meddelandeentiteter
 Lägg till följande kod direkt efter den kod som du lade till i det förra steget:
 
-```
+```csharp
 private static string DeleteResource(string resourceName)
 {
     string fullAddress = baseAddress + resourceName;
@@ -333,7 +333,7 @@ private static string DeleteResource(string resourceName)
 ### <a name="format-the-atom-feed"></a>Formatera Atom-flödet
 `GetResources()`-metoden innehåller ett anrop till en `FormatXml()`-metod som formaterar om det hämtade Atom-flödet så att det blir lättare att läsa. Följande är definitionen av `FormatXml()`. Lägg till den här koden direkt efter den `DeleteResource()`-kod som du lade till i det förra avsnittet:
 
-```
+```csharp
 // Formats the XML string to be more human-readable; intended for display purposes
 private static string FormatXml(string inputXml)
 {
@@ -360,7 +360,7 @@ Om det inte finns några fel, trycker du på F5 för att köra programmet. Du an
 ### <a name="example"></a>Exempel
 Följande exempel är den fullständiga koden, som den bör visas när du har följt alla steg i den här självstudiekursen.
 
-```
+```csharp
 using System;
 using System.Globalization;
 using System.IO;

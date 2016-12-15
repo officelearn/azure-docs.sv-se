@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag
 För att undvika förvirring vill många företag använda ett enhetligt utseende på alla webbplatser och tjänster som de hanterar. Azure Active Directory erbjuder den här möjligheten genom att låta dig anpassa utseendet på följande webbsidor med företagets logotyp och egna färgscheman:
 
 * **Inloggningssidan** – Det här är den sida som visas när du loggar in i Office 365 eller andra webbaserade program som använder Azure AD som identitetsprovider. Du kan interagera med den här sidan antingen under identifieringen av startsfären eller för att ange dina autentiseringsuppgifter. Identifieringen av startsfären gör att systemet kan omdirigera externa användare till deras lokala STS (till exempel AD FS).
@@ -34,7 +34,7 @@ I det här avsnittet lär du dig hur du kan anpassa inloggningssidan och åtkoms
 > 
 > 
 
-## <a name="customizing-the-signin-page"></a>Anpassa inloggningssidan
+## <a name="customizing-the-sign-in-page"></a>Anpassa inloggningssidan
 Du använder vanligtvis inloggningssidan om du behöver webbläsarbaserad åtkomst till molnappar och tjänster som din organisation prenumererar på.
 
 Om du har gjort ändringar på inloggningssidan kan det ta upp till en timme innan ändringarna visas.
@@ -224,6 +224,6 @@ Vissa anpassningsbara element i Azure AD har flera användningsscenarier. Du kan
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

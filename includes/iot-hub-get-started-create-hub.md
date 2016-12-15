@@ -19,7 +19,7 @@ Skapa en IoT-hubb som din simulerade enhetsapp kan ansluta till. Följande steg 
 5. När IoT-hubben har skapats klickar du på den nya ikonen för din IoT-hubb i Azure-portalen för att öppna bladet för den. Anteckna **värdnamnet** och klicka sedan på **Principer för delad åtkomst**.
    
     ![Ny IoT-hubb-blad][4]
-6. I bladet **Principer för delad åtkomst** klickar du på **iothubowner**-principen och kopierar samt antecknar anslutningssträngen i **iothubowner**-bladet. Mer information finns i avsnittet om [åtkomstkontroll][lnk-access-control] i utvecklarhandboken för Azure IoT Hub.
+6. I bladet **Principer för delad åtkomst** klickar du på **iothubowner**-principen och kopierar samt antecknar IoT Hub-anslutningssträngen i **iothubowner**-bladet. Mer information finns i avsnittet om [åtkomstkontroll][lnk-access-control] i ”utvecklarhandboken för IoT Hub”.
    
     ![Bladet Principer för delad åtkomst][5]
 
@@ -37,6 +37,6 @@ Skapa en IoT-hubb som din simulerade enhetsapp kan ansluta till. Följande steg 
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

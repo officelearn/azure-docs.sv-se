@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med Azure IoT Hub för Node.js | Microsoft Docs"
-description: "Självstudiekurs om hur du kommer igång med Azure IoT Hub med Node.js. Använd Azure IoT Hub och Node.js med Azure IoT-SDK:er för att implementera en IoT-lösning (Internet of Things)."
+title: "Kom igång med Azure IoT Hub (Node) | Microsoft Docs"
+description: "Så här skickar du ”enhet till molnet”-meddelanden från en enhet till Azure IoT Hub med Azure IoT SDK för Node.js. Du skapar en simulerad enhetsapp för att skicka meddelanden, en tjänstapp för att registrera enheten i identitetsregistret och en tjänstapp för att läsa meddelanden från enheten till molnet från IoT-hubben."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 91794776d0faf9dd5b7385e00ca907f13b493908
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 6a4275b7fb7501fec4e98f87b09e20b2114b556b
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-nodejs"></a>Komma igång med Azure IoT Hub för Node.js
+# <a name="get-started-with-azure-iot-hub-node"></a>Kom igång med Azure IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 I slutet av de här självstudierna har du tre Node.js-konsolprogram:
@@ -64,14 +64,14 @@ I det här avsnittet skapar du en Node.js-konsolapp som skapar en enhetsidentite
    
     var iothub = require('azure-iothub');
     ```
-5. Lägg till följande kod i filen **CreateDeviceIdentity.js** och ersätt platshållarvärdet med anslutningssträngen för IoT-hubben som du skapade i föregående avsnitt: 
+5. Lägg till följande kod i filen **CreateDeviceIdentity.js** och ersätt platshållarvärdet med IoT Hub-anslutningssträngen för hubben som du skapade i föregående avsnitt: 
    
     ```
     var connectionString = '{iothub connection string}';
    
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
-6. Lägg till följande kod för att skapa en enhetsdefinition i identitetsregistret i din IoT-hubb. Den här koden skapar en enhet om enhets-ID:t inte finns i registret. Annars returneras nyckeln för den befintliga enheten:
+6. Lägg till följande kod för att skapa en enhetsdefinition i identitetsregistret i din IoT-hubb. Den här koden skapar en enhet om enhets-ID:t inte finns i identitetsregistret. Annars returneras nyckeln för den befintliga enheten:
    
     ```
     var device = new iothub.Device(null);
@@ -87,7 +87,7 @@ I det här avsnittet skapar du en Node.js-konsolapp som skapar en enhetsidentite
    
     function printDeviceInfo(err, deviceInfo, res) {
       if (deviceInfo) {
-        console.log('Device id: ' + deviceInfo.deviceId);
+        console.log('Device ID: ' + deviceInfo.deviceId);
         console.log('Device key: ' + deviceInfo.authentication.symmetricKey.primaryKey);
       }
     }
@@ -131,7 +131,7 @@ I det här avsnittet skapar du en Node.js-konsolapp som läser ”enhet till mol
    
     var EventHubClient = require('azure-event-hubs').Client;
     ```
-5. Lägg till följande variabeldeklaration och ersätt platshållarvärdet med anslutningssträngen för din IoT-hubb:
+5. Lägg till följande variabeldeklaration och ersätt platshållarvärdet med IoT Hub-anslutningssträngen för din hubb:
    
     ```
     var connectionString = '{iothub connection string}';
@@ -190,7 +190,7 @@ I det här avsnittet skapar du en Node.js-konsolapp som simulerar en enhet som s
     var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
-5. Lägg till en **connectionString**-variabel och använd den för att skapa en klientenhet. Ersätt **{youriothostname}** med namnet på den IoT-hubb som du skapade i avsnittet *Skapa en IoT Hub*. Ersätt **{yourdevicekey}** med det enhetsnyckelvärde som du genererade i avsnittet *Skapa en enhetsidentitet*:
+5. Lägg till en **connectionString**-variabel och använd den för att skapa en **klientinstans**. Ersätt **{youriothostname}** med namnet på den IoT-hubb som du skapade i avsnittet *Skapa en IoT Hub*. Ersätt **{yourdevicekey}** med det enhetsnyckelvärde som du genererade i avsnittet *Skapa en enhetsidentitet*:
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -248,14 +248,14 @@ Nu är det dags att köra apparna.
     node ReadDeviceToCloudMessages.js 
     ```
    
-    ![Node.js IoT Hub-tjänstens klientprogram för att övervaka meddelanden från enheten till molnet][7]
+    ![Node.js IoT Hub-tjänstapp för att övervaka meddelanden från enheten till molnet][7]
 2. Kör följande kommando i Kommandotolken i mappen **simulateddevice** för att börja skicka telemetridata till din IoT-hubb:
    
     ```
     node SimulatedDevice.js
     ```
    
-    ![Node.js IoT Hub-tjänstens klientprogram för att skicka meddelanden från enheten till molnet][8]
+    ![Node.js IoT Hub-enhetsapp för att skicka meddelanden från enheten till molnet][8]
 3. På panelen **Användning** på [Azure Portal][lnk-portal] kan du se hur många meddelanden som har skickats till IoT-hubben:
    
     ![Azure-portal Användningspanel som visar antalet meddelanden som har skickats till IoT Hub][43]
@@ -296,6 +296,6 @@ Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

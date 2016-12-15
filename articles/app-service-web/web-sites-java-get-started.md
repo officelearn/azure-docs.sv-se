@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2785d007aa30d3ef70ce2ca6049cdd4e9733099
 
 
 ---
@@ -37,7 +37,7 @@ Det finns flera sätt att konfigurera ett Java-program i en webbapp i App Servic
 
 1. Skapa en app och konfigurera **Programinställningar**.
    
-    App Service tillhandahåller flera Tomcat- och Jetty-versioner med standardkonfiguration. Om appen du ska vara värd för fungerar med en av de inbyggda versionerna är det här den enklaste metoden för att skapa en webbehållare. Den är också utmärkt om du bara vill ladda upp en war-fil till en webbehållare. Med den här metoden skapar du en app i Azure Portal och går sedan till bladet **Programinställningar** för appen där du väljer din version av Java och en Java-webbehållare. När du använder den här metoden körs både Java och webbehållaren från programfilerna. Med de andra metoderna lagras webbehållaren och möjligen också JVM i diskutrymmet. När du använder den här modellen har du inte behörighet att redigera filer i den här delen av filsystemet. Det innebär att du till exempel inte kan konfigurera filen *server.xml* eller placera biblioteksfiler i mappen */lib*. Mer information finns i avsnittet [Skapa och konfigurera en Java-webbapp](#appsettings) senare i den här kursen.
+    App Service tillhandahåller flera Tomcat- och Jetty-versioner med standardkonfiguration. Om appen du ska vara värd för fungerar med en av de inbyggda versionerna är det här den enklaste metoden för att skapa en webbehållare. Den är också utmärkt om du bara vill ladda upp en war-fil till en webbehållare. Med den här metoden skapar du en app i Azure Portal och går sedan till bladet **Programinställningar** för appen där du väljer din version av Java och en Java-webbehållare. När du använder den här metoden körs både Java och webbehållaren från programfilerna. Med de andra metoderna lagras webbehållaren och möjligen också JVM i diskutrymmet. När du använder den här modellen har du inte behörighet att redigera filer i den här delen av filsystemet. Det innebär att du till exempel inte kan konfigurera filen *server.xml* eller placera biblioteksfiler i mappen */lib*. Mer information finns i avsnittet [Skapa och konfigurera en Java-webbapp](#portal) senare i den här kursen.
 2. Använd en mall från Azure Marketplace.
    
     Azure Marketplace innehåller mallar som automatiskt skapar och konfigurerar Java-webbappar med Tomcat- eller Jetty-webbehållare. De webbehållare som skapas med mallarna kan konfigureras. Mer information finns i avsnittet [Använda en Java-mall från Azure Marketplace](#marketplace) i den här kursen.
@@ -64,7 +64,7 @@ I det här avsnittet får du veta hur du skapar en webbapp och konfigurerar den 
     Det här namnet måste vara unikt i domänen azurewebsites.net eftersom webbappens webbadress är {namn}.azurewebsites.net. Om namnet inte är unikt visas ett rött utropstecken i textrutan.
 4. Välj en **Resursgrupp** eller skapa en ny.
    
-    Mer information om resursgrupper finns i [Hantera Azure-resurser med hjälp av Azure Portal].
+    Mer information om resursgrupper finns i [Översikt över Resource Manager].
 5. Välj en **App Service-plan/plats** eller skapa en ny.
    
     Mer information om App Service-planer finns i [Översikt över Azure App Service-planer].
@@ -111,7 +111,7 @@ I det här avsnittet får du veta hur du använder Azure Marketplace till att sk
     Det här namnet måste vara unikt i domänen azurewebsites.net eftersom webbappens webbadress är {namn}.azurewebsites.net. Om namnet inte är unikt visas ett rött utropstecken i textrutan.
 8. Välj en **Resursgrupp** eller skapa en ny.
    
-    Mer information om resursgrupper finns i [Hantera Azure-resurser med hjälp av Azure Portal].
+    Mer information om resursgrupper finns i [Översikt över Resource Manager].
 9. Välj en **App Service-plan/plats** eller skapa en ny.
    
     Mer information om App Service-planer finns i [Översikt över Azure App Service-planer].
@@ -144,13 +144,13 @@ Mer information om hur du utvecklar Java-program i Azure finns i [Java-utvecklin
 
 [Lägga till ett program eller en webbsida i Java-webbappen]: ./web-sites-java-add-app.md
 [Översikt över Azure App Service-planer]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [aktivera Visual Studio-prenumerantförmåner]: http://go.microsoft.com/fwlink/?LinkId=623901
 [registrera dig för en kostnadsfri utvärderingsversion]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Prova Apptjänst]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Prova App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 [webbapp i Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java-utvecklingscenter]: /develop/java/
-[Hantera Azure-resurser med hjälp av Azure Portal]: ../azure-portal/resource-group-portal.md
+[Översikt över Resource Manager]: ../azure-resource-manager/resource-group-overview.md
 [Ladda upp en anpassad Java-webbapp till Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
@@ -158,7 +158,7 @@ Mer information om hur du utvecklar Java-program i Azure finns i [Java-utvecklin
 [newwebapp]: ./media/web-sites-java-get-started/newwebapp.png
 [newwebapp2]: ./media/web-sites-java-get-started/newwebapp2.png
 [selectwebapp]: ./media/web-sites-java-get-started/selectwebapp.png
-[versioner]: ./media/web-sites-java-get-started/versions.png
+[versions]: ./media/web-sites-java-get-started/versions.png
 [newmarketplace]: ./media/web-sites-java-get-started/newmarketplace.png
 [webmobilejetty]: ./media/web-sites-java-get-started/webmobilejetty.png
 [jettyblade]: ./media/web-sites-java-get-started/jettyblade.png
@@ -169,6 +169,6 @@ Mer information om hur du utvecklar Java-program i Azure finns i [Java-utvecklin
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

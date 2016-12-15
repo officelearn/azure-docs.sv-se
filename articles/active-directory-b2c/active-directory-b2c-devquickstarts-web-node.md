@@ -3,7 +3,7 @@ title: "Lägga till inloggning till en Node.js-webbapp för Azure B2C | Microsof
 description: "Hur du skapar en Node.js-webbapp som loggar in användare med hjälp av en B2C-klient."
 services: active-directory-b2c
 documentationcenter: 
-author: brandwe
+author: xerners
 manager: msmbaldwin
 editor: 
 ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 660a3c624fa2389aa7ec7a99e0a189993844af03
+ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
+ms.openlocfilehash: 7d74b038dd105b5c87a9d6a07093d9f096255d63
 
 
 ---
-# <a name="azure-ad-b2c-add-signin-to-a-nodejs-web-app"></a>Azure AD B2C: Lägga till inloggning till en Node.js-webbapp
+# <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Lägga till inloggning till en Node.js-webbapp
 > [!WARNING]
 > Vi beklagar, men denna självstudie behöver viktigt underhåll och vi har beslutat att ta bort den under en kortare tid.  Motsvarande .NET-självstudie finns i vår [utvecklingsguide](active-directory-b2c-overview.md).
 > 
@@ -29,6 +29,6 @@ ms.openlocfilehash: 660a3c624fa2389aa7ec7a99e0a189993844af03
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

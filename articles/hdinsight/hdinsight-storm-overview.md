@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Introduktion till Apache Storm på HDInsight: analys i realtid för Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>Introduktion till Apache Storm på HDInsight: analys i realtid för Hadoop
 Apache Storm på HDInsight gör att du kan skapa distribuerade analyslösningar i realtid i Azure-miljön med [Apache Hadoop](http://hadoop.apache.org).
 
 ## <a name="what-is-apache-storm"></a>Vad är Apache Storm?
@@ -47,13 +47,13 @@ Apache Storm på HDInsight är ett hanterat kluster som är integrerat i Azure-m
 
 En lista över företag som använder Apache Storm för sina lösningar för analys i realtid finns i [Företag som använder Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-Information om att komma igång med Storm finns i [Kom igång med Storm på HDInsight][gettingstarted].
+Information om hur du kommer igång med Storm finns i [Komma igång med Storm i HDInsight][gettingstarted].
 
 ### <a name="ease-of-provisioning"></a>Enkel etablering
 Du kan etablera ett nytt Storm på HDInsight-kluster på bara några minuter. Ange klusternamn, storlek, administratörskonto och lagringskonto. Azure skapar klustret, inklusive exempeltopologier och en instrumentpanel för webbhantering.
 
 > [!NOTE]
-> Du kan också etablera Storm-kluster med hjälp av [Azure CLI](../xplat-cli-install.md) eller [Azure PowerShell](../powershell-install-configure.md).
+> Du kan också etablera Storm-kluster med hjälp av [Azure CLI](../xplat-cli-install.md) eller [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -107,7 +107,7 @@ Du kan ange antalet noder i klustret när du skapar det men du kan ibland behöv
 ### <a name="support"></a>Support
 Storm på HDInsight levereras med fullständig support på företagsnivå, dygnet runt. Storm på HDInsight har också ett SLA för 99,9 %. Det innebär att vi garanterar att klustret ska ha extern anslutning minst 99,9 % av tiden.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>Vanliga användning för realtidsanalys
+## <a name="common-use-cases-for-real-time-analytics"></a>Vanliga användning för realtidsanalys
 Nedan följer några vanliga scenarier där du kan använda Apache storm på HDInsight. Information om verkliga scenarier finns i [Hur företag använder Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Sakernas Internet (IoT)
@@ -138,7 +138,7 @@ Apache Storm kör **topologier** i stället för de MapReduce-jobb som du kanske
   
   * **Nimbus** är en Thrift-tjänst och en **topologi** är en Thrift-definition, så det är möjligt att utveckla topologier med ett antal olika programmeringsspråk.
 
-Mer information om Storm-komponenter finns i [Storm-självstudierna][apachetutorial] på apache.org.
+Mer information om Storm-komponenter finns i [självstudiekursen om Storm][apachetutorial] på apache.org.
 
 ## <a name="what-programming-languages-can-i-use"></a>Vilka programmeringsspråk kan jag använda?
 Storm på HDInsight-klustret har stöd för C# och Java och Python.
@@ -196,7 +196,7 @@ En exempeltopologi som visar hur du konfigurerar loggning finns i ett exempel p�
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om lösningarna för realtidsanalys med Apache Storm i HDInsight:
 
-* [Komma igång med Storm på HDInsight][gettingstarted]
+* [Komma igång med Storm i HDInsight][gettingstarted]
 * [Exempeltopologier för Storm på HDInsight](hdinsight-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
@@ -206,6 +206,6 @@ Läs mer om lösningarna för realtidsanalys med Apache Storm i HDInsight:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

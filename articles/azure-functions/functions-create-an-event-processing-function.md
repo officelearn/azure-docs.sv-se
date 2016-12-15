@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
-ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: df3d303ee10fcc982552ea9756eb59198c87b650
 
 
 ---
@@ -27,7 +27,7 @@ Azure Functions är en händelsedriven beräkna-på-begäran-upplevelse med vilk
 Det här ämnet visar hur du skapar en ny funktion i C# som körs baserat på en händelsetimer för att lägga till meddelanden i en lagringskö. 
 
 ## <a name="prerequisites"></a>Krav
-Innan du kan skapa en funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto, [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/).
+En funktionsapp är värd för körningen av dina funktioner i Azure. Om du inte redan har ett Azure-konto kan du kika på [Try Functions](https://functions.azure.com/try) (Prova Functions) eller [skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
 ## <a name="create-a-timer-triggered-function-from-the-template"></a>Skapa en timerutlöst funktion från mallen
 En funktionsapp är värd för körningen av dina funktioner i Azure. Innan du kan skapa en funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto, [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/). 
@@ -79,6 +79,6 @@ Mer information om Azure Functions finns i dessa ämnen.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

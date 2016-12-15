@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
+ms.date: 12/05/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 5081c38bae56cf6f2ed260eabb895453d7603cfd
-ms.openlocfilehash: b982274cc7dcf1ffbe1dd4c3d7f833f97704d931
+ms.sourcegitcommit: e4aa6b13e3f1060d97cfea70761ad2f1c109b0c0
+ms.openlocfilehash: 5a197d1444c75d9f6f8d7540ca3117d894d5836f
 
 
 ---
@@ -85,12 +85,12 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds |Stöds |Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Stöds |Stöds |London |
-| **Nästa generations brandvägg** |Kommer snart |Kommer snart |Newport(Wales) + |
+| **Nästa generations brandvägg** |Stöds |Kommer snart |Newport(Wales) |
 | **NEXTDC** |Stöds |Stöds |Melbourne, Sydney |
 | **NTT Communications** |Stöds |Stöds |London, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Stöds |Stöds |Amsterdam, Hongkong, London, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** |Stöds |Stöds |Hongkong |
-| **SIFY** |Stöds |Stöds |Chennai |
+| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Stöds |Stöds |Chennai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Stöds |Stöds |Singapore |
 | **Softbank** |Stöds |Stöds |Osaka, Tokyo |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Stöds |Stöds |Amsterdam, Chennai, Hong Kong, London, Mumbai, Silicon Valley, Singapore, Washington DC |
@@ -173,6 +173,6 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

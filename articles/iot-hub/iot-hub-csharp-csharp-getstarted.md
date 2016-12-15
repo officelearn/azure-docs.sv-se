@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med Azure IoT Hub för C# | Microsoft Docs"
-description: "Självstudiekurs om hur du kommer igång med Azure IoT Hub med C#. Använd Azure IoT Hub och C# med Azure IoT-SDK:er för att implementera en IoT-lösning (Internet of Things)."
+title: "Komma igång med Azure IoT Hub (.NET) | Microsoft Docs"
+description: "Så här skickar du ”enhet till molnet”-meddelanden från en enhet till Azure IoT Hub med Azure IoT SDK för .NET. Du skapar en simulerad enhetsapp för att skicka meddelanden, en tjänstapp för att registrera enheten i identitetsregistret och en tjänstapp för att läsa meddelanden från enheten till molnet från IoT-hubben."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: b6e736198d455b379addce816c02b32b2a893c26
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 128e3607829d3838cdbb285fa95a1f7cd2112229
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-net"></a>Komma igång med Azure IoT Hub för .NET
+# <a name="get-started-with-azure-iot-hub-net"></a>Kom igång med Azure IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-I slutet av de här självstudierna har du tre Windows-konsolprogram:
+I slutet av den här självstudiekursen har du tre .NET-konsolappar:
 
 * **CreateDeviceIdentity**, som skapar en enhetsidentitet och en associerad säkerhetsnyckel för att ansluta din app för simulerade enheter.
 * **ReadDeviceToCloudMessages**, som visar telemetri som skickas av appen för simulerade enheter.
@@ -41,23 +41,23 @@ För att kunna genomföra den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Nu har du skapat din IoT-hubb och du har värdnamnet och anslutningssträngen som du behöver för att slutföra resten av den här kursen.
+Nu har du skapat din IoT-hubb och du har värdnamnet och IoT Hub-anslutningssträngen som du behöver för att slutföra resten av den här kursen.
 
 ## <a name="create-a-device-identity"></a>Skapa en enhetsidentitet
-I det här avsnittet skapar du en Windows-konsolapp som skapar en enhetsidentitet i identitetsregistret i IoT-hubben. En enhet kan inte ansluta till IoT-hubbar om den inte har en post i identitetsregistret. Mer information finns i avsnittet om identitetsregistret i [utvecklarhandboken för IoT Hub][lnk-devguide-identity]. När du kör den här konsolappen genererar det ett unikt enhets-ID och en nyckel som din enhet kan använda för att identifiera sig själv när den skickar ”enhet-till-molnet”-meddelanden till IoT Hub.
+I det här avsnittet ska du skapa en .NET-konsolapp som skapar en enhetsidentitet i identitetsregistret i IoT-hubben. En enhet kan inte ansluta till IoT Hub om den inte har en post i identitetsregistret. Mer information finns i avsnittet om identitetsregistret i [utvecklarhandboken för IoT Hub][lnk-devguide-identity]. När du kör den här konsolappen genererar det ett unikt enhets-ID och en nyckel som din enhet kan använda för att identifiera sig själv när den skickar ”enhet-till-molnet”-meddelanden till IoT Hub.
 
 1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **CreateDeviceIdentity**.
    
     ![Nytt Visual C# Windows Classic Desktop-projekt][10]
 2. Högerklicka i Solution Explorer på projektet **CreateDeviceIdentity** och klicka sedan på **Hantera NuGet-paket**.
-3. Välj **Bläddra** i fönstret för **NuGet-pakethanteraren**, leta upp **microsoft.azure.devices**, välj **Installera** för att installera **Microsoft.Azure.Devices**-paketet och godkänn användningsvillkoren. Denna procedur hämtar, installerar och lägger till en referens för [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] NuGet-paketet och dess beroenden.
+3. Välj **Bläddra** i fönstret för **NuGet-pakethanteraren**, leta upp **microsoft.azure.devices**, välj **Installera** för att installera **Microsoft.Azure.Devices**-paketet och godkänn användningsvillkoren. Denna procedur hämtar, installerar och lägger till en referens för [NuGet-paketetet SDK för Azure IoT-tjänster][lnk-nuget-service-sdk] och dess beroenden.
    
     ![Fönstret för NuGet-pakethanteraren][11]
 4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
    
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Common.Exceptions;
-5. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med anslutningssträngen för IoT-hubben som du skapade i föregående avsnitt.
+5. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med IoT Hub-anslutningssträngen som du skapade i föregående avsnitt.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
@@ -78,7 +78,7 @@ I det här avsnittet skapar du en Windows-konsolapp som skapar en enhetsidentite
             Console.WriteLine("Generated device key: {0}", device.Authentication.SymmetricKey.PrimaryKey);
         }
    
-    Den här metoden skapar en enhetsidentitet med ID:t **myFirstDevice**. (Om enhets-ID:t redan finns i registret hämtar koden bara den befintliga enhetsinformationen.) Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade enhetsappen för att ansluta till din IoT-hubb.
+    Den här metoden skapar en enhetsidentitet med ID:t **myFirstDevice**. (Om enhets-ID:t redan finns i identitetsregistret hämtar koden bara den befintliga enhetsinformationen.) Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade enhetsappen för att ansluta till din IoT-hubb.
 7. Slutligen lägger du till följande rader till **Main**-metoden:
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
@@ -94,7 +94,7 @@ I det här avsnittet skapar du en Windows-konsolapp som skapar en enhetsidentite
 > 
 
 ## <a name="receive-device-to-cloud-messages"></a>Ta emot meddelanden från enheten till molnet
-I det här avsnittet skapar du en Windows-konsolapp som läser ”enhet till molnet”-meddelanden från IoT Hub. En IoT-hubb exponerar en [Azure Event Hubs][lnk-event-hubs-overview]-kompatibel slutpunkt så att du kan läsa meddelanden från enheter till molnet. För att göra det så enkelt som möjligt skapar vi en grundläggande läsare i den härs självstudiekursen som inte passar för distributioner med hög genomströmning. I självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-tutorial] står det hur du bearbetar ”enhet till molnet”-meddelanden i hög skala. Mer information om hur du bearbetar meddelanden från Event Hubs finns i självstudiekursen [Komma igång med Event Hubs][lnk-eventhubs-tutorial]. (Den här självstudiekursen gäller Event Hub-kompatibla slutpunkter i IoT Hub.)
+I det här avsnittet ska du skapa en .NET-konsolapp som läser ”enhet till molnet”-meddelanden från IoT Hub. En IoT-hubb exponerar en [Azure Event Hubs][lnk-event-hubs-overview]-kompatibel slutpunkt så att du kan läsa meddelanden från enheter till molnet. För att göra det så enkelt som möjligt skapar vi en grundläggande läsare i den härs självstudiekursen som inte passar för distributioner med hög genomströmning. I självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-tutorial] står det hur du bearbetar ”enhet till molnet”-meddelanden i hög skala. Mer information om hur du bearbetar meddelanden från Event Hubs finns i självstudiekursen [Komma igång med Event Hubs][lnk-eventhubs-tutorial]. (Den här självstudiekursen gäller Event Hub-kompatibla slutpunkter i IoT Hub.)
 
 > [!NOTE]
 > Event Hub-kompatibla slutpunkter för läsning av meddelanden från enheter till molnet använder alltid AMQP-protokollet.
@@ -110,7 +110,7 @@ I det här avsnittet skapar du en Windows-konsolapp som läser ”enhet till mol
    
         using Microsoft.ServiceBus.Messaging;
         using System.Threading;
-5. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med anslutningssträngen för IoT-hubben som du skapade i avsnittet ”Skapa en IoT-hubb”.
+5. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med IoT Hub-anslutningssträngen som du skapade i avsnittet ”Skapa en IoT-hubb”.
    
         static string connectionString = "{iothub connection string}";
         static string iotHubD2cEndpoint = "messages/events";
@@ -156,7 +156,7 @@ I det här avsnittet skapar du en Windows-konsolapp som läser ”enhet till mol
         Task.WaitAll(tasks.ToArray());
 
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
-I det här avsnittet skapar du en Windows-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT-hubb.
+I det här avsnittet ska du skapa en .NET-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT-hubb.
 
 1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **SimulatedDevice**.
    
@@ -209,15 +209,15 @@ I det här avsnittet skapar du en Windows-konsolapp som simulerar en enhet som s
    
    Som standard skapar metoden **Create** en **DeviceClient**-instans som använder AMQP-protokollet för att kommunicera med IoT Hub. Om du vill använda HTTP-protokollet använder du åsidosättandet av **Create**-metoden som gör att du kan ange protokollet. Om du använder HTTP-protokollet bör du också ta med namnområdet **System.Net.Http.Formatting** genom att lägga till NuGet-paketet **Microsoft.AspNet.WebApi.Client** till ditt projekt.
 
-Den här självstudiekursen beskriver steg för steg hur du skapar en IoT Hub-klientenhet. Du kan också lägga till nödvändig kod i enhetsklientprogrammet med hjälp av Visual Studio-tillägget [Ansluten tjänst för Azure IoT Hub][lnk-connected-service].
+Den här självstudiekursen beskriver steg för steg hur du skapar en IoT Hub-simulerad enhetsapp. Du kan också lägga till nödvändig kod i enhetsprogrammet med hjälp av Visual Studio-tillägget [Ansluten tjänst för Azure IoT Hub][lnk-connected-service].
 
 > [!NOTE]
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktionskoden bör du implementera principer för omförsök (till exempel en exponentiell backoff), vilket rekommenderas i MSDN-artikeln om [hantering av tillfälliga fel][lnk-transient-faults].
 > 
 > 
 
-## <a name="run-the-applications"></a>Köra programmen
-Nu är det dags att köra programmen.
+## <a name="run-the-apps"></a>Kör apparna
+Nu är det dags att köra apparna.
 
 1. Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt**. Välj **Flera startprojekt** och välj sedan **Start** som åtgärden för både **ReadDeviceToCloudMessages**- och **SimulatedDevice**-projektet.
    
@@ -270,6 +270,6 @@ Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

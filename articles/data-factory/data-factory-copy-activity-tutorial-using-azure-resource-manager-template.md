@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 535eb3c22dad35da3c1dbc10be5a7c11c6bb8d00
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 42a1e634ef2c832fd0213fdae12f74db7eb264f5
 
 
 ---
@@ -37,7 +37,7 @@ I den här självstudien får du se hur du skapar och övervakar en Azure Data F
 
 ## <a name="prerequisites"></a>Krav
 * Gå igenom [Självstudier – Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför **förutsättningsstegen**.
-* Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera den senaste versionen av Azure PowerShell på datorn. I den här självstudien använder du PowerShell för att distribuera Data Factory-enheter. 
+* Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs) för att installera den senaste versionen av Azure PowerShell på datorn. I den här självstudien använder du PowerShell för att distribuera Data Factory-enheter. 
 * (valfritt) Se [Redigera Azure Resource Manager-mallar](../resource-group-authoring-templates.md) om du vill lära dig mer om Azure Resource Manager-mallar.
 
 ## <a name="in-this-tutorial"></a>I den här självstudien
@@ -548,6 +548,6 @@ Du kan även återanvända mallen för att utföra upprepade uppgifter. Du behö
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Komma igång med en Azure Multi-Factor Authentication-provider
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Komma igång med en Azure Multi-Factor Authentication-provider
 Tvåstegsverifiering är tillgängligt som standard för globala administratörer med Azure Active Directory och Office 365-användare. Men om du vill dra nytta av [avancerade funktioner](multi-factor-authentication-whats-next.md) ska du köpa den fullständiga versionen av Azure Multi-Factor Authentication (MFA).
 
 > [!NOTE]
@@ -35,7 +35,7 @@ En Azure Multi-Factor Auth-provider krävs för att hämta SDK:n.
 > 
 > 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Så här skapar du en Multi-Factor Authentication-provider
+## <a name="to-create-a-multi-factor-auth-provider"></a>Så här skapar du en Multi-Factor Authentication-provider
 Följ stegen nedan om du vill skapa en Azure Multi-FactorAuthentication-provider.
 
 1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör.
@@ -64,6 +64,6 @@ Följ stegen nedan om du vill skapa en Azure Multi-FactorAuthentication-provider
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

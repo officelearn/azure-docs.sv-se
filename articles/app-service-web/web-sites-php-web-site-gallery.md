@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0bb3fcf1963819b5e8787c042fa895348dc69e12
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f48aab02e0229c440848dc8e4a3d26d0d43d96aa
 
 
 ---
@@ -40,7 +40,7 @@ Via Azure Marketplace får du tillgång till en mängd olika populära webbappar
 För WordPress-webbplatsen du distribuerar under den här kursen används MySQL som databas. Se [Project Nami](http://projectnami.org/) om du hellre vill använda SQL Database som databas. **Project Nami** också är tillgängligt via Marketplace.
 
 > [!NOTE]
-> För den här kursen behöver du ett Microsoft Azure-konto. Om du inte har ett konto kan du [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) eller [registrera dig för en kostnadsfri utvärderingsversion](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+> För den här kursen behöver du ett Microsoft Azure-konto. Om du inte har ett konto kan du [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) eller [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inget kreditkort behövs och du gör inga åtaganden.
 > 
@@ -113,10 +113,10 @@ Du hittar mer information om hur du arbetar med App Service Web Apps via länkar
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
-[bläddra]: ./media/web-sites-php-web-site-gallery/browse-web.png
+[browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

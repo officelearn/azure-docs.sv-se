@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d0297a529c9f921465ec365f10964f7d11160612
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 
 
 ---
@@ -57,13 +57,17 @@ Har du inte tid att gå igenom självstudien, men vill ha hela lösningen? Inga 
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande:
 
-* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* [Node.js][Node.js] version 0.10.29 eller högre.
+* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/)
+
+   ELLER
+
+   En lokal installation av [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md).
+* [Node.js][Node.js] version v0.10.29 eller högre.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (kan installeras via `npm install express-generator -g`)
 * [Git][Git].
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Steg 1: Skapa ett DocumentDB-databaskonto
-Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå vidare till [Steg 2: Skapa ett nytt Node.js-program](#_Toc395783178).
+Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto eller om du använder DocumentDB-emulatorn för den här kursen kan du gå vidare till [Steg 2: Skapa ett nytt Node.js-program](#_Toc395783178).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -542,6 +546,6 @@ Mer information finns i [Node.js Developer Center](https://azure.microsoft.com/d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

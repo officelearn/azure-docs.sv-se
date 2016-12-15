@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 998e95611bca6778de601239bcf9c81246dead83
 
 
 ---
@@ -248,7 +248,7 @@ För att kunna beräkna transaktionskostnader för Blob Storage-konton måste du
 
 För att kunna beräkna transaktionskostnaderna för allmänna lagringskonton måste du aggregera alla transaktioner oavsett åtgärd/API.
 
-##### <a name="data-access-and-georeplication-data-transfer-costs"></a>Dataöverföringskostnader för dataåtkomst och geo-replikering
+##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Dataöverföringskostnader för dataåtkomst och geo-replikering
 Lagringsanalyserna visar inte mängden data som har lästs eller skrivits till ett lagringskonto, men du kan göra en ungefärlig uppskattning genom att titta i tabellen över transaktionsmått.
 Summan av *'TotalIngress'* för alla poster för ett API i tabellen över transaktionsmått anger den totala mängden inkommande data i antal byte för API:et i fråga.
 På samma sätt anger summan av *'TotalEgress'* den totala mängden utgående data i antal byte.
@@ -345,6 +345,6 @@ Mer information finns i [Get Started with Azure Blob storage](storage-dotnet-how
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

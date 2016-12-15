@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/30/2016
+ms.date: 11/29/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 47a89987b65b442c7b489984a4fc139eb1b82758
-ms.openlocfilehash: 8efde94c5771212b4549f10882a4e55739231d61
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: a74fc30480068788f33df092594119253df9487b
 
 
 ---
@@ -34,7 +34,7 @@ Följande videoklipp visar hur du utför de grundläggande stegen i den här sj�
 >
 
 ## <a name="create-a-webhook-triggered-function-from-the-template"></a>Skapa en webhook-utlöst funktion från mallen
-En funktionsapp är värd för körningen av dina funktioner i Azure. Innan du kan skapa en funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto, [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/). 
+En funktionsapp är värd för körningen av dina funktioner i Azure. Om du inte redan har ett Azure-konto kan du kika på [Try Functions](https://functions.azure.com/try) (Prova Functions) eller [skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
 1. Gå till [Azure Functions-portalen](https://functions.azure.com/signin) och logga in med ditt Azure-konto.
 
@@ -50,9 +50,12 @@ En funktionsapp är värd för körningen av dina funktioner i Azure. Innan du k
 
 1. Kopiera värdena för **Funktions-URL** och **GitHub-hemlighet**. Du behöver dessa värden när du skapar webhooken i GitHub. 
 
-2. Rulla ned till **Kör**, notera den fördefinierade JSON-brödtexten i en ärendekommentar i begärandetexten och klicka sedan på **Kör**. 
+2. Klicka på **Test**, notera den fördefinierade JSON-brödtexten i en ärendekommentar i **begärandetexten** och klicka sedan på **Kör**. 
+
+    ![Testa funktionen för webhook i portalen](./media/functions-create-a-web-hook-or-api-function/functions-test-webhook-in-portal.png)
    
-    Du kan alltid testa en ny mallbaserad funktion direkt på fliken **Utveckla** genom att ange förväntad JSON-brödtextdata och klicka på **Kör**-knappen. I det här fallet har mallen en fördefinierad brödtext för en ärendekommentar. 
+    > [!NOTE]
+    > Du kan alltid testa en ny mallbaserad funktion direkt på fliken **Utveckla** genom att ange förväntad JSON-brödtextdata och klicka på **Kör**-knappen. I det här fallet har mallen en fördefinierad brödtext för en ärendekommentar. 
 
 Därefter skapar du den faktiska webhooken i GitHub-databasen.
 
@@ -91,6 +94,6 @@ Mer information om Azure Functions finns i dessa ämnen.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

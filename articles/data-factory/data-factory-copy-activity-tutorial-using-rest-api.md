@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7b55f6730c6a2bf8637f312c452fe552f82dbaeb
-ms.openlocfilehash: 69b333b0c43d2e3e4d62168650123322a79579ba
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 
 
 ---
@@ -48,7 +48,7 @@ Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabr
   2. Hämta ett **klient-ID** och en **hemlig nyckel**. 
   3. Hämta ett **klientorganisations-ID**. 
   4. Tilldela **ADFCopyTutorialApp**-programmet rollen som **Data Factory-deltagare**.  
-* [Installera Azure PowerShell](../powershell-install-configure.md).  
+* [Installera Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 * Starta **PowerShell** och kör följande kommando. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
   
   1. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
@@ -402,7 +402,7 @@ Förbered Azure-blobblagringen och Azure SQL-databasen för den här självstudi
 
         CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
 
-    Om du har installerat SQL Server 2014 på datorn: följ anvisningarna i artikeln [Steg 2: Ansluta till SQL Database i Hantera Azure SQL Database med SQL Server Management Studio][sql-management-studio] för att ansluta till din Azure SQL-server och köra SQL-skriptet.
+    Om SQL Server 2014 är installerat på datorn följer du anvisningarna i artikeln [Steg 2: Ansluta till SQL Database i Hantera Azure SQL Database med SQL Server Management Studio][sql-management-studio] för att ansluta till Azure SQL-servern och köra SQL-skriptet.
 
     Om klienten inte har åtkomst till Azure SQL-servern måste du konfigurera brandväggen för din Azure SQL-server och tillåta åtkomst från din dator (IP-adress). Anvisningar för hur du konfigurerar brandväggen för Azure SQL-servern finns i [den här artikeln](../sql-database/sql-database-configure-firewall-settings.md).
 
@@ -487,7 +487,7 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
 
 [use-custom-activities]: data-factory-use-custom-activities.md
-[Felsöka]: data-factory-troubleshoot.md
+[troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
@@ -495,7 +495,7 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-portal]: http://portal.azure.com
-[download-azure-powershell]: ../powershell-install-configure.md
+[download-azure-powershell]: /powershell/azureps-cmdlets-docs
 [data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
@@ -504,6 +504,6 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

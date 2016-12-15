@@ -16,12 +16,12 @@ ms.topic: hero-article
 ms.date: 05/31/2016
 ms.author: dendeli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dc946619fa3134594d3891ffdf78417d054293e3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 
 
 ---
-# <a name="geofenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Push-meddelanden till geografiskt avgränsade områden med Azure Notification Hubs och Bing Spatial Data
+# <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Push-meddelanden till geografiskt avgränsade områden med Azure Notification Hubs och Bing Spatial Data
 > [!NOTE]
 > Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
 > 
@@ -394,6 +394,6 @@ För mer information om funktioner i Notification Hubs, se vår [dokumentationsp
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

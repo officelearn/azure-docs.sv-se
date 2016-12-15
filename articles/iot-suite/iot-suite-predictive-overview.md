@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d44af03b8e16a2bd936fc805ed4f0c4e6c5fbfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32da7abc3263e1d76f3f08ccae7ce159ead58bee
 
 
 ---
@@ -50,7 +50,7 @@ Den förkonfigurerade lösningen för förebyggande underhåll i Azure IoT anvä
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur Azure IoT möjliggör scenarier för förebyggande underhåll finns i artikeln [Få ut värde av Internet of Things][lnk_capture_value].
 
-Gå en [genomgång][lnk-predictive-walkthrough] om den förkonfigurerade lösningen för förebyggande underhåll.
+Ta en [genomgång][lnk-predictive-walkthrough] av den förkonfigurerade lösningen för förebyggande underhåll.
 
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -63,13 +63,13 @@ Gå en [genomgång][lnk-predictive-walkthrough] om den förkonfigurerade lösnin
 Du kan även utforska några andra funktioner och möjligheter i de förkonfigurerade lösningarna i IoT Suite:
 
 * [Vanliga frågor och svar om IoT Suite][lnk-faq]
-* [IoT säkerhet från grunden][lnk-security-groundup]
+* [IoT-säkerhet från grunden][lnk-security-groundup]
 
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ Om du redan har skapat en Service Bus-kö går du vidare till avsnittet [Skicka 
 Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visual Studio.
 
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
-1. Starta Visual Studio och skapa ett konsolprogram.
+
+- Starta Visual Studio och skapa ett konsolprogram.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Lägga till Service Bus-NuGet-paketet
 1. Högerklicka på det nyskapade projektet och välj **Hantera Nuget-paket**.
@@ -62,12 +63,12 @@ Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visu
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Skriva kod för att skicka ett meddelande till kön
 1. Lägg till följande användningsinstruktion högst upp i filen Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Lägg till följande kod till `Main`-metoden, ange **connectionString**-variabeln som den anslutningssträng som erhölls när namnområdet skapades och ange **queueName** som det könamn som användes när kön skapades.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visu
    
     Så här bör din Program.cs se ut.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visu
 1. Skapa ett nytt konsolprogram och lägg till en referens till Service Bus NuGet-paketet, liknande det tidigare sändningsprogrammet.
 2. Lägg till följande `using`-instruktion högst upp i filen Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Lägg till följande kod till `Main`-metoden, ange **connectionString**-variabeln som den anslutningssträng som erhölls när namnområdet skapades och ange **queueName** som det könamn som användes när kön skapades.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ Om du vill skicka meddelanden till kön skriver du ett C#-konsolprogram med Visu
    
     Så här bör din Program.cs-fil se ut:
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -173,10 +174,10 @@ Kolla in våra [GitHub-databaser med exempel](https://github.com/Azure-Samples/a
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-[github-exempel]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

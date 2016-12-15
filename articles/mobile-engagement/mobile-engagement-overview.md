@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: a3e619d6e130212064093150d22d971a562a6601
-ms.openlocfilehash: 758680cf8ff8a9e2f0a6c241613a2ba254462f4a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
 
 
 ---
@@ -54,6 +54,6 @@ Microsoft bedriver ett långsiktigt sekretessarbete eftersom integritet utgör e
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

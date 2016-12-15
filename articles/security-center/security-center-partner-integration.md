@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 0c946ce6a96f2e3644b9890dad5d60a35ad4bcb7
-ms.openlocfilehash: 10184c52d532eb56e66212fafdea3d059b0c43e3
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
 
 
 ---
@@ -45,23 +45,19 @@ Framöver kommer Security Center att utökas med fler partner inom dessa befintl
 
 ## <a name="how-to-deploy-a-partner-solution"></a>Hur distribuerar du en partnerlösning?
 
-Partnerlösningar som redan har distribuerats i Security Center kan enkelt nås från panelen Partnerlösning på huvudinstrumentpanelen i Security Center:
+Beroende på konfigurationen av din Azure-miljö och den säkerhetsprincip som du har definierat kan Security Center rekommendera att en partnerlösning distribueras. Rekommendationen vägleder dig genom processen och hjälper dig att välja och installera en partnerlösning. Den övergripande distributionsmiljön kan variera beroende på typen av lösning och partner. Mer information finns på länkarna nedan:
+
+- [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md)
+- [Lägga till en nästa generations brandvägg](security-center-add-next-generation-firewall.md)
+- [Installera slutpunktsskydd](security-center-install-endpoint-protection.md)
+- [Sårbarhetsbedömning inte installerad](security-center-vulnerability-assessment-recommendations.md)
+
+## <a name="how-to-manage-partner-solutions"></a>Så här hanterar du partnerlösningar
+
+När en partnerlösning har distribuerats kan du visa information om lösningens hälsotillstånd och utföra grundläggande hanteringsuppgifter från panelen Partnerlösning på huvudinstrumentpanelen för Security Center. Mer information om hur du hanterar partnerlösningar i Security Center finns i [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md).
 
 ![Partnerintegration](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
 
-Följ dessa steg om du vill distribuera en ny partnerlösning baserat på en Security Center-rekommendation:
-
-> [!NOTE]
-> I stegen i följande exempel förutsätter vi att du har en arbetsbelastning som du vill skydda med en brandvägg för webbaserade program.
-
-1. Klicka på panelen **Rekommendationer** på Security Center-instrumentpanelen.
-2. Klicka på **Add web application firewall** (Lägg till brandvägg för webbaserade program) på bladet **Rekommendationer**.
-3. Klicka på programnamnet under bladet **Add web application firewall** (Lägg till brandvägg för webbaserade program).
-4. På bladet **Add web application firewall** (Lägg till brandvägg för webbaserade program) klickar du på **Skapa ny**.
-5. Bladet **Create a new Web Application Firewall** (Skapa en ny brandvägg för webbaserade program) visar en lista över de partner som erbjuder brandväggsfunktioner för webbprogram.
-6. Välj lämplig partnerlösning och följ anvisningarna (som kan variera beroende på partner).
-
-Den övergripande distributionsupplevelsen i det här steget kan variera beroende på partner. Mer information om hur du hanterar partnerlösningar i Security Center finns i [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md).
 
 ## <a name="see-also"></a>Se även
 Det här dokumentet beskriver hur du integrerar partnerlösningar i Azure Security Center. I följande avsnitt kan du lära dig mer om Security Center:
@@ -76,6 +72,6 @@ Det här dokumentet beskriver hur du integrerar partnerlösningar i Azure Securi
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

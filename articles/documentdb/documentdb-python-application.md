@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
 
 
 ---
@@ -47,6 +47,10 @@ Genom att följa den här självstudien skapar du en enkel röstningsapp där du
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande installerat:
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+ 
+    ELLER 
+
+    En lokal installation av [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) eller senare, eller [Visual Studio Express](), vilket är den kostnadsfria versionen. Anvisningarna i den här självstudien är skrivna specifikt för Visual Studio 2015. 
 * Python Tools för Visual Studio från [GitHub](http://microsoft.github.io/PTVS/). I den här självstudien används Python Tools för VS 2015. 
 * Azure Python SDK för Visual Studio, version 2.4 eller senare från [azure.com](https://azure.microsoft.com/downloads/). Vi använde Microsoft Azure SDK för Python 2.7.
@@ -62,7 +66,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 * Microsoft Visual C++ Compiler for Python 2.7 från [Microsoft Download Center][3].
 
 ## <a name="step-1-create-a-documentdb-database-account"></a>Steg 1: Skapa ett DocumentDB-databaskonto
-Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå vidare till [Steg 2: Skapa en ny webbapp i Python Flask](#step-2:-create-a-new-python-flask-web-application).
+Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto eller om du använder DocumentDB-emulatorn för den här kursen kan du gå vidare till [Steg 2: Skapa en ny webbapp i Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -404,11 +408,11 @@ Ytterligare självstudier om Python Flask finns i [Ingående självstudie om Fla
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [2]: https://www.python.org/downloads/windows/
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Installationsprogram för Microsoft-webbplattformen]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure Portal]: http://portal.azure.com
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Azure portal]: http://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

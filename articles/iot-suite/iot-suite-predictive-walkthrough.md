@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6d80f266730701dc4e678f4365a2166be72c9143
 
 
 ---
@@ -43,7 +43,7 @@ I den förkonfigurerade lösningen representerar en simulerad enhet en flygplans
 
 *Antal cykler*. En cykel representerar en slutförd flygning med varierande längd på mellan 2–10 timmar då telemetridata samlas in varje halvtimme under flygningens längd.
 
-*Telemetri*. Det finns fyra sensorer som representerar motorattribut. Sensorerna har allmänna beteckningar: Sensor 9, Sensor 11, Sensor 14 och Sensor 15. Dessa 4 sensorer representerar en tillräcklig mängd telemetri som krävs för att få fram användbara resultat från Machine Learning-modellen för den återstående användbara livslängden. Den här modellen har skapats från en offentlig datauppsättning som innehåller verkliga data från motorsensorer. Mer information om hur modellen har skapats från den ursprungliga datauppsättningen finns i [mallen för förebyggande underhåll i Cortana-informationsgalleriet][lnk-cortana-analytics].
+*Telemetri*. Det finns fyra sensorer som representerar motorattribut. Sensorerna har allmänna beteckningar: Sensor 9, Sensor 11, Sensor 14 och Sensor 15. Dessa 4 sensorer representerar en tillräcklig mängd telemetri som krävs för att få fram användbara resultat från Machine Learning-modellen för den återstående användbara livslängden. Den här modellen har skapats från en offentlig datauppsättning som innehåller verkliga data från motorsensorer. Mer information om hur modellen har skapats från den ursprungliga datauppsättningen finns i [mallen för förebyggande underhåll i Cortana Intelligence-galleriet][lnk-cortana-analytics].
 
 De simulerade enheterna kan hantera följande kommandon som skickas från en IoT-hubb:
 
@@ -61,7 +61,7 @@ IoT Hub bekräftar enhetskommandona.
 **Händelseprocessorn** tar de genomsnittliga sensorvärdena från en slutförd cykel. Den skickar dessa värden till en API som får den Machine Learning-tränade modellen att beräkna RUL för en motor.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
-Mer information om hur modellen har skapats från den ursprungliga datauppsättningen finns i [mallen för förebyggande underhåll i Cortana-informationsgalleriet][lnk-cortana-analytics].
+Mer information om hur modellen har skapats från den ursprungliga datauppsättningen finns i [mallen för förebyggande underhåll i Cortana Intelligence-galleriet][lnk-cortana-analytics].
 
 ## <a name="lets-start-walking"></a>Vi sätter igång
 Det här avsnittet beskriver komponenterna i lösningen, beskriver deras avsedda användning och innehåller exempel.
@@ -107,7 +107,7 @@ Blogginlägget [IoT Suite - Under The Hood - Predictive Maintenance](http://soci
 Du kan även utforska några andra funktioner och möjligheter i de förkonfigurerade lösningarna i IoT Suite:
 
 * [Vanliga frågor och svar om IoT Suite][lnk-faq]
-* [IoT säkerhet från grunden][lnk-security-groundup]
+* [IoT-säkerhet från grunden][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
@@ -127,6 +127,6 @@ Du kan även utforska några andra funktioner och möjligheter i de förkonfigur
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

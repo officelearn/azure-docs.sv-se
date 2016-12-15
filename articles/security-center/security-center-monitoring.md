@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
-ms.openlocfilehash: 5852808ad0f5cf02908df7ff969ab2106d9f5abd
+ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
+ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
 
 
 ---
@@ -192,7 +192,7 @@ Om du klickar på databasen för att utföra rekommendationen öppnas bladet **G
 Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning**.
 
 ### <a name="monitor-applications"></a>Övervakning av program
-Om din arbetsbelastning i Azure innehåller program som ligger på [virtuella datorer (skapade via Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) med exponerade webbportar (TCP-portarna 80 och 443) kan de övervakas i Security Center. Då identifieras potentiella säkerhetsproblem och du får rekommendationer om hur problemen kan lösas. Om du klickar på rutan **Program** öppnas bladet **Program** med olika rekommendationer i den översta delen med **Skyddsåtgärder**. Här visas även program uppdelade efter värd/virtuell IP-adress såsom visas på följande skärmbild.
+Om din arbetsbelastning i Azure innehåller program som ligger på [virtuella datorer (skapade via Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) med exponerade webbportar (TCP-portarna 80 och 443) kan de övervakas i Security Center. Då identifieras potentiella säkerhetsproblem och du får rekommendationer om hur problemen kan lösas. När du klickar på panelen **Program** öppnas bladet **Program** och ett antal rekommendationer visas i avsnittet **Application recommendations** (Programrekommendationer). Här visas även program uppdelade efter värd/virtuell IP-adress såsom visas på följande skärmbild.
 
 ![Programsäkerhetshälsa](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
@@ -216,6 +216,6 @@ I den här artikeln har du fått lära dig hur du använder övervakningsfunktio
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

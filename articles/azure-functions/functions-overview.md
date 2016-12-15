@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/20/2016
 ms.author: cfowler;mahender;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 31d7a8d1abb59e096a657c4a74743adfc0d137b6
-ms.openlocfilehash: 01c1e7b58a7dce3c640ac151b3ac708ce2b7d913
+ms.sourcegitcommit: 30cc3b8749d5b36b89b242e2691003cc6f67f7d2
+ms.openlocfilehash: 00359057d702c556cd8beb91cf17ccf41c96f601
 
 
 ---
@@ -70,10 +70,10 @@ Azure Functions kan integreras med en mängd Azure- och tredjepartstjänster. Du
 ## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Hur mycket kostar Functions?
 Azure Functions har två typer av prissättningar, välj den som bäst passar dina behov: 
 
-* **Förbrukningsplan** – När din funktion körs tillhandahåller Azure alla nödvändiga beräkningsresurser. Du behöver inte bry dig om resurshantering, och du betalar endast för den tid då din kod körs. Fullständig prisinformation är tillgänglig på sidan [Prissättning för Functions](/pricing/details/functions). 
-* **Apptjänstplan** – Kör dina funktioner precis som dina webb-, mobil- och API Apps. När du redan använder App Service för dina andra program, kan du köra dina funktioner på samma plan utan extra kostnad. Fullständig information finns på sidan [Prissättning för App Service](/pricing/details/app-service/).
+* **Förbrukningsplan** – När din funktion körs tillhandahåller Azure alla nödvändiga beräkningsresurser. Du behöver inte bry dig om resurshantering, och du betalar endast för den tid då din kod körs. 
+* **Apptjänstplan** – Kör dina funktioner precis som dina webb-, mobil- och API Apps. När du redan använder App Service för dina andra program, kan du köra dina funktioner på samma plan utan extra kostnad. 
 
-Mer information om att skala dina funktioner finns i [Så här skalar du Azure Functions](functions-scale.md).
+Fullständig prisinformation är tillgänglig på sidan [Prissättning för Functions](https://azure.microsoft.com/pricing/details/functions/). Mer information om att skala dina funktioner finns i [Så här skalar du Azure Functions](functions-scale.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)  
@@ -90,6 +90,6 @@ Mer information om att skala dina funktioner finns i [Så här skalar du Azure F
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

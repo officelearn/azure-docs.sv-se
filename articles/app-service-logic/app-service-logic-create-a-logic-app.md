@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ab26637d0f49abd73b55e3ccf9ace0f33f6f8731
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2a23cc8fdfcda1120f885f34855105a38b055a85
 
 
 ---
@@ -56,11 +56,11 @@ Nu är din logikapp igång. Den söker regelbundet efter tweets med den angivna 
 På mindre än 5 minuter har du ställt in en enkel logikapp som körs i molnet. Mer information om att använda funktioner i Logic Apps finns i [Använda funktioner i Logic Apps]. Mer information om själva definitionerna för Logic Apps finns i [Redigera definitioner för Logic Apps](app-service-logic-author-definitions.md).
 
 <!-- Shared links -->
-[Azure-portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Använda funktioner i Logic Apps]: app-service-logic-create-a-logic-app.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

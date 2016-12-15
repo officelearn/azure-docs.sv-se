@@ -12,19 +12,19 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
     Visual Studio laddar ned, installerar och lägger till en referens till [Azure Service Bus-bibliotekets NuGet-paket](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
    
-    ```
+    ```csharp
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
 5. Lägg till följande fält till **Program**-klassen, där du ersätter platshållarvärdena med namnet på den Event Hub du skapat i föregående avsnitt och anslutningssträngen på namnområdesnivå som du sparat tidigare.
    
-    ```
+    ```csharp
     static string eventHubName = "{Event Hub name}";
     static string connectionString = "{send connection string}";
     ```
 6. Lägg till följande metod i klassen **Program**:
    
-    ```
+    ```csharp
     static void SendingRandomMessages()
     {
         var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
@@ -51,7 +51,7 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
     Den här metoden skickar kontinuerligt händelser till din Event Hub med en fördröjning på 200 ms.
 7. Slutligen lägger du till följande rader till **Main**-metoden:
    
-    ```
+    ```csharp
     Console.WriteLine("Press Ctrl-C to stop the sender process");
     Console.WriteLine("Press Enter to start now");
     Console.ReadLine();
@@ -60,6 +60,6 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

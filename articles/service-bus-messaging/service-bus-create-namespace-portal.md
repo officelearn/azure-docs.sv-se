@@ -12,16 +12,16 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/22/2016
+ms.date: 11/30/2016
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 5fa107c857b3291cf2687cb4097649e23e9f95da
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 89610512c264cef4bd52728240ddc0a34091edea
 
 
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Skapa ett Service Bus-namnområde med Azure Portal
-Ett namnområde är en gemensam behållare för alla dina meddelandekomponenter. Flera köer och ämnen kan finnas i ett enda namnområde och namnområden fungerar ofta som programbehållare. Det finns för närvarande två sätt att skapa ett Service Bus-namnområde.
+Ett namnområde är en gemensam behållare för alla meddelandekomponenter. Flera köer och ämnen kan finnas i ett enda namnområde och namnområden fungerar ofta som programbehållare. Det finns för närvarande två sätt att skapa ett Service Bus-namnområde.
 
 1. Azure Portal (den här artikeln)
 2. [Resource Manager-mallar][create-namespace-using-arm]
@@ -32,13 +32,13 @@ Ett namnområde är en gemensam behållare för alla dina meddelandekomponenter.
 Grattis! Du har nu skapat ett namnområde för meddelandetjänsten i Service Bus.
 
 ## <a name="next-steps"></a>Nästa steg
-Kolla in våra [GitHub-exempel][github-exempel] som visar några av de mer avancerade funktionerna i Azure Service Bus-meddelandefunktionen.
+Kolla in våra [GitHub-exempel][github-samples] som visar några av de mer avancerade funktionerna i meddelandetjänsten i Azure Service Bus.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
-[github-exempel]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,10 +16,10 @@ I den här självstudiekursen lär du dig att:
 
 * Använda Azure-portalen för att skapa en IoT-hubb.
 * Skapa en enhetsidentitet i din IoT-hubb.
-* Skapa en simulerad enhetsapp som skickar telemetri till serverdelen i molnet och som tar emot kommandon från serverdelen i molnet.
+* Skapa en simulerad enhetsapp som skickar telemetri till serverdelen i lösningen och som tar emot kommandon från serverdelen i lösningen.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

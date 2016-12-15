@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +66,7 @@ Om du inte har någon prenumeration på en Microsoft-molntjänst än kan du anv�
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Hantera en Azure-etablerad standardkatalog
+### <a name="manage-an-azure-provisioned-default-directory"></a>Hantera en Azure-etablerad standardkatalog
 I dag skapas en katalog automatiskt när du registrerar dig för Azure och din prenumeration associeras med den katalogen. Men om du ursprungligen registrerade dig för Azure före oktober 2013 skapades ingen katalog automatiskt. I så fall kan det hända att Azure etablerade en standardkatalog för ditt konto i efterhand. Din prenumeration kopplades i så fall till den standardkatalogen.
 
 Den här typen av katalogetablering gjordes i oktober 2013 som en del av en övergripande förbättring av säkerhetsmodellen för Azure. Modellen tillhandahåller organisationsidentitetsfunktioner för alla Azure-kunder och ser till att alla Azure-resurser är tillgängliga i kontexten för en användare i katalogen. Du kan inte använda Azure utan en katalog. Det var nödvändigt att skapa en katalog för alla användare som registrerade sig före den 7 juli 2013 men som inte hade någon katalog. Om du redan hade skapat en katalog associerades din prenumeration med den katalogen.
@@ -150,6 +150,6 @@ Följande villkor kontrolleras:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

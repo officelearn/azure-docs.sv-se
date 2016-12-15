@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 81fd8f40d8f939e68fbe2cf9ef7b413073a8c363
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
 
 
 ---
@@ -48,7 +48,7 @@ Under den här kursen får du lära dig hur du kör både klient- och serverdele
 ## <a name="prerequisites"></a>Krav
 Kursen förutsätter att du förstår [grundläggande koncept om Azure-molntjänster](cloud-services-choose-me.md), t.ex. termerna *webbroll* och *arbetsroll*.  Det förutsätts även att du kan använda [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- eller [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projekt i Visual Studio. Exempelprogrammet använder MVC, men större delen av kursen gäller också Web Forms.
 
-Du kan köra appen lokalt utan en Azure-prenumeration, men du behöver en prenumeration för att kunna distribuera programmet i molnet. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) eller [registrera dig för en kostnadsfri utvärderingsversion](/pricing/free-trial/?WT.mc_id=A55E3C668).
+Du kan köra appen lokalt utan en Azure-prenumeration, men du behöver en prenumeration för att kunna distribuera programmet i molnet. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) eller [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 Anvisningarna i kursen gäller båda följande produkter:
 
@@ -772,6 +772,6 @@ Mer information finns i följande resurser:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

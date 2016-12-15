@@ -4,7 +4,7 @@
 > 
 > 
 
-Den här artikeln innehåller en detaljerad genomgång av [Hello World-exempelkod][lnk-helloworld-sample] för att illustrera grundläggande komponenter i arkitekturen för [Azure IoT Gateway SDK][lnk-gateway-sdk]. Exemplet använder IoT Hub Gateway-SDK för att skapa en enkel gateway som loggar ett meddelande med "hello world" i en fil var femte sekund.
+Den här artikeln innehåller en detaljerad genomgång av [Hello World-exempelkod][lnk-helloworld-sample] för att illustrera grundläggande komponenter i arkitekturen för [Azure IoT Gateway SDK][lnk-gateway-sdk]. Exemplet använder Azure IoT Gateway-SDK för att skapa en enkel gateway som loggar ett meddelande med "hello world" i en fil var femte sekund.
 
 Den här genomgången omfattar:
 
@@ -72,6 +72,6 @@ Bilden ovan illustrerar arkitekturen i Hello World-exemplet och de relativa sök
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

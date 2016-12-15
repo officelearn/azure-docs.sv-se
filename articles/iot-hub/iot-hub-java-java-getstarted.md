@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med Azure IoT Hub för Java | Microsoft Docs"
-description: "Självstudiekurs: Komma igång med Azure IoT Hub för Java Använd Azure IoT Hub och Java med Azure IoT-SDK:er för att implementera en IoT-lösning (Internet of Things)."
+title: "Komma igång med IoT Hub (Java) | Microsoft Docs"
+description: "Så här skickar du ”enhet till molnet”-meddelanden från en enhet till Azure IoT Hub med Azure IoT SDK för Java. Du skapar en simulerad enhetsapp för att skicka meddelanden, en tjänstapp för att registrera enheten i identitetsregistret och en tjänstapp för att läsa meddelanden från enheten till molnet från IoT-hubben."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: ae4727b27281be62a79f9387715eccd6b61e8e12
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-java"></a>Komma igång med Azure IoT Hub för Java
+# <a name="get-started-with-azure-iot-hub-java"></a>Kom igång med Azure IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 I slutet av den här självstudiekursen har du tre Java-konsolappar:
@@ -105,7 +105,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som skapar en enhetsidentite
         iotf.printStackTrace();
       }
     }
-    System.out.println("Device id: " + device.getDeviceId());
+    System.out.println("Device ID: " + device.getDeviceId());
     System.out.println("Device key: " + device.getPrimaryKey());
     ```
 10. Spara och stäng filen App.java.
@@ -425,14 +425,14 @@ Nu är det dags att köra apparna.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
    
-    ![Java IoT Hub-tjänstklientapp för att övervaka meddelanden från enheten till molnet][7]
+    ![Java IoT Hub-tjänstapp för att övervaka meddelanden från enheten till molnet][7]
 2. Kör följande kommando i Kommandotolken i mappen simulated-device för att börja skicka telemetridata till din IoT-hubb:
    
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
    
-    ![Java IoT Hub-tjänstklientapp för att skicka meddelanden från enheten till molnet][8]
+    ![Java IoT Hub-enhetsapp för att skicka meddelanden från enheten till molnet][8]
 3. På panelen **Användning** på [Azure Portal][lnk-portal] kan du se hur många meddelanden som har skickats till IoT-hubben:
    
     ![Azure-portal Användningspanel som visar antalet meddelanden som har skickats till IoT Hub][43]
@@ -474,6 +474,6 @@ Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

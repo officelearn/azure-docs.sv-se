@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3b3e0fd5342c4729d6ffee4858089099b31404a8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 57b95d5018fa197096992f7cd255a54501875dea
 
 
 ---
@@ -40,13 +40,13 @@ Se [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md) för mer inf
 ## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>Hur ansluter jag nätverket till Microsoft med ExpressRoute?
 Du kan skapa en anslutning mellan ditt lokala nätverk och Microsoft-molnet på tre olika sätt:
 
-### <a name="colocated-at-a-cloud-exchange"></a>Samordnad i ett molnutbyte
+### <a name="co-located-at-a-cloud-exchange"></a>Samordnad i ett molnutbyte
 Om du är samordnad i en anläggning med ett molnutbyte, kan du beställa virtuella korsanslutningar till Microsoft-molnet via samordningsleverantörens Ethernet-utbyte. Samordningsleverantörer kan erbjuda Layer-2-anslutningar eller hanterade Layer 3-korsanslutningar mellan infrastrukturen i samordningsanläggningen och Microsoft-molnet.
 
-### <a name="pointtopoint-ethernet-connections"></a>”Point-to-Point”-anslutningar med Ethernet
+### <a name="point-to-point-ethernet-connections"></a>”Point-to-Point”-anslutningar med Ethernet
 Du kan ansluta dina lokala datacenter/kontor till Microsoft-molnet via ”point-to-point”-länkar med Ethernet. ”Point-to-Point”-leverantörer kan erbjuda Layer-2-anslutningar eller hanterade Layer 3-anslutningar mellan din webbplats och Microsoft-molnet.
 
-### <a name="anytoany-ipvpn-networks"></a>”Any-to-any”-nätverk (IPVPN)
+### <a name="any-to-any-ipvpn-networks"></a>”Any-to-any”-nätverk (IPVPN)
 Du kan integrera ditt WAN med Microsoft-molnet. IPVPN-leverantörer (vanligtvis MPLS VPN) erbjuder ”any-to-any”-anslutningar mellan dina avdelningskontor och datacentra. Microsoft-molnet kan kopplas samman med ditt WAN-nätverk så att det ser ut precis som andra avdelningskontor. WAN-leverantörer erbjuder vanligtvis hanterad Layer 3-anslutning. Alla ExpressRoute-funktioner och egenskaper är identiska i ovanstående anslutningsmodeller. 
 
 Anslutningsleverantörer kan erbjuda en eller flera modeller för anslutningen. Du kan rådfråga din anslutningsleverantör om vilken modell som passar dig bäst.
@@ -78,7 +78,7 @@ Du kan ansluta till Microsoft på någon av våra [peeringplatser](expressroute-
 
 Om du exempelvis har anslutit till Microsoft i Amsterdam via ExpressRoute, kommer du ha åtkomst till alla Microsoft-molntjänster som finns i norra Europa och västra Europa. Se artikeln [ExpressRoute-partners och peeringplatser](expressroute-locations.md) för en översikt över geopolitiska regioner, tillhörande Microsoft- molnområden och motsvarande ExpressRoute-peeringplatser.
 
-### <a name="global-connectivity-with-expressroute-premium-addon"></a>Global anslutning med ExpressRoutes premiumtillägg
+### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Global anslutning med ExpressRoutes premiumtillägg
 Du kan aktivera ExpressRoutes premiumtillägg om du vill utöka anslutningen över geopolitiska gränser. Om du till exempel är ansluten till Microsoft i Amsterdam via ExpressRoute, får du åtkomst till alla Microsoft-molntjänster som finns i alla regioner över hela världen (med undantag för nationella moln). Du kan komma åt tjänster som distribueras i Sydamerika eller Australien på samma sätt som du har åtkomst till de norra och västra Europaregionerna.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Utförligt ekosystem med anslutningspartner
@@ -125,6 +125,6 @@ Du kan välja den faktureringsmodell som passar dig bäst. Välj mellan fakturer
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

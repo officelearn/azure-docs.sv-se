@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 09ad9bb1fee50d6063b9a179377cbe4f1c3c7ab2
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
 
 
 ---
 # <a name="service-bus-architecture"></a>Service Bus-arkitektur
-I den här artikeln beskrivs arkitekturen för behandling av meddelanden och vidarebefordran i Azure Service Bus.
+I den här artikeln beskrivs arkitekturen för meddelandebehandling i Azure Service Bus.
 
 ## <a name="service-bus-scale-units"></a>Service Bus-skalningsenheter
 Service Bus är organiserat i *skalningsenheter*. En skalningsenhet är en distributionsenhet och innehåller alla komponenter som krävs för att köra tjänsten. Varje region distribuerar en eller flera Service Bus-skalningsenheter.
@@ -49,7 +49,7 @@ Klienterna kan utbyta meddelanden via gateway-noden som används för rendezvous
 ![Bearbetning av inkommande WCF Relay-begäranden](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har läst en översikt över arkitekturen i Service Bus kan du använda följande länkar för att komma igång:
+Nu när du har läst en översikt över Service Bus-arkitekturen hittar du mer information på följande länkar:
 
 * [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
 * [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ Nu när du har läst en översikt över arkitekturen i Service Bus kan du använ
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

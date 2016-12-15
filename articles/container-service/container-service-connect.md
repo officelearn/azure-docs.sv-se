@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a4882b6fcd75ecaa826cdda3e25ee690b85a0670
-ms.openlocfilehash: 34450e25941e0be97b72c1ba30ee348d73f4bc67
+ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
+ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
 
 
 ---
@@ -51,13 +51,19 @@ scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 
 Om du har Windows behöver du använda Bash i Ubuntu för Windows eller pscp-verktyget Putty.
 
-När du har konfigurerat `kubectl` kan du testa det med:
+När du har konfigurerat `kubectl` kan du testa detta genom att visa en lista över noderna i klustret:
 
 ```console
 kubectl get nodes
 ```
 
-som ska visa noderna i klustret.
+Slutligen kan du visa Kubernetes-instrumentpanelen. Kör först:
+
+```console
+kubectl proxy
+```
+
+Nu är Kubernetes-användargränssnittet tillgängligt på: http://localhost:8001/ui
 
 Mer information finns i [snabbstarten för Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/)
 
@@ -166,6 +172,6 @@ Distribuera och hantera behållare med DC/OS eller Swarm:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

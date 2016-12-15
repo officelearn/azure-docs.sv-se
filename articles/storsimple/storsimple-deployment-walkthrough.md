@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d9e5f3b177f6b91abe48d3bb6d49a2d3195e6f79
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device"></a>Distribuera din lokala StorSimple-enhet
+# <a name="deploy-your-on-premises-storsimple-device"></a>Distribuera din lokala StorSimple-enhet
 > [!div class="op_single_selector"]
 > * [Uppdatering 2](storsimple-deployment-walkthrough-u2.md)
 > * [Uppdatering 1](storsimple-deployment-walkthrough-u1.md)
@@ -146,7 +146,7 @@ Innan du börjar ska du kontrollera att:
 |  | | |
 | **Registrering** |Kontrollera om de utgående TCP-portarna 443, 80, 9354 är öppna. |`Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Mer information om Test-NetConnection cmdlet](https://technet.microsoft.com/library/dn372891.aspx) |
 
-## <a name="stepbystep-deployment"></a>Steg för steg-distribution
+## <a name="step-by-step-deployment"></a>Steg för steg-distribution
 Utför nedanstående steg för steg-instruktioner för att distribuera StorSimple-enheten i datacentret.
 
 ## <a name="step-1-create-a-new-service"></a>Steg 1: Skapa en ny tjänst
@@ -286,6 +286,6 @@ Utför följande steg i den klassiska Azure-portalen för att på begäran kunna
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
-ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
+ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
+ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
 
 
 ---
@@ -69,6 +69,7 @@ När källorna har uppdaterats kan du installera SDK.
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
+
 
 ## <a name="set-up-the-azure-cross-platform-cli"></a>Konfigurera Azures plattformsoberoende CLI
 [Azures plattformsoberoende CLI][azure-xplat-cli-github] innehåller kommandon för att interagera med Service Fabric-entiteter, t.ex. kluster och program. Det är baserat på Node.js. Det innebär att du måste [installera Node][install-node] innan du fortsätter med instruktionerna nedan.
@@ -127,7 +128,7 @@ Java SDK tillhandahåller de bibliotek och mallar som krävs för att skapa Serv
 
 Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse Neon IDE.
 
-1. Kontrollera att du har Buildship version 1.0.17 eller senare installerat i Eclipse. Du kan kontrollera vilka versioner de installerade komponenterna har genom att välja **Help > Installation Details** (Hjälp > Installationsinformation). Du kan uppdatera Buildship med instruktionerna som finns [här][buildship-update].
+1. Kontrollera att du har Buildship version 1.0.17 eller senare installerat i Eclipse. Du kan kontrollera vilka versioner de installerade komponenterna har genom att välja **Help > Installation Details** (Hjälp > Installationsinformation). Du kan uppdatera Buildship genom att följa instruktionerna [här][buildship-update].
 2. Om du vill installera Service Fabric-plugin-programmet väljer du **Help > Install New Software...** (Hjälp > Installera ny programvara...).
 3. Ange följande i textrutan Work with (Arbeta med): http://dl.windowsazure.com/eclipse/servicefabric
 4. Klicka på Add (Lägg till).
@@ -149,6 +150,16 @@ Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse Neon I
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
+## <a name="updating-the-sdk-and-runtime"></a>Uppdatera SDK och Runtime
+
+Om du vill uppdatera till den senaste versionen av SDK och Runtime kör du följande steg (ta bort de SDK:er från listan som du inte vill uppdatera eller installera):
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+    ```
+
+Om du vill uppdatera CLI går du till katalogen där du klonade CLI och kör `git pull` för att uppdatera. 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa ditt första Java-program i Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -167,6 +178,6 @@ Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse Neon I
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

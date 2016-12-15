@@ -1,6 +1,6 @@
 ---
 title: "Översikt över Azure IoT Hub | Microsoft Docs"
-description: "Översikt över tjänsten Azure IoT Hub: Vad är IoT Hub, enhetsanslutning, IoT-kommunikationsmönster (Internet of Things) och tjänstassisterat kommunikationsmönster?"
+description: "Översikt över tjänsten Azure IoT Hub: Vad är IoT Hub, enhetsanslutning, IoT-kommunikationsmönster (Internet of Things), gateways och tjänstassisterat kommunikationsmönster"
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: b00aab7ea1eac8d34b9b535db2056c7b0ec41354
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 42774f83dc4c53dc8f090acb922b5aae6e8b4bed
 
 
 ---
@@ -77,7 +77,7 @@ En lösning kan omfatta både protokoll- och fält-gateways.
 Azure IoT Hub implementerar [tjänstassisterad kommunikation][lnk-service-assisted-pattern] för att hantera interaktionen mellan dina enheter och serverdelen i lösningen. Målet med tjänstassisterad kommunikation är att upprätta tillförlitliga, dubbelriktade kommunikationsvägar mellan ett kontrollsystem, t.ex IoT Hub, och enheter för särskilda ändamål som har distribuerats i ett icke betrott fysiskt utrymme. Mönstret tillämpar följande principer:
 
 * Säkerhet prioriteras högre än alla andra funktioner.
-* Enheter accepterar inte oönskad nätverksinformation. En enhet upprättar alla anslutningar och vägar som ”endast utgående”. För att en enhet ska ta emot ett kommando från backend-servern måste enheten regelbundet initiera en anslutning för att söka efter kommandon som väntar på att bearbetas.
+* Enheter accepterar inte oönskad nätverksinformation. En enhet upprättar alla anslutningar och vägar som ”endast utgående”. För att en enhet ska ta emot ett kommando från lösningens serverdel måste enheten regelbundet initiera en anslutning för att söka efter kommandon som väntar på att bearbetas.
 * Enheter får endast ansluta till eller upprätta vägar till välkända tjänster som de är peerkopplade med, t.ex. IoT Hub.
 * Kommunikationsvägen mellan enheten och tjänsten eller mellan enheten och gatewayen skyddas på programprotokollnivå.
 * Auktoriseringen och autentiseringen på systemnivå baseras på enhetsspecifika identiteter. De gör att autentiseringsuppgifter och behörigheter för åtkomst kan återkallas nästan omedelbart.
@@ -91,7 +91,7 @@ IoT Hub stöds över ExpressRoutes offentliga peering-sökväg.
 ## <a name="next-steps"></a>Nästa steg
 Information om hur Azure IoT Hub tillhandahåller standardbaserad enhetshantering som hjälper dig att hantera, konfigurera och uppdatera dina enheter finns i [Översikt över enhetshantering med IoT Hub][lnk-device-management].
 
-Om du vill implementera klientprogram på många olika enhetsspecifika maskinvaruplattformar och operativsystem kan du använda enhets-SDK:er för Azure IoT. Enhets-SDK:erna innehåller bibliotek som gör det lätt att skicka telemetri till en IoT-hubb och att ta emot kommandon från molnet till enheten. När du använder enhets-SDK:erna kan du välja mellan olika nätverksprotokoll för att kommunicera med IoT Hub. Mer information finns i [informationen om enhets-SDK:er][lnk-device-sdks].
+Om du vill implementera klientprogram på många olika enhetsspecifika maskinvaruplattformar och operativsystem kan du använda enhets-SDK:er för Azure IoT. Enhets-SDK:erna innehåller bibliotek som gör det lätt att skicka telemetri till en IoT-hubb och att ta emot meddelanden från molnet till enheten. När du använder enhets-SDK:erna kan du välja mellan olika nätverksprotokoll för att kommunicera med IoT Hub. Mer information finns i [informationen om enhets-SDK:er][lnk-device-sdks].
 
 Information om hur du börjar skriva kod och hur du kan köra några exempel finns i självstudien [Komma igång med IoT Hub][lnk-get-started].
 
@@ -121,6 +121,6 @@ Information om hur du börjar skriva kod och hur du kan köra några exempel fin
 [lnk-security-ground-up]: iot-hub-security-ground-up.md
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

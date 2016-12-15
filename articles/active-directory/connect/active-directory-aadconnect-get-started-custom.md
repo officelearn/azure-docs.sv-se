@@ -4,20 +4,19 @@ description: "Det här dokumentet beskriver de anpassade installationsalternativ
 services: active-directory
 keywords: "vad är Azure AD Connect, installera Active Directory, komponenter som krävs för Azure AD"
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: femila
-editor: curtand
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 12/06/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: f001bc76161565bd07606d366c07b15edf819e81
+ms.sourcegitcommit: d0e596aed6ae784e4c48b3ddacbf946c4849614f
+ms.openlocfilehash: 397ed8977c35dc18e92239ae4b62bddba2ade8a7
 
 
 ---
@@ -46,13 +45,17 @@ När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valf
 ### <a name="user-sign-in"></a>Användarinloggning
 När du har installerat de nödvändiga komponenterna uppmanas du att välja användaruppgifter för enkel inloggning. Följande tabell innehåller en kort beskrivning av de tillgängliga alternativen. En fullständig beskrivning av inloggningsmetoderna finns i [Användarinloggning](../active-directory-aadconnect-user-signin.md).
 
-![Användarinloggning](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+![Användarinloggning](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
 
 | Alternativ för enkel inloggning | Beskrivning |
 | --- | --- |
 | Lösenordssynkronisering |Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk. Användarnas lösenord synkroniseras med Azure AD som lösenordshasher och autentiseringen sker i molnet. Mer information finns i [Lösenordssynkronisering](../active-directory-aadconnectsync-implement-password-synchronization.md). |
+|Direktautentisering (förhandsversion)|Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk.  Användarnas lösenord skickas till den lokala Active Directory-kontrollanten för verifiering. 
 | Federation med AD FS |Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk.  Användarna dirigeras till deras lokala AD FS-instans för att logga in och autentiseringen sker lokalt. |
 | Konfigurera inte |Ingen av funktionerna installeras eller konfigureras. Välj det här alternativet om du redan har en federationsserver från en annan tillverkare eller en annan befintlig lösning på plats. |
+|Aktivera enkel inloggning|Det här alternativet är tillgängligt med både lösenordssynkronisering och Direktautentisering och tillhandahåller enkel inloggning för datoranvändare i företagsnätverket.  Mer information finns i avsnittet om [enkel inloggning](../active-directory-aadconnect-sso.md). </br>Observera att det här alternativet inte är tillgängligt för AD FS-kunder eftersom AD FS redan erbjuder samma nivå av enkel inloggning.</br>(om PTA inte har släppts samtidigt)
+|Inloggningsalternativ|Det här alternativet är tillgängligt för kunder som behöver lösenordssynkronisering och tillhandahåller en miljö med enkel inloggning för datoranvändare i företagsnätverket.  </br>Mer information finns i avsnittet om [enkel inloggning](../active-directory-aadconnect-sso.md). </br>Observera att det här alternativet inte är tillgängligt för AD FS-kunder eftersom AD FS redan erbjuder samma nivå av enkel inloggning.
+
 
 ### <a name="connect-to-azure-ad"></a>Anslut till Azure AD
 Ange ett globalt administratörskonto och lösenord på skärmen Anslut till Azure AD. Om du valde **Federation med AD FS** på föregående sida ska du inte logga in med ett konto i en domän som du planerar att aktivera för federation. En rekommendation är att använda ett konto i standarddomänen **onmicrosoft.com**, som medföljer din Azure AD-katalog.
@@ -68,6 +71,7 @@ Om MFA är aktiverat för ditt globala administratörskonto måste du ange löse
 Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutningsproblem](../active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ## <a name="pages-under-the-section-sync"></a>Sidor under synkroniseringsavsnittet
+
 ### <a name="connect-your-directories"></a>Anslut dina kataloger
 För att kunna ansluta till Azure Directory Domain Service behöver AD Connect autentiseringsuppgifterna för ett konto med tillräcklig behörighet. Du kan ange domändelen i NetBios- eller FQDN-format, dvs. FABRIKAM\syncuser eller fabrikam.com\syncuser. Det här kontot kan vara ett vanligt användarkonto eftersom det bara behöver standardläsbehörighet. Beroende på scenario kan du dock behöva fler behörigheter. Mer information finns i [Azure AD Connect: Konton och behörigheter](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
 
@@ -80,6 +84,9 @@ På den här sidan kan du granska de UPN-domäner som finns i lokala AD DS och s
 Granska varje domän som markerats med **Inte tillagd** och **Inte verifierad**. Kontrollera att de domäner som du använder har verifierats i Azure AD. Klicka på symbolen Uppdatera när du har verifierat dina domäner. Mer information finns i [Lägga till och verifiera domänen](../active-directory-add-domain.md)
 
 **UserPrincipalName** – Attributet userPrincipalName är det attributet som användare använder när de loggar in i Azure AD och Office 365. Domänerna som används, även kallade UPN-suffixet, bör verifieras i Azure AD innan användarna synkroniseras. Microsoft rekommenderar att du behåller standardattributet userPrincipalName. Om det här attributet är icke-dirigerbart och inte kan verifieras går det att välja ett annat attribut. Du kan till exempel välja email som attributet som ska innehålla inloggnings-ID:t. Om du använder ett annat attribut än userPrincipalName kallas det för ett **Alternativt ID**. Attributvärdet för ett alternativt ID måste följa standarden RFC822. Ett alternativt ID kan användas med både lösenordssynkronisering och federation.
+
+>[!NOTE]
+> När du aktiverar Direktautentisering måste du ha minst en verifierad domän för att kunna fortsätta med guiden.
 
 > [!WARNING]
 > Det går inte att använda ett alternativt ID med alla Office 365-arbetsbelastningar. Mer information finns i [Konfigurera alternativt inloggnings-ID](https://technet.microsoft.com/library/dn659436.aspx).
@@ -135,11 +142,44 @@ På den här sidan kan du välja de valfria funktionerna för dina specifika sce
 | --- | --- |
 | Exchange-hybridinstallation |Funktionen Exchange-hybridinstallation gör att Exchange-postlådor kan samexistera lokalt och i Office 365. Azure AD Connect synkroniserar en specifik uppsättning [attribut](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) från Azure AD tillbaka till din lokala katalog. |
 | Filtrering av Azure AD-appar och -attribut |Genom att aktivera filtrering av Azure AD-appar och -attribut kan du skräddarsy samlingen med synkroniserade attribut. Det här alternativet lägger till ytterligare två konfigurationssidor i guiden. Mer information finns i [Filtrering av Azure AD-appar och -attribut](#azure-ad-app-and-attribute-filtering). |
-| Lösenordssynkronisering |Om du valde federation som inloggningslösning kan du aktivera det här alternativet. Lösenordssynkronisering kan sedan användas som ett reservalternativ. Mer information finns i [Lösenordssynkronisering](../active-directory-aadconnectsync-implement-password-synchronization.md). |
+| Lösenordssynkronisering |Om du valde federation som inloggningslösning kan du aktivera det här alternativet. Lösenordssynkronisering kan sedan användas som ett reservalternativ. Mer information finns i [Lösenordssynkronisering](../active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Om du valde Direktautentisering är det här alternativet aktiverat som standard för att ge stöd för äldre klienter och som ett säkerhetskopieringsalternativ. Mer information finns i [Lösenordssynkronisering](../active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Tillbakaskrivning av lösenord |Om du aktiverar tillbakaskrivning av lösenord skrivs lösenordsändringar som kommer från Azure AD tillbaka till din lokala katalog. Mer information finns i [Komma igång med lösenordshantering](../active-directory-passwords-getting-started.md). |
 | Tillbakaskrivning av grupp |Om du använder funktionen **Office 365-grupper** kan dessa grupper vara representerade i din lokala Active Directory. Det här alternativet är endast tillgänglig om Exchange finns i din lokala Active Directory. Mer information finns i [Tillbakaskrivning av grupp](../active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Tillbakaskrivning av enheter |Med det här alternativet kan du skriva tillbaka enhetsobjekt i Azure AD till din lokala Active Directory för scenarier med villkorlig åtkomst. Mer information finns i [Aktivera tillbakaskrivning av enheter i Azure AD Connect](../active-directory-aadconnect-feature-device-writeback.md). |
 | Synkronisering av katalogtilläggsattribut |Om du aktiverar Synkronisering av katalogtilläggsattribut synkroniseras angivna attribut till Azure AD. Mer information finns i [Katalogtillägg](../active-directory-aadconnectsync-feature-directory-extensions.md). |
+
+### <a name="enabling-single-sign-on-sso"></a>Aktivera enkel inloggning (SSO)
+Det är enkelt att konfigurera enkel inloggning för användning med lösenordssynkronisering eller Direktautentisering och du behöver bara utföra processen en gång för varje skog som synkroniseras med Azure AD.  Konfigurationen omfattar följande två steg:
+
+1.  Skapa nödvändigt datorkonto i lokala Active Directory.
+2.  Konfigurera zonen Intranät på klientdatorerna så att den har stöd för enkel inloggning.
+
+#### <a name="creating-the-computer-account-in-active-directory"></a>Skapa datorkontot i Active Directory
+För varje skog som har lagts till via AAD Connect-verktyget måste du ange inloggningsuppgifterna för domänadministratören så att datorkontot kan skapas i varje skog.  Autentiseringsuppgifter används bara för att skapa kontot och varken lagras eller används för andra åtgärder.  Lägg bara till autentiseringsuppgifterna på sidan Aktivera enkel inloggning i AAD Connect-guiden som du ser nedan:
+
+![Aktivera enkel inloggning](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
+
+>[!NOTE]
+>Du kan välja att hoppa över en viss skog om du inte vill använda enkel inloggning med den skogen.
+
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>Konfigurera zonen Intranät för klientdatorer
+För att se till att klienten loggar in automatiskt i zonen Intranät måste du kontrollera att URL:erna ingår i zonen Intranät.  Detta säkerställer att den domänanslutna datorn automatiskt skickar en Kerberos-biljett när den ansluter till företagsnätverket.
+På en dator med verktyg för grupprinciphantering.
+
+1.  Öppna verktygen för grupprinciphantering
+2.  Redigera grupprincipen som ska tillämpas på alla användare.  Till exempel standarddomänprincipen.
+3.  Gå till Aktuell användare\Administrativa mallar\Windows-komponenter\Internet Explorer\Internet på Kontrollpanelen\Sidan Säkerhet och välj Tilldelning av platser till zoner enligt bilden nedan.
+4.  Aktivera principen och ange följande två poster i dialogrutan.
+   
+        Value: https://autologon.microsoftazuread-sso.com
+        Data: 1
+        Value: https://aadg.windows.net.nsatc.net 
+        Data: 1
+
+5.  Det bör se ut ungefär så här: ![Intranätszoner](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
+
+6.  Klicka på OK två gånger.
+
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Filtrering av Azure AD-appar och -attribut
 Om du vill begränsa vilka attribut som ska synkroniseras till Azure AD börjar du med att välja vilka tjänster som du använder. Om du gör konfigurationsändringar på den här sidan måste en ny tjänst väljas uttryckligen genom att du kör installationsguiden igen.
@@ -170,7 +210,7 @@ Du kan konfigurera AD FS med Azure AD Connect med bara några klickningar. Du be
 * Ett SSL-certifikat för federationstjänstnamnet som du tänker använda (t.ex. sts.contoso.com)
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Förutsättningar för AD FS-konfiguration
-Om du vill konfigurera din AD FS-servergrupp med hjälp av Azure AD Connect kontrollerar du att WinRM är aktiverat på fjärrservrarna. Gå också igenom portkraven som anges i [Tabell 3 – Azure AD Connect och federationsservrar/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
+Om du vill konfigurera din AD FS-servergrupp med hjälp av Azure AD Connect kontrollerar du att WinRM är aktiverat på fjärrservrarna. Gå också igenom portkraven som anges i [Tabell 3 – Azure AD Connect och federationsservrar/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Skapa en ny AD FS-servergrupp eller använd en befintlig AD FS-servergrupp
 Du kan använda en befintlig AD FS-servergrupp eller välja att skapa en ny AD FS-servergrupp. Om du väljer att skapa en ny servergrupp måste du uppge SSL-certifikatet. Om SSL-certifikatet är lösenordsskyddat uppmanas du att ange lösenordet.
@@ -282,6 +322,6 @@ Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Director
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

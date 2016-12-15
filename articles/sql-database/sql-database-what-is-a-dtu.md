@@ -9,6 +9,7 @@ manager: jhubbard
 editor: CarlRabeler
 ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
+ms.sourcegitcommit: 4edae4ef772dc68b1f0efa9e758f26277dd35c44
+ms.openlocfilehash: bbc9bef4039b5c898c44a0e39b78b7b28c225c32
 
 
 ---
@@ -25,14 +26,14 @@ ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
 Den här artikeln förklarar vad databastransaktionsenheter (DTU:er) och elastiska databastransaktionsenheter (eDTU:er) är och vad som händer när du når det högsta antalet tillåtna DTU:er eller eDTU:er.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Vad är databastransaktionsenheter (DTU:er)?
-En DTU är en måttenhet för de resurser som garanterat är tillgängliga för en fristående Azure SQL-databas på en specifik prestandanivå på en [tjänstnivå för fristående databaser](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels). En DTU är ett kombinerat mått på processor, minne, data-I/O och transaktionsloggs-I/O i ett förhållande som bestäms av en benchmark-arbetsbelastning för OLTP som är utformad att representera verkliga OLTP-arbetsbelastningar. En fördubbling av DTU:erna genom en ökning av prestandanivån för en databas är likställt med en fördubbling av uppsättningen resurser som är tillgängliga för databasen. En premium P11-databas med 1 750 DTU:er erbjuder exempelvis 350 gånger mer DTU-beräkningskraft än en grundläggande databas med 5 DTU:er. Information om metodiken bakom benchmark-arbetsbelastningen för OLTP som används för att fastställa DTU-kombinationen finns i [Översikt över SQL Database-benchmark](sql-database-benchmark-overview.md).
+En DTU är en måttenhet för de resurser som garanterat är tillgängliga för en fristående Azure SQL-databas på en specifik prestandanivå på en [tjänstnivå för fristående databaser](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). En DTU är ett kombinerat mått på processor, minne, data-I/O och transaktionsloggs-I/O i ett förhållande som bestäms av en benchmark-arbetsbelastning för OLTP som är utformad att representera verkliga OLTP-arbetsbelastningar. En fördubbling av DTU:erna genom en ökning av prestandanivån för en databas är likställt med en fördubbling av uppsättningen resurser som är tillgängliga för databasen. En premium P11-databas med 1 750 DTU:er erbjuder exempelvis 350 gånger mer DTU-beräkningskraft än en grundläggande databas med 5 DTU:er. Information om metodiken bakom benchmark-arbetsbelastningen för OLTP som används för att fastställa DTU-kombinationen finns i [Översikt över SQL Database-benchmark](sql-database-benchmark-overview.md).
 
 ![Introduktion till SQL Database: DTU:er för enkla databaser efter nivå](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Du kan [byta tjänstnivå](sql-database-scale-up.md) när som helst med minimalt avbrott för dina program (normalt mindre än fyra sekunder). För många företag och appar, räcker det att kunna skapa databaser och reglera prestandan för enskilda databaser upp eller ner efter behov, speciellt där användningsmönster är relativt förutsägbara. Men om du har oförutsägbara användningsmönster, kan det vara svårt att hantera kostnader och din affärsmodell. I det här scenariot använder du en elastisk pool med ett visst antal eDTU:er.
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Vad är elastiska databastransaktionsenheter (eDTU:er)
-En eDTU är en måttenhet för den uppsättning resurser (DTU:er) som kan delas mellan en uppsättning databaser på en Azure SQL server – kallat en [elastisk pool](sql-database-elastic-pool.png). Elastiska pooler erbjuder en enkel kostnadseffektiv lösning för att hantera prestandamål för flera databaser med mycket varierande och oförutsägbara användningsmönster. Mer information finns i [Elastiska pooler och tjänstnivåer](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus).
+En eDTU är en måttenhet för den uppsättning resurser (DTU:er) som kan delas mellan en uppsättning databaser på en Azure SQL server – kallat en [elastisk pool](sql-database-elastic-pool.md). Elastiska pooler erbjuder en enkel kostnadseffektiv lösning för att hantera prestandamål för flera databaser med mycket varierande och oförutsägbara användningsmönster. Mer information finns i [Elastiska pooler och tjänstnivåer](sql-database-service-tiers.md#elastic-database-pool-service-tiers-and-performance-in-edtus).
 
 ![Introduktion till SQL Database: eDTU:er efter nivå](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -57,7 +58,6 @@ Prestandanivåerna kalibreras och regleras för att tillhandahålla nödvändiga
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

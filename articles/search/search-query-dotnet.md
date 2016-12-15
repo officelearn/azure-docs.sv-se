@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f85c3a0d3bb9fb61802ba3ce070ead2e650a29cc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 
 
 ---
@@ -34,7 +34,7 @@ Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Sea
 
 Observera att all exempelkod i den här artikeln är skriven i C#. Du hittar den fullständiga källkoden [på GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Identifiera API-frågenyckeln för Azure Search-tjänsten
+## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Identifiera API-frågenyckeln för Azure Search-tjänsten
 Nu när du har skapat ett Azure Search-index är du nästan redo att skicka frågor med hjälp av .NET SDK. Först måste du skaffa en av API-frågenycklarna som genererades för söktjänsten som du etablerade. .NET SDK skickar den här API-nyckeln vid varje begäran till tjänsten. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
@@ -170,6 +170,6 @@ Exempelkoden ovan använder konsolen för att mata ut sökresultat. Du behöver 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

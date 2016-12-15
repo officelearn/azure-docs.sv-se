@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ac37244d1e691a2f075116f3d78b89923cfb845
 
 
 ---
@@ -78,7 +78,7 @@ Första gången du skapar ett Recovery Services-valv bestämmer du hur lagringen
 
 Nu när du har skapat ett valv förbereder du infrastrukturen för säkerhetskopiering av filer och mappar genom att ladda ned agenten och autentiseringsuppgifterna för Microsoft Azure Recovery Services.
 
-## <a name="step-3-download-files"></a>Steg 3 – Ladda ned filer
+## <a name="step-3---download-files"></a>Steg 3 – Ladda ned filer
 1. Klicka på **Inställningar** på instrumentpanelen för Recovery Services-valvet.
    
     ![Öppna bladet för säkerhetskopieringsmål](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -102,7 +102,7 @@ Nu när du har skapat ett valv förbereder du infrastrukturen för säkerhetskop
    
     ![förbereda infrastrukturen](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## <a name="step-4-install-and-register-the-agent"></a>Steg 4 – Installera och registrera agenten
+## <a name="step-4--install-and-register-the-agent"></a>Steg 4 – Installera och registrera agenten
 > [!NOTE]
 > Snart kan du aktivera säkerhetskopiering via Azure-portalen. Tills dess använder du Microsoft Azure Recovery Services-agenten lokalt för att säkerhetskopiera filer och mappar.
 > 
@@ -184,6 +184,6 @@ Om du har frågor eller om du saknar en funktion är du välkommen att [lämna f
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

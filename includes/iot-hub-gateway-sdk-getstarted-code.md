@@ -60,9 +60,9 @@ JSON-inställningsfilen innehåller en lista med moduler för inläsning och lä
 Varje modul måste ange:
 
 * **module_name**: ett unikt namn för modulen.
-* **loader**: en inläsare som vet hur modulen ska läsas in.  Inläsare är en tilläggspunkt för inläsning av olika typer av moduler. Vi tillhandahåller inläsare för användning med moduler som skrivits i intern C, Node.js, Java och .Net. I Hello World-exemplet används bara den ”interna” inläsaren eftersom alla moduler i det här exemplet är dynamiska bibliotek skrivna i C. Mer information om hur du använder moduler skrivna i olika språk finns i [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/)-, [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample)- och [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample)-exemplen.
+* **loader**: en inläsare som vet hur modulen ska läsas in.  Inläsare är en tilläggspunkt för inläsning av olika typer av moduler. Vi tillhandahåller inläsare för användning med moduler som skrivits i intern C, Node.js, Java och .NET. I Hello World-exemplet används bara den ”interna” inläsaren eftersom alla moduler i det här exemplet är dynamiska bibliotek skrivna i C. Mer information om hur du använder moduler skrivna i olika språk finns i [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/)-, [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample)- och [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample)-exemplen.
     * **name**: namnet på inläsaren som används för att läsa in modulen.  
-    * **entrypoint**: sökvägen till biblioteket som innehåller modulen. För Linux är detta en SO-fil, i Windows är detta en DLL-fil. Observera att den här registreringspunkten är specifik för den typ av inläsare som används. Exempelvis är Node.js-inläsarens startpunkt en JS-fil, Java-inläsarens startpunkt är en klassökväg + ett klassnamn och .Net-inläsarens startpunkt är ett sammansättningsnamn + ett klassnamn.
+    * **entrypoint**: sökvägen till biblioteket som innehåller modulen. För Linux är detta en SO-fil, i Windows är detta en DLL-fil. Observera att den här registreringspunkten är specifik för den typ av inläsare som används. Exempelvis är Node.js-inläsarens startpunkt en JS-fil, Java-inläsarens startpunkt är en klassökväg + ett klassnamn och .NET-inläsarens startpunkt är ett sammansättningsnamn + ett klassnamn.
 
 * **args**: all konfigurationsinformation modulen behöver.
 
@@ -229,6 +229,6 @@ Mer information om hur du använder IoT Gateway SDK finns i:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

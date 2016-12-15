@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff3eaafc38aef16ffe00bbd943d74cbeeac228b1
+ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
+ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
 
 
 ---
-# <a name="configure-hive-policies-in-domainjoined-hdinsight-preview"></a>Konfigurera Hive-principer i domänanslutna HDInsight (förhandsversion)
+# <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Konfigurera Hive-principer i domänanslutna HDInsight (förhandsversion)
 Ta reda på mer om hur du konfigurerar Apache Ranger-principer för Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna kan du använda Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
 
 ## <a name="prerequisites"></a>Krav
@@ -31,16 +31,16 @@ Ta reda på mer om hur du konfigurerar Apache Ranger-principer för Hive. I den 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Anslut till Apache Ranger Admin-gränssnittet
 **Så här ansluter du till Ranger Admin-gränssnittet**
 
-1. Anslut till Ranger Admin-gränssnittet från en webbläsare. Webbadressen är https://&lt;ClusterName>.azurehdinsight.net/Ranger/. 
-   
+1. Anslut till Ranger Admin-gränssnittet från en webbläsare. Webbadressen är https://&lt;ClusterName>.azurehdinsight.net/Ranger/.
+
    > [!NOTE]
    > Ranger använder andra autentiseringsuppgifter än Hadoop-kluster. Om du vill förhindra att webbläsare använder cachade Hadoop-autentiseringsuppgifter använder du ett nytt InPrivate-fönster för att ansluta till Ranger Admin-gränssnittet.
-   > 
-   > 
+   >
+   >
 2. Logga in med klusteradministratörens domänanvändarnamn och lösenord:
-   
+
     ![Startsida för HDInsight domänanslutet Ranger](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
-   
+
     För närvarande fungerar Ranger bara med Yarn och Hive.
 
 ## <a name="create-domain-users"></a>Skapa domänanvändare
@@ -54,23 +54,23 @@ I det här avsnittet skapar du två Ranger-principer för att komma åt hivesamp
 1. Öppna Ranger Admin-gränssnittet. Se [Anslut till Apache Ranger Admin-gränssnittet](#connect-to-apache-ranager-admin-ui).
 2. Klicka på **&lt;Klusternamn>_hive** under **Hive**. Du bör se två förkonfigurerade principer.
 3. Klicka på **Lägg till ny princip** och ange sedan följande värden:
-   
+
    * Principnamn: read-hivesampletable-all
    * Hive-database: standard
    * tabell: hivesampletable
    * Hive-kolumn: *
    * Välj användare: hiveuser1
    * Behörigheter: select
-     
+
      ![Konfigurera Ranger Hive-princip för domänansluten HDInsight](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
-     
+
      > [!NOTE]
      > Om en domänanvändare inte är ifylld i Välj användare, vänta en stund för att Ranger ska synkronisera med AAD.
-     > 
-     > 
+     >
+     >
 4. Klicka på **Lägg till** för att spara principen.
 5. Upprepa de två sista stegen för att skapa en annan princip med följande egenskaper:
-   
+
    * Principnamn: read-hivesampletable-devicemake
    * Hive-database: standard
    * tabell: hivesampletable
@@ -101,20 +101,20 @@ I det sista avsnittet konfigurerade du två principer.  hiveuser1 har select-beh
 
 1. Öppna en ny eller befintlig arbetsbok i Excel.
 2. På fliken **Data** klickar du på **From Other Data Sources** (Från andra datakällor) och sedan klickar du på **Från guiden Dataanslutning** för att starta den **guiden Dataanslutning**.
-   
+
     ![Öppna guiden Dataanslutning][img-hdi-simbahiveodbc.excel.dataconnection]
 3. Välj **ODBC DSN** som datakälla och klicka sedan på **Nästa**.
 4. Från ODBC-datakällor väljer du datakällsnamnet som du skapade i det föregående steget och sedan klickar du på **Nästa**.
 5. Ange lösenordet för klustret i guiden igen och klicka sedan på **OK**. Vänta tills dialogrutan **Markera databas och tabell** öppnas. Det kan ta några sekunder.
-6. Välj **hivesampletable** och klicka sedan på **Nästa**. 
+6. Välj **hivesampletable** och klicka sedan på **Nästa**.
 7. Klicka på **Slutför**.
-8. I dialogrutan **Importera data** kan du ändra eller specificera frågan. Gör det genom att klicka på **Egenskaper**. Det kan ta några sekunder. 
+8. I dialogrutan **Importera data** kan du ändra eller specificera frågan. Gör det genom att klicka på **Egenskaper**. Det kan ta några sekunder.
 9. Klicka på fliken **Definition**. Kommandotexten är:
-   
+
        SELECT * FROM "HIVE"."default"."hivesampletable"
-   
+
    Enligt Ranger-principerna du definierade har hiveuser1 select-behörighet för alla kolumner.  Så den här frågan fungerar med autentiseringsuppgifterna för hiveuser1, men frågan fungerar inte med autentiseringsuppgifterna för hiveuser2.
-   
+
    ![Anslutningsegenskaper][img-hdi-simbahiveodbc-excel-connectionproperties]
 10. Klicka på **OK** för att stänga dialogrutan Anslutningsegenskaper.
 11. Klicka på **OK** för att stänga dialogrutan **Importera data**.  
@@ -124,29 +124,28 @@ Om du vill testa den andra principen (read-hivesampletable-devicemake) du skapad
 
 1. Lägg till ett nytt kalkylblad i Excel.
 2. Följ föregående procedur för att importera data.  Den enda ändringen du gör är att använda autentiseringsuppgifterna för hiveuser2 i stället för autentiseringsuppgifterna för hiveuser1. Detta fungerar inte eftersom hiveuser2 endast har behörighet att visa två kolumner. Du bör se följande fel:
-   
+
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
 3. Följ samma procedur för att importera data. Den här gången använder du autentiseringsuppgifterna för hiveuser2 och ändrar också select-uttrycket från:
-   
+
         SELECT * FROM "HIVE"."default"."hivesampletable"
-   
+
     till:
-   
+
         SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
-   
+
     När det är klart bör du se två kolumner med importerade data.
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill konfigurera ett domänanslutet HDInsight-kluster kan du läsa i [Konfigurera domänanslutna HDInsight-kluster](hdinsight-domain-joined-configure.md).
 * Om du vill hantera ett domänanslutet HDInsight-kluster kan du läsa i [Hantera domänanslutna HDInsight-kluster](hdinsight-domain-joined-manage.md).
-* Om du vill köra Hive-frågor med SSH på domänanslutna HDInsight-kluster kan du läsa i [Använd SSH med Linux-baserade Hadoop på HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
+* Om du vill köra Hive-frågor med SSH på domänanslutna HDInsight-kluster kan du läsa i [Använd SSH med Linux-baserade Hadoop på HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Om du vill ansluta Hive med Hive JDBC kan du läsa i [Anslut till Hive på Azure HDInsight med Hive JDBC-drivrutin](hdinsight-connect-hive-jdbc-driver.md)
 * Om du vill ansluta Excel till Hadoop med Hive ODBC kan du läsa i [Anslut Excel till Hadoop med Microsoft Hive ODBC-drivrutin](hdinsight-connect-excel-hive-odbc-driver.md)
 * Om du vill ansluta Excel till Hadoop med Power Query kan du läsa i [Anslut Excel till Hadoop med hjälp av Power Query](hdinsight-connect-excel-power-query.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

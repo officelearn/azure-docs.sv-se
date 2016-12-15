@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: e194caf503b767cb89f6d066ab4561f72b510ef5
-ms.openlocfilehash: 47bffbf85b100a808d79e464e6f381d0d8abd153
+ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
+ms.openlocfilehash: fdfe28f9bf0ab38b19c1b7b7188f484e769558b0
 
 
 ---
@@ -40,13 +40,13 @@ I den här artikeln använder du REST-API:et för Data Factory för att skapa di
   1. Skapa en webbapp med namnet **ADFGetStartedApp** i Azure Active Directory.
   2. Hämta ett **klient-ID** och en **hemlig nyckel**.
   3. Hämta ett **klientorganisations-ID**.
-  4. Tilldela **ADFGetStartedApp**-programmet rollen som **Data Factory-deltagare**.  
-* [Installera Azure PowerShell](../powershell-install-configure.md).  
+  4. Tilldela **ADFGetStartedApp**-programmet rollen som **Data Factory-deltagare**.
+* [Installera Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Starta **PowerShell** och kör följande kommando. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
-  1. Kör **Login-AzureRmAccount** och ange det användarnamn och lösenord som du använde för att logga in på Azure-portalen.  
+  1. Kör **Login-AzureRmAccount** och ange det användarnamn och lösenord som du använde för att logga in på Azure-portalen.
   2. Kör **Get-AzureRmSubscription** för att visa alla prenumerationer för det här kontot.
   3. Kör **Get-AzureRmSubscription - SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** och välj den prenumeration som du vill arbeta med. Ersätt **NameOfAzureSubscription** med namnet på din Azure-prenumeration.
-* Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando i PowerShell:  
+* Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando i PowerShell:
 
        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -61,10 +61,10 @@ Skapa följande JSON-filer i mappen som curl.exe finns i.
 >
 >
 
-    {  
-        "name": "FirstDataFactoryREST",  
+    {
+        "name": "FirstDataFactoryREST",
         "location": "WestUS"
-    }  
+    }
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
@@ -238,7 +238,7 @@ I JSON-aktiviteten anger du att Hive-skriptet körs i den beräkning som anges a
 När du har ersatt värdena med dina egna kör du följande kommandon i Azure PowerShell:
 
 > [!IMPORTANT]
-> Anvisningar för hur du hämtar klient-ID, klienthemlighet, klientorganisations-ID och prenumerations-ID finns i [kravavsnittet](#prerequisites).   
+> Anvisningar för hur du hämtar klient-ID, klienthemlighet, klientorganisations-ID och prenumerations-ID finns i [kravavsnittet](#prerequisites).
 >
 >
 
@@ -272,13 +272,13 @@ I det här steget ska du skapa en Azure Data Factory-fabrik med namnet **FirstDa
 2. Kör kommandot med **Invoke-Command**.
 
         $results = Invoke-Command -scriptblock $cmd;
-3. Granska resultaten. Om datafabriken har skapats korrekt visas JSON för datafabriken i **resultatet**. Annars visas ett felmeddelande.  
+3. Granska resultaten. Om datafabriken har skapats korrekt visas JSON för datafabriken i **resultatet**. Annars visas ett felmeddelande.
 
         Write-Host $results
 
 Observera följande punkter:
 
-* Namnet på Azure Data Factory måste vara globalt unikt. Om följande fel visas i resultatet: **Datafabriksnamnet ”FirstDataFactoryREST” är inte tillgängligt** följer du dessa steg:  
+* Namnet på Azure Data Factory måste vara globalt unikt. Om följande fel visas i resultatet: **Datafabriksnamnet ”FirstDataFactoryREST” är inte tillgängligt** följer du dessa steg:
   1. Ändra namnet (till exempel dittnamnFirstDataFactoryREST) i filen **datafactory.json**. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
   2. I det första kommandot där variabeln **$cmd** tilldelas ett värde, ersätter du FirstDataFactoryREST med det nya namnet och kör kommandot.
   3. Anropa REST-API:et genom att köra de följande två kommandona för att skapa datafabriken och skriva ut resultatet av åtgärden.
@@ -314,7 +314,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken. I den h
         Write-Host $results
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Skapa en Azure HDInsight-länkad tjänst
-I det här steget ska du länka ett HDInsight-kluster på begäran till datafabriken. HDInsight-klustret skapas automatiskt vid körning och tas bort när bearbetningen är klar. Det är inaktivt under en angiven tidsrymd. Du kan använda ditt eget HDInsight-kluster i stället för att använda ett HDInsight-kluster på begäran. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för mer information.  
+I det här steget ska du länka ett HDInsight-kluster på begäran till datafabriken. HDInsight-klustret skapas automatiskt vid körning och tas bort när bearbetningen är klar. Det är inaktivt under en angiven tidsrymd. Du kan använda ditt eget HDInsight-kluster i stället för att använda ett HDInsight-kluster på begäran. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för mer information.
 
 1. Tilldela kommandot till variabeln med namnet **cmd**.
 
@@ -322,12 +322,12 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
 2. Kör kommandot med **Invoke-Command**.
 
         $results = Invoke-Command -scriptblock $cmd;
-3. Granska resultaten. Om den länkade tjänsten har skapats korrekt visas JSON för den länkade tjänsten i **resultatet**. Annars visas ett felmeddelande.  
+3. Granska resultaten. Om den länkade tjänsten har skapats korrekt visas JSON för den länkade tjänsten i **resultatet**. Annars visas ett felmeddelande.
 
         Write-Host $results
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-I det här steget skapar du datauppsättningar som ska representera in- och utdata för Hive-bearbetning. Dessa datauppsättningar finns i den **StorageLinkedService** som du skapade tidigare i självstudien. Den länkade tjänsten pekar på ett Azure-lagringskonto och datauppsättningarna anger behållare, mapp och filnamn i det lagringsutrymme som innehåller indata och utdata.   
+I det här steget skapar du datauppsättningar som ska representera in- och utdata för Hive-bearbetning. Dessa datauppsättningar finns i den **StorageLinkedService** som du skapade tidigare i självstudien. Den länkade tjänsten pekar på ett Azure-lagringskonto och datauppsättningarna anger behållare, mapp och filnamn i det lagringsutrymme som innehåller indata och utdata.
 
 ### <a name="create-input-dataset"></a>Skapa indatauppsättning
 I det här steget skapar du indatauppsättningen som ska representera indata som lagras i Azure Blob Storage.
@@ -341,20 +341,22 @@ I det här steget skapar du indatauppsättningen som ska representera indata som
 3. Granska resultaten. Om datauppsättningen har skapats korrekt visas JSON för datauppsättningen i **resultatet**. Annars visas ett felmeddelande.
 
         Write-Host $results
-   ### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
-   I det här steget skapar du utdatauppsättningen som ska representera utdata som lagras i Azure Blob Storage.
-4. Tilldela kommandot till variabeln med namnet **cmd**.
+
+### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
+I det här steget skapar du utdatauppsättningen som ska representera utdata som lagras i Azure Blob Storage.
+
+1. Tilldela kommandot till variabeln med namnet **cmd**.
 
         $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
-5. Kör kommandot med **Invoke-Command**.
+2. Kör kommandot med **Invoke-Command**.
 
         $results = Invoke-Command -scriptblock $cmd;
-6. Granska resultaten. Om datauppsättningen har skapats korrekt visas JSON för datauppsättningen i **resultatet**. Annars visas ett felmeddelande.
+3. Granska resultaten. Om datauppsättningen har skapats korrekt visas JSON för datauppsättningen i **resultatet**. Annars visas ett felmeddelande.
 
         Write-Host $results
 
 ## <a name="create-pipeline"></a>Skapa pipeline
-I det här steget ska du skapa din första pipeline med en **HDInsightHive**-aktivitet. Indatasektorn är tillgänglig månadsvis (frequency: Month, Interval: 1), utdatasektorn skapas varje månad och schemaegenskapen för aktiviteten har också inställningen Month. Inställningarna för utdatauppsättningen och aktivitetsschemaläggaren måste matcha. För närvarande är det utdatauppsättningen som skapar schemat. Därför måste du skapa en utdatauppsättning även om aktiviteten inte genererar några utdata. Om aktiviteten inte får några indata, kan du hoppa över att skapa indatauppsättningen.  
+I det här steget ska du skapa din första pipeline med en **HDInsightHive**-aktivitet. Indatasektorn är tillgänglig månadsvis (frequency: Month, Interval: 1), utdatasektorn skapas varje månad och schemaegenskapen för aktiviteten har också inställningen Month. Inställningarna för utdatauppsättningen och aktivitetsschemaläggaren måste matcha. För närvarande är det utdatauppsättningen som skapar schemat. Därför måste du skapa en utdatauppsättning även om aktiviteten inte genererar några utdata. Om aktiviteten inte får några indata, kan du hoppa över att skapa indatauppsättningen.
 
 Kontrollera att du ser filen **input.log** i mappen **adfgetstarted/inputdata** i Azure-blobblagringen och kör följande kommando för att distribuera pipelinen. Eftersom tiderna för **start** och **slut** har angetts tidigare och **isPaused** har angetts till false, kommer pipelinen (aktiviteten i pipelinen) köras omedelbart efter att du har distribuerat.
 
@@ -364,7 +366,7 @@ Kontrollera att du ser filen **input.log** i mappen **adfgetstarted/inputdata** 
 2. Kör kommandot med **Invoke-Command**.
 
         $results = Invoke-Command -scriptblock $cmd;
-3. Granska resultaten. Om datauppsättningen har skapats korrekt visas JSON för datauppsättningen i **resultatet**. Annars visas ett felmeddelande.  
+3. Granska resultaten. Om datauppsättningen har skapats korrekt visas JSON för datauppsättningen i **resultatet**. Annars visas ett felmeddelande.
 
         Write-Host $results
 4. Grattis, du har skapat din första pipeline med Azure PowerShell!
@@ -386,7 +388,7 @@ I det här steget ska du använda REST-API:et för Data Factory för att överva
 
 
 > [!IMPORTANT]
-> Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att det tar **cirka 30 minuter** för pipelinen att bearbeta sektorn.  
+> Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att det tar **cirka 30 minuter** för pipelinen att bearbeta sektorn.
 >
 >
 
@@ -399,10 +401,10 @@ Kör Invoke-Command och nästa kommando tills du ser sektorn med tillståndet **
 >
 >
 
-Du kan också använda Azure-portalen för att övervaka sektorer och felsöka eventuella problem. Mer information finns i [Övervaka pipelines med hjälp av Azure-portalen](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).  
+Du kan också använda Azure-portalen för att övervaka sektorer och felsöka eventuella problem. Mer information finns i [Övervaka pipelines med hjälp av Azure-portalen](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).
 
 ## <a name="summary"></a>Sammanfattning
-I den här självstudien skapade du en Azure-datafabrik som bearbetar data genom att köra ett Hive-skript i ett Hadoop-kluster i HDInsight. Du utförde följande steg med hjälp av Data Factory-redigeraren i Azure Portal:  
+I den här självstudien skapade du en Azure-datafabrik som bearbetar data genom att köra ett Hive-skript i ett Hadoop-kluster i HDInsight. Du utförde följande steg med hjälp av Data Factory-redigeraren i Azure Portal:
 
 1. Du skapade en Azure **Data Factory**.
 2. Du skapade två **länkade tjänster**:
@@ -427,6 +429,6 @@ I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (H
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

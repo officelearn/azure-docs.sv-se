@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 
 
 ---
@@ -32,7 +32,7 @@ I den här självstudiekursen lär du dig hur du etablerar den förkonfigurerade
 Du behöver en aktiv Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen.
 
 > [!NOTE]
-> Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [Kostnadsfri utvärderingsversion av Azure][lnk-free-trial].
+> Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure][lnk_free_trial].
 > 
 > 
 
@@ -151,7 +151,7 @@ Det finns inga regler för den nya enheten som du har lagt till. I det här avsn
     ![Visa en lista över enhetsåtgärder][img-actions]
 
 > [!NOTE]
-> Du kan definiera åtgärder som kan skicka ett e-postmeddelande eller ett SMS som svar på en regel eller integrera med ett affärssystem via en [logikapp][lnk-logic-apps]. Mer information finns i [Ansluta Logic App till den förkonfigurerade fjärrövervakningslösningen i Azure IoT Suite][lnk-logicapptutorial].
+> Du kan definiera åtgärder som kan skicka ett e-postmeddelande eller ett SMS som svar på en regel eller integrera med ett affärssystem via en [logikapp][lnk-logic-apps]. Mer information finns i [Ansluta logikapp till den förkonfigurerade fjärrövervakningslösningen i Azure IoT Suite][lnk-logicapptutorial].
 > 
 > 
 
@@ -177,17 +177,17 @@ Du kan också visa källkoden för den förkonfigurerade lösningen. Källkoden 
 * Mappen **Simulator** innehåller källkoden för den simulerade enheten.
 * Mappen **EventProcessor** innehåller källkoden för backend-processen som hanterar den inkommande telemetrin.
 
-När du är klar kan du ta bort den förkonfigurerade lösningen från Azure-prenumeration på webbplatsen [azureiotsuite.com][lnk-azureiotsuite]. På den här webbplatsen kan du enkelt ta bort alla resurser som etablerades när du skapade den förkonfigurerade lösningen.
+När du är klar kan du ta bort den förkonfigurerade lösningen från Azure-prenumerationen på webbplatsen [azureiotsuite.com][lnk-azureiotsuite]. På den här webbplatsen kan du enkelt ta bort alla resurser som etablerades när du skapade den förkonfigurerade lösningen.
 
 > [!NOTE]
-> För att vara säker på att du tar bort allt relaterat till den förkonfigurerade lösningen tar du bort den från [azureiotsuite.com][lnk-azureiotsuite] i stället för att bara ta bort resursgruppen på portalen.
+> För att vara säker på att du tar bort allt relaterat till den förkonfigurerade lösningen tar du bort den från [azureiotsuite.com][lnk-azureiotsuite] i stället för att ta bort resursgruppen på portalen.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har distribuerat en fungerande förkonfigurerad lösning kan du fortsätta och lära dig mer om IoT Suite genom att läsa följande artiklar:
 
-* [Genomgång av den förkonfigurerade fjärrövervakningslösningen][lnk-rm-walkthrough]
+* [Genomgång av den förkonfigurerade lösningen för fjärrövervakning][lnk-rm-walkthrough]
 * [Ansluta enheten till den förkonfigurerade fjärrövervakningslösningen][lnk-connect-rm]
 * [Behörigheter på webbplatsen azureiotsuite.com][lnk-permissions]
 
@@ -229,6 +229,6 @@ Nu när du har distribuerat en fungerande förkonfigurerad lösning kan du forts
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

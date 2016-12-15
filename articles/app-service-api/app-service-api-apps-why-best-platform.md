@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eda73900ded4c587bacfa3b4d4e8465c1de5a5ed
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: b38f1876b3317a44268caf80a953dee638a342d1
 
 
 ---
@@ -33,7 +33,7 @@ Här följer några viktiga funktioner i API Apps:
 * **Ta din befintliga API som den är** – du behöver inte ändra kod i dina befintliga API:er för att dra nytta av API Apps, distribuera bara din kod i en API-app. Din API kan använda alla språk eller ramverk som stöds av Apptjänst, bland annat ASP.NET och C#, Java, PHP, Node.js och Python.
 * **Enkel användning** – inbyggt stöd för [Swagger API-metadata](http://swagger.io/) gör dina API:er lätta att använda för många olika klienter.  Generera automatiskt klientkod för dina API:er på flera olika språk, bland annat C#, Java och Javascript. Konfigurera enkelt [CORS](app-service-api-cors-consume-javascript.md) utan att ändra din kod. Mer information finns i [Metadata om API Apps i Apptjänst för API-identifiering och kodgenerering](app-service-api-metadata.md) och [Använda en API-app från JavaScript med CORS](app-service-api-cors-consume-javascript.md). 
 * **Enkel åtkomstkontroll** – skydda en API-app från obehörig åtkomst utan att ändra koden. Inbyggda autentiseringstjänster skyddar API:erna mot åtkomst från andra tjänster eller från klienter som representerar användare. Identitetsleverantörer som stöds är bland annat Azure Active Directory, Facebook, Twitter, Google och Microsoft Account. Klienter kan använda Active Directory Authentication Library (ADAL) eller Mobile Apps-SDK. Mer information finns i [Autentisering och auktorisering för API Apps i Azure Apptjänst](app-service-api-authentication.md).
-* **Visual Studio-integration** – dedikerade verktyg i Visual Studio effektiviserar arbetet med att skapa, distribuera, använda, felsöka och hantera API Apps. Mer information finns i [Meddelande om Azure SDK 2.8.1 för .NET](/blog/announcing-azure-sdk-2-8-1-for-net/).
+* **Visual Studio-integration** – dedikerade verktyg i Visual Studio effektiviserar arbetet med att skapa, distribuera, använda, felsöka och hantera API Apps. Mer information finns i [Meddelande om Azure SDK 2.8.1 för .NET](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
 * **Integrering med Logic Apps** – API Apps som du skapar kan användas av [Logic Apps i Apptjänst](../app-service-logic/app-service-logic-what-are-logic-apps.md).  Mer information finns i [Använda anpassat API som finns på Apptjänst med Logic Apps](../app-service-logic/app-service-logic-custom-hosted-api.md) och [Ny schemaversion 2015-08-01 –  förhandsgranskning](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 Dessutom kan en API-app dra nytta av funktioner som erbjuds av [webbappar](../app-service-web/app-service-web-overview.md) och [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md). Det gäller även omvänt: om du använder en webbapp eller mobilapp som värd för en API kan den dra nytta av funktioner för API Apps, till exempel Swagger-metadata för klientkodsgenerering och CORS för åtkomst mellan domänwebbläsare. Den enda skillnaden mellan de tre apptyperna (API, webb, mobil) är namnet och ikonen som används för dem i Azure-portalen.
@@ -62,6 +62,6 @@ Starta en tråd [forumet för API Apps](https://social.msdn.microsoft.com/Forums
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

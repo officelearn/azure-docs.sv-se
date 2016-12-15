@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: b7cccd1638bfbc79322c88f10d515a282bdb1ad3
-ms.openlocfilehash: 473ed9aa5a744d39befe5dfcb9ed04b6c88c9e26
+ms.sourcegitcommit: f5e9d1a7f26ed3cac5767034661739169968a44e
+ms.openlocfilehash: ba0c710a0c28e9d52021ec966905a007b06f125e
 
 
 ---
@@ -42,7 +42,7 @@ För en fullständig distribution rekommenderar vi att du följer alla stegen i 
 | **Område** | **Detaljer** |
 | --- | --- |
 | **Scenario för distribution** |Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med hjälp av Azure-portalen |
-| **Lokala krav** |En eller flera VMM-servrar som körs på System Center 2012 R2 med ett eller flera moln.<br/><br/> Moln bör innehålla en eller flera värdgrupper för VMM.<br/><br/> Minst en Hyper-V-server i molnet som kör minst Windows Server 2012 R2 med Hyper-V-rollen eller Microsoft Hyper-V Server 2012 R2 med de senaste uppdateringarna installerade.<br/><br/> VMM-servrar och Hyper-V-värdar behöver internetåtkomst och måste kunna komma åt specifika URL:er direkt eller via en proxyserver. [Fullständig information](#on-premises-prerequisites). |
+| **Lokala krav** |En eller flera VMM-servrar som körs i System Center 2012 R2 med ett eller flera moln.<br/><br/> Moln bör innehålla en eller flera värdgrupper för VMM.<br/><br/> Minst en Hyper-V-server i molnet som kör minst Windows Server 2012 R2 med Hyper-V-rollen eller Microsoft Hyper-V Server 2012 R2 med de senaste uppdateringarna installerade.<br/><br/> VMM-servrar och Hyper-V-värdar behöver internetåtkomst och måste kunna komma åt specifika URL:er direkt eller via en proxyserver. [Fullständig information](#on-premises-prerequisites). |
 | **Lokala begränsningar** |HTTPS-baserade proxyservrar stöds inte |
 | **Provider/agent** |Replikerade virtuella datorer behöver Azure Site Recovery-providern.<br/><br/> Hyper-V-värdar behöver Recovery Services-agenten.<br/><br/> Du installerar dessa under distributionen. |
 |  **Krav för Azure** |Azure-konto<br/><br/> Recovery Services-valv<br/><br/> LRS- eller GRS-lagringskontot i valvregionen<br/><br/> Standardlagringskonto<br/><br/> Virtuellt Azure-nätverk i valvregionen. [Fullständig information](#azure-prerequisites). |
@@ -496,6 +496,6 @@ När du har konfigurerat och fått igång distributionen kan du [läsa mer](site
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

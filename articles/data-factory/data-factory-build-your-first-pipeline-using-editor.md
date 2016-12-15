@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/14/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2759ce1fd8fd02a94256e0ba8f455608157ffbd0
-ms.openlocfilehash: 4033630dbbe065072cc58e642fce51f4860b82b6
+ms.sourcegitcommit: cfbfccfe09e6f2b3826223a779a5ff478c1f804f
+ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
 
 
 ---
@@ -321,20 +321,20 @@ I det här steget ska du skapa din första pipeline med en **HDInsightHive**-akt
    ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 8. När bearbetningen är klar visas sektorn med statusen **Klar**.
 
-> [!IMPORTANT]
-> Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att det tar **cirka 30 minuter** för pipelinen att bearbeta sektorn.    
->
->
+   ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)    
+   > [!IMPORTANT]
+   > Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att det       tar **cirka 30 minuter** för pipelinen att bearbeta sektorn.
+   >
+   >
 
-1. När sektorn har statusen **Klar**, kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i blobblagringen för utdatan.  
+9. När sektorn har statusen **Klar**, kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i blobblagringen för utdatan.  
 
    ![utdata](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
-2. Klicka på sektorn om du vill se information om den i ett **Datasektor**-blad.
+10. Klicka på sektorn om du vill se information om den i ett **Datasektor**-blad.
 
    ![Information om datasektorn](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)  
-3. Klicka på en aktivitet som körs i **Lista med aktivitetskörningar** för att se information om en aktivitetskörning (Hive-aktivitet i vårt exempel) i ett fönster med **Aktivitetskörningsinformation**.   
+11. Klicka på en aktivitet som körs i **Lista med aktivitetskörningar** för att se information om en aktivitetskörning (Hive-aktivitet i vårt exempel) i ett fönster med **Aktivitetskörningsinformation**.   
 
    ![Aktivitetskörningsinformation](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -382,6 +382,6 @@ I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (H
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

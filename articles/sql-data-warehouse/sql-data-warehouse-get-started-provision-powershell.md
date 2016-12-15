@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 7107c64a25b3f60d7789cec57181eec9ce844f6b
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 2b78101f6abd675487c7879de5440021832af181
 
 
 ---
@@ -33,13 +33,13 @@ I den här artikeln visas hur du skapar ett SQL Data Warehouse med PowerShell.
 ## <a name="prerequisites"></a>Krav
 Du behöver följande för att komma igång:
 
-* **Azure-konto**: Gå till [Kostnadsfri utvärderingsversion av Azure][Kostnadsfri utvärderingsversion av Azure] eller [MSDN Azure-krediter][MSDN Azure-krediter] för att skapa ett konto.
-* **Azure SQL-server**: Du hittar mer information i [Skapa en logisk Azure SQL Database-server med Azure-portalen][Skapa en logisk Azure SQL Database-server med Azure-portalen] eller [Skapa en logisk Azure SQL Database-server med PowerShell][Skapa en logisk Azure SQL Database-server med PowerShell].
-* **Resursgrupp**: Använd antingen samma resursgrupp som din Azure SQL-server eller se [hur du kan skapa en resursgrupp][hur du kan skapa en resursgrupp].
-* **PowerShell version 1.0.3 eller senare**: Du kan kontrollera din version genom att köra **Get-Module -ListAvailable -Name Azure**.  Den senaste versionen kan installeras från [Microsoft installationsprogram för webbplattform][Microsoft installationsprogram för webbplattform].  Mer information om hur du installerar den senaste versionen finns [Hur du installerar och konfigurerar Azure PowerShell][Hur du installerar och konfigurerar Azure PowerShell].
+* **Azure-konto**: Gå till [Kostnadsfri utvärderingsversion av Azure][Azure Free Trial] eller [MSDN Azure-krediter][MSDN Azure Credits] för att skapa ett konto.
+* **Azure SQL Server**: Mer information finns i [Skapa en logisk Azure SQL Database-server med Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] och [Skapa en logisk Azure SQL Database-server med PowerShell][Create an Azure SQL Database logical server with PowerShell].
+* **Resursgrupp**: Använd antingen samma resursgrupp som din Azure SQL-server eller se [hur du kan skapa en resursgrupp](../azure-resource-manager/resource-group-portal.md).
+* **PowerShell version 1.0.3 eller senare**: Du kan kontrollera din version genom att köra **Get-Module -ListAvailable -Name Azure**.  Den senaste versionen kan installeras från [Installationsprogram för Microsoft-webbplattform][Microsoft Web Platform Installer].  Mer information om hur du installerar den senaste versionen finns i [Installera och konfigurera Azure PowerShell][How to install and configure Azure PowerShell].
 
 > [!NOTE]
-> Att skapa ett SQL Data Warehouse kan resultera i en ny fakturerbar tjänst.  Se [Priser för SQL Data Warehouse][Priser för SQL Data Warehouse] för mer information om priser.
+> Att skapa ett SQL Data Warehouse kan resultera i en ny fakturerbar tjänst.  Mer information om priser finns i [Priser för SQL Data Warehouse][SQL Data Warehouse pricing].
 >
 >
 
@@ -74,43 +74,43 @@ Valfria parametrar är:
 * **CollationName**: Standardsortering om inte annat anges är SQL_Latin1_General_CP1_CI_AS.  Sorteringen kan inte ändras för en databas.
 * **MaxSizeBytes**: Maximal standardstorlek för en databas är 10 GB.
 
-Mer information om parameteralternativ för finns [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] och [Skapa databas (Azure SQL Data Warehouse)][Skapa databas (Azure SQL Data Warehouse)].
+Mer information om parameteralternativen finns i [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] och [Skapa databas (Azure SQL Data Warehouse)][Create Database (Azure SQL Data Warehouse)].
 
 ## <a name="next-steps"></a>Nästa steg
-När ditt SQL Data Warehouse är färdigetablerat, kan du testa att [läsa in exempeldata][läsa in exempeldata] eller kolla hur man [utvecklar][utvecklar], [läser in][läser in] eller [migrerar][migrerar].
+När ditt SQL Data Warehouse är färdigetablerat kan du prova att [läsa in exempeldata][loading sample data] eller lära dig hur du [utvecklar][develop], [läser in][load] eller [migrerar][migrate].
 
-Om du vill veta mer om hur du hanterar SQL Data Warehouse programmässigt, kan du kolla vår artikel om hur man använder [PowerShell-cmdletar och REST-API:er][PowerShell-cmdletar och REST-API:er].
+Mer information om hur du hanterar SQL Data Warehouse via programmering finns i vår artikel om hur du använder [PowerShell-cmdlets och REST-API:er][PowerShell cmdlets and REST APIs].
 
 <!--Image references-->
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[migrerar]: ./sql-data-warehouse-overview-migrate.md
-[utvecklar]: ./sql-data-warehouse-overview-develop.md
-[läser in]: ./sql-data-warehouse-load-with-bcp.md
-[läsa in exempeldata]: ./sql-data-warehouse-load-sample-databases.md
-[PowerShell-cmdletar och REST-API:er]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[brandväggsregler]: ../sql-database-configure-firewall-settings.md
+[migrate]: ./sql-data-warehouse-overview-migrate.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-load-with-bcp.md
+[loading sample data]: ./sql-data-warehouse-load-sample-databases.md
+[PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
+[firewall rules]: ../sql-database-configure-firewall-settings.md
 
-[Hur du installerar och konfigurerar Azure PowerShell]: ../powershell-install-configure.md
-[så här skapar du ett SQL Data Warehouse från Azure-portalen]: ./sql-data-warehouse-get-started-provision.md
-[Skapa en logisk Azure SQL Database-server med Azure-portalen]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Skapa en logisk Azure SQL Database-server med PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[hur du kan skapa en resursgrupp]: ../resource-group-template-deploy-portal.md#create-resource-group
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
+[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references-->
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
-[Skapa databas (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
+[Create Database (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt204021.aspx
 
 <!--Other Web references-->
-[Microsoft installationsprogram för webbplattform]: https://aka.ms/webpi-azps
-[Priser för SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Kostnadsfri utvärderingsversion av Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[MSDN Azure-krediter]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

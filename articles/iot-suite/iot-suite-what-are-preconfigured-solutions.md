@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+ms.sourcegitcommit: 7c289437beca78dacc7d3136680c54dde01f3798
+ms.openlocfilehash: fb4b12543ac4910ea9c4789f4ebe5ef0ca5997ae
 
 
 ---
@@ -32,7 +32,7 @@ Varje förkonfigurerad lösning är en fullständig implementering från slutpun
 Förutom att distribuera och köra lösningarna i Azure kan du hämta den fullständiga källkoden och sedan anpassa och utöka lösningen efter dina specifika IoT-krav.
 
 > [!NOTE]
-> Om du vill distribuera någon av de förkonfigurerade lösningarna besöker du [Microsoft Azure IoT Suite][lnk-azureiotsuite]. Artikeln [Komma igång med förkonfigurerade IoT-lösningar][lnk-getstarted-preconfigured] innehåller mer information om hur du distribuerar och kör en av lösningarna.
+> Om du vill distribuera någon av de förkonfigurerade lösningarna besöker du [Microsoft Azure IoT Suite][lnk-azureiotsuite]. Artikeln [Komma igång med förkonfigurerade IoT-lösningar][lnk-getstarted-preconfigured] innehåller mer information om hur du distribuerar och kör lösningarna.
 > 
 > 
 
@@ -71,7 +71,7 @@ Första gången en enhet ansluter till IoT Hub i den förkonfigurerade fjärröv
 Du kan lägga till fler simulerad enheter i lösningen som skickar samma telemetri och som svarar på samma kommandon. 
 
 ## <a name="iot-hub"></a>IoT Hub
-I den här förkonfigurerade lösningen motsvarar IoT Hub-instansen *molngatewayen* i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
+I den här förkonfigurerade lösningen motsvarar IoT Hub-instansen *moln-gatewayen* i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
 En IoT-hubb tar emot telemetri från enheterna på en enda slutpunkt. En IoT-hubb har också enhetsspecifika slutpunkter där varje enhet kan ta emot de kommandon som skickas till den.
 
@@ -87,9 +87,9 @@ Den förkonfigurerade lösningen använder tre [Azure Stream Analytics][lnk-asa]
 I den här förkonfigurerade lösningen är ASA-jobben en del av **IoT-lösningens serverdel** i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
 ## <a name="event-processor"></a>Händelseprocessor
-I den här förkonfigurerade lösningen är händelseprocessorn en del av **IoT-lösningens serverdel** i en typisk [IoT arkitektur][lnk-what-is-azure-iot].
+I den här förkonfigurerade lösningen är händelseprocessorn en del av **IoT-lösningens serverdel** i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
-ASA-jobben **DeviceInfo** och **Regler** skickar sina utdata till Event Hubs för leverans till andra backend-tjänster. Lösningen använder en [EventPocessorHost][lnk-event-processor]-instans som körs i ett [Webbjobb][lnk-web-job] för att läsa meddelandena från dessa Event Hubs. **EventProcessorHost** använder data från **Enhetsinformation** för att uppdatera enhetsdata i DocumentDB-databasen och använder data från **Regler** för att anropa logikappen och uppdatera aviseringsvyn på lösningsportalen.
+ASA-jobben **DeviceInfo** och **Regler** skickar sina utdata till Event Hubs för leverans till andra backend-tjänster. Lösningen använder en [EventProcessorHost][lnk-event-processor]-instans som körs i ett [WebJob][lnk-web-job] för att läsa meddelanden från dessa händelsehubbar. **EventProcessorHost** använder data från **Enhetsinformation** för att uppdatera enhetsdata i DocumentDB-databasen och använder data från **Regler** för att anropa logikappen och uppdatera aviseringsvyn på lösningsportalen.
 
 ## <a name="device-identity-registry-and-documentdb"></a>Enhetsidentitetsregistret och DocumentDB
 Varje IoT-hubb innehåller ett [enhetsidentitetsregister][lnk-identity-registry] som lagrar enhetsnycklar. IoT Hub använder den här informationen för att autentisera enheter – en enhet måste vara registrerad och ha en giltig nyckel innan den kan ansluta till hubben.
@@ -130,6 +130,6 @@ Nu vet du vad en förkonfigurerad lösning är och kan komma igång genom att di
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

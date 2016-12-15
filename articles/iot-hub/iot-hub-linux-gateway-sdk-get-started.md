@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med IoT Hub Gateway SDK | Microsoft Docs"
-description: "I den här genomgången av Azure IoT Gateway SDK används Linux för att illustrera viktiga begrepp som du bör känna till när du använder Azure IoT Gateway SDK."
+title: "Kom igång med Azure IoT Gateway SDK (Linux) | Microsoft Docs"
+description: "Så här bygger du en gateway på en Linux-dator och lär dig om viktiga begrepp i SDK för Azure IoT Gateway, som moduler och JSON-konfigurationsfiler."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: a76320718f0cefa015728cb79df944e0d34bbf74
-ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
+ms.sourcegitcommit: 6b41567f7b43fd6a56da1f571e007d31cef97b92
+ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
 
 
 ---
-# <a name="azure-iot-gateway-sdk---get-started-using-linux"></a>Azure IoT Gateway SDK – Komma igång med Linux
+# <a name="get-started-with-the-azure-iot-gateway-sdk-linux"></a>Kom igång med Azure IoT Gateway SDK (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Hur du skapar provet
-Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] för att arbeta med SDK i Linux.
+Innan du börjar måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] för att arbeta med SDK i Linux.
 
 1. Öppna ett gränssnitt.
 2. Navigera till rotmappen i den lokala kopian av databasen **azure-iot-gateway-sdk**.
-3. Kör skriptet **tools/build.sh**. Det här skriptet använder verktyget **cmake** för att skapa en mapp som kallas **build** i rotmappen på den lokala kopian av databasen **azure-iot-gateway-sdk** och generera en make-fil. Skriptet bygger sedan lösningen och kör testerna.
+3. Kör skriptet **tools/build.sh --skip-unittests**. Det här skriptet använder verktyget **cmake** för att skapa en mapp som kallas **build** i rotmappen på den lokala kopian av databasen **azure-iot-gateway-sdk** och generera en make-fil. Skriptet bygger sedan lösningen och hoppar över enhetstester. Ta bort parametern **--skip-unittests** om du vill bygga och köra enhetstesterna.
 
 > [!NOTE]
 > Varje gång du kör skriptet **build.sh** tar det bort och återskapar sedan mappen **build** i rotmappen på den lokala kopian av databasen **azure-iot-gateway-sdk**.
@@ -78,11 +78,11 @@ Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] 
         ]
     }
     ```
-3. Gå till mappen **azure-iot-gateway-sdk**.
+3. Gå till mappen **azure-iot-gateway-sdk/build**.
 4. Kör följande kommando:
    
    ```
-   ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
+   ./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json
    ``` 
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
@@ -92,6 +92,6 @@ Innan du börjar, måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

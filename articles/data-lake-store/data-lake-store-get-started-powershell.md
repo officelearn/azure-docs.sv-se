@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 7663670bc4fe0612b9a22545f0fc036add1c48cd
+ms.sourcegitcommit: a86fd04a7ec0cffabe42d30132b97777c752bbde
+ms.openlocfilehash: e37b698436c067faa20b0e589078927d5955934a
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: 7663670bc4fe0612b9a22545f0fc036add1c48cd
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
-> 
+>
 
 Lär dig mer om att använda Azure PowerShell för att skapa ett Azure Data Lake Store-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta filer, ta bort ditt konto, osv. Mer information om Data Lake Store finns i [Översikt över Data Lake Store](data-lake-store-overview.md).
 
@@ -39,58 +39,58 @@ Lär dig mer om att använda Azure PowerShell för att skapa ett Azure Data Lake
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Installera Azure PowerShell 1.0 eller senare**. Se [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md).
+* **Installera Azure PowerShell 1.0 eller senare**. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="authentication"></a>Autentisering
 Den här artikeln använder en enklare metod för autentisering med Data Lake Store där du uppmanas att ange autentiseringsuppgifterna för ditt Azure-konto. Åtkomstnivå till Data Lake Store-kontot och filsystemet styrs av åtkomstnivån för den inloggade användaren. Det finns dock olika sätt att autentisera med Data Lake Store: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Autentisera med Data Lake Store med Azure Active Directory (Authenticate with Data Lake Store using Azure Active Directory)](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Skapa ett Azure Data Lake Store-konto
 1. Öppna ett nytt Windows PowerShell-fönster på skrivbordet och ange följande fragment för att logga in på kontot, ställ in prenumerationen och registrera Data Lake Store-providern. När du uppmanas att logga in, se till att logga in som en av prenumerationens admininistratörer/ägare:
-   
+
         # Log in to your Azure account
         Login-AzureRmAccount
-   
+
         # List all the subscriptions associated to your account
         Get-AzureRmSubscription
-   
+
         # Select a subscription
         Set-AzureRmContext -SubscriptionId <subscription ID>
-   
+
         # Register for Azure Data Lake Store
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 2. Ett Azure Data Lake Store-konto är kopplat till en resursgrupp i Azure. Börja med att skapa en Azure-resursgrupp.
-   
+
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
-   
+
     ![Skapa en Azure-resursgrupp](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
 3. Skapa ett Azure Data Lake Store-konto. Namnet du anger får bara innehålla gemener och siffror.
-   
+
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
-   
+
     ![Skapa ett Azure Data Lake Store-konto](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake Store account")
 4. Kontrollera att kontot har skapats.
-   
+
         Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
-   
+
     Utdata för detta ska vara **Sant**.
 
 ## <a name="create-directory-structures-in-your-azure-data-lake-store"></a>Skapa katalogstrukturer i din Azure Data Lake Store
 Du kan skapa kataloger under Azure Data Lake Store-kontot för att hantera och lagra data.
 
 1. Ange en rotkatalog.
-   
+
         $myrootdir = "/"
 2. Skapa en ny katalog som kallas **mynewdirectory** under den angivna roten.
-   
+
         New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStoreName -Path $myrootdir/mynewdirectory
 3. Kontrollera att den nya katalogen har skapats.
-   
+
         Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -Path $myrootdir
-   
+
     Du bör se utdata som liknar följande:
-   
+
     ![Verifiera katalog](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verify Directory")
 
 ## <a name="upload-data-to-your-azure-data-lake-store"></a>Ladda upp data till din Azure Data Lake Store
@@ -125,6 +125,78 @@ Använd följande kommando för att ta bort ditt Data Lake Store-konto.
 
 När du uppmanas, anger du **Y** för att ta bort kontot.
 
+## <a name="performance-guidance-while-using-powershell"></a>Prestandavägledning när du använder PowerShell
+
+Nedan visas de viktigaste inställningar som du kan ställa in för att få bästa prestanda när du använder PowerShell för att arbeta med Data Lake Store:
+
+| Egenskap            | Standard | Beskrivning |
+|---------------------|---------|-------------|
+| PerFileThreadCount  | 10      | Med den här parametern kan du välja antalet parallella trådar för att ladda upp eller ned varje fil. Antalet representerar det högsta antal trådar som går att allokera per fil, men du kan få färre trådar beroende på ditt scenario (om du t.ex. laddar upp en fil på 1 KB får du en tråd även om du ber om 20 trådar).  |
+| ConcurrentFileCount | 10      | Den här parametern är specifikt för att ladda upp och ned mappar. Den här parametern anger antalet samtidiga filer som kan laddas upp eller ned. Siffran representerar det högsta antalet filer som samtidigt kan laddas upp eller ned samtidigt, men du kan få mindre samtidighet beroende på ditt scenario (om du exempelvis laddar upp två filer får du två samtidiga filuppladddningar även om du ber om 15). |
+
+**Exempel**
+
+Det här kommandot laddar ned filer från Azure Data Lake Store till användarens lokala enhet med 20 trådar per fil och 100 samtidiga filer.
+
+    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+
+### <a name="how-do-i-determine-the-value-to-set-for-these-parameters"></a>Hur tar jag reda på värdet som angetts för dessa parametrar?
+
+Här är några riktlinjer som du kan använda.
+
+* **Steg 1: Fastställ det totala antalet trådar** – Du ska börja med att beräkna det totala antalet trådar som ska användas. Som en generell riktlinje bör du använda 6 trådar för varje fysisk kärna.
+
+        Total thread count = total physical cores * 6
+
+    **Exempel**
+
+    Vi antar att du kör PowerShell-kommandon från en virtuell D14-dator med 16 kärnor
+
+        Total thread count = 16 cores * 6 = 96 threads
+
+
+* **Steg 2: Beräkna PerFileThreadCount** – Vi beräknar vår PerFileThreadCount baserat på filernas storlek. För filer som är mindre än 2,5 GB behöver vi inte ändra den här parametern eftersom standardvärdet 10 är tillräckligt. För filer som är större än 2,5 GB ska du använda 10 trådar som bas för de första 2,5 GB och lägga till en tråd för varje ytterligare ökning på 256 MB. Om du kopierar en mapp med många olika filstorlekar bör du överväga att gruppera dem enligt liknande filstorlekar. Olika stora filstorlekar kan orsaka bristfälliga prestanda. Om du inte kan gruppera liknande filstorlekar ska du ställa in PerFileThreadCount baserat på den största filstorleken.
+
+        PerFileThreadCount = 10 threads for the first 2.5GB + 1 thread for each additional 256MB increase in file size
+
+    **Exempel**
+
+    Om vi antar att du har 100 filer från 1 GB till 10 GB använder vi 10 GB som den största filstorleken för beräkningen, vilket skulle se ut ungefär som följande.
+
+        PerFileThreadCount = 10 + ((10GB - 2.5GB) / 256MB) = 40 threads
+
+* **Steg 3: Beräkna ConcurrentFilecount** – Använd det totala antalet trådar och PerFileThreadCount för att beräkna ConcurrentFileCount baserat på följande beräkning.
+
+        Total thread count = PerFileThreadCount * ConcurrentFileCount
+
+    **Exempel**
+
+    Utifrån de exempelvärden vi har använt
+
+        96 = 40 * ConcurrentFileCount
+
+    Så, **ConcurrentFileCount** är **2,4**, vilket vi kan runda av till **2**.
+
+### <a name="further-tuning"></a>Ytterligare justering
+
+Du kan behöva justera ytterligare eftersom det finns en mängd filstorlekar att arbeta med. Beräkningen ovan fungerar bra om alla eller de flesta av filerna är större och närmare intervallet 10 GB. Om det finns i stället många olika filstorlekar med många filer som är mindre kan du minska PerFileThreadCount. Du kan öka ConcurrentFileCount genom att minska PerFileThreadCount. Så om vi förutsätter att de flesta av våra filer är mindre än intervallet 5 GB kan vi göra om vår beräkning:
+
+    PerFileThreadCount = 10 + ((5GB - 2.5GB) / 256MB) = 20
+
+Alltså blir **ConcurrentFileCount** nu 96/20, vilket är 4,8, avrundat till **4**.
+
+Du kan fortsätta att finjustera inställningarna genom att ändra **PerFileThreadCount** upp och ned beroende på distributionen av din filstorlek.
+
+### <a name="limitation"></a>Begränsning
+
+* **Antalet filer är mindre än ConcurrentFileCount**: Om antalet filer som du laddar upp är mindre än **ConcurrentFileCount** du har beräknat ska du minska **ConcurrentFileCount** så att det motsvarar antalet filer. Du kan använda eventuella återstående trådar för att öka **PerFileThreadCount**.
+
+* **För många trådar**: Om du ökar antalet trådar för mycket utan att öka klusterstorleken riskerar du att prestanda försämras. Det kan uppstå konkurrensproblem när du växlar innehåll på processorn.
+
+* **Otillräcklig samtidighet**: Om samtidigheten inte är tillräcklig kan klustret vara för litet. Du kan öka antalet noder i klustret så att du får större samtidighet.
+
+* **Begränsningsfel**: Om konkurrensen är för hög kan det leda till begränsningsfel. Om du råkar ut för begränsningsfel ska du antingen minska samtidigheten eller kontakta oss.
+
 ## <a name="next-steps"></a>Nästa steg
 * [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
 * [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
@@ -133,6 +205,6 @@ När du uppmanas, anger du **Y** för att ta bort kontot.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

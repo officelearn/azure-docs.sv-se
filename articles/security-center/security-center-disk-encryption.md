@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 
 ---
@@ -47,7 +47,7 @@ Det finns flera metoder som kan användas för att konfigurera de nödvändiga k
 > 
 
 ## <a name="install-and-configure-azure-powershell"></a>Installera och konfigurera Azure PowerShell
-Du behöver ha Azure PowerShell version 1.2.1 eller senare installerat på datorn. Artikeln [Så installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) beskriver alla steg du behöver för att ställa in datorn så att den fungerar med Azure PowerShell. Den enklaste metoden är att använda metoden för Web PI-installation som beskrivs i den artikeln. Även om du redan har installerat Azure PowerShell bör du installera det igen med Web PI-metoden så att du har den senaste versionen av Azure PowerShell.
+Du behöver ha Azure PowerShell version 1.2.1 eller senare installerat på datorn. Artikeln [Så installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs) beskriver alla steg du behöver för att ställa in datorn så att den fungerar med Azure PowerShell. Den enklaste metoden är att använda metoden för Web PI-installation som beskrivs i den artikeln. Även om du redan har installerat Azure PowerShell bör du installera det igen med Web PI-metoden så att du har den senaste versionen av Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Hämta och kör det konfigurationsskript som krävs för Azure Disk Encryption
 Med det nödvändiga konfigurationsskriptet för Azure Disk Encryption ställs alla förutsättningar som krävs för kryptering av dina virtuella Azure-datorer in.
@@ -182,6 +182,6 @@ I det här dokumentet beskrivs hur du krypterar en virtuell dator i Azure. I fö
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

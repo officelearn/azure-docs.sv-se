@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42d71bf43070e08ae287a7b251c5bb94a6a80548
 
 
 ---
@@ -39,12 +39,12 @@ Denna självstudie använder Azure Machine Learning för att skapa en förutsäg
 ## <a name="prerequisites"></a>Krav
 För att gå igenom de här självstudierna, behöver du:
 
-* Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta, se [Skapa ett SQL Data Warehouse][Skapa ett SQL Data Warehouse] och välj att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt][läsa in exempeldata manuellt].
+* Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta läser du [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] och väljer att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata kan du [läsa in exempeldata manuellt][load sample data manually].
 
 ## <a name="1-get-data"></a>1. Hämta data
 Aktuella data finns i dbo.vTargetMail-vyn i AdventureWorksDW-databasen. Så här läser du in dessa data:
 
-1. Logga in på [Azure Machine Learning-studio][Azure Machine Learning-studio] och klicka på mina experiment.
+1. Logga in i [Azure Machine Learning Studio][Azure Machine Learning studio] och klicka på My experiments (Mina experiment).
 2. Klicka på **+NY** och välj **Tomt experiment**.
 3. Ange ett namn för experimentet: Riktad marknadsföring.
 4. Dra modulen **Läsare** från modulfönstret till arbetsytan.
@@ -124,7 +124,7 @@ Du ser två kolumner som läggs till i testdata.
 Genom att jämföra kolumnen BikeBuyer (faktiska) med Poängsatta etiketter (förutsagda), kan du se hur väl modellen har utförts. Du kan använda den här modellen som nästa steg för att göra förutsägelser för nya kunder och publicera den här modellen som en webbtjänst eller skriva resultaten tillbaka till SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du skapar förutsägbara maskininlärningsmodeller finns i [Introduktion till Machine Learning på Azure][Introduktion till Machine Learning på Azure].
+Mer information om hur du skapar förutsägbara maskininlärningsmodeller finns i [Introduktion till Machine Learning i Azure][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -142,13 +142,13 @@ Mer information om hur du skapar förutsägbara maskininlärningsmodeller finns 
 
 
 <!--Article references-->
-[Azure Machine Learning-studio]:https://studio.azureml.net/
-[Introduktion till Machine Learning på Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[läsa in exempeldata manuellt]: sql-data-warehouse-load-sample-databases.md
-[Skapa ett SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Azure Machine Learning studio]:https://studio.azureml.net/
+[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
 translationtype: Human Translation
-ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
-ms.openlocfilehash: af8f20beb8899ff1df733d1a4c544c75c6889ea6
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
 
 
 ---
@@ -118,7 +118,7 @@ Nu stöds fillagring för alla lagringskonton, så du kan antingen använda ett 
 Du kan också skapa och hantera filresurser med hjälp av Azure PowerShell.
 
 ### <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Installera PowerShell-cmdlets för Azure Storage
-Innan du kan använda PowerShell laddar du ned och installerar Azure PowerShell-cmdlets. Information om installationsplatser och installationsanvisningar finns i [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md).
+Innan du kan använda PowerShell laddar du ned och installerar Azure PowerShell-cmdlets. Information om installationsplatser och installationsanvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Vi rekommenderar att du laddar ned och installerar eller uppgradera till den senaste Azure PowerShell-modulen.
@@ -669,6 +669,6 @@ Mer information om Azure File Storage finns på följande länkar.
 * [Bevara anslutningar till Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 68f3736069a153e6de9a7ba5f11708a4eb648dbf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-1"></a>Distribuera din lokala StorSimple-enhet (uppdatering 1)
+# <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Distribuera din lokala StorSimple-enhet (uppdatering 1)
 > [!div class="op_single_selector"]
 > * [Uppdatering 2](storsimple-deployment-walkthrough-u2.md)
 > * [Uppdatering 1](storsimple-deployment-walkthrough-u1.md)
@@ -92,7 +92,7 @@ Följande checklista för distributionskonfiguration anger den information du be
 | &nbsp; |Nätverksgränssnitt: Data 4</br>Konfigurera inte gatewayen om iSCSI är aktiverad. |Syfte: Molnet/iSCSI/används inte</br>IP-adress:</br>Nätmask:</br>Gateway: | |
 | &nbsp; |Nätverksgränssnitt: Data 5</br>Konfigurera inte gatewayen om iSCSI är aktiverad. |Syfte: Molnet/iSCSI/används inte</br>IP-adress:</br>Nätmask:</br>Gateway: | |
 |  | | | |
-| **Skapa en volymbehållare** |Volymbehållarens namn: |Namn på behållaren | |
+| **Skapa en volymcontainer** |Volymbehållarens namn: |Namn på behållaren | |
 | &nbsp; |Azure lagringskonto: |Lagringskontonamn och åtkomstnyckel som ska associeras med volymbehållaren | |
 | &nbsp; |Krypteringsnyckel för molnlagring: |Krypteringsnyckeln för lagring i varje behållare | |
 |  | | | |
@@ -131,7 +131,7 @@ Innan du börjar ska du kontrollera att:
 
 * Portarna i ditt datacenters brandvägg är öppna för att möjliggöra iSCSI- och molntrafik enligt beskrivningen i [Nätverkskrav för din StorSimple-enhet](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="stepbystep-deployment"></a>Steg för steg-distribution
+## <a name="step-by-step-deployment"></a>Steg för steg-distribution
 Utför nedanstående steg för steg-instruktioner för att distribuera StorSimple-enheten i datacentret.
 
 ## <a name="step-1-create-a-new-service"></a>Steg 1: Skapa en ny tjänst
@@ -270,6 +270,6 @@ Anvisningar för MPIO-installation på en StorSimple-enhet som är ansluten till
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

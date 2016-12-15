@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 5a6b743d69e1716ae3f48ddf0dfcb0f042133f5c
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: d8108368a157ed05c4fe0defbcef8372e205f6f8
 
 
 ---
@@ -28,8 +28,6 @@ Mer information om Cloud Services, och vilka skillnader de har jämfört med Azu
 
 > [!TIP]
 > Vill du skapa en enkel webbplats? Om du planerar att använda en enkel webbplatsklient kan du [använda en förenklad webbapp]. Det är lätt att uppgradera till en molntjänst efter hand som webbappen växer och dina behov förändras.
->
->
 
 Följ den här kursen för att skapa en enkel webbapp som värdhanteras i en webbroll. Under kursen kommer du att använda beräkningsemulatorn för att testa ditt program lokalt, och sedan distribuera det med PowerShell-kommandoradsverktyg.
 
@@ -40,8 +38,6 @@ Programmet är ett enkelt ”hello world”-program:
 ## <a name="prerequisites"></a>Krav
 > [!NOTE]
 > I den här kursen används Azure PowerShell, vilket kräver Windows.
->
->
 
 * Installera och konfigurera [Azure PowerShell].
 * Ladda ned och installera [Azure SDK för .NET 2.7]. Välj följande vid installationen:
@@ -75,8 +71,6 @@ Utför följande uppgifter för att skapa ett nytt Azure Cloud Service-projekt m
 
    > [!NOTE]
    > Om du inte anger ett rollnamn används ett standardnamn. Du kan ange ett namn som den första cmdlet-parametern: `Add-AzureNodeWebRole MyRole`
-   >
-   >
 
 Node.js-appen definieras i filen **server.js**, som finns i katalogen för webbrollen (**WebRole1** som standard). Här är koden:
 
@@ -90,7 +84,9 @@ Node.js-appen definieras i filen **server.js**, som finns i katalogen för webbr
 Den här koden är i stort sett densamma som i exemplet ”Hello World” på webbplatsen [nodejs.org], förutom att det använder portnumret som har tilldelats av molnmiljön.
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
-    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
+> [!NOTE]
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan [aktivera dina MSDN-prenumerationsfördelar](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="download-the-azure-publishing-settings"></a>Hämta Azure-publiceringsinställningarna
 Om du vill distribuera programmet till Azure måste du först hämta publiceringsinställningarna för din Azure-prenumeration.
@@ -106,12 +102,13 @@ Om du vill distribuera programmet till Azure måste du först hämta publicering
 
        Import-AzurePublishSettingsFile [path to file]
 
-    > [AZURE.NOTE] När du har importerat publiceringsinställningarna bör du ta bort den hämtade .publishSettings-filen eftersom den innehåller information som kan göra det möjligt för någon att komma åt ditt konto.
+    > [!NOTE]
+    > När du har importerat publiceringsinställningarna bör du ta bort den hämtade .publishSettings-filen eftersom den innehåller information som kan göra det möjligt för någon att komma åt ditt konto.
 
 ### <a name="publish-the-application"></a>Publicera programmet
 Kör följande kommandon för att publicera:
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 * **-ServiceName** anger namnet på distributionen. Det här måste vara ett unikt namn, annars misslyckas publiceringsprocessen. Kommandot **Get-Date** lägger till en datum/tid-sträng som bör göra namnet unikt.
@@ -124,8 +121,6 @@ När publiceringen har lyckats ser du ett svar som liknar följande:
 
 > [!NOTE]
 > Det kan ta flera minuter för programmet att distribueras och bli tillgängligt när det publiceras för första gången.
->
->
 
 När distributionen är klar öppnas ett webbläsarfönster som navigerar till molntjänsten.
 
@@ -162,8 +157,6 @@ När du har distribuerat programmet vill du kanske inaktivera det för att undvi
 
    > [!NOTE]
    > Om du tar bort tjänsten tar det inte bort lagringskontot som skapades när tjänsten inledningsvis publicerades, och du debiteras även i fortsättningen för det lagringsutrymme som används. Om lagringen inte används kan det vara lämpligt att ta bort den.
-   >
-   >
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i [Node.js Developer Center].
@@ -172,25 +165,25 @@ Mer information finns i [Node.js Developer Center].
 
 [Jämförelse mellan Azure Websites, Cloud Services och Virtual Machines]: ../app-service-web/choose-web-site-cloud-service-vm.md
 [använda en förenklad webbapp]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Azure PowerShell]: ../powershell-install-configure.md
+[Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK för .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Anslut PowerShell]: ../powershell-install-configure.md#step-3-connect
+[Anslut PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Översikt över att skapa en värdbaserad tjänst för Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
-[Resultatet av kommandot New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[Resultatet av kommandot Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[En webbläsare som visar webbsidan Hello World]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[Resultatet av kommandot Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Ett webbläsarfönster som visar Hello World-sidan, URL:en anger att sidan värdhanteras på Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[Status för kommandot Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[Status för kommandot Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,71 +1,69 @@
 ---
-title: Configure an SQL Database server-level firewall rule | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL server.
+title: "Konfigurera en SQL Database-brandväggsregel på servernivå | Microsoft Docs"
+description: "Lär dig hur du konfigurerar brandväggen för IP-adresser som har åtkomst till Azure SQL-servern."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: BYHAM
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: c3b206b5-af6e-41af-8306-db12ecfc1b5d
 ms.service: sql-database
+ms.custom: auth and access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 08/30/2016
+ms.topic: hero-article
+ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
+ms.openlocfilehash: 1479595fb7de2e0a37520c7d323624142e624af1
+
 
 ---
-# Configure an Azure SQL Database server-level firewall rule using the Azure Portal
+# <a name="create-and-manage-azure-sql-database-server-level-firewall-rules-using-the-azure-portal"></a>Skapa och hantera Azure SQL Database-brandväggsregler på servernivå på Azure Portal
 > [!div class="op_single_selector"]
-> * [Overview](sql-database-firewall-configure.md)
-> * [Azure Portal](sql-database-configure-firewall-settings.md)
+> * [Översikt](sql-database-firewall-configure.md)
+> * [Azure-portal](sql-database-configure-firewall-settings.md)
 > * [TSQL](sql-database-configure-firewall-settings-tsql.md)
 > * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [REST API](sql-database-configure-firewall-settings-rest.md)
-> 
-> 
-
-Azure SQL server uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL server logical server to selectively allow access to the database. This topic discusses server-level firewall rules.
-
-> [!IMPORTANT]
-> To allow applications from Azure to connect to your Azure SQL server, Azure connections must be enabled. To understand how the firewall rules work, see [How to configure an Azure SQL server firewall \- overview](sql-database-firewall-configure.md). If you are making connections inside the Azure cloud boundary, you may have to open some additional TCP ports. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
-> 
+> * [REST-API](sql-database-configure-firewall-settings-rest.md)
 > 
 
-**Recommendation:** Use server-level firewall rules for administrators and when you have many databases that have the same access requirements, and you don't want to spend time configuring each database individually. Microsoft recommends using database-level firewall rules whenever possible, to enhance security and to make your database more portable.
+Brandväggsregler på servernivå gör att administratörer kan få åtkomst till en SQL Database-server från en angiven IP-adress eller ett angivet IP-adressintervall. Du kan också använda brandväggsregler på servernivå för användare om du har många databaser med samma åtkomstkrav och du inte vill lägga tid på att konfigurera varje databas individuellt. Microsoft rekommenderar att du använder brandväggsregler på databasnivå när det är möjligt för att förbättra säkerheten och göra databasen mer portabel. En översikt över SQL Database-brandväggar finns i [Översikt över SQL Database-brandväggsregler](sql-database-firewall-configure.md).
 
-[!INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-server-firewall-portal.md)]
+> [!Note]
+> Information om portabla databaser i kontexten för företagskontinuitet finns i [Autentiseringskrav för haveriberedskap](sql-database-geo-replication-security-config.md).
+>
 
-## Manage existing server-level firewall rules through the Azure portal
-Repeat the steps to manage the server-level firewall rules.
+[!INCLUDE [Create SQL Database firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-* To add the current computer, click Add client IP.
-* To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.
-* To modify an existing rule, click any of the fields in the rule and modify.
-* To delete an existing rule, hover over the rule until the X appears at the end of the row. Click X to remove the rule.
+## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Hantera befintliga brandväggsregler på servernivå via Azure Portal
+Upprepa stegen för att hantera brandväggsreglerna på servernivå.
 
-Click **Save** to save the changes.
+* Klicka på Lägg till klient-IP för att lägga till den aktuella datorn.
+* Om du vill lägga till ytterligare IP-adresser skriver du regelnamnet, start-IP-adressen och slut-IP-adressen.
+* Om du vill redigera en befintlig regel klickar du på något av fälten i regeln och redigerar det.
+* Om du vill ta bort en befintlig regel hovrar du över regeln tills X visas i slutet av raden. Klicka på X för att ta bort regeln.
 
-## Next steps
-For a how to article on how to use Transact-SQL to create server-level and database-level firewall rules, see [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md). 
+Klicka på **Spara** för att spara ändringarna.
 
-For how to articles on creating server-level firewall rules using other methods, see: 
+## <a name="next-steps"></a>Nästa steg
 
-* [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
-* [Configure Azure SQL Database server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md)
+- Om du vill gå en introduktionskurs rekommenderar vi [Självstudiekurs om SQL Database: Skapa en server, en brandväggsregel på servernivå, en exempeldatabas, en brandväggsregel på databasnivå och ansluta till SQL Server](sql-database-get-started.md).
+- Om du vill gå en introduktionskurs om säkerhet rekommenderar vi [Komma igång med säkerhet](sql-database-get-started-security.md)
+- Hjälp med att ansluta till en Azure SQL-databas från öppen källkod eller program från tredje part finns i [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Snabbstart med kodexempel för att ansluta klienter till SQL Database).
+- Information om hur du skapar fler användare som kan ansluta till databaser finns i [SQL Database Authentication and Authorization: Granting Access](https://msdn.microsoft.com/library/azure/ee336235.aspx) (SQL Database-autentisering och SQL Database-auktorisering: bevilja åtkomst).
 
-For a tutorial on creating a database, see [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md).
-For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+## <a name="additional-resources"></a>Ytterligare resurser
+* [Skydda en databas](sql-database-security.md)   
+* [Security Center för SQL Server Database Engine och Azure SQL Database](https://msdn.microsoft.com/library/bb510589)   
 
-## Additional resources
-* [Securing your database](sql-database-security.md)
-* [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
-<!--Image references-->
-[1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
-[2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
-<!--anchors-->
+
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

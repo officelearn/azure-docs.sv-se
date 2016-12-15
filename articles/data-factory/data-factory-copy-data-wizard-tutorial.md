@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 
 
 ---
@@ -60,8 +60,8 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
    2. Välj din Azure-**prenumeration**.
    3. För resursgruppen utför du något av följande steg: 
       
-      1. Välj **Använd befintlig** och välj en befintlig resursgrupp.
-      2. Välj **Skapa nytt** och ange ett namn för en resursgrupp.
+      - Välj **Använd befintlig** och välj en befintlig resursgrupp.
+      - Välj **Skapa nytt** och ange ett namn för en resursgrupp.
          
           Vissa av stegen i den här självstudien förutsätter att du använder namnet: **ADFTutorialResourceGroup** på resursgruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).
    4. Välj **plats** för datafabriken.
@@ -163,6 +163,6 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

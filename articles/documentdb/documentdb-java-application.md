@@ -457,7 +457,7 @@ Nu har vi gjort alla roliga delar, och allt som återstår är att skapa ett sna
             }
         }
 3. Vi behöver ett webbaserat användargränssnitt att visa för användaren. Vi skriver om index.jsp som vi skapade tidigare:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -544,6 +544,7 @@ Nu har vi gjort alla roliga delar, och allt som återstår är att skapa ett sna
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. Slutligen skriver vi JavaScript för klientsidan som kopplar samman webbgränssnitt och servlet.
    
         var todoApp = {

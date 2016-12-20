@@ -7,16 +7,16 @@
 ## [Vanliga frågor och svar](backup-azure-backup-faq.md)
 # Gör så här för att
 ## Automatisera säkerhetskopiering med PowerShell
-### [Virtuella Azure-datorer i Azure-portalen](backup-azure-vms-automation.md)
+### [Virtuella Azure-datorer i Azure Portal](backup-azure-vms-automation.md)
 ### [Virtuella Azure-datorer i den klassiska portalen](backup-azure-vms-classic-automation.md)
-### [DPM i Azure-portalen](backup-dpm-automation.md)
+### [DPM i Azure Portal](backup-dpm-automation.md)
 ### [DPM i den klassiska portalen](backup-dpm-automation-classic.md)
-### [Windows Server i Azure-portalen](backup-client-automation.md)
+### [Windows Server i Azure Portal](backup-client-automation.md)
 ### [Windows Server i den klassiska portalen](backup-client-automation-classic.md)
 ## Säkerhetskopiera programarbetsbelastningar
-### [Förbereda DPM-arbetsbelastningar i Azure-portalen](backup-azure-dpm-introduction.md)
+### [Förbereda DPM-arbetsbelastningar i Azure Portal](backup-azure-dpm-introduction.md)
 ### [Förbereda DPM-arbetsbelastningar i den klassiska portalen](backup-azure-dpm-introduction-classic.md)
-### [Förbereda Azure Backup Server-arbetsbelastningar i Azure-portalen](backup-azure-microsoft-azure-backup.md)
+### [Förbereda Azure Backup Server-arbetsbelastningar i Azure Portal](backup-azure-microsoft-azure-backup.md)
 ### [Förbereda Azure Backup Server-arbetsbelastningar i den klassiska portalen](backup-azure-microsoft-azure-backup-classic.md)
 ### [Använd System Center DPM för att säkerhetskopiera Exchange-server](backup-azure-backup-exchange-server.md)
 ### [Återställa data i säkerhetskopieringsvalvet till en annan DPM-server](backup-azure-alternate-dpm-server.md)
@@ -31,10 +31,10 @@
 ### [Säkerhetskopiera virtuella Azure-datorer till ett Recovery Services-valv](backup-azure-arm-vms.md)
 ### [Säkerhetskopiera och återställa krypterade virtuella datorer](backup-azure-vms-encryption.md)
 ### [Hantera och övervaka virtuella Azure-säkerhetskopior i den klassiska portalen](backup-azure-manage-vms-classic.md)
-### [Hantera virtuella Azure-säkerhetskopieringar i Azure-portalen](backup-azure-manage-vms.md)
-### [Övervaka varningar om virtuella Azure-säkerhetskopieringar i Azure-portalen](backup-azure-monitor-vms.md)
+### [Hantera virtuella Azure-säkerhetskopieringar i Azure Portal](backup-azure-manage-vms.md)
+### [Övervaka varningar om virtuella Azure-säkerhetskopieringar i Azure Portal](backup-azure-monitor-vms.md)
 ### [Återställa virtuella datorer i Azure](backup-azure-restore-vms.md)
-### [Återställa Resource Manager-distribuerade virtuella datorer i Azure-portalen](backup-azure-arm-restore-vms.md)
+### [Återställa Resource Manager-distribuerade virtuella datorer i Azure Portal](backup-azure-arm-restore-vms.md)
 ## Säkerhetskopiera Windows-datorer
 ### [Windows Server med den klassiska distributionsmodellen](backup-configure-vault-classic.md)
 ### [Windows Server med Resource Manager-distributionsmodellen](backup-configure-vault.md)
@@ -47,10 +47,14 @@
 ## [Konfigurera säkerhetskopiering offline](backup-azure-backup-import-export.md)
 ## [Använda Azure Backup för att ersätta din bandinfrastruktur](backup-azure-backup-cloud-as-tape.md)
 ## Felsöka
-### [Problem med virtuella Azure-säkerhetskopieringar i Azure-portalen](backup-azure-vms-troubleshoot.md)
+### [Problem med virtuella Azure-säkerhetskopieringar i Azure Portal](backup-azure-vms-troubleshoot.md)
 ### [Problem med virtuella Azure-säkerhetskopieringar i den klassiska portalen](backup-azure-vms-troubleshoot-classic.md)
 ### [Fel vid säkerhetskopiering av virtuell Azure-dator: Det gick inte att kommunicera med VM-agenten för ögonblicksbildstatus – Tidsgränsen uppnåddes för underåtgärden för ögonblicksbilds-VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Långsam säkerhetskopiering av filer och mappar i Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
+
+# Referens
+## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/backup/)
@@ -59,6 +63,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

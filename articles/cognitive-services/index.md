@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b266164f44b36fbfbe3b8a662653a978877643fc
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: e4e35a7c13db98770295cbaa19cf33b18c1fb5e7
 
 ---
 #<a name="cognitive-services-documentation"></a>Dokumentation om Cognitive Services
@@ -68,52 +68,31 @@ Cognitive Services (förhandsversion) är ett antal API:er som kan användas fö
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell-referens</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Hanterad referens för Cognitive Services</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/cognitiveservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST API-referens för Cognitive Services</p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">Referens för REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -127,6 +106,6 @@ Hämta dokumentation om Cognitive Services </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

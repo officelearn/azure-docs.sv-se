@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: 618c677ea675e6dc8f9dfb41f8e00b66f3f31886
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
 
 ---
 #<a name="service-bus-documentation"></a>Dokumentation för Service Bus
@@ -29,7 +29,7 @@ Med Service Bus får du molnaktiverad kommunikation med företagsmeddelandetjän
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=service-bus">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -194,52 +194,45 @@ Med Service Bus får du molnaktiverad kommunikation med företagsmeddelandetjän
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell-referens</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET-hanterat referens-API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/servicebus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Service Bus REST API-referens</p>
+                        <p><a href="/rest/api/servicebus">Referens för REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Annat</h3>
+                        <p><a href="/dotnet/api/">Hanterat referens-API</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
@@ -251,6 +244,6 @@ Ladda ned dokumentation för Service Bus </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

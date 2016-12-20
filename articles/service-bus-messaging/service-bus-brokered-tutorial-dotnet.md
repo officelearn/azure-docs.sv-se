@@ -1,13 +1,13 @@
 ---
 title: ".Net-självstudiekurs om asynkrona meddelanden i Service Bus | Microsoft Docs"
 description: ".Net-självstudiekurs om asynkrona meddelanden"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: d888a16d538491535aad8effed53a5e98aa01359
 
 
 ---
@@ -43,19 +43,19 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
 1. Öppna Visual Studio som administratör genom att högerklicka på programmet i Start-menyn och klicka på **Kör som administratör**.
 2. Skapa ett nytt konsolappsrojekt. Klicka på **Arkivmenyn**, välj **Nytt** och klicka sedan på **Projekt**. I dialogrutan **Nytt projekt** klickar du på **Visual C#** (om **Visual C#** inte visas tittar du under **Andra språk**). Sedan klickar du på mallen **Konsolapp** och ger den namnet **QueueSample**. Använd standardinställningen **Plats**. Klicka på **OK** för att skapa projektet.
 3. Använd pakethanteraren NuGet för att lägga till Service Bus-bibliotek i projektet:
-   
+
    1. Högerklicka på projektet **QueueSample** i Solution Explorer och klicka sedan på **Hantera NuGet-paket**.
    2. I dialogrutan **Hantera Nuget-paket** klickar du på fliken **Bläddra** och söker efter **Azure Service Bus**. Sedan klickar du på **Installera**.
       <br />
 4. Dubbelklicka på filen Program.cs i Solution Explorer för att öppna den i Visual Studio-redigeraren. Ändra namnet på namnområdet från standardnamnet `QueueSample` till `Microsoft.ServiceBus.Samples`.
-   
+
     ```
     Microsoft.ServiceBus.Samples
     {
         ...
     ```
 5. Ändra `using`-instruktionerna så som visas i följande kod:
-   
+
     ```
     using System;
     using System.Collections.Generic;
@@ -66,7 +66,7 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
     using Microsoft.ServiceBus.Messaging;
     ```
 6. Skapa en textfil med namnet Data.csv och kopiera följande kommaavgränsade text.
-   
+
     ```
     IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
     1,Package lost,1,1,Basic,5,1,FALSE
@@ -85,25 +85,25 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
     14,Package damaged,6,7,Premium,5,5,FALSE
     15,Product defective,6,2,Premium,5,5,FALSE
     ```
-   
+
     Spara och stäng filen Data.csv och kom ihåg platsen där du sparade den.
 7. Högerklicka på projektets namn (i det här fallet **QueueSample**) i Solution Explorer. Klicka på **Lägg till** och sedan på **Befintligt objekt**.
 8. Bläddra till filen Data.csv som du skapade i steg 6. Klicka på filen och sedan på **Lägg till**. Se till att **Alla filer (*.*)** har valts i listan över filtyper.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>Skapa en metod som parsar en lista med meddelanden
 1. I `Program`-klassen före `Main()`-metoden deklarerar du två variabler: en av typen **DataTable**, som ska innehålla listan över meddelanden i Data.csv. Den andra ska vara av typen listobjekt, starkt typbestämd till [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Den senare är listan över asynkrona meddelanden som används i följande steg i självstudiekursen.
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         class Program
         {
-   
+
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList;
     ```
 2. Utanför `Main()` definierar du en `ParseCSV()`-metod som parsar listan över meddelanden i Data.csv och läser in meddelanden till en [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx)-tabell så som det visas här. Metoden returnerar ett **DataTable**-objekt.
-   
+
     ```
     static DataTable ParseCSVFile()
     {
@@ -115,14 +115,14 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
             {
                 string line;
                 string[] row;
-   
+
                 // create the columns
                 line = readFile.ReadLine();
                 foreach (string columnTitle in line.Split(','))
                 {
                     tableIssues.Columns.Add(columnTitle);
                 }
-   
+
                 while ((line = readFile.ReadLine()) != null)
                 {
                     row = line.Split(',');
@@ -134,31 +134,31 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
         {
             Console.WriteLine("Error:" + e.ToString());
         }
-   
+
         return tableIssues;
     }
     ```
 3. I `Main()`-metoden lägger du till en instruktion som anropar `ParseCSVFile()`-metoden:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
-   
+
     }
     ```
 
 ### <a name="create-a-method-that-loads-the-list-of-messages"></a>Skapa en metod som läser in listan med meddelanden
-1. Utanför `Main()` definierar du en `GenerateMessages()`-metod som tar det **DataTable**-objekt som returnerades av `ParseCSVFile()` och läser in tabellen i en starkt typbestämd lista över asynkrona meddelanden. Metoden returnerar sedan **listobjektet** som i följande exempel. 
-   
+1. Utanför `Main()` definierar du en `GenerateMessages()`-metod som tar det **DataTable**-objekt som returnerades av `ParseCSVFile()` och läser in tabellen i en starkt typbestämd lista över asynkrona meddelanden. Metoden returnerar sedan **listobjektet** som i följande exempel.
+
     ```
     static List<BrokeredMessage> GenerateMessages(DataTable issues)
     {
         // Instantiate the brokered list object
         List<BrokeredMessage> result = new List<BrokeredMessage>();
-   
+
         // Iterate through the table and create a brokered message for each row
         foreach (DataRow item in issues.Rows)
         {
@@ -173,11 +173,11 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
     }
     ```
 2. I `Main()`, direkt efter anropet till `ParseCSVFile()`, lägger du till en instruktion som anropar `GenerateMessages()`-metoden med returvärdet från `ParseCSVFile()` som ett argument:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
@@ -186,46 +186,46 @@ Nästa steg är att skapa ett Visual Studio-projekt och skriva två hjälpfunkti
 
 ### <a name="obtain-user-credentials"></a>Skaffa autentiseringsuppgifter för användare
 1. Skapa först tre globala strängvariabler som ska innehålla värdena. Deklarera variablerna direkt efter de tidigare variabeldeklarationerna. Exempel:
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         public class Program
         {
-   
+
             private static DataTable issues;
-            private static List<BrokeredMessage> MessageList; 
-   
+            private static List<BrokeredMessage> MessageList;
+
             // Add these variables
             private static string ServiceNamespace;
             private static string sasKeyName = "RootManageSharedAccessKey";
             private static string sasKeyValue;
             …
     ```
-2. Skapa sedan en funktion som tar emot och lagrar namnområdet för tjänsten och SAS-nyckeln. Lägg till den här metoden utanför `Main()`. Några exempel: 
-   
+2. Skapa sedan en funktion som tar emot och lagrar namnområdet för tjänsten och SAS-nyckeln. Lägg till den här metoden utanför `Main()`. Några exempel:
+
     ```
     static void CollectUserInput()
     {
         // User service namespace
         Console.Write("Please enter the namespace to use: ");
         ServiceNamespace = Console.ReadLine();
-   
+
         // Issuer key
         Console.Write("Enter the SAS key to use: ");
         sasKeyValue = Console.ReadLine();
     }
     ```
 3. I `Main()`, direkt efter anropet till `GenerateMessages()`, lägger du till en instruktion som anropar `CollectUserInput()`-metoden:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
-   
+
         // Collect user input
         CollectUserInput();
     }
@@ -238,7 +238,7 @@ Från menyn **Skapa** i Visual Studio klickar du på **Skapa lösning** eller tr
 I det här steget definierar du vilka hanteringsåtgärder du ska använda för att skapa autentiseringsuppgifter för signatur för delad åtkomst (SAS) med vilka appen auktoriseras.
 
 1. För att den här självstudiekursen ska bli tydligare placeras alla köåtgärder i en annan metod. Skapa en asynkron `Queue()`-metod i `Program`-klassen efter `Main()`-metoden. Några exempel:
-   
+
     ```
     public static void Main(string[] args)
     {
@@ -249,7 +249,7 @@ I det här steget definierar du vilka hanteringsåtgärder du ska använda för 
     }
     ```
 2. Nästa steg är att skapa SAS-autentiseringsuppgifter med ett [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx)-objekt. I den här metoden används SAS-nyckelnamnet och värdet som hämtades i `CollectUserInput()`-metoden. Lägg till följande kod i `Queue()`-metoden:
-   
+
     ```
     static async Task Queue()
     {
@@ -258,7 +258,7 @@ I det här steget definierar du vilka hanteringsåtgärder du ska använda för 
     }
     ```
 3. Skapa ett nytt objekt för hantering av namnområde med en URI som innehåller namnet på namnområdet och autentiseringsuppgifterna för hantering från det förra steget som argument. Lägg till den här koden direkt efter koden som lagts till i det förra steget. Ersätt `<yourNamespace>` med namnet på namnområdet för tjänsten:
-   
+
     ```
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
@@ -375,29 +375,29 @@ I det här steget skapar du en kö och skickar meddelandena som finns i listan �
 
 ### <a name="create-queue-and-send-messages-to-the-queue"></a>Skapa en kö och skicka meddelanden till den
 1. Skapa först kön. Kalla den till exempel `myQueue` och deklarera den direkt efter hanteringsåtgärderna som du lade till i `Queue()`-metoden i det senaste steget:
-   
+
     ```
     QueueDescription myQueue;
-   
+
     if (namespaceClient.QueueExists("IssueTrackingQueue"))
     {
         namespaceClient.DeleteQueue("IssueTrackingQueue");
     }
-   
+
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
     ```
 2. I `Queue()`-metoden skapar du ett objekt för meddelandefabrik med en nyligen skapad Service Bus-URI som argument. Lägg till följande kod direkt efter hanteringsåtgärderna som du lade till i det senaste steget. Ersätt `<yourNamespace>` med namnet på namnområdet för tjänsten:
-   
+
     ```
     MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 3. Skapa sedan köobjektet med [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx)-klassen. Lägg till följande kod direkt efter den du lade till i det senaste steget:
-   
+
     ```
     QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
     ```
 4. Lägg till en kod som körs i en loop genom listan med asynkrona meddelanden som du skapade tidigare och skickar dem till kön. Lägg till följande kod direkt efter `CreateQueueClient()`-instruktionen i det förra steget:
-   
+
     ```
     // Send messages
     Console.WriteLine("Now sending messages to the queue.");
@@ -615,7 +615,7 @@ Nu när du har slutfört ovanstående steg kan du skapa och köra **QueueSample*
 I menyn **Skapa** i Visual Studio klickar du på **Skapa lösning** eller trycker på **CTRL+SKIFT+B**. Om det uppstår fel kontrollerar du att koden är korrekt baserad på det fullständiga exemplet som visas i slutet av det förra steget.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen visades hur du skapar en klientapp och en tjänst för Service Bus med funktioner för asynkrona meddelanden i Service Bus. Information om [Service Bus WCF Relay](service-bus-messaging-overview.md#Relayed-messaging) finns i [självstudiekursen för den vidarebefordrande meddelandetjänsten i Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+I den här självstudiekursen visades hur du skapar en klientapp och en tjänst för Service Bus med funktioner för asynkrona meddelanden i Service Bus. Information om [Service Bus WCF Relay](service-bus-messaging-overview.md#service-bus-relay) finns i [självstudiekursen för den vidarebefordrande meddelandetjänsten i Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 I följande avsnitt kan du lära dig mer om [Service Bus](https://azure.microsoft.com/services/service-bus/).
 
@@ -625,7 +625,6 @@ I följande avsnitt kan du lära dig mer om [Service Bus](https://azure.microsof
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

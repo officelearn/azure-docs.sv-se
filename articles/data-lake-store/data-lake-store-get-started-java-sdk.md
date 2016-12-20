@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 255e8def5179e544a4fb919774f3b18148566898
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 255e8def5179e544a4fb919774f3b18148566898
 > * [REST-API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Läs hur man använder Azure Data Lake Store Java-SDK:n för att utföra grundläggande åtgärder som att skapa mappar, överföra och hämta datafiler, och så vidare. Mer information om Data Lake finns i [Azure Data Lake Store](data-lake-store-overview.md).
@@ -148,6 +149,6 @@ Observera att filer läses från och skrivs till med hjälp av standard Java-str
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

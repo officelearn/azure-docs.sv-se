@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: timlt
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b9358183d884dfeda3d200ef5ae8beb60d3957e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e8f1ad596d2b64380876a501ebcf127afdda9ccf
 
 
 ---
@@ -47,7 +47,7 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## <a name="deploy-a-dockerformatted-container"></a>Distribuera en Docker-formaterad behållare
+## <a name="deploy-a-docker-formatted-container"></a>Distribuera en Docker-formaterad behållare
 Du kan distribuera Docker-formaterade behållare via Marathon genom att använda en JSON-fil som beskriver den avsedda distributionen. I följande exempel distribueras Nginx-behållaren, vilket binder port 80 på DC/OS-agenten till port 80 på behållaren. Observera även att ”slave_public” har angetts för egenskapen ”acceptedResourceRoles”. Det innebär att behållaren distribueras till en agent i den offentliga agentskalningsuppsättningen.
 
 ```json
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

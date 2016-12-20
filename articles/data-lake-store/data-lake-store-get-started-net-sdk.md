@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
+ms.sourcegitcommit: ad50c6c12bc3b328d776f37fc31f44d90a0915a3
+ms.openlocfilehash: 990f899681b6828edac6fccfd4509f20812edbdf
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 47f8601471c6b1f6da5d57d1f30da51af76fba85
 > * [REST-API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx) för att utföra grundläggande åtgärder som att skapa mappar, ladda upp och hämta datafiler, osv. Mer information om Data Lake finns i [Azure Data Lake Store](data-lake-store-overview.md).
@@ -103,7 +104,7 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://msdn.micro
 I de återstående avsnitten i artikeln kan du se hur du använder tillgängliga .NET-metoder för att utföra åtgärder som autentisering, ladda upp filer, osv.
 
 ## <a name="authentication"></a>Autentisering
-### <a name="if-you-are-using-enduser-authentication-recommended-for-this-tutorial"></a>Om du använder autentisering för slutanvändare (rekommenderas för den här kursen)
+### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Om du använder autentisering för slutanvändare (rekommenderas för den här kursen)
 Använd det här med ett befintligt ”internt Azure AD-klientprogram”. Ett sådant anges nedan. Om du vill få hjälp att slutföra den här kursen snabbare, rekommenderar vi att du använder den här metoden.
 
     // User login via interactive popup
@@ -117,14 +118,14 @@ Använd det här med ett befintligt ”internt Azure AD-klientprogram”. Ett s�
 Några saker att känna till om följande utdrag.
 
 * För att hjälpa dig att slutföra kursen snabbare använder utdraget en Azure AD-domän och ett klient-ID som är tillgängligt som standard för alla Azure-prenumerationer. Så kan du **använder detta utdrag i befintligt skick i ditt program**.
-* Men om du vill använda en egen Azure AD-domän och program klient-ID måste du skapa ett enhetligt Azure AD-program och sedan använda Azure AD-domänen, klient-ID och omdirigerings-URI för det program som du skapade. I [Create an Active Directory Application (Skapa ett program i Active Directory)](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) finns instruktioner.
+* Men om du vill använda en egen Azure AD-domän och program klient-ID måste du skapa ett enhetligt Azure AD-program och sedan använda Azure AD-domänen, klient-ID och omdirigerings-URI för det program som du skapade. I [Create an Active Directory Application (Skapa ett program i Active Directory)](data-lake-store-end-user-authenticate-using-active-directory.md) finns instruktioner.
 
 > [!NOTE]
 > Anvisningarna i länkarna ovan är för ett Azure AD-webbprogram. Stegen är dock exakt samma även om du väljer att skapa ett internt klientprogram i stället. 
 > 
 > 
 
-### <a name="if-you-are-using-servicetoservice-authentication-with-client-secret"></a>Om du använder serviceautentisering med klienthemlighet
+### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Om du använder serviceautentisering med klienthemlighet
 Du kan använda följande fragment för att autentisera ditt program icke-interaktivt, med hjälp av klienthemlighet/nyckel för ett program/tjänstobjekt. Använd det här med ett befintligt [Azure AD-"webbapp"-program](../resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
@@ -136,7 +137,7 @@ Du kan använda följande fragment för att autentisera ditt program icke-intera
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-### <a name="if-you-are-using-servicetoservice-authentication-with-certificate"></a>Om du använder serviceautentisering med certifikat
+### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Om du använder serviceautentisering med certifikat
 Ett tredje alternativ är att använda följande fragment för att autentisera ditt program icke-interaktivt, med hjälp av certifikatet för ett program/tjänstobjekt. Använd det här med ett befintligt [Azure AD-"webbapp"-program](../resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
@@ -260,6 +261,6 @@ I följande fragment visas en `DownloadFile`-metod som du kan använda för att 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

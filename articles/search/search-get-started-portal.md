@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
 
 
 ---
@@ -27,7 +27,7 @@ Den här introduktionen utan kod hjälper dig att komma igång med Microsoft Azu
 I självstudiekursen används en [Azure DocumentDB-exempeldatabas](#apdx-sampledata), som du enkelt kan skapa med våra data och instruktioner, men du kan också anpassa stegen till dina befintliga data i en DocumentDB- eller SQL-databas.
 
 > [!NOTE]
-> Den här introduktionskursen kräver en [Azure-prenumeration](/pricing/free-trial/?WT.mc_id=A261C142F) och en [Azure Search-tjänst](search-create-service-portal.md). 
+> Den här introduktionskursen kräver en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) och en [Azure Search-tjänst](search-create-service-portal.md). 
 > 
 > 
 
@@ -181,6 +181,6 @@ Du bör få tillbaka JSON-utdata, som börjar med dokument 386 och slutar med 66
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

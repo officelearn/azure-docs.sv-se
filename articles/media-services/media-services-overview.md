@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2a4395385ab0e6e71e5139883a544add0a081cf2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1a680f20bc9ceee8efd943cd71312372fe56a878
 
 
 ---
@@ -62,12 +62,12 @@ Azure Media Services-koncepten finns i [Koncept](media-services-concepts.md).
 
 En instruktionsserie som ger en introduktion till huvudkomponenterna i Azure Media Services finns i [Azure Media Services stegvisa självstudier](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Den här serien ger en bra översikt över koncepten och använder verktyget AMSE för att demonstrera AMS-uppgifter. Observera att AMSE-verktyget är ett verktyg i Windows. Det här verktyget stöder de flesta av de uppgifter som du kan göra programmässigt med [AMS SDK för .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java) eller  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="a-idvodscenariosadelivering-media-ondemand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Leverera media på begäran med Azure Media Services: vanliga scenarier och uppgifter
+## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Leverera media på begäran med Azure Media Services: vanliga scenarier och uppgifter
 Det här avsnittet beskriver vanliga scenarier och innehåller länkar till relevanta avsnitt. I följande diagram visas de huvudsakliga delarna i plattformen Media Services som är inblandade i att leverera innehåll på begäran. 
 
 ![VoD-arbetsflöde](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
-### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-nonencrypted"></a>Skydda lagrat innehåll och leverera strömmande medier i klartext (okrypterat)
+### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Skydda lagrat innehåll och leverera strömmande medier i klartext (okrypterat)
 1. Överför en mezzaninfil av hög kvalitet till en tillgång.
    
     Vi rekommenderar att du använder ett krypterat lagringsalternativ för tillgången så att du skyddar innehållet under överföringen och i vila i lagring.
@@ -142,13 +142,13 @@ En **kanal** representerar en pipeline för bearbetning av liveströmmat innehå
 * En lokal livekodare skickar **RTMP** eller **Smooth Streaming** med flera bithastigheter (fragmenterad MP4) till den kanal som är konfigurerad för **direkt** leverans. Den **direkta** leveransen är när de infogade strömmarna passerar genom **kanalerna** utan vidare bearbetning. Du kan använda följande livekodare som skickar Smooth Streaming i flera bithastigheter: Elemental, Envivio, Cisco.  Följande livekodare skickar RTMP: Adobe Flash Live, Telestream Wirecast och Tricaster-omkodare.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
 
 > [!NOTE]
-> Genomströmningsmetoden är det mest ekonomiska sättet för liveströmning när du utför flera händelser under en längre tid och du redan har investerat i lokala kodare. Se [prisuppgifter](/pricing/details/media-services/).
+> Genomströmningsmetoden är det mest ekonomiska sättet för liveströmning när du utför flera händelser under en längre tid och du redan har investerat i lokala kodare. Se [prisuppgifter](https://azure.microsoft.com/pricing/details/media-services/).
 > 
 > 
 
 * En lokal livekodare skickar en ström med en enda bithastighet till den kanal som är aktiverad för att utföra Live Encoding med Media Services i något av följande format: RTP (MPEG-TS) RTMP eller Smooth Streaming (fragmenterad MP4). Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
-### <a name="working-with-channels-that-receive-multibitrate-live-stream-from-onpremises-encoders-passthrough"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
+### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
 I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet **Genomströmning**.
 
 ![Live-arbetsflöde][live-overview2]
@@ -193,14 +193,14 @@ Du kan även skala ditt Media Services-konto genom att lägga till lagringskonto
 Mer information finns i [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
-[översikt]: ./media/media-services-overview/media-services-overview.png
-[vod-översikt]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-[live-översikt1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
-[live-översikt2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
+[overview]: ./media/media-services-overview/media-services-overview.png
+[vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+[live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
+[live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

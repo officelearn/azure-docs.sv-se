@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
 
 
 ---
@@ -126,7 +126,7 @@ Om du vill lära dig mer om vilka data som används för lösenordsåterställni
 ### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Steg 3: Återställa ditt Azure AD-lösenord som en användare
 Nu när du har konfigurerat en återställningsprincip för användare och angett kontaktuppgifterna för användaren kan användaren utföra en lösenordsåterställning via självbetjäning.
 
-#### <a name="to-perform-a-selfservice-password-reset"></a>Så här utför du en lösenordsåterställning via självbetjäning
+#### <a name="to-perform-a-self-service-password-reset"></a>Så här utför du en lösenordsåterställning via självbetjäning
 1. Om du går till en webbplats som [**portal.microsoftonline.com**](http://portal.microsoftonline.com) visas en inloggningsskärm som den nedan.  Klicka på länken **Kan du inte komma åt ditt konto?** för att testa användargränssnittet för lösenordsåterställning.
    
    ![][011]
@@ -365,6 +365,6 @@ Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställni
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
 
 
 ---
@@ -38,7 +38,7 @@ Följande förkortningar och symboler används i tabellerna.
 FR = Framtida version  
 PP = Offentlig granskning  
 
-## <a name="onpremises-to-cloud-synchronization"></a>Synkronisering lokalt till molnet
+## <a name="on-premises-to-cloud-synchronization"></a>Synkronisering lokalt till molnet
 | Funktion | Azure Active Directory Connect | Azure Active Directory Sync Services (AAD Sync) | Verktyget Azure Active Directory Synchronization (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Ansluta till en enda lokal AD-skog |● |● |● |● |● |
@@ -52,7 +52,7 @@ PP = Offentlig granskning
 | Ansluta till lokalt HR (SAP, Oracle eBusiness, PeopleSoft osv.) |FR | | |● |● |
 | Stöder FIM-synkroniseringsregler och kopplingar för etablering i lokala system. | | | |● |● |
 
-## <a name="cloud-to-onpremises-synchronization"></a>Synkronisering molnet till lokalt
+## <a name="cloud-to-on-premises-synchronization"></a>Synkronisering molnet till lokalt
 | Funktion | Azure Active Directory Connect | Azure Active Directory Sync Services | Verktyget Azure Active Directory Synchronization (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Tillbakaskrivning av enheter |● | |● | | |
@@ -68,7 +68,7 @@ PP = Offentlig granskning
 | Enkel inloggning med federation |● |● |● |● |● |
 | Tillbakaskrivning av lösenord (från SSPR och lösenordsändring) |● |● | | | |
 
-## <a name="setup-and-installation"></a>Konfiguration och installation
+## <a name="set-up-and-installation"></a>Konfiguration och installation
 | Funktion | Azure Active Directory Connect | Azure Active Directory Sync Services | Verktyget Azure Active Directory Synchronization (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Stöder installation på en domänkontrollant |● |● |● | |
@@ -95,6 +95,6 @@ Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Director
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

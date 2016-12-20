@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cefda0778fed4ab8d502955dd8eae4bdac70a48e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
 
 
 ---
@@ -148,7 +148,7 @@ Följande JVM-baserade språk stöds i HDInsight-kluster:
 * Jython (Python för Java)
 * Scala
 
-### <a name="hadoopspecific-languages"></a>Hadoop-specifika språk
+### <a name="hadoop-specific-languages"></a>Hadoop-specifika språk
 HDInsight-kluster stöder följande språk som är specifika för Hadoop-ekosystemet:
 
 * Pig Latin för Pig-jobb
@@ -167,12 +167,12 @@ Som en del av molnekosystemet Azure erbjuder Hadoop i HDInsight ett antal förde
 * Stöd för Virtual Network. HDInsight-kluster kan användas med Azure Virtual Network för isolering av molnresurser eller hybridscenarier som kopplar ihop molnresurserna med dessa i ditt datacenter.
 * Låg ingångskostnad. Prova en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/) eller läs i [prisinformationen för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-För att läsa mer om fördelarna med Hadoop i HDInsight, kan du se [Azure funktionssidan för HDInsight][marketing-page].
+Mer information om fördelarna med Hadoop i HDInsight finns på [sidan om Azure-funktioner för HDInsight][marketing-page].
 
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard och HDInsight Premium
 HDInsight erbjuder molntjänster för stordata i två kategorier, Standard och Premium. HDInsight Standard tillhandahåller ett kluster för stora företag som organisationer kan använda för att köra sina stordataarbetsbelastningar. HDInsight Premium är en ytterligare utbyggnad med avancerade analys- och säkerhetsfunktioner för ett HDInsight-kluster. Mer information finns i [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
 
-## <a name="a-idresourcesaresources-for-learning-more-about-bigdata-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Resurser för att läsa mer om stordata-analys, Hadoop och HDInsight
+## <a name="a-idresourcesaresources-for-learning-more-about-big-data-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Resurser för att läsa mer om stordata-analys, Hadoop och HDInsight
 Komplettera den här introduktionen av Hadoop i molnet och stordataanalys med nedanstående resurser.
 
 ### <a name="hadoop-documentation-for-hdinsight"></a>Hadoop-dokumentation för HDInsight
@@ -204,6 +204,6 @@ Följande BI-verktyg kan vara till hjälp vid stordataanalys:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

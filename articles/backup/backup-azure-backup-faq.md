@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/21/2016
+ms.date: 11/16/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: adee77b102d9c9326dad864f6f2f906f7b8acd0b
+ms.sourcegitcommit: be06f1eca1848ff6d00661cfc1166797649a98a4
+ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: adee77b102d9c9326dad864f6f2f906f7b8acd0b
 Den här artikeln innehåller en lista över vanliga frågor och svar om Azure Backup-tjänsten. Vår community svarar snabbt, och vanliga frågor publiceras i den här artikeln. Svaren på frågorna innehåller ofta referens- eller supportinformation. Du kan ställa frågor om Azure Backup i Disqus-rutan i den här eller en relaterad artikel. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Från vilka operativsystem kan jag säkerhetskopiera till Azure med hjälp av Azure Backup? <br/>
-Azure Backup stöder operativsystemen i följande lista för säkerhetskopiering av filer, mappar och program med hjälp av Azure Backup Server och SCDPM.
+Azure Backup stöder följande lista över operativsystem för säkerhetskopiering av filer och mappar och arbetsbelastningsprogram som skyddas med Azure Backup Server och SCDPM.
 
 | Operativsystem | Plattform | SKU |
 |:--- | --- |:--- |
@@ -43,7 +43,7 @@ Azure Backup stöder operativsystemen i följande lista för säkerhetskopiering
 
 Säkerhetskopiering av virtuell Azure-dator:
 
-* **Linux**: Azure Backup stöder [en lista över distributioner som godkänts av Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) med undantag för Core OS Linux.  Andra Bring-Your-Own-Linux-distributioner kan också fungera så länge som den virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns.
+* **Linux**: Azure Backup stöder [en lista över distributioner som godkänts av Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) med undantag för Core OS Linux.  Andra Bring-Your-Own-Linux-distributioner kan också fungera så länge som den virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns.
 * **Windows Server**: versioner som är äldre än Windows Server 2008 R2 stöds inte.
 
 ## <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Var kan jag hämta den senaste Azure Backup-agenten? <br/>
@@ -56,17 +56,17 @@ Vi rekommenderar att du installerar den [senaste](http://aka.ms/azurebackup_agen
 Ja, valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Om filen går ut loggar du in på Azure-portalen och laddar ned filerna med valvautentiseringsuppgifterna från ditt valv.
 
 ## <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Finns det någon gräns för antalet valv som kan skapas i varje Azure-prenumeration? <br/>
-Ja. Från september 2016 så kan du skapa 25 säkerhetskopieringsvalv per prenumeration. Du kan skapa upp till 25 Recovery Services-valv för varje Azure Backup-region som stöds per prenumeration. Om du behöver flera valv skapar du en ny prenumeration.
+Ja. Från september 2016 så kan du skapa 25 säkerhetskopieringsvalv per prenumeration. Du kan skapa upp till 25 Recovery Services-valv för varje Azure Backup-region som stöds per prenumeration. Om du behöver fler valv skapar du en ny prenumeration.
 
 ## <a name="are-there-any-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Finns det några begränsningar för hur många servrar/datorer som kan registreras mot varje valv? <br/>
-Ja, du kan registrera upp till 50 datorer per valv. För virtuella Azure IaaS-datorer är gränsen 200 virtuella datorer per valv. Om du behöver registrera fler datorer skapar du ett nytt valv.
+Ja, du kan registrera upp till 50 datorer per valv. För virtuella Azure IaaS-datorer är gränsen 200 virtuella datorer per valv. Om du behöver registrera fler datorer skapar du ett till valv.
 
 ## <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Hur registrerar jag min server till ett annat datacenter?<br/>
 Säkerhetskopierade data skickas till datacentret för det valv som det har registrerats för. Det enklaste sättet att ändra datacentret är att avinstallera och installera om agenten och registrera ett nytt valv som tillhör det önskade datacentret.
 
 ## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Vad händer om jag byter namn på en Windows-server som säkerhetskopierar data till Azure?<br/>
 När du byter namn på en server stoppas alla säkerhetskopieringar som är konfigurerade för närvarande.
-Du måste registrera det nya namnet på servern med Backup-valvet. När du skapar en ny registrering är den första säkerhetskopieringen en fullständig säkerhetskopiering, inte en inkrementell säkerhetskopiering. Om du behöver återställa data som tidigare har säkerhetskopierats till valvet med det gamla servernamnet kan du återställa dessa data med hjälp av alternativet [**En annan server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) i guiden **Återställ data**.
+Registrera det nya namnet på servern med Backup-valvet. När du registrerar ett nytt namn med valvet är den första säkerhetskopieringen en *fullständig* säkerhetskopiering. Om du behöver återställa data som tidigare har säkerhetskopierats till valvet med det gamla servernamnet kan du återställa dessa data med hjälp av alternativet [**En annan server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) i guiden **Återställ data**.
 
 ## <a name="what-types-of-drives-can-i-backup-files-and-folders-from-br"></a>Från vilka typer av enheter kan jag säkerhetskopiera filer och mappar? <br/>
 Följande uppsättning enheter/volymer kan inte säkerhetskopieras:
@@ -105,9 +105,9 @@ Nej. Valvet skapas på prenumerationsnivå och kan inte tilldelas en annan prenu
 Ja. Agenttjänsten konverterar deduplicerade data till vanliga data när den förbereder säkerhetskopieringen. Därefter optimerar tjänsten data för säkerhetskopiering, krypterar dessa data och skickar dem till onlinesäkerhetskopieringstjänsten.
 
 ## <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Tas säkerhetskopierade data som redan har överförts bort om jag avbryter ett säkerhetskopieringsjobb som redan har startat? <br/>
-Nej. Säkerhetskopieringsvalvet lagrar säkerhetskopierade data som har överförts fram till den punkt då jobbet avbröts. Azure Backup använder en kontrollpunktsmekanism för att då och då lägga till kontrollpunkter till säkerhetskopierade data under säkerhetskopieringen. Eftersom det finns kontrollpunkter i säkerhetskopian kan nästa säkerhetskopiering validera filernas integritet. Nästa säkerhetskopiering är en inkrementell säkerhetskopiering som körs mot tidigare säkerhetskopierade data. En inkrementell säkerhetskopiering utnyttjar bandbredden bättre, så att du inte behöver överföra samma data flera gånger.
+Nej. Alla data som överförts till valvet innan åtgärden avbryts finns kvar i valvet. Azure Backup använder en kontrollpunktsmekanism för att då och då lägga till kontrollpunkter till säkerhetskopierade data under säkerhetskopieringen. Eftersom det finns kontrollpunkter i säkerhetskopian kan nästa säkerhetskopiering validera filernas integritet. Nästa säkerhetskopieringsjobb är en inkrementell säkerhetskopiering mot tidigare säkerhetskopierade data. Vid inkrementella säkerhetskopieringar överförs bara nya eller ändrade data, vilket innebär att bandbredden utnyttjas bättre.
 
-När det gäller säkerhetskopiering av virtuella Azure-datorer så ignoreras överförda data när jobbet avbryts och en ny säkerhetskopiering överför inkrementella data från ett tidigare lyckat säkerhetskopieringsjobb.
+Om du avbryter ett säkerhetskopieringsjobb för en virtuella Azure-dator ignoreras alla överförda data. Nästa säkerhetskopieringsjobb överför inkrementella data från det senaste lyckade säkerhetskopieringsjobbet.
 
 ## <a name="why-am-i-seeing-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-had-scheduled-regular-backups-previously-br"></a>Varför visas en varning om att inga Azure-säkerhetskopieringar har konfigurerats för servern, trots att jag har schemalagt regelbundna säkerhetskopieringar tidigare? <br/>
 Den här varningen visas om inställningarna för säkerhetskopieringsschemat på den lokala servern inte är samma som inställningarna som lagras i säkerhetskopieringsvalvet. Om servern eller inställningarna har återställts till ett fungerande tillstånd kan synkroniseringen av säkerhetskopieringsscheman brytas. Om den här varningen visas [omkonfigurerar du säkerhetskopieringspolicyn](backup-azure-manage-windows-server.md) och väljer **Kör säkerhetskopiering nu** för att synkronisera om den lokala servern med Azure.
@@ -122,16 +122,16 @@ För sömlöst skydd av ”lokala till Azure”-data och ”arbetsbelastning til
 * \*.windows.net
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Kan jag installera Azure Backup-agenten på en virtuell dator i Azure som redan har säkerhetskopierats av Azure Backup-tjänsten med hjälp av VM-tillägget? <br/>
-Absolut. Azure Backup stöder säkerhetskopiering på VM-nivå för virtuella datorer i Azure med hjälp av VM-tillägget. Du kan installera Azure Backup-agenten i ett Windows-gästoperativsystem för att skydda filer och mappar i gästoperativsystemet.
+Absolut. Azure Backup stöder säkerhetskopiering på VM-nivå för virtuella datorer i Azure med hjälp av VM-tillägget. Installera Azure Backup-agenten i ett Windows-gästoperativsystem för att skydda filer och mappar i gästoperativsystemet.
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Kan jag installera Azure Backup-agenten på en virtuell dator i Azure om jag vill säkerhetskopiera filer och mappar med tillfällig lagring på den virtuella Azure-datorn? <br/>
-Du kan installera Azure Backup-agenten i Windows-gästoperativsystemet och säkerhetskopiera filer och mappar till ett tillfälligt lagringsutrymme. Observera dock att säkerhetskopieringen misslyckas om du rensar data i tillfällig lagring. Om data i tillfällig lagring har tagits bort kan du bara återställa till beständig lagring.
+Ja. Installera Azure Backup-agenten i Windows-gästoperativsystemet och säkerhetskopiera filer och mappar till ett tillfälligt lagringsutrymme. Observera dock att säkerhetskopieringen misslyckas om du rensar data i tillfällig lagring. Om data i tillfällig lagring har tagits bort kan du bara återställa till beständig lagring.
 
 ## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>Jag har installerat Azure Backup-agenten för att skydda mina filer och mappar. Kan jag nu installera SCDPM för användning med Azure Backup-agenten om jag vill skydda lokala program/VM-arbetsbelastningar i Azure? <br/>
-Om du vill använda Azure Backup med SCDPM rekommenderar vi att du installerar SCDPM först och sedan installerar Azure Backup-agenten. Detta säkerställer en smidig integrering av Azure Backup-agenten med SCDPM och gör att du kan skydda filer/mappar, program och arbetsbelastningar och virtuella datorer i Azure direkt från SCDPM-hanteringskonsolen. Installera inte SCDPM efter det att du har installerat Azure Backup-agenten för ovan nämnda ändamål. Detta varken rekommenderas eller stöds.
+Om du vill använda Azure Backup med System Center Data Protection Manager (DPM) installerar du först DPM och sedan Azure Backup-agenten. Genom att installera Azure Backup-komponenterna i den här ordningen säkerställer du att Azure Backup-agenten fungerar med DPM. Installera inte Azure Backup-agenten innan du installerar DPM. Detta varken rekommenderas eller stöds.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Vilken längd på filsökvägar stöds i Azure Backup-principen när Azure Backup-agenten används? <br/>
-Azure Backup-agenten använder NTFS. [Specifikationen för filsökvägarnas längd begränsas av Windows-API:et](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Om du behöver säkerhetskopiera filer med sökvägar som är längre än vad som tillåts av Windows-API:et kan du välja att säkerhetskopiera den överordnade mappen eller diskenheten där filerna finns.  
+Azure Backup-agenten använder NTFS. [Specifikationen för filsökvägarnas längd begränsas av Windows-API:et](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). När du säkerhetskopierar filer med en längre filsökväg än vad som är tillåtet i Windows-API:et kan du välja att säkerhetskopiera den överordnade mappen eller diskenheten med säkerhetskopieringsfiler.  
 
 ## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Vilka tecken tillåts i filsökvägar i Azure Backup-principen när Azure Backup-agenten används? <br>
  Azure Backup-agenten använder NTFS. [Tecken som stöds av NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) stöds enligt filspecifikationen.  
@@ -143,7 +143,7 @@ Ja.
 Ja, Backup-tjänsten har flera händelsebaserade aviseringar som du kan använda med PowerShell-skript. En fullständig beskrivning finns i [Konfigurera meddelanden](backup-azure-monitor-vms.md#configure-notifications)
 
 ## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Finns det någon storleksgräns för en datakälla som säkerhetskopieras? <br/>
-Även om det på valvnivå inte finns någon gräns för den mängd data som du kan säkerhetskopiera, så tillämpar Azure Backup en begränsning när det gäller datakällans maximala storlek (men för alla praktiska syften har gränsen satts mycket högt). Från och med augusti 2015 är den största storleken på datakällor för operativsystem som stöds:
+Det finns ingen gräns för hur mycket data du kan säkerhetskopiera till ett valv. Azure Backup begränsar den största storleken för datakällan. Dessa gränser är dock extremt stora. Från och med augusti 2015 är den största storleken för en datakälla för operativsystem som stöds:
 
 | Nr | Operativsystem | Största storlek på datakälla |
 |:---:|:--- |:--- |
@@ -197,7 +197,7 @@ Nej. Vi har tagit bort gränserna för återställningspunkter. Du kan skapa så
  Alla de data som säkerhetskopieras från Azure Backup Agent, SCDPM eller Azure Backup Server komprimeras och krypteras innan de överförs. När komprimering och kryptering tillämpats är storleken på data i säkerhetskopieringsvalvet 30–40 % mindre.
 
 ## <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Kan jag justera mängden bandbredd som används av Backup-tjänsten?<br/>
- Ja, använd alternativet **Ändra egenskaper** i Backup-agenten om du vill justera bandbredden. Justera mängden bandbredd och tiderna då du använder den bandbredden. Se **Aktivera nätverksbegränsning (valfritt)** i [Säkerhetskopiera en Windows-server eller -klient till Azure med hjälp av Resource Manager-distributionsmodellen](backup-configure-vault.md) för mer information.
+ Ja, använd alternativet **Ändra egenskaper** i Backup-agenten om du vill justera bandbredden. Du kan justera mängden bandbredd och tiderna då du använder bandbredden. Stegvisa instruktioner finns i **[Enable network throttling](backup-configure-vault.md#enable-network-throttling)** (Aktivera nätverksbegränsning) i artikeln Back up a Windows Server or client to Azure using the Resource Manager deployment model (Säkerhetskopiera en Windows Server eller klient till Azure med hjälp av Resource Manager-distributionsmodellen).
 
 ## <a name="my-internet-bandwidth-is-limited-for-the-amount-of-data-i-need-to-back-up-is-there-a-way-i-can-move-data-to-a-certain-location-with-a-large-network-pipe-and-push-that-data-into-azure-br"></a>Min Internetbandbredd är begränsad för den mängd data som jag behöver säkerhetskopiera. Kan jag flytta data till en plats med en stor nätverkspipeline och skicka dessa data till Azure? <br/>
 Du kan säkerhetskopiera data till Azure via standardprocessen för säkerhetskopiering online eller använda tjänsten Azure Import/Export för att överföra data till Blob Storage i Azure. Det finns inga andra sätt att skicka säkerhetskopierade data till Azure-lagring. Information om hur du använder tjänsten Azure Import/Export med Azure Backup finns i artikeln [Arbetsflöde för säkerhetskopiering offline](backup-azure-backup-import-export.md).
@@ -212,7 +212,7 @@ Det finns ingen gräns för antalet återställningar från Azure Backup.
 Ja. Data krypteras på den lokala server-/klient-/SCDPM-datorn med hjälp av AES256 och informationen skickas via en säker HTTPS-anslutning.
 
 ## <a name="is-the-backup-data-on-azure-encrypted-as-wellbr"></a>Är säkerhetskopierade data i Azure också krypterade?<br/>
- Ja. Data som skickas till Azure förblir krypterade (i vila). Microsoft dekrypterar aldrig dina säkerhetskopierade data. När det gäller säkerhetskopiering av virtuella Azure-datorer så använder sig Azure Backup av kryptering av den virtuella datorn. Det innebär att om din virtuella dator har krypterats med Azure Disk Encryption eller någon annan krypteringsteknik, så Azure Backup den krypteringen för att skydda dina data.
+ Ja. Data som skickas till Azure förblir krypterade (i vila). Microsoft dekrypterar aldrig dina säkerhetskopierade data. När du säkerhetskopierar en virtuell Azure-dator använder Azure Backup kryptering för den virtuella datorn. Om den virtuella datorn till exempel har krypterats med Azure Disk Encryption, eller en annan krypteringsteknik, använder Azure Backup den krypteringen för att skydda dina data.
 
 ## <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data-br"></a>Vilken är den minsta längden på krypteringsnyckeln som används för att kryptera säkerhetskopierade data? <br/>
  Krypteringsnyckeln ska vara minst 16 tecken.
@@ -221,7 +221,7 @@ Ja. Data krypteras på den lokala server-/klient-/SCDPM-datorn med hjälp av AES
 Nyckeln som används för att kryptera säkerhetskopierade data finns bara hos kunden. Microsoft sparar ingen kopia i Azure och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan inte Microsoft återställa dina säkerhetskopierade data.
 
 ## <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Hur ändrar jag cachelagringsplatsen för Azure Backup-agenten?<br/>
- Gå igenom punktlistan nedan en punkt i taget om du vill ändra plats för cachelagringen.
+ Gå igenom följande lista punkt för punkt om du vill ändra platsen för cachelagring.
 
 * Stoppa Backup-motorn genom att köra följande kommando från en upphöjd kommandotolk:
 
@@ -255,10 +255,26 @@ Följande platser rekommenderas inte för cachelagringsmappen:
 * Utspridda
 * Referenspunkt
 
-Vi rekommenderar att du inte använder attributen ovan för cachelagringsmappen eller för den virtuella hårddisken med metadata för att Azure Backup-agenten ska fungera korrekt.
+Varken cachelagringsmappen eller den virtuella hårddisken för metadata har de attribut som krävs för Azure Backup-agenten.
+
+## <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Recovery Services-valv är baserade på resurshanteraren. Stöds säkerhetskopieringsvalv (klassiskt läge) fortfarande? <br/>
+Ja, Backup-valv stöds fortfarande. Skapa Backup-valv på den [klassiska portalen](https://manage.windowsazure.com). Skapa Recovery Services-valv på [Azure Portal](https://portal.azure.com). Vi rekommenderar dock att du skapar Recovery Services-valv eftersom alla framtida förbättringar endast blir tillgängliga i Recovery Services-valv.
+
+## <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Kan jag migrera ett Backup-valv till ett Recovery Services-valv? <br/>
+Tyvärr inte. För närvarande kan du inte migrera innehållet i ett Backup-valv till ett Recovery Services-valv. Vi arbetar med att lägga till den här funktionen, men den är inte tillgänglig för närvarande.
+
+## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Stöder Recovery Services-valv klassiska virtuella datorer eller Resource Manager-baserade virtuella datorer? <br/>
+Recovery Services-valv stöder båda modellerna.  Du kan säkerhetskopiera en klassisk virtuell dator (som skapats på den klassiska portalen) eller en virtuell Resource Manager-dator (som skapats på Azure Portal) till ett Recovery Services-valv.
+
+## <a name="i-have-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Jag har säkerhetskopierat mina klassiska virtuella datorer i ett säkerhetskopieringsvalv. Kan jag migrera mina virtuella datorer från klassiskt läge till Resource Manager-läge och skydda dem i ett Recovery Services-valv?
+Återställningspunkter för klassiska virtuella datorer i ett säkerhetskopieringsvalv migreras inte automatiskt till ett Recovery Services-valv när du flyttar den virtuella datorn från klassiskt läge till Resource Manager-läge. Överför dina VM-säkerhetskopior genom att följa dessa anvisningar:
+
+1. I säkerhetskopieringsvalvet går du till fliken **Skyddade objekt** och väljer den virtuella datorn. Klicka på [Stoppa skydd](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Lämna alternativet *Ta bort associerade säkerhetskopieringsdata* **avmarkerat**.
+2. Migrera den virtuella datorn från klassiskt läge till Resource Manager-läge. Kontrollera att lagring och nätverk för virtuell dator också migreras till Resource Manager-läge.
+3. Skapa ett Recovery Services-valv och konfigurera säkerhetskopiering på den migrerade virtuella datorn med åtgärden **Backup** på valvets instrumentpanel. Detaljerad information om hur du säkerhetskopierar en virtuell dator till ett Recovery Services-valv finns i artikeln [Skydda virtuella datorer i Azure med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md).
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

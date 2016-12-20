@@ -77,6 +77,8 @@
 #### Flera IP-adresser
 ##### [Azure-portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Mall](virtual-network-multiple-ip-addresses-template.md)
 
 ### Scenarier för anslutning
 #### [Virtuellt nätverk (VNet) till VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -143,6 +145,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

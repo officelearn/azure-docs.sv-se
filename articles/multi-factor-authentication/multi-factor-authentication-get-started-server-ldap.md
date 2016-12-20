@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c57047f9a7eefcc0c4dbf08e705c3193e89f9a7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cafcd1d21e12a3e8dfd020d1e59ee99d8c4d370
 
 
 ---
-# <a name="ldap-authentication-and-azure-multifactor-authentication-server"></a>LDAP-autentisering och Azure Multi-Factor Authentication Server
+# <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP-autentisering och Azure Multi-Factor Authentication Server
 Som standard konfigureras Azure Multi-Factor Authentication Server att importera eller synkronisera användare från Active Directory. Tjänsten kan dock konfigureras att binda till olika LDAP-kataloger, till exempel en ADAM-katalog, eller en särskild Active Directory-domänkontrollant. När den konfigureras att ansluta till en katalog via LDAP kan Azure Multi-Factor Authentication Server konfigureras att fungera som en LDAP-proxy för att utföra autentiseringar. Den stöder också användningen av LDAP-bindningar som ett RADIUS-mål, förautentisering av användare när IIS-autentisering används eller primär autentisering på Azure Multi-Factor Authentication-användarportalen.
 
 När du använder Azure Multi-Factor Authentication som en LDAP-proxy placeras Azure Multi-Factor Authentication Server mellan LDAP-klienten (t.ex. en VPN-enhet eller ett program) och LDAP-katalogservern för att lägga till multifaktorautentisering. För att Azure Multi-Factor Authentication ska fungera måste Multi-Factor Authentication Server konfigureras att kommunicera med både klientservrarna och LDAP-katalogen. I den här konfigurationen accepterar Azure Multi-Factor Authentication Server LDAP-förfrågningar från klientservrar och klientprogram och vidarebefordrar dem till mål-LDAP-katalogservern för verifiering av de primära autentiseringsuppgifterna. Om svaret från LDAP-katalogen visar att de primära autentiseringsuppgifterna är giltiga utför Azure Multi-Factor Authentication en autentisering med en andra faktor och skickar tillbaka ett svar till LDAP-klienten. Autentiseringen lyckas bara om både autentiseringen till LDAP-servern och multifaktorautentiseringen lyckas.
@@ -61,6 +61,6 @@ Följ dessa riktlinjer när du konfigurerar LDAP-klienten:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

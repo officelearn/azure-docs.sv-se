@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/17/2016
+ms.date: 11/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 645fa2574efb9501da173f8ac8aea146d1e79ff8
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra dessa självstudier. Mer information finns i [kostnadsfri utvärderingsversion av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Du behöver ett Azure-konto för att slutföra dessa självstudier. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
 > 
 > 
 
@@ -50,7 +50,7 @@ Följande krävs för att kunna genomföra självstudien.
 
 * Du behöver ett Azure-konto för att slutföra den här självstudien. 
   
-    Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
+    Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
 * Operativsystem: Windows 8 eller senare, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 eller senare
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate eller Express) eller senare versioner.
@@ -114,10 +114,17 @@ Om du vill skapa och ändra antalet reserverade enheter för strömning gör du 
    > 
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
+
 1. Skapa ett nytt C#-konsolprogram i Visual Studio 2013, Visual Studio 2012 eller Visual Studio 2010 SP1. Ange **namn**, **plats** och **lösningsnamn**. Klicka sedan på **OK**.
 2. Använd NuGet-paketet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) för att installera **Azure Media Services .NET SDK-tilläggen**.  Media Services .NET SDK-tilläggen är en uppsättning tilläggsmetoder och hjälpfunktioner som förenklar koden och gör det enklare att utveckla med Media Services. När du installerar det här paketet installeras även **Media Services .NET SDK** och lägger till alla andra nödvändiga beroenden.
+
+    Så här lägger du till referenser med hjälp av NuGet: Högerklicka på projektnamnet i Solution Explorer och välj **Hantera NuGet-paket**. Sök sedan efter **windowsazure.mediaservices.extensions** och klicka på **Installera**.
+
 3. Lägg till en referens i sammansättningen System.Configuration. Den här sammansättningen innehåller klassen **System.Configuration.ConfigurationManager** som används för att komma åt konfigurationsfiler, till exempel App.config.
-4. Öppna filen App.config (lägg till filen i projektet om den inte har lagts till som standard) och lägg till ett *appSettings*-avsnitt i den. Ange värden för kontonamnet och kontonyckeln i Azure Media Services, vilket visas i följande exempel. Hämta kontonamn och viktig information genom att gå till [Azure-portalen](https://portal.azure.com/) och välja AMS-kontot. Välj sedan **Inställningar** > **Nycklar**. I fönstret Hantera nycklar visas kontonamnet och de primära och sekundära nycklarna.
+
+    Om du vill lägga till en referens gör du följande: Högerklicka på projektnamnet i Solution Explorer och välj **Lägg till** > **Referens** och skriv sedan konfigurationen i sökrutan. 
+
+4. Öppna filen App.config (lägg till filen i projektet om den inte har lagts till som standard) och lägg till ett *appSettings*-avsnitt i den. Ange värden för kontonamnet och kontonyckeln i Azure Media Services, vilket visas i följande exempel. Hämta kontonamn och viktig information genom att gå till [Azure-portalen](https://portal.azure.com/) och välja AMS-kontot. Välj sedan **Inställningar** > **Nycklar**. I fönstret Hantera nycklar visas kontonamnet och de primära och sekundära nycklarna. Kopiera värdena för kontonamnet och den primära nyckeln.
    
         <configuration>
         ...
@@ -141,11 +148,16 @@ Om du vill skapa och ändra antalet reserverade enheter för strömning gör du 
 6. Skapa en ny mapp under projektkatalogen och kopiera en .mp4- eller .wmv-fil som du vill koda och strömma eller hämta progressivt. I det här exemplet används sökvägen ”C:\VideoFiles”.
 
 ## <a name="connect-to-the-media-services-account"></a>Anslut till Media Services-kontot
+
 När du använder Media Services med .NET ska du använda klassen **CloudMediaContext** för de flesta Media Services-programmeringsuppgifter. Det gäller till exempel att ansluta till Media Services-kontot, skapa, uppdatera, komma åt och ta bort följande objekt: tillgångar, tillgångsfiler, jobb, åtkomstprinciper, positionerare o.s.v.
 
 Skriv över den programklass som är standard med följande kod. Koden visar hur du läser anslutningsvärdena från filen App.config och hur du skapar objektet **CloudMediaContext** för att kunna ansluta till Media Services. Mer information om hur du ansluter till Media Services finns i [Ansluta till Media Services med Media Services SDK för .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
+
 Funktionen **Main** anropar metoder som definieras ytterligare i det här avsnittet.
+
+> [!NOTE]
+> Kompileringsfel visas tills du har lagt till definitioner för alla funktioner.
 
     class Program
     {
@@ -193,8 +205,10 @@ Funktionen **Main** anropar metoder som definieras ytterligare i det här avsnit
                 Console.ReadLine();
             }
         }
+    }
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Skapa en ny tillgång och ladda upp en videofil
+
 I Media Services överför du (eller för in) dina digitala filer till en tillgång. Enheten **Tillgång** kan innehålla video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning (samt metadata om dessa filer.)  När filerna har överförts lagras innehållet på ett säkert sätt i molnet för ytterligare bearbetning och strömning. Filerna i tillgången kallas **Tillgångsfiler**.
 
 Den **UploadFile**-metod som definieras nedan kallas **CreateFromFile** (definieras i .NET SDK-tillägg). **CreateFromFile** skapar en ny tillgång som den angivna källfilen överförs till.
@@ -281,7 +295,8 @@ Lägg till följande metod i programklassen.
     }
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publicera tillgången och få URL:er för strömning och progressiv hämtning
-Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Positionerare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler.
+
+Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Positionerare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare, som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och åtkomstsignaturpositionerare (SAS), som används för att hämta mediefiler. (Mer information om SAS-positionerare finns i [den här](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) bloggen).
 
 När du har skapat positionerarna kan du skapa de URL:er som används för att strömma eller hämta dina filer.
 
@@ -425,11 +440,11 @@ Om det här ämnet inte innehöll vad du förväntades dig, om det saknar något
 
 
 <!-- URLs. -->
-[Installationsprogram för webbplattformen]: http://go.microsoft.com/fwlink/?linkid=255386
+[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 [Portal]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

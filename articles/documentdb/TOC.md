@@ -18,6 +18,7 @@
 ### [Java-webbapp](documentdb-java-application.md)
 ### [Python Flask-webbapp](documentdb-python-application.md)
 ## [Utveckla lokalt](documentdb-nosql-local-emulator.md)
+### [Exportera emulatorcertifikat](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [Vanliga frågor och svar](documentdb-faq.md)
 
 # Gör så här för att
@@ -41,13 +42,17 @@
 ### [Resurskvoter](documentdb-limits.md)
 ### [Öka kvoter](documentdb-increase-limits.md)
 ### [Enheter för programbegäran](documentdb-request-units.md)
-### [Azure CLI och Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [Skapa ett konto](documentdb-automation-resource-manager-cli.md)
+#### [Lägga till eller ta bort regioner](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Brandväggsstöd](documentdb-firewall-support.md)
 ### [Förbättra ditt konto](documentdb-supercharge-your-account.md)
 
 ## Utveckla
 ### [SQL-fråga](documentdb-sql-query.md)
 ### [Lagrade procedurer, utlösare och UDF:er](documentdb-programming.md)
+### [Spåra ändringar med ändringsfeed](documentdb-change-feed.md)
 ### [Prestandatestning](documentdb-performance-testing.md)
 ### [Prestandatips](documentdb-performance-tips.md)
 ### DocumentDB för MongoDB-utvecklare
@@ -75,7 +80,7 @@
 ### [Binda till Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Analysera data med Hadoop](documentdb-run-hadoop-with-hdinsight.md)
 ### [Integrera med Azure Search](documentdb-search-indexer.md)
-### [Move data with Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md) (Flytta data med Azure Data Factory)
+### [Flytta data med Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analysera realtidsdata med Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Få aviseringar med Logic Apps](documentdb-change-notification.md)
 ### [Bearbeta sensordata i realtid](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
@@ -83,18 +88,20 @@
 
 
 # Referens
-## [Java SDK](documentdb-sdk-java.md)
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [.NET Core SDK](documentdb-sdk-dotnet-core.md)
-## [.NET-exempel](documentdb-dotnet-samples.md)
-## [Node.js SDK](documentdb-sdk-node.md)
-## [Node.js-exempel](documentdb-nodejs-samples.md)
-## [Python SDK](documentdb-sdk-python.md)
-## [Python-exempel](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [Facit för SQL-grammatik](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
-## [REST-resursleverantör](/rest/api/documentdbresourceprovider/)
+## [REST-resursprovider](/rest/api/documentdbresourceprovider/)
+
+# Relaterat
+## [.NET-exempel](documentdb-dotnet-samples.md)
+## [Node.js-exempel](documentdb-nodejs-samples.md)
+## [Python-exempel](documentdb-python-samples.md)
+## [SQL-syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [Facit för SQL-grammatik](documentdb-sql-query-cheat-sheet.md)
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +117,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

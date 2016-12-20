@@ -1,60 +1,75 @@
-
 ---
-title: Get started creating an Internet facing load balancer in classic deployment model using the Azure classic portal | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic portal
+title: "Komma igång med att skapa en Internetuppkopplad belastningsutjämnare i den klassiska distributionsmodellen med hjälp av den klassiska Azure-portalen | Microsoft Docs"
+description: "Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i den klassiska distributionsmodellen med hjälp av den klassiska Azure-portalen"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: kumudd
+manager: timlt
+editor: 
 tags: azure-service-management
-
+ms.assetid: fa3e93c0-968a-472d-a17c-65665c050db2
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2016
-ms.author: sewhee
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: 7153d0321a95a19cf7de17aa1c77d1369330a79b
 
 ---
-# Get started creating an Internet facing load balancer (classic) in the Azure classic portal
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-portal"></a>Komma igång med att skapa en Internetuppkopplad belastningsutjämnare (klassisk) på den klassiska Azure-portalen
+
+> [!div class="op_single_selector"]
+> * [Klassisk Azure-portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Innan du börjar arbeta med Azure-resurser är det viktigt att du vet att Azure för närvarande har två distributionsmodeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-classic-rm.md) innan du börjar arbeta med Azure-resurser. Du kan granska dokumentationen för olika verktyg genom att klicka på flikarna överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också läsa artikeln om [hur du skapar en Internetuppkopplad belastningsutjämnare med hjälp av Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Set up an Internet-facing load balancer for virtual machines
-In order to load balance network traffic from the Internet across the virtual machines of a cloud service, you must create a load-balanced set. This procedure assumes that you have already created the virtual machines and that they are all within the same cloud service.
+## <a name="set-up-an-internet-facing-load-balancer-for-virtual-machines"></a>Konfigurera en Internetuppkopplad belastningsutjämnare för virtuella datorer
 
-**To configure a load-balanced set for virtual machines**
+För att kunna belastningsutjämna nätverkstrafik från Internet på de virtuella datorerna i en molntjänst måste du skapa en belastningsutjämnad uppsättning. I den här proceduren förutsätter vi att du redan har skapat de virtuella datorerna och att alla finns i samma molntjänst.
 
-1. In the Azure classic portal, click **Virtual Machines**, and then click the name of a virtual machine in the load-balanced set.
-2. Click **Endpoints**, and then click **Add**.
-3. On the **Add an endpoint to a virtual machine** page, click the right arrow.
-4. On the **Specify the details of the endpoint** page:
-   
-   * In **Name**, type a name for the endpoint or select the name from the list of predefined endpoints for common protocols.
-   * In **Protocol**, select the protocol required by the type of endpoint, either TCP or UDP, as needed.
-   * In **Public Port and Private Port**, type the port numbers that you want the virtual machine to use, as needed. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The private port can be the same as the public port. For example, for an endpoint for web (HTTP) traffic, you could assign port 80 to both the public and private port.
-5. Select **Create a load-balanced set**, and then click the right arrow.
-6. On the **Configure the load-balanced set** page, type a name for the load-balanced set, and then assign the values for probe behavior of the Azure Load Balancer. The Load Balancer uses probes to determine if the virtual machines in the load-balanced set are available to receive incoming traffic.
-7. Click the check mark to create the load-balanced endpoint. You will see **Yes** in the **Load-balanced set name** column of the **Endpoints** page for the virtual machine.
-8. In the portal, click **Virtual Machines**, click the name of an additional virtual machine in the load-balanced set, click **Endpoints**, and then click **Add**.
-9. On the **Add an endpoint to a virtual machine** page, click **Add endpoint to an existing load-balanced set**, select the name of the load-balanced set, and then click the right arrow.
-10. On the **Specify the details of the endpoint** page, type a name for the endpoint, and then click the check mark.
+**Så här konfigurerar du en belastningsutjämnad uppsättning för virtuella datorer**
 
-For the additional virtual machines in the load-balanced set, repeat steps 8-10.
+1. Klicka på **Virtuella datorer** på den klassiska Azure-portalen och klicka sedan på namnet på en virtuell dator i den belastningsutjämnade uppsättningen.
+2. Klicka på **Slutpunkter** och sedan på **Lägg till**.
+3. Klicka på högerpilen på sidan **Add an endpoint to a virtual machine** (Lägg till en slutpunkt för en virtuell dator).
+4. På sidan **Specify the details of the endpoint** (Ange information om slutpunkten):
 
-## Next steps
-[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
+   * I **Namn** skriver du ett namn för slutpunkten eller väljer namnet i listan över fördefinierade slutpunkter för vanliga protokoll.
+   * I **Protokoll** väljer du det protokoll som krävs av typen av slutpunkt, antingen TCP eller UDP.
+   * I **Public Port and Private Port** (Offentlig port och privat port) anger du de portnummer som du vill att den virtuella datorn ska använda. Du kan använda den privata porten och brandväggsregler på den virtuella datorn för att omdirigera trafik på det sätt som passar dig. Den privata porten kan vara samma som den offentliga porten. För en slutpunkt för webbtrafik (HTTP) kan du till exempel tilldela port 80 till både den offentliga och privata porten.
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+5. Välj **Skapa en belastningsutjämnad uppsättning** och klicka sedan på högerpilen.
+6. På sidan **Configure the load-balanced set** (Konfigurera den belastningsutjämnade uppsättningen) skriver du ett namn för den belastningsutjämnade uppsättningen och tilldelar värdena för avsökningsbeteendet i Azure Load Balancer. Load Balancer använder avsökningar för att avgöra om de virtuella datorerna i den belastningsutjämnade uppsättningen är tillgängliga för att ta emot inkommande trafik.
+7. Klicka på kryssmarkeringen för att skapa den belastningsutjämnade slutpunkten. **Ja** visas i kolumnen **Load-balanced set name** (Namn på belastningsutjämnad uppsättning) på sidan **Slutpunkter** för den virtuella datorn.
+8. På portalen klickar du på **Virtuella datorer**, klickar på namnet på en ytterligare virtuell dator i den belastningsutjämnade uppsättningen, klickar på **Slutpunkter** och sedan på **Lägg till**.
+9. På sidan **Add an endpoint to a virtual machine** (Lägg till en slutpunkt för en virtuell dator) klickar du på **Add endpoint to an existing load-balanced set** (Lägg till en slutpunkt i en befintlig belastningsutjämnad uppsättning), markerar namnet på den belastningsutjämnade uppsättningen och klickar sedan på högerpilen.
+10. På sidan **Specify the details of the endpoint** (Ange information om slutpunkten) skriver du ett namn för slutpunkten och klickar sedan på kryssmarkeringen.
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+Upprepa steg 8–10 om du vill lägga till fler virtuella datorer i den belastningsutjämnade uppsättningen.
+
+## <a name="next-steps"></a>Nästa steg
+
+[Komma igång med att konfigurera en intern belastningsutjämnare](load-balancer-get-started-ilb-arm-ps.md)
+
+[Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
+
+[Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
+
+
+
+<!--HONumber=Nov16_HO5-->
+
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
 
 
 ---
@@ -137,7 +137,7 @@ Kontrollera följande innan du fortsätter:
 
 1. Du har laddat ned och installerat [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) om du kör Windows 7.   
     Om du kör Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 eller Windows 7 SP1 så finns [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) tillgängligt för installation.
-2. Azure PowerShell 1.0. Information om den här versionen och hur du installerar den finns i [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md).
+2. Azure PowerShell 1.0. Information om den här versionen och hur du installerar den finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
 3. Du har skapat ett Automation-konto.  Båda skripten nedan refererar till det här kontot som värdet för parametrarna -AutomationAccountName och -ApplicationDisplayName.
 
 Hämta värdena för *SubscriptionID*, *ResourceGroup* och *AutomationAccountName*, som är obligatoriska parametrar för skripten, genom att först välja ditt Automation-konto på Azure-portalen från bladet **Automation-konto** och sedan välja **Alla inställningar**.  Från bladet **Alla inställningar** väljer du **Egenskaper** under **Kontoinställningar**.  Notera dessa värden i bladet **Egenskaper**.<br> ![Egenskaper för Automation-konto](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
@@ -394,6 +394,6 @@ Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-run
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

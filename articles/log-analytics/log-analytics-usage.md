@@ -1,6 +1,6 @@
 ---
 title: "Analysera dataanvändning i Log Analytics| Microsoft Docs"
-description: "Du kan använda Användningssidan i Log Analytics för att se hur mycket data som skickas till OMS-tjänsten."
+description: "Du kan använda instrumentpanelen Användning i Log Analytics för att se hur mycket data som skickas till OMS-tjänsten."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,66 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/11/2016
+ms.date: 11/14/2016
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4c1d0319e768eec69718d8b49db30069ec1331d9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
 
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
-Log Analytics i Operations Management Suite (OMS) samlar in data och skickar det regelbundet till OMS-tjänsten.  Du kan använda sidan **Användning** för att se hur mycket data som skickas till OMS-tjänsten. Sidan **Användning** visar även hur mycket data som skickas varje dag av lösningar och hur ofta dina servrarna skickar data.
+Log Analytics samlar in data och skickar dem regelbundet till OMS-tjänsten.  Du kan använda instrumentpanelen **Log Analytics Usage** (Log Analytics-användning) för att se hur mycket data som skickas till OMS-tjänsten. Instrumentpanelen visar också hur mycket data som skickas av lösningar och hur ofta servrarna skickar data.
 
 > [!NOTE]
-> Om du har ett kostnadsfritt konto som har skapats med [OMS-webbplatsen](http://www.microsoft.com/oms) är du begränsad till att skicka 500 MB data till OMS-tjänsten dagligen. Om du når den dagliga begränsningen stoppar dataanalysen och återupptas i början av nästa dag. Du måste också skicka alla data som inte godkänns eller bearbetas av OMS.
-> 
-> 
+> Om du har ett kostnadsfritt konto kan du skicka högst 500 MB data per dag till OMS-tjänsten. Om du når den dagliga gränsen stoppas dataanalysen och återupptas i början av nästa dag. I så fall måste du skicka om data som inte accepterades eller bearbetades av OMS.
 
-Du kan visa din användning med hjälp av ikonen **Användning** på instrumentpanelen **Översikt** i OMS.
+Om du överskrider eller är nära den dagliga användningsgränsen kan du överväga att ta bort en lösning för att minska mängden data som skickas till OMS-tjänsten. Mer information om att ta bort lösningar finns i [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
 
-![användningsikon](./media/log-analytics-usage/usage-tile.png)
+![instrumentpanelen användning](./media/log-analytics-usage/usage-dashboard01.png)
 
-Om du har överskridit den dagliga användningsbegränsningen eller om du ligger nära gränsen kan du ta bort en lösning för att reducera den mängd data som du skickar till OMS-tjänsten. Mer information om att ta bort lösningar finns i [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehåller följande information:
 
-![instrumentpanelen användning](./media/log-analytics-usage/usage-dashboard.png)
-
-På sidan **Användning** visas följande information:
-
-* Genomsnittlig användning per dag
-* Dataanvändning för varje lösningen under de senaste 30 dagarna
-* Hur mycket dataservrarna i din miljö har skickat till OMS-tjänsten under de senaste 30 dagarna
-* Dina dataplans prisnivå och uppskattade kostnad
-* Information om dina servicenivåavtal (SLA), inklusive hur lång tid det tar för OMS att bearbeta dina data
+- Datavolym
+    - Datavolymen över tid (baserat på ditt aktuella tidsomfång)
+    - Datavolym per lösning
+    - Data som inte är associerade med en dator
+- Datorer
+    - Datorer som skickar data
+    - Datorer utan data de senaste 24 timmarna
+- Erbjudanden
+    - Insikts- och analysnoder
+    - Automatiserings- och styrningsnoder
+    - Säkerhetsnoder
+- Prestanda
+    - Hur lång tid det tar att samla in och indexera data
+- Lista med frågor
 
 ## <a name="to-work-with-usage-data"></a>Att arbeta med användningsdata
-1. På sidan **Översikt** klickar du på ikonen **Användning**.
-2. På sidan **Användning** visas användningskategorier som visar områden du bryr dig om.
-3. Om du har en lösning som förbrukar alltför mycket av din dagliga överföringskvot kan du ta bort lösningen.
+1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com) med din Azure-prenumeration.
+2. På **navmenyn** klickar du på **Fler tjänster** och skriver **Log Analytics** i listan med resurser. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
+    ![Azure-hubb](./media/log-analytics-usage/hub.png)
+3. Instrumentpanelen för **Log Analytics** visar en lista över dina arbetsytor. Välj en arbetsyta.
+4. På instrumentpanelen för *arbetsytan* klickar du på **Log Analytics usage** (Log Analytics-användning).
+5. På instrumentpanelen **Log Analytics Usage** (Log Analytics-användning) klickar du på **Tid: Senaste 24 timmarna** om du vill ändra tidsintervallet.  
+    ![tidsintervall](./media/log-analytics-usage/time.png)
+6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-log-searches.md).  
+    ![användningsblad med exempeldata](./media/log-analytics-usage/blade.png)
+7. Granska resultaten som returneras från sökningen på instrumentpanelen Loggsökning.  
+    ![exempel på loggsökning för användning](./media/log-analytics-usage/usage-log-search.png)
 
-## <a name="to-view-your-estimated-cost-and-billing-information"></a>Visa dina beräknade kostnad och faktureringsinformation
-1. På sidan **Översikt** klickar du på ikonen **Användning**.
-2. På sidan **Användning** under **Användning** klickar du på sparren (**>**) bredvid **Uppskattad kostnad**.
-3. I den utökade informationen**Din dataplan** kan du se din uppskattade månadskostnad.  
-    ![Din dataplan](./media/log-analytics-usage/usage-data-plan.png)
-4. Om du vill se din faktureringsinformation klickar du på **Visa min faktura** för att visa prenumerationsinformation.
-   * På prenumerationssidan klickar du på din prenumeration för att visa information och en radartikellista över användning.  
-       ![prenumeration](./media/log-analytics-usage/usage-sub01.png)
-   * På sidan Sammanfattning för din prenumeration kan du utföra en mängd åtgärder för att hantera och visa mer information om ditt abonnemang.  
-       ![prenumerationsinformation](./media/log-analytics-usage/usage-sub02.png)
-
-## <a name="to-view-data-batches-for-your-sla"></a>Visa databatchar för ditt SLA
-1. På sidan **Översikt** klickar du på ikonen **Användning**.
-2. Under **Servicenivåavtal** klickar du på **Hämta SLA-information**.
-3. En Excel-XLSX-fil hämtas för granskning.  
-    ![SLA-information](./media/log-analytics-usage/usage-sla-details.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Bekanta dig med [Loggsökningar i Log Analytics](log-analytics-log-searches.md) för att visa detaljerad information som samlas in av olika lösningar.
+* Detaljerad information om data som samlas in och skickas till OMS av tjänster och lösningar finns i [Log searches in Log Analytics](log-analytics-log-searches.md) (Loggsökningar i Log Analytics).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

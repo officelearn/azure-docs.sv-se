@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Azure Active Directory Reporting - förhandsgranskning
+# <a name="azure-active-directory-reporting---preview"></a>Azure Active Directory Reporting - förhandsgranskning
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-reporting-azure-portal.md)
 > * [Klassisk Azure-portal](active-directory-reporting-guide.md)
@@ -38,8 +38,8 @@ Det finns två huvudområden för rapportering:
 
 Beroende på omfånget för de data som du söker har du åtkomst till dessa rapporter antingen genom att klicka på **Användare och grupper** eller **Företagsprogram** i listan över tjänster i [Azure-portalen](https://portal.azure.com).
 
-## <a name="signin-activities"></a>Inloggningsaktiviteter
-### <a name="user-signin-activities"></a>Användarinloggningsaktiviteter
+## <a name="sign-in-activities"></a>Inloggningsaktiviteter
+### <a name="user-sign-in-activities"></a>Användarinloggningsaktiviteter
 Med den information som tillhandahålls av rapporten över användarinloggningsaktiviteter får du svar på frågor som:
 
 * Vilket inloggningsmönster har en användare?
@@ -97,7 +97,7 @@ Med hjälp av kolumnväljaren kan du välja datafält som du vill visa.
 
 ![Rapportering](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>Filtrera inloggningar
+### <a name="filtering-sign-ins"></a>Filtrera inloggningar
 Du kan filtrera inloggningar efter ett tidsintervall som begränsar mängden visad data:
 
 * Datum och tid 
@@ -203,6 +203,6 @@ Se guiden [Azure Active Directory Reporting Guide](active-directory-reporting-gu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

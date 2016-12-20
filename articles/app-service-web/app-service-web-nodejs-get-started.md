@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
+ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 
 ---
@@ -91,6 +91,7 @@ I den här kursen får du lära dig hur du skapar ett enkelt [Node.js]-program o
 8. Spara ändringarna och använd sedan git för att distribuera din app till Azure:
    
         git add .
+        git add -f config
         git commit -m "{your commit message}"
         git push azure master
    
@@ -117,7 +118,7 @@ Azure Apptjänst använder [iisnode] för att köra Node.js-appar. Azure CLI och
   * Anpassa Web.config för att förbereda appen för felsökning med Node-Inspector.
 
 ## <a name="use-a-nodejs-framework"></a>Använda ett Node.js-ramverk
-Om du använder ett populärt Node.js-ramverk, t.ex. [Sails.js][SAILSJS] eller [MEAN.js][MEANJS], för att utveckla appar kan du distribuera dessa till Apptjänst. Populära Node.js-ramverk har specifika egenskaper, och deras paketberoenden uppdateras hela tiden. Men App Service tillgängliggör stdout- och stderr-loggarna så att du kan veta exakt vad som händer med din app och göra ändringar därefter. Mer information finns i [Hämta stdout- och stderr-loggar från iisnode](#iisnodelog).
+Om du använder ett populärt Node.js-ramverk, t.ex. [Sails.js][SAILSJS] eller [MEAN.js][MEANJS] för att utveckla appar kan du distribuera dessa till App Service. Populära Node.js-ramverk har specifika egenskaper, och deras paketberoenden uppdateras hela tiden. Men App Service tillgängliggör stdout- och stderr-loggarna så att du kan veta exakt vad som händer med din app och göra ändringar därefter. Mer information finns i [Hämta stdout- och stderr-loggar från iisnode](#iisnodelog).
 
 Följande kurser visar hur du arbetar med ett specifikt ramverk i Apptjänst:
 
@@ -186,7 +187,7 @@ Utför dessa steg om du vill läsa iisnode-loggar.
    
     ![Studera en iisnode-loggfil.][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-nodeinspector"></a>Felsöka appen med Node-Inspector
+## <a name="debug-your-app-with-node-inspector"></a>Felsöka appen med Node-Inspector
 Om du använder Node-Inspector för att felsöka dina Node.js-appar, kan du använda det för din aktiva Apptjänst-app. Node-Inspector förinstalleras i iisnode-installationen för Apptjänst. Om du distribuerar via Git innehåller den automatiskt skapade Web.config från Kudu redan all konfiguration du behöver för att aktivera Node-Inspector.
 
 Följ de här stegen om du vill aktivera Node-Inspector:
@@ -235,7 +236,7 @@ Följ de här stegen om du vill aktivera Node-Inspector:
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [registrera dig för en kostnadsfri utvärderingsversion]: http://go.microsoft.com/fwlink/?LinkId=623901
-[webbapp]: ./app-service-web-overview.md
+[web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
@@ -247,6 +248,6 @@ Följ de här stegen om du vill aktivera Node-Inspector:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

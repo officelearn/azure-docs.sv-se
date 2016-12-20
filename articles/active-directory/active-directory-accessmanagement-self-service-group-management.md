@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1fda0b3c6c3f262c0f4b2f3ad5f37c4ce44cc0e3
 
 
 ---
-# <a name="setting-up-azure-active-directory-for-selfservice-group-management"></a>Konfigurera Azure Active Directory för grupphantering via självbetjäning
+# <a name="setting-up-azure-active-directory-for-self-service-group-management"></a>Konfigurera Azure Active Directory för grupphantering via självbetjäning
 Med självbetjäningsgrupphantering kan du skapa och hantera säkerhetsgrupper eller Office 365-grupper i Azure Active Directory (Azure AD). Användare kan även begära säkerhetsgruppsmedlemskap eller Office 365-gruppmedlemskap, och sedan kan gruppens ägare godkänna eller neka medlemskap. På så vis kan den dagliga kontrollen av gruppmedlemskap delegeras till dem som förstår medlemskapets affärskontext. Funktioner för grupphantering via självbetjäning är bara tillgängliga för säkerhetsgrupper och Office 365-grupper, men inte för e-postaktiverade säkerhetsgrupper eller distributionslistor.
 
 Grupphantering via självbetjäning består för närvarande av två viktiga scenarier: delegerad grupphantering och grupphantering via självbetjäning.
@@ -30,7 +30,7 @@ Grupphantering via självbetjäning består för närvarande av två viktiga sce
 * **Grupphantering via självbetjäning**
    Ett exempel på det här scenariot är två användare som båda har SharePoint Online-platser som de har konfigurerat oberoende av varandra. De vill ge varandras grupper åtkomst till sina respektive webbplatser. De kan åstadkomma detta genom att först skapa en grupp i Azure AD och därefter var och en välja samma grupp i SharePoint Online, vilket ger dem åtkomst till varandras webbplatser. När någon vill ha åtkomst begär de det från åtkomstpanelen och efter godkännande får de automatiskt åtkomst till båda SharePoint Online-platserna. Senare beslutar den ena av dem att alla användare som har åtkomst till webbplatsen även ska få åtkomst till ett visst SaaS-program. SaaS-programmets administratör kan lägga till åtkomstbehörighet för programmet till SharePoint Online-webbplatsen. När det är gjort kommer alla förfrågningar som han godkänner att ge åtkomst till de två SharePoint Online-webbplatserna och även till SaaS-programmet.
 
-## <a name="making-a-group-available-for-end-user-selfservice"></a>Göra en grupp tillgänglig för självbetjäning av slutanvändare
+## <a name="making-a-group-available-for-end-user-self-service"></a>Göra en grupp tillgänglig för självbetjäning av slutanvändare
 1. Öppna din Azure AD-katalog i den [klassiska Azure-portalen](https://manage.windowsazure.com).
 2. Gå till fliken **Konfigurera** och ställ in **Delegerad grupphantering** på Aktiverad.
 3. Ställ in **Användare kan skapa säkerhetsgrupper** eller **Användare kan skapa Office-grupper** på Aktiverad.
@@ -53,6 +53,6 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

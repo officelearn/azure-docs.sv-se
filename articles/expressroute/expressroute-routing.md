@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.date: 12/06/2016
 ms.author: osamazia
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d7516dd2fa2ddc23d381ade52c53115a8af7231
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 111975ba10aaafb97673f4e8b813ba3523b76ffb
 
 
 ---
@@ -101,7 +101,7 @@ Vi stöder upp till 4 000 prefix som annonseras till oss via Azures privata peer
 
 BGP-sessionen kommer att tas bort om antalet prefix överskrider gränsen. Vi kommer endast att acceptera standardvägar på den privata peeringlänken. Leverantören måste filtrera ut standardvägen och privata IP-adresser (RFC 1918) från Azures offentliga och Microsofts peeringsökvägar. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Överföringsroutning och routning mellan regioner
+## <a name="transit-routing-and-cross-region-routing"></a>Överföringsroutning och routning mellan regioner
 ExpressRoute kan inte konfigureras som överföringsroutrar. Du måste förlita dig på din anslutningsleverantör vid överföring av routningstjänster.
 
 ## <a name="advertising-default-routes"></a>Annonsering av standardvägar
@@ -130,37 +130,39 @@ Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera 
 
 Microsoft taggar prefix som annonseras via offentlig peering och Microsofts peering med lämpliga värden för BGP-communityn som anger vilken region prefixen finns i. Du kan använda community-värden för att fatta rätt beslut om routning och erbjuda [optimal routning till kunderna](expressroute-optimize-routing.md).
 
-| **Geopolitisk region** | **Microsoft Azure-region** | **BGP-community värde** |
-| --- | --- | --- |
-| **Nordamerika** | | |
-| Östra USA |12076:51004 | |
-| Östra USA 2 |12076:51005 | |
-| Västra USA |12076:51006 | |
-| Västra USA 2 |12076:51026 | |
-| Västra centrala USA |12076:51027 | |
-| Norra centrala USA |12076:51007 | |
-| Södra centrala USA |12076:51008 | |
-| Centrala USA |12076:51009 | |
-| Centrala Kanada |12076:51020 | |
-| Östra Kanada |12076:51021 | |
-| **Sydamerika** | | |
-| Södra Brasilien |12076:51014 | |
-| **Europa** | | |
-| Norra Europa |12076:51003 | |
-| Västra Europa |12076:51002 | |
-| **Asien och stillahavsområdet** | | |
-| Östasien |12076:51010 | |
-| Sydostasien |12076:51011 | |
-| **Japan** | | |
-| Östra Japan |12076:51012 | |
-| Västra Japan |12076:51013 | |
-| **Australien** | | |
-| Östra Australien |12076:51015 | |
-| Sydöstra Australien |12076:51016 | |
-| **Indien** | | |
-| Södra Indien |12076:51019 | |
-| Västra Indien |12076:51018 | |
-| Centrala Indien |12076:51017 | |
+| **Microsoft Azure-region** | **BGP-community värde** |
+| --- | --- |
+| **Nordamerika** | |
+| Östra USA |12076:51004 |
+| Östra USA 2 |12076:51005 |
+| Västra USA |12076:51006 |
+| Västra USA 2 |12076:51026 |
+| Västra centrala USA |12076:51027 |
+| Norra centrala USA |12076:51007 |
+| Södra centrala USA |12076:51008 |
+| Centrala USA |12076:51009 |
+| Centrala Kanada |12076:51020 |
+| Östra Kanada |12076:51021 |
+| **Sydamerika** | |
+| Södra Brasilien |12076:51014 |
+| **Europa** | |
+| Norra Europa |12076:51003 |
+| Västra Europa |12076:51002 |
+| Storbritannien, södra | 12076:51024 |
+| Storbritannien, västra | 12076:51025 |
+| **Asien och stillahavsområdet** | |
+| Östasien |12076:51010 |
+| Sydostasien |12076:51011 |
+| **Japan** | |
+| Östra Japan |12076:51012 |
+| Västra Japan |12076:51013 |
+| **Australien** | |
+| Östra Australien |12076:51015 |
+| Sydöstra Australien |12076:51016 |
+| **Indien** | |
+| Södra Indien |12076:51019 |
+| Västra Indien |12076:51018 |
+| Centrala Indien |12076:51017 |
 
 Alla vägar som annonseras från Microsoft taggas med lämpligt community-värde. 
 
@@ -173,16 +175,32 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 
 | **Tjänst** | **BGP-community värde** |
 | --- | --- |
-| **Exchange** |12076:5010 |
-| **SharePoint** |12076:5020 |
-| **Skype för företag** |12076:5030 |
-| **CRM Online** |12076:5040 |
-| **Andra Office 365-tjänster** |12076:5100 |
+| exchange online |12076:5010 |
+| sharepoint online |12076:5020 |
+| Skype för företag – Online |12076:5030 |
+| CRM Online |12076:5040 |
+| Andra Office 365 Online-tjänster |12076:5100 |
 
 > [!NOTE]
 > Microsoft använder inte några community-värden för BGP som du har angett för vägar som annonseras till Microsoft.
 > 
 > 
+
+| **Regioner för nationella Azure-moln**| **BGP-community värde** |
+| --- | --- |
+| **Amerikanska myndigheter** |  |
+| Iowa (USA-förvaltad region) | 12076:51109 |
+| Virginia (USA-förvaltad region) | 12076:51105 |
+
+
+| **Tjänst i nationella moln** | **BGP-community värde** |
+| --- | --- |
+| **Amerikanska myndigheter** |  |
+| exchange online |12076:5110 |
+| sharepoint online |12076:5120 |
+| Skype för företag – Online |12076:5130 |
+| CRM Online |12076:5140 |
+| Andra Office 365 Online-tjänster |12076:5200 |
 
 ## <a name="next-steps"></a>Nästa steg
 * Konfigurera ExpressRoute-anslutningen.
@@ -194,6 +212,6 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

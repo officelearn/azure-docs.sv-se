@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/17/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>Komma igång med Azure Multi-Factor Authentication i molnet
+# <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Komma igång med Azure Multi-Factor Authentication i molnet
 I den här artikeln beskrivs hur du kommer igång med Azure Multi-Factor Authentication i molnet.
 
 > [!NOTE]
@@ -41,12 +41,12 @@ Följande krav måste vara uppfyllda innan du kan aktivera Azure Multi-Factor Au
 > 
 > 
 
-## <a name="turn-on-twostep-verification-for-users"></a>Aktivera tvåstegsverifiering för användare
+## <a name="turn-on-two-step-verification-for-users"></a>Aktivera tvåstegsverifiering för användare
 För att börja kräva tvåstegsverifiering för en användare ändrar du användarens tillstånd från inaktiverat aktiverat.  Mer information om användarstatus finns i [Användarstatus i Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
 Följ stegen nedan om du vill aktivera MFA för dina användare.
 
-### <a name="to-turn-on-multifactor-authentication"></a>Så här aktiverar du Multi-Factor Authentication
+### <a name="to-turn-on-multi-factor-authentication"></a>Så här aktiverar du Multi-Factor Authentication
 1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör.
 2. Klicka på **Active Directory** till vänster.
 3. Under Katalog väljer du katalogen för den användare som du vill aktivera.
@@ -66,8 +66,8 @@ Följ stegen nedan om du vill aktivera MFA för dina användare.
 
 När du har aktiverat användarna bör du meddela dem via e-post. Nästa gång de försöker logga in, ombeds de att registrera sina konton för tvåstegsverifiering. Då de börjar använda tvåstegsverifiering, ska de också ställa in applösenord för att undvika att låsas ute från icke-webbläsarbaserade appar.
 
-## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>Använd PowerShell för att aktivera tvåstegsverifiering
-Du kan ändra [status](multi-factor-authentication-whats-next.md) med [Azure AD PowerShell](../powershell-install-configure.md) genom att använda följande.  Du kan ändra `$st.State` till någon av följande statusar:
+## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Använd PowerShell för att aktivera tvåstegsverifiering
+Du kan ändra [status](multi-factor-authentication-whats-next.md) med [Azure AD PowerShell](/powershell/azureps-cmdlets-docs) genom att använda följande.  Du kan ändra `$st.State` till någon av följande statusar:
 
 * Enabled
 * Enforced
@@ -107,6 +107,6 @@ Nu när du har konfigurerat Multi-Factor Authentication i molnet kan du konfigur
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

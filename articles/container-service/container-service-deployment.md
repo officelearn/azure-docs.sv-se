@@ -7,7 +7,7 @@ author: rgardler
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: "Docker, behållare, Micro-tjänster, Mesos, Azure"
+keywords: Docker, Containers, Micro-services, Mesos, Azure, dcos, swarm, kubernetes, azure container service, acs
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c8c06906a5f99890295ff2b2433ff6f7e02dece5
+ms.sourcegitcommit: a7d957fd4be4c823077b1220dfb8ed91070a0e97
+ms.openlocfilehash: d056b9489eba1f97e8fb87f231b03d104c4cab66
 
 
 ---
 # <a name="deploy-an-azure-container-service-cluster"></a>Distribuera ett Azure Container Service-kluster
-Azure Container Service ger snabb distribution av populär behållarklustring med öppen källkod och orchestration-lösningar. Med Azure Container Service kan du distribuera DC/OS- och Docker Swarm-kluster med Azure Resource Manager-mallar eller Azure Portal. Du kan distribuera de här klusten med Azure Virtual Machine-skalningsuppsättningar, och klustren drar nytta av Azures nätverks- och -lagringserbjudanden. Du behöver en Azure-prenumeration för att kunna använda Azure Container Service. Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+Azure Container Service ger snabb distribution av populär behållarklustring med öppen källkod och orchestration-lösningar. Med Azure Container Service kan du distribuera DC/OS-, Kubernetes- och Docker Swarm-kluster med Azure Resource Manager-mallar eller Azure Portal. Du kan distribuera de här klusten med Azure Virtual Machine-skalningsuppsättningar, och klustren drar nytta av Azures nätverks- och -lagringserbjudanden. Du behöver en Azure-prenumeration för att kunna använda Azure Container Service. Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Det här dokumentet innehåller anvisningar för att distribuera ett Azure Container Service-kluster med hjälp av [Azure Portal](#creating-a-service-using-the-azure-portal), [Azure-kommandoradsgränssnittet (CLI)](#creating-a-service-using-the-azure-cli) och [Azure PowerShell-modulen](#creating-a-service-using-powershell).  
 
@@ -52,15 +52,21 @@ Välj en Orchestration-typ. Alternativen är:
 
 * **DC/OS**: distribuerar ett DC/OS-kluster.
 * **Swarm**: distribuerar ett Docker Swarm-kluster.
+* **Kubernetes**: Distribuerar ett Kubernetes-kluster.
 
 Klicka på **OK** när du är redo att gå vidare.
 
-![Skapa distribution 4](media/acs-portal4.png)  <br />
+![Skapa distribution 4](media/acs-portal4-new.png)  <br />
+
+Om **Kubernetes** har valts i listrutan måste du ange klient-ID:t för tjänstobjektet och klienthemligheten för tjänstobjektet.
+Läs mer om hur du skapar ett tjänstobjekt på [den här sidan](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) 
+
+![Skapa distribution 4.5](media/acs-portal10.PNG)  <br />
 
 Ange följande information:
 
-* **Antal huvudservrar**: antal huvudservrar i klustret.
-* **Antal agenter**: för Docker Swarm utgör det här det inledande antalet agenter i agentskalningsuppsättningen. När det gäller DC/OS utgör det här det inledande antalet agenter i en privat skalningsuppsättning. Dessutom skapas en offentlig skalningsuppsättning som innehåller ett förinställt antal agenter. Antalet agenter i den här offentliga skalningsuppsättningen avgörs av hur många huvudservrar som har skapats i klustret, 1 offentlig agent för 1 huvudserver och 2 offentliga agenter för 3 eller 5 huvudservrar.
+* **Antal huvudservrar**: antal huvudservrar i klustret. Om ”Kubernetes” har valts anges antalet huvudservrar till standardvärdet 1
+* **Antal agenter**: För Docker Swarm och Kubernetes är det här det inledande antalet agenter i agentskalningsuppsättningen. När det gäller DC/OS utgör det här det inledande antalet agenter i en privat skalningsuppsättning. Dessutom skapas en offentlig skalningsuppsättning som innehåller ett förinställt antal agenter. Antalet agenter i den här offentliga skalningsuppsättningen avgörs av hur många huvudservrar som har skapats i klustret, 1 offentlig agent för 1 huvudserver och 2 offentliga agenter för 3 eller 5 huvudservrar.
 * **Storlek på agentens virtuella dator**: storleken på agentens virtuella datorer.
 * **DNS-prefix**: ett helt unikt namn som ska användas som prefix i viktiga delar i de fullständigt kvalificerade domännamnen för tjänsten.
 
@@ -85,10 +91,11 @@ När distributionen är klar kan Azure Container Service-klustret användas.
 ## <a name="create-a-service-by-using-the-azure-cli"></a>Skapa en tjänst med Azure CLI
 Du måste ha en Azure-prenumeration för att kunna skapa en instans av Azure Container Service med kommandoraden. Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Du måste också ha [installerat](../xplat-cli-install.md) och [konfigurerat](../xplat-cli-connect.md) Azure CLI.
 
-Om du vill distribuera ett DC/OS- eller Docker Swarm-kluster väljer du en av nedanstående mallar från GitHub. Observera att båda de här mallarna är likadana, med undantag för standardvalet av orchestrator.
+Om du vill distribuera ett DC/OS-, Docker Swarm- eller Kubernetes-kluster väljer du någon av nedanstående mallar från GitHub. 
 
 * [DC/OS-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Kubernetes-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
 Kontrollera därefter att Azure CLI har anslutits till en Azure-prenumeration. Det kan du göra med hjälp av följande kommando:
 
@@ -140,10 +147,11 @@ Om du vill se ett exempel på en parameterfil som heter `azuredeploy.parameters.
 ## <a name="create-a-service-by-using-powershell"></a>Skapa en tjänst med PowerShell
 Du kan även distribuera ett Azure Container Service-kluster med PowerShell. Det här dokumentet utgår från version 1.0 av [Azure PowerShell-modulen](https://azure.microsoft.com/blog/azps-1-0/).
 
-Om du vill distribuera ett DC/OS- eller Docker Swarm-kluster väljer du en av nedanstående mallar. Observera att båda de här mallarna är likadana, med undantag för standardvalet av orchestrator.
+Om du vill distribuera ett DC/OS-, Docker Swarm- eller Kubernetes-kluster väljer du någon av nedanstående mallar. Observera att båda de här mallarna är likadana, med undantag för standardvalet av orchestrator.
 
 * [DC/OS-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Kubernetes-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
 Innan du skapar ett kluster i din Azure-prenumeration måste du kontrollera att PowerShell-sessionen har loggats in på Azure. Det kan du göra med kommandot `Get-AzureRMSubscription`:
 
@@ -184,10 +192,11 @@ Nu när du har ett fungerande kluster kan du visa dessa dokument för anslutning
 * [Ansluta till ett Azure Container Service-kluster](container-service-connect.md)
 * [Arbeta med Azure Container Service och DC/OS](container-service-mesos-marathon-rest.md)
 * [Arbeta med Azure Container Service och Docker Swarm](container-service-docker-swarm.md)
+* [Arbeta med Azure Container Service och Kubernetes](container-service-kubernetes-walkthrough.md)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

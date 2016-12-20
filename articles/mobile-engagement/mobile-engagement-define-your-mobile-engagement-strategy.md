@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
 
 
 ---
@@ -49,7 +49,7 @@ När användningsfall och segment har definierats har du de riktlinjer du behöv
 
 Tack vare integrationen kan du som marknadsförare få tillgång till analyser i realtid i de publicerade apparna, segmentera målgruppen och börja skicka smarta riktade push-meddelanden för att öka interaktionen med slutanvändare både i och utanför appen.
 
-### <a name="usecases-to-get-started"></a>Användningsfall för att komma igång
+### <a name="use-cases-to-get-started"></a>Användningsfall för att komma igång
 1. Välkomststrategi: Skapa flera kampanjer med push-meddelanden baserat på slutanvändarens beteende vid start av appen för att få mer interaktion D+2/5/10/15 efter den första sessionen och utöka kvarhållningen redan under första omgången.
 2. Gör reklam för nytt innehåll (funktion, artikel/video eller produkt) baserat på slutanvändarens beteende och skicka endast information till slutanvändare som med stor sannolikhet kommer att interagera.
 3. Betygsätt appen: Rikta in dig på mindre än 1 procent av användarbasen som med stor sannolikhet kommer att ge appen betyget 5 stjärnor i appbutiken.
@@ -66,13 +66,13 @@ För att kunna göra din kommunikation så sammanhangskänslig som möjligt mås
 > 
 > 
 
-### <a name="usecases-and-best-practices"></a>Användningsfall och bästa praxis
+### <a name="use-cases-and-best-practices"></a>Användningsfall och bästa praxis
 Här nedan följer kortfattade beskrivningar av några av de viktigaste användningsfallen som vi har stött på bland våra kunder. Förhoppningsvis kan de hjälpa dig att komma igång.
 
 #### <a name="media"></a>Media
 Samla in den typ av innehåll som slutanvändaren helst vill konsumera och segmentera målgruppen utifrån det här beteendet, så att du kan rikta specifika typer av innehåll till enbart den målgrupp som med största sannolikhet kommer att konsumera det. På så sätt undviker du massutskick till hela användarbasen och säkerställer en bättre kvarhållning.
 
-#### <a name="mcommerce"></a>E-handel (mobila enheter)
+#### <a name="m-commerce"></a>E-handel (mobila enheter)
 Samla in de mest besökta produktkategorierna i appen och rikta in dig på en målgrupp med reklam om rabatt eller en ny produkt i en populär kategori, eftersom det då är mer sannolikt att slutanvändarna kommer att handla. Sikta på att öka intäkterna. Men kom ihåg att aldrig spamma mottagarna!
 
 #### <a name="gaming"></a>Spel
@@ -134,6 +134,6 @@ Data av den här typen kan förstärkas med parametrar (*extra information* i Mo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

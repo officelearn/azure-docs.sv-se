@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 43bb33c1a4386108056b909bef9608087167a30a
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 41bba6660c52d4aa7d10d846ad65e1f6aa5e582c
 
 
 ---
-# <a name="configure-a-pointtosite-connection-to-a-vnet-using-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med hjälp av PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med hjälp av PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -68,10 +68,10 @@ Vi använder följande värden för den här konfigurationen. Vi anger variabler
 * **VPNType: RouteBased**
 
 ## <a name="before-beginning"></a>Innan du börjar
-* Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-* Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar. Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md). När du arbetar med PowerShell i den här konfigurationen ska du kontrollera att du kör som administratör. 
+* Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial).
+* Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar. Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs). När du arbetar med PowerShell i den här konfigurationen ska du kontrollera att du kör som administratör. 
 
-## <a name="a-namedeclareapart-1-log-in-and-set-variables"></a><a name="declare"></a>Del 1 – Logga in och ställ in variabler
+## <a name="a-namedeclareapart-1---log-in-and-set-variables"></a><a name="declare"></a>Del 1 – Logga in och ställ in variabler
 I det här avsnittet ska du logga in och deklarera värdena som används i den här konfigurationen. De deklarerade värdena används i exempelskripten. Om du vill ändrar du värdena så att de återspeglar din egen miljö. Eller så använder du de deklarerade värdena och går igenom stegen som en övning.
 
 1. Logga in på ditt Azure-konto i PowerShell-konsolen. Den här cmdleten uppmanar dig att ange inloggningsuppgifterna för ditt Azure-konto. När du har loggat in hämtas dina kontoinställningar så att de blir tillgängliga för Azure PowerShell.
@@ -102,7 +102,7 @@ I det här avsnittet ska du logga in och deklarera värdena som används i den h
         $GWIPName = "VNet1GWPIP"
         $GWIPconfName = "gwipconf"
 
-## <a name="a-nameconfigurevnetapart-2-configure-a-vnet"></a><a name="ConfigureVNet"></a>Del 2 – Konfigurera ett VNet
+## <a name="a-nameconfigurevnetapart-2---configure-a-vnet"></a><a name="ConfigureVNet"></a>Del 2 – Konfigurera ett VNet
 1. Skapa en resursgrupp.
    
         New-AzureRmResourceGroup -Name $RG -Location $Location
@@ -123,7 +123,7 @@ I det här avsnittet ska du logga in och deklarera värdena som används i den h
         $pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
         $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 
-## <a name="a-namecertificatesapart-3-certificates"></a><a name="Certificates"></a>Del 3 – certifikat
+## <a name="a-namecertificatesapart-3---certificates"></a><a name="Certificates"></a>Del 3 – certifikat
 Certifikat används av Azure för att autentisera VPN-klienter för punkt-till-plats-VPN:er. Du kan exportera offentliga certifikatdata (inte den privata nyckeln) som en Base-64-kodad X.509.cer-fil från antingen ett rotcertifikat som genererats av en företagscertifikatlösning, eller genom att använda ett självsignerat rotcertifikat. Du kan sedan importera offentliga certifikatdata från rotcertifikatet till Azure. Dessutom måste du generera ett klientcertifikat från rotcertifikatet för klienter. Varje klient som vill ansluta till det virtuella nätverket med en P2S-anslutning måste ha ett klientcertifikat, som har genererats från rotcertifikatet, installerat.
 
 ### <a name="a-namecera1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1. Hämta .cer-filen för rotcertifikatet
@@ -164,7 +164,7 @@ Ersätt sökvägen till filen med din egen och kör cmdlet:arna.
         $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
         $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 
-## <a name="a-namecreategatewayapart-4-create-the-vpn-gateway"></a><a name="creategateway"></a>Del 4 – Skapa VPN-gatewayen
+## <a name="a-namecreategatewayapart-4---create-the-vpn-gateway"></a><a name="creategateway"></a>Del 4 – Skapa VPN-gatewayen
 Konfigurera och skapa VNet-gatewayen för ditt VNet. *-GatewayType* måste vara **Vpn** och *-VpnType* måste vara **RouteBased**. Det här steget kan ta upp till 45 minuter.
 
         New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -172,7 +172,7 @@ Konfigurera och skapa VNet-gatewayen för ditt VNet. *-GatewayType* måste vara 
         -VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
         -VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
 
-## <a name="a-nameclientconfigapart-5-download-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>Del 5 – Ladda ned VPN-klientkonfigurationspaketet
+## <a name="a-nameclientconfigapart-5---download-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>Del 5 – Ladda ned VPN-klientkonfigurationspaketet
 Klienter som ansluter till Azure via P2S måste ha både ett klientcertifikat och ett VPN-klientkonfigurationspaket installerat. VPN-klientkonfigurationspaket är tillgängliga för Windows-klienter. VPN-klientpaketet innehåller information för att konfigurera VPN-klientprogramvaran som är inbyggd i Windows och är specifikt för det VPN-nätverk som du vill ansluta till. Paketet installerar inte någon ytterligare programvara. Mer information finns i avsnittet [Vanliga frågor och svar om VPN](vpn-gateway-vpn-faq.md#point-to-site-connections).
 
 1. Efter att gatewayen har skapats, kan du hämta klientpaketet för konfiguration. Det här exemplet hämtar paketet för 64-bitars klienter. Om du vill hämta 32-bitars klienten ersätter du Amd64 med x86. Du kan också hämta VPN-klienten med hjälp av Azure-portalen.
@@ -187,13 +187,13 @@ Klienter som ansluter till Azure via P2S måste ha både ett klientcertifikat oc
    
     ![VPN-klient](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="a-nameclientcertificateapart-6-install-the-client-certificate"></a><a name="clientcertificate"></a>Del 6 – Installera klientcertifikatet
+## <a name="a-nameclientcertificateapart-6---install-the-client-certificate"></a><a name="clientcertificate"></a>Del 6 – Installera klientcertifikatet
 Varje klientdator måste ha ett klientcertifikat för att kunna autentisera. När du installerar klientcertifikatet, behöver du lösenordet som skapades när klientcertifikatet exporterades.
 
 1. Kopiera .pfx-filen till klientdatorn.
 2. Dubbelklicka på .pfx-filen för att installera den. Ändra inte installationsplatsen.
 
-## <a name="a-nameconnectapart-7-connect-to-azure"></a><a name="connect"></a>Del 7 – Ansluta till Azure
+## <a name="a-nameconnectapart-7---connect-to-azure"></a><a name="connect"></a>Del 7 – Ansluta till Azure
 1. Anslut till ditt VNet genom att gå till VPN-anslutningarna på klientdatorn och leta upp den VPN-anslutning som du skapade. Den har samma namn som ditt virtuella nätverk. Klicka på **Anslut**. Ett popup-meddelande med information om certifikatanvändningen kanske visas. I så fall klickar du på **Fortsätt** för att använda utökade privilegier. 
 2. På statussidan **Anslutning** klickar du på **Anslut** för att initiera anslutningen. Om du ser skärmen **Välj certifikat** kontrollerar du att klientcertifikatet som visas är det som du vill använda för att ansluta. Om det inte är det använder du pilen i listrutan för att välja rätt certifikat. Klicka sedan på **OK**.
    
@@ -202,7 +202,7 @@ Varje klientdator måste ha ett klientcertifikat för att kunna autentisera. Nä
    
     ![Anslutning upprättad](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connection established")
 
-## <a name="a-nameverifyapart-8-verify-your-connection"></a><a name="verify"></a>Del 8 – Verifiera anslutningen
+## <a name="a-nameverifyapart-8---verify-your-connection"></a><a name="verify"></a>Del 8 – Verifiera anslutningen
 1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all*.
 2. Granska resultaten. Observera att IP-adressen som du fick är en av adresserna i klientadresspoolen för VPN för punkt-till-plats som du angav i konfigurationen. Resultaten bör likna följande:
    
@@ -268,7 +268,7 @@ Den vanligaste metoden är att använda rotcertifikatet för att hantera åtkoms
 1. Hämta tumavtrycket för det klientcertifikat som du vill återkalla.
    
         $RevokedClientCert1 = "ClientCert1"
-        $RevokedThumbprint1 = "‎ef2af033d0686820f5a3c74804d167b88b69982f"
+        $RevokedThumbprint1 = "?ef2af033d0686820f5a3c74804d167b88b69982f"
 2. Lägg till tumavtrycket i listan över återkallade tumavtryck.
    
         Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
@@ -289,11 +289,11 @@ Du kan återställa ett klientcertifikat genom att ta bort tumavtrycket från li
         Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan lägga till en virtuell dator i ditt virtuella nätverk. Se [Skapa en virtuell dator](../virtual-machines/virtual-machines-windows-hero-tutorial.md) för anvisningar.
+När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

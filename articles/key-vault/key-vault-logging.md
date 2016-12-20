@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/31/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 
 
 ---
@@ -48,7 +48,7 @@ Loggarna som du samlar in kan visualiseras med hjälp av Log Analytics från Ope
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
 * Ett befintligt nyckelvalv som du har använt.  
-* Azure PowerShell, **minst version 1.0.1**. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md). Om du redan har installerat Azure PowerShell och inte vet vilken version du har skriver du `(Get-Module azure -ListAvailable).Version` i Azure PowerShell-konsolen.  
+* Azure PowerShell, **minst version 1.0.1**. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs). Om du redan har installerat Azure PowerShell och inte vet vilken version du har skriver du `(Get-Module azure -ListAvailable).Version` i Azure PowerShell-konsolen.  
 * Tillräckligt med utrymme i Azure för Key Vault-loggarna.
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Ansluta till dina prenumerationer
@@ -66,7 +66,7 @@ Skriv sedan följande för att ange den prenumeration som är associerad med nyc
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Mer information om hur du konfigurerar Azure PowerShell finns  i [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md).
+Mer information om hur du konfigurerar Azure PowerShell finns  i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Skapa ett nytt lagringskonto för dina loggar
 Även om du kan använda ett befintligt lagringskonto för dina loggar ska vi skapa ett nytt lagringskonto som ska användas specifikt för Key Vault-loggar. För att underlätta för oss när vi senare ska ange detta så lagrar vi informationen i en variabel med namnet **sa**.
@@ -266,6 +266,6 @@ Självstudierna om nyckelrotering och logggranskning med Azure Key Vault finns i
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

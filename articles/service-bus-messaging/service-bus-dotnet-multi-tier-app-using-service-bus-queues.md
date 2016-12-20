@@ -1,13 +1,13 @@
 ---
 title: ".NET-flernivåapp | Microsoft Docs"
 description: "En .NET-självstudiekurs som hjälper dig att utveckla en flernivåapp i Azure som använder Service Bus-köer för att kommunicera mellan nivåerna."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 
 
 ---
-# <a name="net-multitier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
+# <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
 ## <a name="introduction"></a>Introduktion
 Att utveckla för Microsoft Azure är enkelt tack vare Visual Studio och det kostnadsfria utvecklingsverktyget Azure SDK för .NET. Den här självstudiekursen vägleder dig igenom stegen för att skapa en app som använder flera Azure-resurser som körs i din lokala miljö. Anvisningarna förutsätter att du inte har några tidigare erfarenheter av att använda Azure.
 
@@ -39,7 +39,7 @@ Följande skärmdump visar den färdiga appen.
 
 ![][0]
 
-## <a name="scenario-overview-interrole-communication"></a>Scenarioöversikt: kommunikation mellan roller
+## <a name="scenario-overview-inter-role-communication"></a>Scenarioöversikt: kommunikation mellan roller
 Om du vill skicka in en order för bearbetning måste klientdelens UI-komponent, som kör webbrollen, interagera med den mellannivålogik som kör arbetsrollen. I det här exemplet används en asynkron meddelandetjänst via Service Bus för kommunikation mellan nivåerna.
 
 Genom att använda en asynkron meddelandetjänst mellan webben och mellannivåerna frikopplas de båda komponenterna. Till skillnad från direkt dataöverföring (d.v.s. TCP eller HTTP), ansluter webbnivån inte direkt till mellannivån. Istället skickar den arbetsenheter, som meddelanden, till Service Bus, som lagrar dem på ett tillförlitligt sätt tills mellannivån är klar att använda och bearbeta dem.
@@ -410,6 +410,6 @@ Mer information om flernivåscenarier finns i:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

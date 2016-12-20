@@ -59,7 +59,7 @@ Du måste slutföra den här kursen innan du börjar någon annan kurs om Notifi
 
 Din meddelandehubb har nu konfigurerats för att fungera med GCM och du har anslutningssträngar för att registrera din app för att både ta emot och skicka push-meddelanden.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Anslut appen till meddelandehubben
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Anslut appen till meddelandehubben
 ### <a name="create-a-new-android-project"></a>Skapa ett nytt Android-projekt
 1. Starta ett nytt Android Studio-projekt i Android Studio.
    

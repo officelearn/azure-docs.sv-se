@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 8f90dd518c6147df884ca9fd61ff8ee3b47dd179
-ms.openlocfilehash: 0fa4f3f5d5f07dcd0ec7dfdea7a0bec67900288e
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Dokumentation om Azure Active Directory
 
-Azure Active Directory (Azure AD) är Microsofts molnbaserade katalog- och identitetshanteringstjänst för flera innehavare.  Azure AD har identitets- och åtkomstfunktioner för program som körs i Azure samt lokalt.  
+Azure Active Directory Premium är en identitets- och åtkomsthanteringslösning som tillhandahåller enkel inloggning till flera tusen molnappar (SaaS) och åtkomst till webbappar som du kör lokalt. Azure Active Directory ger stöd för företagsmobilitet och samarbete och levererar avancerat identitetsskydd via MFA (Multi-Factor Authentication), säkerhetsrapporter, granskningar, aviseringar och anpassningsbara principer för villkorlig åtkomst baserat på enhetens hälsotillstånd, användarens plats och risknivå.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) är Microsofts molnbaserade katalog- och ident
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=active-directory">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -87,68 +87,46 @@ Azure Active Directory (Azure AD) är Microsofts molnbaserade katalog- och ident
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell-referens</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/ad">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure Active Directory med Azure CLI</p>
-                    </div>
+                        <h3>Språk</h3>
+                        <p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Azure Active Directory .NET-referens</p>
+                        <h3>Annat</h3>
+                        <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">Tjänstens begränsningar</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Azure Java API-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-   </ul>
-
----
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
@@ -160,6 +138,6 @@ Ladda ned dokumentation om Active Directory </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

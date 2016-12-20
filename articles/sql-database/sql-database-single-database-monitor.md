@@ -9,6 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f5fa586bd8902af2129a7157f0549c337ae00d00
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5cda0c5b491f71999da0b7bd70156256ab2d5908
 
 
 ---
@@ -43,18 +44,17 @@ Om du exempelvis förväntar dig att arbetsbelastningen på din databas kommer a
 Prestandamåtten kan också hjälpa dig att bestämma om kan nedgradera till en lägre prestandanivå. Anta att du använder en Standard S2-databas och alla prestandamått visar att databasen i snitt inte använder mer än 10 % vid något tillfälle. Det är då troligt att databasen skulle fungera bra i Standard S1. Var dock medveten om arbetsbelastningar som varierar kraftigt innan du beslutar att flytta till en lägre prestandanivå.
 
 ## <a name="monitor-databases-using-dmvs"></a>Övervaka databaser med hjälp av DMV:er
-Samma mått som exponeras i portalen, går också att få fram i systemvyer: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) i den logiska **huvud**-databasen på din server, samt [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) i användardatabasen. Använd **sys.resource_stats** om du behöver övervaka mindre detaljerad data över en längre tidsperiod. Använd **sys.dm_db_resource_stats** om du behöver övervaka mer detaljerad data inom ett kortare tidsintervall. Mer information finns i [Azure SQL Database-prestandaråd](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
+Samma mått som exponeras i portalen, går också att få fram i systemvyer: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) i den logiska **huvud**-databasen på din server, samt [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) i användardatabasen. Använd **sys.resource_stats** om du behöver övervaka mindre detaljerad data över en längre tidsperiod. Använd **sys.dm_db_resource_stats** om du behöver övervaka mer detaljerad data inom ett kortare tidsintervall. Mer information finns i [Azure SQL Database-prestandaråd](sql-database-performance-guidance.md#monitor-resource-use).
 
 > [!NOTE]
 > **sys.dm_db_resource_stats** returnerar en tom resultatuppsättning när den används i databaser av Webb- och Business-utgåva som är föråldrade.
-> 
-> 
+>
+>
 
 För elastiska databaspooler, kan du övervaka individuella databaser i poolen med de tekniker som beskrivs i det här avsnittet. Men du kan också övervaka poolen som helhet. Mer information finns i [Övervaka och hantera en elastisk databaspool](sql-database-elastic-pool-manage-portal.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

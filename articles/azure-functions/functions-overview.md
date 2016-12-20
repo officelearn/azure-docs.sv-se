@@ -14,16 +14,16 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/29/2016
+ms.date: 11/20/2016
 ms.author: cfowler;mahender;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a06126707ad9942ba3b269b0e2e2a52f9cf0c61e
-ms.openlocfilehash: 7d6bcf84b8d1de1b9f77385909d81ad6baafe9d9
+ms.sourcegitcommit: 30cc3b8749d5b36b89b242e2691003cc6f67f7d2
+ms.openlocfilehash: 00359057d702c556cd8beb91cf17ccf41c96f601
 
 
 ---
 # <a name="azure-functions-overview"></a>Översikt över Azure Functions
-Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Detta kan göra utvecklingen ännu mer produktiv och du kan använda det programmeringsspråk du föredrar, till exempel C#, Node.js, Python eller PHP. Betala endast för tiden koden körs och lita på att Azure skalar enligt behov.
+Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda det programmeringsspråk du föredrar, till exempel C#, Node.js, Python eller PHP. Betala endast för tiden koden körs och lita på att Azure skalar enligt behov.
 
 Det här ämnet innehåller en översikt över Azure Functions. Om du vill komma igång snabbt med Azure Functions, börja med att [Skapa din första Azure-funktion](functions-create-first-azure-function.md). Mer teknisk information om Azure Functions finns i [Info för utvecklare](functions-reference.md).
 
@@ -31,10 +31,10 @@ Det här ämnet innehåller en översikt över Azure Functions. Om du vill komma
 Här följer några funktioner i Azure Functions:
 
 * **Val av språk** – Skriv funktioner med hjälp av C#, F#, Node.js, Python, PHP, batch, bash eller andra körbara filer.
-* **Prismodell – Betala per användning** – Betala endast för tiden som använts för att köra koden. Se alternativet dynamisk apptjänstplan i [prissättningsavsnittet](#pricing) nedan.  
+* **Prismodell – Betala per användning** – Betala endast för tiden som använts för att köra koden. Se alternativet för förbrukningsvärdplan i [prissättningsavsnittet](#pricing).  
 * **Ta med dina egna beroenden** – Functions stöder NuGet och NPM, så du kan använda dina favoritbibliotek.  
 * **Integrerad säkerhet** – Skydda HTTP-utlösta funktioner med OAuth-providrar, till exempel Azure Active Directory, Facebook, Google, Twitter och Microsoft Account.  
-* **Förenklad integration** – Utnyttja Azure-tjänster och SaaS-erbjudanden (programvara som en tjänst) enkelt. Se [avsnittet Integreringar](#integrations) nedan för några exempel.  
+* **Förenklad integration** – Utnyttja Azure-tjänster och SaaS-erbjudanden (programvara som en tjänst) enkelt. I [avsnittet Integreringar](#integrations) finns några exempel.  
 * **Flexibel utveckling** – Koda dina funktioner direkt i portalen eller ställ in kontinuerlig integration och distribuera din kod via GitHub, Visual Studio Team Services och andra [utvecklingsverktyg som stöds](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
 * **Öppen källkod** – Functions-runtime är öppen källkod och [tillgänglig på GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
@@ -43,7 +43,7 @@ Azure Functions är en bra lösning för att behandla data, integrera system, ar
 
 Functions innehåller mallar för att komma igång med viktiga scenarier, inklusive följande:
 
-* **BlobTrigger** – Bearbeta Azure Storage-blobbar när de läggs till i behållare. Du kan använda detta för storleksändring.
+* **BlobTrigger** – Bearbeta Azure Storage-blobbar när de läggs till i behållare. Du kan använda den här funktionen för storleksändring.
 * **EventHubTrigger** – Svara på händelser som levereras till en Azure-händelsehubb. Särskilt användbart i programinstrumentation, bearbetning av användarupplevelser och arbetsflöden samt scenarier i Sakernas Internet (IoT).
 * **Allmän webhook** – Bearbeta webhook-HTTP-begäranden från alla tjänster som stöder webhooks.
 * **GitHub-webhook** – Svara på händelser i dina GitHub-databaser. Ett exempel finns i [Skapa en webhook eller API-funktion](functions-create-a-web-hook-or-api-function.md).
@@ -56,7 +56,7 @@ Functions innehåller mallar för att komma igång med viktiga scenarier, inklus
 Azure Functions stöder *utlösare*, som kan användas för att starta körning av din kod, och *bindningar*, som kan användas för att förenkla kodning för in- och utdata. En detaljerad beskrivning av utlösare och bindningar i Azure Functions finns i [Azure Functions-utlösare och -bindningar, info för utvecklare](functions-triggers-bindings.md).
 
 ## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Integreringar
-Azure Functions kan integreras med en mängd Azure- och tredjepartstjänster. Du kan använda dessa för att utlösa funktionen och starta körning eller för att fungera som indata och utdata för din kod. Följande tjänsteintegreringar stöds av Azure Functions. 
+Azure Functions kan integreras med en mängd Azure- och tredjepartstjänster. Du kan använda tjänsterna för att utlösa funktionen och starta körning, eller så kan de fungera som indata och utdata för din kod. Följande tjänsteintegreringar stöds av Azure Functions. 
 
 * Azure DocumentDB
 * Azure Event Hubs 
@@ -70,10 +70,10 @@ Azure Functions kan integreras med en mängd Azure- och tredjepartstjänster. Du
 ## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Hur mycket kostar Functions?
 Azure Functions har två typer av prissättningar, välj den som bäst passar dina behov: 
 
-* **Dynamisk värdplan** – När din funktion körs, tillhandahåller Azure alla nödvändiga beräkningsresurser. Du behöver inte bry dig om resurshantering, och du betalar endast för den tid då din kod körs. Fullständig prisinformation är tillgänglig på sidan [Prissättning för Functions](/pricing/details/functions). 
-* **Apptjänstplan** – Kör dina funktioner precis som dina webb-, mobil- och API Apps. När du redan använder App Service för dina andra program, kan du köra dina funktioner på samma plan utan extra kostnad. Fullständig information finns på sidan [Prissättning för App Service](/pricing/details/app-service/).
+* **Förbrukningsplan** – När din funktion körs tillhandahåller Azure alla nödvändiga beräkningsresurser. Du behöver inte bry dig om resurshantering, och du betalar endast för den tid då din kod körs. 
+* **Apptjänstplan** – Kör dina funktioner precis som dina webb-, mobil- och API Apps. När du redan använder App Service för dina andra program, kan du köra dina funktioner på samma plan utan extra kostnad. 
 
-Mer information om att skala dina funktioner finns i [Så här skalar du Azure Functions](functions-scale.md).
+Fullständig prisinformation är tillgänglig på sidan [Prissättning för Functions](https://azure.microsoft.com/pricing/details/functions/). Mer information om att skala dina funktioner finns i [Så här skalar du Azure Functions](functions-scale.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)  
@@ -83,13 +83,13 @@ Mer information om att skala dina funktioner finns i [Så här skalar du Azure F
 * [Testa Azure Functions](functions-test-a-function.md)  
   Beskriver olika verktyg och tekniker för att testa funktioner.
 * [Så här skalar du Azure Functions](functions-scale.md)  
-  Beskriver tillgängliga serviceplaner för Azure Functions, inklusive den dynamiska serviceplanen, och hur du väljer rätt plan. 
+  Beskriver tillgängliga serviceplaner för Azure Functions, inklusive värdplanen för förbrukning, och hur du väljer rätt plan. 
 * [Läs mer om Azure App Service](../app-service/app-service-value-prop-what-is.md)  
   Azure Functions utnyttjar plattformen Azure App Service för grundläggande funktioner som distributioner, miljövariabler och diagnostik. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

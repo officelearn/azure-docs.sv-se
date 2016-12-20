@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
+ms.sourcegitcommit: c9aa7cebab12eafe71476ee45ef578d3201e69e5
+ms.openlocfilehash: e7c38aa5a778d5e8a653e753e5794d7c7da31dc1
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
 ## <a name="introduction"></a>Introduktion
 Händelsehubbar är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i händelsehubbar kan du lagra dem med ett lagringskluster eller omvandla dem med hjälp av en leverantör av realtidsanalys. Den här storskaliga händelseinsamlingen och bearbetningsfunktionen är en viktig komponent inom moderna programarkitekturer som t.ex. sakernas internet.
 
-I den här kursen får du lära dig att skapa en händelsehubb i den klassiska Azure-portalen. Du får också lära dig att samla in meddelanden i en händelsehubb med hjälp av ett konsolprogram som skrivits i C# och att parallellt hämta dem med hjälp av biblioteket Värd för händelsebearbetning i Java.
+I den här kursen får du lära dig att skapa en händelsehubb i Azure Portal. Du får också lära dig att samla in meddelanden i en händelsehubb med hjälp av ett konsolprogram som skrivits i C# och att parallellt hämta dem med hjälp av biblioteket Värd för händelsebearbetning i Java.
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -52,22 +52,22 @@ Du är nu redo att köra programmen.
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har skapat ett fungerande program som skapar en händelsehubb och skickar och tar emot data kan du gå vidare till följande scenarier:
 
-* Ett komplett [exempelprogram som använder Event Hubs][exempelprogram som använder Event Hubs].
-* Exemplet [Skala ut händelsebearbetning med händelsehubbar][Skala ut händelsebearbetning med händelsehubbar].
-* [Översikt av händelsehubbar][Översikt av händelsehubbar]
+* Ett komplett [exempelprogram som använder händelsehubbar][sample application that uses Event Hubs].
+* Exemplet [Skala ut händelsebearbetning med händelsehubbar][Scale out Event Processing with Event Hubs].
+* [Översikt av händelsehubbar][Event Hubs overview]
 
 <!-- Images. -->
 [21]: ./media/event-hubs-csharp-ephjava-getstarted/ephjava.png
 [22]: ./media/event-hubs-csharp-ephjava-getstarted/cs-send.png
 
 <!-- Links -->
-[Klassiska Azure-portalen]: https://manage.windowsazure.com/
-[Event Hubs-översikt]: event-hubs-overview.md
-[exempelprogram som använder Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Skala ut händelsebearbetning med Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Azure classic portal]: https://manage.windowsazure.com/
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

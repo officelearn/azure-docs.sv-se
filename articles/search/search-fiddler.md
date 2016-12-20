@@ -12,23 +12,24 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
-
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
 
 ---
+
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Utvärdera och testa REST-API:erna för Azure Search med hjälp av Fiddler
 > [!div class="op_single_selector"]
+>
 > * [Översikt](search-query-overview.md)
 > * [Sökutforskaren](search-explorer.md)
 > * [Fiddler](search-fiddler.md)
 > * [NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
-> 
-> 
+>
+>
 
 Den här artikeln beskriver hur du använder Fiddler, som är tillgängligt som en [kostnadsfri nedladdning från Telerik](http://www.telerik.com/fiddler), för att skicka HTTP-förfrågningar till och visa svar med hjälp av REST-API:et för Azure Search, utan att skriva någon kod. Azure Search är en fullständigt hanterad, värd- och molnbaserad söktjänst i Microsoft Azure, som enkelt kan programmeras via .NET och REST-API:er. Azure Search-tjänstens REST API:er finns dokumenterade på [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -39,26 +40,26 @@ För att slutföra dessa steg behöver du en Azure Search-tjänst och `api-key`.
 ## <a name="create-an-index"></a>Skapa ett index
 1. Starta Fiddler. Inaktivera **Capture Traffic**på **File**-menyn för att dölja HTTP-aktivitet som inte rör den aktuella aktiviteten.
 2. På fliken **Composer** formulerar du en begäran som ser ut som i följande skärmbild.
-   
+
       ![][1]
 3. Välj **PUT**.
 4. Ange en URL som anger tjänstens URL, attribut för begäran och API-versionen. Några saker att tänka på:
-   
+
    * Använd HTTPS som prefix.
    * Attributet för begäran är ”/indexes/hotels”. Detta beordrar Search att skapa ett index med namnet ”hotels”.
-   * API-versionen är i gemener, i följande format: ”?api-version=2015-02-28”. API-versioner är viktiga eftersom Azure Search distribuerar uppdateringar regelbundet. I sällsynta fall kan en tjänstuppdatering implementera en viktig ändring i API:et. Av den anledningen kräver Azure Search en API-version i varje begäran så att du har full kontroll över vilken version som används.
-     
+   * API-versionen anges i gemener, i följande format: ”?api-version=2016-09-01”. API-versioner är viktiga eftersom Azure Search distribuerar uppdateringar regelbundet. I sällsynta fall kan en tjänstuppdatering implementera en viktig ändring i API:et. Av den anledningen kräver Azure Search en API-version i varje begäran så att du har full kontroll över vilken version som används.
+
      En fullständig URL ser ut som i följande exempel.
-     
-             https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+
+             https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01
 5. Ange huvudet för begäran och ersätt värden och API-nyckeln med värdena för din tjänst.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 6. I Begärandetext klistrar du in fälten som bildar indexdefinitionen.
-   
+
           {
          "name": "hotels",  
          "fields": [
@@ -87,17 +88,17 @@ På fliken **Composer** ser din begäran om att publicera dokument ut så här: 
    ![][2]
 
 1. Välj **POST**.
-2. Ange en URL som börjar med HTTPS, följt av tjänstens URL, följt av ”/indexes/<'indexname'>/docs/index?api-version=2015-02-28”. En fullständig URL ser ut som i följande exempel.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+2. Ange en URL som börjar med HTTPS, följt av tjänstens URL, följt av ”/indexes/<'indexname'>/docs/index?api-version=2016-09-01”. En fullständig URL ser ut som i följande exempel.
+
+         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
 3. Huvudet i begäran ska vara samma som tidigare. Kom ihåg att du ersatte värden och API-nyckeln med värden för din tjänst.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 4. Begärandetexten innehåller fyra dokument som ska läggas till i hotellindexet.
-   
+
          {
          "value": [
          {
@@ -169,12 +170,12 @@ Nu när ett index och dokument har lästs in kan du skicka frågor mot dem.  **G
 
 1. Välj **GET**.
 2. Ange en URL som börjar med HTTPS, följt av tjänstens URL, följt av ”/indexes/<'indexname'>/docs?”, följt av frågeparametrar. Som ett exempel kan du använda följande URL och ersätta exempelvärdnamnet med ett som är giltigt för din tjänst.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
-   
+
+         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2016-09-01
+
    Den här frågan söker efter termen ”motel” och hämtar aspektkategorier för betygsättning.
 3. Huvudet i begäran ska vara samma som tidigare. Kom ihåg att du ersatte värden och API-nyckeln med värden för din tjänst.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -188,11 +189,11 @@ Följande exempelfråga kommer från avsnittet om [sökindexåtgärder (Azure Se
 
 **Innan blankstegen har ersatts:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
 
 **När blankstegen har ersatts med +:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
 
 ## <a name="query-the-system"></a>Fråga systemet
 Du kan också skicka frågor i systemet för att visa antalet dokument och lagringsanvändningen. På fliken **Composer** ser din begäran ut ungefär som nedan, och svaret returnerar antalet dokument och mängden förbrukat utrymme.
@@ -200,11 +201,11 @@ Du kan också skicka frågor i systemet för att visa antalet dokument och lagri
  ![][5]
 
 1. Välj **GET**.
-2. Ange en URL som innehåller tjänstens URL, följt av ”/indexes/hotels/stats?api-version=2015-02-28”:
-   
-         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+2. Ange en URL som innehåller tjänstens URL, följt av ”/indexes/hotels/stats?api-version=2016-09-01”:
+
+         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01
 3. Ange huvudet för begäran och ersätt värden och API-nyckeln med värdena för din tjänst.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -225,6 +226,6 @@ Avsnittet [Hantera din Search-tjänst i Azure](search-manage.md) innehåller inf
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

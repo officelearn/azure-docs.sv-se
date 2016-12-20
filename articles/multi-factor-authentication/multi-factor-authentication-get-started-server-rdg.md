@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee868c5ba1a8429a733633edbc7efaa74e512135
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
 
 
 ---
-# <a name="remote-desktop-gateway-and-azure-multifactor-authentication-server-using-radius"></a>Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS
+# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS
 Ofta använder Fjärrskrivbordsgateway (RDG) den lokala nätverksprincipservern (NPS) för att autentisera användare. Det här dokumentet beskriver hur du dirigerar RADIUS-förfrågningar från Fjärrskrivbordsgateway (via den lokala NPS-servern) till Multi-Factor Authentication Server.
 
 Multi-Factor Authentication Server bör installeras på en separat server, som sedan skickar RADIUS-begäran via en proxyanslutning till NPS på RDG-servern. När NPS-servern validerar användarnamnet och lösenordet returnerar den ett svar till Multi-Factor Authentication Server som utför autentiseringen med den andra faktorn innan resultatet returneras till gatewayen.
@@ -36,7 +36,7 @@ Fjärrskrivbordsgateway använder NPS för att skicka RADIUS-begäran till Azure
 3. Expandera avsnittet Principer i det vänstra navigeringsfönstret och klicka på Principer för anslutningsbegäran. Avsnittet bör innehålla en princip för anslutningsbegäran med namnet TS Gateway-auktoriseringsprincip som skapades när Fjärrskrivbordsgateway konfigurerades. Den här principen dirigerar RADIUS-förfrågningar till Multi-Factor Authentication Server.
 4. Kopiera den här principen för att skapa en ny. I den nya principen lägger du till ett villkor som matchar Eget namn för klient med det egna namnet som du angav i steg 2 för RADIUS-klienten för Azure Multi-Factor Authentication Server. Ändra autentiseringsprovidern till Lokal dator. Den här principen säkerställer att när en RADIUS-begäran tas emot från Azure Multi-Factor Authentication Server så sker autentiseringen lokalt i stället för att en RADIUS-begäran skickas tillbaka till Azure Multi-Factor Authentication Server vilket skulle resultera i ett looptillstånd. För att förhindra loopsituationen måste den här nya principen placeras OVANFÖR den ursprungliga principen som vidarebefordrar till Multi-Factor Authentication Server.
 
-## <a name="configure-azure-multifactor-authentication"></a>Konfigurera Azure Multi-Factor Authentication
+## <a name="configure-azure-multi-factor-authentication"></a>Konfigurera Azure Multi-Factor Authentication
 - - -
 Azure Multi-Factor Authentication Server är konfigurerat som en RADIUS-proxy mellan Fjärrskrivbordsgateway och NPS.  Den bör installeras på en domänansluten server som är separat från RDG-servern. Konfigurera Azure Multi-Factor Authentication Server genom att följa stegen nedan.
 
@@ -50,6 +50,6 @@ Azure Multi-Factor Authentication Server är konfigurerat som en RADIUS-proxy me
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

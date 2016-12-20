@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cc377f80fa6b9df41081b13a51ff15482b2ba8bc
+ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
+ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
 
 
 ---
-# <a name="create-a-vnet-with-a-sitetosite-connection-using-the-azure-classic-portal"></a>Skapa ett VNet med en anslutning från plats till plats med den klassiska Azure-portalen
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-classic-portal"></a>Skapa ett VNet med en anslutning från plats till plats med den klassiska Azure-portalen
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -33,7 +33,7 @@ Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-gate
 
 ![Plats-till-plats-diagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
-### <a name="deployment-models-and-methods-for-sitetosite-connections"></a>Distributionsmodeller och metoder för plats-till-plats-anslutningar
+### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Distributionsmodeller och metoder för plats-till-plats-anslutningar
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 Följande tabell visar de tillgängliga distributionsmodellerna och -metoderna för plats-till-plats-konfigurationer. När det finns en artikel med konfigurationssteg tillgänglig länkar vi till den direkt från tabellen.
@@ -48,7 +48,7 @@ Kontrollera att du har följande innan du påbörjar konfigurationen.
 
 * En kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md). Om du inte vet hur man konfigurerar VPN-enheten eller inte känner till IP-adressintervallen i din lokala nätverkskonfiguration måste du vända dig till någon som kan ge den informationen till dig.
 * En extern offentlig IP-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial).
 
 ## <a name="a-namecreatevnetacreate-your-virtual-network"></a><a name="CreateVNet"></a>Skapa ditt virtuella nätverk
 1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com/).
@@ -68,7 +68,7 @@ Ange följande information och klicka sedan på pilen Nästa nere till höger.
 * **Konfigurera VPN för plats-till-plats**: Markera kryssrutan för **Konfigurera VPN för plats-till-plats**.
 * **Lokalt nätverk**: Ett lokalt nätverk representerar den fysiska lokala platsen. Du kan välja ett lokalt nätverk som du tidigare har skapat, eller skapa ett nytt lokalt nätverk. Men om du väljer att använda ett lokalt nätverk som du skapat tidigare ska du gå till konfigurationssidan **Lokala nätverk** och kontrollera att VPN-enhetens IP-adress (offentlig IPv4-adress) för VPN-enheten är korrekt.
 
-## <a name="a-nameconnectivityasitetosite-connectivity-page"></a><a name="Connectivity"></a>Sidan Plats-till-plats-anslutning
+## <a name="a-nameconnectivityasite-to-site-connectivity-page"></a><a name="Connectivity"></a>Sidan Plats-till-plats-anslutning
 Om du skapar ett nytt lokalt nätverk visas sidan **Plats-till-plats-anslutning**. Om du vill använda ett lokalt nätverk som du skapat tidigare, visas inte den här sidan i guiden och du kan gå vidare till nästa avsnitt.
 
 Ange följande information och klicka sedan på pilen Nästa.
@@ -97,11 +97,11 @@ Klicka på bockmarkeringen längst ned på sidan. Det virtuella nätverket börj
 Konfigurera den virtuella nätverksgatewayen för att skapa en säker plats-till-plats-anslutning. Se [Konfigurera en virtuell nätverksgateway i den klassiska Azure-portalen](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## <a name="next-steps"></a>Nästa steg
-När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i dokumentationen för [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+ När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

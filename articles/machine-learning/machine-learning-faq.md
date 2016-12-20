@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/26/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36fd6b01dae6aa9a48985a252766d3f2d0b19342
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fd0e8f5bd41fcf105571f76aab2f192c2f6dd21d
 
 
 ---
@@ -101,7 +101,7 @@ För datauppsättningar som är större än ett par GB laddar du upp data till A
 
 **Kan jag läsa data från Amazon S3?**
 
-Om du har en liten mängd data och vill exponera den via en HTTP-URL kan du använda modulen [Importera data][import-data]. Om du har större mängder data laddar du upp dem till Azure Storage först och använder sedan modulen [Importera data][import-data] för att ta med dem i experimentet.
+Om du har en liten mängd data och vill exponera dem via en HTTP-URL kan du använda modulen [Importera data][import-data]. Om du har större mängder data laddar du upp dem till Azure Storage först och använder sedan modulen [Importera data][import-data] för att ta med dem i experimentet.
 <!--
 
 <SEE CLOUD DS PROCESS>
@@ -109,7 +109,7 @@ Om du har en liten mängd data och vill exponera den via en HTTP-URL kan du anv�
 
 **Finns det inbyggda bildinhämtningsfunktioner?**
 
-Mer information om bildinhämtningsfunktioner finns i referensen för [Importera bilder][image-reader].
+Mer information om bildinmatningsfunktioner finns i referensen för [bildimport][image-reader].
 
 ### <a name="modules"></a>Moduler
 **Algoritmen, datakällan, dataformatet eller datatransformeringsåtgärden som jag letar efter finns inte i Azure Machine Learning Studio. Vad har jag för alternativ?**
@@ -140,7 +140,7 @@ Eftersom data överförs till webbläsaren och kan vara stora är storleken på 
 ### <a name="algorithms"></a>Algoritmer
 **Vilka befintliga algoritmer stöds i Machine Learning Studio?**
 
-Machine Learning Studio tillhandahåller avancerade algoritmer som skalbara förstärkta beslutsträd, Bayesian Recommendation-system, djupa neurala nätverk och beslutsdjungler utvecklade av Microsoft Research. Skalbara maskininlärningspaket med öppen källkod som Vowpal Wabbit ingår också. Machine Learning Studio stöder maskininlärningsalgoritmer för multiklass-baserad och binär klassificering, regression och kluster. Se den fullständiga listan med [maskininlärningsmoduler][machine-learning-modules].
+Machine Learning Studio tillhandahåller avancerade algoritmer som skalbara förstärkta beslutsträd, Bayesian Recommendation-system, djupa neurala nätverk och beslutsdjungler utvecklade av Microsoft Research. Skalbara maskininlärningspaket med öppen källkod som Vowpal Wabbit ingår också. Machine Learning Studio stöder maskininlärningsalgoritmer för multiklass-baserad och binär klassificering, regression och kluster. Se den fullständiga listan med [Machine Learning-moduler][machine-learning-modules].
 
 **Föreslås rätt Machine Learning-algoritm automatiskt för mina data?**
 
@@ -332,7 +332,7 @@ Mer information om fakturering och priser finns i [Machine Learning-priser](http
 
  Azure Machine Learning erbjuder ett alternativ för en kostnadsfri prenumeration (mer information finns i [Machine Learning-priser](https://azure.microsoft.com/pricing/details/machine-learning/)) och Machine Learning Studio erbjuder en snabbutvärdering på åtta timmar (logga in i [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) om du är intresserad av den här utvärderingsversionen).
 
- När du registrerar dig för en kostnadsfri utvärderingsversion av Azure kan du dessutom prova alla Azure-tjänster i en månad. Om du vill ha mer information om den kostnadsfria utvärderingsversionen av Azure läser du avsnittet med [vanliga frågor och svar om den kostnadsfria utvärderingsversionen av Azure](/pricing/free-trial-faq/).
+ När du registrerar dig för en kostnadsfri utvärderingsversion av Azure kan du dessutom prova alla Azure-tjänster i en månad. Om du vill ha mer information om den kostnadsfria utvärderingsversionen av Azure läser du avsnittet med [vanliga frågor och svar om den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 **Vad är en transaktion?**
 
@@ -432,7 +432,7 @@ De nya faktureringsplanerna är tillgängliga i de tre produktionsregioner där 
 
 Ja. Priserna för planer varierar beroende på region. När du distribuerar en webbtjänst till en annan region måste du associera den med en plan som är specifik för den regionen.
 
-### <a name="new-web-services-overages"></a>De nya webbtjänsterna – överförbrukning
+### <a name="new-web-services---overages"></a>De nya webbtjänsterna – överförbrukning
 **Hur kontrollerar jag om min webbtjänstanvändning överförbrukas?**
 
 Du kan visa förbrukningen för alla dina planer på sidan för faktureringsplaner på Azure Machine Learning Web Services-portalen. Logga in på portalen och klicka på menyalternativet för planer.
@@ -545,6 +545,6 @@ Gäståtkomst är en begränsad utvärderingsmiljö där du kan skapa och köra 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

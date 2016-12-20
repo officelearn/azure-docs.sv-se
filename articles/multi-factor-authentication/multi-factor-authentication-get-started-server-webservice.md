@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
 
 
 ---
@@ -75,10 +75,10 @@ Tänk på följande innan du installerar Mobile App-webbtjänsten:
 
 <li>Öppna en webbläsare från en dator och gå till URL:en där Mobile App-webbtjänsten installerades (t.ex. https://www.publicwebsite.com/PA). Se till att inga certifikatvarningar eller fel visas.</li>
 
-### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Konfigurera Mobile App-inställningarna i Azure Multi-Factor Authentication Server
+### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurera Mobile App-inställningarna i Azure Multi-Factor Authentication Server
 Nu när Mobile App-webbtjänsten är installerad måste du konfigurera Azure Multi-Factor Authentication Server så att den fungerar med portalen.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Så här konfigurerar du Mobile App-inställningarna i Azure Multi-Factor Authentication Server
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Så här konfigurerar du Mobile App-inställningarna i Azure Multi-Factor Authentication Server
 1. Klicka på ikonen för användarportalen i Azure Multi-Factor Authentication Server. Om användarna ska kunna styra sina autentiseringsmetoder markerar du Mobilapp under Tillåt användare att välja metod på fliken Inställningar. Om den här funktionen inte är aktiverad måste slutanvändarna kontakta din supportavdelning för att slutföra aktiveringen av mobilappen.
 2. Markera kryssrutan Tillåt användare att aktivera mobilapp.
 3. Markera kryssrutan Tillåt användarregistrering.
@@ -89,6 +89,6 @@ Nu när Mobile App-webbtjänsten är installerad måste du konfigurera Azure Mul
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

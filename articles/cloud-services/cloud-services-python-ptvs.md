@@ -1,5 +1,5 @@
 ---
-title: "Webb- och arbetsroller för Visual Studio | Microsoft Docs"
+title: "Komma igång med Python och Azure Cloud Services | Microsoft Docs"
 description: "Översikt över hur du använder Python Tools för Visual Studio för att skapa Azure-molntjänster, inklusive webb- och arbetsroller."
 services: cloud-services
 documentationcenter: python
@@ -12,21 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/03/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
+
 Den här artikeln innehåller en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][Python Tools för Visual Studio]. Du får lära dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
 
 ## <a name="prerequisites"></a>Krav
 * Visual Studio 2013 eller 2015
 * [Python Tools för Visual Studio][Python Tools för Visual Studio] (PTVS)
-* [Azure SDK-verktyg för VS 2013][Azure SDK-verktyg för VS 2013] eller [Azure SDK-verktyg för VS 2015][Azure SDK-verktyg för VS 2015]
+* [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] eller [Azure SDK-verktyg för VS 2015][Azure SDK-verktyg för VS 2015]
 * [Python 2.7 32-bitars][Python 2.7 32-bitars] eller [Python 3.5 32-bitars][Python 3.5 32-bitars]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -166,7 +167,7 @@ Variablerna **PYTHON2** och **PYPATH** måste läggas till arbetsstartsaktivitet
 Skapa sedan filerna **PrepPython.ps1** och **PipInstaller.ps1** i din rolls **. / bin**-mapp.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Det här skriptet installerar Python. Om **PYTHON2**-miljövariabeln anges till **på**, installeras Python 2.7, annars installeras Python 3.5.
+Det här skriptet installerar Python. Om du anger **PYTHON2**-miljövariabeln till **på** installeras Python 2.7, annars installeras Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -212,7 +213,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Det här skriptet ringer upp pip och installerar alla beroenden i **requirements.txt**-filen. Om **PYTHON2**-miljövariabeln anges till **på**, används Python 2.7, annars används Python 3.5.
+Det här skriptet ringer upp pip och installerar alla beroenden i **requirements.txt**-filen. Om du anger **PYTHON2**-miljövariabeln till **på** används Python 2.7, annars används Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -247,7 +248,7 @@ if (-not $is_emulated){
 
 **bin\LaunchWorker.ps1** skapades ursprungligen för att göra mycket förberedande arbete men det fungerar inte riktigt som tänkt. Ersätt innehållet i filen med följande skript.
 
-Det här skriptet anropar **worker.py**-filen från python-projektet. Om **PYTHON2**-miljövariabeln anges till **på**, används Python 2.7, annars används Python 3.5.
+Det här skriptet anropar **worker.py**-filen från python-projektet. Om du anger **PYTHON2**-miljövariabeln till **på** används Python 2.7, annars används Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -350,7 +351,7 @@ Mer information om hur du använder Azure-tjänster från dina webb- och arbetsr
 [Kötjänst]: ../storage/storage-python-how-to-use-queue-storage.md
 [Tabelltjänst]: ../storage/storage-python-how-to-use-table-storage.md
 [Service Bus-köer]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
-[Service Bus-ämnen]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+[Service Bus-avsnitt]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
@@ -358,13 +359,13 @@ Mer information om hur du använder Azure-tjänster från dina webb- och arbetsr
 [Python Tools för Visual Studio]: http://aka.ms/ptvs
 [Dokumentation för Python Tools för Visual Studio]: http://aka.ms/ptvsdocs
 [Molntjänstprojekt]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure SDK Tools för VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools för VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Azure SDK-verktyg för VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32-bitars]: https://www.python.org/downloads/
 [Python 3.5 32-bitars]: https://www.python.org/downloads/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

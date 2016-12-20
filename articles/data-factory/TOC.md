@@ -1,6 +1,6 @@
 # Översikt
 ## [Introduktion till Azure Data Factory](data-factory-introduction.md)
-## Begrepp
+## Koncept
 ### [Datauppsättningar](data-factory-create-datasets.md)
 ### [Pipelines och aktiviteter](data-factory-create-pipelines.md)
 ### [Schemaläggning och körning](data-factory-scheduling-and-execution.md)
@@ -16,7 +16,7 @@
 ### [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
 ### [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 ## [Självstudier: Skapa en pipeline för att omvandla data](data-factory-build-your-first-pipeline.md)
-### [Azure-portal](data-factory-build-your-first-pipeline-using-editor.md)
+### [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
@@ -29,30 +29,31 @@
 #### [Läs in 1 TB på 15 minuter](data-factory-load-sql-data-warehouse.md)
 ### [Kopieringsaktivitet](data-factory-data-movement-activities.md)
 #### [Prestanda- och justeringsguide](data-factory-copy-activity-performance.md)
-#### [Azure Blob Storage](data-factory-azure-blob-connector.md)
-#### [Azure-tabeller](data-factory-azure-table-connector.md)
-#### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
-#### [Azure DocumentDB](data-factory-azure-documentdb-connector.md)
-#### [Azure SQL Database](data-factory-azure-sql-connector.md)
-#### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
-#### [SQL Server](data-factory-sqlserver-connector.md)
-#### [Oracle](data-factory-onprem-oracle-connector.md)
-#### [MySQL](data-factory-onprem-mysql-connector.md)
-#### [DB2](data-factory-onprem-db2-connector.md)
-#### [Teradata](data-factory-onprem-teradata-connector.md)
-#### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
-#### [Sybase](data-factory-onprem-sybase-connector.md)
-#### [Cassandra](data-factory-onprem-cassandra-connector.md)
-#### [MongoDB](data-factory-on-premises-mongodb-connector.md)
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
+#### [Azure Blob Storage](data-factory-azure-blob-connector.md)
+#### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
+#### [Azure DocumentDB](data-factory-azure-documentdb-connector.md)
+#### [Azure Search](data-factory-azure-search-connector.md)
+#### [Azure SQL Database](data-factory-azure-sql-connector.md)
+#### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+#### [Azure Table Storage](data-factory-azure-table-connector.md)
+#### [Cassandra](data-factory-onprem-cassandra-connector.md)
+#### [DB2](data-factory-onprem-db2-connector.md)
 #### [Filsystem](data-factory-onprem-file-system-connector.md)
+#### [FTP](data-factory-ftp-connector.md)
 #### [HDFS](data-factory-hdfs-connector.md)
-#### [Salesforce](data-factory-salesforce-connector.md)
-#### [Webbtabell](data-factory-web-table-connector.md)
+#### [MongoDB](data-factory-on-premises-mongodb-connector.md)
+#### [MySQL](data-factory-onprem-mysql-connector.md)
 #### [OData-källor](data-factory-odata-connector.md)
 #### [ODBC-datalager](data-factory-odbc-connector.md)
-#### [FTP](data-factory-ftp-connector.md)
+#### [Oracle](data-factory-onprem-oracle-connector.md)
+#### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
+#### [Salesforce](data-factory-salesforce-connector.md)
+#### [SQL Server](data-factory-sqlserver-connector.md)
+#### [Sybase](data-factory-onprem-sybase-connector.md)
+#### [Teradata](data-factory-onprem-teradata-connector.md)
+#### [Webbtabell](data-factory-web-table-connector.md)
 ### [Gateway för datahantering](data-factory-data-management-gateway.md)
 ### [Flytta data mellan lokalt system och molnet](data-factory-move-data-between-onprem-and-cloud.md)
 
@@ -81,13 +82,14 @@
 ### [Felsöka problem med gateway för datahantering](data-factory-troubleshoot-gateway-issues.md)
 
 # Referens
-## [Viktig information för gateway för datahantering](data-factory-gateway-release-notes.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [Azure Data Factory-utvecklarreferens](data-factory-sdks.md)
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
 ## [REST](/rest/api/datafactory/)
 
 # Resurser
+## [Viktig information för gateway för datahantering](data-factory-gateway-release-notes.md)
+## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Fallstudier](data-factory-customer-case-studies.md)
 ### [Produktrekommendationer](data-factory-product-reco-usecase.md)
 ### [Kundprofilering](data-factory-customer-profiling-usecase.md)
@@ -100,6 +102,6 @@
 ## [Begär en funktion](https://feedback.azure.com/forums/270578-azure-data-factory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

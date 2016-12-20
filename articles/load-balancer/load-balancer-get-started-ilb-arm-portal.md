@@ -3,8 +3,8 @@ title: "Kom igång med att skapa en intern belastningsutjämnare i Resource Mana
 description: "Lär dig hur du skapar en intern belastningsutjämnare i Resource Manager med hjälp av Azure Portal"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
@@ -14,25 +14,30 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
-
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: 6961255e4b1a269b3ac9bafb5f1b3ced7a2a8943
 
 ---
+
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Skapa en intern belastningsutjämnare i Azure Portal
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+
+> [!div class="op_single_selector"]
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-[klassisk distributionsmodell](load-balancer-get-started-ilb-classic-ps.md).
+> [!NOTE]
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).  Den här artikeln beskriver Resource Manager-distributionsmodellen, som Microsoft rekommenderar för de flesta nya distributioner i stället för [den klassiska distributionsmodellen](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Kom igång med att skapa en intern belastningsutjämnare med hjälp av Azure Portal
+
 Använd följande steg för att skapa en intern belastningsutjämnare från Azure Portal.
 
 1. Öppna en webbläsare, navigera till [Azure Portal](http://portal.azure.com) och logga in med ditt Azure-konto.
@@ -40,32 +45,33 @@ Använd följande steg för att skapa en intern belastningsutjämnare från Azur
 3. På bladet **Skapa belastningsutjämnare** skriver du ett **namn** för belastningsutjämnaren.
 4. Under **Schema** klickar du på **Intern**.
 5. Klicka på **Virtuellt nätverk** och välj sedan det virtuella nätverket där du vill skapa belastningsutjämnaren.
-   
+
    > [!NOTE]
    > Om du inte hittar det virtuella nätverk som du vill använda, kontrollerar du vilken **plats** du använder för belastningsutjämnaren och gör ändringar därefter.
-   > 
-   > 
+
 6. Klicka på **Undernät** och välj sedan undernätet där du vill skapa belastningsutjämnaren.
 7. Under **IP-adresstilldelning** klickar du antingen på **Dynamisk** eller **Statisk**, beroende på om du vill att IP-adressen för belastningsutjämnaren ska vara fast (statisk) eller inte.
-   
+
    > [!NOTE]
    > Om du väljer att använda en statisk IP-adress måste du ange en adress för belastningsutjämnaren.
-   > 
-   > 
+
 8. Under **Resursgrupp** anger du antingen namnet på en ny resursgrupp för belastningsutjämnaren eller så klickar du på **Välj befintlig** och väljer en befintlig resursgrupp.
 9. Klicka på **Skapa**.
 
 ## <a name="configure-load-balancing-rules"></a>Konfigurera belastningsutjämningsregler
+
 När du har skapat en belastningsutjämnare navigerar du till belastningsutjämningsresursen för att konfigurera den.
 Du behöver konfigurera en serverdelsadresspool och en avsökning innan du kan konfigurera en belastningsutjämningsregel.
 
-### <a name="step-1-configure-a-backend-pool"></a>Steg 1: Konfigurera en serverdelspool
+### <a name="step-1-configure-a-back-end-pool"></a>Steg 1: Konfigurera en serverdelspool
+
 1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure Portal och klicka sedan på belastningsutjämnaren som du skapade ovan.
 2. På bladet **Inställningar** klickar du på **Serverdelspooler**.
 3. På bladet **Serverdelspooler** klickar du på **Lägg till**.
 4. På bladet **Lägg till serverdelspool** anger du ett **namn** för serverdelspoolen och sedan klickar du på **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Steg 2: Konfigurera en avsökning
+
 1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure Portal och klicka sedan på belastningsutjämnaren som du skapade ovan.
 2. På bladet **Inställningar** klickar du på **Avsökningar**.
 3. På bladet **Avsökningar** klickar du på **Lägg till**.
@@ -78,6 +84,7 @@ Du behöver konfigurera en serverdelsadresspool och en avsökning innan du kan k
 10. Klicka på **OK** för att skapa avsökningen.
 
 ### <a name="step-3-configure-load-balancing-rules"></a>Steg 3: Konfigurera belastningsutjämningsregler
+
 1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure Portal och klicka sedan på belastningsutjämnaren som du skapade ovan.
 2. På bladet **Inställningar** klickar du på **Belastningsutjämningsregler**.
 3. På bladet **Belastningsutjämningsregler** klickar du på **Lägg till**.
@@ -92,6 +99,7 @@ Du behöver konfigurera en serverdelsadresspool och en avsökning innan du kan k
 12. Klicka på **OK**.
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
 
 [Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
@@ -99,6 +107,6 @@ Du behöver konfigurera en serverdelsadresspool och en avsökning innan du kan k
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

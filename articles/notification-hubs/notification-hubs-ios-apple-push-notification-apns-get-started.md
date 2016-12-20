@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
+ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
+ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
 
 
 ---
@@ -70,24 +70,26 @@ I det här avsnittet går vi igenom hur du skapar en ny meddelandehubb och konfi
 <p>Välj <b>Sandbox</b> eftersom det är detta läge som används för utveckling. Använd bara <b>Produktion</b> om du vill skicka push-meddelanden till användare som har köpt din app i butiken.</p>
 </li>
 </ol>
-&emsp;&emsp;![Konfigurera APNS i Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;&emsp;&emsp;![Konfigurera APNS i Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;![Konfigurera APNS-certifikat i Azure-portalen](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+&emsp;&emsp;&emsp;&emsp;![Konfigurera APNS-certifikat i Azure-portalen](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har anslutningssträngar för att registrera din app och skicka push-meddelanden.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Anslut iOS-appen till Notification Hubs
 1. Skapa ett nytt iOS-projekt i Xcode och välj mallen **Program enkel vy**.
    
-       ![Xcode - Single View Application][8]
+    ![Xcode – Program enkel vy][8]
+    
 2. När du anger alternativ för ditt nya projekt, ska du använda samma **produktnamn** och **organisations-ID** som du använde när du tidigare gjorde inställningarna för ID:t för programpaket på Apple Developer-portalen.
    
     ![Xcode – projektalternativ][11]
+    
 3. Under **Mål** klickar du på ditt projektnamn och sedan på fliken **Versionsinställningar**. Expandera fliken och expandera **Identitet för kodsignering** och ställ sedan in din identitet för kodsignering under **Felsökning**. Växla **nivå** från **Grundläggande** till **Alla** och ställ in **Etableringsprofil** till den etableringsprofil som du skapade tidigare.
    
     Om du inte ser den nya etableringsprofil som du skapade i Xcode, kan du försöka uppdatera profilerna för din signeringsidentitet. Klicka på **Xcode** på menyraden, sedan på **Inställningar** och på fliken **Konto**. Därefter klickar du på knappen **Visa detaljer** och sedan på din signeringsidentitet. Slutligen klickar du på uppdateringsknappen i det nedre högra hörnet.
    
-       ![Xcode - provisioning profile][9]
+    ![Xcode – etableringsprofil][9]
 4. Hämta [Mobile Services iOS SDK version 1.2.4] och packa upp filen. Högerklicka på ditt projekt i Xcode och klicka sedan på alternativet **Lägg till filer i** för att lägga till mappen **WindowsAzureMessaging.framework** till ditt Xcode-projekt. Välj **Kopiera objekt vid behov** och klicka sedan på **Lägg till**.
    
    > [!NOTE]
@@ -95,7 +97,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
    > 
    > 
    
-       ![Unzip Azure SDK][10]
+    ![Packa upp Azure SDK][10]
 5. Lägg till en ny rubrikfil i projektet med namnet `HubInfo.h`. Den här filen ska innehålla konstanterna för din meddelandehubb.  Lägg till följande definitioner och ersätt platshållarnas textsträngar med ditt *hubbnamn* och den *DefaultListenSharedAccessSignature* som du skrivit ned tidigare.
    
         #ifndef HubInfo_h
@@ -464,17 +466,17 @@ Allmän information om Notification Hubs finns i [Riktlinjer om Notification Hub
 <!-- URLs. -->
 [Mobile Services iOS SDK version 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Skicka en app-sida]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mina program]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK för Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Komma igång med Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Klassisk Azure-portal]: https://manage.windowsazure.com/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Riktlinjer om Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Etableringsportal för iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Komma igång med push-meddelanden i Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Meddela användare för iOS med .NET-serverdel i Azure Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Använda Notification Hubs för att skicka de senaste nyheterna]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
@@ -483,6 +485,6 @@ Allmän information om Notification Hubs finns i [Riktlinjer om Notification Hub
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

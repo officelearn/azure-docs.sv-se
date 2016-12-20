@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a8f90f07a4402c0d2fb9ffc3bd35de18e2a39927
 
 
 ---
@@ -47,10 +47,9 @@ När du har ett konto kan du skapa ett enkelt Azure Storage-program med hjälp a
 3. I dialogrutan **Nytt projekt** klickar du på **Installerade** > **Mallar** > **Visual C#** > **Moln** > **Snabbstart** > **Datatjänster**.
     a. Välj någon av följande mallar: **Azure Storage: Blobbar**, **Azure Storage: Filer**, **Azure Storage: Köer** eller **Azure Storage: Tabeller**.
     b. Kontrollera att **.NET Framework 4.5** är valt som målramverk.
-   
-   * 3.c. Ange ett namn för ditt projekt och skapa den nya Visual Studio-lösningen, som du ser här:
+    c. Ange ett namn för ditt projekt och skapa den nya Visual Studio-lösningen, som du ser här:
      
-     ![Snabbstarter för Azure][Image1]
+    ![Snabbstarter för Azure][Image1]
 
 Du kanske vill granska källkoden innan du kör programmet. Om du vill granska koden väljer du **Solution Explorer** på **Visa**-menyn i Visual Studio. Dubbelklicka sedan på filen Program.cs.
 
@@ -59,7 +58,10 @@ Kör exempelprogrammet:
 1. I Visual Studio väljer du **Solution Explorer** på **Visa**-menyn. Öppna filen App.config och kommentera ut anslutningssträngen för Azure Storage-emulatorn:
    
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
-2. Ta bort kommentarerna för anslutningssträngen för Azure Storage-tjänsten och ange lagringskontots namn och åtkomstnyckeln i filen App.config: `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+
+2. Ta bort kommentarerna för anslutningssträngen för Azure Storage-tjänsten och ange lagringskontots namn och åtkomstnyckel i filen App.config:
+   
+   `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
    
    Om du vill hämta åtkomstnyckeln för lagringskontot läser du [Hantera dina åtkomstnycklar för lagring](storage-create-storage-account.md#manage-your-storage-access-keys).
 3. När du har angett lagringskontots namn och åtkomstnyckel i filen App.config öppnar du **Arkiv**-menyn och klickar på **Spara alla** för att spara alla projektfiler.
@@ -79,6 +81,7 @@ Vill du prova? Då ska vi skapa ett enkelt Azure Storage-program med hjälp av e
     c. Ange ett namn för ditt projekt och skapa den nya Visual Studio-lösningen, som du ser här:
    
     ![Snabbstarter för Azure][Image1]
+
 4. I Visual Studio väljer du **Solution Explorer** på **Visa**-menyn. Öppna filen App.config och kommentera ut anslutningssträngen för ditt Azure Storage-konto om du redan har lagt till ett. Ta sedan bort kommentarerna i anslutningssträngen för Azure Storage-emulator:
    
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
@@ -109,6 +112,6 @@ Se dessa resurser om du vill lära dig mer om Azure Storage:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

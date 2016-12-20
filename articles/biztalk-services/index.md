@@ -29,7 +29,7 @@ Med BizTalk Services får du moln-till-lokal integrering och affärsapplikatione
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=biztalk-services">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

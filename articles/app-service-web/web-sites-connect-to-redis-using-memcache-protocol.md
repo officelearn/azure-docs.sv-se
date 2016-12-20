@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f0321c71655f1b023862aeeef4615544135adb5a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
 
 
 ---
 # <a name="connect-a-web-app-in-azure-app-service-to-redis-cache-via-the-memcache-protocol"></a>Ansluta en webbapp i Azure App Service till Redis-cache via Memcache-protokollet
-I den här artikeln får du veta hur du ansluter en WordPress-webbapp i [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) till [Azure Redis-cache][12] med hjälp av protokollet [Memcache][13]. Om du har en befintlig webbapp som använder en Memcache-lagrad server till att cachelagra i minnet, kan du migrera den till Azure App Service och använda förstapartslösningen för cachelagring i Microsoft Azure med liten eller ingen ändring av programkoden. Du kan använda dina befintliga kunskaper om Memcache och skapa skalbara, distribuerade appar i Azure App Service med Azure Redis-cache för att cachelagra i minnet. Samtidigt kan du använda populära programramverk som .NET, PHP, Node.js, Java och Python.  
+I den här artikeln får du veta hur du ansluter en WordPress-webbapp i [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) till [Azure Redis Cache][12] med hjälp av protokollet [Memcache][13]. Om du har en befintlig webbapp som använder en Memcache-lagrad server till att cachelagra i minnet, kan du migrera den till Azure App Service och använda förstapartslösningen för cachelagring i Microsoft Azure med liten eller ingen ändring av programkoden. Du kan använda dina befintliga kunskaper om Memcache och skapa skalbara, distribuerade appar i Azure App Service med Azure Redis-cache för att cachelagra i minnet. Samtidigt kan du använda populära programramverk som .NET, PHP, Node.js, Java och Python.  
 
 Med App Service Web Apps blir det här programscenariot möjligt tack vare Web Apps Memcache-shim. Det är en lokal Memcache-lagrad server som fungerar som en Memcache-proxy för cachelagring av anrop till Azure Redis-cache. Det gör att alla typer av appar kan kommunicera via Memcache-protokollet och cachelagra data med Redis-cache. Detta Memcache-shim fungerar på protokollnivå. Det gör att det kan användas av alla program och programramverk som kommunicerar med hjälp av Memcache-protokollet.
 
@@ -32,13 +32,13 @@ Web Apps Memcache-shim kan användas med alla program som kommunicerar med hjäl
 
 Följ anvisningarna i de här artiklarna:
 
-* [Etablera en instans av Azure Redis-cache-tjänst][0]
+* [Etablera en instans av tjänsten Azure Redis Cache][0]
 * [Distribuera en skalbar WordPress-webbplats i Azure][1]
 
 När du har distribuerat den skalbara WordPress-webbplatsen och etablerat en Redis-cacheinstans kan du fortsätta med att aktivera Memcache-shim i Azure App Service Web Apps.
 
 ## <a name="enable-the-web-apps-memcache-shim"></a>Aktivera Web Apps Memcache-shim
-Du måste skapa tre appinställningar för att konfigurera Memcache-shim. Det kan du göra på fler olika sätt, bland annat via [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), den [klassiska portalen][3], [Azure PowerShell-Cmdlets][5] och [Azure-kommandoradsgränssnittet][5]. I det här exemplet ska vi konfigurera appinställningarna med hjälp av [Azure Portal][4]. Följande värden kan hämtas från Redis-Cache-instansens **inställnings**blad.
+Du måste skapa tre appinställningar för att konfigurera Memcache-shim. Det kan du göra på flera olika sätt, bland annat via [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), den [klassiska portalen][3], [Azure PowerShell-Cmdlets][5] eller [Azure-kommandoradsgränssnittet][5]. I det här exemplet ska vi konfigurera appinställningarna med hjälp av [Azure Portal][4]. Följande värden kan hämtas från Redis-Cache-instansens **inställnings**blad.
 
 ![Inställningsblad för Azure Redis-cache](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -136,7 +136,7 @@ När filen **object-cache.php** ligger i mappen **wp-content** är Memcached Obj
 ## <a name="verify-the-memcache-object-cache-plugin-is-functioning"></a>Kontrollera att plugin-programmet Memcache Object Cache fungerar
 Nu har du utfört alla steg för att aktivera Memcache-shim för Web Apps. Det enda som återstår nu är att kontrollera att data fylls på i Redis-cacheinstansen.
 
-### <a name="enable-the-nonssl-port-support-in-azure-redis-cache"></a>Aktivera stöd för icke-SSL-port i Azure Redis-cache
+### <a name="enable-the-non-ssl-port-support-in-azure-redis-cache"></a>Aktivera stöd för icke-SSL-port i Azure Redis-cache
 > [!NOTE]
 > Vid tidpunkten när den här artikeln skrivs har Redis CLI inte stöd för SSL-anslutning. Därför är följande steg nödvändiga.
 > 
@@ -158,7 +158,7 @@ Du ser att icke-SSL-porten har angetts. Klicka på **Spara**.
 
 ![Azure Redis-cache, Redis-åtkomstportal, icke-SSL](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### <a name="connect-to-azure-redis-cache-from-rediscli"></a>Ansluta till Azure Redis-cache från redis-cli
+### <a name="connect-to-azure-redis-cache-from-redis-cli"></a>Ansluta till Azure Redis-cache från redis-cli
 > [!NOTE]
 > Det här steget förutsätter att Redis har installerats lokalt på utvecklingsdatorn. [Installera Redis lokalt med hjälp av de här anvisningarna][9].
 > 
@@ -191,7 +191,7 @@ Gratulerar! Nu har WordPress-appen en centraliserad minnescache som ger ökat ge
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
-[4]: ../powershell-install-configure.md
+[4]: /powershell/azureps-cmdlets-docs
 [5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache
@@ -204,6 +204,6 @@ Gratulerar! Nu har WordPress-appen en centraliserad minnescache som ger ökat ge
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

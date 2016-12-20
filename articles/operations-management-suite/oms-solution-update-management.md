@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 12/06/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
+ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 
 
 ---
-# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![Uppdateringshanteringslösning i OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Uppdateringshanteringslösning i OMS
+# <a name="update-management-solution-in-oms"></a>Uppdateringshanteringslösning i OMS
 Uppdateringshanteringslösningen i OMS gör att du kan du hantera uppdateringar för dina Windows- och Linux-datorer.  Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och starta processen för att installera nödvändiga uppdateringar för servrar. 
 
 ## <a name="prerequisites"></a>Krav
@@ -33,7 +33,10 @@ Uppdateringshanteringslösningen i OMS gör att du kan du hantera uppdateringar 
 * Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.  OMS-agenten för Linux hämtas från [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
 ## <a name="configuration"></a>Konfiguration
-Utför följande steg för att lägga till uppdateringshanteringslösningen till din OMS-arbetsyta och lägga till Linux-agenter.  Windows-agenter läggs till automatiskt utan någon ytterligare konfiguration.
+Utför följande steg för att lägga till uppdateringshanteringslösningen till din OMS-arbetsyta och lägga till Linux-agenter. Windows-agenter läggs till automatiskt utan någon ytterligare konfiguration.
+
+> [!NOTE]
+> För närvarande om du aktiverar den här lösningen konfigureras en Windows-dator som du ansluter till din OMS-arbetsyta automatiskt som en Hybrid Runbook Worker för att ge stöd för runbooks som ingår i den här lösningen.  Men den registreras inte med Hybrid Worker-grupper som du har skapat i ditt Automation-konto och du kan inte lägga till den i en Hybrid Worker-grupp för att köra dina egna runbooks.  Om en Windows-dator redan har konfigurerats som en Hybrid Runbook Worker och anslutits till OMS-arbetsytan måste du ta bort den från OMS-arbetsytan innan du lägger till lösningen för att förhindra att dina runbooks inte fungerar som förväntat.  
 
 1. Lägg till uppdateringshanteringslösningen i din OMS-arbetsyta med hjälp av den process som beskrivs i [Lägg till OMS-lösningar](../log-analytics/log-analytics-add-solutions.md) från lösningsgalleriet.  
 2. I OMS-portalen OMS väljer du **Inställningar** och sedan **Anslutna källor**.  Observera **arbetsyte-ID** och antingen **primärnyckel** eller **sekundärnyckel**.
@@ -41,11 +44,13 @@ Utför följande steg för att lägga till uppdateringshanteringslösningen till
    
    a.    Installera den senaste versionen av OMS-agent för Linux genom att köra följande kommandon.  Ersätt <Workspace ID> med arbetsyte-ID och <Key> med antingen primär- eller sekundärnyckel.
    
-     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
-   
+        cd ~
+        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+
    b. Kör följande kommando för att ta bort agenten.
    
-     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>Hanteringspaket
 Om din hanteringsgrupp för System Center Operations Manager är ansluten till din OMS-arbetsytan installeras därefter följande hanteringspaket i Operations Manager när du lägger till den här lösningen. Det krävs ingen konfigurering eller underhåll av dessa hanteringspaket. 
@@ -236,12 +241,12 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-searches.md) för att visa detaljerad uppdateringsinformation.
-* [Skapa egna instrumentpaneler](../log-analytics/log-analytics-dashboards.md) som visar dina hanterade datorers regelefterlevnad.
-* [Skapa aviseringar](../log-analytics/log-analytics-alerts.md) när kritiska uppdateringar har identifierats som saknade i datorer eller när en dator har automatisk uppdatering inaktiverat.  
+* [Skapa egna instrumentpaneler](../log-analytics/log-analytics-dashboards.md) som visar uppdateringskompatibilitet för dina hanterade datorer.
+* [Skapa aviseringar](../log-analytics/log-analytics-alerts.md) som visas när viktiga uppdateringar saknas på datorer eller när automatiska uppdateringar är inaktiverade för en dator.  
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

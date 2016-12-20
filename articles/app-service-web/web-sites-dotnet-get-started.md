@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/22/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
 
 
 ---
@@ -45,7 +45,7 @@ Förutom den tid det tar att installera Azure SDK för .NET tar det cirka 10–1
 
 ## <a name="prerequisites"></a>Krav
 * Kursen riktar sig till dig som har arbetat med ASP.NET MVC och Visual Studio. En introduktion finns i [Komma igång med ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
-* Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
     Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du skapa en tillfällig startapp i App Service – inget kreditkort behövs och du gör inga åtaganden.
 
@@ -219,6 +219,6 @@ I den här kursen har du fått veta hur du skapar en enkel webbapp och distribue
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

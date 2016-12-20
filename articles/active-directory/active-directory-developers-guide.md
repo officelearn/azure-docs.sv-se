@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 10/24/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3e587c9422e008a7b3c46e34fed4d0f1b2a8189c
 
 
 ---
@@ -33,17 +33,17 @@ Som en IDMaaS-plattform (IDentity Management as a Service) erbjuder Azure Active
 ## <a name="getting-started"></a>Komma igång
 Dessa självstudiekurser är skräddarsydda för flera plattformar och hjälper dig att snabbt börja utveckla med Azure Active Directory. Innan du börjar måste du [skaffa en Azure Active Directory-klient](active-directory-howto-tenant.md).
 
-### <a name="mobile-and-pc-application-quickstart-guides"></a>Snabbstartsguider för mobil- och datorprogram
+### <a name="mobile-and-pc-application-quick-start-guides"></a>Snabbstartsguider för mobil- och datorprogram
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows Universal](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows Universal](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Integrera direkt med OAuth 2.0](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quickstart-guides"></a>Snabbstartsguider för webbappar
+### <a name="web-application-quick-start-guides"></a>Snabbstartsguider för webbappar
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![Javascript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Integrera direkt med OpenID Connect](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quickstart-guides"></a>Snabbstartsguider för webb-API:er
+### <a name="web-api-quick-start-guides"></a>Snabbstartsguider för webb-API:er
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -53,7 +53,7 @@ Dessa självstudiekurser är skräddarsydda för flera plattformar och hjälper 
 |:---:|
 | [Graph API](active-directory-graph-api-quickstart.md) |
 
-## <a name="howtos"></a>Instruktioner
+## <a name="how-tos"></a>Instruktioner
 Dessa artiklar beskriver hur du utför specifika aktiviteter med hjälp av Azure Active Directory:
 
 * [Hämta en Azure AD-klientorganisation](active-directory-howto-tenant.md)
@@ -116,7 +116,7 @@ Dessa översiktliga presentationer om hur du utvecklar appar med Azure Active Di
 * [Molnidentitet](http://www.cloudidentity.net): Tankar kring identitetshantering som en tjänst från en framstående Azure Active Directory-programchef.  
 * [Azure Active Directory på Twitter](https://twitter.com/azuread): Azure Active Directory-meddelanden på 140 tecken eller mindre.
 
-## <a name="windows-server-onpremises-development"></a>Lokal utveckling med Windows Server
+## <a name="windows-server-on-premises-development"></a>Lokal utveckling med Windows Server
 Råd om hur du använder utveckling med Windows Server och Active Directory Federation Services (AD FS) finns i:
 
 * [AD FS-scenarier för utvecklare](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): Innehåller en översikt över AD FS-komponenter och hur de fungerar, med information om autentiserings-/auktoriseringsscenarier som stöds.
@@ -125,6 +125,6 @@ Råd om hur du använder utveckling med Windows Server och Active Directory Fede
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

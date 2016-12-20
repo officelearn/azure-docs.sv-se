@@ -34,6 +34,7 @@
 ### [Utvärdering av baslinje](oms-security-baseline.md)
 ### [Utvärdering av skadlig kod](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Systemuppdateringsbedömning](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Ansluta säkerhetsprodukter](oms-security-connect-products.md)
 ## [Integrera med OMS](operations-management-suite-integration.md)
 
 
@@ -64,6 +65,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

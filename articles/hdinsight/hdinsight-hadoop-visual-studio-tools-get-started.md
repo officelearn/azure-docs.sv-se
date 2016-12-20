@@ -17,13 +17,13 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bd214c166190248662634d488d8e7b1427b5738
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
 
 
 ---
 # <a name="get-started-using-azure-data-lake-hdinsight-tools-for-visual-studio-to-run-a-hive-query"></a>Kom igång med Azure Data Lake-verktygen (HDInsight) för Visual Studio för att köra en Hive-fråga
-Lär dig hur du använder Data Lake-verktyg (HDInsight) för Visual Studio för att ansluta till HDInsight-kluster och skicka Hive-frågor. Mer information om hur du använder HDInsight finns i [Introduktion till HDInsight][hdinsight.introduction] och [Komma igång med HDInsight][hdinsight.get.started]. Mer information om hur du ansluter till ett Storm-kluster finns i[Utveckla C#-topologier för Apache Storm på HDInsight med Visual Studio][hdinsight.storm.visual.studio.tools].
+Lär dig hur du använder Data Lake-verktyg (HDInsight) för Visual Studio för att ansluta till HDInsight-kluster och skicka Hive-frågor. Mer information om hur du använder HDInsight finns i [Introduktion till HDInsight][hdinsight.introduction] och [Komma igång med HDInsight][hdinsight.get.started]. Mer information om hur du ansluter till ett Storm-kluster finns i [Develop C# topologies for Apache Storm on HDInsight using Visual Studio][hdinsight.storm.visual.studio.tools] (Utveckla C#-topologier för Apache Storm med HDInsight med hjälp av Visual Studio).
 
 Data Lake-verktyg för Visual Studio kan användas för att komma åt Data Lake Analytics och HDInsight.  Se [Självstudier: Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) för information om Data Lake-verktyg.
 
@@ -134,11 +134,11 @@ Det finns två sätt att skapa och köra Hive-frågor:
 * Skapa ad hoc-frågor
 * Skapa ett Hive-program
 
-**Så här skapar, validerar och kör du ad hoc-frågor**
+**Skapa, verifiera och köra ad-hoc-frågor**
 
 1. Gå till **Server Explorer**, expandera **Azure** och expandera sedan **HDInsight-kluster**.
 2. Högerklicka på det kluster där du vill köra frågan och klicka sedan på **Skriv en Hive-fråga**.
-3. Ange Hive-frågorna. Notera att Hive-redigeraren stöder IntelliSense. Data Lake-verktyg för Visual Studio stöder inläsning av fjärrmetadata när du redigerar ditt Hive-skript. Om du till exempel skriver "SELECT * FROM" visar IntelliSense en lista över alla föreslagna tabellnamn. När du anger ett tabellnamn visar IntelliSense en lista över kolumnnamnen. Verktygen stöder nästan alla Hive DML-instruktioner, underfrågor och inbyggda UDF.
+3. Ange Hive-frågorna. Notera att Hive-redigeraren stöder IntelliSense. Data Lake-verktyg för Visual Studio stöder överföring av fjärrmetadata när du redigerar Hive-skript. Om du till exempel skriver "SELECT * FROM" visar IntelliSense en lista över alla föreslagna tabellnamn. När du anger ett tabellnamn visar IntelliSense en lista över kolumnnamnen. Verktygen stöder nästan alla Hive DML-instruktioner, underfrågor och inbyggda UDF.
    
     ![Data Lake-verktyg: HDInsight Visual Studio Tools IntelliSense][13]
    
@@ -173,7 +173,7 @@ Det finns två sätt att skapa och köra Hive-frågor:
 ### <a name="view-hive-jobs"></a>Visa Hive-jobb
 Du kan visa jobbfrågor, jobbutdata, jobbloggar och Yarn-loggar för Hive-jobb. Mer information finns på föregående skärmbild.
 
-Med den senaste versionen av verktyget kan du se vad som finns i dina Hive-jobb genom att samla in och visa YARN-loggar. En YARN-logg kan hjälpa dig att undersöka prestandaproblem. Mer information om hur HDInsight samlar in YARN-loggar finns i [Programmässig åtkomst till HDInsight-programloggar][hdinsight.access.application.logs].
+Med den senaste versionen av verktyget kan du se vad som finns i dina Hive-jobb genom att samla in och visa YARN-loggar. En YARN-logg kan hjälpa dig att undersöka prestandaproblem. Mer information om hur HDInsight samlar in YARN-loggar finns i [Access HDInsight Application Logs Programmatically][hdinsight.access.application.logs] (Komma åt HDInsight-programloggar via programmering).
 
 **Så här visar du Hive-jobb**
 
@@ -247,10 +247,10 @@ I den här artikeln har du lärt dig hur du ansluter till HDInsight-kluster frå
 
 <!--Anchors-->
 [Installation]: #installation
-[Ansluta till din Azure-prenumeration]: #connect-to-your-azure-subscription
-[Navigera till de länkade resurserna]: #navigate-the-linked-resources
-[Köra Hive-frågor]: #run-hive-queries
-[Nästa steg]: #next-steps
+[Connect to your Azure subscription]: #connect-to-your-azure-subscription
+[Navigate the linked resources]: #navigate-the-linked-resources
+[Run Hive queries]: #run-hive-queries
+[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png
@@ -281,6 +281,6 @@ I den här artikeln har du lärt dig hur du ansluter till HDInsight-kluster frå
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
+ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
+ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
 
 
 ---
@@ -27,20 +27,20 @@ ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
 
 ## <a name="overview"></a>Översikt
 
-I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Apache Cordova-mobilapp med hjälp av en mobilappserverdel i Azure.  Du skapar både en ny mobilappserverdel och en enkel  Apache Cordova-app med en *att göra-lista* som lagrar appdata i Azure.
+I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Apache Cordova-mobilapp med hjälp av en mobilappserverdel i Azure.  Du skapar både en ny serverdel för mobilappen och en enkel Apache Cordova-app med en *att göra-lista* som lagrar appdata i Azure.
 
 Du måste slutföra den här kursen innan du påbörjar någon annan Apache Cordova-kurs om att använda funktionen Mobile Apps i Azure Apptjänst.
 
 ## <a name="prerequisites"></a>Krav
-För att kunna genomföra den här kursen behöver du följande:
+För att slutföra den här självstudien, finns följande förhandskrav:
 
 * En PC-dator med [Visual Studio Community 2015] eller senare.
 * [Visual Studio Tools för Apache Cordova].
 * Ett [aktivt Azure-konto](https://azure.microsoft.com/pricing/free-trial/).
 
-Du kan också kringgå Visual Studio och direkt använda kommandoraden i Apache Cordova.  Det är till nytta när du går igenom kursen på en Mac-dator.  I den här kursen ingår inte att kompilera klientprogram i Apache Cordova med hjälp av kommandoraden.
+Du kan också kringgå Visual Studio och direkt använda kommandoraden i Apache Cordova.  Det är praktiskt att använda kommandoraden om du går självstudiekursen på en Mac-dator.  I den här kursen ingår inte att kompilera klientprogram i Apache Cordova med hjälp av kommandoraden.
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>Skapa en ny mobilappsserverdel i Azure
+## <a name="create-an-azure-mobile-app-backend"></a>Skapa serverdelen för en Azure-mobilapp
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Titta på en video som visar liknande steg](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
@@ -54,11 +54,13 @@ Du kan också kringgå Visual Studio och direkt använda kommandoraden i Apache 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har slutfört den här snabbstartskursen går du vidare till en av följande kurser:
 
-* [Lägg till autentisering] i din Apache Cordova-app.
-* [Lägg till push-meddelanden] i din Apache Cordova-app.
+* [Add Offline Data](app-service-mobile-cordova-get-started-offline-data.md) (Lägga till offlinedata) i en Apache Cordova-app.
+* [Lägg till autentisering](app-service-mobile-cordova-get-started-users.md) i din Apache Cordova-app.
+* [Lägg till push-meddelanden](app-service-mobile-cordova-get-started-push.md) i din Apache Cordova-app.
 
 Läs mer om nyckelbegrepp i Azure Apptjänst.
 
+* [Offlinedata]
 * [Autentisering]
 * [Push-meddelanden]
 
@@ -71,11 +73,10 @@ Lär dig hur du använder SDK: er.
 <!-- Images. -->
 
 <!-- URLs -->
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools för Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Lägg till autentisering]: app-service-mobile-cordova-get-started-users.md
-[Lägg till push-meddelanden]: app-service-mobile-cordova-get-started-push.md
+[Offlinedata]: app-service-mobile-offline-data-sync.md
 [Autentisering]: app-service-mobile-auth.md
 [Push-meddelanden]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova-SDK]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -84,6 +85,6 @@ Lär dig hur du använder SDK: er.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

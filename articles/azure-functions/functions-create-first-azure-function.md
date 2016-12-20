@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d40304cd4f7ede4e37d32f66330ac712d325f898
-ms.openlocfilehash: ea7d8acec83103c981bad279507dd7ead5f72370
+ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
+ms.openlocfilehash: 6f42f79abed80df12148463e25935893a4bbdcde
 
 
 ---
@@ -68,7 +68,7 @@ Den här snabbstarten visar en enkel körning av en grundläggande funktion som 
 * [Testa Azure Functions](functions-test-a-function.md)  
   Beskriver olika verktyg och tekniker för att testa funktioner.
 * [Så här skalar du Azure Functions](functions-scale.md)  
-  Beskriver tillgängliga serviceplaner för Azure Functions, inklusive den dynamiska serviceplanen, och hur du väljer rätt plan. 
+  Beskriver tillgängliga serviceplaner för Azure Functions, inklusive värdplanen för förbrukning, och hur du väljer rätt plan. 
 * [Vad är Azure App Service?](../app-service/app-service-value-prop-what-is.md)  
   Azure Functions använder plattformen Azure App Service för grundläggande funktioner som distributioner, miljövariabler och diagnostik. 
 
@@ -77,6 +77,6 @@ Den här snabbstarten visar en enkel körning av en grundläggande funktion som 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

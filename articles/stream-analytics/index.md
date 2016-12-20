@@ -1,11 +1,12 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 5cf17ad514127f97319130c4f3f78cdfa1eed052
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
 
 ---
-#<a name="stream-analytics-documentation"></a>Stream Analytics-dokumentation
+
+# <a name="stream-analytics-documentation"></a>Stream Analytics-dokumentation
 
 Azure Stream Analytics är en helt hanterad motor för händelsebearbetning i realtid som kan ge nya, djupa insikter från dina data.  Stream Analytics gör det enkelt att konfigurera analysberäkningar i realtid för data som strömmas från enheter, sensorer, webbplatser, sociala medier, program, infrastruktursystem med mera.
 
@@ -122,66 +123,43 @@ Azure Stream Analytics är en helt hanterad motor för händelsebearbetning i re
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell-referens</p>
+                    <div class="Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET-hanterad referens</p>
+                    <div class="Languages</h3>
+                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Frågespråk</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/dn834998">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
-                        <h3>Frågespråk</h3>
-                        <p>Frågespråksreferens för Stream Analytics</p>
+                    <div class="REST</h3>
+                        <p><a href="/rest/api/streamanalytics">Referens för REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/rest/api/streamanalytics">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Stream Analytics REST API-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>   
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
@@ -193,6 +171,6 @@ Ladda ned Stream Analytics-dokumentation </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

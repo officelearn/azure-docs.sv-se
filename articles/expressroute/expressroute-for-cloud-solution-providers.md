@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f2c2253132d2c0ca8eefd975af2ac23f196afd0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
 
 
 ---
@@ -38,7 +38,7 @@ Microsoft erbjuder API:er till CSP:er för att de ska kunna hantera kundprenumer
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure-resurshantering
 Det är ditt avtal med kunden som avgör hur prenumerationen ska hanteras. CSP:n kan direkt hantera skapande och underhåll av resurser, eller kunden kan behålla kontrollen över Microsoft Azure-prenumerationen och skapa sådana Azure-resurser som de behöver. Om kunderna hanterar skapandet av resurser i sin Microsoft Azure-prenumeration, använder de en av två modeller: ”Anslut via” eller ”Direkt till”. Dessa modeller beskrivs i detalj i följande avsnitt.  
 
-### <a name="connectthrough-model"></a>Anslut via-modellen
+### <a name="connect-through-model"></a>Anslut via-modellen
 ![alternativ text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 CSP:n skapar i Anslut via-modellen en direkt anslutning mellan ditt datacenter och kundens Azure-prenumeration. Direktanslutningen görs med hjälp av ExpressRoute, som ansluter nätverket med Azure. Därefter ansluter kunden till nätverket. Det här scenariot kräver att kunden passerar via CSP-nätverket för att få åtkomst till Azure-tjänsterna. 
@@ -49,7 +49,7 @@ För CSP-hanterade Azure-tjänster förutsätts att CSP:n har ett tidigare uppr�
 
 ![alternativ text](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
-### <a name="connectto-model"></a>Anslut till-modellen
+### <a name="connect-to-model"></a>Anslut till-modellen
 ![alternativ text](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 I Anslut till-modellen skapar tjänstleverantören en direkt anslutning mellan sina kunders datacenter och den CSP-etablerade Azure-prenumerationen med hjälp av ExpressRoute via kundernas nätverk.
@@ -82,10 +82,10 @@ ExpressRoute stöder anslutning av flera vNets till en enda ExpressRoute-krets f
 ## <a name="configuring-expressroute"></a>Konfigurera ExpressRoute
 ExpressRoute kan konfigureras för att stödja tre typer av trafik ([routningsdomäner](#ExpressRoute-routing-domains)) över en enskild ExpressRoute-krets. Den här trafiken är indelad i Microsoft-peering, offentlig Azure-peering och privat peering. Du kan välja att en eller alla typer av trafik skickas via en enda ExpressRoute-krets eller använda flera ExpressRoute-kretsar, beroende på storleken på ExpressRoute-kretsen och den isolering som krävs av kunden. Kundens säkerhetsposition kanske inte tillåter offentlig och privat trafik som passerar över samma krets.
 
-### <a name="connectthrough-model"></a>Anslut via-modellen
+### <a name="connect-through-model"></a>Anslut via-modellen
 I en Anslut via-konfiguration ansvarar du för alla nätverksassociationer som ansluter kundernas datacenterresurser till de prenumerationer som finns i Azure. Varje kund som vill använda Azure-funktioner måste ha sin egen ExpressRoute-anslutning, som kommer att hanteras av dig. Du använder samma metoder som kunden skulle använda för att skaffa ExpressRoute-kretsen. Du kan följa samma steg som beskrivs i artikeln [ExpressRoute-arbetsflöden](expressroute-workflows.md) för kretsetablering och kretstillstånd. Du kommer sedan konfigurera BGP-vägar (Border Gateway Protocol) för att styra den trafik som passerar mellan det lokala nätverket och Azure vNet.
 
-### <a name="connectto-model"></a>Anslut till-modellen
+### <a name="connect-to-model"></a>Anslut till-modellen
 I en Anslut till-konfiguration har kunden redan en befintlig anslutning till Azure eller kommer att initiera en anslutning till Internetleverantören med en länk till ExpressRoute från kundens eget datacenter direkt till Azure, i stället för ditt datacenter. För att påbörja etableringen kommer kunden följa stegen som beskrivs i Anslut via-modellen ovan. När kretsen har upprättats måste kunden konfigurera de lokala routrarna för att få åtkomst till både nätverket och Azure vNets.
 
 Du kan hjälpa till med att konfigurera anslutningen och vägarna så att resurserna i ditt datacenter kan kommunicera med klientens resurser i ditt datacenter, eller med de resurser som finns i Azure.
@@ -116,7 +116,7 @@ Standardvägtabellen innehåller följande vägar:
 
 ![alternativ text](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
-### <a name="userdefined-routing-udr"></a>Användardefinierad routning
+### <a name="user-defined-routing-udr"></a>Användardefinierad routning
 Med användardefinierade vägar tillåts kontroll av utgående trafik från det tilldelade undernätet till andra undernät i det virtuella nätverket, eller över någon annan fördefinierad gateway (ExpressRoute, Internet eller VPN). Routningstabellens standardsystem kan ersättas med en användardefinierad routningstabell som ersätter standardroutningstabellen med anpassade vägar. Med användardefinierad routning kan kunderna skapa specifika vägar till exempelvis brandväggar eller intrångsidentifieringutrustning, eller blockera åtkomst till specifika undernät från det undernät som är värd för den användardefinierade vägen. En översikt över användardefinierade vägar finns [här](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## <a name="security"></a>Säkerhet
@@ -141,6 +141,6 @@ Mer information finns i följande länkar:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

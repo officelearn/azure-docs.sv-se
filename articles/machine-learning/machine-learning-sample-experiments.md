@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
-ms.author: cgronlun;chhavib;olgali
+ms.date: 11/11/2016
+ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: df9009646627226acc8209486f990688efe95622
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
 
 
 ---
 # <a name="copy-sample-experiments-to-create-new-machine-learning-experiments"></a>Kopiera provexperiment för att skapa nya Machine Learning-experiment
-Lär dig hur du startar med provexperiment från [Cortana Intelligence-galleriet](http://gallery.cortanaintelligence.com/) istället för att skapa Machine Learning-experiment från början. Du kan använda exemplen för att skapa din egen Machine Learning-lösning.
+Lär dig hur du startar med provexperiment från [Cortana Intelligence-galleriet](https://gallery.cortanaintelligence.com/) istället för att skapa Machine Learning-experiment från början. Du kan använda exemplen för att skapa din egen Machine Learning-lösning.
 
 I galleriet finns provexperiment från Microsoft Azure Machine Learning-teamet samt exempel som delats av Machine Learning-communityn. Du kan även ställa frågor eller lämna kommentarer om experiment.
 
@@ -30,7 +30,7 @@ Om du vill se hur du använder galleriet kan du titta på den 3 minuter långa v
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="find-an-experiment-to-copy-in-cortana-intelligence-gallery"></a>Hitta ett experiment att kopiera i Cortana Intelligence-galleriet
-Du kan se vilka experiment som är tillgängliga genom att öppna [Galleriet](http://gallery.cortanaintelligence.com/) och klicka på **Experiment** högst uppe på sidan.
+Du kan se vilka experiment som är tillgängliga genom att öppna [Galleriet](https://gallery.cortanaintelligence.com/) och klicka på **Experiment** högst uppe på sidan.
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>Hitta de senaste eller mest populära experimenten
 På den här sidan kan du se **nyligen tillagda** experiment eller bläddra neråt för att se **populära experiment** eller de senaste **populära Microsoft-experimenten**.
@@ -42,17 +42,17 @@ Bläddra bland alla experiment:
 2. Under **Förfina efter** väljer du **Experiment** om du vill se alla experiment i galleriet.
 3. Du kan hitta experiment som uppfyller kraven på ett par olika sätt:
    * **Välj filter till vänster.** Om du till exempel vill bläddra bland experiment som använder en PCA-baserad algoritm för avvikelseidentifiering väljer du **Experiment** under **Kategorier** och **PCA-baserad avvikelseidentifiering** under **Algoritmer som används**. (Om du inte ser den algoritmen klickar du på **Visa alla** längst ned i listan.)<br></br>
-     ![](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Använd sökrutan.** Om du till exempel vill hitta experiment från Microsoft som rör sifferigenkänning som använder en algoritm för stödvektormaskin med två klasser anger du ”digit recognition” i sökrutan. Välj sedan filtren **Experiment**, **Endast Microsoft innehåll** och **Stödvektormaskin med två klasser**: ![](./media/machine-learning-sample-experiments/search-for-experiments.png) 
+     ![Välj filter](./media/machine-learning-sample-experiments/refine-the-view.png)
+   * **Använd sökrutan.** Om du till exempel vill hitta experiment från Microsoft som rör sifferigenkänning som använder en algoritm för stödvektormaskin med två klasser anger du ”digit recognition” i sökrutan. Välj sedan filtren **Experiment**, **Endast Microsoft-innehåll** och **Stödvektormaskin med två klasser**: ![Använd sökrutan](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Klicka på ett experiment om du vill veta mer om det.
 5. Om du vill köra och/eller ändra experimentet klickar du på **Open in Studio** på experimentsidan.
-   
+
    > [!NOTE]
    > För att kunna öppna ett experiment i Machine Learning Studio måste du logga in med autentiseringsuppgifterna för ditt Microsoft-konto. Om du inte har någon arbetsyta i Machine Learning än skapas en kostnadsfri utvärderingsversion. [Mer information om vad som ingår i den kostnadsfria utvärderingsversionen av Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)
-   > 
-   > 
-   
-    ![](./media/machine-learning-sample-experiments/example-experiment.png) 
+   >
+   >
+
+    ![Exempelexperiment](./media/machine-learning-sample-experiments/example-experiment.png)
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Använda en mall i Machine Learning Studio
 Du kan även skapa ett nytt försök i Machine Learning Studio med ett exempel från galleriet som mall.
@@ -67,11 +67,9 @@ Ett nytt experiment skapas i arbetsytan med exempelexperimentet som mall.
 * [Testa att använda R i experimentet](machine-learning-r-quickstart.md)
 * [Se R-exempelexperiment](machine-learning-r-csharp-web-service-examples.md)
 * [Skapa ett webbtjänst-API](machine-learning-publish-a-machine-learning-web-service.md)
-* [Bläddra bland appar som är färdiga att användas](https://datamarket.azure.com/browse?query=machine+learning)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

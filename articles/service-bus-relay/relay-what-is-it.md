@@ -1,22 +1,22 @@
 ---
 title: "Vad är Azure Relay? | Microsoft Docs"
 description: "Översikt över Azure Relay"
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: banisadr
 manager: timlt
 editor: 
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/28/2016
-ms.author: babanisa
+ms.date: 11/16/2016
+ms.author: babanisa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dc81f26a64b376eb34894268ea0b17152647ed79
-ms.openlocfilehash: c4c01d1a7a82fe9d696223a5abc05f559ead0f6a
+ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
+ms.openlocfilehash: 4329e0f99828f5a0651e6b03be0813d9e68debaa
 
 
 ---
@@ -32,7 +32,7 @@ De viktigaste funktionerna som tillhandahålls av Relay är dubbelriktad, obuffr
 Azure Relay erbjuder två funktioner:
 
 1. [Hybridanslutningar](#hybrid-connections) – Använder den öppna standarden Web Sockets som ger stöd för scenarier med flera plattformar.
-2. [WCF-reläer](#wcf-relays) – Använder Windows Communication Foundation (WCF) för att aktivera RPC-anrop.
+2. [WCF-reläer](#wcf-relays) – Använder Windows Communication Foundation (WCF) för att aktivera RPC-anrop. WCF Relay är den äldre Relay-tjänsten som många kunder kanske redan använder med sina WCF-programmeringsmodeller.
 
 Både hybridanslutningar och WCF-reläer tillhandahåller säker anslutning till resurser som finns i ett företagsnätverk. Användning av det ena eller andra beror på dina specifika behov, baserat på informationen i följande tabell:
 
@@ -40,7 +40,7 @@ Både hybridanslutningar och WCF-reläer tillhandahåller säker anslutning till
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
-| **.NET Framework** |x |x |
+| **.NET Framework** |x |
 | **JavaScript/NodeJS*** | |x |
 | **Java*** | |x |
 | **Standardbaserat öppet protokoll** | |x |
@@ -49,15 +49,13 @@ Både hybridanslutningar och WCF-reläer tillhandahåller säker anslutning till
 * Vid allmän tillgänglighet
 
 ## <a name="hybrid-connections"></a>Hybridanslutningar
-Funktionen Hybridanslutningar i Azure Relay är en säker vidareutveckling med öppet protokoll av de befintliga Relay-funktionerna och kan implementeras på valfri plattform och på valfritt språk som har en grundläggande WebSocket-funktion, vilket bland annat omfattar WebSocket-API:et i vanliga webbläsare. Hybridanslutningar baseras på HTTP och WebSockets.
+Funktionen [Hybridanslutningar i Azure Relay](relay-hybrid-connections-protocol.md) är en säker vidareutveckling med öppet protokoll av de befintliga Relay-funktionerna och kan implementeras på valfri plattform och på valfritt språk som har en grundläggande WebSocket-funktion, vilket bland annat omfattar WebSocket-API:et i vanliga webbläsare. Hybridanslutningar baseras på HTTP och WebSockets.
 
 ## <a name="wcf-relays"></a>WCF-reläer
 WCF Relay har stöd för hela .NET Framework (NETFX) och för WCF. Du upprättar anslutningen mellan din lokala tjänst och den vidarebefordrande tjänsten med hjälp av en uppsättning ”vidarebefordrande” WCF-bindningar. I bakgrunden mappas vidarebefordringsbindningarna till nya transportbindningselement som är utformade för att skapa WCF-kanalkomponenter som integreras med Service Bus i molnet.
 
 ## <a name="service-history"></a>Tjänsthistorik
 Hybridanslutningar ersätter den tidigare funktionen ”BizTalk Services” som baserades på Azure Service Bus WCF Relay. Den nya funktionen för hybridanslutningar kompletterar befintliga WCF Relay och båda dessa två tjänstfunktioner kommer att finnas i Relay under överskådlig tid; de delar en gemensam gateway, men har i övrigt olika implementeringar.
-
-WCF Relay är den äldre Relay-tjänsten som många kunder kanske redan använder med sina WCF-programmeringsmodeller.
 
 ## <a name="next-steps"></a>Nästa steg:
 * [Vanliga frågor och svar om Relay](relay-faq.md)
@@ -68,6 +66,6 @@ WCF Relay är den äldre Relay-tjänsten som många kunder kanske redan använde
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

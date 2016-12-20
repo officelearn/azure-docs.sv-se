@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 11b65d8f82a6440ec02582827696dba34f1e626c
 
 
 ---
@@ -50,8 +50,8 @@ För att kunna slutföra den här självstudien behöver du följande.
 ### <a name="azure-account"></a>Azure-konto
 Du behöver ett Azure-konto för att kunna slutföra den här självstudien. Du kan:
 
-* [Öppna ett Azure-konto gratis](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Du får kredit som kan användas för att prova Azure-tjänster som normalt sett inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner.
-* [Aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Din MSDN-prenumeration ger dig krediter varje månad som kan användas för Azure-betaltjänster.
+* [Öppna ett Azure-konto gratis](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Du får kredit som kan användas för att prova Azure-tjänster som normalt sett inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner.
+* [Aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Din MSDN-prenumeration ger dig krediter varje månad som kan användas för Azure-betaltjänster.
 
 ### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 med Azure SDK för .NET
 Självstudien gäller för Visual Studio 2015 med [Azure SDK för .NET](../dotnet-sdk.md) 2.8.2 eller senare. [Ladda ned den senaste Azure-SDK:n för Visual Studio 2015 här](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio installeras automatiskt med SDK:n om du inte redan har det.
@@ -785,7 +785,7 @@ När du har valt eller skapat cacheminnet du ska använda, bläddrar du till cac
 [cache-global-asax]: ./media/cache-web-app-howto/cache-global-asax.png
 [cache-RouteConfig-cs]: ./media/cache-web-app-howto/cache-RouteConfig-cs.png
 [cache-layout-cshtml]: ./media/cache-web-app-howto/cache-layout-cshtml.png
-[cache-layout-cshtml]: ./media/cache-web-app-howto/cache-layout-cshtml-code.png
+[cache-layout-cshtml-code]: ./media/cache-web-app-howto/cache-layout-cshtml-code.png
 [redis-cache-manage-nuget-menu]: ./media/cache-web-app-howto/redis-cache-manage-nuget-menu.png
 [redis-cache-stack-exchange-nuget]: ./media/cache-web-app-howto/redis-cache-stack-exchange-nuget.png
 [cache-teamscontroller]: ./media/cache-web-app-howto/cache-teamscontroller.png
@@ -808,6 +808,6 @@ När du har valt eller skapat cacheminnet du ska använda, bläddrar du till cac
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

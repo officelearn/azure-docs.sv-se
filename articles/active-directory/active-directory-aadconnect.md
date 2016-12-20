@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/04/2016
+ms.date: 12/06/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eedb788b2a174d01a2ef661cf4093ff938649bce
+ms.sourcegitcommit: d5674c6b903aac74260f1dc0ca549ddcf87d183d
+ms.openlocfilehash: 0baacb37e4c5b21860bf9ec2fbbd2eb7c067beb6
 
 
 ---
-# <a name="integrating-your-onpremises-identities-with-azure-active-directory"></a>Integrera dina lokala identiteter med Azure Active Directory
+# <a name="integrating-your-on-premises-identities-with-azure-active-directory"></a>Integrera dina lokala identiteter med Azure Active Directory
 Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. I det här avsnittet beskrivs planerings-, distributions- och användningsstegen. Det är en samling länkar till avsnitt relaterade till det här området.
 
 > [!IMPORTANT]
@@ -62,24 +62,24 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](http://go.mi
 [Efter installationen](active-directory-aadconnect-whats-next.md) bör du kontrollera att allt fungerar som förväntat och tilldela licenser till användarna.
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Nästa steg för att installera Azure AD Connect
-| Avsnitt |
-| --- | --- |
-| Ladda ned Azure AD Connect |
-| Installera med standardinställningar |
-| Installera med anpassade inställningar |
-| Uppgradera från DirSync |
-| Efter installationen |
+|Avsnitt | Länk 
+|--- | ---
+|Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+|Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)
+|Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md)
+|Uppgradera från DirSync | [Uppgradera från Azure AD-synkroniseringsverktyg (DirSync)](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
+|Efter installationen | [Bekräfta installationen och tilldela licenser ](active-directory-aadconnect-whats-next.md)
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Mer information om installationen av Azure AD Connect
 Det är bra att vara förberedd om det skulle uppstå [driftproblem](active-directory-aadconnectsync-operations.md). Du kanske vill ha en reservserver så att du enkelt kan växla till den i händelse av ett [allvarligt fel](active-directory-aadconnectsync-operations.md#disaster-recovery). Om du ofta kommer att göra konfigurationsändringar bör du planera för ett server i [mellanlagringsläge](active-directory-aadconnectsync-operations.md#staging-mode).
 
-| Avsnitt |
-| --- | --- |
-| Topologier som stöds |
-| Designbegrepp |
-| Konton som används för installation |
-| Driftplanering |
-| Alternativ för användarinloggning |
+Avsnitt |  
+--------- | ---------
+Topologier som stöds | [Topologier för Azure AD Connect](active-directory-aadconnect-topologies.md)
+Designbegrepp | [Designbegrepp för Azure AD Connect](active-directory-aadconnect-design-concepts.md)
+Konton som används för installation | [Mer information om Azure AD Connect-autentiseringsuppgifter och -behörigheter](./connect/active-directory-aadconnect-accounts-permissions.md)
+Driftplanering | [Azure AD Connect-synkronisering: Driftåtgärder och saker att tänka på](active-directory-aadconnectsync-operations.md)
+Alternativ för användarinloggning | [Alternativ för användarinloggning i Azure AD Connect](active-directory-aadconnect-user-signin.md)
 
 ## <a name="configure-sync-features"></a>Konfigurera synkroniseringsfunktioner
 Azure AD Connect har flera funktioner som du kan aktivera om du vill eller som är aktiverade som standard. Vissa funktioner kan ibland kräva ytterligare konfiguration i vissa scenarier och topologier.
@@ -97,14 +97,7 @@ Funktionen [förhindra oavsiktliga borttagningar](active-directory-aadconnectsyn
 Funktionen [Automatisk uppgradering](active-directory-aadconnect-feature-automatic-upgrade.md) är aktiverad som standard för installationer med standardinställningar och säkerställer att Azure AD Connect alltid är uppdaterat med den senaste versionen.
 
 ### <a name="next-steps-to-configure-sync-features"></a>Nästa steg för att konfigurera synkroniseringsfunktioner
-| Avsnitt |
-| --- | --- |
-| Konfigurera filtrering |
-| Lösenordssynkronisering |
-| Tillbakaskrivning av lösenord |
-| Tillbakaskrivning av enheter |
-| Förhindra oavsiktliga borttagningar |
-| Automatisk uppgradering |
+Konfigurera filtrering | [Azure AD Connect-synkronisering: Konfigurera filtrering](active-directory-aadconnectsync-configure-filtering.md) Lösenordssynkronisering | [Azure AD Connect-synkronisering: Implementera lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md) Tillbakaskrivning av lösenord | [Komma igång med lösenordshantering](active-directory-passwords-getting-started.md) Tillbakaskrivning av enhet | [Aktivera tillbakaskrivning av enhet i Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md) Förhindra oavsiktliga borttagningar | [Azure AD Connect-synkronisering: Förhindra oavsiktliga borttagningar](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) Automatisk uppgradering | [Azure AD Connect: Automatisk uppgradering](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 ## <a name="customize-azure-ad-connect-sync"></a>Anpassa synkroniseringen av Azure AD Connect
 Azure AD Connect-synkroniseringsverktyget levereras med en standardkonfiguration som är avsedd att fungera för de flesta kunder och topologier. Men det finns alltid situationer då standardkonfigurationen inte fungerar och måste justeras. Du kan göra ändringarna som beskrivs i det här avsnittet och i länkade avsnitt.
@@ -116,14 +109,14 @@ Om du inte har arbetat med en synkroniseringstopologi förut är det bäst att b
 Konfigurationsmodellen i synkroniseringsverktyget kallas för [deklarativ etablering](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md). De avancerade attributflödena använder [funktioner](active-directory-aadconnectsync-functions-reference.md) för att uttrycka attributtransformationer. Du kan se och granska hela konfigurationen med hjälp av verktyg som medföljer Azure AD Connect. Om du behöver göra konfigurationsändringar ser du till att du följer [metodtipsen](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) så att det är lättare att integrera nya versioner.
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>Nästa steg för att anpassa Azure AD Connect-synkroniseringen
-| Avsnitt |
-| --- | --- |
-| Alla artiklar om Azure AD Connect-synkronisering |
-| Tekniska begrepp |
-| Förstå standardkonfigurationen |
-| Förstå användare och kontakter |
-| Deklarativ etablering |
-| Ändra standardkonfigurationen |
+Avsnitt |  
+--------- | ---------
+Alla artiklar om Azure AD Connect-synkronisering | [Azure AD Connect-synkronisering](active-directory-aadconnectsync-whatis.md)
+Tekniska begrepp | [Azure AD Connect-synkronisering: Tekniska begrepp](active-directory-aadconnectsync-technical-concepts.md)
+Förstå standardkonfigurationen | [Azure AD Connect-synkronisering: Förstå standardkonfigurationen](active-directory-aadconnectsync-understanding-default-configuration.md)
+Förstå användare och kontakter | [Azure AD Connect-synkronisering: Förstå användare och kontakter](active-directory-aadconnectsync-understanding-users-and-contacts.md)
+Deklarativ etablering | [Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
+Ändra standardkonfigurationen | [Metodtips för att ändra standardkonfigurationen](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 
 ## <a name="configure-federation-features"></a>Konfigurera federationsfunktioner
 AD FS kan konfigureras att ge stöd för [flera domäner](active-directory-aadconnect-multiple-domains.md). Du kan till exempel ha flera toppdomäner som du behöver använda för federation.
@@ -131,22 +124,24 @@ AD FS kan konfigureras att ge stöd för [flera domäner](active-directory-aadco
 Om AD FS-servern inte har konfigurerats att automatiskt uppdatera certifikat från Azure AD eller om du använder en annan lösning än en ADFS-lösning så meddelas du när du behöver [uppdatera certifikaten](active-directory-aadconnect-o365-certs.md).
 
 ### <a name="next-steps-to-configure-federation-features"></a>Nästa steg för att konfigurera federationsfunktioner
-| Avsnitt |
-| --- | --- |
-| Alla AD FS-artiklar |
-| Konfigurera AD FS med underdomäner |
-| Hantera AD FS-servergrupp |
-| Uppdatera federationscertifikat manuellt |
+
+Avsnitt |  
+--------- | ---------
+Alla AD FS-artiklar | [Azure AD Connect och federation](active-directory-aadconnectfed-whatis.md)
+Konfigurera AD FS med underdomäner | [Stöd för flera domäner för federering med Azure AD](active-directory-aadconnect-multiple-domains.md)
+Hantera AD FS-servergrupp | [Hantering och anpassning av AD FS med Azure AD Connect](active-directory-aadconnect-federation-management.md)
+Uppdatera federationscertifikat manuellt | [Förnya federationscertifikat för Office 365 och Azure AD](active-directory-aadconnect-o365-certs.md)
 
 ## <a name="more-information-and-references"></a>Mer information och referenser
-| Avsnitt |
-| --- | --- |
-| Versionshistorik |
-| Jämföra DirSync, Azure ADSync och Azure AD Connect |
-| Kompatibilitetslista för Azure AD för andra lösningar än ADFS-lösningar |
-| Attribut som synkroniseras |
-| Övervaka med hjälp av Azure AD Connect Health |
-| Vanliga frågor och svar |
+
+Avsnitt |  
+--------- | ---------
+Versionshistorik | [Versionshistorik](active-directory-aadconnect-version-history.md)
+Jämföra DirSync, Azure ADSync och Azure AD Connect | [Jämförelse av katalogintegreringsverktyg](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+Kompatibilitetslista för Azure AD för andra lösningar än ADFS-lösningar | [Kompatibilitetslista för Azure AD-federation](active-directory-aadconnect-federation-compatibility.md)
+Attribut som synkroniseras | [Attribut som synkroniseras](active-directory-aadconnectsync-attributes-synchronized.md)
+Övervaka med hjälp av Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md)
+Vanliga frågor och svar | [Vanliga frågor och svar om Azure AD Connect](active-directory-aadconnect-faq.md)
 
 **Ytterligare resurser**
 
@@ -159,6 +154,6 @@ Ignite 2015-presentation om hur du utökar dina lokala kataloger till molnet.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

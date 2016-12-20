@@ -22,11 +22,11 @@
 
    Standardkonsekvensen för DocumentDB-kontot har angetts till **Session**.  Du kan justera standardkonsekvensen genom att klicka på **Standardkonsekvens** på resursmenyn. Mer information om de konsekvensnivåer som finns för DocumentDB finns i [Konsekvensnivåer i DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
-[Så här skapar du ett DocumentDB-konto]: #Howto
-[Nästa steg]: #NextSteps
+[How to: Create a DocumentDB account]: #Howto
+[Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

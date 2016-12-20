@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/23/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4582e81a0d2e7bf5be401e72885e2ee751087cf5
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 40ae0d242968db83c4d4d04452fbfd93559af31e
 
 
 ---
@@ -33,7 +33,7 @@ Den virtuella enheten StorSimple finns i två modeller, en Standardmodell, 8010 
 | **Virtuell Azure-dator** |Standard_A3 (4 kärnor, 7 GB minne) |Standard_DS3 (4 kärnor, 14 GB minne) |
 | **Versionskompatibilitet** |Versioner som körs före Uppdatering 2 eller senare |Versioner som körs med Uppdatering 2 eller senare |
 | **Regional tillgänglighet** |Alla Azure-regioner |Azure-regioner som har stöd för Premiumlagring<br></br>En lista över regioner finns i [regioner som stöds för 8020](#supported-regions-for-8020) |
-| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto]() |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Riktlinjer för arbetsbelastning** |Hämtning av filer från säkerhetskopior på objektnivå |Scenarier för utveckling och test av molnet, låg latens, arbetsbelastningar med hög prestanda <br></br>Sekundär enhet för katastrofåterställning |
 
 <sup>1</sup> * Kallades tidigare 1100*.
@@ -41,7 +41,7 @@ Den virtuella enheten StorSimple finns i två modeller, en Standardmodell, 8010 
 <sup>2</sup> *Både 8010 och 8020 använder Azure Standardlagring för molnnivån. Skillnaden finns endast på den lokala nivån i enheten*.
 
 #### <a name="supported-regions-for-8020"></a>Regioner som stöds för 8020
-Premiumlagring för 8020 stöds för närvarande i regionerna som visas i tabellen nedan. Den här listan uppdateras kontinuerligt allteftersom Premiumlagring blir tillgänglig i flera områden. 
+Premiumlagring för 8020 stöds för närvarande i regionerna som visas i tabellen nedan. Den här listan uppdateras kontinuerligt allteftersom Premiumlagring blir tillgänglig i flera områden.
 
 | S. nr | Stöds för närvarande i regionerna |
 | --- | --- |
@@ -68,7 +68,7 @@ Den här artikeln beskriver stegvis processen för att distribuera en virtuell S
 * Ansluta till den virtuella enheten.
 * Lära dig hur du arbetar med den virtuella enheten.
 
-Den här självstudien gäller för alla virtuella StorSimple-enheter med Uppdatering 2 och senare. 
+Den här självstudien gäller för alla virtuella StorSimple-enheter med Uppdatering 2 och senare.
 
 ## <a name="how-the-virtual-device-differs-from-the-physical-device"></a>Så skiljer sig den virtuella enheten från den fysiska enheten.
 Den virtuella StorSimple-enheten är en version av StorSimple som endast är programvarubaserad och som körs på en enskild nod på en virtuell Microsoft Azure-dator. Den virtuella enheten har stöd för katastrofåterställning i situationer när den fysiska enheten inte är tillgänglig och är lämpad för att användas för att hämta säkerhetskopior på objektsnivå, för lokal katastrofåterställning samt molnbaserade utvecklings- och testscenarier.
@@ -91,9 +91,9 @@ Innan du etablerar den virtuella enheten måste du göra följande förberedelse
 
 * [Konfigurera ett virtuellt nätverk på Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) för den virtuella enheten. Om du använder Premiumlagring, måste du skapa ett virtuellt nätverk i en Azure-region som har stöd för Premiumlagring. Mer information om [regioner som stöds för närvarande för 8020](#supported-regions-for-8020).
 * Du rekommenderas att använda standard-DNS-servern från Azure istället för att ange ett eget DNS-servernamn. Om DNS-servernamnet inte är giltigt eller om DNS-servern inte kan matcha IP-adresser korrekt går det inte att skapa den virtuella enheten.
-* Punkt-till-plats och plats-till-plats går att välja, men är inget krav. Om du vill kan du konfigurera dessa alternativ för mer avancerade scenarier. 
-* Du kan skapa [virtuella datorer i Azure](../virtual-machines/virtual-machines-linux-about.md) (värdservrar) i det virtuella nätverket som kan använda de volymer som exponeras av den virtuella enheten. Servrarna måste uppfylla följande krav:                             
-  
+* Punkt-till-plats och plats-till-plats går att välja, men är inget krav. Om du vill kan du konfigurera dessa alternativ för mer avancerade scenarier.
+* Du kan skapa [virtuella datorer i Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (värdservrar) i det virtuella nätverket som kan använda de volymer som exponeras av den virtuella enheten. Servrarna måste uppfylla följande krav:                             
+
   * Vara virtuella Windows eller Linux-datorer som har installerad programvara med iSCSI-initierare.
   * Köras i samma virtuella nätverk som den virtuella enheten.
   * Kunna anslutas till iSCSI-målet på den virtuella enheten via den virtuella enhetens interna IP-adress.
@@ -103,7 +103,7 @@ Innan du etablerar den virtuella enheten måste du göra följande förberedelse
 Gör följande uppdateringar i din Azure StorSimple-tjänst innan du skapar en virtuell enhet:
 
 * Lägg till [åtkomstkontrollposter](storsimple-manage-acrs.md) för de virtuella datorer som ska vara värdservrar för den virtuella enheten.
-* Använd ett [lagringskonto](storsimple-manage-storage-accounts.md#add-a-storage-account) i samma region som den virtuella enheten. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premiumlagringskonto med den virtuella enheten. Mer information om hur du skapar ett [Standardlagringskonto]() eller ett [Premiumlagringskonto](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Använd ett [lagringskonto](storsimple-manage-storage-accounts.md#add-a-storage-account) i samma region som den virtuella enheten. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premiumlagringskonto med den virtuella enheten. Mer information om hur du skapar ett [standardlagringskonto] ((... /Storage/Storage-Create-Storage-Account.MD) eller ett [Premium Storage-konto](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 * Använd ett annat lagringskonto för att skapa en virtuell enhet än det som används för dina data. Om samma lagringskonto används kan det resultera i sämre prestanda.
 
 Kontrollera att du har följande information innan du börjar:
@@ -112,9 +112,9 @@ Kontrollera att du har följande information innan du börjar:
 * En kopia av krypteringsnyckeln för dina tjänstdata från den fysiska enheten.
 
 ## <a name="create-and-configure-the-virtual-device"></a>Skapa och konfigurera den virtuella enheten
-Innan du genomför de här procedurerna ska du säkerställa att du har uppfyllt [kraven för den virtuella enheten](#prerequisites-for-the-virtual-device). 
+Innan du genomför de här procedurerna ska du säkerställa att du har uppfyllt [kraven för den virtuella enheten](#prerequisites-for-the-virtual-device).
 
-När du har skapat ett virtuellt nätverk, konfigurerat en StorSimple Manager-tjänst och registrerat din fysiska StorSimple-enhet med tjänsten, kan du använda följande steg för att skapa och konfigurera en virtuell StorSimple-enhet. 
+När du har skapat ett virtuellt nätverk, konfigurerat en StorSimple Manager-tjänst och registrerat din fysiska StorSimple-enhet med tjänsten, kan du använda följande steg för att skapa och konfigurera en virtuell StorSimple-enhet.
 
 ### <a name="step-1-create-a-virtual-device"></a>Steg 1: Skapa en virtuell enhet
 Utför följande steg för att skapa den virtuella StorSimple-enheten.
@@ -127,6 +127,7 @@ Om det inte går att skapa den virtuella enheten i det här steget kan det bero 
 Kontrollera innan du påbörjar den här proceduren att du har en kopia av krypteringsnyckeln för tjänstdata. Krypteringsnyckeln för tjänstdata skapades när du konfigurerade din första StorSimple-enhet och du instruerades att spara den på en säker plats. Om du inte har en kopia av krypteringsnyckeln för tjänstdata ska du kontakta Microsoft Support för att få hjälp.
 
 Utför följande steg för att konfigurera och skapa den virtuella StorSimple-enheten.
+
 [!INCLUDE [Configure and register a virtual device](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Steg 3: (Valfritt) ändra konfigurationsinställningarna för enheten
@@ -143,8 +144,8 @@ Programvaran StorSimple Manager finns på din Windows-värd och ger administrat�
 
 > [!NOTE]
 > För den virtuella enheten är din Windows-värd en virtuell Azure-dator.
-> 
-> 
+>
+>
 
 När du konfigurerar en enhet i StorSimple Snapshot Manager uppmanas du att ange StorSimple-enhetens IP-adress och lösenord för att autentisera lagringsenheten. Detaljerade anvisningar finns i [Konfigurera lösenordet för StorSimple Snapshot Manager](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
@@ -166,13 +167,13 @@ När du har aktiverat fjärrhantering på konfigurationssidan för StorSimple-en
 
 > [!WARNING]
 > **För ökad säkerhet rekommenderar vi starkt att du använder HTTPS för att ansluta till slutpunkterna och sedan tar bort slutpunkterna när din PowerShell-fjärrsession är slutförd.**
-> 
-> 
+>
+>
 
 Du bör följa procedurerna i [Fjärransluta till din StorSimple-enhet](storsimple-remote-connect.md) för att ställa in fjärrstyrning för din virtuella enhet.
 
 ## <a name="connect-directly-to-the-virtual-device"></a>Ansluta direkt till den virtuella enheten
-Du kan även ansluta direkt till den virtuella enheten. Om du vill ansluta direkt till den virtuella enheten från en annan dator utanför det virtuella nätverket eller utanför Microsoft Azure-miljön måste du skapa ytterligare slutpunkter som beskrivs i följande procedur. 
+Du kan även ansluta direkt till den virtuella enheten. Om du vill ansluta direkt till den virtuella enheten från en annan dator utanför det virtuella nätverket eller utanför Microsoft Azure-miljön måste du skapa ytterligare slutpunkter som beskrivs i följande procedur.
 
 Utför följande steg för att skapa en offentlig slutpunkt på den virtuella enheten.
 
@@ -226,8 +227,8 @@ Katastrofåterställning är ett av de scenarier som den virtuella StorSimple-en
 > [!NOTE]
 > * När du använder en virtuell enhet som en sekundär enhet för katastrofåterställning är det viktigt att komma ihåg att 8010 har 30 TB Standardlagring och 8020 har 64 TB Premiumlagring.  Den virtuella enheten 8020 som har högre kapacitet kan vara mer lämpad för användning vid katastrofåterställning.
 > * Det går inte att växla eller klona från en enhet som kör Uppdatering 2 till en enhet som kör program av tidigare versioner än Uppdatering 1. Du kan dock växla en enhet som kör Uppdatering 2 till en enhet som kör Uppdatering 1 (1.1 eller 1.2)
-> 
-> 
+>
+>
 
 Stegvisa anvisningar finns i [växling till en virtuell enhet](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
 
@@ -244,21 +245,20 @@ Om du tar bort eller stänger av den virtuella enheten visas den som **Offline**
 Om du inte har någon anslutning till Internet när du skapar en virtuell enhet kommer det inte att fungera. Du kan kontrollera om problemet orsakas av Internetanslutningen genom att utföra följande steg i den klassiska Azure-portalen:
 
 1. Skapa en virtuell dator med Windows Server 2012 i Azure. Den virtuella datorn ska ha samma lagringskonto, VNet och undernät som används av din virtuella enhet. Om du redan har en befintlig Windows Server-värd i Azure som använder samma lagringskonto, VNET och undernät, kan du även använda den för att felsöka Internetanslutningen.
-2. Logga in via fjärrinloggning på den virtuella datorn som skapades i föregående steg. 
+2. Logga in via fjärrinloggning på den virtuella datorn som skapades i föregående steg.
 3. Öppna ett kommandofönster i den virtuella datorn (Win + R och skriv sedan `cmd`).
 4. Kör följande cmd i prompten.
-   
+
     `nslookup windows.net`
-5. Om `nslookup` misslyckas hindrar problemet med Internetanslutningen den virtuella enheten från att registrera sig för StorSimple Manager-tjänsten. 
+5. Om `nslookup` misslyckas hindrar problemet med Internetanslutningen den virtuella enheten från att registrera sig för StorSimple Manager-tjänsten.
 6. Gör nödvändiga ändringar i ditt virtuella nätverk så att den virtuella enheten kan komma åt Azure-webbplatser, till exempel windows.net.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig att [använda StorSimple Manager-tjänsten för att hantera en virtuell enhet](storsimple-manager-service-administration.md).
-* Förstå hur du [återställer en StorSimple-volym från en säkerhetskopia](storsimple-restore-from-backup-set.md). 
+* Förstå hur du [återställer en StorSimple-volym från en säkerhetskopia](storsimple-restore-from-backup-set.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

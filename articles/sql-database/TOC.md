@@ -22,6 +22,7 @@
 ## Säkerhet
 ### [Azure Security Center för Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL-säkerhetscenter](https://msdn.microsoft.com/library/azure/bb510589)
+
 # Kom igång
 ## Databaser och servrar
 ### Enkla databaser
@@ -74,12 +75,12 @@
 ##### [Kopiera med PowerShell](sql-database-copy-powershell.md)
 ##### [Kopiera med T-SQL](sql-database-copy-transact-sql.md)
 #### Exportera databasen till en BACPAC-fil
-##### [Azure-portal](sql-database-export.md)
+##### [Azure Portal](sql-database-export.md)
 ##### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 ##### [Verktyg för SQL-paket](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 ##### [PowerShell](sql-database-export-powershell.md)
 #### Importera databasen från en BACPAC-fil
-##### [Azure-portal](sql-database-import.md)
+##### [Azure Portal](sql-database-import.md)
 ##### [PowerShell](sql-database-import-powershell.md)
 ##### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 ##### [Verktyg för SQL-paket](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
@@ -104,9 +105,9 @@
 ##### [Kolumnkryptering](https://msdn.microsoft.com/library/azure/ms179331)
 #### Maskera data
 ##### Dynamisk datamaskning
-###### [Azure-portal](sql-database-dynamic-data-masking-get-started.md)
+###### [Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 ### Gör följande
-#### [Dynamisk datamaskning i Azure-portalen](sql-database-dynamic-data-masking-get-started.md)
+#### [Dynamisk datamaskning i Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 ## Verksamhetskontinuitet
 ### Läs mer
 #### [Översikt](sql-database-business-continuity.md)
@@ -119,13 +120,13 @@
 #### [Löpande uppgraderingar](sql-database-manage-application-rolling-upgrade.md)
 ### Gör följande
 #### Återställa borttagen databas
-##### [Azure-portal](sql-database-restore-deleted-database-portal.md)
+##### [Azure Portal](sql-database-restore-deleted-database-portal.md)
 ##### [PowerShell](sql-database-restore-deleted-database-powershell.md)
 #### Återställning från tidpunkt
-##### [Azure-portal](sql-database-point-in-time-restore-portal.md)
+##### [Azure Portal](sql-database-point-in-time-restore-portal.md)
 ##### [PowerShell](sql-database-point-in-time-restore-powershell.md)
 #### Geo-återställ databaser
-##### [Azure-portal](sql-database-geo-restore-portal.md)
+##### [Azure Portal](sql-database-geo-restore-portal.md)
 ##### [PowerShell](sql-database-geo-restore-powershell.md)
 #### [Enkel tabell](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 #### [Återställa från ett strömavbrott i ett datacenter](sql-database-disaster-recovery.md)
@@ -133,11 +134,11 @@
 ### Replikera databaser
 #### [Översikt över aktiv geo-replikering](sql-database-geo-replication-overview.md)
 #### Konfigurera aktiv geo-replikering
-##### [Azure-portal](sql-database-geo-replication-portal.md)
+##### [Azure Portal](sql-database-geo-replication-portal.md)
 ##### [PowerShell](sql-database-geo-replication-powershell.md)
 ##### [T-SQL](sql-database-geo-replication-transact-sql.md)
 #### Redundans med aktiv geo-replikering
-##### [Azure-portal](sql-database-geo-replication-failover-portal.md)
+##### [Azure Portal](sql-database-geo-replication-failover-portal.md)
 ##### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 ##### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 ## Apputveckling
@@ -149,7 +150,7 @@
 #### [Hämta de värden som krävs för att autentisera ett program](sql-database-client-id-keys.md)
 ### Gör följande
 #### Ansluta ett program
-##### [NET](sql-database-develop-dotnet-simple.md)
+##### [.NET](sql-database-develop-dotnet-simple.md)
 ##### [C och C++](sql-database-develop-cplusplus-simple.md)
 ##### [Java](sql-database-develop-java-simple.md)
 ##### [Node.js](sql-database-develop-nodejs-simple.md)
@@ -179,7 +180,7 @@
 #### [Enkla databaser](sql-database-single-database-monitor.md)
 #### [Översikt över SQL Database Advisor](sql-database-advisor.md)
 #### [Vägledning för enkel databas](sql-database-performance-guidance.md)
-#### [Arbetsbelastningsinformation i Azure-portalen](sql-database-performance.md)
+#### [Arbetsbelastningsinformation i Azure Portal](sql-database-performance.md)
 #### [Använda batchbearbetning](sql-database-use-batching-to-improve-performance.md)
 ## SQL Database V11
 ### [Webb- och företagsversioner sunset](sql-database-web-business-sunset-faq.md)
@@ -189,11 +190,12 @@
 #### [Uppgradera med Azure Portal](sql-database-upgrade-server-portal.md)
 #### [Uppgradera med PowerShell](sql-database-upgrade-server-powershell.md)
 #### [Prisnivårekommendationer](sql-database-service-tier-advisor.md)
+
 # Gör så här för att
 ## Skapa och hantera
 ### Servrar och databaser
 #### [Enkla databaser](sql-database-manage-portal.md)
-#### [Azure-portal](sql-database-get-started.md)
+#### [Azure Portal](sql-database-get-started.md)
 #### [C#](sql-database-get-started-csharp.md)
 #### [PowerShell](sql-database-manage-powershell.md)
 #### [SQL Server Management Studio](sql-database-manage-azure-ssms.md)
@@ -220,7 +222,7 @@
 #### [Azure AD-autentisering](sql-database-aad-authentication.md)
 #### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
 ### Brandväggsregler
-#### [Azure-portal](sql-database-configure-firewall-settings.md)
+#### [Azure Portal](sql-database-configure-firewall-settings.md)
 #### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 #### [REST-API](sql-database-configure-firewall-settings-rest.md)
 #### [T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -270,16 +272,16 @@
 #### [Ringbuffertens målkod](sql-database-xevent-code-ring-buffer.md)
 ## Flytta data
 ### [Kopiera en SQL-databas](sql-database-copy.md)
-#### [Azure-portal](sql-database-copy-portal.md)
+#### [Azure Portal](sql-database-copy-portal.md)
 #### [PowerShell](sql-database-copy-powershell.md)
 #### [T-SQL](sql-database-copy-transact-sql.md)
 ### Exportera databasen till en BACPAC-fil
-#### [Azure-portal](sql-database-export.md)
+#### [Azure Portal](sql-database-export.md)
 #### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 #### [Verktyg för SQL-paket](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 #### [PowerShell](sql-database-export-powershell.md)
 ### Importera databasen från en BACPAC-fil
-#### [Azure-portal](sql-database-import.md)
+#### [Azure Portal](sql-database-import.md)
 #### [PowerShell](sql-database-import-powershell.md)
 #### [SQL Server Management Studio](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 #### [Verktyg för SQL-paket](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
@@ -295,13 +297,13 @@
 #### [Distribuerade transaktioner över molndatabaser](sql-database-elastic-transactions-overview.md)
 ## Återställ
 ### Återställa borttagen databas
-#### [Azure-portal](sql-database-restore-deleted-database-portal.md)
+#### [Azure Portal](sql-database-restore-deleted-database-portal.md)
 #### [PowerShell](sql-database-restore-deleted-database-powershell.md)
 ### Återställning till tidpunkt
-#### [Azure-portal](sql-database-point-in-time-restore-portal.md)
+#### [Azure Portal](sql-database-point-in-time-restore-portal.md)
 #### [PowerShell](sql-database-point-in-time-restore-powershell.md)
 ### Geo-återställning
-#### [Azure-portal](sql-database-geo-restore-portal.md)
+#### [Azure Portal](sql-database-geo-restore-portal.md)
 #### [PowerShell](sql-database-geo-restore-powershell.md)
 #### [Enkel tabell](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ### [Återställa från ett strömavbrott i ett datacenter](sql-database-disaster-recovery.md)
@@ -312,10 +314,9 @@
 #### [PowerShell](sql-database-geo-replication-powershell.md)
 #### [T-SQL](sql-database-geo-replication-transact-sql.md)
 ### Redundans
-#### [Azure-portal](sql-database-geo-replication-failover-portal.md)
+#### [Azure Portal](sql-database-geo-replication-failover-portal.md)
 #### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-
 ## Felsöka
 ### [Anslutningsproblem](sql-database-troubleshoot-common-connection-issues.md)
 ### [Tillfälligt anslutningsfel](sql-database-troubleshoot-connection.md)
@@ -325,26 +326,26 @@
 
 
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [PowerShell – Klassisk](/powershell/servicemanagement/)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
+## [PowerShell (Elastic Database)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [.NET](https:dotnet/api/microsoft.azure.management.sql.models)
+## [Java](/java/api/com.microsoft.azure.management.sql)
+## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+## [Python](https://msdn.microsoft.com/library/mt652092.aspx)
+## [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Cmdlet:ar för Azure SQL-databas](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
-## [SQL Server-cmdletar](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST](/rest/api/sql/)
 
+# Relaterat
 ## Bibliotek för SQL Database-hantering
-### [Biblioteksreferens för SQL Database-hantering](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [Hämta bibliotekspaketet för SQL Database-hanteringen](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 ## [SQL Server-drivrutiner](https://msdn.microsoft.com/library/mt654049.aspx)
 ### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+
 ### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
-### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
-### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/sql-database/)
@@ -360,6 +361,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

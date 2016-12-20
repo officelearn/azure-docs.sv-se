@@ -1,7 +1,7 @@
 Se till att du redan har skapat ett Service Bus-namnområde så som det visas [här][namespace-how-to].
 
-1. Logga in på [Azure Portal][azure-portal].
-2. I portalens vänstra navigationsfält klickar du på **Service Bus**.
+1. Logga in på [Azure portal][azure-portal].
+2. I det vänstra navigeringsfönstret i portalen klickar du på **Service Bus** (om du inte ser **Service Bus** klickar du på **More services** (Fler tjänster)).
 3. Välj det namnområde som du vill skapa kön i. I det här fallet är det **nstest1**.
    
     ![Skapa en kö][createqueue1]
@@ -21,6 +21,6 @@ Se till att du redan har skapat ett Service Bus-namnområde så som det visas [h
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

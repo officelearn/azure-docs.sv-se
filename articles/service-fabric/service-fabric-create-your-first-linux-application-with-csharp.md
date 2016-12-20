@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9486fcb56b05b22120aef5a8373c6558b2d88d6c
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 046cc1286d894e28ed4d560c7c0b815f582e1e77
 
 
 ---
@@ -50,7 +50,7 @@ Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och 
 ## <a name="build-the-application"></a>Skapa programmet
 Service Fabric Yeoman-mallarna inkluderar ett byggskript som du kan använda för att skapa programmet från terminalen (efter att du navigerat till programmappen).
 
-  ```bash
+  ```sh
  cd myapp 
  ./build.sh 
   ```
@@ -60,7 +60,7 @@ När du har skapat programmet kan du distribuera det till det lokala klustret me
 
 1. Anslut till det lokala Service Fabric-klustret.
    
-    ```bash
+    ```sh
     azure servicefabric cluster connect
     ```
 2. Använd installationsskriptet som medföljer mallen för att kopiera programpaketet till klustrets avbildningsarkiv, registrera programtypen och skapa en instans av programmet.
@@ -83,7 +83,18 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
 2. I Service Fabric Explorer letar du reda på noden där den primära repliken för aktörstjänsten finns. På skärmbilden nedan är det nod 3.
    
     ![Hitta den primära repliken i Service Fabric Explorer][sfx-primary]
-3. Klicka på noden du hittade i föregående steg och välj sedan **Deactivate (restart)** (Inaktivera (omstart)) på menyn Actions (Åtgärder). Den här åtgärden startar om en av de fem noderna i ditt lokala kluster, vilket tvingar fram en redundans till en sekundär replik som kör på en annan nod. När du utför åtgärden, ska du vara uppmärksam på utdata från testklienten och notera att räknaren fortsätter att öka trots redundansen.
+3. Klicka på noden du hittade i föregående steg och välj sedan **Deactivate (restart)** (Inaktivera (omstart)) på menyn Actions (Åtgärder). Den här åtgärden startar om en nod i ditt lokala kluster, vilket framtvingar en redundansväxling till en sekundär replik som körs på en annan nod. När du utför åtgärden, ska du vara uppmärksam på utdata från testklienten och notera att räknaren fortsätter att öka trots redundansen.
+
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Lägga till fler tjänster till ett befintligt program
+
+Om du vill lägga till en till tjänst till ett program som redan har skapats med hjälp av `yo` utför du följande steg: 
+1. Ändra katalogen till roten för det befintliga programmet.  Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
+2. Kör `yo azuresfcsharp:AddService`
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om Reliable Actors](service-fabric-reliable-actors-introduction.md)
@@ -95,6 +106,6 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

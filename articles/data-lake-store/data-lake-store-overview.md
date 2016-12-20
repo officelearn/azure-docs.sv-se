@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c90fe9e9f088e8af80b5d9dcf7ab5b970034122f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
 
 
 ---
@@ -42,10 +42,10 @@ Data som lagras i Data Lake Store kan enkelt analyseras med hjälp av analytiska
 ### <a name="unlimited-storage-petabyte-files"></a>Obegränsad lagring, petabytefiler
 Azure Data Lake Store ger obegränsad lagring och lämpar sig för att lagra en mängd olika data för analyser. Det medför inte några gränser för kontostorlekar, filstorlekar eller mängden data som kan lagras i en datasjö. Enskilda filer kan variera mellan kilobyte till petabyte i storlek vilket gör det till ett bra alternativ för lagring av alla typer av data. Data lagras varaktigt genom att göra flera kopior och det finns ingen gräns på vilken tidsperiod som data kan lagras i datasjön.
 
-### <a name="performancetuned-for-big-data-analytics"></a>Prestandajusterad för analyser av stordata
+### <a name="performance-tuned-for-big-data-analytics"></a>Prestandajusterad för analyser av stordata
 Azure Data Lake Store är utformat för att köra storskaliga analytiska system som kräver omfattande genomströmning till fråga och analys av stora mängder data. Datasjön sprider delar av en fil i ett antal enskilda lagringsservrar. Detta förbättrar läsgenomströmning vid läsning av filen parallellt för att utföra dataanalyser.
 
-### <a name="enterpriseready-highlyavailable-and-secure"></a>Företagsredo: Hög tillgänglighet och säkert
+### <a name="enterprise-ready-highly-available-and-secure"></a>Företagsredo: Hög tillgänglighet och säkert
 Azure Data Lake Store ger branschstandard för tillgänglighet och pålitlighet. Dina datatillgångar lagras varaktigt genom att göra redundanta kopior som skyddar mot oväntade fel. Företag kan använda Azure Data Lake i sina lösningar som en viktig del av deras befintliga dataplattform.
 
 Data Lake Store innehåller också säkerhet i företagsklass för lagrade data. Mer information finns i [Skydda data i Azure Data Lake Store](#DataLakeStoreSecurity).
@@ -105,6 +105,6 @@ Om du vill titta på videor för att lära dig, har Data Lake Store videor om en
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

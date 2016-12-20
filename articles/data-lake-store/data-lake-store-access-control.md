@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9637a4dfeaf3d3f95ccdb4bbc5d1f96ec08b6dad
 
 
 ---
@@ -110,11 +110,11 @@ Från bladet **Data Explorer** i Data Lake Store, klicka på **Åtkomst** för a
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Efter det klickar du från bladet **Åtkomst** på **Enkel vy** för att visa den enklare vyn.
+Överst på det här bladet visas en översikt över vilka behörigheter du har (på skärmbilden, användaren är Bob). Under visas åtkomstbehörigheter.
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Klicka på **Avancerad vy** för att visa den mer avancerade vyn.
+Klicka på **Avancerat** om du vill se en mer avancerad vy där begreppen standard-ACL:er, mask och superanvändare visas.
 
 ![ACL:er för Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -133,6 +133,10 @@ I Azure har ett Data Lake Store-konto flera Azure-roller:
 * O.s.v.
 
 Alla i rollen **Ägare** för ett Data Lake Store-konto är automatiskt en superanvändare för det kontot. Läs mer om Azures rollbaserade åtkomstkontroll (RBAC) i [Rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md).
+
+Om du vill skapa en anpassad RBAC-roll som har superanvändarbehörigheter. Den måste ha följande behörigheter:
+* Microsoft.DataLakeStore/accounts/Superuser/action
+* Microsoft.Authorization/roleAssignments/write
 
 ## <a name="the-owning-user"></a>Ägande användare
 Användaren som skapade objektet är automatiskt ägande användare för objektet. En ägande användare kan:
@@ -244,7 +248,11 @@ Nej. Åtkomstkontroll via ACL:er är alltid aktiverat för ett Data Lake Store-k
 ### <a name="what-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Vilka behörigheter krävs för att rekursivt ta bort en mapp och dess innehåll?
 * Den överordnade mappen måste ha **skriva + köra**.
 * Mappen som ska tas bort och alla mappar inom den, behöver **läsa + skriva + köra**.
-  >[AZURE.NOTE] Att ta bort filer i mappar kräver inte behörigheten Skriva på filerna. Dessutom kan rotmappen "/" **aldrig** tas bort.
+
+> [!NOTE] 
+> Att ta bort filer i mappar kräver inte behörigheten Skriva på filerna. Dessutom kan rotmappen "/" **aldrig** tas bort.
+>
+>
 
 ### <a name="who-is-set-as-the-owner-of-a-file-or-folder"></a>Vem anges som ägare till en fil eller mapp?
 Skaparen av en fil eller mapp blir ägaren.
@@ -254,6 +262,12 @@ Det kopieras från den ägande gruppen i den överordnade mappen under vilken de
 
 ### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Jag är ägande användare av en fil, men jag har inte den RWX-behörighet jag behöver. Vad gör jag nu?
 Ägande användare kan lätt ändra behörigheterna för filen för att ge sig själva de RWX-behörigheter de behöver.
+
+### <a name="when-i-look-at-acls-in-the-azure-portal-i-see-user-names-but-through-apis-i-see-guids-why-is-that"></a>När jag tittar på ACL:er i Azure Portal visas användarnamn men via API:er visas GUID. Varför?
+Posterna i ACL lagras som GUID som motsvarar användare i Azure Active Directory (AAD). API:erna returnerar GUID i befintligt skick. Azure Portal försöker göra det enklare att använda ACL:er genom att översätta GUID till bekanta namn när det är möjligt. 
+
+### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-using-the-portal"></a>Varför ibland visas GUID i ACL:er när jag använder portalen?
+GUID visas när användaren inte finns i AAD längre. Detta inträffar när användaren har lämnat företaget eller om kontot har tagits bort i AAD.
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Stöds arv av ACL:er i Data Lake Store?
 Nej.
@@ -282,6 +296,6 @@ Nej.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

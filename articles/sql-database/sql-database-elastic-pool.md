@@ -1,92 +1,112 @@
 ---
-title: What is an Azure elastic pool? | Microsoft Docs
-description: Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will.
+title: "Vad är en elastisk pool i Azure? | Microsoft Docs"
+description: "Hantera flera hundra eller flera tusen databaser med hjälp av en pool. Ett pris för en uppsättning prestandaenheter kan fördelas över poolen. Flytta in eller ut databaser efter behov."
 keywords: elastic database,sql databases
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
-
+editor: 
+ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.date: 07/12/2016
+ms.date: 12/06/2016
 ms.author: CarlRabeler
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 829229542c05477d427b15a9d862f414d9c730d6
+
 
 ---
-# What is an Azure elastic pool?
-SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
+# <a name="what-is-an-azure-elastic-pool"></a>Vad är en elastisk pool i Azure?
+Elastiska SQL DB-pooler erbjuder en enkel kostnadseffektiv lösning som hjälper dig att hantera prestandamål för flera databaser som har mycket varierande och oförutsägbara användningsmönster.
 
 > [!NOTE]
-> Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
-> 
-> 
+> Elastiska pooler är allmänt tillgängliga (GA) i alla Azure-regioner utom Västra Indien där de genomgår förhandsgranskning.  GA för elastiska pooler i den här regionen inträffar så snart som möjligt.
+>
+>
 
-## How it works
-A common SaaS application pattern is the single-tenant database model: each customer is given their own database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources efficiently and cost-effectively? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic pools solve this problem by ensuring that databases get the performance resources they need and when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+## <a name="how-it-works"></a>Hur det fungerar
+Ett vanligt SaaS-programmönster är databasmodellen för en enda klient: varje kund får sin egen databas. Varje kund (databas) har oförutsägbara resursbehov vad gäller minne, IO och processor. Hur allokerar du resurser på ett effektivt och kostnadseffektivt sätt med sådana toppar och dalar i efterfrågan? Förr hade du två alternativ: (1) överetablera resurser baserat på högsta användning och betala för mycket, eller (2) underetablera för att spara kostnader på bekostnad av prestanda och kundnöjdhet under perioder med aktivitetstoppar. Elastiska pooler löser det här problemet genom att se till att databaserna får de prestandaresurser som de behöver, när de behöver dem. De tillhandahåller en enkel resursallokeringsmekanism med en förutsägbar budget. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
-> 
-> 
+>
+>
 
-In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic databases in an elastic pool. See the [Introduction to SQL Database](sql-database-technical-overview.md#understand-dtus) to learn more about DTUs and eDTUs.
+I SQL Database uttrycks det relativa måttet på en databas förmåga att hantera resursbehoven i databastransaktionsenheter (DTU:er) för enskilda databaser och elastiska DTU:er (eDTU:er) för elastiska databaser i en elastisk pool. Mer information om DTU:er och eDTU:er finns i [Introduktion till SQL Database](sql-database-technical-overview.md).
 
-A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load consume no eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool.
+En pool tilldelas ett bestämt antal eDTU:er till ett fast pris. I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Vid hög belastning kan en databas använda fler eDTU:er för att uppfylla efterfrågan. Databaser med lätt arbetsbelastning förbrukar mindre, och databaser utan belastning förbrukar inga eDTU:er. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom har du en förutsägbar budget för poolen.
 
-Additional eDTUs can be added to an existing pool with no database downtime or no impact on the databases in the elastic pool. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time.
+Ytterligare eDTU:er kan läggas till i en befintlig pool utan driftavbrott för databasen och utan att databaserna i den elastiska poolen påverkas. På samma sätt kan eDTU:er som inte längre behövs tas bort från en befintlig pool när som helst.
 
-And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
+Och du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
 
-## Which databases go in a pool?
-![SQL databases sharing eDTUs in an elastic database pool.][1]
+## <a name="which-databases-go-in-a-pool"></a>Vilka databaser kan finnas i en pool?
+![SQL-databaser som delar eDTU:er i en Elastic Database-pool.][1]
 
-Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
+Databaser som är bra kandidater för elastiska pooler har vanligtvis perioder av aktivitet och andra perioder av inaktivitet. I exemplet ovan ser du aktiviteten för 1 enkel databas, 4 databaser och sist en elastisk pool med 20 databaser. Databaser med aktivitet som varierar över tid är bra kandidater för elastiska pooler eftersom alla inte är aktiva samtidigt och kan dela eDTU:er. Alla databaser passar inte det här mönstret. Databaser som har ett mer konstant resursbehov passar bättre för tjänstnivåerna Basic, Standard och Premium där resurserna tilldelas individuellt.
 
-[Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
+[Pris- och prestandaöverväganden för en elastisk pool](sql-database-elastic-pool-guidance.md).
 
-## eDTU and storage limits for elastic pools and elastic databases.
+## <a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>eDTU:er och lagringsgränser för elastiska pooler och elastiska databaser
+
+I följande tabell beskrivs egenskaperna för de elastiska databaspoolerna Basic, Standard och Premium.
+
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
+Om alla DTU:er för en elastisk pool används får varje databas i poolen lika många resurser för att bearbeta frågor.  SQL Database-tjänsten tillhandahåller rättvis resursdelning mellan databaser genom att tilldela lika mycket beräkningstid till dem. En rättvis resursdelning i elastiska pooler tillämpas utöver den mängd resurser som varje databas är garanterad om det minsta antalet DTU:er per databas har angetts till ett annat värde än noll.
 
-## Elastic pool and elastic database properties
-### Limits for elastic pools
-| Property | Description |
+## <a name="elastic-pool-and-elastic-database-properties"></a>Egenskaper för elastiska pooler och elastiska databaser
+
+Följande tabeller beskriver gränserna för elastiska pooler och elastiska databaser.
+
+### <a name="limits-for-elastic-pools"></a>Begränsningar för elastiska pooler
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| Service tier |Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition.” |
-| eDTUs per pool |The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
-| Max storage per pool (GB) |The maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
-| Max number of databases per pool |The maximum number of databases allowed per pool. |
-| Max concurrent workers per pool |The maximum number of concurrent workers (requests) available for all databases in the pool. |
-| Max concurrent logins per pool |The maximum number of concurrent logins for all databases in the pool. |
-| Max concurrent sessions per pool |The maximum number of sessions available for all databases in the pool. |
+| Tjänstenivå |Basic, Standard eller Premium. Tjänstnivån anger intervallet för prestanda- och lagringsbegränsningar som kan konfigureras samt alternativ för affärskontinuitet. Varje databas i en pool har samma tjänstnivå som poolen. ”Tjänstenivå” kallas också för ”utgåva”. |
+| eDTU:er per pool |Det högsta antalet eDTU:er som kan delas av databaser i poolen. Det sammanlagda antalet eDTU:er som används av databaser i poolen får inte överskrida den här gränsen vid samma tidpunkt. |
+| Högsta lagringsutrymme per pool (GB) |Den högsta mängden lagringsutrymme i antal GB som kan delas av databaser i poolen. Det totala lagringsutrymmet som används av databaser i poolen får inte överskrida den här gränsen. Den här gränsen bestäms av antalet eDTU:er per pool. Om den här gränsen överskrids blir alla databaser skrivskyddade. |
+| Maximalt antal databaser per pool |Det högsta antalet databaser som tillåts per pool. |
+| Maximalt antal samtidiga arbetare per pool |Det högsta antalet samtidiga arbetare (begäranden) som är tillgängliga för alla databaser i poolen. |
+| Maximalt antal samtidiga inloggningar per pool |Det högsta antalet samtidiga inloggningar för alla databaser i poolen. |
+| Maximalt antal samtidiga sessioner per pool |Det högsta antal sessioner som är tillgängliga för alla databaser i poolen. |
 
-### Limits for elastic databases
-| Property | Description |
+### <a name="limits-for-elastic-databases"></a>Begränsningar för elastiska databaser
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| Max eDTUs per database |The maximum number of eDTUs that any database in the pool may use, if available based on utilization by other databases in the pool.  Max eDTU per database is not a resource guarantee for a database.  This setting is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle peaks in database utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 20 eDTUs and only 20% of the 100 databases in the pool are peak at the same time.  If the eDTU max per database is set to 20 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the eDTUs per pool to 400. |
-| Min eDTUs per database |The minimum number of eDTUs that any database in the pool is guaranteed.  This setting is a global setting that applies to all databases in the pool. The min eDTU per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average eDTU utilization per database. The product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool.  For example, if a pool has 20 databases and the eDTU min per database set to 10 eDTUs, then the eDTUs per pool must be at least as large as 200 eDTUs. |
-| Max storage per database (GB) |The maximum storage for a database in a pool. Elastic databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. |
+| Maximalt antal eDTU:er per databas |Det högsta antalet eDTU:er som en databas i poolen kan använda, om de är tillgängliga beroende på användningen av andra databaser i poolen.  Det högsta antalet eDTU:er per databas utgör ingen resursgaranti för en databas.  Den här inställningen är en global inställning som gäller för alla databaser i poolen. Ange ett högsta antal eDTU:er per databas som är tillräckligt högt för att hantera toppar i databasanvändningen. En viss grad av övertilldelning är att förvänta eftersom poolen normalt arbetar efter ett mönster med frekvent och lågfrekvent användning av databaser där inte alla databaser har aktivitetstoppar samtidigt. Anta exempelvis att toppanvändningen per databas är 20 eDTU:er och att endast 20 % av de 100 databaserna i poolen har hög belastning samtidigt.  Om det högsta antalet eDTU:er per databas har angetts till 20 eDTU:er är det rimligt att övertilldela poolen med 5 gånger så mycket och ange eDTU:erna per pool till 400. |
+| Minimalt antal eDTU:er per databas |Det minsta antalet eDTU:er som en databas i poolen är garanterad.  Den här inställningen är en global inställning som gäller för alla databaser i poolen. Det minsta antalet eDTU:er per databas kan anges till 0, vilket även är standardvärdet. Den här egenskapen anges till ett värde mellan 0 och den genomsnittliga eDTU-användningen per databas. Produkten av antalet databaser i poolen och det minsta antalet eDTU:er per databas får inte överskrida antalet eDTU:er per pool.  Om en pool till exempel har 20 databaser och det minsta antalet eDTU:er per databas har angetts till 10 eDTU:er så måste antalet eDTU:er per pool vara minst 200 eDTU:er. |
+| Största lagringsutrymme per databas (GB) |Det största lagringsutrymmet för en databas i en pool. Eftersom elastiska databaser delar poolens lagringsutrymme är databaslagringen begränsad till poolens återstående lagringsutrymme eller det största lagringsutrymmet per databas, beroende på vilket som är minst. |
 
-## Elastic database jobs
-With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic database job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
+## <a name="elastic-database-jobs"></a>Elastiska databasjobb
+Med en pool förenklas hanteringsuppgifterna eftersom du kan köra skript i **[elastiska jobb](sql-database-elastic-jobs-overview.md)**. Ett Elastic Database-jobb underlättar hanteringen av många databaser. Mer information finns i [Komma igång med Elastic Database-jobb](sql-database-elastic-jobs-getting-started.md).
 
-For more information about other tools, see the [Elastic database tools learning map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+Mer information om andra verktyg för elastiska databaser finns i [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md) (Skala ut med Azure SQL Database).
 
-## Business continuity features for databases in a pool
-Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
+## <a name="business-continuity-features-for-databases-in-a-pool"></a>Funktioner för affärskontinuitet för databaser i en pool
+Elastiska databaser stöder i allmänhet samma [funktioner för affärskontinuitet](sql-database-business-continuity.md) som är tillgängliga för enskilda databaser på V12-servrar.
 
-### Point in time restore
-Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+### <a name="point-in-time-restore"></a>Återställning till tidpunkt
+Återställning till tidpunkt använder automatiska databassäkerhetskopieringar för att återställa en databas i en pool till en viss tidpunkt. Mer information finns i avsnittet om [återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-### Geo-Restore
-Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) 
+### <a name="geo-restore"></a>Geo-återställning
+Geo-återställning tillhandahåller standardalternativet för återställning när en databas inte är tillgänglig på grund av en incident i den region som databasen finns i. Mer information finns i avsnittet [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) (Återställa en Azure SQL-databas eller växla över till en sekundär databas)
 
-### Active Geo-Replication
-For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+### <a name="active-geo-replication"></a>Aktiv geo-replikering
+För program som har mer aggressiva återställningskrav än vad geo-återställning kan erbjuda konfigurerar du aktiv geo-replikering med hjälp av [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) eller [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+
+## <a name="additional-resources"></a>Ytterligare resurser
+* [Microsoft Virtual Academy-videokurs om funktioner för elastiska databaser](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

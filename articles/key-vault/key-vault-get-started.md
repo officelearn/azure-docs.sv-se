@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 
 ---
@@ -41,7 +41,7 @@ Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault f�
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
 * En prenumeration på Microsoft Azure. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell, **minst version 1.1.0**. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md). Om du redan har installerat Azure PowerShell och inte vet vilken version du har skriver du `(Get-Module azure -ListAvailable).Version` i Azure PowerShell-konsolen. Du kan använda den här självstudiekursen med några mindre ändringar även om du har Azure PowerShell version 0.9.1 till och med 0.9.8 installerad. Du måste till exempel använda kommandot `Switch-AzureMode AzureResourceManager`, och vissa Azure Key Vault-kommandon har ändrats. En lista med Key Vault-cmdlets för version 0.9.1 till och med 0.9.8 finns i [Cmdlets för Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
+* Azure PowerShell, **minst version 1.1.0**. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs). Om du redan har installerat Azure PowerShell och inte vet vilken version du har skriver du `(Get-Module azure -ListAvailable).Version` i Azure PowerShell-konsolen. Du kan använda den här självstudiekursen med några mindre ändringar även om du har Azure PowerShell version 0.9.1 till och med 0.9.8 installerad. Du måste till exempel använda kommandot `Switch-AzureMode AzureResourceManager`, och vissa Azure Key Vault-kommandon har ändrats. En lista med Key Vault-cmdlets för version 0.9.1 till och med 0.9.8 finns i [Cmdlets för Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
 * Ett program som ska konfigureras att använda nyckeln eller lösenordet som du skapar i den här självstudiekursen. Ett exempelprogram är tillgängligt från [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Anvisningar finns i den tillhörande Readme-filen.
 
 Den här kursen är avsedd för nybörjare av Azure PowerShell, men vi förutsätter att du förstår de grundläggande begreppen, t.ex. moduler, cmdlets och sessioner. Mer information finns i [Komma igång med Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -56,7 +56,7 @@ Om du till exempel behöver hjälp med cmdleten **Login-AzureRmAccount** skriver
 
 Du kan också läsa följande självstudier för att bekanta dig med Azure Resource Manager i Azure PowerShell:
 
-* [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md)
+* [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Använda Azure PowerShell med Resource Manager](../powershell-azure-resource-manager.md)
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Ansluta till dina prenumerationer
@@ -76,7 +76,7 @@ Ange sedan den prenumeration som du vill använda genom att skriva:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Mer information om hur du konfigurerar Azure PowerShell finns i [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md).
+Mer information om hur du konfigurerar Azure PowerShell finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Skapa en ny resursgrupp
 När du använder Azure Resource Manager skapas alla relaterade resurser inuti en resursgrupp. Vi ska skapa en ny resursgrupp med namnet **ContosoResourceGroup** i den här självstudiekursen:
@@ -237,6 +237,6 @@ Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](key-vaul
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

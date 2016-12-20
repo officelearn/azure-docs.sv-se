@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/15/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: 9eddde0df61ac7dde9b24f973e7eec786cd48f24
-ms.openlocfilehash: b8f62d1fab4b9132f35e2fab632968cf001c832d
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
 
 
 ---
@@ -43,7 +43,7 @@ När du säkerhetskopierar en virtuell dator utför du fem huvudsteg:
 ![En översikt över hur du säkerhetskopierar virtuella datorer](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
 > [!NOTE]
-> Azure har två distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../resource-manager-deployment-model.md). Den här självstudiekursen handlar om virtuella datorer som kan skapas på den klassiska Azure-portalen. Azure Backup-tjänsten stödjer Resource Manager-baserade virtuella datorer. Mer information om hur du säkerhetskopierar virtuella datorer till ett Recovery Services-valv finns i [En första titt: Skydda virtuella datorer i Azure med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md).
+> Azure har två distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../azure-resource-manager/resource-manager-deployment-model.md). Den här självstudiekursen handlar om virtuella datorer som kan skapas på den klassiska Azure-portalen. Azure Backup-tjänsten stödjer Resource Manager-baserade virtuella datorer. Mer information om hur du säkerhetskopierar virtuella datorer till ett Recovery Services-valv finns i [En första titt: Skydda virtuella datorer i Azure med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md).
 >
 >
 
@@ -211,6 +211,6 @@ Om du har frågor eller om du saknar en funktion är du välkommen att [lämna f
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

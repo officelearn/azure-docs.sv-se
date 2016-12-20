@@ -13,11 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 12/07/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: bb74c4e5e7712220f666324f6ba301c8019432f0
-ms.openlocfilehash: 8a0048c180c62ef2b76aac2a2337cfd640683bac
+ms.sourcegitcommit: 73369c2aed062bb3fe1ec37c4650d1f86b0afb68
+ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
 
 
 ---
@@ -27,40 +27,47 @@ Markera en anslutningsapp för att lära dig hur du skapar arbetsflöden snabbt.
 ## <a name="standard-connectors"></a>Anslutningsappar av standardtyp
 | Anslutningar |  |  |  |
 | --- | --- | --- | --- |
-|[![API Icon][API/Web-Appicon]<br/>**API/Web App**][API/Web-Appdoc]|![API-ikon][appFiguresicon]<br/>**appFigures**|![API-ikon][Asanaicon]<br/>**Asana**|![API-ikon][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|
-|![API-ikon][Azure-MLicon]<br/>**Azure ML**|[![API Icon][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc]|[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![API-ikon][Basecamp-3icon]<br/>**Basecamp 3**|
-|![API-ikon][Bitlyicon]<br/>**Bitly**|![API-ikon][BizTalk-Servericon]<br/>**BizTalk Server**|![API-ikon][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|
-|![API-ikon][Campfireicon]<br/>**Campfire**|![API-ikon][Cognitive-Services~Text-Analyticsicon]<br/>**Cognitive Services<br/>-textanalys**|![API-ikon][Common-Data~Serviceicon]<br/>**Common Data<br/>Service**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
-|[![API Icon][Delayicon]<br/>**Delay**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![API-ikon][Dynamics-365~for-Financialsicon]<br/>**Dynamics 365<br/>för finans**|
-|![API-ikon][Dynamics-365~for-Operationsicon]<br/>**Dynamics 365<br/>för åtgärder**|![API-ikon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|
+|[![API Icon][API/Web-Appicon]<br/>**API/Webbapp**][API/Web-Appdoc]|![API-ikon][appFiguresicon]<br/>**appFigures**|![API-ikon][Asanaicon]<br/>**Asana**|![API-ikon][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|
+|![API-ikon][Azure-MLicon]<br/>**Azure ML**|[![API Icon][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![API-ikon][Basecamp-3icon]<br/>**Basecamp 3**|
+|![API-ikon][Bitlyicon]<br/>**Bitly**|![API-ikon][BizTalk-Servericon]<br/>**BizTalk Server**|![API-ikon][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Ruta**][boxDoc]|
+|![API-ikon][Campfireicon]<br/>**Campfire**|![API-ikon][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>-textanalys**|![API-ikon][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
+|[! [API ikonen] [Delayicon]<br/>**Fördröjning**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![API-ikon][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>för finans**|
+|![API-ikon][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>för åtgärder**|![API-ikon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|
 |![API-ikon][GitHubicon]<br/>**GitHub**|![API-ikon][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![API-ikon][Google-Sheetsicon]<br/>**Google-blad**|
 |![API-ikon][Google-Tasksicon]<br/>**Google-uppgifter**|![API-ikon][HideKeyicon]<br/>**HideKey**|![API-ikon][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP~Requesticon]<br/>**HTTP<br/>Request**][HTTP~Requestdoc]|[![API Icon][HTTP~Responseicon]<br/>**HTTP<br/>Response**][HTTP~Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
+|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP-<br/>begäran**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP-<br/>svar**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
 |![API-ikon][Insightlyicon]<br/>**Insightly**|![API-ikon][Instagramicon]<br/>**Instagram**|![API-ikon][Instapapericon]<br/>**Instapaper**|![API-ikon][JIRAicon]<br/>**JIRA**|
-|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API-ikon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|![API-ikon][MQicon]<br/>**MQ**|
-|[![API Icon][Nested~Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested~Logic-Appdoc]|[![API Icon][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365~Usersicon]][office365-usersdoc]<br/>**Office 365<br/>-användare**|[![API Icon][Office-365~Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|
-|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for~Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for~Businessdoc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API-ikon][PagerDutyicon]<br/>**PagerDuty**|
-|![API-ikon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|
-|![API-ikon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
-|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
-|![API-ikon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API-ikon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
+|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API-ikon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Kapslad<br/>logikapp**][Nested-Logic-Appdoc]|
+[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>-användare**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive för<br/>företag**][OneDrive-for-Businessdoc]|
+[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API-ikon][PagerDutyicon]<br/>**PagerDuty**|![API-ikon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
+[![API Icon][Queryicon]<br/>**Fråga**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Upprepning**][Recurrencedoc]|![API-ikon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
+[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
+[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![API-ikon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API-ikon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
 |![API-ikon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
-|![API-ikon][Vimeoicon]<br/>**Vimeo**|![API-ikon][Visual-Studio~Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API-ikon][WordPressicon]<br/>**WordPress**|
-|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API-ikon][YouTubeicon]<br/>**YouTube**
+|![API-ikon][Vimeoicon]<br/>**Vimeo**|![API-ikon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API-ikon][WordPressicon]<br/>**WordPress**|
+|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API-ikon][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**Filsystem**][FileSystemdoc]
+
+### <a name="integration-account-connectors"></a>Anslutningar för integrationskonton 
+
+| integrationskonto<br/>anslutningar |  |  |  |
+| --- | --- | --- | --- |
+| [![API Icon][xmlvalidateicon]<br/>**XML-<br/>verifiering**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**XML-<br/>transformering**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Platt</br>filkodning**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Platt</br>filavkodning**][flatfiledecodedoc] |
+| [![API Icon][as2icon]<br/>**AS2-</br>avkodning**][as2decode] |[![API Icon][as2icon]<br/>**AS2-</br>kodning**][as2encode] |[![API Icon][x12icon]<br/>**X12-</br>avkodning**][x12decode] |[![API Icon][x12icon]<br/>**X12-</br>kodning**][x12encode] |
+| [![API Icon][x12icon]<br/>**EDIFACT-</br>avkodning**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT-</br>kodning**][EDIFACTencode] | | |
 
 > [!NOTE]
 > Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto går du till [Prova logikapp](https://tryappservice.azure.com/?appservice=logic). Du kan genast skapa en tillfällig startlogikapp i Apptjänsten. Inget kreditkort krävs, och du gör inga åtaganden.
 > 
 > 
 
-## <a name="enterprise-integration-pack-eip-connectors"></a>Enterprise-integrationspaket-anslutningsappar (EIP)
-Använd EIP-anslutningsappar för att skapa logikappar för B2B-scenarier som inkluderar EAI och EDI.  
+## <a name="enterprise-connectors"></a>Enterprise-anslutningsappar
+Använd Enterprise-anslutningsappar för att skapa logikappar för B2B-scenarier som omfattar EAI och EDI.  
 
-| EIP-anslutningsappar |  |  |  |
-| --- | --- | --- | --- |
-| [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledecodedoc] |
-| [![API Icon][as2icon]<br/>**AS2</br>decode**][as2decode] |[![API Icon][as2icon]<br/>**AS2</br>encode**][as2encode] |[![API Icon][x12icon]<br/>**X12</br>decode**][x12decode] |[![API Icon][x12icon]<br/>**X12</br>encode**][x12encode] |
-| [![API Icon][x12icon]<br/>**EDIFACT</br>decode**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br>encode**][EDIFACTencode] | | |
+| enterprise<br/>anslutningar |  |
+| --- | --- |
+|![API-ikon][MQicon]<br/>**MQ**|![API-ikon][SAPicon]<br/>**SAP**|
+
+
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### <a name="connectors-can-be-triggers"></a>Anslutningar kan vara utlösare
@@ -80,69 +87,70 @@ Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är an
 * [Övervaka dina logikappar](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
-[azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Anslut till en Azure-blobb för att hantera filer i din blobbehållare."
+[azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Anslut till Azure-blob för att hantera filer i din blobehållare."
 [boxDoc]: ./connectors-create-api-box.md "Ansluter till Box och kan ladda upp, hämta, ta bort, lista och utföra många andra filaktiviteter."
 [Dynamics-365doc]: ./connectors-create-api-crmonline.md "Anslut till Dynamics CRM Online och gör mer med dina CRM Online-data."
-[db2doc]: ./connectors-create-api-db2.md "Anslut till IBM DB2 i molnet eller lokalt för att uppdatera en rad, ta fram en tabell och annat."
+[db2doc]: ./connectors-create-api-db2.md "Anslut till IBM DB2 i molnet eller lokalt för att uppdatera en rad, ta fram en tabell och mer."
 [dropboxdoc]: ./connectors-create-api-dropbox.md "Ansluter till Dropbox och kan hämta, ta bort, lista och utföra många andra filaktiviteter."
-[facebookdoc]: ./connectors-create-api-facebook.md "Anslut till Facebook och skicka till en tidslinje, hämta ett sidflöde och mycket annat."
-[ftpdoc]: ./connectors-create-api-ftp.md "Ansluter till en FTP-/FTPS-server och utför olika FTP-aktiviteter, som t.ex. att ladda upp, hämta och ta bort filer samt mycket annat."
-[google-drivedoc]: ./connectors-create-api-googledrive.md "Anslut till GoogleDrive och interagera med dina data."
-[informixdoc]: ./connectors-create-api-informix.md "Anslut till Informix i molnet eller lokalt för att läsa en rad, lista tabellerna och annat."
+[facebookdoc]: ./connectors-create-api-facebook.md "Anslut till Facebook och publicera på en tidslinje, hämta ett sidflöde och mycket mer."
+[ftpdoc]: ./connectors-create-api-ftp.md "Anslut till en FTP-/FTPS-server och utför olika FTP-aktiviteter, inklusive överföring, hämtning och borttagning av filer och mycket mer."
+[google-drivedoc]: ./connectors-create-api-googledrive.md "Anslut till Google Drive och interagera med dina data."
+[informixdoc]: ./connectors-create-api-informix.md "Anslut till Informix i molnet eller lokalt för att läsa en rad, visa en lista över tabellerna och mer."
 [microsoft-translatordoc]: ./connectors-create-api-microsofttranslator.md
-[office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Office 365-kopplingen kan skicka och ta emot e-postmeddelanden, hantera din kalender och hantera dina kontakter med hjälp av ditt Office 365-konto."
+[office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Office 365-anslutningsappen kan skicka och ta emot e-post, hantera din kalender och hantera dina kontakter med hjälp av ditt Office 365-konto."
 [office365-usersdoc]: ./connectors-create-api-office365-users.md
 [office365-videodoc]: ./connectors-create-api-office365-video.md
-[onedrivedoc]: ./connectors-create-api-onedrive.md "Ansluter till ditt privata Microsoft OneDrive och laddar upp, tar bort och listar filer samt mycket annat."
-[onedrive-for~businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Ansluter till ditt Microsoft OneDrive för företag och laddar upp, tar bort och listar filer samt mycket annat."
-[outlook.comdoc]: ./connectors-create-api-outlook.md "Anslut till din postlåda i Outlook och få åtkomst till din e-post och mycket annat."
+[onedrivedoc]: ./connectors-create-api-onedrive.md "Ansluter till din personliga Microsoft OneDrive och laddar upp, tar bort och listar filer och mycket mer."
+[onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Ansluter till din Microsoft OneDrive för företag och laddar upp, tar bort och listar filer och mycket mer."
+[outlook.comdoc]: ./connectors-create-api-outlook.md "Anslut till din postlåda i Outlook och få åtkomst till din e-post och mycket mer."
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Ansluter till Microsoft Project Online."
-[rssdoc]: ./connectors-create-api-rss.md "Med RSS-anslutningen kan användarna publicera och hämta flödesobjekt. Användarna kan också utlösa åtgärder när en nytt objekt publiceras i flödet."
-[salesforcedoc]: ./connectors-create-api-salesforce.md "Anslut till ditt Salesforce-konto och hantera konton, leads, affärsmöjligheter och mycket annat."
+[rssdoc]: ./connectors-create-api-rss.md "Med RSS-anslutningsappen kan användarna publicera och hämta flödesobjekt. Användarna kan också utlösa åtgärder när en nytt objekt publiceras i flödet."
+[salesforcedoc]: ./connectors-create-api-salesforce.md "Anslut till ditt Salesforce-konto och hantera konton, leads, affärsmöjligheter och mycket mer."
 [sendgriddoc]: ./connectors-create-api-sendgrid.md "Ansluter till Microsoft Project Online."
-[service-busdoc]: ./connectors-create-api-servicebus.md "Kan skicka meddelanden från Service Bus-köer och -ämnen och ta emot meddelanden från Service Bus-köer och -prenumerationer."
-[sharepointdoc]: ./connectors-create-api-sharepointonline.md "Ansluter till SharePoint Online och hanterar dokument och listobjekt."
+[service-busdoc]: ./connectors-create-api-servicebus.md "Kan skicka meddelanden från Service Bus-köer och Service Bus-ämnen och kan ta emot meddelanden från Service Bus-köer och Service Bus-prenumerationer."
+[sharepointdoc]: ./connectors-create-api-sharepointonline.md "Ansluter till SharePoint Online för att hantera dokument och listobjekt."
 [slackdoc]: ./connectors-create-api-slack.md "Anslut till Slack och skicka meddelanden till Slack-kanaler."
-[sftpdoc]: ./connectors-create-api-sftp.md "Ansluter till SFTP och kan ladda upp, hämta och ta bort filer samt mycket annat."
+[sftpdoc]: ./connectors-create-api-sftp.md "Ansluter till SFTP och kan ladda upp, hämta och ta bort filer och mycket mer."
 [githubdoc]: ./connectors-create-api-github.md "Ansluter till GitHub och kan spåra problem."
 [mailchimpdoc]: ./connectors-create-api-mailchimp.md "Skicka bättre e-post."
 [smtpdoc]: ./connectors-create-api-smtp.md "Ansluter till en SMTP-server och kan skicka e-post med bifogade filer."
 [sql-serverdoc]: ./connectors-create-api-sqlazure.md "Ansluter till SQL Azure Database. Du kan skapa, uppdatera, hämta och ta bort poster i en SQL-databastabell."
-[trellodoc]: ./connectors-create-api-trello.md "Trello är det kostnadsfria, flexibla och visuella sättet att organisera saker och ting med folk."
-[twiliodoc]: ./connectors-create-api-twilio.md "Ansluter till Twilio och kan skicka och hämta meddelanden, hämta tillgängliga nummer, hantera inkommande telefonnummer och mycket annat."
-[twitterdoc]: ./connectors-create-api-twitter.md "Ansluter till Twitter och hämtar tidslinjer, skickar tweets och mycket annat."
-[wunderlistdoc]: ./connectors-create-api-wunderlist.md "Synkronisera din vardag."
-a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka meddelanden och hämta nya meddelanden."
-[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Läs mer om företagsintegrering, AS2"
-[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Läs mer om företagsintegrering, X12"
-[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Läs mer om företagsintegrering, flat fil"
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Läs mer om företagsintegrering, flat fil"
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Läs mer om företagsintegrering, XML-validering"
-[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Läs mer om företagsintegrering, transformering"
-[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Läs mer om företagsintegrering, AS2-avkodning"
-[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Läs mer om företagsintegrering, AS2-kodning"
-[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Läs mer om företagsintegrering, X12-avkodning"
-[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Läs mer om företagsintegrering, X12-kodning"
-[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Läs mer om företagsintegrering, EDIFACT-avkodning"
-[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Läs mer om företagsintegrering, EDIFACT-kodning"
-[httpdoc]: ./connectors-native-http.md "HTTP-anslutningsappen för att göra HTTP-anrop."
-[http~requestdoc]: ./connectors-native-reqres.md "Åtgärder för begäranden och svar."
-[http~responsedoc]: ./connectors-native-reqres.md "Åtgärder för begäranden och svar."
+[trellodoc]: ./connectors-create-api-trello.md "Trello är det kostnadsfria, flexibla och visuella sättet att organisera saker med andra."
+[twiliodoc]: ./connectors-create-api-twilio.md "Ansluter till Twilio och kan skicka och hämta meddelanden, hämta tillgängliga nummer, hantera inkommande telefonnummer och mycket mer."
+[twitterdoc]: ./connectors-create-api-twitter.md "Ansluter till Twitter och hämtar tidslinjer, skickar tweets och mycket mer."
+[wunderlistdoc]: ./connectors-create-api-wunderlist.md "Synka ditt liv."
+[yammerdoc]: ./connectors-create-api-yammer.md "Ansluter till Yammer och skickar meddelanden och hämtar nya meddelanden."
+[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Läs mer om AS2 för Enterprise-integration."
+[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Läs mer om X12 för Enterprise-integration"
+[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Läs mer om platta filer för Enterprise-integration."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Läs mer om platta filer för Enterprise-integration."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Läs mer om XML-verifiering för Enterprise-integration."
+[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Läs mer om transformeringar för Enterprise-integration."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Läs mer om AS2-avkodning för Enterprise-integration"
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Läs mer om AS2-kodning för Enterprise-integration"
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Läs mer om X12-avkodning för Enterprise-integration"
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Läs mer om X12-kodning för Enterprise-integration"
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Läs mer om EDIFACT-avkodning för Enterprise-integration"
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Läs mer om EDIFACT-kodning för Enterprise-integration"
+[httpdoc]: ./connectors-native-http.md "HTTP-anslutningsapp för att göra HTTP-anrop."
+[http-requestdoc]: ./connectors-native-reqres.md "Åtgärder för begäran och svar."
+[http-responsedoc]: ./connectors-native-reqres.md "Åtgärder för begäran och svar."
 [delaydoc]: ./connectors-native-delay.md "Läs mer om fördröjningsåtgärden."
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP + Swagger-anslutningsapp för att göra HTTP-anrop."
 [querydoc]: ./connectors-native-query.md "Frågeåtgärd för att välja och filtrera matriser."
-[webhookdoc]: ./connectors-native-webhook.md "Webhook-åtgärd och -utlösare för logikappar."
-[azure~functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integrera logikappar med Azure Functions."
+[webhookdoc]: ./connectors-native-webhook.md "Webhook-åtgärd och webhook-utlösare för logikappar."
+[azure-functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integrera logikappar med Azure Functions."
 [api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "Integrera logikappar med App Service API Apps."
-[nested~logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Integrera logikappar med ett kapslat arbetsflöde."
-[recurrencedoc]:  ./connectors-native-recurrence.md "Återkommande utlösare för logikappar."
-[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Ansluter till Google Sheets och kan modifiera blad."
+[nested-logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Integrera logikappar med ett kapslat arbetsflöde."
+[recurrencedoc]:  ./connectors-native-recurrence.md "Upprepningsutlösare för logikappar."
+[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Ansluter till Google Kalkylark och kan ändra blad."
 [google-tasksdoc]: ./connectors-create-api-googletasks.md "Ansluter till Google Tasks och kan hantera uppgifter."
-[google~calendardoc]: ./connectors-create-api-googlecalendar.md "Ansluter till Google Calendar och kan hantera kalendern."
+[google-calendardoc]: ./connectors-create-api-googlecalendar.md "Ansluter till Google Kalender och kan hantera kalendern."
 [instagramdoc]: ./connectors-create-api-instagram.md "Ansluter till Instagram och kan utlösa eller agera på händelser."
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Ansluter till Mandrill och kan användas för kommunikation."
 [youtubedoc]: ./connectors-create-api-youtube.md "Ansluter till YouTube och kan interagera med videor och kanaler."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Ansluter till SparkPost och kan användas för kommunikation."
+[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Använd filsystemets anslutningsapp för att kommunicera med det lokala filsystemet."
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -155,11 +163,11 @@ a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka m
 [Bloggericon]: ./media/apis-list/blogger.png
 [Boxicon]: ./media/apis-list/box.png
 [Campfireicon]: ./media/apis-list/campfire.png
-[Cognitive-Services~Text-Analyticsicon]: ./media/apis-list/cognitiveservicestextanalytics.png
+[Cognitive-Services-Text-Analyticsicon]: ./media/apis-list/cognitiveservicestextanalytics.png
 [DB2icon]: ./media/apis-list/db2.png
 [Azure-DocumentDBicon]: ./media/apis-list/documentdb.png
 [Dropboxicon]: ./media/apis-list/dropbox.png
-[Dynamics-365~for-Operationsicon]: ./media/apis-list/dynamicsax.png
+[Dynamics-365-for-Operationsicon]: ./media/apis-list/dynamicsax.png
 [Dynamics-365icon]: ./media/apis-list/dynamicscrmonline.png
 [Easy-Redmineicon]: ./media/apis-list/easyredmine.png
 [Facebookicon]: ./media/apis-list/facebook.png
@@ -176,24 +184,25 @@ a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka m
 [Instagramicon]: ./media/apis-list/instagram.png
 [Instapapericon]: ./media/apis-list/instapaper.png
 [JIRAicon]: ./media/apis-list/jira.png
-[Dynamics-365~for-Financialsicon]: ./media/apis-list/madeira.png
+[Dynamics-365-for-Financialsicon]: ./media/apis-list/madeira.png
 [MailChimpicon]: ./media/apis-list/mailchimp.png
 [Mandrillicon]: ./media/apis-list/mandrill.png
 [Microsoft-Translatoricon]: ./media/apis-list/microsofttranslator.png
 [MQicon]: ./media/apis-list/mq.png
-[Office-365~Outlookicon]: ./media/apis-list/office365.png
-[Office-365~Usersicon]: ./media/apis-list/office365users.png
-[Office-365~Videoicon]: ./media/apis-list/office365video.png
+[Office-365-Outlookicon]: ./media/apis-list/office365.png
+[Office-365-Usersicon]: ./media/apis-list/office365users.png
+[Office-365-Videoicon]: ./media/apis-list/office365video.png
 [OneDriveicon]: ./media/apis-list/onedrive.png
-[OneDrive-for~Businessicon]: ./media/apis-list/onedriveforbusiness.png
+[OneDrive-for-Businessicon]: ./media/apis-list/onedriveforbusiness.png
 [Outlook.comicon]: ./media/apis-list/outlook.png
 [PagerDutyicon]: ./media/apis-list/pagerduty.png
 [Pinteresticon]: ./media/apis-list/pinterest.png
 [Project-Onlineicon]: ./media/apis-list/projectonline.png
 [Redmineicon]: ./media/apis-list/redmine.png
 [RSSicon]: ./media/apis-list/rss.png
-[Common-Data~Serviceicon]: ./media/apis-list/runtimeservice.png
+[Common-Data-Serviceicon]: ./media/apis-list/runtimeservice.png
 [Salesforceicon]: ./media/apis-list/salesforce.png
+[SAPicon]: ./media/apis-list/sap.png
 [SendGridicon]: ./media/apis-list/sendgrid.png
 [Service-Busicon]: ./media/apis-list/servicebus.png
 [SFTPicon]: ./media/apis-list/sftp.png
@@ -208,7 +217,7 @@ a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka m
 [Twilioicon]: ./media/apis-list/twilio.png
 [Twittericon]: ./media/apis-list/twitter.png
 [Vimeoicon]: ./media/apis-list/vimeo.png
-[Visual-Studio~Team-Servicesicon]: ./media/apis-list/visualstudioteamservices.png
+[Visual-Studio-Team-Servicesicon]: ./media/apis-list/visualstudioteamservices.png
 [WordPressicon]: ./media/apis-list/wordpress.png
 [Wunderlisticon]: ./media/apis-list/wunderlist.png
 [Yammericon]: ./media/apis-list/yammer.png
@@ -217,16 +226,17 @@ a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka m
 
 <!-- Primitive Icons -->
 [HTTPicon]: ./media/apis-list/http.png
-[HTTP~Requesticon]: ./media/apis-list/request.png
-[HTTP~Responseicon]: ./media/apis-list/response.png
+[HTTP-Requesticon]: ./media/apis-list/request.png
+[HTTP-Responseicon]: ./media/apis-list/response.png
 [Delayicon]: ./media/apis-list/delay.png
 [HTTP-Swaggericon]: ./media/apis-list/http_swagger.png
 [Queryicon]: ./media/apis-list/query.png
 [Webhookicon]: ./media/apis-list/webhook.png
-[Azure~Functionsicon]: ./media/apis-list/function.png
+[Azure-Functionsicon]: ./media/apis-list/function.png
 [API/Web-Appicon]: ./media/apis-list/api.png
-[Nested~Logic-Appicon]: ./media/apis-list/workflow.png
+[Nested-Logic-Appicon]: ./media/apis-list/workflow.png
 [Recurrenceicon]: ./media/apis-list/recurrence.png
+[FileSystemIcon]: ./media/apis-list/filesystem.png
 
 <!-- EIP Icons -->
 [as2icon]: ./media/apis-list/as2new.png
@@ -238,6 +248,6 @@ a[yammerdoc]: ./connectors-create-api-yammer.md "Anslut till Yammer och skicka m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

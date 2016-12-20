@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
+ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
 
 
 ---
 # <a name="install-hdinsight-applications"></a>Installera HDInsight-program
 Ett HDInsight-program är ett program som användarna kan installera på ett Linux-baserat HDInsight-kluster. Dessa program kan utvecklas av Microsoft, oberoende programvaruleverantörer och av dig själv. Den här artikeln beskriver hur du installerar ett publicerat program. Information om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md). 
 
-För närvarande finns det ett publicerat program:
+För närvarande finns det tre publicerade program:
 
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) erbjuder analytiker ett interaktivt sätt att identifiera, analysera och visualisera resultat från stordata (Big Data). Hämta enkelt in fler datakällor för att identifiera nya relationer och snabbt få de svar du behöver.
+* **Streamsets Data Collector för HDnsight** tillhandahåller en komplett integrerad utvecklingsmiljö (IDE) som du kan använda för att utforma, testa, distribuera och hantera pipelines för ”alla-till-alla”-inmatningar som kopplar ihop dataströms- och batchdata. Du kan också ta med olika interna dataströmstransformationer, allt utan att skriva anpassad kod. 
+* **Cask CDAP 3.5 för HDInsight** är den första enhetliga integrationsplattformen för stordata som minskar tiden till produktion för dataprogram och datasjöar med 80 %. Det här programmet stöder endast Standard HBase 3.4-kluster.
 
-> [!NOTE]
-> Datameer stöds för närvarande endast i kluster med Azure HDInsight version 3.2.
-> 
-> 
 
 I artikelns instruktioner används Azure-portalen. Du kan också exportera Azure Resource Manager-mallen från portalen eller skaffa en kopia av Resource Manager-mallen från leverantörer och distribuera mallen med Azure PowerShell och Azure CLI.  Mer information finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -46,14 +44,14 @@ I följande procedur beskriver vi hur du installerar HDInsight-program i ett bef
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Klicka på **HDInsight-kluster** i den vänstra menyn.  Om du inte ser det klickar du på **Bläddra** och sedan på **HDInsight-kluster**.
 3. Klicka på ett HDInsight-kluster.  Om du inte har något måste du skapa ett först.  Mer information finns i [Skapa kluster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. I bladet **Inställningar** klickar du på **Program** under kategorin **Allmänt**. På bladet **Installerade appar** visas alla installerade program. 
+4. Klicka på **Program** under kategorin **Konfigurationer**. Du ser en lista över installerade program, om det finns några.
    
     ![menyn för hdinsight-program på portalen](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Klicka på **Lägg till** från bladets meny. 
    
     ![hdinsight-program – installerade appar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
-    Du bör se en lista över befintliga HDInsight-program.
+    Du ser en lista över befintliga HDInsight-program.
    
     ![hdinsight-program – tillgängliga program](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 6. Klicka på ett av programmen, godkänn de juridiska villkoren och klicka sedan på **Välj**.
@@ -120,6 +118,6 @@ Läs [Felsöka installationen](hdinsight-apps-install-custom-applications.md#tro
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

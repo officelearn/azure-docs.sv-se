@@ -17,12 +17,12 @@ ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7baf1aa756221df62a36cd975ffb92fc8cd27232
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
 
 
 ---
-# <a name="use-hdfscompatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>Använd HDFS-kompatibla Azure Blob Storage med Hadoop i HDInsight
+# <a name="use-hdfs-compatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>Använd HDFS-kompatibla Azure Blob Storage med Hadoop i HDInsight
 Lär dig använda det prisvärda Azure Blob Storage med HDInsight, skapa ett Azure Storage-konto och en behållare för Blob Storage och hantera sedan de data som ingår.
 
 Azure Blob Storage är en robust lagringslösning för allmänna ändamål som smidigt kan integreras med HDInsight. Genom ett gränssnitt för Hadoop-distribuerat filsystem (HDFS) kan alla komponenter i HDInsight tillämpas direkt på strukturerade eller ostrukturerade data i Blob Storage.
@@ -34,7 +34,7 @@ Om du lagrar data i Blob Storage kan du ta bort HDInsight-kluster som används f
 > 
 > 
 
-Information om hur du skapar ett HDInsight-kluster finns i [Komma igång med HDInsight][hdinsight-get-started] eller [Skapa HDInsight-kluster][hdinsight-creation].
+Information om hur du skapar ett HDInsight-kluster finns i [Komma igång med HDInsight][hdinsight-get-started] och [Skapa HDInsight-kluster][hdinsight-creation].
 
 ## <a name="hdinsight-storage-architecture"></a>Lagringsarkitekturen i HDInsight
 Följande diagram visar en abstrakt vy av lagringsarkitekturen i HDInsight:
@@ -78,7 +78,7 @@ Den implicerade prestandakostnaden för att inte samplacera beräkningsklustren 
 
 Det finns flera fördelar med att lagra data i Azure Blob Storage i stället för i HDFS:
 
-* **Återanvändning och delning av data:** Data i HDFS lagras inuti beräkningsklustren. Endast de program som har åtkomst till beräkningsklustren kan använda dessa data med hjälp av HDFS-API:er. Data i Azure Blob Storage kan antingen nås via HDFS-API:erna eller via [REST API för Blob Storage][blob-storage-restAPI]. Därmed kan en större grupp program (inklusive andra HDInsight-kluster) och verktyg användas för att skapa och använda data.
+* **Återanvändning och delning av data:** Data i HDFS lagras inuti beräkningsklustren. Endast de program som har åtkomst till beräkningsklustren kan använda dessa data med hjälp av HDFS-API:er. Data i Azure Blob Storage kan antingen nås via HDFS-API:erna eller via [REST-API:erna för Blob Storage][blob-storage-restAPI]. Därmed kan en större grupp program (inklusive andra HDInsight-kluster) och verktyg användas för att skapa och använda data.
 * **Dataarkivering:** Om data lagras i Azure Blob Storage kan de HDInsight-kluster som används för beräkning tryggt tas bort utan att användardata går förlorade.
 * **Kostnad för datalagring:** Att lagra data långsiktigt i DFS är dyrare än att lagra data i Azure Blob Storage eftersom kostnaden för ett beräkningskluster är högre än kostnaden för en Azure Blob Storage-behållare. Eftersom data inte behöver läsas in på nytt för varje generation av beräkningskluster sparar du dessutom kostnader för datainläsning.
 * **Elastisk utskalning:** Även om HDFS ger dig ett utskalat filsystem bestäms skalan av antalet noder som du skapar för klustret. Att ändra skala med HDFS kan vara en mer komplicerad process än att använda de elastiska skalningsfunktionerna som du automatiskt har tillgång till i Azure Blob Storage.
@@ -92,7 +92,7 @@ Vissa MapReduce-jobb och -paket kan skapa mellanresultat som du inte egentligen 
 > 
 
 ## <a name="create-blob-containers"></a>Skapa blob-behållare
-För att använda blobar måste du först skapa ett [Azure Storage-konto][azure-storage-create]. Som en del av detta kan du ange en Azure-region där objekten som du skapar med det här kontot kommer att lagras. Klustret och lagringskontot måste finnas i samma region. SQL Server-databasen för Hive metastore och SQL Server-databasen för Oozie metastore måste också finnas i samma region.
+Om du vill använda blobar måste du först skapa ett [Azure Storage-konto][azure-storage-create]. Som en del av detta kan du ange en Azure-region där objekten som du skapar med det här kontot kommer att lagras. Klustret och lagringskontot måste finnas i samma region. SQL Server-databasen för Hive metastore och SQL Server-databasen för Oozie metastore måste också finnas i samma region.
 
 Oavsett var den finns tillhör varje blob som du skapar en behållare på ditt Azure Storage-konto. Den här behållaren kan vara en befintlig blob som skapats utanför HDInsight eller en behållare som skapats för ett HDInsight-kluster.
 
@@ -216,7 +216,7 @@ Använd följande kommando för att visa en lista över blob-relaterade cmdlets:
 ![Lista över blob-relaterade PowerShell-cmdlets.][img-hdi-powershell-blobcommands]
 
 ### <a name="upload-files"></a>Överföra filer
-Se [Överföra data till HDInsight][hdinsight-upload-data].
+Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
 
 ### <a name="download-files"></a>Hämta filer
 Följande skript hämtar en block-blob till den aktuella mappen. Innan du kör skriptet ändrar du katalogen till en mapp där du har skrivbehörighet.
@@ -283,13 +283,13 @@ I den här artikeln har du lärt dig hur du använder HDFS-kompatibla Azure Blob
 Mer information finns i:
 
 * [Komma igång med Azure HDInsight][hdinsight-get-started]
-* [Överföra data till HDInsight][hdinsight-upload-data].
+* [Överföra data till HDInsight][hdinsight-upload-data]
 * [Använda Hive med HDInsight][hdinsight-use-hive]
 * [Använda Pig med HDInsight][hdinsight-use-pig]
-* [Använda signaturer för delad åtkomst i Azure för att begränsa åtkomsten till data med HDInsight][hdinsight-use-sas]
+* [Använda signaturer för delad åtkomst i Azure Storage för att begränsa åtkomsten till data med HDInsight][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -305,6 +305,6 @@ Mer information finns i:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

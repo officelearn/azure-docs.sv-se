@@ -53,14 +53,46 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-}
+} 
 ```
 
-JSON-inställningsfilen innehåller en lista med moduler att läsa in. Varje modul måste ange:
+JSON-inställningsfilen innehåller en lista med moduler för inläsning och länkar mellan modulerna.
+Varje modul måste ange:
 
 * **module_name**: ett unikt namn för modulen.
-* **module_path**: sökvägen till biblioteket som innehåller modulen. För Linux är detta en SO-fil, i Windows är detta en DLL-fil.
+* **loader**: en inläsare som vet hur modulen ska läsas in.  Inläsare är en tilläggspunkt för inläsning av olika typer av moduler. Vi tillhandahåller inläsare för användning med moduler som skrivits i intern C, Node.js, Java och .NET. I Hello World-exemplet används bara den ”interna” inläsaren eftersom alla moduler i det här exemplet är dynamiska bibliotek skrivna i C. Mer information om hur du använder moduler skrivna i olika språk finns i [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/)-, [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample)- och [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample)-exemplen.
+    * **name**: namnet på inläsaren som används för att läsa in modulen.  
+    * **entrypoint**: sökvägen till biblioteket som innehåller modulen. För Linux är detta en SO-fil, i Windows är detta en DLL-fil. Observera att den här registreringspunkten är specifik för den typ av inläsare som används. Exempelvis är Node.js-inläsarens startpunkt en JS-fil, Java-inläsarens startpunkt är en klassökväg + ett klassnamn och .NET-inläsarens startpunkt är ett sammansättningsnamn + ett klassnamn.
+
 * **args**: all konfigurationsinformation modulen behöver.
+
+Följande kod visar den JSON som används för att deklarera alla modulerna för Hello World-exemplet för Linux. Huruvida en modul kräver argument eller inte beror på modulens design. I det här exemplet använder loggningsmodulen ett argument som är sökvägen till utdatafilen och Hello World-modulen använder inte några argument.
+
+```
+"modules" :
+[
+    {
+        "name" : "logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/logger/liblogger.so"
+        }
+        },
+        "args" : {"filename":"log.txt"}
+    },
+    {
+        "name" : "hello_world",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/hello_world/libhello_world.so"
+        }
+        },
+        "args" : null
+    }
+]
+```
 
 JSON-filen innehåller också länkar mellan moduler som kommer att skickas till den asynkrona meddelandekön. En länk har två egenskaper:
 
@@ -69,35 +101,16 @@ JSON-filen innehåller också länkar mellan moduler som kommer att skickas till
 
 Varje länk definierar en meddelandeväg och -riktning. Meddelanden från modul `source` ska levereras till modul `sink`. `source` kan anges till ”\*”, som anger att meddelanden från alla moduler tas emot av `sink`.
 
-I följande exempel visas JSON-inställningsfilen som används för att konfigurera Hello World-exemplet på Linux. Alla meddelanden som genereras av modul `hello_world` används av modul `logger`. Om en modul kräver ett argument eller inte är beroende av modulens design. I det här exemplet kräver loggningsmodulen ett argument som är sökväg till utdatafilen och Hello World-modulen kräver inte några argument:
+Följande kod visar den JSON som används för att konfigurera länkar mellan moduler som används i Hello World-exemplet för Linux. Alla meddelanden som genereras av modul `hello_world` används av modul `logger`.
 
 ```
-{
-    "modules" :
-    [ 
-        {
-            "module name" : "logger",
-            "loading args": {
-              "module path" : "./modules/logger/liblogger_hl.so"
-            },
-            "args" : {"filename":"log.txt"}
-        },
-        {
-            "module name" : "hello_world",
-            "loading args": {
-              "module path" : "./modules/hello_world/libhello_world_hl.so"
-            },
-            "args" : null
-        }
-    ],
-    "links" :
-    [
-        {
-            "source" : "hello_world",
-            "sink" : "logger"
-        }
-    ]
-}
+"links": 
+[
+    {
+        "source": "hello_world",
+        "sink": "logger"
+    }
+]
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Meddelandepublicering från Hello World-modulen
@@ -216,6 +229,6 @@ Mer information om hur du använder IoT Gateway SDK finns i:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

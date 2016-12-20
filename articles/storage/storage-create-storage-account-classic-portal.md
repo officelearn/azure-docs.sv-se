@@ -4,7 +4,7 @@ description: "Skapa ett nytt lagringskonto, hantera åtkomstnycklarna för ditt 
 services: storage
 documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 879e199f0c712a46b89a686d6a3dd8dd877821e4
 
 
 ---
@@ -99,7 +99,7 @@ URL:en för åtkomst till ett objekt i ett lagringskonto skapas genom att objekt
 
 Du kan också konfigurera ett eget domännamn som ska användas med ditt lagringskonto. Mer information finns i [Konfigurera ett eget domännamn för din slutpunkt för Blob Storage](storage-custom-domain-name.md).
 
-### <a name="service-colocation-with-an-affinity-group"></a>Samplacering av tjänster med en tillhörighetsgrupp
+### <a name="service-co-location-with-an-affinity-group"></a>Samplacering av tjänster med en tillhörighetsgrupp
 En *tillhörighetsgrupp* är en geografisk gruppering av dina Azure-tjänster och virtuella datorer med ditt Azure Storage-konto. En tillhörighetsgrupp kan förbättra tjänstprestanda genom att placera datorarbetsbelastningar i samma datacenter eller nära målanvändarna. Dessutom utgår inga faktureringskostnader för utgående trafik när en annan tjänst som ingår i samma tillhörighetsgrupp använder data i lagringskontot.
 
 > [!NOTE]
@@ -175,6 +175,6 @@ Om du vill ta bort ett lagringskonto som du inte längre använder klickar du p�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

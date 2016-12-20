@@ -17,12 +17,58 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97f74f845e19ae99cf6c5abbb9f076c7c5171993
+ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
+ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Ansluta till ett Azure Container Service-kluster
+Alla DC/OS-, Kubernetes- och Docker Swarm-kluster som distribueras med Azure Container Service exponerar REST-slutpunkter.  För Kubernetes är den här slutpunkten exponerad på ett säkert sätt på internet, och du kommer åt den direkt från en dator som är ansluten till internet. För DC/OS och Docker Swarm måste du skapa en SSH-tunnel för att ansluta säkert till REST-slutpunkten. Var och en av dessa anslutningar beskrivs nedan.
+
+## <a name="connecting-to-a-kubernetes-cluster"></a>Ansluter till ett Kubernetes-kluster.
+Om du ska ansluta till ett Kubernetes-kluster måste du ha installerat `kubectl` kommandoradsverktyget.  Det gör du enklast med kommandoradsverktyget Azure 2.0 `az`.
+
+```console
+az acs kubernetes install cli [--install-location=/some/directory]
+```
+
+Du kan också hämta klienten direkt på [sidan med versioner](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146)
+
+När du har installerat `kubectl` måste du kopiera klustrets autentiseringsuppgifter till datorn.  Det enklaste sättet att göra det är återigen med kommandoradverktyget `az`:
+
+```console
+az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+```
+
+Då hämtas autentiseringsuppgifterna `$HOME/.kube/config` dit `kubectl` förväntas placeras.
+
+Du kan också använda `scp` för att kopiera filen från `$HOME/.kube/config` på den virtuella huvuddatorn till din dator på ett säkert sätt.
+
+```console
+mkdir $HOME/.kube/config
+scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
+```
+
+Om du har Windows behöver du använda Bash i Ubuntu för Windows eller pscp-verktyget Putty.
+
+När du har konfigurerat `kubectl` kan du testa detta genom att visa en lista över noderna i klustret:
+
+```console
+kubectl get nodes
+```
+
+Slutligen kan du visa Kubernetes-instrumentpanelen. Kör först:
+
+```console
+kubectl proxy
+```
+
+Nu är Kubernetes-användargränssnittet tillgängligt på: http://localhost:8001/ui
+
+Mer information finns i [snabbstarten för Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/)
+
+## <a name="connecting-to-a-dcos-or-swarm-cluster"></a>Ansluta till ett DC/OS- eller Swarm-kluster
+
 DC/OS- och Docker Swarm-kluster som distribueras med Azure Container Service exponerar REST-slutpunkter. De här slutpunkterna är dock inte öppna för allmänheten. Du måste skapa en SSH-tunnel (Secure Shell) för att kunna hantera de här slutpunkterna. När en SSH-tunnel har upprättats kan du köra kommandon mot klusterslutpunkter och visa klustergränssnittet via en webbläsare i ditt system. I det här dokumentet får du anvisningar om hur du skapar en SSH-tunnel i Linux, OS X och Windows.
 
 > [!NOTE]
@@ -126,6 +172,6 @@ Distribuera och hantera behållare med DC/OS eller Swarm:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

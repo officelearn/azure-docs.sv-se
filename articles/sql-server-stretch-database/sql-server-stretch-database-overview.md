@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2fcea994b3de924f1170dae2d7a0a3b6d4786538
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
 
 
 ---
@@ -28,13 +28,13 @@ Om du vill komma igång med Stretch Database direkt, se [Kom igång genom att k�
 ## <a name="what-are-the-benefits-of-stretch-database"></a>Vad är fördelarna med Stretch Database?
 Stretch Database ger följande fördelar:
 
-### <a name="provides-costeffective-availability-for-cold-data"></a>Innehåller kostnadseffektiv tillgänglighet för kalldata\-
+### <a name="provides-cost-effective-availability-for-cold-data"></a>Innehåller kostnadseffektiv tillgänglighet för kalldata\-
 Sträck ut varma eller kalla transaktionsdata dynamiskt från SQL Server till Microsoft Azure med SQL Server Stretch Database. Till skillnad från vanlig lagring av kalldata, är dina data alltid online och tillgängliga att fråga. Du kan ange längre kvarhållning av data utan att gå över budget för stora tabeller som kundorderhistorik. Dra nytta av den låga kostnaden i Azure istället för att skala dyr \-lokal lagring. Du väljer prisnivå och konfigurerar inställningarna i Azure Portal för att behålla kontroll över kostnaderna. Skala upp eller ned efter behov. Besök sidan [Priser för SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) för information.
 
 ### <a name="doesnt-require-changes-to-queries-or-applications"></a>Kräver inte ändringar i frågor eller program
 Ha åtkomst till din SQL Serverdata sömlöst oavsett om den är lokal eller utsträckt till molnet.\-  Du anger den princip som bestämmer var data lagras och SQL Server hanterar dataflytten i bakgrunden. Hela tabellen finns alltid online och redo för frågor. Stretch Database kräver inga förändringar av befintliga frågor eller program. Dataplatsen är fullständigt transparent för programmet.
 
-### <a name="streamlines-onpremises-data-maintenance"></a>Strömlinjeformar lokalt dataunderhåll\-
+### <a name="streamlines-on-premises-data-maintenance"></a>Strömlinjeformar lokalt dataunderhåll\-
 Minska lokalt underhåll och lagring för dina data.\- Säkerhetskopieringar för dina \-lokala data körs snabbare och slutförs inom underhållsfönstret. Säkerhetskopiering av molndelen av dina data körs automatiskt. Dina \-lokala lagringsbehov minskar drastiskt. Azure-lagring kan vara 80 % billigare än att lägga till \-lokala SSD-diskar.
 
 ### <a name="keeps-your-data-secure-even-during-migration"></a>Skyddar dina data även under migrering
@@ -84,6 +84,6 @@ Använd Stretch Database Advisor, en funktion i SQL Server 2016 Upgrade Advisor,
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

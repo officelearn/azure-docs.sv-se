@@ -138,6 +138,9 @@
 ##### [Använd MMC-aktiviteter i StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Skapa lösningar
+#### [StorSimple med Veeam](storsimple-configure-backup-target-veeam.md)
+#### [StorSimple med Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
+#### [StorSimple med Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
 #### [Automatisera filserver-DR till Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple med Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple med VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
@@ -217,6 +220,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

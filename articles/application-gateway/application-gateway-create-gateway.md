@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 996bac38e6b67cfe7b72e11bf29831b12086bf1b
+ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
+ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
 
 
 ---
 # <a name="create-start-or-delete-an-application-gateway"></a>Skapa, starta eller ta bort en programgateway
+
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-gateway-arm.md)
@@ -35,13 +36,14 @@ Azure Application Gateway är en Layer 7-belastningsutjämnare. Den tillhandahå
 Den här artikeln beskriver steg för steg hur du skapar, konfigurerar, startar och tar bort en programgateway.
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
 1. Installera den senaste versionen av Azure PowerShell-cmdlets med hjälp av installationsprogrammet för webbplattform. Du kan hämta och installera den senaste versionen från avsnittet om **Windows PowerShell** på [hämtningssidan](https://azure.microsoft.com/downloads/).
 2. Om du har ett befintligt virtuellt nätverk väljer du antingen ett befintligt tomt undernät eller skapar ett nytt undernät i det befintliga virtuella nätverket som enbart avsett för att användas av programgatewayen. Du kan inte distribuera programgatewayen till ett annat virtuellt nätverk än de resurser som du avser distribuera bakom programgatewayen om du inte använder vnet-peering. Läs mer under [Vnet-peering](../virtual-network/virtual-network-peering-overview.md)
 3. Kontrollera att du har ett fungerande virtuellt nätverk med ett giltigt undernät. Kontrollera att inga virtuella datorer eller molndistributioner använder undernätet. Programgatewayen måste vara fristående i ett virtuellt nätverks undernät.
 4. De servrar som du konfigurerar för användning av programgatewayen måste finnas i det virtuella nätverket eller ha slutpunkter som skapats där eller tilldelats en offentlig IP-/VIP-adress.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Vad krävs för att skapa en programgateway?
-När du använder kommandot **New-AzureApplicationGateway** för att skapa programgatewayen görs ingen konfiguration vid denna tidpunkt och den nyligen skapade resursen konfigureras antingen med hjälp av XML eller med ett konfigurationsobjekt.
+När du använder kommandot `New-AzureApplicationGateway` för att skapa programgatewayen görs ingen konfiguration vid denna tidpunkt och den nyligen skapade resursen konfigureras antingen med hjälp av XML eller med ett konfigurationsobjekt.
 
 Värdena är:
 
@@ -52,6 +54,7 @@ Värdena är:
 * **Regel:** Regeln binder lyssnaren och backend-serverpoolen och definierar vilken backend-serverpool som trafiken ska dirigeras till när den når en viss lyssnare.
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
+
 Så här skapar du en programgateway:
 
 1. Skapa en resurs för en programgateway.
@@ -66,7 +69,8 @@ Så här skapar du en programgateway:
 ![Exempel på ett scenario][scenario]
 
 ### <a name="create-an-application-gateway-resource"></a>Skapa en resurs för en programgateway
-När du skapar en gateway använder du cmdleten **New-AzureApplicationGateway** och ersätter värdena med dina egna. Faktureringen för gatewayen startar inte i det här läget. Faktureringen börjar i ett senare skede när gatewayen har startats.
+
+Du skapar en gateway genom att köra cmdleten `New-AzureApplicationGateway`, där du ersätter värdena med dina egna. Faktureringen för gatewayen startar inte i det här läget. Faktureringen börjar i ett senare skede när gatewayen har startats.
 
 I följande exempel skapar vi en programgateway genom att använda ett virtuellt nätverk med namnet ”testvnet1” och undernätet ”subnet-1”.
 
@@ -76,7 +80,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 *Description*, *InstanceCount* och *GatewaySize* är valfria parametrar.
 
-Du kan kontrollera att gatewayen har skapats med cmdleten **Get-AzureApplicationGateway**.
+Du kontrollerar att gatewayen har skapats genom att köra cmdleten `Get-AzureApplicationGateway`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -102,12 +106,15 @@ DnsName       :
 *VirtualIPs* och *DnsName* är tomma eftersom gatewayen inte har startat än. De skapas när gatewayen är i körläge.
 
 ## <a name="configure-the-application-gateway"></a>Konfigurera progamgatewayen
+
 Du kan konfigurera programgatewayen med hjälp av XML eller ett konfigurationsobjekt.
 
 ## <a name="configure-the-application-gateway-by-using-xml"></a>Konfigurera programgatewayen med hjälp av XML
+
 I följande exempel använder vi en XML-fil för att konfigurera alla inställningar för programgatewayen och för att skicka dem till programgatewayresursen.  
 
 ### <a name="step-1"></a>Steg 1
+
 Kopiera följande text till Anteckningar.
 
 ```xml
@@ -210,21 +217,24 @@ I följande exempel visas hur du kan konfigurera programgatewayen med en konfigu
 ```
 
 ### <a name="step-2"></a>Steg 2
-Nu ska vi konfigurera programgatewayen. Använd cmdleten **Set-AzureApplicationGatewayConfig** med en XML-konfigurationsfil.
+
+Nu ska vi konfigurera programgatewayen. Använd cmdleten `Set-AzureApplicationGatewayConfig` med en XML-konfigurationsfil.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
 ## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Konfigurera programgatewayen med hjälp av ett konfigurationsobjekt
-Följande exempel visar hur du konfigurerar programgatewayen med hjälp av konfigurationsobjekt. Alla konfigurationsobjekt måste konfigureras individuellt och sedan läggas till i ett konfigurationsobjekt för programgatewayen. När du har skapat konfigurationsobjektet använder du kommandot **Set-AzureApplicationGateway** för att tillämpa konfigurationen på den programgatewayresurs som du skapade tidigare.
+
+Följande exempel visar hur du konfigurerar programgatewayen med hjälp av konfigurationsobjekt. Alla konfigurationsobjekt måste konfigureras individuellt och sedan läggas till i ett konfigurationsobjekt för programgatewayen. När du har skapat konfigurationsobjektet använder du kommandot `Set-AzureApplicationGateway` för att tillämpa konfigurationen på den programgatewayresurs som du skapade tidigare.
 
 > [!NOTE]
-> Innan du tilldelar ett värde till konfigurationsobjekten måste du deklarera vilken typ av objekt PowerShell använder för lagring. Den första raden för att skapa enskilda objekt definierar vilket Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(objektnamn) som används.
+> Innan du tilldelar ett värde till konfigurationsobjekten måste du deklarera vilken typ av objekt PowerShell använder för lagring. Den första raden för att skapa enskilda objekt definierar vilket **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(objektnamn)** som används.
 > 
 > 
 
 ### <a name="step-1"></a>Steg 1
+
 Skapa alla enskilda konfigurationsobjekt.
 
 Skapa frontend-IP-adressen (se exemplet nedan).
@@ -295,6 +305,7 @@ $rule.BackendAddressPool = "pool1"
 ```
 
 ### <a name="step-2"></a>Steg 2
+
 Tilldela alla konfigurationsobjekt till konfigurationsobjektet för programgatewayen ($appgwconfig).
 
 Lägg till frontend-IP-adressen till konfigurationen.
@@ -340,17 +351,18 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>Steg 3
-Tillämpa konfigurationsobjektet på programgatewayresursen med hjälp av cmdleten **Set-AzureApplicationGatewayConfig**.
+Tillämpa konfigurationsobjektet på programgatewayresursen med hjälp av `Set-AzureApplicationGatewayConfig`.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
 ## <a name="start-the-gateway"></a>Starta gatewayen
-När gatewayen har konfigurerats använder du cmdleten **Start-AzureApplicationGateway** för att starta gatewayen. Faktureringen för en programgateway börjar när gatewayen har startats.
+
+När gatewayen har konfigurerats kan du använda cmdleten `Start-AzureApplicationGateway` för att starta gatewayen. Faktureringen för en programgateway börjar när gatewayen har startats.
 
 > [!NOTE]
-> Cmdleten **Start-AzureApplicationGateway** kan ta mellan 15 och 20 minuter.
+> Cmdleten `Start-AzureApplicationGateway` kan ta upp till 15–20 minuter att slutföra.
 > 
 > 
 
@@ -359,7 +371,8 @@ Start-AzureApplicationGateway AppGwTest
 ```
 
 ## <a name="verify-the-gateway-status"></a>Kontrollera statusen för gatewayen
-Använd cmdleten **Get-AzureApplicationGateway** för att kontrollera gatewayens status. Om **Start-AzureApplicationGateway** lyckades i föregående steg bör *State* vara Running och *Vip* och *DnsName* bör ha giltiga poster.
+
+Använd cmdleten `Get-AzureApplicationGateway` för att kontrollera gatewayens status. Om `Start-AzureApplicationGateway` lyckades i det föregående steget bör *State* vara Running och *Vip* och *DnsName* bör ha giltiga poster.
 
 Följande exempel visar en programgateway som är tillgänglig, körs och redo att ta emot trafik avsedd för `http://<generated-dns-name>.cloudapp.net`.
 
@@ -382,13 +395,14 @@ DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
 ## <a name="delete-an-application-gateway"></a>Ta bort en programgateway
+
 Så här tar du bort en programgateway:
 
-1. Använd cmdleten **Stop-AzureApplicationGateway** om du vill stoppa gatewayen.
-2. Använd cmdleten **Remove-AzureApplicationGateway** om du vill ta bort gatewayen.
-3. Kontrollera att gatewayen har tagits bort med hjälp av cmdleten **Get-AzureApplicationGateway**.
+1. Stoppa gatewayen med hjälp av cmdleten `Stop-AzureApplicationGateway`.
+2. Ta bort gatewayen med hjälp av cmdleten `Remove-AzureApplicationGateway`.
+3. Kontrollera att gatewayen har tagits bort med hjälp av cmdleten `Get-AzureApplicationGateway`.
 
-I följande exempel visas cmdleten **Stop-AzureApplicationGateway** på den första raden, följt av utdata.
+I följande exempel visas cmdleten `Stop-AzureApplicationGateway` på den första raden, följt av utdata.
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -402,7 +416,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-När programgatewayens status är Stopped tar du bort tjänsten med hjälp av cmdleten **Remove-AzureApplicationGateway**.
+När programgatewayen är i ett stoppat läge använder du cmdleten `Remove-AzureApplicationGateway` för att ta bort tjänsten.
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -416,7 +430,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-Om du vill kontrollera att tjänsten har tagits bort kan du använda cmdleten **Get-AzureApplicationGateway**. Det här steget är inte obligatoriskt.
+Kontrollera att tjänsten har tagits bort med hjälp av cmdleten `Get-AzureApplicationGateway`. Det här steget är inte obligatoriskt.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -430,6 +444,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Om du vill konfigurera SSL-avlastning läser du [Konfigurera en programgateway för SSL-avlastning](application-gateway-ssl.md).
 
 Om du vill konfigurera en programgateway för användning med en intern belastningsutjämnare läser du [Skapa en programgateway med en intern belastningsutjämnare (ILB)](application-gateway-ilb.md).
@@ -443,6 +458,6 @@ Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet l
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

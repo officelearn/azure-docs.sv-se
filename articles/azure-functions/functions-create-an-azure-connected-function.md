@@ -14,175 +14,189 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/06/2016
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9ffd199c9e3c621a808ade109ed044b6c9b689b7
+ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
+ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
 
 
 ---
-# <a name="create-an-azure-function-which-binds-to-an-azure-service"></a>Skapa en Azure-funktion som binder till en Azure-tjänst
-[!INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
+# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Skapa en Azure-funktion som är ansluten till en Azure-tjänst
 
-I den här korta videon lära du dig hur du skapar en Azure-funktion som lyssnar efter meddelanden i en Azure-kö och kopierar meddelandena till en Azure-blob.
+I det här avsnittet får du lära dig att skapa en Azure-funktion som lyssnar efter meddelanden i en Azure Storage-kö och kopierar meddelandena till en Azure Storage-tabell. En timerutlöst funktion används för att läsa in meddelanden i kön. En andra funktion läser från kön och skriver meddelanden till tabellen. Både kön och tabellen skapas av Azure Functions utifrån bindningsdefinitionerna. 
+
+För att göra det ännu mer intressant är en funktion skriven i JavaScript och en i C#-skript. Detta visar hur en funktionsapp kan ha funktioner på olika språk.
 
 ## <a name="watch-the-video"></a>Titta på videon
 >[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
 >
 >
 
-## <a name="create-an-input-queue-trigger-function"></a>Skapa en utlösarfunktion för indatakö
-Syftet med den här funktionen är att skriva ett meddelande till en kö var 10:e sekund. För att åstadkomma detta måste du skapa funktionen och meddelandeköer och lägga till kod för att skriva meddelanden till de nyligen skapade köerna.
+## <a name="create-a-function-that-writes-to-the-queue"></a>Skapa en funktion som skriver till kön
 
-1. Gå till Azure Portal och leta upp din Azure-funktionsapp.
-2. Klicka på **Ny funktion** > **TimerTrigger - Node**. Namnge funktionen **FunctionsBindingsDemo1**
-3. Ange värdet "0/10 * * * * *" för schemat. Det här värdet är i form av ett cron-uttryck. Detta schemalägger att timern ska köras var 10:e sekund.
-4. Klicka på knappen **Skapa** för att skapa funktionen.
-   
-    ![Lägga till en utlösande timer-funktion](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
-5. Kontrollera att funktionen fungerar genom att granska aktiviteten i loggen. Du kanske måste klicka på länken **Loggar** i det övre högra hörnet för att visa loggfönstret.
-   
-   ![Verifiera att funktionen fungerar genom att granska loggen](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+Innan du kan ansluta till en lagringskö måste du skapa en funktion som läser in meddelandekön. JavaScript-funktionen använder en timer som utlösare som skriver ett meddelande till kön var 10: e sekund. Om du inte redan har ett Azure-konto kan du kika på [Try Azure Functions](https://functions.azure.com/try) (Prova Azure Functions) eller [skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-### <a name="add-a-message-queue"></a>Lägg till en meddelandekö
-1. Gå till fliken **Integrera**.
-2. Välj **Ny utdata** > **Azure Storage-kö** > **Välj**.
-3. Ange **myQueueItem** i textrutan **Meddelandets parameternamn**.
-4. Välj ett lagringskonto eller klicka på **Nytt** för att skapa ett lagringskonto om du inte redan har ett.
-5. Ange **funktions-bindningar** i textrutanden **Könamn**.
-6. Klicka på **Spara**.  
-   
-   ![Lägga till en utlösande timer-funktion](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+1. Gå till Azure Portal och leta upp din funktionsapp.
 
-### <a name="write-to-the-message-queue"></a>Skriva till meddelandekön
-1. Gå tillbaka till fliken **Utveckla** och lägg till följande kod till funktionen efter den befintliga koden:
+2. Klicka på **Ny funktion** > **TimerTrigger-JavaScript**. 
+
+3. Ge funktionen namnet **FunctionsBindingsDemo1**, ange ett cron-uttrycksvärde på `0/10 * * * * *` för **Schema** och klicka sedan på **Skapa**.
+   
+    ![Skapa en timerutlöst funktion](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
+
+    Du har nu skapat en timerutlöst funktion som körs var 10:e sekund.
+
+5. På fliken **Utveckla** klickar du på **Loggar** och visar aktiviteten i loggen. Du ser att en loggpost skrivs var 10: e sekund.
+   
+    ![Visa loggen för att kontrollera att funktionen fungerar](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+
+## <a name="add-a-message-queue-output-binding"></a>Lägga till en meddelandekö utan utdatabindning
+
+1. På fliken **Integrera** väljer du **Nya utdata** > **Azure Queue Storage** > **Välj**.
+
+    ![Lägga till en utlösande timer-funktion](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
+
+2. Ange `myQueueItem` i **Meddelandeparameternamn** och `functions-bindings` i **Könamn**, välj en befintlig **Anslutning till lagringskonto** eller klicka på **ny** för att skapa en anslutning till lagringskonto. Klicka sedan på **Spara**.  
+
+    ![Skapa en utdatabindning till lagringskön](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab2.png)
+
+1. På fliken **Utveckla** lägger du till följande kod till funktionen:
    
     ```javascript
    
     function myQueueItem() 
-      {
+    {
         return {
-        msg: "some message goes here",
-        time: "time goes here"
-      }
+            msg: "some message goes here",
+            time: "time goes here"
+        }
     }
    
     ```
-2. Modifiera den befintliga funktionskoden för att anropa den kod som lades till i steg 1. Infoga följande kod runt rad 9 i funktionen, efter instruktionen *om*.
+2. Leta reda på instruktionen *if* omkring rad 9 i funktionen och infoga följande kod efter instruktionen.
    
     ```javascript
    
     var toBeQed = myQueueItem();
     toBeQed.time = timeStamp;
-    context.bindings.myQueue = toBeQed;
+    context.bindings.myQueueItem = toBeQed;
    
-    ```
+    ```  
    
-    Den här koden skapar en **myQueueItem** och ställer in dess **tid**-egenskap till aktuell timeStamp. Den lägger sedan till det nya köobjektet till kontextens myQueue-binnding.
+    Den här koden skapar en **myQueueItem** och ställer in dess **tid**-egenskap till aktuell timeStamp. Den lägger sedan till det nya köobjektet till kontextens **myQueueItem**-bindning.
+
 3. Klicka på **Spara och kör**.
-4. Kontrollera koden fungerar genom att granska kön i Visual Studio.
-   
-   * Öppna Visual Studio och gå till **Visa** > **Moln** **Explorer**.
-   * Leta upp lagringskontot och kön **funktions bindningar** som du använde när du skapade myQueue-kön. Du bör se rader av loggdata. Du kan behöva logga in på Azure via Visual Studio.  
 
-## <a name="create-an-output-queue-trigger-function"></a>Skapa en utlösarfunktion för utdatakö
-1. Klicka på **Ny funktion** > **QueueTrigger - C#**. Namnge funktionen **FunctionsBindingsDemo2**. Observera att du kan blanda språk i samma funktionsapp (i detta fall Node och C#).
-2. Ange **funktions-bindningar** i fältet **Könamn**."
-3. Välj ett lagringskonto eller skapa ett nytt.
-4. Klicka på **Skapa**
-5. Kontrollera den nya funktionen fungerar genom att granska både funktionens logg och Visual Studio efter uppdateringar. Funktionens loggen visar att funktionen kör och att objekten togs bort från kön. Eftersom funktionen är bunden till **funktions-bindningarnas** utdatakö som en indatautlösare, visar en uppdatering av **funktions-bindningarnas** kö i Visual Studio att objekten är borta. De har tagits bort från kön.   
-   
-   ![Lägg till en timer-funktion för utdatakö](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
+## <a name="view-storage-updates-by-using-storage-explorer"></a>Visa lagringsuppdateringar med Storage Explorer
+Du kan kontrollera att funktionen fungerar genom att visa meddelanden i kön du har skapat.  Du kan ansluta lagringskön med Cloud Explorer i Visual Studio. Portalen gör det emellertid lätt att ansluta lagringskontot med Microsoft Azure Storage Explorer.
 
-### <a name="modify-the-queue-item-type-from-json-to-object"></a>Ändra köobjekttyp från JSON till objekt
-1. Ersätt koden i **FunctionsBindingsDemo2** med följande kod:    
+1. På fliken **Integrera** klickar du på din utdatabindningskö > **Dokumentation** och tar sedan fram anslutningssträngen för lagringskontot så att du kan kopiera värdet. Du använder värdet för att ansluta till lagringskontot.
+
+    ![Hämta Azure Storage Explorer](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab3.png)
+
+
+2. Om du inte redan har gjort det laddar du ned och installerar [Microsoft Azure Storage Explorer](http://storageexplorer.com). 
+ 
+3. I Storage Explorer klickar du på ikonen för att ansluta till Azure Storage, klistrar in anslutningssträngen i fältet och slutför guiden.
+
+    ![Lägga till en anslutning i Storage Explorer](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-storage-explorer.png)
+
+4. Under **Local and attached** (Lokal och ansluten) expanderar du **Lagringskonton** > ditt lagringskonto > **Köer** > **functions-bindings** och kontrollerar att meddelanden skrivs till kön.
+
+    ![Visa meddelanden i kön](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer.png)
+
+    Om kön inte finns eller är tom finns det troligen ett problem med din funktionsbindning eller kod.
+
+## <a name="create-a-function-that-reads-from-the-queue"></a>Skapa en funktion som läser från kön
+
+Du kan skapa en annan funktion som läser från kön och skriver meddelanden permanent till en Azure Storage-tabell nu när du har meddelanden som läggs till i kön.
+
+1. Klicka på **Ny funktion** > **QueueTrigger-CSharp**. 
+ 
+2. Namnge funktionen `FunctionsBindingsDemo2`, skriv **functions-bindings** i fältet **Könamn**, välj ett befintligt lagringskonto eller skapa ett och klicka på **Skapa**.
+
+    ![Lägg till en timer-funktion för utdatakö](./media/functions-create-an-azure-connected-function/function-demo2-new-function.png) 
+
+3. (Valfritt) Du kan kontrollera att den nya funktionen fungerar genom att visa den nya kön i Storage Explorer som tidigare. Du kan också använda Cloud Explorer i Visual Studio.  
+
+4. (Valfritt) Uppdatera kön **functions-bindings** och lägg märke till om några objekt har tagits bort från kön. Borttagningen sker på grund av att funktionen är bunden till kön **functions-bindings** som indatautlösare och funktionen läser kön. 
+ 
+## <a name="add-a-table-output-binding"></a>Lägga till en utdatabindningstabell
+
+1. I FunctionsBindingsDemo2 klickar du på **Integrera** > ** 	Nya utdata** > **Azure Table Storage** > **Välj**.
+
+    ![Lägga till en bindning till en Azure Storage-tabell](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
+
+2. Skriv `TableItem` som **Tabellnamn** och `functionbindings` som **Tabellparameternamn**, välj en **Lagringskontoanslutning** eller skapa en ny, och klicka på **Spara**.
+
+    ![Konfigurera Storage-tabellbindning](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
+   
+3. På fliken **Utveckla** ersätter du den befintliga funktionskoden med följande:
    
     ```cs
-   
+    
     using System;
-   
-    public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
-    {
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.Msg} | {myQueueItem.Time}");
-    }
-   
-    public class TableItem
-    {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
-    }
-   
-    public class QItem
-    {
-      public string Msg { get; set;}
-      public string Time { get; set;}
-    }
-   
-    ```
-   
-    Denna kod lägger till två klasser, **TableItem** och **QItem**, som används för att läsa och skriva till köer. Dessutom har funktionen **Kör** ändrats för att godkänna parametern **QItem** och **TraceWriter** i stället för en **sträng** och en **TraceWriter**. 
-2. Klicka på knappen **Spara**.
-3. Kontrollera koden fungerar genom att granska loggen. Observera att Azure Functions automatiskt serialiserar och deserialiserar objektet för dig, vilket gör det lätt att få åtkomst till kön på ett objektorienterat sätt för att skicka runt data. 
-
-## <a name="store-messages-in-an-azure-table"></a>Spara meddelanden i en Azure-tabell
-När du nu har köer som arbetar tillsammans är det dags att lägga till en Azure-tabell för permanent lagring av ködatan.
-
-1. Gå till fliken **Integrera**.
-2. Skapa en Azure Storage-tabell för utdata och ge den namnet **myTable**.
-3. Svara **functionsbindings** på frågan "Till vilken tabell ska datan skrivas?".
-4. Ändra inställningen för **PartitionKey** från **{projekt-id}** till **{partition}**.
-5. Välj ett lagringskonto eller skapa ett nytt.
-6. Klicka på **Spara**.
-7. Gå till fliken **Utveckla**.
-8. Skapa klassen **TableItem** som representerar en Azure-tabell och ändra körfunktionen för att godkänna det nyligen skapade objektet TableItem. Observera att du måste använda egenskaperna **PartitionKey** och **RowKey** för att det ska fungera.
-   
-    ```cs
-   
+    
     public static void Run(QItem myQueueItem, ICollector<TableItem> myTable, TraceWriter log)
     {    
-      TableItem myItem = new TableItem
-      {
-        PartitionKey = "key",
-        RowKey = Guid.NewGuid().ToString(),
-        Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
-        Msg = myQueueItem.Msg,
-        OriginalTime = myQueueItem.Time    
-      };
-   
-      log.Verbose($"C# Queue trigger function processed: {myQueueItem.RowKey} | {myQueueItem.Msg} | {myQueueItem.Time}");
+        TableItem myItem = new TableItem
+        {
+            PartitionKey = "key",
+            RowKey = Guid.NewGuid().ToString(),
+            Time = DateTime.Now.ToString("hh.mm.ss.ffffff"),
+            Msg = myQueueItem.Msg,
+            OriginalTime = myQueueItem.Time    
+        };
+        
+        // Add the item to the table binding collection.
+        myTable.Add(myItem);
+    
+        log.Verbose($"C# Queue trigger function processed: {myItem.RowKey} | {myItem.Msg} | {myItem.Time}");
     }
-   
+    
     public class TableItem
     {
-      public string PartitionKey {get; set;}
-      public string RowKey {get; set;}
-      public string Time {get; set;}
-      public string Msg {get; set;}
-      public string OriginalTime {get; set;}
+        public string PartitionKey {get; set;}
+        public string RowKey {get; set;}
+        public string Time {get; set;}
+        public string Msg {get; set;}
+        public string OriginalTime {get; set;}
+    }
+    
+    public class QItem
+    {
+        public string Msg { get; set;}
+        public string Time { get; set;}
     }
     ```
-9. Klicka på **Spara**.
-10. Kontrollera att koden fungerar genom att granska i funktionens loggar och i Visual Studio. För att kontrollera i Visual Studio använder du **Cloud Explorer** för att navigera till Azure-tabellen **functionbindings** och kontrollera att det finns rader i den.
+    Klassen **TableItem** visar en rad i lagringstabellen, och du lägger till objektet till `myTable` samlingen med **TableItem**-objekt. Du måste ställa in egenskaperna **PartitionKey** och **RowKey** för att kunna infoga i tabellen.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
+4. Klicka på **Spara**.  Slutligen kan du kontrollera att funktionerna fungerar genom att visa tabellen i Storage Explorer eller Visual Studio Cloud Explorer.
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+5. (Valfritt) I ditt lagringskonto i Storage Explorer expanderar du **Tabeller** > **functionsbindings** och kontrollerar att rader har lagts till i tabellen. Du kan göra samma sak i Cloud Explorer i Visual Studio.
+
+    ![Vy över rader i tabellen](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
+
+    Om tabellen inte finns eller är tom finns det troligen ett problem med din funktionsbindning eller kod. 
+ 
+[!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
+
+## <a name="next-steps"></a>Nästa steg
+Mer information om Azure Functions finns i dessa ämnen.
+
+* [Azure Functions, info för utvecklare](functions-reference.md)  
+  Info för programmerare om att koda funktioner och definiera utlösare och bindningar.
+* [Testa Azure Functions](functions-test-a-function.md)  
+  Beskriver olika verktyg och tekniker för att testa funktioner.
+* [Så här skalar du Azure Functions](functions-scale.md)  
+  Beskriver tillgängliga serviceplaner för Azure Functions, inklusive värdplanen för förbrukning, och hur du väljer rätt plan. 
+
+[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

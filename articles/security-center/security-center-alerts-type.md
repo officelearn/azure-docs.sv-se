@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ddc691f4f3d53dbff2e55b7a97446427b93a8a4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
 
 
 ---
@@ -171,7 +171,7 @@ Den här varningen tillhandahåller information som hjälper dig att identifiera
 
 [AZURE.NOTE] Live-IP-adresserna har tagits bort i den här skärmbilden i sekretessyfte.
 
-### <a name="possible-outgoing-denialofservice-attack-detected"></a>Möjlig utgående Denial of Service-attack upptäcktes
+### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Möjlig utgående Denial of Service-attack upptäcktes
 Avvikande nätverkstrafik som kommer från en virtuell dator kan leda till att Security Center utlöser en potentiell Denial of Service-typ av angrepp.
 
 Det här är ett exempel på den här typen av varning:
@@ -214,6 +214,6 @@ I det här dokumentet lär du dig om de olika typerna av säkerhetsvarningar i S
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

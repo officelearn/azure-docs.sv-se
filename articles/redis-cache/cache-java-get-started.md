@@ -15,8 +15,8 @@ ms.workload: tbd
 ms.date: 08/24/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 907f75dc02bff7e25712a564410c1974e22f0d99
+ms.sourcegitcommit: 408026a8e75272cea92ad62e3a75aabaadf98351
+ms.openlocfilehash: 00c4d2e31391297955ecba891e919bda65ddaf8e
 
 
 ---
@@ -45,7 +45,7 @@ Den här självstudien använder Jedis, men du kan använda valfri Java-klient s
 ## <a name="retrieve-the-host-name-and-access-keys"></a>Hämta värdnamn och åtkomstnycklar
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-nonssl-endpoint"></a>Aktivera icke-SSL-slutpunkten
+## <a name="enable-the-non-ssl-endpoint"></a>Aktivera icke-SSL-slutpunkten
 Vissa Redis-klienter stöder inte SSL, och som standard är [icke-SSL-porten inaktiverad för nya Azure Redis Cache-instanser](cache-configure.md#access-ports). När detta skrivs stöder [Jedis](https://github.com/xetorthio/jedis)-klienten inte SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
@@ -64,8 +64,8 @@ Vissa Redis-klienter stöder inte SSL, och som standard är [icke-SSL-porten ina
         JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379);
         shardInfo.setPassword("<key>"); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);
-         jedis.set("foo", "bar");
-         String value = jedis.get("foo");
+        jedis.set("foo", "bar");
+        String value = jedis.get("foo");
       }
     }
 
@@ -77,6 +77,6 @@ Vissa Redis-klienter stöder inte SSL, och som standard är [icke-SSL-porten ina
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

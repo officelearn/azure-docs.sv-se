@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0617dbff2ba281091ba5775e7969edfead4d80c8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9e933774e3b618b1584b4f24a0491eda49e42077
 
 
 ---
@@ -64,12 +64,12 @@ Utför följande konfigurationssteg för att skapa ett virtuellt Azure-nätverk 
 
 <br>
 
-## <a name="task-3-enable-azure-ad-domain-services"></a>Uppgift 3: Aktivera Azure AD Domain Services
+## <a name="task-3---enable-azure-ad-domain-services"></a>Uppgift 3: Aktivera Azure AD Domain Services
 Nästa konfigurationsåtgärd är att [aktivera Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

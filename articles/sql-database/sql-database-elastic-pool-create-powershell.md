@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: daf8bd6421ae563e542b0874a6e7748a3ca52738
+ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
+ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
 
 
 ---
@@ -25,28 +26,28 @@ ms.openlocfilehash: daf8bd6421ae563e542b0874a6e7748a3ca52738
 > * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
-> 
-> 
+>
+>
 
-Lär dig hur du skapar en [elastisk databaspool](sql-database-elastic-pool.md) med PowerShell-cmdletar. 
+Lär dig hur du skapar en [elastisk databaspool](sql-database-elastic-pool.md) med PowerShell-cmdletar.
 
 Vanliga felkoder finns i [SQL-felkoder för SQL Database-klientprogram: anslutningsfel för databasen och andra problem](sql-database-develop-error-messages.md).
 
 > [!NOTE]
 > Elastiska pooler är allmänt tillgänglig (GA) i alla Azure-regioner utom Norra centrala USA och Västra Indien där de genomgår förhandsgranskning.  Allmän tillgänglighet för elastiska pooler i dessa regioner kommer att erbjudas så snart som möjligt. För närvarande stöder inte elastiska pooler databaser med [minnesintern OLTP eller minnesintern analys](sql-database-in-memory.md).
-> 
-> 
+>
+>
 
-Du måste köra Azure PowerShell 1.0 eller högre. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md).
+Du måste köra Azure PowerShell 1.0 eller högre. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-a-new-pool"></a>Skapa en ny pool
-Cmdleten [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) skapar en ny pool. Värdena för eDTU per pool, min och max Dtu:er, är begränsade av tjänstnivåvärdet (basic, standard eller premium). Se [eDTU och lagringsgränser för elastiska pooler och elastiska databaser](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Cmdleten [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) skapar en ny pool. Värdena för eDTU per pool, min och max Dtu:er, är begränsade av tjänstnivåvärdet (basic, standard eller premium). Se [eDTU och lagringsgränser för elastiska pooler och elastiska databaser](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ## <a name="create-a-new-elastic-database-in-a-pool"></a>Skapa en ny elastisk databas i en pool
-Använd cmdleten [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) och ange paramtern **ElasticPoolName** till målpoolen. För att flytta en befintlig databas till en pool, se [Flytta en databas till en elastisk pool](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
+Använd cmdleten [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) och ange paramtern **ElasticPoolName** till målpoolen. För att flytta en befintlig databas till en pool, se [Flytta en databas till en elastisk pool](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool).
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
@@ -83,7 +84,6 @@ Det här skriptet skapar en ny Azure-resursgrupp och en ny server. När du uppma
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

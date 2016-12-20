@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 1cea7999fcb9ba3d4f0febdac5acb298ec5a489a
-ms.openlocfilehash: 76a07ecf333fec4d7e406a6c6b4dc796058e664b
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: a10f328258bfe7d34d0807d4e15aa4a8ce5bbafb
 
 ---
 # <a name="analysis-services-documentation"></a>Dokumentation för Analysis Services
@@ -29,7 +29,7 @@ Azure Analysis Services, som skapats på den bevisade analytiska motorn i Micros
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/">
+        <a href="https://azure.microsoft.com/documentation/videos/index/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,36 +67,32 @@ Azure Analysis Services, som skapats på den bevisade analytiska motorn i Micros
 </ul>
 
 ---
-## <a name="reference"></a>Referens
 
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell med Azure Resource Manager-cmdletar</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/analysisservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST med Azure Analysis Services REST API-referens</p>
+                        <p><a href="/rest/api/analysisservices/">Referens för REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -112,6 +108,6 @@ Hämta dokumentationen för Analysis Services </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

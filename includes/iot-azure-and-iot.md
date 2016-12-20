@@ -13,12 +13,12 @@ I följande diagram visas en typisk IoT-lösningsarkitektur. Diagrammet innehål
 ![IoT-lösningsarkitektur][img-solution-architecture]
 
 > [!NOTE]
-> En detaljerad beskrivning av IoT-arkitekturen finns i [Referensarkitektur för Microsoft Azure IoT][lnk-refarch].
+> En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Referensarkitektur för Microsoft Azure IoT).
 > 
 > 
 
 ### <a name="device-connectivity"></a>Enhetsanslutning
-I den här IoT-lösningsarkitekturen skickar enheter telemetri, till exempel sensoravläsningar från en pumpstation, till en molnslutpunkt för lagring och bearbetning. I ett scenario med förutsägande underhåll kan serverdelen använda sig av strömmen med sensordata för att fastställa när en specifik pump kräver underhåll. Enheter kan också ta emot och svara på kommandon från moln till enhet genom att läsa meddelanden från en molnslutpunkt. I det förutsägande underhållsscenariot kan lösningens serverdel exempelvis skicka kommandon till andra pumpar vid pumpstationen för att börja styra om flöden precis innan underhållsstart för att säkerställa att underhållsingenjören kan komma igång så fort hen kommer dit.
+I den här IoT-lösningsarkitekturen skickar enheter telemetri, till exempel sensoravläsningar från en pumpstation, till en molnslutpunkt för lagring och bearbetning. I ett scenario med förutsägande underhåll kan lösningen för serverdelen använda sig av strömmen med sensordata för att fastställa när en specifik pump kräver underhåll. Enheter kan också ta emot och svara på meddelanden från moln till enhet genom att läsa meddelanden från en molnslutpunkt. I det förutsägande underhållsscenariot kan lösningens serverdel exempelvis skicka meddelanden till andra pumpar vid pumpstationen för att börja styra om flöden precis innan underhållsstart för att säkerställa att underhållsingenjören kan komma igång så fort hen kommer dit.
 
 En av de största utmaningarna med IoT-projekt är att på ett tillförlitligt och säkert sätt kunna ansluta enheter till lösningens serverdel. IoT-enheter skiljer sig från andra klienter, till exempel webbläsare och mobilappar. IoT-enheter:
 
@@ -30,9 +30,9 @@ En av de största utmaningarna med IoT-projekt är att på ett tillförlitligt o
 * Kan behöva använda patentskyddade, anpassade eller branschspecifika programprotokoll.
 * Kan skapas med en stor mängd populära maskinvaru- och programvaruplattformar.
 
-Förutom kraven ovan behöver alla IoT-lösningar också erbjuda skalbarhet, säkerhet och tillförlitlighet. Den resulterande uppsättningen anslutningskrav är svår och tidskrävande att implementera med traditionella teknologier, till exempel webbehållare och asynkrona meddelandeköer. Azure IoT Hub och SDK för Azure IoT-enheter gör det lättare att implementera lösningar som uppfyller de här kraven.
+Förutom kraven ovan behöver alla IoT-lösningar också erbjuda skalbarhet, säkerhet och tillförlitlighet. Den resulterande uppsättningen anslutningskrav är svår och tidskrävande att implementera med traditionella teknologier, till exempel webbehållare och asynkrona meddelandeköer. Azure IoT Hub och enhets-SDK:erna för Azure IoT gör det enklare att implementera lösningar som uppfyller dessa krav.
 
-En enhet kan kommunicera direkt med en slutpunkt för en molngateway, eller om enheten inte kan använda sig av något av de kommunikationsprotokoll som molgatewayen stöder så kan den ansluta via en mellanliggande gateway. Till exempel så kan [Azure IoT-protokollgatewayen][Ink-protokollgateway] utföra protokollöversättningar om enheter inte kan använda sig av något av de protokoll som stöds av IoT Hub.
+En enhet kan kommunicera direkt med en slutpunkt för en molngateway, eller om enheten inte kan använda sig av något av de kommunikationsprotokoll som molgatewayen stöder så kan den ansluta via en mellanliggande gateway. Till exempel kan [Azure IoT-protokollgatewayen][lnk-protocol-gateway] utföra protokollöversättningar om enheter inte kan använda sig av något av de protokoll som stöds av IoT Hub.
 
 ### <a name="data-processing-and-analytics"></a>Databearbetning och analys
 Det är i IoT-lösningens serverdel i molnet som den största delen av databearbetningen sker, speciellt vad gäller filtrering och sammanställning av telemetri och vidarebefordran till andra tjänster. Serverdelen för IoT-lösningen:
@@ -42,9 +42,9 @@ Det är i IoT-lösningens serverdel i molnet som den största delen av databearb
 * Möjliggör enhetsregistrering, vilket låter dig etablera enheter och styra vilka enheter som får ansluta till din infrastruktur.
 * Låter dig kontrollera status för enheter och övervaka deras verksamhet.
 
-I det förutsägande underhållsscenariot, lagrar lösningens serverdel historisk telemetridata. Serverdelen kan använda sig av den datan för att identifiera mönster som indikerar att det är dags för underhåll av en viss pump.
+I det förutsägande underhållsscenariot, lagrar lösningens serverdel historisk telemetridata. Lösningens serverdel kan använda sig av dessa data för att identifiera mönster som indikerar att det är dags för underhåll av en viss pump.
 
-IoT-lösningar kan inkludera automatiska feedback-slingor. En analysmodul i serverdelen kan exempelvis utläsa från telemetridata att temperaturen för en specifik enhet är över normal driftsnivå. Lösningen kan sedan skicka ett kommando till enheten och instruera den att vidta åtgärder.
+IoT-lösningar kan inkludera automatiska feedback-slingor. En analysmodul i lösningens serverdel kan exempelvis utläsa från telemetridata att temperaturen för en specifik enhet är över normal driftsnivå. Lösningen kan sedan skicka ett kommando till enheten och instruera den att vidta åtgärder.
 
 ### <a name="presentation-and-business-connectivity"></a>Presentation och företagsanslutningar
 Slutanvändarna kan interagera med IoT-lösningen och enheterna via ett presentations- och företagsanslutningsskikt. I det här skiktet kan användare se och analysera data som samlats in från deras enheter. Vyerna kan bestå av instrumentpaneler eller BI-rapporter som kan visa både historiska data eller nästan realtidsdata. En operatör kan exempelvis kontrollera statusen för en viss pumpstation och se alla varningar som har utlösts i systemet. Här kan även IoT-lösningens serverdel integreras med befintliga branschspecifika program för att knyta samman med företagets verksamhetsprocesser eller arbetsflöden. Förutsägande underhåll kan till exempel integreras med ett system för schemaläggning som bokar in en ingenjör att besöka en pumpstation när en pump är i behov av underhåll.
@@ -60,6 +60,6 @@ Slutanvändarna kan interagera med IoT-lösningen och enheterna via ett presenta
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

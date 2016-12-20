@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 
 ---
@@ -27,7 +27,7 @@ Här följer en ”fyll i tomrummen-strategi” för hur du skapar en skaluppsä
 Det bör ta cirka 30 minuter att slutföra stegen i den här artikeln.
 
 ## <a name="step-1-install-azure-powershell"></a>Steg 1: Installera Azure PowerShell
-Se [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
+Se [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
 
 ## <a name="step-2-create-resources"></a>Steg 2: Skapa resurser
 Skapa de resurser som krävs för den nya skaluppsättningen.
@@ -130,7 +130,7 @@ Du har alla resurser som du behöver för konfigurationen av skaluppsättningen,
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    I det här exemplet visas en skaluppsättning som skapas med tre virtuella datorer. I [översikten över skaluppsättningar för virtuella datorer](virtual-machine-scale-sets-overview.md) finns mer information om kapaciteten för olika skaluppsättningar. Det här steget omfattar också storleken (kallas SkuName) för de virtuella datorerna i uppsättningen. Om du vill hitta en storlek som motsvarar dina behov kan du titta i [Storlekar för virtuella datorer](../virtual-machines/virtual-machines-windows-sizes.md).
+    I det här exemplet visas en skaluppsättning som skapas med tre virtuella datorer. I [översikten över skaluppsättningar för virtuella datorer](virtual-machine-scale-sets-overview.md) finns mer information om kapaciteten för olika skaluppsättningar. Det här steget omfattar också storleken (kallas SkuName) för de virtuella datorerna i uppsättningen. Om du vill hitta en storlek som motsvarar dina behov kan du titta i [Storlekar för virtuella datorer](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Lägg till konfigurationen av nätverksgränssnittet i konfigurationen för skaluppsättningen:
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -172,7 +172,7 @@ Du har alla resurser som du behöver för konfigurationen av skaluppsättningen,
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
    
-    Om du vill ha information om andra avbildningar du kan använda ska du titta i [Hitta och välj avbildningar av virtuella datorer i Azure med Windows PowerShell och Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Om du vill ha information om andra avbildningar du kan använda ska du titta i [Hitta och välj avbildningar av virtuella datorer i Azure med Windows PowerShell och Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Ersätt värdet för **$vhdContainers** med en lista som innehåller sökvägar till platser där de virtuella hårddiskarna lagras, till exempel https://mystorage.blob.core.windows.net/vhds, och skapa sedan variabeln:
    
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
@@ -225,6 +225,6 @@ Använd dessa resurser för att utforska den skaluppsättning för virtuella dat
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/26/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
+ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 
 
 ---
@@ -64,7 +64,7 @@ Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och 
     Programprojektet innehåller ingen direkt kod. I stället refererar det till en uppsättning tjänstprojekt. Dessutom innehåller det tre andra typer av innehåll:
    
    * **Publiceringsprofiler**: Används för att hantera verktygsinställningar för olika miljöer.
-   * **Skript**: Här ingår bland annat ett PowerShell-skript för distribution/uppgradering av program. Skriptet körs i bakgrunden av Visual Studio. Det kan också anropas direkt på kommandoraden.
+   * **Skript**: Här ingår bland annat ett PowerShell-skript för distribution/uppgradering av program. Visual Studio använder skriptet i bakgrunden. Det kan också anropas direkt på kommandoraden.
    * **Programdefinition**: innehåller programmanifestet under *ApplicationPackageRoot*. Associerade parameterfiler för programmet finns under *ApplicationParameters*, som definierar programmet och gör att du kan konfigurera det specifikt för en given miljö.
      
      En översikt över innehållet i tjänstprojektet finns i [Komma igång med Reliable Services](service-fabric-reliable-services-quick-start.md).
@@ -151,6 +151,6 @@ När du ändrar klusterläge återställs utvecklingsklustret och alla program s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

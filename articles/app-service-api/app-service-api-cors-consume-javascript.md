@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14de66f6035d8cd0579351d64b85bd7e1c8f2ab2
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
 
 
 ---
@@ -51,7 +51,7 @@ Du kan konfigurera CORS i Azure-portalen eller genom att använda verktygen i  [
    När du klickar på **Spara** kommer API-appen att acceptera JavaScript-anrop från angivna URL:er.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Konfigurera CORS med hjälp av Azure Resource Manager-verktyg
-Du kan även konfigurera CORS för en API-app genom att använda [mallarna i Azure Resource Manager](../resource-group-authoring-templates.md) i kommandoradsverktyg som [Azure PowerShell](../powershell-install-configure.md) och [Azure CLI](../xplat-cli-install.md). 
+Du kan även konfigurera CORS för en API-app genom att använda [mallarna i Azure Resource Manager](../resource-group-authoring-templates.md) i kommandoradsverktyg som [Azure PowerShell](/powershell/azureps-cmdlets-docs) och [Azure CLI](../xplat-cli-install.md). 
 
 Se ett exempel på en mall i Azure Resource Manager som anger CORS-egenskapen genom att öppna filen [azuredeploy.json i lagringsplatsen för den här kursens exempelprogram](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Leta reda på det avsnitt i mallen som ser ut som följande exempel:
 
@@ -61,7 +61,7 @@ Se ett exempel på en mall i Azure Resource Manager som anger CORS-egenskapen ge
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-gettingstarted-tutorial"></a><a id="tutorialstart"></a> Fortsättning på självstudierna för att komma igång med .NET
+## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> Fortsättning på självstudierna för att komma igång med .NET
 Om du följer serien för att komma igång med Node.js eller Java för API Apps har du slutfört komma igång-serien. Gå vidare till avsnittet [Nästa steg](#next-steps) för att få förslag på ytterligare utbildning om API Apps.
 
 Resten av den här artikeln är en förlängning av serien för att komma igång med .NET och förutsätter att du har slutfört de [första självstudierna](app-service-api-dotnet-get-started.md).
@@ -252,6 +252,6 @@ I den här artikeln har du sett hur du aktiverar stöd för Apptjänst-CORS så 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

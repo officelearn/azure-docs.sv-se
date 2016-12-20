@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
 
 
 ---
@@ -56,7 +56,7 @@ I nästa kurs i serien får du distribuera SPA-klientdelen i molnet.
 
 ## <a name="prerequisites"></a>Krav
 * ASP.NET Web API – Instruktionerna i kursen förutsätter att du har grundläggande kunskaper i att arbeta med ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) i Visual Studio.
-* Azure-konto – Du kan [öppna ett kostnadsfritt Azure-konto](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Azure-konto – Du kan [öppna ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
     Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du omedelbart skapa en tillfällig startapp i Apptjänst – **inget kreditkort behövs** och du gör inga åtaganden.
 * Visual Studio 2015 med [Azure SDK för .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) – SDK installerar Visual Studio 2015 automatiskt om du inte redan har det.
@@ -442,6 +442,6 @@ Projektmallen för **Azure API Apps** motsvarar att välja den **tomma** ASP.NET
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

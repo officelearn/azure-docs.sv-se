@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cfd3da08a8c8674e686ae2933db331809fb0e34d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
 
 
 ---
@@ -46,7 +46,7 @@ Det finns några saker att tänka på när du använder Azure SQL med RemoteApp:
 
 Lär dig [hur du konfigurerar en Azure SQL Database-brandvägg](../sql-database/sql-database-firewall-configure.md). I ett utdrag ur artikeln står följande: ”Först blockeras all åtkomst till din Azure SQL Database-server av brandväggen. Innan du kan börja använda din Azure SQL Database-server måste du gå till den klassiska portalen och ange en eller flera brandväggsregler på servernivå som ger åtkomst till din Azure SQL Database-server. Använd brandväggsreglerna för att ange vilka IP-adressintervall från Internet som tillåts. Ange också om Azure-program kan försöka ansluta till din Azure SQL Database-server eller inte.”
 
-Och när en dator försöker ansluta till databasservern från Internet, kontrollerar brandväggen den ursprungliga IP-adressen för begäran mot en fullständig uppsättning på servernivå och (vid behov) brandväggsregler på databasnivå . ”Om IP-adressen för begäran är inom ett intervall som anges i brandväggsreglerna på server-nivå, godkänns anslutningen till din Azure SQL Database-server." Därför kan vi utnyttja IP-intervall och inte bara enskilda IP-adresser.
+Och när en dator försöker ansluta till databasservern från Internet, kontrollerar brandväggen den ursprungliga IP-adressen för begäran mot en fullständig uppsättning på servernivå och (vid behov) brandväggsregler på databasnivå . ”Om IP-adressen för begäran är inom ett intervall som anges i brandväggsreglerna på servernivå, godkänns anslutningen till din Azure SQL Database-server.” Därför kan vi utnyttja IP-intervall och inte bara enskilda IP-adresser.
 
 Följ steg för steg-instruktionerna i [Gör så här: Konfigurera brandväggsinställningarna i SQL Database med Azure-portalen](../sql-database/sql-database-configure-firewall-settings.md) när du ska ange IP-intervall. När du konfigurerar SQL-brandväggsregler anger du IP-intervall för det undernät som har angetts för Azure RemoteApp-samling. Det gör att ARA-servrar ska kunna ansluta till SQL DB även om de har dynamiskt tilldelade IP-adresser.
 
@@ -60,6 +60,6 @@ Det kan finnas flera skäl till att det verkar gå långsamt att använda ett kl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

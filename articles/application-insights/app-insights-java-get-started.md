@@ -1,9 +1,9 @@
 ---
-title: Analysera Java-webbappar med Application Insights | Microsoft Docs
-description: "Övervaka prestanda och användningen av din Java-webbplats med Application Insights. "
+title: Analysera Java-webbappar med Azure Application Insights | Microsoft Docs
+description: "Övervakning av programprestanda för Java-webbappar med Application Insights. "
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -11,16 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc0167ef78eb3ca84e959599473af5935e5da0d0
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
-*Application Insights finns endast som förhandsversion.*
+
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/) är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Tjänsten hjälper dig att [identifiera och diagnostisera prestandaproblem och undantag](app-insights-detect-triage-diagnose.md) samt att [skriva kod][api] för att se vad användarna gör med din app.
 
@@ -31,7 +31,7 @@ Application Insights har stöd för Java-appar som körs på Linux, Unix eller W
 Du behöver:
 
 * Oracle JRE 1.6 eller senare eller Zulu JRE 1.6 eller senare
-* En prenumeration på [Microsoft Azure](https://azure.microsoft.com/). (Du kan börja med [den kostnadsfria utvärderingsversionen](https://azure.microsoft.com/pricing/free-trial/).)
+* En prenumeration på [Microsoft Azure](https://azure.microsoft.com/).
 
 *Om du har en webbapp som redan är aktiv kan du följa den alternativa proceduren [för att lägga till SDK vid körningen på webbservern](app-insights-java-live.md). Med det alternativet undviker du att behöva återskapa koden, men du kan inte skriva kod för att spåra användaraktivitet.*
 
@@ -182,7 +182,7 @@ För bästa resultat bör filtret mappas före alla andra filter.
     </filter-mapping>
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Om du använder Spring Web MVC 3.1 or later
-Redigera dessa element så att Application Insights-paketet tas med:
+Redigera dessa element i *-servlet.xml för att ta med Application Insights-paketet:
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -213,7 +213,7 @@ Data om HTTP-förfrågningar visas på översiktsbladet. (Om informationen inte 
 
 ![exempeldata](./media/app-insights-java-get-started/5-results.png)
 
-[Lär dig mer om mått.][metrics]
+[Lär dig mer om mätvärden.][metrics]
 
 Klicka dig vidare i diagrammen om du vill visa mer detaljerade aggregerade mätvärden.
 
@@ -244,11 +244,15 @@ Publicera appen på servern, låt användarna använda den och se hur telemetrin
   
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
+
+* Om utgående trafik måste dirigeras via en brandvägg definierar du systemegenskaper `http.proxyHost` och `http.proxyPort`. 
+
 * Installera följande på Windows-servrar:
   
   * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
     
     (Den här komponenten gör det möjligt att använda prestandaräknare.)
+
 
 ## <a name="exceptions-and-request-failures"></a>Fel relaterade till begäranden och undantag
 Ohanterade undantag samlas in automatiskt:
@@ -257,7 +261,7 @@ Ohanterade undantag samlas in automatiskt:
 
 Om du vill samla in data om andra undantag kan du välja mellan två alternativ:
 
-* [Infoga anrop till trackException() i koden][apiexceptions]. 
+* [Infoga anrop till trackException() i din kod][apiexceptions]. 
 * [Installera Java-agenten på servern](app-insights-java-agent.md). Du anger de metoder som du vill övervaka.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Övervaka metodanrop och externa beroenden
@@ -320,10 +324,10 @@ Dina prestandaräknare visas som anpassade mått i [Metrics Explorer][metrics].
 Du skickar telemetri från webbservern. Men för att få en heltäckande bild av ditt program kan du lägga till ännu mer övervakning:
 
 * [Lägg till telemetri till webbsidor][usage] om du vill övervaka sidvisningar och användarmått.
-* [Konfigurera webbtester][availability] för att försäkra dig om att programmet är aktivt och att det svarar.
+* [Konfigurera webbtester][availability] för att se till att ditt program är aktivt och effektivt.
 
 ## <a name="capture-log-traces"></a>Samla in loggspårningar
-Du kan använda Application Insights om du vill arbeta med loggar från Log4J, Logback eller andra loggningsramverk. Du kan korrelera loggarna med HTTP-förfrågningar och annan telemetri. [Lär dig hur du gör][javalogs].
+Du kan använda Application Insights om du vill arbeta med loggar från Log4J, Logback eller andra loggningsramverk. Du kan korrelera loggarna med HTTP-förfrågningar och annan telemetri. [Lär dig mer][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>Skicka din egen telemetri
 Nu när du har installerat SDK kan du använda API:et för att skicka din egen telemetri.
@@ -332,7 +336,7 @@ Nu när du har installerat SDK kan du använda API:et för att skicka din egen t
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem.
 
 ## <a name="availability-web-tests"></a>Webbtester för tillgänglighet
-Application Insights kan testa din webbplats med jämna mellanrum för att kontrollera att tjänsten är tillgänglig och att den svarar. [Om du vill konfigurera][availability], klickar du på Webbtester.
+Application Insights kan testa din webbplats med jämna mellanrum för att kontrollera att tjänsten är tillgänglig och att den svarar. [Du konfigurerar inställningarna][availability] genom att klicka på Webbtest.
 
 ![Klicka först på Webbtester och sedan på Lägg till webbtest](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -342,7 +346,7 @@ Du kan visa diagram över svarstider, samt få e-postaviseringar om platsen kras
 
 [Läs mer om webbtester för tillgänglighet.][availability] 
 
-## <a name="questions-problems"></a>Har du några frågor? Har du problem?
+## <a name="questions-problems"></a>Frågor? Har du problem?
 [Felsöka Java](app-insights-java-troubleshoot.md)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -363,10 +367,10 @@ Du kan visa diagram över svarstider, samt få e-postaviseringar om platsen kras
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[användning]: app-insights-web-track-usage.md
+[usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7be266a6f8b3e18f2f6a27908ad75b5c19d3d862
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
 
 
 ---
-# <a name="azure-mobile-engagement-getting-started-guide-with-best-practices"></a>Azure Mobile Engagement – Komma igång med bästa praxis
+# <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement – Komma igång med bästa praxis
 ## <a name="overview"></a>Översikt
 **Det är många som är med och slåss om en plats på mobilskärmen:** Enligt en undersökning från 2013 fanns det i genomsnitt 27 appar installerade på varje mobil enhet. Användarna lade i snitt ned 30 timmar i månaden på apparna. Största delen av tiden tillbringades på sociala nätverk och med spel (cirka 20 timmar). År 2014 fanns det runt 1,5 miljoner appar på Android-marknaden. Apples App Store innehöll då runt 1,2 miljoner appar. Användningen av mobilappar bara fortsätter att öka och konkurrensen mellan de olika apputvecklarna är stenhård. 
 
@@ -105,7 +105,7 @@ Skapa en KPI-instrumentpanel som innehåller informationen nedan
 3. Var finns dessa data i appen (skärm, inställningar, system o.s.v.)?
 4. Kan jag köra en interaktionssekvens för denna KPI?
 
-Använd kalkylbladet **KPI Builder** (KPI-skapare) i [Media Playbook Template][Media Playbook link] (Mall för Strategibok för media) som innehåller exempel och vägledning.
+Exempel och riktlinjer finns i kalkylbladet **KPI Builder** i vår [Media Playbook-mall][Media Playbook link].
 
 ## <a name="step-2-your-engagement-program"></a>Steg 2: Ett program för användarinteraktion
 Ett bra Mobile Engagement-program bör betraktas som en viktig del av din app. Det måste absolut innehålla ett bra välkomstprogram som körs mot en användare under de första dagarna av appanvändningen. Sådant har ofta en mycket positiv inverkan på användarinteraktionen och kvarhållningen i din app. Studier har visat att de flesta användarna slutar använda en app några dagar efter installationen. Sträva efter att uppfylla eller överträffa kundens förväntningar med intresseväckande innehåll medan kunden fortfarande lägger tid på att bekanta sig med appen. Se till att framhålla de värdefullaste funktionerna och fördelarna när du kommunicerar med kunderna. 
@@ -209,13 +209,13 @@ Azure Mobile Engagement tillhandahåller två metoder för att undvika att få m
 #### <a name="playbook-exercise-2-create-your-engagement-program"></a>Strategibok, övning 2: Skapa ett program för användarinteraktion
 Lägg ned lite tid på att sammanfatta dina mål och på att definiera de kampanjer som du förväntar dig att köra med specifika sekvenser. Se noga till att tillämpa 3W-metoden på alla meddelanden i kampanjerna. 
 
-Använd kalkylbladet **Engagement Program** (Program för användarinteraktion) i [Media Playbook Template][Media Playbook link] (Mall för Strategibok för media) som innehåller exempel och vägledning.
+Exempel och riktlinjer finns i kalkylbladet **Engagement Program** i [Media Playbook-mallen][Media Playbook link].
 
 ## <a name="step-3-app-integration"></a>Steg 3: Appintegrering
 #### <a name="create-a-tag-plan"></a>Skapa en taggplan
 Om du vill integrera Azure Mobile Engagement i din app måste du först skapa en taggplan. Taggplanen är själva hörnstenen i projektet. Den definierar relationen mellan marknadsföringsspecifikationer, appens arbetsflöde och verkliga taggdata som samlats in i appen. Det blir även möjligt att avläsa KPI:er. Den anger också vilka analyser som du kan se i portalen. Taggplanen är en god hjälp när du ska definiera användarsegment och skicka riktade push-meddelanden för att öka interaktionen med dina slutanvändare. När du har definierat taggplanen är det enkelt att lägga till och integrera koden i appen med Azure Mobile Engagement SDK.
 
-En taggplan bör inte tagga precis allt i en app. Den ska bara innehålla taggdata som är del av din Mobile Engagement-strategi. Strategierna kan dock skifta mellan de olika apparna. Länken [Media Playbook Template][Media Playbook link] (Mall för Strategibok för media) tillhandahålls av Azure Mobile Engagement och är till god hjälp när du ska skapa en egen taggplan med valfri metod. Använd kalkylbladet **Tag Plan** (Taggplan) som utgångspunkt.
+En taggplan bör inte tagga precis allt i en app. Den ska bara innehålla taggdata som är del av din Mobile Engagement-strategi. Strategierna kan dock skifta mellan de olika apparna. [Media Playbook-mallen][Media Playbook link] tillhandahålls av Azure Mobile Engagement och hjälper dig att skapa en egen taggplan med önskad metod. Använd kalkylbladet **Tag Plan** (Taggplan) som utgångspunkt.
 
 När du definierar ett taggavsnitt i kalkylbladet måste du vara mycket specifik. Det här är viktigt för att undvika onödig förvirring. Ange detaljerad information om de scenarier som ska utlösa en taggsändning. Kom ihåg att inkludera namnet på de aktiviteter där de olika taggarna är inbäddade. Detta måste inkluderas i **informationsdelen** i kalkylbladet. Kalkylbladet med taggplanen ska utgöra den huvudsakliga referensen under testverifieringen. 
 
@@ -322,10 +322,10 @@ När du har fått en viss erfarenhet bör du överväga att lägga till följand
 
 
 <!--Link references-->
-[Media Playbook länk]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
+[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

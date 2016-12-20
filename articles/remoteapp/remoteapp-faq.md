@@ -3,7 +3,7 @@ title: "Vanliga frågor och svar om Azure RemoteApp | Microsoft Docs"
 description: "Läs svaren på de vanligaste frågorna om Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -45,7 +45,7 @@ Om du inte hittar den information som du behöver eller har ytterligare frågor 
 * **Hur mycket kostar RemoteApp?** Mer info finns på sidan med [Azure RemoteApp-prisinformation](https://azure.microsoft.com/pricing/details/remoteapp/).
 * **Kostar en typ av samling mer än en annan?** Ja, det kan den göra, beroende på dina samlingskrav. En hybridsamling kräver en anslutning från Azure RemoteApp till ditt lokala nätverk. Om du använder ett befintligt VNET/ExpressRoute tillkommer ingen ytterligare avgift. Om du däremot använder ett nytt Azure VNET och antingen en gateway eller ExpressRoute debiteras du för [VPN-gatewayen](https://azure.microsoft.com/pricing/details/vpn-gateway) eller [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/). Den här avgiften (klicka på länkarna för mer info) läggs till den månatliga Azure RemoteApp-avgiften.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>Samlingar – vad stöds, vilka bör du använda och annan info
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>Samlingar – vad stöds, vilka bör du använda och annan info
 * **Stöds anpassade LOB-program (Line-of-Business)?** Ja. Om du vill använda ett anpassat program i Azure RemoteApp, ska du skapa en [anpassad mallavbildning](remoteapp-create-custom-image.md) och sedan ladda upp den till RemoteApp-samlingen.
 * **Fungerar mitt anpassade LOB-program i Azure RemoteApp?** Det bästa sättet att ta reda på det är att testa det. Läs mer i [RD Compatibility Center](http://www.rdcompatibility.com/compatibility/default.aspx).
 * **Vilken distributionsmetod (moln eller hybrid) är bäst för vårt företag?** Hybridsamlingar ger de mest omfattande funktionerna om du vill ha full integration med enkel inloggning (SSO) och säkra nätverksanslutningsmöjligheter på plats. Molnsamlingar ger ett flexibelt och enkelt sätt att isolera distributionen genom att använda flera autentiseringsmetoder. Läs mer om [distributionsalternativen](remoteapp-whatis.md).
@@ -69,7 +69,7 @@ Om du inte hittar den information som du behöver eller har ytterligare frågor 
 
 * **Varför kan jag inte ge mitt Azure Active Directory-konto åtkomst?** Azure Active Directory-användarna måste vara från den katalog som är associerad med din prenumeration. Du kan visa eller ändra den katalogen på inställningsfliken i portalen. Mer info finns i artikeln om att [ändra Azure Active Directory-klienten som används av RemoteApp](remoteapp-changetenant.md).
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>Klienter – vilka enheter kan jag använda för att få åtkomst till Azure RemoteApp?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>Klienter – vilka enheter kan jag använda för att få åtkomst till Azure RemoteApp?
 Det finns praktisk klientinformation, däribland anvisningar för att installera de olika klienterna, i artikeln om att [komma åt dina appar i Azure RemoteApp](remoteapp-clients.md).
 
 * **Vilka enheter och operativsystem stöder klientprogrammen?**
@@ -126,6 +126,6 @@ Visste du att du förutom att betygsätta den här artikeln och skriva kommentar
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

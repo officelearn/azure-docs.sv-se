@@ -15,6 +15,7 @@
 ## [Börja med Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Börja med HBase och NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Börja med Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Börja med interaktiv Hive-förhandsversion](hdinsight-hadoop-use-interactive-hive.md)
 ## [Börja med Kafka förhandsgranskning](hdinsight-apache-kafka-get-started.md)
 ## [Begränsat Hadoop-läge](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake-verktyg med begränsat Hortonworks-läge](hdinsight-hadoop-emulator-visual-studio.md)
@@ -181,12 +182,12 @@
 #### [Prestanda för Hive-frågor](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referens
-## [PowerShell-cmdletar](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
-## [.NET SDK för Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
-## [.NET SDK för HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-## [.NET-bibliotek för Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-## [REST API-referens](/rest/api/hdinsight/)
-## [Spark REST-API för fjärrstyrda jobb](/rest/api/hdinsightspark/)
+## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST](/rest/api/hdinsight/)
+## [REST (Spark)](/rest/api/hdinsightspark/)
 
 # Relaterat
 ## Windows-kluster
@@ -224,6 +225,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

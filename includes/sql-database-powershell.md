@@ -1,6 +1,6 @@
 
 ## <a name="start-your-powershell-session"></a>Starta din PowerShell-session
-Först behöver du ha den senaste [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx) installerad och igång. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](../articles/powershell-install-configure.md).
+Först behöver du ha den senaste [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx) installerad och igång. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Många nya funktioner i SQL Database stöds endast när du använder [Azure Resource Manager-distributionsmodellen](../articles/azure-resource-manager/resource-group-overview.md), så exemplen använder [Azure SQL Database PowerShell-cmdletar](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx) för Resource Manager. Service Managements (klassiska) distributionsmodell [Azure SQL Database Service Management-cmdletar](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) stöds för bakåtkompatibilitet, men vi rekommenderar att du använder Resource Manager-cmdletar.
@@ -16,6 +16,6 @@ Om du har flera prenumerationer använder du cmdlet:en [**Set-AzureRmContext**](
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
 > 
 > 
 
-Den här artikeln beskriver hur du publicerar program till enskilda användare i en Azure RemoteApp-samling. Det här är en ny funktion i Azure RemoteApp. För tillfället är den i ”privat förhandsgranskning” och finns bara tillgänglig för tidiga efterföljare i utvärderingssyfte.
+Den här artikeln beskriver hur du publicerar program till enskilda användare i en Azure RemoteApp-samling. Det här är en ny funktion i Azure RemoteApp. För tillfället är den endast tillgänglig för tidiga användare som en ”privat förhandsversion” för utvärderingsändamål.
 
-Från början innebar Azure RemoteApp bara ett sätt att ”publicera” program: Administratören publicerade appar från avbildningen och de var synliga för alla användare i samlingen.
+Från början gick det bara att publicera program på ett sätt med Azure RemoteApp: Administratören publicerade appar från avbildningen som sedan var tillgängliga för alla användare i samlingen.
 
 Ett vanligt scenario är att inkludera många program i en enda avbildning och distribuera en samling. På så sätt kan man minska hanteringskostnaderna. Ofta är inte alla program relevanta för alla användare – administratörer skulle föredra att publicera appar till enskilda användare så att de inte ser onödiga program i sin program-feed.
 
@@ -49,7 +49,7 @@ Det är nu möjligt att göra i Azure RemoteApp – för tillfället är det en 
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Hur du hämtar Azure RemoteApp PowerShell-cmdlets
 Om du vill prova den nya funktionen för förhandsgranskning behöver du använda Azure PowerShell-cmdlets. För tillfället går det inte att aktivera det nya läget för programpublicering via Azure-hanteringsportalen.
 
-Kontrollera först att du har [Azure PowerShell-modulen](../powershell-install-configure.md) installerad.
+Kontrollera först att du har [Azure PowerShell-modulen](/powershell/azureps-cmdlets-docs) installerad.
 
 Starta sedan PowerShell-konsolen i administratörsläge och kör följande cmdlet:
 
@@ -106,6 +106,6 @@ Om du ännu inte har deltagit i förhandsgranskningen använder du denna [unders
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

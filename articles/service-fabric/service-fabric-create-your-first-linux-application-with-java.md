@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
+ms.openlocfilehash: 87f5ac490f113a7c0144b20563a4f8f4bbcc6b21
 
 
 ---
@@ -28,17 +28,20 @@ ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
 > 
 > 
 
-Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET Core och Java. I den här självstudiekursen visar vi hur du skapar ett program för Linux och skapar en tjänst med hjälp av Java.
+Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET Core och Java. I den här självstudiekursen skapar vi ett program för Linux och skapar en tjänst med hjälp av Java.  Följande Microsoft Virtual Academy-video vägleder dig genom processen för att skapa ett Java-program för Linux:  
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="prerequisites"></a>Krav
 Du måste [konfigurera Linux-utvecklingsmiljön](service-fabric-get-started-linux.md) innan du börjar. Om du använder Mac OS X kan du [konfigurera en Linux-miljö på en virtuell dator med hjälp av Vagrant](service-fabric-get-started-mac.md).
 
 ## <a name="create-the-application"></a>Skapa programmet
-Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. I Service Fabric SDK för Linux finns en [Yeoman](http://yeoman.io/)-generator som gör det enkelt att skapa din första tjänst och lägga till fler senare. Lås oss använda Yeoman för att skapa ett nytt program med en enskild tjänst.
+Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. I Service Fabric SDK för Linux finns en [Yeoman](http://yeoman.io/)-generator som gör det enkelt att skapa din första tjänst och lägga till fler senare. Använd Yeoman för att skapa ett program med en enskild tjänst.
 
 1. Skriv **yo azuresfjava** i en terminal.
 2. Namnge ditt program.
-3. Välj vilken typ din första tjänst ska ha och namnge den. I den här självstudiekursen väljer vi en Reliable Actor-tjänst.
+3. Välj vilken typ din första tjänst ska ha och namnge den. För den här självstudien väljer vi en Reliable Actor-tjänst.
    
    ![Service Fabric Yeoman-generator för Java][sf-yeoman]
 
@@ -83,10 +86,10 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
 2. I Service Fabric Explorer letar du reda på noden där den primära repliken för aktörstjänsten finns. På skärmbilden nedan är det nod 3.
    
     ![Hitta den primära repliken i Service Fabric Explorer][sfx-primary]
-3. Klicka på noden du hittade i föregående steg och välj sedan **Deactivate (restart)** (Inaktivera (omstart)) på menyn Actions (Åtgärder). Därmed startas en av de fem noderna om i ditt lokala kluster och påtvingar en redundansväxling till en av de sekundära replikerna på en annan nod. Titta på resultatet från testklienten när du gör detta och observera att räknaren fortsätter att räkna upp trots redundansväxlingen.
+3. Klicka på noden du hittade i föregående steg och välj sedan **Deactivate (restart)** (Inaktivera (omstart)) på menyn Actions (Åtgärder). När du gör det startas en av de fem noderna i ditt lokala kluster om och framtvingar en redundansväxling till en av de sekundära replikerna på en annan nod. Titta på resultatet från testklienten när du gör detta och observera att räknaren fortsätter att räkna upp trots redundansväxlingen.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Skapa och distribuera ett program med plugin-programmet Eclipse Neon
-Om du har installerat plugin-programmet för Eclipse Neon kan du använda det till att skapa och distribuera Service Fabric-program som skapats med Java.  Välj **Eclipse IDE för Java-utvecklare**, när du installerar Eclipse.
+Om du har installerat [Service Fabric-plugin-programmet](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) för Eclipse Neon kan du använda det för att skapa och distribuera Service Fabric-program som skapats med Java.  Välj **Eclipse IDE för Java-utvecklare**, när du installerar Eclipse.
 
 ### <a name="create-the-application"></a>Skapa programmet
 Service Fabric-plugin-programmet är tillgängligt via utökningsfunktionen i Eclipse.
@@ -98,13 +101,22 @@ Service Fabric-plugin-programmet är tillgängligt via utökningsfunktionen i Ec
 3. Du får bekräfta att du vill använda Service Fabric-perspektivet, vilket optimerar Eclipse för användning med Service Fabric-projekt. Välj Yes (Ja).
 
 ### <a name="deploy-the-application"></a>Distribuera programmet
-I Service Fabric-mallarna ingår en uppsättning Gradle-aktiviteter för att skapa och distribuera program, som du kan köra via Eclipse.
+I Service Fabric-mallarna ingår en uppsättning Gradle-aktiviteter för att skapa och distribuera program, som du kan köra via Eclipse. 
 
 1. Välj **Run > Run Configurations** (Kör > Kör konfigurationer).
-2. Expandera **Gradle Project** (Gradle-projekt) och välj **ServiceFabricDeployer**.
-3. Klicka på **Run** (Kör).
+2. Ange **lokal** eller **moln**. Standardinställningen är **lokal**. Om du distribuerar till ett kluster väljer du **moln**.
+3. Se till att rätt information visas i publiceringsprofilerna genom att redigera `local.json` eller `cloud.json`.
+4. Klicka på **Run** (Kör).
 
-Din app skapas och distribueras på ett par minuter. Du kan övervaka dess status från Service Fabric Explorer.
+Din app skapas och distribueras efter en liten stund. Du kan övervaka dess status från Service Fabric Explorer.
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Lägga till fler tjänster till ett befintligt program
+
+Om du vill lägga till en till tjänst till ett program som redan har skapats med hjälp av `yo` utför du följande steg: 
+1. Ändra katalogen till roten för det befintliga programmet.  Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
+2. Kör `yo azuresfjava:AddService`
+
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om Reliable Actors](service-fabric-reliable-actors-introduction.md)
@@ -117,6 +129,6 @@ Din app skapas och distribueras på ett par minuter. Du kan övervaka dess statu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

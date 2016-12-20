@@ -1,6 +1,6 @@
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
-1. Logga in på [Azure-portalen][Azure-portalen] och klicka på **Ny** högst upp till vänster på skärmen.
-2. Klicka på **Data + Analytics** och därefter på **Händelsehubbar**.
+1. Logga in på [Azure Portal][Azure Portal] och klicka på **Ny** högst upp till vänster på skärmen.
+2. Klicka på **Sakernas Internet** och sedan på **Event Hubs**.
    
     ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 3. I bladet **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
@@ -34,6 +34,6 @@ Din händelsehubb har nu skapats och du har de anslutningssträngar som du behö
 
 [Azure Portal]: https://portal.azure.com/
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

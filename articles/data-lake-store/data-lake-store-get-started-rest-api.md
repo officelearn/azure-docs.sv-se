@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 > * [REST-API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 I den här artikeln får du lära dig hur du använder WebHDFS REST API:er och Data Lake Store REST API:er för kontohantering samt filsystemsåtgärder på Azure Data Lake Store. Azure Data Lake Store visar sina egna REST API:er för kontohanteringsåtgärder. Men eftersom Data Lake Store är kompatibelt med HDFS och Hadoop-ekosystemet, stöder det användning av WebHDFS REST API:er för filsystemsåtgärder.
@@ -47,7 +48,7 @@ I den här artikeln får du lära dig hur du använder WebHDFS REST API:er och D
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hur autentiserar jag med Azure Active Directory?
 Du kan använda två sätt för att autentisera med Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Slutanvändarautentisering (interaktiv)
+### <a name="end-user-authentication-interactive"></a>Slutanvändarautentisering (interaktiv)
 I det här scenariot uppmanar programmet användaren att logga in och alla åtgärder utförs i kontexten för användaren. Utför följande steg för interaktiv autentisering.
 
 1. Omdirigera användaren via ditt program till följande URL:
@@ -88,7 +89,7 @@ I det här scenariot uppmanar programmet användaren att logga in och alla åtg�
 
 Mer information om interaktiv användarautentisering finns i [Flöde beviljat med auktoriseringskod](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Tjänst-till-tjänst-autentisering (icke-interaktivt)
+### <a name="service-to-service-authentication-non-interactive"></a>Tjänst-till-tjänst-autentisering (icke-interaktivt)
 I det här scenariot ger programmet sina egna autentiseringsuppgifter för att utföra åtgärder. För detta måste du skicka en POST-begäran såsom visas nedan. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -263,6 +264,6 @@ Du bör se utdata som liknar följande:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

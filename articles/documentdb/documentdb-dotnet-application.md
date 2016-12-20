@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af5563f875c532c0b902685219818b1cd0945a66
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a896240331d901ae839c2489c6266daac2780899
 
 
 ---
@@ -44,14 +44,18 @@ I den här beskrivningen visas hur du använder DocumentDB-tjänsten som tillhan
 ## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Förhandskrav för den här databas-självstudien
 Se till att du har följande innan du börjar följa anvisningarna i den här artikeln:
 
-* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/) 
+
+    ELLER
+
+    En lokal installation av [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) eller Visual Studio 2013 uppdatering 4 eller högre. Om du använder Visual Studio 2013 måste du installera [Microsoft.Net.Compilers nuget-paketet](https://www.nuget.org/packages/Microsoft.Net.Compilers/) för att lägga till stöd för C# 6.0. 
-* Azure SDK för .NET, version 2.5.1 eller senare, tillgängligt via [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
+* Azure SDK för .NET, version 2.5.1 eller senare, som är tillgängligt via [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
 
 Alla skärmdumpar i den här artikeln har tagits med Visual Studio 2013, uppdatering 4, och Azure SDK för .NET version 2.5.1. Om ditt system är konfigurerat med andra versioner kan det hända att skärmbilder och alternativ inte ser riktigt likadana ut, men om ovanstående förutsättningar är uppfyllda ska lösningen fungera.
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Steg 1: Skapa ett DocumentDB-databaskonto
-Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto kan du gå vidare till [Skapa en ny MVC-app med ASP.NET](#_Toc395637762).
+Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto eller om du använder DocumentDB-emulatorn för den här kursen kan du gå vidare till [Skapa ett nytt ASP.NET MVC-program](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -78,6 +82,9 @@ När du har ett konto skapar du ett nytt ASP.NET-projekt.
 5. Välj **MVC** i mallpanelen.
 6. Om du planerar att ha appen på Azure markerar du **Värd i molnet** nere till höger, så drivs appen via Azure. Vi har valt att använda värd i molnet och köra appen från en Azure-webbplats. När du markerar det här alternativet företableras en Azure-webbplats för dig, vilket gör saker och ting mycket enklare när det blir dags att distribuera den slutliga fungerande appen. Om du vill lagra den på en annan plats eller inte vill konfigurera Azure med en gång avmarkerar du bara **Värd i molnet**.
 7. Klicka på **OK** och låt Visual Studio generera ett kodskelett för den tomma ASP.NET MVC-mallen. 
+
+    Om du får felmeddelandet ”Ett fel uppstod när begäran bearbetades” läser du [felsökningsavsnittet](#troubleshooting).
+
 8. Om du väljer värden i molnet kommer du att se minst en extra skärm där du uppmanas att logga in på ditt Azure-konto och ange några värden för din nya webbplats. Ange alla ytterligare värden och fortsätt. 
    
       Jag har inte valt någon databasserver eftersom vi inte använder någon Azure SQL-databasserver här. Vi kommer att skapa ett nytt Azure DocumentDB-konto senare i Azure Portal.
@@ -423,9 +430,9 @@ Vi lägger till lite kod i DocumentDBRepository och ItemController för att spar
    
     Den här koden anropar DocumentDBRepository och använder metoden CreateItemAsync för att spara det nya todo-objektet i databasen. 
    
-    **Säkerhetsmeddelande**: Attributet **ValidateAntiForgeryToken** används här för att skydda appen mot attacker med förfalskning av begäran mellan webbplatser. Det är inte bara att lägga till attributet, även dina vyer behöver fungera med denna  antiförfalskningstoken. Mer information om ämnet och exempel på korrekt implementering finns i [Förhindra förfalskning av begäran mellan webbplatser][Förhindra förfalskning av begäran mellan webbplatser]. Källkoden på [GitHub][GitHub] har detta fullständigt implementerat.
+    **Säkerhetsmeddelande**: Attributet **ValidateAntiForgeryToken** används här för att skydda appen mot attacker med förfalskning av begäran mellan webbplatser. Det är inte bara att lägga till attributet, även dina vyer behöver fungera med denna  antiförfalskningstoken. Mer information och implementeringsexempel finns i [Förhindra förfalskning av begäranden mellan webbplatser][Preventing Cross-Site Request Forgery]. Källkoden på [GitHub][GitHub] innehåller den fullständiga implementeringen.
    
-    **Säkerhetsmeddelande**: Vi använder också attributet **binda** på metodparametern för att skydda mot overpostingattacker. Mer information finns i [Grundläggande CRUD-åtgärder i ASP.NET MVC][Grundläggande CRUD-åtgärder i ASP.NET MVC].
+    **Säkerhetsmeddelande**: Vi använder också attributet **binda** på metodparametern för att skydda mot overpostingattacker. Mer information finns i [Grundläggande CRUD-åtgärder i ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 Detta avslutar den kod som krävs för att lägga till nya objekt i vår databas.
 
@@ -536,20 +543,39 @@ När hela appen fungerar som den ska med DocumentDB är det dags att distribuera
 
 Efter några sekunder har Visual Studio publicerat din webbapp och öppnar en webbläsare där du kan se ditt arbete köras i Azure!
 
-## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Nästa steg
-Grattis! Du har precis skapat din första ASP.NET MVC-webbapp med Azure DocumentDB och publicerat den på Azure Websites. Källkoden för hela appen, inklusive detalj- och ta bort-funktionerna som inte fanns med i den här självstudiekursen, kan hämtas eller klonas från [GitHub][GitHub]. Om du vill lägga till det i din app hämtar du koden och lägger till den i appen.
+## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>Felsökning
 
-Om du vill lägga till ytterligare funktioner i appen tar du en titt på de API:er som finns i [Document DB .NET-biblioteket](https://msdn.microsoft.com/library/azure/dn948556.aspx). Lägg gärna till bidrag i DocumentDB-.NET-biblioteket på [GitHub][GitHub]. 
+Om du får felet ”Ett fel uppstod när begäran bearbetades” när du försöker distribuera webbappen gör du följande: 
+
+1. Avbryt felmeddelandet och välj **Microsoft Azure Web Apps** igen. 
+2. Logga in och välj **Nytt** för att skapa en ny webbapp. 
+3. På skärmen **Create a Web App on Microsoft Azure** (Skapa en webbapp i Microsoft Azure) gör du följande: 
+    
+    - Web App name (Webbappens namn): ”todo-net-app”
+    - App Service-plan: Skapa en ny med namnet ”todo-net-app”
+    - Resursgrupp: Skapa en ny med namnet ”todo-net-app”
+    - Region: Väljer den region som är närmast dina appanvändare
+    - Databasserver: Klicka på No database (Ingen databas) och sedan på **Skapa**. 
+
+4. På ”todo-net-app *-skärmen” klickar du på **Validate Connection** (Validera anslutning). När anslutningen har verifierats klickar du på **Publicera**. 
+    
+    Appen visas i webbläsaren.
+
+
+## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Nästa steg
+Grattis! Du har precis skapat din första ASP.NET MVC-webbapp med Azure DocumentDB och publicerat den på Azure Websites. Källkoden för hela appen, inklusive informations- och borttagningsfunktionerna som inte fanns med i den här självstudiekursen, kan hämtas eller klonas från [GitHub][GitHub]. Om du vill lägga till det i din app hämtar du koden och lägger till den i appen.
+
+Om du vill lägga till ytterligare funktioner i programmet går du igenom API:erna i [DocumentDB .NET-biblioteket](https://msdn.microsoft.com/library/azure/dn948556.aspx). Lägg gärna till bidrag i DocumentDB-.NET-biblioteket på [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Installationsprogram för Microsoft-webbplattformen]: http://www.microsoft.com/web/downloads/platform.aspx
-[Förhindra förfalskning av begäranden mellan webbplatser]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Grundläggande CRUD-åtgärder i ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

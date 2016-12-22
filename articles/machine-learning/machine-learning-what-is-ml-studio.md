@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a5bcc177d298aecd9fd474bd15fc0331b26e887
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
 
 
 ---
@@ -33,25 +33,30 @@ För att skapa en prediktiv analysmodell använder du normalt data från eller f
 
 **Azure Machine Learning Studio** ger dig en interaktiv, visuell arbetsyta där du kan bygga, testa och utföra iterationer på en prediktiv analysmodell. Du drar och släpper ***datauppsättningar*** och ***analysmoduler*** till en interaktiv ***arbetsyta***, kopplar samman dem för att skapa ett experiment och sedan kör du dessa i Machine Learning Studio. Om du vill köra en iteration med modelldesignen, redigerar du experimentet, sparar en kopia om du så önskar och sedan kör du försöket igen. När du är klar kan du konvertera ditt ***träningsexperiment*** till ett ***prediktivt experiment***, och sedan ***publicera*** det som en webbtjänst så att din modell kan användas av andra.
 
+Ingen programmering krävs. Det enda du behöver göra är att koppla samman datauppsättningar och moduler visuellt för att skapa en prediktiv analysmodell.
+
 > [!TIP]
 > Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
 > 
 > 
-
-Ingen programmering krävs. Det enda du behöver göra är att koppla samman datauppsättningar och moduler visuellt för att skapa en prediktiv analysmodell.
 
 ![Diagram för Azure ML Studio: Skapa experiment, läs in data från flera källor, skriv in bedömda data, skriv modeller.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Kom igång med Machine Learning Studio
 När du startar [Machine Learning Studio](https://studio.azureml.net) kommer du att se **startsidan**. Härifrån kan du titta på dokumentation, videor, webbseminarier och hitta andra användbara resurser.
 
-Det finns tre flikar högst upp på sidan: **Start** (dit du kommer först), **Studio** och **Galleri**.
+Klicka på menyn uppe till vänster ![Meny](media/machine-learning-what-is-ml-studio/menu.png) och du ser flera alternativ.
 
-### <a name="studio"></a>Studio
-Klicka på fliken **Studio** och du uppmanas att logga in med ditt Microsoft-konto eller ditt arbets- eller skolkonto. När du har loggat in visas följande flikar till vänster:
+### <a name="cortana-intelligence"></a>Cortana Intelligence
+Om du klickar på **Cortana Intelligence** öppnas startsidan för [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). Cortana Intelligence är en fullständigt hanterad programsvit för stordata och avancerad analys som hjälper dig att omvandla data till intelligenta åtgärder. På programsvitens startsida finns fullständig dokumentation, inklusive kundberättelser.
+
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+Det finns två alternativ här: **Start**, vilket är den sida där du startade, och **Studio**.
+
+Klicka på **Studio**, så kommer du till **Azure Machine Learning Studio**. Först uppmanas du att logga in med ditt Microsoft-konto eller ditt arbets- eller skolkonto. När du har loggat in visas följande flikar till vänster:
 
 * **PROJEKT** – Samlingar med experiment, datauppsättningar, anteckningsböcker och andra resurser som representerar ett enskilt projekt
-* **EXPERIMENT** – Experiment som har skapats, körts och sparats som utkast
+* **EXPERIMENT** – Experiment som du har skapat och kört eller sparat som utkast
 * **WEBBTJÄNSTER** – Webbtjänster som du har distribuerat från dina experiment
 * **NOTEBOOKS** – Jupyter-anteckningsböcker som du har skapat
 * **DATAUPPSÄTTNINGAR** – Datauppsättningar som du har överfört till Studio
@@ -59,7 +64,7 @@ Klicka på fliken **Studio** och du uppmanas att logga in med ditt Microsoft-kon
 * **INSTÄLLNINGAR** – En uppsättning av inställningar som du kan använda för att konfigurera ditt konto och resurserna.
 
 ### <a name="gallery"></a>Galleri
-Klicka på fliken **Galleri** och du kommer till Cortana Intelligence Gallery. Galleriet är en plats där grupper med dataanalytiker och utvecklare kan dela lösningar som skapats med hjälp av komponenter i Cortana Intelligence Suite.
+Klicka på fliken **Galleri**, så kommer du till **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. Galleriet är en plats där grupper med dataanalytiker och utvecklare kan dela lösningar som skapats med hjälp av komponenter i Cortana Intelligence Suite.
 
 Mer information om galleriet finns i [Dela och upptäck lösningar i Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
@@ -93,8 +98,8 @@ Om du vill se en lista över provdatauppsättningar som ingår i Machine Learnin
 En modul är en algoritm som du kan tillämpa på dina data. Machine Learning Studio har ett antal moduler, med allt från dataåtkomstfunktioner och träning till bedömning och processer för verifiering. Här följer några exempel på moduler som ingår:
 
 * [Konvertera till ARFF][convert-to-arff] – Konverterar en .NET-serialiserad datauppsättning till formatet ARFF (Attribute-Relation File Format).
-* [Beräkna elementära statistik][elementary-statistics] – Beräknar elementär statistik, som medelvärde, standardavvikelse o.s.v.
-* [Linjär regression][linear-regression] -– Skapar en linjär regressionsmodell baserad på brantaste lutningsmetoden online.
+* [Beräkna elementär statistik][elementary-statistics] – Beräknar elementär statistik, som medelvärde, standardavvikelse osv.
+* [Linjär regression][linear-regression] – Skapar en linjär regressionsmodell baserad på brantaste lutningsmetoden online.
 * [Bedömningsmodell][score-model] – Bedömer en tränad klassificerings- eller regressionsmodell.
 
 Medan du skapar ett experiment kan välja bland alternativ från listan över tillgängliga moduler på arbetsytans vänstra sida.  
@@ -116,6 +121,6 @@ När din prediktiva analysmodell är färdig kan du distribuera den som en webbt
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

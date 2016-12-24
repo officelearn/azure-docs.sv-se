@@ -5,9 +5,7 @@
 ## [Distribuera till ACS med Azure CLI 2.0 förhandsvisning](container-service-create-acs-cluster-cli.md)
 ## [Anslut med ett ACS-kluster](container-service-connect.md)
 ## [Skala ett ACS-kluster](container-service-scale.md)
-
 # Gör så här för att
-
 ## Hantera med DC/OS
 ### [Hantering av behållare – webb-UI för DC/OS](container-service-mesos-marathon-ui.md)
 ### [Hantering av behållare – REST API för DC/OS](container-service-mesos-marathon-rest.md)
@@ -19,18 +17,23 @@
 ### [Övervaka med OMS (DC/OS)](container-service-monitoring-oms.md)
 ### [Övervaka med Datadog (DC/OS)](container-service-monitoring.md)
 ### [Övervaka med Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-## [Hantera med Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Övervaka med Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
+## Hantera med Kubernetes
+### [Komma igång med Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Interaktion med Kubernetes webbgränssnitt](container-service-kubernetes-ui.md)
 ## [Hantera med Docker Swarm](container-service-docker-swarm.md)
-
+### [Docker och Docker Compose](container-service-docker-swarm.md)
+### [Docker Swarm kontinuerlig integrering](container-service-docker-swarm-setup-ci-cd.md)
 # Referens
-## [REST-API](/rest/api/compute/containerservices)
-
+## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
+## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
+## [REST](/rest/api/compute/containerservices)
 # Resurser
 ## [Regional tillgänglighet](https://azure.microsoft.com/regions/services/)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

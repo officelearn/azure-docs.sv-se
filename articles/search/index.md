@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du lägger till robusta sökfunktioner, inklusive aktivitetsövervakning, för anpassade webb- eller mobilappar. API-referenser och annan dokumentation."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 680083cd9df823bf0ff89a0b4099c411fa0be078
+ms.sourcegitcommit: 8a89b85795c0707d7fda9480c53db4a3469560d7
+ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
 
 ---
 # <a name="azure-search-documentation"></a>Dokumentation om Azure Search
 
-Azure Search är en hanterad molnsöktjänst som hjälper dig att skapa en kraftfull sökning i anpassade appar och övervakar sedan tjänsten, index och frågeaktivitet via portalens vyer. Viktiga funktioner är skalbar textsökning över flera språk, geospatial sökning, filtrering och aspektbaserad navigering, frågeifyllningar, markering av träffar och anpassade analysverktyg.
+Lär dig hur du lägger till sökfunktioner i dina anpassade webb- eller mobilappar med hjälp av Azure Search, en hanterad molnsöktjänst. Självstudier, API-referenser och annan dokumentation visar hur du lägger till skalbar textsökning över flera språk, geospatial sökning, filtrering och aspektbaserad navigering, frågeifyllningar, markering av träffar och anpassade analysverktyg.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -163,6 +164,6 @@ Ladda ned dokumentation om Azure Search </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

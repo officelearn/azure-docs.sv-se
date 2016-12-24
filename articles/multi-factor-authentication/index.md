@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du distribuerar Multi-Factor Authentication med en mängd verifieringsmetoder som ger en enkel inloggningsprocess. Självstudier, en SDK och mycket mer."
 translationtype: Human Translation
-ms.sourcegitcommit: defa12cb202ce4861a479ac40782248cd50039d3
-ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
+ms.sourcegitcommit: d3e822f16a48f5c144ce2634325591eb69dc0e33
+ms.openlocfilehash: 087b71266ad1f4b1be0acd1eaa465903c32c1fd2
 
 ---
 # <a name="multi-factor-authentication-documentation"></a>Dokumentation om Multi-Factor Authentication
 
-Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Azures MFA bidrar till att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål om en enkel inloggningsprocess. Den ger stark autentisering via en mängd verifieringsmetoder, inklusive telefonsamtal, textmeddelande eller verifiering av mobilappar.
+Lär dig att distribuera och hantera Azure Multi-Factor Authentication, ett tvåstegssystem för identitetsverifiering. Självstudier, en SDK och annan dokumentation visar hur du kan leverera stark autentisering med en mängd verifieringsmetoder tillsammans med en enkel inloggningsprocess.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -113,6 +114,7 @@ Ladda ned dokumentation om Multi-Factor Authentication </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

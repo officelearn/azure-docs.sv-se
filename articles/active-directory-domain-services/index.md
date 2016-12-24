@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Active Directory Domain Services för att ansluta virtuella Azure-datorer till en domän utan att använda domänkontrollanter och hantera dem med grupprinciper."
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: 5c25e7f81a4f2219c244044ea70416d1e0c63b4e
+ms.openlocfilehash: b05e7bfbc89de74937daa7daf578aa8a9bb39d64
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Dokumentationen för Active Directory Domain Services
 
-Azure AD Domain Services (DS) tillhandahåller hanterade domäntjänster, till exempel domänanslutning, gruppprincip, LDAP, Kerberos/NTLM-autentisering som är helt kompatibelt med Windows Server Active Directory.  Med den här tjänsten kan du distribuera ett flertal datorlösningar på ett flexibelt sätt.
+Lär dig hur du använder Active Directory Domain Services för att ansluta virtuella Azure-datorer till en domän utan att använda domänkontrollanter. Självstudier och annan dokumentation visar hur du hanterar virtuella datorer med hjälp av grupprinciper.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -168,6 +169,6 @@ Hämta dokumentationen för Active Directory Domain Services </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

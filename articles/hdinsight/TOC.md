@@ -10,7 +10,6 @@
 
 # Kom igång
 ## [Börja med Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Börja med interaktiv Hive-förhandsversion](hdinsight-hadoop-use-interactive-hive.md)
 ## [Börja med R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Börja med Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Börja med HBase och NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
@@ -225,6 +224,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

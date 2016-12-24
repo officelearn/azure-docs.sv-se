@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Service Fabric mellanplattform för att paketera och distribuera mikrotjänster för program i molnskala. Självstudier, API-referenser och kodexempel."
 translationtype: Human Translation
-ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
-ms.openlocfilehash: 0598e5ea3dc95853a21a56326241a82854477cbe
+ms.sourcegitcommit: 553950d52f53f7911e6de6dde3e2d92fd2e0395a
+ms.openlocfilehash: b6e7175ab63490907bb147ab519c20ebdee6bfc0
 
 ---
 #<a name="service-fabric-documentation"></a>Dokumentation om Service Fabric
 
-Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Service Fabric tar också itu med betydande utmaningar vid utveckling och hantering av molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. 
+Lär dig hur du använder Service Fabric för att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Självstudier, API-referenser och kodexempel visas hur du använder den här mellanplattformen för att skapa och hantera program i molnskala.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,6 @@ Ladda ned dokumentation om Service Fabric </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

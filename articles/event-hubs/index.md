@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Event Hubs för att mata in miljontals händelser per sekund från anslutna IoT-enheter och appar på en bred uppsättning plattformar."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f0ec0a2dff2e9bcea133dd1de0a92979d937580a
+ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
+ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
 
 ---
 #<a name="event-hubs-documentation"></a>Dokumentation om Event Hubs
 
-Event Hubs är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Event Hubs fungerar som ”ytterdörren” för en händelsepipeline, och när data har samlats in i en händelsehubb kan du omvandla och lagra dessa data med hjälp av valfri leverantör av realtidsanalys eller valfri adapter för batchbearbetning eller lagring.
+Lär dig hur du använder Event Hubs för att samla och hantera miljontals händelser per sekund från anslutna IoT-enheter och appar. Självstudier, API-referenser och annan dokumentation visar hur du konfigurerar skalbar inmatning för händelser på en bred uppsättning plattformar.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -86,52 +87,32 @@ Event Hubs är en mycket skalbar tjänst för dataingång som kan mata in miljon
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET-hanterad referens</p>
-                    </div>
+                        <h3>Språk</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.eventhubs">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/azure/service-bus-messaging/service-bus-amqp-protocol-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>AMQP</h3>
-                        <p>AMQP 1.0-protokollguide</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/eventhub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST API-referens för Event Hubs</p>
+                        <p><a href="/rest/api/eventhub">Referens för REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -145,6 +126,6 @@ Ladda ned dokumentation om Event Hubs </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

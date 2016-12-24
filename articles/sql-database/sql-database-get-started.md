@@ -1,5 +1,5 @@
 ---
-title: "SQL Database-självstudier: Skapa en SQL-databas | Microsoft Docs"
+title: "Självstudiekurs om SQL Database: Skapa en server, en brandväggsregel på servernivå, en exempeldatabas, en brandväggsregel på databasnivå och anslut till SQL Server Management Studio | Microsoft Docs"
 description: "Lär dig hur du ställer in en logisk SQL Database-server, serverbrandväggsregel, SQL-databas och exempeldata. Lär dig också att ansluta till klientverktyg, konfigurera användare och ställa in en brandväggsregel för databasen."
 keywords: "sql database-självstudier, skapa en sql-databas"
 services: sql-database
@@ -9,118 +9,303 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
+ms.custom: single databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/07/2016
+ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
+ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
 
 
 ---
-# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>SQL Database-självstudier: Skapa en SQL-databas på bara några minuter med hjälp av Azure Portal
-> [!div class="op_single_selector"]
-> * [Azure-portalen](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Kom igång med Azure SQL Database-servrar, databaser och brandväggsregler med hjälp av Azure Portal och SQL Server Management Studio
 
-I de här självstudierna kommer du att lära dig hur man använder Azure-portalen för att:
+I den här introduktionskursen lär du dig hur du använder Azure Portal för att:
 
-* Skapa en Azure SQL Database med exempeldata.
-* Skapa en brandväggsregel på servernivå för en enskild IP-adress eller för IP-adressintervall.
+* Skapa en ny Azure-resursgrupp
+* Skapa en logisk Azure SQL-server
+* Visa egenskaper för logiska Azure SQL-servrar
+* Skapa en brandväggsregel på servernivå
+* Skapa Adventure Works LT-exempeldatabasen som en enskild databas
+* Visa egenskaper för Adventure Works LT-exempeldatabasen i Azure
 
-Du kan utföra samma åtgärder, antingen med [C#](sql-database-get-started-csharp.md) eller [PowerShell](sql-database-get-started-powershell.md).
+I den här självstudiekursen använder du också den senaste versionen av SQL Server Management Studio för att:
 
-[!INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
+* Ansluta till den logiska servern och dess huvuddatabas
+* Köra frågor mot huvuddatabasen
+* Ansluta till exempeldatabasen
+* Köra frågor mot exempeldatabasen
+
+När du är klar med den här självstudiekursen har du en exempeldatabas och en tom databas som körs i en Azure-resursgrupp och som är ansluten till en logisk server. Du har också en brandväggsregel på servernivå som konfigurerats så att huvudobjektet på servernivå kan logga in på servern från en angiven IP-adress (eller ett angivet IP-adressintervall). 
+
+**Uppskattad tidsåtgång**: Den här självstudiekursen tar cirka 30 minuter (förutsatt att du redan uppfyller kraven).
+
+## <a name="prerequisites"></a>Krav
+
+* Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+
+* Du måste kunna ansluta till Azure Portal med ett konto som är medlem i rollen som prenumerationsägare eller deltagare. Mer information om rollbaserad åtkomstkontroll (RBAC) finns i [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md) (Komma igång med åtkomsthantering på Azure Portal).
+
+> [!TIP]
+> Du kan utföra samma uppgifter i en introduktionskurs genom att använda antingen [C#](sql-database-get-started-csharp.md) eller [PowerShell](sql-database-get-started-powershell.md).
+>
+
+### <a name="sign-in-by-using-your-existing-account"></a>Logga in med ditt befintliga konto
+Använd din [befintliga prenumeration](https://account.windowsazure.com/Home/Index) och följ dessa steg för att ansluta till Azure Portal.
+
+1. Öppna din webbläsare och anslut till [Azure-portalen](https://portal.azure.com/).
+2. Logga in på [Azure-portalen](https://portal.azure.com/).
+3. Ange autentiseringsuppgifterna för din prenumeration på sidan **Logga in**.
+   
+   ![Logga in](./media/sql-database-get-started/login.png)
+
 
 <a name="create-logical-server-bk"></a>
 
-## <a name="create-your-first-azure-sql-database"></a>Skapa din första Azure SQL Database
-1. Om du inte är ansluten ansluter du till [Azure Portal](http://portal.azure.com).
-2. Klicka på **Ny**, klicka på **Data + lagring**, och leta sedan upp **SQL Database**.
-   
-    ![Ny sql database 1](./media/sql-database-get-started/sql-database-new-database-1.png)
-3. Klicka på **SQL Database** för att öppna bladet SQL Database. Innehållet på det här bladet varierar beroende på antalet prenumerationer och befintliga objekt (till exempel befintliga servrar).
-   
-    ![Ny sql database 2](./media/sql-database-get-started/sql-database-new-database-2.png)
-4. Ange ett namn för din första databas, till exempel "min databas", i textrutan **Databasnamn**. En grön kryssmarkering visar att du har angett ett giltigt namn.
-   
-    ![Ny sql database 3](./media/sql-database-get-started/sql-database-new-database-3.png)
-5. Välj en prenumeration om du har flera.
-6. Klicka på **Skapa nytt** under **Resursgrupp** och ange ett namn för din första resursgrupp – till exempel "min-resurs-grupp". En grön kryssmarkering visar att du har angett ett giltigt namn.
-   
-    ![Ny sql database 4](./media/sql-database-get-started/sql-database-new-database-4.png)
-7. Klicka på **Exempel** under **Välj källa**, och sedan på **AdventureWorksLT [V12]** under **Välj exempel**.
-   
-    ![Ny sql database 5](./media/sql-database-get-started/sql-database-new-database-5.png)
-8. Klicka på **Konfigurera nödvändiga inställningar** under **Server**.
-   
-    ![Ny sql database 6](./media/sql-database-get-started/sql-database-new-database-6.png)
-9. Klicka **Skapa en ny server** på bladet Server. En Azure SQL Database skapas inom ett serverobjekt som kan vara antingen en ny eller en befintlig server.
-   
-    ![Ny sql database 7](./media/sql-database-get-started/sql-database-new-database-7.png)
-10. Granska bladet **Ny server** för att förstå informationen du behöver ange för den nya servern.
-    
-    ![Ny sql database 8](./media/sql-database-get-started/sql-database-new-database-8.png)
-11. Ange ett namn för din första server – till exempel "mitt- nya-serverobjekt".i textrutan **Servernamn**. En grön kryssmarkering visar att du har angett ett giltigt namn.
-    
-    ![Ny sql database 9](./media/sql-database-get-started/sql-database-new-database-9.png)
-12. Ange ett användarnamn för administratörinloggning för denna server – till exempel "mitt-adminkonto" under **Inloggning för serveradministratör**. Den här inloggningen kallas den primära server-inloggningen. En grön kryssmarkering visar att du har angett ett giltigt namn.
-    
-    ![Ny sql database 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. Ange ett lösenord för serverns huvudsakliga inloggningskonto, till exempel "p@ssw0rd1". under **Lösenord** och **Bekräfta lösenord**. En grön kryssmarkering visar att du har angett ett giltigt lösenord.
-    
-    ![Ny sql database 11](./media/sql-database-get-started/sql-database-new-database-11.png)
-14. Välj ett datacenter som är lämpligt för din plats – till exempel "Australien, östra" under **Plats**.
-    
-    ![Ny sql database 12](./media/sql-database-get-started/sql-database-new-database-12.png)
-15. Observera att du bara har möjlighet att skapa en aktuell version av Azure SQL server under ** Skapa V12-server (Senaste uppdatering).
-    
-    ![Ny sql database 13](./media/sql-database-get-started/sql-database-new-database-13.png)
-16. Observera att som standard är kryssrutan för **Ge Azure-tjänster åtkomst till server** vald och kan inte ändras här. Det här är ett avancerat alternativ. Du kan ändra inställningen i inställningarna för serverbrandväggen för det här serverobjektet, även om det i de flesta fall inte behövs.
-    
-    ![Ny sql database 14](./media/sql-database-get-started/sql-database-new-database-14.png)
-17. Gå igenom dina val på bladet för den nya servern och klicka sedan på **Välj** för att välja den här nya servern för den nya databasen.
-    
-    ![Ny sql database 15](./media/sql-database-get-started/sql-database-new-database-15.png)
-18. Klicka på **S2 Standard** under **Prisnivå** på bladet SQL Database och klicka sedan på **Basic** för att välja den billigaste prisnivån för din första databas. Du kan alltid ändra prisnivån senare.
-    
-    ![Ny sql database 16](./media/sql-database-get-started/sql-database-new-database-16.png)
-19. Granska dina val på bladet SQL Database och klicka sedan **Skapa** för att skapa din första server och databas. De värden som du har angett verifieras och distributionen startar.
-    
-    ![Ny sql database 17](./media/sql-database-get-started/sql-database-new-database-17.png)
-20. Klicka på objekten **Meddelanden** i portalens verktygsfält för att kontrollera distributionens status.
-    
-    ![Ny sql database 18](./media/sql-database-get-started/sql-database-new-database-18.png)
+## <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>Skapa en ny logisk SQL-server på Azure Portal
 
-> [!IMPORTANT]
-> När distributionen har slutförts skapas din nya Azure SQL-server och databas i Azure. Du kommer inte att kunna ansluta till den nya servern eller databasen med hjälp av SQL Server-verktyg förrän du skapar en serverbrandväggsregel för att öppna SQL Database-brandväggen för anslutningar utanför Azure.
-> 
-> 
+1. Klicka på **Nytt**, skriv **sql server** och klicka sedan på **Retur**.
 
-[!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
+    ![Logisk SQL-server](./media/sql-database-get-started/logical-sql-server.png)
+2. Klicka på **SQL-server (logisk server)**.
+   
+    ![Skapa logisk SQL-server](./media/sql-database-get-started/create-logical-sql-server.png)
+3. Öppna bladet för den nya SQL-servern (logisk server) genom att klicka på **Skapa**.
+
+    ![Ny logisk SQL-server](./media/sql-database-get-started/new-logical-sql-server.png)
+3. Ange ett giltigt namn för den nya logiska servern i textrutan Servernamn. En grön kryssmarkering visar att du har angett ett giltigt namn.
+    
+    ![Namn på ny server](./media/sql-database-get-started/new-server-name.png)
+
+    > [!IMPORTANT]
+    > Det fullständigt kvalificerade namnet för den nya servern är <ditt_servernamn>. database.windows.net.
+    >
+    
+4. I textrutan Inloggning för serveradministratör anger du ett användarnamn för SQL-autentiseringsinloggningen för den här servern. Den här inloggningen kallas den primära server-inloggningen. En grön kryssmarkering visar att du har angett ett giltigt namn.
+    
+    ![SQL-administratörsinloggning](./media/sql-database-get-started/sql-admin-login.png)
+5. I textrutorna **Lösenord** och **Bekräfta lösenord** anger du ett lösenord för inloggningskontot för serverhuvudobjektet. En grön kryssmarkering visar att du har angett ett giltigt lösenord.
+    
+    ![SQL-administratörslösenord](./media/sql-database-get-started/sql-admin-password.png)
+6. Välj en prenumeration som du har behörighet att skapa objekt i.
+
+    ![prenumeration](./media/sql-database-get-started/subscription.png)
+7. I textrutan Resursgrupp väljer du **Skapa nytt** och anger sedan ett giltigt namn för den nya resursgruppen i textrutan Resursgrupp. (Du kan också använda en befintlig resursgrupp om du redan har skapat en.) En grön kryssmarkering visar att du har angett ett giltigt namn.
+
+    ![Ny resursgrupp](./media/sql-database-get-started/new-resource-group.png)
+
+8. I textrutan **Plats** väljer du ett lämpligt datacenter för din plats, t.ex. ”Australien, östra”.
+    
+    ![Serverplats](./media/sql-database-get-started/server-location.png)
+    
+    > [!TIP]
+    > Du kan inte ändra kryssrutan för **Ge Azure-tjänster åtkomst till servern** på det här bladet. Du kan ändra den här inställningen på bladet Serverbrandvägg. Mer information finns i [Get started with security](sql-database-get-started-security.md) (Komma igång med säkerhet).
+    >
+    
+9. Klicka på **Skapa**.
+
+    ![Knappen Skapa](./media/sql-database-get-started/create.png)
+
+## <a name="view-the-logical-sql-server-properties-in-the-azure-portal"></a>Visa egenskaperna för den logiska SQL-servern på Azure Portal
+
+1. Klicka på **Fler tjänster** på Azure Portal.
+
+    ![Fler tjänster](./media/sql-database-get-started/more-services.png)
+2. I textrutan Filter skriver du **SQL** och klickar sedan på stjärnan för SQL-servrar om du vill ange SQL-servrar som favoriter i Azure. 
+
+    ![Ange favorit](./media/sql-database-get-started/favorite.png)
+3. På standardbladet klickar du på **SQL-servrar** för att öppna listan över SQL-servrar i din Azure-prenumeration. 
+
+    ![Ny SQL-server](./media/sql-database-get-started/new-sql-server.png)
+
+4. Klicka på den nya SQL-servern för att visa serverns egenskaper på Azure Portal. I efterföljande självstudiekurser lär du dig mer om de tillgängliga alternativen på det här bladet.
+
+    ![Bladet SQL-server](./media/sql-database-get-started/sql-server-blade.png)
+5. Under Inställningar klickar du på **Egenskaper** för att visa olika egenskaper för den logiska SQL-servern.
+
+    ![Egenskaper för SQL-server](./media/sql-database-get-started/sql-server-properties.png)
+6. Kopiera det fullständigt kvalificerade servernamnet till Urklipp för användning lite senare i den här självstudiekursen.
+
+    ![SQL-serverns fullständiga namn](./media/sql-database-get-started/sql-server-full-name.png)
+
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Skapa en brandväggsregel på servernivå på Azure Portal
+
+1. Öppna bladet Brandvägg för SQL-servern genom att klicka på **Brandvägg** under Inställningar på bladet SQL-server.
+
+    ![Brandvägg för SQL-server](./media/sql-database-get-started/sql-server-firewall.png)
+
+2. Granska klient-IP-adressen som visas och använd valfri webbläsare för att kontrollera att det här är din IP-adress på Internet (fråga ”what is my IP adress”). Ibland överensstämmer de inte av olika anledningar.
+
+    ![Din IP-adress](./media/sql-database-get-started/your-ip-address.png)
+
+3. Om IP-adresserna matchar varandra klickar du på **Lägg till klient-IP** i verktygsfältet.
+
+    ![Lägg till klient-IP](./media/sql-database-get-started/add-client-ip.png)
+
+    > [!NOTE]
+    > Du kan öppna SQL Database-brandväggen på servern för en enskild IP-adress eller ett helt adressintervall. Om du öppnar brandväggen kan SQL-administratörer och användare logga in i valfri databas på servern som de har giltiga autentiseringsuppgifter för.
+    >
+
+4. Klicka på **Spara** i verktygsfältet för att spara den här brandväggsregeln på servernivå och klicka sedan på **OK**.
+
+    ![Lägg till klient-IP](./media/sql-database-get-started/save-firewall-rule.png)
+
+## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Ansluta till SQL-servern med SQL Server Management Studio (SSMS)
+
+1. Om du inte redan har gjort det hämtar du och installerar den senaste versionen av SSMS på [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (Hämta SQL Server Management Studio). Om du vill hålla programmen uppdaterade, meddelar den senaste versionen av SSMS dig om när det finns en ny version tillgänglig för nedladdning.
+
+2. När installationen är klar skriver du **Microsoft SQL Server Management Studio** i sökrutan i Windows och klickar på **Retur** för att öppna SSMS:
+
+    ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
+3. I dialogrutan Anslut till server anger du nödvändig information för att ansluta till SQL-servern med hjälp av SQL Server-autentisering.
+
+    ![Anslut till server](./media/sql-database-get-started/connect-to-server.png)
+4. Klicka på **anslut**.
+
+    ![Ansluten till server](./media/sql-database-get-started/connected-to-server.png)
+5. I Object Explorer expanderar du **Databaser**, expanderar **Systemdatabaser** och expanderar sedan **Huvud** för att visa objekt i huvuddatabasen.
+
+    ![Huvuddatabas](./media/sql-database-get-started/master-database.png)
+6. Högerklicka på **Huvud** och klicka sedan på **Ny fråga**.
+
+    ![Fråga huvuddatabasen](./media/sql-database-get-started/query-master-database.png)
+
+8. Skriv följande fråga i frågefönstret:
+
+   ```select * from sys.objects```
+
+9.  Klicka på **Kör** i verktygsfältet för att returnera en lista över alla systemobjekt i huvuddatabasen.
+
+    ![Fråga efter systemobjekt i huvuddatabasen](./media/sql-database-get-started/query-master-database-system-objects.png)
+
+    > [!NOTE]
+    > Mer information om säkerheten i SQL finns i [Get Started with SQL security](sql-database-get-started-security.md) (Komma igång med SQL-säkerhet)
+    >
+
+## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Skapa en ny databas på Azure Portal med hjälp av ett Adventure Works LT-exempel
+
+1. På Azure Portal klickar du på **SQL-databaser** på standardbladet.
+
+    ![SQL-databaser](./media/sql-database-get-started/new-sql-database.png)
+2. Klicka på **Lägg till** på bladet SQL-databaser.
+
+    ![Lägg till SQL-databas](./media/sql-database-get-started/add-sql-database.png)
+3. Granska informationen som fyllts i automatiskt på bladet SQL Database.
+
+    ![Bladet SQL-databas](./media/sql-database-get-started/sql-database-blade.png)
+4. Ange ett giltigt databasnamn.
+
+    ![SQL-databasens namn](./media/sql-database-get-started/sql-database-name.png)
+5. Klicka på **Exempel** under Välj källa och klicka sedan på **AdventureWorksLT [V12]** under Välj exempel.
+   
+    ![Adventure Works LT](./media/sql-database-get-started/adventureworkslt.png)
+6. Under Server anger du användarnamnet och lösenordet för inloggning som serveradministratör.
+
+    ![Serverautentiseringsuppgifter](./media/sql-database-get-started/server-credentials.png)
+
+    > [!NOTE]
+    > När du lägger till en databas till en server kan den läggs till som en enskild databas (det här är standardinställningen) eller i en elastisk pool. Mer information om elastiska pooler finns i avsnittet om [elastiska pooler](sql-database-elastic-pool.md).
+    >
+
+7. Under Prisnivå ändrar du prisnivån till **Basic**. (Du kan öka prisnivån senare om du vill, men i utbildningssyfte rekommenderar vi att du använder den lägsta kostnadsnivån.)
+
+    ![prisnivå](./media/sql-database-get-started/pricing-tier.png)
+8. Klicka på **Skapa**.
+
+    ![Knappen Skapa](./media/sql-database-get-started/create.png)
+
+## <a name="view-database-properties-in-the-azure-portal"></a>Visa databasegenskaper på Azure Portal
+
+1. På bladet SQL-databaser klickar du på den nya databasen för att visa databasens egenskaper på Azure Portal. I efterföljande självstudiekurser lär du dig mer om de tillgängliga alternativen på det här bladet. 
+
+    ![Blad för ny exempeldatabas](./media/sql-database-get-started/new-sample-db-blade.png)
+2. Klicka på **Egenskaper** för att visa ytterligare information om databasen.
+
+    ![Egenskaper för ny exempeldatabas](./media/sql-database-get-started/new-sample-db-properties.png)
+
+3. Klicka på **Visa databasanslutningssträngar**.
+
+    ![Anslutningssträngar för ny exempeldatabas](./media/sql-database-get-started/new-sample-db-connection-strings.png)
+4. Klicka på **Översikt** och klicka sedan på namnet på din server i rutan Information.
+    
+    ![Informationsfönster för ny exempeldatabas](./media/sql-database-get-started/new-sample-db-essentials-pane.png)
+5. I fönstret Information för servern ser du databasen som du lagt till.
+
+    ![Ny exempeldatabas i fönstret för serverinformation](./media/sql-database-get-started/new-sample-db-server-essentials-pane.png)
+
+## <a name="connect-and-query-sample-database-using-sql-server-management-studio"></a>Ansluta och köra frågor mot exempeldatabasen med hjälp av SQL Server Management Studio
+
+1. Växla till SQL Server Management Studio och klicka på **Databaser** i Object Explorer och klicka sedan på **Uppdatera** i verktygsfältet för att visa exempeldatabasen.
+
+    ![Ny exempeldatabas med SSMS](./media/sql-database-get-started/new-sample-db-ssms.png)
+2. I Object Explorer expanderar du den nya databasen för att visa databasens objekt.
+
+    ![Objekt i den nya exempeldatabasen med SSMS](./media/sql-database-get-started/new-sample-db-objects-ssms.png)
+3. Högerklicka på exempeldatabasen och klicka sedan på **Ny fråga**.
+
+    ![Fråga mot den nya exempeldatabasen med SSMS](./media/sql-database-get-started/new-sample-db-query-ssms.png)
+4. Skriv följande fråga i frågefönstret:
+
+   ```select * from sys.objects```
+   
+9.  Klicka på **Kör** i verktygsfältet för att returnera en lista över alla systemobjekt i exempeldatabasen.
+
+    ![Fråga efter systemobjekt i den nya exempeldatabasen med hjälp av SSMS](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
+
+## <a name="create-a-new-blank-database-using-sql-server-management-studio"></a>Skapa en ny tom databas med hjälp av SQL Server Management Studio
+
+1. Högerklicka på **Databaser** i Object Explorer och klicka sedan på **Ny databas**.
+
+    ![Ny tom databas med SSMS](./media/sql-database-get-started/new-blank-database-ssms.png)
+
+    > [!NOTE]
+    > Du kan också ange att SSMS ska skapa ett databasgenereringsskript så att du kan skapa en ny databas med hjälp av Transact-SQL.
+    >
+
+2. Ange ett databasnamn i textrutan Databasnamn i dialogrutan Ny databas. 
+
+    ![Namn på ny tom databas med SSMS](./media/sql-database-get-started/new-blank-database-name-ssms.png)
+
+3. I dialogrutan Ny databas klickar du på **Alternativ** och ändrar sedan utgåvan till **Basic**.
+
+    ![Alternativ för ny tom databas med SSMS](./media/sql-database-get-started/new-blank-database-options-ssms.png)
+
+    > [!TIP]
+    > Gå igenom de andra alternativen i den här dialogrutan som du kan ändra för Azure SQL Database. Mer information om dessa alternativ finns i [Skapa databas](https://msdn.microsoft.com/library/dn268335.aspx).
+    >
+
+4. Skapa den tomma databasen genom att klicka på **OK**.
+5. När det är klart uppdaterar du noden Databas i Object Explorer så att den nya tomma databasen visas. 
+
+    ![Ny tom databas i Object Explorer](./media/sql-database-get-started/new-blank-database-object-explorer.png)
+
+> [!TIP]
+> Du kan spara pengar medan du lär dig genom att ta bort databaser som du inte använder. Databaser med Basic-versionen kan återställas inom sju dagar. Men ta inte bort en server. Om du gör det kan du inte återställa servern eller någon av dess borttagna databaser.
+>
+
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har slutfört de här SQL Database-självstudierna och skapat en databas med lite exempeldata, är du redo att börja använda dina favoritverktyg.
+Nu när du är klar med den här självstudiekursen finns det ytterligare några självstudiekurser som du kanske vill utforska och som bygger vidare på det du har lärt dig i den här kursen. 
 
-* Om du är bekant med Transact-SQL och SQL Server Management Studio (SSMS), lär du dig hur man [Ansluter och frågar en SQL-databas med SSMS](sql-database-connect-query-ssms.md).
+* Om du vill lära dig mer om säkerheten i Azure SQL Database läser du [Komma igång med säkerhet](sql-database-get-started-security.md).
 * Om du kan Excel, lär du dig hur man [Ansluter till en SQL Database i Azure med Excel](sql-database-connect-excel.md).
 * Om du är redo att börja koda, väljer du programmeringsspråk på [Anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md).
-* Om du vill flytta dina lokala SQL Server-databaser till Azure, se [Migrera en databas till SQL Database](sql-database-cloud-migrate.md) för mer information.
+* Om du vill flytta dina lokala SQL Server-databaser till Azure läser du [Migrera en databas till SQL Database](sql-database-cloud-migrate.md).
 * Om du vill läsa in data i en ny tabell från en CSV-fil med kommandoradsverktyget BCP, se [Läs in data i SQL Database från en CSV-fil med BCP](sql-database-load-from-csv-with-bcp.md).
-* Om du vill börja utforska Azure SQL Database-säkerhet se [Komma igång med säkerhet](sql-database-get-started-security.md)
+* Om du vill börja skapa tabeller och andra objekt läser du avsnittet ”Så här skapar du en tabell” i [Skapa en tabell](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-[Vad är SQL Database?](sql-database-technical-overview.md)
+
+- En teknisk översikt finns i [Vad är SQL Database?](sql-database-technical-overview.md).
+- För information om priser se [Prisinformation för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

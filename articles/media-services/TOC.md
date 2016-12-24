@@ -11,7 +11,7 @@
 ### [REST](media-services-rest-get-started.md)
 ## Utföra liveuppspelning
 ### [Portal](media-services-portal-live-passthrough-get-started.md)
-### [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Gör så här för att
 ## Hantera
@@ -19,10 +19,10 @@
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
 ### Hantera entiteter
-#### [NET](media-services-dotnet-manage-entities.md)
+#### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### Ansluta genom programmering
-#### [NET](media-services-dotnet-connect-programmatically.md)
+#### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
 ### [Hantera slutpunkter för direktuppspelning i portalen](media-services-portal-manage-streaming-endpoints.md)
 ### [Så gör du för att: Uppdatera Media Services efter återställning av lagringsåtkomstnycklar](media-services-roll-storage-access-keys.md)
@@ -31,9 +31,9 @@
 ## Överföra innehåll
 ### Överföra filer till ett konto
 #### [Portal](media-services-portal-upload-files.md)
-#### [NET](media-services-dotnet-upload-files.md)
+#### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
-### [Kopiera befintliga blobbar](media-services-copying-existing-blob.md)
+### [Kopiera befintliga blobar](media-services-copying-existing-blob.md)
 
 ## [Koda innehåll](media-services-encode-asset.md)
 ### [Jämför kodare](media-services-compare-encoders.md)
@@ -44,7 +44,7 @@
 ##### [Media Encoder Standard-schema](media-services-mes-schema.md)
 ##### [Inkommande metadata](media-services-input-metadata-schema.md)
 ##### [Utgående metadata](media-services-output-metadata-schema.md)
-#### MES-förinställningar 
+#### [MES-förinställningar](media-services-mes-presets-overview.md) 
 ##### [H264, flera bithastigheter, 1080p, Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264, flera bithastigheter, 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264, flera bithastigheter, 16.9, SD, Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -72,7 +72,7 @@
 ##### [H264, enkel bithastighet, låg kvalitet, SD för Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
 #### Koda med Media Encoder Standard
 ##### [Portal](media-services-portal-encode.md)
-##### [NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Avancerad kodning med MES](media-services-advanced-encoding-with-mes.md)
 ##### [Generera miniatyrer med Media Encoder Standard med .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
@@ -85,7 +85,7 @@
 ##### [Skapa avancerade arbetsflöden för kodning med Workflow Designer](media-services-workflow-designer.md)
 ##### [Premium-arbetsflöde med flera indatafiler](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### Mediebearbetare
-#### [NET](media-services-get-media-processor.md)
+#### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
 ### Inaktuell
 #### [Statisk paketering och kryptering](media-services-static-packaging.md)
@@ -117,14 +117,14 @@
 
 ### Tillgångsleverans
 #### Konfigurera tillgångsleveransprinciper
-##### [NET](media-services-dotnet-configure-asset-delivery-policy.md)
+##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
 ##### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Skapa ContentKeys
-#### [NET](media-services-dotnet-create-contentkey.md)
+#### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
 ### Konfigurera principen för auktorisering av innehållsnycklar
 #### [Portal](media-services-portal-configure-content-key-auth-policy.md)
-#### [NET](media-services-dotnet-configure-content-key-auth-policy.md)
+#### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 
 ## [Analysera](media-services-analytics-overview.md)
@@ -140,13 +140,13 @@
 ### [Bearbeta med OCR](media-services-video-optical-character-recognition.md)
 
 ## [Konfigurera telemetri](media-services-telemetry-overview.md)
-###[NET](media-services-dotnet-telemetry.md)
+###[.NET](media-services-dotnet-telemetry.md)
 ###[REST](media-services-rest-telemetry.md)
 
 ## Skala
 ### [Mediebearbetning](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
-#### [NET](media-services-dotnet-encoding-units.md)
+#### [.NET](media-services-dotnet-encoding-units.md)
 #### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 ### Slutpunkter för direktuppspelning
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
@@ -155,11 +155,11 @@
 ### [Dynamisk paketering](media-services-dynamic-packaging-overview.md)
 ### [Översikt över filter och dynamiska manifest](media-services-dynamic-manifest-overview.md)
 ### Skapa filter
-#### [NET](media-services-dotnet-dynamic-manifest.md)
+#### [.NET](media-services-dotnet-dynamic-manifest.md)
 #### [REST](media-services-rest-dynamic-manifest.md)
 ### Publicera innehåll
 #### [Portal](media-services-portal-publish.md)
-#### [NET](media-services-deliver-streaming-content.md)
+#### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Leverera efter hämtning](media-services-deliver-asset-download.md)
 ### [Scenario vid direktuppspelningsredundans](media-services-implement-failover.md)
@@ -167,7 +167,7 @@
 ## Förbruka
 ### [Spela upp media med befintliga spelare](media-services-playback-content-with-existing-players.md)
 ### [Spela upp media med Media Player](media-services-develop-video-players.md)
-### Andra uppspelningalternativ
+### Andra uppspelningsalternativ
 #### [Jämn direktuppspelning av Windows Store-program](media-services-build-smooth-streaming-apps.md)
 #### [HTML5-program med DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Adobe Open Source Media Framework-spelare](media-services-use-osmf-smooth-streaming-client-plugin.md)
@@ -185,7 +185,7 @@
 ### Kontrollera jobbförlopp
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
-#### [NET](media-services-check-job-progress.md)
+#### [.NET](media-services-check-job-progress.md)
 ### [Köa lagring för att övervaka jobbmeddelanden](media-services-dotnet-check-job-progress-with-queues.md)
 
 ## Felsöka
@@ -195,16 +195,18 @@
 ### [Logik för omprövning](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Referens
-## [Viktig information](media-services-release-notes.md)
-## [NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (Service Management)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Resurser
+## [Viktig information](media-services-release-notes.md)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services-community](media-services-community.md)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

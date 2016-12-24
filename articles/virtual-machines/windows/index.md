@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig skapa virtuella Windows-datorer. Dokumentation som hjälper dig att planera, distribuera och hantera en virtuell datoranvändningsmiljö i molnet."
 translationtype: Human Translation
-ms.sourcegitcommit: c5ed66f3a060dcd1bac9c04c70c493dcebcf9df8
-ms.openlocfilehash: f8d6ab10622ac6daacaf66551f18eaecd1448dee
+ms.sourcegitcommit: 0970a23966dc099fe4d145ddc66f9a73c109e8a1
+ms.openlocfilehash: 1c56e72a39ff0ea47dcda600b61c937691c63dab
 
 ---
-#<a name="windows-virtual-machines-documentation"></a>Dokumentation om virtuella Windows-datorer
+# <a name="windows-virtual-machines-documentation"></a>Dokumentation om virtuella Windows-datorer
 
-Azure Virtual Machines (VM) är en av flera typer av behovsbaserade och skalbara datorresurser som Azure erbjuder. Normalt använder du en virtuell dator om du behöver mer kontroll över datormiljön än vad de andra alternativen erbjuder. En virtuell dator i Azure ger dig virtualiseringsflexibilitet utan att du behöver köpa och underhålla den fysiska maskinvara som den virtuella datorn körs på. Du behåller dessutom kontrollen över konfiguration, korrigering och installation av programvaran som körs på den virtuella datorn.
+Lär dig skapa virtuella Windows-datorer. Självstudier, API-referenser och annan dokumentation som hjälper dig att planera, distribuera och hantera en virtuell datoranvändningsmiljö i molnet.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -103,107 +104,48 @@ Azure Virtual Machines (VM) är en av flera typer av behovsbaserade och skalbara
 </ul>
 
 ---
-
-##<a name="reference"></a>Referens
-
+ 
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-cmdletar</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Installera Azure CLI</p>
+                        <h3>Språk</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET-hanterat referens-API</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">Beräkna REST API-referens</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java SDK</h3>
-                        <p>Java API-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Compute)</h3>
-                        <p>Beräkna REST API-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163658">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Network)</h3>
-                        <p>Network REST API-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storage">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Storage)</h3>
-                        <p>Storage REST API-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -217,6 +159,6 @@ Hämta dokumentationen om virtuella Windows-datorer </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -66,7 +66,6 @@
 
 #### [Granska händelser](active-directory-reporting-audit-events.md)
 #### [Kvarhållning](active-directory-reporting-retention.md)
-#### [Återfyllnad](active-directory-reporting-backfill.md)
 #### [Svarstider](active-directory-reporting-latencies.md)
 #### [Meddelanden](active-directory-reporting-notifications.md)
 ### Förstå rapporter
@@ -203,6 +202,7 @@
 #### [Grupprincipinställningar](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 #### [Windows 10-inställningar](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [Vanliga frågor och svar](active-directory-windows-enterprise-state-roaming-faqs.md)
+#### [Felsöka](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Integrera partners med Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Översikt](active-directory-b2b-collaboration-overview.md)
 #### [Hur det fungerar](active-directory-b2b-how-it-works.md)
@@ -297,6 +297,6 @@
 ## [Azures feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

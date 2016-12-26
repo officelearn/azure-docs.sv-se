@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär hur du utvecklar och distribuerar funktioner på valfritt språk för att köra uppgifter i bakgrunden eller enligt ett schema utan särskild infrastruktur."
 translationtype: Human Translation
-ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
-ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
+ms.sourcegitcommit: 76fed1f753b910007be4d9bb16630483aa225760
+ms.openlocfilehash: 91deffe385997c3e658a7fbfe194c9c2b762df58
 
 ---
 #<a name="azure-functions-documentation"></a>Azure Functions-dokumentation
 
-Azure Functions är en lösning för att enkelt köra små delar av kod ("funktioner") i molnet. Du kan skriva koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra det. Du kan även utveckla i det språk du föredrar, till exempel C#, F#, Node.js, Python eller PHP.
+Lär dig hur du använder Functions för att utveckla och distribuera små delar av kod på valfritt språk och i molnet utan att konfigurera infrastruktur. Självstudier, mallar och annan dokumentation visar hur du skapar funktioner för uppgifter som du vill köra i en bakgrundstråd eller enligt ett schema.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -115,6 +116,6 @@ Ladda ned Azure Functions-dokumentation </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "Komma igång med Azure Batch CLI | Microsoft Docs"
 description: "Få en snabb introduktion till Batch-kommandon i Azure CLI för att hantera Azure Batch-tjänstens resurser"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/30/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
 
 
 ---
@@ -129,7 +129,7 @@ När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som in
 
 Du kan utföra många resursskapande åtgärder med endast kommandoradsalternativ, men vissa funktioner kräver en JSON-formaterad fil som innehåller information om resursen. Du måste till exempel använda en JSON-fil om du vill ange resursfiler för en startuppgift.
 
-För att hitta den JSON-fil som krävs för att skapa en resurs ska du gå till dokumentationen [Referens för Batch REST API ][rest_api] på MSDN. Varje avsnitt med ”Lägg till *resurstyp*” innehåller exempel på JSON-filer för att skapa en resurs, som du kan använda som en mall för JSON-filer. Till exempel finns en JSON-fil för att skapa en pool i [Lägga till en pool till ett konto][rest_add_pool].
+Om du vill hitta den JSON som krävs för att skapa en resurs bör du läsa dokumentationen [Referens för Batch REST API][rest_api] på MSDN. Varje avsnitt med ”Lägg till *resurstyp*” innehåller exempel på JSON-filer för att skapa en resurs, som du kan använda som en mall för JSON-filer. Det finns t.ex. en JSON-fil för att skapa en pool i [Lägga till en pool till ett konto][rest_add_pool].
 
 > [!NOTE]
 > Om du anger en JSON-fil när du skapar en resurs ignoreras alla andra parametrar som du anger på kommandoraden för den resursen.
@@ -273,6 +273,6 @@ I det här avsnittet finns resurser som du kan använda när du felsöker proble
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

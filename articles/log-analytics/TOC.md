@@ -46,6 +46,7 @@
 #### [Övervakning av nätverksprestanda](log-analytics-network-performance-monitor.md)
 #### [Säkerhetsgranskning](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
+#### [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [SQL-bedömning](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
@@ -61,12 +62,15 @@
 ### [Loggsöknings-API](log-analytics-log-search-api.md)
 ### [Aviserings-API](log-analytics-api-alerts.md)
 
+# Referens
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+
 # Resurser
 ## [Uppgraderingsanalys](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

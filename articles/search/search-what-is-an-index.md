@@ -10,11 +10,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
 
 
 ---
@@ -22,7 +22,7 @@ ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
 > [!div class="op_single_selector"]
 > * [Översikt](search-what-is-an-index.md)
 > * [Portalen](search-create-index-portal.md)
-> * [NET](search-create-index-dotnet.md)
+> * [.NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
 > 
 > 
@@ -47,7 +47,7 @@ När du definierar ett schema måste du ange namnet, typen och attributet för v
 | *Edm.DateTimeOffset* |Datum- och tidsvärden som representeras i OData V4-format (t.ex. `yyyy-MM-ddTHH:mm:ss.fffZ` eller `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |En punkt som representerar en geografisk plats i världen. |
 
-Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns på MSDN](https://msdn.microsoft.com/library/azure/dn798938.aspx).
+Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns här](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="field-attributes"></a>Fältattribut
 | Attribut | Beskrivning |
@@ -59,16 +59,16 @@ Mer detaljerad information om [vilka datatyper som stöds i Azure Search finns p
 | *Fasettbar* |Gör att ett fält kan användas i en struktur för [aspektbaserad navigering](search-faceted-navigation.md) för filtrering av användaren. Oftast fungerar fält med upprepade värden som kan användas för att gruppera flera dokument (till exempel flera dokument som hör till samma varumärkes- eller tjänstkategori) bäst som aspekter. |
 | *Sökbar* |Markerar fältet som fulltextsökbart. |
 
-Mer detaljerad information om [indexattributen i Azure Search finns på MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Mer detaljerad information om [indexattributen i Azure Search finns här](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="guidance-for-defining-an-index-schema"></a>Riktlinjer för att definiera ett indexschema
-När du skapar ditt index bör du ta dig tid i planeringsfasen och tänka igenom varje beslut. Det är viktigt att du har användarupplevelsen och dina affärsbehov i åtanke när du utformar ditt index eftersom varje fält måste tilldelas [rätt egenskaper](https://msdn.microsoft.com/library/azure/dn798941.aspx). Om du behöver ändra ett index som har distribuerats måste du återskapa och läsa in dina data igen.
+När du skapar ditt index bör du ta dig tid i planeringsfasen och tänka igenom varje beslut. Det är viktigt att du har användarupplevelsen och dina affärsbehov i åtanke när du utformar ditt index eftersom varje fält måste tilldelas [rätt egenskaper](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Om du behöver ändra ett index som har distribuerats måste du återskapa och läsa in dina data igen.
 
 Om datalagringsbehovet ändras med tiden kan du öka eller minska kapaciteten genom att lägga till eller ta bort partitioner. Mer information finns i [Hantera din söktjänst i Azure](search-manage.md) och [Tjänstgränser](search-limits-quotas-capacity.md).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

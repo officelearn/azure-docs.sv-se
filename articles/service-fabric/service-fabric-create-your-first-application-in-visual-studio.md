@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
-ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 
 
 ---
@@ -41,7 +41,7 @@ Följande videoklipp går igenom stegen i den här självstudiekursen:
 > 
 
 ## <a name="create-the-application"></a>Skapa programmet
-Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. I guiden Nytt projekt kan du skapa ett programprojekt tillsammans med ditt första tjänstprojekt. Du kan lägga till fler tjänster senare.
+Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. Skapa ett programprojekt, tillsammans med ditt första tjänstprojekt, med hjälp av guiden Nytt projekt. Du kan också lägga till fler tjänster senare om du vill.
 
 1. Starta Visual Studio som administratör.
 2. Klicka på **Arkiv > Nytt projekt > Moln > Service Fabric-program**.
@@ -106,7 +106,7 @@ Nu när du har ett program kan du prova att köra det.
    
     Service Fabric Explorer tillhandahåller en visuell representation av ett kluster, inklusive uppsättningen program som distribuerats till det och den samling fysiska noder som det består av. Mer information om Service Fabric Explorer finns i [Visualisera klustret](service-fabric-visualizing-your-cluster.md).
 6. I den vänstra rutan expanderar du **Kluster > Noder** och letar upp noden där koden körs.
-7. Klicka på **Åtgärder > Inaktivera (omstart)** för att simulera omstarten av en dator. (Observera att du också kan inaktivera snabbmenyn i nodlistvyn i det vänstra fönstret.)
+7. Klicka på **Åtgärder > Inaktivera (omstart)** för att simulera omstarten av en dator. Du kan också inaktivera noden från listvyn över noder i det vänstra fönstret.
    
     ![Stoppa en nod i Service Fabric Explorer][sfx-stop-node]
    
@@ -116,14 +116,14 @@ Nu när du har ett program kan du prova att köra det.
     ![Loggboken Diagnostik efter en redundansväxling][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>Växla klusterläge
-Som standard har det lokala utvecklingsklustret konfigurerats för att köras som ett kluster med fem noder, vilket är användbart för felsökning av tjänster som är distribuerade över flera noder. Det kan dock ta tid att distribuera ett program till utvecklingsklustret med fem noder. Om du vill iterera kodändringar snabbt, utan att köra ditt program på 5 noder, kan du växla utvecklingsklustret till ett läge med bara en nod. Om du vill köra din kod i ett kluster med en nod högerklickar du på den lokala klusterhanteraren i systemfältet och väljer **Växla klusterläge -> 1 nod**.  
+Som standard är det lokala utvecklingsklustret konfigurerat att köras som ett kluster med fem noder, vilket är användbart för felsökning av tjänster som är distribuerade över flera noder. Det kan dock ta tid att distribuera ett program till utvecklingsklustret med fem noder. Om du snabbt vill iterera kodändringar, utan att köra din app på fem noder, byter du utvecklingsklustret till läget för en nod. Om du vill köra din kod i ett kluster med en nod högerklickar du på den lokala klusterhanteraren i systemfältet och väljer **Växla klusterläge -> 1 nod**.  
 
 ![Växla klusterläge][switch-cluster-mode]
 
-När du ändrar klusterläge återställs utvecklingsklustret och alla program som etablerats eller körs på klustret tas bort.
+Utvecklingsklustret återställs när du ändrar klusterläge och alla program som etablerats eller körs i klustret tas bort.
 
 ## <a name="cleaning-up"></a>Rensa
-  Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. Om du stoppar felsökningen tar du bort din instans av programmet och avregistrerar programtypen. Klustret fortsätter dock att köras i bakgrunden. Du kan hantera klustret på flera sätt:
+Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. Om du stoppar felsökningen tar du bort din instans av programmet och avregistrerar programtypen. Klustret fortsätter dock att köras i bakgrunden. Du kan hantera klustret på flera sätt:
 
 1. Om du vill stänga av klustret, men behålla programdata och spårningar, klickar du på **Stoppa lokalt kluster** i appen i systemfältet.
 2. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Ta bara bort klustret om du inte planerar att använda det lokala klustret under en tid eller om du behöver frigöra resurser.
@@ -133,6 +133,7 @@ När du ändrar klusterläge återställs utvecklingsklustret och alla program s
 * Prova att skapa en tjänst med hjälp av programmeringsmodellerna [Reliable Services](service-fabric-reliable-services-quick-start.md) eller [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 * Lär dig hur du kan exponera dina tjänster för Internet med en [frontwebbtjänst](service-fabric-add-a-web-frontend.md).
 * Gå igenom en [praktisk övning](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) och skapa en tillståndslös tjänst, konfigurera övervakning och hälsorapporter och utför en uppgradering av programmet.
+* Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)
 
 <!-- Image References -->
 
@@ -151,6 +152,6 @@ När du ändrar klusterläge återställs utvecklingsklustret och alla program s
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

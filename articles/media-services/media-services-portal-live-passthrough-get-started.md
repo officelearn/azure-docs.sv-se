@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 7f22e8fb10f61cc0bb2e7d0a83449bf2e46a12d3
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Så här utför du direktsänd strömning med lokala kodare med hjälp av Azure-portalen
+# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Så här utför du direktsänd strömning med lokala kodare med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
-> * [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+> * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 > * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 > 
 > 
@@ -80,7 +80,7 @@ Klicka på meddelandeikonen om du vill visa meddelanden och fel som genereras av
 ![Meddelanden](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
 ## <a name="configure-streaming-endpoints"></a>Konfigurera strömningsslutpunkter
-Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med flera bithastigheter i följande strömningsformat: MPEG DASH, HLS, Smooth Streaming eller HDS utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
+Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med flera bithastigheter i följande strömningsformat: MPEG DASH, HLS eller jämn direktuppspelning utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
 
 Om du vill dra nytta av dynamisk paketering behöver du minst en enhet för strömning för den strömningsslutpunkt från vilken du planerar att leverera ditt innehåll.  
 
@@ -101,7 +101,7 @@ Om du vill skapa och ändra antalet reserverade enheter för strömning gör du 
    > 
    > 
 
-## <a name="create-and-start-passthrough-channels-and-events"></a>Skapa och starta genomströmningskanaler och händelser
+## <a name="create-and-start-pass-through-channels-and-events"></a>Skapa och starta genomströmningskanaler och händelser
 En kanal är associerad med händelser och program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar händelser. 
 
 Du kan ange det antal timmar som du vill behålla inspelat innehåll för programmet genom att ställa in längden för **Arkivfönster**. Det här värdet kan anges från minst 5 minuter till högst 25 timmar. Även arkivfönstrets längd påverkar den maximala tid som klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Händelser kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
@@ -180,6 +180,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

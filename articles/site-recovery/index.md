@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du konfigurera molnhaveriberedskap och företagskontinuitet för virtuella datorer och fysiska servrar genom att distribuera och hantera replikering."
 translationtype: Human Translation
-ms.sourcegitcommit: fbd98ba8100dddf870c8d40d65edc9709bfeda41
-ms.openlocfilehash: 4023b92302b0e7462ff5c067b4ded3123a6f6bcb
+ms.sourcegitcommit: 13d77644673b86be22bf7be40f77d6ebfb1f8baa
+ms.openlocfilehash: d815422edd036711525d8c2f1eea0348295416d5
 
 ---
 # <a name="site-recovery-documentation"></a>Dokumentation om Site Recovery
 
-Azure Site Recovery bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att samordna replikering av virtuella datorer och fysiska servrar. Du kan replikera servrar och virtuella datorer från ditt primära lokala datacenter till Azure, eller till ett sekundärt datacenter. Om det inträffar avbrott på den primära platsen så växlar du över till den sekundära platsen så att arbetsbelastningar fortsätter att vara åtkomliga och tillgängliga.
+Lär dig hur du använder Site Recovery för företagskontinuitet och strategi för haveriberedskap för privata moln. Självstudier och annan dokumentation visar hur du planerar, distribuerar och hanterar dirigering av replikering av fysiska servrar på plats och virtuella datorer, till molnet eller till ett sekundärt datacenter.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -50,52 +51,34 @@ Azure Site Recovery bidrar till din BCDR-strategi för affärskontinuitet och ha
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell-referens</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery">PowerShell</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery">PowerShell – Klassisk</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java API-referens för Site Recovery</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/en-us/library/mt750497">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST API-referens för Site Recovery</p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">Referens för REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-</ul>   
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
@@ -107,6 +90,6 @@ Hämta dokumentation om Site Recovery </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

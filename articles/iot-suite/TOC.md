@@ -19,6 +19,7 @@
 ## [Anslut en logikapp till fjärrövervakningslösningen](iot-suite-logic-apps-tutorial.md)
 ## [Anpassa en förkonfigurerad lösning](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Använd dynamisk telemetri med fjärrövervakningslösningen](iot-suite-dynamic-telemetry.md)
+## [Skapa en anpassad regel i fjärrövervakningslösningen](iot-suite-custom-rule.md)
 ## [Enhetsinformation i fjärrövervakningslösningen](iot-suite-remote-monitoring-device-info.md)
 
 # Referens
@@ -42,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

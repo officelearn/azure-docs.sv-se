@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du anpassar säkerhetsalternativ i Azure-tjänster som uppfyller kraven för dina distributioner av tjänster och data i molnet."
 translationtype: Human Translation
-ms.sourcegitcommit: d06c292b36ef6dd6bd4f858603debfe93d498cb6
-ms.openlocfilehash: 622e8ccb62538110991c4f882ada9014ea03ffb4
+ms.sourcegitcommit: 07febed306b53cc62c882f3f7865284e96875bf8
+ms.openlocfilehash: be29bc97d4fcf8e0c1efa655d05126a3f49d9636
 
 ---
 # <a name="security-documentation"></a>Dokumentation om Security
 
-Allt i Azures infrastruktur, från anläggning till tillämpningar, är utformat för att fungera som värd för miljoner kunder samtidigt, och den tillhandahåller en säker grund som företaget kan använda sig av för att möta de interna säkerhetsbehoven. Dessutom erbjuder Azure dig en mängd olika konfigurerbara säkerhetsalternativ samt möjligheten att kontrollera dem, så att du kan anpassa säkerheten för att uppfylla de specifika behoven hos dina distributioner.
+Lär dig använda Azure Security för att skydda tjänster och data i molnet. Självstudier och annan dokumentation som hjälper dig att anpassa säkerhetsalternativ i Azure-tjänster som uppfyller kraven för dina distributioner.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -114,6 +115,6 @@ Hämta dokumentation om Security </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

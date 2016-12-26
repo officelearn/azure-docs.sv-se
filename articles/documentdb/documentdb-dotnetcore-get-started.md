@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/09/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 86c0258cca0a4ffa507ac30da12a7a62d3e4f853
-ms.openlocfilehash: 2150deb06732985db634e23472fa075c743e19c8
+ms.sourcegitcommit: 269d0a0c72d6509b91d7cc8fcffb6641006026f4
+ms.openlocfilehash: 9323eb95ec014a1cc57daa8433e87f9d68b949f5
 
 
 ---
@@ -44,7 +44,7 @@ Vi tar upp följande:
 * Ta bort ett dokument
 * Ta bort databasen
 
-Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/arramac/documentdb-dotnet-core-getting-started). En snabbguide finns i avsnittet [Hämta den kompletta lösningen](#GetSolution).
+Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). En snabbguide finns i avsnittet [Hämta den kompletta lösningen](#GetSolution).
 
 Ge oss sedan feedback med röstningsknapparna högst uppe och nere på den här sidan. Om du vill att vi ska kontakta dig direkt kan du skriva din e-postadress i kommentaren.
 
@@ -77,7 +77,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
 7. Leta reda på **Microsoft.Azure.DocumentDB.Core** i resultatet och klicka på **Installera**.
    Paket-ID:t för DocumentDB-klientbiblioteket är [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
 
-Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Det finns ett färdigt kodprojekt för den här självstudiekursen i [GitHub](https://github.com/arramac/documentdb-dotnet-core-getting-started).
+Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Det finns ett färdigt kodprojekt för den här självstudiekursen i [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
 ## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Steg 3: Anslut till ett DocumentDB-konto
 Lägg först till dessa referenser till början av C#-appen, i filen Program.cs:
@@ -173,32 +173,6 @@ Kopiera och klistra in metoden **WriteToConsoleAndPromptToContinue** under metod
 
 Du kan skapa DocumentDB-[databasen](documentdb-resources.md#databases) med hjälp av metoden [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) för klassen **DocumentClient**. En databas är en logisk behållare för JSON-dokumentlagring, partitionerad över samlingarna.
 
-Kopiera och klistra in metoden **CreateDatabaseIfNotExists** under metoden **WriteToConsoleAndPromptToContinue**.
-
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateDatabaseIfNotExists(string databaseName)
-    {
-            // Check to verify a database with the id=FamilyDB does not exist
-            try
-            {
-                    await this.client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(databaseName));
-                    this.WriteToConsoleAndPromptToContinue("Found {0}", databaseName);
-            }
-            catch (DocumentClientException de)
-            {
-                    // If the database does not exist, create a new database
-                    if (de.StatusCode == HttpStatusCode.NotFound)
-                    {
-                            await this.client.CreateDatabaseAsync(new Database { Id = databaseName });
-                            this.WriteToConsoleAndPromptToContinue("Created {0}", databaseName);
-                    }
-                    else
-                    {
-                            throw;
-                    }
-            }
-    }
-
 Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under den skapade klienten. Då skapas en databas med namnet *FamilyDB*.
 
     private async Task GetStartedDemo()
@@ -206,7 +180,7 @@ Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under d
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+        await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
 Kör appen genom att trycka på **F5**.
 
@@ -219,42 +193,6 @@ Grattis! Du har skapat en DocumentDB-databas.
 > 
 
 Du kan skapa en [samling](documentdb-resources.md#collections) med metoden [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) för klassen **DocumentClient**. En samling är en behållare för JSON-dokument och associerad JavaScript-applogik.
-
-Kopiera och klistra in metoden **CreateDocumentCollectionIfNotExists** under metoden **CreateDatabaseIfNotExists**.
-
-    // ADD THIS PART TO YOUR CODE
-    private async Task CreateDocumentCollectionIfNotExists(string databaseName, string collectionName)
-    {
-        try
-        {
-            await this.client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName));
-            this.WriteToConsoleAndPromptToContinue("Found {0}", collectionName);
-        }
-        catch (DocumentClientException de)
-        {
-            // If the document collection does not exist, create a new collection
-            if (de.StatusCode == HttpStatusCode.NotFound)
-            {
-                DocumentCollection collectionInfo = new DocumentCollection();
-                collectionInfo.Id = collectionName;
-
-                // Configure collections for maximum query flexibility including string range queries.
-                collectionInfo.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
-
-                // Here we create a collection with 400 RU/s.
-                await this.client.CreateDocumentCollectionAsync(
-                    UriFactory.CreateDatabaseUri(databaseName),
-                    collectionInfo,
-                    new RequestOptions { OfferThroughput = 400 });
-
-                this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
-            }
-            else
-            {
-                throw;
-            }
-        }
-    }
 
 Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden som skapade databasen. Då skapas en dokumentsamling som heter *FamilyCollection_oa*.
 
@@ -605,7 +543,7 @@ För att bygga GetStarted-lösningen med alla exempel i den här artikeln behöv
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 * Ett [DocumentDB-konto][documentdb-create-account].
-* [GetStarted](https://github.com/arramac/documentdb-dotnet-core-getting-started)-lösningen som finns på GitHub.
+* [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)-lösningen som finns på GitHub.
 
 Om du vill återställa referenser till .NET DocumentDB Core SDK i Visual Studio högerklickar du på **GetStarted**-lösningen i Solution Explorer och klickar sedan på **Aktivera NuGet-paketåterställning**. I filen Program.cs uppdaterar du sedan värdena för EndpointUrl och AuthorizationKey genom att följa anvisningarna i [Ansluta till ett DocumentDB-konto](#Connect).
 
@@ -622,6 +560,6 @@ Om du vill återställa referenser till .NET DocumentDB Core SDK i Visual Studio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

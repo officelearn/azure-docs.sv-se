@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du synkroniserar kataloger och möjliggör enkel inloggning. Dokumentationen visar hur du integrerar en fullständig uppsättning funktioner för identitetshantering."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
+ms.sourcegitcommit: 5a478ce5c06cd875ec4ed5ff2bed4d0cd98fac53
+ms.openlocfilehash: 500c764b124ac811432212bab50f83dc6f6b86ee
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Dokumentation om Azure Active Directory
 
-Azure Active Directory Premium är en identitets- och åtkomsthanteringslösning som tillhandahåller enkel inloggning till flera tusen molnappar (SaaS) och åtkomst till webbappar som du kör lokalt. Azure Active Directory ger stöd för företagsmobilitet och samarbete och levererar avancerat identitetsskydd via MFA (Multi-Factor Authentication), säkerhetsrapporter, granskningar, aviseringar och anpassningsbara principer för villkorlig åtkomst baserat på enhetens hälsotillstånd, användarens plats och risknivå.
+Lär dig hur du synkroniserar kataloger och möjliggör enkel inloggning med Azure Active Directory (Azure AD). Självstudier, API-referenser och annan dokumentation visar hur du integrerar funktioner för identitethantering inklusive Multi-Factor Authentication, enhetsregistrering, rollbaserad åtkomstkontroll, säkerhetsövervakning och avisering.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -138,6 +139,6 @@ Ladda ned dokumentation om Active Directory </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

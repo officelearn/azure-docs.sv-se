@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder API Management för att publicera API:er på ett säkert sätt och i större skala. Dokumentation visar hur du skapar moderna API-gatewayer för befintliga serverdelstjänster."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 43f480acb3e49a1b6a081a8338bb66daa571be55
+ms.sourcegitcommit: bc1895fc3b10c9fab96a120359e25324a1132a51
+ms.openlocfilehash: cd5342474c551bfb9eb1496ffd67f3b36933f1d8
 
 ---
 # <a name="api-management-documentation"></a>Dokumentation om API Management
 
-API Management hjälper organisationer att publicera API:er till externa partner och interna utvecklare så att de kan frigöra potentialen i sina data och tjänster.  API Management lägger grunden till ett effektivt API-program genom engagerade utvecklare, affärsinsikter, analyser, hög säkerhet och skydd.
+Lär dig hur du använder API Management för att publicera API:er till externa, partner och anställda utvecklare säkert och i större skala. Självstudier, API-referenser och annan dokumentation visar hur du skapar och hanterar moderna API-gatewayer för befintliga serverdelstjänster var som helst.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ API Management hjälper organisationer att publicera API:er till externa partner
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=api-management">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,36 +87,46 @@ API Management hjälper organisationer att publicera API:er till externa partner
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-cmdlet för API Management Resource Manager</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">Klassiska PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/apimanagement/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST API-referens för API Management</p>
+                        <p><a href="/rest/api/apimanagement/">REST-API</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">REST-API (original)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Annat</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn894081">Principer</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt697540">Mallar</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
@@ -131,6 +142,6 @@ Hämta dokumentation om API Management </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

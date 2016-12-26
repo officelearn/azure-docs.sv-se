@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljontals Sakernas Internet-resurser. Självstudier, API-referenser, videor och annan dokumentation."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
+ms.sourcegitcommit: 771a82342a40b62cbb4b31316f08e474a797ff34
+ms.openlocfilehash: 9dd5f81cacf774eff651597e1a4920466e5c6fa3
 
 ---
 #<a name="iot-hub-documentation"></a>Dokumentation om IoT Hub
 
-Azure IoT Hub är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och som tillhandahåller serverdelen för lösningar av den här typen.  Den tillhandahåller även omfattande övervakning för enhetsanslutning och innehåller enhetsbibliotek för de flesta populära språk och plattformar. 
+Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljontals Sakernas Internet-resurser. Självstudier, API-referenser, videor och annan dokumentation hjälper dig att distribuera tillförlitlig och dubbelriktad kommunikation mellan IoT-enheter och en lösnings serverdel. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -103,68 +104,51 @@ Azure IoT Hub är en helt hanterad tjänst som möjliggör tillförlitlig och s�
 </ul>
 
 ---
-
-## <a name="reference"></a>Referens
-
+ 
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/iot">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>IoT HUB med Azure CLI</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET-hanterat referens-API</p>
+                        <h3>Språk</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.devices">.NET (tjänst)</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (enheter)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (tjänst)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (enheter)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/">SDK:er för Azure IoT</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">SDK för gateway</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java SDK-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/iothub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>IoT HUB REST API-referens</p>
+                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST-API (resursprovider)</a></p>
+                        <p><a href="/rest/api/iothub/device-identities-rest">REST-API (enhetsidentiteter)</a></p>
+                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">REST-API (enhetsmeddelanden)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -178,6 +162,6 @@ Ladda ned dokumentation om IoT Hub </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -8,6 +8,7 @@
 # Kom igång
 ## [Snabbstart](security-center-get-started.md)
 ## [Planering och drift](security-center-planning-and-operations-guide.md)
+## [Behörigheter](security-center-permissions.md)
 ## [Vanliga frågor och svar](security-center-faq.md)
 
 # Gör så här för att
@@ -69,6 +70,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

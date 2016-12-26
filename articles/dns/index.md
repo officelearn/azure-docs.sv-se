@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig att hantera dina DNS-poster med hjälp av Azure Domain Name System. Dokumentation som visar hur du konfigurerar och hanterar DNS-zoner och poster för domännamn."
 translationtype: Human Translation
-ms.sourcegitcommit: e0ec3ec5c8a24a84f54350441be73871e81b9761
-ms.openlocfilehash: 7af04a1619ea9d84eb3d477660d55eeea89e57bf
+ms.sourcegitcommit: 1e30c21b967e9862ae24907ac5db56a341c11cf5
+ms.openlocfilehash: a0110b01879360e4558dffed6343da1ef72cfe86
 
 ---
-#<a name="dns-documentation"></a>DNS-dokumentation
+# <a name="dns-documentation"></a>DNS-dokumentation
 
-Azure DNS (Domain Name System) är en tjänst för DNS-domäner som anger namnmatchning med hjälp av Microsoft Azure-infrastrukturen.  Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
+Lär dig att hantera dina DNS-poster med hjälp av Azure Domain Name System, en värdtjänst. Självstudier, API-referenser och annan dokumentation som visar hur du konfigurerar och hanterar DNS-zoner och poster för domännamn.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,68 +87,49 @@ Azure DNS (Domain Name System) är en tjänst för DNS-domäner som anger namnma
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
-    <li>
-        <a href="/powershell/azureps-cmdlets-docs">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
 <li>
-        <a href="/cli/azure/network/dns">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure DNS med Azure CLI</p>
-                    </div>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3>Kommandorad</h3>
+                    <p><a href="/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns">PowerShell</a></p>
+                    <p><a href="/cli/azure/network/dns">Azure CLI</a></p>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
+    </div>
+</li>
 <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET-hanterad referens</p>
-                    </div>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3>Språk</h3>
+                    <p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
+                    <p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p>
+                    <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p>
+                    <p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p>
+                    <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html">Python</a></p>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
+    </div>
+</li>
 <li>
-        <a href="/rest/api/dns">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>REST-API-referens för DNS</p>
-                    </div>
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardText">
+                    <h3>REST</h3>
+                    <p><a href="/rest/api/dns/">REST-API</a></p>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
+    </div>
+</li>
 </ul>
 
 <div class="downloadHolder">
@@ -160,6 +142,6 @@ Hämta DNS-dokumentation </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

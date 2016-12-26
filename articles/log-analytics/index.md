@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Log Analytics för att samla in och analysera data som genererats av resurser i ditt moln och lokala miljöer, oavsett fysisk plats."
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: a70f352a076f0d018856c1bdf5c326515405d154
+ms.sourcegitcommit: edbf9890b63219e7d87256be3600a1d41c87e295
+ms.openlocfilehash: 31726ed708006d504eea1e948561c108d39622f2
 
 ---
+
 # <a name="log-analytics-documentation"></a>Log Analytics-dokumentation
 
-Log Analytics är en tjänst i Operations Management Suite (OMS) som hjälper dig att samla in och analysera data som genererats av resurser i molnet och i lokala miljöer. Det ger dig realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över hela arbetsbelastningen och alla servrar, oavsett deras fysiska plats.
+Lär dig hur du använder Log Analytics i Operations Management Suite för att samla och analysera data som genererats av resurser i molnet och i lokala miljöer. Självstudier och annan dokumentationen visar hur får insikter i realtid över dina arbetsbelastningar och servrar, oavsett fysisk plats.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -68,22 +70,19 @@ Log Analytics är en tjänst i Operations Management Suite (OMS) som hjälper di
 
 ---
 
-## <a name="automation"></a>Automation
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell-referens</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -97,6 +96,6 @@ Ladda ned Log Analytics-dokumentation </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

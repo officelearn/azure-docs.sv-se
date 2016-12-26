@@ -55,12 +55,15 @@
 ### [Spåra ändringar med ändringsfeed](documentdb-change-feed.md)
 ### [Prestandatestning](documentdb-performance-testing.md)
 ### [Prestandatips](documentdb-performance-tips.md)
-### DocumentDB för MongoDB-utvecklare
-#### [Protokollstöd för MongoDB](documentdb-protocol-mongodb.md)
-#### [Skapa ett konto](documentdb-create-mongodb-account.md)
-#### [Ansluta till ditt konto](documentdb-connect-mongodb-account.md)
-#### [Använda MongoChef](documentdb-mongodb-mongochef.md)
-#### [Exempel på protokollstöd](documentdb-mongodb-samples.md)
+
+## Använd DocumentDB-stöd för MongoDB
+### [Protokollstöd för MongoDB](documentdb-protocol-mongodb.md)
+### [Skapa ett konto](documentdb-create-mongodb-account.md)
+### [Ansluta till ditt konto](documentdb-connect-mongodb-account.md)
+### [Migrera dina data](documentdb-mongodb-migrate.md)
+### [Använda Robomongo](documentdb-mongodb-robomongo.md)
+### [Använda MongoChef](documentdb-mongodb-mongochef.md)
+### [Exempel på protokollstöd](documentdb-mongodb-samples.md)
 
 ## Använda portalen
 ### [Skapa ett databaskonto](documentdb-create-account.md)
@@ -117,6 +120,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder tjänster för övervakning och diagnostik för att spåra prestanda, upprätthålla säkerhet och identifiera trender. API-referenser, bästa metoder och mycket annat."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
+ms.sourcegitcommit: edf493f70b08bdf5545127a90d7a13ea49b668c1
+ms.openlocfilehash: 0ee9faf763dbedd4046547764c5ad5ad9e3d2d07
 
 ---
 
 # <a name="monitoring-and-diagnostics-documentation"></a>Dokumentation för övervakning och diagnostik
 
-Övervakning och diagnostik är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och bemöta de stora utmaningarna med att utveckla och hantera molnprogram.  Övervakning och diagnostik representerar nästa generations mellanprogramsplattform för att skapa och hantera dessa molskalningsprogram i företagsklass på nivå 1.
+Lär dig hur du använder övervakning och diagnostik med Azure för att spåra prestanda, upprätthålla säkerhet och identifiera trender. Självstudier, API-referenser, bästa metoder och annan dokumentation hjälper dig att förstå användningen av övervakning och diagnostik och hur du planerar och distribuerar skalbara och tillförlitliga lösningar.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -154,6 +155,7 @@ Hämta dokumentation för övervakning och diagnostik </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

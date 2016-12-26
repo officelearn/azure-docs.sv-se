@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1934fa46b38f36033c427a6ac061db94f4dc760b
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 1934fa46b38f36033c427a6ac061db94f4dc760b
 > 
 > 
 
-Den här artikeln visar hur du använder [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) för att importera data till ett Azure Search-index.
+Den här artikeln visar hur du använder [Azure Search .NET SDK](https://aka.ms/search-sdk) för att importera data till ett Azure Search-index.
 
 Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Search-index](search-what-is-an-index.md). I den här artikeln förutsätter vi också att du redan har skapat ett `SearchServiceClient`-objekt. Mer information finns i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
 
@@ -45,11 +45,11 @@ För att kunna skicka dokument till ditt index med .NET SDK måste du:
 För att importera data till ditt index med Azure Search .NET SDK måste du skapa en instans av klassen `SearchIndexClient`. Du kan skapa den här instansen själv, men det är enklare om du redan har en `SearchServiceClient`-instans och kan anropa dess `Indexes.GetClient`-metod. Här är ett exempel på hur du hämtar en `SearchIndexClient` för indexet med namnet ”hotels” från en `SearchServiceClient` med namnet `serviceClient`:
 
 ```csharp
-SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 > [!NOTE]
-> I ett typiskt sökprogram hanteras indexhanteringen och ifyllningen av en separat komponent från sökfrågorna. `Indexes.GetClient` är praktiskt för att fylla ett index eftersom du inte behöver ange en till `SearchCredentials`. Den gör det genom att skicka administratörsnyckeln som du använde för att skapa `SearchServiceClient` till den nya `SearchIndexClient`. Men i den del av ditt program som kör frågor är det bättre att skapa `SearchIndexClient` direkt så att du kan skicka en frågenyckel i stället för en administratörsnyckel. Den här riktlinjen följer [principen om lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege) och hjälper till att göra programmet säkrare. Mer information om administratörsnycklar och frågenycklar finns i [REST API-referensen för Azure Search på MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+> I ett typiskt sökprogram hanteras indexhanteringen och ifyllningen av en separat komponent från sökfrågorna. `Indexes.GetClient` är praktiskt för att fylla ett index eftersom du inte behöver ange en till `SearchCredentials`. Den gör det genom att skicka administratörsnyckeln som du använde för att skapa `SearchServiceClient` till den nya `SearchIndexClient`. Men i den del av ditt program som kör frågor är det bättre att skapa `SearchIndexClient` direkt så att du kan skicka en frågenyckel i stället för en administratörsnyckel. Den här riktlinjen följer [principen om lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege) och hjälper till att göra programmet säkrare. Mer information om administratörsnycklar och frågenycklar finns i [REST API-referensen för Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
 > 
 > 
 
@@ -165,29 +165,43 @@ Du kanske undrar hur Azure Search .NET SDK kan ladda upp instanser av en använd
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
+    [Key]
+    [IsFilterable]
     public string HotelId { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 
+    [IsSearchable]
     public string Description { get; set; }
 
+    [IsSearchable]
+    [Analyzer(AnalyzerName.AsString.FrLucene)]
     [JsonProperty("description_fr")]
     public string DescriptionFr { get; set; }
 
+    [IsSearchable, IsFilterable, IsSortable]
     public string HotelName { get; set; }
 
+    [IsSearchable, IsFilterable, IsSortable, IsFacetable]
     public string Category { get; set; }
 
+    [IsSearchable, IsFilterable, IsFacetable]
     public string[] Tags { get; set; }
 
+    [IsFilterable, IsFacetable]
     public bool? ParkingIncluded { get; set; }
 
+    [IsFilterable, IsFacetable]
     public bool? SmokingAllowed { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public DateTimeOffset? LastRenovationDate { get; set; }
 
+    [IsFilterable, IsSortable, IsFacetable]
     public int? Rating { get; set; }
 
+    [IsFilterable, IsSortable]
     public GeographyPoint Location { get; set; }
 
     // ToString() method omitted for brevity...
@@ -197,20 +211,20 @@ public partial class Hotel
 Det första som du bör lägga märke till är att varje offentlig egenskap för `Hotel` motsvarar ett fält i indexdefinitionen, men med en viktig skillnad: namnet på fälten börjar med gemen (”kamelnotation”), men namnet på offentliga egenskaper för `Hotel` börjar med versal (”Pascalnotation”). Det här är ett vanligt scenario i .NET-program som utför databindning där målschemat ligger utanför programutvecklarens kontroll. I stället för att behöva bryta mot riktlinjerna för .NET-namngivning genom att göra egenskapsnamnen gemena kan du uppmana SDK att mappa egenskapsnamnen till kamelnotation automatiskt med attributet `[SerializePropertyNamesAsCamelCase]`.
 
 > [!NOTE]
-> Azure Search .NET SDK använder [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm)-biblioteket för att serialisera och deserialisera anpassade modellobjekt till och från JSON. Du kan anpassa den här serialiseringen om det behövs. Mer information finns i [Uppgradera till Azure Search .NET SDK version 1.1](search-dotnet-sdk-migration.md#WhatsNew). Ett exempel på detta är användningen av `[JsonProperty]`-attributet för `DescriptionFr`-egenskapen i exempelkoden ovan.
+> Azure Search .NET SDK använder [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm)-biblioteket för att serialisera och deserialisera anpassade modellobjekt till och från JSON. Du kan anpassa den här serialiseringen om det behövs. Mer information finns i [Anpassad serialisering med JSON.NET](search-howto-dotnet-sdk.md#JsonDotNet). Ett exempel på detta är användningen av `[JsonProperty]`-attributet för `DescriptionFr`-egenskapen i exempelkoden ovan.
 > 
 > 
 
-Den andra viktiga saken om klassen `Hotel` är datatyperna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `DataType.String`. Det finns liknande typmappningar mellan `bool?` och `DataType.Boolean`, `DateTimeOffset?` och `DataType.DateTimeOffset` osv. De specifika reglerna för typmappningen finns dokumenterade med `Documents.Get`-metoden på [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
+Den andra viktiga saken om klassen `Hotel` är datatyperna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `DataType.String`. Det finns liknande typmappningar mellan `bool?` och `DataType.Boolean`, `DateTimeOffset?` och `DataType.DateTimeOffset` osv. De specifika reglerna för typmappningen finns dokumenterade med `Documents.Get`-metoden i [Azure Search .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
 
 Den här möjligheten att använda egna klasser som dokument fungerar i båda riktningar. Du kan också hämta sökresultat och låta SDK deserialisera dem automatiskt till valfri typ, som du ser i [nästa artikel](search-query-dotnet.md).
 
 > [!NOTE]
-> Azure Search .NET SDK stöder också dynamiskt typifierade dokument med hjälp av klassen `Document`, som är en nyckel/värde-mappning av fältnamn till fältvärden. Detta är användbart i scenarier då du inte känner till indexeringsschemat redan i designfasen, eller då det skulle vara opraktiskt att binda till specifika modellklasser. Alla metoder i SDK som hanterar dokument har överlagringar som fungerar med klassen `Document`, samt starkt typifierade överlagringar som använder en parameter av generisk typ. Endast de senare används i exempelkoden i den här artikeln. Du hittar mer information om klassen `Document` [på MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
+> Azure Search .NET SDK stöder också dynamiskt typifierade dokument med hjälp av klassen `Document`, som är en nyckel/värde-mappning av fältnamn till fältvärden. Detta är användbart i scenarier då du inte känner till indexeringsschemat redan i designfasen, eller då det skulle vara opraktiskt att binda till specifika modellklasser. Alla metoder i SDK som hanterar dokument har överlagringar som fungerar med klassen `Document`, samt starkt typifierade överlagringar som använder en parameter av generisk typ. Endast de senare används i exempelkoden i den här artikeln.
 > 
 > 
 
-**Viktigt om datatyper**
+**Varför du bör använda datatyper som kan ha värdet null**
 
 När du utformar dina egna modellklasser för mappning till ett Azure Search-index rekommenderar vi att du deklarerar egenskaper för värdetyper som `bool` och `int` så att de kan vara null (t.ex. `bool?` i stället för `bool`). Om du använder en icke-nullbar egenskap måste du **se till** att inga dokument i indexet innehåller ett null-värde för motsvarande fält. Varken SDK eller Azure Search-tjänsten hjälper dig med detta.
 
@@ -226,6 +240,6 @@ När du har fyllt Azure Search-indexet kan du börja skicka frågor för att sö
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

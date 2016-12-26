@@ -13,11 +13,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 107186c6d77550948169caa6f0f89589dd3bddd9
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 7e28fdde31c735b5de99aa7031ceb1b2abf72576
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Skapa ett Azure Search-index med hjälp av REST-API:et
@@ -25,21 +25,21 @@ ms.openlocfilehash: 107186c6d77550948169caa6f0f89589dd3bddd9
 >
 > * [Översikt](search-what-is-an-index.md)
 > * [Portalen](search-create-index-portal.md)
-> * [NET](search-create-index-dotnet.md)
+> * [.NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
 >
 >
 
-Den här artikeln beskriver steg för steg hur du skapar ett Azure Search-[index](https://msdn.microsoft.com/library/azure/dn798941.aspx) med hjälp av REST-API:et för Azure Search.
+Den här artikeln beskriver steg för steg hur du skapar ett Azure Search-[index](https://docs.microsoft.com/rest/api/searchservice/Create-Index) med hjälp av REST-API:et för Azure Search.
 
 Innan du följer den här guiden och skapar ett index bör du redan ha [skapat en Azure Search-tjänst](search-create-service-portal.md).
 
 Om du vill skapa ett Azure Search-index med hjälp av REST-API:et skickar du en enkel HTTP POST-begäran till slutpunkten i Azure Search-tjänstens URL. Din indexdefinition finns i begärandetexten i form av välstrukturerat JSON-innehåll.
 
 ## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identifiera Azure Search-tjänstens API-administratörsnyckel
-Nu när du har etablerat en Azure Search-tjänst kan du skicka HTTP-förfrågningar mot din tjänsts URL-slutpunkt med hjälp av REST-API:et. *Alla* API-förfrågningar måste dock innehålla API-nyckeln som genererades för Search-tjänsten som du etablerade. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+Nu när du har etablerat en Azure Search-tjänst kan du skicka HTTP-förfrågningar mot din tjänsts URL-slutpunkt med hjälp av REST-API:et. *Alla* API-förfrågningar måste innehålla API-nyckeln som genererades för Search-tjänsten som du etablerade. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
+1. Om du vill hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/)
 2. Gå till Azure Search-tjänstens blad
 3. Klicka på nyckelikonen
 
@@ -56,7 +56,7 @@ Ditt index skapas med en enkel HTTP POST-begäran till din tjänst. Brödtexten 
 1. Den första egenskapen för det här JSON-objektet är namnet på ditt index.
 2. Den andra egenskapen för JSON-objektet är en JSON-matris med namnet `fields` som innehåller ett separat JSON-objekt för varje fält i indexet. Varje JSON-objekt innehåller flera namn/värde-par för vart och ett av fältattributen, inklusive ”name”, ”type” osv.
 
-Det är viktigt att du har användarupplevelsen och dina affärsbehov i åtanke när du utformar ditt index eftersom varje fält måste tilldelas [rätt egenskaper](https://msdn.microsoft.com/library/azure/dn798941.aspx). Dessa attribut styr vilka sökfunktioner (filtrering, aspekter, sortering av textsökningar osv) som tillämpas på vilka fält. För attribut som du inte anger aktiveras motsvarande sökfunktion som standard såvida du inte uttryckligen inaktiverar den.
+Det är viktigt att du har användarupplevelsen och dina affärsbehov i åtanke när du utformar ditt index eftersom varje fält måste tilldelas [rätt egenskaper](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Dessa attribut styr vilka sökfunktioner (filtrering, aspekter, sortering av textsökningar osv) som tillämpas på vilka fält. För attribut som du inte anger aktiveras motsvarande sökfunktion som standard såvida du inte uttryckligen inaktiverar den.
 
 I vårt exempel har vi gett indexet namnet ”hotels” och definierat fälten så här:
 
@@ -84,7 +84,7 @@ Vi har noga valt indexattributen för varje fält baserat på hur vi tror att de
 
 Observera att exakt ett fält i indexet av typen `Edm.String` måste definieras som nyckelfältet.
 
-Indexdefinitionen ovan använder ett anpassat språkanalysverktyg för fältet `description_fr` eftersom det ska lagra fransk text. Mer information om språkanalysverktyg finns i [avsnittet om språkstöd på MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx) och i tillhörande [blogginlägg](https://azure.microsoft.com/blog/language-support-in-azure-search/).
+Indexdefinitionen ovan använder ett språkanalysverktyg för `description_fr`-fältet eftersom det ska lagra fransk text. Mer information om språkanalysverktyg finns i [avsnittet om språkstöd](https://docs.microsoft.com/rest/api/searchservice/Language-support) och i motsvarande [blogginlägg](https://azure.microsoft.com/blog/language-support-in-azure-search/).
 
 ## <a name="iii-issue-the-http-request"></a>III. Skicka HTTP-begäran
 1. Använd indexdefinitionen som begärandetext och skicka en HTTP POST-begäran till URL:en för Azure Search-tjänstens slutpunkt. I URL:en använder du tjänstnamnet som värdnamn och placerar rätt `api-version` som en frågesträngsparameter (den aktuella API-versionen är `2016-09-01` vid tidpunkten för publiceringen av det här dokumentet).
@@ -97,7 +97,7 @@ Du måste ange ditt eget tjänstnamn och din egen API-nyckel för att skicka beg
     api-key: [api-key]
 
 
-Statuskoden 201 (har skapats) bör returneras om begäran lyckades. Mer information om hur du skapar ett index via REST-API:et finns i API-referensen på [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Mer information om andra HTTP-statuskoder som kan returneras om det uppstår fel finns i [HTTP-statuskoder (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Statuskoden 201 (har skapats) bör returneras om begäran lyckades. Mer information om hur du kan skapa ett index via REST-API:et finns i API-referensen i [API-referensen här](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Mer information om andra HTTP-statuskoder som kan returneras om det uppstår fel finns i [HTTP-statuskoder (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 När du är klar med ett index och vill ta bort det skickar du bara en HTTP DELETE-begäran. Så här skulle vi till exempel göra om vi ville ta bort indexet ”hotels”:
 
@@ -110,6 +110,6 @@ När du har skapat ett Azure Search-index är det dags att [ladda upp innehålle
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

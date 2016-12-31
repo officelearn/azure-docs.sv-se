@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 12/11/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3600f03c22805789b1f75f892962e0d054e84058
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
 
 
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Använda PlayReady och/eller Widevine Dynamic Common Encryption
+
 > [!div class="op_single_selector"]
 > * [NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -49,6 +50,7 @@ Det här avsnittet kan vara användbart för utvecklare som arbetar på appar so
 Du kan hämta det exempel som beskrivs i artikeln [här](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 ## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Konfigurera Dynamic Common Encryption och DRM-licensleveranstjänster 
+
 Nedan följer allmänna steg som du behöver utföra när du skyddar dina tillgångar med PlayReady med hjälp av Media Services licensleveranstjänst och även använder dynamisk kryptering.
 
 1. Skapa en tillgång och överför filer till tillgången.
@@ -56,13 +58,13 @@ Nedan följer allmänna steg som du behöver utföra när du skyddar dina tillg�
 3. Skapa en innehållsnyckel och associera den med den kodade tillgången. I Media Services innehåller innehållsnyckeln tillgångens krypteringsnyckel.
 4. Konfigurera innehållsnyckelns auktoriseringsprincip. Innehållsnyckelns auktoriseringsprincip måste konfigureras av dig och uppfyllas av klienten för att innehållsnyckeln ska kunna levereras till klienten.
 
-När du skapar innehållsnyckelns auktoriseringsprincip behöver du specificera följande: leveransmetod (PlayReady eller Widevine), begränsningar (öppen eller token) och information som är specifik för nyckelleveranstypen och som definierar hur nyckeln levereras till klienten ([PlayReady](media-services-playready-license-template-overview.md)- eller [Widevine](media-services-widevine-license-template-overview.md)-licensmall).
+    När du skapar innehållsnyckelns auktoriseringsprincip behöver du specificera följande: leveransmetod (PlayReady eller Widevine), begränsningar (öppen eller token) och information som är specifik för nyckelleveranstypen och som definierar hur nyckeln levereras till klienten ([PlayReady](media-services-playready-license-template-overview.md)- eller [Widevine](media-services-widevine-license-template-overview.md)-licensmall).
 
-1. Konfigurera leveransprincipen för en tillgång. Konfigurationen för leveransprincipen omfattar: leveransprotokoll (till exempel MPEG DASH, HLS, HDS, Smooth Streaming eller alla), typen av dynamisk kryptering (till exempel Common Encryption) och URL för anskaffning av PlayReady- eller Widevine-licens.
+5. Konfigurera leveransprincipen för en tillgång. Konfigurationen för leveransprincipen omfattar: leveransprotokoll (till exempel MPEG DASH, HLS, jämn direktuppspelning eller alla), typen av dynamisk kryptering (t.ex. Common Encryption) och URL för anskaffning av PlayReady- eller Widevine-licens.
 
-Du kan använda olika principer för varje protokoll för samma tillgång. Du kan till exempel tillämpa PlayReady-kryptering för Smooth/DASH och AES Envelope för HLS. Alla protokoll som inte har definierats i en leveransprincip (exempelvis kan du lägga till en enskild princip som endast anger HLS som protokoll) kommer att blockeras från strömning. Ett undantag till detta är om du inte har definierat någon tillgångsleveransprincip alls. Därefter tillåts alla protokoll fritt.
+    Du kan använda olika principer för varje protokoll för samma tillgång. Du kan till exempel tillämpa PlayReady-kryptering för Smooth/DASH och AES Envelope för HLS. Alla protokoll som inte har definierats i en leveransprincip (exempelvis kan du lägga till en enskild princip som endast anger HLS som protokoll) kommer att blockeras från strömning. Ett undantag till detta är om du inte har definierat någon tillgångsleveransprincip alls. Därefter tillåts alla protokoll fritt.
 
-1. Skapa en OnDemand-lokaliserare för att få en strömnings-URL.
+6. Skapa en OnDemand-lokaliserare för att få en strömnings-URL.
 
 Du hittar ett komplett .NET-exempel i slutet av avsnittet.
 
@@ -101,7 +103,7 @@ Mer information finns i [Konfigurera  innehållsnyckelns auktoriseringsprincip](
 Konfigurera leveransprincipen för din tillgång. Tillgångsleveransprincipen innehåller bland annat följande:
 
 * URL för anskaffning av DRM-licens.
-* Protokollet för tillgångsleverans (till exempel MPEG DASH, HLS, HDS, Smooth Streaming eller alla).
+* Protokollet för tillgångsleverans (t.ex. MPEG DASH, HLS, jämn direktuppspelning eller alla).
 * Typen av dynamisk kryptering (i det här fallet Common Encryption).
 
 Detaljerad information finns i [Konfigurera tillgångsleveransprincip ](media-services-rest-configure-asset-delivery-policy.md).
@@ -621,6 +623,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

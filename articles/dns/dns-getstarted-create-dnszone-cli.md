@@ -1,155 +1,154 @@
 ---
 title: Skapa en DNS-zon med CLI| Microsoft Docs
-description: "Lär dig hur du skapar DNS-zoner för Azure DNS steg för steg för att lagra din DNS-domän med hjälp av CLI"
+description: "Läs mer om hur du skapar DNS-zoner i Azure DNS. Detta är en steg-för-steg-guide om hur du skapar och hanterar din första DNS-zon med hjälp av Azure CLI."
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: 
+author: georgewallace
+manager: timlt
 ms.assetid: 1514426a-133c-491a-aa27-ee0962cea9dc
 ms.service: dns
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
-ms.author: sewhee
+ms.date: 12/05/2016
+ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e2b93d8788f8f36ff6bc04a33d1f35a86cd49973
-
+ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
+ms.openlocfilehash: 5bbd490925e5e25f10044af55af49daa494ee026
 
 ---
+
 # <a name="create-an-azure-dns-zone-using-cli"></a>Skapa en Azure DNS-zon med CLI
+
 > [!div class="op_single_selector"]
 > * [Azure-portalen](dns-getstarted-create-dnszone-portal.md)
 > * [PowerShell](dns-getstarted-create-dnszone.md)
 > * [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-> 
-> 
 
-Den här artikeln beskriver steg för steg hur du skapar en DNS-zon med hjälp av CLI. Du kan också skapa en DNS-zon med hjälp av PowerShell- eller Azure-portalen.
+Den här artikeln tar dig steg för steg igenom procedurerna för att skapa en DNS-zon med hjälp av plattformsoberoende Azure CLI, som är tillgängligt för Windows, Mac och Linux. Du kan också skapa en DNS-zon med hjälp av PowerShell- eller Azure-portalen.
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
+
 ## <a name="before-you-begin"></a>Innan du börjar
-I dessa anvisningar används Microsoft Azure CLI. Se till att uppdatera till den senaste versionen av Azure CLI (0.9.8 eller senare) så att du kan använda Azure DNS-kommandona. Skriv `azure -v` för att kontrollera vilken version av Azure CLI som är installerad på datorn.
 
-## <a name="step-1-set-up-azure-cli"></a>Steg 1 – Konfigurera Azure CLI
-### <a name="1-install-azure-cli"></a>1. Installera Azure CLI
-Du kan installera Azure CLI för Windows, Linux eller Mac. Du måste utföra följande steg innan du kan hantera Azure DNS med hjälp av Azure CLI. Mer information finns på [Installera Azure CLI](../xplat-cli-install.md). DNS-kommandona kräver Azure CLI version 0.9.8 eller senare.
+Kontrollera att du har följande innan du påbörjar konfigurationen.
 
-Du kan hitta alla nätverksproviderkommandon i CLI med följande kommando:
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
+* Du måste installera den senaste versionen av Azure CLI. Den finns tillgänglig för Windows, Linux och MAC. Mer information finns på [Installera Azure CLI](../xplat-cli-install.md).
 
-    azure network
+## <a name="step-1---sign-in-and-create-a-resource-group"></a>Steg 1 – Logga in och skapa en resursgrupp
 
-### <a name="2-switch-cli-mode"></a>2. Växla CLI-läge
+### <a name="switch-cli-mode"></a>Växla CLI-läge
+
 Azure DNS använder Azure Resource Manager. Se till att du byter CLI-läge så att du kan använda ARM-kommandon.
 
-    azure config mode arm
+```azurecli
+azure config mode arm
+```
 
-### <a name="3-sign-in-to-your-azure-account"></a>3. Logga in på ditt Azure-konto
-Du uppmanas att autentisera dig med dina autentiseringsuppgifter. Tänk på att du bara kan använda ORGID-konton.
+### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
-    azure login -u "username"
+Du uppmanas att autentisera dig med dina autentiseringsuppgifter. Tänk på att du bara kan använda OrgID-konton.
 
-### <a name="4-select-the-subscription"></a>4. Välja prenumerationen
+```azurecli
+azure login
+```
+
+### <a name="select-the-subscription"></a>Välja prenumerationen
+
+Kontrollera prenumerationerna för kontot.
+
+```azurecli
+azure account list
+```
+
 Välj vilka av dina Azure-prenumerationer som du vill använda.
 
-    azure account set "subscription name"
+```azurecli
+azure account set "subscription name"
+```
 
-### <a name="5-create-a-resource-group"></a>5. Skapa en resursgrupp
+### <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
 Azure Resource Manager kräver att alla resursgrupper anger en plats. Detta används som standardplatsen för resurser i resursgruppen. Men eftersom alla DNS-resurser är globala, inte regionala, så påverkar inte valet av resursgruppens plats Azure DNS.
 
 Du kan hoppa över det här steget om du använder en befintlig resursgrupp.
 
-    azure group create -n myresourcegroup --location "West US"
+```azurecli
+azure group create -n myresourcegroup --location "West US"
+```
 
+### <a name="register-resource-provider"></a>Registrera resursprovider
 
-### <a name="6-register"></a>6. Registrera dig
 Azure DNS-tjänsten hanteras av Microsoft.Network-resursprovidern. Din Azure-prenumeration måste vara registrerad att använda den här resursprovidern innan du kan använda Azure DNS. Det här är en engångsåtgärd för varje prenumeration.
 
-    azure provider register --namespace Microsoft.Network
+```azurecli
+azure provider register --namespace Microsoft.Network
+```
 
+## <a name="step-2---create-a-dns-zone"></a>Steg 2 – Skapa en DNS-zon
 
-## <a name="step-2-create-a-dns-zone"></a>Steg 2 – Skapa en DNS-zon
-En DNS-zon skapas med hjälp av kommandot `azure network dns zone create`. Om du vill kan du också skapa en DNS-zon tillsammans med taggar. Taggar är en lista över namn/värde-par och används av Azure Resource Manager för att märka resurser för fakturerings- eller grupperingsändamål. Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](../resource-group-using-tags.md).
+En DNS-zon skapas med hjälp av kommandot `azure network dns zone create`. Om du vill se hjälpen för det här kommandot skriver du `azure network dns zone create -h`.
 
-I Azure DNS ska zonnamn anges utan avslutande **”.”**. Till exempel ”**contoso.com**” i stället för ”**contoso.com.**”.
+Exemplet nedan skapar en DNS-zon med namnet *contoso.com* i resursgruppen med namnet *MyResourceGroup*. Använd exemplet när du vill skapa en DNS-zon, och ersätt värdena med dina egna.
 
-### <a name="to-create-a-dns-zone"></a>Så här skapar du en DNS-zon
-Exemplet nedan skapar en DNS-zon med namnet *contoso.com* i resursgruppen med namnet *MyResourceGroup*.
+```azurecli
+azure network dns zone create MyResourceGroup contoso.com
+```
 
-Använd exemplet för att skapa DNS-zonen och ersätt värdena med dina egna.
+## <a name="step-3---verify"></a>Steg 3 – Verifiera
 
-    azure network dns zone create myresourcegroup contoso.com
+### <a name="view-records"></a>Visa poster
 
-### <a name="to-create-a-dns-zone-and-tags"></a>Så här skapar du en DNS-zon och taggar
-Azure DNS CLI stöder taggar för DNS-zoner som angetts med hjälp av den valfria parametern *-Tag*. Följande exempel visar hur du skapar en DNS-zon med två taggar, project = demo och env = test.
-
-Använd exemplet nedan för att skapa en DNS-zon och taggar och ersätt värdena med dina egna.
-
-    azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
-
-## <a name="view-records"></a>Visa poster
 När du skapar en DNS-zon skapas även följande DNS-poster:
 
 * SOA-posten (”Start of Authority”). Den här posten finns i roten på varje DNS-zon.
 * Posterna för auktoritativa namnservrar (NS). Dessa poster visar vilka namnservrar som är värdar för zonen. Azure DNS använder en pool med namnservrar, vilket innebär att namnservrar kan tilldelas till olika zoner i Azure DNS. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
 
-Du kan visa dessa poster genom att använda `azure network dns-record-set show`.<BR>
-*Användning: network dns record-set show <resource-group> <dns-zone-name> <name> <type>*
+Om du vill visa de här posterna, så använd `azure network dns-record-set list`:
 
-Om du i exemplet nedan kör kommandot med resursgruppen *myresourcegroup*, postuppsättningen *"@"* (för en rotpost) och typen *SOA* returneras följande resultat:
+```azurecli
+azure network dns record-set list MyResourceGroup contoso.com
 
-    azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
-    info:    Executing command network dns-record-set show
-    + Looking up the DNS record set "@"
-    data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
-    data:    Name                            : @
-    data:    Type                            : Microsoft.Network/dnszones/SOA
-    data:    Location                        : global
-    data:    TTL                             : 3600
-    data:    SOA record:
-    data:      Email                         : msnhst.microsoft.com
-    data:      Expire time                   : 604800
-    data:      Host                          : edge1.azuredns-cloud.net
-    data:      Minimum TTL                   : 300
-    data:      Refresh time                  : 900
-    data:      Retry time                    : 300
-    data:                                    :
-<BR>
-Om du vill visa NS-posterna som skapats med zonen använder du följande kommando:
-
-    azure network dns record-set show myresourcegroup "contoso.com" "@" NS
-    info:    Executing command network dns-record-set show
-    + Looking up the DNS record set "@"
-    data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
-    data:    Name                            : @
-    data:    Type                            : Microsoft.Network/dnszones/NS
-    data:    Location                        : global
-    data:    TTL                             : 3600
-    data:    NS records
-    data:        Name server domain name     : ns1-05.azure-dns.com
-    data:        Name server domain name     : ns2-05.azure-dns.net
-    data:        Name server domain name     : ns3-05.azure-dns.org
-    data:        Name server domain name     : ns4-05.azure-dns.info
-    data:
-    info:    network dns-record-set show command OK
+info:    Executing command network dns record-set list
++ Looking up the DNS Record Sets
+data:    Name                            : @
+data:    Type                            : NS
+data:    TTL                             : 172800
+data:    Records:
+data:      ns1-01.azure-dns.com.
+data:      ns2-01.azure-dns.net.
+data:      ns3-01.azure-dns.org.
+data:      ns4-01.azure-dns.info.
+data:
+data:    Name                            : @
+data:    Type                            : SOA
+data:    TTL                             : 3600
+data:    Email                           : azuredns-hostmaster.microsoft.com
+data:    Host                            : ns1-01.azure-dns.com.
+data:    Serial Number                   : 2
+data:    Refresh Time                    : 3600
+data:    Retry Time                      : 300
+data:    Expire Time                     : 2419200
+data:    Minimum TTL                     : 300
+data:
+info:    network dns record-set list command OK
+```
 
 > [!NOTE]
 > Postuppsättningar i roten (eller *toppen*) av en DNS-zon använder **@** som postuppsättningsnamn.
-> 
-> 
 
-## <a name="test"></a>Testa
-Du kan testa din DNS-zon med hjälp av DNS-verktyg som nslookup och DIG eller med PowerShell-cmdleten `Resolve-DnsName`.
+### <a name="test-name-servers"></a>Testa namnservrar
+
+Du kan testa om din DNS-zon är närvarande på Azure DNS-namnservrarna genom att använda DNS-verktyg som nslookup, dig eller PowerShell-cmdleten `Resolve-DnsName`.
 
 Om du inte har delegerat domänen att använda den nya zonen i Azure DNS än, så måste du dirigera DNS-frågan direkt till en av namnservrarna för zonen. Namnservrarna för zonen anges i NS-posterna från ”azure network dns record-set show” ovan. Var noga med att ersätta värdena för din zon i kommandot nedan.
 
-I följande exempel används DIG för att fråga domänen contoso.com med hjälp av namnservrarna som tilldelats DNS-zonen. Frågan måste peka på en namnserver för vilken vi använde *@<name server for the zone>* och zonnamnet med hjälp av DIG.
+I följande exempel används ”dig” för att fråga domänen contoso.com med hjälp av namnservrarna som tilldelats DNS-zonen. Frågan måste peka på en namnserver, där vi använde *@\<namnservern för zonen\>* och zonnamnet med ”dig”.
 
-     <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
+     <<>> DiG 9.10.2-P2 <<>> @ns1-01.azure-dns.com contoso.com
     (1 server found)
     global options: +cmd
      Got answer:
@@ -163,8 +162,7 @@ I följande exempel används DIG för att fråga domänen contoso.com med hjälp
     contoso.com.                        IN      A
 
      AUTHORITY SECTION:
-    contoso.com.         300     IN      SOA     edge1.azuredns-cloud.net.
-    msnhst.microsoft.com. 6 900 300 604800 300
+    contoso.com.         3600     IN      SOA     ns1-01.azure-dns.com. azuredns-hostmaster.microsoft.com. 1 3600 300 2419200 300
 
     Query time: 93 msec
     SERVER: 208.76.47.5#53(208.76.47.5)
@@ -172,11 +170,12 @@ I följande exempel används DIG för att fråga domänen contoso.com med hjälp
     MSG SIZE  rcvd: 120
 
 ## <a name="next-steps"></a>Nästa steg
-När du har skapat en DNS-zon skapar du [postuppsättningar och poster](dns-getstarted-create-recordset-cli.md) för att börja matcha namn för din Internetdomän.
+
+När du har skapat en DNS-zon kan du skapa [postuppsättningar och poster](dns-getstarted-create-recordset-cli.md) och skapa DNS-poster för din Internetdomän.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

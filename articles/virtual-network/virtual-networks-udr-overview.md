@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
+ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
 
 
 ---
@@ -29,6 +29,7 @@ Det här flödet av kommunikation är möjligt eftersom Azure använder en upps�
 * Från ett undernät till ett annat inom ett VNet.
 * Från VM:ar till Internet.
 * Från ett VNet till ett annat VNet via en VPN-gateway.
+* Från ett VNet till ett annat VNet via VNet Peering (tjänstlänkning).
 * Från ett VNet till ditt lokala nätverk via en VPN-gateway.
 
 Bilden nedan visar en enkel installation med ett VNet, två undernät och några VM:ar, samt de systemvägar som låter IP-trafiken flöda.
@@ -111,6 +112,6 @@ Den här virtuella installations-VM:en måste kunna ta emot inkommande trafik so
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

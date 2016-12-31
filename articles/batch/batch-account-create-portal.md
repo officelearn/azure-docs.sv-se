@@ -3,7 +3,7 @@ title: Skapa ett Azure Batch-konto | Microsoft Docs
 description: "Lär dig hur du skapar ett Azure Batch-konto på Azure-portalen för att köra storskaliga parallella arbetsbelastningar i molnet"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/21/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8875c5e91a2a1ae848ebf725ca00bd43ec667dce
 
 
 ---
@@ -27,10 +27,10 @@ ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
 > 
 > 
 
-Lär dig hur du skapar ett Azure Batch-konto på [Azure-portalen][azure_portal] och var du hittar viktiga kontoegenskaper som åtkomstnycklar och konto-URL:er. Vi diskuterar också Batch-priser och hur du länkar ett Azure Storage-konto till ditt Batch-konto så att du kan använda [programpaket](batch-application-packages.md) och [spara utdata från jobb och aktiviteter](batch-task-output.md).
+Lär dig hur du skapar ett Azure Batch-konto på [Azure Portal][azure_portal] och var du hittar viktiga kontoegenskaper som åtkomstnycklar och konto-URL:er. Vi diskuterar också Batch-priser och hur du länkar ett Azure Storage-konto till ditt Batch-konto så att du kan använda [programpaket](batch-application-packages.md) och [spara utdata från jobb och aktiviteter](batch-task-output.md).
 
 ## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
-1. Logga in på [Azure-portalen][azure_portal].
+1. Logga in på [Azure Portal][azure_portal].
 2. Klicka på **Ny** > **Beräkna** > **Batch-tjänst**.
    
     ![Batch på Marketplace][marketplace_portal]
@@ -67,7 +67,7 @@ När kontot har skapats kan du öppna bladet för **Batch-kontot** och komma åt
     ![Batch-kontonycklar på Azure-portalen][account_keys]
 
 ## <a name="pricing"></a>Priser
-Batch-konton tillhandahålls endast på kostnadsfri nivå, vilket innebär att du inte debiteras för själva Batch-kontot. Du debiteras för de underliggande Azure-beräkningsresurser som dina Batch-lösningar använder och för de resurser som används av andra tjänster när dina arbetsbelastningar körs. Du debiteras till exempel för beräkningsnoderna i dina pooler och för data som du lagrar i Azure Storage som in- eller utdata för dina aktiviteter. På liknande sätt debiteras du för Azure Storage-resurser som används för att lagra dina programpaket om du använder funktionen för [programpaket](batch-application-packages.md) i Batch. Mer information finns i avsnittet med [priser för Batch][batch_pricing].
+Batch-konton tillhandahålls endast på kostnadsfri nivå, vilket innebär att du inte debiteras för själva Batch-kontot. Du debiteras för de underliggande Azure-beräkningsresurser som dina Batch-lösningar använder och för de resurser som används av andra tjänster när dina arbetsbelastningar körs. Du debiteras till exempel för beräkningsnoderna i dina pooler och för data som du lagrar i Azure Storage som in- eller utdata för dina aktiviteter. På liknande sätt debiteras du för Azure Storage-resurser som används för att lagra dina programpaket om du använder funktionen för [programpaket](batch-application-packages.md) i Batch. Merinformation finns i [Batchpriser][batch_pricing].
 
 ## <a name="linked-azure-storage-account"></a>Länkat Azure Storage-konto
 Som vi nämnde tidigare kan du (om du vill) länka ett **allmänt** lagringskonto till ditt Batch-konto. [Programpaketfunktionen](batch-application-packages.md) i Batch använder blobblagring i ett länkat allmänt Storage-konto, precis som [.NET-biblioteket för filkonventioner i Batch](batch-task-output.md). Med dessa valfria funktioner kan du distribuera de program som körs av Batch-aktiviteterna och spara de data som de genererar.
@@ -124,6 +124,6 @@ Förutom att använda Azure-portalen kan du också skapa och hantera Batch-konto
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

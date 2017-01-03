@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
-ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
 
 
 ---
@@ -27,7 +27,7 @@ I den här artikeln lär du dig hur du snabbt kan skapa en virtuell Azure-dator 
 Alla steg i den här artikeln behövs för att skapa en virtuell maskin och det tar cirka 30 minuter att utföra stegen. Ersätt exempelparametervärden i kommandona med namn som passar din miljö.
 
 ## <a name="step-1-install-azure-powershell"></a>Steg 1: Installera Azure PowerShell
-Se [Installera och konfigurera Azure PowerShell](../powershell-install-configure.md) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
+Se [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) för information om hur du installerar den senaste versionen av Azure PowerShell, väljer din prenumeration och loggar in på ditt konto.
 
 ## <a name="step-2-create-a-resource-group"></a>Steg 2: Skapa en resursgrupp
 Alla resurser måste finnas i en resursgrupp, så låt oss skapa en först.  
@@ -159,6 +159,6 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

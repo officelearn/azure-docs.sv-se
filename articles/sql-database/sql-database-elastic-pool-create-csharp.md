@@ -1,6 +1,6 @@
 ---
-title: Skapa en elastisk databaspool med C# | Microsoft Docs
-description: "Använd utvecklingstekniker för C#-databaser, för att skapa en skalbar elastisk databaspool i Azure SQL Database så att du kan dela resurser över flera databaser."
+title: Skapa en elastisk pool med C# | Microsoft Docs
+description: "Använd C#-databasutvecklingstekniker för att skapa en skalbar elastisk pool i Azure SQL Database så att du kan dela resurser mellan flera databaser."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,22 +8,22 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: b905aa65f46f601121b6774a633e72152e8ef80a
 
 
 ---
-# <a name="create-an-elastic-database-pool-with-cx23"></a>Skapa en elastisk databaspool med C&#x23;
+# <a name="create-an-elastic-pool-with-cx23"></a>Skapa en elastisk pool med C&#x23;
 > [!div class="op_single_selector"]
-> * [Azure-portal](sql-database-elastic-pool-create-portal.md)
+> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
@@ -60,7 +60,7 @@ Skapa en SQL-databas med C# genom att läsa in nödvändiga hanteringsbibliotek 
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool---c-example"></a>Skapa en elastisk SQL-databaspool – C#-baserat exempel
+## <a name="create-a-sql-elastic-pool---c-example"></a>Skapa en elastisk SQL-pool – C#-exempel
 I följande exempel skapas en resursgrupp, server, brandväggsregel, elastisk pool och sedan en SQL-databas i poolen. Information om hur du hämtar `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`-variablerna finns i [Skapa ett tjänstobjekt för att komma åt resurser](#create-a-service-principal-to-access-resources).
 
 Ersätt innehållet i **Program.cs** med följande och uppdatera `{variables}` med dina appvärden (utelämna `{}`).
@@ -315,6 +315,6 @@ Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänsto
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

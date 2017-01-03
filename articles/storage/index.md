@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Azure Storage – Blob-, tabell-, kö-, fillagring och lagring av virtuella diskar i molnet. Självstudier, API-referenser och annan dokumentation."
 translationtype: Human Translation
-ms.sourcegitcommit: 965b96507d66f3880bdf3b38362d1eb026afdb51
-ms.openlocfilehash: e72557a87088ba66a669d37ba0033da951e7fdb8
+ms.sourcegitcommit: 3cd1ef210c363fc280cefca3c0697eb66da85a1d
+ms.openlocfilehash: 426166d22b721d45853f3f578d39e14966c57c50
 
 ---
-#<a name="storage-documentation"></a>Dokumentation om Storage
 
-Azure Storage är molnlagringslösningen för moderna program som kräver hållbarhet, tillgänglighet och skalbarhet för att uppfylla kundernas behov.  Den är extremt skalbar, elastisk, tillgänglig globalt och ger automatisk belastningsutjämning av datatrafiken.  Azure Storage tillhandahåller följande fem tjänster för alla programbehov: Blob Storage, Table Storage, Queue Storage, Disk Storage och File Storage.
+# <a name="storage-documentation"></a>Dokumentation om Storage
+
+Lär dig hur du använder Azure Storage, en molnlagringstjänst som är pålitlig, tillgänglig och skalbar. Självstudier, API-referenser och annan dokumentation visar hur du konfigurerar och hanterar lagring för Blob, tabell, kö, fil och virtuella diskar.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -85,91 +87,56 @@ Azure Storage är molnlagringslösningen för moderna program som kräver hållb
 </ul>
 
 ---
-
-## <a name="reference"></a>Referens
-
+ 
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/storage">PowerShell</a></p>
+                        <p><a href="/cli/azure/storage">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/storage">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Storage med Azure CLI-referens</p>
+                        <h3>Språk</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Resurshanterare</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: Dataflyttning</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: Blobar, köer, tabeller och filer</a></p>
+                        <p><a href="/java/api/">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
+                        <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>
+                        <p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Storage i Java-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt347887">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Storage Managed referens-API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storageservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Storage REST API-referens</p>
-                    </div>
+                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">REST: Import/export</a></p>
+                        <p><a href="/rest/api/storagerp">REST: Resursprovider</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
-        <a href="/rest/api/storagerp">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Referens för REST-API för Storage Resource Provider</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
+    </li>
 </ul>
 
 <div class="downloadHolder">
@@ -182,6 +149,6 @@ Ladda ned Storage-dokumentation </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

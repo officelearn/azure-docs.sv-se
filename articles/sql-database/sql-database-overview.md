@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 50200648bcd2aed4cbc0c720d140f2ecb2c17934
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: 3d45ec5a6636de4213c6c02dca0e5288ec3aa0e3
 
 
 ---
@@ -28,7 +28,7 @@ Det här avsnittet innehåller en översikt över Azure SQL-databaser. Informati
 Varje databas i Azure SQL Database är associerad med en logisk server. Databasen kan vara:
 
 - En enkel databas med dess [uppsättning resurser](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU:er)
-- En del av en [pool med databaser](sql-database-elastic-pool.md) som [delar en uppsättning resurser](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU:er)
+- En del av en [elastisk pool](sql-database-elastic-pool.md) som [delar en uppsättning resurser](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU:er)
 - En del av en [utskalad uppsättning delade databaser](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), som kan vara enskilda databaser eller databaser i en pool
 - En del av en uppsättning databaser som ingår i ett [SaaS-designmönster för flera klienter](sql-database-design-patterns-multi-tenancy-saas-applications.md), vars databaser kan vara enskilda databaser eller databaser i en pool (eller båda) 
 
@@ -71,6 +71,6 @@ Du kan hantera logiska Azure SQL Database-servrar på flera olika sätt:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

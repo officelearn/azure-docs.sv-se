@@ -1,38 +1,28 @@
-## <a name="about-records"></a>Om poster
+### <a name="record-names"></a>Registrera namn
 
-Varje DNS-post har ett namn och en typ. Posterna är indelade i olika typer beroende på den data de innehåller. Den vanligaste typen är en A-post som mappar ett namn till en IPv4-adress. En annan typ är en MX-post som mappar ett namn till en e-postserver.
+DNS-poster i Azure anges med relativa namn. Ett *fullständigt kvalificerat* domännamn (FQDN), inkluderar zonnamnet, medan ett *relativt* namn inte gör det. Det relativa postnamnet ”www” i zonen ”contoso.com” skapar till exempel det fullständigt kvalificerade postnamnet ”www.contoso.com”.
 
-Azure DNS stöder alla vanliga DNS-posttyper, inklusive A, AAAA, CNAME, MX, NS, PTR, SOA, SRV och TXT. Tänk på följande:
+En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I till exempel DNS-zonen "contoso.com" har en toppost också det fullständigt kvalificerade namnet "contoso.com" (kallas ibland en *naken* domän).  Enligt konventionen används det relativa namnet '@' för att representera topposter.
 
-* SOA-postuppsättningar skapas automatiskt med varje zon. De kan inte skapas separat.
-* SPF-poster måste skapas med hjälp av TXT-posttypen. Mer information finns på [den här sidan](http://tools.ietf.org/html/rfc7208#section-3.1).
+### <a name="record-types"></a>Typer av poster
 
-DNS-poster i Azure anges med relativa namn. Ett fullständigt kvalificerat domännamn (FQDN), inkluderar zonnamnet, medan ett relativt namn inte gör det. Det relativa postnamnet www i zonen contoso.com, skapar till exempel det fullständigt kvalificerade postnamnet www.contoso.com.
+Varje DNS-post har ett namn och en typ. Posterna är indelade i olika typer beroende på den data de innehåller. Den vanligaste typen är en ”A”-post som mappar ett namn till en IPv4-adress. En annan vanlig typ är en ”MX”-post som mappar ett namn till en e-postserver.
 
-## <a name="about-record-sets"></a>Om postuppsättningar
+Azure DNS stöder alla vanliga DNS-posttyper: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV och TXT. Observera att [SPF-poster representeras med hjälp av TXT-poster](../articles/dns/dns-zones-records.md#spf-records).
 
-Ibland måste du skapa fler än en DNS-post av ett visst namn och typ. Anta exempelvis att webbplatsen www.contoso.com finns på två olika IP-adresser. Webbplatsen kräver då två olika A-poster, en för varje IP-adress. Här är ett exempel på en postuppsättning:
+### <a name="record-sets"></a>Postuppsättningar
+
+Ibland måste du skapa fler än en DNS-post av ett visst namn och typ. Anta exempelvis att webbplatsen ”www.contoso.com” finns på två olika IP-adresser. Webbplatsen kräver då två olika A-poster, en för varje IP-adress. Här är ett exempel på en postuppsättning:
 
     www.contoso.com.        3600    IN    A    134.170.185.46
     www.contoso.com.        3600    IN    A    134.170.188.221
 
-Azure DNS hanterar DNS-poster med hjälp av postuppsättningar. En postuppsättning är en samling DNS-poster i en zon som har samma namn och är av samma typ. De flesta postuppsättningar innehåller en enda post, men exempel som det här, där en postuppsättning innehåller fler än en post, är inte ovanliga.
+Azure DNS hanterar DNS-poster med hjälp av *postuppsättningar*. En postuppsättning (även kallat en *resurs*postuppsättning)är en samling DNS-poster i en zon som har samma namn och är av samma typ. De flesta postuppsättningar innehåller en enda post. Men exempel som det ovanstående, där en postuppsättning innehåller fler än en post, är inte ovanliga.
 
-SOA- och CNAME-postuppsättningar är undantag. DNS-standarden tillåter inte flera poster med samma namn för de här typerna.
+Anta till exempel att du redan har skapat en A-post "www" i zonen "contoso.com" som pekar på IP-adressen ”134.170.185.46” (första posten ovan).  För att skapa den andra posten skulle du lägga till posten i den befintliga postuppsättningen i stället för att skapa ytterligare en post.
 
-Livslängd, eller TTL, anger hur länge varje post ska cachelagras av klienter innan den efterfrågas på nytt. I det här exemplet är TTL 3600 sekunder eller 1 timme. TTL anges för postuppsättningen, inte för varje post, så samma värde används för alla poster inom den postuppsättningen.
+Postuppsättningarna SOA och CNAME är undantag. DNS-standarden tillåter inte flera poster med samma namn för dessa typer, därför kan dessa postuppsättningar endast innehålla en enda post.
 
-#### <a name="wildcard-record-sets"></a>Postuppsättningar med jokertecken
-
-Azure DNS stöder [poster med jokertecken](https://en.wikipedia.org/wiki/Wildcard_DNS_record). De returneras för alla frågor med ett matchande namn (om det inte finns en bättre matchning från en postuppsättning utan jokertecken). Postuppsättningar med jokertecken stöds för alla postuppsättningar utom NS och SOA.
-
-Om du vill skapa en postuppsättning med jokertecken, använder du postuppsättningsnamnet "\*". Eller använd ett namn med etiketten \*, till exempel \*.foo.
-
-#### <a name="cname-record-sets"></a>CNAME-postuppsättningar
-
-CNAME-postuppsättningar kan inte samexistera med andra postuppsättningar med samma namn. Du kan till exempel inte skapa en CNAME-postuppsättning med det relativa namnet www och en A-post med det relativa namnet www på samma gång. Eftersom zonens apex (namn = ‘@’)) alltid innehåller NS- och SOA-postuppsättningar som skapades när zonen skapades, du kan inte skapa en CNAME-postuppsättning på zonens apex. Den här begränsningarna kommer sig av DNS-standarderna och är inte begränsningar i Azure DNS.
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

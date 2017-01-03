@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7383380ee07f9ee52858038bd4d623be4689a31a
+ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
+ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
 
 
 ---
@@ -60,16 +60,6 @@ Från det här bladet kan du ansluta till de virtuella datorerna via Fjärrskriv
 
 ![Hantera en resurs][ManageResource]
 
-## <a name="how-to-customize-a-resource-blade"></a>Anpassa ett resursblad
-Azure förkonfigurerar bladen för dina resurser, men du konfigurerar panelerna på dem.  Du kan enkelt växla till anpassningsläge och lägga till, ta bort, ändra storlek på eller flytta panelerna. Så här anpassar du ett blad:
-
-1. Bläddra till resursen.
-2. Klicka på ”...” överst i bladet som du vill anpassa.
-3. Klicka på Lägg till delar.
-4. Börja dra och släppa webbdelar.  
-
-![Anpassa blad][CustomizeBlades]
-
 ## <a name="how-to-get-help"></a>Få hjälp
 Om du får problem finns vi här!  Portalen innehåller en hjälp- och supportsida där du kan få hjälp.  Beroende på din [supportplan](https://azure.microsoft.com/support/plans/) kan du också skapa supportärenden direkt på portalen.  När du har skapat ett supportärende kan du hantera ärendets livscykel på portalen. Du kommer till hjälp- och supportsidan genom att gå till Bläddra -> Hjälp + support.  
 
@@ -97,6 +87,6 @@ Microsoft Azure Portal gör det betydligt enklare att bygga och hantera dina pro
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

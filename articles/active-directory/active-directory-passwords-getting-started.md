@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
+ms.sourcegitcommit: 48821a3b2b7da4646c4569cc540d867f02a4a32f
+ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
 
 
 ---
@@ -256,12 +256,40 @@ Du kan också kontrollera att tjänsten har installerats korrekt genom att öppn
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Steg 3: Konfigurera brandväggen
-När du har aktiverat tillbakaskrivning av lösenord i Azure AD Connect måste du kontrollera att tjänsten kan ansluta till molnet.
+När du har aktiverat tillbakaskrivning av lösenord måste du kontrollera att den dator som kör Azure AD Connect kan nå Microsofts molntjänster och ta emot förfrågningar för tillbakaskrivning av lösenord. Det här steget inbegriper uppgradering av anslutningsreglerna för dina nätverksinstallationer (proxyservrar, brandväggar osv), vilka tillåter utgående anslutningar till vissa webbadresser som ägs av Microsoft och IP-adresser via vissa specifika nätverksportar. Dessa ändringar kan variera beroende på vilken version av Azure AD Connect-verktyget som du använder. Om du vill ha mer sammanhang kan du läsa [Hur tillbakaskrivning av lösenord fungerar](active-directory-passwords-learn-more.md#how-password-writeback-works) och [Säkerhetsmodell för tillbakaskrivning av lösenord](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
-1. Om du blockerar okända utgående anslutningar i miljön måste du också lägga till följande regler i brandväggen när installationen är klar. Du måste starta om AAD Connect-datorn när du har gjort dessa ändringar:
-   * Tillåt utgående anslutningar via TCP-port 443.
-   * Tillåt utgående anslutningar till https://ssprsbprodncu-sb.accesscontrol.windows.net/.
-   * Tillåt utgående anslutningar via TCP-port 9350–9354 och TCP-port 5671 när en proxy används eller vid allmänna anslutningsproblem.
+#### <a name="why-do-i-need-to-do-this"></a>Varför måste jag göra detta?
+
+För att tillbakaskrivning av lösenord ska fungera korrekt måste datorn som kör Azure AD Connect kunna upprätta utgående HTTPS-anslutningar till **. servicebus.windows.net* och en specifik IP-adress som används av Azure, enligt definitionen i [IP-intervallslistan för Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
+
+För version 1.0.8667.0 och senare av Azure AD Connect-verktyget:
+
+- **Alternativ 1:** Tillåt utgående HTTPS-anslutningar över port 443 (med URL-adress eller IP-adress).
+    - När du ska använda detta:
+        - Använd det här alternativet om du vill ha den enklaste konfiguration som inte behöver uppdateras i takt med att Azure Datacenter IP-intervallen ändras över tid.
+    - Nödvändiga steg:
+        - Tillåt utgående HTTPS-anslutningar över port 443 (med URL-adress eller IP-adress).
+<br><br>
+- **Alternativ 2:** Tillåt utgående HTTPS-anslutningar till specifika IP-intervall och URL: er
+    - När du ska använda detta:
+        - Använd det här alternativet om du befinner dig i en begränsad nätverksmiljö, eller av någon annan anledning inte känner dig bekväm med att tillåta utgpende anslutningar.
+        - Om du vill att tillbakaskrivning av lösenord ska fortsätta att fungera i den här konfigurationen, måste du se till att dina nätverksresurser hålls uppdaterade varje vecka med de senaste IP-adresserna från listan över IP-intervall i Microsoft Azure Datacenter. Dessa IP-intervall som är tillgängliga som en XML-fil som uppdateras varje onsdag (Stillahavstid) och träder i kraft följande måndag (Stillahavstid).
+    - Nödvändiga steg:
+        - Tillåt alla utgående HTTPS-anslutningar till *. servicebus.windows.net
+        - Tillåt alla utgående HTTPS-anslutningar till alla IP-adresser i listan över IP-intervall i Microsoft Azure Datacenter och håll den här konfigurationen uppdaterad varje vecka.
+
+> [!NOTE]
+> Om du har konfigurerat tillbakaskrivning av lösenord genom att följa anvisningarna ovan och inte ser några fel i händelseloggen för Azure AD Connect, men får anslutningsfel när du testar, så kan det t.ex. bero på att någon nätverksutrustning i din miljö blockerar HTTPS-anslutningar till IP-adresser. Samtidigt som t.ex. en anslutning till *https://*. servicebus.windows.net* tillåts, så kan en anslutning till en specifik IP-adress inom intervallet blockeras. Om du ska kunna lösa det här problemet måste du antingen konfigurera din nätverksmiljö så att den tillåter alla utgående HTTPS-anslutningar via port 443 till alla URL-eller IP-adresser (alternativ 1 ovan) eller så måste du arbeta med ditt nätverksteam och explicit tillåta HTTPS-anslutningar till vissa specifika IP-adresser (alternativ 2 ovan).
+
+**För äldre versioner:**
+
+- Tillåt utgående TCP-anslutningar via port 443, 9350-9354 och 5671 
+- Tillåt utgående anslutningar till *https://ssprsbprodncu-sb.accesscontrol.windows.net/*
+
+> [!NOTE]
+> Om du har en version av Azure AD Connect som är äldre än 1.0.8667.0 så rekommenderar Microsoft starkt att du uppgraderar till den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). Den innehåller ett antal förbättringar vad gäller nätverkstillbakaskrivning, vilket underlättar konfigurationen.
+
+När nätverksutrustningen har konfigurerats kan du starta om den dator där Azure AD Connect-verktyget körs.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Steg 4: Konfigurera Active Directory-behörigheter
 För varje skog som innehåller användare vars lösenord ska återställas, om X är det konto som angavs för skogen i konfigurationsguiden (vid den ursprungliga konfigurationen), så måste X tilldelas följande utökade behörigheter för rotobjektet i varje domän i skogen: **Återställ lösenord**, **Ändra lösenord**, **Skrivbehörighet** för `lockoutTime` och **Skrivbehörighet** för `pwdLastSet`. Rättigheten måste konfigureras att ärvas av alla användarobjekt.  
@@ -365,6 +393,6 @@ Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställni
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
 
 
 ---
@@ -59,11 +59,11 @@ Systemet består av följande komponenter:
 
 ## <a name="create-service-instance"> </a>Skapa en API Management-instans
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan du skapa ett kostnadsfritt konto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure][kostnadsfria utvärderingsversionen av Azure].
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan du skapa ett kostnadsfritt konto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure][Azure Free Trial].
 > 
 > 
 
-Det första steget när du arbetar med API Management är att skapa en tjänstinstans. Logga in på [Azure-portalen][Azure-portalen] och klicka på **nytt**, **Web + Mobile**, **API Management**.
+Det första steget när du arbetar med API Management är att skapa en tjänstinstans. Logga in på [Azure Portal][Azure Portal] och klicka på **Nytt**, **Web + Mobile**, **API Management**.
 
 ![Ny API Management-instans][api-management-create-instance-menu]
 
@@ -74,7 +74,7 @@ Välj önskad **prenumeration**, **resursgrupp** och **plats** för din tjänsti
 Ange **Contoso Ltd.** som **organisationsnamn** och ange din e-postadress i fältet **Administratörens e-postadress**.
 
 > [!NOTE]
-> Den här e-postadressen används för meddelanden från API Management-systemet. Mer information finns i [Så här konfigurerar du meddelanden och e-mallar i Azure API Management][Så här konfigurerar du meddelanden och e-mallar i Azure API Management].
+> Den här e-postadressen används för meddelanden från API Management-systemet. Mer information finns i [Konfigurera meddelanden och e-postmallar i Azure API Management][How to configure notifications and email templates in Azure API Management].
 > 
 > 
 
@@ -83,7 +83,7 @@ Ange **Contoso Ltd.** som **organisationsnamn** och ange din e-postadress i fäl
 API Management-tjänstinstanser är tillgängliga på tre nivåer: Developer, Standard och Premium.
 
 > [!NOTE]
-> Developer-nivån är avsedd för utveckling, testning och pilotprojekt av API-program där hög tillgänglighet inte är något problem. På Standard- och Premium-nivåerna kan du skala det reserverade antalet enheter och hantera mer trafik. API Management-tjänsten har mest processorkraft och prestanda på Standard- och Premium-nivåerna. Du kan genomföra den här självstudiekursen med valfri nivå. Mer information om API Management-nivåer finns i avsnittet om [API Management-priser][API Management-priser].
+> Developer-nivån är avsedd för utveckling, testning och pilotprojekt av API-program där hög tillgänglighet inte är något problem. På Standard- och Premium-nivåerna kan du skala antalet reserverade enheter och hantera mer trafik. API Management-tjänsten har mest processorkraft och prestanda på Standard- och Premium-nivåerna. Du kan genomföra den här självstudiekursen med valfri nivå. Mer information om API Management-nivåer finns i avsnittet om [API Management-priser][API Management pricing].
 > 
 > 
 
@@ -199,26 +199,26 @@ Avsnittet **Analys** innehåller följande fyra flikar:
 ## <a name="next-steps"> </a>Nästa steg
 * Läs mer om hur du [skyddar ditt API med hastighetsbegränsningar](api-management-howto-product-with-rules.md).
 
-[Kostnadsfri utvärderingsversion av Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[Skapa en API Management-instans]: #create-service-instance
-[Skapa ett API]: #create-api
-[Lägga till en åtgärd]: #add-operation
-[Lägga till det nya API:et till en produkt]: #add-api-to-product
-[Prenumerera på produkten som innehåller API:et]: #subscribe
-[Anropa en åtgärd från utvecklarportalen]: #call-operation
-[Visa analys]: #view-analytics
-[Nästa steg]: #next-steps
+[Create an API Management instance]: #create-service-instance
+[Create an API]: #create-api
+[Add an operation]: #add-operation
+[Add the new API to a product]: #add-api-to-product
+[Subscribe to the product that contains the API]: #subscribe
+[Call an operation from the Developer Portal]: #call-operation
+[View analytics]: #view-analytics
+[Next steps]: #next-steps
 
 
-[Hantera utvecklarkonton i Azure API Management]: api-management-howto-create-or-invite-developers.md
-[Konfigurera API-inställningar]: api-management-howto-create-apis.md#configure-api-settings
-[Konfigurera meddelanden och e-postmallar i Azure API Management]: api-management-howto-configure-notifications.md
-[Svar]: api-management-howto-add-operations.md#responses
-[Skapa och publicera en produkt]: api-management-howto-add-products.md
-[API Management-priser]: http://azure.microsoft.com/pricing/details/api-management/
+[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -257,6 +257,6 @@ Avsnittet **Analys** innehåller följande fyra flikar:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

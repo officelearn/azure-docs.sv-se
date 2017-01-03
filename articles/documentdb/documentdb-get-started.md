@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
-ms.openlocfilehash: a71130709ea33a8f6efb14ed0e4609a366d3ac98
+ms.sourcegitcommit: 414c41cbccb755e058fb76f10bba62bd1ffa1835
+ms.openlocfilehash: d2989a3292117ada029fb26536bfffbce83f5e1b
 
 
 ---
 # <a name="nosql-tutorial-build-a-documentdb-c-console-application"></a>Självstudiekurs om NoSQL: skapa en DocumentDB C#-konsolapp
 > [!div class="op_single_selector"]
-> * [NET](documentdb-get-started.md)
+> * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
@@ -44,16 +44,16 @@ Vi tar upp följande:
 * Ta bort ett dokument
 * Ta bort databasen
 
-Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). En snabbguide finns i avsnittet [Hämta den kompletta lösningen](#GetSolution).
+Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). En snabbguide finns i avsnittet [Hämta den fullständiga lösningen till NoSQL-självstudiekursen](#GetSolution).
 
 Ge oss sedan feedback med röstningsknapparna högst uppe och nere på den här sidan. Om du vill att vi ska kontakta dig direkt kan du skriva din e-postadress i kommentaren.
 
 Nu sätter vi igång!
 
 ## <a name="prerequisites"></a>Krav
-Kontrollera att du har följande:
+Se till att du har följande:
 
-* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). 
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
     * Du kan också använda [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för den här självstudien.
 * [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 * .NET Framework 4.6
@@ -68,13 +68,15 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
 2. I menyn **Arkiv** väljer du **Nytt** och sedan **Projekt**.
 3. I dialogen **Nytt projekt** väljer du **Mallar** / **Visual C#** / **Konsolapp**. Namnge projektet och klicka sedan på **OK**.
    ![Skärmdump som visar fönstret Nytt projekt](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
-4. I **Solution Explorer** högerklickar du på den nya konsolappen, som finns under din Visual Studio-lösning.
-5. Utan att lämna menyn klickar du på **Hantera NuGet-paket ...**
-   ![Skärmdump som visar högerklicksmenyn för projektet](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. På fliken **Nuget** klickar du på **Bläddra** och skriver **azure documentdb** i sökrutan.
-7. Leta reda på **Microsoft.Azure.DocumentDB** i resultatet och klicka på **Installera**.
-   Paket-ID för klientbiblioteket i DocumentDB är [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
-   ![Skärmdump som visar Nuget-menyn som används för att hitta DocumentDB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+4. I **Solution Explorer** högerklickar du på den nya konsolappen, som finns under din Visual Studio-lösning, och klickar sedan på **Hantera NuGet-paket ...**
+    
+    ![Skärmdump som visar den högerklickade menyn för projektet](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+5. På fliken **Nuget** klickar du på **Bläddra** och skriver **azure documentdb** i sökrutan.
+6. Leta reda på **Microsoft.Azure.DocumentDB** i resultatet och klicka på **Installera**.
+   Paket-ID:t för DocumentDB-klientbiblioteket är [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
+   ![Skärmdump som visar Nuget-menyn för att söka efter DocumentDB Client-SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+
+    Om du får meddelanden om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
 
 Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Det finns ett färdigt kodprojekt för den här självstudiekursen i [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
@@ -105,7 +107,7 @@ Lägg till nedanstående två konstanter och *klientvariabeln* under den offentl
         private const string PrimaryKey = "<your key>";
         private DocumentClient client;
 
-Öppna sedan [Azure Portal](https://portal.azure.com) och hämta din URI och primärnyckel. URI och primärnyckel från DocumentDB är nödvändiga för att appen ska veta var du vill ha anslutningen och för att DocumentDB ska lita på appens anslutning.
+Gå sedan tillbaka till [Azure Portal](https://portal.azure.com) och hämta din URI och primärnyckel. URI och primärnyckel från DocumentDB är nödvändiga för att appen ska veta var du vill ha anslutningen och för att DocumentDB ska lita på appens anslutning.
 
 Navigera till ditt DocumentDB-konto i Azure Portal och klicka sedan på **Nycklar**.
 
@@ -113,7 +115,7 @@ Kopiera URI från portalen och klistra in den i `<your endpoint URI>` i filen pr
 
 ![Skärmdump av Azure Portal som används i självstudiekursen om NoSQL för att skapa en C#-konsolapp. Visar DocumentDB-konto med hubben AKTIV markerad, knappen NYCKLAR markerad i bladet DocumentDB-konto och värdena URI, PRIMÄRNYCKEL och SEKUNDÄRNYCKEL markerade i bladet Nycklar][keys]
 
-Vi börjar med att skapa en ny instans av **DocumentClient**.
+Härnäst ska vi starta programmet genom att skapa en ny instans av **DocumentClient**.
 
 Under metoden **Main** lägger du till den här nya asynkrona aktiviteten kallad **GetStartedDemo**, som instantierar vår nya **dokumentklient**.
 
@@ -153,14 +155,14 @@ Lägg till nedanstående kod för att köra den asynkrona aktiviteten från meto
                     Console.ReadKey();
             }
 
-Kör appen genom att trycka på **F5**.
+Kör appen genom att trycka på **F5**. Konsolfönstrets utdata visar meddelandet `End of demo, press any key to exit.` som bekräftar att anslutningen har gjorts.  Därefter kan du stänga konsolfönstret. 
 
 Grattis! Du har anslutit till ett DocumentDB-konto! Nu ska vi gå igenom hur man arbetar med DocumentDB-resurser.  
 
 ## <a name="step-4-create-a-database"></a>Steg 4: Skapa en databas
 Lägg till en hjälpmetod för skrivning till konsolen innan du lägger till kod som skapar en databas.
 
-Kopiera och klistra in metoden **WriteToConsoleAndPromptToContinue** under metoden **GetStartedDemo**.
+Kopiera och klistra in metoden **WriteToConsoleAndPromptToContinue** efter metoden **GetStartedDemo**.
 
     // ADD THIS PART TO YOUR CODE
     private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
@@ -172,7 +174,7 @@ Kopiera och klistra in metoden **WriteToConsoleAndPromptToContinue** under metod
 
 Du kan skapa DocumentDB-[databasen](documentdb-resources.md#databases) med hjälp av metoden [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) för klassen **DocumentClient**. En databas är en logisk behållare för JSON-dokumentlagring, partitionerad över samlingarna.
 
-Kopiera och klistra in metoden **CreateDatabaseIfNotExists** under metoden **WriteToConsoleAndPromptToContinue**.
+Kopiera och klistra in metoden **CreateDatabaseIfNotExists** efter metoden **WriteToConsoleAndPromptToContinue**.
 
     // ADD THIS PART TO YOUR CODE
     private async Task CreateDatabaseIfNotExists(string databaseName)
@@ -198,7 +200,7 @@ Kopiera och klistra in metoden **CreateDatabaseIfNotExists** under metoden **Wri
             }
     }
 
-Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under den skapade klienten. Då skapas en databas med namnet *FamilyDB*.
+Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** efter den skapade klienten. Då skapas en databas med namnet *FamilyDB*.
 
     private async Task GetStartedDemo()
     {
@@ -219,7 +221,7 @@ Grattis! Du har skapat en DocumentDB-databas.
 
 Du kan skapa en [samling](documentdb-resources.md#collections) med metoden [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) för klassen **DocumentClient**. En samling är en behållare för JSON-dokument och associerad JavaScript-applogik.
 
-Kopiera och klistra in metoden **CreateDocumentCollectionIfNotExists** under metoden **CreateDatabaseIfNotExists**.
+Kopiera och klistra in metoden **CreateDocumentCollectionIfNotExists** efter metoden **CreateDatabaseIfNotExists**.
 
     // ADD THIS PART TO YOUR CODE
     private async Task CreateDocumentCollectionIfNotExists(string databaseName, string collectionName)
@@ -255,7 +257,7 @@ Kopiera och klistra in metoden **CreateDocumentCollectionIfNotExists** under met
         }
     }
 
-Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden som skapade databasen. Då skapas en dokumentsamling som heter *FamilyCollection_oa*.
+Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** efter koden som skapade databasen. Då skapas en dokumentsamling som heter *FamilyCollection_oa*.
 
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
@@ -269,11 +271,11 @@ Kör appen genom att trycka på **F5**.
 Grattis! Du har skapat en DocumentDB-dokumentsamling.  
 
 ## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Steg 6: Skapa JSON-dokument
-Du kan skapa [dokument](documentdb-resources.md#documents) med metoden [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) för klassen **dokumentklient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda [datamigreringsverktyget](documentdb-import-data.md) för DocumentDB.
+Du kan skapa [dokument](documentdb-resources.md#documents) med metoden [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) för klassen **dokumentklient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda [datamigreringsverktyget](documentdb-import-data.md) för DocumentDB för att importera datan till en databas.
 
 Först måste vi skapa klassen **Familj** som ska representera objekt som lagras i DocumentDB i det här exemplet. Vi kommer även att skapa underklasserna **Förälder**, **Barn**, **Husdjur** och **Adress** som används inom **Familj**. Observera att dokument måste ha en **id**-egenskap serialiserad som **id** i JSON. Skapa dessa klasser genom att lägga till nedanstående interna undergrupper efter metoden **GetStartedDemo**.
 
-Kopiera och klistra in klasserna **Familj**, **Förälder**, **Barn**, **Husdjur** och **Adress** under metoden **WriteToConsoleAndPromptToContinue**.
+Kopiera och klistra in klasserna **Familj**, **Förälder**, **Barn**, **Husdjur** och **Adress** efter metoden **WriteToConsoleAndPromptToContinue**.
 
     private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
     {
@@ -325,7 +327,7 @@ Kopiera och klistra in klasserna **Familj**, **Förälder**, **Barn**, **Husdjur
         public string City { get; set; }
     }
 
-Kopiera och klistra in metoden **CreateFamilyDocumentIfNotExists** under metoden **CreateDocumentCollectionIfNotExists**.
+Kopiera och klistra in metoden **CreateFamilyDocumentIfNotExists** efter metoden **CreateDocumentCollectionIfNotExists**.
 
     // ADD THIS PART TO YOUR CODE
     private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
@@ -351,7 +353,7 @@ Kopiera och klistra in metoden **CreateFamilyDocumentIfNotExists** under metoden
 
 Infoga också två dokument, ett för familjen Andersen och ett för familjen Wakefield.
 
-Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden som skapade dokumentsamlingen.
+Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** efter koden som skapade dokumentsamlingen.
 
     await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
@@ -432,7 +434,7 @@ Grattis! Du har skapat två DocumentDB-dokument.
 ## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Steg 7: Skicka frågor till DocumentDB-resurser
 DocumentDB stöder omfattande [frågor](documentdb-sql-query.md) mot JSON-dokument som lagras i varje samling.  Nedanstående exempelkod visar olika frågor – med både DocumentDB SQL-syntax och LINQ – som du kan köra mot dokumenten som infogades i föregående steg.
 
-Kopiera och klistra in metoden **ExecuteSimpleQuery** under metoden **CreateFamilyDocumentIfNotExists**.
+Kopiera och klistra in metoden **ExecuteSimpleQuery** efter metoden **CreateFamilyDocumentIfNotExists**.
 
     // ADD THIS PART TO YOUR CODE
     private void ExecuteSimpleQuery(string databaseName, string collectionName)
@@ -468,12 +470,14 @@ Kopiera och klistra in metoden **ExecuteSimpleQuery** under metoden **CreateFami
             Console.ReadKey();
     }
 
-Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden som skapade det andra dokumentet.
+Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** efter koden som skapade det andra dokumentet.
 
     await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
     // ADD THIS PART TO YOUR CODE
     this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+
+Innan du kör programmet klickar du på *Projektnamn*, **Egenskaper... **, och därefter på **Skapa** i **Projekt**-menyn. Rensa rutan **Föredrar 32-bitar** eftersom partitionsroutnings-informationen inte kan extraheras från frågan när du kör i en 32-bitarsprocess.
 
 Kör appen genom att trycka på **F5**.
 
@@ -483,12 +487,12 @@ Nedanstående diagram illustrerar hur DocumentDB SQL-frågesyntaxen anropas mot 
 
 ![Diagram som illustrerar omfånget och innebörden av frågan som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
-Nyckelordet [FRÅN](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
+Nyckelordet [FROM](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
 
 ## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Steg 8: Ersätta JSON-dokument
 DocumentDB har stöd för att ersätta JSON-dokument.  
 
-Kopiera och klistra in metoden **ReplaceFamilyDocument** under metoden **ExecuteSimpleQuery**.
+Kopiera och klistra in metoden **ReplaceFamilyDocument** efter metoden **ExecuteSimpleQuery**.
 
     // ADD THIS PART TO YOUR CODE
     private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
@@ -504,7 +508,7 @@ Kopiera och klistra in metoden **ReplaceFamilyDocument** under metoden **Execute
         }
     }
 
-Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under frågekörningskoden. När du ersätter dokumentet körs samma fråga igen för att visa det ändrade dokumentet.
+Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** efter frågekörningskoden i slutet av metoden. När du ersätter dokumentet körs samma fråga igen för att visa det ändrade dokumentet.
 
     await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
@@ -525,7 +529,7 @@ Grattis! Du har ersatt ett DocumentDB-dokument.
 ## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Steg 9: Ta bort JSON-dokument
 DocumentDB har stöd för att ta bort JSON-dokument.  
 
-Kopiera och klistra in metoden **DeleteFamilyDocument** under metoden **ReplaceFamilyDocument**.
+Kopiera och klistra in metoden **DeleteFamilyDocument** efter metoden **ReplaceFamilyDocument**.
 
     // ADD THIS PART TO YOUR CODE
     private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
@@ -541,7 +545,7 @@ Kopiera och klistra in metoden **DeleteFamilyDocument** under metoden **ReplaceF
         }
     }
 
-Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under koden för den andra frågekörningen.
+Kopiera och klistra in följande kod till metoden **GetStartedDemo** efter den andra frågekörningskoden i slutet av metoden.
 
     await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
@@ -557,7 +561,7 @@ Grattis! Du har tagit bort ett DocumentDB-dokument.
 ## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Steg 10: Ta bort databasen
 Om du tar bort databasen du skapade försvinner databasen och alla underordnade resurser (t.ex. samlingar och dokument).
 
-Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** under dokumentborttagningskoden om du vill ta bort hela databasen och alla underordnade resurser.
+Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** efter dokumentborttagningskoden om du vill ta bort hela databasen och alla underordnade resurser.
 
     this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
@@ -574,7 +578,7 @@ Grattis! Du har tagit bort en DocumentDB-databas.
 ## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Steg 11: Kör C#-konsolappen i sin helhet!
 Tryck på F5 i Visual Studio för att bygga appen i felsökningsläge.
 
-Du bör se Get Started-appens utdata. Dessa utdata visar resultaten för de frågor som vi har lagt till och bör motsvara exempeltexten nedan.
+Du bör nu se utdata från din kom-igång-app. Dessa utdata visar resultaten för de frågor som vi har lagt till och bör motsvara exempeltexten nedan.
 
     Created FamilyDB_oa
     Press any key to continue ...
@@ -600,13 +604,20 @@ Du bör se Get Started-appens utdata. Dessa utdata visar resultaten för de frå
 Grattis! Du har slutfört den här självstudiekursen om NoSQL och har en fungerande C#-konsolapp!
 
 ## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a>Hämta den fullständiga lösningen till NoSQL-självstudiekursen
-För att bygga GetStarted-lösningen med alla exempel i den här artikeln behöver du följande:
+Om du inte har tid att slutföra stegen i den här självstudien eller bara vill hämta kodexemplen kan du hämta dem från [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
-* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
+För att bygga GetStarted-lösningen behöver du följande:
+
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Ett [DocumentDB-konto][documentdb-create-account].
 * [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)-lösningen som finns på GitHub.
 
 Om du vill återställa referenser till .NET DocumentDB SDK i Visual Studio högerklickar du på **GetStarted**-lösningen i Solution Explorer och klickar sedan på **Aktivera NuGet-paketåterställning**. I filen App.config uppdaterar du sedan värdena EndpointUrl och AuthorizationKey enligt beskrivningen i [Ansluta till ett DocumentDB-konto](#Connect).
+
+Innan du kör programmet klickar du på *Projektnamn*, **Egenskaper... **, och därefter på **Skapa** i **Projekt**-menyn. Rensa rutan **Föredrar 32-bitar**.
+
+Då är det bara att bygga den, så är du på väg!
+
 
 ## <a name="next-steps"></a>Nästa steg
 * Vill du ha en mer komplicerad självstudiekurs om ASP.NET MVC NoSQL? Se [Skapa en webbapp med ASP.NET MVC via DocumentDB](documentdb-dotnet-application.md).
@@ -621,6 +632,6 @@ Om du vill återställa referenser till .NET DocumentDB SDK i Visual Studio hög
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

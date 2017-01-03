@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 28222825d680ed7930dd1f2da46df28728c7c103
-ms.openlocfilehash: 48ff29e7abae511eb75aec8c1569ffdf5a57bc77
+ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
+ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
 
 
 ---
@@ -28,19 +28,19 @@ Lär dig hur du installerar Data Lake-verktyg för Visual Studio och använder D
 U-SQL är ett hyperskalbart, mycket utökningsbart språk för att förbereda, transformera och analysera alla data i Data Lake och andra lagringsplatser. Mer information finns i [Använd U-SQL-referens](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Krav
-* **Visual Studio 2015, Visual Studio 2013 uppdatering 4 eller Visual Studio 2012. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte. Visual Studio "15" stöds inte för närvarande och vi arbetar på detta.**
+* **Visual Studio 2015, Visual Studio 2013 uppdatering 4 eller Visual Studio 2012. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte. Visual Studio 2017 stöds inte för närvarande.**
 * **Microsoft Azure SDK för .NET version 2.7.1 eller senare**.  Installera den med hjälp av [installationsprogrammet för webbplattformen](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake-verktyg för Visual Studio](http://aka.ms/adltoolsvs)**.
 
     När Data Lake-verktyg för Visual Studio har installerats, visas noden "Data Lake Analytics" i Server Explorer under noden "Azure" (du kan öppna Server Explorer genom att trycka på Ctrl + Alt + S).
-* **Gå igenom följande två avsnitt i [Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md)**.
 
-  * [Skapa ett Azure Data Lake Analytics-konto](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-  * [Ladda upp SearchLog.tsv till Data Lake-standardlagringskontot](data-lake-analytics-get-started-portal.md#prepare-source-data).
+* **Data Lake Analytics-konto och exempeldata** Data Lake Tools stöder inte skapandet av Data Lake Analytics-konton. Du kan skapa ett konto med hjälp av Azure Portal, Azure PowerShell, .NET SDK eller Azure CLI.
+För att göra det enklare för dig finns det ett PowerShell-skript med vilket du kan skapa en Data Lake Analytics-tjänst och ladda upp källdatafilen i [Självstudieförberedande Appx-A PowerShell-exempel](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
-    För din bekvämlighet finns ett PowerShell-exempelskript för att skapa en Data Lake Analytics-tjänst och ladda upp källdatafilen i [Appx-A PowerShell-exempel för att förbereda självstudierna](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
+    Du kan också välja att gå igenom följande två avsnitt i [Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md) om du vill skapa ditt konto och ladda upp data manuellt:
 
-    Data Lake-verktygen stöder inte skapandet av Data Lake Analytics-konton. Du måste skapa det med hjälp av Azure Portal, Azure PowerShell, .NET SDK eller Azure CLI. Om du vill köra ett Data Lake Analytics-jobb behöver du vissa data. Även om Data Lake-verktygen stöder uppladdning av data, kommer du att använda portalen för att ladda upp exempeldata. Detta gör det lättare att följa dessa självstudier.
+    1. [Skapa ett Azure Data Lake Analytics-konto](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
+    2. [Ladda upp SearchLog.tsv till Data Lake-standardlagringskontot](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ## <a name="connect-to-azure"></a>Anslut till Azure
 **Så här ansluter du till Data Lake Analytics**
@@ -352,6 +352,6 @@ Följande PowerShell-skript förbereder ett Azure Data Lake Analytics-konto och 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

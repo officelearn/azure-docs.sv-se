@@ -13,29 +13,30 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 340287e4a3331eba441bce7feb957f27aca38b2b
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
 
 ---
+
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Ladda upp data till Azure Search med hjälp av REST-API:et
 > [!div class="op_single_selector"]
+>
 > * [Översikt](search-what-is-data-import.md)
 > * [NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
-> 
-> 
+>
+>
 
-Den här artikeln beskriver hur du använder [REST-API:et för Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) för att importera data till ett Azure Search-index.
+Den här artikeln beskriver hur du använder [REST-API:et för Azure Search](https://docs.microsoft.com/rest/api/searchservice/) för att importera data till ett Azure Search-index.
 
 Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Search-index](search-what-is-an-index.md).
 
 För att skicka dokument till ditt index med hjälp av REST-API:et skickar du en HTTP POST-begäran till URL-slutpunkten för indexet. HTTP-begärandetexten är ett JSON-objekt som innehåller de dokument som ska läggas till, ändras eller tas bort.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identifiera Azure Search-tjänstens API-administratörsnyckel
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identifiera Azure Search-tjänstens API-administratörsnyckel
 När HTTP-begäranden skickas mot din tjänst med hjälp av REST-API:et måste *varje* API-begäran innehålla API-nyckeln som genererades för Search-tjänsten som du etablerade. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
@@ -65,9 +66,9 @@ Varje JSON-objekt i ”value”-matrisen representerar ett dokument som ska inde
 Nu när du har samlat in nödvändiga fältvärden för dina indexåtgärder är det dags att skapa själva HTTP-begärandena och JSON-begärandetexten för att importera dina data.
 
 #### <a name="request-and-request-headers"></a>Begäran och begärandehuvuden
-I URL:en måste du ange tjänstnamnet, indexnamnet (”hotels” i detta fall) samt API-versionen (den aktuella API-versionen är `2015-02-28` vid tidpunkten för publiceringen av det här dokumentet). Du måste definiera `Content-Type`- och `api-key`-begärandehuvuden. För det senare använder du någon av administratörsnycklarna för tjänsten.
+I URL:en måste du ange tjänstnamnet, indexnamnet (”hotels” i detta fall) samt API-versionen (den aktuella API-versionen är `2016-09-01` vid tidpunkten för publiceringen av det här dokumentet). Du måste definiera `Content-Type`- och `api-key`-begärandehuvuden. För det senare använder du någon av administratörsnycklarna för tjänsten.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -160,8 +161,8 @@ Statuskoden `207` returneras om minst ett objekt inte indexerades. JSON-texten i
 
 > [!NOTE]
 > Detta innebär ofta att belastningen på din söktjänst når en punkt där indexeringsbegäranden börjar returnera `503`-svar. I detta fall rekommenderar vi starkt att klientkoden stannar upp och väntar innan ett nytt försök görs. På så sätt får systemet tid på sig att återställas, vilket ökar sannolikheten för att framtida begäranden lyckas. Snabba återförsök kommer endast att förlänga situationen.
-> 
-> 
+>
+>
 
 #### <a name="429"></a>429
 Statuskoden `429` returneras om du överskrider kvoten för antal dokument per index.
@@ -171,17 +172,16 @@ Statuskoden `503` returneras om inget av objekten i begäran indexerades. Detta 
 
 > [!NOTE]
 > I detta fall rekommenderar vi starkt att klientkoden stannar upp och väntar innan ett nytt försök görs. På så sätt får systemet tid på sig att återställas, vilket ökar sannolikheten för att framtida begäranden lyckas. Snabba återförsök kommer endast att förlänga situationen.
-> 
-> 
+>
+>
 
-Mer information om dokumentåtgärder och svar om lyckade/misslyckade åtgärder finns i [Lägga till, uppdatera eller ta bort dokument](https://msdn.microsoft.com/library/azure/dn798930.aspx). Mer information om andra HTTP-statuskoder som kan returneras om det uppstår fel finns i [HTTP-statuskoder (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Mer information om dokumentåtgärder och svar om lyckade/misslyckade åtgärder finns i [Lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Mer information om andra HTTP-statuskoder som kan returneras om det uppstår fel finns i [HTTP-statuskoder (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ## <a name="next"></a>Nästa
 När du har fyllt Azure Search-indexet kan du börja skicka frågor för att söka efter dokument. Mer information finns i [Fråga ditt Azure Search-index](search-query-overview.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
 
 
 ---
@@ -31,17 +31,17 @@ Den här guiden beskriver hur du lägger till cachelagring av svar till ditt API
 > 
 
 ## <a name="prerequisites"></a>Krav
-Innan du följer stegen i den här guiden måste du ha en API Management-tjänstinstans med ett API och en konfigurerad produkt. Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][Skapa en API Management-tjänstinstans] i självstudiekursen [Komma igång med Azure API Management][Komma igång med Azure API Management].
+Innan du följer stegen i den här guiden måste du ha en API Management-tjänstinstans med ett API och en konfigurerad produkt. Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][Create an API Management service instance] i självstudiekursen [Komma igång med Azure API Management][Get started with Azure API Management].
 
 ## <a name="configure-caching"> </a>Konfigurera en åtgärd för cachelagring
 I det här steget ska du granska cachelagringsinställningarna för åtgärden **GET Resource (cached)** i Echo API-exemplet.
 
 > [!NOTE]
-> Varje API Management-tjänstinstans är förkonfigurerad med ett Echo-API som du kan använda för att experimentera och lära dig mer om API Management. Mer information finns i [Komma igång med Azure API Management][Komma igång med Azure API Management].
+> Varje API Management-tjänstinstans är förkonfigurerad med ett Echo-API som du kan använda för att experimentera och lära dig mer om API Management. Mer information finns i [Komma igång med Azure API Management][Get started with Azure API Management].
 > 
 > 
 
-Börja genom att klicka på **Publisher-portal** på Azure-portalen för API Management-tjänsten. När du gör det kommer du till utgivarportalen för API Management.
+Börja genom att klicka på **Publisher-portal** på Azure Portal för API Management-tjänsten. När du gör det kommer du till utgivarportalen för API Management.
 
 ![Utgivarportalen][api-management-management-console]
 
@@ -80,20 +80,22 @@ Visar principerna för den här åtgärden i principredigeraren.
 
 Principdefinitionen för den här åtgärden innehåller principerna som definierar cachelagringskonfigurationen som vi granskade på fliken **Cachelagring** i föregående steg.
 
-    <policies>
-        <inbound>
-            <base />
-            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-                <vary-by-header>Accept</vary-by-header>
-                <vary-by-header>Accept-Charset</vary-by-header>
-            </cache-lookup>
-            <rewrite-uri template="/resource" />
-        </inbound>
-        <outbound>
-            <base />
-            <cache-store caching-mode="cache-on" duration="3600" />
-        </outbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+            <vary-by-header>Accept</vary-by-header>
+            <vary-by-header>Accept-Charset</vary-by-header>
+        </cache-lookup>
+        <rewrite-uri template="/resource" />
+    </inbound>
+    <outbound>
+        <base />
+        <cache-store caching-mode="cache-on" duration="3600" />
+    </outbound>
+</policies>
+```
 
 > [!NOTE]
 > Ändringar som görs i cachelagringsprinciperna i principredigeraren visas på fliken **Cachelagring** för en åtgärd, och tvärtom.
@@ -138,7 +140,7 @@ Ange **25** i fältet **param2** och klicka sedan på **HTTP Get**.
 Observera att värdet för **sampleheader** i svaret nu är **value2**. Eftersom åtgärdsresultatet registreras av frågesträngen returnerades inte det föregående cachelagrade svaret.
 
 ## <a name="next-steps"> </a>Nästa steg
-* Mer information om cachelagringsprinciper finns i [Cachelagringsprinciper][Cachelagringsprinciper] i [Principreferens för API Management][Principreferens för API Management].
+* Mer information om cachelagringsprinciper finns i [Cachelagringsprinciper][Caching policies] i [Principreferens för API Management][API Management policy reference].
 * Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
@@ -153,25 +155,25 @@ Observera att värdet för **sampleheader** i svaret nu är **value2**. Eftersom
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[Lägga till åtgärder till ett API]: api-management-howto-add-operations.md
-[Lägga till och publicera en produkt]: api-management-howto-add-products.md
-[Övervakning och analys]: api-management-monitoring.md
-[Lägga till API:er till en produkt]: api-management-howto-add-products.md#add-apis
-[Publicera en produkt]: api-management-howto-add-products.md#publish-product
-[Komma igång med Azure API Management]: api-management-get-started.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
 
-[Principreferens för API Management]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Cachelagringsprinciper]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Skapa en API Management-tjänstinstans]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Konfigurera en åtgärd för cachelagring]: #configure-caching
-[Granska cachelagringsprinciperna]: #caching-policies
-[Anropa en åtgärd och testa cachelagringen]: #test-operation
-[Nästa steg]: #next-steps
+[Configure an operation for caching]: #configure-caching
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
+[Next steps]: #next-steps
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Självstudie om NoSQL Node.js för DocumentDB | Microsoft Docs"
-description: "En självstudie om NoSQL Node.js där du skapar en Node-databas och ett konsolprogram med DocumentDB Node.js SDK. DocumentDB är en NoSQL-databas för JSON."
+description: "En självstudie om NoSQL Node.js där du skapar en NoSQL-databas och ett konsolprogram med DocumentDB Node.js SDK. DocumentDB är en NoSQL-databas för JSON."
 keywords: "självstudier för node.js, noddatabas"
 services: documentdb
 documentationcenter: node.js
@@ -13,22 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06707b45944ee6b0810fbd45abbf69dccc1e00e1
+ms.sourcegitcommit: a1cd22bb4d5719493e32071879f1dc601901941f
+ms.openlocfilehash: 481e5d664ae4ae029135e06350e8c053eb6832c1
 
 
 ---
 # <a name="nosql-nodejs-tutorial-documentdb-nodejs-console-application"></a>Självstudie om NoSQL Node.js: DocumentDB Node.js-konsolprogram
 > [!div class="op_single_selector"]
-> * [NET](documentdb-get-started.md)
+> * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
-> 
+> * [C++](documentdb-cpp-get-started.md)
 > 
 
-Välkommen till självstudien om Node.js för Azure DocumentDB Node.js SDK! När du har följt den här självstudien har du ett konsolprogram som skapar och skickar frågor till DocumentDB-resurser, inklusive en Node-databas.
+Välkommen till självstudien om Node.js för Azure DocumentDB Node.js SDK! När du har genomfört den här självstudiekursen har du en konsolapp som skapar och skickar frågor till DocumentDB-resurser.
 
 Vi tar upp följande:
 
@@ -52,10 +53,11 @@ Nu sätter vi igång!
 Se till att du har följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+    * Du kan också använda [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för den här självstudien.
 * [Node.js](https://nodejs.org/) version 0.10.29 eller högre.
 
 ## <a name="step-1-create-a-documentdb-account"></a>Steg 1: Skapa ett DocumentDB-konto
-Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [Konfigurera Node.js-programmet](#SetupNode).
+Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [Konfigurera Node.js-programmet](#SetupNode). Om du använder DocumentDB-emulatorn följer du stegen i artikeln om [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för att konfigurera emulatorn och gå vidare med att [konfigurera Node.js-programmet](#SetupNode).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -65,10 +67,10 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
 3. Skapa två tomma JavaScript-filer med följande kommandon:
    * Windows:
      * ```fsutil file createnew app.js 0```
-       * ```fsutil file createnew config.js 0```
+     * ```fsutil file createnew config.js 0```
    * Linux/OS X:
      * ```touch app.js```
-       * ```touch config.js```
+     * ```touch config.js```
 4. Installera modulen documentdb via npm. Ange följande kommando:
    * ```npm install documentdb --save```
 
@@ -159,7 +161,7 @@ Kopiera och klistra in ```database id```, ```collection id``` och ```JSON docume
     };
 
 
-Databasen, samlingen och dokumentdefinitionerna kommer att fungera som  DocumentDB-```database id```, -```collection id``` och dokumentens data.
+Databasen, samlingen och dokumentdefinitionerna kommer att fungera som DocumentDB-```database id```, -```collection id``` och dokumentens data.
 
 Exportera slutligen ```config```-objektet, så att du kan referera till det i filen ```app.js```.
 
@@ -263,7 +265,7 @@ Grattis! Du har skapat en DocumentDB-databas.
 
 En [samling](documentdb-resources.md#collections) kan skapas med funktionen [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) för klassen **DocumentClient**. En samling är en behållare för JSON-dokument och associerad JavaScript-applogik.
 
-Kopiera och klistra in funktionen **getCollection** under funktionen **getDatabase** för att skapa den nya samlingen med ```id``` som anges i objektet ```config```. Vi kontrollerar igen att det inte redan finns en samling med samma ```FamilyCollection```-id. Om det gör det returnerar vi den samlingen istället för att skapa en ny.
+Kopiera och klistra in funktionen **getCollection** under funktionen **getDatabase** i app.js-filen för att skapa den nya samlingen med ```id``` som anges i objektet ```config```. Vi kontrollerar igen att det inte redan finns en samling med samma ```FamilyCollection```-id. Om det gör det returnerar vi den samlingen istället för att skapa en ny.
 
                 } else {
                     resolve(result);
@@ -366,7 +368,7 @@ Grattis! Du har skapat ett DocumentDB-dokument.
 ## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>Steg 8: Skicka frågor till DocumentDB-resurser
 DocumentDB stöder [komplexa frågor](documentdb-sql-query.md) mot JSON-dokument som lagras i varje samling. Följande exempelkod visar en fråga som du kan köra mot dokumenten i samlingen.
 
-Kopiera och klistra in funktionen **queryCollection** under funktionen **getFamilyDocument**. DocumentDB stöder SQL-liknande frågor som visas nedan. Mer information om hur du skapar komplexa frågor finns i [Query Playground](https://www.documentdb.com/sql/demo) och [frågedokumentationen](documentdb-sql-query.md).
+Kopiera och klistra in funktionen **queryCollection** under funktionen **getFamilyDocument** i app.js-filen. DocumentDB stöder SQL-liknande frågor som visas nedan. Mer information om hur du skapar komplexa frågor finns i [Query Playground](https://www.documentdb.com/sql/demo) och [frågedokumentationen](documentdb-sql-query.md).
 
                 } else {
                     resolve(result);
@@ -423,7 +425,7 @@ Grattis! Du har skickat en fråga till DocumentDB-dokument.
 ## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>Steg 9: Ersätta ett dokument
 DocumentDB har stöd för att ersätta JSON-dokument.
 
-Kopiera och klistra in funktionen **replaceDocument** under funktionen **queryCollection**.
+Kopiera och klistra in funktionen **replaceFamilyDocument** under funktionen **queryCollection** i app.js-filen.
 
                     }
                     console.log();
@@ -470,7 +472,7 @@ Grattis! Du har ersatt ett DocumentDB-dokument.
 ## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>Steg 10: Ta bort ett dokument
 DocumentDB har stöd för att ta bort JSON-dokument.
 
-Kopiera och klistra in funktionen **deleteDocument** under funktionen **replaceDocument**.
+Kopiera och klistra in funktionen **deleteFamilyDocument** under funktionen **replaceFamilyDocument**.
 
                 else {
                     resolve(result);
@@ -514,7 +516,7 @@ Grattis! Du har tagit bort ett DocumentDB-dokument.
 ## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>Steg 11: Ta bort Node-databasen
 Om du tar bort databasen du skapade försvinner databasen och alla underordnade resurser (t.ex. samlingar och dokument).
 
-Kopiera och klistra in följande kodutdrag (funktionen **cleanup**) för att ta bort databasen och alla underordnade resurser.
+Kopiera och klistra in funktionen **cleanup** under funktionen **deleteFamilyDocument** för att ta bort databasen och alla underordnade resurser.
 
                 else {
                     resolve(result);
@@ -535,7 +537,7 @@ Kopiera och klistra in följande kodutdrag (funktionen **cleanup**) för att ta 
         });
     }
 
-Kopiera och klistra in koden under anropet till **deleteDocument** för att köra funktionen **cleanup**.
+Kopiera och klistra in koden under anropet till **deleteFamilyDocument** för att köra funktionen **cleanup**.
 
     .then(() => deleteFamilyDocument(config.documents.Andersen))
 
@@ -598,7 +600,9 @@ Du bör nu se utdata från din kom-igång-app. Dina utdata bör motsvara exempel
 Grattis! Du har slutfört självstudien om Node.js och skapat ditt första DocumentDB-konsolprogram!
 
 ## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>Hämta den fullständiga lösningen till Node.js-självstudien
-För att bygga GetStarted-lösningen med alla exempel i den här artikeln behöver du följande:
+Om du inte har tid att slutföra stegen i den här självstudien eller bara vill hämta koden kan du hämta dem från [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+
+För att köra GetStarted-lösningen med alla exempel i den här artikeln behöver du följande:
 
 * [DocumentDB-konto][documentdb-create-account].
 * [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started)-lösningen som finns på GitHub.
@@ -607,7 +611,11 @@ Installera modulen **documentdb** via npm. Ange följande kommando:
 
 * ```npm install documentdb --save```
 
-Sedan uppdaterar du värdena config.endpoint och config.authKey i filen ```config.js``` enligt beskrivningen i [Steg 3: Ange appkonfigurationer](#Config).
+Sedan uppdaterar du värdena config.endpoint och config.authKey i filen ```config.js``` enligt beskrivningen i [Steg 3: Ange appkonfigurationer](#Config). 
+
+Leta sedan upp filen ```app.js``` i terminalen och kör kommandot: ```node app.js```.
+
+Då är det bara att bygga den, så är du på väg! 
 
 ## <a name="next-steps"></a>Nästa steg
 * Vill du ha ett mer komplext Node.js-exempel? Se [Skapa en Node.js-webbapp med DocumentDB](documentdb-nodejs-application.md).
@@ -622,6 +630,6 @@ Sedan uppdaterar du värdena config.endpoint och config.authKey i filen ```confi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

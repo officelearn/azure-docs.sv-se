@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f5e9d1a7f26ed3cac5767034661739169968a44e
-ms.openlocfilehash: ba0c710a0c28e9d52021ec966905a007b06f125e
+ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
+ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
 
 
 ---
@@ -46,9 +46,9 @@ För en fullständig distribution rekommenderar vi att du följer alla stegen i 
 | **Lokala begränsningar** |HTTPS-baserade proxyservrar stöds inte |
 | **Provider/agent** |Replikerade virtuella datorer behöver Azure Site Recovery-providern.<br/><br/> Hyper-V-värdar behöver Recovery Services-agenten.<br/><br/> Du installerar dessa under distributionen. |
 |  **Krav för Azure** |Azure-konto<br/><br/> Recovery Services-valv<br/><br/> LRS- eller GRS-lagringskontot i valvregionen<br/><br/> Standardlagringskonto<br/><br/> Virtuellt Azure-nätverk i valvregionen. [Fullständig information](#azure-prerequisites). |
-|  **Begränsningar för Azure** |Om du använder GRS behöver du ett annat LRS-konto för loggning<br/><br/> Lagringskonton som skapats på Azure-portalen kan inte flyttas mellan resursgrupper i samma, eller olika, prenumerationer. <br/><br/> Premium-lagring stöds inte.<br/><br/> Azure-nätverk som används för Site Recovery kan inte flyttas mellan resursgrupper i samma, eller olika, prenumerationer. |
-|  **VM-replikering** |[Virtuella datorer måste uppfylla kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
-|  **Begränsningar för replikering** |Du kan inte replikera virtuella datorer som kör Linux med en statisk IP-adress.<br/><br/> Du kan inte undanta specifika diskar från replikering. |
+|  **Begränsningar för Azure** |Om du använder GRS behöver du ett annat LRS-konto för loggning<br/><br/> Lagringskonton som skapats på Azure-portalen kan inte flyttas mellan resursgrupper i samma, eller olika, prenumerationer. <br/><br/> Premium-lagring stöds inte.<br/><br/> Azure-nätverk som används för Site Recovery kan inte flyttas mellan resursgrupper i samma, eller olika, prenumerationer. 
+|  **VM-replikering** |[Virtuella datorer måste uppfylla kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
+|  **Begränsningar för replikering** |Du kan inte replikera virtuella datorer som kör Linux med en statisk IP-adress.<br/><br/> Du kan utesluta specifika diskar från replikeringen, men inte OS-disken.
 | **Distributionssteg** |1) Förbered Azure (prenumeration, lagring, nätverk) -> 2) Förbered lokalt (VMM och nätverksmappning) -> 3) Skapa Recovery Services-valv > 4) Konfigurera VMM och Hyper-V-värdar -> 5) Konfigurera replikeringsinställningar -> 6) Aktivera replikering -> 7) Testa replikering och redundans. |
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery på Azure Portal
@@ -372,6 +372,7 @@ Registervärdet **UploadThreadsPerVM** styr antalet trådar som används för at
 2. Standardvärdet är 4. I ett ”överetablerat” nätverk bör du ändra registernycklarnas standardvärden. Det högsta antalet är 32. Övervaka trafiken för att optimera värdet.
 
 ## <a name="step-6-enable-replication"></a>Steg 6: Aktivera replikering
+
 Aktivera replikering på följande sätt:
 
 1. Klicka på **Steg 2: Replikera program** > **Källa**. När du har aktiverat replikering för första gången klickar du på **+Replikera** i valvet för att aktivera replikering för ytterligare datorer.
@@ -388,9 +389,20 @@ Aktivera replikering på följande sätt:
 6. I **Virtual Machines** > **Välj virtuella datorer** klickar du på och väljer de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**.
 
     ![Aktivera replikering](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. I **Egenskaper** > **Konfigurera egenskaper** väljer du operativsystemet för de valda virtuella datorerna och operativsystemdisken. Klicka sedan på **OK**. Du kan ange ytterligare egenskaper senare.
+7. I **Egenskaper** > **Konfigurera egenskaper** väljer du operativsystemet för de valda virtuella datorerna och operativsystemdisken. Som standard markeras alla diskar på den virtuella datorn för replikering. Du kanske vill undanta diskar från replikeringen och därigenom begränsa användningen av bandbredd för att replikera onödiga data till Azure. Till exempel kanske du inte vill replikera diskar med tillfälliga data eller data som uppdateras varje gång en dator eller ett program startar om (till exempel pagefile.sys eller tempdb för Microsoft SQL Server). Du kan undanta en disk från replikering genom att avmarkera den. Kontrollera att namnet på den virtuella datorn i Azure (målnamnet) uppfyller [kraven för virtuella datorer i Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) och ändra det om det behövs. Klicka sedan på **OK**. Du kan ange ytterligare egenskaper senare.
 
-    ![Aktivera replikering](./media/site-recovery-vmm-to-azure/enable-replication6.png)
+    ![Aktivera replikering](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
+    
+    >[!NOTE]
+    > 
+    > * Endast standarddiskar kan undantas från replikering. Du kan inte utesluta OS-disken och vi rekommenderar att du inte undantar dynamiska diskar. ASR kan inte identifiera vilken virtuell hårddisk som är en standarddisk eller dynamisk disk på den virtuella gästdatorn.  Om beroende dynamiska volymdiskar inte undantas identifieras en skyddad dynamisk disk som felaktig på den virtuella datorn vid redundansväxlingen och data på disken kan inte nås.   
+    > * När replikering har aktiverats kan du inte lägga till eller ta bort diskar för replikering. Om du vill lägga till eller undanta en disk måste du inaktivera skyddet för den virtuella datorn och sedan aktivera det igen.
+    > * Om du undantar en disk som behövs för att ett program ska fungera efter redundansväxlingen till Azure måste du skapa den manuellt i Azure så att det replikerade programmet kan köras. Du kan också integrera Azure Automation i en återställningsplan för att skapa disken under en redundansväxling av datorn.
+    > * Diskar som du skapar manuellt i Azure växlas inte tillbaka igen. Om du till exempel växlar över tre diskar och skapar två direkt på den virtuella datorn i Azure kommer endast tre diskar som växlades över att växlas tillbaka från Azure till Hyper-V. Du kan inte ta med diskar som har skapats manuellt i redundansväxlingar eller omvända replikeringar från Hyper-V till Azure.
+    >
+    >
+    
+
 8. I **Replikeringsinställningar** > **Konfigurera replikeringsinställningar** väljer du den replikeringsprincip som du vill använda för de skyddade virtuella datorerna. Klicka sedan på **OK**. Du kan ändra replikeringsprincipen i **Inställningar** > **Replikeringsprinciper** > Principnamn > **Redigera inställningar**. De ändringar du gör används både för datorer som redan replikeras och för nya datorer.
 
    ![Aktivera replikering](./media/site-recovery-vmm-to-azure/enable-replication7.png)
@@ -426,6 +438,7 @@ Du kan testa distributionen genom att köra ett redundanstest för en enskild vi
 * Om du vill köra ett redundanstest, rekommenderar vi att du skapar ett nytt Azure-nätverk som har isolerats från Azure-driftsnätverket. Detta är standardfunktionen när du skapar ett nytt nätverk i Azure. [Lär dig mer](site-recovery-failover.md#run-a-test-failover) om hur du kör redundanstestning.
 * För att få bästa möjliga prestanda när du redundansväxlar till Azure kan du installera Azure-agenten på den skyddade datorn. Det gör att starten går snabbare och underlättar felsökning. Installera [Linux](https://github.com/Azure/WALinuxAgent)- eller [Windows](http://go.microsoft.com/fwlink/?LinkID=394789)-agenten.
 * För att testa distributionen fullt ut behöver du en infrastruktur för den replikerade datorn som fungerar som förväntat. Om du vill testa Active Directory och DNS kan du skapa en virtuell dator som en domänkontrollant med DNS och replikera den till Azure med hjälp av Azure Site Recovery. Läs mer i [saker att tänka på när du testar redundans för Active Directory](site-recovery-active-directory.md#test-failover-considerations).
+* Om du har tagit bort diskar från replikering kan du behöva skapa dem manuellt i Azure efter redundansväxlingen så att programmet körs som förväntat.
 * Tänk på följande om du vill köra en oplanerad redundansväxling i stället för ett redundanstest:
 
   * Om möjligt bör du stänga av primära datorer innan du kör en oplanerad redundansväxling. På så sätt är du säker på att inte både käll- och replikdatorerna körs samtidigt.
@@ -496,6 +509,6 @@ När du har konfigurerat och fått igång distributionen kan du [läsa mer](site
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

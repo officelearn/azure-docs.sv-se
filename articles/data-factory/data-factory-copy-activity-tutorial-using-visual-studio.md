@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2a5905c5dcb36777e7b88d6ac44877fdec72e7a5
-ms.openlocfilehash: 3f078e5b5a76e1a6bc840890d2cd90f60a163384
+ms.sourcegitcommit: 01a6f060e6ae800b0de930c7c46ed60f73b530ac
+ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 3f078e5b5a76e1a6bc840890d2cd90f60a163384
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
@@ -37,9 +37,9 @@ De här självstudierna visar hur du skapar och övervakar en Azure-datafabrik m
 
 Här är de steg du utför som en del av de här självstudierna:
 
-1. Skapa två länkade tjänster: **AzureStorageLinkedService1** och **AzureSqlLinkedService1**. 
+1. Skapa två länkade tjänster: **AzureStorageLinkedService1** och **AzureSqlinkedService1**. 
    
-    AzureStorageLinkedService1 länkar en Azure-lagring och AzureSqlLinkedService1 länkar en Azure SQL-databas till datafabriken: **ADFTutorialDataFactoryVS**. Indatan för pipelinen finns i en blob-behållare i Azure blob-lagring och utdata lagras i en tabell i Azure SQL-databasen. Därför kan du lägga till dessa två datalager som länkade tjänster i datafabriken.
+    AzureStorageLinkedService1 länkar en Azure Storage och AzureSqlLinkedService1 länkar en Azure SQL-databas till datafabriken: **ADFTutorialDataFactoryVS**. Indatan för pipelinen finns i en blobbehållare i Azure Blob Storage och utdata lagras i en tabell i Azure SQL-databasen. Därför kan du lägga till dessa två datalager som länkade tjänster i datafabriken.
 2. Skapa två datauppsättningar: **InputDataset** och **OutputDataset**, som visar de in- och utdata som lagras i datalagren. 
    
     För InputDataset anger du den blobbehållare som innehåller en blobb med källdata. För OutputDataset anger du den SQL-tabell som lagrar utdata. Du kan också ange andra egenskaper som struktur, tillgänglighet och princip.
@@ -66,18 +66,18 @@ Här är de steg du utför som en del av de här självstudierna:
     ![Solution Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. I [stödda datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) står alla källor och mottagare som stöds av Kopiera aktivitet. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för att se listan över beräkningstjänster som stöds av Data Factory. I den här självstudiekursen använder du ingen tjänst för beräkning. 
+Länkade tjänster länkar datalager eller Compute Services till en Azure-datafabrik. I [stödda datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) står alla källor och mottagare som stöds av Kopiera aktivitet. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för att se listan över Compute Services som stöds av Data Factory. I den här självstudiekursen använder du ingen tjänst för beräkning. 
 
-I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService1** och **AzureSqlLinkedService1**. Den länkade AzureStorageLinkedService1-tjänsten länkar ett Azure-lagringskonto och AzureSqlLinkedService länkar en Azure SQL-databas till datafabriken: **ADFTutorialDataFactory**. 
+I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService1** och **AzureSqlLinkedService1**. Den länkade AzureStorageLinkedService1-tjänsten länkar ett Azure Storage-konto och AzureSqlLinkedService länkar en Azure SQL-databas till datafabriken: **ADFTutorialDataFactory**. 
 
-### <a name="create-the-azure-storage-linked-service"></a>Skapa den länkade Azure-lagringstjänsten
+### <a name="create-the-azure-storage-linked-service"></a>Skapa den länkade Azure Storage-tjänsten
 1. Högerklicka på **Länkade tjänster** i Solution Explorer, peka på **Lägg till** och klicka på **Nytt objekt**.      
-2. I dialogrutan **Lägg till nytt objekt** väljer du **Länkad Azure-lagringstjänst** i listan och klickar på **Lägg till**. 
+2. I dialogrutan **Lägg till nytt objekt** väljer du **Länkad Azure Storage-tjänst** i listan och klickar på **Lägg till**. 
    
     ![Ny länkad tjänst](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
-3. Ersätt `<accountname>` och `<accountkey>`* med namnet på ditt Azure-lagringskonto och dess nyckel. 
+3. Ersätt `<accountname>` och `<accountkey>`* med namnet på ditt Azure Storage-konto och dess nyckel. 
    
-    ![Länkad Azure-lagringstjänst](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
+    ![Länkad Azure Storage-tjänst](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
 4. Spara filen **AzureStorageLinkedService1.json**.
 
 > I [Move data from/to Azure Blob (Flytta data från/till Azure Blob)](data-factory-azure-blob-connector.md#azure-storage-linked-service) finns mer information om JSON-egenskaper.
@@ -96,7 +96,7 @@ I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService
 > 
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-I föregående steg skapade du de länkade tjänsterna **AzureStorageLinkedService1** och **AzureSqlLinkedService1** för att länka ett Azure-lagringskonto och en Azure SQL-databas till datafabriken: **ADFTutorialDataFactory**. I det här steget definierar du två datauppsättningar – **InputDataset** och **OutputDataset** – som visar in- och utdata som lagras i de datalager som refereras till av AzureStorageLinkedService1 och AzureSqlLinkedService1. För InputDataset anger du den blobbehållare som innehåller en blobb med källdata. För OutputDataset anger du den SQL-tabell som lagrar utdata.
+I föregående steg skapade du de länkade tjänsterna **AzureStorageLinkedService1** och **AzureSqlLinkedService1** för att länka ett Azure Storage-konto och en Azure SQL-databas till datafabriken: **ADFTutorialDataFactory**. I det här steget definierar du två datauppsättningar – **InputDataset** och **OutputDataset** – som visar in- och utdata som lagras i de datalager som refereras till av AzureStorageLinkedService1 och AzureSqlLinkedService1. För InputDataset anger du den blobbehållare som innehåller en blobb med källdata. För OutputDataset anger du den SQL-tabell som lagrar utdata.
 
 ### <a name="create-input-dataset"></a>Skapa indatauppsättning
 I det här steget skapar du en datauppsättning med namnet **InputDataset** som pekar på en blobbehållare i Azure Storage som representeras av den länkade tjänsten **AzureStorageLinkedService1**. En tabell är en rektangulär datauppsättning och är den enda typen av datauppsättning som stöds för tillfället. 
@@ -104,37 +104,38 @@ I det här steget skapar du en datauppsättning med namnet **InputDataset** som 
 1. Högerklicka på **Tabeller** i **Solution Explorer**, peka på **Lägg till** och klicka på **Nytt objekt**.
 2. I dialogrutan **Lägg till nytt objekt** väljer du **Azure-blobb** och klickar på **Lägg till**.   
 3. Ersätt texten JSON med följande text och spara filen **AzureBlobLocation1.json**. 
-   
-       {
-         "name": "InputDataset",
-         "properties": {
-           "structure": [
-             {
-               "name": "FirstName",
-               "type": "String"
-             },
-             {
-               "name": "LastName",
-               "type": "String"
-             }
-           ],
-           "type": "AzureBlob",
-           "linkedServiceName": "AzureStorageLinkedService1",
-           "typeProperties": {
-             "folderPath": "adftutorial/",
-             "format": {
-               "type": "TextFormat",
-               "columnDelimiter": ","
-             }
-           },
-           "external": true,
-           "availability": {
-             "frequency": "Hour",
-             "interval": 1
-           }
-         }
-       }
-   
+
+  ```json   
+  {
+    "name": "InputDataset",
+    "properties": {
+      "structure": [
+        {
+          "name": "FirstName",
+          "type": "String"
+        },
+        {
+          "name": "LastName",
+          "type": "String"
+        }
+      ],
+      "type": "AzureBlob",
+      "linkedServiceName": "AzureStorageLinkedService1",
+      "typeProperties": {
+        "folderPath": "adftutorial/",
+        "format": {
+          "type": "TextFormat",
+          "columnDelimiter": ","
+        }
+      },
+      "external": true,
+      "availability": {
+        "frequency": "Hour",
+        "interval": 1
+      }
+    }
+  }
+  ``` 
     Observera följande punkter: 
    
    * datauppsättningens **typ** anges till **AzureBlob**.
@@ -149,16 +150,18 @@ I det här steget skapar du en datauppsättning med namnet **InputDataset** som 
    Om du inte anger något **fileName** för en **utdatatabell**, genereras filerna i **folderPath** och namnges i följande format: Data.&lt;GUID\&gt;.txt (exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
    Ange **folderPath** och **fileName** dynamiskt utifrån **SliceStart**-tiden med hjälp av **partitionedBy**-egenskapen. I följande exempel använder folderPath Year, Month och Day från SliceStart (starttiden för den sektor som bearbetas) och fileName använder Hour från SliceStart. Om exempelvis en sektor produceras 2016-09-20T08:00:00, anges folderName till wikidatagateway/wikisampledataout/2016/09/20 och fileName anges till 08.csv. 
-   
-           "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-           "fileName": "{Hour}.csv",
-           "partitionedBy": 
-           [
-               { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-               { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-               { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-               { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-
+  
+    ```json   
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
+    [
+        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+    ```
+            
 > [!NOTE]
 > I [Move data from/to Azure Blob (Flytta data från/till Azure Blob)](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) finns mer information om JSON-egenskaper.
 > 
@@ -170,31 +173,33 @@ I det här steget ska du skapa en utdatauppsättning med namnet **OutputDataset*
 1. Högerklicka på **Tabeller** i **Solution Explorer** igen, peka på **Lägg till** och klicka på **Nytt objekt**.
 2. I dialogrutan **Lägg till nytt objekt** väljer du **Azure SQL** och klickar på **Lägg till**. 
 3. Ersätt texten JSON med följande JSON och spara filen **AzureSqlTableLocation1.json**.
-   
-       {
-         "name": "OutputDataset",
-         "properties": {
-           "structure": [
-             {
-               "name": "FirstName",
-               "type": "String"
-             },
-             {
-               "name": "LastName",
-               "type": "String"
-             }
-           ],
-           "type": "AzureSqlTable",
-           "linkedServiceName": "AzureSqlLinkedService1",
-           "typeProperties": {
-             "tableName": "emp"
-           },
-           "availability": {
-             "frequency": "Hour",
-             "interval": 1
-           }
+
+    ```json
+    {
+     "name": "OutputDataset",
+     "properties": {
+       "structure": [
+         {
+           "name": "FirstName",
+           "type": "String"
+         },
+         {
+           "name": "LastName",
+           "type": "String"
          }
+       ],
+       "type": "AzureSqlTable",
+       "linkedServiceName": "AzureSqlLinkedService1",
+       "typeProperties": {
+         "tableName": "emp"
+       },
+       "availability": {
+         "frequency": "Hour",
+         "interval": 1
        }
+     }
+    }
+    ```
    
     Observera följande punkter: 
    
@@ -210,55 +215,56 @@ I det här steget ska du skapa en utdatauppsättning med namnet **OutputDataset*
 > 
 
 ## <a name="create-pipeline"></a>Skapa pipeline
-Du har skapat länkade in-/utdatatjänster och tabeller hittills. Nu skapar du en pipeline med en **kopieringsaktivitet** som kopierar data från Azure-bloben till Azure SQL-databasen. 
+Du har skapat länkade in-/utdatatjänster och tabeller hittills. Nu skapar du en pipeline med en **kopieringsaktivitet** som kopierar data från Azure-bloben till Azure SQL Database. 
 
 1. Högerklicka på **Pipelines** i **Solution Explorer**, peka på **Lägg till** och klicka på **Nytt objekt**.  
 2. Välj **Kopiera datapipeline** i dialogrutan **Lägg till nytt objekt** och klicka på **Lägg till**. 
 3. Ersätt JSON med följande JSON och spara filen **CopyActivity1.json**.
-   
-       {
-         "name": "ADFTutorialPipeline",
-         "properties": {
-           "description": "Copy data from a blob to Azure SQL table",
-           "activities": [
+
+    ```json   
+    {
+     "name": "ADFTutorialPipeline",
+     "properties": {
+       "description": "Copy data from a blob to Azure SQL table",
+       "activities": [
+         {
+           "name": "CopyFromBlobToSQL",
+           "type": "Copy",
+           "inputs": [
              {
-               "name": "CopyFromBlobToSQL",
-               "type": "Copy",
-               "inputs": [
-                 {
-                   "name": "InputDataset"
-                 }
-               ],
-               "outputs": [
-                 {
-                   "name": "OutputDataset"
-                 }
-               ],
-               "typeProperties": {
-                 "source": {
-                   "type": "BlobSource"
-                 },
-                 "sink": {
-                   "type": "SqlSink",
-                   "writeBatchSize": 10000,
-                   "writeBatchTimeout": "60:00:00"
-                 }
-               },
-               "Policy": {
-                 "concurrency": 1,
-                 "executionPriorityOrder": "NewestFirst",
-                 "style": "StartOfInterval",
-                 "retry": 0,
-                 "timeout": "01:00:00"
-               }
+               "name": "InputDataset"
              }
            ],
-           "start": "2015-07-12T00:00:00Z",
-           "end": "2015-07-13T00:00:00Z",
-           "isPaused": false
+           "outputs": [
+             {
+               "name": "OutputDataset"
+             }
+           ],
+           "typeProperties": {
+             "source": {
+               "type": "BlobSource"
+             },
+             "sink": {
+               "type": "SqlSink",
+               "writeBatchSize": 10000,
+               "writeBatchTimeout": "60:00:00"
+             }
+           },
+           "Policy": {
+             "concurrency": 1,
+             "executionPriorityOrder": "NewestFirst",
+             "style": "StartOfInterval",
+             "retry": 0,
+             "timeout": "01:00:00"
+           }
          }
-       }
-   
+       ],
+       "start": "2015-07-12T00:00:00Z",
+       "end": "2015-07-13T00:00:00Z",
+       "isPaused": false
+     }
+    }
+    ```   
    Observera följande punkter:
    
    * I avsnittet Aktiviteter finns det bara en aktivitet vars **typ** anges till **Kopia**.
@@ -307,19 +313,25 @@ I det här steget publicerar du Data Factory-enheter (länkade tjänster, dataup
 6. Granska sammanfattningen och klicka på **Nästa** för att starta distributionsprocessen och visa **Distributionsstatus**.
    
    ![Sidan Publish summary (Publicera översikt)](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)
-7. På sidan **Distributionsstatus** bör du se statusen för distributionen. Klicka på Slutför när distributionen är klar. 
-   ![Distributionsstatussida](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png) Observera följande: 
+7. På sidan **Distributionsstatus** bör du se statusen för distributionen. Klicka på Slutför när distributionen är klar.
+ 
+   ![Statussida för distribution](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png)
+
+Observera följande punkter: 
 
 * Om du får felet: ”**Den här prenumerationen har inte registrerats för användning av namnområdet Microsoft.DataFactory**” gör du något av följande och försöker att publicera igen: 
   
   * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern. 
+
+    ```PowerShell    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+    Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad. 
     
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-    
-      Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad. 
-    
-          Get-AzureRmResourceProvider
-  * Logga in med Azure-prenumerationen i [Azure-portalen](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure-portalen. Den här åtgärden registrerar automatiskt providern åt dig.
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
+  * Logga in med Azure-prenumerationen i [Azure Portal](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure Portal. Med den här åtgärden registreras providern automatiskt.
 * Namnet på datafabriken kan komma att registreras som ett DNS-namn i framtiden och blir då synligt offentligt.
 
 > [!IMPORTANT]
@@ -332,7 +344,7 @@ I den här självstudien har du skapat en Azure-datafabrik som kopierar data fr�
 
 1. Du skapade en Azure **Data Factory**.
 2. Du skapade **länkade tjänster**:
-   1. En länkad **Azure-lagrings**tjänst som länkar Azure-lagringskontot som innehåller indata.     
+   1. En länkad **Azure Storage-**tjänst som länkar Azure Storage-kontot som innehåller indata.     
    2. En länkad **Azure SQL**-tjänst som länkar din Azure SQL-databas som innehåller utdata. 
 3. Du skapade **datauppsättningar** som beskriver indata och utdata för pipelines.
 4. Du skapade en **pipeline** med en **kopieringsaktivitet** med **BlobSource** som källa och **SqlSink** som mottagare. 
@@ -340,8 +352,10 @@ I den här självstudien har du skapat en Azure-datafabrik som kopierar data fr�
 ## <a name="use-server-explorer-to-view-data-factories"></a>Använda Server Explorer för att visa datafabriker
 1. I **Visual Studio** klickar du på **Visa** i menyn och därefter på **Server Explorer**.
 2. I fönstret Server Explorer expanderar du **Azure** och **Data Factory**. Om du ser **Logga in till Visual Studio** anger du det **konto** som är associerat med din Azure-prenumeration och klickar på **Fortsätt**. Ange **lösenordet** och klicka på **Logga in**. Visual Studio försöker hämta information om alla Azure-datafabriker i din prenumeration. Du ser statusen för den här åtgärden i fönstret **Uppgiftslista för Data Factory**.
+
     ![Server Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 3. Du kan också högerklicka på en datafabrik och välja Exportera Data Factory till nytt projekt, för att skapa ett Visual Studio-projekt som baseras på en befintlig datafabrik.
+
     ![Exportera datafabrik till ett VS-projekt](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Uppdatera Data Factory-verktyg för Visual Studio
@@ -365,6 +379,6 @@ Se [Övervaka datauppsättningar och pipeline](data-factory-copy-activity-tutori
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

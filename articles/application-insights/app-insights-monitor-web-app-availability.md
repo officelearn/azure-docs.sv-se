@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
+ms.sourcegitcommit: 2d36bc4f9305590e7cc835bb813daf193d071fd1
+ms.openlocfilehash: 455d260248c5bcdb8f597484a98fec9320c81d19
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
-När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera webbtester för att övervaka appens tillgänglighet och svarstider. [Visual Studio Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
+När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera webbtester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
 
 ![Exempel på webbtest](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Du kan konfigurera webbtester för valfri HTTP- eller HTTPS-slutpunkt som kan nås från det offentliga Internet.
+Du kan konfigurera webbtester för valfri HTTP- eller HTTPS-slutpunkt som kan nås från det offentliga Internet. Du behöver inte lägga till något till den webbplats som du testar. Det behöver inte ens vara din webbplats: du kan testa en REST API-tjänst som du är beroende av.
 
 Det finns två typer av webbtester:
 
@@ -58,7 +58,7 @@ Leta upp panelen Tillgänglighet i Application Insights-resursen. Klicka på pan
 
     **HTTP-svar**: Den returnerade statuskoden som räknas som ett lyckat test. 200 är koden som anger att en normal webbsida har returnerats.
 
-    **Innehållsmatchning**: en sträng, t.ex. ”Välkommen!”. Vi testar att den finns med i varje svar. Den måste vara en enkel sträng utan jokertecken. Glöm inte att du kan behöva uppdatera sidan om innehållet ändras.
+    **Innehållsmatchning**: en sträng, t.ex. ”Välkommen!”. Vi testar i varje svar om någon skiftlägeskänslig matchning förekommer. Den måste vara en enkel sträng utan jokertecken. Glöm inte att du kan behöva uppdatera sidan om innehållet ändras.
 * **Aviseringar** skickas som standard till dig om det uppstår fel på tre platser under en femminutersperiod. Ett fel på en enda plats är ofta ett nätverksproblem och inte ett problem med din webbplats. Men du kan ändra tröskelvärdet så att det är mer eller mindre känsligt, och du kan också ändra vem e-postmeddelandena ska skickas till.
 
     Du kan konfigurera en [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) som anropas när en avisering genereras. (Observera dock att frågeparametrar inte skickas som egenskaper för närvarande.)
@@ -102,8 +102,20 @@ Du kan också hämta resultatfilen och granska den i Visual Studio.
 
 *Ser det okej ut trots att fel har rapporterats?* Kontrollera alla bilder, skript, formatmallar och andra filer som lästs in av sidan. Om någon av komponenterna inte kunde läsas in rapporteras testet som misslyckat, även om HTML-huvudsidan kan läsas in korrekt.
 
-## <a name="multistep-web-tests"></a>Webbtester med flera steg
+### <a name="open-the-server-request-and-exceptions"></a>Öppna serverbegäran och undantag
+
+Från de detaljerade egenskaperna för ett visst test kan du öppna rapporten på serversidan av begäran och andra händelser, till exempel undantag.
+
+![Körningsresultat från webbtest](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+Om du inte ser relaterade objekt kan det bero på en pågående [sampling](app-insights-sampling.md).
+
+## <a name="multi-step-web-tests"></a>Webbtester med flera steg
 Du kan övervaka ett scenario med en serie URL:er. Om du till exempel övervakar en försäljningswebbplats kan du testa att det går att lägga till objekt i kundvagnen korrekt.
+
+> [!NOTE] 
+> Det utgår en avgift för webbtester med flera steg. [Prisschema](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 Om du vill skapa ett test med flera steg spelar du in scenariot med hjälp av Visual Studio och laddar sedan upp inspelningen till Application Insights. Application Insights spelar upp scenariot i intervall och verifierar svaren.
 
@@ -153,7 +165,7 @@ Glöm inte att alla resurser på en sida måste läsas in korrekt för att teste
 
 Observera att webbtestet måste finnas i filen .webtest: du kan inte använda kodade funktioner i testet.
 
-### <a name="plugging-time-and-random-numbers-into-your-multistep-test"></a>Använda tid och slumptal i flerstegstest
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Använda tid och slumptal i flerstegstest
 Anta att du testar ett verktyg som hämtar tidsberoende data, till exempel aktier från ett externt flöde. När du spelar in webbtestet måste du ange specifika tider, men du anger dem som parametrar för testet, StartTime och EndTime.
 
 ![Ett webbtest med parametrar.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -176,7 +188,7 @@ Du kan parameterisera tider med hjälp av webbtest-plugin-program.
 
 Ladda upp testet till portalen. De dynamiska värdena används i varje testkörning.
 
-## <a name="dealing-with-signin"></a>Hantera inloggning
+## <a name="dealing-with-sign-in"></a>Hantera inloggning
 Om användarna måste logga in i din app kan du välja mellan olika alternativ för att simulera inloggningen, så att du kan testa sidorna bakom inloggningen. Vilken metod du använder beror på vilken typ av säkerhet som tillhandahålls av appen.
 
 I samtliga fall bör du skapa ett konto i ditt program som endast används för testning. Om möjligt begränsar du behörigheterna för det här testkontot så att webbtestningen inte påverkar riktiga användare.
@@ -227,7 +239,7 @@ Du kan köra ett inläsningstest på din webbplats. Som med tillgänglighetstest
 När testet är klart visas svarstiderna och slutförandefrekvens.
 
 ## <a name="automation"></a>Automation
-* [Konfigurera ett webbtest automatiskt med hjälp av PowerShell-skript](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/).
+* [Konfigurera ett webbtest automatiskt med hjälp av PowerShell-skript](app-insights-powershell.md#add-an-availability-test).
 * Konfigurera en [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) som anropas när en avisering genereras.
 
 ## <a name="questions-problems"></a>Har du några frågor? Har du problem?
@@ -267,7 +279,7 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 >
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Nästa steg
-[Söka i diagnostikloggar][diagnostic]
+[Sök i diagnostikloggar][diagnostic]
 
 [Felsökning][qna]
 
@@ -275,13 +287,13 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 
 <!--Link references-->
 
-[azure-tillgänglighet]: ../insights-create-web-tests.md
+[azure-availability]: ../insights-create-web-tests.md
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

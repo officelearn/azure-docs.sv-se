@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8156467ac97445576517ed7280307f6ca94ff0bf
+ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
+ms.openlocfilehash: 8c7ea2e7131f69bc43f2e82b816efdfbda59e85d
 
 
 ---
@@ -27,7 +27,7 @@ I Azure har du tillräcklig flexibilitet för att kunna skapa en virtuell Linux-
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI är tillgänglig på plattformar via ett npm-paket, paket tillhandahållna via distribution eller Docker-behållare. Du kan läsa mer om [hur du installerar och konfigurerar Azure CLI](../xplat-cli-install.md). Följande självstudier innehåller exempel på hur du använder Azure CLI. Läs alla artiklarna för mer information om de CLI-snabbstartkommandon som visas:
 
-* [Skapa en virtuell Linux-dator från Azure CLI för utveckling och testning](virtual-machines-linux-quick-create-cli.md)
+* [Skapa en virtuell Linux-dator från Azure CLI för utveckling och testning](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * I följande exempel skapas en virtuell CoreOS-dator med hjälp av en offentlig nyckel med namnet `azure_id_rsa.pub`:
     
@@ -35,7 +35,7 @@ Azure CLI är tillgänglig på plattformar via ett npm-paket, paket tillhandahå
     azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
       --image-urn CoreOS
     ```
-* [Skapa en säker virtuell Linux-dator med hjälp av en Azure-mall](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Skapa en säker virtuell Linux-dator med hjälp av en Azure-mall](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Följande exempel skapar en VM med en mall som lagrats i GitHub:
     
@@ -43,10 +43,10 @@ Azure CLI är tillgänglig på plattformar via ett npm-paket, paket tillhandahå
     azure group create --name myResourceGroup --location WestUS 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
     ```
-* [Skapa en fullständig Linux-miljö med Azure CLI](virtual-machines-linux-create-cli-complete.md)
+* [Skapa en fullständig Linux-miljö med Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Innefattar att skapa en belastningsutjämnare och flera virtuella datorer i en tillgänglighetsuppsättning.
-* [Lägg till en disk till en virtuell Linux-dator](virtual-machines-linux-add-disk.md)
+* [Lägg till en disk till en virtuell Linux-dator](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * I följande exempel läggs en disk på 5 GB till på en befintlig virtuell dator med namnet `TestVM`:
     
@@ -56,10 +56,10 @@ Azure CLI är tillgänglig på plattformar via ett npm-paket, paket tillhandahå
     ```
 
 ## <a name="azure-portal"></a>Azure Portal
-I [Azure-portalen](https://portal.azure.com) kan du snabbt skapa en virtuell dator eftersom det inte finns något att installera i ditt system. Använd Azure Portal när du skapar den virtuella datorn:
+I [Azure Portal](https://portal.azure.com) kan du snabbt skapa en virtuell dator eftersom det inte finns något att installera i ditt system. Använd Azure Portal när du skapar den virtuella datorn:
 
-* [Skapa en virtuell Linux-dator med hjälp av Azure Portal](virtual-machines-linux-quick-create-portal.md) 
-* [Anslut en disk med hjälp av Azure Portal](virtual-machines-linux-attach-disk-portal.md)
+* [Skapa en virtuell Linux-dator med hjälp av Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+* [Anslut en disk med hjälp av Azure Portal](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="operating-system-and-image-choices"></a>Alternativ för operativsystem och avbildning
 När du skapar en virtuell dator, väljer du en avbildning baserat på vilket operativsystem du vill köra. Azure och dess samarbetspartner erbjuder många avbildningar, varav några innehåller förinstallerade program och verktyg. Eller ladda upp en av dina egna avbildningar (se [följande avsnitt](#use-your-own-image)).
@@ -91,7 +91,7 @@ Lista alla tillgängliga avbildningar för en viss version enligt följande:
 azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
 
-Se [Analysera och välja avbildningar för virtuell Azure-datorer med Azure CLI](virtual-machines-linux-cli-ps-findimage.md) för fler exempel på hur du hittar och använder tillgängliga avbildningar.
+Se [Analysera och välja avbildningar för virtuell Azure-datorer med Azure CLI](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för fler exempel på hur du hittar och använder tillgängliga avbildningar.
 
 Kommandona `azure vm quick-create` och `azure vm create` har alias som du kan använda för att snabbt komma åt vanliga distributioner och deras senaste versioner. Det går snabbare att använda alias än ange utgivare, erbjudande, SKU och version varje gång du skapar en virtuell dator:
 
@@ -108,9 +108,10 @@ Kommandona `azure vm quick-create` och `azure vm create` har alias som du kan an
 ### <a name="use-your-own-image"></a>Använda en egen avbildning
 Om du behöver specifika anpassningar kan du använda en avbildning baserad på en befintlig virtuell Azure-dator genom att *avbilda* den virtuella datorn. Du kan också ladda upp en avbildning som skapats lokalt. Mer information om distributioner som stöds och hur du använder egna avbildningar finns i följande artiklar:
 
-* [Azure-godkända distributioner](virtual-machines-linux-endorsed-distros.md)
-* [Information om icke-godkända distributioner](virtual-machines-linux-create-upload-generic.md)
-* [Avbilda en virtuell Linux-dator som en Resource Manager-mall](virtual-machines-linux-capture-image.md).
+* [Azure-godkända distributioner](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Information om icke-godkända distributioner](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Överföra och skapa en Linux VM från anpassad diskavbildning](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Avbilda en virtuell Linux-dator som en Resource Manager-mall](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   
   * Snabbstart med exempelkommandon för att avbilda en befintlig virtuell dator:
     
@@ -121,13 +122,13 @@ Om du behöver specifika anpassningar kan du använda en avbildning baserad på 
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Skapa en virtuell Linux-dator från [portalen](virtual-machines-linux-quick-create-portal.md), med [CLI](virtual-machines-linux-quick-create-cli.md) eller genom att använda en [Azure Resource Manager-mall](virtual-machines-linux-cli-deploy-templates.md).
-* När du har skapat en virtuell Linux-dator kan du [lägga till en datadisk](virtual-machines-linux-add-disk.md).
-* Snabba steg för att [återställa ett lösenord eller SSH-nycklar och hantera användare](virtual-machines-linux-using-vmaccess-extension.md)
+* Skapa en virtuell Linux-dator från [portalen](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), med [CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller genom att använda en [Azure Resource Manager-mall](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* När du har skapat en virtuell Linux-dator kan du [lägga till en datadisk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Snabba steg för att [återställa ett lösenord eller SSH-nycklar och hantera användare](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 230a203cca2eaab197236557482cd4cedcfb9c53
+ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
+ms.openlocfilehash: 29488482f3e6c5f3dcf0eac04fe7e5e33fb832ce
 
 
 ---
@@ -99,7 +99,7 @@ Efter att du ställt in prisnivå, klickar du på Konfigurera pool, där du läg
 
 ## <a name="understand-pool-recommendations"></a>Förstå poolrekommendationer
 
-SQL Database-tjänsten utvärderar användningshistorik och rekommenderar en eller flera pooler när det är mer kostnadseffektivt än att använda fristående databaser. Varje rekommendation är konfigurerad med en unik delmängd av serverns databaser som bäst passar i poolen.
+SQL Database-tjänsten utvärderar användningshistorik och rekommenderar en eller flera pooler när det är mer kostnadseffektivt än att använda enskilda databaser. Varje rekommendation är konfigurerad med en unik delmängd av serverns databaser som bäst passar i poolen.
 
 ![rekommenderad pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
@@ -112,7 +112,7 @@ Pool-rekommendationerna omfattar:
 
 Tjänsten tar hänsyn till de senaste 30 dagarnas telemetri vid rekommendation av pooler. För att en databas ska anses som en kandidat för en elastisk pool, måste den ha funnits i minst 7 dagar. Databaser som redan finns i en elastisk pool är inte rekommenderade kandidater för elastiska pooler.
 
-Tjänsten utvärderar resursbehov och kostnadseffektivitet vid flytt av de fristående databaserna på varje tjänstnivå till pooler på samma nivå. Alla standard-databaser på servern utvärderas exempelvis för hur de skulle passa in i en standard elastisk pool. Det innebär att tjänsten inte göra rekommendationer mellan olika nivåer, som att flytta en standard-databas till en premium-pool.
+Tjänsten utvärderar resursbehov och kostnadseffektivitet vid flytt av de enskilda databaserna i varje tjänstnivå till pooler inom samma nivå. Alla standard-databaser på servern utvärderas exempelvis för hur de skulle passa in i en standard elastisk pool. Det innebär att tjänsten inte göra rekommendationer mellan olika nivåer, som att flytta en standard-databas till en premium-pool.
 
 ### <a name="dynamic-recommendations"></a>Dynamiska rekommendationer
 
@@ -129,6 +129,6 @@ Efter att databaserna lagts till i poolen, kommer rekommendationer att genereras
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

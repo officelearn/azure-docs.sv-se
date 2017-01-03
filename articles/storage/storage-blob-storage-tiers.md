@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 12/15/2016
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 998e95611bca6778de601239bcf9c81246dead83
+ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
+ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Storage: Frekvent och lågfrekvent lagringsnivå
 ## <a name="overview"></a>Översikt
-Azure Storage erbjuder två lagringsnivåer för bloblagring (objektlagring), så att du kan lagra data så kostnadseffektivt som möjligt, beroende på din användning. Azures **frekventa lagringsnivå** är optimerad för att lagra data som används ofta. Azures **lågfrekventa lagringsnivå** är optimerad för att lagra data som inte används ofta och som är långlivade. Data i den lågfrekventa lagringsnivån klarar en lite lägre tillgänglighet, men kräver fortfarande hög hållbarhet och liknande åtkomsttid och dataflödesegenskaper som data i frekvent lagringsnivå. För data i den lågfrekventa lagringsnivån är serviceavtal med lägre tillgänglighet och högre åtkomstkostnader godtagbara med tanke på de mycket lägre lagringskostnaderna.
+Azure Storage erbjuder nu två lagringsnivåer för lagring av Blob-objekt, så att du kan lagra data så kostnadseffektivt som möjligt, beroende på din användning. Azures **frekventa lagringsnivå** är optimerad för att lagra data som används ofta. Azures **lågfrekventa lagringsnivå** är optimerad för att lagra data som inte används ofta och som är långlivade. Data i den lågfrekventa lagringsnivån klarar lite lägre tillgänglighet, men kräver fortfarande hög hållbarhet och liknande åtkomsttid och dataflödesegenskaper som data i frekvent lagringsnivå. För data i den lågfrekventa lagringsnivån är serviceavtal med lägre tillgänglighet och högre åtkomstkostnader godtagbara med tanke på de mycket lägre lagringskostnaderna.
 
-Idag växer mängden data som lagras i molnet i exponentiell takt. För att hålla kontroll på kostnaderna för dina växande lagringsbehov är det en god idé att ordna data baserat på attribut som åtkomstfrekvens och planerad kvarhållningsperiod. Data som lagras i molnet kan vara ganska olika beroende på hur de genereras, bearbetas och används under livslängden. Vissa data används aktivt och ändras under livslängden. Vissa data används ofta i början av livslängden och sedan minskar användning drastiskt när dessa data blir äldre. Vissa data förblir inaktiva i molnet och används sällan, eller kanske aldrig, när de har lagrats.
+Idag växer mängden data som lagras i molnet i exponentiell takt. För att hålla kontroll på kostnaderna för dina växande lagringsbehov är det en god idé att ordna data baserat på attribut som åtkomstfrekvens och planerad kvarhållningsperiod. Data som lagras i molnet kan vara olika beroende på hur de genereras, bearbetas och används under livslängden. Vissa data används aktivt och ändras under livslängden. Vissa data används ofta i början av livslängden och sedan minskar användning drastiskt när dessa data blir äldre. Vissa data förblir inaktiva i molnet och används sällan, eller kanske aldrig, när de har lagrats.
 
 För varje scenario som beskrivs ovan finns en lagringsnivå som är optimerad för motsvarande åtkomstmönster. I Azure Blob Storage finns en frekvent och en lågfrekvent lagringsnivå som uppfyller behovet av olika lagringsnivåer med olika prissättningsmodeller.
 
@@ -56,7 +56,7 @@ Exempelscenarier för lågfrekvent lagringsnivå:
 * Ursprungliga rådata som måste bevaras, även efter att de har bearbetats till ett slutligt användbart format. (*T.ex.* mediefiler i RAW-format som har omkodats till andra format.)
 * Efterlevnads- och arkiveringsdata som behöver lagras under en längre tid och som nästan aldrig används. (*T.ex.* film från säkerhetskameror, gamla röntgenbilder/magnetröntgenbilder för vårdorganisationer, ljudinspelningar och transkript av kundsamtal för ekonomiska tjänster.)
 
-Mer information om lagringskonton finns i [Om Azure-lagringskonton](storage-create-storage-account.md).
+Mer information om lagringskonton finns i [Om Azure Storage-konton](storage-create-storage-account.md).
 
 För program som bara behöver block- eller tilläggsbloblagring rekommenderar vi att du använder Blob Storage-konton så att du kan utnyttja de olika prissättningsmodellerna för olika lagringsnivåer. Men i vissa fall kan det vara bättre att använda allmänna lagringskonton, t.ex. om:
 
@@ -66,7 +66,7 @@ För program som bara behöver block- eller tilläggsbloblagring rekommenderar v
 * Du använder en version av [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) som är äldre än 2014-02-14 eller ett klientbiblioteket med en tidigare version än 4.x och det inte går att uppgradera ditt program.
 
 > [!NOTE]
-> Blob Storage-konton stöds för närvarande i en majoritet av Azure-regionerna, och kommer att utökas till fler regioner. Den senaste listan med tillgängliga regioner hittar du på sidan [Tjänster per region](https://azure.microsoft.com/regions/#services).
+> Blob Storage-konton stöds för närvarande i alla Azure-regionerna.
 > 
 > 
 
@@ -138,14 +138,14 @@ För Blob Storage-konton används en ny prissättningsmodell för blobblagring b
 > 
 
 ## <a name="quick-start"></a>Snabbstart
-I det här avsnittet visar vi hur du utför följande åtgärder på Azure-portalen:
+I det här avsnittet visar vi hur du utför följande åtgärder på Azure Portal:
 
 * Skapar ett Blob Storage-konto.
 * Hanterar ett Blob Storage-konto.
 
-### <a name="using-the-azure-portal"></a>Använda Azure-portalen
-#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Skapa ett Blob Storage-konto på Azure-portalen
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+### <a name="using-the-azure-portal"></a>Använda Azure Portal
+#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Skapa ett Blob Storage-konto på Azure Portal
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. På navmenyn väljer du **Nytt** > **Data + Storage** > **Storage-konto**.
 3. Ange ett namn för lagringskontot.
    
@@ -155,12 +155,12 @@ I det här avsnittet visar vi hur du utför följande åtgärder på Azure-porta
     Nivåindelad lagring kan bara användas med Resource Manager-lagringskonton. Det här är den rekommenderade distributionsmodellen för nya resurser. Mer information finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 5. Välj **Blob Storage** i listrutan Typ av konto.
    
-    Det är här du väljer typen av lagringskonto. Nivåindelad lagring är inte tillgängligt för allmän lagring. Det är endast tillgängligt med Blob-lagringskonton.     
+    Det är här du väljer typen av lagringskonto. Nivåindelad lagring är inte tillgängligt för allmän lagring. Det är endast tillgängligt med Blob Storage-konton.     
    
     Observera att prestandanivån anges till Standard när du väljer detta. Nivåindelad lagring är inte tillgängligt med Premium-prestandanivån.
 6. Välj replikeringsalternativ för lagringskontot: **LRS**, **GRS** eller **RA-GRS**. Standardinställningen är **RA-GRS**.
    
-    LRS = lokalt redundant lagring. GRS = geo-redundant lagring (2 regioner). RA GRS är skrivskyddad geo-redundant lagring (2 regioner med läsbehörighet till den andra).
+    LRS = lokalt redundant lagring. GRS = geo-redundant lagring (2 regioner). RA-GRS är skrivskyddad geo-redundant lagring (2 regioner med läsbehörighet till den andra).
    
     Mer information om replikeringsalternativen för Azure Storage finns i [Azure Storage-replikering](storage-redundancy.md).
 7. Välj rätt lagringsnivå för dina behov: Ange **Åtkomstnivå** till antingen **Cool** (lågfrekvent) eller **Hot** (frekvent). Standardinställningen är **Frekvent**.
@@ -169,8 +169,8 @@ I det här avsnittet visar vi hur du utför följande åtgärder på Azure-porta
 10. Välj regionen för ditt lagringskonto.
 11. Skapa lagringskontot genom att klicka på **Skapa**.
 
-#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Ändra lagringsnivån för ett Blob Storage-konto med hjälp av Azure-portalen
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Ändra lagringsnivån för ett Blob Storage-konto med hjälp av Azure Portal
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Gå till ditt lagringskonto genom att välja Alla resurser och välj sedan ditt lagringskonto.
 3. Klicka på **Konfiguration** på bladet Inställningar för att visa och/eller ändra kontokonfigurationen.
 4. Välj rätt lagringsnivå för dina behov: Ange **Åtkomstnivå** till antingen **Cool** (lågfrekvent) eller **Hot** (frekvent).
@@ -208,7 +208,7 @@ Mer information finns i [Om mätvärden i Storage Analytics](https://msdn.micros
 > 
 
 Om du vill övervaka lagringsanvändningen för Blob Storage-tjänsten måste du aktivera kapacitetsmåtten.
-När du har gjort det registreras kapacitetsdata varje dag för ett lagringskontos blobbtjänst, och registreras som en tabellpost som skrivs till tabellen *$MetricsCapacityBlob* i samma lagringskonto.
+När du har gjort det registreras kapacitetsdata varje dag för ett lagringskontos Blob Service, och registreras som en tabellpost som skrivs till tabellen *$MetricsCapacityBlob* i samma lagringskonto.
 
 Om du vill övervaka dataåtkomstmönstret för Blob Storage-tjänsten måste du aktivera transaktionsmått för varje timme på API-nivå.
 När du har gjort det aggregeras transaktioner för varje API varje timme, och registreras som en tabellpost som skrivs till tabellen *$MetricsHourPrimaryTransactionsBlob* i samma lagringskonto. Tabellen *$MetricsHourSecondaryTransactionsBlob* registrerar transaktionerna till den sekundära slutpunkten för RA-GRS-lagringskonton.
@@ -258,7 +258,7 @@ För att kunna beräkna kostnaderna för dataåtkomst för Blob Storage-konton m
 * Du kan beräkna mängden data som hämtas från lagringskontot genom att titta på summan av *'TotalEgress'* och särskilt för åtgärderna *'GetBlob'* och *'CopyBlob'*.
 * Du kan beräkna mängden data som skrivs till lagringskontot genom att titta på summan av *'TotalIngress'* och särskilt för åtgärderna *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* och *'AppendBlock'*.
 
-För ett GRS- eller RA GRS-lagringskonto kan kostnaden för dataöverföring med geo-replikering för Blob Storage-konton också beräknas baserat på uppskattningen av mängden data som skrivits.
+För ett GRS- eller RA-GRS-lagringskonto kan kostnaden för dataöverföring med geo-replikering för Blob Storage-konton också beräknas baserat på uppskattningen av mängden data som skrivits.
 
 > [!NOTE]
 > Ett mer detaljerat exempel på hur du beräknar kostnaderna för den frekventa eller lågfrekventa lagringsnivån finns i frågeavsnittet *”Vad är lågfrekvent och frekvent lagringsnivå och hur vet jag vilken jag ska använda?”* på [Azure Storage-prissidan](https://azure.microsoft.com/pricing/details/storage/).
@@ -280,12 +280,12 @@ Azure Storage-biblioteket för flytt av data för .NET är baserat på det ramve
 Mer information finns i [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
 
 #### <a name="rest-api-or-client-library"></a>REST-API eller klientbibliotek
-Du kan skapa en anpassad app för att migrera dina data till ett Blob Storage-konto med Azures klientbibliotek eller REST-API:t för Azure-lagringstjänster. Azure Storage innehåller omfattande klientbibliotek för flera språk och plattformar som .NET, Java, C++, Node.JS, PHP, Ruby och Python. Klientbiblioteken har avancerade funktioner, t.ex. logik för omprövning, loggning och parallell överföring. Du kan också utveckla direkt mot REST-API:t, som kan anropas med valfritt språk som kan skicka HTTP/HTTPS-begäranden.
+Du kan skapa en anpassad app för att migrera dina data till ett Blob Storage-konto med Azures klientbibliotek eller REST-API:t för Azure Storage-tjänster. Azure Storage innehåller omfattande klientbibliotek för flera språk och plattformar som .NET, Java, C++, Node.JS, PHP, Ruby och Python. Klientbiblioteken har avancerade funktioner, t.ex. logik för omprövning, loggning och parallell överföring. Du kan också utveckla direkt mot REST-API:t, som kan anropas med valfritt språk som kan skicka HTTP/HTTPS-begäranden.
 
 Mer information finns i [Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md) (Kom igång med Azure Blob Storage).
 
 > [!NOTE]
-> Blobar som krypteras med kryptering på klientsidan lagrar krypteringsrelaterade metadata tillsammans med bloben. Det är absolut nödvändigt att kopieringsmekanismen ser till att blobmetadata, och särskilt krypteringsrelaterade metadata, bevaras. Om du kopierar blobar utan metadata är blobinnehållet inte längre hämtningsbart. Mer information om krypteringsrelaterade metadata finns i [Azure Storage client side encryption](storage-client-side-encryption.md).
+> Blobar som krypteras med kryptering på klientsidan lagrar krypteringsrelaterade metadata tillsammans med bloben. Det är absolut nödvändigt att kopieringsmekanismen ser till att blobmetadata, och särskilt krypteringsrelaterade metadata, bevaras. Om du kopierar blobar utan metadata är blobinnehållet inte längre hämtningsbart. Mer information om krypteringsrelaterade metadata finns i [Azure Storage Client Side Encryption](storage-client-side-encryption.md).
 > 
 > 
 
@@ -315,10 +315,10 @@ Mer information finns i [Get Started with Azure Blob storage](storage-dotnet-how
     Blobbar på lågfrekvent lagringsnivå har något lägre tillgänglighetsnivå (enligt SLA) än blobbar som lagras på frekvent lagringsnivå. Mer information finns i [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage).
 8. **Kan jag lagra sidblobar och virtuella datordiskar i Blob Storage-konton?**
    
-    Blob Storage-konton stöder endast block- och tilläggsblobar, inte sidblobar. Virtuella datordiskar i Azure  backas upp av sidblobar, vilket gör att Blob Storage-konton inte kan användas för att lagra virtuella datordiskar. Däremot kan du lagra säkerhetskopior av virtuella datordiskar som blockblobar i ett Blob Storage-konto.
+    Blob Storage-konton stöder endast block- och tilläggsblobar, inte sidblobar. Virtuella datordiskar i Azure backas upp av sidblobar, vilket gör att Blob Storage-konton inte kan användas för att lagra virtuella datordiskar. Däremot kan du lagra säkerhetskopior av virtuella datordiskar som blockblobar i ett Blob Storage-konto.
 9. **Måste jag ändra mina befintliga appar för att använda Blob Storage-konton?**
    
-    Blob Storage-konton är API-konsekventa till 100 % med allmänna lagringskonton för block- och tilläggsblobar. Så länge din app använder blockblobar eller tilläggsblobar, och du använder 2014-02-14-versionen av [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) eller senare, ska din app fungera korrekt. Om du använder en äldre version av protokollet måste du uppdatera appen till den nya versionen för att den ska fungera smidigt med båda typerna av lagringskonton. Normalt rekommenderar vi att du använder den senaste versionen oavsett vilken lagringskontotyp du använder.
+    Blob Storage-konton är API-konsekventa till 100 % med allmänna lagringskonton för block- och tilläggsblobar. Så länge ditt program använder blockblobbar eller tilläggsblobbar, och du använder 2014-02-14-versionen av [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) eller senare ska ditt program fungera korrekt. Om du använder en äldre version av protokollet måste du uppdatera appen till den nya versionen för att den ska fungera smidigt med båda typerna av lagringskonton. Normalt rekommenderar vi att du använder den senaste versionen oavsett vilken lagringskontotyp du använder.
 10. **Kommer användarupplevelsen att ändras?**
     
     Blob Storage-konton är mycket lika allmänna lagringskonton när det gäller att lagra block- och tilläggsblobar, och de stöder alla viktiga funktioner i Azure Storage, med bland annat hög hållbarhet och tillgänglighet, skalbarhet, prestanda och säkerhet. Förutom funktionerna och begränsningarna som är specifika för Blob Storage-konton och lagringsnivåerna som nämnts ovan är allt annat detsamma.
@@ -345,6 +345,6 @@ Mer information finns i [Get Started with Azure Blob storage](storage-dotnet-how
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

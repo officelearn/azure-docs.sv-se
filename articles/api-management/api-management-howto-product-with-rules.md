@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
 
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Skydda ditt API med frekvensbegränsningar med hjälp av Azure API Management
 Den här guiden beskriver hur du enkelt kan skydda ditt backend-API genom att konfigurera principer för kvoter och frekvensbegränsningar med Azure API Management.
 
-I den här självstudiekursen ska du skapa en API-produkt av typen ”kostnadsfri utvärdering” som gör att utvecklare kan göra upp till 10 anrop per minut och upp till högst 200 anrop per vecka till ditt API. För att åstadkomma detta ska du använda principerna [Begränsa anropsfrekvensen per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) och [Ange användningskvot per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). När du är klar ska du publicera API:et och testa frekvensbegränsningsprincipen.
+I den här självstudiekursen ska du skapa en API-produkt av typen ”kostnadsfri utvärdering” som gör att utvecklare kan göra upp till 10 anrop per minut och upp till högst 200 anrop per vecka till ditt API. För att åstadkomma detta ska du använda principerna [Begränsa anropsfrekvensen per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) och [Ange användningskvot per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). När du är klar ska du publicera API:et och testa frekvensbegränsningsprincipen.
 
 Mer avancerade begränsningsscenarier med principerna [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) och [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) finns i [Avancerad begränsning av förfrågningar med Azure API Management](api-management-sample-flexible-throttling.md).
 
@@ -31,15 +31,15 @@ Mer avancerade begränsningsscenarier med principerna [rate-limit-by-key](https:
 I det här steget ska du skapa en produkt för en kostnadsfri utvärdering som inte kräver prenumerationsgodkännande.
 
 > [!NOTE]
-> Om du redan har en konfigurerad produkt och vill använda den i den här självstudiekursen går du till [Konfigurera principer för begränsning av anropsfrekvens och kvoter][Konfigurera principer för begränsning av anropsfrekvens och kvoter] och följer självstudien därifrån med hjälp av din produkt i stället för produkten för en kostnadsfri utvärdering.
+> Om du redan har en konfigurerad produkt och vill använda den i den här självstudiekursen går du till [Konfigurera principer för begränsning av anropsfrekvens och kvoter][Configure call rate limit and quota policies] och följer självstudien därifrån med hjälp av din produkt i stället för produkten för en kostnadsfri utvärdering.
 > 
 > 
 
-Börja genom att klicka på **Publisher-portal** på Azure-portalen för API Management-tjänsten.
+Börja genom att klicka på **Publisher-portal** på Azure Portal för API Management-tjänsten.
 
 ![Utgivarportalen][api-management-management-console]
 
-> Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][Skapa en API Management-tjänstinstans] i självstudiekursen [Hantera ditt första API i Azure API Management][Hantera ditt första API i Azure API Management].
+> Om du inte har skapat en API Management-tjänstinstans ännu så läser du [Skapa en API Management-tjänstinstans][Create an API Management service instance] i självstudiekursen [Hantera ditt första API i Azure API Management][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -53,7 +53,7 @@ Klicka på **Lägg till produkt**. Dialogrutan **Lägg till ny produkt** öppnas
 
 I rutan **Rubrik** skriver du **Kostnadsfri utvärdering**.
 
-I rutan **Beskrivning** skriver du följande text:  **Prenumeranter kan köra 10 anrop per minut upp till högst 200 anrop per vecka, varefter åtkomsten nekas.**
+I rutan **Beskrivning** skriver du följande text:  **Prenumeranter kan köra 10 anrop per minut upp till högst 200 anrop per vecka, varefter åtkomsten nekas.**
 
 Produkter i API Management kan skyddas eller vara öppna. Skyddade produkter kräver en prenumeration innan de kan användas. Öppna produkter kan användas utan en prenumeration. Se till att **Kräv prenumeration** har valts om du vill skapa en skyddad produkt som kräver en prenumeration. Det här är standardinställningen.
 
@@ -67,7 +67,7 @@ När alla värden har angetts klickar du på **Spara** för att skapa produkten.
 
 Som standard visas nya produkter för användare i gruppen **Administratörer**. Vi ska lägga till gruppen **Utvecklare**. Klicka på **Kostnadsfri utvärdering** och sedan på fliken **Synlighet**.
 
-> I API Management används grupper för att hantera hur produkter visas för utvecklare. Produkter beviljar synlighet till grupper, och utvecklare kan visa och prenumerera på de produkter som är synliga för grupper som de är medlemmar i. Mer information finns i [Skapa och använda grupper i Azure API Management][Skapa och använda grupper i Azure API Management].
+> I API Management används grupper för att hantera hur produkter visas för utvecklare. Produkter beviljar synlighet till grupper, och utvecklare kan visa och prenumerera på de produkter som är synliga för grupper som de är medlemmar i. Mer information finns i [Skapa och använda grupper i Azure API Management][How to create and use groups in Azure API Management].
 > 
 > 
 
@@ -78,7 +78,7 @@ Markera kryssrutan **Utvecklare** och klicka sedan på **Spara**.
 ## <a name="add-api"> </a>Så här lägger du till ett API till produkten
 I det här steget i självstudiekursen ska vi lägga till Echo API till den nya produkten ”Kostnadsfri utvärdering”.
 
-> Varje API Management-tjänstinstans är förkonfigurerad med ett Echo-API som du kan använda för att experimentera och lära dig mer om API Management. Mer information finns i [Hantera ditt första API i Azure API Management][Hantera ditt första API i Azure API Management].
+> Varje API Management-tjänstinstans är förkonfigurerad med ett Echo-API som du kan använda för att experimentera och lära dig mer om API Management. Mer information finns i [Hantera ditt första API i Azure API Management][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -113,44 +113,58 @@ De två principerna som vi lägger till i den här självstudien är [Begränsa 
 
 När du har placerat markören i principelementet **inbound** klickar du på pilen bredvid **Begränsa anropsfrekvens per prenumeration** för att infoga dess principmall.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    <api name="name" calls="number">
-    <operation name="name" calls="number" />
-    </api>
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+<api name="name" calls="number">
+<operation name="name" calls="number" />
+</api>
+</rate-limit>
+```
 
 **Begränsa anropsfrekvens per prenumeration** kan användas på produktnivå och även på API-nivå och för enskilda åtgärdsnamn. Eftersom vi bara använder principer på produktnivå i den här självstudien tar du bort elementen **api** och **operation** från elementet **rate-limit**, så att bara det yttre **rate-limit**-elementet är kvar, som du ser i följande exempel.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+</rate-limit>
+```
 
-Eftersom den högsta tillåtna anropsfrekvensen i produkten  ”Kostnadsfri utvärdering” är 10 anrop per minut skriver du **10** som värde för attributet **calls** och **60** för attributet **renewal-period**.
+Eftersom den högsta tillåtna anropsfrekvensen i den kostnadsfria utvärderingsprodukten är 10 anrop per minut skriver du **10** som värde för attributet **calls** och **60** för attributet **renewal-period**.
 
-    <rate-limit calls="10" renewal-period="60">
-    </rate-limit>
+```xml
+<rate-limit calls="10" renewal-period="60">
+</rate-limit>
+```
 
 Du konfigurerar principen **Ange användningskvot per prenumeration** genom att placera markören direkt under det nyligen tillagda **rate-limit**-elementet i elementet **inbound** och klickar sedan på pilen till vänster om **Ange användningskvot per prenumeration**.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="name" calls="number" bandwidth="kilobytes">
-    <operation name="name" calls="number" bandwidth="kilobytes" />
-    </api>
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+<api name="name" calls="number" bandwidth="kilobytes">
+<operation name="name" calls="number" bandwidth="kilobytes" />
+</api>
+</quota>
+```
 
 Eftersom den här principen även är avsedd att användas på produktnivå tar du bor namnelementen **api** och **operation**, som du ser i följande exempel.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+</quota>
+```
 
 Kvoter kan baseras på antalet anrop per intervall, på bandbredden eller båda. Eftersom vi inte begränsar baserat på bandbredd i den här självstudien tar du bort attributet **bandwidth**.
 
-    <quota calls="number" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" renewal-period="seconds">
+</quota>
+```
 
-I produkten ”Kostnadsfri utvärdering” är kvoten 200 anrop per vecka. Ange **200** som värde för attributet **calls** och ange sedan **604800** som värde för attributet **renewal-period**.
+I produkten ”Kostnadsfri utvärdering” är kvoten 200 anrop per vecka. Ange **200** som värde för attributet **calls** och ange sedan **604800** som värde för attributet **renewal-period**.
 
-    <quota calls="200" renewal-period="604800">
-    </quota>
+```xml
+<quota calls="200" renewal-period="604800">
+</quota>
+```
 
 > Principintervall anges i sekunder. Om du vill beräkna intervallet för en vecka kan du multiplicera antalet dagar (7) med antalet timmar under en dag (24) med antalet minuter på en timme (60) med antalet sekunder på en minut (60): 7 * 24 * 60 * 60 = 604800.
 > 
@@ -158,21 +172,23 @@ I produkten ”Kostnadsfri utvärdering” är kvoten 200 anrop per vecka. Ange 
 
 När du har konfigurerat principen bör den se ut som i följande exempel.
 
-    <policies>
-        <inbound>
-            <rate-limit calls="10" renewal-period="60">
-            </rate-limit>
-            <quota calls="200" renewal-period="604800">
-            </quota>
-            <base />
-
-    </inbound>
-    <outbound>
-
+```xml
+<policies>
+    <inbound>
+        <rate-limit calls="10" renewal-period="60">
+        </rate-limit>
+        <quota calls="200" renewal-period="604800">
+        </quota>
         <base />
 
-        </outbound>
-    </policies>
+</inbound>
+<outbound>
+
+    <base />
+
+    </outbound>
+</policies>
+```
 
 När de önskade principerna har konfigurerats klickar du på **Spara**.
 
@@ -250,7 +266,7 @@ Klicka på **Skicka** med en frekvens som är högre än de 10 anropen per minut
 
 **Svarsinnehållet** anger det återstående intervallet innan omförsök kommer att lyckas.
 
-När frekvensbegränsningsprincipen som begränsar antalet anrop till 10 per minut tillämpas misslyckas efterföljande anrop tills 60 sekunder har förflutit från det första av de 10 lyckade anropen till produkten innan frekvensgränsen överskreds. I det här exemplet är det återstående intervallet 54 sekunder.
+När frekvensbegränsningsprincipen som begränsar antalet anrop till 10 per minut tillämpas misslyckas efterföljande anrop tills 60 sekunder har förflutit från det första av de 10 lyckade anropen till produkten innan frekvensgränsen överskreds. I det här exemplet är det återstående intervallet 54 sekunder.
 
 ## <a name="next-steps"> </a>Nästa steg
 * Titta på en demonstration om hur du ställer in frekvensbegränsningar och kvoter i följande videoklipp.
@@ -286,30 +302,30 @@ När frekvensbegränsningsprincipen som begränsar antalet anrop till 10 per min
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[Lägga till åtgärder till ett API]: api-management-howto-add-operations.md
-[Lägga till och publicera en produkt]: api-management-howto-add-products.md
-[Övervakning och analys]: ../api-management-monitoring.md
-[Lägga till API:er till en produkt]: api-management-howto-add-products.md#add-apis
-[Publicera en produkt]: api-management-howto-add-products.md#publish-product
-[Hantera ditt första API i Azure API Management]: api-management-get-started.md
-[Skapa och använda grupper i Azure API Management]: api-management-howto-create-groups.md
-[Visa prenumeranter för en produkt]: api-management-howto-add-products.md#view-subscribers
-[Komma igång med Azure API Management]: api-management-get-started.md
-[Skapa en API Management-tjänstinstans]: api-management-get-started.md#create-service-instance
-[Nästa steg]: #next-steps
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Manage your first API in Azure API Management]: api-management-get-started.md
+[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
+[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Next steps]: #next-steps
 
-[Skapa en produkt]: #create-product
-[Konfigurera principer för begränsning av anropsfrekvens och kvoter]: #policies
-[Lägga till ett API till produkten]: #add-api
-[Publicera produkten]: #publish-product
-[Prenumerera på ett utvecklarkonto för produkten]: #subscribe-account
-[Anropa en åtgärd och testa frekvensbegränsningen]: #test-rate-limit
+[Create a product]: #create-product
+[Configure call rate limit and quota policies]: #policies
+[Add an API to the product]: #add-api
+[Publish the product]: #publish-product
+[Subscribe a developer account to the product]: #subscribe-account
+[Call an operation and test the rate limit]: #test-rate-limit
 
-[Begränsa anropsfrekvensen]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Ange användningskvoter]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

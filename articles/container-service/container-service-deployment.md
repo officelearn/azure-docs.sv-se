@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a7d957fd4be4c823077b1220dfb8ed91070a0e97
-ms.openlocfilehash: d056b9489eba1f97e8fb87f231b03d104c4cab66
+ms.sourcegitcommit: 52f158fd50ee8427cf567889d584e342ea42abb3
+ms.openlocfilehash: b52f7b36a28a345e8693ecbafd3771c27c683a37
 
 
 ---
@@ -58,15 +58,14 @@ Klicka på **OK** när du är redo att gå vidare.
 
 ![Skapa distribution 4](media/acs-portal4-new.png)  <br />
 
-Om **Kubernetes** har valts i listrutan måste du ange klient-ID:t för tjänstobjektet och klienthemligheten för tjänstobjektet.
-Läs mer om hur du skapar ett tjänstobjekt på [den här sidan](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) 
+Om **Kubernetes** har valts i listrutan måste du ange ett klient-ID för tjänstobjektet och klienthemligheten för tjänstobjektet. Mer information finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md). 
 
 ![Skapa distribution 4.5](media/acs-portal10.PNG)  <br />
 
 Ange följande information:
 
 * **Antal huvudservrar**: antal huvudservrar i klustret. Om ”Kubernetes” har valts anges antalet huvudservrar till standardvärdet 1
-* **Antal agenter**: För Docker Swarm och Kubernetes är det här det inledande antalet agenter i agentskalningsuppsättningen. När det gäller DC/OS utgör det här det inledande antalet agenter i en privat skalningsuppsättning. Dessutom skapas en offentlig skalningsuppsättning som innehåller ett förinställt antal agenter. Antalet agenter i den här offentliga skalningsuppsättningen avgörs av hur många huvudservrar som har skapats i klustret, 1 offentlig agent för 1 huvudserver och 2 offentliga agenter för 3 eller 5 huvudservrar.
+* **Antal agenter**: För Docker Swarm och Kubernetes är det här det inledande antalet agenter i agentskalningsuppsättningen. När det gäller DC/OS utgör det här det inledande antalet agenter i en privat skalningsuppsättning. Dessutom skapas en offentlig skalningsuppsättning som innehåller ett förinställt antal agenter. Antalet agenter i den här offentliga skalningsuppsättningen avgörs av hur många huvudservrar som har skapats i klustret – en offentlig agent för en huvudserver och två offentliga agenter för tre eller fem huvudservrar.
 * **Storlek på agentens virtuella dator**: storleken på agentens virtuella datorer.
 * **DNS-prefix**: ett helt unikt namn som ska användas som prefix i viktiga delar i de fullständigt kvalificerade domännamnen för tjänsten.
 
@@ -197,6 +196,6 @@ Nu när du har ett fungerande kluster kan du visa dessa dokument för anslutning
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

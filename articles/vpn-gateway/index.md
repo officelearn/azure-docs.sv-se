@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du konfigurerar gatewayer för virtuellt privat nätverk (VPN-gateway) för att hantera trafik mellan virtuella nätverk i molnet och lokala platser, eller mellan olika virtuella nätverk i molnet."
 translationtype: Human Translation
-ms.sourcegitcommit: dca0fb0b2de4943b9a031d2759756654a0c7280f
-ms.openlocfilehash: 6a72b28f95338ebe04e764d7f83e8db3e3e91b78
+ms.sourcegitcommit: a826f96cd679bb26b8a6cf9bb6bf55e93ba4e346
+ms.openlocfilehash: 99843baf9989378aa3d4ff6325a399dae0b632b6
 
 ---
-#<a name="vpn-gateway-documentation"></a>VPN Gateway-dokumentation
+#<a name="vpn-gateway-documentation"></a>Dokumentation om VPN-gateway
 
-En Azure VPN-gateway är en VPN-gateway (virtuellt privat nätverk) som används för att skicka nätverkstrafik mellan virtuella Azure-nätverk och lokala platser, samt mellan virtuella nätverk i Azure (VNet till VNet).  
+Lär dig hur du konfigurerar VPN-gateway, en gateway för virtuellt privat nätverk. Dokumentation som visar hur du skickar nätverkstrafik mellan Azure virtuella nätverk och lokala platser eller mellan andra Azure virtuella nätverk (VNets).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -122,78 +123,33 @@ En Azure VPN-gateway är en VPN-gateway (virtuellt privat nätverk) som används
  
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-referens</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (klassisk)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vpn-gateway">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>VPN-gateway med Azure CLI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET-hanterad referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java SDK-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163859">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST API-referens för VPN-gateway</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (klassisk)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -207,6 +163,6 @@ Hämta dokumentation om Azure VPN-gateway </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

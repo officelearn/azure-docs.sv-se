@@ -9,16 +9,16 @@ manager: jhubbard
 editor: 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 12/06/2016
+ms.date: 12/14/2016
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 829229542c05477d427b15a9d862f414d9c730d6
+ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
+ms.openlocfilehash: c3757dadb09ba070b30820a46007a9c82490d8f2
 
 
 ---
@@ -46,15 +46,15 @@ Ytterligare eDTU:er kan läggas till i en befintlig pool utan driftavbrott för 
 Och du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
 
 ## <a name="which-databases-go-in-a-pool"></a>Vilka databaser kan finnas i en pool?
-![SQL-databaser som delar eDTU:er i en Elastic Database-pool.][1]
+![SQL-databaser delar eDTU:er i en elastisk pool.][1]
 
-Databaser som är bra kandidater för elastiska pooler har vanligtvis perioder av aktivitet och andra perioder av inaktivitet. I exemplet ovan ser du aktiviteten för 1 enkel databas, 4 databaser och sist en elastisk pool med 20 databaser. Databaser med aktivitet som varierar över tid är bra kandidater för elastiska pooler eftersom alla inte är aktiva samtidigt och kan dela eDTU:er. Alla databaser passar inte det här mönstret. Databaser som har ett mer konstant resursbehov passar bättre för tjänstnivåerna Basic, Standard och Premium där resurserna tilldelas individuellt.
+Databaser som är bra kandidater för elastiska pooler har vanligtvis perioder av aktivitet och andra perioder av inaktivitet. I exemplet ovan ser du aktiviteten för en enkel databas, 4 databaser och sist en elastisk pool med 20 databaser. Databaser med aktivitet som varierar över tid är bra kandidater för elastiska pooler eftersom alla inte är aktiva samtidigt och kan dela eDTU:er. Alla databaser passar inte det här mönstret. Databaser som har ett mer konstant resursbehov passar bättre för tjänstnivåerna Basic, Standard och Premium där resurserna tilldelas individuellt.
 
 [Pris- och prestandaöverväganden för en elastisk pool](sql-database-elastic-pool-guidance.md).
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>eDTU:er och lagringsgränser för elastiska pooler och elastiska databaser
 
-I följande tabell beskrivs egenskaperna för de elastiska databaspoolerna Basic, Standard och Premium.
+I följande tabell beskrivs egenskaperna för elastiska pooler på nivåerna Basic, Standard och Premium.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -82,13 +82,13 @@ Följande tabeller beskriver gränserna för elastiska pooler och elastiska data
 | Minimalt antal eDTU:er per databas |Det minsta antalet eDTU:er som en databas i poolen är garanterad.  Den här inställningen är en global inställning som gäller för alla databaser i poolen. Det minsta antalet eDTU:er per databas kan anges till 0, vilket även är standardvärdet. Den här egenskapen anges till ett värde mellan 0 och den genomsnittliga eDTU-användningen per databas. Produkten av antalet databaser i poolen och det minsta antalet eDTU:er per databas får inte överskrida antalet eDTU:er per pool.  Om en pool till exempel har 20 databaser och det minsta antalet eDTU:er per databas har angetts till 10 eDTU:er så måste antalet eDTU:er per pool vara minst 200 eDTU:er. |
 | Största lagringsutrymme per databas (GB) |Det största lagringsutrymmet för en databas i en pool. Eftersom elastiska databaser delar poolens lagringsutrymme är databaslagringen begränsad till poolens återstående lagringsutrymme eller det största lagringsutrymmet per databas, beroende på vilket som är minst. |
 
-## <a name="elastic-database-jobs"></a>Elastiska databasjobb
+## <a name="elastic-database-jobs"></a>Elastic Database-jobb
 Med en pool förenklas hanteringsuppgifterna eftersom du kan köra skript i **[elastiska jobb](sql-database-elastic-jobs-overview.md)**. Ett Elastic Database-jobb underlättar hanteringen av många databaser. Mer information finns i [Komma igång med Elastic Database-jobb](sql-database-elastic-jobs-getting-started.md).
 
 Mer information om andra verktyg för elastiska databaser finns i [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md) (Skala ut med Azure SQL Database).
 
 ## <a name="business-continuity-features-for-databases-in-a-pool"></a>Funktioner för affärskontinuitet för databaser i en pool
-Elastiska databaser stöder i allmänhet samma [funktioner för affärskontinuitet](sql-database-business-continuity.md) som är tillgängliga för enskilda databaser på V12-servrar.
+Elastiska databaser stöder i allmänhet samma [funktioner för affärskontinuitet](sql-database-business-continuity.md) som är tillgängliga för enskilda databaser.
 
 ### <a name="point-in-time-restore"></a>Återställning till tidpunkt
 Återställning till tidpunkt använder automatiska databassäkerhetskopieringar för att återställa en databas i en pool till en viss tidpunkt. Mer information finns i avsnittet om [återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore)
@@ -107,6 +107,6 @@ För program som har mer aggressiva återställningskrav än vad geo-återställ
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

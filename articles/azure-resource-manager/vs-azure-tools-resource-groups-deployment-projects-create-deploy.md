@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: dd1161f2b5cf717246391900a616e51c457f5280
+ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
+ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
 
 
 ---
@@ -46,7 +46,7 @@ I den här proceduren ska du skapa ett projekt för en Azure-resursgrupp med en 
    > 
    > 
    
-    Visual Studio skapar ett distributionsprojekt för resursgrupper för webbappen och SQL-databasen.
+    Visual Studio skapar ett distributionsprojekt för resursgrupper för webbappen och SQL Database.
 3. Expandera noderna i distributionsprojekt för att se vad du har skapat.
    
     ![visa noder](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
@@ -80,7 +80,7 @@ Du kan lägga till en resurs genom att antingen välja knappen **Lägg till resu
 
 I den här självstudiekursen väljer du **Lagringskonto** och ger det ett namn. Ange ett namn som innehåller fler än 11 tecken och endast siffror och små bokstäver.
 
-![lägga till ett lagringskonto](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
+![lägga till lagringsutrymme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
 Observera att inte bara resursen lades till, utan även en parameter för typen av lagringskonto och en variabel för namnet på lagringskontot.
 
@@ -99,7 +99,7 @@ Parametern **storageType** är fördefinierad med tillåtna typer och en standar
       ]
     }
 
-Visual Studio tillhandahåller även IntelliSense som gör det lättare för dig att förstå vilka egenskaper som är tillgängliga när du redigerar mallen. Om du till exempel vill redigera egenskaperna för din App Service-plan går du till resursen **HostingPlan** och lägger till ett värde för **properties**. Observera att IntelliSense visar de tillgängliga värdena och en beskrivning av det aktuella värdet.
+Visual Studio tillhandahåller även IntelliSense som gör det lättare för dig att förstå vilka egenskaper som är tillgängliga när du redigerar mallen. Om du till exempel vill redigera egenskaperna för din App Service plan går du till resursen **HostingPlan** och lägger till ett värde för **properties**. Observera att IntelliSense visar de tillgängliga värdena och en beskrivning av det aktuella värdet.
 
 ![visa IntelliSense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
 
@@ -151,7 +151,7 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
    
         ... 
         18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
-7. Öppna [Azure-portalen](https://portal.azure.com/) i en webbläsare och logga in på ditt konto. Du visar resursgruppen genom att välja **Resursgrupper** och den resursgrupp som du har distribuerat till.
+7. Öppna [Azure Portal](https://portal.azure.com/) i en webbläsare och logga in på ditt konto. Du visar resursgruppen genom att välja **Resursgrupper** och den resursgrupp som du har distribuerat till.
    
     ![välja grupp](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 8. Du ser alla distribuerade resurser. Observera att namnet på lagringskontot inte är exakt vad du angav när du lade till resursen. Lagringskontot måste vara unikt. Mallen lägger automatiskt till en sträng med tecken i det namn du angav för att ge ett unikt namn. 
@@ -189,7 +189,7 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt 
    
     Egenskaperna är:
    
-   * **Ytterligare egenskaper** innehåller distributionspaketets mellanlagringsplats som skickas till Azure Storage. Observera mappen (ExampleApp) och filen (package.zip). Du kan ange dessa värden som parametrar när du distribuerar appen. 
+   * **Ytterligare egenskaper** innehåller distributionspaketets mellanlagringsplats som skickas till Azure Storage. Observera mappen (ExampleApp) och filen (package.zip). Du behöver dessa värden eftersom du anger dem som parametrar när du distribuerar appen. 
    * **Ta med filsökväg** innehåller sökvägen där paketet skapas. **Ta med mål** innehåller det kommando som distributionen kör. 
    * Med standardvärdet **Build;Package** kan distributionen bygga och skapa ett webbdistributionspaket (package.zip).  
      
@@ -197,7 +197,7 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt 
 7. Lägga till en resurs i mallen.
    
     ![lägga till en resurs](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
-8. Denna gång väljer du **Webbdistribution för webbappar**. 
+8. Denna gång väljer du **Webbdistribution för Web Apps**. 
    
     ![lägga till webbdistribution](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
 9. Distribuera resursgruppsprojektet till resursgruppen igen. Den här gången finns det några nya parametrar. Du behöver inte ange värden för **_artifactsLocation** eller **_artifactsLocationSasToken** eftersom Visual Studio genererar dessa värden automatiskt. Du kan dock att ställa in mapp- och filnamn på den sökväg som innehåller distributionspaketet (visas som **ExampleAppPackageFolder** och **ExampleAppPackageFileName** i följande bild). Ange de värden som du såg tidigare i referensegenskaperna (**ExampleApp** och **package.zip**).
@@ -213,12 +213,12 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt 
      ![visa distribuerad app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Information om hur du hanterar dina resurser via portalen finns i [Hantera Azure-resurser med hjälp av Azure-portalen](resource-group-portal.md).
+* Information om hur du hanterar dina resurser via portalen finns i [Hantera Azure-resurser med hjälp av Azure Portal](resource-group-portal.md).
 * Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

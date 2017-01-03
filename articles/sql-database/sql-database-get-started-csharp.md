@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -17,20 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: e051a8828a5d36e08a0ea7d352f3d8aabf00b911
 
 
 ---
-# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Testa SQL Database: Använd C# för att skapa en SQL-databas med SQL Database-biblioteket för .NET
-> [!div class="op_single_selector"]
-> * [Azure-portal](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Använd C# om du vill skapa en SQL-databas med SQL Database-biblioteket för .NET
 
-Läs om hur man använder C# för att skapa en Azure SQL-databas med [Microsoft Azure SQL Management-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Den här artikeln beskriver hur du skapar en enkel databas med SQL och C#. För att skapa elastiska databaspooler, se [Skapa en elastisk databaspool](sql-database-elastic-pool-create-csharp.md).
+Läs om hur man använder C# för att skapa en Azure SQL-databas med [Microsoft Azure SQL Management-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Den här artikeln beskriver hur du skapar en enkel databas med SQL och C#. Information om hur du skapar elastiska pooler finns i [Skapa en elastisk pool](sql-database-elastic-pool-create-csharp.md).
 
 Azure SQL Database Management-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -293,6 +287,6 @@ När du nu har testat SQL Database och ställt in en databas med C#, är du redo
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Affärskontinuitet i molnet – databasåterställning – SQL Database | Microsoft Docs"
 description: "Lär dig hur Azure SQL Database stöder databasåterställning och affärskontinuitet i molnet och hur du kan köra verksamhetskritiska molnprogram."
-keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
+keywords: "affärskontinuitet, molnaffärskontinuitet, databashaveriberedskap, databasåterställning"
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab;sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 747f6ca642a33c4ce9bcaacad4976e8eaed8fa44
-ms.openlocfilehash: f642cfade2369f5c758ab45994c7cf3f37b6d4c5
+ms.sourcegitcommit: 9e331f3536bfde96d15ff5bb3a21683f67b25da2
+ms.openlocfilehash: d726a886717826368693cda6ca4141c136ea236d
 
 
 ---
@@ -38,7 +38,7 @@ I följande tabell jämförs ERT och RPO för de tre vanligaste scenarierna.
 | Aktiv geo-replikering |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Använda databassäkerhetskopior för att återställa en databas
-SQL Database utför automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, differentiella databassäkerhetskopieringar varje timme och säkerhetskopieringar av transaktionsloggar var femte minut för att skydda ditt företag mot dataförlust. Dessa säkerhetskopior lagras i lokalt redundant lagring i 35 dagar för databaser på Standard- och Premium-servicenivåerna och i 7 dagar för databaser på Basic-tjänstnivån. Mer information om tjänstnivåer finns i avsnittet om [tjänstnivåer](sql-database-service-tiers.md). Om kvarhållningsperioden för din tjänstenivå inte uppfyller dina verksamhetskrav kan du öka kvarhållningsperioden genom att [byta tjänstnivå](sql-database-scale-up.md). De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. Mer information finns i avsnittet om [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md).
+SQL Database utför automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, differentiella databassäkerhetskopieringar varje timme och säkerhetskopieringar av transaktionsloggar var femte minut för att skydda ditt företag mot dataförlust. Dessa säkerhetskopior lagras i geo-redundant lagring i 35 dagar för databaser på Standard- och Premium-servicenivåerna och i 7 dagar för databaser på Basic-tjänstnivån. Mer information om tjänstnivåer finns i avsnittet om [tjänstnivåer](sql-database-service-tiers.md). Om kvarhållningsperioden för din tjänstenivå inte uppfyller dina verksamhetskrav kan du öka kvarhållningsperioden genom att [byta tjänstnivå](sql-database-scale-up.md). De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. Mer information finns i avsnittet om [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md).
 
 Om den inbyggda kvarhållningsperioden inte är tillräcklig för ditt program kan du utöka den genom att konfigurera principen för långsiktig kvarhållning för dina databaser. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md). 
 
@@ -76,6 +76,10 @@ Använd aktiv Geo-replikering om programmet uppfyller något av dessa villkor:
 * Har en hög frekvens av dataändringar och en timmes dataförlust är inte acceptabelt.
 * Den extra kostnaden för aktiv geo-replikering är lägre än de potentiella ekonomiska skyldigheterna och den associerade affärsförlusten.
 
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
+
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Återställa en databas efter ett användar- eller programfel
 * Ingen är perfekt! En användare kan oavsiktligt ta bort vissa data eller av misstag radera en viktig tabell eller till och med en hel databas. Och ett program kan av misstag skriva över värdefulla data med felaktiga data på grund av ett fel i programmet. 
 
@@ -109,7 +113,7 @@ Om dataförlusten inträffade utanför den aktuella kvarhållningsperioden för 
 
 Hur lång tid det tar att återställa data och hur mycket data som går förlorade i händelse av ett avbrott på datacentret beror på hur du väljer att använda funktionerna för affärskontinuitet som beskrivs ovan i ditt program. Du kan använda en kombination av databassäkerhetskopior och aktiv geo-replikering beroende på dina programkrav. Information om designöverväganden för fristående databaser och för elastiska pooler när dessa funktioner för affärskontinuitet används finns i [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) (Utforma ett program för haveriberedskap i molnet) och [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) (Haveriberedskapsstrategier med en elastisk pool).
 
-Avsnittet nedan innehåller en översikt över de steg du följer när du återställer data med hjälp av databassäkerhetskopior eller aktiv geo-replikering. Detaljerade anvisningar, inklusive planeringskrav, steg som du utför efter återställningen samt information om hur du simulerar ett avbrott för att göra ett programåterställningstest, finns i [Recover a SQL Database from an outage](sql-database-disaster-recovery.md) (Återställa en SQL-databas från ett avbrott).
+Avsnittet nedan innehåller en översikt över de steg du följer när du återställer data med hjälp av databassäkerhetskopior eller aktiv geo-replikering. Detaljerade anvisningar, inklusive planeringskrav, steg som du utför efter återställningen samt information om hur du simulerar ett avbrott för att göra ett haveriberedskapstest finns i [Återställa en SQL-databas från ett avbrott](sql-database-disaster-recovery.md).
 
 ### <a name="prepare-for-an-outage"></a>Förbereda för ett avbrott
 Oavsett vilken funktion för affärskontinuitet du använder, måste du:
@@ -154,6 +158,6 @@ En beskrivning av designöverväganden för fristående databaser och för elast
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

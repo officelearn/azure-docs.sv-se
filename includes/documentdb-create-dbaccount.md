@@ -1,4 +1,4 @@
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/) i ett nytt fönster.
 2. I snabbåtkomstfältet klickar du på **Ny**, **Databaser** och sedan på **NoSQL (DocumentDB)**.
    
    ![Skärmbild av Azure Portal, med fokus på Fler tjänster och DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
@@ -20,13 +20,13 @@
 
    ![Skärmbild som visar hur du öppnar ditt Azure DocumentDB-databaskonto på Azure Portal](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
 
-   Standardkonsekvensen för DocumentDB-kontot har angetts till **Session**.  Du kan justera standardkonsekvensen genom att klicka på **Standardkonsekvens** på resursmenyn. Mer information om de konsekvensnivåer som finns för DocumentDB finns i [Konsekvensnivåer i DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
+   Standardkonsekvensen för DocumentDB-kontot har angetts till **Session**.  Du kan justera standardkonsekvensen genom att välja ett av de andra alternativen för konsekvenskontroll som finns. Mer information om de konsekvensnivåer som finns för DocumentDB finns i [Konsekvensnivåer i DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

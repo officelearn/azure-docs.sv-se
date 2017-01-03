@@ -23,7 +23,7 @@ ms.openlocfilehash: d2989a3292117ada029fb26536bfffbce83f5e1b
 ---
 # <a name="nosql-tutorial-build-a-documentdb-c-console-application"></a>Självstudiekurs om NoSQL: skapa en DocumentDB C#-konsolapp
 > [!div class="op_single_selector"]
-> * [NET](documentdb-get-started.md)
+> * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
@@ -51,9 +51,9 @@ Ge oss sedan feedback med röstningsknapparna högst uppe och nere på den här 
 Nu sätter vi igång!
 
 ## <a name="prerequisites"></a>Krav
-Kontrollera att du har följande:
+Se till att du har följande:
 
-* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). 
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
     * Du kan också använda [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för den här självstudien.
 * [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 * .NET Framework 4.6
@@ -487,7 +487,7 @@ Nedanstående diagram illustrerar hur DocumentDB SQL-frågesyntaxen anropas mot 
 
 ![Diagram som illustrerar omfånget och innebörden av frågan som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
-Nyckelordet [FRÅN](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
+Nyckelordet [FROM](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
 
 ## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Steg 8: Ersätta JSON-dokument
 DocumentDB har stöd för att ersätta JSON-dokument.  
@@ -578,7 +578,7 @@ Grattis! Du har tagit bort en DocumentDB-databas.
 ## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Steg 11: Kör C#-konsolappen i sin helhet!
 Tryck på F5 i Visual Studio för att bygga appen i felsökningsläge.
 
-Du bör se Get Started-appens utdata. Dessa utdata visar resultaten för de frågor som vi har lagt till och bör motsvara exempeltexten nedan.
+Du bör nu se utdata från din kom-igång-app. Dessa utdata visar resultaten för de frågor som vi har lagt till och bör motsvara exempeltexten nedan.
 
     Created FamilyDB_oa
     Press any key to continue ...
@@ -608,7 +608,7 @@ Om du inte har tid att slutföra stegen i den här självstudien eller bara vill
 
 För att bygga GetStarted-lösningen behöver du följande:
 
-* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Ett [DocumentDB-konto][documentdb-create-account].
 * [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)-lösningen som finns på GitHub.
 
@@ -632,6 +632,6 @@ Då är det bara att bygga den, så är du på väg!
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

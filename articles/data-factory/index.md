@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Data Factory för att konfigurera automatiska datapipelines till och från källor på lokala platser och i molnet, för att flytta och bearbeta data för analys."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 627543dce9888903254875eab218d33029000088
+ms.sourcegitcommit: 82f628be33ab24ef29a42121c577792768882eb5
+ms.openlocfilehash: ac936a317b6a68e2f0670ca9903dbbe100c82cdd
 
 ---
 # <a name="azure-data-factory-documentation"></a>Dokumentation om Azure Data Factory
 
-Azure Data Factory är en molnbaserad dataintegreringstjänst som automatiserar flytt och omvandling av data. Tjänsten Data Factory skapar dataintegrationslösningar med hjälp av tjänsten som kan mata in data från olika lager, transformera och bearbeta data och publicera resultatdata till datalager igen.
+Lär dig att använda Data Factory, en tjänst för molndataintegrering, för att ordna datalagrings-, rörelse- och bearbetningstjänster i automatiserade datapipelines. Självstudier och annan dokumentation visar hur du konfigurerar och hanterar datapipelines, samt flyttar och omvandlar data för analys.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -86,52 +87,44 @@ Azure Data Factory är en molnbaserad dataintegreringstjänst som automatiserar 
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell-referens</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Hanterad referens för Data Factory</p>
-                    </div>
+                        <h3>Språk</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
+                        <p><a href="/azure/data-factory/data-factory-sdks">Azure Data Factory-utvecklarreferens</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/datafactory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referens för REST-API:et för Data Factory</p>
+                        <p><a href="/rest/api/datafactory/">Referens för REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -147,6 +140,6 @@ Hämta dokumentation om Data Factory </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

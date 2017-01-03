@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
 
 
 ---
@@ -26,7 +26,7 @@ I den här guiden lär du dig hur du anpassar utvecklarportalen i Azure API Mana
 ## <a name="change-page-headers"> </a>Ändra text eller logotyp i sidhuvudet
 En av de viktigaste aspekterna när du anpassar portalen är att ersätta texten längst upp på alla sidor med ditt företagsnamn eller en logotyp.
 
-Du ändrar innehållet på utvecklarportalen från utgivarportalen, som du kommer åt via Azure-portalen. För att nå den, klickar du på **utgivarportalen** i API Management-verktygsfältet.
+Du ändrar innehållet på utvecklarportalen från utgivarportalen, som du kommer åt via Azure Portal. För att nå den, klickar du på **utgivarportalen** i API Management-verktygsfältet.
 
 ![Utgivarportalen][api-management-management-console]
 
@@ -55,7 +55,7 @@ I det här avsnittet vill vi bara ändra formatet på rubrikerna. Klicka på alt
 
 Varje regel representerar en formategenskap för det valda elementet. Exempelvis har den markerade rubriktexten ovan storleken @font-size-h1, och namnet på teckensnittet med varianter är @headings-font-family.
 
-> Om du är bekant med [bootstrap][bootstrap] (starttjänsten) så är dessa regler i själva verket [LESS-variabler][LESS-variabler] i starttemat som används på utvecklarportalen.
+> Om du är bekant med [bootstrap][bootstrap] (starttjänsten) så är dessa regler i själva verket [LESS-variabler][LESS variables] i starttemat som används på utvecklarportalen.
 > 
 > 
 
@@ -87,12 +87,12 @@ Klicka på **välkomstsidan** om du vill ändra vad som visas på utvecklarporta
 ## <a name="next-steps"> </a>Nästa steg
 * Läs om hur du kan anpassa innehållet på utvecklarportalens sidor med [utvecklarportalsmallar](api-management-developer-portal-templates.md).
 
-[Ändra texten/logotypen i sidhuvudena]: #change-page-headers
-[Ändra formateringen i sidhuvudena]: #change-headers-styling
-[Redigera innehållet på en sida]: #edit-page-contents
-[Nästa steg]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Klassisk Azure-portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -103,10 +103,10 @@ Klicka på **välkomstsidan** om du vill ändra vad som visas på utvecklarporta
 
 
 [bootstrap]: http://getbootstrap.com/
-[LESS-variabler]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

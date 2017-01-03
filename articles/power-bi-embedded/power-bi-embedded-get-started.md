@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 12/19/2016
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
+ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 
 ---
@@ -31,12 +31,12 @@ Resurser för **Microsoft Power BI Embedded** distribueras via [Azure ARM-API:er
 ## <a name="create-a-workspace-collection"></a>Skapa en arbetsytesamling
 En **arbetsytesamling** är en Azure-resurs på högsta nivå och en behållare för det innehåll som kommer att vara inbäddat i din app. En **arbetsytesamling** kan skapas på två sätt:
 
-* Använda Azure-portalen manuellt
+* Använda Azure Portal manuellt
 * Genom programmering med Azure Resource Manager-API:er
 
-Låt oss gå igenom stegen för att skapa en **arbetsytesamling** i Azure-portalen.
+Låt oss gå igenom stegen för att skapa en **arbetsytesamling** i Azure Portal.
 
-1. Öppna och logga in på **Azure-portalen**: [http://portal.azure.com](http://portal.azure.com).
+1. Öppna och logga in på **Azure Portal**: [http://portal.azure.com](http://portal.azure.com).
 2. Klicka på **+ Ny** på den övre panelen.
    
    ![](media\\power-bi-embedded-get-started\\create-workspace-1.png)
@@ -55,7 +55,7 @@ Bladet **Skapa** innehåller den information du behöver för att anropa de API:
 <a name="view-access-keys"/>
 
 ## <a name="view-power-bi-api-access-keys"></a>Visa API-åtkomstnycklar för Power BI 
-En av de viktigaste informationsdelarna som krävs för att anropa Power BI REST-API:er är  **åtkomstnycklarna**. Dessa används för att generera de **apptoken** som används för att autentisera dina API-begäranden. För att visa dina **åtkomstnycklar**, klickar du på **Åtkomstnycklar** på bladet **Inställningar**. Mer information om **apptoken**, finns i [Autentisering och auktorisering med Power BI Embedded](power-bi-embedded-app-token-flow.md).
+En av de viktigaste informationsdelarna som krävs för att anropa Power BI REST-API:er är **åtkomstnycklarna**. Dessa används för att generera de **apptoken** som används för att autentisera dina API-begäranden. För att visa dina **åtkomstnycklar**, klickar du på **Åtkomstnycklar** på bladet **Inställningar**. Mer information om **apptoken**, finns i [Autentisering och auktorisering med Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\\power-bi-embedded-get-started\\access-keys.png)
 
@@ -70,7 +70,10 @@ Det finns två nycklar listade men bara en i taget behövs. Den andra nyckeln ti
 Nu när du har en Power BI-instans för din app och **åtkomstnycklar** kan du importera en rapport till din egen app. Innan du lär dig hur du importerar en rapport får du i nästa avsnitt lära dig hur du skapar Power BI-datauppsättningar och -rapporter som ska bäddas in i en app.
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Skapa Power BI-datauppsättningar och -rapporter som ska bäddas in i en app
-Nu när du har skapat en Power BI-instans för din app och har **åtkomstnycklar** måste du skapa de Power BI-datauppsättningar och -rapporter som du vill bädda in. Datauppsättningar och rapporter kan skapas med hjälp av **Power BI Desktop**. Du kan hämta [Power BI Desktop kostnadsfritt](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Om du vill komma igång snabbt kan du också hämta [exempel på detaljhandelsanalys PBIX](http://go.microsoft.com/fwlink/?LinkID=780547). Mer information om hur du använder **Power BI Desktop** finns i [Komma igång med Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Nu när du har skapat en Power BI-instans för din app och har **åtkomstnycklar** måste du skapa de Power BI-datauppsättningar och -rapporter som du vill bädda in. Datauppsättningar och rapporter kan skapas med hjälp av **Power BI Desktop**. Du kan hämta [Power BI Desktop kostnadsfritt](https://go.microsoft.com/fwlink/?LinkId=521662). Om du vill komma igång snabbt kan du också hämta [exempel på detaljhandelsanalys PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+
+> [!NOTE]
+> Mer information om hur du använder **Power BI Desktop** finns i [Komma igång med Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Med **Power BI Desktop** ansluter du till din datakälla genom att importera en kopia av data till **Power BI Desktop** eller ansluta direkt till datakällan med **DirectQuery**.
 
@@ -86,14 +89,11 @@ När du har sparat ditt arbete i **Power BI Desktop** skapas en PBIX-fil. Den h�
 
 > [!NOTE]
 > **Power BI Embedded** har ytterligare API:er för att ändra den server och den databas som din datauppsättning pekar på och ange autentiseringsuppgifter för tjänstekontot som datauppsättningen kommer att använda för att ansluta till databasen. Se [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) och [Datakälla för korrigeringsgateway](https://msdn.microsoft.com/library/mt711498.aspx).
-> 
-> 
 
 ## <a name="next-steps"></a>Nästa steg
-I de föregående stegen skapade du en arbetsytesamling, din första rapport och dina första datauppsättningar. Nu är det dags att lära sig att skriva kod för **Power BI Embedded**. För att hjälpa dig att komma igång har vi tagit fram ett exempel på ett webbprogram: [Komma igång med exemplet](power-bi-embedded-get-started-sample.md). I det här exemplet visas hur du:
+I de föregående stegen skapade du en arbetsytesamling, din första rapport och dina första datauppsättningar. Nu är det dags att lära sig att skriva kod för **Power BI Embedded**. För att hjälpa dig att komma igång har vi tagit fram ett exempel på en webbapp: [Komma igång med exemplet](power-bi-embedded-get-started-sample.md). I det här exemplet visas hur du:
 
 * Etablerar innehåll
-  
   * Skapar en arbetsyta
   * Importerar en PBIX-fil
   * Uppdaterar anslutningssträngarna och anger autentiseringsuppgifter för dina datauppsättningar
@@ -104,9 +104,11 @@ I de föregående stegen skapade du en arbetsytesamling, din första rapport och
 * [Autentisering och auktorisering med Power BI Embedded](power-bi-embedded-app-token-flow.md)
 * [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Jan17_HO1-->
 
 

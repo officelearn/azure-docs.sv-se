@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
-ms.openlocfilehash: 87f5ac490f113a7c0144b20563a4f8f4bbcc6b21
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 05361e08b93c93491111661b5fe997ebf5053d16
 
 
 ---
@@ -110,7 +110,6 @@ I Service Fabric-mallarna ingår en uppsättning Gradle-aktiviteter för att ska
 
 Din app skapas och distribueras efter en liten stund. Du kan övervaka dess status från Service Fabric Explorer.
 
-
 ## <a name="adding-more-services-to-an-existing-application"></a>Lägga till fler tjänster till ett befintligt program
 
 Om du vill lägga till en till tjänst till ett program som redan har skapats med hjälp av `yo` utför du följande steg: 
@@ -121,6 +120,7 @@ Om du vill lägga till en till tjänst till ett program som redan har skapats me
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interagera med Service Fabric-kluster med Azure CLI](service-fabric-azure-cli.md)
+* Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
@@ -129,6 +129,6 @@ Om du vill lägga till en till tjänst till ett program som redan har skapats me
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

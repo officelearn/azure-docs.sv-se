@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d8c63c3b8ff853986129403f83b14575fd63264c
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
 
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-the-azure-portal"></a>Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med hjälp av Azure-portalen
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -82,7 +82,7 @@ Följande krävs för att kunna genomföra självstudien.
 * En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
 
 ## <a name="configure-streaming-endpoints"></a>Konfigurera strömningsslutpunkter
-Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med multibithastighet  i följande strömningsformat: MPEG DASH, HLS, Smooth Streaming eller HDS utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
+Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med flera bithastigheter i följande strömningsformat: MPEG DASH, HLS eller jämn direktuppspelning utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
 
 Om du vill dra nytta av dynamisk paketering behöver du minst en enhet för strömning för den strömningsslutpunkt från vilken du planerar att leverera ditt innehåll.  
 
@@ -229,6 +229,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

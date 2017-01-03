@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/09/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2ebe71b3456420f29ffe06bc15471d3fd2121f8c
+ms.sourcegitcommit: 72cc0d9ff35ff656a6134b52812b64c39a295a6f
+ms.openlocfilehash: 53786d60d9971d9f976bf0f3ef4e40346c3101f4
 
 
 ---
@@ -34,23 +34,23 @@ Du kan fylla ett Azure Search-index med data på två sätt. Det första alterna
 
 Den här guiden innehåller endast anvisningar för hur du använder push-modellen för dataöverföring (som endast stöds i [REST-API:et](search-import-data-rest-api.md) och [.NET SDK](search-import-data-dotnet.md)), men du kan även lära dig mer om pull-modellen nedan.
 
-### <a name="push-data-to-an-index"></a>Skicka data till ett index
+## <a name="push-data-to-an-index"></a>Skicka data till ett index
 Med den här metoden skickar du data via programmering till Azure Search så att de blir tillgängliga för sökning. För program som har mycket låga fördröjningskrav (t.ex. om det är viktigt att sökåtgärder är synkroniserade med dynamiska inventeringsdatabaser) är push-modellen ditt enda alternativ.
 
-Du kan använda [REST-API:et](https://msdn.microsoft.com/library/azure/dn798930.aspx) eller [.NET SDK](search-import-data-dotnet.md) för att skicka data till ett index. Det finns för närvarande inget verktygsstöd för att skicka data via portalen.
+Du kan använda [REST-API:et](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) eller [.NET SDK](search-import-data-dotnet.md) för att skicka data till ett index. Det finns för närvarande inget verktygsstöd för att skicka data via portalen.
 
 Den här metoden är mer flexibel än pull-modellen eftersom du kan ladda upp dokument individuellt eller i batchar (upp till 1 000 per batch eller 16 MB, beroende på vilken gräns som nås först). Med push-modellen kan du också ladda upp dokument till Azure Search, oavsett var dina data finns.
 
-### <a name="pull-data-into-an-index"></a>Hämta in data till ett index
+## <a name="pull-data-into-an-index"></a>Hämta in data till ett index
 Pull-modellen crawlar en datakälla som stöds och överför automatiskt data till Azure Search-indexet. Indexerare spårar ändringar och borttagningar av befintliga dokument och identifierar nya dokument, vilket gör att du slipper hantera dina data i indexet aktivt.
 
 I Azure Search implementeras den här funktionen genom *indexerare*, som för närvarande är tillgängliga för [Blob Storage (förhandsversion)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL Database och SQL Server på virtuella datorer i Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
 
-Indexerarfunktionen exponeras på [Azure Portal](search-import-data-portal.md) samt i [REST-API:et](https://msdn.microsoft.com/library/azure/dn946891.aspx).
+Indexerarfunktionen exponeras på [Azure Portal](search-import-data-portal.md) samt i [REST-API:et](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6e5898d94a43b6859ce354f154bdb25948f7686
+ms.sourcegitcommit: dc95c922b71d18cf791ea98f4ab1a02d2bac2c3b
+ms.openlocfilehash: 5103c28047e6d5e7be5f4f3b7933196de7045eeb
 
 
 ---
 # <a name="set-up-application-insights-for-aspnet"></a>Konfigurera Application Insights för ASP.NET
-Med [Visual Studio Application Insights](app-insights-overview.md) kan du övervaka ditt liveprogram, [identifiera och diagnostisera prestandaproblem och undantag](app-insights-detect-triage-diagnose.md) och [se hur din app används](app-insights-overview-usage.md).  Lösningen kan användas med appar som finns på dina lokala IIS-servrar eller på virtuella datorer i Azure, samt för Azure-webbappar.
+Med [Azure Application Insights](app-insights-overview.md) kan du övervaka ditt liveprogram och [identifiera och diagnostisera prestandaproblem och undantag](app-insights-detect-triage-diagnose.md) och [se hur din app används](app-insights-overview-usage.md).  Lösningen kan användas med appar som finns på dina lokala IIS-servrar eller på virtuella datorer i Azure, samt för Azure Web Apps.
 
 ## <a name="before-you-start"></a>Innan du börjar
 Du behöver:
@@ -57,9 +57,11 @@ Du ser hur många händelser som har loggats i Visual Studio.
 ### <a name="-in-visual-studio"></a>… i Visual Studio
 Öppna Application Insights-fönstret i Visual Studio: Klicka på knappen Application Insights eller högerklicka på ditt projekt i Solution Explorer:
 
-![Knappen Application Insights visas under felsökningar i Visual Studio.](./media/app-insights-asp-net/55.png)
+![I Visual Studio visas knappen Application Insights när du felsöker.](./media/app-insights-asp-net/55.png)
 
-I den här vyn visas telemetri som genereras på serversidan av appen. Experimentera med filtren och klicka på en händelse om du vill visa mer information.
+I den här vyn (”Data från felsökningssessionen”) visas telemetri som genereras på serversidan av appen. Experimentera med filtren och klicka på en händelse om du vill visa mer information.
+
+* *Ser du inga data? Kontrollera att tidsintervallet är korrekt och klicka på sökikonen.*
 
 [Lär dig mer om Application Insights-verktygen i Visual Studio](app-insights-visual-studio.md).
 
@@ -70,17 +72,36 @@ Om du valde *Installera endast SDK* kan du även visa telemetri på Application 
 
 Portalen innehåller fler diagram, analysverktyg och instrumentpaneler än Visual Studio. 
 
-Öppna din Application Insights-resurs på [Azure-portalen](https://portal.azure.com/).
+Öppna din Application Insights-resurs – antingen genom att logga in på [Azure Portal](https://portal.azure.com/) och hitta den där, eller högerklicka på projektet i Visual Studio och låt det ta dig dit.
 
-![Högerklicka på projektet och öppna Azure-portalen](./media/app-insights-asp-net/appinsights-04-openPortal.png)
+![Högerklicka på projektet och öppna Azure Portal](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-Portalen öppnas i en vy över telemetrin från din app: ![](./media/app-insights-asp-net/66.png)
+* *Fel vid åtkomst? Om du har fler än en uppsättning Microsoft-autentiseringsuppgifter kan du vara inloggad med fel uppsättning. Logga ut och logga in igen i portalen.*
 
-* Den första telemetrin visas i [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream).
-* Enskilda händelser visas i **Sök** (1). Data kan ta några minuter innan informationen visas. Klicka på en händelse om du vill visa dess egenskaper. 
-* Sammansatta mätvärden visas i diagrammen (2). Det kan ta en minut eller två innan data visas här. Klicka på ett diagram om du vill öppna ett blad med mer information.
+Portalen öppnas med en vy över telemetrin från din app: ![Application Insights översiktssida](./media/app-insights-asp-net/66.png)
 
-[Läs mer om hur du använder Application Insights på Azure-portalen](app-insights-dashboards.md).
+Klicka på en panel eller ett diagram för att se mer information.
+
+### <a name="more-detail-in-the-portal"></a>Mer information i portalen
+
+* [**Live Metrics Stream**](app-insights-metrics-explorer.md#live-metrics-stream) visar telemetri nästan omedelbart.
+
+    ![Klicka på Live Stream från översiktsbladet](./media/app-insights-asp-net/livestream.png)
+
+    Öppna Live Stream samtidigt som din app körs, så att de kan ansluta.
+
+    Live Stream visar bara telemetri för en minut efter att det har skickats. För mer historiska undersökningar använder du Search, Metrics Explorer och Analytics. Det kan ta några minuter innan data visas på dessa platser.
+
+* [**Search**](app-insights-diagnostic-search.md) visar enskilda händelser som begäranden, undantag och sidvyer. Du kan filtrera efter händelsetyp, termmatchning och egenskapsvärden. Klicka på en händelse om du vill visa dess egenskaper och relaterade händelser. 
+
+    ![Klicka på Search från översiktsbladet](./media/app-insights-asp-net/search.png)
+
+ * I utvecklingsläge kan du se många beroendehändelser (AJAX). Dessa är synkroniseringar mellan webbläsaren och serveremulatorn. Klicka på beroendefiltret för att dölja dem.
+* [**Sammansatta mätvärden** ](app-insights-metrics-explorer.md) som begäran och felnivåer visas i diagrammen. Klicka på ett diagram om du vill öppna ett blad med mer information. Klicka på **redigera**-taggen på ett diagram för att ange filter, storlek och så vidare.
+    
+    ![Klicka på ett diagram från översiktsbladet](./media/app-insights-asp-net/metrics.png)
+
+[Läs mer om hur du använder Application Insights på Azure Portal](app-insights-dashboards.md).
 
 ## <a name="4-publish-your-app"></a>4. Publicera appen
 Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) och se om allt fungerar som det ska.
@@ -102,7 +123,7 @@ Application Insights skickar telemetri från din app till Application Insights-p
 Kommandot gör tre saker:
 
 1. Lägger till Application Insights Web SDK NuGet-paketet i projektet. Om du vill visa det i Visual Studio högerklickar du på projektet och väljer Hantera NuGet-paket.
-2. Skapar en Application Insights-resurs på [Azure-portalen](https://portal.azure.com/). Det är här som dina data visas. Kommandot hämtar *instrumenteringsnyckeln* som identifierar resursen.
+2. Skapar en Application Insights-resurs på [Azure Portal](https://portal.azure.com/). Det är här som dina data visas. Kommandot hämtar *instrumenteringsnyckeln* som identifierar resursen.
 3. Infogar instrumenteringsnyckeln i `ApplicationInsights.config` så att SDK kan skicka telemetri till portalen.
 
 Du kan utföra dessa steg manuellt för [ASP.NET 4](app-insights-windows-services.md) eller [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
@@ -113,7 +134,7 @@ Om du vill uppgradera till en [ny SDK-version](https://github.com/Microsoft/Appl
 Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av filen innan du uppgraderar och sammanfogar sedan dina ändringar i den nya versionen.
 
 ## <a name="add-more-telemetry"></a>Lägg till mer telemetri
-### <a name="web-pages-and-singlepage-apps"></a>Webbsidor och enkelsidiga appar
+### <a name="web-pages-and-single-page-apps"></a>Webbsidor och enkelsidiga appar
 1. [Lägg till JavaScript-kodavsnitt](app-insights-javascript.md) till dina webbsidor för att förenkla webbläsaren och användarblad med data om sidvyer, inläsningstider, webbläsarundantag, prestanda för AJAX-anrop, antal användare och sessioner.
 2. [Kodanpassade händelser](app-insights-api-custom-events-metrics.md) för att beräkna tid eller mäta användaråtgärder.
 
@@ -175,6 +196,6 @@ Om du använder Visual Studio Team Services, kan du [få en anteckningsmarkör](
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

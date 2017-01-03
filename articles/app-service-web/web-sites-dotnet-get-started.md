@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
+ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
+ms.openlocfilehash: 48531201029bf09f30cb22852aaf5d3ad0b328fc
 
 
 ---
@@ -55,14 +55,14 @@ Kursen gäller för Visual Studio 2015 med [Azure SDK för .NET](../dotnet-sdk.m
 * [Ladda ned den senaste Azure SDK:n för Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). SDK:n installerar Visual Studio 2015 om du inte redan har det.
   
   > [!NOTE]
-  > Beroende på hur många av SDK-beroendena du redan har på datorn, kan det några minuter till en halvtimme och mer att installera SDK:n.
+  > Beroende på hur många av SDK-beroendena du redan har på datorn kan det ta lång tid att installera SDK:n, från några minuter till drygt en halvtimma.
   > 
   > 
 
 Om du har Visual Studio 2013 och vill använda det kan du [ladda ned den senaste Azure SDK:n för Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Vissa av skärmarna kan se annorlunda ut än på bilderna.
 
-## <a name="configure-a-new-web-project"></a>Konfigurera ett nytt webbprojekt
-Nästa steg är att skapa ett webbprojekt i Visual Studio och en webbapp i Azure App Service. I den här delen av kursen får du konfigurera ett nytt webbprojekt. 
+## <a name="create-a-web-application"></a>Skapa ett webbprogram
+Nästa steg är att skapa ett webbprogramsprojekt i Visual Studio och en webbapp i Azure App Service. I den här delen av kursen får du konfigurera ett nytt webbprojekt. 
 
 1. Öppna Visual Studio 2015.
 2. Klicka på **Arkiv > Nytt > Projekt**.
@@ -89,7 +89,7 @@ Nästa steg är att skapa ett webbprojekt i Visual Studio och en webbapp i Azure
     De här inställningarna anger att Visual Studio ska skapa en Azure-webbapp för webbprojektet.
 10. Klicka på **OK**
 
-## <a name="configure-azure-resources-for-a-new-web-app"></a>Konfigurera Azure-resurser för en ny webbapp
+## <a name="create-the-azure-resources"></a>Skapa Azure-resurserna
 Nu anger du de Azure-resurser du vill skapa i Visual Studio.
 
 1. I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto**. Sedan loggar du in på Azure med ID och lösenord för det konto som används för att hantera Azure-prenumerationen.
@@ -109,33 +109,33 @@ Nu anger du de Azure-resurser du vill skapa i Visual Studio.
     ![Dialogrutan Skapa App Service](./media/web-sites-dotnet-get-started/rgcreate.png)
    
     En resursgrupp är en samling Azure-resurser som webbappar, databaser och virtuella datorer. Under en kurs är det oftast bäst att skapa en ny resursgrupp eftersom det gör att du enkelt kan ta bort alla Azure-resurser som du skapar under kursen i ett steg. Mer information finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-4. Klicka på knappen **Nytt** bredvid listrutan **App Service-plan**.
+4. Klicka på knappen **Nytt** bredvid listrutan **App Service plan**.
    
     ![Dialogrutan Skapa App Service](./media/web-sites-dotnet-get-started/createasplan.png)
    
-    Dialogrutan **Konfigurera App Service-plan** visas.
+    Dialogrutan **Konfigurera App Service plan** visas.
    
     ![Dialogrutan Konfigurera App Service](./media/web-sites-dotnet-get-started/configasp.png)
    
-    I följande steg får du konfigurera en App Service-plan för den nya resursgruppen. I en App Service-plan anges beräkningsresurserna som webbappen körs på. Om du till exempel väljer den kostnadsfria nivån körs API-appen på delade virtuella datorer medan den körs på dedikerade virtuella datorer för vissa betalnivåer. Mer information finns i [Översikt över App Service-planer](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-5. I dialogrutan **Konfigurera App Service-plan** anger du "MinExempelplan" eller ett annat namn.
+    I följande steg får du konfigurera en App Service plan för den nya resursgruppen. I en App Service plan anges beräkningsresurserna som webbappen körs på. Om du till exempel väljer den kostnadsfria nivån körs API-appen på delade virtuella datorer medan den körs på dedikerade virtuella datorer för vissa betalnivåer. Mer information finns i [Översikt över App Service planer](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+5. I dialogrutan **Konfigurera App Service plan** anger du "MinExempelplan" eller ett annat namn.
 6. I listrutan **Plats** väljer du den plats som är närmast dig.
    
     Den här inställningen anger vilket Azure-datacenter appen ska köras i. I den här kursen kan du välja en region utan att det gör någon märkbar skillnad. Men för en produktionsapp är det bra om servern finns så nära klienterna som använder den som möjligt för att minimera [fördröjningen](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 7. I listrutan **Nivå** klickar du på **Kostnadsfri**.
    
     För den här kursens syfte räcker det bra att välja den kostnadsfria prisnivån.
-8. I dialogrutan **Konfigurera App Service-plan** klickar du på **OK**.
+8. I dialogrutan **Konfigurera App Service plan** klickar du på **OK**.
 9. I dialogrutan **Skapa App Service** klickar du på **Skapa**.
 
-## <a name="visual-studio-creates-the-project-and-web-app"></a>Projektet och webbappen skapas i Visual Studio
+## <a name="inspect-the-azure-resources-in-visual-studio"></a>Inspektera Azure-resurserna i Visual Studio
 På kort tid, vanligtvis mindre än en minut, skapar Visual Studio webbprojektet och webbappen.  
 
 I fönstret **Solution Explorer** visas det nya projektets filer och mappar.
 
 ![Solution Explorer](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-Fönstret **Aktivitet för Azure App Service** visar att webbappen har skapats.
+Fönstret **Aktivitet för Azure App Service** visar att App Service-resurserna har skapats i Azure. Du kan klicka på länken här för att omedelbart starta publiceringen av ditt nya projekt. Senare kommer självstudierna att visa hur du publicerar dina filer när som helst.
 
 ![Webbapp som har skapats i Aktivitetsfönstret för Azure App Service](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -143,8 +143,8 @@ I fönstret **Cloud Explorer** kan du visa och hantera Azure-resurser, inklusive
 
 ![Webbapp som skapats i Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Distribuera webbprojektet till Azure-webbappen
-I det här avsnittet distribuerar du webbprojektet till webbappen.
+## <a name="deploy-the-web-project-to-azure"></a>Distribuera webbprojektet till Azure
+I det här avsnittet distribuerar du webbprojektet till webbappresursen som du skapade i Azure App Service.
 
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
    
@@ -152,7 +152,10 @@ I det här avsnittet distribuerar du webbprojektet till webbappen.
    
     Inom några sekunder visas guiden **Publicera webbplats**. Guiden öppnar en *publiceringsprofil* med inställningar för att distribuera webbprojektet till den nya webbappen.
    
-    Publiceringsprofilen innehåller ett användarnamn och lösenord för distribution.  Dessa autentiseringsuppgifter genereras automatiskt och du behöver inte ange dem. Lösenordet är krypterat och finns i en dold användarspecifik fil i mappen `Properties\PublishProfiles`.
+    > [!TIP] 
+    > Publiceringsprofilen innehåller ett användarnamn och lösenord för distribution.  Dessa autentiseringsuppgifter genereras automatiskt och du behöver inte ange dem. Lösenordet är krypterat och finns i en dold användarspecifik fil i mappen `Properties\PublishProfiles`.
+    >
+    >
 2. På fliken **Anslutning** i guiden **Publicera webbplats** klickar du på **Nästa**.
    
     ![Klicka på Nästa på fliken Anslutning i guiden Publicera webbplats](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -188,7 +191,7 @@ Om du får problem när du går igenom den här kursen kontrollerar du att du an
 
 Om du befinner dig i ett företagsnätverk och försöker att distribuera till Azure App Service via en brandvägg ska du kontrollera att portarna 443 och 8172 är öppna för webbdistribution. Om du inte kan öppna portarna hittar du andra distributionsalternativ i avsnittet Nästa steg nedan.
 
-När din ASP.NET-webbapp körs i Azure App Service kanske du vill veta mer om Visual Studio-funktioner som förenklar felsökningen. Information om bland annat loggning och fjärrfelsökning finns i [Felsöka Azure-webbappar i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+När din ASP.NET-webbapp körs i Azure App Service kanske du vill veta mer om Visual Studio-funktioner som förenklar felsökningen. Information om bland annat loggning och fjärrfelsökning finns i [Felsöka Azure Web Apps i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här kursen har du fått veta hur du skapar en enkel webbapp och distribuerar den till en Azure-webbapp. Här följer några närliggande ämnen och resurser i vilka du kan lära dig mer om Azure App Service:
@@ -219,6 +222,6 @@ I den här kursen har du fått veta hur du skapar en enkel webbapp och distribue
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: 21ebc8083113238ef70f57dae2381ebcf102c39d
+ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
+ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
 
 
 ---
@@ -81,6 +81,10 @@ När du skapar en resursgrupp måste du ange en plats för denna resursgrupp. Du
 Varje resursprovider tillhandahåller en uppsättning resurser och åtgärder för arbete i en Azure-tjänst. Om du till exempel vill lagra nycklar och hemligheter arbetar du med resursprovidern **Microsoft.KeyVault**. Den här resursprovidern erbjuder resurstypen **valv** som används för att skapa nyckelvalvet, och resurstypen **valv/hemligheter** som används för att skapa en hemlighet i nyckelvalvet. 
 
 Innan du börjar distribuera dina resurser bör du ha en bra uppfattning om vilka resursprovidrar som finns. Att känna till namnen på resursprovidrar och resurser gör det lättare för dig att definiera resurser som du vill distribuera till Azure.
+
+Du kan se samtliga resursprovidrar via portalen. Välj **Resursprovidrar** på ditt prenumerationsblad:
+
+![visa resursprovidrar](./media/resource-group-overview/view-resource-providers.png)
 
 Du hämtar alla resursprovidrar med följande PowerShell-cmdlet:
 
@@ -322,6 +326,6 @@ Här är en videodemonstration av den här översikten:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

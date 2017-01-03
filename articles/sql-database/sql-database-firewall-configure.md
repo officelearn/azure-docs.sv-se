@@ -18,8 +18,8 @@ ms.workload: data-management
 ms.date: 11/23/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: b5417e02f2c4e50c89afcfa007ccdd208775f374
+ms.sourcegitcommit: c9764e3a61ed22a2596da19dd92ef8eca395b82b
+ms.openlocfilehash: ae61359240e38e5d380fc65b5a77bf6c3e369091
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: b5417e02f2c4e50c89afcfa007ccdd208775f374
 > * [Azure Portal](sql-database-configure-firewall-settings.md)
 > * [TSQL](sql-database-configure-firewall-settings-tsql.md)
 > * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [REST-API](sql-database-configure-firewall-settings-rest.md)
+> * [REST API](sql-database-configure-firewall-settings-rest.md)
 > 
 > 
 
@@ -37,7 +37,7 @@ Microsoft Azure SQL Database tillhandahåller en relationsdatabastjänst för Az
 
 Du konfigurerar brandväggen genom att skapa brandväggsregler som anger intervall med godkända IP-adresser. Du kan skapa brandväggsregler på server- och databasnivå.
 
-* **Brandväggsregler på servernivå:** Dessa regler gör att klienterna kan komma åt hela Azure SQL-servern, det vill säga alla databaser som finns på samma logiska server. Dessa regler lagras i **huvuddatabasen**. Brandväggsregler på servernivå kan konfigureras via portalen eller med hjälp av Transact-SQL-instruktioner.
+* **Brandväggsregler på servernivå:** Dessa regler gör att klienterna kan komma åt hela Azure SQL-servern, det vill säga alla databaser som finns på samma logiska server. Dessa regler lagras i **huvuddatabasen**. Brandväggsregler på servernivå kan konfigureras via portalen eller med hjälp av Transact-SQL-instruktioner. Du måste vara prenumerationsägare eller prenumerationsdeltagare för att skapa brandväggsregler på servernivå med Azure Portal eller PowerShell. För att skapa en brandväggsregel på servernivå med hjälp av Transact-SQL, måste du ansluta till SQL Database-instansen med huvudsaklig inloggning på servernivå eller som Azure Active Directory-administratör (vilket innebär att en brandväggsregel på servernivå först måste ha skapats av en användare med Azure-behörighet).
 * **Brandväggsregler på databasnivå:** Dessa regler gör att klienterna kan komma åt enskilda databaser på din Azure SQL Database-server. Du kan skapa dessa regler för varje databas. Reglerna lagras i de enskilda databaserna. (Du kan skapa brandväggsregler på databasnivå för **huvuddatabasen**.) Med dessa regler kan du begränsa åtkomsten till vissa (säkra) databaser på samma logiska server. Brandväggsregler på databasnivå kan endast konfigureras med hjälp av Transact-SQL-instruktioner.
 
 **Rekommendation:** Microsoft rekommenderar att du använder brandväggsregler på databasnivå när det är möjligt för att förbättra säkerheten och göra databasen mer portabel. Använd brandväggsregler på servernivå för administratörer och om du har många databaser med samma åtkomstkrav och du inte vill lägga tid på att konfigurera varje databas individuellt.
@@ -51,7 +51,7 @@ Till en början blockeras all Transact-SQL-åtkomst till din Azure SQL-server av
 
 Om du bara vill bevilja åtkomst till en av databaserna på din Azure SQL-server måste du skapa en regel på databasnivå för databasen. Ange ett IP-adressintervall för brandväggsregeln för databasen som ligger utanför det IP-adressintervall som angetts i brandväggsregeln på servernivå och kontrollera att klientens IP-adress ligger inom intervallet som angetts i regeln på databasnivå.
 
-Anslutningsförsök från Internet och Azure måste först passera brandväggen innan de kan nå din Azure SQL-server eller SQL-databas, som du ser i följande diagram:
+Anslutningsförsök från Internet och Azure måste först passera brandväggen innan de kan nå din Azure SQL-server eller SQL Database, som du ser i följande diagram:
 
    ![Diagram över brandväggskonfigurationen.][1]
 
@@ -74,7 +74,7 @@ Om du vill tillåta att program från Azure ansluter till din Azure SQL-server m
 > 
 
 > [!NOTE]
->  Mer information finns i avsnittet **SQL Database: Outside vs inside** (SQL Database: utanför eller inuti) i [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md) (Portar utöver 1433 för ADO.NET 4.5 och SQL Database)
+>  Mer information finns i avsnittet **SQL Database: utanför eller inuti** i [Portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 >  
 
 ## <a name="creating-the-first-server-level-firewall-rule"></a>Skapa den första brandväggsregeln på servernivå
@@ -120,7 +120,7 @@ Förutom att använda Azure Portal kan du hantera brandväggsregler via programm
 ## <a name="troubleshooting-the-database-firewall"></a>Felsöka databasbrandväggen
 Tänk på följande om åtkomsten till Microsoft Azure SQL Database-tjänsten inte fungerar som förväntat:
 
-* **Lokal brandväggskonfiguration:** Innan din dator kan komma åt Azure SQL Database kan du behöva skapa ett brandväggsundantag på din dator för TCP-port 1433. Om du skapar anslutningar inom gränsen för Azure-molnet kan du behöva öppna ytterligare portar. Mer information finns i avsnittet **V12 of SQL Database: Outside vs inside** (V12 av SQL Database: utanför eller inuti) i [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md) (Portar utöver 1433 för ADO.NET 4.5 och SQL Database V12)
+* **Lokal brandväggskonfiguration:** Innan din dator kan komma åt Azure SQL Database kan du behöva skapa ett brandväggsundantag på din dator för TCP-port 1433. Om du skapar anslutningar inom gränsen för Azure-molnet kan du behöva öppna ytterligare portar. Mer information finns i avsnittet **V12 av SQL Database: utanför eller inuti** i [Portar utöver 1433 för ADO.NET 4.5 och SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 * **NAT (Network Address Translation):** På grund av NAT kanske IP-adressen som används av din dator för att ansluta till Azure SQL Database inte är samma som IP-adressen som visas i datorns IP-konfigurationsinställningar. Du kan visa IP-adressen som din dator använder genom att ansluta till Azure, logga in på portalen och gå till fliken **Konfigurera** på servern som är värd för databasen. **Aktuell klient-IP-adress** visas under avsnittet **Tillåtna IP-adresser**. Klicka på **Lägg till** i **Tillåtna IP-adresser** så att den här datorn kan ansluta till servern.
 * **Ändringarna i listan över tillåtna adresser har inte börjat gälla ännu:** Det kan ta upp till fem minuter innan ändringarna i brandväggskonfigurationen för Azure SQL Database börjar gälla.
 * **Inloggningen har inte behörighet eller så har ett felaktigt lösenord använts:** Om en inloggning inte har behörighet på Azure SQL Database-servern eller om lösenordet som användes är fel så nekas anslutningen till Azure SQL Database-servern. En brandväggsinställning ger endast klienter möjlighet att försöka ansluta till din server. Varje klient måste fortfarande ange nödvändiga säkerhetsreferenser. Mer information om hur du förbereder inloggningar finns i avsnittet Managing Databases, Logins, and Users in Azure SQL Database (Hantera databaser, inloggningar och användare i Azure SQL Database).
@@ -150,6 +150,6 @@ Information om hur du navigerar till databaser finns i [Manage database access a
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

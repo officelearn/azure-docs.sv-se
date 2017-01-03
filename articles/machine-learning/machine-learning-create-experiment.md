@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
+ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
+ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 
 
 ---
@@ -64,7 +64,7 @@ För att komma igång med Studio går du till [https://studio.azureml.net](https
 
 ## <a name="five-steps-to-create-an-experiment"></a>Fem steg för att skapa ett experiment
 
-Den här självstudiekursen om maskininlärning består av fem grundläggande steg där du bygger ett experiment i Machine Learning Studio för att skapa, träna och betygsätta din modell:
+Den här självstudiekursen om Machine Learning består av fem grundläggande steg där du bygger ett experiment i Machine Learning Studio för att skapa, träna och betygsätta din modell:
 
 - **Skapa en modell**
     - [Steg 1: Hämta data]
@@ -95,7 +95,9 @@ Så här gör du för att få datauppsättningen till experimentet.
 
 1. Skapa ett nytt experiment genom att klicka på **+Nytt** längst ned i Machine Learning Studio-fönstret, välja **Experiment** och sedan **Tomt experiment**.
 
-2. Experimentet får ett standardnamn som visas överst i arbetsytan. Markera texten och byt namn på den till ett mer beskrivande namn, exempelvis **Förutsägelse av bilpriser**.
+2. Experimentet får ett standardnamn som visas överst i arbetsytan. Markera texten och byt namn på den till ett mer beskrivande namn, exempelvis **Förutsägelse av bilpriser**. Namnet behöver inte vara unikt.
+
+    ![Byt namn på experimentet][rename-experiment]
 
 2. Till vänster om arbetsytan för experimentet finns en palett med datauppsättningar och moduler. Skriv **automobile** i sökrutan överst på den här paletten för att leta upp datauppsättningen **Automobile price data (Raw)**. Dra datauppsättningen till experimentarbetsytan.
 
@@ -111,7 +113,7 @@ Om du vill se hur den här informationen ser ut klickar du på utdataporten län
 
 > [!TIP]
 > Datauppsättningar och moduler har ingångs- och utgångsportar som representeras av små cirklar – ingångsportar högst upp och utgångsportar längst ned.
-Skapa ett dataflöde med experimentet genom att koppla ihop portarna.
+Om du vill skapa ett flöde av data via ditt experiment ansluter du en utgångsport från en modul till en port på en annan.
 Du kan när som helst klicka på en datauppsättnings eller moduls utgångsport för att se hur dina data ser ut vid den tidpunkten i dataflödet.
 
 I den här exempeldatauppsättningen visas varje förekomst av en bil som en rad, och variablerna som är kopplade till varje bil visas som kolumner. Utifrån variablerna för en viss bil ska vi försöka förutsäga priset i kolumnen längst till höger (kolumn 26, ”pris”).
@@ -169,7 +171,7 @@ Först lägger vi till en modul som tar bort kolumnen **normalized-losses** helt
     <br/>
     ***Ställ in rengöringsläget på "Ta bort hela raden" för modulen "Rensa data som saknas"***
 
-4. Kör experimentet genom att klicka på **Kör** under arbetsytan för experimentet.
+4. Kör försöket genom att klicka på **KÖR** längst ned på sidan.
 
     När experimentet är klart visas alla moduler med en grön bockmarkering som bekräftar att de har slutförts. Notera också statusen **Har slutförts** i det övre högra hörnet.
 
@@ -186,7 +188,7 @@ Nu när vi har rensat bort data kan vi ange vilka funktioner som vi vill använd
 
 ## <a name="step-3-define-features"></a>Steg 3: Definiera funktioner
 
-Inom maskininlärning är *funktioner* enskilda mätbara egenskaper av något du är intresserad av. I vår datauppsättning representerar varje rad en bil och varje kolumn är en funktion i den bilen.
+Inom Machine Learning är *funktioner* enskilda mätbara egenskaper av något du är intresserad av. I vår datauppsättning representerar varje rad en bil och varje kolumn är en funktion i den bilen.
 
 Det krävs en del experimenterande och kunskap om det problem som ska lösas för att hitta en bra uppsättning funktioner för att skapa en förutsägelsemodell. Vissa funktioner är bättre för att förutsäga målet än andra. Dessutom kan vissa funktioner ha en stark korrelation med andra funktioner och går att ta bort. Till exempel är city-mpg och highway-mpg nära relaterade så att vi kan behålla en och ta bort den andra utan att förutsägelsen påverkas avsevärt.
 
@@ -222,7 +224,7 @@ Då skapas en filtrerad datauppsättning som enbart innehåller de funktioner vi
 Nu när våra data är klara är det dags att gå vidare och träna och testa vår förutsägelsemodell. Vi ska använda våra data för att träna modellen och sedan testa den för att se hur väl den kan förutsäga priser.
 <!-- For now, don't worry about *why* we need to train and then test a model.-->
 
-*Klassificering* och *regression* är två typer av övervakade maskininlärningsalgoritmer. Klassificering förutsäger ett svar från en definierad uppsättning kategorier, till exempel en färg (röd, blå eller grön). Regression används för att förutsäga ett tal.
+*Klassificering* och *regression* är två typer av övervakade Machine Learning-algoritmer. Klassificering förutsäger ett svar från en definierad uppsättning kategorier, till exempel en färg (röd, blå eller grön). Regression används för att förutsäga ett tal.
 
 Eftersom vi vill förutsäga pris, vilket är ett tal, använder vi en regressionsalgoritm. I det här exemplet kommer vi att använda en *linjär regressionsmodell*.
 
@@ -246,7 +248,7 @@ Vi använder våra data både för träning och testning av modellen genom att d
 
 2. Kör experimentet. När experimentet har körts överför modulerna [Välj kolumner i datauppsättning][select-columns] och [Dela data][split] kolumndefinitionerna till de moduler som vi ska lägga till härnäst.  
 
-3. Välj inlärningsalgoritmen genom att expandera kategorin **Machine Learning** på modulpaletten till vänster om arbetsytan och expandera **Initiera modell**. Nu visas flera kategorier av moduler som kan användas för att initiera algoritmer för maskininlärning. I det här experimentet väljer du modulen [Linjär regression][linear-regression] under kategorin **Regression** och drar den till arbetsytan för experimentet.
+3. Välj inlärningsalgoritmen genom att expandera kategorin **Machine Learning** på modulpaletten till vänster om arbetsytan och expandera **Initiera modell**. Nu visas flera kategorier av moduler som kan användas för att initiera algoritmer för Machine Learning. I det här experimentet väljer du modulen [Linjär regression][linear-regression] under kategorin **Regression** och drar den till arbetsytan för experimentet.
 (Du kan också hitta modulen genom att skriva "linjär regression" i rutan Sök på paletten.)
 
 4. Leta upp och dra modulen [Träna modell][train-model] till arbetsytan för experimentet. Anslut utdataporten för modulen [Linjär regression][linear-regression] till den vänstra indataporten för modulen [Träna modell][train-model] och anslut träningsresultatet (vänster port) för modulen [Dela data][split] till den högra indatasporten för modulen [Träna modell][train-model].
@@ -320,13 +322,13 @@ Det slutliga experimentet bör se ut ungefär så här:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har slutfört en första självstudie om maskininlärning och skapat ett experiment kan du fortsätta att förbättra modellen och sedan distribuera den som en förutsägbar webbtjänst.
+Nu när du har slutfört en första självstudie om Machine Learning och skapat ett experiment kan du fortsätta att förbättra modellen och sedan distribuera den som en förutsägbar webbtjänst.
 
-- **Iterera om du vill förbättra modellen** – Du kan till exempel ändra de funktioner du använder i din förutsägelse. Du kan också ändra egenskaperna för algoritmen för [Linjär regression][linear-regression] eller prova med en helt annan algoritm. Du kan också lägga till flera maskininlärningsalgoritmer i experimentet samtidigt och jämföra två av dem med hjälp av modulen [Utvärdera modell][evaluate-model].
+- **Iterera om du vill förbättra modellen** – Du kan till exempel ändra de funktioner du använder i din förutsägelse. Du kan också ändra egenskaperna för algoritmen för [Linjär regression][linear-regression] eller prova med en helt annan algoritm. Du kan också lägga till flera Machine Learning-algoritmer i experimentet samtidigt och jämföra två av dem med hjälp av modulen [Utvärdera modell][evaluate-model].
 Ett exempel på hur du kan jämföra flera modeller i ett enda experiment finns [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Jämför regressorer) i [Cortana Intelligence-galleriet](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
-    > Använd knappen **Spara som** under arbetsytan för experimentet för att kopiera eventuella iterationer av experimentet. Du kan visa alla iterationer av experimentet genom att klicka på **Visa körningshistorik** under arbetsytan. Mer information finns i [Hantera iterationer av experiment i Azure Machine Learning Studio][runhistory].
+    > Kopiera eventuella iterationer av experimentet genom att använda knappen **SPARA SOM** längst ned på sidan. Du kan visa alla iterationer av experimentet genom att klicka på **VISA KÖRNINGSHISTORIK** längst ned på sidan. Mer information finns i [Hantera iterationer av experiment i Azure Machine Learning Studio][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -340,6 +342,7 @@ Vill du veta mer? En mer omfattande och detaljerad genomgång av processen för 
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png
@@ -377,6 +380,6 @@ Vill du veta mer? En mer omfattande och detaljerad genomgång av processen för 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 12/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 42774f83dc4c53dc8f090acb922b5aae6e8b4bed
+ms.sourcegitcommit: f01a5e7ec081b1c989fc8784c845d6e639b1d73b
+ms.openlocfilehash: 92c5e8c50b281fe1dc7e296dcdf8a6822b187ce3
 
 
 ---
@@ -24,7 +24,8 @@ ms.openlocfilehash: 42774f83dc4c53dc8f090acb922b5aae6e8b4bed
 Välkommen till Azure IoT Hub. Den här artikeln innehåller en översikt över Azure IoT Hub och beskriver varför du bör använda den här tjänsten när du implementerar en IoT-lösning (Internet of Things). Azure IoT Hub är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och som tillhandahåller serverdelen för lösningar av den här typen. Azure IoT Hub:
 
 * Tillhandahåller flera alternativ för kommunikation från enhet till moln och från moln till enhet, inklusive enkelriktade meddelanden, filöverföringar och begäran/svar-metoder.
-* Tillhandahåller lagring för enhetsmetadata som stöder frågor samt synkroniserad tillståndsinformation.
+* Tillhandahåller inbyggd deklarativ meddelanderoutning till andra Azure-tjänster.
+* Tillhandahåller frågbart lager för enhetsmetadata och synkroniserad tillståndsinformation.
 * Kan skydda kommunikation och åtkomstkontroll med säkerhetsnycklar eller X.509-certifikat för varje enhet.
 * Tillhandahåller omfattande övervakning för händelser relaterade till enhetsanslutningar och enhetsidentiteter.
 * Tillhandahåller enhetsbibliotek för de mest populära språken och plattformarna.
@@ -58,6 +59,7 @@ Förutom ett flertal alternativ för kommunikation [från enhet till moln][lnk-d
 
 * **Enhetstvillingar**. Med hjälp av [enhetstvillingar][lnk-twins] kan du lagra, synkronisera och fråga efter enhetsmetadata och tillståndsinformation. Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT Hub lagrar en enhetstvilling för varje enhet som du ansluter till IoT Hub. 
 * **Autentisering per enhet och säkra anslutningar**. Du kan etablera varje enhet med dess [säkerhetsnyckel][lnk-devguide-security] så att den kan ansluta till IoT Hub. [IoT Hub-identitetsregistret][lnk-devguide-identityregistry] lagrar enhetsidentiteter och nycklar i en lösning. Serverdelen i lösningen kan lägga till enskilda enheter på vitlistor eller svartlistor för att ge fullständig kontroll över enhetsåtkomsten.
+* **Routa enhet-till-moln-meddelanden till Azure-tjänster som baseras på deklarativa regler**. Med IoT Hub kan du definiera meddelandevägar baserade på meddelanderegler, så att du kan kontrollera vart hubben skickar enhet-till-moln-meddelandena. Meddelandereglerna kräver inte att du skriver någon kod, och de kan ersätta anpassade avsändare avpostpåfyllningsmeddelanden.
 * **Övervaka enhetsanslutningsåtgärder**. Du kan få detaljerade åtgärdsloggar om enhetsidentitetshanteringsåtgärder och enhetsanslutningshändelser. Denna övervakning gör att din IoT-lösning kan identifiera anslutningsproblem, t.ex. om enheter försöker ansluta med fel autentiseringsuppgifter, skickar meddelanden för ofta eller avvisar alla meddelanden från molnet till enheten.
 * **En omfattande uppsättning enhetsbibliotek**. [SDK:er för Azure IoT-enheter][lnk-device-sdks] är tillgängliga och stöds för olika språk och plattformar – C för många Linux-distributioner, Windows och realtidsoperativsystem. SDK:erna för Azure IoT-enheter stöder även hanterade språk som C#, Java och JavaScript.
 * **IoT-protokoll och utökningsbarhet**. Om din lösning inte kan använda enhetsbiblioteken exponerar IoT Hub ett offentligt protokoll som gör att enheter kan använda MQTT v3.1.1-, HTTP 1.1- och AMQP 1.0-protokoll. Du kan också utöka IoT Hub om du vill skapa stöd för anpassade protokoll genom att:
@@ -89,7 +91,9 @@ Mobilbranschen har använt tjänstassisterad kommunikation i extremt hög skala 
 IoT Hub stöds över ExpressRoutes offentliga peering-sökväg.
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur Azure IoT Hub tillhandahåller standardbaserad enhetshantering som hjälper dig att hantera, konfigurera och uppdatera dina enheter finns i [Översikt över enhetshantering med IoT Hub][lnk-device-management].
+Information om hur du skickar meddelanden från en enhet och tar emot dem från IoT Hub och om hur du konfigurerar meddelandevägar i IoT Hub finns i [Skicka och ta emot meddelanden med IoT Hub][lnk-send-messages].
+
+Information om hur IoT Hub tillhandahåller standardbaserad enhetshantering som hjälper dig att hantera, konfigurera och uppdatera dina enheter finns i [Översikt över enhetshantering med IoT Hub][lnk-device-management].
 
 Om du vill implementera klientprogram på många olika enhetsspecifika maskinvaruplattformar och operativsystem kan du använda enhets-SDK:er för Azure IoT. Enhets-SDK:erna innehåller bibliotek som gör det lätt att skicka telemetri till en IoT-hubb och att ta emot meddelanden från molnet till enheten. När du använder enhets-SDK:erna kan du välja mellan olika nätverksprotokoll för att kommunicera med IoT Hub. Mer information finns i [informationen om enhets-SDK:er][lnk-device-sdks].
 
@@ -112,6 +116,7 @@ Information om hur du börjar skriva kod och hur du kan köra några exempel fin
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-send-messages]: iot-hub-devguide-messaging.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
@@ -121,6 +126,7 @@ Information om hur du börjar skriva kod och hur du kan köra några exempel fin
 [lnk-security-ground-up]: iot-hub-security-ground-up.md
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2c7b46521c5da3290af244652b5ac20d4c309d5d
-ms.openlocfilehash: 5ec4b260ce82ec78b614ae442d3f14063ce590b5
+ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
+ms.openlocfilehash: 81cdadcd7200f20274c2851eda8677078b8b505c
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>Självstudier för HBase: Komma igång med Apache HBase med Linux-baserade Hadoop i HDInsight
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-Lär dig skapa ett HBase-kluster i HDInsight, skapa HBase-tabeller och frågetabeller med Hive. Allmän HBase-information finns i [Översikt över HDInsight HBase][hdinsight-hbase-overview].
+Lär dig skapa ett HBase-kluster i HDInsight, skapa HBase-tabeller och frågetabeller med Hive. Allmän HBase-information finns i [HDInsight HBase-översikt][hdinsight-hbase-overview].
 
 Informationen i det här dokumentet är specifik för Linux-baserade HDInsight-kluster. Använd flikväljaren överst på sidan för att växla till information om Windows-baserade kluster.
 
@@ -45,7 +45,7 @@ Följande procedur använder en Azure Resource Manager-mall för att skapa ett v
 
 1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i en offentlig blob-behållare. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Från bladet **Anpassad distribution**, anger du följande:
    
    * **Prenumeration**: Välj den Azure-prenumeration som kommer användas för att skapa klustret.
@@ -255,7 +255,7 @@ I den här HBase-självstudien för HDInsight har du fått lära dig att skapa e
 
 Du kan läsa mer här:
 
-* [Översikt över HDInsight HBase][hdinsight-hbase-overview]: HBase är en NoSQL-databas av Apachetyp med öppen källkod som bygger på Hadoop och som ger direktåtkomst och stark konsekvens för stora mängder ostrukturerade och semistrukturerade data.
+* [HDInsight HBase-översikt][hdinsight-hbase-overview]: HBase är en NoSQL-databas av Apachetyp med öppen källkod som bygger på Hadoop och som ger direktåtkomst och stark konsekvens för stora mängder ostrukturerade och semistrukturerade data.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -286,6 +286,6 @@ Du kan läsa mer här:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

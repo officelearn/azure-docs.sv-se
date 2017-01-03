@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
 
 
 ---
@@ -51,7 +51,7 @@ Du kan konfigurera CORS i Azure-portalen eller genom att använda verktygen i  [
    När du klickar på **Spara** kommer API-appen att acceptera JavaScript-anrop från angivna URL:er.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Konfigurera CORS med hjälp av Azure Resource Manager-verktyg
-Du kan även konfigurera CORS för en API-app genom att använda [mallarna i Azure Resource Manager](../resource-group-authoring-templates.md) i kommandoradsverktyg som [Azure PowerShell](/powershell/azureps-cmdlets-docs) och [Azure CLI](../xplat-cli-install.md). 
+Du kan även konfigurera CORS för en API-app genom att använda [mallarna i Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) i kommandoradsverktyg som [Azure PowerShell](/powershell/azureps-cmdlets-docs) och [Azure CLI](../xplat-cli-install.md). 
 
 Se ett exempel på en mall i Azure Resource Manager som anger CORS-egenskapen genom att öppna filen [azuredeploy.json i lagringsplatsen för den här kursens exempelprogram](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Leta reda på det avsnitt i mallen som ser ut som följande exempel:
 
@@ -252,6 +252,6 @@ I den här artikeln har du sett hur du aktiverar stöd för Apptjänst-CORS så 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

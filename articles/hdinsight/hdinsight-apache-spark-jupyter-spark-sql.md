@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 10/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: d2109a45249e4e362cd87f730683ef87f1411b86
+ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
+ms.openlocfilehash: a6d632ed43580b9773c0e416e22a743f8bc60834
 
 
 ---
 # <a name="get-started-create-apache-spark-cluster-on-hdinsight-linux-and-run-interactive-queries-using-spark-sql"></a>Komma igång: Skapa ett Apache Spark-kluster i HDInsight Linux och köra interaktiva frågor med Spark SQL
-Lär dig hur du skapar ett Apache Spark-kluster i HDInsight och sedan använder  [Jupyter](https://jupyter.org)-anteckningsboken för att köra interaktiva Spark SQL-frågor i Spark-klustret.
+Lär dig hur du skapar ett Apache Spark-kluster i HDInsight och sedan använder [Jupyter](https://jupyter.org)-anteckningsboken för att köra interaktiva Spark SQL-frågor i Spark-klustret.
 
-   ![Komma igång med Apache Spark i HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
+   ![Komma igång med Apache Spark i HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Självstudie: Komma igång med Apache Spark i HDInsight. Illustrerade steg: Skapa ett lagringskonto, Skapa ett kluster; Kör Spark SQL-uttryck")
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -37,7 +37,7 @@ Lär dig hur du skapar ett Apache Spark-kluster i HDInsight och sedan använder 
   * Från en Windows-dator – [Använd SSH med Linux-baserat HDInsight (Hadoop) från Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 > [!NOTE]
-> Den här artikeln använder en mall för Azure-resurshanteraren för att skapa ett Spark-kluster som använder [Azure Storage-blob som klusterlagring](hdinsight-hadoop-use-blob-storage.md). Du kan också skapa ett Spark-kluster som använder [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) som ett ytterligare lagringsutrymme, utöver Azure Storage-blobar som standardlagring. Instruktioner finns i [Skapa ett HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+> Den här artikeln använder en Azure Resource Manager-mall för att skapa ett Spark-kluster som använder [Azure Storage-blobbar som klusterlagring](hdinsight-hadoop-use-blob-storage.md). Du kan också skapa ett Spark-kluster som använder [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) som ett ytterligare lagringsutrymme, utöver Azure Storage-blobar som standardlagring. Instruktioner finns i [Skapa ett HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 >
 >
 
@@ -45,11 +45,11 @@ Lär dig hur du skapar ett Apache Spark-kluster i HDInsight och sedan använder 
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-spark-cluster"></a>Skapa Spark-kluster
-I det här avsnittet skapar du ett HDInsight-version 3.4 kluster (Sparkversion 1.6.1) med hjälp av en mall för Azure-resurshanteraren. Information om HDInsight-versioner och deras serviceavtal finns i [Versionshantering för HDInsight-komponenter](hdinsight-component-versioning.md). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
+I det här avsnittet skapar du ett HDInsight-version 3.4 kluster (Sparkversion 1.6.1) med hjälp av en Azure Resource Manager-mall. Information om HDInsight-versioner och deras serviceavtal finns i [Versionshantering för HDInsight-komponenter](hdinsight-component-versioning.md). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Klicka på följande bild för att öppna mallen i Azure Portal.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apache-spark-jupyter-spark-sql/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     Mallen finns i en offentlig blob-behållare *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*.
 2. Skriv följande i bladet Parametrar:
@@ -93,8 +93,8 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 * Utdata för SQL- eller Hive-frågor visualiseras automatiskt.
 
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Skapa en Jupyter-anteckningsbok med PySpark-kernel
-1. På startsidan i [Azure-portalen](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.   
-2. Från Spark-klusterbladet, klickar du på **Snabblänkar** och sedan på **Jupyter Notebook**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
+1. På startsidan i [Azure Portal](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.   
+2. Från Spark-klusterbladet, klickar du på **Klusterinstrumentpanel** och sedan på **Jupyter Notebook**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
    > [!NOTE]
    > Du kan också nå Jupyter Notebook för ditt kluster genom att öppna nedanstående URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
@@ -104,17 +104,17 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
    >
 3. Skapa en ny anteckningsbok. Klicka på **Ny** och sedan på **PySpark**.
 
-    ![Skapa en ny Jupyter-anteckningsbok](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Skapa en ny Jupyter-anteckningsbok](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Skapa en ny Jupyter-anteckningsbok")
 4. En ny anteckningsbok skapas och öppnas med namnet Untitled.pynb. Klicka på anteckningsbokens namn högst upp och ange ett trevligt namn.
 
-    ![Ange ett namn för anteckningsboken](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Ange ett namn för anteckningsboken](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Ange ett namn för anteckningsboken")
 5. Du behöver inte uttryckligen skapa några kontexter eftersom du har skapat anteckningsboken med hjälp av PySpark-kerneln. Spark- och Hive-kontexterna skapas automatiskt för dig när du kör den första kodcellen. Du kan börja med att importera de typer som krävs för det här scenariot. Det gör du genom att klistra in följande kodfragment i en cell och trycka på **SKIFT + RETUR**.
 
         from pyspark.sql.types import *
 
-    Varje gång du kör ett jobb i Jupyter kommer fönsterrubriken i din webbläsare att visa statusen **(Upptagen)**  tillsammans med anteckningsbokens titel. Du kan även se en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet. När jobbet har slutförts ändras denna till en tom cirkel.
+    Varje gång du kör ett jobb i Jupyter kommer fönsterrubriken i din webbläsare att visa statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du kan även se en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet. När jobbet har slutförts ändras denna till en tom cirkel.
 
-     ![Status för ett Jupyter-anteckningsboksjobb](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
+     ![Status för ett Jupyter-anteckningsboksjobb](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status för ett Jupyter-anteckningsboksjobb")
 6. Läs in exempeldata i en tillfällig tabell. När du skapar ett Spark-kluster i HDInsight, kopieras exempeldatafilen **hvac.csv** till det associerade lagringskontot under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
     Klistra in följande kodexempel i en tom cell och tryck på **SKIFT + RETUR**. Den här kodexemplet registrerar data i en tillfällig tabell som kallas **hvac**.
@@ -139,11 +139,11 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 8. När jobbet har slutförts visas följande tabellutdata som standard.
 
-     ![Tabellutdata från frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Table output of query result")
+     ![Tabellutdata från frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Tabellutdata från frågeresultat")
 
     Du kan också visa resultaten i andra visualiseringar. Ett områdesdiagram för samma utdata skulle som exempel se ut enligt nedan.
 
-    ![Områdesdiagram över frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Area graph of query result")
+    ![Områdesdiagram över frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Områdesdiagram över frågeresultat")
 9. När du har kört appen bör du stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Då avslutas anteckningsboken och stängs ned.
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
@@ -188,6 +188,6 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcff834c9d4aff82e8319e6c23a74c2e49902a8c
+ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
+ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
 
 
 ---
@@ -50,14 +50,14 @@ Det här avsnittet innehåller en översikt över viktiga API Management-relater
 ## <a name="apis"> </a>API:er och åtgärder
 API:er är grunden för en API Management-tjänstinstans. Varje API representerar en uppsättning åtgärder som är tillgängliga för utvecklare. Varje API innehåller en referens till backend-tjänsten som implementerar API:et, och dess åtgärder mappar till åtgärderna som implementeras av backend-tjänsten. Åtgärder i API Management är ytterst konfigurerbara, med kontroll över URL-mappning, fråge- och sökvägsparametrar, förfrågnings- och svarsinnehåll och cachelagring av åtgärdssvar. Principer för frekvensgränser, kvoter och IP-begränsning kan också implementeras på API- eller åtgärdsnivå.
 
-Mer information finns i [Skapa API:er][Skapa API:er] och [Lägga till åtgärder till ett API][Lägga till åtgärder till ett API].
+Mer information finns i [Skapa API:er][How to create APIs] och [Lägga till åtgärder till ett API][How to add operations to an API].
 
 ## <a name="products"> </a> Produkter
 Produkter syftar på hur API:erna exponeras för utvecklare. Produkter i API Management har ett eller flera API:er och konfigureras med en rubrik, en beskrivning och användningsvillkor. Produkter kan vara **öppna** eller **skyddade**. Utvecklare måste prenumerera på skyddade produkter innan de kan användas. Öppna produkter kan användas utan en prenumeration. När en produkt är redo att användas av utvecklare kan den publiceras. När produkten har publicerats kan utvecklare se den (och prenumerera på den om det är en skyddad produkt). Prenumerationsgodkännande konfigureras på produktnivå och kan antingen kräva administratörsgodkännande eller godkännas automatiskt.
 
 Grupper används för att hantera hur produkterna visas för utvecklare. Produkter beviljar synlighet till grupper, och utvecklare kan visa och prenumerera på de produkter som är synliga för grupper som de är medlemmar i. 
 
-Mer information finns i [Skapa och publicera en produkt][Skapa och publicera en produkt] och i följande videoklipp.
+Mer information finns i [Skapa och publicera en produkt][How to create and publish a product] och i följande videoklipp.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
@@ -68,18 +68,18 @@ Grupper används för att hantera hur produkterna visas för utvecklare. API Man
 
 * **Administratörer** – Administratörer av Azure-prenumerationer är medlemmar i den här gruppen. Administratörer hanterar API Management-tjänstinstanser genom att skapa API:er, åtgärder och produkter som används av utvecklare.
 * **Utvecklare** – Autentiserade användare av utvecklarportalen hör till den här gruppen. Utvecklare är de kunder som utvecklar program med hjälp av dina API:er. Utvecklare beviljas åtkomst till utvecklarportalen och bygger program som anropar åtgärderna i ett API.
-* **Gäster** – Oautentiserade användare av utvecklarportalen. Till  exempel hör potentiella kunder som besöker utvecklarportalen för en API Management-instans till den här gruppen. De kan beviljas viss skrivskyddad åtkomst, t.ex. möjligheten att visa API:er men inte anropa dem.
+* **Gäster** – Oautentiserade användare av utvecklarportalen. Potentiella kunder som besöker utvecklarportalen för en API Management-instans hör t.ex. till den här gruppen. De kan beviljas viss skrivskyddad åtkomst, t.ex. möjligheten att visa API:er men inte anropa dem.
 
 Utöver dessa systemgrupper kan administratörer skapa anpassade grupper eller [använda externa grupper i tillhörande Azure Active Directory-klienter](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Anpassade och externa grupper kan användas tillsammans med systemgrupper för att välja vilka utvecklare som kan se och komma åt API-produkter. Du kan till exempel skapa en anpassad grupp för utvecklare som hör till en specifik partnerorganisation och ge dem åtkomst till API:erna från en produkt som endast innehåller relevanta API:er. En användare kan tillhöra mer än en grupp.
 
-Mer information finns i [Skapa och använda grupper i Azure API Management][Skapa och använda grupper i Azure API Management].
+Mer information finns i [Skapa och använda grupper][How to create and use groups].
 
 ## <a name="developers"> </a> Utvecklare
-Utvecklare representerar användarkontona i en API Management-tjänstinstans. Utvecklare kan skapas eller bjudas in av administratörer eller registrera sig på [utvecklarportalen][utvecklarportalen]. Varje utvecklare är medlem i en eller flera grupper och kan prenumerera på de produkter som visas för dessa grupper.
+Utvecklare representerar användarkontona i en API Management-tjänstinstans. Utvecklare kan skapas eller bjudas in av administratörer eller registrera sig på [utvecklarportalen][Developer portal]. Varje utvecklare är medlem i en eller flera grupper och kan prenumerera på de produkter som visas för dessa grupper.
 
 När utvecklare prenumererar på en produkt får de tillgång till den primära och sekundära nyckeln för produkten. Den här nyckeln används för att göra anrop till produktens API:er.
 
-Mer information finns i [Skapa eller bjuda in utvecklare][Skapa eller bjuda in utvecklare] och [Associera grupper med utvecklare][Associera grupper med utvecklare].
+Mer information finns i [Skapa eller bjuda in utvecklare][How to create or invite developers] och [Associera grupper med utvecklare][How to associate groups with developers].
 
 ## <a name="policies"> </a> Principer
 Principer är en kraftfull funktion i API Management som gör att utgivaren kan konfigurera om API:ets beteende. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Exempel på populära instruktioner är formatkonvertering från XML till JSON och begränsning av anropsfrekvensen för att begränsa antalet inkommande anrop från en utvecklare. Många andra principer är också tillgängliga.
@@ -90,7 +90,7 @@ Principuttryck kan användas som attributvärden eller textvärden i API Managem
 > 
 > 
 
-En fullständig lista över API Management-principer finns i [Principreferens][Principreferens]. Mer information om hur du använder och konfigurerar principer finns i [API Management-principer][API Management-principer]. En självstudiekurs om hur du skapar en produkt med principer för frekvensbegränsning och kvoter finns i [Skapa och konfigurera avancerade produktinställningar][Skapa och konfigurera avancerade produktinställningar]. Om du vill se en demonstration tittar du på följande videoklipp.
+En fullständig lista över API Management-principer finns i [Principreferens][Policy reference]. Mer information om hur du använder och konfigurerar principer finns i [API Management-principer][API Management policies]. En självstudiekurs om hur du skapar en produkt med principer för frekvensbegränsning och kvoter finns i [Skapa och konfigurera avancerade produktinställningar][How create and configure advanced product settings]. Om du vill se en demonstration tittar du på följande videoklipp.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
@@ -108,30 +108,30 @@ Om du vill veta mer om API Management tittar du på följande presentation från
 > 
 > 
 
-[API:er och åtgärder]: #apis
-[Produkter]: #products
-[Grupper]: #groups
-[Utvecklare]: #developers
-[Principer]: #policies
-[utvecklarportalen]: #developer-portal
+[APIs and operations]: #apis
+[Products]: #products
+[Groups]: #groups
+[Developers]: #developers
+[Policies]: #policies
+[Developer portal]: #developer-portal
 
-[Skapa API:er]: api-management-howto-create-apis.md
-[Lägga till åtgärder till ett API]: api-management-howto-add-operations.md
-[Skapa och publicera en produkt]: api-management-howto-add-products.md
-[Skapa och använda grupper i Azure API Management]: api-management-howto-create-groups.md
-[Associera grupper med utvecklare]: api-management-howto-create-groups.md#associate-group-developer
-[Skapa och konfigurera avancerade produktinställningar]: api-management-howto-product-with-rules.md
-[Skapa eller bjuda in utvecklare]: api-management-howto-create-or-invite-developers.md
-[Principreferens]: api-management-policy-reference.md
-[API Management-principer]: api-management-howto-policies.md
-[Skapa en API Management-tjänstinstans]: api-management-get-started.md#create-service-instance
-
-
+[How to create APIs]: api-management-howto-create-apis.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
+[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
+[Policy reference]: api-management-policy-reference.md
+[API Management policies]: api-management-howto-policies.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Jan17_HO1-->
 
 

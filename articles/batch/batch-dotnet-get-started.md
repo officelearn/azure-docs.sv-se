@@ -3,7 +3,7 @@ title: "Självstudiekurs – Komma igång med Azure Batch-biblioteket för .NET 
 description: "Lär dig mer om grundläggande Azure Batch-begrepp och hur du utvecklar för Batch-tjänsten med ett enkelt exempelscenario."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/22/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ecf07295a2e56e1aae8fc8fce77ca219db1f371e
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8243e2304d846e02ecf0114b79be73c0016941df
 
 
 ---
@@ -595,7 +595,7 @@ private static async Task<bool> MonitorTasks(
 ## <a name="step-7-download-task-output"></a>Steg 7: Hämta aktivitetsutdata
 ![Hämta aktivitetsutdata från Storage][7]<br/>
 
-Nu när jobbet har slutförts kan utdata från aktiviteterna hämtas från Azure Storage. Detta görs med ett anrop till `DownloadBlobsFromContainerAsync` i *DotNetTutorial*s `Program.cs`:
+Nu när jobbet har slutförts kan du hämta aktivietsutdata från Azure Storage. Detta görs med ett anrop till `DownloadBlobsFromContainerAsync` i *DotNetTutorial*s `Program.cs`:
 
 ```csharp
 private static async Task DownloadBlobsFromContainerAsync(
@@ -795,6 +795,6 @@ Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lös
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

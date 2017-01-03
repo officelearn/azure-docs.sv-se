@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2e607924f17b42bba73672a2d24257e672e1134
+ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
+ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
 
 
 ---
@@ -39,9 +39,8 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
    1. Ange **Labbnamn** för det nya labbet.
    2. Välj den **prenumeration** som du vill koppla till labbet.
    3. Välj en **plats** där du vill lagra labbet.
-   4. Välj **Automatisk avstängning** för att ange om du vill aktivera, och definiera parametrar för, automatisk avstängning av alla labbets virtuella datorer.
-   5. Välj **Lagringstyp** för att ange disklagringstypen för labbets virtuella datorer. 
-   6. Välj **Skapa**.
+   4. Välj **Automatisk avstängning** för att ange om du vill aktivera, och definiera parametrar för, automatisk avstängning av alla labbets virtuella datorer. 
+   5. Välj **Skapa**.
       
       ![Skapa ett blad för labbet](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
@@ -59,6 +58,6 @@ När du har skapat labbet kan du fundera på följande steg:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

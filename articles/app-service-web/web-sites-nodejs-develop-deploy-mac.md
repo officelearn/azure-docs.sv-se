@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -202,6 +202,6 @@ Mer information om hur du utvecklar Node.js-program i Azure finns i [Node.js Dev
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

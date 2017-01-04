@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: hero-article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -117,6 +117,6 @@ Du hittar mer information om hur du arbetar med App Service Web Apps via länkar
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

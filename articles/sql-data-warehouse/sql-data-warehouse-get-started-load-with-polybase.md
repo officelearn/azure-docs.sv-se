@@ -278,6 +278,6 @@ Se [PolyBase-guiden][PolyBase-guiden] för ytterligare information som du bör k
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -43,16 +43,16 @@ Om du vill använda Baidu måste du ha ett Baidu-konto. Om du redan har ett såd
 
 1. Gå till [Baidu-portalen] och klicka på länken **登录** (**Logga in**). Klicka på **立即注册** för att starta kontoregistreringsprocessen.
    
-       ![][1]
+   ![][1]
 2. Ange den information som krävs: telefon/e-postadress, lösenord och verifieringskod. Sedan klickar du på **Signup** (Registrera).
    
-       ![][2]
+   ![][2]
 3. Du kommer att få ett mejl med en länk för att aktivera Baidu-kontot. Det skickas till den e-postadress som du angav vid registreringen.
    
-       ![][3]
+   ![][3]
 4. Logga in på ditt e-postkonto, öppna aktiveringsmejlet från Baidu och klicka på aktiveringslänken för att aktivera ditt Baidu-konto.
    
-       ![][4]
+   ![][4]
 
 När du har ett aktiverat Baidu-konto kan du logga in på [Baidu-portalen].
 

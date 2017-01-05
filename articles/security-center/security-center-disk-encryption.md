@@ -181,6 +181,6 @@ I det här dokumentet beskrivs hur du krypterar en virtuell dator i Azure. I fö
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

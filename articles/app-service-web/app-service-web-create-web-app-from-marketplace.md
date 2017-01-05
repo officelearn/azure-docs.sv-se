@@ -168,6 +168,6 @@ Mer information om hur du utvecklar WordPress-webbappar i Azure finns i [Develop
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

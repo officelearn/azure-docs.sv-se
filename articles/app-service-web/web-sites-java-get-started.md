@@ -169,6 +169,6 @@ Mer information om hur du utvecklar Java-program i Azure finns i [Java-utvecklin
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

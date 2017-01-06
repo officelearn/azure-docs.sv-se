@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 069a8619ccec30bb2a575ffd8faf3e6acf60da4a
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
 
 
 ---
@@ -184,7 +184,7 @@ Med följande parametrar:
     ![Lagringskonto](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
 > [!NOTE]
-> [Migrering av lagringskonton](../resource-group-move-resources.md) mellan resursgrupper i samma prenumeration eller mellan prenumerationer stöds inte för lagringskonton som används för att distribuera Site Recovery.
+> [Migrering av lagringskonton](../azure-resource-manager/resource-group-move-resources.md) mellan resursgrupper i samma prenumeration eller mellan prenumerationer stöds inte för lagringskonton som används för att distribuera Site Recovery.
 >
 >
 
@@ -246,7 +246,7 @@ När du har sparat inställningarna börjar ett jobb spåra mappningsförloppet.
 Observera att om målnätverket har flera undernät och ett av dessa undernät har samma namn som undernätet där den virtuella källdatorn finns så ansluts den virtuella replikdatorn till det målundernätverket efter en redundansväxling. Om det inte finns något målundernät med ett matchande namn ansluts den virtuella datorn till det första undernätet i nätverket.
 
 > [!NOTE]
-> [Migrering av nätverk](../resource-group-move-resources.md) mellan resursgrupper i samma prenumeration eller mellan prenumerationer stöds inte för nätverk som används för att distribuera Site Recovery.
+> [Migrering av nätverk](../azure-resource-manager/resource-group-move-resources.md) mellan resursgrupper i samma prenumeration eller mellan prenumerationer stöds inte för nätverk som används för att distribuera Site Recovery.
 >
 >
 
@@ -345,13 +345,12 @@ Gör följande om du vill köra ett redundanstest:
    * Klicka på **Redundanstestet är klart**. Rensa testmiljön så att de virtuella testdatorerna stängs av och tas bort.
    * Klicka på **Kommentarer** om du vill skriva ner och spara observationer från redundanstestningen.
 
->
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om hur du [konfigurerar återställningsplaner](site-recovery-create-recovery-plans.md) och [redundans](site-recovery-failover.md).
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
@@ -43,7 +43,7 @@ Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabr
 ## <a name="prerequisites"></a>Krav
 * Gå igenom [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför de **nödvändiga** stegen.
 * Installera [Curl](https://curl.haxx.se/dlwiz/) på din dator. Du kan använda verktyget Curl med REST-kommandon för att skapa en datafabrik. 
-* Gör följande genom att följa anvisningarna i [den här artikeln](../resource-group-create-service-principal-portal.md): 
+* Gör följande genom att följa anvisningarna i [den här artikeln](../azure-resource-manager/resource-group-create-service-principal-portal.md): 
   1. Skapa en webbapp med namnet **ADFCopyTutorialApp** i Azure Active Directory.
   2. Hämta ett **klient-ID** och en **hemlig nyckel**. 
   3. Hämta ett **klientorganisations-ID**. 
@@ -370,7 +370,7 @@ Observera följande punkter:
     ```PowerShell
     Get-AzureRmResourceProvider
     ```
-  * Logga in med Azure-prenumerationen i [Azure-portalen](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure-portalen. Med den här åtgärden registreras providern automatiskt.
+  * Logga in med Azure-prenumerationen i [Azure Portal](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure Portal. Med den här åtgärden registreras providern automatiskt.
 
 Du måste först skapa några Data Factory-entiteter innan du skapar en pipeline. Först skapar du länkade tjänster för att länka käll- och måldatalager till ditt datalager. Sedan definierar du in- och utdatauppsättningar för att representera data i länkade datalager. Slutligen skapar du pipelinen med en aktivitet som använder dessa datauppsättningar.
 
@@ -578,6 +578,6 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

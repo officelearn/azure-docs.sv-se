@@ -2,18 +2,18 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 # Kom igång
-## [Distribuera med Resource Manager-mall](../resource-group-template-deploy.md)
+## [Distribuera med Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md)
 
 # Gör så här för att
 ## Distribuera
-### [Skapa Azure Resource Manager-mallar](../resource-group-authoring-templates.md)
+### [Skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Hantera
-### [Använd Preview Portal för att hantera resurser](resource-group-portal.md)
+### [Använd Preview Portal för att hantera resurser](../azure-resource-manager/resource-group-portal.md)
 ### [Hantera åtkomst med RBAC](../active-directory/role-based-access-control-configure.md)
-### [Använd taggar för att organisera resurser](../resource-group-using-tags.md)
+### [Använd taggar för att organisera resurser](../azure-resource-manager/resource-group-using-tags.md)
 ### [Skala dina resurser](../monitoring-and-diagnostics/insights-how-to-scale.md)
-### [Skapa den nya Azure-tjänstens huvudnamn](../resource-group-create-service-principal-portal.md)
+### [Skapa den nya Azure-tjänstens huvudnamn](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## Övervaka
 ### [Övervaka tjänstmått](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [Aktivera övervakning och diagnostik](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
@@ -23,7 +23,7 @@
 ### [Få varningsmeddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Relaterat
-## [Funktioner för Azure Resource Manager-mall](../resource-group-template-functions.md)
+## [Funktioner för Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-functions.md)
 ## [Bästa metoder för autoskalning](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Vanliga mått för autoskalning](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhooks för autoskalningsaviseringar](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
@@ -42,6 +42,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

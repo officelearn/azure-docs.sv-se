@@ -10,6 +10,6 @@ Du betalar för två saker: beräkningskostnaderna per timme för den virtuella 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

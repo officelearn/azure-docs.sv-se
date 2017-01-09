@@ -10,6 +10,6 @@ I det här scenariot skapar du ett VNet med namnet **TestVNet** med det reserver
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

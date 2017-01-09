@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: 1479595fb7de2e0a37520c7d323624142e624af1
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
 
 
 ---
 # <a name="create-and-manage-azure-sql-database-server-level-firewall-rules-using-the-azure-portal"></a>Skapa och hantera Azure SQL Database-brandväggsregler på servernivå på Azure Portal
 > [!div class="op_single_selector"]
 > * [Översikt](sql-database-firewall-configure.md)
-> * [Azure-portal](sql-database-configure-firewall-settings.md)
+> * [Azure Portal](sql-database-configure-firewall-settings.md)
 > * [TSQL](sql-database-configure-firewall-settings-tsql.md)
 > * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 > * [REST-API](sql-database-configure-firewall-settings-rest.md)
@@ -56,7 +56,7 @@ Klicka på **Spara** för att spara ändringarna.
 - Information om hur du skapar fler användare som kan ansluta till databaser finns i [SQL Database Authentication and Authorization: Granting Access](https://msdn.microsoft.com/library/azure/ee336235.aspx) (SQL Database-autentisering och SQL Database-auktorisering: bevilja åtkomst).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-* [Skydda en databas](sql-database-security.md)   
+* [Skydda en databas](sql-database-security-overview.md)   
 * [Security Center för SQL Server Database Engine och Azure SQL Database](https://msdn.microsoft.com/library/bb510589)   
 
 
@@ -64,6 +64,6 @@ Klicka på **Spara** för att spara ändringarna.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

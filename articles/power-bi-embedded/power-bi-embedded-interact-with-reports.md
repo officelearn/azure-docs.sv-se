@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 28eddb52c33d9883219f146480b110574f728f89
 
 
 ---
@@ -26,18 +26,18 @@ Med Power BI JavaScript API kan du enkelt bädda in Power BI-rapporter i dina pr
 
 Du bäddar in en Power BI-rapport i ditt program med hjälp av en iframe som finns som en del av programmet. Iframe fungerar som en gräns mellan programmet och rapporten som du ser i följande bild. 
 
-![Power BI inbäddad iframe utan Javascript API](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-1.png)
+![Power BI inbäddad iframe utan Javascript API](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
 Iframe gör inbäddningsprocessen mycket enklare, men utan JavaScript API kan rapporten och programmet inte samverka med varandra. Den här bristande interaktionen kan kännas som att rapporten egentligen inte är en del av programmet. Rapporten och programmet behöver verkligen kommunicera fram och tillbaka som i följande bild.
 
-![Power BI inbäddad iframe med Javascript API](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-2.png)
+![Power BI inbäddad iframe med Javascript API](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
 Med Power BI JavaScript API kan du skriva kod som på ett säkert sätt kan passera iframe-gränsen. Detta gör att programmet programmässigt kan utföra en åtgärd i en rapport och lyssna efter händelser från åtgärder som användare gör i rapporten.
 
 ## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>Vad kan du göra med Power BI JavaScript API?
 Med JavaScript API kan du hantera rapporter, navigera till sidor i en rapport, filtrera en rapport och hantera inbäddade händelser. Följande diagram visar strukturen för API:en.
 
-![Power BI JavaScript API-diagram](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
+![Power BI JavaScript API-diagram](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
 ### <a name="manage-reports"></a>Hantera rapporter
 Med Javascript API kan du hantera beteende på rapporten och sidan:
@@ -139,6 +139,6 @@ Mer information om Power BI JavaScript API finns under följande länkar:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

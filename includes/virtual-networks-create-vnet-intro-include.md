@@ -2,6 +2,6 @@ Ett virtuellt Azure-nätverk (VNet) är en representation av ditt eget nätverk 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

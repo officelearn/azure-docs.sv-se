@@ -14,7 +14,7 @@ För att komma igång med Service Bus-ämnen och -prenumerationer så måste du 
 
 Så här skapar du ett namnområde:
 
-1. Logga in på [Azure-portalen].
+1. Logga in på [Azure portal][Azure portal].
 2. I det vänstra navigationsfältet i portalen klickar du på **Nytt**, på **Enterprise Integration** och sedan på **Service Bus**.
 3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
 4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic, Standard eller Premium).
@@ -35,7 +35,7 @@ Så här skapar du ett namnområde:
    
     ![connection-string][connection-string]
 
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
@@ -43,6 +43,6 @@ Så här skapar du ett namnområde:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -5,6 +5,6 @@ Med Microsoft Azure ExpressRoute kan du utöka ditt lokala nätverk till Microso
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

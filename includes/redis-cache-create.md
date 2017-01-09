@@ -35,6 +35,6 @@ När de nya cachealternativen har konfigurerats klickar du på **Skapa**. Det ka
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

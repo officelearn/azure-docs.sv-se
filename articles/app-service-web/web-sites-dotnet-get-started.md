@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
-ms.openlocfilehash: 48531201029bf09f30cb22852aaf5d3ad0b328fc
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 
 
 ---
@@ -216,7 +216,7 @@ I den här kursen har du fått veta hur du skapar en enkel webbapp och distribue
   * [Aktivera HTTPS för en Azure-webbplats](web-sites-configure-ssl-certificate.md)
 * Ta bort resursgruppen som innehåller webbappen och eventuella relaterade Azure-resurser när du är klar med dem.
   
-    Mer information om hur du arbetar med resursgrupper i Azure Portal finns i [Distribuera resurser med Resource Manager-mallar och Azure Portal](../resource-group-template-deploy-portal.md).   
+    Mer information om hur du arbetar med resursgrupper i Azure Portal finns i [Distribuera resurser med Resource Manager-mallar och Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).   
 * Fler exempel på hur du kan skapa en ASP.NET-webbapp i App Service finns i [Skapa och distribuera en ASP.NET-webbapp i Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) och [Skapa och distribuera en mobilapp i Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) i 2015 års [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz)-[anslutningsdemo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Fler snabbstartsguider från HealthClinic.biz-demonstrationen finns i [Snabbstartsguider för Azure Developer Tools](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 

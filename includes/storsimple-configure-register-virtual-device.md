@@ -19,6 +19,6 @@ När konfigurationen och registreringen är klar, kommer enheten online. (Det ka
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

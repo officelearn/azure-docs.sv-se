@@ -4,7 +4,7 @@
 # Kom igång
 ## [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adfs.md)
 ## [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md)
-## [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adds.md)
+## [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md)
 
 # Gör så här för att
 ## [Installera Azure AD Connect Health-agenten](active-directory-aadconnect-health-agent-install.md)
@@ -20,10 +20,10 @@
 ## [Designguide för hybrididentitet](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Resurser
-##[Vanliga frågor och svar om Azure AD Connect](active-directory-aadconnect-health-faq.md)
+##[Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

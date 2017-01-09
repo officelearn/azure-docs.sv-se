@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9bc7cc00e9aa9aab982f0b2f08f8befb7c02f46d
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
 
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Kom igång med privata mallar på Azure Portal
-Mallen [Azure Resource Manager](../resource-group-authoring-templates.md) är en deklarativ mall som används för att definiera distributionen. Du kan definiera vilka resurser som ska distribueras för en lösning och ange parametrar och variabler som gör att du kan ange värden för olika miljöer. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution.
+Mallen [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) är en deklarativ mall som används för att definiera distributionen. Du kan definiera vilka resurser som ska distribueras för en lösning och ange parametrar och variabler som gör att du kan ange värden för olika miljöer. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution.
 
 Du kan använda den nya funktionen **Mallar** i [Azure Portal](https://portal.azure.com) tillsammans med resursprovidern **Microsoft.Gallery** som ett tillägg för [Azure Marketplace](https://azure.microsoft.com/marketplace/) för att låta användare skapa, hantera och distribuera privata mallar från personliga bibliotek.
 
@@ -35,16 +35,16 @@ Följande rekommendationer hjälper dig att dra full nytta av **Mallar** när du
 * En **Mall** är en inkapslande resurs som innehåller en Resource Manager-mall och ytterligare metadata. Den fungerar väldigt likt ett objekt i Marketplace. Den viktigaste skillnaden är att det är ett privat objektet i stället för de offentliga Marketplace-objekten.
 * Biblioteket för **Mallar** fungerar bra för användare som behöver anpassa sina distributioner.
 * **Mallar** fungerar bra för användare som behöver en enkel lagringsplats i Azure.
-* Börja med en befintlig Resource Manager-mall Hitta mallar i [github](https://github.com/Azure/azure-quickstart-templates) eller [Exportera mallen](../resource-manager-export-template.md) från en befintlig resursgrupp.
+* Börja med en befintlig Resource Manager-mall Hitta mallar i [github](https://github.com/Azure/azure-quickstart-templates) eller [Exportera mallen](../azure-resource-manager/resource-manager-export-template.md) från en befintlig resursgrupp.
 * **Mallar** är knutna till den användare som publicerar dem. Utgivarens namn är synligt för alla som har läsbehörighet till den.
 * **Mallar** är Resource Manager-resurser och det går inte att byta namn på dem efter att de publicerats.
 
 ## <a name="add-a-template-resource"></a>Lägg till en mallresurs
 Det finns två sätt att skapa en **Mall**-resurs i Azure-portalen.
 
-### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>Metod 1: Skapa en ny mallresurs från en resursgrupp som körs
+### <a name="method-1--create-a-new-template-resource-from-a-running-resource-group"></a>Metod 1: Skapa en ny mallresurs från en resursgrupp som körs
 1. Navigera till en befintlig resursgrupp i Azure-portalen. Välj **Exportera mall** i **Inställningar**.
-2. När Resource Manager-mallen för filserverresurser exporteras, kan du använda **Spara mall** för att spara den till **Mallar**-lagringsplatsen. Hitta komplett information för att Exportera mall [här](../resource-manager-export-template.md).
+2. När Resource Manager-mallen för filserverresurser exporteras, kan du använda **Spara mall** för att spara den till **Mallar**-lagringsplatsen. Hitta komplett information för att Exportera mall [här](../azure-resource-manager/resource-manager-export-template.md).
    <br /><br />
    ![Exportera resursgrupp](media/rg-export-portal1.PNG)  <br />
 3. Välj kommandoknappen **Spara till mall**.
@@ -62,7 +62,7 @@ Det finns två sätt att skapa en **Mall**-resurs i Azure-portalen.
    > 
    > 
 
-### <a name="b-method-2-add-a-new-template-resource-from-browse"></a>B. Metod 2: Lägg till en ny Mall-resurs från bläddra
+### <a name="method-2--add-a-new-template-resource-from-browse"></a>Metod 2: Lägg till en ny Mall-resurs från bläddra
 Du kan också lägga till en ny **Mall** direkt genom att använda kommandoknappen +Lägg till i **Bläddra > Mallar**. Du måste ange ett namn, en beskrivning och Resource Manager-mallens JSON.
 
 ![Lägg till mall](media/add-template-portal1.PNG)  <br />
@@ -129,13 +129,13 @@ Klicka på **Välj** och **Ok**. Du kan nu se användare eller grupper som du la
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs om hur du skapar Resource Manager-mallar i [Webbsidemallar](../resource-group-authoring-templates.md)
-* Information om de funktioner som du kan använda i en Resource Manager-mall finns i [Mallfunktioner](../resource-group-template-functions.md)
-* Anvisningar om hur du skapar mallar finns [Metodtips för att utforma Azure Resource Manager-mallar](../best-practices-resource-manager-design-templates.md)
+* Läs om hur du skapar Resource Manager-mallar i [Webbsidemallar](../azure-resource-manager/resource-group-authoring-templates.md)
+* Information om de funktioner som du kan använda i en Resource Manager-mall finns i [Mallfunktioner](../azure-resource-manager/resource-group-template-functions.md)
+* Anvisningar om hur du skapar mallar finns [Metodtips för att utforma Azure Resource Manager-mallar](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

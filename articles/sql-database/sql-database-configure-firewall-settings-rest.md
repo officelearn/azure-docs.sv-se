@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
 
 
 ---
@@ -39,7 +39,7 @@ Microsoft Azure SQL Database använder brandväggsregler för att tillåta anslu
 > 
 
 ## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Hantera brandväggsregler på servernivå via REST-API:et
-1. Hanteringen av brandväggsregler via REST-API:et måste autentiseras. Mer information finns i [utvecklarguiden för auktorisering med Azure Resource Manager-API:et](../resource-manager-api-authentication.md).
+1. Hanteringen av brandväggsregler via REST-API:et måste autentiseras. Mer information finns i [utvecklarguiden för auktorisering med Azure Resource Manager-API:et](../azure-resource-manager/resource-manager-api-authentication.md).
 2. Du kan skapa, uppdatera eller ta bort regler på servernivå med hjälp av REST-API:et
    
     Om du vill skapa eller uppdatera en brandväggsregel på servernivå kör du PUT-metoden med hjälp av följande:
@@ -79,7 +79,7 @@ Hjälp med att ansluta till en Azure SQL-databas från öppen källkod eller pro
 Information om hur du navigerar till databaser finns i [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx) (Hantera databasåtkomst och inloggningssäkerhet).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-* [Skydda en databas](sql-database-security.md)
+* [Skydda en databas](sql-database-security-overview.md)
 * [Security Center för SQL Server Database Engine och Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -91,6 +91,6 @@ Information om hur du navigerar till databaser finns i [Manage database access a
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

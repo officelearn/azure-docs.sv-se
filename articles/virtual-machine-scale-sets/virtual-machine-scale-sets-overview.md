@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d833b7aaab8680d555f6503ec27994134a2519d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
 
 
 ---
@@ -34,7 +34,7 @@ Titta igenom dessa videor för mer information om VM-skaluppsättningar:
 ## <a name="creating-and-managing-vm-scale-sets"></a>Skapa och hantera VM-skaluppsättningar
 Du kan skapa en VM-skaluppsättning i [Azure Portal](https://portal.azure.com) genom att välja *Ny* och skriva ”skala” i sökfältet. I resultatet ser du ”skaluppsättning för virtuell dator”. Därifrån kan du fylla i fälten som krävs för att anpassa och distribuera din skaluppsättning. 
 
-VM-skaluppsättningar kan också definieras och distribueras med JSON-mallar och [REST API:er](https://msdn.microsoft.com/library/mt589023.aspx) precis som enskilda Azure Resource Manager-mallar. Därför går det att använda alla standardmetoder för Azure Resource Manager-distribution. Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](../resource-group-authoring-templates.md).
+VM-skaluppsättningar kan också definieras och distribueras med JSON-mallar och [REST API:er](https://msdn.microsoft.com/library/mt589023.aspx) precis som enskilda Azure Resource Manager-mallar. Därför går det att använda alla standardmetoder för Azure Resource Manager-distribution. Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Några exempel på mallar för VM-skaluppsättningar finns i Azure snabbstarts-mallarna i GitHub-lagringsplatsen [här.](https://github.com/Azure/azure-quickstart-templates) (leta efter mallar med *vmss* i titeln)
 
@@ -50,9 +50,9 @@ Om du omdistribuerar en mall för att ändra kapaciteten kan du definiera en myc
 Om du vill gå igenom de steg som kan skapa en skaluppsättning som skalas automatiskt kan du läsa [Skala automatiskt datorer i en skalningsuppsättning för virtuella datorer](virtual-machine-scale-sets-windows-autoscale.md)
 
 ## <a name="monitoring-your-vm-scale-set"></a>Övervaka din VM-skaluppsättning
-På [Azure Portal](https://portal.azure.com) listas skaluppsättningar, och här visas grundläggande egenskaper och listning av virtuella datorer i uppsättningen. Om du vill ha mer information kan du använda [resursutforskaren i Azure](https://resources.azure.com) för att visa VM-skaluppsättningar. VM-skaluppsättningar är en resurs under Microsoft.Compute, så på den webbplatsen kan du se dem om du expanderar följande länkar:
+[Azure Portal](https://portal.azure.com) visar skalningsuppsättningar och grundläggande egenskaper och åtgärder, inklusive listor över virtuella datorer i uppsättningen och ett diagram över resursanvändningen. Om du vill ha mer information kan du använda [resursutforskaren i Azure](https://resources.azure.com) för att visa VM-skaluppsättningar. VM-skaluppsättningar är en resurs under Microsoft.Compute, så på den webbplatsen kan du se dem om du expanderar följande länkar:
 
-    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+**Prenumerationer -> din prenumeration -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> din VM-skalningsuppsättning -> osv.**
 
 ## <a name="vm-scale-set-scenarios"></a>Scenarier för VM-skaluppsättningar
 Det här avsnittet innehåller några vanliga scenarier för VM-skaluppsättningar. Vissa Azure-tjänster på högre nivåer (som Batch, Service Fabric, Azure Container Service) använder dessa scenarier.
@@ -71,15 +71,15 @@ Det här avsnittet innehåller några vanliga scenarier för VM-skaluppsättning
    Här är ett exempel på hur du gör samma sak med RDP och Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 * **Ansluta till virtuella datorer med en "jumpbox"** – Om du skapar en VM-skaluppsättning och en fristående virtuell dator i samma VNET kan den fristående virtuella datorn och en virtuell dator i en VM-skaluppsättning anslutas till varandra med sina interna IP-adresser som definieras av VNET/undernätet. Om du skapar en offentlig IP-adress och tilldelar den till fristående virtuella datorer kan du använda RDP eller SSH för fristående virtuella datorer och sedan ansluta från den datorn till dina VM-skaluppsättningsinstanser. Du kanske ser nu att en enkel VM-skaluppsättning i sig är säkrare än en enkel fristående VM med en offentlig IP-adress i standardkonfigurationen.
   
-   [För att illustrera ett exempel på den här metoden skapar den här mallen ett enkelt Mesos-kluster som består av en fristående virtuell huvuddator som hanterar ett VM-skaluppsättningsbaserat kluster av virtuella datorer.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+   Den här mallen distribuerar till exempel en enkel skalningsuppsättning med en fristående virtuell dator: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox)
 * **Belastningsutjämning till VM-skaluppsättningsinstanser** – Om du vill leverera arbete till ett beräkningskluster av virtuella datorer med en "resursallokeringsmetod" kan du konfigurera en Azure-belastningsutjämnare med regler för belastningsutjämning. Du kan definiera avsökningar för att verifiera att programmet körs genom att skicka pingsignaler till portar med en angiven sökväg för protokoll, intervall och begäran. Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) stöder även skaluppsättningar tillsammans med mer avancerade scenarier för belastningsutjämning.
   
-   [Här är ett exempel som skapar en VM-skaluppsättning med virtuella datorer som kör IIS-webbserver och som använder en belastningsutjämnare för att balansera belastningen som varje VM får. HTTP-protokollet används också för att skicka en ping till en specifik URL på varje virtuell dator.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (titta på resurstypen Microsoft.Network/loadBalancers och networkProfile och extensionProfile i virtualMachineScaleSet)
-* **Distribuera en VM-skaluppsättning som ett beräkningskluster i en PaaS-klusterhanterare** – VM-skaluppsättningar beskrivs ibland som nästa generationens arbetsroll. Det är en giltig beskrivning, men den riskerar också att förväxla skaluppsättningsfunktioner med PaaS v1-arbetsrollfunktioner. I en mening erbjuder VM-skaluppsättningar en äkta ”arbetsroll” eller arbetsresurs på så sätt att de tillhandahåller en generaliserad beräkningsresurs som är plattforms-/körningsberoende, anpassningsbar och integreras i Azure Resource Manager-IaaS.
+   Här är ett exempel som skapar en VM-skalningsuppsättning som kör Apache-webbservrar och som använder en belastningsutjämnare för att utjämna belastningen som varje virtuell dator tar emot: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) (titta på resurstypen Microsoft.Network/loadBalancers och networkProfile och extensionProfile i virtualMachineScaleSet)
+* **Distribuera en VM-skaluppsättning som ett beräkningskluster i en PaaS-klusterhanterare** – VM-skaluppsättningar beskrivs ibland som nästa generationens arbetsroll. Det är en giltig beskrivning, men den riskerar också att förväxla skalningsuppsättningsfunktioner med PaaS v1-arbetsrollfunktioner. I en mening erbjuder VM-skaluppsättningar en äkta ”arbetsroll” eller arbetsresurs på så sätt att de tillhandahåller en generaliserad beräkningsresurs som är plattforms-/körningsberoende, anpassningsbar och integreras i Azure Resource Manager-IaaS.
   
    En PaaS v1-arbetsroll, som är begränsad vad gäller support för plattform/körning (endast Windows-avbildningar), innehåller även tjänster som VIP-byte, konfigurerbara uppgraderingsinställningar och körnings-/appdistributionsinställningar som antingen inte *ännu* är tillgängliga i VM-skaluppsättningar, eller som kommer att lanseras av andra PaaS-tjänster på högre nivå, som Service Fabric. Med detta i kan åtanke kan du titta på VM-skaluppsättningar som en infrastruktur som stöder PaaS. Dvs. PaaS-lösningar som Service Fabric eller klusterhanterare som Mesos kan byggas ovanpå VM-skaluppsättningar som ett skalbart beräkningslager.
   
-   [För att illustrera ett exempel på den här metoden skapar den här mallen ett enkelt Mesos-kluster som består av en fristående virtuell huvuddator som hanterar ett VM-skaluppsättningsbaserat kluster av virtuella datorer.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Kommande versioner av [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) distribuerar mer komplexa/förstärkta versioner av det här scenariot utifrån VM-skaluppsättningar.
+   Ett exempel på den här metoden är när Azure Container Service distribuerar ett kluster baserat på skalningsuppsättningar med en behållardirigering: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos).
 
 ## <a name="vm-scale-set-performance-and-scale-guidance"></a>Riktlinjer för prestanda och skalning för VM-skaluppsättningar
 * Skapa inte fler än 500 virtuella datorer i flera VM-uppsättningar i taget.
@@ -100,7 +100,7 @@ Det här avsnittet innehåller några vanliga scenarier för VM-skaluppsättning
 
 **F.** Stöds datadiskar inom VM-skaluppsättningar?
 
-**S.** Inte i den första versionen. Alternativen för att lagra data är:
+**S.** Inte i den första versionen (även om datadiskar för närvarande är tillgängliga som en förhandsversion). Alternativen för att lagra data är:
 
 * Azure-filer (delade SMB-enheter)
 * OS-enhet
@@ -148,6 +148,6 @@ Det här avsnittet innehåller några vanliga scenarier för VM-skaluppsättning
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

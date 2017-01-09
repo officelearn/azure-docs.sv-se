@@ -1,19 +1,19 @@
 # Översikt
 ## [Vad är tvåstegsverifiering?](multi-factor-authentication-end-user.md)
-## [Hur påverkar det mig?](../multi-factor-authentication-end-user-signin.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+## [Hur påverkar det mig?](multi-factor-authentication-end-user-signin.md)
 
 # Kom igång
-## [Konfigurera ditt konto](../multi-factor-authentication-end-user-first-time.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+## [Konfigurera ditt konto](multi-factor-authentication-end-user-first-time.md)
 
 # Gör så här för att
-## [Hantera inställningar](../multi-factor-authentication-end-user-manage-settings.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
-## [Felsöka](../multi-factor-authentication-end-user-troubleshoot.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
-## [Konfigurera applösenord](../multi-factor-authentication-end-user-app-passwords.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+## [Hantera inställningar](multi-factor-authentication-end-user-manage-settings.md)
+## [Felsöka](multi-factor-authentication-end-user-troubleshoot.md)
+## [Konfigurera applösenord](multi-factor-authentication-end-user-app-passwords.md)
 ## Använd Microsoft Authenticator-appen
-### [Kom igång](../multi-factor-authentication-microsoft-authenticator.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
-### [Vanliga frågor och svar](../multi-factor-authentication-app-faq.md?toc=%2fazure&2fmulti-factor-authentication%2fend-user%2ftoc.json)
+### [Kom igång](microsoft-authenticator-app-how-to.md)
+### [Vanliga frågor och svar](microsoft-authenticator-app-faq.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

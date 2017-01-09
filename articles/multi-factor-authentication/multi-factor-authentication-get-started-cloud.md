@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,6 @@ I den här artikeln beskrivs hur du kommer igång med Azure Multi-Factor Authent
 
 > [!NOTE]
 > Följande dokumentation innehåller information om hur du aktiverar användare med hjälp av **den klassiska Azure-portalen**. Information om hur du konfigurerar Azure Multi-Factor Authentication för O365-användare finns i [Konfigurera Multi-Factor Authentication för Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
-> 
-> 
 
 ![MFA i molnet](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
@@ -38,8 +36,6 @@ Följande krav måste vara uppfyllda innan du kan aktivera Azure Multi-Factor Au
 
 > [!NOTE]
 > Licenser är tillgängliga för användare som har Azure MFA, Azure AD Premium eller Enterprise Mobility Suite (EMS).  MFA ingår i Azure AD Premium och EMS. Om du har tillräckligt med licenser behöver du inte skapa en autentiseringsprovider.
-> 
-> 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Aktivera tvåstegsverifiering för användare
 För att börja kräva tvåstegsverifiering för en användare ändrar du användarens tillstånd från inaktiverat aktiverat.  Mer information om användarstatus finns i [Användarstatus i Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
@@ -75,13 +71,11 @@ Du kan ändra [status](multi-factor-authentication-whats-next.md) med [Azure AD 
 
 > [!IMPORTANT]
 > Vi avråder från att flytta användare direkt från inaktiverat tillstånd till tvingat tillstånd. Icke-webbläsarbaserade appar slutar fungera eftersom användaren inte har genomgått MFA-registrering och hämtat ett [applösenord](multi-factor-authentication-whats-next.md#app-passwords). Om du har icke-webbläsarbaserade appar och kräver lösenord, rekommenderar vi att du går från ett inaktiverat tillstånd till ett aktiverat. På så sätt kan användarna registrera sig och erhålla sina applösenord. Sedan kan flytta du dem till tvingat tillstånd.
-> 
-> 
 
 PowerShell är ett alternativ om du vill aktivera många användare samtidigt. För närvarande finns det inget alternativ för massaktivering på Azure-portalen och du måste markera varje användare separat. Detta kan vara ganska tidskrävande om du har många användare. Genom att skapa ett PowerShell-skript med följande kod kan du loopa igenom listan med användare och aktivera dem.
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
@@ -92,7 +86,7 @@ Här är ett exempel:
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta

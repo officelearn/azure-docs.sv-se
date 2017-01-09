@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 48821a3b2b7da4646c4569cc540d867f02a4a32f
-ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
+ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
+ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
 
 
 ---
@@ -185,7 +185,7 @@ Innan du kan aktivera och använda tillbakaskrivning av lösenord måste du kont
   > Om du kör en äldre version av Windows Server 2008 och 2008 R2 kan du fortfarande använda den här funktionen, men du måste [ladda ned och installera KB 2386717](https://support.microsoft.com/kb/2386717) innan du kan genomdriva din lokala AD-lösenordsprincip i molnet.
   > 
   > 
-* Azure AD Connect-verktyget är installerat och du har förberett AD-miljön för synkronisering till molnet.  Mer information finns i [Använda din lokala identitetsinfrastruktur i molnet](active-directory-aadconnect.md).
+* Azure AD Connect-verktyget är installerat och du har förberett AD-miljön för synkronisering till molnet.  Mer information finns i [Använda din lokala identitetsinfrastruktur i molnet](connect/active-directory-aadconnect.md).
   
   > [!NOTE]
   > Innan du testar tillbakaskrivning av lösenord bör du slutföra en fullständig import och en fullständig synkronisering från både AD och Azure AD i Azure AD Connect.
@@ -199,7 +199,7 @@ Innan du kan aktivera och använda tillbakaskrivning av lösenord måste du kont
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Steg 1: Ladda ned den senaste versionen av Azure AD Connect
-Tillbakaskrivning av lösenord är tillgängligt i versioner av Azure AD Connect eller i Azure AD Sync med versionsnummer **1.0.0419.0911** eller högre.  Tillbakaskrivning av lösenord med automatisk kontoupplåsning är tillgängligt i versioner av Azure AD Connect eller i Azure AD Sync med versionsnummer **1.0.0485.0222** eller högre. Om du kör en äldre version uppgraderar du till minst den här versionen innan du fortsätter. [Klicka här om du vill ladda ned den senaste versionen av Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
+Tillbakaskrivning av lösenord är tillgängligt i versioner av Azure AD Connect eller i Azure AD Sync med versionsnummer **1.0.0419.0911** eller högre.  Tillbakaskrivning av lösenord med automatisk kontoupplåsning är tillgängligt i versioner av Azure AD Connect eller i Azure AD Sync med versionsnummer **1.0.0485.0222** eller högre. Om du kör en äldre version uppgraderar du till minst den här versionen innan du fortsätter. [Klicka här om du vill ladda ned den senaste versionen av Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Så här kontrollerar du versionen av Azure AD Sync
 1. Gå till **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -236,7 +236,7 @@ Nu när du har laddat ned verktyget Azure AD Connect kan du aktivera tillbakaskr
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Så här aktiverar du tillbakaskrivning av lösenord med Windows PowerShell
 1. Öppna ett nytt **upphöjt Windows PowerShell-fönster** på **datorn för katalogsynkronisering**.
 2. Om modulen inte redan har lästs in skriver du `import-module ADSync`-kommandot för att läsa in modulen med Azure AD Connect-cmdlets i den aktuella sessionen.
-3. Hämta listan med Azure AD-anslutningsappar i systemet genom att köra `Get-ADSyncConnector`-cmdleten och spara resultaten i `$aadConnectorName`, som `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Hämta listan med Azure AD-anslutningsappar i systemet genom att köra `Get-ADSyncConnector`-cmdleten och spara resultaten i `$aadConnectorName`, som `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
 4. Hämta tillbakaskrivningsstatusen för den aktuella anslutningen genom att köra följande cmdlet:`Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Aktivera tillbakaskrivning av lösenord genom att köra cmdleten:`Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -393,6 +393,6 @@ Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställni
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

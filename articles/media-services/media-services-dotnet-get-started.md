@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 12/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e048e70714c260fcb13ec5ca53434173026eb8d8
-ms.openlocfilehash: 623841606367a319eadf268c8938066d98aa491d
+ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
+ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 
 
 ---
@@ -25,9 +25,9 @@ ms.openlocfilehash: 623841606367a319eadf268c8938066d98aa491d
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
-> 
-> 
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+>
+>
 
 ## <a name="overview"></a>Översikt
 Den här självstudiekursen vägleder dig genom stegen för att implementera ett program för leverans av Video-on-Demand (VoD) med Azure Media Services (AMS) SDK för .NET.
@@ -36,11 +36,11 @@ Självstudierna innehåller det grundläggande Media Services-arbetsflödet och 
 
 ### <a name="ams-model"></a>AMS-modell
 
-Följande bild visar några av de vanligast använda objekten när du utvecklar VoD-program mot Media Services OData-modellen. 
+Följande bild visar några av de vanligast använda objekten när du utvecklar VoD-program mot Media Services OData-modellen.
 
 Klicka på bilden för att visa den i full storlek.  
 
-<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
 Du kan visa hela modellen [här](https://media.windows.net/API/$metadata?api-version=2.14).  
 
@@ -60,8 +60,8 @@ Självstudien visar hur du utför följande uppgifter:
 ## <a name="prerequisites"></a>Krav
 Följande krävs för att kunna genomföra självstudien.
 
-* Du behöver ett Azure-konto för att slutföra den här självstudien. 
-  
+* Du behöver ett Azure-konto för att slutföra den här självstudien.
+
     Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda kostnadsfria Azure-tjänster och -funktioner som Web Apps-funktionen i Azure App Service.
 * Operativsystem: Windows 8 eller senare, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 eller senare
@@ -72,26 +72,26 @@ Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **+New** > **Media + CDN** > **Media Services**.
-   
+
     ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. Ange de erfordrade värdena i **SKAPA MEDIA SERVICES-KONTO**.
-   
+
     ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
+
    1. Ange namnet på det nya AMS-kontot vid **Kontonamn**. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.
    2. Vid Prenumeration väljer du mellan de olika Azure-prenumerationer som du har åtkomst till.
    3. I **Resursgrupp** väljer du ny eller befintlig resurs.  En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Lär dig mer [här](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. För **Plats** väljer du den geografiska region som ska användas för att lagra media och metadataposter för ditt Media Services-konto. Den här regionen används för att bearbeta och strömma dina media. Endast de tillgängliga Media Services-regionerna visas i listrutan. 
+   4. För **Plats** väljer du den geografiska region som ska användas för att lagra media och metadataposter för ditt Media Services-konto. Den här regionen används för att bearbeta och strömma dina media. Endast de tillgängliga Media Services-regionerna visas i listrutan.
    5. Vid **Storage-konto** väljer du ett lagringskonto för att tillhandahålla Blob Storage av medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett lagringskonto. Ett nytt lagringskonto skapas i samma region. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
-      
+
        Mer information om lagring finns [här](../storage/storage-introduction.md).
    6. Välj **PIN-kod för instrumentpanelen** för att se förloppet för kontodistributionen.
 4. Klicka på **Skapa** längst ned i formuläret.
-   
-    Statusen ändras till **Körs** när kontot har skapats. 
-   
+
+    Statusen ändras till **Körs** när kontot har skapats.
+
     ![Media Services-inställningar](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
+
     För att hantera AMS-kontot (till exempel överföra videor, koda tillgångar och övervaka jobbförlopp) använder du fönstret **Inställningar**.
 
 ## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Konfigurera direktuppspelande slutpunkter med Azure Portal
@@ -108,19 +108,19 @@ Med dynamisk paketering behöver du bara lagra och betala för filerna i ett end
 
 Om du vill skapa och ändra antalet reserverade enheter för strömning gör du följande:
 
-1. I fönstret **Inställningar** klickar du på **Strömningsslutpunkter**. 
-2. Klicka på den slutpunkt för direktuppspelning som är standard. 
-   
+1. I fönstret **Inställningar** klickar du på **Strömningsslutpunkter**.
+2. Klicka på den slutpunkt för direktuppspelning som är standard.
+
     Fönstret **INFORMATION OM DEN SLUTPUNKT FÖR DIREKTUPPSPELNING SOM ÄR STANDARD** visas.
 3. Flytta på skjutreglaget **Strömningsenheter** för att ange antalet strömningsenheter.
-   
+
     ![Strömningsenheter](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 4. Klicka på knappen **Spara** för att spara ändringarna.
-   
+
    > [!NOTE]
    > Tilldelning av nya enheter kan ta cirka 20 minuter att slutföra.
-   > 
-   > 
+   >
+   >
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
@@ -131,20 +131,20 @@ Om du vill skapa och ändra antalet reserverade enheter för strömning gör du 
 
 3. Lägg till en referens i sammansättningen System.Configuration. Den här sammansättningen innehåller klassen **System.Configuration.ConfigurationManager** som används för att komma åt konfigurationsfiler, till exempel App.config.
 
-    Om du vill lägga till en referens gör du följande: Högerklicka på projektnamnet i Solution Explorer och välj **Lägg till** > **Referens** och skriv sedan konfigurationen i sökrutan. 
+    Om du vill lägga till en referens gör du följande: Högerklicka på projektnamnet i Solution Explorer och välj **Lägg till** > **Referens** och skriv sedan konfigurationen i sökrutan.
 
 4. Öppna filen App.config (lägg till filen i projektet om den inte har lagts till som standard) och lägg till ett *appSettings*-avsnitt i den. Ange värden för kontonamnet och kontonyckeln i Azure Media Services, vilket visas i följande exempel. Hämta kontonamn och viktig information genom att gå till [Azure Portal](https://portal.azure.com/) och välja AMS-kontot. Välj sedan **Inställningar** > **Nycklar**. I fönstret Hantera nycklar visas kontonamnet och de primära och sekundära nycklarna. Kopiera värdena för kontonamnet och den primära nyckeln.
-   
+
         <configuration>
         ...
           <appSettings>
             <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
             <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
           </appSettings>
-   
+
         </configuration>
 5. Skriv över de befintliga **using**-satserna i början av filen Program.cs med följande kod.
-   
+
         using System;
         using System.Collections.Generic;
         using System.Linq;
@@ -266,7 +266,7 @@ Om du vill använda dynamisk paketering ska du göra följande:
 Följande kod visar hur du skickar ett kodningsjobb. Jobbet innehåller en uppgift som anger att omkodning av mezzaninfilen till en uppsättning MP4-filer med anpassningsbar bithastighet genom att använda **Media Encoder Standard**. Koden skickar jobbet och väntar tills det har slutförts.
 
 När kodningsjobbet slutförts, skulle du kunna publicera dina tillgångar och sedan strömma eller progressivt ladda ner MP4-filerna.
- 
+
 Lägg till följande metod i programklassen.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -309,7 +309,7 @@ Om du vill strömma eller hämta en tillgång behöver du först ”publicera”
 
 ### <a name="some-details-about-url-formats"></a>Information om URL-format
 
-När du har skapat positionerna kan du skapa de URL:er som skulle användas för att strömma eller hämta dina filer. Exemplen i den här handledningen kommer att ge URL:er som du kan klistra in i rätt webbläsare. Det här avsnittet ger bara korta exempel på hur olika format ser ut. 
+När du har skapat positionerna kan du skapa de URL:er som skulle användas för att strömma eller hämta dina filer. Exemplen i den här handledningen kommer att ge URL:er som du kan klistra in i rätt webbläsare. Det här avsnittet ger bara korta exempel på hur olika format ser ut.
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>En strömmande URL för MPEG DASH har följande format:
 
@@ -324,7 +324,7 @@ När du har skapat positionerna kan du skapa de URL:er som skulle användas för
 {namn på slutpunkt för direktuppspelning-namn på mediaservicekonto}.streaming.mediaservices.windows.net/lokalisator-ID}/{filnamn}.ism/Manifest
 
 
-En SAS-URL som används för att hämta filer har följande format:
+#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>En SAS-URL som används för att hämta filer har följande format:
 
 {blob-behållarnamn}/{tillgångsnamn}/{filnamn}/{SAS-signatur}
 
@@ -449,14 +449,14 @@ Mer information finns i följande avsnitt:
 ## <a name="download-sample"></a>Hämta exempel
 Följande kodexempel innehåller koden som du skapade i den här kursen: [exempel](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: sökvägar för Media Services-utbildning
+## <a name="next-steps"></a>Nästa steg 
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Letar du efter något annat?
-Om det här ämnet inte innehöll vad du förväntades dig, om det saknar något, eller om det på annat sätt inte uppfyllde dina behov, kan du ge oss feedback i Disqus-tråden nedan.
+
 
 <!-- Anchors. -->
 

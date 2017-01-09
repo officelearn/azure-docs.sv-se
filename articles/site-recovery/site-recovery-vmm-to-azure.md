@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
-ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
 
 
 ---
@@ -115,13 +115,13 @@ Du behöver ett Azure-nätverk dit de virtuella Azure-datorerna som skapats kan 
 * Nätverket måste finnas på samma region som Recovery Services-valvet.
 * Beroende på vilken resursmodell du vill använda för redundansväxlade virtuella Azure-datorer konfigurerar du Azure-nätverket i [Resource Manager-läge](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) eller [klassiskt läge](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * Vi rekommenderar att du konfigurerar ett nätverk innan du börjar. Om du inte gör det måste du göra det under distributionen av Site Recovery.
-Observera att Azure-nätverk som används av Site Recovery inte kan [flyttas](../resource-group-move-resources.md) inom samma eller mellan olika prenumerationer.
+Observera att Azure-nätverk som används av Site Recovery inte kan [flyttas](../azure-resource-manager/resource-group-move-resources.md) inom samma eller mellan olika prenumerationer.
 
 ### <a name="set-up-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 * Du behöver ett Azure-standardlagringskonto som ska lagra data som replikeras till Azure. Kontot måste finnas i samma region som Recovery Services-valvet.
 * Beroende på vilken resursmodell du vill använda för redundansväxlade virtuella Azure-datorer skapar du ett konto i [Resource Manager-läge](../storage/storage-create-storage-account.md) eller [klassiskt läge](../storage/storage-create-storage-account-classic-portal.md).
 * Vi rekommenderar att du skapar ett konto innan du börjar. Om du inte gör det måste du göra det under distributionen av Site Recovery.
-- Observera att lagringskonton som används av Site Recovery inte kan [flyttas](../resource-group-move-resources.md) inom samma eller mellan olika prenumerationer.
+- Observera att lagringskonton som används av Site Recovery inte kan [flyttas](../azure-resource-manager/resource-group-move-resources.md) inom samma eller mellan olika prenumerationer.
 
 ### <a name="prepare-the-vmm-server"></a>Förbereda VMM-servern
 * Kontrollera att VMM-servern uppfyller [kraven](#on-premises-prerequisites).
@@ -144,7 +144,7 @@ Du måste konfigurera nätverksmappning under distributionen av Site Recovery. N
 
     ![Nytt valv](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. I **Namn** anger du ett eget namn som identifierar valvet. Om du har mer än en prenumeration väljer du en av dem.
-4. [Skapa en resursgrupp](../resource-group-template-deploy-portal.md) eller välj en befintlig. Ange en Azure-region. Datorer replikeras till den här regionen. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Skapa en resursgrupp](../azure-resource-manager/resource-group-template-deploy-portal.md) eller välj en befintlig. Ange en Azure-region. Datorer replikeras till den här regionen. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. Du kan snabbt komma åt valvet från instrumentpanelen genom att klicka på **Fäst på instrumentpanelen** > **Skapa valv**.
 
     ![Nytt valv](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
@@ -509,6 +509,6 @@ När du har konfigurerat och fått igång distributionen kan du [läsa mer](site
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

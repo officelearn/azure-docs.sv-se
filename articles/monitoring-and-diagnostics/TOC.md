@@ -30,7 +30,7 @@
 ### [Konfigurera webhook i en aktivitetsloggvarning](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Arkivera aktivitetsloggen](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Strömma aktivitetsloggen till Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Granska driften med Resource Manager](../resource-group-audit.md)
+### [Granska driften med Resource Manager](../azure-resource-manager/resource-group-audit.md)
 ## Hantera diagnostikloggar
 ### [Arkiv](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Strömma till Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -40,12 +40,15 @@
 
 
 # Referens
-## [PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-## [Lista över mått som stöds](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [REST-API](https://msdn.microsoft.com/library/azure/dn931943)
+## [REST](/rest/api/monitor/)
 
-<!--HONumber=Nov16_HO4-->
+# Resurser
+## [PowerShell-exempel](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Exempel med Azure CLI 2.0 (förhandsversion)](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Lista över mått som stöds](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
+
+<!--HONumber=Jan17_HO1-->
 
 

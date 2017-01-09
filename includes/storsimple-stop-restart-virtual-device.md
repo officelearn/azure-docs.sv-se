@@ -16,6 +16,6 @@ Du kan använda följande cmdletar för att starta om en virtuell enhet.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -14,6 +14,6 @@ För att komma åt åtkomstnycklarna klickar du på **Åtkomstnycklar**.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

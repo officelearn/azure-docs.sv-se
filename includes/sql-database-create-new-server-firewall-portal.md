@@ -5,45 +5,38 @@ includes/sql-database-create-new-server-firewall-portal.md
 Latest Freshness check:  2016-11-28 , rickbyh.
 
 As of circa 2016-04-11, the following topics might include this include:
-articles/sql-database/sql-database-get-started-tutorial.md
+articles/sql-database/sql-database-get-started.md
 articles/sql-database/sql-database-configure-firewall-settings
+articles/sql-data-warehouse-get-started-provision.md
 
 -->
-## <a name="create-a-new-azure-sql-server-level-firewall"></a>Skapa en ny brandvägg på Azure SQL-servernivå
-Använd följande steg i Azure Portal för att skapa en brandväggsregel på servernivå som tillåter anslutningar från en enskild IP-adress (din klientdator) eller ett helt IP-adressintervall till en logisk SQL Database-server.
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Skapa en brandväggsregel på servernivå på Azure Portal
 
-1. Om du inte är ansluten ansluter du till [Azure Portal](http://portal.azure.com).
-2. I standardbladet klickar du på **SQL-servrar**.
-   
-      ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
-3. I **SQL server**-bladet klickar du på servern där du vill skapa brandväggsregeln.
-   
-     ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
-4. Granska egenskaperna för servern och klicka sedan på **Brandvägg**.
-   
-     ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
-   
-   > [!NOTE]
-   > Du kan även använda servernivån i bladet **brandväggsinställningar** från **databas**-bladets verktygsfält.
+1. Öppna bladet Brandvägg för SQL-servern genom att klicka på **Brandvägg** under Inställningar på bladet SQL-server.
+
+    ![Brandvägg för SQL-server](../articles/sql-database/media/sql-database-get-started/sql-server-firewall.png)
     
-    
-6. Klicka på **Lägg till klient-IP** så fyller Azure i din IP-adress i regelrutorna.
-   
-      ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
-7. Du kan också klicka på IP-adressen som lades till om du vill redigera brandväggsadressen att tillåta åtkomst för ett IP-adressintervall.
-   
-      ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
-8. Klicka på **Spara** för att skapa brandväggsregeln på servernivå.
-   
-     ![Ny serverbrandvägg](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
-   
-   > [!IMPORTANT]
-   > IP-adress för klienten kan ändras, och det är möjligt att du inte får åtkomst till din server förrän du har skapat en ny brandväggsregel. Du kan kontrollera din IP-adress genom att använda [Bing](http://www.bing.com/search?q=my%20ip%20address). Lägg sedan till en IP-adress eller ett intervall med IP-adresser. Se [Hantera brandväggsinställningar](../articles/sql-database/sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) för mer information.
-   > 
-   > 
+2. Granska klient-IP-adressen som visas och använd valfri webbläsare för att kontrollera att det här är din IP-adress på Internet (fråga ”what is my IP adress”). Ibland överensstämmer de inte av olika anledningar.
+
+    ![Din IP-adress](../articles/sql-database/media/sql-database-get-started/your-ip-address.png)
+
+3. Om IP-adresserna matchar varandra klickar du på **Lägg till klient-IP** i verktygsfältet.
+
+    ![Lägg till klient-IP](../articles/sql-database/media/sql-database-get-started/add-client-ip.png)
+
+    > [!NOTE]
+    > Du kan öppna SQL Database-brandväggen på servern för en enskild IP-adress eller ett helt adressintervall. Om du öppnar brandväggen kan SQL-administratörer och användare logga in i valfri databas på servern som de har giltiga autentiseringsuppgifter för.
+    >
+
+4. Klicka på **Spara** i verktygsfältet för att spara den här brandväggsregeln på servernivå och klicka sedan på **OK**.
+
+    ![Lägg till klient-IP](../articles/sql-database/media/sql-database-get-started/save-firewall-rule.png)
+
+> [!Tip]
+> Om du vill gå en självstudiekurs rekommenderar vi [Självstudiekurs om SQL Database: Skapa en server, en brandväggsregel på servernivå, en exempeldatabas, en brandväggsregel på databasnivå och ansluta till SQL Server](../articles/sql-database/sql-database-get-started.md).    
+>
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -11,17 +11,17 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 310bf3656db6ae6e0a8d3c1cc13442e2aa4e7752
+ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
+ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Lägg in funktioner i din första webbapp
-I [Distribuera din första webbapp till Azure på fem minuter](app-service-web-get-started.md) distribuerade du en exempelwebbapp till [Azure App Service](../app-service/app-service-value-prop-what-is.md). I den här artikeln får du lära dig hur du lägger in några bra funktioner i din distribuerade webbapp. På några minuter gör du följande:
+I [Distribuera din första webbapp till Azure på fem minuter](app-service-web-get-started-cli-nodejs.md) distribuerade du en exempelwebbapp till [Azure App Service](../app-service/app-service-value-prop-what-is.md). I den här artikeln får du lära dig hur du lägger in några bra funktioner i din distribuerade webbapp. På några minuter gör du följande:
 
 * ställer in användarautentisering
 * ställer in automatisk skalning av appen
@@ -157,6 +157,6 @@ Det finns så mycket mer du kan göra med den distribuerade appen. Här är bara
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

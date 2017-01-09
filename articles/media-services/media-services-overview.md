@@ -42,12 +42,11 @@ Bygg Media Services-lösningar genom att använda:
     * [Azure Portal](https://portal.azure.com/)
     * [Azure-Media Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) är ett Winforms/C#-program för Windows)
 
-Följande bild visar några av de vanligast använda objekten när du utvecklar mot Media Services OData-modellen. 
+Följande bild visar några av de vanligast använda objekten när du utvecklar mot Media Services OData-modellen.
 
 Klicka på bilden för att visa den i full storlek.  
 
-<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
-
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
 
 Du kan visa hela modellen [här](https://media.windows.net/API/$metadata?api-version=2.14).  
 
@@ -76,22 +75,22 @@ Azure Media Services-koncepten finns i [Koncept](media-services-concepts.md).
 En instruktionsserie som ger en introduktion till huvudkomponenterna i Azure Media Services finns i [Azure Media Services stegvisa självstudier](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Den här serien ger en bra översikt över koncepten och använder verktyget AMSE för att demonstrera AMS-uppgifter. Observera att AMSE-verktyget är ett verktyg i Windows. Det här verktyget stöder de flesta av de uppgifter som du kan göra programmässigt med [AMS SDK för .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java) eller  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Leverera media på begäran med Azure Media Services: vanliga scenarier och uppgifter
-Det här avsnittet beskriver vanliga scenarier och innehåller länkar till relevanta avsnitt. I följande diagram visas de huvudsakliga delarna i plattformen Media Services som är inblandade i att leverera innehåll på begäran. 
+Det här avsnittet beskriver vanliga scenarier och innehåller länkar till relevanta avsnitt. I följande diagram visas de huvudsakliga delarna i plattformen Media Services som är inblandade i att leverera innehåll på begäran.
 
 ![VoD-arbetsflöde](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Skydda lagrat innehåll och leverera strömmande media i klartext (okrypterat)
 1. Överför en mezzaninfil av hög kvalitet till en tillgång.
-   
+
     Vi rekommenderar att du använder ett krypterat lagringsalternativ för tillgången så att du skyddar innehållet under överföringen och i vila i lagring.
-2. Koda till en uppsättning MP4-filer med anpassningsbar bithastighet. 
-   
+2. Koda till en uppsättning MP4-filer med anpassningsbar bithastighet.
+
     Vi rekommenderar att du använder ett krypterat lagringsalternativ för utdatatillgången så att du skyddar innehållet i vila.
-3. Konfigurera principen för tillgångsleverans (används av dynamisk paketering). 
-   
-    Om tillgången är lagringskrypterad **måste** du konfigurera principen för tillgångsleverans. 
+3. Konfigurera principen för tillgångsleverans (används av dynamisk paketering).
+
+    Om tillgången är lagringskrypterad **måste** du konfigurera principen för tillgångsleverans.
 4. Publicera tillgången genom att skapa en OnDemand-positionerare.
-   
+
     Se till att du har minst en reserverad enhet för strömning på den slutpunkt för direktuppspelning som du vill direktuppspela innehåll från.
 5. Strömma publicerat innehåll.
 
@@ -104,28 +103,28 @@ Om du vill kunna använda dynamisk kryptering ska du först ha minst en reserver
 4. Konfigurera principen för auktorisering av innehållsnyckel.
 5. Konfigurera principen för tillgångsleverans (används av dynamisk paketering och dynamisk kryptering).
 6. Publicera tillgången genom att skapa en OnDemand-positionerare.
-7. Strömma publicerat innehåll. 
+7. Strömma publicerat innehåll.
 
 ### <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Använd Media Analytics för att härleda insikter som går att åtgärda från dina videor
 Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som går att åtgärda från sina videofiler. Mer information finns i [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md).
 
 1. Överför en mezzaninfil av hög kvalitet till en tillgång.
 2. Använd någon av följande Media Analytics-tjänster för att bearbeta videor:
-   
+
    * **Indexerare** – [bearbeta videor med Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
    * **Videostabilisera** – [Videostabilisera mediefiler med Azure Media Hyperlapse](media-services-hyperlapse-content.md)
    * **Rörelseidentifiering** – [rörelseidentifiering för Azure Media Analytics](media-services-motion-detection.md).
    * **Ansiktsigenkänning och ansiktskänslor** – [Ansikts- och känsloigenkänning för Azure Media Analytics](media-services-face-and-emotion-detection.md).
    * **Sammanfattning av video** – [Använd Azure Media Video Thumbnails för att skapa en videosammanfattning](media-services-video-summarization.md)
-3. Media Analytics-medieprocessorer producerar MP4-filer eller JSON-filer. Om en medieprocessor har producerat en MP4-fil kan du hämta filen progressivt. Om en medieprocessor har producerat en JSON-fil kan du hämta filen från Azure Blob Storage. 
+3. Media Analytics-medieprocessorer producerar MP4-filer eller JSON-filer. Om en medieprocessor har producerat en MP4-fil kan du hämta filen progressivt. Om en medieprocessor har producerat en JSON-fil kan du hämta filen från Azure Blob Storage.
 
 ### <a name="deliver-progressive-download"></a>Leverera progressiv nedladdning
 1. Överför en mezzaninfil av hög kvalitet till en tillgång.
 2. Koda till en enda MP4-fil.
 3. Publicera tillgången genom att skapa en positionerare på begäran eller en SAS-positionerare.
-   
+
     Om du använder en positionerare på begäran ska du se till att ha minst en reserverad enhet för strömning på den slutpunkt för direktuppspelning som du planerar att progressivt hämta innehåll från.
-   
+
     Om du använder en SAS-positionerare hämtas innehåll från Azure Blob Storage. I så fall behöver du inte ha enheter som är reserverade för strömning.
 4. Progressivt hämtat innehåll
 
@@ -156,8 +155,8 @@ En **kanal** representerar en pipeline för bearbetning av liveuppspelningsinneh
 
 > [!NOTE]
 > Genomströmningsmetoden är det mest ekonomiska sättet för liveuppspelning när du utför flera händelser under en längre tid och du redan har investerat i lokala kodare. Se [prisuppgifter](https://azure.microsoft.com/pricing/details/media-services/).
-> 
-> 
+>
+>
 
 * En lokal livekodare skickar en ström med en enda bithastighet till den kanal som är aktiverad för att utföra Live Encoding med Media Services i något av följande format: RTP (MPEG-TS) RTMP eller Smooth Streaming (fragmenterad MP4). Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
@@ -210,7 +209,6 @@ Mer information finns i [Microsoft Azure SLA](https://azure.microsoft.com/suppor
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
-
 
 
 

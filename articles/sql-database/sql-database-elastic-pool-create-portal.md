@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
-ms.openlocfilehash: 29488482f3e6c5f3dcf0eac04fe7e5e33fb832ce
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 4be8e4f81965fa4d872e29fdb9aaa45909d18c37
 
 
 ---
@@ -89,7 +89,7 @@ Efter att du ställt in prisnivå, klickar du på Konfigurera pool, där du läg
 
     Om de databaser du arbetar med har tillräckligt med historisk användningstelemetri, kommer stapeldiagrammen **Beräknad eDTU- och GB-användning** och **Faktisk eDTU-användning** att uppdateras för att hjälpa dig att fatta konfigurationsbeslut. Tjänsten kan också ge dig ett rekommendationsmeddelande för att hjälpa dig få rätt storlek på poolen. Se [Dynamiska rekommendationer](#dynamic-recommendations).
 
-3. Använd kontrollerna på sidan **Konfigurera pool** för att kolla igenom inställningarna och konfigurera din pool. Se [Begränsningar för elastiska pooler](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) för mer information om begränsningarna för varje tjänstnivå och se [Pris- och prestandaöverväganden för elastiska pooler](sql-database-elastic-pool-guidance.md) för detaljerad information om rätt storlek för en pool. Mer information om poolinställningar finns i [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties) (Egenskaper för elastisk pool).
+3. Använd kontrollerna på sidan **Konfigurera pool** för att kolla igenom inställningarna och konfigurera din pool. Se [Begränsningar för elastiska pooler](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) för mer information om begränsningarna för varje tjänstnivå och se [Pris- och prestandaöverväganden för elastiska pooler](sql-database-elastic-pool-guidance.md) för detaljerad information om rätt storlek för en pool. Mer information om poolinställningar finns i [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-properties) (Egenskaper för elastisk pool).
 
     ![Konfigurera elastisk pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 

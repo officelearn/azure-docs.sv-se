@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
-ms.openlocfilehash: c7cb4b872723e07b720c87ecef9d9d8f136c25eb
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 
 
 ---
@@ -156,11 +156,11 @@ Vi fortsätter att lägga till funktioner till V12. Så vi rekommenderar att du 
 - En översikt över Azure SQL-databaser finns i [Översikt över SQL Database](sql-database-overview.md)
 - Information om stöd för och skillnader i Transact-SQL finns i [Skillnader mellan Azure SQL Database och Transact-SQL](sql-database-transact-sql-information.md).
 - Information om specifika resurskvoter och begränsningar baserat på din **tjänstnivå**. En översikt över tjänstnivåer finns i avsnittet om [tjänstnivåer för SQL Database](sql-database-service-tiers.md).
-- Säkerhetsrelaterade riktlinjer finns i [Säkerhetsriktlinjer och begränsningar för Azure SQL Database](sql-database-security-guidelines.md).
+- En översikt över säkerhet finns i [Azure SQL Database-säkerhetsöversikt](sql-database-security-overview.md).
 - Mer information om tillgängliga drivrutiner och stöd för SQL Database finns i [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md) (Anslutningsbibliotek för SQL Database och SQL Server).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

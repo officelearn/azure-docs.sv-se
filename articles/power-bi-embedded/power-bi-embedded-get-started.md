@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 12/19/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
-ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 Resurser för **Microsoft Power BI Embedded** distribueras via [Azure ARM-API:er](https://msdn.microsoft.com/library/mt712306.aspx). I det här fallet är den resurs som du etablerar en **Power BI-arbetsytesamling**.
 
-![](media\\power-bi-embedded-get-started\\introduction.png)
+![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Skapa en arbetsytesamling
 En **arbetsytesamling** är en Azure-resurs på högsta nivå och en behållare för det innehåll som kommer att vara inbäddat i din app. En **arbetsytesamling** kan skapas på två sätt:
@@ -39,16 +39,16 @@ Låt oss gå igenom stegen för att skapa en **arbetsytesamling** i Azure Portal
 1. Öppna och logga in på **Azure Portal**: [http://portal.azure.com](http://portal.azure.com).
 2. Klicka på **+ Ny** på den övre panelen.
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-1.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. Under **Data + analys** klickar du på **Power BI Embedded**.
 4. Ange den information som krävs på bladet **Skapa**. Mer information om **priser** finns i [Priser för Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-2.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Klicka på **Skapa**.
 
 Det tar en liten stund att etablera **arbetsytesamlingen**. När den har slutförts förs du till **arbetsytesamlingsbladet**.
 
-   ![](media\\power-bi-embedded-get-started\\create-workspace-3.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-3.png)
 
 Bladet **Skapa** innehåller den information du behöver för att anropa de API:er som skapar arbetsytor och distribuera innehåll till dem.
 
@@ -57,11 +57,11 @@ Bladet **Skapa** innehåller den information du behöver för att anropa de API:
 ## <a name="view-power-bi-api-access-keys"></a>Visa API-åtkomstnycklar för Power BI 
 En av de viktigaste informationsdelarna som krävs för att anropa Power BI REST-API:er är **åtkomstnycklarna**. Dessa används för att generera de **apptoken** som används för att autentisera dina API-begäranden. För att visa dina **åtkomstnycklar**, klickar du på **Åtkomstnycklar** på bladet **Inställningar**. Mer information om **apptoken**, finns i [Autentisering och auktorisering med Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
-   ![](media\\power-bi-embedded-get-started\\access-keys.png)
+   ![](media/power-bi-embedded-get-started/access-keys.png)
 
 Du ser att du har två nycklar.
 
-   ![](media\\power-bi-embedded-get-started\\access-keys-2.png)
+   ![](media/power-bi-embedded-get-started/access-keys-2.png)
 
 Kopiera nycklarna och lagra dem på ett säkert sätt i din app. Det är mycket viktigt att du hanterar de här nycklarna lika försiktigt som ett lösenord, eftersom de ger åtkomst till allt innehåll i din **arbetsytesamling**.
 

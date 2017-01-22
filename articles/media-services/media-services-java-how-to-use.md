@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/20/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
+ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
+ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 
 
 ---
@@ -24,14 +24,14 @@ ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Skapa ett Azure-konto för Media Services
-Använd den klassiska Azure-portalen för att upprätta Media Services-kontot. Mer information finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md). Du är redo att konfigurera datorn för Media Services-utveckling när du har skapat ditt konto i den klassiska Azure-portalen.
+Använd Azure-portalen för att ställa in ditt Media Services-konto. Mer information finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md). När du skapat ditt konto i Azure-portalen så är du redo att ställa in din dator för Media Services-utveckling.
 
 ## <a name="setting-up-for-media-services-development"></a>Konfigurera för Media Services-utveckling
 Det här avsnittet innehåller allmänna krav för Media Services-utveckling med hjälp av Media Services SDK för Java.
 
 ### <a name="prerequisites"></a>Krav
 * Ett Media Services-konto i en ny eller befintlig Azure-prenumeration. Mer information finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
-* Azure-biblioteken för Java som du kan installera från [Azure Java-utvecklingscenter].
+* Azure-biblioteken för Java, som du kan installera från [Azure Java-utvecklingscentret][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Så här gör du för att: Använda Media Services med Java
 Följande kod visar hur du skapar en tillgång, överför en mediefil till tillgången, kör ett jobb med uppgiften att omvandla tillgången och skapar en positionerare för att strömma videon.
@@ -260,16 +260,16 @@ Ersätt värdena för variablerna 'clientId' och 'clientSecret'. Koden förlitar
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-Mer Media Services Javadoc-dokumentation finns i [Azure-bibliotek för Java-dokumentation].
+Mer Media Services Javadoc-dokumentation finns i [Azure-bibliotek för Java-dokumentation][Azure Libraries for Java documentation].
 
 <!-- URLs. -->
 
-[Azure Java-utvecklingscenter]: http://azure.microsoft.com/develop/java/
-[Azure-bibliotek för Java-dokumentation]: http://dl.windowsazure.com/javadoc/
-[Media Services-klientutveckling]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
+[Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
+[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

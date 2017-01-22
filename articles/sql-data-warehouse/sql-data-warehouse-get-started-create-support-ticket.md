@@ -15,16 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
+ms.sourcegitcommit: bd85b9eae0e1cb281116748edcad6643b1ec537f
+ms.openlocfilehash: 6ad20a246fce996e6a11ce6fa4715c0d734c4323
 
 
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Så här skapar du ett supportärende för SQL Data Warehouse
-Om du har problem med ditt SQL Data Warehouse, ber vi dig skapa ett supportärende så att vårat teknikerteam kan hjälpa dig.
+Om du har problem med din SQL Data Warehouse, ber vi dig skapa ett supportärende så att våra tekniker kan hjälpa dig.
+
+> [!NOTE] 
+> Från och med 20/12/2016 stämmer inte hälsokontrollen för resurser i Azure-portalen. Vi arbetar för att åtgärda problemet. 
+
 
 ## <a name="create-a-support-ticket"></a>Skapa ett supportärende
-1. Öppna [Azure-portalen][Azure-portalen].
+1. Öppna [Azure-portalen][Azure portal].
 2. På startsidan klickar du på **hjälp + support**-panelen.
    
     ![Hjälp + support](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -38,7 +42,7 @@ Om du har problem med ditt SQL Data Warehouse, ber vi dig skapa ett supportären
     ![Typ av begäran](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
    
    > [!NOTE]
-   > Varje SQL Server (t.ex. myserver.database.windows.net) har som standard en **DTU-kvot** på 45 000. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom att skapa en supportbiljett och välja *Kvot* som typ av begäran. Om du vill beräkna dina DTU-behov, multiplicera 7,5 med det totala antalet [DWU][DWU] som behövs. Om du till exempel skulle vilja vara värd för två DW6000 på en SQL Server, bör du begära en DTU-kvot på 90 000.  Du kan visa din aktuella DTU-förbrukning från SQL Server-bladet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. 
+   > Varje SQL Server (t.ex. myserver.database.windows.net) har som standard en **DTU-kvot** på 45 000. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom att skapa en supportbiljett och välja *Kvot* som typ av begäran. För att beräkna dina DTU-behov, multiplicerar du 7,5 med det totala antalet [DWU:er][DWU] du behöver. Om du till exempel skulle vilja vara värd för två DW6000 på en SQL Server, bör du begära en DTU-kvot på 90 000.  Du kan visa din aktuella DTU-förbrukning från SQL Server-bladet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. 
    > 
    > 
 5. Välj den **prenumeration** som är värd för databasen som har problemen du ska rapportera.
@@ -47,13 +51,13 @@ Om du har problem med ditt SQL Data Warehouse, ber vi dig skapa ett supportären
 6. Välj **SQL Data Warehouse** som resursen.
    
     ![Resurs](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
-7. Välj din [Azure supportplan][Azure supportplan].
+7. Välj din [Azure-supportplan][Azure support plan].
    
    * Stöd för **fakturerings-, kvot- och prenumerationhantering** finns tillgängligt på alla supportnivåer.
-   * Support för **Reparation** genom supportnivåerna [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] eller [Premier][Premier]. Reparationsärenden är problem som kunder upplever när de använder Azure och där det rimligen kan antas att Microsoft orsakade problemet.
+   * **Reparations**-support tillhandahålls via [Utvecklare][Developer], [Standard][Standard], [Professional Direct][Professional Direct] eller [Premier][Premier] support. Reparationsärenden är problem som kunder upplever när de använder Azure och där det rimligen kan antas att Microsoft orsakade problemet.
    * **Utvecklarhandledning** och **rådgivningstjänster** finns tillgängliga på supportnivåerna [Professional Direct][Professional Direct] och [Premier][Premier]. 
      
-     Om du har en Premier-supportplan kan du även rapportera SQL Data Warehouse-relaterade problem via [Microsoft Premier-onlineportalen][Microsoft Premier-onlineportalen].  Se [Azure-supportplaner][Azure-supportplan] för mer information om olika supportplaner, inklusive omfattning, svarstider, prissättning, osv.  Vanliga frågor om Azure-supporten finns i [Vanliga frågor och svar om support för Azure][Vanliga frågor och svar om support för Azure].  
+     Om du har en Premier-supportplan, kan du även rapportera SQL Data Warehouse-relaterade problem på [Microsoft Premier-onlineportalen][Microsoft Premier online portal].  Se [Azure-supportplaner][Azure support plan] för att läsa mer om de olika supportplanerna, inklusive omfattning, svarstider, prissättning, osv.  Vanliga frågor och svar om Azure-support finns på [Vanliga frågor och svar om Azure-support][Azure support FAQs].  
      
      ![Supportplan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 8. Välj **problemtyp** och **kategori**.
@@ -73,7 +77,7 @@ När du har skickat in supportbegäran, kommer Azure-teamet att kontakta dig. Du
 ![Kontrollera status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 ## <a name="other-resources"></a>Andra resurser
-Dessutom kan du ansluta till SQL Data Warehouse-communityn i [Stack Overflow][Stack Overflow] eller på [Azure SQL Data Warehouse MSDN-forum][Azure SQL Data Warehouse MSDN-forum].
+Du kan dessutom ansluta till SQL Data Warehouse-communityn på [Stack Overflow][Stack Overflow] eller på [Azure SQL Data Warehouse MSDN-forumet][Azure SQL Data Warehouse MSDN forum].
 
 <!--Image references--> 
 
@@ -83,20 +87,20 @@ Dessutom kan du ansluta till SQL Data Warehouse-communityn i [Stack Overflow][St
 <!--MSDN references--> 
 
 <!--Other web references--> 
-[Azure Portal]: https://portal.azure.com/
-[Azure-supportplan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
+[Azure portal]: https://portal.azure.com/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
 [Developer]: https://azure.microsoft.com/support/plans/developer/  
 [Standard]: https://azure.microsoft.com/support/plans/standard/  
 [Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/  
 [Premier]: https://azure.microsoft.com/support/plans/premier/  
-[Vanliga frågor och svar om support för Azure]: https://azure.microsoft.com/support/faq/
-[Microsoft Premier-onlineportalen]: https://premier.microsoft.com/
+[Azure support FAQs]: https://azure.microsoft.com/support/faq/
+[Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[Azure SQL Data Warehouse MSDN-forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

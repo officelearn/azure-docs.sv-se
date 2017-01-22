@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c0a1cf550c46810624d9eee7722409ff19b75369
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 7a4413c6d2ecf497e72e2909e627761f0a9ff23a
 
 
 ---
@@ -42,20 +42,19 @@ Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)
 1. På instrumentpanelen i Security Center hittar du rutan **Security alerts (Säkerhetsaviseringar)**.
    
     ![Panelen Säkerhetsvarningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+
 2. Om du klickar på rutan öppnas bladet **Security alerts (Säkerhetsaviseringar)** med mer information om aviseringarna så som visas på bilden nedan.
    
    ![Bladet Säkerhetsvarningar i Säkerhetscenter](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 Längst ned i bladet visas information om de olika aviseringarna. Du kan sortera listan genom att klicka på den kolumn som du vill sortera efter. Här följer en förklaring av de olika kolumnerna:
 
-* **Alert (Avisering)**: en kort förklaring av aviseringen
+* **Beskrivning**: en kort förklaring av aviseringen.
 * **Count (Antal)**: antalet problem av just den här typen som upptäckts en specifik dag
 * **Detected by (Upptäcktes genom)**: den tjänst som utlöste aviseringen
 * **Date (Datum)**: det datum då händelsen inträffade
 * **State (Status)**: aktuell status för den här aviseringen Det finns två tillstånd:
-  
   * **Active (Aktiv)**: Säkerhetsproblemet är upptäckt.
-  * **Dismissed (Avvisad)**: Säkerhetsaviseringen har avvisats av användaren. Den här statusen visas oftast för problem som undersökts men som avhjälpts eller som visat sig inte vara något verkligt angrepp.
 * **Severity (Allvarlighetsgrad)**: kan vara hög, medelhög eller låg
 
 ### <a name="filtering-alerts"></a>Filtrera varningar
@@ -63,10 +62,7 @@ Aviseringarna kan filtreras efter datum, status och allvarlighetsgrad. Att filtr
 
 1. Klicka på **Filter** på bladet **Security Alerts (Säkerhetsaviseringar)**. Bladet **Filter** öppnas där du kan välja datum, status och vilka allvarlighetsgrader du vill se.
    
-    ![Filtrera varningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-ga.png)
-2. När du undersöker säkerhetsaviseringar upptäcker du kanske att det är ett falsklarm eller att aviseringen gäller förväntade händelser för en viss resurs. Oavsett anledning kan du, om du anser att säkerhetsaviseringen inte är relevant, avvisa den och filtrera bort den så att du inte ser den.  Det finns två sätt att avvisa en säkerhetsavisering. Du kan högerklicka på aviseringen och välja **Dismiss (Avvisa)** eller hålla muspekaren över den och klicka på de tre punkterna till höger om den för att sedan klicka på **Dismiss (Avvisa)**. Du kan se stängda säkerhetsaviseringar genom att klicka på **Filter** och välja **Dismissed (Avvisade)**.
-   
-   ![Ignorera varningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4-ga.png)
+    ![Filtrera varningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>Åtgärda säkerhetsaviseringar
 Om du klickar på en säkerhetsavisering får du se vad det var som utlöste aviseringen och om det finns något du kan göra för att stoppa ett pågående angrepp. Säkerhetsaviseringarna är indelade i grupper efter typ och datum. När du klickar på en säkerhetsavisering öppnas ett blad med en lista över de gruppindelade aviseringarna.
@@ -98,6 +94,6 @@ I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i S
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

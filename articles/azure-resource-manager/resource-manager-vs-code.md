@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: chmatsk;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+ms.sourcegitcommit: 10c7051c9b1218081d95cb10403006bfd95126ba
+ms.openlocfilehash: 2ac1c2cce7a9e045990894b0bbaa045df3d48954
 
 
 ---
 # <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Arbeta med Azure Resource Manager-mallar i Visual Studio Code
-Azure Resource Manager-mallar är JSON-filer som beskriver en resurs och relaterade beroenden. Eftersom dessa filer ibland kan vara stora och komplicerade är det viktigt att ha tillgång till bra verktyg. Visual Studio Code är en ny, enkel, plattformsoberoende kodredigerare med öppen källkod. Den har stöd för att skapa och redigera Resource Manager-mallar via ett [nytt tillägg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code kan köras var som helst och kräver inte Internetåtkomst såvida du inte vill distribuera dina Resource Manager-mallar.
+Azure Resource Manager-mallar är JSON-filer som beskriver en resurs och relaterade beroenden. Eftersom dessa filer ibland kan vara stora och komplicerade är det viktigt att ha tillgång till bra verktyg. Visual Studio Code är en ny, enkel, plattformsoberoende kodredigerare med öppen källkod. Den har stöd för att skapa och redigera Resource Manager-mallar via ett [nytt tillägg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code kan köras var som helst och kräver bara Internetåtkomst när du vill distribuera dina Resource Manager-mallar till din Azure-prenumeration.
 
 Om du inte redan har VS Code kan du installera verktyget från [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
@@ -42,7 +42,7 @@ I föregående steg installerade vi verktygsstöd. Nu ska vi konfigurera VS Code
 
 1. Kopiera innehållet i filen från [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json)-databasen till Urklipp.
 2. Starta VS Code 
-3. I VS Code kan du öppna filen med JSON-kodfragment antingen genom att gå till **File (Arkiv)** -> **Settings (Inställningar)** -> **User Snippets (Användarkodfragment)** -> **JSON** eller genom att trycka på **F1** och skriva **preferences (inställningar)** tills du kan välja **Preferences: Snippets (Inställningar: Kodfragment)**.
+3. I VS Code kan du öppna JSON-kodavsnittsfilen genom att antingen navigera till **Arkiv** -> **Inställningar** -> **Användar-kodavsnitt** -> **JSON**. Alternativt välj **F1** och skriv **inställningar** tills du kan välja **Inställningar: kodavsnitt**.
    
     ![inställningar: kodfragment](./media/resource-manager-vs-code/preferences-snippets.png)
    
@@ -61,22 +61,22 @@ Det enklaste sättet att börja arbeta med en mall är att hämta någon av snab
 1. Om du har exporterat en mall från en resursgrupp öppnar du de extraherade filerna i VS Code.
    
     ![visa filer](./media/resource-manager-vs-code/show-files.png)
-2. Öppna filen template.json så att du kan redigera den och lägga till ytterligare resurser. Efter **"resurser": [** trycker du på Retur för att börja en ny rad. Om du skriver **arm** visas en lista med alternativ. Dessa alternativ är de mallkodfragment som du installerade. Det bör se ut så här: 
+2. Öppna filen template.json så att du kan redigera den och lägga till ytterligare resurser. Efter `"resources": [`, trycker du på Retur för att påbörja en ny rad. Om du skriver **arm** visas en lista med alternativ. Dessa alternativ är de mallkodfragment som du installerade. 
    
     ![visa kodfragment](./media/resource-manager-vs-code/type-snippets.png)
-3. Välj önskat kodfragment. I den här artikeln väljer jag **arm-ip** för att skapa en ny offentlig IP-adress. Lägg till ett kommatecken efter den avslutande hakparentesen ”}” för den nyligen skapade resursen så att du är säker på att mallsyntaxen är giltig.
+3. Välj önskat kodfragment. I den här artikeln väljer jag **arm-ip** för att skapa en ny offentlig IP-adress. Lägg till ett komma efter den avslutande hakparantesen `}` för den nya resursen för att kontrollera att din mallsyntax är giltig.
    
      ![lägg till komma](./media/resource-manager-vs-code/add-comma.png)
-4. VS Code har inbyggt IntelliSense. När du redigerar mallarna föreslår VS Code tillgängliga värden. Om du till exempel vill lägga till ett variabelavsnitt i mallen lägger du till **""** (två dubbla citattecken) och trycker på **Ctrl+blanksteg** mellan citattecknen. Nu visas olika alternativ, inklusive **variabler**.
+4. VS Code har inbyggt IntelliSense. När du redigerar mallarna föreslår VS Code tillgängliga värden. Om du till exempel vill lägga till ett variabelavsnitt i din mall, lägger du till `""` (två citattecken) och väljer **Ctrl+Space** mellan citattecknen. Nu visas olika alternativ, inklusive **variabler**.
    
     ![lägg till variabler](./media/resource-manager-vs-code/add-variables.png)
-5. IntelliSense kan också föreslå tillgängliga värden eller funktioner. Om du vill ange en egenskap till ett parametervärde skapar du ett uttryck med **"[]"** och **Ctrl+blanksteg**. Du kan börja skriva namnet på en funktion. Tryck på **Tabb** när du har hittat den funktion som du vill använda.
+5. IntelliSense kan också föreslå tillgängliga värden eller funktioner. För att ställa in en egenskap till ett parametervärde, skapar du ett uttryck med `"[]"` och **Ctrl+Space**. Du kan börja skriva namnet på en funktion. Tryck på **Tabb** när du har hittat den funktion som du vill använda.
    
     ![lägg till parameter](./media/resource-manager-vs-code/select-parameters.png)
-6. Tryck på **Ctrl+blanksteg** igen inuti funktionen om du vill visa en lista över de tillgängliga parametrarna i mallen.
+6. För att se en lista med tillgängliga parametrar inom din mall, väljer du **Ctrl+Space** igen inom funktionen.
    
     ![lägg till parameter](./media/resource-manager-vs-code/select-avail-parameters.png)
-7. Om du har problem med schemaverifieringen i mallen ser du de välbekanta vågiga understrykningarna i redigeraren. Du kan visa listan med fel och varningar genom att skriva **Ctrl+Skift+M** eller genom att välja tecknen i det nedre vänstra statusfältet.
+7. Om du har problem med schemavalidering i mallen, ser du de välbekanta vågiga understrykningarna i redigeraren. Du kan visa listan med fel och varningar genom att skriva **Ctrl+Skift+M** eller genom att välja tecknen i det nedre vänstra statusfältet.
    
     ![fel](./media/resource-manager-vs-code/errors.png)
    
@@ -89,31 +89,47 @@ När mallen är redo kan du distribuera de nya resurserna genom att följa anvis
 
 ### <a name="windows"></a>Windows
 1. Öppna en PowerShell-kommandotolk 
-2. Logga in genom att skriva: 
+2. För att logga in skriver du: 
    
-        Login-AzureRmAccount 
+  ```powershell
+  Login-AzureRmAccount
+  ```
+
 3. Om du har flera prenumerationer hämtar du en lista över prenumerationerna med:
-   
-        Get-AzureRmSubscription
+
+  ```powershell 
+  Get-AzureRmSubscription
+  ```
    
     Och väljer den prenumeration som du vill använda.
-   
-        Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+  ```
+
 4. Uppdatera parametrarna i filen parameters.json
 5. Distribuera mallen i Azure genom att köra Deploy.ps1
 
 ### <a name="osxlinux"></a>OSX/Linux
 1. Öppna ett terminalfönster 
-2. Logga in genom att skriva:
-   
-        azure login 
+2. För att logga in skriver du:
+
+  ```azurecli
+  azure login
+  ```
+
 3. Om du har flera prenumerationer väljer du rätt prenumeration med:
-   
-        azure account set <subscriptionNameOrId> 
+
+  ```azurecli
+  azure account set <subscriptionNameOrId> 
+  ```
+
 4. Uppdatera parametrarna i filen parameters.json.
 5. Distribuera mallen genom att köra:
-   
-        azure group deployment create -f <PathToTemplate> 
+
+  ```azurecli 
+  azure group deployment create -f <PathToTemplate>
+  ``` 
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
@@ -123,6 +139,6 @@ När mallen är redo kan du distribuera de nya resurserna genom att följa anvis
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: "Lär dig hur du använder Data Factory för att konfigurera automatiska datapipelines till och från källor på lokala platser och i molnet, för att flytta och bearbeta data för analys."
 translationtype: Human Translation
-ms.sourcegitcommit: 82f628be33ab24ef29a42121c577792768882eb5
-ms.openlocfilehash: ac936a317b6a68e2f0670ca9903dbbe100c82cdd
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 5742326de5bbe91340df69402bc551f87dafca78
 
 ---
 # <a name="azure-data-factory-documentation"></a>Dokumentation om Azure Data Factory
 
-Lär dig att använda Data Factory, en tjänst för molndataintegrering, för att ordna datalagrings-, rörelse- och bearbetningstjänster i automatiserade datapipelines. Självstudier och annan dokumentation visar hur du konfigurerar och hanterar datapipelines, samt flyttar och omvandlar data för analys.
+Azure Data Factory är en molnbaserad dataintegreringstjänst som automatiserar flytt och omvandling av data. Tjänsten Data Factory skapar dataintegrationslösningar med hjälp av tjänsten som kan mata in data från olika lager, transformera och bearbeta data och publicera resultatdata till datalager igen.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -140,6 +139,6 @@ Hämta dokumentation om Data Factory </div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

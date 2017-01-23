@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
-ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Ansluta till ett Azure Container Service-kluster
 Alla DC/OS-, Kubernetes- och Docker Swarm-kluster som distribueras med Azure Container Service exponerar REST-slutpunkter.  För Kubernetes är den här slutpunkten exponerad på ett säkert sätt på internet, och du kommer åt den direkt från en dator som är ansluten till internet. För DC/OS och Docker Swarm måste du skapa en SSH-tunnel för att ansluta säkert till REST-slutpunkten. Var och en av dessa anslutningar beskrivs nedan.
+
+> [!NOTE]
+> Stöd för Kubernetes i Azure Container Service förhandsvisas just nu.
+>
 
 ## <a name="connecting-to-a-kubernetes-cluster"></a>Ansluter till ett Kubernetes-kluster.
 Om du ska ansluta till ett Kubernetes-kluster måste du ha installerat `kubectl` kommandoradsverktyget.  Det gör du enklast med kommandoradsverktyget Azure 2.0 `az`.
@@ -172,6 +176,6 @@ Distribuera och hantera behållare med DC/OS eller Swarm:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

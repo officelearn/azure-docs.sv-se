@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: bc36f38c0089940e8f4f53a0abb13d9bb756eb1e
+ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
+ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
 
 
 ---
@@ -104,11 +104,10 @@ I den här introduktionskursen lär du dig hur du använder Azure Portal för at
 
 * Du har slutfört [Komma igång med Azure SQL Database-servrar, databaser och brandväggsregler med hjälp av Azure Portal och SQL Server Management Studio](sql-database-get-started.md) eller motsvarande [PowerShell-version](sql-database-get-started-powershell.md) av den här självstudiekursen. Om du inte har gjort det går du kursen eller kör PowerShell-skriptet i slutet av [PowerShell-versionen](sql-database-get-started-powershell.md) av den här kursen innan du fortsätter.
 
-<!------------------
+
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
--------------------->
+> Du kan utföra samma uppgifter i en introduktionskurs genom att använda [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+
 
 ## <a name="sign-in-by-using-your-existing-account"></a>Logga in med ditt befintliga konto
 Använd din [befintliga prenumeration](https://account.windowsazure.com/Home/Index) och följ dessa steg för att ansluta till Azure Portal.
@@ -179,6 +178,11 @@ I det här avsnittet av självstudiekursen ska du återställa databasen till en
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Konfigurera långsiktig kvarhållning av automatiska säkerhetskopieringar i ett Azure Recovery Services-valv 
 
 I det här avsnittet av självstudiekursen ska du [konfigurera ett Azure Recovery Services-valv så att automatiska säkerhetskopieringar bevaras](sql-database-long-term-retention.md) under längre tid än kvarhållningsperioden för din tjänstnivå. 
+
+
+> [!TIP]
+> Om du vill ta bort säkerhetskopior finns [Ta bort säkerhetskopior för långsiktig kvarhållning](sql-database-long-term-retention-delete.md).
+
 
 1. Öppna bladet **SQL Server** för din server, **sqldbtutorialserver**.
 
@@ -299,12 +303,12 @@ I det här avsnittet av självstudiekursen ska du återställa databasen till en
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om tjänstgenererade automatiska säkerhetskopior finns i avsnittet om [automatiska säkerhetskopior](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD)
+- Mer information om tjänstgenererade automatiska säkerhetskopior finns i avsnittet om [automatiska säkerhetskopior](sql-database-automated-backups.md)
 - Mer information om långsiktig kvarhållning av säkerhetskopior finns i avsnittet om [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md)
 - Mer information om hur du återställer från säkerhetskopior finns i avsnittet om hur du [återställer från säkerhetskopior](sql-database-recovery-using-backups.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

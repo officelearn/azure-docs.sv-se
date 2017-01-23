@@ -27,12 +27,13 @@
 ### [Nätverk](documentation-government-networking.md)
 ### [Säkerhet och identitet](documentation-government-services-securityandidentity.md)
 ### [Övervakning och hantering](documentation-government-services-monitoringandmanagement.md)
+### [Webb och mobilt](documentation-government-services-webandmobile.md)
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/)
 ## [Utvärdering](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

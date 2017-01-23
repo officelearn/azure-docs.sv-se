@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: babanisa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
-ms.openlocfilehash: 4329e0f99828f5a0651e6b03be0813d9e68debaa
+ms.sourcegitcommit: 14a5c029eef714134079b960109e58d821d0a609
+ms.openlocfilehash: 34b54d54b20d9aec69486c5ef98c97beee21bd94
 
 
 ---
@@ -25,7 +25,7 @@ Tjänsten Azure Relay hjälper dig att använda hybridprogram genom att på ett 
 
 Relay-tjänsten stöder traditionell enkelriktad trafik för förfrågningar/svar och peer-to-peer-trafik. Den stöder även händelsedistribution på Internet-skala för att möjliggöra publicerings- och prenumerationsscenarier och dubbelriktad socketkommunikation för ökad effektivitet punkt till punkt. 
 
-I överföringsmönstret för vidarebefordrade data ansluter en lokal tjänst till den vidarebefordrande tjänsten via en utgående port och skapar en dubbelriktad socket för kommunikation som är kopplad till en viss rendezvous-adress. Klienten kan sedan kommunicera med den lokala tjänsten genom att skicka trafik till den vidarebefordrande tjänsten med rendezvous-adressen som mål. Relay-tjänsten ”vidarebefordrar” sedan data till den lokala tjänsten via en dubbelriktad socket för varje klient. Klienten behöver ingen direkt anslutning till den lokala tjänsten och behöver inte heller veta var den finns. Den lokala tjänsten behöver inte ha några öppna ingående portar i brandväggen.
+I överföringsmönstret för vidarebefordrade data ansluter en lokal tjänst till den vidarebefordrande tjänsten via en utgående port och skapar en dubbelriktad socket för kommunikation som är kopplad till en viss rendezvous-adress. Klienten kan sedan kommunicera med den lokala tjänsten genom att skicka trafik till den vidarebefordrande tjänsten med rendezvous-adressen som mål. Relätjänsten ”vidarebefordrar” sedan data till den lokala tjänsten via en dubbelriktad socket för varje klient. Klienten behöver ingen direkt anslutning till den lokala tjänsten och behöver inte heller veta var den finns. Den lokala tjänsten behöver inte ha några öppna ingående portar i brandväggen.
 
 De viktigaste funktionerna som tillhandahålls av Relay är dubbelriktad, obuffrad kommunikation över nätverksgränser med TCP-liknande begränsning, slutpunktsidentifiering, anslutningsstatus och överlappande slutspunktssäkerhet. Funktionerna i Relay skiljer sig från integreringstekniker på nätverksnivå som VPN. Till exempel kan Relay begränsas till en enskild programslutpunkt på en enskild dator, till skillnad mot VPN-teknik som är mer inkräktande eftersom den kräver ändringar i nätverksmiljön.
 
@@ -40,7 +40,7 @@ Både hybridanslutningar och WCF-reläer tillhandahåller säker anslutning till
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
-| **.NET Framework** |x |
+| **.NET Framework** |x |x |
 | **JavaScript/NodeJS*** | |x |
 | **Java*** | |x |
 | **Standardbaserat öppet protokoll** | |x |
@@ -55,7 +55,7 @@ Funktionen [Hybridanslutningar i Azure Relay](relay-hybrid-connections-protocol.
 WCF Relay har stöd för hela .NET Framework (NETFX) och för WCF. Du upprättar anslutningen mellan din lokala tjänst och den vidarebefordrande tjänsten med hjälp av en uppsättning ”vidarebefordrande” WCF-bindningar. I bakgrunden mappas vidarebefordringsbindningarna till nya transportbindningselement som är utformade för att skapa WCF-kanalkomponenter som integreras med Service Bus i molnet.
 
 ## <a name="service-history"></a>Tjänsthistorik
-Hybridanslutningar ersätter den tidigare funktionen ”BizTalk Services” som baserades på Azure Service Bus WCF Relay. Den nya funktionen för hybridanslutningar kompletterar befintliga WCF Relay och båda dessa två tjänstfunktioner kommer att finnas i Relay under överskådlig tid; de delar en gemensam gateway, men har i övrigt olika implementeringar.
+Hybridanslutningar ersätter den tidigare funktionen ”BizTalk Services” som baserades på Azure Service Bus WCF Relay. Den nya funktionen för hybridanslutningar kompletterar befintliga WCF Relay och båda dessa två tjänstfunktioner kommer att finnas sida vid sida i Relay-tjänsten under överskådlig tid. De delar en gemensam gateway, men är i övrigt olika implementeringar.
 
 ## <a name="next-steps"></a>Nästa steg:
 * [Vanliga frågor och svar om Relay](relay-faq.md)
@@ -66,6 +66,6 @@ Hybridanslutningar ersätter den tidigare funktionen ”BizTalk Services” som 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

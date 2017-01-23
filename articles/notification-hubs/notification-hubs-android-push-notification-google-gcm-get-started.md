@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
+ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
+ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
 
 
 ---
@@ -63,10 +63,10 @@ Din meddelandehubb har nu konfigurerats för att fungera med GCM och du har ansl
 ### <a name="create-a-new-android-project"></a>Skapa ett nytt Android-projekt
 1. Starta ett nytt Android Studio-projekt i Android Studio.
    
-       ![Android Studio - new project][13]
+     ![Android Studio – nytt projekt][13]
 2. Välj formfaktorn för **Telefoner och surfplattor** samt det **Minimum SDK** som du vill stödja. Klicka sedan på **Nästa**.
    
-       ![Android Studio - project creation workflow][14]
+     ![Android Studio – arbetsflöde för att skapa projekt][14]
 3. Välj **Tom aktivitet** som huvudsaklig aktivitet, klicka på **Nästa** och sedan på **Slutför**.
 
 ### <a name="add-google-play-services-to-the-project"></a>Lägga till Google Play-tjänster till projektet
@@ -660,10 +660,10 @@ Om du vill få mer allmän information om Notification Hubs kan du läsa våra [
 
 
 <!-- URLs. -->
-[Komma igång med push-meddelanden i Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Referera till ett biblioteksprojekt]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Klassisk Azure-portal]: https://manage.windowsazure.com/
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Riktlinjer om Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Använda Notification Hubs för att skicka push-meddelanden till användare]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Använda Notification Hubs för att skicka de senaste nyheterna]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
@@ -671,6 +671,6 @@ Om du vill få mer allmän information om Notification Hubs kan du läsa våra [
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

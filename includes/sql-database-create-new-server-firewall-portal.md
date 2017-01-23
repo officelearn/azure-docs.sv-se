@@ -10,7 +10,7 @@ articles/sql-database/sql-database-configure-firewall-settings
 articles/sql-data-warehouse-get-started-provision.md
 
 -->
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Skapa en brandväggsregel på servernivå på Azure Portal
+### <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Skapa en brandväggsregel på servernivå på Azure Portal
 
 1. Öppna bladet Brandvägg för SQL-servern genom att klicka på **Brandvägg** under Inställningar på bladet SQL-server.
 

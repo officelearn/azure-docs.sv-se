@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2016
-ms.author: osamazia
+ms.date: 01/03/2017
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 111975ba10aaafb97673f4e8b813ba3523b76ffb
+ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
+ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
 
 
 ---
@@ -117,7 +117,7 @@ Standardvägar tillåts bara i Azures privata peeringsessioner. I dessa fall kom
 > 
 > 
 
-## <a name="support-for-bgp-communities-preview"></a>Stöd för BGP-communities (förhandsgranskning)
+## <a name="support-for-bgp-communities"></a>Stöd för BGP-communities
 Det här avsnittet innehåller en översikt över hur BGP-communities kommer att användas med ExpressRoute. Microsoft kommer att annonsera vägar i offentliga och Microsofts peeringsökvägar med vägar som är taggade med lämpliga community-värden. Anledningen till att man gör detta samt information om community-värden beskrivs nedan. Microsoft använder dock inte några community-värden som är taggade på vägar som annonserats till Microsoft.
 
 Om du ansluter till Microsoft via ExpressRoute på valfri peeringplats i en geopolitisk region, får du åtkomst till alla Microsoft-molntjänster i alla regioner inom den geopolitiska gränsen. 
@@ -126,9 +126,7 @@ Om du exempelvis har anslutit till Microsoft i Amsterdam via ExpressRoute, komme
 
 Se sidan [ExpressRoute-partners och peeringplatser](expressroute-locations.md) för en detaljerad lista med geopolitiska regioner, associerade Azure-regioner och motsvarande ExpressRoute-peeringplatser.
 
-Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera anslutningar ger dig betydande fördelar med hög tillgänglighet tack vare den geografiska redundansen. I de fall där du har flera ExpressRoute-kretsar, får du samma uppsättning prefix annonserade från Microsoft för den offentliga peeringen och för Microsofts peeringsökvägar. Det innebär att du har flera sökvägar från ditt nätverk till Microsoft. Detta kan eventuellt medföra att icke-optimala beslut om routning tas i nätverket. Därmed kan du få icke-optimala anslutningsupplevelser till andra tjänster. 
-
-Microsoft taggar prefix som annonseras via offentlig peering och Microsofts peering med lämpliga värden för BGP-communityn som anger vilken region prefixen finns i. Du kan använda community-värden för att fatta rätt beslut om routning och erbjuda [optimal routning till kunderna](expressroute-optimize-routing.md).
+Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera anslutningar ger dig betydande fördelar med hög tillgänglighet tack vare den geografiska redundansen. I de fall där du har flera ExpressRoute-kretsar, får du samma uppsättning prefix annonserade från Microsoft för den offentliga peeringen och för Microsofts peeringsökvägar. Det innebär att du har flera sökvägar från ditt nätverk till Microsoft. Detta kan eventuellt medföra att icke-optimala beslut om routning tas i nätverket. Därmed kan du få icke-optimala anslutningsupplevelser till andra tjänster. Du kan använda community-värden för att fatta rätt beslut om routning och erbjuda [optimal routning till användare](expressroute-optimize-routing.md).
 
 | **Microsoft Azure-region** | **BGP-community värde** |
 | --- | --- |
@@ -186,6 +184,8 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 > 
 > 
 
+### <a name="bgp-community-support-in-national-clouds-preview"></a>Stöd för BGP-community i National Cloud (förhandsgranskning)
+
 | **Regioner för nationella Azure-moln**| **BGP-community värde** |
 | --- | --- |
 | **Amerikanska myndigheter** |  |
@@ -212,6 +212,6 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/22/2016
 ms.author: rachelap;robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 26f2fba953870564292ef3e986a3151373f6babf
 
 
 ---
@@ -168,13 +168,11 @@ I det här avsnittet ska du ersätta den genererade Swagger-kodens implementerin
         package io.swagger.api.impl;
    
         import io.swagger.api.*;
-        import io.swagger.model.*;
+        
         import io.swagger.model.Contact;
         import java.util.*;
         import io.swagger.api.NotFoundException;
-        import java.io.InputStream;
-        import com.sun.jersey.core.header.FormDataContentDisposition;
-        import com.sun.jersey.multipart.FormDataParam;
+               
         import javax.ws.rs.core.Response;
         import javax.ws.rs.core.SecurityContext;
    
@@ -271,7 +269,7 @@ I det här avsnittet får du information om hur du skapar en ny API-App i Azure-
     ![Använda REST API för Java kontakter live i Azure][postman-calling-azure-contacts]
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln kunde du börja med en Swagger JSON-fil och autogenererad Java-kod som hämtats från redigeraren Swagger.io. Därifrån gjorde dina enkla ändringar och en Git-distributionsprocess att du skapade en fungerande API-app skriven i Java. Nästa självstudiekurser visar hur du [använder API Apps från JavaScript-klienter med hjälp av CORS][Apptjänst API CORS]. Senare självstudiekurser i serien visar hur du implementerar autentisering och auktorisering.
+I den här artikeln kunde du börja med en Swagger JSON-fil och autogenererad Java-kod som hämtats från redigeraren Swagger.io. Därifrån gjorde dina enkla ändringar och en Git-distributionsprocess att du skapade en fungerande API-app skriven i Java. Nästa självstudiekurs visar hur du [använder API-appar från JavaScript-klienter, med hjälp av CORS][App Service API CORS]. Senare självstudiekurser i serien visar hur du implementerar autentisering och auktorisering.
 
 För att bygga på det här exemplet kan du läsa mer om [Lagrings-SDK för Java] för att bevara JSON-blobbar. Eller så kan du använda [Dokumentet DB Java SDK] för att spara kontaktinformation i Azure-dokumentet DB. 
 
@@ -282,22 +280,22 @@ Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter
 
 <!-- URL List -->
 
-[Apptjänst API CORS]: app-service-api-cors-consume-javascript.md
-[Azure Portal]: https://portal.azure.com/
+[App Service API CORS]: app-service-api-cors-consume-javascript.md
+[Azure-portalen]: https://portal.azure.com/
 [Dokumentet DB Java SDK]: ../documentdb/documentdb-java-application.md
 [kostnadsfri prov]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Azure Java-utvecklingscenter]: /develop/java/
+[Java-utvecklingscenter]: /develop/java/
 [Java Developer's Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax RS]: https://jax-rs-spec.java.net/
-[Maven 3.]: https://maven.apache.org/
+[Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
 [Swagger-redigeraren online]: http://editor.swagger.io/
 [Postman]: https://www.getpostman.com/
 [Lagrings-SDK för Java]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [Swagger Editor]: http://editor.swagger.io/
-[Visual Studio Code]: https://code.visualstudio.com
+[Visual Studio-koden]: https://code.visualstudio.com
 
 <!-- IMG List -->
 
@@ -319,6 +317,6 @@ Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -117,7 +117,7 @@
 ## Backup
 ### [Säkerhetskopiera din app i Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Återställa en app i Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Använda REST för att säkerhetskopiera och återställa App Service-appar](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Använd REST för att säkerhetskopiera och återställa App Service-appar](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Övervaka](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Aktivera diagnostikloggning](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -145,20 +145,19 @@
 ### [Strömningsloggar och konsolen](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Felsöka med hjälp av Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# Referens
-## [Azure-portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+# Resurser
+## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [App Service-referens](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Bästa praxis](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJob-resurser](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
-
-# Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/app-service/)  
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=app-service) 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

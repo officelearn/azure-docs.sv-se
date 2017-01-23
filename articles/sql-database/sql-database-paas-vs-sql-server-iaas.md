@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 30990f0dbc6a87620fa492b46541a02d6112ee2d
-ms.openlocfilehash: d8ac6651940012d48f3afec7ce69e76543641c8a
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: b4b3e3ac328d1441e831238a282a66e19839719e
 
 
 ---
@@ -81,7 +81,7 @@ Oavsett om du är en startup med dålig kassa, eller ett team i ett etablerat f�
 #### <a name="billing-and-licensing-basics"></a>Debitering och licensiering
 **SQL Database** säljs till kunder som en tjänst, inte med en licens.  [SQL Server på Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) säljs med en medföljande licens som du betalar per minut. Om du har en befintlig licens kan du också använda den.  
 
-För nuvarande finns **SQL Database** tillgänglig i flera servicenivåer, där alla debiteras timvis till en fast kostnad som baseras på den servicenivå och prestandanivå du valt. Dessutom debiteras du för utgående Internettrafik till normal [dataöverföringskostnad](https://azure.microsoft.com/pricing/details/data-transfers/). Servicenivåerna Basic, Standard och Premium är skapade för att leverera förutsägbar prestanda med flera prestandanivåer som matchar ditt programs högsta krav. Du kan byta mellan servicenivåer och prestandanivåer för att matcha ditt programs ändrade behov för genomströmning. Om din databas har stora transaktionsvolymer och behöver stödja flera samtidiga användare, rekommenderar vi premiumnivån. För den senaste informationen om de servicenivåer som stöds för tillfället, kan du se [Azure SQL Database Servicenivåer](sql-database-service-tiers.md). Du kan också skapa [elastiska databaspooler](sql-database-elastic-pool.md) för att dela prestandaresurser mellan databasinstanser.
+För nuvarande finns **SQL Database** tillgänglig i flera servicenivåer, där alla debiteras timvis till en fast kostnad som baseras på den servicenivå och prestandanivå du valt. Dessutom debiteras du för utgående Internettrafik till normal [dataöverföringskostnad](https://azure.microsoft.com/pricing/details/data-transfers/). Servicenivåerna Basic, Standard och Premium är skapade för att leverera förutsägbar prestanda med flera prestandanivåer som matchar ditt programs högsta krav. Du kan byta mellan servicenivåer och prestandanivåer för att matcha ditt programs ändrade behov för genomströmning. Om din databas har stora transaktionsvolymer och behöver stödja flera samtidiga användare, rekommenderar vi premiumnivån. För den senaste informationen om de servicenivåer som stöds för tillfället, kan du se [Azure SQL Database Servicenivåer](sql-database-service-tiers.md). Du kan också skapa [elastiska pooler](sql-database-elastic-pool.md) för att dela prestandaresurser mellan databasinstanser.
 
 Med **SQL Database** så konfigureras, korrigeras och uppgraderas databasens programvara automatiskt av Microsoft, vilket minskar dina administrationskostnader. Dessutom gör dess [inbyggda säkerhetskopierings](sql-database-automated-backups.md)-funktioner att du kan uppnå markanta kostnadsbesparingar, speciellt om du har ett stort antal databaser.
 
@@ -124,7 +124,7 @@ För **SQL Database**-servicenivåerna Basic, Standard och Premium ger Microsoft
 För **SQL Server som kör på virtuella Azure-datorer** erbjuder Microsoft en tillgänglighets-SLA på 99,95 %, vilket bara täcker den virtuella datorn. Det här SLA:t omfattar inte de processer som körs på den virtuella datorn (till exempel SQL Server) som kräver att du är värd för minst två VM-instanser i en tillgänglighetsuppsättning. Den senaste informationen finns på [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). För hög tillgänglighet (HA) för databaser inom VM:ar, bör du konfigurera en av de alternativ för hög tillgänglighet som stöds i SQL Server, som [AlwaysOn-tillgänglighetsgrupper](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Användningen av ett alternativ för hög tillgänglighet som stöds medför inget nytt SLA, men ger > 99,99 % databastillgänglighet.
 
 ### <a name="a-namemarketatime-to-market"></a><a name="market"></a>Tid till marknad
-**SQL Database** är den rätta lösningen för molnutformade program där utvecklarproduktivitet och en snabb tid till marknad är avgörande. Med sin programmässiga DBA-lika funktionalitet, är det perfekt för molnarkitekter och utveckare, eftersom det sänker behovet av att hantera det underliggande operativsystemet och databasen. Du kan till exempel använda [REST-API:n](http://msdn.microsoft.com/library/azure/dn505719.aspx) och [PowerShell-Cmdletar](http://msdn.microsoft.com/library/mt740629.aspx) för att automatisera och hantera administrativa åtgärder för tusentals databaser. Funktioner som [elastiska databaspooler](sql-database-elastic-pool.md) låter dig fokusera på programlagret och leverera din lösning till marknaden snabbare.
+**SQL Database** är den rätta lösningen för molnutformade program där utvecklarproduktivitet och en snabb tid till marknad är avgörande. Med sin programmässiga DBA-lika funktionalitet, är det perfekt för molnarkitekter och utveckare, eftersom det sänker behovet av att hantera det underliggande operativsystemet och databasen. Du kan till exempel använda [REST-API:n](http://msdn.microsoft.com/library/azure/dn505719.aspx) och [PowerShell-Cmdletar](http://msdn.microsoft.com/library/mt740629.aspx) för att automatisera och hantera administrativa åtgärder för tusentals databaser. Funktioner som [elastiska pooler](sql-database-elastic-pool.md) låter dig fokusera på programlagret och leverera din lösning till marknaden snabbare.
 
 **SQL Server som körs på Azure Virtual Machines** är perfekt om dina befintliga eller nya program kräver stora databaser, relaterade databaser eller åtkomst till alla funktioner i SQL Server eller Windows. Det kan också passa om du vill migrera befintliga lokala program och databaser till Azure som de är. Eftersom du inte behöver ändra presentationen, programmet eller datalagren, kan du spara in tid och budget på att omstrukturera din befintliga lösning. Istället kan du fokusera på att migrera alla dina lösningar till Azure och på att genomföra prestandaoptimeringar som kan krävas av Azure-plattformen. Mer information finns i [Bästa praxis för prestanda i SQL Server på Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-performance.md).
 
@@ -150,6 +150,6 @@ Välj **SQL Server på virtuella Azure-datorer** om:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

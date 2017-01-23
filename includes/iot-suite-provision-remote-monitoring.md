@@ -1,18 +1,18 @@
 ## <a name="provision-the-solution"></a>Etablera lösningen
-1. Logga in på [azureiotsuite.com][lnk-azureiotsuite] med autentiseringsuppgifterna för ditt Azure-konto och klicka på **+** för att skapa en ny lösning.
+1. Logga in på [azureiotsuite.com][lnk-azureiotsuite] med din Azure-kontoinformation och skapa en lösning genom att klicka på **+**.
 2. Klicka på **Välj** på panelen **Fjärrövervakning**.
 3. Ange ett **lösningsnamn** för den förkonfigurerade lösningen för fjärrövervakning.
 4. Välj den **region** och **prenumeration** som du vill använda för att etablera lösningen.
-5. Klicka på **Skapa lösning** för att påbörja etableringen. Den här åtgärden tar normalt flera minuter.
+5. Klicka på **Skapa lösning** för att påbörja etableringen. Den här processen tar normalt flera minuter.
 
 ### <a name="wait-for-the-provisioning-process-to-complete"></a>Vänta tills etableringsprocessen har slutförts
-1. Klicka på panelen för din lösning med statusen **Etablerar**.
+1. Klicka på ikonen för din lösning med statusen **Etablerar**.
 2. Observera **etableringsstatusen** när Azure-tjänsterna distribueras i din Azure-prenumeration.
 3. När etableringen har slutförts ändras statusen till **Klar**.
-4. Klicka på panelen så ser du informationen om din lösning i den högra rutan.
+4. Klicka på ikonen så ser du informationen om din lösning i den högra rutan.
 
 > [!NOTE]
-> Om det uppstår problem när du distribuerar den förkonfigurerade lösningen läser du [Behörigheter på webbplatsen azureiotsuite.com][lnk-permissions] och [Vanliga frågor och svar][lnk-faq]. Om problemen kvarstår skapar du en tjänstbiljett på [portalen][lnk-portal].
+> Om det uppstår några problem när du distribuerar den förkonfigurerade lösningen kan du läsa [Behörigheter på webbplatsen azureiotsuite.com][lnk-permissions] och [Vanliga frågor och svar][lnk-faq]. Om problemen kvarstår så skapa en tjänstbiljett på [portalen][lnk-portal].
 > 
 > 
 
@@ -23,6 +23,6 @@ Finns det något som du förväntar dig att se men som inte visas för din lösn
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

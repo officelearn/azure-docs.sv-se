@@ -49,6 +49,6 @@
 ## [Exempel med Azure CLI 2.0 (förhandsversion)](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Lista över mått som stöds](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

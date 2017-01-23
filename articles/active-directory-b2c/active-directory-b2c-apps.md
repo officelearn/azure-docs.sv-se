@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/22/2016
+ms.date: 12/06/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: a7c95f9219920932d56487c0e9b96499cc963af0
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 7d582960e615962a3952dd2f58c74ed91e5c450d
 
 
 ---
@@ -122,9 +122,6 @@ I det här flödet kör appen [principer](active-directory-b2c-reference-policie
 ## <a name="current-limitations"></a>Aktuella begränsningar
 Azure AD-B2C stöder för närvarande inte följande typer av appar, men det är på gång. Övriga begränsningar och restriktioner relaterade till Azure AD B2C beskrivs i [Begränsningar och restriktioner](active-directory-b2c-limitations.md).
 
-### <a name="single-page-apps-javascript"></a>Appar med enstaka sidor (JavaScript)
-Klientdelen i många moderna appar innehåller en app med en enda sida som främst är skriven i JavaScript. De använder ofta ett ramverk som AngularJS, Ember.js eller Durandal. Den allmänt tillgängliga Azure AD-tjänsten har stöd för dessa appar genom det implicita flödet för OAuth 2.0. Detta flöde är dock inte tillgängligt i Azure AD B2C än.
-
 ### <a name="daemonsserver-side-apps"></a>Daemon/appar på serversidan
 Appar som innehåller tidskrävande processer eller som fungerar utan närvaron av en användare måste också kunna komma åt skyddade resurser, till exempel webb-API:er. Dessa appar kan autentisera och hämta token genom att använda appens identitet (i stället för en användares delegerade identitet) och genom att använda flödet för OAuth 2.0-klientautentiseringsuppgifter.
 
@@ -137,6 +134,6 @@ Det här scenariot med länkade webb-API:er kan användas genom en tilldelning a
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

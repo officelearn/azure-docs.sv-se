@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/09/2016
+ms.date: 12/25/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 269d0a0c72d6509b91d7cc8fcffb6641006026f4
-ms.openlocfilehash: 9323eb95ec014a1cc57daa8433e87f9d68b949f5
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
 
 
 ---
@@ -25,6 +25,7 @@ ms.openlocfilehash: 9323eb95ec014a1cc57daa8433e87f9d68b949f5
 > [!div class="op_single_selector"]
 > * [NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
@@ -51,9 +52,9 @@ Ge oss sedan feedback med röstningsknapparna högst uppe och nere på den här 
 Nu sätter vi igång!
 
 ## <a name="prerequisites"></a>Krav
-Kontrollera att du har följande:
+Se till att du har följande:
 
-* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). 
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
     * Du kan också använda [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för den här självstudien.
 * [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) och [.NET Core 1.0.1 - VS 2015 Tooling Preview 2](https://go.microsoft.com/fwlink/?LinkID=827546)
     * Om du använder MacOS eller Linux kan du utveckla .NET Core-appar från kommandoraden genom att installera [.NET Core SDK](https://www.microsoft.com/net/core#macos) för valfri plattform. 
@@ -422,7 +423,7 @@ Nedanstående diagram illustrerar hur DocumentDB SQL-frågesyntaxen anropas mot 
 
 ![Diagram som illustrerar omfånget och innebörden av frågan som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
-Nyckelordet [FRÅN](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
+Nyckelordet [FROM](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
 
 ## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Steg 8: Ersätta JSON-dokument
 DocumentDB har stöd för att ersätta JSON-dokument.  
@@ -513,7 +514,7 @@ Grattis! Du har tagit bort en DocumentDB-databas.
 ## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Steg 11: Kör C#-konsolappen i sin helhet!
 Tryck på F5 i Visual Studio för att bygga appen i felsökningsläge.
 
-Du bör se Get Started-appens utdata. Dessa utdata visar resultaten för de frågor som vi har lagt till och bör motsvara exempeltexten nedan.
+Du bör nu se utdata från din kom-igång-app. Dessa utdata visar resultaten för de frågor som vi har lagt till och bör motsvara exempeltexten nedan.
 
     Created FamilyDB_oa
     Press any key to continue ...
@@ -541,7 +542,7 @@ Grattis! Du har slutfört den här självstudiekursen om NoSQL och har en funger
 ## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a>Hämta den fullständiga lösningen till NoSQL-självstudiekursen
 För att bygga GetStarted-lösningen med alla exempel i den här artikeln behöver du följande:
 
-* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
+* Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Ett [DocumentDB-konto][documentdb-create-account].
 * [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)-lösningen som finns på GitHub.
 
@@ -560,6 +561,6 @@ Om du vill återställa referenser till .NET DocumentDB Core SDK i Visual Studio
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

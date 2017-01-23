@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/25/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8131002ba48a85b5116f13aa72d713526b56ac0a
-ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
+ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
+ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
 
 När du skapar ett Spark-kluster i HDInsight skapas Azure-beräkningsresurser med Spark installerat och konfigurerat. Det tar bara ungefär tio minuter att skapa ett Spark-kluster i HDInsight. De data som ska bearbetas lagras i Azure Blob Storage. Se [Azure Blob Storage med HDInsight][hdinsight-storage].
 
-![Apache Spark i Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
+![Apache Spark på Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark på Azure HDInsight")
 
 **Vill du komma igång med Apache Spark i Azure HDInsight?** Se [Snabbstart: skapa ett Spark-kluster i HDInsight Linux och köra exempelprogram med Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
@@ -43,7 +43,7 @@ Med Azure HDInsight får du tillgång till en helt hanterad Spark-tjänst. Förd
 | Enkelt att skapa kluster |Du kan skapa ett nytt Spark-kluster i HDInsight på bara några minuter när du använder Azure-hanteringsportalen, Azure PowerShell eller HDInsight .NET SDK. Se [Komma igång med Spark-kluster i HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | Användbarhet |Spark i HDInsight-kluster innehåller förkonfigurerade Jupyter-anteckningsböcker. Du kan använda dem för interaktiv databehandling och visualisering. URL-adressen för den bärbara Jupyter-datorn är https://KLUSTERNAMN.azurehdinsight.net/jupyter. Ersätt **CLUSTERNAME** med namnet på Spark HDInsight-klustret: |
 | REST API:er |HDInsight Spark innehåller [Livius](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), en REST-API-baserad Spark-jobbserver för fjärrsändning och -övervakning av jobb som körs. |
-| Stöd för Azure Data Lake Store |Spark i HDInsight kan konfigureras att använda Azure Data Lake Store som ett ytterligare lagringsutrymme. Mer information om Data Lake Store finns i [Översikt över Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). |
+| Stöd för Azure Data Lake Store |Spark i HDInsight kan konfigureras att använda sig av Azure Data Lake Store som ett ytterligare lagringsutrymme, såväl som primärt lagringsutrymme (enbart med HDInsight 3.5-kluster). Mer information om Data Lake Store finns i [Översikt över Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). |
 | Integrering med Azure-tjänster |Spark i HDInsight levereras med en anslutningsapp för Azure Event Hubs. Med Event Hubs kan kunderna skapa strömmade program utöver [Kafka](http://kafka.apache.org/) som redan ingår i Spark. |
 | Stöd för R Server |Du kan konfigurera en R Server med HDInsight Spark-klustret och köra distribuerade R-beräkningar i de hastigheter Spark-klustret har kapacitet för. Mer information finns i [Komma igång med R Server på HDInsight](hdinsight-hadoop-r-server-get-started.md). |
 | Integrering med IntelliJ IDEA |Du kan använda HDInsight-plugin-programmet för IntelliJ till att skapa och skicka program till ett HDInsight Spark-kluster. Mer information finns i [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa Spark-program för HDInsight Spark Linux-kluster](hdinsight-apache-spark-intellij-tool-plugin.md). |
@@ -115,6 +115,6 @@ Börja med att skapa ett Spark-kluster i HDInsight Linux. Se [Snabbstart: skapa 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

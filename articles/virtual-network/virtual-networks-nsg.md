@@ -1,6 +1,6 @@
 ---
-title: "Vad är en nätverkssäkerhetsgrupp (NSG)"
-description: "Läs mer om den distribuerade brandväggen i Azure med nätverkssäkerhetsgrupper (NSGs) och hur du använder NSG:er för att isolera och kontrollera trafikflödet inom dina virtuella nätverk (VNet)."
+title: "Nätverkssäkerhetsgrupper | Microsoft Docs"
+description: "Lär dig mer om hur du isolerar och styr trafikflödet i dina virtuella nätverk med hjälp av den distribuerade brandväggen i Azure genom att använda nätverkssäkerhetsgrupper."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92ba745915c4b496ac6b0ff3b3e25f6611f5707c
+ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
+ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
 
 
 ---
-# <a name="what-is-a-network-security-group-nsg"></a>Vad är en nätverkssäkerhetsgrupp (NSG)?
-Nätverkssäkerhetsgruppen (NSG) innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till dina VM-instanser i ett virtuellt nätverk. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet. Dessutom kan trafik till en enskild VM begränsas ytterligare genom att koppla en NSG direkt till den VM:en.
+# <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
+
+En nätverkssäkerhetsgrupp (NSG) innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till dina VM-instanser i ett virtuellt nätverk. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet. Dessutom kan trafik till en enskild VM begränsas ytterligare genom att koppla en NSG direkt till den VM:en.
+
+> [!NOTE]
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md). Den här artikeln täcker bägge modellerna, men Microsoft rekommenderar de flesta nya distributioner att använda Resource Manager-modellen.
 
 ## <a name="nsg-resource"></a>NSG-resurs
 NSG:er innehåller följande egenskaper.
@@ -36,10 +40,9 @@ NSG:er innehåller följande egenskaper.
 > [!NOTE]
 > Slutpunktsbaserade ACL:er och nätverkssäkerhetsgrupper stöds inte på samma VM-instans. Om du vill använda en NSG och redan har en slutpunkts-ACL på plats så kan du först ta bort slutpunkts-ACL:n. Information om hur du gör detta finns i [Hantera åtkomstkontrollistor (ACL:er) för slutpunkter med hjälp av PowerShell](virtual-networks-acl-powershell.md).
 > 
-> 
 
 ### <a name="nsg-rules"></a>NSG-regler
-NSG-regler har följande egenskaper.
+NSG-regler har följande egenskaper:
 
 | Egenskap | Beskrivning | Villkor | Överväganden |
 | --- | --- | --- | --- |
@@ -90,55 +93,41 @@ Som standardreglerna nedan, tillåts trafik som startar och slutar i ett virtuel
 ## <a name="associating-nsgs"></a>Koppla NSG:er
 Du kan koppla en NSG till VM:ar, nätverkskort och undernät, beroende på den distributionsmodell du använder.
 
-[!INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
-
 * **Koppla en NSG till en VM (endast klassiska distributioner).** När du kopplar en NSG till en VM, tillämpas nätverksåtkomstreglerna i NSG:n på all trafik mot och från VM:n. 
 * **Koppla en NSG till ett nätverkskort (enbart Resource Manager-distributioner).** När du kopplar en NSG till ett nätverkskort, tillämpas nätverksåtkomstreglerna för den NSG:n bara på det nätverkskortet. Det innebär att i en VM med flera nätverkskort, så påverkar inte en NSG som kopplats till ett nätverkskort trafiken som går via andra nätverkskort. 
 * **Koppla en NSG till ett undernät (alla distributioner)**. När du kopplar en NSG till ett undernät, tillämpas nätverksåtkomstreglerna i NSG:n på alla IaaS- och PaaS-resurser på undernätet. 
 
-Du kan koppla olika NSG:er till en VM (eller nätverkskort, beroende på distributionsmodell) och de undernät som ett nätverkskort eller VM är bunden till. När det sker så tillämpas alla nätverksåtkomstregler på trafiken efter prioritet i varje NSG, i följande ordning:
+Du kan koppla olika NSG:er till en VM (eller nätverkskort, beroende på distributionsmodell) och de undernät som ett nätverkskort eller VM är bunden till. När det sker så tillämpas alla nätverksåtkomstregler på trafiken efter prioritet i varje nätverkssäkerhetsgrupp, i följande ordning:
 
-* **Inkommande trafik**
-  
-  1. NSG tillämpas för undernätet. 
-     
-     Om undernätets NSG har en matchande regel för att neka trafik , ignoreras paketet här.
-  2. NSG tillämpas på nätverkskortet (Resource Manager) eller VM (klassisk). 
-     
-     Om NSG för VM\nätverkskortet har en matchande regel för att neka trafik, ignoreras paketet på VM\nätverkskortet, även om undernätets NSG har en matchande regel som tillåter trafik.
-* **Utgående trafik**
-  
-  1. NSG tillämpas på nätverkskortet (Resource Manager) eller VM (klassisk). 
-     
-     Om NSG för VM/nätverkskortet har en matchande regel för att neka trafik, ignoreras paketet här.
-  2. NSG tillämpas för undernätet.
-     
-     Om undernätets NSG har en matchande regel för att neka trafik, ignoreras paketet här, även om NSG för VM/nätverkskortet har en matchande regel som tillåter trafik.
-     
-      ![NSG-ACL:er](./media/virtual-network-nsg-overview/figure2.png)
+- **Inkommande trafik**
+
+  1. **Nätverkssäkerhetsgrupp som tillämpas på undernät:** Om en nätverkssäkerhetsgrupp som tillämpas på ett undernät har en matchande regel som nekar trafik, ignoreras paketet.
+
+  2. **Nätverkssäkerhetsgrupp som tillämpas på ett nätverkskort** (Resource Manager) eller på en VM (klassisk): Om en nätverkssäkerhetsgrupp som tillämpas på en virtuell dator eller ett nätverkskort har en matchande regel som nekar trafik, ignoreras paketet på den virtuella datorn eller nätverkskortet, även om nätverkssäkerhetsgruppen som tillämpas på undernätet har en matchande regel som tillåter trafik.
+
+- **Utgående trafik**
+
+  1. **Nätverkssäkerhetsgrupp som tillämpas på ett nätverkskort** (Resource Manager) eller på en VM (klassisk): Om en nätverkssäkerhetsgrupp som tillämpas på en virtuell dator eller ett nätverkskort har en matchande regel som nekar trafik, ignoreras paketet.
+
+  2. **Nätverkssäkerhetsgrupp som tillämpas på ett undernät:** Om en nätverkssäkerhetsgrupp som tillämpas på ett undernät har en matchande regel som nekar trafik, ignoreras paketet här, även om nätverkssäkerhetsgruppen för den virtuella datorn eller nätverkskortet har en matchande regel som tillåter trafik.
 
 > [!NOTE]
 > Även om du kan bara koppla en enda NSG till ett undernät, VM eller NIC så kan du koppla samma NSG till hur många resurser du vill.
-> 
-> 
+>
 
 ## <a name="implementation"></a>Implementering
 Du kan implementera NSG:er i den klassiska eller Resource Manager distributionsmodellerna med hjälp av de olika verktyg som listas nedan.
 
 | Distributionsverktyg | Klassisk | Resource Manager |
 | --- | --- | --- |
-| Klassisk portal |![Nej](./media/virtual-network-nsg-overview/red.png) |![Nej](./media/virtual-network-nsg-overview/red.png) |
-| Azure Portal |![Ja](./media/virtual-network-nsg-overview/green.png) |[![Ja][grön]](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell |[![Ja][grön]](virtual-networks-create-nsg-classic-ps.md) |[![Ja][grön]](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI |[![Ja][grön]](virtual-networks-create-nsg-classic-cli.md) |[![Ja][grön]](virtual-networks-create-nsg-arm-cli.md) |
-| ARM-mall |![Nej](./media/virtual-network-nsg-overview/red.png) |[![Ja][grön]](virtual-networks-create-nsg-arm-template.md) |
-
-| **Nyckel** | ![Ja](./media/virtual-network-nsg-overview/green.png) Stöds. | ![Nej](./media/virtual-network-nsg-overview/red.png) Stöds inte. |
-| --- | --- | --- |
-|  | | |
+| Klassisk portal | Nej  | Nej |
+| Azure Portal   | Ja | [Ja](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Ja](virtual-networks-create-nsg-classic-ps.md) | [Ja](virtual-networks-create-nsg-arm-ps.md) |
+| Azure CLI      | [Ja](virtual-networks-create-nsg-classic-cli.md) | [Ja](virtual-networks-create-nsg-arm-cli.md) |
+| ARM-mall   | Nej  | [Ja](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planering
-Innan du implementerar NSG:er, behöver du svara på frågorna nedan:    
+Innan du implementerar nätverkssäkerhetsgrupper måste du besvara följande frågor:
 
 1. Vilka typer av resurser vill du vill filtrera trafik till eller från (nätverkskort i samma VM, VM:ar eller andra resurser som molntjänster eller programtjänstmiljöer som är anslutna till samma undernät eller mellan resurser som anslutits till olika undernät)?
 2. Är de resurser du vill filtrera trafik till och från anslutna till undernät i befintliga VNet eller kommer de att anslutas till nya VNet eller undernät?
@@ -270,12 +259,8 @@ Eftersom vissa av de ovanstående NSG:erna måste kopplas till individuella nät
 * [Distribuera NSG:er i Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 * [Hantera NSG-loggar](virtual-network-nsg-manage-log.md).
 
-[grön]: ./media/virtual-network-nsg-overview/green.png
-[gul]: ./media/virtual-network-nsg-overview/yellow.png
-[röd]: ./media/virtual-network-nsg-overview/red.png
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

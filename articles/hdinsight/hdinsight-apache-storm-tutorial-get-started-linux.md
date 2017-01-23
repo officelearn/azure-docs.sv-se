@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
-ms.openlocfilehash: a7516a98cbe25f9ed458131083a18899d3d50004
+ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
+ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 
 ---
@@ -80,7 +80,7 @@ I det här avsnittet skapar du ett HDInsight-kluster av version 3.5 (Storm-versi
      > * [Använd SSH med Linux-baserad Hadoop på HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [Använda SSH (PuTTY) med Linux-baserat Hadoop i HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. Välj __Jag godkänner villkoren som anges ovan__**OK**, och sedan __Fäst på instrumentpanelen__
+3. Välj __Jag godkänner villkoren som anges ovan__ och klicka på **OK** och välj sedan __Fäst till instrumentpanelen__
 
 6. Klicka på **Köp**. En ny panel visas med rubriken Skicka distribution för malldistribution. Det tar cirka 20 minuter att skapa klustret.
 

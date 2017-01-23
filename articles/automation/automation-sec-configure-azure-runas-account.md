@@ -6,18 +6,18 @@ documentationcenter:
 author: mgoedtel
 manager: jwhit
 editor: 
-keywords: "tjänstobjektnamn, setspn, azure-autentisering"
+keywords: "tjänstens huvudnamn, setspn, azure-autentisering"
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
+ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
+ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
 
 
 ---
@@ -54,7 +54,7 @@ Innan vi gör det finns det dock några saker som det är viktigt att du först�
 I det här avsnittet ska du utföra följande steg för att skapa ett nytt Azure Automation-konto från Azure-portalen.  När du följer stegen skapas både Kör som-kontot och det klassiska Kör som-kontot.  
 
 > [!NOTE]
-> Användaren som utför de här stegen *måste* vara medlem i rollen Prenumerationsadministratörer och vara medadministratör för prenumerationen som beviljar åtkomst till prenumerationen för användaren.  Användaren måste också läggas till som en användare i prenumerationens förvalda Active Directory. Kontot behöver inte tilldelas till en privilegierad roll.
+> Användaren som utför de här stegen måste vara medlem i rollen Tjänstadministratörer eller medadministratör för prenumerationen som beviljar åtkomst till prenumerationen för användaren. Användaren måste också läggas till som en användare i prenumerationens förvalda Active Directory. Kontot behöver inte tilldelas till en privilegierad roll. Användare som inte är medlemmar i prenumerationens Active Directory innan de läggs till i rollen Medadministratör för prenumerationen, läggs till i Active Directory som gäst och ser "Du har inte behörighet att skapa..." varningen i **Lägg till Automation-konto**-bladet. Användare som har lagts till i rollen medadministratör först, kan tas bort från prenumerationens Active Directory och läggas till igen för att göra dem till fullständiga användare i Active Directory. Den här situationen kan verifieras från rutan **Azure Active Directory** i Azure-portalen genom att välja **Användare och grupper**, välja **Alla användare** och när du har valt den specifika användaren, väljer du **Profilen**.  Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.  
 > 
 > 
 
@@ -394,6 +394,6 @@ Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-run
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

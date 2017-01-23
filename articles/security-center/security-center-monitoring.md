@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
-ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
+ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
+ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 ---
@@ -35,7 +35,7 @@ I rutan **Resurssäkerhetshälsa** kan du övervaka dina resursers säkerhetstil
 
 ![Panelen resurssäkerhetshälsa](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-Om en säkerhetsrisk som måste åtgärdas upptäcks, till exempel en virtuell dator där det saknas säkerhetsuppdateringar eller ett undernät som inte har någon [nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md), ser du det här.
+Om en säkerhetsrisk som måste åtgärdas upptäcks, till exempel en virtuell dator där det saknas säkerhetsuppdateringar eller ett undernät som inte har någon [nätverkssäkerhetsgrupp](/virtual-network/virtual-networks-nsg.md), ser du det här.
 
 ### <a name="monitor-virtual-machines"></a>Övervakning av virtuella datorer
 När du klickar på **Virtuella datorer** i panelen **Resurssäkerhetshälsa** visar bladet **Virtuella datorer** mer information om integration, förebyggande åtgärder och en lista över alla virtuella datorer som Security Center övervakar såsom visas på följande skärmbild.
@@ -162,22 +162,22 @@ Den här tabellen är sorterad (virtuella datorer och undernät) efter allvarlig
 * Orange: medelhög prioritet och bör åtgärdas så snart som möjligt
 * Grön (längst ned): god status
 
-I den här topologiska vyn har du [virtuella nätverk](../virtual-network/virtual-networks-overview.md), [virtuella nätverksgatewayer](../vpn-gateway/vpn-gateway-site-to-site-create.md) och [virtuella nätverk (klassiska)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) på översta nivån. På andra nivån hittar du undernät och på den tredje de virtuella datorer som finns på dessa undernät. I den högra kolumnen visas aktuell status för resursernas nätverkssäkerhetsgrupper, som i följande exempel:
+I den här topologiska vyn har du [virtuella nätverk](../virtual-network/virtual-networks-overview.md), [virtuella nätverksgatewayer](/vpn-gateway/vpn-gateway-site-to-site-create.md) och [virtuella nätverk (klassiska)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md) på översta nivån. På andra nivån hittar du undernät och på den tredje de virtuella datorer som finns på dessa undernät. I den högra kolumnen visas aktuell status för resursernas nätverkssäkerhetsgrupper, som i följande exempel:
 
 ![Status för nätverkssäkerhetsgruppen i avsnittet Nätverkstopologi](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 Längst ned på det här bladet finns rekommendationer för den här virtuella datorn som liknar vad som beskrivs ovan. Om du klickar på en av rekommendationerna får du mer information och kan utföra den säkerhetskontroll eller säkerhetskonfiguration som behövs.
 
 ### <a name="monitor-data"></a>Övervaka data
-Om du klickar på **Data** i rutan **Resurssäkerhetshälsa** öppnas bladet **SQL** med rekommendationer för problem med sådant som att funktionerna för granskning och transparent datakryptering inte är aktiverade. Här finns även [rekommendationer](security-center-sql-service-recommendations.md) gällande databasens allmänna hälsoläge.
+När du klickar på **Data** i panelen **Säkerhetshälsa för resurser**, öppnas **dataresurser**-bladet med rekommendationer för SQL och Storage. Här finns även [rekommendationer](security-center-sql-service-recommendations.md) gällande databasens allmänna hälsoläge. Mer information om lagringskryptering finns i Aktivera kryptering för Azure-lagringskontot i Azure Security Center.
 
-![SQL-resurshälsa](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![Dataresurser](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-Du kan klicka på en rekommendation och få mer information om ytterligare åtgärder för att lösa ett problem. I följande exempel har vi klickat på rekommendationen **Databasgranskning inte aktiverad**.
+Under **SQL-rekommendationer**, kan du klicka på valfri rekommendation och få mer information om ytterligare åtgärder för att lösa ett problem. Följande exempel visar den expanderade rekommendationen **Databasgranskning och hotidentifiering på SQL-databaser**.
 
-![Information om en SQL-rekommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Information om en SQL-rekommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-I bladet **Enable Auditing on SQL databases (Aktivera granskning av SQL-databaser)** visas följande information:
+I bladet **Aktivera granskning på SQL-databaser** visas följande information:
 
 * en lista med SQL-databaser
 * vilken server de ligger på
@@ -185,13 +185,14 @@ I bladet **Enable Auditing on SQL databases (Aktivera granskning av SQL-database
 * aktuell status
 * problemets allvarlighetsgrad
 
-Om du klickar på databasen för att utföra rekommendationen öppnas bladet **Granskning och hotidentifiering** som du ser på följande skärmbild.
+När du klickar på databasen för att utföra rekommendationen, öppnas bladet **Granskning och hotidentifiering** som du ser på följande skärmbild.
 
 ![Bladet Granskning och hotidentifiering](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning**.
 
 ### <a name="monitor-applications"></a>Övervakning av program
+
 Om din arbetsbelastning i Azure innehåller program som ligger på [virtuella datorer (skapade via Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) med exponerade webbportar (TCP-portarna 80 och 443) kan de övervakas i Security Center. Då identifieras potentiella säkerhetsproblem och du får rekommendationer om hur problemen kan lösas. När du klickar på panelen **Program** öppnas bladet **Program** och ett antal rekommendationer visas i avsnittet **Application recommendations** (Programrekommendationer). Här visas även program uppdelade efter värd/virtuell IP-adress såsom visas på följande skärmbild.
 
 ![Programsäkerhetshälsa](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
@@ -216,6 +217,6 @@ I den här artikeln har du fått lära dig hur du använder övervakningsfunktio
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

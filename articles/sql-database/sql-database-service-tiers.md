@@ -70,7 +70,7 @@ Pooler gör att databaser kan dela och förbruka eDTU-resurser utan att varje da
 
 Följande tabell beskriver egenskaperna för pool-tjänstnivåer.
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 Varje databas inom en pool följer också egenskaperna för enkla databaser på den nivån. Till exempel har en Basic-pool en gräns för högsta antal tillåtna sessioner per pool på 4 800–28 800, men en enskild databas i en Basic-pool har en databasgräns på högst 300 sessioner.
 

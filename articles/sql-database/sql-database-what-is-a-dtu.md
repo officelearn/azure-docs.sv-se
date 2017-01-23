@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
-ms.openlocfilehash: e5a6c17117e0c79d86c45a07f69433a96fdb9052
+ms.sourcegitcommit: 3d619f5d6959594ee9b139d611d7e45390a40c55
+ms.openlocfilehash: d9b0eaa48d71f3ecf0a23f3bddb3c777c98afea7
 
 
 ---
@@ -37,9 +37,9 @@ En eDTU är en måttenhet för den uppsättning resurser (DTU:er) som kan delas 
 
 ![Introduktion till SQL Database: eDTU:er efter nivå](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-En pool tilldelas ett bestämt antal eDTU:er till ett fast pris. I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Vid hög belastning kan en databas använda fler eDTU:er för att uppfylla efterfrågan. Databaser med lätt arbetsbelastning förbrukar mindre, och databaser utan belastning förbrukar inga eDTU:er. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom har du en förutsägbar budget för poolen.
+En pool tilldelas ett bestämt antal eDTU:er till ett fast pris. Inom den elastiska poolen har de enskilda databaserna flexibiliteten att skalas automatiskt inom konfigurerade parametrar. En databas under hög belastning kan använda sig av fler eDTU:er för att möta efterfrågan, medan databaser under lätta laster förbrukar färre, upp till databaser utan belastning som inte använder några eDTU:er. Genom att etablera resurser för hela poolen, istället för per databas, blir hanteringsuppgifter förenklade och du får en förutsägbar budget för poolen.
 
-Ytterligare eDTU:er kan läggas till i en befintlig pool utan driftavbrott för databasen och utan att databaserna i den elastiska poolen påverkas. På samma sätt kan eDTU:er som inte längre behövs tas bort från en befintlig pool när som helst. Du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
+Ytterligare eDTU:er kan läggas till i en befintlig pool utan avbrott för databasen och utan att databaserna i den elastiska poolen påverkas. Om eDTU:er sedan inte längre behövs, kan de tas bort från en befintlig pool när som helst. Du kan lägga till eller ta bort databaser i poolen, eller begränsa antalet eDTU:er som en databas kan använda vid hög belastning för att reservera eDTU:er för andra databaser. Om en databas förutsägbart underutnyttjar resurser, kan du flytta ut den från poolen och konfigurera den som en enda databas med den förutsägbara mängd resurser som det kräver.
 
 ## <a name="how-can-i-determine-the-number-of-dtus-needed-by-my-workload"></a>Hur vet jag hur många DTU:er min arbetsbelastning behöver?
 Om du vill migrera en befintlig lokal VM-arbetsbelastning eller en VM-arbetsbelastning i SQL Server till Azure SQL Database kan du använda [DTU-kalkylatorn](http://dtucalculator.azurewebsites.net/) för att göra en ungefärlig uppskattning av hur många DTU:er du behöver. För en befintlig Azure SQL Database-arbetsbelastning kan du använda [SQL Database Query Performance Insight](sql-database-query-performance.md) för att förstå databasens resursförbrukning (DTU:er) och få djupare insikt i hur du kan optimera arbetsbelastningen. Du kan också använda [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)-DMV:n om du vill hämta information om resursförbrukningen för den senaste timmen. Du kan också fråga katalogvyn [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) om du vill få samma data för de senaste 14 dagarna, dock med lägre tillförlitlighet med medelvärden på fem minuter.

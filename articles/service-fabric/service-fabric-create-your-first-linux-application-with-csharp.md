@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
-ms.openlocfilehash: 046cc1286d894e28ed4d560c7c0b815f582e1e77
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: e3632d89501c1c25b76e9160f0ad82f2b76327d7
 
 
 ---
@@ -85,20 +85,16 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
     ![Hitta den primära repliken i Service Fabric Explorer][sfx-primary]
 3. Klicka på noden du hittade i föregående steg och välj sedan **Deactivate (restart)** (Inaktivera (omstart)) på menyn Actions (Åtgärder). Den här åtgärden startar om en nod i ditt lokala kluster, vilket framtvingar en redundansväxling till en sekundär replik som körs på en annan nod. När du utför åtgärden, ska du vara uppmärksam på utdata från testklienten och notera att räknaren fortsätter att öka trots redundansen.
 
-
-
 ## <a name="adding-more-services-to-an-existing-application"></a>Lägga till fler tjänster till ett befintligt program
 
 Om du vill lägga till en till tjänst till ett program som redan har skapats med hjälp av `yo` utför du följande steg: 
 1. Ändra katalogen till roten för det befintliga programmet.  Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
 2. Kör `yo azuresfcsharp:AddService`
 
-
-
-
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interagera med Service Fabric-kluster med Azure CLI](service-fabric-azure-cli.md)
+* Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
@@ -106,6 +102,6 @@ Om du vill lägga till en till tjänst till ett program som redan har skapats me
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

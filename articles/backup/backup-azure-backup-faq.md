@@ -1,3 +1,4 @@
+
 ---
 title: "Vanliga frågor och svar om Azure Backup | Microsoft Docs"
 description: "Svar på vanliga frågor om säkerhetskopieringstjänsten, säkerhetskopieringsagenten, säkerhetskopiering och kvarhållning, återställning, säkerhet och andra vanliga frågor om säkerhetskopiering och haveriberedskap."
@@ -16,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: be06f1eca1848ff6d00661cfc1166797649a98a4
-ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
+ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
+ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
 
 
 ---
@@ -33,6 +34,7 @@ Azure Backup stöder följande lista över operativsystem för säkerhetskopieri
 | Windows 7 och senaste Service Pack |64-bitars |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 och senaste Service Pack |64-bitars |Enterprise, Pro |
 | Windows 10 |64-bitars |Enterprise, Pro, Home |
+| Windows Server 2016 |64-bitars |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Datacenter, Foundation |
 | Windows Server 2012 och senaste Service Pack |64-bitars |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Workgroup |
@@ -172,7 +174,7 @@ Ja. Med DPM kan du definiera dags-, vecko-, månads- och årsscheman. Med Window
 ## <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-ie-on-windows-server-without-dpmbr"></a>Finns det någon skillnad mellan bevarandeprincipen för DPM och Windows Server/Windows-klienten (dvs. på Windows Server utan DPM)?<br/>
 Ingen, både DPM och Windows Server/Windows-klienten har dagliga, veckovisa, månatliga och årliga bevarandeprinciper.
 
-## <a name="can-i-configure-my-retention-policies-selectively-ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Kan jag konfigurera mina bevarandeprinciper selektivt, dvs. konfigurera veckovisa och dagliga men inte årliga och månatliga?<br/>
+## <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Kan jag konfigurera mina bevarandeprinciper selektivt, dvs. konfigurera veckovisa och dagliga men inte årliga och månatliga?<br/>
 Ja, bevarandestrukturen i Azure Backup är mycket flexibel och du kan definiera bevarandeprincipen efter dina behov.
 
 ## <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Kan jag ”schemalägga en säkerhetskopiering” kl. 18:00 och ange ”bevarandeprinciper” vid en annan tidpunkt?<br/>
@@ -275,6 +277,6 @@ Recovery Services-valv stöder båda modellerna.  Du kan säkerhetskopiera en kl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

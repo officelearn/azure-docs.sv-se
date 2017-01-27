@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 02/19/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7fbe958a20099f829f2c4c38344969372217e634
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c6679cf7a6b059ee7c28e1754c54afa6414d633a
 
 
 ---
@@ -29,7 +29,7 @@ Du får skapa ett program med hjälp av Djangos webbramverk (se motsvarande vers
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
+> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
 > 
 > 
 
@@ -112,10 +112,10 @@ Externa paket som krävs för programmet. Distributionsskriptet pip-installerar 
 
 IIS-konfigurationsfiler. Distributionsskriptet använder lämplig web.x.y.config och skapar kopian web.config.
 
-### <a name="optional-files-customizing-deployment"></a>Valfria filer – anpassa distributionen
+### <a name="optional-files---customizing-deployment"></a>Valfria filer – anpassa distributionen
 [!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
-### <a name="optional-files-python-runtime"></a>Valfria filer – Python-körning
+### <a name="optional-files---python-runtime"></a>Valfria filer – Python-körning
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### <a name="additional-files-on-server"></a>Ytterligare filer på servern
@@ -135,7 +135,7 @@ I följande tre avsnitt beskrivs hur du fortsätter med webbappsutvecklingen i t
 * Windows, med kommandorad
 * Mac/Linux, med kommandorad
 
-## <a name="web-app-development-windows-python-tools-for-visual-studio"></a>Webbappsutveckling – Windows – Python Tools för Visual Studio
+## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Webbappsutveckling – Windows – Python Tools för Visual Studio
 ### <a name="clone-the-repository"></a>Klona lagringsplatsen
 Först klonar du lagringsplatsen med hjälp av webbadressen som tillhandahålls på Azure Portal. Mer information finns i [Lokal Git-distribution till Azure App Service](app-service-deploy-local-git.md).
 
@@ -201,7 +201,7 @@ I Visual Studio visas inte förloppet för distributionen. Information om hur du
 
 Visa ändringarna genom att gå till Azure-webbadressen.
 
-## <a name="web-app-development-windows-command-line"></a>Webbappsutveckling – Windows – kommandorad
+## <a name="web-app-development---windows---command-line"></a>Webbappsutveckling – Windows – kommandorad
 ### <a name="clone-the-repository"></a>Klona lagringsplatsen
 Först klonar du lagringsplatsen med hjälp av webbadressen som tillhandahålls på Azure Portal. Lägg till Azure-lagringsplatsen som fjärransluten. Mer information finns i [Lokal Git-distribution till Azure App Service](app-service-deploy-local-git.md).
 
@@ -281,7 +281,7 @@ Nu visas utdata från skriptet för distribution, inklusive skapandet av en virt
 
 Visa ändringarna genom att gå till Azure-webbadressen.
 
-## <a name="web-app-development-maclinux-command-line"></a>Webbappsutveckling – Mac/Linux – kommandorad
+## <a name="web-app-development---maclinux---command-line"></a>Webbappsutveckling – Mac/Linux – kommandorad
 ### <a name="clone-the-repository"></a>Klona lagringsplatsen
 Först klonar du lagringsplatsen med hjälp av webbadressen som tillhandahålls på Azure Portal. Lägg till Azure-lagringsplatsen som fjärransluten. Mer information finns i [Lokal Git-distribution till Azure App Service](app-service-deploy-local-git.md).
 
@@ -365,13 +365,13 @@ Nu visas utdata från skriptet för distribution, inklusive skapandet av en virt
 
 Visa ändringarna genom att gå till Azure-webbadressen.
 
-## <a name="troubleshooting-package-installation"></a>Felsökning – installation av paket
+## <a name="troubleshooting---package-installation"></a>Felsökning – installation av paket
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## <a name="troubleshooting-virtual-environment"></a>Felsökning – virtuell miljö
+## <a name="troubleshooting---virtual-environment"></a>Felsökning – virtuell miljö
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="troubleshooting-static-files"></a>Felsökning – statiska filer
+## <a name="troubleshooting---static-files"></a>Felsökning – statiska filer
 Med Django samlas statiska filer. Det gör att alla statiska filer kopieras från sina ursprungliga platser till en enda mapp. För det här programmet kopieras de till `/static`.
 
 Det görs eftersom statiska filer kan komma från olika "Django-appar". De statiska filerna från administratörsgränssnittet för Django finns till exempel i en undermapp för Django-biblioteket i den virtuella miljön. Statiska filer som definieras av programmet finns i `/app/static`. När du använder flera "Django-appar" sparas statiska filer på flera platser.
@@ -392,7 +392,7 @@ måste du göra insamlingen manuellt på den lokala datorn:
 
 Ta sedan bort `\static`-mappen från `.gitignore` och lägg till den på Git-lagringsplatsen.
 
-## <a name="troubleshooting-settings"></a>Felsökning – inställningar
+## <a name="troubleshooting---settings"></a>Felsökning – inställningar
 Ett flertal inställningar för programmet kan ändras i `DjangoWebProject/settings.py`.
 
 För enklare utveckling är felsökningsläget aktiverat. En bra bieffekt är att du kan se bilder och annat statiskt innehåll vid lokal körning utan att du behöver samla in statiska filer.
@@ -435,7 +435,7 @@ När den är aktiverad, synkroniserar du databasen, kör programmet och går til
 Via de här länkarna hittar du mer information om Django och Python Tools för Visual Studio:
 
 * [Django-dokumentation]
-* [Dokumentation för Python Tools för Visual Studio]
+* [Dokumentationen om Python Tools för Visual Studio]
 
 Information om hur du använder SQL Database och MySQL finns i:
 
@@ -462,11 +462,11 @@ Mer information finns i [Python Developer Center](/develop/python/).
 [Python Tools för Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 för Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[Dokumentation för Python Tools för Visual Studio]: http://aka.ms/ptvsdocs
+[Dokumentationen om Python Tools för Visual Studio]: http://aka.ms/ptvsdocs
 [Django-dokumentation]: https://www.djangoproject.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

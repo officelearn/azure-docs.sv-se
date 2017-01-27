@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/29/2016
+ms.date: 01/10/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f29f36effd858f164f7b6fee8e5dab18211528b3
-ms.openlocfilehash: 6f724576badb7cf3625a139c416860b7e43ed036
+ms.sourcegitcommit: d8faeafc6d4c73c4c71d0bc1554b04302dffdc55
+ms.openlocfilehash: 72186e03a1dc47f67b8f4cdcac55208a61c8e147
 
 
 ---
@@ -74,12 +74,19 @@ pip install azure-datalake-store
     ## Use this only for Azure AD end-user authentication
     from azure.common.credentials import UserPassCredentials
 
+    ## Use this only for Azure AD multi-factor authentication
+    from msrestazure.azure_active_directory import AADTokenCredentials
+
     ## Required for Azure Data Lake Store account management
-    from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-    from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
     ## Required for Azure Data Lake Store filesystem management
     from azure.datalake.store import core, lib, multithread
+
+    # Common Azure imports
+    from azure.mgmt.resource.resources import ResourceManagementClient
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
     ## Use these as needed for your application
     import logging, getpass, pprint, uuid, time
@@ -88,6 +95,14 @@ pip install azure-datalake-store
 3. Spara ändringarna i mysample.py.
 
 ## <a name="authentication"></a>Autentisering
+
+I det här avsnittet tittar vi på hur du kan autentisera med Azure AD på olika sätt. De tillgängliga alternativen är:
+
+* Slutanvändarautentisering
+* Tjänst-till-tjänst-autentisering
+* Multi-Factor Authentication
+
+Du måste använda dessa autentiseringsalternativ för både kontohanterings- och filsystemhanteringsmoduler.
 
 ### <a name="end-user-authentication-for-account-management"></a>Slutanvändarautentisering för kontohantering
 
@@ -121,6 +136,29 @@ Använd den här metoden om du vill autentisera med Azure AD för filsystemsåtg
 
     token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
 
+### <a name="multi-factor-authentication-for-account-management"></a>Multifaktorautentisering för kontohantering
+
+Använd den här metoden om du vill autentisera med Azure AD för kontohanteringsåtgärder (skapa/ta bort Data Lake Store-konto osv.). Följande kodfragment kan användas för att autentisera ditt program med multifaktorautentisering. Använd detta med ett befintligt Azure AD-webbappsprogram.
+
+    authority_host_url = "https://login.microsoftonline.com"
+    tenant = "FILL-IN-HERE"
+    authority_url = authority_host_url + '/' + tenant
+    client_id = 'FILL-IN-HERE'
+    redirect = 'urn:ietf:wg:oauth:2.0:oob'
+    RESOURCE = 'https://management.core.windows.net/'
+    
+    context = adal.AuthenticationContext(authority_url)
+    code = context.acquire_user_code(RESOURCE, client_id)
+    print(code['message'])
+    mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
+    credentials = AADTokenCredentials(mgmt_token, client_id)
+
+### <a name="multi-factor-authentication-for-filesystem-management"></a>Multifaktorautentisering för hantering av filsystem
+
+Använd den här metoden om du vill autentisera med Azure AD för filsystemsåtgärder (skapa mapp, överför fil osv.). Följande kodfragment kan användas för att autentisera ditt program med multifaktorautentisering. Använd detta med ett befintligt Azure AD-webbappsprogram.
+
+    token = lib.auth(tenant_id='FILL-IN-HERE')
+
 ## <a name="create-an-azure-resource-group"></a>Skapa en Azure-resursgrupp
 
 Använd följande kodfragment för att skapa en Azure-resursgrupp:
@@ -137,7 +175,7 @@ Använd följande kodfragment för att skapa en Azure-resursgrupp:
     )
     
     ## Create an Azure Resource Group
-    armGroupResult = resourceClient.resource_groups.create_or_update(
+    resourceClient.resource_groups.create_or_update(
         resourceGroup,
         ResourceGroup(
             location=location
@@ -207,6 +245,6 @@ Följande kodfragment skapar först Data Lake Store-klienten. Klientobjektet anv
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

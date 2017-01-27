@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/12/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
+ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
+ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
 
 
 ---
@@ -50,7 +50,7 @@ Det går att ställa in särskilda säkerhetsprinciper för varje prenumeration 
    > Vi rekommenderar att du aktiverar datainsamling för alla prenumerationer, eftersom du då kan vara säker på att alla befintliga och nya virtuella datorer är säkerhetsövervakade. När du aktiverar datainsamling installeras övervakningsagenten. Om du inte vill aktivera datainsamling här kan du göra det senare i vyerna **Hälsa** och **Rekommendationer**. Du kan även aktivera datainsamling för endast prenumerationen eller för specifika virtuella datorer. I avsnittet med [vanliga frågor och svar om Azure Security Center](security-center-faq.md) kan du läsa om vilka virtuella datorer som stöds.
    > 
    > 
-5. Om ditt lagringskonto inte har konfigurerats än ser du antagligen en varning som i följande bild när du öppnar **Säkerhetsprincip**:
+5. Om ditt lagringskonto inte har konfigurerats än ser du antagligen en varning som i följande bild när du öppnar **Säkerhetsprincip**. Om du inte väljer något lagringskonto för en region skapas ett åt dig.
    
     ![Val av lagringsutrymme](./media/security-center-policies/security-center-policies-fig2.png)
 6. Om du ser den här varningen klickar du på alternativet och väljer region så som visas på följande skärm:
@@ -111,6 +111,6 @@ I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i A
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

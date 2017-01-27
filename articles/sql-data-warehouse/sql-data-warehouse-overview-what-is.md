@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;mausher;kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff2d30fcf53028754fc5e1a4b6b52323855a48b4
+ms.sourcegitcommit: 6241eb0e7ea091dffcb0ae770f8d89f24a19eb67
+ms.openlocfilehash: ff2f688d42924edb1596cb2db474a58748f2b44c
 
 
 ---
@@ -25,7 +25,7 @@ Azure SQL Data Warehouse är en molnbaserad skalbar databas som kan bearbeta mas
 
 SQL Data Warehouse:
 
-* Kombinerar SQL Server-relationsdatabasen med skalbarhetsfunktionerna i Azure-molnet. Du kan öka, minska, pausa eller återuppta databearbetning sekundsnabbt. Du kan spara kostnader genom att skala ut processorkapaciteten vid behov och dra ner på användningen under tider med låg belastning.
+* Kombinerar SQL Server-relationsdatabasen med skalbarhetsfunktionerna i Azure-molnet. Du kan öka, minska, pausa eller återuppta beräkningen på några minuter eller till och med sekunder. Du kan spara kostnader genom att skala ut processorkapaciteten vid behov och dra ner på användningen under tider med låg belastning.
 * Utnyttjar Azure-plattformen. Den är enkel att distribuera, underhålls sömlöst och är helt feltolerant tack vare automatiska säkerhetskopieringar.
 * Kompletterar SQL Server-ekosystemet. Du kan utveckla med välbekanta SQL Server Transact-SQL (T-SQL) och verktyg.
 
@@ -96,21 +96,21 @@ SQL Data Warehouse baseras på SQL Servers relationsdatabasmotor och innehåller
 
 * SQL Data Warehouse använder T-SQL-syntaxen för många åtgärder. Det finns också stöd för en omfattande uppsättning traditionella SQL-konstruktioner som lagrade procedurer, användardefinierade funktioner, tabellpartitionering, index och sortering.
 * SQL Data Warehouse innehåller även ett antal nyare SQL Server-funktioner som grupperade **columnstore**-index, PolyBase-integrering och datagranskning (med hotbedömning).
-* Vissa T-SQL-språkelement som är mindre vanliga för arbetsbelastningar i informationslager, eller som är nyare för SQL Server, kanske inte är tillgängliga. Mer information finns i [Migreringsdokumentation][Migreringsdokumentation].
+* Vissa T-SQL-språkelement som är mindre vanliga för arbetsbelastningar i informationslager, eller som är nyare för SQL Server, kanske inte är tillgängliga. Mer information finns i [migreringsdokumentationen][Migration documentation].
 
 Med Transact-SQL och funktionslikheterna mellan SQL Server, SQL Data Warehouse, SQL Database och Analytics Platform System, kan du utveckla en lösning som passar dina databehov. Du kan själv välja var du vill ha dina data, baserat på prestanda-, säkerhets- och skalningskrav och kan sedan överföra dina data vid behov mellan olika system.
 
 ## <a name="data-protection"></a>Dataskydd
-SQL Data Warehouse lagrar alla data i lokalt redundant Azure Premium-lagring. Flera synkrona kopior av data bevaras i det lokala datacentret för att garantera transparent dataskydd vid lokaliserade fel. Dessutom säkerhetskopierar SQL Data Warehouse automatiskt dina aktiva (inte pausade) databaser med jämna mellanrum med hjälp av Azure Storage-ögonblicksbilder. Mer information om hur du säkerhetskopierar och återställer arbete finns i [Översikt över säkerhetskopiering och återställning][Översikt över säkerhetskopiering och återställning].
+SQL Data Warehouse lagrar alla data i lokalt redundant Azure Premium-lagring. Flera synkrona kopior av data bevaras i det lokala datacentret för att garantera transparent dataskydd vid lokaliserade fel. Dessutom säkerhetskopierar SQL Data Warehouse automatiskt dina aktiva (inte pausade) databaser med jämna mellanrum med hjälp av Azure Storage-ögonblicksbilder. Mer information om hur du säkerhetskopierar och återställer arbete finns i [Översikt över säkerhetskopiering och återställning][Backup and restore overview].
 
 ## <a name="integrated-with-microsoft-tools"></a>Integrerat med Microsoft-verktyg
 SQL Data Warehouse integrerar även många av verktygen som SQL Server-användare är bekanta med. Exempel på dessa är:
 
 **Traditionella SQL Server-verktyg:** SQL Data Warehouse är helt integrerat med SQL Server Analysis Services, Integration Services och Reporting Services.
 
-**Molnbaserade verktyg:** SQL Data Warehouse kan användas tillsammans med ett antal nya verktyg i Azure, inklusive Data Factory, Stream Analytics, Machine Learning och Power BI. En mer komplett lista finns i [Översikt över integrerade verktyg][Översikt över integrerade verktyg].
+**Molnbaserade verktyg:** SQL Data Warehouse kan användas tillsammans med ett antal nya verktyg i Azure, inklusive Data Factory, Stream Analytics, Machine Learning och Power BI. En mer komplett lista finns i [Översikt över integrerade verktyg][Integrated tools overview].
 
-**Verktyg från tredje part:** Ett stort antal leverantörer av tredjepartsverktyg har certifierad integrering av sina verktyg med SQL Data Warehouse. En fullständig lista finns i [SQL Data Warehouse – samarbetspartners][SQL Data Warehouse – samarbetspartners].
+**Verktyg från tredje part:** Ett stort antal leverantörer av tredjepartsverktyg har certifierad integrering av sina verktyg med SQL Data Warehouse. En fullständig lista finns i [SQL Data Warehouse-samarbetspartner][SQL Data Warehouse solution partners].
 
 ## <a name="hybrid-data-sources-scenarios"></a>Scenarier för hybriddatakällor
 SQL Data Warehouse i kombination med PolyBase ger användare fantastiska möjligheter att flytta data mellan sina ekosystem, vilket öppnar upp för konfigurationer av avancerade hybridscenarier med icke-relationella och lokala datakällor.
@@ -122,10 +122,10 @@ Med PolyBase kan du utnyttja data från olika källor med hjälp av välbekanta 
 * PolyBase kan användas för att få åtkomst till Blob Storage som också används som lagringsplats för ett HDInsight-kluster. På så sätt kan du komma åt samma data med verktyg för både relationella och icke-relationella data.
 
 ## <a name="sla"></a>SLA
-SQL Data Warehouse erbjuder ett servicenivåavtal (SLA) på produktnivå som en del av serviceavtalet för Microsoft Online Services. Mer information finns i [SLA för SQL Data Warehouse][SLA för SQL Data Warehouse]. SLA-information om övriga produkter finns på Azure-sidan med [Serviceavtal]. Du kan även hämta dem på sidan med [Volymlicensiering][Volymlicensiering]. 
+SQL Data Warehouse erbjuder ett servicenivåavtal (SLA) på produktnivå som en del av serviceavtalet för Microsoft Online Services. Mer information finns på sidan om [SLA för SQL Data Warehouse][SLA for SQL Data Warehouse]. SLA-information om övriga produkter finns på Azure-sidan med [serviceavtal]. Du kan även hämta dem på sidan med [volymlicensiering][Volume Licensing]. 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt [skapar ett SQL Data Warehouse][skapar ett SQL Data Warehouse] och [läsa in exempeldata][läsa in exempeldata]. Om du inte har erfarenhet av Azure kan [Azure-ordlistan][Azure-ordlistan] vara till hjälp eftersom du kan stöta på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
+Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt [skapar ett SQL Data Warehouse][create a SQL Data Warehouse] och [läsa in exempeldata][load sample data]. Om du inte har erfarenhet av Azure kan [Azure-ordlistan][Azure glossary] vara till hjälp om du stöter på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
 
 * [Kundernas framgångsberättelser]
 * [Bloggar]
@@ -142,13 +142,13 @@ Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt
 
 <!--Article references-->
 [Skapa ett supportärende]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[läsa in exempeldata]: ./sql-data-warehouse-load-sample-databases.md
-[skapar ett SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[migreringsdokumentationen]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse-samarbetspartner]: ./sql-data-warehouse-partner-business-intelligence.md
-[Översikt över integrerade verktyg]: ./sql-data-warehouse-overview-integrate.md
-[Översikt över säkerhetskopiering och återställning]: ./sql-data-warehouse-restore-database-overview.md
-[Azure-ordlistan]: ../azure-glossary-cloud-terminology.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -161,12 +161,12 @@ Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt
 [Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videoklipp]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA för SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
-[volymlicensiering]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [serviceavtal]: https://azure.microsoft.com/en-us/support/legal/sla/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

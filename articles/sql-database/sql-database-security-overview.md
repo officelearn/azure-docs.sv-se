@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/09/2016
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 9ebf3cd290151449c05c89307500fa5679de3b09
+ms.sourcegitcommit: 69faa86ddbc43793146653fc8d8dc2bf35c40aa1
+ms.openlocfilehash: f3a7bcbc80580232f2704087eb529ee9ec8ead46
 
 
 ---
@@ -71,9 +71,14 @@ SQL Database skyddar dina data genom att tillhandahålla funktioner för granskn
 ### <a name="auditing"></a>Granskning
 SQL Database-granskning spårar databasaktiviteter och hjälper dig att upprätthålla regelefterlevnad, genom att registrera databashändelser till en granskningslogg på ditt Azure Storage-konto. Granskning låter dig förstå pågående databasaktiviteter, samt analysera och undersöka historiska aktiviteter för att identifiera potentiella hot eller misstänkt missbruk och säkerhetsöverträdelser. Ytterligare information finns i [Kom igång med SQL Database-granskning](sql-database-auditing-get-started.md).  
 
-### <a name="threat-detection"></a>Hotidentifiering
+### <a name="auditing--threat-detection"></a>Granskning och hotidentifiering 
+SQL Database-granskning spårar databasaktiviteter och hjälper dig att upprätthålla regelefterlevnad, genom att registrera databashändelser till en granskningslogg på ditt Azure Storage-konto. Granskning låter dig förstå pågående databasaktiviteter, samt analysera och undersöka historiska aktiviteter för att identifiera potentiella hot eller misstänkt missbruk och säkerhetsöverträdelser. Ytterligare information finns i [Kom igång med SQL Database-granskning](sql-database-auditing-get-started.md).  
+ 
 Hotidentifiering komplimenterar granskning genom att erbjuda ytterligare ett lager säkerhetsinformation inbyggt i Azure SQL Database-tjänsten. Den fungerar dygnet runt för att lära sig, undersöka och identifiera avvikande databasaktiviteter. Du får aviseringar om misstänkta aktiviteter, potentiella svagheter, SQL-filinmatningsattacker och avvikande mönster i databasåtkomst. Du kan svara på aviseringarna genom att följa den handlingsbara och informativa instruktionerna som du får. Mer information finns i [Kom igång med SQL Database Threat Detection](sql-database-threat-detection-get-started.md).  
-
+ 
+### <a name="data-masking"></a>Datamaskning 
+SQL Database dynamisk datamaskning begränsar exponering av känsliga data genom att maskera den för icke-privilegierade användare. Dynamisk datamaskning identifierar automatiskt potentiellt känsliga data i Azure SQL Database och ger handlingsbara rekommendationer att maskera fälten, med minimal inverkan på programlagret. Det fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. Mer information finns i [Get started with SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) (Komma igång med dynamisk datamaskering i SQL-databas)
+ 
 ## <a name="compliance"></a>Efterlevnad
 Förutom ovanstående egenskaper och funktioner som kan hjälpa programmet att uppfylla olika säkerhetskrav, deltar Azure SQL Database också i regelbundna granskningar och har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://azure.microsoft.com/support/trust-center/services/).
 
@@ -84,6 +89,7 @@ Förutom ovanstående egenskaper och funktioner som kan hjälpa programmet att u
 - För en diskussion om proaktiv övervakning, se [Kom igång med SQL Database-granskning](sql-database-auditing-get-started.md) och [Kom igång med SQL Database-hotidentifiering](sql-database-threat-detection-get-started.md).
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO2-->
 
 

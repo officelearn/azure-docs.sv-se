@@ -1,10 +1,10 @@
 ---
 title: "Vanliga frågor och svar om virtuella nätverk i VPN Gateway | Microsoft Docs"
-description: "Vanliga frågor och svar om VPN Gateway. Vanliga frågor och svar om Microsoft Azure Virtual Network-anslutningar på flera platser, konfiguration av hybridanslutningar och VPN-gatewayer"
+description: "Vanliga frågor och svar om VPN Gateway. Vanliga frågor och svar om Microsoft Azure Virtual Network-anslutningar på flera platser, konfiguration av hybridanslutningar och VPN-gateways."
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: cherylmc
+manager: timlt
 editor: 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2016
-ms.author: yushwang
+ms.date: 01/10/2017
+ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
+ms.sourcegitcommit: 2dda1cd384cf365504811a260872703f2c5c484e
+ms.openlocfilehash: ccb0dc6172b234412558b9175f3872d690d4ea3a
 
 
 ---
@@ -102,7 +102,7 @@ Som standard kommer klientdatorn inte återupprätta VPN-anslutningen automatisk
 Automatisk återanslutning och DDNS stöds för närvarande inte i punkt-till-plats-VPN:er.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Kan jag ha plats-till-plats- och punkt-till-plats-konfigurationer samtidigt på samma virtuella nätverk?
-Ja. Båda dessa lösningar fungerar om du har en routningsbaserad VPN-typ för din gateway. I den klassiska distributionsmodellen måste du ha en dynamisk gateway. Vi har inte stöd för punkt-till-plats för VPN-gatewayer med statisk routning eller gatewayer som använder -VpnType PolicyBased.
+Ja. Båda dessa lösningar fungerar om du har en routningsbaserad VPN-typ för din gateway. I den klassiska distributionsmodellen måste du ha en dynamisk gateway. Vi har inte stöd för punkt-till-plats för VPN-gateways med statisk routning eller gateways som använder cmdleten `-VpnType PolicyBased`.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Kan jag konfigurera en punkt-till-plats-klient så att den ansluter till flera virtuella nätverk samtidigt?
 Ja, det kan du. Men de virtuella nätverken får inte ha några överlappande IP-prefix, och adressutrymmen för punkt-till-plats får inte överlappa mellan de virtuella nätverken.
@@ -129,7 +129,7 @@ Ja, både API:n och PowerShell-cmdleten Set Pre-Shared Key kan användas för at
 ### <a name="can-i-use-other-authentication-options"></a>Kan jag använda andra autentiseringsalternativ?
 Vi är begränsade till att använda PSK (I förväg delad nyckel) vid autentisering.
 
-### <a name="what-is-the-gateway-subnet-and-why-is-it-needed"></a>Vad är ”gateway-undernätet” och varför behövs det?
+### <a name="what-is-the-gatewaysubnet-and-why-is-it-needed"></a>Vad är ”GatewaySubnet” och varför behövs det?
 Vi har en gateway-tjänst som vi kör för att aktivera anslutning mellan flera platser.
 
 Om du vill konfigurera en VPN-gateway, måste du först skapa ett gateway-undernät för ditt VNet. Alla gateway-undernät måste ha namnet GatewaySubnet för att fungera korrekt. Ge inte något annat namn till gateway-undernätet. Och distribuera inte virtuella datorer eller något annat till gateway-undernätet.
@@ -140,7 +140,15 @@ Den minsta storleken för gateway-undernätet beror helt på den konfiguration s
 Nej.
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>Hur anger jag vilken trafik som ska passera VPN-gatewayen?
-Om du använder den klassiska Azure-portalen lägger du till varje intervall som du vill skicka via gatewayen för ditt virtuella nätverk på sidan Nätverk under Lokala nätverk.
+
+####<a name="resource-manager-deployment-model"></a>Distributionsmodell med Resource Manager
+* PowerShell: Använd ”AddressPrefix” för att ange trafik för den lokala nätverksgatewayen.
+* Azure Portal: Gå till den lokala nätverksgatewayen > Konfiguration > Adressutrymme.
+
+####<a name="classic-deployment-model"></a>Klassisk distributionsmodell
+* Azure Portal: Gå till det klassiska virtuella nätverket > VPN-anslutningar > Plats-till-plats-VPN-anslutningar > Namn på lokal plats
+> Lokal plats > Adressutrymme för klient. 
+* Den klassiska Azure-portalen: Lägg till varje intervall som du vill skicka via gatewayen för ditt virtuella nätverk på sidan Nätverk under Lokala nätverk. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>Kan jag konfigurera tvingad tunneltrafik?
 Ja. Se [Konfigurera tvingad tunneltrafik](vpn-gateway-about-forced-tunneling.md).
@@ -167,7 +175,7 @@ Nej, båda virtuella nätverken MÅSTE använda routningsbaserade VPN-anslutning
 Ja, den är skyddad med IPsec/IKE-kryptering.
 
 ### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone"></a>Transporteras VNet-till-VNet-trafiken via Azures stamnät?
-Ja.
+Ja, den här trafiken passerar Azures stamnät. Den går inte över Internet.
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>Hur många lokala platser och virtuella nätverk kan ett virtuellt nätverk ansluta till?
 Max. 10 kombinerat för dynamiska routnings-gateways Basic och Standard, samt 30 för VPN-gatewayer med hög kapacitet.
@@ -176,7 +184,7 @@ Max. 10 kombinerat för dynamiska routnings-gateways Basic och Standard, samt 30
 Ja, VPN:er för punkt-till-plats (P2S) kan användas med VPN-gateways som ansluter till flera lokala platser och andra virtuella nätverk.
 
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>Kan jag konfigurera flera tunnlar mellan mitt virtuella nätverk och min lokala plats med hjälp av multisite-VPN?
-Nej, redundanta tunnlar mellan ett virtuellt Azure-nätverk och en lokal plats stöds inte.
+Ja, men du måste konfigurera BGP för båda tunnlarna till samma plats.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites"></a>Kan det finnas överlappande adressutrymmen i anslutna virtuella nätverk och lokala platser?
 Nej. Överlappande adressutrymmen innebär att överföringen av nätverkskonfigurationsfilen eller ”Skapa virtuella nätverk” misslyckas.
@@ -185,10 +193,12 @@ Nej. Överlappande adressutrymmen innebär att överföringen av nätverkskonfig
 Nej, alla VPN-tunnlar, inklusive punkt-till-plats-VPN:er, delar samma Azure VPN-gateway och tillgänglig bandbredd.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Kan jag använda Azures VPN-gateway till att överföra trafik mellan mina lokala platser eller till ett annat virtuellt nätverk?
-**Klassisk distributionsmodell**<br>
+
+####<a name="resource-manager-deployment-model"></a>Distributionsmodell med Resource Manager
+Ja. Mer information finns i avsnittet om [BGP](#bgp).
+
+####<a name="classic-deployment-model"></a>Klassisk distributionsmodell
 Överföringstrafik via Azures VPN-gateway är möjlig med den klassiska distributionsmodellen, men den förlitar sig på statiska definierade adressutrymmen i nätverkskonfigurationsfilen. BGP stöds inte ännu med virtuella Azure-nätverk och VPN-gatewayer som använder den klassiska distributionsmodellen. Utan BGP är manuellt definierade överföringsadressutrymmen mycket felbenägna och rekommenderas inte.<br>
-**Resource Manager-distributionsmodell**<br>
-Om du använder distributionsmodellen med Resource Manager finns det mer information i avsnittet [BGP](#bgp).
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Genererar Azure samma i förväg delade IPsec/IKE-nyckel för alla mina VPN-anslutningar för samma virtuella nätverk?
 Nej, Azure genererar som standard olika nycklar för olika VPN-anslutningar. Du kan dock använda REST-API:n eller PowerShell-cmdleten Set VPN Gateway Key för att ange det nyckelvärde som du föredrar. Nyckeln MÅSTE vara en alfanumerisk sträng med 1–128 tecken.
@@ -216,6 +226,6 @@ Du kan se mer information om virtuella nätverk i [Vanliga frågor och svar om V
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

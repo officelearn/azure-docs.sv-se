@@ -17,75 +17,12 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
-ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
+ms.sourcegitcommit: a9adc82faab977ad5da1c9dc281d45db3101d8c8
+ms.openlocfilehash: 3fb97f80d5012e993f92eb592d877faabc94c43e
 
 
 ---
-<!------------------
-This topic is annotated with TEMPLATE guidelines for TUTORIAL TOPICS.
-
-
-Metadata guidelines
-
-title
-    60 characters or less. Tells users clearly what they will do (deploy an ASP.NET web app to App Service). Not the same as H1. It's 60 characters or fewer including all characters between the quotes and the Microsoft Docs site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015."
------------------->
-
-<!----------------
-
-TEMPLATE GUIDELINES for tutorial topics
-
-The tutorial topic shows users how to solve a problem using a product or service. It includes the prerequisites and steps users need to be successful.  
-
-It is a "solve a problem" topic, not a "learn concepts" topic.
-
-DO include this:
-    • What users will do
-    • What they will create or accomplish by the end of the tutorial
-    • Time estimate
-    • Optional but useful: Include a diagram or video. Diagrams help users see the big picture of what they are doing. A video of the steps can be used by customers as an alternative to following the steps in the topic.
-    • Prerequisites: Technical expertise and software requirements
-    • End-to-end steps. At the end, include next steps to deeper or related tutorials so users can learn more about the service
-
-DON'T include this:
-    • Conceptual info about the service. This info is in overview topics that you can link to in the prerequisites section if necessary
-
-------------------->
-
-<!------------------
-GUIDELINES for the H1 
-    
-    The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
-        
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
--------------------->
-
 # <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery"></a>Komma igång med säkerhetskopiering och återställning för dataskydd och återställning
-
-<!------------------
-    GUIDELINES for introduction
-    
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top keywords that you are using throughout the article.The introduction should be brief and to the point of what users will do and what they will accomplish. 
-
-    In this example:
-     
-
-Sentence #1 Explains what the user will do. This is also the metadata description. 
-    This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015. 
-
-Sentence #2 Explains what users will learn and the benefit.  
-    When you’re finished, you’ll have a simple web application up and running in the cloud.
-
--------------------->
-
-
 I den här introduktionskursen lär du dig hur du använder Azure Portal för att:
 
 - Visa befintliga säkerhetskopieringar av en databas
@@ -95,6 +32,9 @@ I den här introduktionskursen lär du dig hur du använder Azure Portal för at
 
 **Uppskattad tidsåtgång**: Den här kursen tar cirka 30 minuter att slutföra (förutsatt att du redan har uppfyllt kraven).
 
+> [!TIP]
+> Du kan utföra samma uppgifter i en introduktionskurs genom att använda [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+>
 
 ## <a name="prerequisites"></a>Krav
 
@@ -105,11 +45,11 @@ I den här introduktionskursen lär du dig hur du använder Azure Portal för at
 * Du har slutfört [Komma igång med Azure SQL Database-servrar, databaser och brandväggsregler med hjälp av Azure Portal och SQL Server Management Studio](sql-database-get-started.md) eller motsvarande [PowerShell-version](sql-database-get-started-powershell.md) av den här självstudiekursen. Om du inte har gjort det går du kursen eller kör PowerShell-skriptet i slutet av [PowerShell-versionen](sql-database-get-started-powershell.md) av den här kursen innan du fortsätter.
 
 
-> [!TIP]
-> Du kan utföra samma uppgifter i en introduktionskurs genom att använda [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+> [!NOTE]
+> I den här självstudiekursen lär du dig mer om följande: [SQL Database-säkerhetskopieringar](sql-database-automated-backups.md), [Långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md) och [Återställa en Azure SQL-databas med hjälp av automatiska databassäkerhetskopieringar](sql-database-recovery-using-backups.md).
+>  
 
-
-## <a name="sign-in-by-using-your-existing-account"></a>Logga in med ditt befintliga konto
+## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Logga in på Azure Portal med ditt Azure-konto
 Använd din [befintliga prenumeration](https://account.windowsazure.com/Home/Index) och följ dessa steg för att ansluta till Azure Portal.
 
 1. Öppna din webbläsare och anslut till [Azure-portalen](https://portal.azure.com/).
@@ -117,7 +57,6 @@ Använd din [befintliga prenumeration](https://account.windowsazure.com/Home/Ind
 3. Ange autentiseringsuppgifterna för din prenumeration på sidan **Logga in**.
    
    ![Logga in](./media/sql-database-get-started/login.png)
-
 
 <a name="create-logical-server-bk"></a>
 
@@ -127,15 +66,15 @@ I det här avsnittet av självstudiekursen visar du information om den senaste �
 
 1. Öppna bladet **SQL-databas** för din databas, **sqldbtutorialdb**.
 
-    ![Blad för ny exempeldatabas](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![Blad för ny exempeldatabas](./media/sql-database-get-started/new-sample-db-blade.png)
 
 2. Klicka på **Återställ** i verktygsfältet.
 
-    ![verktygsfältet Återställ](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![verktygsfältet Återställ](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 3. Granska den senaste återställningspunkten på bladet Återställ.
 
-    ![äldsta återställningspunkt](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
+   ![äldsta återställningspunkt](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Återställa en databas till en tidigare tidpunkt
 
@@ -143,37 +82,37 @@ I det här avsnittet av självstudiekursen ska du återställa databasen till en
 
 1. På bladet **Återställ** för databasen granskar du standardnamnet för den nya databasen som du vill använda för att återställa databasen till en tidigare tidpunkt (namnet är det befintliga databasnamnet med en tidsstämpel). Det här namnet ändras för att återspegla den tidpunkt som du anger i nästa steg.
 
-    ![namn på återställd databas](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
+   ![namn på återställd databas](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
 
 2. Klicka på **kalenderikonen** i inmatningsrutan **Återställningspunkt (UTC)**.
 
-    ![återställningspunkt](./media/sql-database-get-started-backup-recovery/restore-point.png)
+   ![återställningspunkt](./media/sql-database-get-started-backup-recovery/restore-point.png)
 
 2. Välj ett datum inom kvarhållningsperioden i kalendern
 
-    ![datum för återställningspunkt](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
+   ![datum för återställningspunkt](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
 
 3. I inmatningsrutan **Återställningspunkt (UTC)** anger du den tid på det valda datumet som du vill återställa data i databasen från de automatiska databassäkerhetskopiorna till.
 
-    ![tid för återställningspunkt](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
+   ![tid för återställningspunkt](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
-    >[!NOTE]
-    >Observera att databasens namn har ändrats för att återspegla det datum och den tid du valt. Observera också att du inte kan ändra den server till vilken du återställer till en specifik tidpunkt. Om du vill återställa till en annan server använder du [geo-återställning](sql-database-disaster-recovery.md#recover-using-geo-restore). Observera även att du kan återställa till en [elastisk pool](sql-database-elastic-jobs-overview.md) eller till en annan prisnivå. 
-    >
+   >[!NOTE]
+   >Observera att databasens namn har ändrats för att återspegla det datum och den tid du valt. Observera också att du inte kan ändra den server till vilken du återställer till en specifik tidpunkt. Om du vill återställa till en annan server använder du [geo-återställning](sql-database-disaster-recovery.md#recover-using-geo-restore). Observera även att du kan återställa till en [elastisk pool](sql-database-elastic-jobs-overview.md) eller till en annan prisnivå. 
+   >
 
 4. Klicka på **OK** för att återställa databasen till en tidigare tidpunkt till den nya databasen.
 
 5. Klicka på meddelandeikonen i verktygsfältet för att visa återställningsjobbets status.
 
-    ![förlopp för återställningsjobb](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
+   ![förlopp för återställningsjobb](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
 
 6. När återställningsjobbet har slutförts kan du öppna bladet **SQL-databaser** för att visa den nyligen återställda databasen.
 
-    ![återställd databasen](./media/sql-database-get-started-backup-recovery/restored-database.png)
+   ![återställd databasen](./media/sql-database-get-started-backup-recovery/restored-database.png)
 
-   > [!NOTE]
-   > Här kan du ansluta till den återställda databasen med hjälp av SQL Server Management Studio för att utföra nödvändiga åtgärder, till exempel [för att extrahera en del data från den återställda databasen och kopiera dem till den befintliga databasen eller för att ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databasnamnet](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
+> [!NOTE]
+> Här kan du ansluta till den återställda databasen med hjälp av SQL Server Management Studio för att utföra nödvändiga åtgärder, till exempel [för att extrahera en del data från den återställda databasen och kopiera dem till den befintliga databasen eller för att ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databasnamnet](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Konfigurera långsiktig kvarhållning av automatiska säkerhetskopieringar i ett Azure Recovery Services-valv 
 
@@ -182,11 +121,11 @@ I det här avsnittet av självstudiekursen ska du [konfigurera ett Azure Recover
 
 > [!TIP]
 > Om du vill ta bort säkerhetskopior finns [Ta bort säkerhetskopior för långsiktig kvarhållning](sql-database-long-term-retention-delete.md).
-
+>
 
 1. Öppna bladet **SQL Server** för din server, **sqldbtutorialserver**.
 
-    ![Bladet SQL-server](./media/sql-database-get-started/sql-server-blade.png)
+   ![Bladet SQL-server](./media/sql-database-get-started/sql-server-blade.png)
 
 2. Klicka på **Long-term backup retention** (Långsiktig kvarhållning av säkerhetskopior).
 
@@ -246,9 +185,9 @@ I det här avsnittet av självstudiekursen ska du [konfigurera ett Azure Recover
 
    ![visa Recovery Services-valv](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
-   > [!IMPORTANT]
-   > När de har konfigurerats visas säkerhetskopiorna i valvet inom sju dagar. Fortsätt inte den här självstudiekursen förrän säkerhetskopiorna visas i valvet.
-   >
+> [!IMPORTANT]
+> När de har konfigurerats visas säkerhetskopiorna i valvet inom sju dagar. Fortsätt inte den här självstudiekursen förrän säkerhetskopiorna visas i valvet.
+>
 
 ## <a name="view-backups-in-long-term-retention"></a>Visa säkerhetskopior med långsiktig kvarhållning
 
@@ -260,17 +199,17 @@ I det här avsnittet av självstudiekursen ska du visa information om databassä
 
 2. Öppna bladet **SQL-databas** för din databas, **sqldbtutorialdb**.
 
-    ![Blad för ny exempeldatabas](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![Blad för ny exempeldatabas](./media/sql-database-get-started/new-sample-db-blade.png)
 
 3. Klicka på **Återställ** i verktygsfältet.
 
-    ![verktygsfältet Återställ](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![verktygsfältet Återställ](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 4. Klicka på **På lång sikt** på bladet Återställ.
 
 5. Under Azure vault backups (Säkerhetskopior i Azure-valv) klickar du på **Välj en säkerhetskopia** för att visa de tillgängliga databassäkerhetskopiorna i långsiktig kvarhållning av säkerhetskopior.
 
-    ![säkerhetskopior i valv](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
+   ![säkerhetskopior i valv](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
 ## <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Återställa en databas från en säkerhetskopia i långsiktig kvarhållning av säkerhetskopior
 
@@ -278,28 +217,25 @@ I det här avsnittet av självstudiekursen ska du återställa databasen till en
 
 1. På bladet **Säkerhetskopior i Azure-valv** klickar du på säkerhetskopian som ska återställas och klickar sedan på **Välj**.
 
-    ![välj säkerhetskopia i valv](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
+   ![välj säkerhetskopia i valv](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 
 2. I textrutan **Databasnamn** anger du namnet på den återställda databasen.
 
-    ![nytt databasnamn](./media/sql-database-get-started-backup-recovery/new-database-name.png)
+   ![nytt databasnamn](./media/sql-database-get-started-backup-recovery/new-database-name.png)
 
 3. Klicka på **OK** för att återställa databasen från säkerhetskopian i valvet till den nya databasen.
 
 4. Klicka på meddelandeikonen i verktygsfältet för att visa återställningsjobbets status.
 
-    ![förlopp över återställningsjobb från valvet](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![förlopp över återställningsjobb från valvet](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. När återställningsjobbet har slutförts kan du öppna bladet **SQL-databaser** för att visa den nyligen återställda databasen.
 
-    ![återställd databas från valvet](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
+   ![återställd databas från valvet](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
-   > [!NOTE]
-   > Här kan du ansluta till den återställda databasen med hjälp av SQL Server Management Studio för att utföra nödvändiga åtgärder, till exempel [för att extrahera en del data från den återställda databasen och kopiera dem till den befintliga databasen eller för att ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databasnamnet](sql-database-recovery-using-backups.md#point-in-time-restore).
-   >
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
+> [!NOTE]
+> Här kan du ansluta till den återställda databasen med hjälp av SQL Server Management Studio för att utföra nödvändiga åtgärder, till exempel [för att extrahera en del data från den återställda databasen och kopiera dem till den befintliga databasen eller för att ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databasnamnet](sql-database-recovery-using-backups.md#point-in-time-restore).
+>
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -309,6 +245,6 @@ I det här avsnittet av självstudiekursen ska du återställa databasen till en
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

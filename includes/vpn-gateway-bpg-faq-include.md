@@ -26,10 +26,13 @@ Azure VPN-gateway kommer att meddela följande rutter till dina lokala BGP-enhet
 * Rutter som den lärt sig från andra BGP-peeringsessioner anslutna till Azure VPN-gatewayen, **förutom standardrutten eller -rutterna eller rutter som överlappar med ett VNet-prefix**.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Kan jag annonsera standardväg (0.0.0.0/0) till Azure VPN-gatewayer?
-Inte just nu.
+Ja.
 
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>Kan jag annonsera exakta prefix som mina virtuella nätverksprefix?
-Nej, annonsering av samma prefix som något av dina virtuella nätverks adressprefix kommer att blockeras eller filtreras av Azure-plattformen. Du kan dock annonsera ett prefix som är en överordnad uppsättning av det du har i det virtuella nätverket. Till exempel kan ditt virtuella nätverk använda adressutrymmet 10.10.0.0/16 och du kan annonsera 10.0.0.0/8.
+
+Nej, annonsering av samma prefix som något av dina virtuella nätverks adressprefix kommer att blockeras eller filtreras av Azure-plattformen. Du kan dock annonsera ett prefix som är en överordnad uppsättning av det du har i det virtuella nätverket. 
+
+Om ditt virtuella nätverk till exempel använder adressutrymmet 10.0.0.0/16, kan du annonsera 10.0.0.0/8. Men du kan inte annonsera 10.0.0.0/16 eller 10.0.0.0/24.
 
 ### <a name="can-i-use-bgp-with-my-vnet-to-vnet-connections"></a>Kan jag använda BGP med mina VNet-till-VNet-anslutningar?
 Ja, du kan använda BGP för både anslutningar mellan platser och VNet-till-VNet-anslutningar.
@@ -41,10 +44,12 @@ Ja, du kan blanda både BGP- och icke-BGP-anslutningar för samma Azure VPN-gate
 Ja, BGP-överföringsrutter stöds, med undantaget att Azure VPN-gatewayer **INTE** annonserar ut standardrutter till andra BGP-peers. För att aktivera överföringsrutter över flera Azure VPN-gatewayer, behöver du aktivera BGP på alla mellanliggande VNet-till-VNet-anslutningar.
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Kan jag har fler än en tunnel mellan en Azure VPN-gateway och mitt lokala nätverk?
-Ja, du kan skapa fler än en S2S-VPN-tunnel mellan en Azure VPN-gateway och ditt lokala nätverk. Observera dock att alla tunnlarna kommer att räknas av mot det totala antalet tunnlar för dina Azure VPN-gatewayer. Om du exempelvis har två redundanta tunnlar mellan din Azure VPN-gateway och ett av dina lokala nätverk, kommer de förbruka 2 tunnlar av din totala kvot för din Azure VPN-gateway (10 för standard och 30 för HighPerformance).
+Ja, du kan skapa fler än en S2S-VPN-tunnel mellan en Azure VPN-gateway och ditt lokala nätverk. Observera att alla dessa tunnlar räknas mot det totala antalet tunnlar för dina Azure VPN-gateways och att du måste aktivera BGP för båda tunnlarna.
+
+Om du exempelvis har två redundanta tunnlar mellan din Azure VPN-gateway och ett av dina lokala nätverk, kommer de förbruka 2 tunnlar av din totala kvot för din Azure VPN-gateway (10 för standard och 30 för HighPerformance).
 
 ### <a name="can-i-have-multiple-tunnels-between-two-azure-vnets-with-bgp"></a>Kan jag har flera tunnlar mellan två Azure VNets med BGP?
-Nej, redundant tunnlar mellan ett virtuellt nätverkspar stöds inte.
+Ja, men minst en av dina virtuella nätverksgateways måste ha en aktiv-aktiv-konfiguration.
 
 ### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>Kan jag använda BGP för S2S VPN i en ExpressRoute/S2S-VPN samexistent konfiguration?
 Ja. 
@@ -63,6 +68,6 @@ Du bör lägga till en värdrutt för Azure BGP-peer-IP-adressen på din VPN-enh
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

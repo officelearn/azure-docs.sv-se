@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: bd85b9eae0e1cb281116748edcad6643b1ec537f
-ms.openlocfilehash: 6ad20a246fce996e6a11ce6fa4715c0d734c4323
+ms.sourcegitcommit: 889776269aa3d722115ea0632b7c3db2775924eb
+ms.openlocfilehash: cc3bc8a0463842ba11b9cdcc996319e2d811ce8a
 
 
 ---
@@ -60,7 +60,7 @@ Om du har problem med din SQL Data Warehouse, ber vi dig skapa ett supportärend
      Om du har en Premier-supportplan, kan du även rapportera SQL Data Warehouse-relaterade problem på [Microsoft Premier-onlineportalen][Microsoft Premier online portal].  Se [Azure-supportplaner][Azure support plan] för att läsa mer om de olika supportplanerna, inklusive omfattning, svarstider, prissättning, osv.  Vanliga frågor och svar om Azure-support finns på [Vanliga frågor och svar om Azure-support][Azure support FAQs].  
      
      ![Supportplan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Välj **problemtyp** och **kategori**.
+8. Välj **problemtyp** och **kategori**. I det här exemplet har vi valt ”Verktyg” som problemtyp och ”Klientverktyg” som kategori. 
    
     ![Problemtyp-kategori](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
 9. Beskriv problemet och välj vilken inverkan det har på verksamheten.
@@ -101,6 +101,6 @@ Du kan dessutom ansluta till SQL Data Warehouse-communityn på [Stack Overflow][
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

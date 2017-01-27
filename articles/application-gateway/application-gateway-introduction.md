@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e982d29f76d521720eea7cbb56c5084572f4a542
-ms.openlocfilehash: 1982b7ec7b7322366382e250b7f27f3da6448aa0
+ms.sourcegitcommit: 3c1fda0661d577e3042f1ad7103017eed74704ad
+ms.openlocfilehash: bb979cde449a7e6d8038f6ea392c3529ced29853
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 1982b7ec7b7322366382e250b7f27f3da6448aa0
 
 Microsoft Azure Application Gateway erbjuder ADC (Application Delivery Controller) som en tjänst, vilket ger flera layer 7-belastningsutjämningsfunktioner för ditt program. Detta gör det möjligt för kunder att optimera webbservergruppens produktivitet genom att avlasta CPU-intensiv SSL-avslutning till Application Gateway. Här finns även andra layer 7-routningsfunktioner inklusive resursallokeringsdistribution av inkommande trafik, cookiebaserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. Application Gateway har även en brandvägg för webbaserade program (WAF) som skyddar ditt program mot de flesta av OWASP topp 10 vanligaste webbsårbarheterna. Application Gateway kan konfigureras som internetuppkopplad gateway, endast intern gateway eller en kombination av båda. Application Gateway är helt Azure-hanterat, skalbart och med hög tillgänglighet. Det innehåller en omfattande uppsättning diagnostik- och loggningsfunktioner för bättre hanterbarhet. Application Gateway fungerar med virtuella datorer, molntjänster och interna eller externa internetuppkopplade webbappar.
 
-Application Gateway är en särskild virtuell tillämpning för ditt program och består av flera arbetsinstanser för skalbarhet och hög tillgänglighet. När du skapar en programgateway, kopplas en slutpunkt (offentlig VIP eller intern ILB IP) och används för inkommande nätverkstrafik. Denna VIP eller ILB IP tillhandahålls av Azure Load Balancer som arbetar på transportnivån (TCP/UDP) och gör att all inkommande nätverkstrafik belastningsutjämnas till Application Gateway-arbetsinstanser. Application Gateway dirigerar sedan HTTP-/HTTPS-trafik baserat på konfigurationen, oavsett om det är en virtuell dator, molntjänst, intern eller en extern IP-adress. För SLA och prissättning, kan du referera till sidorna [SLA](https://azure.microsoft.com/support/legal/sla/) och [prissättning](https://azure.microsoft.com/pricing/details/application-gateway/).
+Application Gateway är en särskild virtuell tillämpning för ditt program som består av flera arbetsinstanser för skalbarhet och hög tillgänglighet. När du skapar en programgateway, kopplas en slutpunkt (offentlig VIP eller intern ILB IP) och används för inkommande nätverkstrafik. Denna VIP eller ILB IP tillhandahålls av Azure Load Balancer som arbetar på transportnivån (TCP/UDP) och gör att all inkommande nätverkstrafik belastningsutjämnas till Application Gateway-arbetsinstanser. Application Gateway dirigerar sedan HTTP-/HTTPS-trafik baserat på konfigurationen, oavsett om det är en virtuell dator, molntjänst, intern eller en extern IP-adress. För SLA och prissättning, kan du referera till sidorna [SLA](https://azure.microsoft.com/support/legal/sla/) och [prissättning](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## <a name="features"></a>Funktioner
 
@@ -95,6 +95,6 @@ För att läsa hur man skapar en Application Gateway med hjälp av URL-baserad i
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

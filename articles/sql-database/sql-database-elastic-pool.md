@@ -11,14 +11,14 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ce30d47075636d3b64215d50b81acc09e7ed72f1
-ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
 
 
 ---
@@ -33,7 +33,7 @@ Elastiska SQL DB-pooler erbjuder en enkel kostnadseffektiv lösning som hjälper
 ## <a name="how-it-works"></a>Hur det fungerar
 Ett vanligt SaaS-programmönster är databasmodellen för en enda klient: varje kund får sin egen databas. Varje kund (databas) har oförutsägbara resursbehov vad gäller minne, IO och processor. Hur allokerar du resurser på ett effektivt och kostnadseffektivt sätt med sådana toppar och dalar i efterfrågan? Förr hade du två alternativ: (1) överetablera resurser baserat på högsta användning och betala för mycket, eller (2) underetablera för att spara kostnader på bekostnad av prestanda och kundnöjdhet under perioder med aktivitetstoppar. Elastiska pooler löser det här problemet genom att se till att databaserna får de prestandaresurser som de behöver, när de behöver dem. De tillhandahåller en enkel resursallokeringsmekanism med en förutsägbar budget. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 I SQL Database uttrycks det relativa måttet på en databas förmåga att hantera resursbehoven i databastransaktionsenheter (DTU:er) för enskilda databaser och elastiska DTU:er (eDTU:er) för databaser i en elastisk pool. Mer information om DTU:er och eDTU:er finns i [Introduktion till SQL Database](sql-database-technical-overview.md).
@@ -106,6 +106,6 @@ För program som har mer aggressiva återställningskrav än vad geo-återställ
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

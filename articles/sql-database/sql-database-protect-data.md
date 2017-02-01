@@ -116,12 +116,12 @@ SQL Database Threat Detection (hotidentifiering) ger ett extra lager av säkerhe
 ## <a name="compliance"></a>Efterlevnad
 Förutom ovanstående egenskaper och funktioner som kan hjälpa programmet att uppfylla olika säkerhetskrav, deltar Azure SQL Database också i regelbundna granskningar och har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://azure.microsoft.com/support/trust-center/services/).
 
+
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt över alla säkerhetsfunktioner i SQL Database finns i [SQL Säkerhetsöversikt](sql-database-security-overview.md).
 - En beskrivning av åtkomstkontrollfunktionerna i SQL Database finns i [Kontrollera åtkomst](sql-database-control-access.md).
 - För en diskussion om proaktiv övervakning, se [Kom igång med SQL Database-granskning](sql-database-auditing-get-started.md) och [Kom igång med SQL Database-hotidentifiering](sql-database-threat-detection-get-started.md).
-
 
 
 

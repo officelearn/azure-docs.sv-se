@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c478b8ba6817dd110bb7bfe3a33b728e5f85cc11
 
 
 ---
@@ -180,7 +180,7 @@ Kommandot för att lista nycklarna bör returnera ett värde. Annars kan du prov
 Gratulerar! Nu har WordPress-appen en centraliserad minnescache som ger ökat genomflöde. Kom ihåg att Web Apps Memcache-shim kan användas med alla Memcache-klienter oavsett programmeringsspråk och programramverk. Om du vill ge feedback eller ställa frågor om Web Apps Memcache-shim kan du göra inlägg på [MSDN-forum][10] eller [Stackoverflow][11].
 
 > [!NOTE]
-> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inget kreditkort krävs, och du gör inga åtaganden.
+> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inget kreditkort krävs, och du gör inga åtaganden.
 > 
 > 
 
@@ -204,6 +204,6 @@ Gratulerar! Nu har WordPress-appen en centraliserad minnescache som ger ökat ge
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

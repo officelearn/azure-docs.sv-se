@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera Azure SQL Database-brandväggsregler på servernivå och databasnivå med hjälp av T-SQL"
-description: "Lär dig hur du konfigurerar brandväggen för IP-adresser som har åtkomst till Azure SQL-databaser."
+title: "T-SQL: Azure SQL Database-brandväggsregler | Microsoft Docs"
+description: "Lär dig hur du konfigurerar brandväggsregler på servernivå och databasnivå för IP-adresser som har åtkomst till Azure SQL-databaser med hjälp av Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
 
 
 ---
@@ -76,6 +76,11 @@ Endast en databasanvändare med behörigheten **KONTROLL** för databasen (till 
 
 Mer information om dessa lagrade procedurer finns i [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) och [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> En självstudiekurs som beskriver hur du använder brandväggar på databasnivå finns här: [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (Själstudiekurs om SQL Database: SQL Server-autentisering, inloggningar och användarkonton, databasroller, behörigheter, brandväggsregler på servernivå och brandväggsregler på databasnivå).
+>
+
+
 ## <a name="next-steps"></a>Nästa steg
 Artiklar om hur du skapar brandväggsregler på servernivå med andra metoder finns här: 
 
@@ -94,6 +99,6 @@ Information om hur du navigerar till databaser finns i [Manage database access a
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

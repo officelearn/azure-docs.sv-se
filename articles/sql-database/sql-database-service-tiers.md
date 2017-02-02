@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
-ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
-ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
+ms.sourcegitcommit: 0a00aff343bfd31c956f6cbc831e89cc1cc84b23
+ms.openlocfilehash: 95ae4bd67b7d08755035e7b5559ca9648d45bdaa
 
 
 ---
@@ -41,7 +41,7 @@ Följande tabell ger exempel på vilka nivåer som lämpar sig bäst för olika 
 Börja med att bestämma om du vill köra en enskild databas eller om du vill gruppera databaser som delar resurser. Läs avsnittet om [överväganden för elastiska pooler](sql-database-elastic-pool-guidance.md). När du ska välja tjänstnivå börjar du med att fastställa de minsta databasfunktioner som du behöver:
 
 * Den högsta databasstorleken för enskilda databaser (högst 2 GB för Basic, högst 250 GB för Standard och högst 500 GB till 1 TB för Premium på nivån för högsta prestanda)
-* Det största totala lagringsutrymmet för en elastisk pool (117 GB för Basic, 1 200 för Standard och 750 för Premium)
+* Det största totala lagringsutrymmet för en elastisk pool (117 GB för Basic, 1 200 GB för Standard och 750 GB för Premium)
 * Det högsta antalet databaser per pool (400 för Basic, 400 för Standard och 50 för Premium)
 * Kvarhållningsperiod för säkerhetskopior av databasen (7 dagar för Basic, 35 dagar för Standard och Premium)
 
@@ -49,8 +49,7 @@ När du har bestämt vilken minsta tjänstnivå du behöver är det dags att fas
 
 När du har valt en prestandanivå kan du sedan skala upp eller ned den [enskilda databasen](sql-database-scale-up.md) eller den [elastiska poolen](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) dynamiskt utifrån det faktiska resultatet. För migreringsscenarier kan du även använda [DTU-kalkylatorn](http://dtucalculator.azurewebsites.net/) för att beräkna ungefär hur många DTU:er som behövs. 
 
->
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Servicenivåer och prestandanivåer för enskilda databaser
@@ -84,6 +83,6 @@ Varje databas inom en pool följer också egenskaperna för enkla databaser på 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

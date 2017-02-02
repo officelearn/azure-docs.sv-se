@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
 
 
 ---
@@ -41,7 +41,7 @@ För att kunna skicka dokument till ditt index med .NET SDK måste du:
 2. Skapa en `IndexBatch` som innehåller dokumenten som ska läggas till, ändras eller tas bort.
 3. Anropa `Documents.Index`-metoden för din `SearchIndexClient` för att skicka `IndexBatch` till sökindexet.
 
-## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. Skapa en instans av klassen SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Skapa en instans av klassen SearchIndexClient
 För att importera data till ditt index med Azure Search .NET SDK måste du skapa en instans av klassen `SearchIndexClient`. Du kan skapa den här instansen själv, men det är enklare om du redan har en `SearchServiceClient`-instans och kan anropa dess `Indexes.GetClient`-metod. Här är ett exempel på hur du hämtar en `SearchIndexClient` för indexet med namnet ”hotels” från en `SearchServiceClient` med namnet `serviceClient`:
 
 ```csharp
@@ -55,7 +55,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient` har en `Documents`-egenskap. Den här egenskapen tillhandahåller alla metoder som du behöver för att lägga till, ändra, ta bort eller fråga dokument i ditt index.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Bestäm vilken indexeringsåtgärd som du vill använda
+## <a name="decide-which-indexing-action-to-use"></a>Bestäm vilken indexeringsåtgärd som du vill använda
 För att importera data med .NET SDK måste du paketera dessa data i ett `IndexBatch`-objekt. En `IndexBatch` kapslar in en samling `IndexAction`-objekt, som vart och ett innehåller ett dokument och en egenskap som meddelar Azure Search vilken åtgärd som ska utföras för dokumentet (ladda upp, sammanfoga, ta bort osv.). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
 
 | Åtgärd | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar |
@@ -67,7 +67,7 @@ För att importera data med .NET SDK måste du paketera dessa data i ett `IndexB
 
 Du kan ange vilken åtgärd du vill använda med de olika statiska metoderna för `IndexBatch`- och `IndexAction`-klasserna, som du ser i nästa avsnitt.
 
-## <a name="iii-construct-your-indexbatch"></a>III. Skapa IndexBatch
+## <a name="construct-your-indexbatch"></a>Skapa IndexBatch
 Nu när du vet vilka åtgärder som ska utföras på dina dokument är det dags att skapa `IndexBatch`. Exemplet nedan visar hur du skapar en batch med några olika åtgärder. Observera att vi i vårt exempel använder den anpassade klassen `Hotel` som mappar till ett dokument i indexet ”hotels”.
 
 ```csharp
@@ -130,7 +130,7 @@ Observera också att du bara kan ta med upp till 1 000 dokument i samma indexe
 > 
 > 
 
-## <a name="iv-import-data-to-the-index"></a>IV. Importera data till indexet
+## <a name="import-data-to-the-index"></a>Importera data till indexet
 Nu när du har ett initierat `IndexBatch`-objekt kan du skicka det till indexet genom att anropa `Documents.Index` för ditt `SearchIndexClient`-objekt. Följande exempel visar hur du anropar `Index`, samt några extra steg som du måste utföra:
 
 ```csharp
@@ -234,12 +234,12 @@ Detta är inte bara ett hypotetiskt problem. Tänk dig ett scenario där du läg
 
 Av den anledningen rekommenderar vi att du använder nullbara typer i dina modellklasser som bästa praxis.
 
-## <a name="next"></a>Nästa
+## <a name="next-steps"></a>Nästa steg
 När du har fyllt Azure Search-indexet kan du börja skicka frågor för att söka efter dokument. Mer information finns i [Fråga ditt Azure Search-index](search-query-overview.md).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

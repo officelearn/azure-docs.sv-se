@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: 701a5515cd1d52f7ca8d3562dabcdf0e4d31183d
 
 
 ---
@@ -152,13 +152,13 @@ Nu när alla delar är på plats är det dags att skapa den virtuella datorn.
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Om det var problem med distributionen, är nästa steg att titta på [Felsöka resursgruppdistribueringar med Azure-portalen](../resource-manager-troubleshoot-deployments-portal.md)
+* Om det uppstod problem med distributionen är nästa steg att [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 * Läs [Hantera virtuella datorer med Azure Resource Manager och PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att lära dig mer om hur du hanterar din virtuella dator.
 * Utnyttja fördelarna med att använda en mall för att skapa en virtuell dator. Mer information finns i [Skapa en virtuell Windows-dator med en Resource Manager-mall](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

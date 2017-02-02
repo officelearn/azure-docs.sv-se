@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/20/2016
+ms.date: 01/19/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115668dae46557f6d6caefc9e7c1178768e7e775
+ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
+ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
 
 
 ---
@@ -117,7 +117,7 @@ Nu kan du registrera datatillgångar från Adventure Works-exempeldatabasen med 
 I den här övningen använder du registreringsverktyget för att registrera datatillgångar från Adventure Works-databasen i katalogen. Registreringen är den process där du extraherar viktiga strukturella metadata, t.ex. namn, typer och platser, från datakällan och dess tillgångar och kopierar dem till katalogen. Datakällan och datatillgångarna blir kvar där de är, men katalogen använder deras metadata för att göra det lättare att identifiera dem och förstå hur de kan användas.
 
 ### <a name="register-a-data-source"></a>Registrera en datakälla
-1. Gå till [startsidan för Azure Data Catalog](https://azuredatacatalog.com) och klicka på **Publicera data**.
+1. Gå till [startsidan för Azure Data Catalog](http://azuredatacatalog.com) och klicka på **Publicera data**.
    
    ![Azure Data Catalog – knappen Publicera data](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. Klicka på **Starta program** för att ladda ned, installera och köra registreringsverktyget på datorn.
@@ -366,6 +366,6 @@ I den här självstudiekursen har du utforskat grundläggande funktioner i Azure
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

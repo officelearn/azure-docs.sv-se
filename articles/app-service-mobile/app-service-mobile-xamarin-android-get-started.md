@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
 
 
 ---
@@ -39,7 +39,7 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 * Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
 > [!NOTE]
-> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto, kan du gå till [Testa App Service](https://tryappservice.azure.com/?appServiceName=mobile).  Du kan skapa en kortvarig startmobilapp omedelbart i App Service. Inget kreditkort krävs, och du gör inga åtaganden.
+> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto, kan du gå till [Testa App Service](https://azure.microsoft.com/try/app-service/mobile/).  Du kan skapa en kortvarig startmobilapp omedelbart i App Service. Inget kreditkort krävs, och du gör inga åtaganden.
 > 
 > 
 
@@ -65,7 +65,7 @@ Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilk
     Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobilappsserverdelen och data visas i listan.
    
    > [!NOTE]
-   >  Du kan se koden som ansluter till mobilappsserverdelen för att fråga efter och infoga data i C#-filen ToDoActivity.cs.
+   > Du kan se koden som ansluter till mobilappsserverdelen för att fråga efter och infoga data i C#-filen ToDoActivity.cs.
    > 
    > 
 
@@ -88,6 +88,6 @@ Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilk
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

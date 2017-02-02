@@ -1,6 +1,6 @@
 ---
 title: "Komma igång med att leverera innehåll på begäran med hjälp av Java | Microsoft Docs"
-description: "Beskriver hur du använder Azure Media Services för att utföra vanliga aktiviteter som kodning, kryptering och strömning av resurser."
+description: "Den här självstudien beskriver steg för steg hur du implementerar en enkel VoD-innehållsleveranstjänst (Video-on-Demand) med Azure Media Services-programmet (AMS) med hjälp av Java."
 services: media-services
 documentationcenter: java
 author: juliako
@@ -12,28 +12,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/20/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
-ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 55ecdb72c85276cbc8bb5c9ce67978e648ebddb1
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Komma igång med att leverera innehåll på begäran med hjälp av Java
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## <a name="setting-up-an-azure-account-for-media-services"></a>Skapa ett Azure-konto för Media Services
-Använd Azure-portalen för att ställa in ditt Media Services-konto. Mer information finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md). När du skapat ditt konto i Azure-portalen så är du redo att ställa in din dator för Media Services-utveckling.
+Den här självstudien beskriver steg för steg hur du implementerar en enkel VoD-innehållsleveranstjänst (Video-on-Demand) med Azure Media Services-programmet (AMS) med hjälp av Java.
 
-## <a name="setting-up-for-media-services-development"></a>Konfigurera för Media Services-utveckling
-Det här avsnittet innehåller allmänna krav för Media Services-utveckling med hjälp av Media Services SDK för Java.
+## <a name="prerequisites"></a>Krav
 
-### <a name="prerequisites"></a>Krav
-* Ett Media Services-konto i en ny eller befintlig Azure-prenumeration. Mer information finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
+Följande krävs för att kunna genomföra vägledningen:
+
+* Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * Azure-biblioteken för Java, som du kan installera från [Azure Java-utvecklingscentret][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Så här gör du för att: Använda Media Services med Java
+
+>[!NOTE]
+>När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
+
 Följande kod visar hur du skapar en tillgång, överför en mediefil till tillgången, kör ett jobb med uppgiften att omvandla tillgången och skapar en positionerare för att strömma videon.
 
 Du måste upprätta ett Media Services-konto innan du använder den här koden. Information om hur du konfigurerar ett konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
@@ -270,6 +274,6 @@ Mer Media Services Javadoc-dokumentation finns i [Azure-bibliotek för Java-doku
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Linux-vägledning: Komma igång med Hadoop och Hive | Microsoft Docs"
-description: "Följ den här Linux-vägledningen för att komma igång med Hadoop i HDInsight. Lär dig hur du etablerar Linux-kluster och frågar efter data med Hive."
+title: "Hadoop-självstudiekurs: Komma igång med Hadoop och Hive i HDInsight | Microsoft Docs"
+description: "Gå den här självstudiekursen om du vill ha hjälp med att komma igång med Hadoop i HDInsight. Lär dig hur du skapar Linux-kluster och kör frågor mot data med Hive."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,22 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/16/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 2863bfb48d0fed706fbd3c3f14dfb6a8d77eb9ea
+ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
+ms.openlocfilehash: 1cf85c16847aad632d52fe72cd827f0ef8e66e91
 
 
 ---
-# <a name="hadoop-tutorial-get-started-using-linux-based-hadoop-in-hdinsight"></a>Hadoop-vägledning: Komma igång med Linux-baserat Hadoop i HDInsight
-> [!div class="op_single_selector"]
-> * [Linux-baserat](hdinsight-hadoop-linux-tutorial-get-started.md)
-> * [Windows-baserat](hdinsight-hadoop-tutorial-get-started-windows.md)
-> 
-> 
+# <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop-självstudiekurs: Komma igång med Hadoop i HDInsight
 
-Lär dig att skapa Linux-baserade [Hadoop](http://hadoop.apache.org/)-kluster i HDInsight och hur du kör Hive-jobb i HDInsight. [Apache Hive](https://hive.apache.org/) är den populäraste komponenten i Hadoop-ekosystemet. För närvarande levereras HDInsight med sex olika klustertyper: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (förhandsversion)](hdinsight-hadoop-use-interactive-hive.md) och [R server](hdinsight-hadoop-r-server-overview.md).  Varje typ av kluster har stöd för olika komponentuppsättningar. Samtliga sex klustertyper stöder Hive. En lista över stödda komponenter som hanteras i HDInsight finns i [Vad är nytt i de Hadoop-klusterversioner som tillhandahålls av HDInsight?](hdinsight-component-versioning.md)  
+Lär dig hur du skapar [Hadoop](http://hadoop.apache.org/)-kluster i HDInsight och hur du kör Hive-jobb i HDInsight. [Apache Hive](https://hive.apache.org/) är den populäraste komponenten i Hadoop-ekosystemet. För närvarande levereras HDInsight med sex olika klustertyper: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (förhandsversion)](hdinsight-hadoop-use-interactive-hive.md) och [R server](hdinsight-hadoop-r-server-overview.md).  Varje typ av kluster har stöd för olika komponentuppsättningar. Samtliga sex klustertyper stöder Hive. En lista över stödda komponenter som hanteras i HDInsight finns i [Vad är nytt i de Hadoop-klusterversioner som tillhandahålls av HDInsight?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,7 +37,7 @@ Innan du börjar den här vägledningen måste du ha:
 
 ## <a name="create-cluster"></a>Skapa kluster
 
-De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och tar sedan bort klustret. I det här avsnittet skapar du ett Linux-baserat Hadoop-kluster i HDInsight med en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md). Resource Manager-mallen är helt anpassningsbar, vilket gör det enkelt att skapa Azure-resurser som HDInsight. Du behöver inte ha någon erfarenhet av Resource Manager-mallar för att kunna följa de här självstudierna. Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Använd väljaren överst på sidan för att välja alternativ för skapande av kluster.
+De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och tar sedan bort klustret. I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md). Resource Manager-mallen är helt anpassningsbar, vilket gör det enkelt att skapa Azure-resurser som HDInsight. Du behöver inte ha någon erfarenhet av Resource Manager-mallar för att kunna följa de här självstudierna. Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Använd väljaren överst på sidan för att välja alternativ för skapande av kluster.
 
 Resource Manager-mallen som används i den här självstudien finns i [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
@@ -57,7 +52,7 @@ Resource Manager-mallen som används i den här självstudien finns i [Github](h
     * **Resursgrupp**: Skapa en ny resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en behållare med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. 
     * **Plats**: Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. 
     * **Klustertyp**: Välj **hadoop** för den här självstudien.
-    * **Klusternamn**: Ange ett namn för det Hadoop-kluster du vill skapa.
+    * **Klusternamn**: Ange ett namn för Hadoop-klustret.
     * **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard **admin**.
     * **SSH-användarnamn och lösenord**: Standardanvändarnamnet är **sshuser**.  Du kan byta namn. 
      
@@ -68,7 +63,7 @@ Resource Manager-mallen som används i den här självstudien finns i [Github](h
     * **OS-typ**: Linux
     * **Antal arbetsnoder**: 2
 
-     Varje kluster är beroende av ett Azure Blob Storage-konto. Det kallas vanligtvis Storage-konto av standardtyp. HDInsight-kluster och Storage-kontot av standardtyp måste finnas i samma Azure-region. Storage-kontot tas inte bort om du tar bort kluster. I mallen definieras namnet för Storage-kontot av standardtyp som det klusternamn som har tillägget ”store”. 
+     Varje kluster är beroende av ett Azure Blob Storage-konto. Det kallas vanligtvis Storage-konto av standardtyp. HDInsight-kluster och Storage-kontot av standardtyp måste finnas i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster. I mallen definieras namnet för Storage-kontot av standardtyp som det klusternamn som har tillägget ”store”. 
 
 3. Välj **Jag godkänner villkoren som anges ovan** och **Fäst på instrumentpanelen** och klicka sedan på **Köp**. Du ska se en ny panel som heter **Skicka malldistribution** på portalens instrumentpanel. Det tar cirka 20 minuter att skapa ett kluster. När klustret skapas, ändras namnet i rubriktexten på panelen till det resursgruppsnamn som du har angett. Då öppnar portalen automatiskt resursgruppen i ett nytt blad. Du kan se både klustret och standardlagringsutrymmet i listan.
    
@@ -80,7 +75,7 @@ Resource Manager-mallen som används i den här självstudien finns i [Github](h
 
 
 ## <a name="run-hive-queries"></a>Köra Hive-frågor
-[Apache Hive](hdinsight-use-hive.md) är den populäraste komponenten som används i HDInsight. Det finns många sätt att köra Hive-jobb i HDInsight. I den här vägledningen kommer du att använda Ambari Hive-vyn från portalen för att köra vissa Hive-jobb. Andra metoder för att skicka Hive-jobb beskrivs i [Använda Hive-data i HDInsight](hdinsight-use-hive.md).
+[Apache Hive](hdinsight-use-hive.md) är den populäraste komponenten som används i HDInsight. Det finns många sätt att köra Hive-jobb i HDInsight. I den här självstudiekursen ska du använda Ambari Hive-vyn från portalen för att köra vissa Hive-jobb. Andra metoder för att skicka Hive-jobb beskrivs i [Använda Hive-data i HDInsight](hdinsight-use-hive.md).
 
 1. Från föregående skärmbild klickar du på **Klusterinstrumentpanel** och sedan på **HDInsight-klusterinstrumentpanel**.  Du kan också gå till  **https://&lt;Klusternamn>.azurehdinsight.net**, där &lt;Klusternamn> är klustret du skapade i föregående avsnitt för att öppna Ambari.
 2. Ange det Hadoop-användarnamn och -lösenord som du angav i föregående avsnitt. Standardanvändarnamnet är **admin**.
@@ -97,7 +92,7 @@ Resource Manager-mallen som används i den här självstudien finns i [Github](h
    > 
 5. Klicka på **Kör**. Avsnittet **Frågeprocessresultat** bör visas under frågeredigeraren och visa information om jobbet. 
    
-    När frågan har slutförts visas resultatet av åtgärden i avsnittet **Frågeprocessresultat**. En tabell med namnet **hivesampletable** bör visas. Detta exempel på en Hive-tabell kommer med alla HDInsight-kluster.
+    När frågan har slutförts visas resultatet av åtgärden i avsnittet **Resultat från frågeprocess**. En tabell med namnet **hivesampletable** bör visas. Detta exempel på en Hive-tabell kommer med alla HDInsight-kluster.
    
     ![HDInsight Hive-vyer](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png).
 6. Upprepa steg 4 och 5 för att köra följande fråga:
@@ -124,7 +119,7 @@ När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsig
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Gå till portalens instrumentpanel och klicka på panelen med det resursgruppsnamn som du använde när du skapade klustret.
-3. Klicka på **Ta bort** på resursbladet för att ta bort resursgruppen som innehåller klustret och Storage-kontot av standardtyp eller klicka på klusternamnet på panelen **Resurser** och sedan på **Ta bort** på klusterbladet. Tänk på att Storage-kontot tas bort när du tar bort resursgruppen. Välj att bara ta bort klustret om du vill behålla Storage-kontot.
+3. Klicka på **Ta bort** på resursbladet för att ta bort resursgruppen som innehåller klustret och Storage-kontot av standardtyp eller klicka på klusternamnet på panelen **Resurser** och sedan på **Ta bort** på klusterbladet. Tänk på att lagringskontot tas bort om du tar bort resursgruppen. Välj att bara ta bort klustret om du vill behålla Storage-kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du fått veta hur du skapar ett Linux-baserat HDInsight-kluster med en Resource Manager-mall och hur du utför grundläggande Hive-frågor.
@@ -175,6 +170,6 @@ Mer information om att skapa eller hantera HDInsight-kluster hittar du här:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

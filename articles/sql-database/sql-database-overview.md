@@ -71,6 +71,6 @@ Du kan hantera logiska Azure SQL Database-servrar på flera olika sätt:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

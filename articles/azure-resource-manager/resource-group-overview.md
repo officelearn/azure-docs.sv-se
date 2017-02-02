@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/12/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
-ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
+ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
+ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
 
 
 ---
@@ -88,21 +88,29 @@ Du kan se samtliga resursprovidrar via portalen. Välj **Resursprovidrar** på d
 
 Du hämtar alla resursprovidrar med följande PowerShell-cmdlet:
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 Alternativt kan du hämta alla resursprovidrar med följande kommando i Azure CLI:
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 Du kan söka igenom den returnerade listan efter de resursprovidrar som du behöver använda.
 
 Hämta information om en resursprovider genom att lägga till providerns namnområde i kommandot. Kommandot returnerar de resurstyper som stöds för resursprovidern, och de platser som stöds samt API-versioner för varje resurstyp. Följande PowerShell-cmdlet hämtar information om Microsoft.Compute:
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
 
 Alternativt kan du hämta de resurstyper som stöds, platser samt API-versioner för Microsoft.Compute, med följande kommando i Azure CLI:
 
-    azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```azurecli
+azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```
 
 Mer information finns i [Providrar, regioner, API-versioner och scheman för Resource Manager](resource-manager-supported-services.md).
 
@@ -113,35 +121,39 @@ Mer information om mallformatet och hur du konstruerar mallar finns i [Skapa Azu
 
 Resource Manager bearbetar mallen som vilken annan begäran som helst (se bilden för [Konsekvent hanteringslager](#consistent-management-layer)). Den tolkar mallen och konverterar dess syntax till REST API-åtgärder för lämpliga resursleverantörer. Till exempel när Resource Manager tar emot en mall med följande resursdefinition:
 
-    "resources": [
-      {
-        "apiVersion": "2016-01-01",
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "mystorageaccount",
-        "location": "westus",
-        "sku": {
-          "name": "Standard_LRS"
-        },
-        "kind": "Storage",
-        "properties": {
-        }
-      }
-      ]
+```json
+"resources": [
+  {
+    "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "mystorageaccount",
+    "location": "westus",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {
+    }
+  }
+]
+```
 
 Den konverterar definitionen till följande REST API-åtgärd, som skickas till resursprovidern Microsoft.Storage:
 
-    PUT
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
-    REQUEST BODY
-    {
-      "location": "westus",
-      "properties": {
-      }
-      "sku": {
-        "name": "Standard_LRS"
-      },   
-      "kind": "Storage"
-    }
+```HTTP
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+REQUEST BODY
+{
+  "location": "westus",
+  "properties": {
+  }
+  "sku": {
+    "name": "Standard_LRS"
+  },   
+  "kind": "Storage"
+}
+```
 
 Det är helt upp till dig hur du definierar mallar och resursgrupper och hur du vill hantera din lösning. Du kan till exempel distribuera programmet i tre nivåer via en enda mall till en enda resursgrupp.
 
@@ -181,26 +193,32 @@ Resurser behöver inte finnas i samma resursgrupp för att dela en tagg. Du kan 
 
 I följande exempel visas en tagg som tillämpas på en virtuell dator.
 
-    "resources": [    
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2015-06-15",
-        "name": "SimpleWindowsVM",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "costCenter": "Finance"
-        },
-        ...
-      }
-    ]
+```json
+"resources": [    
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2015-06-15",
+    "name": "SimpleWindowsVM",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "costCenter": "Finance"
+    },
+    ...
+  }
+]
+```
 
 Om du vill hämta alla resurser med ett visst taggvärde använder du följande PowerShell-cmdlet:
 
-    Find-AzureRmResource -TagName costCenter -TagValue Finance
+```powershell
+Find-AzureRmResource -TagName costCenter -TagValue Finance
+```
 
 Alternativt kan du använda följande Azure CLI-kommando:
 
-    azure resource list -t costCenter=Finance --json
+```azurecli
+azure resource list -t costCenter=Finance --json
+```
 
 Du kan också visa taggade resurser via Azure Portal.
 
@@ -242,7 +260,7 @@ I vissa fall kanske du vill köra kod eller skript som använder resurser, men i
 Du kan också låsa viktiga resurser explicit för att förhindra att användare tar bort eller ändrar dem. Mer information finns i [Låsa resurser med Azure Resource Manager](resource-group-lock-resources.md).
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
-Resource Manager loggar alla åtgärder som skapar, ändrar eller tar bort en resurs. Du kan använda aktivitetsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs. Om du vill visa loggarna väljer du **Aktivitetsloggar** på bladet **Inställningar** för en resursgrupp. Du kan filtrera loggarna med många olika värden, inklusive vilken användare som initierade åtgärden. Information om hur du arbetar med aktivitetsloggarna finns i [Granskningsåtgärder med Resource Manager](resource-group-audit.md).
+Resource Manager loggar alla åtgärder som skapar, ändrar eller tar bort en resurs. Du kan använda aktivitetsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs. Om du vill visa loggarna väljer du **Aktivitetsloggar** på bladet **Inställningar** för en resursgrupp. Du kan filtrera loggarna med många olika värden, inklusive vilken användare som initierade åtgärden. Information om hur du arbetar med aktivitetsloggar finns i [View activity logs to manage Azure resources](resource-group-audit.md) (Visa aktivitetsloggar för att hantera Azure-resurser).
 
 ## <a name="customized-policies"></a>Anpassade principer
 Med Resource Manager kan du hantera resurser genom att skapa anpassade principer. De typer av principer som du skapar kan inkludera olika scenarier. Du kan tillämpa en namngivningskonvention på resurser, begränsa vilka typer och instanser av resurser som kan distribueras eller begränsa vilka regioner som kan vara värd för en viss typ av resurs. Du kan kräva ett taggvärde på resurser för att organisera faktureringen efter avdelningar. Du skapar principer för att minska kostnaderna och upprätthålla konsekvensen i din prenumeration. 
@@ -251,17 +269,19 @@ Du definierar principer med JSON och sedan använder du dessa principer antingen
 
 I följande exempel visas en princip som säkerställer taggkonsekvens genom att ange att alla resurser som innehåller en costCenter-tagg.
 
-    {
-      "if": {
-        "not" : {
-          "field" : "tags",
-          "containsKey" : "costCenter"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+```json
+{
+  "if": {
+    "not" : {
+      "field" : "tags",
+      "containsKey" : "costCenter"
     }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
 
 Det finns många fler typer av principer som du kan skapa. Mer information finns i [Hantera resurser och kontrollera åtkomsten med hjälp av principer](resource-manager-policy.md).
 
@@ -326,6 +346,6 @@ Här är en videodemonstration av den här översikten:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

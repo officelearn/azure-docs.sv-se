@@ -1,23 +1,22 @@
 ---
 title: "Självstudiekurs om NoSQL: DocumentDB .NET Core SDK | Microsoft Docs"
 description: "En självstudiekurs om NoSQL som skapar en onlinedatabas och ett C#-konsolprogram med .NET DocumentDB Core SDK. DocumentDB är en NoSQL-databas för JSON."
-keywords: "självstudier för nosql, onlinedatabas, c#-konsolprogram"
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/25/2016
+ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
+ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
+ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
 
 
 ---
@@ -49,6 +48,9 @@ Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](http
 
 Ge oss sedan feedback med röstningsknapparna högst uppe och nere på den här sidan. Om du vill att vi ska kontakta dig direkt kan du skriva din e-postadress i kommentaren.
 
+> [!NOTE]
+> DocumentDB .NET Core SDK som används i den här självstudiekursen är inte kompatibel med UWP-appar (Universal Windows Platform) än. Om du vill prova en förhandsversion av .NET Core SDK som stöder UWP-appar skickar du ett e-postmeddelande till [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
 Nu sätter vi igång!
 
 ## <a name="prerequisites"></a>Krav
@@ -70,10 +72,10 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
 1. Öppna **Visual Studio 2015** på datorn.
 2. I menyn **Arkiv** väljer du **Nytt** och sedan **Projekt**.
 3. I dialogrutan **Nytt projekt** väljer du **Mallar** / **Visual C#** / **.NET Core**/**Konsolprogram (.NET Core)**, ger projektet ett namn och klickar på **OK**.
-   ![Skärmdump som visar fönstret Nytt projekt](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Skärmdump som visar fönstret Nytt projekt](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. I **Solution Explorer** högerklickar du på den nya konsolappen, som finns under din Visual Studio-lösning.
 5. Utan att lämna menyn klickar du på **Hantera NuGet-paket ...**
-   ![Skärmdump som visar högerklicksmenyn för projektet](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Skärmdump som visar högerklicksmenyn för projektet](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. På fliken **Nuget** klickar du på **Bläddra** och skriver **azure documentdb** i sökrutan.
 7. Leta reda på **Microsoft.Azure.DocumentDB.Core** i resultatet och klicka på **Installera**.
    Paket-ID:t för DocumentDB-klientbiblioteket är [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
@@ -367,7 +369,7 @@ Kör appen genom att trycka på **F5**.
 
 Grattis! Du har skapat två DocumentDB-dokument.  
 
-![Diagram som illustrerar den hierarkiska relationen mellan kontot, onlinedatabasen, samlingen och dokumenten som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagram som illustrerar den hierarkiska relationen mellan kontot, onlinedatabasen, samlingen och dokumenten som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
 ## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Steg 7: Skicka frågor till DocumentDB-resurser
 DocumentDB stöder omfattande [frågor](documentdb-sql-query.md) mot JSON-dokument som lagras i varje samling.  Nedanstående exempelkod visar olika frågor – med både DocumentDB SQL-syntax och LINQ – som du kan köra mot dokumenten som infogades i föregående steg.
@@ -421,7 +423,7 @@ Grattis! Du har skickat en förfrågan till en DocumentDB-samling.
 
 Nedanstående diagram illustrerar hur DocumentDB SQL-frågesyntaxen anropas mot samlingen du skapade. Samma logik som gäller även för LINQ-frågan.
 
-![Diagram som illustrerar omfånget och innebörden av frågan som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagram som illustrerar omfånget och innebörden av frågan som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
 Nyckelordet [FROM](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
 
@@ -556,11 +558,10 @@ Om du vill återställa referenser till .NET DocumentDB Core SDK i Visual Studio
 * Mer information om programmeringsmiljön finns i avsnittet Utveckla på [dokumentationssidan för DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

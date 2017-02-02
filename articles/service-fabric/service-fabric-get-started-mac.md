@@ -65,8 +65,8 @@ För att skapa den lokala virtuella datorn med ett 5-nods Service Fabric-kluster
   
    I det här steget laddas den förkonfigurerade VM-avbildningen ned. Avbildningen startas lokalt och ett lokalt Service Fabric-kluster konfigureras sedan på datorn. Det här kan ta några minuter. Om installationen lyckas, får du upp ett meddelande som indikerar att klustret startas.
    
-
     ![Klusterinstallationen startar efter att den virtuella datorn har etablerats][cluster-setup-script]
+    
 5. Testa att klustret är korrekt installerat genom att gå till Service Fabric Explorer på http://192.168.50.50:19080/Explorer (förutsatt att du har behållit standard-IP för det privata nätverket).
 
     ![Service Fabric Explorer på Mac-värddatorn][sfx-mac]

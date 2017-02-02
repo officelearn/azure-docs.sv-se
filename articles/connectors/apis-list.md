@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/07/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 73369c2aed062bb3fe1ec37c4650d1f86b0afb68
-ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
+ms.sourcegitcommit: d2eefb6b99955f9b9a1bd5b5c94617d538f079ec
+ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
 
 
 ---
@@ -65,7 +65,7 @@ Använd Enterprise-anslutningsappar för att skapa logikappar för B2B-scenarier
 
 | enterprise<br/>anslutningar |  |
 | --- | --- |
-|![API-ikon][MQicon]<br/>**MQ**|![API-ikon][SAPicon]<br/>**SAP**|
+|![API-ikon][MQicon]<br/>**MQ**|![API-ikon][SAPicon]<br/>**SAP**<br/>[sapconnector]|
 
 
 
@@ -151,6 +151,7 @@ Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är an
 [youtubedoc]: ./connectors-create-api-youtube.md "Ansluter till YouTube och kan interagera med videor och kanaler."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Ansluter till SparkPost och kan användas för kommunikation."
 [filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Använd filsystemets anslutningsapp för att kommunicera med det lokala filsystemet."
+[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "Lär dig mer om SAP Connector"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -248,6 +249,6 @@ Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är an
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

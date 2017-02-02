@@ -1,5 +1,5 @@
 ---
-title: "Översikt över Secure HDInsight | Microsoft Docs"
+title: "Hadoop-säkerhet – domänanslutna HDInsight-kluster – Azure | Microsoft Docs"
 description: "Läs mer ..."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
+ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
+ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
 
 
 ---
-# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>Introduktion till domänanslutna HDInsight-kluster (förhandsversion)
+# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>En introduktion till Hadoop-säkerhet med domänanslutna HDInsight-kluster (förhandsversion)
+
 Fram till idag hade Azure HDInsight endast stöd för en enda lokal administratörsanvändare. Det har fungerat bra för mindre programteam eller avdelningar. I takt med att Hadoop-baserade arbetsbelastningar blev allt populärare inom företagssektorn blev dock behovet av företagsklassfunktioner, som active directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomstkontroll, allt viktigare. Genom att använda domänanslutna HDInsight-kluster kan du skapa ett HDInsight-kluster som är anslutet till en Active Directory-domän, konfigurera en lista över anställda från företaget som kan autentisera via Azure Active Directory och logga in på HDInsight-kluster. Person utanför företaget kan inte logga in eller få åtkomst till HDInsight-klustret. Företagets administratör kan konfigurera rollbaserad åtkomstkontroll för Hive-säkerhet med hjälp av [Apache Ranger](http://hortonworks.com/apache/ranger/), och kan därmed begränsa åtkomsten till data till bara så mycket som behövs. Slutligen kan administratören granska anställdas dataåtkomst, och eventuella ändringar som görs av principerna för åtkomstkontroll, vilket ger en hög styrningsgrad över företagets resurser.
 
 > [!NOTE]
@@ -57,6 +58,6 @@ Att skydda data är viktigt för att uppfylla organisationers säkerhets- och ef
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

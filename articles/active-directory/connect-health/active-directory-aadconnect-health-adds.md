@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 1/31/2017
 ms.author: arluca
 translationtype: Human Translation
 ms.sourcegitcommit: 9d7640577eedcc9221f6346b650aed85f1d31a65
@@ -61,7 +61,6 @@ Som standard har vi förvalt fyra prestandaräknare. Du kan dock inkludera andra
 * [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versionshistorik för Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
 
 
 

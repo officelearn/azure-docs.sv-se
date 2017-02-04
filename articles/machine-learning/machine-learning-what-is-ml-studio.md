@@ -86,7 +86,7 @@ Om du vill få en fullständig genomgång av att skapa en prediktiv analyslösni
 ### <a name="datasets"></a>Datauppsättningar
 En datauppsättning är data som har överförts till Machine Learning Studio så att de kan användas i modelleringsprocessen. Ett antal provdatauppsättningar ingår i Machine Learning Studio för att du ska kunna experimentera med dem. Och du kan föra över fler datauppsättningar efter behov. Här följer några exempel på datauppsättningar som ingår:
 
-* **MPG-data för olika bilar** – MPG-värden (Miles Per Gallon, USA:s motsvarighet till liter per 100 km) för bilar beräknat utifrån antalet cylindrar, hästkrafter o.s.v.
+* **MPG-data för olika bilar** – MPG-värden (Miles Per Gallon, USA:s motsvarighet till liter per&100; km) för bilar beräknat utifrån antalet cylindrar, hästkrafter o.s.v.
 * **Bröstcancerdata** – Data för bröstcancerdiagnoser.
 * **Data om skogsbränder** – Storleken på skogsbränder i nordöstra Portugal.
 

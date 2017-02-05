@@ -8,6 +8,10 @@
 ### [Kom igång med IoT Hub (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [Kom igång med IoT Hub (Java)](iot-hub-java-java-getstarted.md)
 ### [Kom igång med IoT Hub (Node)](iot-hub-node-node-getstarted.md)
+## Komma igång med SDK för IoT-enheter
+### [Introduktion till SDK för C för Azure IoT-enheter](iot-hub-device-sdk-c-intro.md)
+### [IoT-enhetens SDK för C: mer om IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+### [IoT-enhetens SDK för C: mer om serialiserare](iot-hub-device-sdk-c-serializer.md)
 ## Kom igång med en Raspberry Pi
 ### [Kom igång med Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### Lektion 1: Konfigurera din enhet
@@ -32,6 +36,7 @@
 ## [Kom igång med SDK för gateway (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Kom igång med SDK för gateway (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 # Gör så här för att
 ## [Självstudier för att bearbeta meddelanden från enhet till moln (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Självstudier för att bearbeta meddelanden från enhet till moln (Java)](iot-hub-java-java-process-d2c.md)
@@ -51,7 +56,7 @@
 ## [Använd enhetsjobb för att uppdatera enhetens inbyggda programvara för .NET/Node](iot-hub-csharp-node-firmware-update.md)
 ## [Schemalägg och sänd jobb för Node.js](iot-hub-node-node-schedule-jobs.md)
 ## [Schemalägg och sänd jobb för .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
-## Planera distributionen
+## Planera
 ### [Jämförelse mellan IoT Hub och Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Skala din lösning](iot-hub-scaling.md)
 ### [Hög tillgänglighet och haveriberedskap](iot-hub-ha-dr.md)
@@ -74,9 +79,10 @@
 ### [SDK:er för tjänst och enhet](iot-hub-devguide-sdks.md)
 ### [MQTT-support](iot-hub-mqtt-support.md)
 ### [Ordlista](iot-hub-devguide-glossary.md)
-## Hantera tjänsten
+## Hantera
 ### [Skapa en IoT Hub med portalen](iot-hub-create-through-portal.md)
-### [Skapa en IoT Hub med CLI](iot-hub-create-using-cli.md)
+### [Skapa en IoT-hubb med CLI 2.0 Preview](iot-hub-create-using-cli.md)
+### [Skapa en IoT Hub med CLI](iot-hub-create-using-cli-nodejs.md)
 ### [Skapa en IoT Hub med REST](iot-hub-rm-rest.md)
 ### [Skapa en IoT Hub med PowerShell](iot-hub-rm-template-powershell.md)
 ### [Skapa en IoT Hub med en mall](iot-hub-rm-template.md)
@@ -96,17 +102,16 @@
 ### [Skydda distributionen av IoT](iot-hub-security-deployment.md)
 
 # Referens
-## [Azure CLI](https://docs.microsoft.com/cli/azure)
-## [Java](https://docs.microsoft.com/java/api)
-## [.NET-API](https://docs.microsoft.com/dotnet/api)
-## [Azure IoT SDK:er](http://azure.github.io/azure-iot-sdks/)
-## [SDK API för gateway](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST API för resursprovider](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST API för enhetsidentiteter](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST API för enhetsmeddelanden](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
-## [Introduktion till SDK för C för Azure IoT-enheter](iot-hub-device-sdk-c-intro.md)
-## [IoT-enhetens SDK för C: mer om IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-## [IoT-enhetens SDK för C: mer om serialiserare](iot-hub-device-sdk-c-serializer.md)
+## [Förhandsversion av Azure CLI 2.0](/cli/azure/iot)
+## [.NET (tjänst)](/dotnet/api/microsoft.azure.devices)
+## [.NET (enheter)](/dotnet/api/microsoft.azure.devices.client)
+## [Java (tjänst)](/java/api/com.microsoft.azure.iot.service.auth)
+## [Java (enheter)](/java/api/com.microsoft.azure.iothub)
+## [SDK:er för Azure IoT](http://azure.github.io/azure-iot-sdks/)
+## [SDK för gateway](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST (resursprovider)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST (enhetsidentiteter)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [REST (enhetsmeddelanden) REST-API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # Relaterat
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -125,6 +130,6 @@
 ## [Azure Certified for IoT-enhetskatalog](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

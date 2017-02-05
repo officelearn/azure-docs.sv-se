@@ -58,7 +58,7 @@
 #### [Android WebView med intern Android SDK](mobile-engagement-bridge-webview-native-android.md)
 #### [iOS WebView med intern iOS SDK](mobile-engagement-bridge-webview-native-ios.md)
 
-### [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)
+### [Windows Phone (Silverlight)](mobile-engagement-windows-phone-sdk-overview.md)
 
 #### [Integrera med en Windows Phone Silverlight-app](mobile-engagement-windows-phone-integrate-engagement.md)
 #### [Integrera Reach](mobile-engagement-windows-phone-integrate-engagement-reach.md)
@@ -116,21 +116,24 @@
 ### [Tjänstbegränsningar](../azure-subscription-service-limits.md#mobile-engagement-limits)
 
 # Referens
-## [NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
+
+
+
+# Relaterat
 ## SDK-innehåll
 ### [Android SDK](mobile-engagement-android-sdk-content.md)
 ### [iOS SDK](mobile-engagement-ios-sdk-content.md)
 ### [Windows Universal Apps SDK](mobile-engagement-windows-store-sdk-content.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-sdk-content.md)
+
+# Resurser
 ## Viktig information
 ### [Android SDK](mobile-engagement-android-release-notes.md)
 ### [iOS SDK](mobile-engagement-ios-release-notes.md)
 ### [Web SDK](mobile-engagement-web-release-notes.md)
 ### [Windows Universal Apps SDK](mobile-engagement-windows-store-release-notes.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-release-notes.md)
-
-
-# Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 ## [Testa demoappar](mobile-engagement-demo-apps.md)
 ## [.NET API-exempel](mobile-engagement-dotnet-sdk-service-api.md)
@@ -146,6 +149,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

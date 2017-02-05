@@ -41,11 +41,17 @@
 ## Hantera
 ### [Diagnostik](application-gateway-diagnostics.md)
 ### [Felsöka](application-gateway-troubleshooting-502.md)
-# Referens
-## [PowerShell-cmdletar](https://docs.microsoft.com/powershell/resourcemanager)
-## [REST](https://msdn.microsoft.com/library/mt684941)
-## [Klassisk REST](https://msdn.microsoft.com/library/azure/mt299393)
 
+# Referens
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [Förhandsversion av Azure CLI 2.0](/cli/azure/network/application-gateway)
+## [.NET](/dotnet/api)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
+## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST (klassisk)](https://msdn.microsoft.com/library/azure/mt299393)
 # Relaterat
 ## [ExpressRoute](/azure/expressroute/)
 ## [Virtuellt nätverk](/azure/virtual-network/)
@@ -61,6 +67,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

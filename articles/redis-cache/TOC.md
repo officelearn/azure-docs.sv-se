@@ -11,7 +11,7 @@
 
 # Kom igång
 ##[ASP.NET](cache-web-app-howto.md)
-##[NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
@@ -45,21 +45,21 @@
 ###[Uppdatera till en annan storlek och nivå](cache-how-to-scale.md)
 ###[Använd Redis-kluster för att skala in och ut](cache-how-to-premium-clustering.md)
 
-#Referens
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# Referens
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Förhandsversion av Azure CLI 2.0](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis-klienter](http://redis.io/clients)
 ## [Redis-kommandon](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
+
+# Resurser
 ## [Exempel på Redis Cache](cache-redis-samples.md)
-
-#Resurser
-##[Prissättning](https://azure.microsoft.com/pricing/details/cache/)
+## [Prissättning](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

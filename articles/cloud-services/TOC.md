@@ -64,6 +64,13 @@
 #### [Klassisk portal](cloud-services-how-to-scale.md)
 ### [Använd Python för att hantera Azure-resurser](cloud-services-python-how-to-use-service-management.md)
 
+### [Gästoperativsystemets korrigeringsfiler](cloud-services-guestos-msrc-releases.md)
+### Gästoperativsystem, indragning
+#### [Indragningsprincip](cloud-services-guestos-retirement-policy.md)
+#### [Meddelande om indragning, familj 1](cloud-services-guestos-family1-retirement.md)
+### [Versionsnyheter om gästoperativsystem](cloud-services-guestos-update-matrix.md)
+### [XPath-facit för rollkonfiguration i Cloud Services](cloud-services-role-config-xpath.md)
+
 ## Hantera certifikat
 ### [Cloud Services och hanteringscertifikat](cloud-services-certs-create.md)
 ### Konfigurera SSL 
@@ -76,7 +83,7 @@
 #### [Testa med Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Aktivera diagnostik
 #### [PowerShell](cloud-services-diagnostics-powershell.md)
-#### [NET](cloud-services-dotnet-diagnostics.md)
+#### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Använda prestandaräknare i Azure Diagnostics](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Lagra och visa diagnostikdata i Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
@@ -101,12 +108,6 @@
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
-## [Gästoperativsystemets korrigeringsfiler](cloud-services-guestos-msrc-releases.md)
-## Gästoperativsystem, indragning
-### [Indragningsprincip](cloud-services-guestos-retirement-policy.md)
-### [Meddelande om indragning, familj 1](cloud-services-guestos-family1-retirement.md)
-## [Versionsnyheter om gästoperativsystem](cloud-services-guestos-update-matrix.md)
-## [XPath-facit för rollkonfiguration i Cloud Services](cloud-services-role-config-xpath.md)
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/cloud-services/)
@@ -116,6 +117,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

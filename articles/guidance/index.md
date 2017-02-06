@@ -1,14 +1,12 @@
-
 ---
-title: Azure Guidance | Microsoft Docs
-description: Best practices and guidance for Azure
-services: ''
+title: "Riktlinjer för Azure | Microsoft Docs"
+description: "Metodtips och riktlinjer för Azure"
+services: 
 documentationcenter: na
 author: bennage
 manager: marksou
-editor: ''
-tags: ''
-
+editor: 
+tags: 
 ms.assetid: de94c74a-fea7-4815-8484-553e421a7490
 ms.service: guidance
 ms.devlang: na
@@ -17,100 +15,104 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: christb
+translationtype: Human Translation
+ms.sourcegitcommit: 5f3ced657cf3d6587a63789b3dd3ca41cd2856f0
+ms.openlocfilehash: 0061e1ff2ae2d6b8ed7b7c3bb60405e76d4cc91b
+
 
 ---
-# Azure Guidance
+# <a name="azure-guidance"></a>Azure-vägledning
 [!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-The Microsoft patterns & practices team is part of the Azure Customer Advisory Team. Our purpose is to help developers, architects, and IT professionals be successful on the Microsoft Azure platform. We develop guidance that shows best practices for building cloud solutions on Azure.
+Microsofts team för mönster och rutiner är en del av Azures kundrådgivningsteam. Vårt syfte är att hjälpa utvecklare, arkitekter och IT-proffs att hantera Microsoft Azure-plattformen. Vi tar fram vägledningsinformation med metodtips för att skapa molnlösningar i Azure.
 
-## Checklists
-These lists are a quick reference for reviewing the fundamental aspects of availability and scalability. 
+## <a name="checklists"></a>Checklistor
+De här listorna är en översikt över granskning av grundläggande aspekter av tillgänglighet och skalbarhet. 
 
-* [Availability Checklist][AvailabilityChecklist] 
+* [Checklista för tillgänglighet][AvailabilityChecklist] 
   
-    A summary of recommended practices for ensuring availability.
-* [Scalability Checklist][ScalabilityChecklist]
+    En sammanfattning av rekommenderade metoder för att säkerställa tillgänglighet.
+* [Checklista för skalbarhet][ScalabilityChecklist]
   
-    A summary of recommended practices for designing and implementing scalable services and handling data management.
+    En sammanfattning av rekommenderade metoder för att utforma och implementera skalbara tjänster och datahantering.
 
-## Best practices articles
-These articles provide an in-depth discussion of important concepts commonly associated with cloud computing. 
+## <a name="best-practices-articles"></a>Artiklar med metodtips
+Dessa artiklar innehåller en detaljerad beskrivning av viktiga begrepp som ofta är kopplade till molntjänster. 
 
-* [API Design][APIDesign] 
+* [API-design][APIDesign] 
   
-    A discussion of design issues to consider when designing a web API.
-* [API Implementation][APIImplementation] 
+    En beskrivning av faktorer att tänka på när du utformar en webb-API.
+* [API-implementering][APIImplementation] 
   
-    A set of recommended practices for implementing and publishing a web API.
-* [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
+    En uppsättning rekommenderade metoder för att implementera och publicera en webb-API.
+* [Vägledning om API-säkerhet](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
   
-    A discussion of authentication and authorization concerns (for example, token types, authorization protocols, authorization flows, and threat mitigation).
-* [Autoscaling guidance][AutoscalingGuidance] 
+    En beskrivning av problem med autentisering och auktorisering (till exempel tokentyper, auktoriseringsprotokoll, auktoriseringsflöden och hotminskning).
+* [Riktlinjer för automatisk skalning][AutoscalingGuidance] 
   
-    A summary of considerations for scaling solutions without the need for manual intervention.
-* [Background Jobs guidance][BackgroundJobsGuidance] 
+    En sammanfattning av överväganden för att skala lösningar utan att behöva ingripa manuellt.
+* [Riktlinjer för bakgrundsjobb][BackgroundJobsGuidance] 
   
-    A description of available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
-* [Content Delivery Network (CDN) guidance][CDNGuidance] 
+    En beskrivning av tillgängliga alternativ och rekommenderade metoder för att implementera uppgifter som ska utföras i bakgrunden, oberoende av alla åtgärder i förgrunden eller interaktiva funktioner.
+* [Riktlinjer för CDN (Content Delivery Network)][CDNGuidance] 
   
-    General guidance and recommended practice for using the CDN to minimize the load on your applications, and maximize availability and performance.
-* [Caching guidance][CachingGuidance] 
+    Allmänna riktlinjer och rekommenderade metoder för att använda CDN och minska belastningen på dina program samt maximera tillgänglighet och prestanda.
+* [Riktlinjer för cachelagring][CachingGuidance] 
   
-    A summary of how to use caching to improve the performance and scalability of a system.
-* [Data Partitioning guidance][DataPartitioningGuidance]
+    En sammanfattning av hur du använder cachelagring för att förbättra prestanda och skalbarhet i ett system.
+* [Riktlinjer för datapartitionering][DataPartitioningGuidance]
   
-    Strategies that you can use to partition data to improve scalability, reduce contention, and optimize performance.
-* [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
+    Strategier du kan använda för att partitionera data för att förbättra skalbarheten, minska konkurrensen och optimera prestanda.
+* [Riktlinjer för övervakning och diagnostik][MonitoringandDiagnosticsGuidance] 
   
-    Guidance on tracking how your users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
-* [Recommended naming conventions][naming-conventions] 
+    Vägledning för att spåra hur användarna använder systemet, spåra resursutnyttjande och i allmänhet övervaka systemets hälsotillstånd och prestanda.
+* [Rekommenderade namngivningskonventioner][naming-conventions] 
   
-    Recommended naming conventions for Azure resources.
-* [Retry General guidance][RetryGeneralGuidance] 
+    Rekommenderade namnkonventioner för Azure-resurser.
+* [Allmänna riktlinjer för återförsök][RetryGeneralGuidance] 
   
-    Discussion of the general concepts for handling transient faults.
-* [Retry Service-specific guidance][RetryServiceSpecificGuidance]
+    Beskrivning av de allmänna principerna för hantering av tillfälligt fel.
+* [Tjänstspecifika riktlinjer för återförsök][RetryServiceSpecificGuidance]
   
-    A summary of retry features for many of Azure services, including information to help you use, adapt, or extend the retry mechanism for that service.
+    En sammanfattning av återförsöksfunktioner för många Azure-tjänster, däribland information om hur du ska använda, anpassa och utöka återförsöksmekanismen för tjänsten.
 
-## Scenario guides
-* [Running Elasticsearch on Azure][elasticsearch] 
+## <a name="scenario-guides"></a>Scenarioguider
+* [Köra Elasticsearch i Azure][elasticsearch] 
   
-    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in large datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
-* [Identity management for multitenant applications][identity-multitenant] 
+    Elasticsearch är en mycket skalbar sökmotor och databas med öppen källkod. Den är lämplig för situationer som kräver snabb analys och identifiering av information som finns i stora datauppsättningar. Den här vägledningen innehåller en rad viktiga aspekter att tänka på när du utformar ett Elasticsearch-kluster.
+* [Identitetshantering för program med flera klienter][identity-multitenant] 
   
-    Multitenancy is an architecture where multiple tenants share an application but are isolated from one another. This guidance shows you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
-* [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
+    Flera organisationer i samma installation (multitenancy) är en arkitektur där flera klienter delar ett program men isoleras från varandra. Den här vägledningen beskriver hur du hanterar användaridentiteter i ett program för flera klienter och hur du använder [Azure Active Directory][AzureAD] för att hantera inloggning och autentisering.
+* [Utveckla stordatalösningar](https://msdn.microsoft.com/library/dn749874.aspx)
   
-    This guide explores the use of HDInsight for scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
+    I den här handboken beskrivs användningen av HDInsight för scenarier som iterativ undersökning, som ett informationslager, för ETL-processer och integrering i befintliga BI-system. Den innehåller också anvisningar för att förstå begreppet stordata, planera och utforma stordatalösningar och implementera lösningarna.
 
-## Patterns
-* [Cloud Design Patterns: Prescriptive Architecture Guidance for Cloud Applications](https://msdn.microsoft.com/library/dn568099.aspx)
+## <a name="patterns"></a>Mönster
+* [Designmönster för molnet: anvisningar om förebyggande arkitektur för molnprogram](https://msdn.microsoft.com/library/dn568099.aspx)
   
-    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into cloud application architectures.
-* [Optimizing Performance for Cloud Applications](https://github.com/mspnp/performance-optimization)
+    Designmönster för molnet är ett bibliotek med designmönster och relaterade vägledningsämnen. Det tydliggör fördelarna med att applicera mönster genom att visa hur varje del får plats i molnarkitekturprogrammet.
+* [Optimera prestanda för molnprogram](https://github.com/mspnp/performance-optimization)
   
-    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating eight anti-patterns and a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
+    I den här vägledningen beskrivs vanliga antimönster som hindrar appar från skalning under belastning. Den innehåller exempel som visar åtta antimönster och en [prestandaanalysbeskrivning](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) samt en guide för [utvärdering av prestanda mot nyckelvärden](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-## Reference architectures
-Our reference architectures are arranged by scenario.
-Each individual architecture offers recommended practices and prescriptive steps, and an executable component that embodies the recommendations.
+## <a name="reference-architectures"></a>Referensarkitekturer
+Våra referensarkitekturer ordnas efter scenario.
+Varje enskild arkitektur innehåller rekommendationer, ingående anvisningar och en körbar komponent som återspeglar rekommendationerna.
 
-The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
+Det aktuella biblioteket med referensarkitektur är tillgängligt på [http://aka.ms/architecture](http://aka.ms/architecture).
 
-## Resiliency guidance
-These topics describe how to design applications that are resilient to failure in a distributed cloud environment.   
+## <a name="resiliency-guidance"></a>Återhämtningsvägledning
+Här beskrivs hur du utformar program som är flexibla för fel i en distribuerad molnmiljö.   
 
-* [Resiliency overview][ResiliencyOvervew]
+* [Översikt över återhämtning][ResiliencyOvervew]
   
-     How to build applications on the Azure platform that can recover from failures and continue to function. Describes a structured approach to achieve resiliency,from design to implementation, deployment, and operations.
-* [Resiliency checklist][resiliency-checklist]
+     Skapa program på Azure-plattformen som kan återställa från fel och fortsätta att fungera. Beskriver en strukturerad metod för att uppnå återhämtning, från design till implementering, distribution och åtgärder.
+* [Checklista för återhämtning][resiliency-checklist]
   
-    A checklist of recommendations that will help you plan for a variety of failure modes that could occur.
-* [Failure mode analysis][resiliency-fma] 
+    En checklista över rekommendationer som gör det enklare för dig att planera för en mängd olika fellägen som kan uppstå.
+* [Analys av felläge][resiliency-fma] 
   
-    Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points. As a starting point for your FMA process,this article contains a catalog of potential failure modes and their mitigations. 
+    Analys av programfel-läge (FMA) är en process för att skapa återhämtning i ett system genom att identifiera möjliga felpunkter. Den här artikeln innehåller en katalog med möjliga feltillstånd och åtgärder som en startpunkt för FMA-processen. 
 
 <!-- links -->
 
@@ -151,4 +153,10 @@ These topics describe how to design applications that are resilient to failure i
 [resiliency-fma]: guidance-resiliency-failure-mode-analysis.md
 [resiliency-checklist]: guidance-resiliency-checklist.md
 [ResiliencyOvervew]: guidance-resiliency-overview.md
+
+
+
+
+<!--HONumber=Dec16_HO1-->
+
 

@@ -30,18 +30,20 @@
 
 # Gör så här för att
 ## Planera och designa
-
 ### [Djup diagnostik för webbappar och tjänster](app-insights-devops.md)
 ### [Utvecklaranalys med Application Insights och HockeyApp](app-insights-developer-analytics.md)
 ### [Övervaka prestanda i webbprogram](app-insights-web-monitor-performance.md)
 ### [Användningsanalys med Application Insights](app-insights-overview-usage.md)
 ### [Separera Application Insights-resurser](app-insights-separate-resources.md)
 ### [Hur kan jag ... i Application Insights?](app-insights-how-do-i.md)
+## Migrera
+### [Flytta från Azure-slutpunktsövervakning till tillgänglighetstestning](app-insights-migrate-azure-endpoint-tests.md)
 
 ## Konfigurera
-
+### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ### Azure
 #### [Diagnostik](app-insights-azure-diagnostics.md)
+## [IP-adresser](app-insights-ip-addresses.md)
 
 ### ASP.NET
 #### [Hämta mer telemetri](app-insights-asp-net-more.md)
@@ -102,7 +104,6 @@
 ### [Löpande export](app-insights-export-telemetry.md)
 ### [Exportera till Power BI](app-insights-export-power-bi.md)
 
-
 ## Utveckla
 
 ### [API för anpassade händelser och mått](app-insights-api-custom-events-metrics.md)
@@ -111,33 +112,30 @@
 
 
 ## Hantera
-
 ### [Hantera priser och kvot](app-insights-pricing.md)
 ### [Prestandaövervakning av program med Application Insights för SCOM](app-insights-scom.md)
 
+##Exportera
+## [Exportera datamodell](app-insights-export-data-model.md)
 
 ## Skydda
-
 ### [Datainsamling, kvarhållning och lagring](app-insights-data-retention-privacy.md)
 ### [Resurser, roller och åtkomstkontroll](app-insights-resources-roles-access-control.md)
-
-
 ## Felsöka
 ### [Inga data för .NET](app-insights-asp-net-troubleshoot-no-data.md)
 ### [Analys](app-insights-analytics-troubleshooting.md)
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Referens
-## [Java-API](http://dl.windowsazure.com/applicationinsights/javadoc/)
-## [.NET-API](https://docs.microsoft.com/dotnet/api)
-## [JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
+## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [REST](https://dev.applicationinsights.io/)
+
+# Resurser
 ## [Analytics-referens](app-insights-analytics-reference.md)
-## [Sampling](app-insights-sampling.md)
-## [IP-adresser](app-insights-ip-addresses.md)
-## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-## [Exportera datamodell](app-insights-export-data-model.md)
-## [Flytta från Azure-slutpunktsövervakning till tillgänglighetstestning](app-insights-migrate-azure-endpoint-tests.md)
+## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Utvecklaranalys: språk, plattformar och integreringar](app-insights-platforms.md)
+### [Sampling](app-insights-sampling.md)
 ### [Exempel och genomgångar](app-insights-code-samples.md)
 #### [Genomgång: Aktivera telemetri för Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Genomgång: Exportera till SQL med Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
@@ -145,9 +143,6 @@
 ## [Viktig information för Application Insights SDK för Windows Phone och Store](app-insights-release-notes-windows.md)
 ## [Viktig information för Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [Viktig information för SDK i Application Insights](app-insights-release-notes.md)
-## [Dataåtkomst REST API](https://dev.applicationinsights.io/)
-
-# Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/application-insights/)  
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
@@ -157,6 +152,7 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

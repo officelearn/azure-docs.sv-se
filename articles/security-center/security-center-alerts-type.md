@@ -4,7 +4,7 @@ description: "Det här dokumentet visar vilken typ av säkerhetsaviseringar som 
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,8 @@ Det här dokumentet visar de olika typerna av säkerhetsaviseringar som är till
 
 > [!NOTE]
 > För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. En kostnadsfri 90-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
-> 
-> 
+>
+>
 
 ## <a name="what-type-of-alerts-are-available"></a>Vilka typer av aviseringar finns?
 Azure Security Center innehåller olika aviseringar för de olika stegen i händelsekedjan. I bilden nedan visas några exempel på olika typer av aviseringar som är relaterade till vissa av dessa steg.
@@ -65,8 +65,8 @@ Azure Security Center kan använda beteendeanalyser för att identifiera resurse
 
 > [!NOTE]
 > Mer information om hur identifieringsfunktionerna i Security Center fungerar finns i [Identifieringsfunktioner i Azure Security Center](security-center-detection-capabilities.md).
-> 
-> 
+>
+>
 
 ### <a name="crash-analysis"></a>Kraschanalys
 Analysen där kraschen dumpar minnet är en metod som används för att identifiera avancerad skadlig kod som kan undvika traditionella säkerhetslösningar. Olika former av skadlig kod försöker undvika att identifieras av antivirusprodukter genom att aldrig skriva till disk, eller genom att kryptera programvarukomponenter som skrivs till disk. Detta gör det svårt att identifiera den skadliga koden med traditionella antivirusprogram. Sådan skadlig kod kan dock identifieras med minnesanalyser eftersom den skadliga koden måste lämna spår i minnet för att kunna fungera.
@@ -88,7 +88,7 @@ Den här varningen tillhandahåller följande ytterligare fält:
 
 Det här är ett exempel på den här typen av varning:
 
-![Shellcode-varning](./media/security-center-alerts-type/security-center-alerts-type-fig2.png) 
+![Shellcode-varning](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
 ### <a name="module-hijacking-discovered"></a>Identifierad modulkapning
 Windows är beroende av DLL:er (Dynamic Link Library) för att program ska kunna använda vanliga systemfunktioner i Windows. DLL-kapning inträffar när skadlig kod ändrar inläsningsordningen för DLL-filer för att läsa in skadliga nyttolaster i minnet, där godtycklig kod kan köras. Den här varningen anger att en analys av kraschdumpfiler har upptäckt att en modul med liknande namn har lästs in från två olika sökvägar, där en av de inlästa sökvägarna kommer från en vanlig plats för binära Windows-systemfiler.
@@ -104,7 +104,7 @@ Förutom fälten som beskrivs i avsnittet ”Shellcode-identifiering” ovan, vi
 
 Det här är ett exempel på den här typen av varning:
 
-![Varning vid modulkapning](./media/security-center-alerts-type/security-center-alerts-type-fig3.png) 
+![Varning vid modulkapning](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
 ### <a name="masquerading-windows-module-detected"></a>Identifierad maskering av Windows-modul
 Skadlig kod kan använda vanliga namn på binära Windows-systemfiler (t.ex. SVCHOST.EXE) eller moduler (t.ex. NTDLL.DLL) för att ”smälta in” och dölja den skadliga programvarans egentliga natur för administratören. Den här varningen anger att en analys av kraschdumpfiler har upptäckt att en kraschdumpfil innehåller moduler som använder namn på Windows-systemmoduler, men inte uppfyller andra kriterier som är typiska för Windows-moduler. En analys av en kopia av den maskerande modulen på disk kan ge mer information för att avgöra om modulen är skadlig eller inte. Analysen kan inbegripa följande åtgärder:
@@ -123,7 +123,7 @@ Den här varningen extraherar och visar även vissa fält från modulens PE-huvu
 
 Det här är ett exempel på den här typen av varning:
 
-![Avisering om Windows-maskering](./media/security-center-alerts-type/security-center-alerts-type-fig4.png) 
+![Avisering om Windows-maskering](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
 ### <a name="modified-system-binary-discovered"></a>Identifierad ändring av binär systemfil
 Skadlig kod kan ändra grundläggande systembinärfiler för att komma åt data eller ligga kvar i ett komprometterat system utan att bli upptäckt. Den här varningen anger att en analys av kraschdumpfiler har upptäckt att grundläggande Windows OS-binärfiler har ändrats i minnet eller på disk.
@@ -136,7 +136,7 @@ Förutom fälten som beskrivs i avsnittet ”Shellcode-identifiering” ovan, vi
 
 Det här är ett exempel på den här typen av varning:
 
-![Varning om binär systemfil](./media/security-center-alerts-type/security-center-alerts-type-fig5.png) 
+![Varning om binär systemfil](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Misstänkt process kördes
 Security Center identifierar misstänkta processer som körs i den virtuella måldatorn och utlöser en avisering. Identifieringen letar inte efter det specifika namnet, utan efter dess parameter. Det innebär att även om angriparen byter namn på den körbara filen kan Security Center fortfarande identifiera den.
@@ -158,7 +158,7 @@ Hotidentifieringen i nätverk av Security Center sker genom automatisk insamling
 ### <a name="suspicious-outgoing-traffic-detected"></a>Identifierad misstänkt utgående trafik
 Nätverksenheter kan identifieras och profileras på i stort sett samma sätt som andra typer av system. Angripare börjar vanligtvis med att skanna och söka av portar. Exemplet nedan visar misstänkt SSH-trafik från en virtuell dator som kan vara i färd med att utföra en SSH-råstyrkeattack eller avsökningsattack mot en extern resurs.
 
-![Varning om misstänkt utgående trafik](./media/security-center-alerts-type/security-center-alerts-type-fig8.png) 
+![Varning om misstänkt utgående trafik](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
 Den här varningen tillhandahåller information som hjälper dig att identifiera resursen som användes för att initiera attacken, den komprometterade datorn, tidpunkten för identifieringen, samt det protokoll och den port som användes. Det här bladet visar också en lista över de steg som du kan följa för att åtgärda problemet.
 
@@ -169,7 +169,10 @@ Med hjälp av Microsofts insamling av hotinformation kan Azure Security Center i
 
 Den här varningen tillhandahåller information som hjälper dig att identifiera den resurs som användes för att initiera attacken, den angripna resursen, den drabbade IP-adressen, angriparens IP-adress och tidpunkten för identifieringen.
 
-[AZURE.NOTE] Live-IP-adresserna har tagits bort i den här skärmbilden i sekretessyfte.
+> [!NOTE]
+> Live-IP-adresserna har tagits bort i den här skärmbilden i sekretessyfte.
+>
+>
 
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Möjlig utgående Denial of Service-attack upptäcktes
 Avvikande nätverkstrafik som kommer från en virtuell dator kan leda till att Security Center utlöser en potentiell Denial of Service-typ av angrepp.
@@ -184,8 +187,8 @@ Resursanalysen i Security Center fokuserar på PaaS-tjänster, till exempel inte
 ### <a name="potential-sql-injection"></a>Potentiell SQL-inmatning
 SQL-inmatning är en attack där skadlig kod matas in i strängar som senare skickas till en instans av SQL Server för parsning och körning. Sårbarhet för den här typen av inmatning bör granskas för alla procedurer som konstruerar SQL-instruktioner eftersom SQL Server kör alla syntaktiskt giltiga frågor som den tar emot. SQL-hotidentifiering använder Machine Learning, beteendeanalys och avvikelseidentifiering för att hitta misstänkta händelser i Azure SQL-databaserna. Några exempel:
 
-* Försök till databasåtkomst av en tidigare anställd 
-* SQL-inmatningsattacker 
+* Försök till databasåtkomst av en tidigare anställd
+* SQL-inmatningsattacker
 * Onormal åtkomst till produktionsdatabasen från en användare hemifrån
 
 ![Varning om potentiell SQL-inmatning](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
@@ -210,7 +213,6 @@ I det här dokumentet lär du dig om de olika typerna av säkerhetsvarningar i S
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-
 
 
 

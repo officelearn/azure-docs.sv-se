@@ -7,7 +7,7 @@
 # Kom igång
 
 ## Web Apps
-### [NET](web-sites-dotnet-get-started.md)
+### [.NET](web-sites-dotnet-get-started.md)
 ### [Node.js](app-service-web-nodejs-get-started.md)
 ### [Python](web-sites-python-ptvs-django-mysql.md)
 ### [Java](web-sites-java-get-started.md)
@@ -56,7 +56,7 @@
 ### [Lägga till funktioner i din första webbapp](app-service-web-get-started-2.md)
 ### [Skapa en webbapp på Linux](app-service-linux-how-to-create-a-web-app.md)
 ### [App Service-referens](app-service-changes-existing-services.md)
-### [Azure-portal](app-service-web-app-azure-portal.md)
+### [Azure Portal](app-service-web-app-azure-portal.md)
 ### [WebJobs-SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET-appar
@@ -167,7 +167,7 @@
 #### [Översikt över nätverksarkitekturen](app-service-app-service-environment-network-architecture-overview.md)
 #### [Nätverkskonfigurationsinformation med ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md)
 
-## Säkerhetskopiering
+## Backup
 ### [Säkerhetskopiera din app i Azure](web-sites-backup.md)
 ### [Återställa en app i Azure](web-sites-restore.md)
 ### [Använd REST för att säkerhetskopiera och återställa App Service-appar](websites-csm-backup.md)
@@ -247,9 +247,9 @@
 ### [Felsöka prestandaproblem med webbappar](app-service-web-troubleshoot-performance-degradation.md)
 
 # Referens
-## [Azure CLI](/cli/azure/)
+## [Förhandsversion av Azure CLI 2.0](/cli/azure/appservice)
+## [.NET](/dotnet/api)
 ## [Java](/java/api/)
-## [NET](/dotnet/api)
 ## [REST](/rest/api/appservice)
 
 # Relaterat
@@ -266,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

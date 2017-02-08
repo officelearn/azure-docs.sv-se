@@ -21,9 +21,8 @@
 ### [Utgående autentisering](scheduler-outbound-authentication.md)
 
 # Referens
-## [PowerShell-cmdletar för Azure Scheduler](https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx)
-## [NET](/dotnet/api)
-## [REST](/rest/api/scheduler/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [REST](/rest/api/scheduler)
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/scheduler/)
@@ -36,6 +35,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

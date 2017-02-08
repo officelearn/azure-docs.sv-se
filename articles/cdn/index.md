@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 5f0cd9a3f3d4b578312e1b9f9f8b9c5ee7d6aa27
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: 79a8dc0dc2e81d0b159b07bbb496f04e06e5d28a
 
 ---
-#<a name="cdn-documentation"></a>Dokumentation om CDN
+# <a name="cdn-documentation"></a>Dokumentation om CDN
 
 Azure Content Delivery Network (CDN) ger utvecklare en global lösning för att leverera innehåll med hög bandbredd som finns i Azure eller på någon annan plats.  Med hjälp av CDN-nätverket kan du cachelagra offentligt tillgängliga objekt som läses in från Azure Blob Storage, en webbapp, virtuell dator, programmapp eller annan HTTP/HTTPS-plats.  CDN-nätverket används vanligtvis för att leverera statiskt innehåll, till exempel bilder, formatmallar, dokument, filer, klientskript och HTML-sidor.
 
@@ -67,37 +67,44 @@ Azure Content Delivery Network (CDN) ger utvecklare en global lösning för att 
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/CDN">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Språk</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referens för CDN REST-API</p>
+                        <p><a href="/rest/api/cdn/">Referens för REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -112,6 +119,6 @@ Ladda ned dokumentation om Azure CDN </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -182,6 +182,6 @@ När du har fyllt Azure Search-indexet kan du börja skicka frågor för att sö
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

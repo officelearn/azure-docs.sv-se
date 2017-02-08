@@ -84,6 +84,6 @@ Det här skriptet skapar en ny Azure-resursgrupp och en ny server. När du uppma
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

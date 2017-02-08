@@ -20,7 +20,7 @@ ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
 
 
 ---
-# <a name="scheduler-concepts-terminology-entity-hierarchy"></a>Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler
+# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler
 ## <a name="scheduler-entity-hierarchy"></a>Entitetshierarki i Scheduler
 I följande tabell beskrivs de viktigaste resurserna som exponeras eller används av Scheduler-API:et:
 

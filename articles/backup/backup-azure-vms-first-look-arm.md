@@ -59,7 +59,7 @@ Beroende på hur många virtuella datorer som du vill skydda kan du starta från
 
   ![Guiden Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-5. För Recovery Services-valvet kan du välja ett befintligt valv eller skapa ett nytt. Om du skapar ett nytt valv skapas det i samma resursgrupp som den virtuella datorn och platsen är samma som den virtuella datorn. Om du vill skapa ett Recovery Services-valv med olika värden [skapar du ett Recovery Services-valv](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) innan du klickar på säkerhetskopieringsalternativet i steg 3 och väljer det på det här bladet.
+5. För Recovery Services-valvet kan du välja ett befintligt valv eller skapa ett nytt. Om du skapar ett nytt valv skapas det i samma resursgrupp som den virtuella datorn och platsen är samma som den virtuella datorn. Om du vill skapa ett Recovery Services-valv med olika värden [skapar du ett Recovery Services-valv](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) innan du klickar på säkerhetskopieringsalternativet i steg&3; och väljer det på det här bladet.
 
 6. Välj bladet Säkerhetskopieringspolicy, välj den säkerhetskopieringspolicy som du vill använda för valvet och klicka på **OK**.
     ![Välj säkerhetskopieringspolicy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)

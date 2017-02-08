@@ -2,15 +2,17 @@
 ## [Vad är skalningsuppsättningar för virtuella datorer?](virtual-machine-scale-sets-overview.md)
 
 # Kom igång
-## [Skapa en Windows-skalningsuppsättning](virtual-machine-scale-sets-windows-create.md)
-## [Skapa en Linux-skalningsuppsättning](virtual-machine-scale-sets-linux-create-cli.md)
+## [Skapa en skalningsuppsättning på portalen](virtual-machine-scale-sets-portal-create.md)
 
 # Gör så här för att
 ## Planera och designa
 ### [Designöverväganden](virtual-machine-scale-sets-design-overview.md)
+
 ## Distribuera
 ### [Skalningsuppsättning med portalen](virtual-machine-scale-sets-portal-create.md)
 ### [Skalningsuppsättning med Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Skalningsuppsättning med PowerShell](virtual-machine-scale-sets-windows-create.md)
+### [Skalningsuppsättning med Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Linux-skalningsuppsättning med automatisk skalning](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows-skalningsuppsättning med automatisk skalning](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Program i skalningsuppsättningar](virtual-machine-scale-sets-deploy-app.md)
@@ -32,12 +34,12 @@
 ## [REST](/rest/api/compute/)
 
 # Resurser
-## Priser 
+## Prissättning 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

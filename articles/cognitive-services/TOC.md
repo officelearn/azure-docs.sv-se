@@ -45,7 +45,7 @@
 ## [Utveckla med Language Understanding Intelligent Service](https://www.luis.ai/Help/)
 
 # Referens
-## [PowerShell-cmdletar](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Resurser 
@@ -54,6 +54,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 316f20972fc4d231ef0a6a9e132110dfc6c1a59a
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: b40dd058986a3dbe47709776a27ac949d3c4c491
 
 ---
 #<a name="notification-hubs-documentation"></a>Dokumentation för Notification Hubs
@@ -31,7 +31,7 @@ Med Notification Hubs kan du enkelt skicka plattformsoberoende, skräddarsydda p
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=notification-hubs">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -77,7 +77,7 @@ Med Notification Hubs kan du enkelt skicka plattformsoberoende, skräddarsydda p
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Kom igång med Notification Hub genom att använda Baidu</h3>
+                        <h3>Kom igång med Notification Hubs genom att använda Baidu</h3>
                     </div>
                 </div>
             </div>
@@ -160,52 +160,45 @@ Med Notification Hubs kan du enkelt skicka plattformsoberoende, skräddarsydda p
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Notification Hubs PowerShell-cmdletar</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET API-referens för Notification Hubs</p>
-                    </div>
+                        <h3>Språk</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/notificationhubs/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST API-referens för Notification Hubs</p>
+                        <p><a href="/rest/api/notificationhubs">Referens för REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 ---
 
@@ -219,6 +212,6 @@ Hämta Notification Hubs-dokumentationen </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

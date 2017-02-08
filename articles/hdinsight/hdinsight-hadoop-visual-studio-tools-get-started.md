@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -232,7 +232,7 @@ Vyn för uppgiftskörning för Hive-jobb på Tez kan användas för att hämta s
 ## <a name="run-pig-scripts"></a>Köra Pig-skript
 Data Lake-verktyg för Visual Studio har stöd för att skapa och skicka Pig-skript till HDInsight-kluster. Användare kan skapa ett Pig-projekt från en mall och skicka skript till HDInsight-kluster.
 
-## <a name="feedbacks-known-issues"></a>Feedback och kända problem
+## <a name="feedbacks--known-issues"></a>Feedback och kända problem
 * För närvarande visas resultaten från HiveServer2 med endast text, vilket inte är idealiskt. Vi arbetar på att åtgärda detta.
 * Om resultaten startats från NULL-värden visas de inte för närvarande. Vi har löst detta och om du blockeras på grund av detta problem kan du skicka ett e-postmeddelande till oss eller kontakta supportteamet.
 * Det HQL-skript som skapas av Visual Studio kodas beroende på användarens lokala regioninställning. Skriptet kanske inte kan köras korrekt om användaren överför det till klustret i binärt format.

@@ -3,6 +3,7 @@
 ## [Förstå mikrotjänster](service-fabric-overview-microservices.md)
 ## [Programscenarier](service-fabric-application-scenarios.md)
 ## [Arkitektur](service-fabric-architecture.md)
+## [Terminologi](service-fabric-technical-overview.md)
 
 # Kom igång
 ## Ställ in din utvecklingsmiljö
@@ -88,7 +89,7 @@
 
 ### Kluster i Azure
 #### Skapa ett kluster på Azure
-##### [Azure-portal](service-fabric-cluster-creation-via-portal.md)
+##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### [Nodtyper och skalningsuppsättningar för virtuella datorer](service-fabric-cluster-nodetypes.md)
 #### [Skala ett kluster](service-fabric-cluster-scale-up-down.md)
@@ -176,21 +177,13 @@
 ### [Belastningstesta ditt program](service-fabric-vso-load-test.md)
 
 # Referens
-## [Terminologi](service-fabric-technical-overview.md)
-## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [Reliable Actors WCF](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [Reliable Services WCF](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [Data](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Gränssnitt för data](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [System](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [Exempelkod](http://aka.ms/servicefabricsamples)
-## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
-## [Java-API](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [NET](/dotnet/api)
-## [REST](/rest/api/servicefabric/)
+## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
+## [Java-API](/java/api/microsoft.servicefabric.services)
+## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [REST](/rest/api/servicefabric)
 
 # Resurser
+## [Exempelkod](http://aka.ms/servicefabricsamples)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=service-fabric)
@@ -198,6 +191,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

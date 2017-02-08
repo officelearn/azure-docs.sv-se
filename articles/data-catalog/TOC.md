@@ -26,19 +26,20 @@
 ### [Utvecklarexempel](data-catalog-samples.md)
 
 # Referens
-## [Kortkommandon för Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
-## [Terminologi](data-catalog-terminology.md)
-## [Viktig information](data-catalog-release-notes.md)
 ## [REST](/rest/api/datacatalog/)
 
 # Resurser
-## [Viktig information](data-catalog-whats-new.md)
+## [Kortkommandon för Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
+## [Terminologi](data-catalog-terminology.md)
+## Viktig information
+### [Viktig information – nytt](data-catalog-whats-new.md)
+### [Viktig information](data-catalog-release-notes.md)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

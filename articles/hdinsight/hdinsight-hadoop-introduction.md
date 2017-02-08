@@ -209,6 +209,6 @@ Följande BI-verktyg kan vara till hjälp vid stordataanalys:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

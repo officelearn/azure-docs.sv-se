@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
-ms.author: arluca
+ms.date: 02/06/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 9d7640577eedcc9221f6346b650aed85f1d31a65
 ms.openlocfilehash: 26ebdbc6f568dd3d9bbcaa3250aae70d80af2d35

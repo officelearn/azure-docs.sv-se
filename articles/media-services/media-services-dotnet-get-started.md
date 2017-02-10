@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/26/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
-ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
 
 
 ---
@@ -42,20 +42,8 @@ Klicka på bilden för att visa den i full storlek.
 
 <a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-Du kan visa hela modellen [här](https://media.windows.net/API/$metadata?api-version=2.14).  
+Du kan visa hela modellen [här](https://media.windows.net/API/$metadata?api-version=2.15).  
 
-## <a name="what-youll-learn"></a>Detta får du får lära dig
-
-Självstudien visar hur du utför följande uppgifter:
-
-1. Skapar ett Media Services-konto (med Azure Portal).
-2. Konfigurera slutpunkt för direktuppspelning (med Azure Portal).
-3. Skapar och konfigurerar ett Visual Studio-projekt.
-4. Ansluter till Media Services-kontot.
-5. Skapar en ny tillgång och överför en videofil.
-6. Kodar källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet.
-7. Publicerar tillgången och får URL:er för strömmande och progressiv nedladdning.
-8. Testar genom att spela upp ditt innehåll.
 
 ## <a name="prerequisites"></a>Krav
 Följande krävs för att kunna genomföra självstudien.
@@ -88,39 +76,31 @@ Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
    6. Välj **PIN-kod för instrumentpanelen** för att se förloppet för kontodistributionen.
 4. Klicka på **Skapa** längst ned i formuläret.
 
-    Statusen ändras till **Körs** när kontot har skapats.
+    När kontot har skapats läses översiktssidan in. I tabellen med slutpunkter för direktuppspelning har kontot en standardslutpunkt för direktuppspelning med tillståndet **Stoppad**.
+
+    >[!NOTE]
+    >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
 
     ![Media Services-inställningar](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
     För att hantera AMS-kontot (till exempel överföra videor, koda tillgångar och övervaka jobbförlopp) använder du fönstret **Inställningar**.
 
-## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Konfigurera direktuppspelande slutpunkter med Azure Portal
-När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera video via direktuppspelning med anpassningsbar bithastighet till dina klienter. Media Services har stöd för följande tekniker för direktuppspelning med anpassningsbar bithastighet: HTTP Live Streaming(HLS), Smooth Streaming och MPEG DASH.
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Starta slutpunkter för direktuppspelning med Azure Portal
 
-Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-kodade innehåll med anpassningsbar bithastighet i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) direkt när du så önskar, utan att du behöver lagra på förhand packade versioner av vart och ett av dessa strömningsformat.
+När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera video via direktuppspelning med anpassningsbar bithastighet. Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-kodade innehåll med anpassningsbar bithastighet i direktuppspelningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) direkt när du så önskar, utan att du behöver lagra på förhand paketerade versioner av vart och ett av dessa direktuppspelningsformat.
 
-Om du vill använda dynamisk paketering ska du göra följande:
+>[!NOTE]
+>När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
 
-* Koda din mezzaninfil (källa) till en uppsättning MP4-filer med anpassningsbar bithastighet (kodningsstegen visas längre fram i den här vägledningen).  
-* Skapa minst en enhet för direktuppspelning för den *slutpunkt för direktuppspelning* från vilken du planerar att leverera ditt innehåll. Stegen nedan visar hur du kan ändra antalet strömningsenheter.
+Starta slutpunkten för direktuppspelning genom att göra följande:
 
-Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
+1. I fönstret Inställningar klickar du på Slutpunkter för direktuppspelning. 
+2. Klicka på den slutpunkt för direktuppspelning som är standard. 
 
-Om du vill skapa och ändra antalet reserverade enheter för strömning gör du följande:
+    Fönstret INFORMATION OM DEN SLUTPUNKT FÖR DIREKTUPPSPELNING SOM ÄR STANDARD visas.
 
-1. I fönstret **Inställningar** klickar du på **Strömningsslutpunkter**.
-2. Klicka på den slutpunkt för direktuppspelning som är standard.
-
-    Fönstret **INFORMATION OM DEN SLUTPUNKT FÖR DIREKTUPPSPELNING SOM ÄR STANDARD** visas.
-3. Flytta på skjutreglaget **Strömningsenheter** för att ange antalet strömningsenheter.
-
-    ![Strömningsenheter](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Klicka på knappen **Spara** för att spara ändringarna.
-
-   > [!NOTE]
-   > Tilldelning av nya enheter kan ta cirka 20 minuter att slutföra.
-   >
-   >
+3. Klicka på ikonen Start.
+4. Klicka på knappen Spara för att spara ändringarna.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
@@ -258,15 +238,12 @@ När du har fört in tillgångar i Media Services kan media kodas, användas med
 
 Som tidigare nämnts är ett mycket vanligt scenario när du arbetar med Azure Media Services att du levererar direktuppspelning med anpassningsbar bithastighet till klienterna. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming(HLS), Smooth Streaming och MPEG DASH.
 
-Om du vill använda dynamisk paketering ska du göra följande:
-
-* Koda eller omkoda din mezzaninfil (källa) till en uppsättning MP4- eller Smooth Streaming-filer med anpassningsbar bithastighet.  
-* Hämta minst en strömmande enhet för den slutpunkt för direktuppspelning från vilken du planerar att leverera ditt innehåll.
+Om du vill dra nytta av dynamisk paketering måste du koda eller omkoda din mezzaninfil (källa) till en uppsättning MP4- eller Smooth Streaming-filer med anpassningsbar bithastighet.  
 
 Följande kod visar hur du skickar ett kodningsjobb. Jobbet innehåller en uppgift som anger att omkodning av mezzaninfilen till en uppsättning MP4-filer med anpassningsbar bithastighet genom att använda **Media Encoder Standard**. Koden skickar jobbet och väntar tills det har slutförts.
 
-När kodningsjobbet slutförts, skulle du kunna publicera dina tillgångar och sedan strömma eller progressivt ladda ner MP4-filerna.
-
+När jobbet har slutförts ska du kunna strömma din tillgång eller progressivt hämta MP4-filer som skapades på grund av omkodningen.
+ 
 Lägg till följande metod i programklassen.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -436,7 +413,7 @@ URL:er för progressiv nedladdning (ljud och video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-För att strömma din video, klistra in URL:en i URL-textrutan i [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Strömma din video genom att klistra in URL:en i URL-textrutan i [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Testa den progressiva nedladdningen genom att klistra in en URL i en webbläsare (till exempel Internet Explorer, Chrome eller Safari).
 
@@ -467,6 +444,6 @@ Följande kodexempel innehåller koden som du skapade i den här kursen: [exempe
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

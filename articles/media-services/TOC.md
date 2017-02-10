@@ -24,7 +24,9 @@
 ### Ansluta genom programmering
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Hantera slutpunkter för direktuppspelning i portalen](media-services-portal-manage-streaming-endpoints.md)
+### [Hantera slutpunkter för direktuppspelning](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [Så gör du för att: Uppdatera Media Services efter återställning av lagringsåtkomstnycklar](media-services-roll-storage-access-keys.md)
 ### [Kvoter och begränsningar](media-services-quotas-and-limitations.md)
 
@@ -92,6 +94,9 @@
 
 ## [Strömma live](media-services-manage-channels-overview.md)
 ### [Lokala kodare](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Liveuppspelning med molnkodare](media-services-manage-live-encoder-enabled-channels.md)
 ### Självstudier för molnkodare
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -207,6 +212,6 @@
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

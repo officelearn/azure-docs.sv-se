@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
-description: "Lär dig hur du använder Mobile Apps i Azure App Service för att bygga och hantera interna iOS-, Android-, Windows- eller plattformsoberoende appar med hjälp av Xamarin eller Cordova."
 translationtype: Human Translation
-ms.sourcegitcommit: 5735759300fddfb650220cebc49bd5968621a8d4
-ms.openlocfilehash: 59bab7c719a01643dacf5549c0674d149e8b92f4
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 9cae18a8206e2828838c8b35733eee5d25d15cb1
+
 
 ---
 # <a name="mobile-apps-documentation"></a>Dokumentation om Mobile Apps
 
-Lär dig hur du använder Mobile Apps i Azure App Service för att bygga interna iOS-, Android-, Windows- eller plattformsoberoende appar med hjälp av Xamarin eller Cordova. Självstudier, videor, klient-SDK-dokumentation och mycket mer visar hur du bygger och hanterar serverdelen för alla sorters mobilappar.
+Mobile Apps i Azure App Service är en skalbar plattform för mobilappsutveckling tänkt att användas av utvecklare av företagsprogram och systemintegrerare. Den ger mobilutvecklare tillgång till ett stort utbud av funktioner.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -194,7 +194,6 @@ Lär dig hur du använder Mobile Apps i Azure App Service för att bygga interna
 </ul>
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

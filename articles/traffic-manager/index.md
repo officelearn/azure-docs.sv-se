@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du hanterar inkommande trafik för optimal programprestanda. Dokumentation som visar hur du distribuerar trafik till Azure eller externa slutpunkter för tjänster."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 07d7e13862c252db61136110e04559e51a53e4b7
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
 
 ---
 #<a name="traffic-manager-documentation"></a>Dokumentation om Traffic Manager
 
-Azure Traffic Manager låter dig styra distributionen av användartrafik för tjänstslutpunkter i olika regioner. Traffic Manager använder domännamnssystemet (DNS) för att dirigera klientbegäranden till den lämpligaste slutpunkten baserat på den valda trafikdirigeringsmetoden och hälsotillståndet för slutpunkterna, vilket ger ditt program högre tillgänglighet och kortare svarstider.
+Lär dig använda Traffic Manager för att dirigera inkommande trafik för optimal programprestanda och pålitlighet. Självstudier, API-referenser och annan dokumentation visar hur du hanterar trafik till Azure eller externa slutpunkter för tjänster.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -119,16 +120,10 @@ Azure Traffic Manager låter dig styra distributionen av användartrafik för tj
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta Traffic Manager-dokumentationen </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Lär dig hur du konfigurera molnhaveriberedskap och företagskontinuitet för virtuella datorer och fysiska servrar genom att distribuera och hantera replikering."
 translationtype: Human Translation
-ms.sourcegitcommit: 13d77644673b86be22bf7be40f77d6ebfb1f8baa
-ms.openlocfilehash: d815422edd036711525d8c2f1eea0348295416d5
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
 
 ---
 # <a name="site-recovery-documentation"></a>Dokumentation om Site Recovery
@@ -72,7 +72,7 @@ Lär dig hur du använder Site Recovery för företagskontinuitet och strategi f
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">Referens för REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -80,13 +80,7 @@ Lär dig hur du använder Site Recovery för företagskontinuitet och strategi f
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Site Recovery </div>
-    </a>
-</div>
+
 
 
 

@@ -39,13 +39,16 @@
 ### [Hantera användarkonton](api-management-howto-create-or-invite-developers.md)
 ### [Hantera med hjälp av automatisering](automation-manage-api-management.md)
 ### [Konfigurera med Git](api-management-configuration-repository-git.md)
-#Referens
+
+# Referens
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Klassisk PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
+## [REST (original)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
+
+
+# Resurser
 ## [Principer](https://msdn.microsoft.com/library/azure/dn894081)
 ## [Mallar](https://msdn.microsoft.com/library/azure/mt697540)
-#Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/api-management/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
@@ -63,6 +66,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

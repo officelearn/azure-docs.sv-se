@@ -71,7 +71,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Använd ett filter för indexet för att hitta hotell som är billigare än 150 USD per natt och returnera `hotelId` och `description`:
+Använd ett filter för indexet för att hitta hotell som är billigare än&150; USD per natt och returnera `hotelId` och `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Lär dig använda Load Balancer för nätverksprestanda hos appar. Hantera trafik för virtuella datorer och molnresurser och mellan lokala virtuella nätverk på plats."
 translationtype: Human Translation
-ms.sourcegitcommit: e62704476642d8a519b7bd8b9b101b47ab42e08c
-ms.openlocfilehash: 476eb9f4934d35a808fdd70b6443822eb0a7cfa7
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
 
 ---
 #<a name="load-balancer-documentation"></a>Dokumentation om belastningsutjämnare
@@ -108,7 +108,7 @@ Lär dig hur du konfigurerar Load Balancer för att leverera hög tillgänglighe
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.network.models">NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
@@ -124,7 +124,7 @@ Lär dig hur du konfigurerar Load Balancer för att leverera hög tillgänglighe
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">Referens för REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -132,13 +132,7 @@ Lär dig hur du konfigurerar Load Balancer för att leverera hög tillgänglighe
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om belastningsutjämnare </div>
-    </a>
-</div>
+
 
 
 

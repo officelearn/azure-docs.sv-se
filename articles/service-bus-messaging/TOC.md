@@ -4,6 +4,7 @@
 ## [Vanliga frågor och svar](service-bus-faq.md)
 
 # Kom igång
+## [Skapa en Service Bus-flernivåapp](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ## [Skapa ett namnområde](service-bus-create-namespace-portal.md)
 ## Använda köer
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -75,6 +76,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

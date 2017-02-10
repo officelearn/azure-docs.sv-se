@@ -1,14 +1,11 @@
 # Översikt
 ## [Vad är Azure Automation?](automation-intro.md)
 ## [Säkerhet i Azure Automation](automation-security-overview.md)
-
 # Kom igång
 ## [Skapa Runbook](automation-first-runbook-graphical.md)
 ## [Skapa PowerShell-runbook](automation-first-runbook-textual-powershell.md)
 ## [Skapa PowerShell Workflow-runbook](automation-first-runbook-textual.md)
 ## [Hantera rollbaserad åtkomstkontroll](automation-role-based-access-control.md)
-
-
 # Gör så här för att
 ## Skapa runbooks
 ### [Runbook-typer](automation-runbook-types.md)
@@ -22,10 +19,10 @@
 ### [Källkontrollsintegrering](automation-source-control-integration.md)
 ## Automatisera runbooks
 ### [Starta en Runbook](automation-starting-a-runbook.md)
-### [Starta en Runbook från ett webbanrop](automation-webhooks.md)
-### [Schemalägga en runbook](automation-scheduling-a-runbook.md)
+### [Starta ett runbook-flöde från en webhook](automation-webhooks.md)
 ### [Köra Runbooks i datacentret](automation-hybrid-runbook-worker.md)
 ### [Konfigurera indataparametrar för Runbook](automation-runbook-input-parameters.md)
+### [Felhantering i grafiska runbook-flöden](automation-runbook-graphical-error-handling.md)
 ### [Spåra ett Runbook-jobb](automation-runbook-execution.md)
 ### [Ändra Runbook-inställningar](automation-runbook-settings.md)
 ### [Hantera Azure Automation-data](automation-managing-data.md)
@@ -55,26 +52,22 @@
 ### [Starta/stoppa virtuell dator med JSON-taggar](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Ta bort resursgrupp](automation-scenario-remove-resourcegroup.md)
 ### [Starta/stoppa virtuella datorer utanför arbetstid](automation-solution-vm-management.md)
-
+### [Källkontrollintegrering med GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ## [Övervaka](automation-manage-send-joblogs-log-analytics.md)
-
 ## Migrera
 ### [Migrera från Orchestrator](automation-orchestrator-migration.md)
 ### [Flytta Automation-konto](automation-migrate-account-subscription.md)
-
 ## Felsöka
 ### [Felsöka vanliga fel](automation-troubleshooting-automation-errors.md)
-### [Runbook-jobb som pausats](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
-
+### [Felsöka Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Klassisk PowerShell](/powershell/servicemanagement)
-## [NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
+## [PowerShell (klassisk)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [Klassisk REST](https://msdn.microsoft.com/library/azure/mt163781)
-## [Viktig information](https://azure.microsoft.com/updates/?product=automation)
-
+## [REST (klassisk)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resurser
+## [Viktig information](https://azure.microsoft.com/updates/?product=automation)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/automation/)  
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
@@ -85,6 +78,6 @@
 ## [Introduktionsvideo för Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

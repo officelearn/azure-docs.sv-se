@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Lär dig SQL Database, en databas-som-tjänst i molnet. Självstudier, videoklipp och annan dokumentation visar hur du konfigurerar, ansluter och hanterar en relationsdatabas."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
 
 ---
 
 # <a name="sql-database-documentation"></a>Dokumentation om SQL Database
 
-Azure SQL Database är en relationsdatabastjänst i molnet med verksamhetskritiska funktioner som är baserade på Microsoft SQL Server-motorn. Den levererar förutsägbar prestanda, skalbarhet utan avbrott, verksamhetskontinuitet och dataskydd. Allt med minimal administration. Eftersom den är baserad på SQL Server-motorn stöder SQL Database befintliga SQL Server-verktyg, bibliotek och API:er, vilket gör det lättare att flytta och utöka till molnet.
+Läs om hur du använder SQL Database, en relationsdatabas-som-tjänst i molnet och som bygger på Microsoft SQL Server-tjänsten. Självstudier, videoklipp och annan dokumentation visar hur du konfigurerar, ansluter och hanterar en SQL-databas.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -126,7 +127,7 @@ Azure SQL Database är en relationsdatabastjänst i molnet med verksamhetskritis
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
@@ -144,7 +145,7 @@ Azure SQL Database är en relationsdatabastjänst i molnet med verksamhetskritis
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/sql/">Referens för REST API</a></p>
+                        <p><a href="/rest/api/sql/">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -152,16 +153,10 @@ Azure SQL Database är en relationsdatabastjänst i molnet med verksamhetskritis
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om SQL Database </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

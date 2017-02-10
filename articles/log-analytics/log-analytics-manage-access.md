@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
+ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
+ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
 
 
 ---
@@ -60,7 +60,7 @@ Du kan visa information om din arbetsyta på Azure Portal. Du kan också visa in
 
 #### <a name="view-workspace-information-the-azure-portal"></a>Visa information om arbetsytan på Azure Portal
 
-1. Om du inte redan gjort det loggar du in på [Azure-portalen](https://portal.azure.com) med din Azure-prenumeration.
+1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com) med din Azure-prenumeration.
 2. På **navmenyn** klickar du på **Fler tjänster** och skriver **Log Analytics** i listan med resurser. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
     ![Azure-hubb](./media/log-analytics-manage-access/hub.png)  
 3. Välj en arbetsyta på Log Analytics-prenumerationsbladet.
@@ -242,6 +242,24 @@ Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan 
 6. När du har uppdaterat vyn i Azure-portalen visas **Prisnivå** uppdaterad med den plan som du har valt.  
     ![uppdaterad plan](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
+## <a name="change-how-long-log-analytics-stores-data"></a>Ändra hur länge Log Analytics lagrar data
+
+På den kostnadsfria prisnivån tillgängliggör Log Analytics de senaste sju dagarnas data.
+På standardprisnivån tillgängliggör Log Analytics de senaste 30 dagarnas data.
+På premiumprisnivån tillgängliggör Log Analytics de senaste 365 dagarnas data.
+På den fristående prisnivån och OMS-prisnivån tillgängliggör Log Analytics de senaste 31 dagarnas data.
+
+När du använder den fristående prisnivån och OMS-prisnivån kan du behålla upp till två års data (730 dagar). Data som lagras längre än standardvärdet 31 dagar medför en avgift för datakvarhållning. Mer information om priser finns i [överförbrukningsdebitering](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+Ändra längden för datakvarhållning:
+
+1. Logga in på [Azure-portalen](http://portal.azure.com).
+2. Bläddra efter **Log Analytics** och markera den.
+3. Du ser listan över befintliga arbetsytor. Välj en arbetsyta.  
+4. Klicka på **Kvarhållning** under **Allmänt** på bladet för arbetsytan.  
+5. Använd skjutreglaget för att öka eller minska antalet dagar för kvarhållning och klicka sedan på **Spara**
+![ändra kvarhållning](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Ändra en organisations Azure Active Directory för en arbetsyta
 
 Du kan ändra en arbetsytas Azure Active Directory-organisation. Genom att ändra Azure Active Directory-organisationen kan du lägga till användare och grupper från katalogen till arbetsytan.
@@ -275,6 +293,6 @@ Om du är administratör och det finns flera användare som är kopplade till ar
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

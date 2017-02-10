@@ -1,5 +1,5 @@
 ---
-title: ".NET-flernivåapp | Microsoft Docs"
+title: ".NET-flernivåapp med hjälp av Azure Service Bus-köer | Microsoft Docs"
 description: "En .NET-självstudiekurs som hjälper dig att utveckla en flernivåapp i Azure som använder Service Bus-köer för att kommunicera mellan nivåerna."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
+ms.sourcegitcommit: cab2edc0d065dc8d5ac20ed41ccd0eed7a664895
+ms.openlocfilehash: 8d0730d50330b9093734adb1c503dd975606b7c3
 
 
 ---
@@ -57,15 +57,6 @@ Denna kommunikationsmekanism har flera fördelar jämfört med funktioner för d
   ![][2]
 
 I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
-
-## <a name="set-up-the-development-environment"></a>Konfigurera utvecklingsmiljön
-Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som krävs och ställa in din utvecklingsmiljö.
-
-1. Installera Azure SDK för .NET från [Hämta verktyg och SDK][Hämta verktyg och SDK].
-2. Klicka på **Installera SDK** för den version av Visual Studio som du använder. Stegen i den här självstudiekursen använder Visual Studio 2015.
-3. När du uppmanas att köra eller spara installationsprogrammet, klickar du på **Kör**.
-4. I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
-5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt. Om du inte har Visual Studio installerat på din dator kommer SDK även att installera den kostnadsfria versionen Visual Studio Express.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
 Nästa steg är att skapa ett namnområde för tjänsten och få en nyckel till signatur för delad åtkomst (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnområdet och SAS-nyckeln ger referensen för Service Bus som används för att tillåta åtkomst till ett program.
@@ -109,7 +100,7 @@ I detta avsnitt ska du skapa de olika sidor som din app visar.
 
 1. Ersätt den befintliga definitionen för namnområdet med följande kod i filen OnlineOrder.cs i Visual Studio:
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Models
    {
        public class OnlineOrder
@@ -121,14 +112,14 @@ I detta avsnitt ska du skapa de olika sidor som din app visar.
    ```
 2. I **Solution Explorer** dubbelklickar du på **Controllers\HomeController.cs**. Lägg till följande **using**-uttryck högst upp i filen för att inkludera namnområdena för den modell som du precis har skapat, samt Service Bus.
    
-   ```
+   ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
    ```
 3. Ersätt även den befintliga definitionen för namnområdet med följande kod i filen HomeController.cs i Visual Studio. Den här koden innehåller metoder för att hantera överföring av objekt till kön.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Controllers
    {
        public class HomeController : Controller
@@ -193,7 +184,7 @@ I detta avsnitt ska du skapa de olika sidor som din app visar.
     ![][28]
 11. Slutligen ändrar du överföringssidan för att inkludera information om kön. Dubbelklicka på filen **Views\Home\Submit.cshtml** i **Solution Explorer** för att öppna den i Visual Studio-redigeraren. Lägg till följande rad efter `<h2>Submit</h2>`. Just nu är `ViewBag.MessageCount` tom. Du kommer att fylla i denna senare.
     
-    ```
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 12. Du har nu implementerat ditt användargränssnitt (UI). Du kan trycka på **F5** för att köra programmet och bekräfta att det ser ut som du förväntar dig att det ska göra.
@@ -207,7 +198,7 @@ Nu ska du lägga till kod för att skicka objekt till en kö. Först måste du s
 2. Ge klassen namnet **QueueConnector.cs**. Klicka på **Lägg till** för att skapa klassen.
 3. Lägg nu till kod som innehåller anslutningsinformationen och initierar anslutningen till en Service Bus-kö. Ersätt hela innehållet i QueueConnector.cs med följande kod och ange värden för `your Service Bus namespace` (namnet på ditt namnområde) och `yourKey`, som är den **primärnyckel** som du tidigare hämtade från Azure Portal.
    
-   ```
+   ```csharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -269,13 +260,13 @@ Nu ska du lägga till kod för att skicka objekt till en kö. Först måste du s
 4. Se nu till att din **initiera**-metod anropas. Dubbelklicka på **Global.asax\Global.asax.cs** i **Solution Explorer**.
 5. Lägg till följande kodrad i slutet av metoden **Application_Start**.
    
-   ```
+   ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
 6. Slutligen uppdaterar du den webbkod som du skapade tidigare, för att på så sätt skicka objekt till kön. I **Solution Explorer** dubbelklickar du på **Controllers\HomeController.cs**.
 7. Uppdatera metoden `Submit()` (överlagring som inte tar några parametrar) enligt följande anvisningar för att hämta meddelanderäknaren för kön.
    
-   ```
+   ```csharp
    public ActionResult Submit()
    {
        // Get a NamespaceManager which allows you to perform management and
@@ -291,7 +282,7 @@ Nu ska du lägga till kod för att skicka objekt till en kö. Först måste du s
    ```
 8. Uppdatera metoden `Submit(OnlineOrder order)` (överlagring som inte tar några parametrar) enligt följande anvisningar för att skicka orderinformation till kön.
    
-   ```
+   ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
@@ -334,18 +325,18 @@ Du ska nu skapa den arbetsroll som behandlar orderöverföringen. I det här exe
 10. Bläddra till undermappen för **FrontendWebRole\Models** och dubbelklicka sedan på **OnlineOrder.cs** för att lägga till den i projektet.
 11. I **WorkerRole.cs** ändrar du värdet för variabeln **QueueName** från `"ProcessingQueue"` till `"OrdersQueue"`, som visas i följande kod.
     
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 12. Lägg till följande using-uttryck högst upp i filen WorkerRole.cs.
     
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 13. I funktionen `Run()`, inuti anropet `OnMessage()`, ersätter du innehållet i satsen `try` med följande kod.
     
-    ```
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
@@ -362,29 +353,16 @@ Du ska nu skapa den arbetsroll som behandlar orderöverföringen. I det här exe
 Om du vill lära dig mer om Service Bus kan du använda följande resurser:  
 
 * [Azure Service Bus][sbmsdn]  
-* [Tjänstesida för Service Bus][sbwacom]  
-* [Använda Service Bus-köer][sbwacomqhowto]  
+* [Tjänstesida för Service Bus][sbacom]  
+* [Använda Service Bus-köer][sbacomqhowto]  
 
 Mer information om flernivåscenarier finns i:  
 
-* [.NET-flernivåapp med hjälp av lagringstabeller, köer och blobbar][mutitierstorage]  
+* [.NET-flernivåapp med hjälp av lagringstabeller, köer och blob-objekt][mutitierstorage]  
 
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Hämta verktyg och SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
-
-
-[GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-
-[EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
-
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
 [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
 [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -404,12 +382,12 @@ Mer information om flernivåscenarier finns i:
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
 [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
+[sbacom]: https://azure.microsoft.com/services/service-bus/  
+[sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

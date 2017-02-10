@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d366fc36e2731be34d70fd4e4fa082370c452d63
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: a8fb8f7d338fa2f33b8fe6565f119e0be6419f41
 
 
 ---
@@ -46,7 +46,7 @@ Exempel på vanliga programscenarier som du kan använda Web Apps för finns i a
 Här följer några funktioner i App Service som gäller för Web Apps:
 
 * **Flera språk och ramverk** – App Service har förstklassigt stöd för ASP.NET, Node.js, Java, PHP och Python. Du kan också köra [PowerShell och andra skript och körbara filer](web-sites-create-web-jobs.md) på virtuella datorer i App Service.
-* **DevOps-optimering** – Konfigurera [kontinuerlig integrering och distribution](app-service-continuous-deployment.md) med Visual Studio Team Services, GitHub eller BitBucket. Flytta upp uppdateringar via [test- och mellanlagringsmiljöer](web-sites-staged-publishing.md). Utför [A/B-test](app-service-web-test-in-production-get-start.md). Hantera dina appar i App Service med [Azure PowerShell](../powershell-install-configure.md) eller det [plattformsoberoende kommandoradsgränssnittet (CLI)](../xplat-cli-install.md).
+* **DevOps-optimering** – Konfigurera [kontinuerlig integrering och distribution](app-service-continuous-deployment.md) med Visual Studio Team Services, GitHub eller BitBucket. Flytta upp uppdateringar via [test- och mellanlagringsmiljöer](web-sites-staged-publishing.md). Utför [A/B-test](app-service-web-test-in-production-get-start.md). Hantera dina appar i App Service med [Azure PowerShell](/powershell/azureps-cmdlets-docs) eller det [plattformsoberoende kommandoradsgränssnittet (CLI)](../xplat-cli-install.md).
 * **Global skala med hög tillgänglighet** – skala [upp](web-sites-scale.md) och [ned](../monitoring-and-diagnostics/insights-how-to-scale.md) manuellt och automatiskt. Hantera appar var som helst i Microsofts globala datacenterinfrastruktur med hög tillgänglighet tack vare [serviceavtalet](https://azure.microsoft.com/support/legal/sla/app-service/) för App Service.
 * **Anslutningar till SaaS-plattformar och lokala data ** – välj bland fler än 50 [anslutningsappar](../connectors/apis-list.md) för företagssystem (till exempel SAP, Siebel och Oracle), SaaS-tjänster (till exempel Salesforce och Office 365) och internettjänster (till exempel Facebook och Twitter). Åtkomst till lokala data via [hybridanslutningar ](../biztalk-services/integration-hybrid-connection-overview.md) och [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Säkerhet och efterlevnad** – App Service [uppfyller ISO, SOC och PCI](https://www.microsoft.com/TrustCenter/).
@@ -58,13 +58,25 @@ Dessutom kan en webbapp dra nytta av funktioner i [API Apps](../app-service-api/
 Förutom Web Apps i App Service erbjuder Azure andra tjänster som kan användas till att hantera webbplatser och webbappar. I de flesta fall är Web Apps det bästa alternativet.  För arkitektur för mikrotjänster kan du använda [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), och om du behöver större kontroll över de virtuella datorer koden körs på kan du använda [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Mer information om hur du väljer mellan dessa Azure-tjänster hittar du i [Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services.](choose-web-site-cloud-service-vm.md).
 
 ## <a name="getting-started"></a>Komma igång
-Kom igång med att distribuera exempelkod för en ny webbapp i App Service genom att följa anvisningarna i kursen [Distribuera din första webbapp i Azure på 5 minuter](app-service-web-get-started.md). Du behöver ett kostnadsfritt Azure-konto.
+Kom igång med att distribuera exempelkod till en ny webbapp i App Service genom att följa en av självstudiekurserna i följande nedrullningsbara listruta. Du behöver ett kostnadsfritt Azure-konto.
 
-Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inget kreditkort krävs, och du gör inga åtaganden.
+> [!div class="op_single_selector"]
+> * [Distribuera din första HTML-webbplats till Azure på fem minuter](app-service-web-get-started-html-cli-nodejs.md)
+> * [Distribuera din första ASP.NET-webbapp till Azure på fem minuter](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Distribuera din första PHP-webbapp till Azure på fem minuter](app-service-web-get-started-php-cli-nodejs.md)
+> * [Distribuera din första Node.js-webbapp till Azure på fem minuter](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Distribuera din första Python-webbapp till Azure på fem minuter](app-service-web-get-started-python-cli-nodejs.md)
+> * [Distribuera din första Java-webbapp till Azure på fem minuter](app-service-web-get-started-java.md)
+> 
+> 
+
+> [!NOTE]
+> Du kan [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
+> 
+> 
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

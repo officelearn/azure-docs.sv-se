@@ -14,14 +14,18 @@
 ### [Aktivera offentlig åtkomst till DC/OS](container-service-enable-public-access.md)
 ### [Belastningsutjämningsbehållare i DC/OS](container-service-load-balancing.md)
 ### [App-/användarspecifik Orchestrator i DC/OS](container-service-application-specific-marathon.md)
-### [Övervaka med OMS (DC/OS)](container-service-monitoring-oms.md)
-### [Övervaka med Datadog (DC/OS)](container-service-monitoring.md)
-### [Övervaka med Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-### [Övervaka med Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
+### [Övervaka med OMS](container-service-monitoring-oms.md)
+### [Övervaka med Datadog](container-service-monitoring.md)
+### [Övervaka med Sysdig](container-service-monitoring-sysdig.md)
+### [Övervaka med Dynatrace](container-service-monitoring-dynatrace.md)
 ## Hantera med Kubernetes
-### [Komma igång med Kubernetes](container-service-kubernetes-walkthrough.md)
-### [Interaktion med Kubernetes webbgränssnitt](container-service-kubernetes-ui.md)
-## [Hantera med Docker Swarm](container-service-docker-swarm.md)
+### [Kom igång med Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Konfigurera ett huvudnamn för tjänsten](container-service-kubernetes-service-principal.md)
+### [Interagera med Kubernetes webbgränssnitt](container-service-kubernetes-ui.md)
+### [Övervaka med OMS](container-service-kubernetes-oms.md)
+### [Övervaka med Datadog](container-service-kubernetes-datadog.md)
+### [Övervaka med Sysdig](container-service-kubernetes-sysdig.md)
+## Hantera med Docker Swarm
 ### [Docker och Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm kontinuerlig integrering](container-service-docker-swarm-setup-ci-cd.md)
 # Referens
@@ -34,6 +38,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

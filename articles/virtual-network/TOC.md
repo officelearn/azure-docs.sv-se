@@ -110,15 +110,17 @@
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Loggar](virtual-network-nsg-manage-log.md)
-#### Felsöka
-##### [Portal](virtual-network-nsg-troubleshoot-portal.md)
-##### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
-### Felsökningsvägar
-#### [Portal](virtual-network-routes-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### Virtuella datorer
 #### [Visa och ändra värdnamn](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Flytta en virtuell dator till ett annat undernät](virtual-networks-move-vm-role-to-subnet.md)
+
+## Felsöka
+### Nätverkssäkerhetsgrupper
+#### [Portal](virtual-network-nsg-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+### Vägar
+#### [Portal](virtual-network-routes-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Referens
 ## [PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))

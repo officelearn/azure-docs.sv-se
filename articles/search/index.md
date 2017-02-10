@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Lär dig hur du lägger till robusta sökfunktioner, inklusive aktivitetsövervakning, för anpassade webb- eller mobilappar. API-referenser och annan dokumentation."
 translationtype: Human Translation
-ms.sourcegitcommit: 8a89b85795c0707d7fda9480c53db4a3469560d7
-ms.openlocfilehash: 324584a63e6f76b9a2aed98d11f2a66fefac69c3
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99d4b8d8db7739f615d566afa4617221b1c34a0
 
 ---
 # <a name="azure-search-documentation"></a>Dokumentation om Azure Search
@@ -131,9 +131,9 @@ Lär dig hur du lägger till sökfunktioner i dina anpassade webb- eller mobilap
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET-hantering</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.search">NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (hantering)</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (hantering)</a></p>
                    </div>
                 </div>
             </div>
@@ -145,8 +145,8 @@ Lär dig hur du lägger till sökfunktioner i dina anpassade webb- eller mobilap
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/searchservice">Referens för REST API</a></p>
-                        <p><a href="/rest/api/searchmanagement">Referens för REST (hantering) API</a></p>
+                        <p><a href="/rest/api/searchservice">REST API-referens</a></p>
+                        <p><a href="/rest/api/searchmanagement">API-referens för REST (hantering)</a></p>
                     </div>
                 </div>
             </div>
@@ -154,13 +154,7 @@ Lär dig hur du lägger till sökfunktioner i dina anpassade webb- eller mobilap
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om Azure Search </div>
-    </a>
-</div>
+
 
 
 

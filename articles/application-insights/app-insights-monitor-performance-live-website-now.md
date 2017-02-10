@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 79819619ff7f25ba1097fe12f2da7453a1fcb4f1
+ms.sourcegitcommit: ee9ebc23ce805bb4665669077a4d3fddf4c43e32
+ms.openlocfilehash: a190b1990a4ae4e7ad52cc1a7e802c8002522917
 
 
 ---
@@ -28,7 +28,7 @@ Du kan instrumentera en live-webbapp med Azure Application Insights utan att beh
 
 Du kan tillämpa Application Insights på dina .NET-webbprogram via tre vägar:
 
-* **Under utvecklingen:** [Lägg till Application Insights SDK][greenbrown] i webbappens kod.
+* **Byggtid:** [Lägg till Application Insights SDK][greenbrown] i webbappens kod.
 * **Körtid:** Instrumentera din webbapp på servern, så som beskrivs nedan, utan att behöva bygga om och omdistribuera koden.
 * **Båda:** Skapa SDK:n i din webbappskod, och tillämpa även körningstilläggen. Få ut det bästa av två världar.
 
@@ -39,8 +39,8 @@ Här är en sammanfattning av vad du får med respektive väg:
 | Förfrågningar och undantag |Ja |Ja |
 | [Mer detaljerade undantag](app-insights-asp-net-exceptions.md) | |Ja |
 | [Beroendediagnostik](app-insights-asp-net-dependencies.md) |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP Verb|
-| [Systemprestandaräknare](app-insights-performance-counters.md) | |IIS- eller Azure-molntjänst, men inte Azure-webbapp |
-| [API för anpassad telemetri-][api] |Ja | |
+| [Systemprestandaräknare](app-insights-performance-counters.md) |Ja |Ja |
+| [API för anpassad telemetri][api] |Ja | |
 | [Spårningsloggsintegrering](app-insights-asp-net-trace-logs.md) |Ja | |
 | [Sidvy och användardata](app-insights-javascript.md) |Ja | |
 | Du behöver inte återskapa kod |Nej | |
@@ -55,29 +55,23 @@ Du behöver en [Microsoft Azure](http://azure.com)-prenumeration.
 
 ### <a name="if-your-app-is-hosted-on-your-iis-server"></a>Om appen körs på din IIS-server
 1. Logga in med administratörsbehörighet på IIS-webbservern.
-2. Ladda ned och kör [installationsprogrammet för Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
-3. I installationsguiden loggar du in i Microsoft Azure.
-
-    ![Logga in i Azure med autentiseringsuppgifterna för ditt Microsoft-konto.](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
-
-    *Anslutningsfel? Mer information finns i [Felsökning](#troubleshooting).*
-4. Välj den installerade webbappen eller webbplatsen som du vill övervaka och konfigurera sedan den resurs där du vill visa resultatet på Application Insights-portalen.
+2. Ladda ned och kör [installationsprogrammet för Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).  
+3. Välj den installerade webbappen eller webbplatsen som du vill övervaka och konfigurera sedan den resurs där du vill visa resultatet på Application Insights-portalen. Du bör vara inloggad på Microsoft Azure.
 
     ![Välj en app och en resurs.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
     Normalt kan du välja att konfigurera en ny resurs och [resursgrupp][roles].
 
     Annars kan du använda en befintlig resurs om du redan har konfigurerat [webbtester][availability] för webbplatsen eller [webbklientövervakning][client].
-5. Starta om IIS.
+4. Starta om IIS.
 
     ![Välj Starta om överst i dialogrutan.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     Webbtjänsten avbryts en liten stund.
-6. Observera att ApplicationInsights.config har lagts till för de webbappar som du vill övervaka.
+5. Observera att ApplicationInsights.config har lagts till för de webbappar som du vill övervaka.
 
     ![Leta upp webbappens .config-fil och kodfiler.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
-
-   Det finns även vissa ändringar i web.config.
+   
 
 #### <a name="want-to-reconfigure-later"></a>Vill du ändra konfigurationen senare?
 När du har slutfört guiden kan du konfigurera agenten igen när du vill. Du kan också använda det här alternativet om du installerade agenten och det uppstod problem med den ursprungliga installationen.
@@ -105,7 +99,7 @@ Så här delar du in diagrammet efter anrop till olika beroenden: Redigera diagr
 ![Beroende](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
 ## <a name="performance-counters"></a>Prestandaräknare
-(Inte för Azure-webbappar.) Klicka på Servrar på översiktsbladet om du vill visa diagram över serverprestandaräknare, till exempel processor- och minnesanvändning.
+Klicka på Servrar på översiktsbladet om du vill visa diagram över serverprestandaräknare, till exempel processor- och minnesanvändning.
 
 Om du har flera serverinstanser vill du kanske redigera de diagram som ska grupperas efter rollinstans.
 
@@ -146,10 +140,11 @@ Operativsystemstöd för Application Insights Status Monitor på servern:
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows server 2012 R2
+* Windows Server 2016
 
-med senaste SP och .NET Framework 4.0 eller 4.5
+med senaste SP och .NET Framework 4.5
 
-Windows 7, 8 och 8.1 med .NET Framework 4.0 eller 4.5 på klientsidan
+Windows 7, 8, 8.1 och 10 med .NET Framework 4.5 på klientsidan
 
 IIS-stöd: IIS 7, 7.5, 8, 8.5 (IIS krävs)
 
@@ -216,7 +211,7 @@ Ta reda på vilka appar som övervakas:
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Nästa steg
 * [Skapa webbtester][availability] så att du är säker på att webbplatsen är aktiv.
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem.
-* [Lägg till telemetri för webklienten][användning] om du vill visa undantag från webbsidans kod och lägga till spårningsanrop.
+* [Lägg till telemetri för webbklienten][usage] om du vill visa undantag från webbsidans kod och lägga till spårningsanrop.
 * [Lägg till Application Insights SDK i koden för din webbtjänst][greenbrown] om du vill lägga till spårnings- och logganrop i serverkoden.
 
 <!--Link references-->
@@ -228,10 +223,10 @@ Ta reda på vilka appar som övervakas:
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[användning]: app-insights-web-track-usage.md
+[usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

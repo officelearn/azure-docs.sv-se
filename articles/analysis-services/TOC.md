@@ -4,16 +4,20 @@
 ##[Skapa en server](analysis-services-create-server.md)
 
 # Gör så här för att 
-## [Distribuera](analysis-services-deploy.md)
-## Hantera
-###[Ansluta till en server](analysis-services-connect.md)
-###[Hantera en server](analysis-services-manage.md)
-## Integrera
-###[Lokal datagateway](analysis-services-gateway.md)
+##[Distribuera till en server](analysis-services-deploy.md)
+##[Anslut från en klient](analysis-services-connect.md)
 
-# Referenser
+##[Hantera en server](analysis-services-manage.md)
+##[Integrera lokal datagateway](analysis-services-gateway.md)
+
+# Referens
+##[PowerShell](/powershell/resourcemanager)
+##[REST](/rest/api/analysisservices)
+
+# Resurser
 ##[Anslutningar till datakälla](analysis-services-datasource.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO1-->
 
 

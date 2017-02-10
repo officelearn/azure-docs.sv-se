@@ -39,7 +39,7 @@ Observera att all exempelkod i den här artikeln är skriven i C#. Du hittar den
 ## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identifiera Azure Search-tjänstens API-administratörsnyckel
 Nu när du har etablerat en Azure Search-tjänst är du nästan klar att skicka förfrågningar mot tjänstens slutpunkt med hjälp av .NET SDK. Först måste du skaffa en av API-administratörsnycklarna som genererades för söktjänsten som du etablerade. .NET SDK skickar den här API-nyckeln vid varje begäran till tjänsten. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-1. Om du vill hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/)
+1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
 2. Gå till Azure Search-tjänstens blad
 3. Klicka på nyckelikonen
 
@@ -182,6 +182,6 @@ När du har skapat ett Azure Search-index är det dags att [ladda upp innehålle
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

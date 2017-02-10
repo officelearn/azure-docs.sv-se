@@ -17,8 +17,9 @@
 ### [Nätverksmappning (VMM)](site-recovery-network-mapping.md)
 ### [Lagringsmappning mellan lokala platser](site-recovery-storage-mapping.md)
 ## Replikera
-### [VMwares virtuella datorer och servrar till Azure](site-recovery-vmware-to-azure.md)
-### [VMwares virtuella datorer och servrar till en sekundär plats](site-recovery-vmware-to-vmware.md)
+### [Virtuella VMWare-datorer och fysiska servrar till Azure](site-recovery-vmware-to-azure.md)
+### [Virtuella VMware-datorer och fysiska servrar till en sekundär webbplats](site-recovery-vmware-to-vmware.md)
+### [Virtuella VMware-datorer med stöd för flera innehavare till Azure  med CSP-programmet](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [Virtuella Hyper-V-datorer till Azure (med VMM)](site-recovery-vmm-to-azure.md)
 ### [Virtuella Hyper-V-datorer till Azure (ingen VMM)](site-recovery-hyper-v-site-to-azure.md)
 ### [Hyper-V-VM:ar till en sekundär plats](site-recovery-vmm-to-vmm.md)
@@ -38,7 +39,7 @@
 ### [Övriga arbetsbelastningar](site-recovery-workload.md#workload-summary)
 ## Automatisera replikering
 ### [Virtuella Hyper-V-datorer (med VMM) till Azure](site-recovery-deploy-with-powershell.md)
-### [Virtuella Hyper-V-datorer (med VMM) till Azure](site-recovery-deploy-with-powershell-resource-manager.md)
+### [Virtuella Hyper-V-datorer (utan VMM) till Azure](site-recovery-deploy-with-powershell-resource-manager.md)
 ### [Lägg till automatisering i återställningsplaner](site-recovery-runbook-automation.md)
 ### [Automatisera tjänstdistribution med Mobility](site-recovery-automate-mobility-service-install.md)
 ## Hantera
@@ -49,8 +50,9 @@
 ## [Övervaka och felsök](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell – Klassisk](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell – Klassisk](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Relaterat
 ## [Azure Automation](/azure/automation/)
@@ -63,6 +65,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

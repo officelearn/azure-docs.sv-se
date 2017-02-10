@@ -1,13 +1,17 @@
 ---
 layout: LandingPage
+description: "Dokumentation, videor och exempelmodeller för Machine Learning, en molntjänst för dataexperter och utvecklare som använder förutsägande analyser i sina program."
+author: garyericson
+ms.date: 01/18/2017
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: d8c4cf777402393667a521dcff780e839d02e734
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Dokumentation om Azure Machine Learning
 
-Azure Machine Learning ger tillgång till verktyg för att modellera förutsägelseanalyser, och tillhandahåller också en fullständigt hanterad tjänst som du kan använda för att distribuera förutsägelsemodeller som användningsklara webbtjänster.
+Lär dig hur dataexperter och utvecklare använder Machine Learning för att bädda in förutsägelseanalys i program. Självstudier, videor och exempelmodeller visar hur du skapar och distribuerar Machine Learning-modeller.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -94,8 +98,8 @@ Azure Machine Learning ger tillgång till verktyg för att modellera förutsäge
                 <div class="card">
                     <div class="cardText">
                         <h3>Kommandorad</h3>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell</a></p>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell-modul för Machine Learning</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell (ny)</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell (klassisk)</a></p>
                     </div>
                 </div>
             </div>
@@ -107,7 +111,7 @@ Azure Machine Learning ger tillgång till verktyg för att modellera förutsäge
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algoritm- och modulreferens</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algoritm – &amp; modulreferens</a></p>
                    </div>
                 </div>
             </div>
@@ -119,7 +123,7 @@ Azure Machine Learning ger tillgång till verktyg för att modellera förutsäge
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/machinelearning">Referens för REST API</a></p>
+                        <p><a href="/rest/api/machinelearning">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -127,16 +131,10 @@ Azure Machine Learning ger tillgång till verktyg för att modellera förutsäge
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Machine Learning </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

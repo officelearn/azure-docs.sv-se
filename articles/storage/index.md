@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Lär dig hur du använder Azure Storage – Blob-, tabell-, kö-, fillagring och lagring av virtuella diskar i molnet. Självstudier, API-referenser och annan dokumentation."
 translationtype: Human Translation
-ms.sourcegitcommit: 3cd1ef210c363fc280cefca3c0697eb66da85a1d
-ms.openlocfilehash: 426166d22b721d45853f3f578d39e14966c57c50
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
 
 ---
 
@@ -109,8 +109,8 @@ Lär dig hur du använder Azure Storage, en molnlagringstjänst som är pålitli
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Resurshanterare</a></p>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: Dataflyttning</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Resource Manager</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: Dataflytt</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: Blobar, köer, tabeller och filer</a></p>
                         <p><a href="/java/api/">Java</a></p>
                         <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
@@ -130,8 +130,9 @@ Lär dig hur du använder Azure Storage, en molnlagringstjänst som är pålitli
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">REST: Import/export</a></p>
-                        <p><a href="/rest/api/storagerp">REST: Resursprovider</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Blobar, köer, tabeller och filer</a></p>
+                        <p><a href="/rest/api/storagerp">Resursprovider</a></p>
+                        <p><a href="/rest/api/storageimportexport">Import/export</a></p>
                    </div>
                 </div>
             </div>
@@ -139,16 +140,10 @@ Lär dig hur du använder Azure Storage, en molnlagringstjänst som är pålitli
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned Storage-dokumentation </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Jan17_HO3-->
 
 

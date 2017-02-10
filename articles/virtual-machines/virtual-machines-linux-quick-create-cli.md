@@ -15,24 +15,24 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
-ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0 Preview
+# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Skapa en virtuell Linux-dator med Azure CLI 2.0 Preview (az.py)
 Den här artikeln beskriver hur du snabbt distribuerar en Linux-baserad virtuell dator (VM) i Azure med kommandot [az vm create](/cli/azure/vm#create) med hjälp av Azure CLI 2.0 Preview. 
 
 > [!NOTE] 
-> Azure CLI 2.0 Preview är vår nästa generations CLI för flera plattformar. Prova det och berätta vad du tycker på [GitHub-projektsidan](https://github.com/Azure/azure-cli).
+> Azure CLI 2.0 Preview är vår nästa generations CLI för flera plattformar. [Prova.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> I resten av våra dokument används befintliga Azure CLI. Om du vill skapa en virtuell dator med hjälp av befintliga Azure CLI och inte CLI 2.0 Preview läser du [Skapa en virtuell dator med Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> I resten av våra dokument används befintliga Azure CLI. Om du vill skapa en virtuell dator med hjälp av befintliga Azure CLI 1.0 och inte CLI 2.0 Preview läser du [Skapa en virtuell dator med Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Om du vill skapa en virtuell dator behöver du följande: 
 
 * ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/))
-* [Azure CLI v. 2.0 Preview](https://github.com/Azure/azure-cli#installation) installerat
+* [Azure CLI v. 2.0 Preview](/cli/azure/install-az-cli2) installerat
 * vara inloggad på ditt Azure-konto (skriv [az login](/cli/azure/#login))
 
 (Du kan också snabbt distribuera en virtuell Linux-dator via [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
@@ -41,10 +41,10 @@ Följande exempel visar hur du distribuerar en Debian-baserad virtuell dator och
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Börja med att skriva [az resource group create](/cli/azure/resource/group#create) för att skapa din resursgrupp som innehåller alla distribuerade resurser:
+Börja med att skriva [az group create](/cli/azure/group#create) för att skapa din resursgrupp som innehåller alla distribuerade resurser:
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 De utdata som returneras liknar följande (du kan välja ett annat `--output`-alternativ om du vill):
@@ -127,6 +127,6 @@ Du kan också [använda Azure-drivrutinen `docker-machine` med olika kommandon f
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -139,12 +139,15 @@
 
 ### [Ge fjärråtkomst till dina appar](active-directory-application-proxy-get-started.md)
 #### [Aktivera App Proxy](active-directory-application-proxy-enable.md)
-#### [Publicera appar](active-directory-application-proxy-publish.md)
+#### Publicera appar
+##### [Azure Portal](application-proxy-publish-azure-portal.md)
+##### [Klassisk portal](active-directory-application-proxy-publish.md)
 #### Publicera på separata nätverk
 ##### [Azure-portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Klassisk portal](active-directory-application-proxy-connectors.md)
 #### [Anpassade domäner](active-directory-application-proxy-custom-domains.md)
 #### [Enkel inloggning](active-directory-application-proxy-sso-using-kcd.md)
+##### [Azure Portal](application-proxy-sso-azure-portal.md)
 #### [Anspråksmedvetna appar](active-directory-application-proxy-claims-aware-apps.md)
 #### [Ursprungliga klientappar](active-directory-application-proxy-native-client.md)
 #### [Villkorlig åtkomst](active-directory-application-proxy-conditional-access.md)
@@ -212,7 +215,7 @@
 #### [CSV-filformat](active-directory-b2b-references-csv-file-format.md)
 #### [Användarobjekt](active-directory-b2b-references-external-user-object-attribute-changes.md)
 #### [Användartoken](active-directory-b2b-references-external-user-token-format.md)
-### [Integrera lokala identiteter med Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+### [Integrera lokala identiteter med Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
 ## Delegera åtkomst till resurser
@@ -237,12 +240,12 @@
 ## Skydda dina identiteter
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Aktivera](active-directory-identityprotection-enable.md)
-#### [Inloggning](active-directory-identityprotection-flows.md)
-#### [Avblockera användare](active-directory-identityprotection-unblock-howto.md)
 #### [Hitta sårbarheter](active-directory-identityprotection-vulnerabilities.md)
-#### [Typer av riskhändelser](active-directory-identityprotection-risk-events-types.md)
-#### [Simulera riskhändelser](active-directory-identityprotection-playbook.md)
+#### [Riskhändelser](active-directory-identity-protection-risk-events.md)
 #### [Meddelanden](active-directory-identityprotection-notifications.md)
+#### [Inloggning](active-directory-identityprotection-flows.md)
+#### [Simulera riskhändelser](active-directory-identityprotection-playbook.md)
+#### [Avblockera användare](active-directory-identityprotection-unblock-howto.md)
 #### [Ordlista](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
@@ -284,7 +287,8 @@
 
 # Relaterat
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD för utvecklare](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
@@ -297,6 +301,6 @@
 ## [Azures feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

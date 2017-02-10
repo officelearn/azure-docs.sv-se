@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: d532cb3774e7d98d6c52ffdc40d6ba124d8d3ea3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1cee92f59f5883b031ccc547a2f67f7dcd4fa3c3
 
 
 ---
@@ -46,31 +46,32 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga program för d
 
 1. Anslut en videokamera till en dator. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP, Smooth Streaming eller RTP (MPEG TS). Mer information finns i [Support och livekodare för Azure Media Services RTMP](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Det här steget kan också utföras när du har skapat din kanal.
+    Det här steget kan också utföras när du har skapat din kanal.
 
-1. Skapa och starta en kanal.
-2. Hämta kanalens infognings-URL.
+2. Skapa och starta en kanal.
+3. Hämta kanalens infognings-URL.
 
-Infognings-URL:en används av livekodaren för att skicka dataströmmen till kanalen.
+    Infognings-URL:en används av livekodaren för att skicka dataströmmen till kanalen.
 
-1. Hämta kanalens förhandsgransknings-URL.
+4. Hämta kanalens förhandsgransknings-URL.
 
-Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
+    Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
 
-1. Skapa en tillgång.
-2. Om du vill att tillgången ska vara dynamiskt krypterad under uppspelningen gör du följande:
-3. Skapa en innehållsnyckel.
-4. Konfigurera en auktoriseringsprincip  för innehållsnyckeln.
-5. Konfigurera en princip för tillgångsleveranser (används av dynamisk paketering och dynamisk kryptering).
-6. Skapa ett program och ange att den tillgång som du skapade ska användas.
-7. Publicera tillgången som är associerad till programmet genom att skapa en OnDemand-positionerare.
+5. Skapa en tillgång.
+6. Om du vill att tillgången ska vara dynamiskt krypterad under uppspelningen gör du följande:
+7. Skapa en innehållsnyckel.
+8. Konfigurera en auktoriseringsprincip  för innehållsnyckeln.
+9. Konfigurera en princip för tillgångsleveranser (används av dynamisk paketering och dynamisk kryptering).
+10. Skapa ett program och ange att den tillgång som du skapade ska användas.
+11. Publicera tillgången som är associerad till programmet genom att skapa en OnDemand-positionerare.
 
-Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
+    >[!NOTE]
+    >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**. 
 
-1. Starta programmet när du är redo att påbörja strömning och arkivering.
-2. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
-3. Stoppa programmet när du vill stoppa strömningen och arkiveringen av händelsen.
-4. Ta bort programmet (och ta eventuellt bort tillgången).
+12. Starta programmet när du är redo att påbörja strömning och arkivering.
+13. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
+14. Stoppa programmet när du vill stoppa strömningen och arkiveringen av händelsen.
+15. Ta bort programmet (och ta eventuellt bort tillgången).
 
 ## <a name="what-youll-learn"></a>Detta får du får lära dig
 I det här avsnittet visas hur du utför olika åtgärder i kanaler och program med hjälp av Media Services .NET SDK. Eftersom många åtgärder är långvariga används .NET-API:er som hanterar långvariga åtgärder.
@@ -91,7 +92,7 @@ Följande krävs för att kunna genomföra självstudien.
 
 * Du behöver ett Azure-konto för att slutföra den här självstudien.
 
-Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
+Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
 
 * Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate eller Express) eller senare versioner.
@@ -100,7 +101,6 @@ Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto p�
 
 ## <a name="considerations"></a>Överväganden
 * Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under längre tidsperioder.
-* Se till att ha minst en reserverad enhet för strömning på den strömningsslutpunkt från vilken du vill strömma innehåll.
 
 ## <a name="download-sample"></a>Hämta exempel
 Hämta och kör ett exempel [här](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -524,12 +524,10 @@ Granska sökvägarna för Media Services-utbildning.
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Letar du efter något annat?
-Om inte det här ämnet innehåller det som du väntade dig, saknar något eller på något annat sätt inte motsvarade dina behov, får du gärna ge oss feedback i Disqus-tråden nedan.
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

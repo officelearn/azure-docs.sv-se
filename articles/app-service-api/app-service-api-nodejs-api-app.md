@@ -1,5 +1,5 @@
 ---
-title: "Node.js API-app i Azure Apptjänst | Microsoft Docs"
+title: Node.js API-app i Azure App Service | Microsoft Docs
 description: "Lär dig hur du skapar en Node.js RESTful-API och distribuera det till en API-app i Azure Apptjänst."
 services: app-service\api
 documentationcenter: node
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
+ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
 
 
 ---
@@ -131,7 +131,7 @@ Med Apptjänst kan du distribuera din kod till en API-app på många olika sätt
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
@@ -275,6 +275,6 @@ Vid det här laget har du skapat en API-app och distribuerat Node.js API-kod til
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Testa SQL Database: Använd C# för att skapa en SQL-databas | Microsoft Docs"
+title: "C#: Kom igång med Azure SQL Database | Microsoft Docs"
 description: "Testa SQL Database för att utveckla SQL- och C#-appar och skapa en Azure SQL Database med C# med hjälp av SQL Database-biblioteket för .NET."
 keywords: "försök sql, sql-c#"
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 7ffc593ee262f55a3fff6a2cd9cf62c691722478
 
 
 ---
@@ -287,6 +287,6 @@ När du nu har testat SQL Database och ställt in en databas med C#, är du redo
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

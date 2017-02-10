@@ -80,6 +80,7 @@
 
 
 # Relaterat
+## [Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet](../connect-health/active-directory-aadconnect-health.md)
 ## [Designguide för hybrididentitet](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
@@ -88,6 +89,6 @@
 ##[DirSync-utfasning](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

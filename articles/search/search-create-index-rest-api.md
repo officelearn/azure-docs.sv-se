@@ -39,7 +39,7 @@ Om du vill skapa ett Azure Search-index med hjälp av REST-API:et skickar du en 
 ## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identifiera Azure Search-tjänstens API-administratörsnyckel
 Nu när du har etablerat en Azure Search-tjänst kan du skicka HTTP-förfrågningar mot din tjänsts URL-slutpunkt med hjälp av REST-API:et. *Alla* API-förfrågningar måste innehålla API-nyckeln som genererades för Search-tjänsten som du etablerade. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-1. Om du vill hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/)
+1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
 2. Gå till Azure Search-tjänstens blad
 3. Klicka på nyckelikonen
 

@@ -1,7 +1,5 @@
-# Kom igång
-## [Skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/)
+# [Kom igång](billing-getting-started.md)
 ## [Registrera dig med Office 365-konto](../billing-use-existing-office-365-account-azure-subscription.md)
-## [Prenumerationspriser](https://azure.microsoft.com/pricing/)
 ## [Länder och valutor som stöds](../billing-countries-and-currencies.md)
 ## [Begränsningar och kvoter](../azure-subscription-service-limits.md)
 ## [Vanliga frågor och svar](../billing-subscription-faq.md)
@@ -17,7 +15,7 @@
 ### [Överföra äganderätten till prenumerationen](../billing-subscription-transfer.md)
 ### [Återaktivera en inaktiverad prenumeration](../billing-subscription-become-disable.md)
 ### [Uppgradera från en kostnadsfri prenumeration](../billing-upgrade-azure-subscription.md)
-### [Växla till en annan prenumeration](../billing-how-to-switch-azure-offer.md)
+### [Byt prenumerationserbjudande](../billing-how-to-switch-azure-offer.md)
 ### [Avbryta prenumerationen](../billing-how-to-cancel-azure-subscription.md)
 ## Hantera kontot
 ### [Redigera profil](../billing-how-to-change-azure-account-profile.md)
@@ -37,6 +35,6 @@
 # Resurser
 ## [Kontakta supporten](../billing-how-to-create-billing-support-ticket.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

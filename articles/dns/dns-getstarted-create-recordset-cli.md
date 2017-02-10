@@ -73,16 +73,18 @@ Du kan testa om din DNS-zon är närvarande på Azure DNS-namnservrarna genom at
 
 Om du inte har delegerat domänen att använda den nya zonen i Azure DNS än, så måste du [dirigera DNS-frågan direkt till någon av zonens namnservrar](dns-getstarted-create-dnszone.md#test-name-servers). Var noga med att ange de korrekta värdena för din postzon i kommandot nedan.
 
-    nslookup
-    > set type=A
-    > server ns1-01.azure-dns.com
-    > www.contoso.com
+```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-    Server:  ns1-01.azure-dns.com
-    Address:  40.90.4.1
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-    Name:    www.contoso.com
-    Address:  1.2.3.4
+Name:    www.contoso.com
+Address:  1.2.3.4
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

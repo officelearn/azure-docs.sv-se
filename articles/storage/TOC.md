@@ -59,7 +59,7 @@
 ### [Tabelldesignguide](storage-table-design-guide.md)
 ### [Exempel](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Använda filer
-### [Översikt](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+### [Översikt](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Felsöka Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Exempel](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Använda virtuella datordiskar
@@ -75,13 +75,17 @@
 ### [Checklista för prestanda och skalbarhet](storage-performance-checklist.md)
 ### [Samtidighet](storage-concurrency.md)
 ## Utveckla
-### [Exempel](storage-samples.md)
+### Exempel
+#### [.NET](storage-samples-dotnet.md)
+#### [Java](storage-samples-java.md)
+### [Utforma HA-appar med RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 ### [Konfigurera anslutningssträngar](storage-configure-connection-string.md)
 ### [Använda lagringsemulatorn](storage-use-emulator.md)
 ### [Ange och hämta egenskaper och metadata](storage-properties-metadata.md)
 ## Hantera
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI](storage-azure-cli.md)
+### [Azure CLI 2.0 (förhandsversion)](storage-azure-cli.md)
+### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Skydda
 ### [Säkerhetsguide](storage-security-guide.md)
@@ -148,8 +152,8 @@
 ## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
-### [Resurshanterare](/dotnet/api/microsoft.azure.management.storage)
-### [Dataförflyttning](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
+### [Dataförflyttning](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blobar, köer, tabeller och filer](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
@@ -159,7 +163,7 @@
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobar, köer, tabeller och filer](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Blobar, köer, tabeller och filer](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Resursprovider](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageimportexport)
 
@@ -201,6 +205,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

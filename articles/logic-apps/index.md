@@ -1,17 +1,18 @@
 ---
 layout: LandingPage
+description: "Lär dig att utveckla logikappar som automatiserar och förenklar affärs-arbetsflöden mellan lokala platser och molnet. Självstudier, mallar och API-referenser."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 87c52e5ee76ed7848061315de8c8ba8a36b0d349
+ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
+ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
 
 ---
 # <a name="logic-apps-documentation"></a>Dokumentation om Logic Apps
 
-Logic Apps är ett designverktyg för modellering och automatisering av processer i arbetsflöden. Det finns många anslutningsappar för molnet och lokala infrastrukturer för snabb integrering mellan tjänster och protokoll. En logikapp börjar med en utlösare (t.ex. ”när ett konto läggs till i Dynamics CRM”) och kan när den utlösts starta många kombinationer av åtgärder, konverteringar och villkorslogik.
+Lär dig hur du utvecklar Logic Apps som förenklar och integrerar skalbara arbetsflöden i molnet. Självstudier, mallar och API-referenser som hjälper dig att utforma och distribuera automatiserade affärs-arbetsflöden över lokala platser och i molnet.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-what-are-logic-apps">
+        <a href="/azure/logic-apps/logic-apps-what-are-logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +48,7 @@ Logic Apps är ett designverktyg för modellering och automatisering av processe
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-create-a-logic-app">
+        <a href="/azure/logic-apps/logic-apps-create-a-logic-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -65,7 +66,7 @@ Logic Apps är ett designverktyg för modellering och automatisering av processe
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-arm-provision">
+        <a href="/azure/logic-apps/logic-apps-arm-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -83,7 +84,7 @@ Logic Apps är ett designverktyg för modellering och automatisering av processe
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-create-api-app">
+        <a href="/azure/logic-apps/logic-apps-create-api-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -124,8 +125,8 @@ Logic Apps är ett designverktyg för modellering och automatisering av processe
                 <div class="card">
                     <div class="cardText">
                         <h3>Schemahistorik</h3>
-                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2016-04-01?toc=%2fazure%2flogic-apps%2ftoc.json">Allmän tillgänglighet (GA)</a></p>
-                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2015-08-01?toc=%2fazure%2flogic-apps%2ftoc.json">Förhandsversion</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-schema-2016-04-01">Allmänt tillgänglig</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-schema-2015-08-01">Förhandsversion</a></p>
                    </div>
                 </div>
             </div>
@@ -137,7 +138,7 @@ Logic Apps är ett designverktyg för modellering och automatisering av processe
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/logic/">Referens för REST API</a></p>
+                        <p><a href="/rest/api/logic/">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -145,15 +146,10 @@ Logic Apps är ett designverktyg för modellering och automatisering av processe
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/logic-apps.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Logic Apps </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

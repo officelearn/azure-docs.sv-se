@@ -12,10 +12,14 @@
 # Gör så här för att
 ## Konfigurera hög tillgänglighet
 ### [Alternativ för hög tillgänglighet](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Konfigurera AlwaysOn-tillgänglighetsgruppen automatiskt](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-### [Konfigurera AlwaysOn-tillgänglighetsgruppen manuellt](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-### [Konfigurera en intern belastningsutjämnare för en tillgänglighetsgrupp](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-### [Konfigurera en eller flera AlwaysOn-tillgänglighetsgrupplyssnare](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+### [Konfigurera Always On-tillgänglighetsgruppen](virtual-machines-windows-portal-sql-availability-group-overview.md)
+#### [Automatisk – med mall](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Manuellt – krav](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+#### [Manuellt – självstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+#### [Belastningsutjämnare – portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Belastningsutjämnare – PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Flera regioner](virtual-machines-windows-portal-sql-availability-group-dr.md)
+
 ## Hantera
 ### [Använd SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md)
 ### [Automatisk uppdatering](virtual-machines-windows-sql-automated-patching.md)
@@ -45,6 +49,6 @@
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

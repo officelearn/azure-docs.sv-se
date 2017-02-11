@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Scheduler för att schemalägga och anropa jobb, som återkommande programåtgärder och rutinunderhåll. Självstudier, API-referenser och mycket annat."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: ee469905e6b1f55def062c1d7291bde47a5518ea
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 008c96351a252737178c9e45e92de3f0106a2a2b
 
 ---
 # <a name="scheduler-documentation"></a>Dokumentation om Scheduler
 
-Med Azure Scheduler kan du deklarativt beskriva åtgärder som ska köras i molnet.  Tjänsten schemalägger och kör sedan dessa åtgärder automatiskt.  Scheduler sparar sedan en historik över jobbkörningsresultat som går att granska.
+Lär dig hur du använder Scheduler för att schemalägga och automatiskt anropa återkommande jobb i molnet. Självstudier, API-referenser och annan dokumentationen som visar hur du schemalägger och övervakar jobb, som återkommande programåtgärder och rutinunderhåll.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +89,7 @@ Med Azure Scheduler kan du deklarativt beskriva åtgärder som ska köras i moln
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/scheduler">Referens för REST API</a></p>
+                        <p><a href="/rest/api/scheduler">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -96,15 +97,10 @@ Med Azure Scheduler kan du deklarativt beskriva åtgärder som ska köras i moln
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Scheduler </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

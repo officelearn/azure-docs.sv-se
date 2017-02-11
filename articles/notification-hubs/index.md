@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du skickar push-meddelanden från alla serverdelar till alla mobila enheter med Notification Hubs. Självstudier, API-referenser och annan dokumentation."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: b40dd058986a3dbe47709776a27ac949d3c4c491
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
 
 ---
 #<a name="notification-hubs-documentation"></a>Dokumentation för Notification Hubs
 
-Azure Notification Hubs innehåller en lättanvänd och utskalad push-infrastruktur som kan användas för en rad olika plattformar. Med hjälp av dessa kan du skicka mobila push-meddelanden från alla serverdelar (i molnet eller lokalt) till alla mobila plattformar.
-
-Med Notification Hubs kan du enkelt skicka plattformsoberoende, skräddarsydda push-meddelanden genom att abstrahera information från olika plattformsspecifika meddelandesystem (PNS). Med ett enda API-anrop kan du rikta in dig på enskilda användare eller hela målgruppssegment som innehåller miljontals användare, oavsett vad de använder för enheter.
+Lär dig hur du använder Notification Hubs, en skalbar push-meddelandemotor för flera plattformar, för att snabbt kunna skicka miljontals meddelanden. Självstudier, API-referenser och annan dokumentation som visar hur du konfigurerar och skickar push-meddelanden från alla serverdelar till alla mobila enheter. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -180,7 +179,7 @@ Med Notification Hubs kan du enkelt skicka plattformsoberoende, skräddarsydda p
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">NET</a></p>
                    </div>
                 </div>
             </div>
@@ -192,7 +191,7 @@ Med Notification Hubs kan du enkelt skicka plattformsoberoende, skräddarsydda p
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/notificationhubs">Referens för REST API</a></p>
+                        <p><a href="/rest/api/notificationhubs">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -202,16 +201,10 @@ Med Notification Hubs kan du enkelt skicka plattformsoberoende, skräddarsydda p
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/notification-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta Notification Hubs-dokumentationen </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

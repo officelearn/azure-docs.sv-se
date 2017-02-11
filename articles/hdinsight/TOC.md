@@ -61,9 +61,10 @@
 ### [Förutsäga HVAC-prestanda](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Förutsäga resultatet av en livsmedelskontroll](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analysera webbplatsloggar](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-### [Använda Zeppelin-anteckningsböcker](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Använda Zeppelin-anteckningsböcker](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter Notebook-kärnor](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Paket för Jupyter-anteckningsböcker](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Använda externa paket med Jupyter med cellfunktioner](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Använda externa paket med Jupyter med skriptåtgärder](hdinsight-apache-spark-python-package-installation.md)
 ### [Använda en lokal Jupyter-anteckningsbok](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Fjärrstyrda jobb med Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Utveckla appar med Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -227,6 +228,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

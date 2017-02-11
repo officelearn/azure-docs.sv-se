@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder VM-skalningsuppsättningar för att skapa virtuella Windows- eller Linux-datorer med automatisk skalning för stora beräkningar, stordata och container-lösningar."
+title: "Dokumentation om Azure Virtual Machines-skalningsuppsättningar, självstudier och API-referens | Microsoft Docs"
+services: virtual-machine-scale-sets
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machine-scale-sets
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: ace473bea761bd5219a3ca7facdf681dea04a7ff
+ms.sourcegitcommit: 7b2af8e58e050100b1778d977dabe25538b84cfe
+ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Dokumentation för skalningsuppsättningar för virtuella datorer
 
-Skalningsuppsättningar för virtuella datorer är en Azure Compute-resurs som du kan använda för att distribuera och hantera en uppsättning identiska VM:ar.  När alla VM:ar konfigurerats på samma sätt, är skalningsuppsättningar för virtuella datorer skapade för att stödja sann autoskalning. Ingen företablering av VM:ar krävs. Det gör det enklare att skapa storskaliga tjänster som riktar sig mot Big Compute, stordata och arbetsbelastningar i behållare.
+Lär dig hur du använder VM-skalningsuppsättningar för att distribuera och hantera en uppsättning identiska, virtuella Windows- eller Linux-datorer med automatisk skalning. Dokumentationen visar hur du använder skalningsuppsättningar som stöder tjänster som riktas till stora beräkningar, stordata och container-lösningar.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -90,7 +102,7 @@ Skalningsuppsättningar för virtuella datorer är en Azure Compute-resurs som d
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute/">Referens för REST API</a></p>
+                        <p><a href="/rest/api/compute/">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -98,16 +110,10 @@ Skalningsuppsättningar för virtuella datorer är en Azure Compute-resurs som d
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation för skalningsuppsättningar för virtuella datorer </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

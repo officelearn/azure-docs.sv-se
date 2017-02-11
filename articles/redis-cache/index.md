@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Azure Redis Cache, en säker datacache- och asynkron meddelandetjänst som ger program en snabb åtkomst till data. Självstudier, API-referenser och mycket annat."
 translationtype: Human Translation
-ms.sourcegitcommit: 4cd50960b30990f3220788e6613a2815d8e28612
-ms.openlocfilehash: 026c452cd784da14a901cab8e5aecaafda448418
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 328084918199e162ad0cfa9ac67737a66fa4d021
 
 ---
 #<a name="redis-cache-documentation"></a>Dokumentation för Redis Cache
 
-Azure Redis Cache är baserad på den populära öppna källkoden Redis Cache. Den ger dig åtkomst till en säker, dedikerad Redis-cache som hanteras av Microsoft och är tillgänglig från alla program i Azure. Azure Redis Cache ger dataåtkomst med stora dataflöden och konsekvent låg fördröjning för snabba, skalbara Azure-program.
+Lär dig hur du använder Azure Redis Cache, en säker datacache- och asynkron meddelandetjänst med hög genomströmning och åtkomst till data med korta svarstider för program. Självstudier, API-referenser och annan dokumentation som visar hur du använder Redis-Cache från alla program på Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -175,7 +176,7 @@ Azure Redis Cache är baserad på den populära öppna källkoden Redis Cache. D
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/redis/">Referens för REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/redis/">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -183,16 +184,10 @@ Azure Redis Cache är baserad på den populära öppna källkoden Redis Cache. D
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation för Redis Cache </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

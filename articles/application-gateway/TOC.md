@@ -38,10 +38,9 @@
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (klassisk)](application-gateway-create-probe-classic-ps.md)
 ## [Kombinera tjänster för belastningsutjämning](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
-## Hantera
-### [Diagnostik](application-gateway-diagnostics.md)
-### [Felsöka](application-gateway-troubleshooting-502.md)
-
+## Felsöka
+### [Felsöka fel i Application Gateway](application-gateway-troubleshooting-502.md)
+### [Diagnostisk loggning och mått](application-gateway-diagnostics.md)
 # Referens
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
 ## [Förhandsversion av Azure CLI 2.0](/cli/azure/network/application-gateway)
@@ -67,6 +66,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

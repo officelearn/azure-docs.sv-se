@@ -69,15 +69,16 @@
 ## [Distribuera virtuella Linux-datorer](azure-stack-linux.md)
 ## [Hantera uppdateringar](azure-stack-updates.md)
 ## [Utveckla för Azure Stack](azure-stack-developer.md)
-## Distribuera SQL- eller MySQL-resursprovider
-### [Använda MySQL-databaser som PaaS på Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
-### [Distribuera SQL Server-resursprovideradaptern på Azure Stack](azure-stack-sql-resource-provider-deploy.md)
+## Erbjudande om SQL eller MySQL som PaaS
+### [Distribuera MySQL-resursprovider](azure-stack-mysql-resource-provider-deploy.md)
+### [Distribuera SQL-resursprovider](azure-stack-sql-resource-provider-deploy.md)
 
-## Planera och distribuera App Service
+## Erbjudande om App Service som PaaS
 ### [Översikt över App Service i Azure Stack](azure-stack-app-service-overview.md)
 ### [Innan du börjar](azure-stack-app-service-before-you-get-started.md)
+### [Distribuera App Service-resursprovider](azure-stack-app-service-deploy.md)
 ### [Lägga till fler webbarbetsroller](azure-stack-app-service-add-worker-roles.md)
-### [Lägga till en App Service-resursprovider i Azure Stack](azure-stack-app-service-deploy.md)
+
 
 # Felsöka
 ## [Felsök Azure Stack](azure-stack-troubleshooting.md)
@@ -88,6 +89,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

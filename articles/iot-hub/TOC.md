@@ -97,6 +97,28 @@
 #### [Valfritt: Ändra LED-beteende](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
 ### [Felsöka](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
+## Kom igång med en Arduino (nod)
+### [Kom igång med ett Arduino-kort: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### Lektion 1: Konfigurera din enhet
+#### [Konfigurera din enhet](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+#### [Hämta verktygen (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+#### [Hämta verktygen (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+#### [Hämta verktygen (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+#### [Skapa och distribuera blinkningsprogrammet](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+### Lektion 2: Skapa din IoT-hubb
+#### [Hämta Azure-verktygen (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+#### [Hämta Azure-verktygen (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+#### [Hämta Azure-verktygen (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+#### [Skapa din IoT-hubb och registrera Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+### Lektion 3: Skicka meddelanden från enheten till molnet
+#### [Skapa en Azure-funktionsapp och ett lagringskonto](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+#### [Kör exempelprogrammet för att skicka meddelanden](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+#### [Lästa meddelanden sparas i minnet](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+### Lektion 4: Skicka meddelanden från molnet till enheten
+#### [Kör exempelprogrammet för att ta emot meddelanden](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+#### [Valfritt: Ändra LED-beteende](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+### [Felsöka](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 ## [Kom igång med SDK för gateway (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Kom igång med SDK för gateway (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
@@ -219,9 +241,10 @@
 ## [Java (enheter)](/java/api/com.microsoft.azure.iothub)
 ## [SDK:er för Azure IoT](http://azure.github.io/azure-iot-sdks/)
 ## [SDK för gateway](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST (resursprovider)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST (enhetsidentiteter)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST (enhetsmeddelanden) REST-API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [REST (resursprovider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (enhetsidentiteter)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST (enhetsmeddelanden)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
+## [REST (jobb)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Relaterat
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -240,6 +263,6 @@
 ## [Azure Certified for IoT-enhetskatalog](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

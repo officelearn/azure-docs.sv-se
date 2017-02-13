@@ -1,3 +1,4 @@
+
 # Översikt
 ## [Vad är DocumentDB?](documentdb-introduction.md)
 ## [Huvudkoncept](documentdb-resources.md)
@@ -29,6 +30,7 @@
 ### [Partitionering och skalning](documentdb-partition-data.md)
 ### [Konsekvens](documentdb-consistency-levels.md)
 ### [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
+### [Kostnadseffektiva läsningar och skrivningar](documentdb-key-value-store-cost.md)
 
 ## Hantera
 ### [Importera dina data](documentdb-import-data.md)
@@ -91,6 +93,7 @@
 ### [Få aviseringar med Logic Apps](documentdb-change-notification.md)
 ### [Bearbeta sensordata i realtid](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualisera din information med Power BI](documentdb-powerbi-visualize.md)
+### [Utnyttja ODBC-drivrutinen för datavisualisering](documentdb-nosql-odbc-driver.md)
 
 
 # Referens
@@ -123,6 +126,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

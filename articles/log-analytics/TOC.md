@@ -45,6 +45,9 @@
 #### [Spårning av ändringar](log-analytics-change-tracking.md)
 #### [Behållare](log-analytics-containers.md)
 #### [Key Vault](log-analytics-azure-key-vault.md)
+#### Logic Apps B2B-meddelanden
+##### [Lösning för Logic Apps B2B-meddelanden](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
+##### [Anpassat Logic Apps B2B-spårningsschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Utvärdering av skadlig kod](log-analytics-malware.md)
 #### [Nätverksanalys](log-analytics-azure-networking-analytics.md)
 #### [Övervakning av nätverksprestanda](log-analytics-network-performance-monitor.md)
@@ -71,6 +74,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

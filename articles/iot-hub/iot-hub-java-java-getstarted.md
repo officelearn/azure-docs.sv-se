@@ -1,6 +1,6 @@
 ---
 title: "Komma igång med IoT Hub (Java) | Microsoft Docs"
-description: "Så här skickar du ”enhet till molnet”-meddelanden från en enhet till Azure IoT Hub med Azure IoT SDK för Java. Du skapar en simulerad enhetsapp för att skicka meddelanden, en tjänstapp för att registrera enheten i identitetsregistret och en tjänstapp för att läsa meddelanden från enheten till molnet från IoT-hubben."
+description: "Så här skickar du ”enhet till molnet”-meddelanden från en enhet till Azure IoT Hub med Azure IoT SDK för Java. Du skapar en simulerad enhetsapp för att skicka meddelanden, en tjänstapp för att registrera enheten i identitetsregistret och en tjänstapp för att läsa meddelanden från enheten till molnet från IoT Hub."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
+ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
+ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 
 
 ---
@@ -27,7 +27,7 @@ I slutet av den här självstudiekursen har du tre Java-konsolappar:
 
 * **create-device-identity**, som skapar en enhetsidentitet och en associerad säkerhetsnyckel för att ansluta din simulerade enhetsapp.
 * **read-d2c-messages**, som visar telemetri som skickas av din simulerade enhetsapp.
-* **simulated-device**, som ansluter till din IoT-hubb med enhetsidentiteten som skapades tidigare och som skickar ett telemetrimeddelande varje sekund med hjälp av AMQP-protokollet.
+* **simulated-device**, som ansluter till din IoT Hub med enhetsidentiteten som skapades tidigare och som skickar ett telemetrimeddelande varje sekund med hjälp av MQTT-protokollet.
 
 > [!NOTE]
 > Artikeln om [Azure IoT SDK:er][lnk-hub-sdks] innehåller information om Azure IoT SDK:er som du kan använda för att skapa båda apparna så att de kan köras på enheter och på lösningens backend-servrar.
@@ -42,14 +42,14 @@ För att kunna genomföra den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Som ett sista steg antecknar du **primärnyckelvärdet** och klickar sedan på **Meddelanden**. På bladet **Meddelanden** noterar du **Händelsehubb-kompatibelt namn** och **Händelsehubb-kompatibel slutpunkt**. Du behöver dessa tre värden när du skapar appen **read-d2c-messages**.
+Som ett sista steg antecknar du **primärnyckelvärdet**. Klicka sedan på **Slutpunkter** och den inbyggda slutpunkten **Händelser**. På bladet **Egenskaper** noterar du **Händelsehubb-kompatibelt namn** och adressen i **Händelsehubb-kompatibel slutpunkt**. Du behöver dessa tre värden när du skapar appen **read-d2c-messages**.
 
 ![Aviseringsblad, Azure-portal, IoT Hub][6]
 
-Nu har du skapat IoT-hubben och har IoT Hub-värdnamnet, IoT Hub-anslutningssträngen, den primära IoT Hub-nyckeln, det Event Hub-kompatibla namnet och den Event Hub-kompatibla slutpunkten som du behöver för att slutföra resten av kursen.
+Nu har du skapat din IoT Hub. Du har IoT Hub-värdnamnet, IoT Hub-anslutningssträngen, den primära IoT Hub-nyckeln, det Händelsehubb-kompatibla namnet och den Händelsehubb-kompatibla slutpunkten som du behöver för att slutföra resten av kursen.
 
 ## <a name="create-a-device-identity"></a>Skapa en enhetsidentitet
-I det här avsnittet ska du skapa en Java-konsolapp som skapar en enhetsidentitet i identitetsregistret i IoT-hubben. En enhet kan inte ansluta till IoT Hub om den inte har en post i identitetsregistret. Mer information finns i avsnittet om **identitetsregistret** i [utvecklarhandboken för IoT Hub][lnk-devguide-identity]. När du kör den här konsolappen genererar det ett unikt enhets-ID och en nyckel som din enhet kan använda för att identifiera sig själv när den skickar ”enhet-till-molnet”-meddelanden till IoT Hub.
+I det här avsnittet ska du skapa en Java-konsolapp som skapar en enhetsidentitet i identitetsregistret i IoT Hub. En enhet kan inte ansluta till IoT Hub om den inte har en post i identitetsregistret. Mer information finns i avsnittet om **identitetsregistret** i [utvecklarhandboken för IoT Hub][lnk-devguide-identity]. När du kör den här konsolappen genererar det ett unikt enhets-ID och en nyckel som din enhet kan använda för att identifiera sig själv när den skickar ”enhet-till-molnet”-meddelanden till IoT Hub.
 
 1. Skapa en tom mapp med namnet iot-java-get-started. Skapa ett Maven-projekt i mappen iot-java-get-started med namnet **create-device-identity** med hjälp av följande kommando i Kommandotolken. Observera att detta är ett enda långt kommando:
    
@@ -63,7 +63,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som skapar en enhetsidentite
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.10</version>
+      <version>1.0.11</version>
     </dependency>
     ```
 4. Spara och stäng filen pom.xml.
@@ -122,12 +122,12 @@ I det här avsnittet ska du skapa en Java-konsolapp som skapar en enhetsidentite
 13. Skriv ner **Enhets-ID** och **Enhetsnyckel**. Du behöver dessa värden senare när du skapar en app som ansluter till IoT Hub som en enhet.
 
 > [!NOTE]
-> IoT Hub-identitetsregistret lagrar bara enhetsidentiteter för att skydda åtkomsten till IoT-hubben. Registret lagrar enhets-ID:n och enhetsnycklar som ska användas som säkerhetsreferenser och en aktiverad/inaktiverad-flagga som du kan använda för att inaktivera åtkomst för en enskild enhet. Om din app behöver lagra andra enhetsspecifika metadata bör den använda en appspecifik butik. Mer information finns i [utvecklarhandboken för IoT Hub][lnk-devguide-identity].
+> IoT Hub-identitetsregistret lagrar bara enhetsidentiteter för att skydda åtkomsten till IoT Hub. Registret lagrar enhets-ID:n och enhetsnycklar som ska användas som säkerhetsreferenser och en aktiverad/inaktiverad-flagga som du kan använda för att inaktivera åtkomst för en enskild enhet. Om din app behöver lagra andra enhetsspecifika metadata bör den använda en appspecifik butik. Mer information finns i [utvecklarhandboken för IoT Hub][lnk-devguide-identity].
 > 
 > 
 
 ## <a name="receive-device-to-cloud-messages"></a>Ta emot meddelanden från enheten till molnet
-I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till molnet”-meddelanden från IoT Hub. En IoT-hubb exponerar en [Event Hubs][lnk-event-hubs-overview]-kompatibel slutpunkt så att du kan läsa meddelanden från enheter till molnet. För att göra det så enkelt som möjligt skapar vi en grundläggande läsare i den härs självstudiekursen som inte passar för distributioner med hög genomströmning. Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-tutorial] beskriver hur du bearbetar ”enhet till molnet”-meddelanden i hög skala. Självstudiekursen [Komma igång med Event Hubs][lnk-eventhubs-tutorial] innehåller ytterligare information om hur du bearbetar meddelanden från Event Hubs och gäller för de Event Hubs-kompatibla slutpunkterna i IoT Hub.
+I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till molnet”-meddelanden från IoT Hub. En IoT Hub exponerar en [Event Hubs][lnk-event-hubs-overview]-kompatibel slutpunkt så att du kan läsa meddelanden från enheter till molnet. För att göra det så enkelt som möjligt skapar vi en grundläggande läsare i den härs självstudiekursen som inte passar för distributioner med hög genomströmning. Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-tutorial] beskriver hur du bearbetar ”enhet till molnet”-meddelanden i hög skala. Självstudiekursen [Komma igång med Event Hubs][lnk-eventhubs-tutorial] innehåller ytterligare information om hur du bearbetar meddelanden från Event Hubs och gäller för de Event Hubs-kompatibla slutpunkterna i IoT Hub.
 
 > [!NOTE]
 > Event Hub-kompatibla slutpunkter för läsning av meddelanden från enheter till molnet använder alltid AMQP-protokollet.
@@ -146,7 +146,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.8</version> 
+        <version>0.10.0</version> 
     </dependency>
     ```
 4. Spara och stäng filen pom.xml.
@@ -205,7 +205,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
                       receivedEvent.getSystemProperties().getOffset(), 
                       receivedEvent.getSystemProperties().getSequenceNumber(), 
                       receivedEvent.getSystemProperties().getEnqueuedTime()));
-                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getSystemProperties().get("iothub-connection-device-id")));
                     System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
                       Charset.defaultCharset())));
                     batchSize++;
@@ -233,7 +233,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
    > Den här metoden använder ett filter när den skapar mottagaren så att mottagaren endast läser meddelanden som skickas till IoT Hub efter att mottagaren har börjat köra. Den här tekniken är användbar i en testmiljö så att du kan se den aktuella uppsättningen meddelanden. I en produktionsmiljö bör koden se till att alla meddelanden bearbetas. Mer information finns i självstudiekursen [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] (Bearbeta meddelanden från enheten till molnet i IoT Hub).
    > 
    > 
-9. Ändra signaturen för **main**-metoden och ta med undantagen som visas nedan:
+9. Ändra signaturen för **main**-metoden och ta med undantaget som visas nedan:
    
     ```
     public static void main( String[] args ) throws IOException
@@ -258,7 +258,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
     ```
     
     > [!NOTE]
-    > Den här koden förutsätter att du skapade IoT-hubben på F1-nivån (gratis). En kostnadsfri IoT-hubb har två partitioner med namnen ”0” och ”1”.
+    > Den här koden förutsätter att du skapade IoT Hub på F1-nivån (kostnadsfri). En kostnadsfri IoT Hub har två partitioner med namnen ”0” och ”1”.
     > 
     > 
 11. Spara och stäng filen App.java.
@@ -269,7 +269,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
     ```
 
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
-I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT-hubb.
+I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT Hub.
 
 1. I mappen iot-java-get-started som du skapade i avsnittet *Skapa en enhetsidentitet* skapar du ett Maven-projekt med namnet **imulated-device** genom att köra följande kommando i Kommandotolken. Observera att detta är ett enda långt kommando:
    
@@ -277,13 +277,13 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 2. Gå till mappen simulated-device i Kommandotolken.
-3. Använd en textredigerare och öppna filen pom.xml i mappen simulated-device och lägg till följande beroenden till noden **dependencies**. Det här beroendet gör att du kan använda iothub-java-client-paketet i din app för att kommunicera med IoT-hubben och för att serialisera Java-objekt till JSON:
+3. Använd en textredigerare och öppna filen pom.xml i mappen simulated-device och lägg till följande beroenden till noden **dependencies**. Det här beroendet gör att du kan använda iothub-java-client-paketet i din app för att kommunicera med IoT Hub och för att serialisera Java-objekt till JSON:
    
     ```
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.0.16</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -309,17 +309,17 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
     import java.util.concurrent.Executors;
     import java.util.concurrent.ExecutorService;
     ```
-7. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt **{youriothubname}** med namnet på din IoT-hubb och **{yourdevicekey}** med enhetsnyckelvärdet som du genererade i avsnittet *Skapa en enhetsidentitet*:
+7. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt **{youriothubname}** med namnet på din IoT Hub och **{yourdevicekey}** med enhetsnyckelvärdet som du genererade i avsnittet *Skapa en enhetsidentitet*:
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    Den här exempelappen använder variabeln **protocol** när den instantierar ett **DeviceClient**-objekt. Du kan använda antingen HTTP- eller AMQP-protokollet för att kommunicera med IoT Hub.
-8. Lägg till följande kapslade **TelemetryDataPoint**-klass inuti klassen **App** för att ange de telemetridata som enheten skickar till IoT-hubben:
+    Den här exempelappen använder variabeln **protocol** när den instantierar ett **DeviceClient**-objekt. Du kan använda antingen MQTT-, AMQP- eller HTTP-protokollet för att kommunicera med IoT Hub.
+8. Lägg till följande kapslade **TelemetryDataPoint**-klass inuti klassen **App** för att ange de telemetridata som enheten skickar till IoT Hub:
    
     ```
     private static class TelemetryDataPoint {
@@ -332,7 +332,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
       }
     }
     ```
-9. Lägg till följande kapslade **EventCallback**-klass inuti klassen **App** för att visa bekräftelsestatusen som IoT-hubben returnerar när den bearbetar ett meddelande från den simulerade enhetsappen. Den här metoden meddelar även huvudtråden i appen när meddelandet har bearbetats:
+9. Lägg till följande kapslade **EventCallback**-klass inuti klassen **App** för att visa bekräftelsestatusen som IoT Hub returnerar när den bearbetar ett meddelande från den simulerade enhetsappen. Den här metoden meddelar även huvudtråden i appen när meddelandet har bearbetats:
    
     ```
     private static class EventCallback implements IotHubEventCallback
@@ -348,7 +348,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
       }
     }
     ```
-10. Lägg till följande kapslade **MessageSender**-klass inuti klassen **App**. Metoden **Kör** i den här klassen genererar exempeltelemetridata som skickas till IoT-hubben och väntar på en bekräftelse innan nästa meddelande skickas:
+10. Lägg till följande kapslade **MessageSender**-klass inuti klassen **App**. Metoden **Kör** i den här klassen genererar exempeltelemetridata som skickas till IoT Hub och väntar på en bekräftelse innan nästa meddelande skickas:
     
     ```
     private static class MessageSender implements Runnable {
@@ -385,8 +385,8 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
     }
     ```
     
-    Den här metoden skickar ett nytt ”enhet till molnet”-meddelande en sekund efter att IoT-hubben bekräftar det föregående meddelandet. Meddelandet innehåller ett JSON-serialiserat objekt med deviceId och ett slumpmässigt genererat nummer för att simulera en vindhastighetssensor.
-11. Ersätt metoden **main** med följande kod som skapar en tråd för att skicka ”enhet till molnet”-meddelanden till din IoT-hubb:
+    Den här metoden skickar ett nytt ”enhet till molnet”-meddelande en sekund efter att IoT Hub bekräftar det föregående meddelandet. Meddelandet innehåller ett JSON-serialiserat objekt med deviceId och ett slumpmässigt genererat nummer för att simulera en vindhastighetssensor.
+11. Ersätt metoden **main** med följande kod som skapar en tråd för att skicka ”enhet till molnet”-meddelanden till din IoT Hub:
     
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException {
@@ -419,28 +419,28 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
 ## <a name="run-the-apps"></a>Kör apparna
 Nu är det dags att köra apparna.
 
-1. Kör följande kommando i Kommandotolken i mappen read-d2c för att börja övervaka den första partitionen i din IoT-hubb:
+1. Kör följande kommando i Kommandotolken i mappen read-d2c för att börja övervaka den första partitionen i din IoT Hub:
    
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
    
     ![Java IoT Hub-tjänstapp för att övervaka meddelanden från enheten till molnet][7]
-2. Kör följande kommando i Kommandotolken i mappen simulated-device för att börja skicka telemetridata till din IoT-hubb:
+2. Kör följande kommando i Kommandotolken i mappen simulated-device för att börja skicka telemetridata till din IoT Hub:
    
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
    
     ![Java IoT Hub-enhetsapp för att skicka meddelanden från enheten till molnet][8]
-3. På panelen **Användning** på [Azure Portal][lnk-portal] kan du se hur många meddelanden som har skickats till IoT-hubben:
+3. På panelen **Användning** på [Azure Portal][lnk-portal] kan du se hur många meddelanden som har skickats till IoT Hub:
    
     ![Azure-portal Användningspanel som visar antalet meddelanden som har skickats till IoT Hub][43]
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen konfigurerade du en ny IoT-hubb på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du använde den här enhetsidentiteten så att den simulerade enhetsappen kunde skicka ”enhet till molnet”-meddelanden till IoT-hubben. Du skapade också en app som visar meddelandena som tagits emot av IoT-hubben. 
+I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du använde den här enhetsidentiteten så att den simulerade enhetsappen kunde skicka ”enhet till molnet”-meddelanden till IoT Hub. Du skapade också en app som visar meddelandena som tagits emot av IoT Hub. 
 
-För att fortsätta komma igång med IoT-hubb och utforska andra IoT-scenarier, se:
+Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-scenarier finns här:
 
 * [Connecting your device][lnk-connect-device] (Ansluta din enhet)
 * [Connecting your device][lnk-device-management] (Komma igång med enhetshantering)
@@ -461,7 +461,7 @@ Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -474,6 +474,6 @@ Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

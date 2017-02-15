@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Lär dig säker strömning på begäran eller live-video i sändningskvalitet med hjälp av Media Services, en utökningsbar molnplattform. Självstudier, API-referenser och mycket annat."
 translationtype: Human Translation
-ms.sourcegitcommit: bc22da83e1683cc8be164e9ff3ed95d2fdc95d27
-ms.openlocfilehash: 7b6ff41479fdfe332148dc2366c7e547af5e98f9
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3e029a72b1918636ede33db1445ce0550d40ede6
 
 ---
 # <a name="media-services-documentation"></a>Dokumentation för Media Services
@@ -179,7 +179,7 @@ Lär dig hur du strömmar video i sändningskvalitet med hjälp av Media Service
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.windowsazure.mediaservices.client">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.windowsazure.mediaservices.client">NET</a></p>
                    </div>
                 </div>
             </div>
@@ -191,7 +191,7 @@ Lär dig hur du strömmar video i sändningskvalitet med hjälp av Media Service
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/media">Referens för REST API</a></p>
+                        <p><a href="/rest/api/media">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -199,13 +199,6 @@ Lär dig hur du strömmar video i sändningskvalitet med hjälp av Media Service
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation för Media Services </div>
-    </a>
-</div>
 
 
 

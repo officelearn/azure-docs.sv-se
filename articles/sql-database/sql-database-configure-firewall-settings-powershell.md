@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera Azure SQL Database-brandväggsregler på servernivå med hjälp av PowerShell | Microsoft Docs"
-description: "Lär dig hur du konfigurerar brandväggen för IP-adresser som har åtkomst till Azure SQL-databaser."
+title: "PowerShell: Konfigurera Azure SQL Database-brandväggsregler | Microsoft Docs"
+description: "Lär dig hur du konfigurerar brandväggsregler på servernivå för IP-adresser som har åtkomst till Azure SQL-databaser med hjälp av PowerShell."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 1f7a1f6f4cc970cf12851e48d0f1b3c6ae46279c
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: d80bd1fbb5cdb0492e521a4d600f657fac0e3325
 
 
 ---
@@ -49,11 +49,11 @@ Om du vill skapa en ny brandväggsregel på servernivå kör du cmdleten [New-Az
 
 Om du vill ändra en brandväggsregel på servernivå kör du cmdleten [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789\(v=azure.300\).aspx). I följande exempel ändras intervallet med godkända IP-adresser för regeln med namnet ContosoFirewallRule.
 
-    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' -StartIPAddress 192.168.1.4 -EndIPAddress 192.168.1.10 -FirewallRuleName 'ContosoFirewallRule' -ServerName 'Contoso'
 
 Om du vill ta bort en brandväggsregel på servernivå kör du cmdleten [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588\(v=azure.300\).aspx). I följande exempel tas regeln med namnet ContosoFirewallRule bort.
 
-    Remove-AzureRmSqlServerFirewallRule –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Remove-AzureRmSqlServerFirewallRule -FirewallRuleName 'ContosoFirewallRule' -ServerName 'Contoso'
 
 
 ## <a name="manage-firewall-rules-by-using-powershell"></a>Hantera brandväggsregler med hjälp av PowerShell
@@ -87,6 +87,6 @@ Information om hur du navigerar till databaser finns i [Manage database access a
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

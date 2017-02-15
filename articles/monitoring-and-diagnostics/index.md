@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Lär dig hur du använder tjänster för övervakning och diagnostik för att spåra prestanda, upprätthålla säkerhet och identifiera trender. API-referenser, bästa metoder och mycket annat."
 translationtype: Human Translation
-ms.sourcegitcommit: edf493f70b08bdf5545127a90d7a13ea49b668c1
-ms.openlocfilehash: 0ee9faf763dbedd4046547764c5ad5ad9e3d2d07
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
 
 ---
 
@@ -126,7 +126,7 @@ Lär dig hur du använder övervakning och diagnostik med Azure för att spåra 
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn802153">.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn802153">NET</a></p>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@ Lär dig hur du använder övervakning och diagnostik med Azure för att spåra 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/monitor/">Referens för REST API</a></p>
+                        <p><a href="/rest/api/monitor/">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -146,13 +146,7 @@ Lär dig hur du använder övervakning och diagnostik med Azure för att spåra 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation för övervakning och diagnostik </div>
-    </a>
-</div>
+
 
 
 

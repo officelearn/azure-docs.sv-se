@@ -1,14 +1,26 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
+description: "Lär dig hur du skapar, distribuerar och hanterar virtuella Windows- eller Linuxdatorer. Självstudier, API-referenser och annan dokumentation."
+title: Dokumentation om Azure Virtual Machines | Microsoft Docs
+services: virtual-machines
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-windows
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
-ms.openlocfilehash: 57994a1476186696b81b05e0ce7ae645337d35b2
+ms.sourcegitcommit: 0b803da9d1cfefababd18b48fd39efc9895331bf
+ms.openlocfilehash: 2cbeaebcd79944511bbd2532b533acf1b98bef06
 
 ---
-#<a name="virtual-machines-documentation"></a>Dokumentation om Virtual Machines
+# <a name="virtual-machines-documentation"></a>Dokumentation om Virtual Machines
 
-En virtuell dator i Azure ger dig virtualiseringsflexibilitet utan att du behöver köpa och underhålla den fysiska maskinvara som den virtuella datorn körs på. Du behöver dock fortfarande underhålla den virtuella datorn och konfigurera, korrigera och underhålla programvaran som körs på den virtuella datorn.
+Lär dig skapa virtuella Azure-datorer. Självstudier, API-referenser och annan dokumentation visar hur du skapar och distribuerar Windows- och Linux-datorer, samt komplexa mallar för virtuella datorer.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -49,16 +61,10 @@ En virtuell dator i Azure ger dig virtualiseringsflexibilitet utan att du behöv
     </li>    
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentationen för Virtual Machines </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

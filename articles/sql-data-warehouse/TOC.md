@@ -6,17 +6,14 @@
 
 # Kom igång
 
-## Skapa ett SQL Data Warehouse
-### [Azure-portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Självstudie för nybörjare](sql-data-warehouse-get-started-tutorial.md)
 ## [Bästa praxis](sql-data-warehouse-best-practices.md)
 ## [Hantera](sql-data-warehouse-overview-manage.md)
 ## [Få support](sql-data-warehouse-get-started-create-support-ticket.md)
 
 # Gör så här för att
 
-## Säkerhetskopiera och återställa
+## Säkerhetskopiering och återställning
 
 ### [Översikt över Backup](sql-data-warehouse-backups.md)
 ### [Återställa översikt](sql-data-warehouse-restore-database-overview.md)
@@ -32,6 +29,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Installera Visual Studio](sql-data-warehouse-install-visual-studio.md)
+
+## Skapa
+### [Azure Portal](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Utveckla
 
@@ -145,6 +147,6 @@
 ### [Datahantering](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig mer om att bädda in Power BI-datavisualiseringar och interaktiva rapporter i appar. Självstudier, API-referenser och annan dokumentation."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: b15e8e9676cba8969505728e6b9f7f2db4559e9a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded-dokumentation
 
-Power BI Embedded är en Azure-tjänst som gör det möjligt för apputvecklare att lägga till interaktiva Power BI-rapporter i sina egna appar. Power BI Embedded fungerar med befintliga program utan att behöva designa om eller ändra hur användarna loggar in.
+Lär dig hur du lägger till datavisualiseringar och interaktiva rapporter i appar med hjälp av Power BI Embedded. Självstudier, API-referenser och annan dokumentation som visar hur du sömlöst kan bädda in Power BI-rapporter och instrumentpaneler i appar.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,7 +107,7 @@ Power BI Embedded är en Azure-tjänst som gör det möjligt för apputvecklare 
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.powerbiembedded">NET</a></p>
                         <p><a href="https://www.nuget.org/profiles/powerbi">Hämta .NET SDK</a></p>
                         <p><a href="https://github.com/Microsoft/PowerBI-JavaScript">JavaScript</a></p>
                    </div>
@@ -120,7 +121,7 @@ Power BI Embedded är en Azure-tjänst som gör det möjligt för apputvecklare 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/powerbiembedded/">Referens för REST API</a></p>
+                        <p><a href="/rest/api/powerbiembedded/">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -128,15 +129,9 @@ Power BI Embedded är en Azure-tjänst som gör det möjligt för apputvecklare 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta Power BI Embedded-dokumentation </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

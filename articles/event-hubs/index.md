@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Lär dig hur du använder Event Hubs för att mata in miljontals händelser per sekund från anslutna IoT-enheter och appar på en bred uppsättning plattformar."
 translationtype: Human Translation
-ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
-ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 29d6165596d3e98264285b6471c8f54b66aa2c3a
 
 ---
 #<a name="event-hubs-documentation"></a>Dokumentation om Event Hubs
@@ -95,7 +95,7 @@ Lär dig hur du använder Event Hubs för att samla och hantera miljontals händ
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.eventhubs">Java</a></p>
                    </div>
                 </div>
@@ -108,7 +108,7 @@ Lär dig hur du använder Event Hubs för att samla och hantera miljontals händ
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/eventhub">Referens för REST API</a></p>
+                        <p><a href="/rest/api/eventhub">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -116,13 +116,7 @@ Lär dig hur du använder Event Hubs för att samla och hantera miljontals händ
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om Event Hubs </div>
-    </a>
-</div>
+
 
 
 

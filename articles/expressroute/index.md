@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du konfigurerar och hanterar en privat ExpressRoute-anslutning till Microsoft Cloud-tjänster från din infrastruktur på plats eller delade miljö."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 551759d87b6c697aa1f28810fe32815aec66f269
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
 
 ---
 #<a name="expressroute-documentation"></a>ExpressRoute dokumentation
 
-Med Azure ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet via en dedikerad privat anslutning från en anslutningsleverantör. Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning.
-
+Lär dig hur du använder ExpressRoute för att konfigurera en snabb, privat anslutning till Microsoft Cloud-tjänster från din infrastruktur på plats eller delade miljö. Självstudier, REST API:er och annan dokumentation hjälper dig att konfigurera och hantera en ExpressRoute-krets.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -89,7 +89,7 @@ Med Azure ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Referens för REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API-referens</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Referens för klassiskt REST API</a></p>
                     </div>
                 </div>
@@ -98,16 +98,10 @@ Med Azure ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta ExpressRoute-dokumentation </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

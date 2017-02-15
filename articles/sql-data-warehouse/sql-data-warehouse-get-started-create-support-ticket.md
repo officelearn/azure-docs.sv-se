@@ -101,6 +101,6 @@ Du kan dessutom ansluta till SQL Data Warehouse-communityn på [Stack Overflow][
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

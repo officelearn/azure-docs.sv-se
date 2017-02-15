@@ -39,13 +39,32 @@
 ### [Hantera användarkonton](api-management-howto-create-or-invite-developers.md)
 ### [Hantera med hjälp av automatisering](automation-manage-api-management.md)
 ### [Konfigurera med Git](api-management-configuration-repository-git.md)
-#Referens
+# Referens
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Klassisk PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
-## [Principer](https://msdn.microsoft.com/library/azure/dn894081)
-## [Mallar](https://msdn.microsoft.com/library/azure/mt697540)
-#Resurser
+## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
+## [Principer](api-management-policies.md)
+### Principreferens
+#### [Principer för begränsning av åtkomst](api-management-access-restriction-policies.md)
+#### [Avancerade principer](api-management-advanced-policies.md)
+#### [Autentiseringsprinciper](api-management-authentication-policies.md)
+#### [Cachelagringsprinciper](api-management-caching-policies.md)
+#### [Principer mellan domäner](api-management-cross-domain-policies.md)
+#### [Omvandlingsprinciper](api-management-transformation-policies.md)
+### [Felhantering](api-management-error-handling-policies.md)
+### [Principuttryck](api-management-policy-expressions.md)
+## [Mallar](api-management-developer-portal-templates-reference.md)
+### Mallreferens
+#### [API:er](api-management-api-templates.md)
+#### [Produkter](api-management-product-templates.md)
+#### [Program](api-management-application-templates.md)
+#### [Problem](api-management-issue-templates.md)
+#### [Användarprofil](api-management-user-profile-templates.md)
+#### [Sidor](api-management-page-templates.md)
+### [Referens för datamodell](api-management-template-data-model-reference.md)
+### [Sidkontroller](api-management-page-controls.md)
+### [Mallresurser](api-management-template-resources.md)
+# Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/api-management/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
@@ -63,6 +82,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

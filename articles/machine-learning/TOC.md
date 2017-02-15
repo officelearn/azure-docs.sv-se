@@ -128,7 +128,6 @@
 #### [Distribuera en webbtjänst](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Använda externa data](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Distribuera i flera områden](machine-learning-how-to-deploy-to-multiple-regions.md)
-#### [Publicera i Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 #### [Använda webbtjänstparametrar](machine-learning-web-service-parameters.md)
 #### [Aktivera loggning](machine-learning-web-services-logging.md)
 ### Hantera webbtjänster
@@ -157,23 +156,10 @@
 #### [Använda Hadoop med 1TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
 #### [Använda SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 #### [Använda SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-### Webbtjänstexempel
-#### [Exempel med R](machine-learning-r-csharp-web-service-examples.md)
-#### [Binär klassificerare](machine-learning-r-csharp-binary-classifier.md)
-#### [Klustermodell](machine-learning-r-csharp-cluster-model.md)
-#### [Multivarierad linjär regression](machine-learning-r-csharp-multivariate-linear-regression.md)
-#### [Prognostisering – Exponentiell utjämning](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-#### [Prognostisering – ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-#### [Prognostisering – ARIMA](machine-learning-r-csharp-arima.md)
-#### [Analys av fortsatt giltighet](machine-learning-r-csharp-survival-analysis.md)
-#### [Lexikonbaserad attitydanalys](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-#### [Skillnad i proportionstest](machine-learning-r-csharp-difference-in-two-proportions.md)
-#### [Normalt fördelningspaket](machine-learning-r-csharp-normal-distribution.md)
-#### [Binomialt fördelningspaket](machine-learning-r-csharp-binomial-distribution.md)
-#### [Marketplace, vanliga frågor och svar](machine-learning-marketplace-faq.md)
 
 # Referens
-## [PowerShell](machine-learning-powershell-module.md)
+## [PowerShell-modul (ny)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [PowerShell-modul (klassisk)](machine-learning-powershell-module.md)
 ## [Algoritm- och modulreferens](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 
@@ -192,7 +178,7 @@
 ### [Anpassade moduler](machine-learning-gallery-custom-modules.md)
 ## Cortana Analytics
 ### API:er
-#### [Avvikelseidentifiering](machine-learning-apps-anomaly-detection.md)
+#### [Avvikelseidentifiering](machine-learning-apps-anomaly-detection-api.md)
 #### [Textanalys](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### Rekommendationer
@@ -222,6 +208,6 @@
 ## [Få hjälp från live-chatt](machine-learning-live-chat.md)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

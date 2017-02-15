@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 16af0b801cd6955a8edc88aae5dd5199f4f2a713
+ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
+ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
 
 
 ---
@@ -31,6 +31,7 @@ För att Microsoft Monitoring Agent ska kunna ansluta till och registrera med OM
 | \*.ods.opinsights.azure.com |443 |Ja |
 | \*.oms.opinsights.azure.com |443 |Ja |
 | \*.blob.core.windows.net |443 |Ja |
+| \*.azure-automation.net |443 |Ja |
 | ods.systemcenteradvisor.com |443 | |
 
 Du kan använda följande procedur för att konfigurera proxyinställningar för Microsoft Monitoring Agent med Kontrollpanelen. Du behöver använda proceduren för varje server. Om du har många servrar att konfigurera är det kanske enklare att använda ett skript för att automatisera processen. I så fall kan du läsa mer i nästa procedur [Konfigurera proxyinställningar för Microsoft Monitoring Agent med hjälp av ett skript](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
@@ -105,6 +106,7 @@ Här är en lista med resurser och portar för hanteringsservern:<br>
 | data.systemcenteradvisor.com |443 | |
 | ods.systemcenteradvisor.com |443 | |
 | \*.ods.opinsights.azure.com |443 |Ja |
+| \*.azure-automation.net |443 |Ja |
 
 <br>
 Här är en lista med resurser och portar för OMS och Operations Manager-konsolen.<br>
@@ -131,45 +133,46 @@ Använd följande procedurer för att registrera din Operations Manager-hanterin
 ### <a name="to-configure-the-proxy-server-in-the-operations-manager-console"></a>Konfigurera proxyservern i Operations Manager-konsolen
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 2. Expandera **Operational Insights** och välj sedan **Anslutning till Operational Insights**.<br>  
-    ![OMS-anslutning i Operations Manager](./media/log-analytics-proxy-firewall/proxy-om01.png)
+   ![OMS-anslutning i Operations Manager](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. I vyn OMS-anslutning klickar du på **Konfigurera proxyserver**.<br>  
-    ![Konfigurera proxyserver för OMS-anslutningen i Operations Manager](./media/log-analytics-proxy-firewall/proxy-om02.png)
+   ![Konfigurera proxyserver för OMS-anslutningen i Operations Manager](./media/log-analytics-proxy-firewall/proxy-om02.png)
 4. I guiden Operational Insights-inställningar: Proxyserver väljer du **Använd en proxyserver för att få åtkomst till Operational Insights-webbtjänsten**. Skriv sedan webbadressen med portnumret, till exempel **http://myproxy:80**.<br>  
-    ![OMS-proxyadress i Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
+   ![OMS-proxyadress i Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 ### <a name="to-specify-credentials-if-the-proxy-server-requires-authentication"></a>Ange autentiseringsuppgifter om proxyservern kräver autentisering
  Inställningar och autentiseringsuppgifter för proxyservern måste spridas till hanterade datorer som rapporterar till OMS. Servrarna måste finnas i *Övervakning av servergrupp i Microsoft System Center Advisor*. Autentiseringsuppgifterna krypteras i registret på varje server i gruppen.
 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 2. Under **Kör som-konfiguration** väljer du **Profiler**.
-3. Öppna profilen **Kör som-profilproxy för System Center Advisor**.  
-    ![bild av Kör som-profilproxy för System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. I guiden Kör som-profil klickar du på **Lägg till** för att använda ett kör som-konto. Du kan skapa ett nytt kör som-konto eller använda ett befintligt konto. Det här kontot måste ha tillräcklig behörighet för att kunna passera genom proxyservern.  
-    ![bild av guiden Kör som-profil](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-5. Ange vilket konto som ska hanteras genom att välja **En vald klass, grupp eller objekt** för att öppna rutan Sök efter objekt.  
-    ![bild av guiden Kör som-profil](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. Sök och välj sedan **Övervakning av servergrupp i Microsoft System Center Advisor**.  
-    ![bild av rutan Sök efter objekt](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. Klicka på **OK** för att stänga rutan Lägg till ett kör som-konto.  
-    ![bild av guiden Kör som-profil](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. Slutför guiden och spara ändringarna.  
-    ![bild av guiden Kör som-profil](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+3. Öppna profilen **Kör som-profilproxy för System Center Advisor**.<br>  
+   ![bild av Kör som-profilproxy för System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+4. I guiden Kör som-profil klickar du på **Lägg till** för att använda ett kör som-konto. Du kan skapa ett nytt kör som-konto eller använda ett befintligt konto. Det här kontot måste ha tillräcklig behörighet för att kunna passera genom proxyservern.<br>   
+   ![bild av guiden Kör som-profil](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+5. Ange vilket konto som ska hanteras genom att välja **En vald klass, grupp eller objekt** för att öppna rutan Sök efter objekt.<br>  
+   ![bild av guiden Kör som-profil](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+6. Sök och välj sedan **Övervakning av servergrupp i Microsoft System Center Advisor**.<br>  
+   ![bild av rutan Sök efter objekt](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+7. Klicka på **OK** för att stänga rutan Lägg till ett kör som-konto.<br>  
+   ![bild av guiden Kör som-profil](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+8. Slutför guiden och spara ändringarna.<br>  
+   ![bild av guiden Kör som-profil](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
 ### <a name="to-validate-that-oms-management-packs-are-downloaded"></a>Kontrollera att OMS-hanteringspaketen laddas ned
-Om du har lagt till lösningar i OMS, kan du visa dem i Operations Manager-konsolen som hanteringspaket under **Administration**. Sök efter *System Center Advisor* för att snabbt hitta dem.  
-    ![hanteringspaket som laddats ner](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png) Du kan också leta efter OMS-hanteringspaket genom att använda följande Windows PowerShell-kommando i Operations Manager-hanteringsservern:
+Om du har lagt till lösningar i OMS, kan du visa dem i Operations Manager-konsolen som hanteringspaket under **Administration**. Sök efter *System Center Advisor* för att snabbt hitta dem.<br>  
+   ![hanteringspaket som laddats ner](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)  <br>  
+Du kan också leta efter OMS-hanteringspaket genom att använda följande Windows PowerShell-kommando i Operations Manager-hanteringsservern:
 
-    ```
+   ```  
     Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
-    ```
+   ```  
 
 ### <a name="to-validate-that-operations-manager-is-sending-data-to-the-oms-service"></a>Kontrollera att Operations Manager skickar data till OMS-tjänsten
 1. Öppna Prestandaövervakaren (perfmon.exe) i Operations Manager-hanteringsservern och välj **Prestandaövervakaren**.
 2. Klicka på **Lägg till** och välj sedan **Hanteringsgrupper för hälsotillståndstjänst**.
-3. Lägg till alla räknare som börjar med **HTTP**.  
-    ![lägga till räknare](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
-4. Om din Operations Manager-konfiguration är bra ser du aktiviteten för hälsotillståndstjänstens räknare för händelser och andra dataobjekt, baserat på de hanteringspaket som du lade till i OMS och den konfigurerade loggsamlingsprincipen.  
-    ![Visa aktivitet för prestandaövervakaren](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+3. Lägg till alla räknare som börjar med **HTTP**.<br>  
+   ![lägga till räknare](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+4. Om din Operations Manager-konfiguration är bra ser du aktiviteten för hälsotillståndstjänstens räknare för händelser och andra dataobjekt, baserat på de hanteringspaket som du lade till i OMS och den konfigurerade loggsamlingsprincipen.<br>  
+   ![Visa aktivitet för prestandaövervakaren](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md) för att lägga till funktioner och samla in data.
@@ -177,6 +180,6 @@ Om du har lagt till lösningar i OMS, kan du visa dem i Operations Manager-konso
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

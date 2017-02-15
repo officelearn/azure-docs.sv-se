@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: fd5ca2dfb12b7527f49d32d9642a91df9e590b14
+ms.sourcegitcommit: a762a0e4753b73b11b2c903fa97c67176199b8d9
+ms.openlocfilehash: 5a1845ac32d2e7454a94d6678521b5e74561933a
 
 
 ---
@@ -58,9 +58,9 @@ URL:en för att komma åt ett objekt i ett lagringskonto skapas genom att objekt
 Du kan också konfigurera ett eget domännamn som ska användas med ditt lagringskonto. Information om klassiska lagringskonton finns i [Konfigurera ett eget domännamn för din slutpunkt för Blob Storage](storage-custom-domain-name.md). För Resource Manager-lagringskonton har den här funktionen inte lagts till på [Azure Portal](https://portal.azure.com) ännu, men du kan konfigurera den med PowerShell. För mer information, se cmdleten [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).  
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. På navmenyn väljer du **Nytt** -> **Data + Storage** -> **Storage-konto**.
-3. Ange ett namn för ditt lagringskonto. Mer information om hur lagringskontots namn används för att adressera dina objekt i Azure Storage finns i [Slutpunkter för lagringskonto](#storage-account-endpoints).
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. På navmenyn väljer du **Nytt** -> **Storage** -> **Lagringskonto**.
+3. Ange ett namn för lagringskontot. Mer information om hur lagringskontots namn används för att adressera dina objekt i Azure Storage finns i [Slutpunkter för lagringskonto](#storage-account-endpoints).
    
    > [!NOTE]
    > Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
@@ -162,6 +162,6 @@ Mer information finns i [dokumentationen för Azure Virtual Machines](http://azu
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

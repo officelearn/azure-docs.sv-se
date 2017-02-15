@@ -1,7 +1,9 @@
+
 # Översikt
 ## [Vad är DocumentDB?](documentdb-introduction.md)
 ## [Huvudkoncept](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [TCO-analys för NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Scenarier
 ### [Vanliga användarsituationer](documentdb-use-cases.md)
 ### [Socialt med DocumentDB](documentdb-social-media-apps.md)
@@ -10,6 +12,7 @@
 ## Skriv din första app
 ### [.NET-konsolapp](documentdb-get-started.md)
 ### [.NET Core-konsolapp](documentdb-dotnetcore-get-started.md)
+### [Java-konsolapp](documentdb-java-get-started.md)
 ### [Node.js-konsolapp](documentdb-nodejs-get-started.md)
 ### [C++-konsolapp](documentdb-cpp-get-started.md)
 ## Bygga en webbapp
@@ -24,23 +27,22 @@
 # Gör så här för att
 
 ## Planera
-### [Lagring och prestanda](documentdb-manage.md)
 ### [Partitionering och skalning](documentdb-partition-data.md)
 ### [Konsekvens](documentdb-consistency-levels.md)
 ### [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
+### [Kostnadseffektiva läsningar och skrivningar](documentdb-key-value-store-cost.md)
 
 ## Hantera
 ### [Importera dina data](documentdb-import-data.md)
 ### [Forma dina data](documentdb-modeling-data.md)
 ### [Använda geospatiala data](documentdb-geospatial.md)
 ### [Utveckla för flera regioner](documentdb-developing-with-multiple-regions.md)
+### [Regionala redundanstestningar](documentdb-regional-failovers.md)
 ### [Få data att förfalla automatiskt](documentdb-time-to-live.md)
 ### [Anpassa dina index](documentdb-indexing-policies.md)
 ### [Säker åtkomst till data](documentdb-secure-access-to-data.md)
 ### [Säkerhetskopiera och återställa](documentdb-online-backup-and-restore.md)
 ### [Prestandanivåer](documentdb-performance-levels.md)
-### [Resurskvoter](documentdb-limits.md)
-### [Öka kvoter](documentdb-increase-limits.md)
 ### [Enheter för programbegäran](documentdb-request-units.md)
 ### Azure CLI
 #### [Skapa ett konto](documentdb-automation-resource-manager-cli.md)
@@ -55,6 +57,9 @@
 ### [Spåra ändringar med ändringsfeed](documentdb-change-feed.md)
 ### [Prestandatestning](documentdb-performance-testing.md)
 ### [Prestandatips](documentdb-performance-tips.md)
+### Bästa praxis
+#### [Konfiguration med flera huvudservrar](documentdb-multi-region-writers.md)
+#### [DateTimes](documentdb-working-with-dates.md)
 
 ## Använd DocumentDB-stöd för MongoDB
 ### [Protokollstöd för MongoDB](documentdb-protocol-mongodb.md)
@@ -79,15 +84,16 @@
 
 ## Integrera
 ### [Distribuera en webbplats med Azure App Service](documentdb-create-documentdb-website.md)
-### [Programloggning med Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Programloggning med Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Binda till Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Analysera data med Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integrera med Azure Search](documentdb-search-indexer.md)
+### [Integrera med Azure Search](../search/search-howto-index-documentdb.md)
 ### [Flytta data med Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analysera realtidsdata med Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Få aviseringar med Logic Apps](documentdb-change-notification.md)
 ### [Bearbeta sensordata i realtid](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualisera din information med Power BI](documentdb-powerbi-visualize.md)
+### [Utnyttja ODBC-drivrutinen för datavisualisering](documentdb-nosql-odbc-driver.md)
 
 
 # Referens
@@ -120,6 +126,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

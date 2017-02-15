@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du kör IoT-analys i molnet med fullständigt hanterad händelsebearbetning. Analysera data i realtid från program, sensorer, enheter och många fler."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
 
 ---
 
 # <a name="stream-analytics-documentation"></a>Stream Analytics-dokumentation
 
-Azure Stream Analytics är en helt hanterad motor för händelsebearbetning i realtid som kan ge nya, djupa insikter från dina data.  Stream Analytics gör det enkelt att konfigurera analysberäkningar i realtid för data som strömmas från enheter, sensorer, webbplatser, sociala medier, program, infrastruktursystem med mera.
+Lär dig hur du kör Sakernas Internet-analys (IoT) i molnet med Stream Analytics, en fullständigt hanterad motor för händelsebearbetning. Självstudier och annan dokumentation visar hur du analyserar data i realtid från program, sensorer, enheter, sociala media och många fler. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -161,16 +162,10 @@ Azure Stream Analytics är en helt hanterad motor för händelsebearbetning i re
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned Stream Analytics-dokumentation </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

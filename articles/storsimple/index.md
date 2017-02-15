@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Azure StorSimple, en integrerad lagringslösning som hanterar lagringsaktiviteter mellan lokala enheter på plats och lagring i Azure-molnet."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c3523cfef54f6084326b913d548449f4a9b646a9
 
 ---
 #<a name="storsimple-documentation"></a>Dokumentation om StorSimple
 
-StorSimple och Microsoft Azure erbjuder en unik och integrerad lösning för primärlagringsarkivering och haveriberedskap med Azure som tillägg till lokal lagring. Läs om hur du distribuerar och hanterar din StorSimple-lösning.
+Lär dig hur du använder Azure StorSimple, en integrerad lagringslösning som hanterar lagringsaktiviteter mellan lokala enheter på plats och lagring i Azure-molnet. Självstudier och annan dokumentationen visar hur du konfigurerar lagringshantering, platsoberoende säkerhetskopiering och katastrofåterställning.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -137,16 +138,10 @@ StorSimple och Microsoft Azure erbjuder en unik och integrerad lösning för pri
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storsimple.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om StorSimple </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

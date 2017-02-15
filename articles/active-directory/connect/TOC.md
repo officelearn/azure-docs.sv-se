@@ -11,7 +11,7 @@
 
 # Kom igång
 ## [Förutsättningar](active-directory-aadconnect-prerequisites.md)
-## [Installera Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+## [Installera Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Standardinställningar](active-directory-aadconnect-get-started-express.md)
 ### [Anpassade inställningar](active-directory-aadconnect-get-started-custom.md)
 ### [Uppgradera från DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -33,7 +33,6 @@
 
 
 ## Hantera Azure AD Connect Sync
-### [Stegvisa anvisningar för allmän SQL-anslutningsapp](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
 ### [Förhindra oavsiktliga borttagningar](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD-tjänstkonto](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -58,14 +57,11 @@
 
 
 # Referens
-## [Windows PowerShell-anslutningsapp](active-directory-aadconnectsync-connector-powershell.md)
-## [Allmän SQL-anslutningsapp](active-directory-aadconnectsync-connector-genericsql.md)
-## [Allmän LDAP-anslutningsapp](active-directory-aadconnectsync-connector-genericldap.md)
-## [Lotus Domino-anslutningsapp](active-directory-aadconnectsync-connector-domino.md)
 ## [Identitetssynkronisering och duplicerad attributåterhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Portar och protokoll som krävs för hybrididentitet](active-directory-aadconnect-ports.md)
 ## [Funktioner i förhandsgranskningen](active-directory-aadconnect-feature-preview.md)
 ## [Versionshistorik](active-directory-aadconnect-version-history.md)
+## [Konton och behörigheter](active-directory-aadconnect-accounts-permissions.md)
 
 ## Azure AD Connect Sync
 ### [Attribut som synkroniseras till Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
@@ -80,6 +76,7 @@
 
 
 # Relaterat
+## [Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet](../connect-health/active-directory-aadconnect-health.md)
 ## [Designguide för hybrididentitet](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
@@ -88,6 +85,6 @@
 ##[DirSync-utfasning](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

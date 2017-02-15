@@ -1,5 +1,5 @@
 ---
-title: "Distribuera din första Java-webbapp via Azure på fem minuter | Microsoft Docs"
+title: "Distribuera din första Java-webbapp via Azure på fem minuter (CLI 2.0 Preview) | Microsoft Docs"
 description: "Distribuera en exempelapp och se hur enkelt det är att köra webbappar i App Service. Börja snabbt utveckla på riktigt och se resultatet direkt."
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: e15a67ee0568c52f5fb81110b0ad6d2c53ec8fae
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Distribuera din första Java-webbapp via Azure på fem minuter
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Distribuera din första Java-webbapp till Azure på fem minuter (CLI 2.0 Preview)
+
+> [!div class="op_single_selector"]
+> * [Första HTML-webbplats](app-service-web-get-started-html-cli-nodejs.md)
+> * [Första .NET-app](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Första PHP-app](app-service-web-get-started-php-cli-nodejs.md)
+> * [Första Node.js-app](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Första Python-app](app-service-web-get-started-python-cli-nodejs.md)
+> * [Första Java-app](app-service-web-get-started-java.md)
+> 
+> 
+
 I de här självstudierna lär du dig hur du distribuerar en enkel webbapp med Java via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Du kan använda App Service för att skapa webbappar, [serverdelar för mobilappar](/documentation/learning-paths/appservice-mobileapps/) och [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -32,7 +43,7 @@ Du kommer att:
 
 ## <a name="prerequisites"></a>Krav
 * Hämta en FTP/FTPS-klient som t.ex. [FileZilla](https://filezilla-project.org/).
-* Skaffa ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Skaffa ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > Du kan [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
@@ -73,7 +84,7 @@ Nu ska vi distribuera en Java-app via Azure med FTPS.
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. Som **Java-version** väljer du **Java 8** och klickar på **Spara**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     När meddelandet **Webbappinställningarna har uppdaterats** visas navigerar du till http://*&lt;appname>*.azurewebsites.net för att se JSP-standardservleten i arbete.
 3. Gå tillbaka till webbappsbladet, rulla ned till **Autentiseringsuppgifter för distribution** eller sök och klicka på dem.
@@ -120,6 +131,6 @@ Eller gör mer med din första webbapp. Exempel:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

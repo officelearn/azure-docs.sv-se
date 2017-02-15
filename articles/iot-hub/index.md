@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljontals Sakernas Internet-resurser. Självstudier, API-referenser, videor och annan dokumentation."
 translationtype: Human Translation
-ms.sourcegitcommit: 771a82342a40b62cbb4b31316f08e474a797ff34
-ms.openlocfilehash: 9dd5f81cacf774eff651597e1a4920466e5c6fa3
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
 
 ---
 #<a name="iot-hub-documentation"></a>Dokumentation om IoT Hub
@@ -142,9 +142,10 @@ Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljonta
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST-API (resursprovider)</a></p>
-                        <p><a href="/rest/api/iothub/device-identities-rest">REST-API (enhetsidentiteter)</a></p>
-                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">REST-API (enhetsmeddelanden)</a></p>
+                        <p><a href="/rest/api/iothub/iothubresource">REST (resursprovider)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST (enhetsidentiteter)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST (enhetsmeddelanden)</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST (jobb)</a></p>
                     </div>
                 </div>
             </div>
@@ -152,13 +153,7 @@ Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljonta
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om IoT Hub </div>
-    </a>
-</div>
+
 
 
 

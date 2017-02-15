@@ -1,5 +1,5 @@
 ---
-title: " Skapa ett Azure Media Services-konto med Azure-portalen | Microsoft Docs"
+title: " Skapa ett Azure Media Services-konto med Azure-portalen | Microsoft Docss"
 description: "Den här självstudien går igenom hur du skapar ett Azure Media Services-konto med Azure-portalen."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
-ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
 
 
 ---
@@ -54,10 +54,10 @@ Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **+Ny** > **Webb + mobilt** > **Media Services**.
    
-    ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![Skapa Media Services](./media/media-services-create-account/media-services-new1.png)
 3. Ange de erfordrade värdena i **SKAPA MEDIA SERVICES-KONTO**.
    
-    ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    ![Skapa Media Services](./media/media-services-create-account/media-services-new3.png)
    
    1. Ange namnet på det nya AMS-kontot vid **Kontonamn**. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.
    2. Vid Prenumeration väljer du mellan de olika Azure-prenumerationer som du har åtkomst till.
@@ -69,9 +69,12 @@ Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
    6. Välj **PIN-kod för instrumentpanelen** för att se förloppet för kontodistributionen.
 4. Klicka på **Skapa** längst ned i formuläret.
    
-    Statusen ändras till **Körs** när kontot har skapats. 
+    När kontot har skapats läses översiktssidan in. I tabellen med slutpunkter för direktuppspelning har kontot en standardslutpunkt för direktuppspelning med tillståndet **Stoppad**. 
+
+    >[!NOTE]
+    >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
    
-    ![Media Services-inställningar](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![Media Services-inställningar](./media/media-services-create-account/media-services-settings.png)
    
     För att hantera AMS-kontot (till exempel överföra videor, koda tillgångar och övervaka jobbförlopp) använder du fönstret **Inställningar**.
 
@@ -86,7 +89,7 @@ Du behöver kontonamnet och den primära nyckelinformationen för att genom prog
     I fönstret **Hantera nycklar** visas kontonamnet och de primära och sekundära nycklarna. 
 3. Tryck på kopieringsknappen för att kopiera värdena.
    
-    ![Media Services-nycklar](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    ![Media Services-nycklar](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan nu överföra filer till AMS-kontot. Mer information finns i [Överföra filer](media-services-portal-upload-files.md).
@@ -100,6 +103,6 @@ Du kan nu överföra filer till AMS-kontot. Mer information finns i [Överföra 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

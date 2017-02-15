@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du får insikter om mobilappanvändning och användarsegmentering i realtid, och hur du aktiverar kontextmedvetna push-meddelanden och meddelanden i appen."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: c9f8493eb39f0c519825cdaa1c06bbb24b0f478f
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 37f08d8a03845b86d382d4c0b49b58f633cc1b0c
 
 ---
 # <a name="mobile-engagement-documentation"></a>Dokumentation om Mobile Engagement
 
-Azure Mobile Engagement är en användarengagerande plattform för programvara som en tjänst (SaaS) som erbjuder datadrivna insikter i appanvändning, användarsegmentering och tillåter push-meddelanden och meddelanden i appen.
+Lär dig hur du ökar användningen, kvarhållningen och intäktsskapandet i mobila appar med Mobile Engagement. Självstudier, SDK:er och annan dokumentation visar hur du får insikter om appanvändning och användarsegmentering i realtid, och hur du aktiverar kontextmedvetna push-meddelanden och meddelanden i appen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -184,7 +185,7 @@ Azure Mobile Engagement är en användarengagerande plattform för programvara s
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement">.NET</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement">NET</a></p>
                    </div>
                 </div>
             </div>
@@ -194,17 +195,10 @@ Azure Mobile Engagement är en användarengagerande plattform för programvara s
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Azure Mobile Engagement </div>
-    </a>
-</div>
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

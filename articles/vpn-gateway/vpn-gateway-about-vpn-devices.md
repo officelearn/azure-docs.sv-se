@@ -109,15 +109,15 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 | Autentiseringsmetod |I förväg delad nyckel |I förväg delad nyckel |
 | Krypteringsalgoritmer |AES256 AES128 3DES |AES256 3DES |
 | Hash-algoritm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Fas 1, Security Association (SA), livslängd (tid) |28 800 sekunder |10 800 sekunder |
+| Fas 1, Security Association (SA), livslängd (tid) |28&800; sekunder |10&800; sekunder |
 
 ### <a name="ike-phase-2-setup"></a>Installation av IKE, fas 2
 | **Egenskap** | **Principbaserad** | **Routningsbaserad och standard eller VPN-gateway med hög kapacitet** |
 | --- | --- | --- |
 | IKE-version |IKEv1 |IKEv2 |
 | Hash-algoritm |SHA1(SHA128) |SHA1(SHA128) |
-| Fas 2, Security Association (SA), livslängd (tid) |3 600 sekunder |3 600 sekunder |
-| Fas 2, Security Association (SA), livslängd (dataflöde) |102 400 000 kB |- |
+| Fas 2, Security Association (SA), livslängd (tid) |3&600; sekunder |3&600; sekunder |
+| Fas 2, Security Association (SA), livslängd (dataflöde) |102&400;&000; kB |- |
 | IPSec-kryptering för SA och autentisering (i prioritetsordning) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Saknas |Se *Routningsbaserad gateway-IPsec, Security Association (SA), erbjudanden* (nedan) |
 | PFS (Perfect Forward Secrecy) |Nej |Nej (*) |
 | Utebliven peer-identifiering |Stöds inte |Stöds |

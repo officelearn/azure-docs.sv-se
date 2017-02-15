@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Lär dig hur du använder Service Fabric mellanplattform för att paketera och distribuera mikrotjänster för program i molnskala. Självstudier, API-referenser och kodexempel."
 translationtype: Human Translation
-ms.sourcegitcommit: 553950d52f53f7911e6de6dde3e2d92fd2e0395a
-ms.openlocfilehash: b6e7175ab63490907bb147ab519c20ebdee6bfc0
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d9b4e3b3df6760b15e151c5eab37c9f534784de8
 
 ---
 #<a name="service-fabric-documentation"></a>Dokumentation om Service Fabric
@@ -140,7 +140,7 @@ Lär dig hur du använder Service Fabric för att paketera, distribuera och hant
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/servicefabric">Referens för REST API</a></p>
+                        <p><a href="/rest/api/servicefabric">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -149,13 +149,7 @@ Lär dig hur du använder Service Fabric för att paketera, distribuera och hant
 </ul>   
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om Service Fabric </div>
-    </a>
-</div>
+
 
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder App Service Web Apps för att bygga och hantera webbplatser och webbprogram. Självstudier, videor, API-referenser och mycket annat."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: d513f059bdf85bd727e9ec3e712a6a83698795bb
+ms.sourcegitcommit: 74579a5e96c26f130c0c1cc59e8cf4d6975ea89d
+ms.openlocfilehash: e5bb9e8ea35411f159ddf342fe0fda0ba1759fb5
 
 ---
 # <a name="azure-web-apps-documentation"></a>Dokumentation om Azure Web Apps
 
-App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad för hantering av webbplatser och webbappar. Det här PaaS-erbjudandet (platform as a service) från Microsoft Azure gör att du kan fokusera på affärslogiken medan Azure tar hand om infrastrukturen för att köra och skala appar.
+Lär dig hur du använder App Service Web Apps för att bygga och hantera webbplatser och webbprogram. Självstudier, videor, API-referenser och annan dokumentation visar hur du utvecklar på den här fullständigt hanterade beräkningsplattformen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/get-started/">
+        <a href="https://azure.microsoft.com/get-started/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +48,7 @@ App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=web-sites">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=web-sites">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -65,7 +66,7 @@ App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -83,7 +84,7 @@ App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad
         </a>
     </li> 
      <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-java">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -101,7 +102,7 @@ App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -119,7 +120,7 @@ App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-python-ptvs-django-mysql">
+        <a href="/azure/app-service-web/app-service-web-get-started-python">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -138,7 +139,7 @@ App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad
     </li>
    
      <li>
-        <a href="/azure/app-service-web/app-service-web-php-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-php">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -186,19 +187,19 @@ App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad
                 <div class="card">
                     <div class="cardText">
                         <h3>Kommandorad</h3>
-                        <p><a href="/cli/azure/">Azure CLI</a></p>
+                        <p><a href="/cli/azure/appservice">Förhandsversion av Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api">.NET</a></p>
+                        <p><a href="/dotnet/api">NET</a></p>
                         <p><a href="/java/api/">Java</a></p>
                     </div>
                 </div>
@@ -206,12 +207,12 @@ App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/appservice">REST-API</a></p>
+                        <p><a href="/rest/api/appservice">REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -219,16 +220,10 @@ App Service Web Apps är en helt hanterad beräkningsplattform som är optimerad
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om Azure Web Apps </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: " Komma igång med att leverera innehåll på begäran med hjälp av Azure Portal | Microsoft Docs"
+title: " Komma igång med att leverera innehåll på begäran med hjälp av Azure Portal | Microsoft Docss"
 description: "De här självstudierna visar dig stegen för att implementera ett grundläggande leveransprogram för Video-on-Demand-innehåll (VoD) med Azure Media Services-appen (AMS) med hjälp av Azure Portal."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 473ca94a4b081aee69fa06718790acd61a8b51b3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 
 ---
@@ -33,7 +33,7 @@ De här självstudierna visar dig stegen för att implementera ett grundläggand
 Vägledningen innehåller följande uppgifter:
 
 1. Skapa ett Azure Media Services-konto.
-2. Konfigurera strömningsslutpunkt.
+2. Starta slutpunkt för direktuppspelning.
 3. Överföra en videofil.
 4. Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet.
 5. Publicera tillgången och få URL:er för strömning och progressiv överföring.  
@@ -60,7 +60,7 @@ Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
    6. Välj **PIN-kod för instrumentpanelen** för att se förloppet för kontodistributionen.
 4. Klicka på **Skapa** längst ned i formuläret.
    
-    Statusen ändras till **Körs** när kontot har skapats. 
+    När kontot har skapats läses översiktssidan in. I tabellen med slutpunkter för direktuppspelning har kontot en standardslutpunkt för direktuppspelning med tillståndet **Stoppad**. Slutpunkten för direktuppspelning som du vill spela upp vårt innehåll från måste ha tillståndet **Körs**. 
    
     ![Media Services-inställningar](./media/media-services-portal-vod-get-started/media-services-settings.png)
    
@@ -79,33 +79,22 @@ Du behöver kontonamnet och den primära nyckelinformationen för att genom prog
    
     ![Media Services-nycklar](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## <a name="configure-streaming-endpoints"></a>Konfigurera strömningsslutpunkter
-När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera video via strömning med anpassad bithastighet till dina klienter. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare).
+## <a name="start-streaming-endpoints"></a>Starta slutpunkter för direktuppspelning 
 
-Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-kodade innehåll med anpassad bithastighet i strömningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) direkt när du så önskar, utan att du behöver lagra på förhand packade versioner av vart och ett av dessa strömningsformat.
+När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera video via direktuppspelning med anpassningsbar bithastighet. Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-kodade innehåll med anpassningsbar bithastighet i direktuppspelningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) direkt när du så önskar, utan att du behöver lagra på förhand paketerade versioner av vart och ett av dessa direktuppspelningsformat.
 
-Om du vill använda dynamisk paketering ska du göra följande:
+>[!NOTE]
+>När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
 
-* Koda din mezzaninfil (källa) till en uppsättning MP4-filer med anpassningsbar bithastighet (kodningsstegen visas längre fram i den här vägledningen).  
-* Skapa minst en enhet för strömning för den *strömningsslutpunkt* från vilken du planerar att leverera ditt innehåll. Stegen nedan visar hur du kan ändra antalet strömningsenheter.
+Starta slutpunkten för direktuppspelning genom att göra följande:
 
-Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
+1. I fönstret Inställningar klickar du på Slutpunkter för direktuppspelning. 
+2. Klicka på den slutpunkt för direktuppspelning som är standard. 
 
-Om du vill skapa och ändra antalet reserverade enheter för strömning gör du följande:
+    Fönstret INFORMATION OM DEN SLUTPUNKT FÖR DIREKTUPPSPELNING SOM ÄR STANDARD visas.
 
-1. I fönstret **Inställningar** klickar du på **Strömningsslutpunkter**. 
-2. Klicka på den strömningsslutpunkt som är standard. 
-   
-    Fönstret **INFORMATION OM DEN STRÖMNINGSSLUTPUNKT SOM ÄR STANDARD** visas.
-3. Flytta på skjutreglaget **Strömningsenheter** för att ange antalet strömningsenheter.
-   
-    ![Strömningsenheter](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Klicka på knappen **Spara** för att spara ändringarna.
-   
-   > [!NOTE]
-   > Tilldelning av nya enheter kan ta cirka 20 minuter att slutföra.
-   > 
-   > 
+3. Klicka på ikonen Start.
+4. Klicka på knappen Spara för att spara ändringarna.
 
 ## <a name="upload-files"></a>Överföra filer
 För att strömma videor med Azure Media Services behöver du överföra källvideorna, koda dem till flera olika bithastigheter och publicera resultatet. I det här avsnittet beskrivs det första steget. 
@@ -128,14 +117,11 @@ För att strömma videor med Azure Media Services behöver du överföra källvi
 När överföringen är klar visas den nya tillgången i listan **Tillgångar**. 
 
 ## <a name="encode-assets"></a>Koda tillgångar
-När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Media Services stöder följande strömningstekniker för anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH och HDS (endast för Adobe PrimeTime-/Access-licenstagare). För att förbereda dina videor för strömning med anpassad bithastighet måste du koda källvideon till filer i multibithastighet. Du bör använda kodaren **Media Encoder Standard** för att koda dina videor.  
+När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Media Services har stöd för följande strömningstekniker med anpassningsbar bithastighet: HTTP-liveuppspelning (HLS), jämn direktuppspelning, MPEG DASH. För att förbereda dina videor för strömning med anpassad bithastighet måste du koda källvideon till filer i multibithastighet. Du bör använda kodaren **Media Encoder Standard** för att koda dina videor.  
 
-Media Services tillhandahåller också en dynamisk paketering som gör att du kan leverera dina MP4-filer med multibithastighet i följande strömningsformat: MPEG DASH, HLS, Smooth Streaming eller HDS utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
+Media Services tillhandahåller också en dynamisk paketering som gör att du kan leverera dina MP4-filer med flera bithastigheter i följande strömningsformat: MPEG DASH, HLS eller jämn direktuppspelning utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
 
-Om du vill använda dynamisk paketering ska du göra följande:
-
-* Koda din källfil till en uppsättning MP4-filer med multibithastighet (kodningsstegen visas längre fram i det här avsnittet).
-* Hämta minst en strömmande enhet för den strömmande slutpunkten från vilken du planerar att leverera ditt innehåll. Mer information finns i avsnittet om att [konfigurera strömningsslutpunkter](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+Om du vill dra nytta av dynamisk paketering måste du koda din källfil till en uppsättning MP4-filer med flera bithastigheter (kodningsstegen visas längre fram i det här avsnittet).
 
 ### <a name="to-use-the-portal-to-encode"></a>Använda portalen för att koda
 I det här avsnittet beskrivs de steg som du kan vidta för att koda ditt innehåll med Media Encoder Standard.
@@ -221,6 +207,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

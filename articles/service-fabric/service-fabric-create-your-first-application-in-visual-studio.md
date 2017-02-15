@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
+ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
+ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
 
 
 ---
@@ -131,6 +131,7 @@ Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är ve
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du skapar ett [kluster i Azure](service-fabric-cluster-creation-via-portal.md) eller ett [fristående kluster i Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Prova att skapa en tjänst med hjälp av programmeringsmodellerna [Reliable Services](service-fabric-reliable-services-quick-start.md) eller [Reliable Actors](service-fabric-reliable-actors-get-started.md).
+* Prova att distribuera en [Windows-behållare](service-fabric-deploy-container.md) eller en befintlig app som en [körbar gästfil](service-fabric-deploy-existing-app.md).
 * Lär dig hur du kan exponera dina tjänster för Internet med en [frontwebbtjänst](service-fabric-add-a-web-frontend.md).
 * Gå igenom en [praktisk övning](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) och skapa en tillståndslös tjänst, konfigurera övervakning och hälsorapporter och utför en uppgradering av programmet.
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)
@@ -152,6 +153,6 @@ Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är ve
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

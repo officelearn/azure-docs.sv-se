@@ -44,12 +44,17 @@
 ### [Filkomprimering](cdn-troubleshoot-compression.md)
 
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [NET](/dotnet/api/)
-## [Azure CDN POP-platser](cdn-pop-locations.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
 # Resurser
+##  [Regelmotor – referens](cdn-rules-engine-reference.md)
+### [Regelmotor – villkorliga uttryck](cdn-rules-engine-reference-conditional-expressions.md)
+### [Regelmotor – matchningsvillkor](cdn-rules-engine-reference-match-conditions.md)
+### [Regelmotor – funktioner](cdn-rules-engine-reference-features.md)
+## [Azure CDN POP-platser](cdn-pop-locations.md)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=cdn)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/cdn/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -57,6 +62,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

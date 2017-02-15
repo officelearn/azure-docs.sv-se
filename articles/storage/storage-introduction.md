@@ -3,8 +3,8 @@ title: Introduktion till Storage | Microsoft Docs
 description: "En översikt över Azure Storage, Microsofts onlinelagring i molnet. Lär dig hur du använder den bästa tillgängliga lösningen för molnlagring i dina program."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
 
 
 ---
@@ -75,7 +75,7 @@ För användare som behöver lagra stora mängder ostrukturerade objektdata i mo
 * Konfigurationsdata för molnprogram
 * Stordata, till exempel loggar och andra stora datauppsättningar
 
-Blobbar ordnas i behållare. Behållare är också ett praktiskt sätt att tilldela säkerhetsprinciper till grupper med objekt. Ett lagringskonto kan innehålla ett obestämt antal behållare och en behållare kan innehålla ett obestämt antal blobbar, upp till lagringskontots kapacitetsgräns på 500 TB.  
+Blobbar ordnas i behållare. Behållare är också ett praktiskt sätt att tilldela säkerhetsprinciper till grupper med objekt. Ett lagringskonto kan innehålla ett obestämt antal behållare och en behållare kan innehålla ett obestämt antal blobbar, upp till lagringskontots kapacitetsgräns på 500 TB.
 
 Blob Storage erbjuder tre typer av blobbar: blockblobbar, tilläggsblobbar och sidblobbar (diskar).
 
@@ -128,32 +128,32 @@ Mer information om signaturer för delad åtkomst finns i [Använda signaturer f
 ## <a name="replication-for-durability-and-high-availability"></a>Replikering för hållbarhet och hög tillgänglighet
 Data i ditt Microsoft Azure-lagringskonto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet. Replikeringen kopierar dina data inom samma datacenter eller till en andra datacenter, beroende på vilket replikeringsalternativ du väljer. Replikering skyddar dina data och bevarar dina programs drifttid vid tillfälliga maskinvarufel. Om dina data replikeras till ett andra datacenter, skyddar detta även dina data mot ett oåterkalleligt fel på den primära platsen.
 
-Replikeringen garanterar att ditt lagringskonto uppfyller [Servicenivåavtal (SLA) för lagring](https://azure.microsoft.com/support/legal/sla/storage/) även vid fel. Visa SLA för information om Azure Storage-garantier för hållbarhet och tillgänglighet. 
+Replikeringen garanterar att ditt lagringskonto uppfyller [Servicenivåavtal (SLA) för lagring](https://azure.microsoft.com/support/legal/sla/storage/) även vid fel. Visa SLA för information om Azure Storage-garantier för hållbarhet och tillgänglighet.
 
-När du skapar ett lagringskonto kan du välja något av följande replikeringsalternativ:  
+När du skapar ett lagringskonto kan du välja något av följande replikeringsalternativ:
 
-* **Lokalt redundant lagring (LRS).** Med lokalt redundant lagring underhålls tre kopior av dina data. LRS replikeras tre gånger på ett datacenter i en region. LRS skyddar dina data mot normala maskinvarufel, men inte mot fel på ett enskilt datacenter.  
-  
+* **Lokalt redundant lagring (LRS).** Med lokalt redundant lagring underhålls tre kopior av dina data. LRS replikeras tre gånger på ett datacenter i en region. LRS skyddar dina data mot normala maskinvarufel, men inte mot fel på ett enskilt datacenter.
+
     LRS erbjuds med rabatt. För maximal hållbarhet rekommenderar vi att du använder geo-redundant lagring, som beskrivs nedan.
-* **Zonredundant lagring (ZRS).** Med zonredundant lagring underhålls tre kopior av dina data. ZRS replikeras tre gånger mellan två eller tre anläggningar, antingen inom en enda region eller mellan två regioner, vilket ger högre hållbarhet än LRS. ZRS garanterar att dina data skyddas inom en enskild region.  
-  
-    ZRS ger en högre nivå av hållbarhet än LRS. För maximal hållbarhet rekommenderar vi dock att du använder geo-redundant lagring, som beskrivs nedan.  
-  
+* **Zonredundant lagring (ZRS).** Med zonredundant lagring underhålls tre kopior av dina data. ZRS replikeras tre gånger mellan två eller tre anläggningar, antingen inom en enda region eller mellan två regioner, vilket ger högre hållbarhet än LRS. ZRS garanterar att dina data skyddas inom en enskild region.
+
+    ZRS ger en högre nivå av hållbarhet än LRS. För maximal hållbarhet rekommenderar vi dock att du använder geo-redundant lagring, som beskrivs nedan.
+
   > [!NOTE]
   > ZRS är för närvarande endast tillgängligt för blockblobbar, och stöds endast för version 2014-02-14 och senare.
-  > 
+  >
   > När du har skapat ditt lagringskonto och valt ZRS kan du inte konvertera det för att använda en annan typ av replikering eller tvärtom.
-  > 
-  > 
+  >
+  >
 * **Geo-redundant lagring (GRS)**. Med GRS underhålls sex kopior av dina data. Med GRS replikeras dina data tre gånger i den primära regionen och dessutom tre gånger i en sekundär region hundratals mil bort från den primära regionen, vilket ger den högsta nivån av hållbarhet. Om det uppstår ett fel i den primära regionen kommer Azure Storage att redundansväxla till den sekundära regionen. GRS garanterar att dina data skyddas i två olika områden.
-  
+
     Information om primära och sekundära kopplingar efter region finns i [Azure-regioner](https://azure.microsoft.com/regions/).
-* **Geo-redundant lagring med läsbehörighet (RA-GRS)**. Geo-redundant lagring med läsbehörighet replikerar data till en sekundär geografisk plats och ger även läsåtkomst till dina data på den sekundära platsen. Med geo-redundant lagring med läsbehörighet kan du komma åt dina data från antingen den primära eller sekundära platsen om en av platserna skulle bli otillgänglig. Geo-redundant lagring med läsbehörighet är standardalternativet för ditt lagringskonto som standard när du skapar det. 
-  
+* **Geo-redundant lagring med läsbehörighet (RA-GRS)**. Geo-redundant lagring med läsbehörighet replikerar data till en sekundär geografisk plats och ger även läsåtkomst till dina data på den sekundära platsen. Med geo-redundant lagring med läsbehörighet kan du komma åt dina data från antingen den primära eller sekundära platsen om en av platserna skulle bli otillgänglig. Geo-redundant lagring med läsbehörighet är standardalternativet för ditt lagringskonto som standard när du skapar det.
+
   > [!IMPORTANT]
   > Du kan ändra hur dina data replikeras när ditt lagringskonto har skapats, såvida du inte valde ZRS när du skapade kontot. Observera dock att det kan utgå ytterligare engångskostnader för dataöverföring om du växlar från LRS till GRS eller RA-GRS.
-  > 
-  > 
+  >
+  >
 
 Mer information om lagringsreplikeringsalternativ finns i [Azure Storage-replikering](storage-redundancy.md).
 
@@ -252,6 +252,6 @@ Utforska gärna dessa resurser om du vill veta mer om Azure Storage:
 * [Komma igång med Azure Storage på fem minuter](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

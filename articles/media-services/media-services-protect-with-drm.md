@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
 
 
 ---
@@ -41,10 +41,8 @@ För att dra fördel av dynamisk kryptering behöver du en tillgång som innehå
 
 Det här avsnittet kan vara användbart för utvecklare som arbetar på appar som levererar media som skyddas av flera DRM:er, som PlayReady och Widevine. Avsnittet visar hur du konfigurerar  PlayReadys licensleveranstjänst med auktoriseringsprinciper så att endast auktoriserade klienter kan få PlayReady- eller Widevine-licenser. Det visar även hur du använder dynamiska kryptering med PlayReady eller Widevine DRM över DASH.
 
-> [!NOTE]
-> Om du vill börja använda dynamisk kryptering, måste du först skaffa minst en skalningsenhet (även kallat strömningsenhet). Mer information finns i [Hur du skalar en medietjänst](media-services-portal-manage-streaming-endpoints.md).
->
->
+>[!NOTE]
+>När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
 
 ## <a name="download-sample"></a>Hämta exempel
 Du kan hämta det exempel som beskrivs i artikeln [här](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
@@ -160,8 +158,7 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Du behöver minst en enhet för strömning för den strömningsslutpunkt från vilken du planerar att leverera ditt innehåll. Mer information finns i [Konfigurera strömningsslutpunkter](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Skriv över koden i Program.cs-filen med koden som visas i det här avsnittet.
+7. Skriv över koden i Program.cs-filen med koden som visas i det här avsnittet.
 
     Se till att uppdatera variablerna så att de pekar på mappar där dina indatafiler finns.
 
@@ -623,6 +620,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

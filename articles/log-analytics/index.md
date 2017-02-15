@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Lär dig hur du använder Log Analytics för att samla in och analysera data som genererats av resurser i ditt moln och lokala miljöer, oavsett fysisk plats."
 translationtype: Human Translation
-ms.sourcegitcommit: edbf9890b63219e7d87256be3600a1d41c87e295
-ms.openlocfilehash: 31726ed708006d504eea1e948561c108d39622f2
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ffb5ebc79807a81e53c2bca3fa5672a11e777663
 
 ---
 
@@ -86,13 +86,7 @@ Lär dig hur du använder Log Analytics i Operations Management Suite för att s
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/log-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned Log Analytics-dokumentation </div>
-    </a>
-</div>
+
 
 
 

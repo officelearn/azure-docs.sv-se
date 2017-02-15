@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 206b958b4c266b9977a9beb8ffb6a0576f068a9a
-ms.openlocfilehash: cc4fbb67baf14f4a104a5de6dbf11ad195a42d15
+ms.sourcegitcommit: fc04c5f8a9cdee4b51c67b480d70678c3dca7c93
+ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
 
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
-> * [Windows](service-fabric-get-started.md) 
+> * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
-> 
+>
 >  
 
  För att kunna skapa och köra [Azure Service Fabric-program](service-fabric-application-model.md) på en Linux-utvecklingsdator måste du installera runtime och SDK. Du kan även installera SDK:er för Java och .NET Core.
@@ -42,17 +42,17 @@ Om du vill installera SDK och tillhörande runtime-paket via apt-get måste du f
 
 1. Öppna en terminal.
 2. Lägga till Service Fabric-repon i listan med källor.
-   
+
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 3. Lägg till den nya GPG-nyckeln i APT-nyckelringen.
-   
+
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
 4. Uppdatera paketlistor baserat på nyligen tillagda lagringsplatser.
-   
+
     ```bash
     sudo apt-get update
     ```
@@ -61,12 +61,12 @@ Om du vill installera SDK och tillhörande runtime-paket via apt-get måste du f
 När källorna har uppdaterats kan du installera SDK.
 
 1. Installera Service Fabric SDK-paketet. Du får bekräfta installationen och godkänna ett licensavtal.
-   
+
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
 2. Kör SDK-installationsskriptet.
-   
+
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
@@ -76,39 +76,42 @@ När källorna har uppdaterats kan du installera SDK.
 [Azures plattformsoberoende CLI][azure-xplat-cli-github] innehåller kommandon för att interagera med Service Fabric-entiteter, t.ex. kluster och program. Det är baserat på Node.js. Det innebär att du måste [kontrollera att du har installerat Node][install-node] innan du fortsätter med följande instruktioner:
 
 1. Klona github-repon till din utvecklingsdator.
-   
+
     ```bash
     git clone https://github.com/Azure/azure-xplat-cli.git
     ```
 2. Växla till den klonade repon och installera CLI:s beroenden med NPM (Node Package Manager).
-   
+
     ```bash
     cd azure-xplat-cli
     npm install
     ```
 3. Skapa en symlink från mappen bin/azure på den klonade repon till /usr/bin/azure så att den läggs till i din sökväg och kommandona blir tillgängliga från alla kataloger.
-   
+
     ```bash
     sudo ln -s $(pwd)/bin/azure /usr/bin/azure
     ```
 4. Slutligen aktiverar du Service Fabric-kommandon för automatisk komplettering.
-   
+
     ```bash
     azure --completion >> ~/azure.completion.sh
     echo 'source ~/azure.completion.sh' >> ~/.bash_profile
     source ~/azure.completion.sh
     ```
 
+> [!NOTE]
+> Service Fabric-kommandon är inte tillgängliga i Azure CLI 2.0 ännu.
+
 ## <a name="set-up-a-local-cluster"></a>Konfigurera ett lokalt kluster
 Om allt har installerats korrekt kan du starta ett lokalt kluster.
 
 1. Kör klusterinstallationsskriptet.
-   
+
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 2. Öppna webbläsaren och gå till http://localhost:19080/Explorer. Om klustret har startats visas instrumentpanelen Service Fabric Explorer.
-   
+
     ![Service Fabric Explorer på Linux][sfx-linux]
 
 Nu kan du distribuera fördefinierade Service Fabric-programpaket eller nya paket baserat på gästbehållare eller körbara gästprogram. Om du vill skapa nya tjänster med SDK för Java eller .NET Core, följer du installationsanvisningarna i följande avsnitt.
@@ -116,19 +119,19 @@ Nu kan du distribuera fördefinierade Service Fabric-programpaket eller nya pake
 
 > [!NOTE]
 > Fristående kluster stöds inte i Linux - endast en ruta och Azure Linux-multidatorkluster stöds i förhandsvisningen.
-> 
-> 
+>
+>
 
 ## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>Installera Java SDK och Eclipse Neon-plugin-programmet (valfritt)
 Java SDK tillhandahåller de bibliotek och mallar som krävs för att skapa Service Fabric-tjänster med Java.
 
 1. Installera Java SDK-paketet.
-   
+
     ```bash
     sudo apt-get install servicefabricsdkjava
     ```
 2. Kör SDK-installationsskriptet.
-   
+
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
@@ -139,7 +142,7 @@ Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse Neon I
 2. Om du vill installera Service Fabric-plugin-programmet väljer du **Help > Install New Software...** (Hjälp > Installera ny programvara...).
 3. Ange följande i textrutan Work with (Arbeta med): http://dl.windowsazure.com/eclipse/servicefabric
 4. Klicka på Add (Lägg till).
-   
+
     ![Eclipse-plugin-program][sf-eclipse-plugin]
 5. Välj Service Fabric-plugin-programmet och klicka på Next (Nästa).
 6. Fortsätt med installationen och acceptera licensvillkoren.
@@ -148,13 +151,13 @@ Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse Neon I
 .NET Core SDK innehåller de bibliotek och mallar som krävs för att skapa Service Fabric-tjänster med plattformsoberoende .NET Core.
 
 1. Installera .NET Core SDK-paketet.
-   
+
    ```bash
    sudo apt-get install servicefabricsdkcsharp
    ```
 
 2. Kör SDK-installationsskriptet.
-   
+
    ```bash
    sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
    ```
@@ -168,7 +171,7 @@ Om du vill uppdatera till den senaste versionen av SDK och Runtime kör du följ
    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
    ```
 
-Om du vill uppdatera CLI går du till katalogen där du klonade CLI och kör `git pull` för att uppdatera. 
+Om du vill uppdatera CLI går du till katalogen där du klonade CLI och kör `git pull` för att uppdatera.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa ditt första Java-program i Linux](service-fabric-create-your-first-linux-application-with-java.md)

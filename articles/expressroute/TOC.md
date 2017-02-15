@@ -18,15 +18,15 @@
 
 # Gör så här för att
 ## Skapa och ändra en krets
-### [Azure-portal](expressroute-howto-circuit-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
 ### [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 ## Skapa och ändra routningskonfiguration
-### [Azure-portal](expressroute-howto-routing-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (klassisk)](expressroute-howto-routing-classic.md)
 ## Länka ett virtuellt nätverk till en ExpressRoute-krets
-### [Azure-portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [PowerShell (klassisk)](expressroute-howto-linkvnet-classic.md)
 ## Konfigurera en virtuell nätverksgateway för ExpressRoute
@@ -45,13 +45,13 @@
 ### [Asymmetrisk routning](expressroute-asymmetric-routing.md)
 
 ## Felsöka
+### [Verifiera ExpressRoute-anslutning](expressroute-troubleshooting-expressroute-overview.md)
 ### [Hämta ARP-tabeller](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Hämta ARP-tabeller (klassisk)](expressroute-troubleshooting-arp-classic.md)
 
-
 # Referens
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [REST (Resource Manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klassisk)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Relaterat
@@ -80,6 +80,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

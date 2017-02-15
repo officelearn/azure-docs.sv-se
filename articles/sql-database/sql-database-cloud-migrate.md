@@ -1,5 +1,5 @@
 ---
-title: Migrering av SQL Server-databas till SQL Database | Microsoft Docs
+title: Migrering av SQL Server-databas till Azure SQL Database | Microsoft Docs
 description: "Lär dig lokal migrering av SQL Server-databas till Azure SQL Database i molnet. Använda databasmigreringsverktyg för att testa kompatibilitet före databasmigrering."
 keywords: databasmigrering, sql server-databasmigrering, databasmigreringsverktyg, migrera databas, migrera sql-databas
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d9052bd10693c0b7942c0d90fdf89be37b44842d
-ms.openlocfilehash: b0093e48266aedda2b6c88b862c0056ebe3b3114
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 61fb027dfdd5830d87fe4fcfff57f685db71475e
 
 
 ---

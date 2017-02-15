@@ -3,6 +3,8 @@
 ## [Passar det dig?](active-directory-ds-comparison.md)
 ## [Funktioner](active-directory-ds-features.md)
 ## [Scenarier](active-directory-ds-scenarios.md)
+## [Så här fungerar synkronisering](active-directory-ds-synchronization.md)
+## [Kompatibelt tredjepartsprogram](active-directory-ds-compatible-software.md)
 
 # Kom igång
 ## [Skapa en administrativ grupp](active-directory-ds-getting-started.md)
@@ -21,8 +23,10 @@
 ## [Administrera DNS på en hanterad domän](active-directory-ds-admin-guide-administer-dns.md)
 ## [Konfigurera säker LDAP för en hanterad domän](active-directory-ds-admin-guide-configure-secure-ldap.md)
 ## [Skapa en OU på en hanterad domän](active-directory-ds-admin-guide-create-ou.md)
+## [Administrera grupprincip i en hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Välj ett virtuellt nätverk](active-directory-ds-networking.md)
-## [Synkronisera med din lokala katalog](active-directory-ds-synchronization.md)
+## [Konfigurera support för profilsynkronisering för SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
+
 
 ## Felsöka
 ### [Vanliga frågor och svar](active-directory-ds-faqs.md)
@@ -33,13 +37,13 @@
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Resurser 
+# Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Azures feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure AD-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Kontakta oss](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

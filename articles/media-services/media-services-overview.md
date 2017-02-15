@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 0d83c6e444d74ce7f95f796ec6c53abc43c37766
-ms.openlocfilehash: 7daf4bfa80fae2aee156af5cdb3588725aebd311
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
 
 
 ---
@@ -48,7 +48,7 @@ Klicka på bilden för att visa den i full storlek.
 
 <a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
 
-Du kan visa hela modellen [här](https://media.windows.net/API/$metadata?api-version=2.14).  
+Du kan visa hela modellen [här](https://media.windows.net/API/$metadata?api-version=2.15).  
 
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
@@ -65,9 +65,8 @@ Om du vill börja använda Azure Media Services ska du ha följande:
 2. Ett Azure Media Services-konto. Använd Azure Portal, .NET eller REST API för att skapa ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 3. (Valfritt) Konfigurera utvecklingsmiljön. Välj .NET eller REST API för din utvecklingsmiljö. Mer information finns i [Ställa in miljön](media-services-dotnet-how-to-use.md).
 
-    Lär dig även att ansluta programmässigt [Anslut](media-services-dotnet-connect-programmatically.md).
-
-4. (Rekommenderas) Allokera en eller flera skalenheter. Vi rekommenderar att du allokerar en eller flera skalenheter för program i produktionsmiljön.   Mer information finns i [Hantera strömningsslutpunkter](media-services-portal-manage-streaming-endpoints.md).
+    Lär dig även att [ansluta programmässigt](media-services-dotnet-connect-programmatically.md).
+4. En standard- eller premiumslutpunkt för direktuppspelning med tillståndet Startad.  Mer information finns i [Hantera strömningsslutpunkter](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-manage-streaming-endpoints).
 
 ## <a name="concepts-and-overview"></a>Koncept och översikt
 Azure Media Services-koncepten finns i [Koncept](media-services-concepts.md).
@@ -79,6 +78,9 @@ Det här avsnittet beskriver vanliga scenarier och innehåller länkar till rele
 
 ![VoD-arbetsflöde](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
+>[!NOTE]
+>När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
+    
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Skydda lagrat innehåll och leverera strömmande media i klartext (okrypterat)
 1. Överför en mezzaninfil av hög kvalitet till en tillgång.
 
@@ -90,12 +92,9 @@ Det här avsnittet beskriver vanliga scenarier och innehåller länkar till rele
 
     Om tillgången är lagringskrypterad **måste** du konfigurera principen för tillgångsleverans.
 4. Publicera tillgången genom att skapa en OnDemand-positionerare.
-
-    Se till att du har minst en reserverad enhet för strömning på den slutpunkt för direktuppspelning som du vill direktuppspela innehåll från.
 5. Strömma publicerat innehåll.
 
 ### <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Skydda lagrat innehåll, leverera dynamiskt krypterade strömmande media
-Om du vill kunna använda dynamisk kryptering ska du först ha minst en reserverad enhet för strömning på den slutpunkt för direktuppspelning som du vill strömma krypterat innehåll från.
 
 1. Överför en mezzaninfil av hög kvalitet till en tillgång. Använd krypterat lagringsalternativ för tillgången.
 2. Koda till en uppsättning MP4-filer med anpassningsbar bithastighet. Använd krypterat lagringsalternativ för utdatatillgången.
@@ -123,9 +122,7 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
 2. Koda till en enda MP4-fil.
 3. Publicera tillgången genom att skapa en positionerare på begäran eller en SAS-positionerare.
 
-    Om du använder en positionerare på begäran ska du se till att ha minst en reserverad enhet för strömning på den slutpunkt för direktuppspelning som du planerar att progressivt hämta innehåll från.
-
-    Om du använder en SAS-positionerare hämtas innehåll från Azure Blob Storage. I så fall behöver du inte ha enheter som är reserverade för strömning.
+    Om du använder en SAS-positionerare hämtas innehåll från Azure Blob Storage. I så fall behöver du inte ha slutpunkter för direktuppspelning med tillståndet Startad.
 4. Progressivt hämtat innehåll
 
 ## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Leverera liveuppspelningshändelser med Azure Media Services
@@ -151,7 +148,7 @@ I Azure Media Services hanterar **kanaler**, **program** och **strömningsslutpu
 
 En **kanal** representerar en pipeline för bearbetning av liveuppspelningsinnehåll. En kanal kan ta emot en live-indataström på följande sätt:
 
-* En lokal livekodare skickar **RTMP** eller **Smooth Streaming** med flera bithastigheter (fragmenterad MP4) till den kanal som är konfigurerad för **direkt** leverans. Den **direkta** leveransen är när de infogade strömmarna passerar genom **kanalerna** utan vidare bearbetning. Du kan använda följande livekodare som skickar Smooth Streaming med flera bithastigheter: Elemental, Envivio, Cisco.  Följande livekodare skickar RTMP: Adobe Flash Live, Telestream Wirecast och Tricaster-omkodare.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
+* En lokal livekodare skickar **RTMP** eller **Smooth Streaming** med flera bithastigheter (fragmenterad MP4) till den kanal som är konfigurerad för **direkt** leverans. Den **direkta** leveransen är när de infogade strömmarna passerar genom **kanalerna** utan vidare transkodning eller kodning. Du kan använda följande livekodare som skickar Smooth Streaming med flera bithastigheter: MediaExcel, Imagine Communications, Ateme, Envivio, Cisco och Elemental. Följande livekodare skickar RTMP: Adobe Flash Live Encoder, Haivision, Telestream Wirecast, Teradek och Tricaster-kodare.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
 
 > [!NOTE]
 > Genomströmningsmetoden är det mest ekonomiska sättet för liveuppspelning när du utför flera händelser under en längre tid och du redan har investerat i lokala kodare. Se [prisuppgifter](https://azure.microsoft.com/pricing/details/media-services/).
@@ -183,9 +180,11 @@ Azure Media Services innehåller de verktyg du behöver för att skapa innehåll
 Media Services stöder integration med Azure CDN. Information om hur du aktiverar Azure CDN finns i [Hur du hanterar strömningsslutpunkter i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md).
 
 ## <a name="scaling-a-media-services-account"></a>Skala ett Media Services-konto
+
 Du kan skala **Media Services** genom att ange antalet **enheter som är reserverade för strömning** och **enheter som är reserverade för kodning** och som du vill att ditt konto ska etableras med.
 
 Du kan även skala ditt Media Services-konto genom att lägga till lagringskonton. Varje lagringskonto är begränsat till 500 TB. Du kan välja att koppla flera lagringskonton för till ett enda Media Services-konto om du vill expandera din lagring utöver standardbegränsningarna.
+Media Services-kunder väljer antingen en **Standard**-slutpunkt för direktuppspelning eller en eller flera **Premium**-slutpunkter för direktuppspelning, utifrån behov. Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Den innehåller samma funktioner som Premium-enheter för direktuppspelning. Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Om du har en avancerad arbetsbelastning, om dina kapacitetskrav för direktuppspelning inte passar genomflödesmål för standard-slutpunkter för direktuppspelning eller om du vill styra StreamingEndpoint-tjänstens kapacitet för att hantera växande bandbreddsbehov genom att justera skalningsenheter (kallas även premium-enheter för direktuppspelning) rekommenderas du att allokera skalningsenheter.
 
 [Denna](media-services-portal-scale-streaming-endpoints.md) artikel länkar till relevanta avsnitt.
 
@@ -197,7 +196,7 @@ Du kan även skala ditt Media Services-konto genom att lägga till lagringskonto
 
 ## <a name="service-level-agreement-sla"></a>Serviceavtal (SLA)
 * Vi garanterar 99,9 % tillgänglighet för REST API-transaktioner för Media Services Encoding.
-* För Streaming svarar vi på serviceförfrågningar med 99,9 % tillgänglighet för befintligt medieinnehåll när minst en strömningsenhet har köpts.
+* För Streaming svarar vi på serviceförfrågningar med 99,9 % tillgänglighet för befintligt medieinnehåll när en Standard- eller Premium-slutpunkt för direktuppspelning har köpts.
 * För live-kanaler garanterar vi att kanaler som körs ska ha extern anslutning minst 99,9 % av tiden.
 * När det gäller Content Protection garanterar vi att vi ska uppfyller viktiga förfrågningar minst 99,9 % av tiden.
 * När det gäller Indexer ska vi utföra service för indexeringsuppgifter som bearbetas med en kodningsreserverad enhet 99,9 % av tiden.
@@ -212,6 +211,6 @@ Mer information finns i [Microsoft Azure SLA](https://azure.microsoft.com/suppor
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -20,6 +20,7 @@
 ## [SQL Database-självstudier](sql-database-explore-tutorials.md)
 ## [Snabbstarter för lösningar](sql-database-solution-quick-starts.md)
 ## Säkerhet
+### [Säkerhetsöversikt](sql-database-security-overview.md)
 ### [Azure Security Center för Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL-säkerhetscenter](https://msdn.microsoft.com/library/azure/bb510589)
 # Kom igång
@@ -69,12 +70,12 @@
 #### [Kopiera en SQL-databas](sql-database-copy.md)
 ## Brandväggsregler, autentisering och auktorisering
 ### Läs mer
-#### [Översikt](sql-database-security.md)
-#### [Riktlinjer för säkerhet](sql-database-security-guidelines.md)
+#### [Åtkomstkontroll](sql-database-control-access.md)
 #### [Brandvägg](sql-database-firewall-configure.md)
 #### [Hantera inloggningar](sql-database-manage-logins.md)
 ### Gör följande
-#### [SQL autentisering och auktorisering](sql-database-get-started-security.md)
+#### [SQL autentisering och auktorisering](sql-database-control-access-sql-authentication-get-started.md)
+#### [Autentisering och auktorisering av Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Säkra och skydda data
 ### Läs mer
 #### Granskning
@@ -106,7 +107,8 @@
 #### [Utföra programåterställningstest](sql-database-disaster-recovery-drills.md)
 #### [Översikt över aktiv geo-replikering](sql-database-geo-replication-overview.md)
 ### Gör följande
-#### [Kom igång med SQL Database säkerhetskopiering och återställning](sql-database-get-started-backup-recovery.md)
+#### [Azure Portal: säkerhetskopiera och återställ](sql-database-get-started-backup-recovery.md)
+#### [PowerShell: säkerhetskopiera och återställ](sql-database-get-started-backup-recovery-powershell.md)
 ## Apputveckling
 ### Läs mer
 #### [Översikt över utveckling av databasprogram](sql-database-develop-overview.md)
@@ -150,7 +152,7 @@
 #### [Enkla databaser](sql-database-single-database-monitor.md)
 #### [Översikt över SQL Database Advisor](sql-database-advisor.md)
 #### [Vägledning för enkel databas](sql-database-performance-guidance.md)
-#### [Arbetsbelastningsinformation i Azure Portal](sql-database-performance.md)
+#### [Prestandainsikter: Azure Portal](sql-database-performance.md)
 #### [Använda batchbearbetning](sql-database-use-batching-to-improve-performance.md)
 #### [Utökade händelser](sql-database-xevent-db-diff-from-svr.md)
 ## SQL Database V11
@@ -253,15 +255,14 @@
 #### [Konfigurera långsiktig kvarhållning av säkerhetskopior](sql-database-configure-long-term-retention.md)
 #### [Visa säkerhetskopior i ett Recovery Services-valv](sql-database-view-backups-in-vault.md)
 #### [Återställa från långsiktig kvarhållning av säkerhetskopior](sql-database-restore-from-long-term-retention.md)
+#### [Ta bort från långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention-delete.md)
 ### Återställa borttagen databas
 #### [Återställa borttagna med hjälp av Azure-portalen](sql-database-restore-deleted-database-portal.md)
 #### [Återställa borttagna med hjälp av PowerShell](sql-database-restore-deleted-database-powershell.md)
 ### Återställning till tidpunkt
 #### [Återställa till en tidpunkt](sql-database-point-in-time-restore.md)
 #### [Visa äldsta återställningspunkt](sql-database-view-oldest-restore-point.md)
-### Geo-återställning
-#### [Geo-återställa med hjälp av Azure-portalen](sql-database-geo-restore-portal.md)
-#### [Geo-återställa med hjälp av PowerShell](sql-database-geo-restore-powershell.md)
+### [Återställa från geo-redundant säkerhetskopia](sql-database-geo-restore.md)
 ## Aktiv geo-replikering
 ### [Konfigurera med hjälp av Azure-portalen](sql-database-geo-replication-portal.md)
 ### [Konfigurera med hjälp av PowerShell](sql-database-geo-replication-powershell.md)
@@ -309,6 +310,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -4,6 +4,12 @@
 # Kom igång
 ## [Skapa och hantera konto](media-services-portal-create-account.md)
 ## [Konfigurera din utvecklingsmiljö](media-services-set-up-computer.md)
+###[NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Ansluta genom programmering
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## Leverera video på begäran
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
@@ -21,11 +27,10 @@
 ### Hantera entiteter
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Ansluta genom programmering
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
-### [Hantera slutpunkter för direktuppspelning i portalen](media-services-portal-manage-streaming-endpoints.md)
-### [Så gör du för att: Uppdatera Media Services efter återställning av lagringsåtkomstnycklar](media-services-roll-storage-access-keys.md)
+### [Hantera slutpunkter för direktuppspelning](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [NET](media-services-dotnet-manage-streaming-endpoints.md)
+### [Uppdatera Media Services efter återställning av lagringsåtkomstnycklar](media-services-roll-storage-access-keys.md)
 ### [Kvoter och begränsningar](media-services-quotas-and-limitations.md)
 
 ## Överföra innehåll
@@ -33,6 +38,7 @@
 #### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Överföra stora filer med Aspera](media-services-upload-files-with-aspera.md)
 ### [Kopiera befintliga blobar](media-services-copying-existing-blob.md)
 
 ## [Koda innehåll](media-services-encode-asset.md)
@@ -92,9 +98,11 @@
 
 ## [Strömma live](media-services-manage-channels-overview.md)
 ### [Lokala kodare](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Liveuppspelning med molnkodare](media-services-manage-live-encoder-enabled-channels.md)
-### Självstudier för molnkodare
-#### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Konfigurera lokala kodare för användning med molnkodare](media-services-live-encoders-overview.md)
 #### [Elemental Live-kodare](media-services-configure-elemental-live-encoder.md)
@@ -109,6 +117,7 @@
 ### [Konfigurera AES-128-klartextnyckel för din dataström](media-services-protect-with-aes128.md)
 ### [Kryptera ditt innehåll med lagringskryptering med hjälp av AMS REST API](media-services-rest-storage-encryption.md)
 ### [Översikt för Media Services PlayReady-licensmall](media-services-playready-license-template-overview.md)
+### [Översikt över Widevine-licensmallen](media-services-widevine-license-template-overview.md)
 ### [DRM-licensleverans](media-services-deliver-keys-and-licenses.md)
 ### [Använda partner för att leverera Widevine-licenser till Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Använda PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
@@ -147,16 +156,15 @@
 ### [Mediebearbetning](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Slutpunkter för direktuppspelning
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Leverera innehåll](media-services-deliver-content-overview.md)
 ### [Dynamisk paketering](media-services-dynamic-packaging-overview.md)
 ### [Översikt över filter och dynamiska manifest](media-services-dynamic-manifest-overview.md)
-### Skapa filter
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
+#### [Skapa filter med .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Skapa filter med REST](media-services-rest-dynamic-manifest.md)
 ### Publicera innehåll
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -179,7 +187,6 @@
 ### [Hantera tillgångar över flera lagringskonton](meda-services-managing-multiple-storage-accounts.md)
 ### [Använda Axinom för att leverera Widevine-licenser till Azure Media Services](media-services-axinom-integration.md)
 ### [Använda castLabs för att leverera Widevine-licenser till Azure Media Services](media-services-castlabs-integration.md)
-### [Översikt över Widevine-licensmallen](media-services-widevine-license-template-overview.md)
 
 ## Övervaka
 ### Kontrollera jobbförlopp
@@ -207,6 +214,6 @@
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

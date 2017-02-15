@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 7f22e8fb10f61cc0bb2e7d0a83449bf2e46a12d3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 158a0a74c7997b28d652c3eed049daa8faf39d94
 
 
 ---
@@ -34,7 +34,7 @@ Den här vägledningen visar dig stegen för att använda Azure-portalen för at
 Följande krävs för att kunna genomföra vägledningen:
 
 * Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Ett Media Services-konto.    Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
+* Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * En webbkamera. Till exempel [Telestream Wirecast-kodaren](http://www.telestream.net/wirecast/overview.htm).
 
 Vi rekommenderar att du tittar närmare på följande artiklar:
@@ -46,6 +46,9 @@ Vi rekommenderar att du tittar närmare på följande artiklar:
 ## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Vanligt scenario för liveuppspelning
 Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för direktsänd strömning som använder kanaler som har konfigurerats för genomströmningsleverans. Den här vägledningen visar hur du skapar och hanterar en genomströmningskanal och direktsända händelser.
 
+>[!NOTE]
+>Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**. 
+    
 1. Anslut en videokamera till en dator. Starta och konfigurera en lokal direktsänd kodare som matar ut en RTMP- eller fragmenterad MP4-dataström i multibithastighet. Mer information finns i [Support och direktsända kodare för Azure Media Services RTMP](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Det här steget kan också utföras när du har skapat din kanal.
@@ -59,11 +62,7 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för dir
 5. Skapa en direktsänd händelse eller ett direktsänt program. 
    
     När du använder Azure-portalen, skapas även en tillgång då du skapar en direktsänd händelse. 
-   
-   > [!NOTE]
-   > Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
-   > 
-   > 
+
 6. Starta händelsen eller programmet när du är redo att påbörja strömning och arkivering.
 7. Som alternativ kan den direktsända kodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
 8. Stoppa händelsen eller programmet när du vill stoppa strömningen och arkiveringen av händelsen.
@@ -78,28 +77,6 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för dir
 Klicka på meddelandeikonen om du vill visa meddelanden och fel som genereras av Azure-portalen.
 
 ![Meddelanden](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
-
-## <a name="configure-streaming-endpoints"></a>Konfigurera strömningsslutpunkter
-Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med flera bithastigheter i följande strömningsformat: MPEG DASH, HLS eller jämn direktuppspelning utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
-
-Om du vill dra nytta av dynamisk paketering behöver du minst en enhet för strömning för den strömningsslutpunkt från vilken du planerar att leverera ditt innehåll.  
-
-Om du vill skapa och ändra antalet reserverade enheter för strömning gör du följande:
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. I fönstret **Inställningar** klickar du på **Strömningsslutpunkter**. 
-3. Klicka på den strömningsslutpunkt som är standard. 
-   
-    Fönstret **INFORMATION OM DEN STRÖMNINGSSLUTPUNKT SOM ÄR STANDARD** visas.
-4. Flytta på skjutreglaget **Strömningsenheter** för att ange antalet strömningsenheter.
-   
-    ![Strömningsenheter](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
-5. Klicka på knappen **Spara** för att spara ändringarna.
-   
-   > [!NOTE]
-   > Tilldelning av nya enheter kan ta cirka 20 minuter att slutföra.
-   > 
-   > 
 
 ## <a name="create-and-start-pass-through-channels-and-events"></a>Skapa och starta genomströmningskanaler och händelser
 En kanal är associerad med händelser och program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar händelser. 
@@ -180,6 +157,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -34,6 +34,9 @@
 ## [Skydda DNS-zoner och -poster](dns-protect-zones-recordsets.md)
 ## [Automatisera DNS-åtgärder med DNS.NET SDK](dns-sdk.md)
 
+## Felsöka
+### [Felsökningsguide](dns-troubleshoot.md)
+
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
 ## [Azure CLI 2.0 (förhandsversion)](/cli/azure/network/dns)
@@ -59,6 +62,6 @@
 ## [Nätverksblogg](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

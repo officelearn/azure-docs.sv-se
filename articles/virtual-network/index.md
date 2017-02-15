@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 +toc_rel: breadcrumb.json
+description: "Lär dig hur du använder ett virtuellt nätverk i molnet. Dokumentation som visar hur du distribuerar ett VNet, använder det för att starta resurser och integrerar med ett nätverk på plats."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f03b3e68dd62cdf429162d3fe7d2342bbf254b52
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
 
 ---
-#<a name="virtual-network-documentation"></a>Dokumentation om Virtual Network
+# <a name="virtual-network-documentation"></a>Dokumentation om Virtual Network
 
-Ett virtuellt Azure-nätverk (VNet) är en logisk representation av ditt eget nätverk i molnet.  Med VNet du helt styra element i nätverket, segmentera din VNet i undernät och använda dem för att starta Azure Virtual Machines eller Cloud Services.  Dessutom kan du ansluta VNet till ditt lokala nätverk via ett av de anslutningsalternativ som finns tillgängliga i Azure, expandera nätverket till molnet och bibehålla kontrollen över resurserna.
+Lär dig hur du använder ett virtuellt nätverk (VNet), en logisk representation av ditt eget nätverk i molnet. Dokumentation som visar du hur konfigurerar och hanterar ett VNet, använder det för att starta virtuella datorer eller molntjänster, ansluter VNet till det lokala nätverket och expanderar ditt nätverk till molnet och samtidigt har kontroll över resurser.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -40,7 +41,7 @@ Ett virtuellt Azure-nätverk (VNet) är en logisk representation av ditt eget n�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Virtual Network videobibliotek</h3>
+                        <h3>Virtual Network-videobibliotek</h3>
                     </div>
                 </div>
             </div>
@@ -58,7 +59,7 @@ Ett virtuellt Azure-nätverk (VNet) är en logisk representation av ditt eget n�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Kom igång med Virtual Network med Azure-portalen</h3>
+                        <h3>Kom igång med Virtual Network med Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -105,92 +106,53 @@ Ett virtuellt Azure-nätverk (VNet) är en logisk representation av ditt eget n�
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-doc">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell-referens</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource Manager)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (klassisk)</a></p>
+                        <p><a href="/cli/azure">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Virtual Network Azure CLI</p>
-                    </div>
+                        <h3>Språk</h3>
+                        <p><a href="/java/api/">Java</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET API-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java API-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt163658">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Virtual Network REST API-referens</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (klassisk)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om Virtual Network </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

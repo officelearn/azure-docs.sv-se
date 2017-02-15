@@ -73,7 +73,7 @@ Mer information om hur du konfigurerar Azure PowerShell finns  i [Installera och
 
 För att underlätta ytterligare använder vi också samma resursgrupp som den som innehåller vårt nyckelvalv. I [Komma igång-självstudiekursen](key-vault-get-started.md) heter den här resursgruppen **ContosoResourceGroup** och vi kommer även att fortsätta att använda platsen East Asia (Östasien). Ersätt värdena med dina egna efter behov:
 
-    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
+    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 
 
 > [!NOTE]

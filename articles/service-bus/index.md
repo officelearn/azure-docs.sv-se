@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du konfigurerar en meddelandetjänst som ansluter program och tjänster över lokala platser och molnmiljöer.  Självstudier, videor, API-referenser och mycket annat."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: fe4c303bb0e944e5abb26f8baa394d0df71240a5
 
 ---
 #<a name="service-bus-documentation"></a>Dokumentation för Service Bus
 
-Med Service Bus får du molnaktiverad kommunikation med företagsmeddelandetjänster och vidarebefordrad kommunikation som hjälper dig att ansluta lokala lösningar med molnet. 
+Lär dig hur du använder Service Bus för att ansluta över lokala platser och molnmiljöer. Självstudier, videor, API-referenser och annan dokumentation som visar hur du konfigurerar molnmeddelandehantering mellan program och tjänster.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -214,7 +215,7 @@ Med Service Bus får du molnaktiverad kommunikation med företagsmeddelandetjän
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/servicebus">Referens för REST API</a></p>
+                        <p><a href="/rest/api/servicebus">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -234,16 +235,10 @@ Med Service Bus får du molnaktiverad kommunikation med företagsmeddelandetjän
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation för Service Bus </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

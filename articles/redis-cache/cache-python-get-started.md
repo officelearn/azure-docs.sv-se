@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 08/16/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: ac73ab86ba17df9b71a4f07776fef0f4c6e687e8
 
 
 ---
@@ -41,7 +41,7 @@ Installera [redis-py](https://github.com/andymccurdy/redis-py).
 ## <a name="retrieve-the-host-name-and-access-keys"></a>Hämta värdnamn och åtkomstnycklar
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-nonssl-endpoint"></a>Aktivera icke-SSL-slutpunkten
+## <a name="enable-the-non-ssl-endpoint"></a>Aktivera icke-SSL-slutpunkten
 Vissa Redis-klienter stöder inte SSL, och som standard är [icke-SSL-porten inaktiverad för nya Azure Redis Cache-instanser](cache-configure.md#access-ports). När detta skrivs stöder [redis-py](https://github.com/andymccurdy/redis-py)-klienten inte SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
@@ -64,6 +64,6 @@ Ersätt `<name>` med ditt cachenamn och `key` med din åtkomstnyckel.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

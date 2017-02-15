@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera en SQL Database-brandväggsregel på servernivå | Microsoft Docs"
-description: "Lär dig hur du konfigurerar brandväggen för IP-adresser som har åtkomst till Azure SQL-servern."
+title: "Azure Portal: Azure SQL Database-brandväggsregler på servernivå | Microsoft Docs"
+description: "Lär dig hur du konfigurerar brandväggsregler på servernivå för IP-adresser som har åtkomst till Azure SQL-server med hjälp av Azure-portalen."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: a866b757c9c6946cdff4fe636e81bedbdfa29322
 
 
 ---
@@ -64,6 +64,6 @@ Klicka på **Spara** för att spara ändringarna.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

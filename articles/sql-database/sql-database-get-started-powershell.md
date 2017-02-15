@@ -1,6 +1,6 @@
 ---
-title: Ny SQL Database-installation med PowerShell | Microsoft Docs
-description: "Lär dig att skapa en SQL-databas med PowerShell. Vanliga aktiviteter för databasinstallationen kan hanteras via PowerShell-cmdletar."
+title: "Powershell: Kom igång med Azure SQL Database | Microsoft Docs"
+description: "Lär dig hur du skapar en logisk SQL Database-server, brandväggsregel på servernivå och databaser med hjälp av PowerShell. Du lär dig också att köra frågor mot databaser med hjälp av PowerShell."
 keywords: "skapa ny sql-databas, databasinställningar"
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: b557c6d3591b1d56144651e876fa4bb1b0646935
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 62f29382a2b29c7e5b06126b0ab60c7136186103
 
 
 ---
 
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-azure-powershell"></a>Komma igång med Azure SQL Database-baserade servrar, databaser och brandväggsregler med hjälp av Azure PowerShell
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-powershell"></a>SQL Database-självstudie: Komma igång med Azure SQL Database-baserade servrar, databaser och brandväggsregler med hjälp av PowerShell
 
 I den här introduktionskursen lär du dig hur du använder PowerShell för att:
 
@@ -31,9 +31,9 @@ I den här introduktionskursen lär du dig hur du använder PowerShell för att:
 * Skapa en logisk Azure SQL-server
 * Visa egenskaper för Azure SQL-servrar
 * Skapa en brandväggsregel på servernivå
-* Skapa AdventureWorksLT-exempeldatabasen som en fristående databas
+* Skapa AdventureWorksLT-exempeldatabasen som en enskild databas
 * Visa egenskaper för AdventureWorksLT-exempeldatabasen
-* Skapa en tom fristående databas
+* Skapa en enda tom databas
 
 I den här självstudiekursen ska du även:
 
@@ -115,8 +115,8 @@ $serverResourceGroupName = $resourceGroupName
 $serverAdmin = "{server-admin}"
 $serverAdminPassword = "{server-admin-password}"
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -232,7 +232,7 @@ $storageKeyType = "StorageAccessKey"
 $storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
 $storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 
 Do {
@@ -385,8 +385,8 @@ $serverResourceGroupName = $myServerResourceGroupName
 $serverAdmin = $myServerAdmin
 $serverAdminPassword = $myServerAdminPassword
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -475,7 +475,7 @@ $storageKeyType = $myStorageKeyType
 $storageUri = $myStorageUri
 $storageKey = $myStorageKey
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 Do {
      $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -577,6 +577,6 @@ Nu när du har slutfört den här första ”komma igång”-självstudiekursen 
 [Vad är SQL Database?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

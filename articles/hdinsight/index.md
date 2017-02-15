@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig om Hadoop på HDInsight. Dokumentation som visar dig hur du kan använda Hadoop, Spark, HBase, R-Server med flera för att bearbeta, analysera och få insikter från stordata."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 28b6ebfae16a5c2e119fc4f1af0dcee6a348d47f
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d78d12c6844e88da8b5d8b7cd99a38d6f4d36774
 
 ---
 #<a name="azure-hdinsight-documentation"></a>Dokumentation om Azure HDInsight
 
-Azure HDInsight är en Apache Hadoop-distribution som drivs i molnet.  Azure HDInsight gör Hadoop-komponenterna från HDP-distributionen (Hortonworks Data Platform) tillgängliga i molnet. Den distribuerar och etablerar även hanterade kluster med tillförlitlighet och tillgänglighet.  Azure HDInsight tillhandahåller klusterkonfigurationer för Apache Hadoop, Spark, HBase och Storm.  Du kan även använda anpassade kluster med skriptåtgärder.  
+Lär dig hur du använder Hadoop i molnet på HDInsight för att analysera strömmande eller historiska data. Självstudiekurser och annan dokumentationen visar hur du skapar kluster, bearbetar och analyserar stordata och utvecklar lösningar med Hadoop, Spark, HBase, R-Server, Storm och andra tekologier i Hadoop-ekosystemet.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -157,7 +158,7 @@ Azure HDInsight är en Apache Hadoop-distribution som drivs i molnet.  Azure HDI
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/hdinsight/">REST-API</a></p>
+                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
                         <p><a href="/rest/api/hdinsightspark/">REST-API (Spark)</a></p>
                     </div>
                 </div>
@@ -166,16 +167,10 @@ Azure HDInsight är en Apache Hadoop-distribution som drivs i molnet.  Azure HDI
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om HDInsight </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Jan17_HO3-->
 
 

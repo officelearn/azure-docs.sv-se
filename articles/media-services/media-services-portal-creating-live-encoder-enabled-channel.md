@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1b0f5d61753df5860c4cc934ea2aad5175a41e16
 
 
 ---
@@ -54,9 +54,7 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
    
     Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
 5. Skapa en händelse/ett program (som också kommer att skapa en tillgång). 
-6. Publicera händelsen (som skapar en OnDemand-positionerare för den associerade tillgången).  
-   
-    Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
+6. Publicera händelsen (som skapar en OnDemand-positionerare för den associerade tillgången).    
 7. Starta händelsen när du är redo att påbörja strömning och arkivering.
 8. Som alternativ kan den direktsända kodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
 9. Stoppa händelsen när du vill stoppa strömningen och arkiveringen av händelsen.
@@ -65,13 +63,12 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 ## <a name="in-this-tutorial"></a>I den här självstudien
 I de här självstudierna används Azure-portalen för att utföra följande uppgifter: 
 
-1. Konfigurera strömningsslutpunkter.
-2. Skapa en kanal som är aktiverad för att utföra Live Encoding.
-3. Hämta infognings-URL:en i syfte att tillhandahålla den till livekodaren. Live Encoding använder denna URL för att infoga dataströmmen i kanalen. .
-4. Skapa en händelse/ett program (och en tillgång)
-5. Publicera tillgången och hämta strömnings-URL:er  
-6. Spela upp ditt innehåll 
-7. Rensa
+1. Skapa en kanal som är aktiverad för att utföra Live Encoding.
+2. Hämta infognings-URL:en i syfte att tillhandahålla den till livekodaren. Live Encoding använder denna URL för att infoga dataströmmen i kanalen.
+3. Skapa en händelse/ett program (och en tillgång).
+4. Publicera tillgången och hämta direktuppspelnings-URL:er.  
+5. Spela upp ditt innehåll.
+6. Rensa.
 
 ## <a name="prerequisites"></a>Krav
 Följande krävs för att kunna genomföra självstudien.
@@ -81,29 +78,7 @@ Följande krävs för att kunna genomföra självstudien.
 * Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-portal-create-account.md).
 * En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
 
-## <a name="configure-streaming-endpoints"></a>Konfigurera strömningsslutpunkter
-Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera dina MP4-filer med flera bithastigheter i följande strömningsformat: MPEG DASH, HLS eller jämn direktuppspelning utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
-
-Om du vill dra nytta av dynamisk paketering behöver du minst en enhet för strömning för den strömningsslutpunkt från vilken du planerar att leverera ditt innehåll.  
-
-Om du vill skapa och ändra antalet reserverade enheter för strömning gör du följande:
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/) och välj AMS-kontot.
-2. I fönstret **Inställningar** klickar du på **Strömningsslutpunkter**. 
-3. Klicka på den strömningsslutpunkt som är standard. 
-   
-    Fönstret **INFORMATION OM DEN STRÖMNINGSSLUTPUNKT SOM ÄR STANDARD** visas.
-4. Flytta på skjutreglaget **Strömningsenheter** för att ange antalet strömningsenheter.
-   
-    ![Strömningsenheter](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
-5. Klicka på knappen **Spara** för att spara ändringarna.
-   
-   > [!NOTE]
-   > Tilldelning av nya enheter kan ta cirka 20 minuter att slutföra.
-   > 
-   > 
-
-## <a name="create-a-channel"></a>Skapa en KANAL
+## <a name="create-a-channel"></a>Skapa en kanal
 1. I [Azure-portalen](https://portal.azure.com/) klickar du på Media Services och sedan på namnet för Media Services-kontot.
 2. Välj **Liveuppspelning**.
 3. Välj **Skapa anpassad**. Det här alternativet gör att du kan skapa en kanal som är aktiverad för Live Encoding.
@@ -172,6 +147,9 @@ Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillg�
 ### <a name="createstartstop-events"></a>Skapa/Starta/Stoppa händelser
 När dataströmmen väl flödar till kanalen kan du påbörja strömningshändelsen genom att skapa en tillgång, ett program och en strömningspositionerare. Detta arkiverar dataströmmen och gör den tillgänglig för visning via strömningsslutpunkten. 
 
+>[!NOTE]
+>När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
+
 Det finns två sätt att starta en händelse: 
 
 1. På **Kanal**-sidan trycker du på **Live-händelse** för att lägga till en ny händelse.
@@ -216,7 +194,7 @@ För att hantera dina tillgångar väljer du **Inställning** och klickar på **
 
 ## <a name="considerations"></a>Överväganden
 * Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived på Microsoft.com om du behöver köra en kanal under längre tidsperioder.
-* Se till att du har minst en strömningsreserverad enhet på den strömningsslutpunkt som du vill strömma innehåll från.
+* Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**.
 
 ## <a name="next-step"></a>Nästa steg
 Granska sökvägarna för Media Services-utbildning.
@@ -229,6 +207,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

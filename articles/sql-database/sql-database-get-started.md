@@ -1,6 +1,6 @@
 ---
-title: "Självstudiekurs om SQL Database: Skapa en server, en brandväggsregel på servernivå, en exempeldatabas, en brandväggsregel på databasnivå och anslut till SQL Server Management Studio | Microsoft Docs"
-description: "Lär dig hur du ställer in en logisk SQL Database-server, serverbrandväggsregel, SQL-databas och exempeldata. Lär dig också att ansluta till klientverktyg, konfigurera användare och ställa in en brandväggsregel för databasen."
+title: "Azure Portal: Kom igång med Azure SQL Database | Microsoft Docs"
+description: "Lär dig hur du skapar en logisk SQL Database-server, brandväggsregel på servernivå och databaser med hjälp av Azure-portalen. Du lär dig också att köra frågor mot databaser med hjälp av SQL Server Management Studio."
 keywords: "sql database-självstudier, skapa en sql-databas"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
-ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 8eb4b280104cc4f05b9ed25985d0c336f15b6d0f
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Kom igång med Azure SQL Database-servrar, databaser och brandväggsregler med hjälp av Azure Portal och SQL Server Management Studio
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>SQL Database-självstudie: Kom igång med Azure SQL Database-servrar, databaser och brandväggsregler med hjälp av Azure Portal och SQL Server Management Studio
 
 I den här introduktionskursen lär du dig hur du använder Azure Portal för att:
 
@@ -306,6 +306,6 @@ Nu när du är klar med den här självstudiekursen finns det ytterligare några
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

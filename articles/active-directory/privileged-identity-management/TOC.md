@@ -4,6 +4,7 @@
 ## [roles](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
 # Kom igång
+## [Prenumerationskrav](subscription-requirements.md)
 ## [Kom igång i portalen](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Säkerhetsguiden](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Ge åtkomst till PIM](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
@@ -26,6 +27,6 @@
 ## [Rollbaserad åtkomstkontroll](../role-based-access-control-what-is.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

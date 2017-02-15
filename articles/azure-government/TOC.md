@@ -18,6 +18,9 @@
 ### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Prenumeration](documentation-government-manage-subscriptions.md)
+## Distribuera
+### Webb + mobilt
+#### [App Services](documentation-government-howto-deploy-webandmobile.md)
 
 # Referens
 ## [Tjänster](documentation-government-services.md)
@@ -32,8 +35,10 @@
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/)
 ## [Utvärdering](https://azuregov.microsoft.com/trial/azuregovtrial)
+## [Blogg](https://blogs.msdn.microsoft.com/azuregov/)
+## [Azure Government-webbplatsen](https://azure.microsoft.com/overview/clouds/government/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

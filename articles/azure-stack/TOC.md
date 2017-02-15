@@ -16,6 +16,7 @@
 ## [Skapa ett lagringskonto](azure-stack-provision-storage-account.md)
 ## [Ansluta med CLI](azure-stack-connect-cli.md)
 ## [Ansluta med PowerShell](azure-stack-connect-powershell.md)
+## [Installera Visual Studio](azure-stack-install-visual-studio.md)
 ## [Vanliga frågor och svar](azure-stack-faq.md)
 
 # Erbjuda tjänster till klientorganisationer
@@ -28,6 +29,7 @@
 # Använd mallar
 ## [Mallöversikt](azure-stack-arm-templates.md)
 ## [Utveckla mallar](azure-stack-develop-templates.md)
+## [Kontrollera mallar](azure-stack-validate-templates.md)
 ## [Distribuera mallar med portalen](azure-stack-deploy-template-portal.md)
 ## [Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)
 ## [Distribuera mallar med Visual Studio](azure-stack-deploy-template-visual-studio.md)
@@ -67,15 +69,16 @@
 ## [Distribuera virtuella Linux-datorer](azure-stack-linux.md)
 ## [Hantera uppdateringar](azure-stack-updates.md)
 ## [Utveckla för Azure Stack](azure-stack-developer.md)
-## Distribuera SQL- eller MySQL-resursprovider
-### [Använda MySQL-databaser som PaaS på Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
-### [Distribuera SQL Server-resursprovideradaptern på Azure Stack](azure-stack-sql-resource-provider-deploy.md)
+## Erbjudande om SQL eller MySQL som PaaS
+### [Distribuera MySQL-resursprovider](azure-stack-mysql-resource-provider-deploy.md)
+### [Distribuera SQL-resursprovider](azure-stack-sql-resource-provider-deploy.md)
 
-## Planera och distribuera App Service
-### [Översikt över Azure Stack Web Apps](azure-stack-app-service-overview.md)
-### [Innan du kommer igång med Azure Stack Web Apps](azure-stack-app-service-before-you-get-started.md)
-### [Web Apps: Lägga till fler webbarbetsroller](azure-stack-webapps-add-worker-roles.md)
-### [Lägga till en Web Apps-resursprovider i Azure Stack](azure-stack-app-service-deploy.md)
+## Erbjudande om App Service som PaaS
+### [Översikt över App Service i Azure Stack](azure-stack-app-service-overview.md)
+### [Innan du börjar](azure-stack-app-service-before-you-get-started.md)
+### [Distribuera App Service-resursprovider](azure-stack-app-service-deploy.md)
+### [Lägga till fler webbarbetsroller](azure-stack-app-service-add-worker-roles.md)
+
 
 # Felsöka
 ## [Felsök Azure Stack](azure-stack-troubleshooting.md)
@@ -86,6 +89,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

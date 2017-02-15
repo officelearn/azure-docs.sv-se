@@ -7,12 +7,13 @@
 # Kom igång
 
 ## Web Apps
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.js](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.js](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [Marketplace-app](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)   
+### [PHP](app-service-web-get-started-php.md)   
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,11 +61,12 @@
 ### [WebJobs-SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET-appar
-#### [Distribuera din första .NET-webbapp till Azure på fem minuter](app-service-web-get-started-dotnet.md)
+#### [Skapa ett ASP.NET-program i Azure med Visual Studio](web-sites-dotnet-get-started.md)
 #### [Skapa en REST-tjänst med hjälp av ASP.NET-webb-API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Skapa en ASP.NET 5-webbapp i Visual Studio Code](web-sites-create-web-app-using-vscode.md)
 
 ### Node.js-appar
+#### [Utveckla Node.js för App Service](app-service-web-nodejs-get-started.md)
 #### [Skapa en Node.js-webbapp](web-sites-nodejs-develop-deploy-mac.md)
 #### [Skapa ett Node.js-chattprogram med Socket.IO](web-sites-nodejs-chat-app-socketio.md)
 #### [Använda io.js med Web Apps](web-sites-nodejs-iojs.md)
@@ -72,14 +74,13 @@
 #### [Skapa och distribuera via WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP-appar
-#### [Distribuera din första PHP-webbapp till Azure på fem minuter](app-service-web-get-started-php.md)
+#### [Utveckla PHP-appar för App Service](app-service-web-php-get-started.md) 
 #### [Skapa en PHP-SQL-webbapp och distribuera med Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Skapa en WordPress-webbapp i Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Skapa och ansluta till en MySQL-databas i Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [WordPress i företagsklass på Azure App Service](web-sites-php-enterprise-wordpress.md)
 
 ### Java-appar
-#### [Distribuera din första Java-webbapp till Azure på fem minuter](web-sites-java-get-started.md)
 #### Skapa en Hello World-app
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
@@ -266,6 +267,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

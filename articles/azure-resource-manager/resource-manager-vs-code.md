@@ -32,7 +32,7 @@ Du måste installera ett tillägg för att kunna arbeta med JSON-mallar i VS Cod
 2. Öppna Snabböppning (Ctrl+P) 
 3. Kör följande kommando: 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Starta om VS Code när du uppmanas att aktivera tillägget. 
    
    Klart!

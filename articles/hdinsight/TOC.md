@@ -61,10 +61,13 @@
 ### [Förutsäga HVAC-prestanda](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Förutsäga resultatet av en livsmedelskontroll](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analysera webbplatsloggar](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### [Använda Zeppelin-anteckningsböcker](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter Notebook-kärnor](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Paket för Jupyter-anteckningsböcker](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Använda externa paket med Jupyter med cellfunktioner](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Använda externa paket med Jupyter med skriptåtgärder](hdinsight-apache-spark-python-package-installation.md)
 ### [Använda en lokal Jupyter-anteckningsbok](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Fjärrstyrda jobb med Livy](hdinsight-apache-spark-livy-rest-interface.md)
+### [Utveckla appar med Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Utveckla appar med IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Felsöka via en fjärranslutning med IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Hantera resurser](hdinsight-apache-spark-resource-manager.md)
@@ -156,6 +159,7 @@
 #### [Använda Azure CLI](hdinsight-administer-use-command-line.md)
 ### [Hantera kluster med Ambari-webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
 #### [Använda Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md)
+### [Lägga till lagringskonton](hdinsight-hadoop-add-storage.md)
 ### [Överföra data för Hadoop-jobb](hdinsight-upload-data.md)
 ### [Importera och exportera data med Sqoop](hdinsight-use-sqoop.md)
 #### [Ansluta med SSH](hdinsight-use-sqoop-mac-linux.md)
@@ -224,6 +228,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -99,6 +99,6 @@ Klicka på knappen **Starta** när du vill starta om den virtuella datorn och b�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

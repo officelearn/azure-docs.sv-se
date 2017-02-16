@@ -68,6 +68,6 @@ Du bör lägga till en värdrutt för Azure BGP-peer-IP-adressen på din VPN-enh
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

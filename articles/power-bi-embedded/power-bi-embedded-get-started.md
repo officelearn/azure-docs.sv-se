@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
+ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
+ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
 
 
 ---
@@ -41,7 +41,7 @@ Låt oss gå igenom stegen för att skapa en **arbetsytesamling** i Azure Portal
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. Under **Data + analys** klickar du på **Power BI Embedded**.
-4. Ange den information som krävs på bladet **Skapa**. Mer information om **priser** finns i [Priser för Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
+4. Ange den information som krävs på **bladet Arbetsytesamling**. Mer information om **priser** finns i [Priser för Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Klicka på **Skapa**.
@@ -68,6 +68,10 @@ Kopiera nycklarna och lagra dem på ett säkert sätt i din app. Det är mycket 
 Det finns två nycklar listade men bara en i taget behövs. Den andra nyckeln tillhandahålls så att du regelbundet kan återskapa nycklar utan att avbryta åtkomsten till tjänsten.
 
 Nu när du har en Power BI-instans för din app och **åtkomstnycklar** kan du importera en rapport till din egen app. Innan du lär dig hur du importerar en rapport får du i nästa avsnitt lära dig hur du skapar Power BI-datauppsättningar och -rapporter som ska bäddas in i en app.
+
+## <a name="working-with-workspaces"></a>Arbeta med arbetsytor
+
+När du har skapat arbetsytesamlingen behöver du skapa en arbetsyta för dina rapporter och datauppsättningar. Du behöver använda [REST-API-anropet Post Workspace](https://msdn.microsoft.com/library/azure/mt711503.aspx) för att skapa en arbetsyta.
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Skapa Power BI-datauppsättningar och -rapporter som ska bäddas in i en app
 Nu när du har skapat en Power BI-instans för din app och har **åtkomstnycklar** måste du skapa de Power BI-datauppsättningar och -rapporter som du vill bädda in. Datauppsättningar och rapporter kan skapas med hjälp av **Power BI Desktop**. Du kan hämta [Power BI Desktop kostnadsfritt](https://go.microsoft.com/fwlink/?LinkId=521662). Om du vill komma igång snabbt kan du också hämta [exempel på detaljhandelsanalys PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
@@ -109,6 +113,6 @@ Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

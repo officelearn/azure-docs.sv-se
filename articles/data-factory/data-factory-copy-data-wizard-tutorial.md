@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
-ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
 
 
 ---
@@ -28,17 +28,16 @@ ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
 
 Med **Guiden Kopiera** i Azure Data Factory kan du snabbt och enkelt skapa en pipeline som implementerar datainmatning/rörelsescenarier. Därför rekommenderar vi att du använder guiden som ett första steg för att skapa en exempel-pipeline för dataflödescenarier. Den här guiden beskriver hur du skapar en Azure-datafabrik. Starta guiden Kopiera, och utför ett antal åtgärder för att ge information om datainmatning/rörelsescenarier. När du slutför stegen i guiden skapar guiden automatiskt en pipeline med en kopieringsaktivitet som kopierar data från en Azure-blob till en Azure SQL-databas. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten. 
 
-> [!IMPORTANT]
-> Gå igenom artikeln [Översikt och krav för guide](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) som ger en översikt av guiden. Slutför alla **nödvändiga** steg innan du genomför den här guiden.
-> 
-> 
+## <a name="prerequisites"></a>Krav
+- Gå igenom [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för att få en översikt av självstudierna och slutför de **nödvändiga** stegen.
+
 
 ## <a name="create-data-factory"></a>Skapa en datafabrik
 I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik med namnet **ADFTutorialDataFactory**.
@@ -146,23 +145,24 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
    
    ![Övervakningsapp](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
    
-   > [!NOTE]
-   > Klicka på knappen **Uppdatera** längst ner i listan **AKTIVITETSFÖNSTER ** för att se senaste status. Den uppdateras inte automatiskt. 
-   > 
-   > 
+   
+   Klicka på knappen **Uppdatera** längst ner i listan **AKTIVITETSFÖNSTER ** för att se senaste status. Den uppdateras inte automatiskt. 
+
+> [!NOTE]
+> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg din första pipeline för att omvandla data med Hadoop-kluster).
+> 
+> Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory).
 
 ## <a name="see-also"></a>Se även
 | Avsnitt | Beskrivning |
 |:--- |:--- |
-| [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) |Den här artikeln innehåller detaljerad information om kopieringsaktiviteten som du använde i självstudien. |
-| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
-| [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
+| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

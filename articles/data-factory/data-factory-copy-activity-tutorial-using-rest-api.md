@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
 
 
 ---
@@ -36,9 +36,9 @@ ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
 Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabrik med hjälp av REST-API:et. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
 
 > [!NOTE]
-> Den här artikeln beskriver inte hela REST-API:et för Data Factory. Omfattande dokumentation om Data Factory-cmdlets finns i [referensen för REST-API:et för Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx).
+> Den här artikeln beskriver inte hela REST-API:et för Data Factory. Omfattande dokumentation om Data Factory-cmdlets finns i [referensen för REST-API:et för Data Factory](/rest/api/datafactory/).
 > 
-> 
+> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
 ## <a name="prerequisites"></a>Krav
 * Gå igenom [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför de **nödvändiga** stegen.
@@ -564,8 +564,6 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
-[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-portal]: http://portal.azure.com
@@ -578,6 +576,6 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

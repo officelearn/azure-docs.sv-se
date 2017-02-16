@@ -1,10 +1,10 @@
 ---
-title: "Hantera säkerhetshändelser i Azure Säkerhetscenter | Microsoft-dokument"
+title: "Hantera säkerhetsaviseringar i Azure Security Center | Microsoft Docs"
 description: "I det här dokumentet beskrivs hur du hanterar säkerhetsincidenter med hjälp av funktionerna i Azure Security Center."
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: 25fef9472f023c37538cfc2f5f7c37c0bfca746e
+ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
+ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
 
 
 ---
@@ -32,25 +32,25 @@ I Security Center är en säkerhetsincident en sammanställning av alla aviserin
 Du kan se aktuella säkerhetsincidenter på panelen för säkerhetsaviseringar. Öppna Azure Portal och följ stegen nedan om du vill ha mer information om varje säkerhetsincident:
 
 1. På instrumentpanelen i Security Center hittar du rutan **Security alerts (Säkerhetsaviseringar)**.
-   
+
     ![Panelen Säkerhetsaviseringar i Security Center](./media/security-center-incident/security-center-incident-fig1.png)
 
 2. Klicka på den här panelen för att expandera den. Om en säkerhetsincident identifieras, visas den under säkerhetsaviseringsdiagrammet enligt nedan:
-   
+
     ![Säkerhetsincident](./media/security-center-incident/security-center-incident-fig2.png)
 
 3. Observera att säkerhetsincidentbeskrivningen har en annan ikon jämfört med andra aviseringar. Klicka på den för att visa mer information om den här incidenten.
-   
+
     ![Säkerhetsincident](./media/security-center-incident/security-center-incident-fig3.png)
 
 4. På **incident**-bladet visas mer information om säkerhetsincidenten, inklusive en fullständig beskrivning, allvarlighetsgrad (hög i det här fallet), nuvarande status (i det här fallet är den fortfarande *aktiv*, vilket innebär att användaren inte vidtagit någon åtgärd. Det kan göras genom att högerklicka på incidenten i bladet **Säkerhetsaviseringar**), resursen som angripits (i det här fallet *VM1*), steg för att åtgärda problemet och längst ner har du de aviseringar som finns med i den här incidenten. Om du vill få mer information om varje avisering behöver du bara klicka på den så öppnas ett annat blad, enligt nedan:
-   
+
     ![Säkerhetsincident](./media/security-center-incident/security-center-incident-fig4.png)
 
 Informationen på det här bladet varierar beroende på aviseringen. Mer information om att hantera dessa aviseringar finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md). Viktigt att tänka på för den här funktionen:
 
-* Med ett nytt filter kan du anpassa vyn till ”endast incident” eller ”endast aviseringar” eller både och. 
-* Samma avisering kan vara del av en incident (om tillämpligt) eller visas som en fristående avisering. 
+* Med ett nytt filter kan du anpassa vyn till ”endast incident” eller ”endast aviseringar” eller både och.
+* Samma avisering kan vara del av en incident (om tillämpligt) eller visas som en fristående avisering.
 
 ## <a name="see-also"></a>Se även
 I det här dokumentet har du fått lära dig hur du använder säkerhetsincidentfunktionen i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
@@ -64,7 +64,6 @@ I det här dokumentet har du fått lära dig hur du använder säkerhetsincident
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

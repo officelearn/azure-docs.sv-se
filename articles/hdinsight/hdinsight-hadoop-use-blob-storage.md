@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/06/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
+ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
+ms.openlocfilehash: 41b19d0ed2d77fc94ec7b3a7905b51e8e25e0585
 
 
 ---
@@ -39,7 +39,7 @@ Information om hur du skapar ett HDInsight-kluster finns i [Komma igång med HDI
 ## <a name="hdinsight-storage-architecture"></a>Lagringsarkitekturen i HDInsight
 Följande diagram visar en abstrakt vy av lagringsarkitekturen i HDInsight:
 
-![Hadoop-kluster använder HDFS API för att komma åt och lagra strukturerade och ostrukturerade data i Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
+![Hadoop-kluster använder HDFS API för att komma åt och lagra strukturerade och ostrukturerade data i Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage-arkitektur")
 
 HDInsight ger tillgång till det distribuerade filsystemet som är lokalt anslutet till beräkningsnoderna. Detta filsystem kan nås med hjälp av den fullständigt kvalificerade URI-strängen, till exempel:
 
@@ -98,10 +98,10 @@ Oavsett var den finns tillhör varje blob som du skapar en behållare på ditt A
 
 Standardbehållaren lagrar klusterspecifik information, till exempel jobbhistorik och loggar. Låt inte flera HDInsight-kluster dela en standardblob-behållare. Detta kan förstöra jobbhistoriken och klustret kommer inte att fungera som det ska. Du rekommenderas att använda en annan behållare för varje kluster och publicera delade data på ett konto för länkad lagring som anges vid distributionen av alla relevanta kluster snarare än på standardkontot för lagring. Mer information om hur du konfigurerar länkade lagringskonton finns i [Skapa HDInsight-kluster][hdinsight-creation]. Du kan emellertid återanvända en standardbehållare för lagring när det ursprungliga HDInsight-klustret har tagits bort. När det gäller HBase-kluster kan du faktiskt behålla HBase-tabellschemat och data genom att skapa en ny Blob Storage som standard som använts av ett HBase-kluster som har tagits bort.
 
-### <a name="using-the-azure-portal"></a>Använda Azure-portalen
+### <a name="using-the-azure-portal"></a>Använda Azure Portal
 När du skapar ett HDInsight-kluster från portalen kan du använda ett befintligt lagringskonto eller skapa ett nytt lagringskonto:
 
-![hdinsight hadoop, skapa datakälla](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![HDInsight hadoop, skapa datakälla](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -219,7 +219,7 @@ Använd följande kommando för att visa en lista över blob-relaterade cmdlets:
 Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
 
 ### <a name="download-files"></a>Hämta filer
-Följande skript hämtar en block-blob till den aktuella mappen. Innan du kör skriptet ändrar du katalogen till en mapp där du har skrivbehörighet.
+Följande skript hämtar en blockblob till den aktuella mappen. Innan du kör skriptet ändrar du katalogen till en mapp där du har skrivbehörighet.
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
@@ -305,6 +305,6 @@ Mer information finns i:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

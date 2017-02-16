@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 24e12e4606a5ec4fabf7046fe9847123033bb70a
-ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
+ms.sourcegitcommit: 5af9b5fdaf228edd54900855d0eac5d90ea3db38
+ms.openlocfilehash: 0121896aa27677080d6b240fdafff3c7e19683d9
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
 
 
 
-I Azure Container Service kräver Kubernetes ett [Huvudnamn för Azure Active Directory-tjänsten](../active-directory/active-directory-application-objects.md) som ett tjänstkonto för att interagera med Azure API:er. Tjänstens huvudnamn krävs för att dynamiskt hantera resurser som [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) och lager 4 för [Azure Load Balancer](../load-balancer/load-balancer-overview.md).
+I Azure Container Service kräver Kubernetes ett [Huvudnamn för Azure Active Directory-tjänsten](../active-directory/active-directory-application-objects.md) som ett tjänstkonto för att interagera med Azure API:er. Tjänstens huvudnamn krävs för att dynamiskt hantera resurser som användardefinierade vägar och lager 4 för Azure Load Balancer.
 
 Den här artikeln visar olika alternativ för att ange ett huvudnamn för tjänsten för Kubernetes-klustret. Om du t.ex. har installerat och konfigurerat [Azure CLI 2.0 (förhandsversion)](https://docs.microsoft.com/cli/azure/install-az-cli2), kan du köra kommandot [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) för att skapa Kubernetes-klustret och tjänstens huvudnamn på samma gång.
 
@@ -39,11 +39,11 @@ Den här artikeln visar olika alternativ för att ange ett huvudnamn för tjäns
 
 Följande är krav för Azure Active Directory-tjänstens huvudnamn i ett Kubernetes-kluster i Azure Container Service. 
 
-* **Omfattning** -Azure-prenumerationen där klustret distribueras
+* **Omfattning**: Azure-prenumerationen där klustret distribueras
 
-* **Roll** - **deltagare**
+* **Roll**: **Deltagare**
 
-* **Klienthemlighet** - måste vara ett lösenord. För närvarande kan du inte använda ett huvudnamn för tjänsten som konfigurerats för certifikatautentisering.
+* **Klienthemlighet**: måste vara ett lösenord. För närvarande kan du inte använda ett huvudnamn för tjänsten som konfigurerats för certifikatautentisering.
 
 > [!NOTE]
 > Varje tjänst är associerad med ett Azure Active Directory-program. Tjänsten huvudnamn för ett Kubernetes-kluster kan associeras med ett giltigt Azure Active Directory-programnamn.
@@ -56,28 +56,34 @@ Följande är krav för Azure Active Directory-tjänstens huvudnamn i ett Kubern
 
 Ange **klient-ID** (kallas ofta `appId`, för program-ID) och **klienthemlighet** (`password`) för en befintlig tjänsts huvudnamn som parametrar när du skapar Kubernetes-klustret. Om du använder ett befintligt huvudnamn för tjänsten, kontrollera att det uppfyller kraven i föregående avsnitt. Om du behöver skapa ett huvudnamn för tjänsten finns information i [Skapa ett huvudnamn för tjänsten](#create-a-service-principal-in-azure-active-directory) senare i den här artikeln.
 
-Du kan ange dessa parametrar när du [distribuerar Kubernetes-klustret](./container-service-deployment.md) med portalen, Azure-kommandoradsgränssnittet (CLI) eller Azure PowerShell.
+Du kan ange dessa parametrar när du [distribuerar Kubernetes-klustret](./container-service-deployment.md) med portalen, Azure-kommandoradsgränssnittet (CLI) 2.0 (förhandsversion), Azure PowerShell eller andra metoder.
 
 >[!TIP] 
 >När du anger **klient-ID**, måste du använda `appId`, och inte `ObjectId`, av huvudnamnet för tjänsten.
 >
 
-I följande exempel visas ett sätt att överföra parametrarna med [Azure CLI](../xplat-cli-install.md) i [Resource Manager-läge](../xplat-cli-connect.md). I det här exemplet används [mallen Kubernetes-snabbstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+I följande exempel visas ett sätt att överföra parametrarna med förhandsversionen Azure CLI 2.0 (se [installations- och konfigurationsinstruktioner](/cli/azure/install-az-cli2)). I det här exemplet används [mallen Kubernetes-snabbstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
-1. [Hämta](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) filen för mallparametrarna azuredeploy.parameters.json från GitHub.
+1. [Hämta](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) filen med mallparametrar `azuredeploy.parameters.json` från GitHub.
 
 2. För att ange tjänstens huvudnamn, anger du värden för `servicePrincipalClientId` och `servicePrincipalClientSecret` i filen. (Du måste också ange dina egna värden för `dnsNamePrefix` och `sshRSAPublicKey`. Dessa är den offentliga SSH-nyckeln till klustret.) Spara filen.
 
     ![Skicka parametrar för tjänstens huvudnamn](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
-3. Kör följande kommando, med hjälp av parameter `-e` för att ange sökvägen till filen azuredeploy.parameters.json. Det här kommandot distribuerar klustret i en befintlig resursgrupp som kallas `myResourceGroup`.
+3. Kör följande kommando, med hjälp av `--parameters` för att ange sökvägen till filen azuredeploy.parameters.json. Det här kommandot distribuerar i klustret i en resursgrupp du skapar med namnet `myResourceGroup` i regionen USA, västra.
 
-    ```CLI
-    azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
+    ```azurecli
+    az login
+
+    az account set --subscription "mySubscriptionID"
+
+    az group create --name "myResourceGroup" --location "westus" 
+    
+    az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Alternativ 2: Generera tjänstens huvudnamn när klustret skapas med förhandsversionen av Azure CLI 2.0
+### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Alternativ 2: Generera tjänstens huvudnamn när klustret skapas med av Azure CLI 2.0 (förhandsversion)
 
 Om du har installerat och konfigurerat [Azure CLI 2.0 (förhandsversion)](https://docs.microsoft.com/cli/azure/install-az-cli2), kan du köra kommandot [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) för att [skapa klustret](./container-service-create-acs-cluster-cli.md).
 
@@ -93,16 +99,16 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Om du vill skapa ett huvudnamn för tjänsten i Azure Active Directory för användning i Kubernetes-klustret, erbjuder Azure flera metoder. 
 
-Kommandona i följande exempel visar hur du gör detta med [Azure CLI 2.0 (förhandsversion)](https://docs.microsoft.com/cli/azure/install-az-cli2). Du kan också skapa ett huvudnamn för tjänsten med [Azure-kommandoradsgränssnittet](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md), [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) eller den [klassiska portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Kommandona i följande exempel visar hur du gör detta med [Azure CLI 2.0 (förhandsversion)](https://docs.microsoft.com/cli/azure/install-az-cli2). Du kan också skapa ett huvudnamn för tjänsten med [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), den [klassiska portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md) eller andra metoder.
 
 > [!IMPORTANT]
 > Kontrollera att du går igenom kraven för tjänstens huvudnamn tidigare i den här artikeln.
 >
 
-```console
+```azurecli
 az login
 
-az account set --subscription="mySubscriptionID"
+az account set --subscription "mySubscriptionID"
 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
@@ -116,7 +122,7 @@ De **klient-ID** (`appId`) och **klienthemligheten** (`password`) som du använd
 
 Bekräfta huvudnamn för tjänsten genom att öppna ett nytt gränssnitt och kör följande kommandon och ersätt i `appId`, `password` och `tenant`:
 
-```console 
+```azurecli 
 az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
 
 az vm list-sizes --location westus
@@ -137,6 +143,6 @@ az vm list-sizes --location westus
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

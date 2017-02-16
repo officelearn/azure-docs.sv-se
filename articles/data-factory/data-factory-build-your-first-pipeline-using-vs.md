@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 52cf33c5b9f3c3818ef66b97f22d148f0bf7c859
-ms.openlocfilehash: 8efed4445977f1d75ede02ccc761138ba3a33928
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: 749dae73e9c515f91cd197d0652b4fc499cc3b0e
 
 
 ---
@@ -31,7 +31,12 @@ ms.openlocfilehash: 8efed4445977f1d75ede02ccc761138ba3a33928
 >
 >
 
-I den här artikeln får du lära dig hur du använder Microsoft Visual Studio till att skapa din första Azure-datafabrik.
+I den här artikeln får du lära dig hur du använder Microsoft Visual Studio till att skapa din första Azure-datafabrik. Om du vill gå igenom självstudien med andra verktyg/SDK:er kan du välja något av alternativen i listrutan.
+
+> [!NOTE]
+> Datapipelinen i den här självstudien transformerar indata för att generera utdata. Den kopierar inte data från ett källdatalager till ett måldatalager. En självstudiekurs om hur du kopierar data med Azure Data Factory finns i [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Självstudie: Kopiera data från Blob Storage till SQL Database).
+> 
+> Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory). 
 
 ## <a name="prerequisites"></a>Krav
 1. Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen.
@@ -515,14 +520,14 @@ I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (H
 ## <a name="see-also"></a>Se även
 | Avsnitt | Beskrivning |
 |:--- |:--- |
-| [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) |Den här artikeln innehåller en lista med de datatransformeringsaktiviteter (till exempel HDInsight Hive-transformeringen som du använde i självstudien) som stöds av Azure Data Factory. |
-| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
+| [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) |Den här artikeln innehåller en lista med de datatransformeringsaktiviteter (till exempel HDInsight Hive-transformeringen som du använde i självstudien) som stöds av Azure Data Factory. |
+| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

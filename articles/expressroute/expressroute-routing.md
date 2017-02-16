@@ -1,5 +1,5 @@
 ---
-title: "Routningskrav för ExpressRoute | Microsoft Docs"
+title: "Routningskrav för Azure ExpressRoute | Microsoft Docs"
 description: "Den här sidan innehåller detaljerade krav för att konfigurera och hantera routning för ExpressRoute-kretsar."
 documentationcenter: na
 services: expressroute
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/27/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
-ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
+ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
+ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
 
 
 ---
@@ -189,8 +189,12 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | **Regioner för nationella Azure-moln**| **BGP-community värde** |
 | --- | --- |
 | **Amerikanska myndigheter** |  |
+| Arizona (USA-förvaltad region) | 12076:51106 |
 | Iowa (USA-förvaltad region) | 12076:51109 |
 | Virginia (USA-förvaltad region) | 12076:51105 |
+| Texas (USA-förvaltad region) | 12076:51108 |
+| US DoD, centrala | 12076:51209 |
+| US DoD, östra | 12076:51205 |
 
 
 | **Tjänst i nationella moln** | **BGP-community värde** |
@@ -212,6 +216,6 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

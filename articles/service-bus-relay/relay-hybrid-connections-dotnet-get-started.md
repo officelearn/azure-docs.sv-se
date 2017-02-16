@@ -1,35 +1,37 @@
 ---
-title: "Kom igång med Relay hybridanslutningar | Microsoft Docs"
+title: "Komma igång med Azure Relay-hybridanslutningar i .NET | Microsoft Docs"
 description: "Så här skriver du ett C#-konsolprogram för hybridanslutningar"
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub
+ms.date: 02/03/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 92d7935596ab1dede6dc1d613cb635c32d52e3ab
+ms.sourcegitcommit: 1ee1e7d0c6f239abfda474d51c8d02d5338dabc7
+ms.openlocfilehash: ec8d7cf64786a3347998f243fc7e4f9550fd9f08
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Kom igång med Relay hybridanslutningar
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+I den här självstudien får du en introduktion till [Azure Relay-hybridanslutningar](relay-what-is-it.md#hybrid-connections), och du får se hur du skapar ett klientprogram som skickar meddelanden till ett motsvarande lyssnarprogram. 
+
 ## <a name="what-will-be-accomplished"></a>Detta kommer att utföras
-Eftersom hybridanslutningar kräver både en klient och en serverkomponent kommer vi att skapa två konsolprogram i den här självstudien. Här är stegen:
+Eftersom hybridanslutningar kräver både en klient- och en serverkomponent kommer vi att skapa två konsolprogram i den här självstudien. Stegen är:
 
 1. Skapa ett Relay-namnområde med Azure Portal.
 2. Skapa en hybridanslutning med Azure Portal.
-3. Skriv ett serverkonsolprogram för att ta emot meddelanden.
-4. Skriv ett klientkonsolprogram för att ta emot meddelanden.
+3. Skriva ett serverkonsolprogram (lyssnare) för att ta emot meddelanden.
+4. Skriva ett klientkonsolprogram (avsändare) för att ta emot meddelanden.
 
 ## <a name="prerequisites"></a>Krav
 1. [Visual Studio 2013 eller Visual Studio 2015](http://www.visualstudio.com). Exemplen i de här självstudierna använder Visual Studio 2015.
@@ -74,6 +76,6 @@ Grattis, du har skapat ett end-to-end hybridanslutningsprogram.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 01a6f060e6ae800b0de930c7c46ed60f73b530ac
-ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 01e1728d9658ac69659e31aca584cb574338a238
 
 
 ---
@@ -34,6 +34,11 @@ ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
 > 
 
 De här självstudierna visar hur du skapar och övervakar en Azure-datafabrik med hjälp av Visual Studio. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
+
+> [!NOTE]
+> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg din första pipeline för att omvandla data med Hadoop-kluster).
+> 
+> Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory).
 
 Här är de steg du utför som en del av de här självstudierna:
 
@@ -370,15 +375,14 @@ Se [Övervaka datauppsättningar och pipeline](data-factory-copy-activity-tutori
 ## <a name="see-also"></a>Se även
 | Avsnitt | Beskrivning |
 |:--- |:--- |
-| [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) |Den här artikeln innehåller detaljerad information om kopieringsaktiviteten som du använde i självstudien. |
-| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Pipelines](data-factory-create-pipelines.md) |Den här artikeln beskriver pipelines och aktiviteter i Azure Data Factory |
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
+| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

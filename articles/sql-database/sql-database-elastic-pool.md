@@ -4,26 +4,26 @@ description: "Hantera flera hundra eller flera tusen databaser med hjälp av en 
 keywords: elastisk pool, sql-databaser
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: ddove
 manager: jhubbard
 editor: 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/11/2017
-ms.author: CarlRabeler
+ms.date: 02/01/2017
+ms.author: ddove
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
-ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
+ms.sourcegitcommit: 65b7e72d2cf0afd57aebd2e5938b540b2a2b4f20
+ms.openlocfilehash: a38e1bf40bde45d0122e07b50c748d57757635a5
 
 
 ---
-# <a name="what-is-an-azure-elastic-pool"></a>Vad är en elastisk pool i Azure?
-Elastiska SQL DB-pooler erbjuder en enkel kostnadseffektiv lösning som hjälper dig att hantera prestandamål för flera databaser som har mycket varierande och oförutsägbara användningsmönster.
+# <a name="what-is-an-azure-sql-elastic-pool"></a>Vad är en elastisk pool i Azure SQL?
+En elastisk SQL-pool får ett fast antal eDTU:er för ett fast pris, på en logisk Azure-server som delas av en pool med databaser på den servern. Elastiska SQL DB-pooler erbjuder en enkel kostnadseffektiv lösning som hjälper dig att hantera prestandamål för flera databaser som har mycket varierande och oförutsägbara användningsmönster.
 
 > [!NOTE]
 > Elastiska pooler är allmänt tillgängliga (GA) i alla Azure-regioner utom Västra Indien där de genomgår förhandsgranskning.  GA för elastiska pooler i den här regionen inträffar så snart som möjligt.
@@ -106,6 +106,6 @@ För program som har mer aggressiva återställningskrav än vad geo-återställ
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

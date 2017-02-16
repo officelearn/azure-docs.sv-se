@@ -1,10 +1,10 @@
 ---
-title: ExpressRoute-platser | Microsoft Docs
-description: "Den här artikeln innehåller en detaljerad översikt över platser där tjänster erbjuds och hur du ansluter till Azure-regioner."
+title: "Platser och anslutningsleverantörer: Azure ExpressRoute | Microsoft Docs"
+description: "Den här artikeln innehåller en detaljerad översikt över platser där tjänster erbjuds och hur du ansluter till Azure-regioner. Sorteras efter plats."
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
@@ -12,14 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 25dbeb2c011d4f2b833140d86690d546bfb6825e
-ms.openlocfilehash: 74805f654249d4499a4d36af1016801737ffb76a
+ms.sourcegitcommit: 2e493afcd0de8baf8780a734ad62381e6062aa53
+ms.openlocfilehash: 42180ab35f049aa4cc0c5db79528b172e316036b
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
+
+> [!div class="op_single_selector"]
+> * [Platser efter leverantör](expressroute-locations.md)
+> * [Leverantörer efter plats](expressroute-locations-providers.md)
+
+
 Tabellerna i den här artikeln innehåller information om ExpressRoute-anslutningsleverantörer, ExpressRoutes geografiska täckning, Microsoft-molntjänster som stöds via ExpressRoute och ExpressRoutes systemintegratörer (SI).
 
 ## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Anslutningsproviders för ExpressRoute
@@ -34,14 +40,14 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- |
-| **Nordamerika** |Östra USA, västra USA, östra USA 2, västra USA 2, centrala USA, södra centrala USA, norra centrala USA, västra centrala USA, centrala Kanada, östra Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **Nordamerika** |Östra USA, västra USA, östra USA 2, västra USA 2, centrala USA, södra centrala USA, norra centrala USA, västra centrala USA, centrala Kanada, östra Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City+, Toronto |
 | **Sydamerika** |Södra Brasilien |Sao Paulo |
 | **Europa** |Norra Europa, Västra Europa, Västra Storbritannien, Södra Storbritannien |Amsterdam, Dublin, London, Newport (Wales), Paris |
 | **Asien** |Östra Asien, Sydostasien |Hongkong, Singapore |
 | **Japan** |Västra Japan, östra Japan |Osaka, Tokyo |
 | **Australien** |Sydöstra Australien, östra Australien |Melbourne, Sydney |
 | **Indien** |Västra Indien, centrala Indien, södra Indien |Chennai, Mumbai |
-| **Sydkorea** | Centrala Korea, Sydkorea | Busan, Söul |
+| **Sydkorea** |Centrala Korea, Sydkorea |Busan+, Söul+ |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
 Tabellen nedan innehåller information om regioner och geopolitiska gränser för nationella moln.
@@ -55,17 +61,16 @@ Tabellen nedan innehåller information om regioner och geopolitiska gränser fö
 Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i ExpressRoute. Du måste aktivera ExpressRoutes premiumtillägg som stöder global anslutning. Anslutning till nationella molnmiljöer stöds inte. Kontakta din anslutningsleverantör om detta behov uppstår.
 
 ## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Platser för anslutningsleverantörer
-> [!div class="op_single_selector"]
-> * [Platser efter leverantör](expressroute-locations.md#locations)
-> * [Leverantörer efter plats](expressroute-locations-providers.md#locations)
-> 
-> 
+
+Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för varje plats. Om du vill visa leverantörer och de platser där de kan tillhandahålla service går du till [Platser efter tjänsteleverantör](expressroute-locations.md#locations). 
+
 
 ### <a name="production-azure"></a>Produktions-Azure
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** |Equinix |
+| **Busan** |Sejong Telecom+ |
 | **Chennai** |SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
@@ -83,6 +88,7 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **Paris** |Interxion, Equinix+ |
 | **Sao Paulo** |Equinix, Telefonica |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
+| **Söul** |KINX+, Sejong Telecom+ |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
@@ -153,8 +159,8 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 | **Asien** |Avanade Inc., OneAs1a |
 | **Australien** | IT Consultancy |
 | **Europa** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
-| **USA** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
-
+| **Nordamerika** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
+| **Sydamerika** |Avanade Inc. |
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 * Kontrollera att alla krav är uppfyllda. Se [ExpressRoute-krav](expressroute-prerequisites.md).
@@ -164,6 +170,6 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

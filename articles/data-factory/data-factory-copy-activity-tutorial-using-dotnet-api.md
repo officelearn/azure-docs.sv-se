@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabrik med hjälp av .NET-API:et. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
@@ -37,6 +37,9 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
 
 > [!NOTE]
 > Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Mer information om Data Factory .NET SDK finns i [referensen för .NET-API:et för Data Factory](https://msdn.microsoft.com/library/mt415893.aspx).
+> 
+> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
+
 
 ## <a name="prerequisites"></a>Krav
 * Gå igenom [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för att få en översikt av självstudierna och slutför de **nödvändiga** stegen.
@@ -503,12 +506,18 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 20. Kontrollera att de två medarbetarposterna skapas i den "**tomma**" tabellen i den angivna Azure SQL-databasen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer detaljerad information om kopieringsaktiviteten som du använde i den här självstudiekursen finns i artikeln om [dataflödesaktiviteter](data-factory-data-movement-activities.md).
-* Mer information om Data Factory .NET SDK finns i [referensen för .NET-API:et för Data Factory](https://msdn.microsoft.com/library/mt415893.aspx). Den här artikeln beskriver inte hela .NET-API:et för Data Factory.
+| Avsnitt | Beskrivning |
+|:--- |:--- |
+| [Pipelines](data-factory-create-pipelines.md) |Den här artikeln beskriver pipelines och aktiviteter i Azure Data Factory. |
+| [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
+| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
+[Referens för .NET-API:et för Data Factory](/dotnet/api/) | Innehåller information om Data Factory .NET SDK (leta efter Microsoft.Azure.Management.DataFactories.Models i trädvyn). 
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+
+<!--HONumber=Feb17_HO1-->
 
 

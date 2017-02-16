@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/07/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
-ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
+ms.sourcegitcommit: b80b3240cdc4917c0b7be8868e75feaf1efc24cc
+ms.openlocfilehash: c6ddae85ef44bd91ca33d99e8194bc87a0081df3
 
 
 ---
@@ -39,7 +39,7 @@ Microsoft Azure SQL Database använder brandväggsregler för att tillåta anslu
 > 
 
 ## <a name="server-level-firewall-rules"></a>Brandväggsregler på servernivå
-Endast huvudkontoinloggningen på servernivå eller Azure Active Directory-administratören kan skapa en brandväggsregel på servernivå med hjälp av Transact-SQL.
+Endast Azure SQL server-inloggningen på adminnivå eller Azure Active Directory-administratören kan skapa en brandväggsregel på servernivå med hjälp av Transact-SQL.
 
 1. Öppna ett frågefönster och anslut till den virtuella huvuddatabasen med hjälp av SQL Server Management Studio.
 2. Du kan välja, skapa, uppdatera eller ta bort brandväggsregler på servernivå från frågefönstret.
@@ -61,7 +61,7 @@ Endast huvudkontoinloggningen på servernivå eller Azure Active Directory-admin
 ## <a name="database-level-firewall-rules"></a>Brandväggsregler på databasnivå
 Endast en databasanvändare med behörigheten **KONTROLL** för databasen (till exempel databasägaren) kan skapa en brandväggsregel på databasnivå.
 
-1. När du har skapat en brandvägg på servernivå för din IP-adress startar du ett frågefönster via den klassiska portalen eller SQL Server Management Studio.
+1. När du har skapat en brandvägg på servernivå för din IP-adress startar du ett frågefönster via Azure Portal eller SQL Server Management Studio.
 2. Anslut till den databas som du vill skapa en brandväggsregel på databasnivå för.
    
     Om du vill skapa en ny eller uppdatera en befintlig brandväggsregel på databasnivå kör du den lagrade proceduren `sp_set_database_firewall_rule`. I följande exempel skapas en ny brandväggsregel med namnet ContosoFirewallRule.
@@ -99,6 +99,6 @@ Information om hur du navigerar till databaser finns i [Manage database access a
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

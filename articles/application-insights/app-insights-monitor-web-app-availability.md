@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: af6728d23ba228b436546c13529189f649416dba
+ms.openlocfilehash: cbddda10fa2b91e46a9789379fde8011be0e8381
 
 
 ---
@@ -29,7 +29,7 @@ Du kan konfigurera webbtester för valfri HTTP- eller HTTPS-slutpunkt som kan n�
 Det finns två typer av webbtester:
 
 * [URL-pingtest](#create): Ett enkelt test som du kan skapa på Azure-portalen.
-* [Webbtest i flera steg](#multi-step-web-tests): Ett test som du skapar i Visual Studio Ultimate eller Visual Studio Enterprise och laddar upp till portalen.
+* [Flerstegstest för webbplatser](#multi-step-web-tests): Ett test som du skapar i Visual Studio Enterprise och laddar upp till portalen.
 
 Du kan skapa upp till tio webbtester per programresurs.
 
@@ -122,7 +122,7 @@ Om du vill skapa ett test med flera steg spelar du in scenariot med hjälp av Vi
 Observera att du inte kan använda kodade funktioner i tester: stegen i scenariot måste finnas som ett skript i filen .webtest.
 
 #### <a name="1-record-a-scenario"></a>1. Spela in ett scenario
-Spela in en webbsession med Visual Studio Enterprise eller Ultimate.
+Spela in en webbsession med Visual Studio Enterprise.
 
 1. Skapa ett testprojekt för webbprestanda.
 
@@ -239,7 +239,7 @@ Du kan köra ett inläsningstest på din webbplats. Som med tillgänglighetstest
 När testet är klart visas svarstiderna och slutförandefrekvens.
 
 ## <a name="automation"></a>Automation
-* [Konfigurera ett webbtest automatiskt med hjälp av PowerShell-skript](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/).
+* [Konfigurera ett webbtest automatiskt med hjälp av PowerShell-skript](app-insights-powershell.md#add-an-availability-test).
 * Konfigurera en [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) som anropas när en avisering genereras.
 
 ## <a name="questions-problems"></a>Har du några frågor? Har du problem?
@@ -294,6 +294,6 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

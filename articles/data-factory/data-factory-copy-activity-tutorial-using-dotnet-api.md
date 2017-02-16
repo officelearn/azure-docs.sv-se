@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/27/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
-ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
+ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
+ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
 
 
 ---
@@ -50,41 +50,58 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 1. Starta **PowerShell**.
 2. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
 
-        Login-AzureRmAccount
+    ```PowerShell
+    Login-AzureRmAccount
+    ```
 3. Kör följande kommando för att visa alla prenumerationer för det här kontot.
 
-        Get-AzureRmSubscription
+    ```PowerShell
+    Get-AzureRmSubscription
+    ```
 4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration.
 
-        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
 
    > [!IMPORTANT]
    > Anteckna **ID** och **TenantId** i kommandots utdata.
 
 5. Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando i PowerShell.
 
-        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
     Om resursgruppen redan finns anger du om du vill uppdatera den (Y) eller lämna den som den är (N).
 
     Om du använder en annan resursgrupp måste du använda namnet på din resursgrupp i stället för ADFTutorialResourceGroup i den här självstudiekursen.
 6. Skapa ett Azure Active Directory-program.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```PowerShell
+    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```
 
     Om följande fel returneras anger du en annan URL och kör kommandot igen.
-
-        Another object with the same value for property identifierUris already exists.
+    
+    ```PowerShell
+    Another object with the same value for property identifierUris already exists.
+    ```
 7. Skapa AD-tjänstobjektet.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```PowerShell
+    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```
 8. Lägg till tjänstobjektet till rollen som **Data Factory-deltagare**.
 
-        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```PowerShell
+    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```
 9. Hämta program-ID:t.
 
-        $azureAdApplication
-
+    ```PowerShell
+    $azureAdApplication 
+    ```
     Anteckna program-ID:t (**applicationID** från utdata).
 
 Du bör nu ha tillgång till följande fyra värden efter de här stegen:
@@ -474,7 +491,10 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 16. Skapa konsolprogrammet. Klicka på **Skapa** på menyn och klicka sedan på **Build Solution** (Skapa lösning).
 17. Kontrollera att det finns minst en fil i **adftutorial**-behållaren i Azure-blobblagringen. Om inte skapar du **Emp.txt**-filen i Anteckningar med följande innehåll och laddar upp den till adftutorial-behållaren.
 
-       John, Doe    Jane, Doe
+    ```
+    John, Doe
+    Jane, Doe
+    ```
 18. Kör exemplet genom att klicka på **Felsök** -> **Börja felsöka** på menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
 19. Använd Azure-portalen och kontrollera att datafabriken **APITutorialFactory** har skapats med följande artefakter:
    * Länkad tjänst: **LinkedService_AzureStorage**
@@ -489,6 +509,6 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

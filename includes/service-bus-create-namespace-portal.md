@@ -1,4 +1,10 @@
-1. Logga in på [Azure-portalen][Azure-portalen].
+## <a name="create-a-service-namespace"></a>Skapa ett namnområde för tjänsten
+
+För att komma igång med Service Bus-köer i Azure måste du först skapa ett namnområde. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program. 
+
+Så här skapar du ett namnområde:
+
+1. Logga in på [Azure portal][Azure portal].
 2. I det vänstra navigationsfältet i portalen klickar du på **Nytt**, på **Enterprise Integration** och sedan på **Service Bus**.
 3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
 4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic, Standard eller Premium).
@@ -26,8 +32,8 @@
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

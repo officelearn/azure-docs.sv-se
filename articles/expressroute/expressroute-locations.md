@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 01/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 45b3c231f28b810c5fe1361cee1c896c58b52993
-ms.openlocfilehash: ae966cd39f8763e038acb5e992f388b8c0ad28ef
+ms.sourcegitcommit: 25dbeb2c011d4f2b833140d86690d546bfb6825e
+ms.openlocfilehash: 45288c24630a4931da9f89196236ab910de735ac
 
 
 ---
@@ -35,20 +35,21 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- |
-| **Nordamerika** |Östra USA, västra USA, östra USA 2, centrala USA, södra centrala USA, norra centrala USA, centrala Kanada, östra Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **Nordamerika** |Östra USA, västra USA, östra USA 2, västra USA 2, centrala USA, södra centrala USA, norra centrala USA, västra centrala USA, centrala Kanada, östra Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
 | **Sydamerika** |Södra Brasilien |Sao Paulo |
 | **Europa** |Norra Europa, Västra Europa, Västra Storbritannien, Södra Storbritannien |Amsterdam, Dublin, London, Newport (Wales), Paris |
 | **Asien** |Östra Asien, Sydostasien |Hongkong, Singapore |
 | **Japan** |Västra Japan, östra Japan |Osaka, Tokyo |
 | **Australien** |Sydöstra Australien, östra Australien |Melbourne, Sydney |
 | **Indien** |Västra Indien, centrala Indien, södra Indien |Chennai, Mumbai |
+| **Sydkorea** | Centrala Korea, Sydkorea | Busan, Söul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
 Tabellen nedan innehåller information om regioner och geopolitiska gränser för nationella moln.
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- | --- |
-| **Moln för amerikanska myndigheter** |Iowa (USA-förvaltad region), Virginia (USA-förvaltad region) |Chicago, Dallas, New York, Washington DC |
+| **Moln för amerikanska myndigheter** |Iowa (USA-förvaltad region), Virginia (USA-förvaltad region), US DoD centrala+, US DoD, östra+  |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
 | **Kina** |Norra Kina, östra Kina |Beijing, Shanghai |
 | **Tyskland** |Centrala Tyskland, östra Tyskland |Berlin, Frankfurt |
 
@@ -71,11 +72,11 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Stöds |Stöds |Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |Kommer snart |Kommer snart |Silicon Valley |
 | **China Telecom Global** |Stöds |Stöds inte |Hongkong |
-| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Stöds |Stöds |Dallas, Montreal+, Toronto |
+| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Stöds |Stöds |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Stöds |Stöds |Amsterdam, Dublin, London, Tokyo |
 | **Comcast** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
 | **Konsol**| Stöds | Stöds |Silicon Valley |
-| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Stöds |Stöds |Los Angeles |
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Stöds |Stöds |Los Angeles, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Amsterdam, Atlanta, Chicago, Dallas, Hongkong, London, Los Angeles, Melbourne, New York, Osaka, Paris+, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Stöds |Stöds |Amsterdam |
 | **GÉANT** |Stöds |Stöds |Amsterdam |
@@ -84,7 +85,8 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **Internet Solutions - Cloud Connect** |Stöds |Stöds |Amsterdam, London |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Stöds |Stöds |Amsterdam, London, Paris |
 | **Jisc** |Stöds |Stöds |London |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Washington DC |
+| **[KPN](http://www.kpn.com/cloudconnect)** | Stöds | Stöds | Amsterdam | 
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Singapore, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds |Stöds |Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Stöds |Stöds |London |
 | **[Nästa datageneration](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Stöds |Stöds |Newport(Wales) |
@@ -112,8 +114,9 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Stöds |Stöds |Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Chicago, Dallas, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Chicago, New York+, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds | Stöds | Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Stöds |Stöds |Chicago, Dallas, New York, Washington DC |
 
 ### <a name="china"></a>Kina
@@ -130,6 +133,7 @@ Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expres
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds inte |Frankfurt |
 | **e-shelter** |Stöds |Stöds inte |Berlin |
 | **Interxion** |Stöds |Stöds inte |Frankfurt |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds  | Stöds inte | Berlin+ |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Anslutning för leverantörer som inte listas
 Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fortfarande skapa en anslutning.

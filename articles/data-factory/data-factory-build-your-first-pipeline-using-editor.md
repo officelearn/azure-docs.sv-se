@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: b2dc4feb5cee28c051010f7d86c99f49c56da219
-ms.openlocfilehash: 7b5ed6a9e16de5a5978a40331a41708dc5615aa2
+ms.sourcegitcommit: cfbfccfe09e6f2b3826223a779a5ff478c1f804f
+ms.openlocfilehash: 64250a0b37488eb165bd13e727f365bd391794b7
 
 
 ---
@@ -92,7 +92,6 @@ I det här steget länkar du ditt Azure Storage-konto till din datafabrik. I de 
     ![Knappen Distribuera](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
    När den länkade tjänsten har distribuerats, bör fönstret **Draft-1** försvinna och du ser **AzureStorageLinkedService** i trädvyn till vänster.
-
     ![Länkad lagringstjänst i menyn](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Skapa en Azure HDInsight-länkad tjänst
@@ -103,20 +102,18 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
     ![Ny beräkning](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 2. Kopiera och klistra in följande kodfragment till fönstret **Draft-1**. JSON-kodfragmentet beskriver de egenskaper som används för att skapa HDInsight-klustret på begäran.
 
-    ```JSON
-    {
-      "name": "HDInsightOnDemandLinkedService",
-      "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-          "version": "3.2",
-          "clusterSize": 1,
-          "timeToLive": "00:30:00",
-          "linkedServiceName": "AzureStorageLinkedService"
+        {
+          "name": "HDInsightOnDemandLinkedService",
+          "properties": {
+            "type": "HDInsightOnDemand",
+            "typeProperties": {
+              "version": "3.2",
+              "clusterSize": 1,
+              "timeToLive": "00:30:00",
+              "linkedServiceName": "AzureStorageLinkedService"
+            }
+          }
         }
-      }
-    }
-    ```
 
     Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
@@ -152,29 +149,28 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
     ![Ny datauppsättning](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 2. Kopiera och klistra in följande kodfragment till fönstret Draft-1. I JSON-kodfragmentet skapar du en datauppsättning med namnet **AzureBlobInput** som representerar indata för en aktivitet i pipelinen. Dessutom kan du ange att indata finns i blobbehållaren **adfgetstarted** och i mappen **inputdata**.
 
-    ```JSON
-    {
-        "name": "AzureBlobInput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "fileName": "input.log",
-                "folderPath": "adfgetstarted/inputdata",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Month",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {}
+        {
+            "name": "AzureBlobInput",
+            "properties": {
+                "type": "AzureBlob",
+                "linkedServiceName": "AzureStorageLinkedService",
+                "typeProperties": {
+                    "fileName": "input.log",
+                    "folderPath": "adfgetstarted/inputdata",
+                    "format": {
+                        "type": "TextFormat",
+                        "columnDelimiter": ","
+                    }
+                },
+                "availability": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
+                "external": true,
+                "policy": {}
+            }
         }
-    }
-    ```
+
     Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
    | Egenskap | Beskrivning |
@@ -194,26 +190,25 @@ Nu skapar du den utdatauppsättning som representerar de utdata som lagras i Azu
 1. I **Data Factory-redigeraren**, klicka på **... Fler** på kommandofältet klickar du på **Ny datamängd** och välj **Azure Blob-lagring**.  
 2. Kopiera och klistra in följande kodfragment till fönstret Draft-1. I JSON-kodfragmentet skapar du en datauppsättning som kallas **AzureBlobOutput** och anger strukturen för de data som produceras av Hive-skriptet. Dessutom kan du ange att resultaten lagras i blobbehållaren **adfgetstarted** och i mappen **partitioneddata**. I avsnittet **tillgänglighet** anges att utdatauppsättningen skapas månadsvis.
 
-    ```JSON
-    {
-      "name": "AzureBlobOutput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "AzureStorageLinkedService",
-        "typeProperties": {
-          "folderPath": "adfgetstarted/partitioneddata",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ","
+        {
+          "name": "AzureBlobOutput",
+          "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService",
+            "typeProperties": {
+              "folderPath": "adfgetstarted/partitioneddata",
+              "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+              }
+            },
+            "availability": {
+              "frequency": "Month",
+              "interval": 1
+            }
           }
-        },
-        "availability": {
-          "frequency": "Month",
-          "interval": 1
         }
-      }
-    }
-    ```
+
     Se **Skapa datauppsättning för indata** för beskrivningar av dessa egenskaper. Du anger inte den externa egenskapen för en utdatauppsättning, eftersom datauppsättningen produceras av Data Factory-tjänsten.
 3. Klicka på **Distribuera** i kommandofältet för att distribuera den nyskapade datauppsättningen.
 4. Kontrollera att datauppsättningen har skapats.
@@ -233,50 +228,48 @@ I det här steget ska du skapa din första pipeline med en **HDInsightHive**-akt
    >
    >
 
-    ```JSON
-    {
-        "name": "MyFirstPipeline",
-        "properties": {
-            "description": "My first Azure Data Factory pipeline",
-            "activities": [
-                {
-                    "type": "HDInsightHive",
-                    "typeProperties": {
-                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                        "scriptLinkedService": "AzureStorageLinkedService",
-                        "defines": {
-                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "AzureBlobInput"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutput"
-                        }
-                    ],
-                    "policy": {
-                        "concurrency": 1,
-                        "retry": 3
-                    },
-                    "scheduler": {
-                        "frequency": "Month",
-                        "interval": 1
-                    },
-                    "name": "RunSampleHiveActivity",
-                    "linkedServiceName": "HDInsightOnDemandLinkedService"
-                }
-            ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
-            "isPaused": false
+        {
+            "name": "MyFirstPipeline",
+            "properties": {
+                "description": "My first Azure Data Factory pipeline",
+                "activities": [
+                    {
+                        "type": "HDInsightHive",
+                        "typeProperties": {
+                            "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                            "scriptLinkedService": "AzureStorageLinkedService",
+                            "defines": {
+                                "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                                "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                            }
+                        },
+                        "inputs": [
+                            {
+                                "name": "AzureBlobInput"
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "AzureBlobOutput"
+                            }
+                        ],
+                        "policy": {
+                            "concurrency": 1,
+                            "retry": 3
+                        },
+                        "scheduler": {
+                            "frequency": "Month",
+                            "interval": 1
+                        },
+                        "name": "RunSampleHiveActivity",
+                        "linkedServiceName": "HDInsightOnDemandLinkedService"
+                    }
+                ],
+                "start": "2016-04-01T00:00:00Z",
+                "end": "2016-04-02T00:00:00Z",
+                "isPaused": false
+            }
         }
-    }
-    ```
 
     I JSON-kodfragmentet skapar du en pipeline med en enda aktivitet, som använder Hive till att bearbeta data i ett HDInsight-kluster.
 
@@ -363,8 +356,7 @@ Du kan också använda övervaknings- och hanteringsprogrammet till att övervak
 
     ![Appen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 3. Välj ett aktivitetsfönster i listan **Aktivitetsfönster** om du vill se information om det.
-
-    ![Information om aktivitetsfönstret](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
+    ![Aktivitetsfönsterinformation](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
 ## <a name="summary"></a>Sammanfattning
 I den här självstudien skapade du en Azure-datafabrik som bearbetar data genom att köra ett Hive-skript i ett Hadoop-kluster i HDInsight. Du utförde följande steg med hjälp av Data Factory-redigeraren i Azure Portal:  
@@ -390,6 +382,6 @@ I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (H
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

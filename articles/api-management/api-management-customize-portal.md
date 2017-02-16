@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
 ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
@@ -107,6 +107,6 @@ Klicka på **välkomstsidan** om du vill ändra vad som visas på utvecklarporta
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

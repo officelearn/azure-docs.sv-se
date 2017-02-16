@@ -20,7 +20,7 @@ ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 
 
 ---
-# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Lägga till nya användare eller användare med Microsoft-konton i Azure Active Directory
+# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Lägga till nya användare eller användare med Microsoft-konton i Azure Active Directory
 Lägg till användare i din katalog. Den här artikeln förklarar hur du lägger till nya användare i din organisation och hur du lägger till användare som har Microsoft-konton. Mer information om hur du lägger till användare från andra kataloger i Azure Active Directory eller hur du lägger till användare från partnerföretag finns i [Lägga till användare från andra kataloger eller partnerföretag i Azure Active Directory](active-directory-create-users-external.md). Tillagda användare har inte administratörsbehörighet som standard, men du kan tilldela roller till dem när som helst.
 
 ## <a name="add-a-user"></a>Lägga till en användare

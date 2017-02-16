@@ -1,10 +1,10 @@
 1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com) och klicka sedan på **+NY** längst ner på skärmen.
 2. Klicka på **Apptjänster**, **Mobile Engagement** och sedan på **Skapa**.
    
-    ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
+       ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
 3. I popup-fönstret som visas anger du följande information:
    
-    ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
+       ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
    
    * **Programnamn**: namnet på ditt program. 
    * **Plattform**: målplattform för appen. Du måste skapa en Mobile Engagement-app per plattform som din mobila app riktar sig till. 
@@ -16,8 +16,10 @@
 5. Klicka på **ANSLUTNINGSINFORMATION** för att visa anslutningsinställningarna som du lägger till i din SDK-integrering i din mobilapp.
 6. Kopiera **ANSLUTNINGSSTRÄNGEN**. Det här är vad du behöver för att identifiera appen i din programkod och ansluta med Mobile Engagement från din app.
    
-    ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
+       ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -146,6 +146,6 @@ SQL Database har stöd för flera vyer för dynamisk hantering som du kan använ
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

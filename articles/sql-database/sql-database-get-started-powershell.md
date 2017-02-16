@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 62f29382a2b29c7e5b06126b0ab60c7136186103
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: e3a9ba798639a9939d8c3d5330b21715ac4be53d
 
 
 ---
@@ -566,7 +566,7 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har slutfört den här första ”komma igång”-självstudiekursen och skapat en databas med exempeldata finns det ett antal andra självstudier som du kanske vill utforska och som bygger vidare på det som du har lärt dig i den här kursen. 
 
-* Om du vill lära dig mer om säkerheten i Azure SQL Database läser du [Komma igång med säkerhet](sql-database-get-started-security.md).
+* Om du vill lära dig mer om säkerheten i Azure SQL Database läser du [Komma igång med säkerhet](sql-database-control-access-sql-authentication-get-started.md).
 * Om du kan Excel, lär du dig hur man [Ansluter till en SQL Database i Azure med Excel](sql-database-connect-excel.md).
 * Om du är redo att börja koda, väljer du programmeringsspråk på [Anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md).
 * Om du vill flytta dina lokala SQL Server-databaser till Azure läser du [Migrera en databas till SQL Database](sql-database-cloud-migrate.md).
@@ -577,6 +577,7 @@ Nu när du har slutfört den här första ”komma igång”-självstudiekursen 
 [Vad är SQL Database?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Jan17_HO3-->
 
 

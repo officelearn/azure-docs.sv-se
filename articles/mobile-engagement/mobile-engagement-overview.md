@@ -41,7 +41,7 @@ Det här är goda nyheter för apputvecklare som vill nå sina kunder på ett ef
 ## <a name="open-apis-and-ease-of-integration"></a>Öppna API:er och enkel integrering
 Genom att tillhandahålla öppna API:er och SDK:er som förenklar integreringen kan du använda informationen från dina befintliga CRM-, CMS- eller andra serverdelssystem. På så sätt kan du förfina dina målgrupper ytterligare och skydda dina investeringar.
 
-## <a name="data-protection-privacy-across-the-globe"></a>Globalt dataskydd och sekretess
+## <a name="data-protection--privacy-across-the-globe"></a>Globalt dataskydd och sekretess
 Microsoft bedriver ett långsiktigt sekretessarbete eftersom integritet utgör en viktig beståndsdel av våra produkter och tjänster under hela livscykeln. Vi strävar efter att vara transparenta i vårt sekretessarbete, erbjuda kunderna meningsfulla sekretessalternativ och att hantera de data vi lagrar på ett ansvarsfullt sätt. Mobile Engagement följer samma principer som alla andra Azure-tjänster – vi varken delar eller säljer information som härrör från kundernas egendom. Mobile Engagement är tillgängligt globalt, men respekterar självklart regionala och landsspecifika datasekretesslagar.
 
 ### <a name="next-steps"></a>Nästa steg:

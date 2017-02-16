@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du skapar och underhåller behållarregister för att lagra dina distributionsavbildningar med en hanterad Docker registry-tjänst. Självstudier, API-referens och mycket annat."
 translationtype: Human Translation
-ms.sourcegitcommit: 42be91bb4ddf87671ed9c3c5b2e5e640b0c5b059
-ms.openlocfilehash: fe9ee140084f0ab659e9db519098bbeb03305470
+ms.sourcegitcommit: ab80e1ef9771caa4369863c0aff1cee2c3055830
+ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
 
 ---
 
 # <a name="azure-container-registry-documentation"></a>Azure Container Registry-dokumentation
 
-Azure Container Registry (förhandsvisning) är ett privat register för behållaravbildningar. Med hjälp av Azure Container Registry, kan du lagra Docker-formaterade avbildningar för alla typer av behållardistributioner. Azure Container Registry integrerar väl med orchestrators som ligger i Azure Container Service, inklusive Docker Swarm, DC/OS och Kubernetes. 
+Lär dig hur du använder Container Registry för att lagra och hantera avbildningar av alla typer av behållardistributioner. Självstudier, REST-API-referenser och annan dokumentation visar hur du skapar och underhåller behållarregister med denna hanterade Docker registry-tjänst.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -67,41 +68,38 @@ Azure Container Registry (förhandsvisning) är ett privat register för behåll
     </li>
 </ul>
 
-## <a name="reference"></a>Referens
-
+---
+ 
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/acr">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>CLI</h3>
-                        <p>CLI-referens</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/cli/azure/acr">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/containerregistry">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referens för REST API</p>
-                    </div>
+                        <p><a href="/rest/api/containerregistry">REST-API</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

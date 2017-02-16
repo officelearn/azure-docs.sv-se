@@ -14,6 +14,6 @@ Du kan visa och konfigurera ditt cache från bladet **Redis-Cache**.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

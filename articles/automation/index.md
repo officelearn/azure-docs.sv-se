@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Automation för att automatisera processer och konfigurationshantering, för att spara tid och öka tillförlitligheten i vanliga administrativa uppgifter."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c9444c341bc5746c96719e6ebfa464f294adf2f8
+ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
+ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
 
 ---
 # <a name="automation-documentation"></a>Dokumentation om Automation
 
-Azure Automation gör det möjligt för användare att automatisera manuella, tidskrävande, felbenägna och ofta återkommande uppgifter som är vanliga i molnmiljöer. Det sparar tid och ökar tillförlitligheten i vanliga administrativa uppgifter och schemalägger dem även så att de kan utföras automatiskt med jämna mellanrum.
+Lär dig hur du använder Automation för att spara tid och öka tillförlitligheten i vanliga administrativa uppgifter som utförs i en molnmiljö. Självstudier, API-referenser och annan dokumentation visar hur du kan automatisera processer med hjälp av runbooks eller automatisera konfigurationshantering med Desired State Configuration.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -175,6 +176,6 @@ Hämta dokumentation om Automation </div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

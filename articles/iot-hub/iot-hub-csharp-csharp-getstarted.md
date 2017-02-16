@@ -270,6 +270,6 @@ Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

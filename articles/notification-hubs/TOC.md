@@ -27,7 +27,7 @@
 #### [Registrera den aktuella användaren med ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Skicka meddelanden mellan olika plattformar](notification-hubs-aspnet-cross-platform-notification.md)
 ### Arbeta med server-SDK:er
-#### [NET](https://msdn.microsoft.com/library/mt414893.aspx)
+#### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
 #### [Node.js](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)
@@ -59,9 +59,9 @@
 ### [Riktlinjer för diagnoser](notification-hubs-push-notification-fixer.md)
 
 # Referens
-## [PowerShell-cmdletar](/powershell/resourcemanager/)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/notificationhubs/)
+## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
+## [REST](/rest/api/notificationhubs)
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/notification-hubs/)
@@ -71,6 +71,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

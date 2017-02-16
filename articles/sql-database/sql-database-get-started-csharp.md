@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 7ffc593ee262f55a3fff6a2cd9cf62c691722478
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
 
 
 ---
@@ -51,9 +51,9 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 Skapa en SQL-databas med C# genom att läsa in nödvändiga hanteringsbibliotek (med hjälp av [Package Manager-konsolen](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Klicka på **Verktyg** > **NuGet Package Manager** > **Package Manager Console**.
-2. Skriv in `Install-Package Microsoft.Azure.Management.Sql –Pre` för att installera det senaste [Microsoft Azure SQL Management-biblioteket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-3. Installera [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) genom att skriva `Install-Package Microsoft.Azure.Management.ResourceManager –Pre`.
-4. Installera [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication) genom att skriva `Install-Package Microsoft.Azure.Common.Authentication –Pre`. 
+2. Skriv in `Install-Package Microsoft.Azure.Management.Sql -Pre` för att installera det senaste [Microsoft Azure SQL Management-biblioteket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Installera [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) genom att skriva `Install-Package Microsoft.Azure.Management.ResourceManager -Pre`.
+4. Installera [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication) genom att skriva `Install-Package Microsoft.Azure.Common.Authentication -Pre`. 
 
 > [!NOTE]
 > Exemplen i den här artikeln använder en synkron form av varje API-begäran och blockerar tills REST-anropet på den underliggande tjänsten har slutförts. Det finns asynkrona metoder tillgängliga.
@@ -287,6 +287,6 @@ När du nu har testat SQL Database och ställt in en databas med C#, är du redo
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

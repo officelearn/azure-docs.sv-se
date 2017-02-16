@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du distribuerar omfattande konsumentidentitetshantering i molnet. Dokumentationen visar hur du skyddar konsumentinriktade webb- och mobilappar."
 translationtype: Human Translation
-ms.sourcegitcommit: 3cee8c74ed77a27c8a2006dcd28729f9c077aea9
-ms.openlocfilehash: 330f2c0efed16ae587c6f069d3feae1bb80f3097
+ms.sourcegitcommit: e3ffd8f83b4ad25d28f6d0afd82efc6150d98fa2
+ms.openlocfilehash: c5f925446b5e2cc7ea8739e22e9d093428700483
 
 ---
 
 #<a name="active-directory-b2c-documentation"></a>Dokumentation om Active Directory B2C
 
-Azure Active Directory B2C är en heltäckande lösning för identitetshantering i molnet för konsumentinriktade webb- och mobilprogram. Det är en global tjänst med hög tillgänglighet som kan skalas till flera hundra miljoner konsumentidentiteter. Azure Active Directory B2C bygger på en säker plattform i företagsklass och ser till att dina program, ditt företag och dina användare är skyddade.
+Lär dig att konfigurera och hantera omfattande konsumentidentitetshantering i molnet med Active Directory B2C. Självstudiekurser, referenser och annan dokumentation visar hur du skyddar konsumentinriktade webb- och mobilappar med säker inloggning.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -187,6 +188,6 @@ Ladda ned dokumentation om Active Directory B2C </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 12/16/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a5abaa698de2978e676153832d252cf2bc43e72b
-ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d31fdad17c74ffd7ef5e411555c5a5fdb8c7927c
 
 
 ---
@@ -30,11 +30,24 @@ ms.openlocfilehash: cfd2f49a3452e4ad5132f55d269452e436bcecc5
 > 
 > 
 
-I den här självstudien om Node.js beskrivs hur Azure DocumentDB kan användas för lagring av och åtkomst till data från ett Node.js Express-program på Azure Websites. Du bygger ett enkelt webbaserat aktivitetshanteringsprogram, en ToDo-app, där du kan skapa, hämta och slutföra aktiviteter. Aktiviteterna lagras som JSON-dokument i Azure DocumentDB. Den här självstudien vägleder dig genom skapandet och distributionen av appen och förklarar vad som händer i varje kodfragment.
+I den här självstudien om Node.js beskrivs hur Azure DocumentDB-tjänsten kan användas för lagring av och åtkomst till data från ett Node.ja Express-program på Azure Websites.
+
+Vi rekommenderar att du börjar med att titta på nedanstående video, där du får lära dig etablera ett Azure DocumentDB-databaskonto och lagra JSON-dokument i ditt Node.js-program. 
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-Getting-started-with-Azure-DocumentDB-on-Nodejs-in-Linux/player]
+> 
+> 
+
+Återvänd sedan till den här självstudien om Node.js, där du får svar på följande frågor:
+
+* Hur arbetar jag med DocumentDB via documentdb npm-modulen?
+* Hur distribuerar jag webbappen till Azure Websites?
+
+Genom att följa stegen i den här självstudien om databaser kommer du att skapa ett enkelt webbaserat aktivitetshanteringsprogram där du kan skapa, hämta och slutföra aktiviteter. Aktiviteterna lagras som JSON-dokument i Azure DocumentDB.
 
 ![Skärmdump av programmet My Todo List som skapas genom stegen i den här självstudien om Node.js](./media/documentdb-nodejs-application/image1.png)
 
-Har du inte tid att gå igenom självstudien, men vill ha hela lösningen? Inga problem, du kan hämta den fullständiga exempellösningen från [GitHub][GitHub]. Läs bara [Viktigt](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md)-filen för instruktioner om hur du kör appen.
+Har du inte tid att gå igenom självstudien, men vill ha hela lösningen? Inga problem, du kan hämta den fullständiga exempellösningen från [GitHub][GitHub].
 
 ## <a name="a-nametoc395783176aprerequisites"></a><a name="_Toc395783176"></a>Förhandskrav
 > [!TIP]
@@ -44,7 +57,7 @@ Har du inte tid att gå igenom självstudien, men vill ha hela lösningen? Inga 
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande:
 
-* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/)
 
    ELLER
 
@@ -63,23 +76,20 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto eller om du
 ## <a name="a-nametoc395783178astep-2-learn-to-create-a-new-nodejs-application"></a><a name="_Toc395783178"></a>Steg 2: Läs hur man skapar ett nytt Node.js-program
 Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med [Express](http://expressjs.com/)-ramverket.
 
-1. Öppna din favoritterminal, till exempel Node.js-kommandotolken.
-2. Navigera till den katalog där du vill lagra det nya programmet.
-3. Skapa ett nytt program kallat **todo** med hjälp av Express Generator.
+1. Öppna valfri terminal.
+2. Skapa ett nytt program kallat **todo** med hjälp av Express Generator.
    
         express todo
-4. Öppna din nya **todo**-katalog och installera beroenden.
+3. Öppna din nya **todo**-katalog och installera beroenden.
    
         cd todo
         npm install
-5. Kör det nya programmet.
+4. Kör det nya programmet.
    
         npm start
-6. Du kan visa det nya programmet genom att öppna [http://localhost:3000](http://localhost:3000) i webbläsaren.
+5. Du kan visa det nya programmet genom att öppna [http://localhost:3000](http://localhost:3000) i webbläsaren.
    
     ![Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster](./media/documentdb-nodejs-application/image12.png)
-
-    Därefter, för att stoppa programmet, trycker du på CTRL+C i terminalfönstret och klickar sedan på **y** för att avbryta batch-jobbet.
 
 ## <a name="a-nametoc395783179astep-3-install-additional-modules"></a><a name="_Toc395783179"></a>Steg 3: Installera ytterligare moduler
 Filen **package.json** är en av filerna som skapas i projektets rot. Den här filen innehåller en lista över ytterligare moduler som krävs för Node.js-programmet. Senare, när du distribuerar programmet till Azure Websites, används den här filen för att avgöra vilka moduler som behöver installeras på Azure som stöd för ditt program. Vi behöver installera två paket till för den här självstudien.
@@ -92,25 +102,7 @@ Filen **package.json** är en av filerna som skapas i projektets rot. Den här f
         npm install documentdb --save
 3. En snabb kontroll av filen **package.json** i appen bör visa ytterligare moduler. Den här filen talar om för Azure vilka paket som ska laddas ned och installeras när du kör programmet. Det bör likna exemplet nedan.
    
-        {
-          "name": "todo",
-          "version": "0.0.0",
-          "private": true,
-          "scripts": {
-            "start": "node ./bin/www"
-          },
-          "dependencies": {
-            "async": "^2.1.4",
-            "body-parser": "~1.15.2",
-            "cookie-parser": "~1.4.3",
-            "debug": "~2.2.0",
-            "documentdb": "^1.10.0",
-            "express": "~4.14.0",
-            "jade": "~1.11.0",
-            "morgan": "~1.7.0",
-            "serve-favicon": "~2.3.0"
-          }
-        }
+    ![Skärmdump av fliken package.json](./media/documentdb-nodejs-application/image17.png)
    
     Det här visar för Node (och senare Azure) att ditt program är beroende av de här ytterligare modulerna.
 
@@ -118,7 +110,7 @@ Filen **package.json** är en av filerna som skapas i projektets rot. Den här f
 När vi har slutfört den första installationen och konfigurationen är det dags att ta itu med vårt verkliga syfte: att skriva kod med Azure DocumentDB.
 
 ### <a name="create-the-model"></a>Skapa modellen
-1. Skapa en ny katalog i projektkatalogen med namnet **models**, i samma katalog som package.json-filen.
+1. Skapa en ny katalog med namnet **models** i projektkatalogen.
 2. I katalogen **models** skapar du en ny fil med namnet **taskDao.js**. Den här filen innehåller modellen för de aktiviteter som skapats av vårt program.
 3. I samma **models**-katalog skapar du ytterligare en ny fil med namnet **docdbUtils.js**. Den här filen innehåller användbar och återanvändbar kod som vi ska använda i programmet. 
 4. Kopiera följande kod till **docdbUtils.js**
@@ -395,7 +387,7 @@ När vi har slutfört den första installationen och konfigurationen är det dag
         config.collectionId = "Items";
    
         module.exports = config;
-3. I filen **config.js** uppdaterar du värdet för HOST och AUTH_KEY med de värden som finns i bladet Nycklar i ditt DocumentDB-konto på [Microsoft Azure Portal](https://portal.azure.com).
+3. I filen **config.js** uppdaterar du värdet för HOST och AUTH_KEY med de värden som finns i bladet Nycklar i ditt DocumentDB-konto på [Microsoft Azure Portal](https://portal.azure.com):
 4. Spara och stäng filen **config.js**.
 
 ### <a name="modify-appjs"></a>Ändra app.js
@@ -409,7 +401,7 @@ När vi har slutfört den första installationen och konfigurationen är det dag
 3. Den här koden definierar vilken konfigurationsfil som ska användas och läser sedan värden från denna fil till några variabler som vi snart ska använda.
 4. Ersätt följande två rader i filen **app.js**:
    
-        app.use('/', index);
+        app.use('/', routes);
         app.use('/users', users); 
    
       med följande utdrag:
@@ -436,59 +428,60 @@ Nu är det dags att skapa användargränssnittet, så att användaren faktiskt k
    
         doctype html
         html
-           head
-             title= title
-             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-             link(rel='stylesheet', href='/stylesheets/style.css')
-           body
-             nav.navbar.navbar-inverse.navbar-fixed-top
-               div.navbar-header
-                 a.navbar-brand(href='#') My Tasks
-             block content
-             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+          head
+            title= title
+            link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+            link(rel='stylesheet', href='/stylesheets/style.css')
+          body
+            nav.navbar.navbar-inverse.navbar-fixed-top
+              div.navbar-header
+                a.navbar-brand(href='#') My Tasks
+            block content
+            script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+            script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
 
     Det säger åt **Jade**-motorn att rendera en del HTML för vårt program och skapar ett **block** kallat **content** där vi kan tillhandahålla layout för våra innehållssidor.
     Spara och stäng filen **layout.jade**.
 
-3. Öppna nu filen **index.jade**, den vy som ska användas av vårt program, och ersätt innehållet i filen med följande:
+1. Öppna nu filen **index.jade**, den vy som ska användas av vårt program, och ersätt innehållet i filen med följande:
    
         extends layout
+   
         block content
-           h1 #{title}
-           br
-        
-           form(action="/completetask", method="post")
-             table.table.table-striped.table-bordered
-               tr
-                 td Name
-                 td Category
-                 td Date
-                 td Complete
-               if (typeof tasks === "undefined")
-                 tr
-                   td
-               else
-                 each task in tasks
-                   tr
-                     td #{task.name}
-                     td #{task.category}
-                     - var date  = new Date(task.date);
-                     - var day   = date.getDate();
-                     - var month = date.getMonth() + 1;
-                     - var year  = date.getFullYear();
-                     td #{month + "/" + day + "/" + year}
-                     td
-                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn(type="submit") Update tasks
-           hr
-           form.well(action="/addtask", method="post")
-             label Item Name:
-             input(name="name", type="textbox")
-             label Item Category:
-             input(name="category", type="textbox")
-             br
-             button.btn(type="submit") Add item
+          h1 #{title}
+          br
+   
+          form(action="/completetask", method="post")
+            table.table.table-striped.table-bordered
+              tr
+                td Name
+                td Category
+                td Date
+                td Complete
+              if (typeof tasks === "undefined")
+                tr
+                  td
+              else
+                each task in tasks
+                  tr
+                    td #{task.name}
+                    td #{task.category}
+                    - var date  = new Date(task.date);
+                    - var day   = date.getDate();
+                    - var month = date.getMonth() + 1;
+                    - var year  = date.getFullYear();
+                    td #{month + "/" + day + "/" + year}
+                    td
+                      input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+            button.btn(type="submit") Update tasks
+          hr
+          form.well(action="/addtask", method="post")
+            label Item Name:
+            input(name="name", type="textbox")
+            label Item Category:
+            input(name="category", type="textbox")
+            br
+            button.btn(type="submit") Add item
    
     Det utökar layouten och ger innehåll för platshållaren **content** som vi såg i filen **layout.jade**.
    
@@ -497,7 +490,7 @@ Nu är det dags att skapa användargränssnittet, så att användaren faktiskt k
     Det andra formuläret innehåller två inmatningsfält och en knapp som gör att vi kan skapa ett nytt objekt genom att publicera till metoden **/addtask** i styrningen.
    
     Det här ska vara allt som behövs för att appen ska fungera.
-4. Öppna filen **style.css** i katalogen **public\stylesheets** och ersätt koden med följande:
+2. Öppna filen **style.css** i katalogen **public\stylesheets** och ersätt koden med följande:
    
         body {
           padding: 50px;
@@ -520,20 +513,14 @@ Nu är det dags att skapa användargränssnittet, så att användaren faktiskt k
     Spara och stäng filen **style.css**.
 
 ## <a name="a-nametoc395783181astep-6-run-your-application-locally"></a><a name="_Toc395783181"></a>Steg 6: Kör ditt program lokalt
-1. Om du vill testa programmet på din lokala dator kör du `npm start` i terminalen för att starta programmet, uppdatera därefter din [http://localhost:3000](http://localhost:3000)-webbläsarsida. Sidan ska nu se ut som på bilden nedan:
+1. Testa programmet på din lokala dator genom att köra `npm start` i en terminal för att starta programmet och starta en webbläsare med en sida som ser ut som på bilden nedan:
    
     ![Skärmdump av programmet MyTodo List i ett webbläsarfönster](./media/documentdb-nodejs-application/image18.png)
-
-    > [!TIP]
-    > Om du får ett felmeddelande om indraget i layout.jade-filen eller index.jade-filen, säkerställ att de två första raderna i båda filerna är vänsterjusterade, utan blanksteg. Om det finns blanksteg före de två första raderna, ta bort dem, spara filerna och uppdatera sedan webbläsarfönstret. 
-
-2. Använd fälten Objekt, Objektnamn och Kategori och klicka sedan på **Lägg till objekt**. Detta skapar ett dokument i DocumentDB med dessa egenskaper. 
+2. Ange information i fälten Objekt, Objektnamn och Kategori och klicka sedan på **Lägg till objekt**.
 3. Sidan bör uppdateras och visa det nya objektet i ToDo-listan.
    
     ![Skärmdump av programmet med ett nytt objekt i ToDo-listan](./media/documentdb-nodejs-application/image19.png)
-4. Du slutför en aktivitet genom att markera kryssrutan i kolumnen Complete och sedan klicka på **Update tasks**. Detta uppdaterar det dokument som du redan har skapat.
-
-5. För att stoppa programmet trycker du på CTRL+C i terminalfönstret och klickar sedan på **Y** för att avbryta batch-jobbet.
+4. Du slutför en aktivitet genom att markera kryssrutan i kolumnen Complete och sedan klicka på **Update tasks**.
 
 ## <a name="a-nametoc395783182astep-7-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>Steg 7: Distribuera ditt programutvecklingsprojekt till Azure Websites
 1. Om du inte redan gjort det aktiverar du en git-databas för Azure-webbplatsen. Information om hur du gör det finns i artikeln [Lokal Git-distribuering på Azure App Service](../app-service-web/app-service-deploy-local-git.md).
@@ -545,16 +532,12 @@ Nu är det dags att skapa användargränssnittet, så att användaren faktiskt k
         git push azure master
 4. Efter några sekunder har git publicerat din webbapp och öppnar en webbläsare där du kan se ditt arbete köras i Azure!
 
-    Grattis! Du har precis skapat din första Node.js Express-webbapp med Azure DocumentDB och publicerat den på Azure Websites.
-
-    Om du vill hämta eller referera till det färdiga referensprogrammet för den här självstudien kan det hämtas från [GitHub][GitHub].
-
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Nästa steg
+Grattis! Du har precis skapat din första Node.js Express-webbapp med Azure DocumentDB och publicerat den på Azure Websites.
 
-* Vill du utföra skalnings- och prestandatester med DocumentDB? Se [Prestanda- och skalningstester med Azure DocumentDB](documentdb-performance-testing.md)
-* Mer information om hur du [övervakar ett DocumentDB-konto](documentdb-monitor-accounts.md).
-* Kör frågor mot vår exempeldatauppsättning i [Query Playground](https://www.documentdb.com/sql/demo).
-* Utforska [Dokumentation om DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/).
+Du kan ladda ned källkoden till det fullständiga referensprogrammet från [GitHub][GitHub].
+
+Mer information finns i [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
@@ -563,6 +546,6 @@ Nu är det dags att skapa användargränssnittet, så att användaren faktiskt k
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

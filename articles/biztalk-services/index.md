@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder BizTalk Services för moln-till-lokal integrering och affärsapplikationer för SAP, Oracle EBS, SQL Server och PeopleSoft."
 translationtype: Human Translation
-ms.sourcegitcommit: 329bf8f57270c901d54f27a2159287e08e4c355a
-ms.openlocfilehash: dfde406339068f9261fccb87039d18a0dfdedeff
+ms.sourcegitcommit: 74eb1a0a0f532ffe23fdfac0d8b25ee9434175a1
+ms.openlocfilehash: 754a932b8d98bbae8f7e24daab073cbec1d4d16e
 
 ---
 # <a name="biztalk-services-documentation"></a>Dokumentation om BizTalk Services
 
-Med BizTalk Services får du moln-till-lokal integrering och affärsapplikationer för SAP, Oracle EBS, SQL Server och PeopleSoft. Du kan ansluta till alla HTTP-, FTP-, SFTP- och REST-datakällor. Du kan dirigera meddelanden via olika Azure-artefakter som Service Bus-köer, ämnen, SQL Database och Azure Blob-lagring.   
+Lär dig hur du använder BizTalk Services för moln-till-lokal integrering och affärsapplikationer för SAP, Oracle EBS, SQL Server och PeopleSoft. Självstudier och annan dokumentation visar hur du integrerar företaget och molnet.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -77,6 +78,7 @@ Hämta dokumentation om BizTalk Services </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

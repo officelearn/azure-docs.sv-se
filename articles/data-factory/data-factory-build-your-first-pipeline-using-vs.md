@@ -523,6 +523,6 @@ I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (H
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cab2edc0d065dc8d5ac20ed41ccd0eed7a664895
-ms.openlocfilehash: 8d0730d50330b9093734adb1c503dd975606b7c3
+ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
+ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
 
 
 ---
@@ -57,6 +57,15 @@ Denna kommunikationsmekanism har flera fördelar jämfört med funktioner för d
   ![][2]
 
 I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
+
+## <a name="set-up-the-development-environment"></a>Konfigurera utvecklingsmiljön
+Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som krävs och ställa in din utvecklingsmiljö.
+
+1. Installera Azure SDK för .NET på [Hämta verktyg och SDK](https://azure.microsoft.com/downloads/).
+2. I kolumnen **.NET** klickar du på den version av Visual Studio som du använder. Stegen i den här självstudiekursen använder Visual Studio 2015.
+3. När du uppmanas att köra eller spara installationsprogrammet, klickar du på **Kör**.
+4. I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
+5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt. Om du inte har Visual Studio installerat på din dator kommer SDK även att installera den kostnadsfria versionen Visual Studio Express.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
 Nästa steg är att skapa ett namnområde för tjänsten och få en nyckel till signatur för delad åtkomst (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnområdet och SAS-nyckeln ger referensen för Service Bus som används för att tillåta åtkomst till ett program.

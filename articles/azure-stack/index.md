@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du använder Azure Stack förhandsversion för att leverera Azure-tjänster från ditt datacenter. Lär dig och demonstrera funktioner från en proof of concept-miljö."
 translationtype: Human Translation
-ms.sourcegitcommit: cc7cf80b26a0bdc79448fc87d2d8b6fff1931d49
-ms.openlocfilehash: eb675cc7a401583cf0f2dc0605a16d5dda8b306f
+ms.sourcegitcommit: c93027a575b2f9d6507448f9f68011723b165bf3
+ms.openlocfilehash: c964ed3b3fe8b3af31c50f0aacb2ef1c0a8aad74
 
 ---
 #<a name="azure-stack-documentation"></a>Azure Stack-dokumentation
 
-Microsoft Azure Stack är en ny plattformsprodukt för hybridmoln som gör att du kan leverera Azure-tjänster från organisationens datacenter. Microsoft Azure Stack Technical Preview 2 görs tillgängligt via Proof of Concept (POC). POC är en miljö för utbildning och demonstration av Azure Stack-funktioner. Den låter dig distribuera alla nödvändiga komponenter på en enskild fysisk dator för att skapa en miljö för utvärdering av viktiga begrepp och funktioner och att validera utökningsmodellen för API:er.
+Lär dig hur du använder Azure Stack teknisk förhandsversion för att leverera Azure-tjänster från din organisations datacenter. Självstudier och annan dokumentation visar hur du använder proof of concept-miljön för att lära dig och demonstrera Azure Stack-funktioner.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +97,6 @@ Ladda ned Azure Stack-dokumentation </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

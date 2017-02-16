@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/06/2017
+ms.date: 01/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 6949e07622f229616f950a9aed07c7b58a5b63fc
-ms.openlocfilehash: 9de26e09cb41ef415d0535db35d7d5d0cd8784a5
+ms.sourcegitcommit: 8ff9c07fbc6e3d2a44414b485bd0f32b68b5d494
+ms.openlocfilehash: 127303bce70801ab93992273fd8f86d6f3c41605
 
 
 ---
@@ -132,7 +132,6 @@ Om du vill ge ytterligare användare fullständig behörighet till databasen, g�
 
 > [!NOTE]
 > Den vanligaste anledningen till att skapa databasanvändare baserat på inloggningar är när du har SQL Server-autentiserade användare som behöver åtkomst till flera databaser. Användare baserade på inloggningar är knutna till inloggningen och endast ett lösenord för att logga in. Oberoende databasanvändare i individuella databaser är var och en individuella enheter och var och en underhåller ett eget lösenord. Detta kan förvirra oberoende databasanvändare om de inte upprätthåller sina lösenord som identiska.
- 
 
 ### <a name="configuring-the-database-level-firewall"></a>Konfigurera brandvägg på databasnivå
 Bästa praxis är att icke-administratörer bara har åtkomst genom brandväggen till de databaser som de använder. Istället för att auktorisera deras IP-adresser genom brandväggen på servernivå och ge dem åtkomst till alla databaser, använd instruktionen [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) för att konfigurera brandväggen på databasnivå. Brandväggen på databasnivå kan inte konfigureras via portalen.
@@ -158,9 +157,10 @@ Det finns över 100 behörigheter som individuellt kan beviljas eller nekas i SQ
 ### <a name="considerations-and-restrictions"></a>Överväganden och begränsningar
 När du hanterar inloggningar och användare i SQL Database, bör du överväga följande:
 
-* Du måste vara ansluten till **huvud**databasen när du kör uttrycket `CREATE/ALTER/DROP DATABASE`. Databasanvändaren i huvuddatabasen som motsvarar inloggningen **Serveradministratör** kan inte ändras eller tas bort. 
+* Du måste vara ansluten till **huvud**databasen när du kör uttrycket `CREATE/ALTER/DROP DATABASE`.   
+* Databasanvändaren som motsvarar inloggningen som **serveradministratör** kan inte ändras eller tas bort. 
 * Amerikansk engelska är standardspråket för inloggningen **Serveradministratör**.
-* Endast administratörer (inloggningen **Serveradministratör** eller Azure AD-administratör) och medlemmar i databasrollen **dbmanager** i **huvud**databasen har behörighet att köra uttryck `CREATE DATABASE` och `DROP DATABASE`.
+* Endast administratörer (inloggningen som **serveradministratör** eller Azure AD-administratör) och medlemmar i databasrollen **dbmanager** i **huvuddatabasen** har behörighet att köra `CREATE DATABASE`- och `DROP DATABASE`-uttrycken.
 * Du måste vara ansluten till huvuddatabasen när du kör uttrycket `CREATE/ALTER/DROP LOGIN`. Att använda inloggningar rekommenderas inte. Använd i stället oberoende databasanvändare.
 * Du måste ange namnet på databasen i anslutningssträngen för att ansluta till en användardatabas.
 * Endast huvudsaklig inloggning på servernivå och medlemmarna i databasrollen **loginmanager** i **huvud**databasen har behörighet att köra uttryck `CREATE LOGIN`, `ALTER LOGIN` och `DROP LOGIN`.
@@ -185,13 +185,14 @@ När du hanterar inloggningar och användare i SQL Database, bör du överväga 
 
 - Om du vill veta mer om brandväggsregler, se [Azure SQL Database-brandväggen](sql-database-firewall-configure.md).
 - En översikt över alla säkerhetsfunktioner i SQL Database finns i [SQL Säkerhetsöversikt](sql-database-security-overview.md).
-- En självstudiekurs finns i [Kom igång med SQL-säkerhet](sql-database-get-started-security.md)
+- En självstudiekurs finns i [Kom igång med SQL-säkerhet](sql-database-control-access-sql-authentication-get-started.md)
 - Information om vyer och lagrade procedurer finns i [Skapa vyer och lagrade procedurer](https://msdn.microsoft.com/library/ms365311.aspx)
 - Information om hur du beviljar åtkomst till ett databasobjekt finns i [Bevilja åtkomst till ett databasobjekt](https://msdn.microsoft.com/library/ms365327.aspx)
+- En självstudiekurs om hur du använder SQL Server-autentisering finns i [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (Självstudiekurs om SQL Database: SQL Server-autentisering, inloggningar och användarkonton, databasroller, behörigheter, brandväggsregler på servernivå och brandväggsregler på databasnivå).
+- En självstudiekurs om hur du använder Azure Active Directory-autentisering finns i [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md) (Självstudiekurs om SQL Database: AAD-autentisering, inloggningar och användarkonton, databasroller, behörigheter, brandväggsregler på servernivå och brandväggsregler på databasnivå).
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

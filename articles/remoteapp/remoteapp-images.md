@@ -40,7 +40,7 @@ Din Azure RemoteApp-prenumeration innehåller tre mallavbildningar:
 
 I nedanstående avsnitt finns information om vad varje avbildning innehåller.
 
-## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 (den vanliga avbildningen)
+## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2 (den vanliga avbildningen)
 Den här avbildningen baseras på operativsystemet Microsoft Windows Server 2012 R2 Datacenter och har följande installerade roller och funktioner för att uppfylla kraven för Azure RemoteApp-mallavbildningar:
 
 * .NET Framework 4.5, 3.5.1, 3.5

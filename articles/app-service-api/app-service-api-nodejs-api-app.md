@@ -1,5 +1,5 @@
 ---
-title: Node.js API-app i Azure App Service | Microsoft Docs
+title: "Node.js API-app i Azure Apptjänst | Microsoft Docs"
 description: "Lär dig hur du skapar en Node.js RESTful-API och distribuera det till en API-app i Azure Apptjänst."
 services: app-service\api
 documentationcenter: node
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
-ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
+ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
+ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
 
 
 ---
@@ -230,23 +230,29 @@ I det här avsnittet skapar du en lokal Git-lagringsplats som innehåller din se
         git init
    
      ![Ny lokal Git Repo](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. Kör följande kommando för att lägga till en fjärransluten Git för API-appens lagringsplats. 
+3. Om du gick den första delen av den här självstudiekursen och kopierade mappen `ContactList`, innehåller kopian antagligen mappen `node_modules`. Du vill inte ta med mappen `node_modules` i källkontrollen eftersom den skapas åt dig i samband med distributionen via filen `package.json` och `npm install`. Lägg därför till en `.gitignore`-fil genom att köra följande kommando i roten av din projektkatalog.
+
+         touch .gitignore
+      
+   Öppna .gitignore-filen och lägg till `node_modules` på den första raden i filen. Du kan bekräfta att mappen `node_modules` ignoreras av källkontrollen genom att köra `git status` och kontrollera att katalogen inte visas i listan. Det finns ett (GitHub-projekt) [https://github.com/github/gitignore/blob/master/Node.gitignore] för rekommenderade filer som bör ignoreras i ett NodeJS-projekt om du vill lägga till fler regler.
+ 
+4. Kör följande kommando för att lägga till en fjärransluten Git för API-appens lagringsplats. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **Obs**! Ersätt strängen "YOUR_GIT_CLONE_URL_HERE" med din egen URL för Git-klon som du kopierade tidigare. 
-4. Kör följande kommandon för att skapa en incheckning som innehåller hela din kod. 
+5. Kör följande kommandon för att skapa en incheckning som innehåller hela din kod. 
    
         git add .
         git commit -m "initial revision"
    
     ![Utdata för Git-incheckning](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Kör kommandot för att skicka koden till Azure. När du uppmanas att ange ett lösenord anger du det som du skapade tidigare i Azure-portalen.
+6. Kör kommandot för att skicka koden till Azure. När du uppmanas att ange ett lösenord anger du det som du skapade tidigare i Azure-portalen.
    
         git push azure master
    
     Detta utlöser en distribution till API-appen.  
-6. I webbläsaren går du tillbaka till bladet **Distributioner** för API-appen så ser du att distributionen görs. 
+7. I webbläsaren går du tillbaka till bladet **Distributioner** för API-appen så ser du att distributionen görs. 
    
     ![Distribution sker](media/app-service-api-nodejs-api-app/deployment-happening.png)
    
@@ -275,6 +281,6 @@ Vid det här laget har du skapat en API-app och distribuerat Node.js API-kod til
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

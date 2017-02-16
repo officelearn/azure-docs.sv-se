@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/19/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 5385e8a33466020dd89eaa843ece0ca8d1f31936
@@ -852,6 +852,6 @@ När du har valt eller skapat cacheminnet du ska använda, bläddrar du till cac
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Lär dig hur du konfigurerar en datakatalog där din organisation kan hitta, förstå och använda datakällor. Självstudier, API-referens och annan dokumentation."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7c2c989ca2119f7a2c14ca55a56a2bce69d94efa
+ms.sourcegitcommit: f41d4b06dfd385761780655971f69090050b967c
+ms.openlocfilehash: fed1fedd352b0bfab1729786eda990e78e14fbd1
 
 ---
 #<a name="data-catalog-documentation"></a>Dokumentation om Data Catalog
 
-Azure Data Catalog är en helt hanterad molntjänst som hjälper användarna att identifiera de datakällor de behöver och förstå datakällorna de identifierar, samtidigt som organisationerna får ut mer av sina befintliga investeringar. Data Catalog innehåller funktioner som gör att alla användare – från analytiker till datavetare och utvecklare – kan identifiera, förstå och använda datakällor. Data Catalog innehåller en gemensam modell för metadata och kommentarer så att alla användare kan bidra med sina kunskaper för att skapa en databaserad gemenskap och kultur.
+Lär dig hur du använder Data Catalog för att hjälpa ditt team och din organisation att identifiera, förstå och använda dina datakällor. Självstudier, REST API-referens och annan dokumentation visar hur du planerar och konfigurerar ditt datalager, där datakonsumenterna kan identifiera tillgängliga datakällor och få kunskap av experter inom olika ämnen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -75,6 +76,7 @@ Hämta dokumentation för Data Catalog </div>
 </div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

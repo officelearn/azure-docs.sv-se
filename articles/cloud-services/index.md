@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Självstudier, API-referenser och annan dokumentation visar hur du använder Cloud Services för att hantera och köra API:er och skalbara molnprogram med hög tillgänglighet."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: af0eb3ce49e509992ab582558a342933f950afdb
+ms.sourcegitcommit: 2b32d1a06f7db06ad3f443548b33d3c8e2032a9e
+ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
 
 ---
-#<a name="cloud-services-documentation"></a>Dokumentation om Cloud Services
+# <a name="cloud-services-documentation"></a>Dokumentation om Cloud Services
 
-Molntjänster är ett exempel på en implementering av plattform som en tjänst (PaaS). Det är skapat för att stödja driften av program som är skalbara, tillförlitliga och kostnadseffektiva. Med Cloud Services har du fördelen med virtualisering, men du har även kontroll över den virtuella datorn så du kan konfigurera, korrigera och installera programvara.  
+Lär dig hur du använder Cloud Services för att hantera och köra API:er och skalbara molnprogram med hög tillgänglighet.  Självstudier, API-referenser och annan dokumentation visar hur du hanterar virtuella datorvärdar och konfigurerar, korrigerar och installerar programvara.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,48 +87,32 @@ Molntjänster är ett exempel på en implementering av plattform som en tjänst 
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/ee460812">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Språk</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST API-referens för Cloud Services</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">REST-API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758711">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.Scheman</h3>
-                        <p>Cloud Services-definitionsschema</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758710">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Cloud Services-konfigurationsschema</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -141,6 +126,6 @@ Hämta dokumentation om Cloud Services </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

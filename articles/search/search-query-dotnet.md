@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
 
 
 ---
@@ -34,10 +34,10 @@ Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Sea
 
 Observera att all exempelkod i den här artikeln är skriven i C#. Du hittar den fullständiga källkoden [på GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Identifiera API-frågenyckeln för Azure Search-tjänsten
+## <a name="identify-your-azure-search-services-query-api-key"></a>Identifiera API-frågenyckeln för Azure Search-tjänsten
 Nu när du har skapat ett Azure Search-index är du nästan redo att skicka frågor med hjälp av .NET SDK. Först måste du skaffa en av API-frågenycklarna som genererades för söktjänsten som du etablerade. .NET SDK skickar den här API-nyckeln vid varje begäran till tjänsten. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
+1. Om du vill hitta din tjänsts API-nycklar kan du logga in på [Azure Portal](https://portal.azure.com/)
 2. Gå till Azure Search-tjänstens blad
 3. Klicka på nyckelikonen
 
@@ -48,7 +48,7 @@ Tjänsten har *administratörsnycklar* och *frågenycklar*.
 
 Du kan använda en av din frågenycklar för att skicka frågor till ett index. Administratörsnycklarna kan även användas för frågor, men du bör använda en frågenyckel i programkoden eftersom detta bättre överensstämmer med [principen om lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## <a name="ii-create-an-instance-of-the-searchindexclient-class"></a>II. Skapa en instans av klassen SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Skapa en instans av klassen SearchIndexClient
 Om du vill skicka frågor med Azure Search .NET SDK måste du skapa en instans av klassen `SearchIndexClient`. Den här klassen har flera konstruktorer. Den som du vill använda har namnet på din söktjänst, ett indexnamn och ett `SearchCredentials`-objekt som parametrar. `SearchCredentials` omsluter din API-nyckel.
 
 Koden nedan skapar en ny `SearchIndexClient` för indexet ”hotels” (skapas i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md)) med värdena för söktjänstens namn och API-nyckel som lagras i programmets konfigurationsfil (`app.config` eller `web.config`):
@@ -62,7 +62,7 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 
 `SearchIndexClient` har en `Documents`-egenskap. Den här egenskapen tillhandahåller alla metoder som du behöver för att skicka frågor mot Azure Search-index.
 
-## <a name="iii-query-your-index"></a>III. Skicka frågor mot ditt index
+## <a name="query-your-index"></a>Skicka frågor mot ditt index
 Det är enkelt att söka med .NET SDK. Du anropar bara `Documents.Search`-metoden för din `SearchIndexClient`. Den här metoden stöder några parametrar, inklusive söktexten, tillsammans med ett `SearchParameters`-objekt som kan användas för att ytterligare förfina frågan.
 
 #### <a name="types-of-queries"></a>Typer av frågor
@@ -127,7 +127,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## <a name="iv-handle-search-results"></a>IV. Hantera sökresultat
+## <a name="handle-search-results"></a>Hantera sökresultat
 Metoden `Documents.Search` returnerar ett `DocumentSearchResult`-objekt som innehåller resultatet av frågan. I exemplet i föregående avsnitt användes metoden `WriteDocuments` för att mata ut sökresultatet till konsolen:
 
 ```csharp
@@ -169,6 +169,6 @@ Exempelkoden ovan använder konsolen för att mata ut sökresultat. Du behöver 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

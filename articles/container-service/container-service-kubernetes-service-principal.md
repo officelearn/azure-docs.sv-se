@@ -137,6 +137,6 @@ az vm list-sizes --location westus
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

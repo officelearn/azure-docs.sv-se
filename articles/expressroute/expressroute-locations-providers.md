@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 01/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 8b82801a26c15248480a261945b37a0c38e3fa47
-ms.openlocfilehash: e32d21efd8d90bac223cbc0a213df65d19c40670
-
+ms.sourcegitcommit: 25dbeb2c011d4f2b833140d86690d546bfb6825e
+ms.openlocfilehash: 74805f654249d4499a4d36af1016801737ffb76a
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
@@ -35,20 +34,21 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- |
-| **Nordamerika** |Östra USA, västra USA, östra USA 2, centrala USA, södra centrala USA, norra centrala USA, centrala Kanada, östra Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **Nordamerika** |Östra USA, västra USA, östra USA 2, västra USA 2, centrala USA, södra centrala USA, norra centrala USA, västra centrala USA, centrala Kanada, östra Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
 | **Sydamerika** |Södra Brasilien |Sao Paulo |
 | **Europa** |Norra Europa, Västra Europa, Västra Storbritannien, Södra Storbritannien |Amsterdam, Dublin, London, Newport (Wales), Paris |
 | **Asien** |Östra Asien, Sydostasien |Hongkong, Singapore |
 | **Japan** |Västra Japan, östra Japan |Osaka, Tokyo |
 | **Australien** |Sydöstra Australien, östra Australien |Melbourne, Sydney |
 | **Indien** |Västra Indien, centrala Indien, södra Indien |Chennai, Mumbai |
+| **Sydkorea** | Centrala Korea, Sydkorea | Busan, Söul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
 Tabellen nedan innehåller information om regioner och geopolitiska gränser för nationella moln.
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- | --- |
-| **Moln för amerikanska myndigheter** |Iowa (USA-förvaltad region), Virginia (USA-förvaltad region) |Chicago, Dallas, New York, Washington DC |
+| **Moln för amerikanska myndigheter** |Iowa (USA-förvaltad region), Virginia (USA-förvaltad region), US DoD centrala+, US DoD, östra+  |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
 | **Kina** |Norra Kina, östra Kina |Beijing, Shanghai |
 | **Tyskland** |Centrala Tyskland, östra Tyskland |Berlin, Frankfurt |
 
@@ -64,7 +64,7 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 ### <a name="production-azure"></a>Produktions-Azure
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
-| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** |Equinix |
 | **Chennai** |SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
@@ -75,16 +75,16 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **Las Vegas** |Level 3 Communications+, Megaport |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **New York** |Equinix, Megaport, Zayo Group |
+| **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport(Wales)** |Nästa generations data |
-| **Montreal** |Cologix+ |
+| **Montreal** |Cologix |
 | **Mumbai** |Tata Communications |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Paris** |Interxion, Equinix+ |
 | **Sao Paulo** |Equinix, Telefonica |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
-| **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
+| **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Toronto** |Bell Canada, Cologix, Equinix, Megaport, Zayo Group |
@@ -98,8 +98,9 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Dallas** |Equinix Verizon |
+| **Dallas** |Equinix, Megaport, Verizon |
 | **New York** |Equinix, Level 3 Communications+, Verizon |
+| **Silicon Valley** | Equinix+ |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>Kina
@@ -113,7 +114,7 @@ Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expres
 ### <a name="germany"></a>Tyskland
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
-| **Berlin** |Colt+, e-shelter |
+| **Berlin** |Colt+, e-shelter, Megaport+ |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Anslutning för leverantörer som inte listas
@@ -134,12 +135,14 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 
 | **Plats** | **Exchange** | **Anslutningsproviders** |
 | --- | --- | --- |
-| **London** | Equinix | Exponentiellt E |
+| **Amsterdam** | Equinix | Eurofiber |
+| **London** | Equinix | Exponential E, HSO |
 | **New York** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Silicon Valley** |Equinix |XO Communications |
 | **Singapore** |Equinix |1CLOUDSTAR |
-| **Sydney** | Megaport | Macquarie |
+| **Sydney** | Megaport | Macquarie Telecom Group|
+| **Tokyo** | Equinix | ARTERIA Networks Corporation |
 | **Washington DC** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute-systemintegratörer
@@ -148,7 +151,8 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 | **Kontinent** | **Systemintegratörer** |
 | --- | --- |
 | **Asien** |Avanade Inc., OneAs1a |
-| **Europa** |Avanade Inc., Dotnet Solutions |
+| **Australien** | IT Consultancy |
+| **Europa** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
 | **USA** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
 
 ## <a name="next-steps"></a>Nästa steg
@@ -160,6 +164,6 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

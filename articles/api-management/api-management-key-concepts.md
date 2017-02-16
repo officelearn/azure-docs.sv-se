@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apipm
 translationtype: Human Translation
 ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
 ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
@@ -132,6 +132,6 @@ Om du vill veta mer om API Management tittar du på följande presentation från
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

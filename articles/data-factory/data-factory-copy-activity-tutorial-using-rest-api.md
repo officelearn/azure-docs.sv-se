@@ -576,6 +576,6 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

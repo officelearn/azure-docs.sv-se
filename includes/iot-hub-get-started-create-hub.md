@@ -37,6 +37,6 @@ Skapa en IoT Hub som din simulerade enhetsapp kan ansluta till. Följande steg v
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

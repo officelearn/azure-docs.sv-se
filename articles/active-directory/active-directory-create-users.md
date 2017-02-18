@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
 
 
 ---
@@ -28,7 +28,7 @@ Lägg till användare i din katalog. Den här artikeln förklarar hur du lägger
 2. Välj **Active Directory** och välj sedan namnet på din organisationskatalog.
 3. Välj fliken **Användare** och sedan **Lägg till användare** i kommandofältet.
 4. På sidan **Berätta om den här användaren** under **Typ av användare** väljer du antingen:
-   
+
    * **Ny användare i din organisation** – Lägger till ett nytt konto till din katalog.
    * **Användare med ett befintligt Microsoft-konto** – Lägger till ett befintligt Microsoft-konsumentkonto till din katalog (till exempel ett Outlook-konto)
 5. Beroende på **typen av användare** anger du ett användarnamn (för en ny användare) eller en e-postadress (för en användare med ett Microsoft-konto).
@@ -37,11 +37,11 @@ Lägg till användare i din katalog. Den här artikeln förklarar hur du lägger
 
 > [!IMPORTANT]
 > Om din organisation använder mer än en domän bör du vara medveten om följande problem när du lägger till ett användarkonto:
-> 
+>
 > * Om du vill lägga till användarkonton med samma UPN (användarens huvudnamn) i olika domäner lägger du **först** till exempelvis geoffgrisso@contoso.onmicrosoft.com, ** följt av** geoffgrisso@contoso.com.
-> * **Lägg inte till** geoffgrisso@contoso.com innan du läger till geoffgrisso@contoso.onmicrosoft.com. Den här ordningen är viktig och kan vara krånglig att ångra.
-> 
-> 
+> * Lägg **inte** till geoffgrisso@contoso.com innan du lägger till geoffgrisso@contoso.onmicrosoft.com. Den här ordningen är viktig och kan vara krånglig att ångra.
+>
+>
 
 ## <a name="change-user-information"></a>Ändra användarinformation
 Du kan ändra valfria användarattribut utom objekt-ID:t.
@@ -87,6 +87,6 @@ Sedan kan du redigera alternativen för att kontrollera gästanvändarnas åtkom
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

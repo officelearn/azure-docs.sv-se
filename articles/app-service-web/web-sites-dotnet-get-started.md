@@ -1,5 +1,5 @@
 ---
-title: Distribuera en ASP.NET-app till Azure App Service med Visual Studio | Microsoft Docs
+title: Distribuera en ASP.NET-app till Azure med Visual Studio | Microsoft Docs
 description: "Ta reda på hur du distribuerar ett ASP.NET-webbprojekt till en ny webbapp i Azure App Service med hjälp av Visual Studio."
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
 
 
 ---
@@ -47,7 +47,7 @@ Förutom den tid det tar att installera Azure SDK för .NET tar det cirka 10–1
 * Kursen riktar sig till dig som har arbetat med ASP.NET MVC och Visual Studio. En introduktion finns i [Komma igång med ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 * Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du skapa en tillfällig startapp i App Service – inget kreditkort behövs och du gör inga åtaganden.
+    Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du skapa en tillfällig startapp i App Service – inget kreditkort behövs och du gör inga åtaganden.
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Konfigurera utvecklingsmiljön
 Kursen gäller för Visual Studio 2015 med [Azure SDK för .NET](../dotnet-sdk.md) 2.9 eller senare. 
@@ -222,6 +222,6 @@ I den här kursen har du fått veta hur du skapar en enkel webbapp och distribue
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

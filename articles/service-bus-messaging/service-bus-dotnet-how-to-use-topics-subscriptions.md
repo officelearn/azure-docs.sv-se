@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/21/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5565ba8795127ffbdecbe8b764d3aa7f4b93f784
-ms.openlocfilehash: f76734eb4081e08603d98b6a1be11cade3130b1d
+ms.sourcegitcommit: add228c8a24fbd36ab05f55570abf1374f519822
+ms.openlocfilehash: 9927de3bba251a2cc135657f00b789c7522fc05c
 
 
 ---
@@ -238,11 +238,11 @@ for (int i=0; i<5; i++)
 Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som kan finnas i ett ämne men det finns ett tak för den totala storleken för de meddelanden som ligger i ett ämne. Den här ämnesstorleken definieras när ämnet skapas, med en övre gräns på 5 GB. Den övre gränsen är högre om partitionering är aktiverad. Mer information finns i [Partitionerade meddelandeentiteter](service-bus-partitioning.md).
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Ta emot meddelanden från en prenumeration
-Det rekommenderade sättet att ta emot meddelanden från en prenumeration är att använda objektet [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). **SubscriptionClient**-objekt kan arbeta i två olika lägen: [*ReceiveAndDelete* och *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode).
+Det rekommenderade sättet att ta emot meddelanden från en prenumeration är att använda objektet [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient). **SubscriptionClient**-objekt kan arbeta i två olika lägen: [*ReceiveAndDelete* och *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** är standard.
 
 När du använder läget **ReceiveAndDelete** är inleveransen en engångsåtgärd, det vill säga, när Service Bus tar emot en läsbegäran för ett meddelande i en prenumeration så markerar den meddelandet som förbrukat och skickar tillbaka det till programmet. Läget **ReceiveAndDelete** är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande om ett fel inträffar. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran. Eftersom Service Bus har markerat meddelandet som förbrukat så kommer programmet – när det startas om och börjar förbruka meddelanden igen – att ha missat meddelandet som förbrukades innan kraschen.
 
-I **PeekLock**-läget (som är standardläget) blir inleveransprocessen en åtgärd i två steg. Tack vare det är det möjligt att stödja program som inte tolererar att ett meddelande saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har avslutat bearbetningen av meddelandet (eller lagrar det på ett tillförlitligt sätt för framtida bearbetning), slutför programmet det andra steget i processen genom att anropa [Slutför](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) för det mottagna meddelandet. När Service Bus ser anropet **Slutför**, kommer det att markera meddelandet som förbrukat och det tas därefter bort från prenumerationen.
+I **PeekLock**-läget (standardläget) blir inleveransen en åtgärd i två steg, vilket ger stöd för program som inte tolererar att meddelanden saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har avslutat bearbetningen av meddelandet (eller lagrar det på ett tillförlitligt sätt för framtida bearbetning), slutför programmet det andra steget i processen genom att anropa [Slutför](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) för det mottagna meddelandet. När Service Bus ser anropet **Slutför**, kommer det att markera meddelandet som förbrukat och det tas därefter bort från prenumerationen.
 
 Följande exempel visar hur meddelanden kan tas emot och bearbetas med det förvalda **PeekLock**-läget. Om du vill ange ett annat värde för [ReceiveMode](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), kan du använda en annan överlagring för [CreateFromConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_CreateFromConnectionString_System_String_System_String_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_). I det här exemplet används motringningen [OnMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) för att bearbeta meddelanden när de tas emot i prenumerationen **Highmessages**.
 
@@ -326,6 +326,6 @@ Nu när du har lärt dig grunderna om Service Bus-ämnen och -prenumerationer, k
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

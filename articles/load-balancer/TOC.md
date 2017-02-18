@@ -40,6 +40,7 @@
 ## [Konfigurera flera VIP för molntjänst](load-balancer-multivip.md)
 ## [Kombinera tjänster för belastningsutjämning](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Använd flera IP-konfigurationer](load-balancer-multiple-ip.md)
+### [Använd flera IP-konfigurationer (CLI)](load-balancer-multiple-ip-cli.md)
 ## [Logganalys för Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Konfigurera DHCPv6 för virtuella Linux-datorer](load-balancer-ipv6-for-linux.md)
 
@@ -67,6 +68,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

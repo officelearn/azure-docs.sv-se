@@ -1,5 +1,5 @@
 ---
-title: "Börja använda Azure Data Catalog | Microsoft Docs"
+title: "Metod och process för att börja använda Azure Data Catalog | Microsoft Docs"
 description: "I den här artikeln beskriver vi en metod och process för organisationer som funderar på att börja använda Azure Data Catalog. Den omfattar bland annat hur du fastställer en vision, identifierar viktiga användningsområden och väljer ett pilotprojekt."
 services: data-catalog
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/11/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 4c6a07c4b3597e357c520bcafde501bc0850e685
+ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
+ms.openlocfilehash: 646a7611f5680a4c08e9a5f5ff4e2a3e5631276f
 
 
 ---
-# <a name="adopting-azure-data-catalog"></a>Börja använda Azure Data Catalog
+# <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Metod och process för att börja använda Azure Data Catalog
 Den här artikeln hjälper dig att komma igång med **Azure Data Catalog** i din organisation. Fokusera på följande tre huvudpunkter för att komma igång med **Azure Data Catalog** på ett smidigt sätt: fastställ din vision, identifiera viktiga användningsområden inom organisationen och välj ett pilotprojekt.
 
 ## <a name="introducing-the-azure-data-catalog"></a>Introduktion till Azure Data Catalog
@@ -169,6 +169,6 @@ Den här artikeln handlar om att komma igång med **Azure Data Catalog** i din o
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

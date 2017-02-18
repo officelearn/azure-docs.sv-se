@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a538ceef7d9aeaca0e6f54443f3a5dabd06c22a1
-ms.openlocfilehash: 9914051f5f509a657e91aa66c1efb99ceb9f4817
+ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
+ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
 
 
 ---
 # <a name="getting-started-with-storage-explorer-preview"></a>Komma igång med Lagringsutforskaren (förhandsversion)
 ## <a name="overview"></a>Översikt
-Microsoft Azure Lagringsutforskaren (förhandsversion) är en fristående app som gör det enkelt att arbeta med Azure Storage-data på Windows, OS X och Linux. I den här artikeln lär du dig hur du kan ansluta till och hantera dina Azure Storage-konton på olika sätt.
+Microsoft Azure Storage Explorer (förhandsversion) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, Mac OS och Linux. I den här artikeln lär du dig hur du kan ansluta till och hantera dina Azure Storage-konton på olika sätt.
 
 ![Microsoft Azure Lagringsutforskaren (förhandsversion)][15]
 
@@ -30,7 +30,7 @@ Microsoft Azure Lagringsutforskaren (förhandsversion) är en fristående app so
 * [Hämta och installera Lagringsutforskaren (förhandsversion)](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Ansluta till ett lagringskonto eller en tjänst
-Med Lagringsutforskaren (förhandsversion) kan du ansluta till lagringskonton på många olika sätt. Du kan t.ex. ansluta till lagringskonton som är kopplade till dina Azure-prenumerationer, ansluta till lagringskonton och tjänster som delas från andra Azure-prenumerationer och även ansluta till och hantera lokal lagring med hjälp av Azure Storage-emulatorn. Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
+Med Storage Explorer (förhandsversion) kan du ansluta till lagringskonton på flera olika sätt. Du kan t.ex. ansluta till lagringskonton som är kopplade till dina Azure-prenumerationer, ansluta till lagringskonton och tjänster som delas från andra Azure-prenumerationer och även ansluta till och hantera lokal lagring med hjälp av Azure Storage-emulatorn. Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 
 * [Ansluta till en Azure-prenumeration](#connect-to-an-azure-subscription) – Hantera lagringsresurser som hör till din Azure-prenumeration.
 * [Arbeta med lokal utvecklingslagring](#work-with-local-development-storage) – Hantera lokal lagring med hjälp av Azure Storage-emulatorn.
@@ -47,14 +47,14 @@ Med Lagringsutforskaren (förhandsversion) kan du ansluta till lagringskonton p�
 1. I Lagringsutforskaren (förhandsversion) väljer du **Inställningar för Azure-konto**.
 
     ![Inställningar för Azure-konto][0]
-2. Den vänstra rutan visar nu alla Microsoft-konton som du har loggat in på. Om du vill ansluta till ett annat konto väljer du **Lägg till ett konto** och följer dialogrutorna för att logga in med ett Microsoft-konto som är kopplat till minst en aktiv Azure-prenumeration.
+2. Den vänstra rutan visar alla Microsoft-konton som du har loggat in på. Om du vill ansluta till ett annat konto väljer du **Lägg till ett konto** och följer dialogrutorna för att logga in med ett Microsoft-konto som är kopplat till minst en aktiv Azure-prenumeration.
 > [!NOTE]
->Att ansluta till nationella Azure, t.ex. Black Forest Azure, Fairfax Azure eller Mooncake Azure via inloggning stöds inte för närvarande. Mer information om hur du ansluter till nationella Azure Storage-konton finns i avsnittet **Koppla eller koppla från ett externt lagringskonto**.
+>För närvarande går det inte att ansluta till nationella Azure, t.ex. Black Forest Azure, Fairfax Azure eller Mooncake Azure, via inloggning. Mer information om hur du ansluter till nationella Azure Storage-konton finns i avsnittet **Koppla eller koppla från ett externt lagringskonto**.
 
-3. När du har loggat in med ett Microsoft-konto fylls den vänstra rutan i med de Azure-prenumerationer som är kopplade till det kontot. Välj de Azure-prenumerationer som du vill arbeta med och välj sedan **Använd**. (Om du klickar på **Alla prenumerationer** växlar du mellan att välja alla eller inga av de Azure-prenumerationer som visas.)
+3. När du har loggat in med ett Microsoft-konto fylls den vänstra rutan i med de Azure-prenumerationer som är kopplade till kontot. Välj de Azure-prenumerationer som du vill arbeta med och välj sedan **Använd**. (Om du klickar på **Alla prenumerationer** växlar du mellan att välja alla eller inga av de Azure-prenumerationer som visas.)
 
     ![Välja Azure-prenumerationer][3]
-4. I den vänstra rutan visas nu de lagringskonton som är kopplade till de valda Azure-prenumerationerna.
+4. I den vänstra rutan visas lagringskontona som är kopplade till de valda Azure-prenumerationerna.
 
     ![Valda Azure-prenumerationer][4]
 
@@ -72,7 +72,7 @@ Med Lagringsutforskaren (förhandsversion) kan du arbeta mot lokal lagring med h
 2. Om du inte har installerat Azure Storage-emulatorn än uppmanas du att göra det via ett informationsfält. Om informationsfältet visas väljer du **Hämta den senaste versionen** och installerar emulatorn.
 
     ![Fråga om att hämta Azure Storage-emulatorn][22]
-3. När emulatorn har installerats kan du välja att skapa och arbeta med lokala blobbar, köer och tabeller. Om du vill veta hur du arbetar med respektive lagringskontotyp väljer du lämplig länk nedan:
+3. När emulatorn har installerats kan du välja att skapa och arbeta med lokala blobbar, köer och tabeller. Välj någon av följande länkar om du vill lära dig mer om hur du arbetar med varje typ av lagringskonto:
 
    * [Hantera Azure-bloblagringsresurser](vs-azure-tools-storage-explorer-blobs.md)
    * Hantera Azure-filresurslagringsresurser – *kommer snart*
@@ -138,7 +138,7 @@ För att illustrera detta antar vi att Användare A som är administratör för 
 2. I dialogrutan **Signatur för delad åtkomst** anger du det tidsintervall och de behörigheter som du vill använda för kontot och väljer sedan **Skapa**.
 
     ![Dialogrutan Hämta SAS][14]
-3. En andra dialogruta av typen **Signatur för delad åtkomst** öppnas och visar signaturen för delad åtkomst. Välj **Kopiera** bredvid **anslutningssträngen** för att kopiera den till Urklipp. Stäng dialogrutan genom att välja **Stäng**.
+3. SAS-signaturen visas i en andra dialogruta av typen **Signatur för delad åtkomst**. Välj **Kopiera** bredvid **anslutningssträngen** för att kopiera den till Urklipp. Stäng dialogrutan genom att välja **Stäng**.
 
 ### <a name="attach-to-the-shared-account-using-the-sas"></a>Ansluta till det delade kontot med hjälp av SAS
 1. I Lagringsutforskaren (förhandsversion) väljer du **Anslut till Azure Storage**.
@@ -171,7 +171,7 @@ I det här scenariot kan en tjänst vara en blobbehållare, en kö eller en tabe
 
    ![Dialogrutan Anslut till Azure Storage][24]
 3. Kontrollera uppgifterna i dialogrutan **Anslutningssammanfattning**. Om du vill ändra något väljer du **Tillbaka** och anger sedan önskade inställningar på nytt. När du är klar väljer du **Anslut**.
-4. När tjänsten har anslutits visas den under noden **(SAS för tjänst)**.
+4. När den har kopplats visas den nyligen kopplade tjänsten under noden **(Service SAS)**.
 
    ![Resultatet av att ansluta till en delad tjänst med hjälp av SAS][20]
 
@@ -210,6 +210,6 @@ Om du vill rensa sökningen väljer du knappen **x** i sökrutan.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

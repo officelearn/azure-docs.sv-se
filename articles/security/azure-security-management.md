@@ -1,10 +1,10 @@
 ---
-title: "Säkerhetshantering i Azure | Microsoft Docs"
+title: "Förbättra säkerheten vid fjärrhantering i Azure | Microsoft Docs"
 description: "Den här artikeln beskriver hur du ökar säkerheten för fjärrhantering när du administrerar Microsoft Azure-miljöer, inklusive molntjänster, Virtual Machines och anpassade program."
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b1f757678c9a88bd834482d67bf098279c463bfb
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
 
 
 ---
@@ -235,6 +235,6 @@ Följande resurser med allmän information om Azure och relaterade Microsoft-tj�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

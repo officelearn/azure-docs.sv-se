@@ -1,11 +1,10 @@
 ---
-title: "Komma igång med att skapa en Internetuppkopplad belastningsutjämnare i den klassiska distributionsmodellen för molntjänster | Microsoft Docs"
+title: "Skapa en Internetaktiverad belastningsutjämnare för Azure-molntjänster | Microsoft Docs"
 description: "Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i den klassiska distributionsmodellen för molntjänster"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: 
+author: kumudd
+manager: timlt
 tags: azure-service-management
 ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
 ms.service: load-balancer
@@ -13,23 +12,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 171d5cd41d900b83c22e1db4bc514471a3d4b556
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 1ceaafebcaebecb04314c7da62c69b2e9b5ba39a
 
 ---
 
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Komma igång med att skapa en Internetuppkopplad belastningsutjämnare för molntjänster
 
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Klassisk Azure-portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också läsa artikeln om [hur du skapar en Internetuppkopplad belastningsutjämnare med hjälp av Azure Resource Manager](load-balancer-get-started-internet-arm-cli.md).
+> [!IMPORTANT]
+> Innan du börjar arbeta med Azure-resurser är det viktigt att du vet att Azure för närvarande har två distributionsmodeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-classic-rm.md) innan du börjar arbeta med Azure-resurser. Du kan granska dokumentationen för olika verktyg genom att klicka på flikarna överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också läsa artikeln om [hur du skapar en Internetuppkopplad belastningsutjämnare med hjälp av Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 Molntjänster konfigureras automatiskt med en belastningsutjämnare och kan anpassas via tjänstmodellen.
 
@@ -42,24 +44,24 @@ Följande exempel visar hur en .csdef-tjänstdefinitionsfil för en molndistribu
 Genom att granska kodfragmentet för .csdef-filen som genereras av en molndistribution kan du se att den externa slutpunkten har konfigurerats att använda HTTP på port 10000, 10001 och 10002.
 
 ```xml
-    <ServiceDefinition name=“Tenant“>
-       <WorkerRole name=“FERole” vmsize=“Small“>
-    <Endpoints>
-        <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
-        <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
-        <InputEndpoint name=“FE_External_Udp“  protocol=“udp“  port=“10002“ />
+<ServiceDefinition name=“Tenant“>
+    <WorkerRole name=“FERole” vmsize=“Small“>
+<Endpoints>
+    <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
+    <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
+    <InputEndpoint name=“FE_External_Udp“  protocol=“udp“  port=“10002“ />
 
-        <InputEndpointname=“HTTP_Probe” protocol=“http” port=“80” loadBalancerProbe=“MyProbe“ />
+    <InputEndpointname=“HTTP_Probe” protocol=“http” port=“80” loadBalancerProbe=“MyProbe“ />
 
-        <InstanceInputEndpoint name=“InstanceEP” protocol=“tcp” localPort=“80“>
-           <AllocatePublicPortFrom>
-              <FixedPortRange min=“10110” max=“10120“  />
-           </AllocatePublicPortFrom>
-        </InstanceInputEndpoint>
-        <InternalEndpoint name=“FE_InternalEP_Tcp” protocol=“tcp“ />
-    </Endpoints>
-      </WorkerRole>
-    </ServiceDefinition>
+    <InstanceInputEndpoint name=“InstanceEP” protocol=“tcp” localPort=“80“>
+        <AllocatePublicPortFrom>
+            <FixedPortRange min=“10110” max=“10120“  />
+        </AllocatePublicPortFrom>
+    </InstanceInputEndpoint>
+    <InternalEndpoint name=“FE_InternalEP_Tcp” protocol=“tcp“ />
+</Endpoints>
+    </WorkerRole>
+</ServiceDefinition>
 ```
 
 ## <a name="check-load-balancer-health-status-for-cloud-services"></a>Kontrollera hälsostatusen för belastningsutjämnaren för molntjänster
@@ -67,12 +69,12 @@ Genom att granska kodfragmentet för .csdef-filen som genereras av en molndistri
 Följande är ett exempel på en hälsoavsökning:
 
 ```xml
-    <LoadBalancerProbes>
-        <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
-    </LoadBalancerProbes>
+<LoadBalancerProbes>
+    <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
+</LoadBalancerProbes>
 ```
 
-Belastningsutjämnaren kombinerar informationen om slutpunkten och informationen om avsökningen för att skapa en URL i formatet http://{DIP of VM}:80/Probe.aspx som kan användas för att köra frågor relaterade till tjänstens hälsotillstånd.
+Belastningsutjämnaren kombinerar informationen om slutpunkten och informationen om avsökningen för att skapa en URL i formatet `http://{DIP of VM}:80/Probe.aspx` som kan användas för att köra frågor relaterade till tjänstens hälsotillstånd.
 
 Tjänsten identifierar regelbundna avsökningar från samma IP-adress. Den här är hälsoavsökningsbegäran kommer från värden för noden där den virtuella datorn körs. Tjänsten måste svara med en HTTP 200-statuskod för att belastningsutjämnaren ska tolka tjänstens hälsostatus som felfri. Vid andra HTTP-statuskoder (till exempel 503) tas den virtuella datorn direkt bort från roteringen.
 
@@ -91,6 +93,6 @@ Kontrollera tjänstdefinitionsschemat för [hälsotillståndsavsökning](https:/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

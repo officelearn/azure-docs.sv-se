@@ -1,5 +1,5 @@
 ---
-title: Azure MFA moln kontra server | Microsoft Docs
+title: "Välja mellan moln- eller serverbaserat Azure MFA | Microsoft Docs"
 description: "Välj den säkerhetslösning med multifaktorautentisering som passar dig bäst genom att fråga dig vad du vill skydda och var dina användare finns.  Välj sedan molnet, MFA Server eller AD FS."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07e2a62ee63a8f9ef3d660fff8c6269654e2b448
-ms.openlocfilehash: 3e10becd802dfe8934063727f2f7fb0e9e8b420b
+ms.sourcegitcommit: 92c552f42f2645281f5039242825cfdaf6b683c9
+ms.openlocfilehash: 1a42c137204c2d2f6fff9a005b2b0e885c2002b2
 
 
 ---
@@ -36,7 +36,7 @@ För att kunna fastställa vilken tvåstegsverifierings-lösning som är rätt f
 | --- |:---:|:---:|
 | Första parts Microsoft-appar |● |● |
 | Saas-appar i appgalleriet |● |● |
-| IIS-program publicerade via Azure AD App Proxy |● |● |
+| Webbprogram publicerade via Azure AD App Proxy |● |● |
 | IIS-program som inte är publicerade via Azure AD App Proxy | |● |
 | Fjärråtkomst som VPN eller Fjärrskrivbordsgateway (RDG) | |● |
 
@@ -62,8 +62,8 @@ I följande tabell jämförs funktionerna som är tillgängliga med Multi-Factor
 | Enkelriktad SMS som en andra faktor | ● | ● |
 | Dubbelriktad SMS som en andra faktor | | ● |
 | Maskinvarutoken som en andra faktor | | ● |
-| Applösenord för klienter som inte stöder MFA | ● | |
-| Administratörskontroll över autentiseringsmetoder | | ● |
+| Applösenord för Office 365-klienter som inte stöder MFA | ● | |
+| Administratörskontroll över autentiseringsmetoder | ● | ● |
 | PIN-läge | | ● |
 | Bedrägerivarning |● | ● |
 | MFA-rapporter |● | ● |
@@ -73,7 +73,7 @@ I följande tabell jämförs funktionerna som är tillgängliga med Multi-Factor
 | Tillförlitliga IP-adresser | ● | ● |
 | MFA sparas för betrodda enheter | ● | |
 | Villkorlig åtkomst | ● | ● |
-| Cache | ● | ● |
+| Cache |  | ● |
 
 Nu när vi har fastställt om Multi-Factor Authentication i molnet eller lokala MFA Server ska användas kan vi börja konfigurera och använda Azure Multi-Factor Authentication. **Välj den ikon som representerar ditt scenario!**
 
@@ -87,6 +87,6 @@ Nu när vi har fastställt om Multi-Factor Authentication i molnet eller lokala 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

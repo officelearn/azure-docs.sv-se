@@ -1,5 +1,5 @@
 ---
-title: "Skapa ditt första Service Fabric-program i Linux med C# | Microsoft Docs"
+title: "Skapa din första Azure-mikrotjänstapp i Linux med hjälp av C# | Microsoft Docs"
 description: Skapa och distribuera ett Service Fabric-program med C#
 services: service-fabric
 documentationcenter: csharp
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: e3632d89501c1c25b76e9160f0ad82f2b76327d7
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: c810f3e86ba582943e88f3085f6d9cff2496031c
 
 
 ---
@@ -102,6 +102,6 @@ Om du vill lägga till en till tjänst till ett program som redan har skapats me
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

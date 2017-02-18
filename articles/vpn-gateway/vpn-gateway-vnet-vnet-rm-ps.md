@@ -1,10 +1,10 @@
 ---
-title: "Ansluta virtuella Azure-nätverk med VPN Gateway och PowerShell | Microsoft Docs"
+title: "Ansluta ett virtuellt Azure-nätverk till ett annat VNet: PowerShell | Microsoft Docs"
 description: "Den här artikeln visar hur du ansluter virtuella nätverk tillsammans med hjälp av Azure Resource Manager och PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-connection-for-resource-manager-using-powershell"></a>Konfigurera en VNet-till-VNet-anslutning för Resource Manager med hjälp av PowerShell
+# <a name="configure-a-vnet-to-vnet-connection-using-powershell"></a>Konfigurera en VNet-till-VNet-anslutning med hjälp av PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -36,7 +36,7 @@ Den här artikeln beskriver steg för steg hur du skapar en anslutning mellan vi
 ### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Distributionsmodeller och -metoder för anslutningar mellan virtuella nätverk
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-Följande tabell visar de tillgängliga distributionsmodellerna och -metoderna för VNet-till-VNet-konfigurationer. När det finns en artikel med konfigurationssteg tillgänglig länkar vi till den direkt från tabellen.
+Följande tabell visar de tillgängliga distributionsmodellerna och -metoderna för VNet-till-VNet-konfigurationer. När det finns en artikel med konfigurationssteg tillgänglig länkar vi till den direkt från tabellen. 
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -60,7 +60,7 @@ Du kan vilja ansluta virtuella nätverk av följande skäl:
   
   * Inom samma region kan du konfigurera flernivåprogram med flera virtuella nätverk som är anslutna till varandra på grund av isolering eller administrativa krav.
 
-### <a name="vnet-to-vnet-faq"></a>Vanliga frågor och svar om VNet-till-VNet
+### <a name="vnet-to-vnet-considerations"></a>Att tänka på när du använder VNet-till-VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="which-set-of-steps-should-i-use"></a>Vilka steg ska jag använda?
@@ -434,6 +434,6 @@ I det här exemplet där gatewayerna finns i olika prenumerationer, har vi delat
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

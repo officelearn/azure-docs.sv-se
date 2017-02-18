@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 749dae73e9c515f91cd197d0652b4fc499cc3b0e
+ms.sourcegitcommit: 0a4eb02e50c90f41bdc4f2db2af87e2b194da25a
+ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
 
 
 ---
@@ -252,8 +252,6 @@ I det här steget skapar du din första pipeline med en **HDInsightHive**-aktivi
     ```
      I JSON-kodfragmentet skapar du en pipeline med en enda aktivitet, som använder Hive till att bearbeta data i ett HDInsight-kluster.
 
-    I JSON-kodfragmentet skapar du en pipeline med en enda aktivitet, som använder Hive till att bearbeta data i ett HDInsight-kluster.
-
     Hive-skriptfilen **partitionweblogs.hql** lagras på Azure Storage-kontot (anges med scriptLinkedService, kallas **AzureStorageLinkedService1**) och i mappen **script** i behållaren **adfgetstarted**.
 
     Avsnittet **Definierar** används för att ange körningsinställningar som skickas till Hive-skriptet som Hive-konfigurationsvärden (t.ex. ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
@@ -298,7 +296,7 @@ Viktiga saker att observera:
 
 - Om du får felet: ”**Den här prenumerationen har inte registrerats för användning av namnområdet Microsoft.DataFactory**” gör du något av följande och försöker att publicera igen:
     - I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern.
-        ```PowerShell   
+        ```PowerShell    
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad.
@@ -528,6 +526,6 @@ I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (H
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

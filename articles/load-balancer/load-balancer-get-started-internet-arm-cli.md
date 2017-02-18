@@ -1,5 +1,5 @@
 ---
-title: "Skapa en Internetuppkopplad belastningsutjämnare i Resource Manager med hjälp av Azure CLI | Microsoft Docs"
+title: "Skapa en Internetaktiverad belastningsutjämnare – Azure CLI | Microsoft Docs"
 description: "Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i Resource Manager med hjälp av Azure CLI"
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: f3e06e802e8a5b98afc96747dee0db4173da40f0
-ms.openlocfilehash: 9129a1941b138e6f3e9b2d0359015a20fd819565
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 002fa917e0cc17c34e0e617a28f2e21ba9b7e35f
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Skapa en intern belastningsutjämnare med hjälp av Azure CLI
@@ -311,6 +311,6 @@ azure network lb delete --resource-group nrprg --name nrplb
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

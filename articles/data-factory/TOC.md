@@ -13,7 +13,7 @@
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 ### [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 ### [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-### [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
+### [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 ### [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 ## [Självstudier: Skapa en pipeline för att omvandla data](data-factory-build-your-first-pipeline.md)
 ### [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -25,7 +25,7 @@
 
 # Gör så här för att
 ## Flytta data
-### [Data Factory-kopieringsguide](data-factory-copy-wizard.md)
+### [Data Factory-kopieringsguide](data-factory-azure-copy-wizard.md)
 #### [Läs in 1 TB på 15 minuter](data-factory-load-sql-data-warehouse.md)
 ### [Kopieringsaktivitet](data-factory-data-movement-activities.md)
 #### [Prestanda- och justeringsguide](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Azure Data Factory-utvecklarreferens](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Resurser

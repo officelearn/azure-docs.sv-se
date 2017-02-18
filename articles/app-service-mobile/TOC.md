@@ -207,11 +207,15 @@
 ### [Felsöka med hjälp av Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Referens
-## [.NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [SDK för .NET-serverdel](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [SDK för Node.js-serverdel](https://azure.github.io/azure-mobile-apps-node/)
+## [SDK för Android-klient](https://azure.github.io/azure-mobile-apps-android-client/)
+## [SDK för iOS-klient](https://azure.github.io/azure-mobile-apps-ios-client/)
+## [SDK för JavaScript-/Cordova-klient](https://azure.github.io/azure-mobile-apps-js-client/)
+## [SDK för Windows-/Xamarin-klient](https://msdn.microsoft.com/library/azure/mt419521.aspx)
 
 # Relaterat
-## [WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [App Service-referens](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [GitHub-lagringsplatser](https://github.com/Azure/azure-mobile-apps)
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Resurser
@@ -219,6 +223,14 @@
 ## [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## Exempel
+### [Field Engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
+### [Strukturerad datasynkronisering](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
+### Snabbstart har slutförts
+#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
+#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
+#### [.NET-serverdelen](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
+#### [Node.js-serverdelen](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Metodtips för App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Lista över WebJob-resurser](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -227,6 +239,6 @@
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

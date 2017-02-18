@@ -1,5 +1,5 @@
 ---
-title: "Självstudier för HBase: Komma igång med Linux-baserade HBase-kluster i Hadoop | Microsoft Docs"
+title: "Komma igång med HBase i Azure HDInsight | Microsoft Docs"
 description: "Följ denna HBase-självstudie för att komma igång med Apache HBase med Hadoop i HDInsight. Skapa tabeller från HBase-gränssnittet och ställ frågor för dem med Hive."
 keywords: "apache hbase, hbase, hbase shell, självstudier för hbase"
 services: hdinsight
@@ -13,19 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/19/2017
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
-ms.openlocfilehash: 34e173c6b54bc49cf8966de459e6c03c2260cbf8
+ms.sourcegitcommit: 0a09f1511778623b21a26042a752009ae2208ba6
+ms.openlocfilehash: 415f6f71642726aeb8477f067bd406a57717ff2a
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>HBase-självstudiekurs: Komma igång med Apache HBase i HDInsight
 
 Lär dig skapa ett HBase-kluster i HDInsight, skapa HBase-tabeller och frågetabeller med Hive. Allmän HBase-information finns i [HDInsight HBase-översikt][hdinsight-hbase-overview].
-
-Informationen i det här dokumentet är specifik för Linux-baserade HDInsight-kluster. Använd flikväljaren överst på sidan för att växla till information om Windows-baserade kluster.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -285,6 +283,6 @@ Du kan läsa mer här:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

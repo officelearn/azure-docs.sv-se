@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 94c61f4b204b30b16b424fa0716e370a4f4eb51b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 43ad434b21fd358b8d72702445126dea5ce179cb
 
 
 ---
@@ -74,13 +74,13 @@ Mer information om Azure Mobile Apps finns i vår [utbildningsväg].
 Mer information om Azure Apptjänst-plattformen finns på [Azure Apptjänst].
 
 > [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://tryappservice.azure.com/?appServiceName=mobile). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
+> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/mobile/). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
 > 
 > 
 
 <!-- URLs. -->
-[Migrera Mobile Services till App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
+[Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
+[Azure Apptjänst]: ../app-service/app-service-value-prop-what-is.md
 [Kom igång]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]: ../storage/storage-getting-started-guide.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
@@ -99,11 +99,11 @@ Mer information om Azure Apptjänst-plattformen finns på [Azure Apptjänst].
 [hybridanslutningar]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [virtuella nätverk]: ../app-service-web/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[App Service-miljöer]: ../app-service-web/app-service-app-service-environment-intro.md
+[Apptjänstmiljöer]: ../app-service-web/app-service-app-service-environment-intro.md
 [utbildningsväg]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

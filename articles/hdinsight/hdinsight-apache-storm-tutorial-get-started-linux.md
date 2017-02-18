@@ -1,5 +1,5 @@
 ---
-title: "Apache Storm-kurs: Komma igång med Linux-baserat Storm på HDInsight | Microsoft Docs"
+title: "Komma igång med Apache Storm i Azure HDInsight | Microsoft Docs"
 description: "Kom igång med analyser av stordata med Apache Storm och Storm Starter-exempel på Linux-baserade HDInsight. Ta reda på hur du använder Storm till att bearbeta data i realtid."
 keywords: "apache storm, apache storm självstudier, stordata-analys, storm starter"
 services: hdinsight
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 856043148b3fc28594850ae27bedd57d48292582
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -216,6 +216,6 @@ Se följande exempel för exempeltopologier som kan användas med Storm på HDIn
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

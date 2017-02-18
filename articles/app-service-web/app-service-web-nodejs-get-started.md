@@ -1,5 +1,5 @@
 ---
-title: "Kom igång med Node.js-webbappar i Azure App Service | Microsoft Docs"
+title: "Utveckla Node.js-webbappar för Azure App Service | Microsoft Docs"
 description: "Lär dig hur du distribuerar ett Node.js-program till en webbapp i Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
-ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
+ms.sourcegitcommit: 763e956004f460f2f6d0fa7325a6f6b5fca3fd5a
+ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
 
 
 ---
-# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Kom igång med Node.js-webbappar i Azure App Service
+# <a name="develop-nodejs-web-apps-for-azure-app-service"></a>Utveckla Node.js-webbappar för Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 I den här kursen får du lära dig hur du skapar ett enkelt [Node.js]-program och distribuerar det till [Azure App Service] från en kommandoradmiljö, t.ex. cmd.exe eller bash. Anvisningarna i den här kursen kan användas för alla operativsystem som kan köra Node.js.
@@ -45,7 +45,7 @@ Du kan slutföra uppgiften med någon av följande CLI-versioner:
 * Ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion] eller [aktivera Visual Studio-prenumerantförmåner].
 
 > [!NOTE]
-> Du kan [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
+> Du kan [Prova App Service](https://azure.microsoft.com/try/app-service/) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
 > 
 > 
 
@@ -303,6 +303,6 @@ Följ de här stegen om du vill aktivera Node-Inspector:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

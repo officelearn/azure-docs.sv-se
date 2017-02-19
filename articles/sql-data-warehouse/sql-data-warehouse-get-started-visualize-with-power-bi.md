@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 8790bacecac0fa824189b5c212c2d803092ff4ed
 
 
 ---
@@ -32,19 +32,19 @@ ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
 
 De här självstudierna visar hur du använder Power BI för att ansluta till SQL Data Warehouse och skapa några grundläggande visualiseringar.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Krav
 För att gå igenom de här självstudierna, behöver du:
 
-* En SQL Data Warehouse förinstallerad med AdventureWorksDW-databasen. Om du vill distribuera detta, se [Skapa ett SQL Data Warehouse][Skapa ett SQL Data Warehouse] och välj att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt][läsa in exempeldata manuellt].
+* En SQL Data Warehouse förinstallerad med AdventureWorksDW-databasen. Om du vill distribuera detta läser du [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] och väljer att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata kan du [läsa in exempeldata manuellt][load sample data manually].
 
 ## <a name="1-connect-to-your-database"></a>1. Ansluta till databasen
 Om du vill öppna Power BI och ansluta till databasen AdventureWorksDW:
 
-1. Logga in på [Azure-portalen][Azure-portalen].
+1. Logga in på [Azure Portal][Azure portal].
 2. Klicka på **SQL-databaser** och välj din AdventureWorks SQL Data Warehouse-databas.
    
     ![Hitta din databas][1]
@@ -89,7 +89,7 @@ Du är nu redo att använda Power BI för att analysera dina AdventureWorksDW-ex
 Du kan spara ditt arbete när som helst genom att klicka på **Arkiv** och välja **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har värmt upp med exempeldata, kan du se mer information om att [utveckla][utveckla], [ladda][läsa in], eller [migrera][migrera]. Eller ta en titt på [Power BI-webbplatsen][Power BI-webbplatsen].
+Nu när du har värmt upp med exempeldata, kan du se mer information om att [utveckla][develop], [läsa in][load] eller [migrera][migrate]. Eller ta en titt på [Power BI-webbplatsen][Power BI website].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -106,19 +106,19 @@ Nu när du har värmt upp med exempeldata, kan du se mer information om att [utv
 [12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrerar]: sql-data-warehouse-overview-migrate.md
-[utvecklar]: sql-data-warehouse-overview-develop.md
-[läser in]: sql-data-warehouse-overview-load.md
-[läsa in exempeldata manuellt]: sql-data-warehouse-load-sample-databases.md
-[ansluta till SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
-[Skapa ett SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-overview-load.md
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[Azure Portal]: https://portal.azure.com/
-[Power BI-webbplatsen]: http://www.powerbi.com/
+[Azure portal]: https://portal.azure.com/
+[Power BI website]: http://www.powerbi.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
+ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
+ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-users-create-external-azure-portal.md)
 > * [Klassisk Azure-portal](active-directory-create-users-external.md)
-> 
-> 
+>
+>
 
 Den här artikeln förklarar hur du lägger till användare från andra kataloger i Azure Active Directory och hur du lägger till användare från partnerföretag. Information om hur du lägger till nya användare i din organisation och hur du lägger till användare som har Microsoft-konton finns i [Lägga till nya användare i Azure Active Directory](active-directory-create-users.md). Tillagda användare har inte administratörsbehörighet som standard, men du kan tilldela roller till dem när som helst.
 
@@ -34,7 +34,7 @@ Den här artikeln förklarar hur du lägger till användare från andra kataloge
 2. Välj **Active Directory** och öppna katalogen.
 3. Välj fliken **Användare** och sedan **Lägg till användare** i kommandofältet.
 4. På sidan **Berätta om den här användaren** under **Typ av användare** väljer du antingen:
-   
+
    * **Användare i en annan Azure AD-katalog** – lägger till ett användarkonto i katalogen som kommer från en annan Azure AD-katalog. Du kan bara välja en användare i en annan katalog om du är medlem i den katalogen.
    * **Användare i partnerföretag** – om du vill bjuda in och lägga till användare från ett partnerföretag i din katalog (se [Azure Active Directory B2B-samarbete](active-directory-b2b-what-is-azure-ad-b2b.md)). Du måste [ladda upp en CSV-fil med e-postadresser](active-directory-b2b-references-csv-file-format.md).
 5. På användarens **profilsida** anger du ett för- och efternamn, ett användarvänligt namn och en användarroll från listan **Roller**. Mer information om användar- och administratörsroller finns i [Tilldela administratörsroller i Azure AD](active-directory-assign-admin-roles.md). Ange om du vill **aktivera Multi-Factor Authentication** för användaren.
@@ -42,11 +42,11 @@ Den här artikeln förklarar hur du lägger till användare från andra kataloge
 
 > [!IMPORTANT]
 > Om din organisation använder mer än en domän bör du vara medveten om följande problem när du lägger till ett användarkonto:
-> 
+>
 > * Om du vill lägga till användarkonton med samma UPN (användarens huvudnamn) i olika domäner lägger du **först** till exempelvis geoffgrisso@contoso.onmicrosoft.com, ** följt av** geoffgrisso@contoso.com.
-> * **Lägg inte till** geoffgrisso@contoso.com innan du läger till geoffgrisso@contoso.onmicrosoft.com. Den här ordningen är viktig och kan vara krånglig att ångra.
-> 
-> 
+> * Lägg **inte** till geoffgrisso@contoso.com innan du lägger till geoffgrisso@contoso.onmicrosoft.com. Den här ordningen är viktig och kan vara krånglig att ångra.
+>
+>
 
 Om du ändrar informationen för en användare vars identitet synkroniseras med din lokala Active Directory-tjänst kan du inte ändra användarinformation på den klassiska Azure-portalen. Om du vill ändra användarinformationen använder du de lokala Active Directory-hanteringsverktygen.
 
@@ -62,8 +62,8 @@ Den enda kopplingen mellan de två kontona är att användaren alltid autentiser
 
 > [!NOTE]
 > Du kan dock inaktivera den externa användaren i katalogen, vilket blockerar åtkomsten till din katalog.
-> 
-> 
+>
+>
 
 Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt Microsoft-konto finns den externa användaren fortfarande kvar i din katalog. Dock kan användare i katalogen inte komma åt resurser eftersom de inte kan autentiseras med en hemkatalog eller ett Microsoft-konto.
 
@@ -79,6 +79,7 @@ Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt 
 * Power BI stöder inte åtkomst av externa användare för närvarande.
 * Office-portalen stöder inte licensiering av externa användare.
 * Med hänsyn till Azure AD PowerShell är externa användare inloggade i deras hemkatalog och kan inte hantera kataloger som de är externa användare i.
+* När du konfigurerar Dynamics CRM Outlook-pluginprogrammet kan externa användare behöva ange URL:en för Dynamics CRM Online-klienten manuellt i stället för att välja CRM Online.
 
 ## <a name="whats-next"></a>Nästa steg
 * [Lägga till nya användare i Azure Active Directory](active-directory-create-users.md)
@@ -88,7 +89,6 @@ Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt 
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

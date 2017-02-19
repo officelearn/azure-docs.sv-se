@@ -1,5 +1,5 @@
 ---
-title: "Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med hjälp av Azure-portalen | Microsoft Docs"
+title: Replikera virtuella Hyper-V-datorer i VMM-moln till Azure | Microsoft Docs
 description: "Beskriver hur du distribuerar Site Recovery för att dirigera replikering, redundans och återställning av virtuella Hyper-V-datorer i VMM-moln till Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,21 +12,22 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
 
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-the-azure-portal"></a>Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med hjälp av Azure-portalen
+
+> [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [Klassiska Azure](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell – Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [PowerShell – Klassisk](site-recovery-deploy-with-powershell.md)
->
->
+
 
 Välkommen till Azure Site Recovery-tjänsten!
 
@@ -46,7 +47,7 @@ För en fullständig distribution rekommenderar vi att du följer alla stegen i 
 | **Lokala begränsningar** |HTTPS-baserade proxyservrar stöds inte |
 | **Provider/agent** |Replikerade virtuella datorer behöver Azure Site Recovery-providern.<br/><br/> Hyper-V-värdar behöver Recovery Services-agenten.<br/><br/> Du installerar dessa under distributionen. |
 |  **Krav för Azure** |Azure-konto<br/><br/> Recovery Services-valv<br/><br/> LRS- eller GRS-lagringskontot i valvregionen<br/><br/> Standardlagringskonto<br/><br/> Virtuellt Azure-nätverk i valvregionen. [Fullständig information](#azure-prerequisites). |
-|  **Begränsningar för Azure** |Om du använder GRS behöver du ett annat LRS-konto för loggning<br/><br/> Lagringskonton som skapats på Azure-portalen kan inte flyttas mellan resursgrupper i samma, eller olika, prenumerationer. <br/><br/> Premium-lagring stöds inte.<br/><br/> Azure-nätverk som används för Site Recovery kan inte flyttas mellan resursgrupper i samma, eller olika, prenumerationer. 
+|  **Begränsningar för Azure** |Om du använder GRS behöver du ett annat LRS-konto för loggning<br/><br/> Lagringskonton som skapats på Azure-portalen kan inte flyttas mellan resursgrupper i samma, eller olika, prenumerationer. <br/><br/> Premium-lagring stöds inte.<br/><br/> Azure-nätverk som används för Site Recovery kan inte flyttas mellan resursgrupper i samma, eller olika, prenumerationer.
 |  **VM-replikering** |[Virtuella datorer måste uppfylla kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
 |  **Begränsningar för replikering** |Du kan inte replikera virtuella datorer som kör Linux med en statisk IP-adress.<br/><br/> Du kan utesluta specifika diskar från replikeringen, men inte OS-disken.
 | **Distributionssteg** |1) Förbered Azure (prenumeration, lagring, nätverk) -> 2) Förbered lokalt (VMM och nätverksmappning) -> 3) Skapa Recovery Services-valv > 4) Konfigurera VMM och Hyper-V-värdar -> 5) Konfigurera replikeringsinställningar -> 6) Aktivera replikering -> 7) Testa replikering och redundans. |
@@ -94,7 +95,7 @@ Här är vad du behöver lokalt
 | --- | --- |
 | **VMM** |En eller flera VMM-servrar som körs på System Center 2012 R2. Ett eller flera moln bör vara konfigurerade för varje VMM-server. Ett moln bör innehålla:<br/><br/> En eller flera VMM-värdgrupper.<br/><br/> En eller flera Hyper-V-värdservrar eller Hyper-V-kluster i varje värdgrupp.<br/><br/>[Lär dig mer](http://social.technet.microsoft.com/wiki/contents/articles/2729.how-to-create-a-cloud-in-vmm-2012.aspx) om hur du konfigurerar VMM-moln. |
 | **Hyper-V** |Hyper-V-värdservrar måste köra minst **Windows Server 2012 R2** med Hyper-V-rollen eller **Microsoft Hyper-V Server 2012 R2** och ha de senaste uppdateringarna installerade.<br/><br/> En Hyper-V-server måste innehålla en eller flera virtuella datorer.<br/><br/> En Hyper-V-värdserver eller ett Hyper-V-kluster som innehåller virtuella datorer som du vill replikera måste hanteras i ett VMM-moln.<br/><br/>Hyper-V-servrar måste vara anslutna till Internet, antingen direkt eller via en proxyserver.<br/><br/>De korrigeringar som anges i artikeln [2961977](https://support.microsoft.com/kb/2961977) måste vara installerade på Hyper-V-servrarna.<br/><br/>Hyper-V-värdservrar behöver Internetåtkomst för datareplikering till Azure. |
-| **Provider och agent** |Under distributionen av Azure Site Recovery installerar du Azure Site Recovery-providern på VMM-servern och Recovery Services-agenten på Hyper-V-värdar. Providern och agenten måste ansluta till Azure via Internet, direkt eller via en proxyserver. HTTPS-baserade proxyservrar stöds inte. Proxyservern på VMM-servern och Hyper-V-värdar måste ge åtkomst till: <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/> ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> Om du har IP-adressbaserade brandväggsregler på VMM-servern kontrollerar du att reglerna tillåter kommunikation till Azure.<br/><br/> Tillåt [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) (IP-intervall för Azures datacenter) och HTTPS-port 443.<br/><br/> Tillåt IP-adressintervall för Azure-regionen för din prenumeration och för USA, västra.<br/><br/> |
+| **Provider och agent** |Under distributionen av Azure Site Recovery installerar du Azure Site Recovery-providern på VMM-servern och Recovery Services-agenten på Hyper-V-värdar. Providern och agenten måste ansluta till Azure via Internet, direkt eller via en proxyserver. HTTPS-baserade proxyservrar stöds inte. Proxyservern på VMM-servern och Hyper-V-värdar måste ge åtkomst till: <br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/> ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net``<br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> Om du har IP-adressbaserade brandväggsregler på VMM-servern kontrollerar du att reglerna tillåter kommunikation till Azure.<br/><br/> Tillåt [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) (IP-intervall för Azures datacenter) och HTTPS-port&443;.<br/><br/> Tillåt IP-adressintervall för Azure-regionen för din prenumeration och för USA, västra.<br/><br/> |
 
 ## <a name="protected-machine-prerequisites"></a>Krav för skyddade datorer
 | **Krav** | **Detaljer** |
@@ -392,16 +393,16 @@ Aktivera replikering på följande sätt:
 7. I **Egenskaper** > **Konfigurera egenskaper** väljer du operativsystemet för de valda virtuella datorerna och operativsystemdisken. Som standard markeras alla diskar på den virtuella datorn för replikering. Du kanske vill undanta diskar från replikeringen och därigenom begränsa användningen av bandbredd för att replikera onödiga data till Azure. Till exempel kanske du inte vill replikera diskar med tillfälliga data eller data som uppdateras varje gång en dator eller ett program startar om (till exempel pagefile.sys eller tempdb för Microsoft SQL Server). Du kan undanta en disk från replikering genom att avmarkera den. Kontrollera att namnet på den virtuella datorn i Azure (målnamnet) uppfyller [kraven för virtuella datorer i Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) och ändra det om det behövs. Klicka sedan på **OK**. Du kan ange ytterligare egenskaper senare.
 
     ![Aktivera replikering](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
-    
+
     >[!NOTE]
-    > 
-    > * Endast standarddiskar kan undantas från replikering. Du kan inte utesluta OS-disken och vi rekommenderar att du inte undantar dynamiska diskar. ASR kan inte identifiera vilken virtuell hårddisk som är en standarddisk eller dynamisk disk på den virtuella gästdatorn.  Om beroende dynamiska volymdiskar inte undantas identifieras en skyddad dynamisk disk som felaktig på den virtuella datorn vid redundansväxlingen och data på disken kan inte nås.   
+    >
+    > * Endast standarddiskar kan undantas från replikering. Du kan inte utesluta OS-disken och vi rekommenderar att du inte undantar dynamiska diskar. ASR kan inte identifiera vilken virtuell hårddisk som är en standarddisk eller dynamisk disk på den virtuella gästdatorn.  Om beroende dynamiska volymdiskar inte undantas identifieras en skyddad dynamisk disk som felaktig på den virtuella datorn vid redundansväxlingen och data på disken kan inte nås.
     > * När replikering har aktiverats kan du inte lägga till eller ta bort diskar för replikering. Om du vill lägga till eller undanta en disk måste du inaktivera skyddet för den virtuella datorn och sedan aktivera det igen.
     > * Om du undantar en disk som behövs för att ett program ska fungera efter redundansväxlingen till Azure måste du skapa den manuellt i Azure så att det replikerade programmet kan köras. Du kan också integrera Azure Automation i en återställningsplan för att skapa disken under en redundansväxling av datorn.
     > * Diskar som du skapar manuellt i Azure växlas inte tillbaka igen. Om du till exempel växlar över tre diskar och skapar två direkt på den virtuella datorn i Azure kommer endast tre diskar som växlades över att växlas tillbaka från Azure till Hyper-V. Du kan inte ta med diskar som har skapats manuellt i redundansväxlingar eller omvända replikeringar från Hyper-V till Azure.
     >
     >
-    
+
 
 8. I **Replikeringsinställningar** > **Konfigurera replikeringsinställningar** väljer du den replikeringsprincip som du vill använda för de skyddade virtuella datorerna. Klicka sedan på **OK**. Du kan ändra replikeringsprincipen i **Inställningar** > **Replikeringsprinciper** > Principnamn > **Redigera inställningar**. De ändringar du gör används både för datorer som redan replikeras och för nya datorer.
 
@@ -418,7 +419,8 @@ Vi rekommenderar att du kontrollerar egenskaperna för källdatorn. Kom ihåg at
 2. I **Egenskaper** kan du visa information om replikering och redundans för den virtuella datorn.
 
     ![Aktivera replikering](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. I **Beräkning och nätverk** > **Beräkna egenskaper** kan du ange namnet och storleken på den virtuella Azure-datorn. Ändra namnet så att det uppfyller [kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) om det behövs. Du kan också visa och ändra information om målnätverket, undernätet och IP-adressen som ska tilldelas den virtuella Azure-datorn. Tänk på följande:
+3. I **Beräkning och nätverk** > **Beräkna egenskaper** kan du ange namnet och storleken på den virtuella Azure-datorn. Ändra namnet så att det uppfyller [kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) om det behövs. Du kan också visa och ändra information om målnätverket, undernätet och IP-adressen som ska tilldelas den virtuella Azure-datorn.
+Tänk på följande:
 
    * Du kan ange IP-måladressen. Om du inte anger någon adress använder den redundansväxlade datorn DHCP. Om du anger en adress som inte är tillgänglig under redundansväxlingen, misslyckas växlingen. Samma mål-IP-adress kan användas för att testa redundans om adressen är tillgänglig i nätverket för redundanstestet.
    * Antalet nätverkskort beror på storleken som du anger för den virtuella måldatorn enligt följande:
@@ -430,19 +432,6 @@ Vi rekommenderar att du kontrollerar egenskaperna för källdatorn. Kom ihåg at
 
      ![Aktivera replikering](./media/site-recovery-vmm-to-azure/test-failover4.png)
 4. I **Diskar** kan du se vilket operativsystem och vilka datadiskar på den virtuella datorn som kommer att replikeras.
-
-## <a name="step-7-test-your-deployment"></a>Steg 7: Testa distributionen
-Du kan testa distributionen genom att köra ett redundanstest för en enskild virtuell dator eller genom att köra en återställningsplan som innehåller en eller flera virtuella datorer.
-
-### <a name="prepare-for-failover"></a>Förbereda för redundansväxling
-* Om du vill köra ett redundanstest, rekommenderar vi att du skapar ett nytt Azure-nätverk som har isolerats från Azure-driftsnätverket. Detta är standardfunktionen när du skapar ett nytt nätverk i Azure. [Lär dig mer](site-recovery-failover.md#run-a-test-failover) om hur du kör redundanstestning.
-* För att få bästa möjliga prestanda när du redundansväxlar till Azure kan du installera Azure-agenten på den skyddade datorn. Det gör att starten går snabbare och underlättar felsökning. Installera [Linux](https://github.com/Azure/WALinuxAgent)- eller [Windows](http://go.microsoft.com/fwlink/?LinkID=394789)-agenten.
-* För att testa distributionen fullt ut behöver du en infrastruktur för den replikerade datorn som fungerar som förväntat. Om du vill testa Active Directory och DNS kan du skapa en virtuell dator som en domänkontrollant med DNS och replikera den till Azure med hjälp av Azure Site Recovery. Läs mer i [saker att tänka på när du testar redundans för Active Directory](site-recovery-active-directory.md#test-failover-considerations).
-* Om du har tagit bort diskar från replikering kan du behöva skapa dem manuellt i Azure efter redundansväxlingen så att programmet körs som förväntat.
-* Tänk på följande om du vill köra en oplanerad redundansväxling i stället för ett redundanstest:
-
-  * Om möjligt bör du stänga av primära datorer innan du kör en oplanerad redundansväxling. På så sätt är du säker på att inte både käll- och replikdatorerna körs samtidigt.
-  * När du kör en oplanerad redundansväxling stoppas datareplikeringen från primära datorer så att eventuella dataförändringar (delta) inte överförs när en oplanerad redundansväxling har startat. Om du kör en oplanerad redundansväxling med en återställningsplan körs den dessutom tills den är klar, även om ett fel inträffar.
 
 ### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
 Om du vill ansluta till virtuella Azure-datorer med RDP efter en redundansväxling gör du följande:
@@ -474,26 +463,19 @@ Om du vill komma åt en virtuell Azure-dator som kör Linux efter en redundansv�
 * En offentlig slutpunkt måste skapas för att tillåta inkommande anslutningar på SSH-porten (TCP-port 22 som standard).
 * Om den virtuella datorn nås via en VPN-anslutning (Express Route eller plats-till-plats-VPN) kan klienten användas för att ansluta direkt till den virtuella datorn via SSH.
 
-### <a name="run-a-test-failover"></a>Köra ett redundanstest
+
+## <a name="step-7-test-your-deployment"></a>Steg 7: Testa distributionen
+Du kan testa distributionen genom att köra ett redundanstest för en enskild virtuell dator eller genom att köra en återställningsplan som innehåller en eller flera virtuella datorer.
+
 1. Om du vill redundansväxla en enstaka virtuell dator klickar du på den virtuella datorn > **+Testa redundans** i **Inställningar** > **Replikerade objekt**.
-2. Om du vill redundansväxla en återställningsplan går du till **Inställningar** > **Återställningsplaner**, högerklickar på planen > **Testa redundans**. Om du vill skapa en återställningsplan [följer du dessa instruktioner](site-recovery-create-recovery-plans.md).
-3. I **Testa redundans** väljer du det Azure-nätverk som de virtuella Azure-datorerna ska ansluta till efter redundansväxlingen.
-4. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att visa dess egenskaper, eller i jobbet **Testa redundans** i **Inställningar** > **Site Recovery-jobb**.
-5. När redundansväxlingen når fasen **Slutför testning** gör du följande:
+1. Om du vill redundansväxla en återställningsplan går du till **Inställningar** > **Återställningsplaner**, högerklickar på planen > **Testa redundans**. Om du vill skapa en återställningsplan [följer du dessa instruktioner](site-recovery-create-recovery-plans.md).
+1. I **Testa redundans** väljer du det Azure-nätverk som de virtuella Azure-datorerna ska ansluta till efter redundansväxlingen.
+1. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att visa dess egenskaper, eller i jobbet **Testa redundans** i **Inställningar** > **Site Recovery-jobb**.
+1. När redundansväxlingen är klar bör du även kunna se Azure-replikdatorn på Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn har rätt storlek, att den är ansluten till rätt nätverk och körs.
+1. Om du [förberedde för anslutning efter redundansväxlingen](#prepare-to-connect-to-Azure-VMs-after-failover) bör du kunna ansluta till den virtuella Azure-datorn.
+1. När du är klar klickar du på **Rensa redundanstest** i återställningsplanen. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen. När du gör det tas de virtuella datorerna som skapades under redundanstestningen bort. 
 
-   1. Visa den virtuella replikdatorn på Azure-portalen. Kontrollera att den virtuella datorn startar.
-   2. Om du har åtkomst till de virtuella datorerna från ditt lokala nätverk kan du initiera en fjärrskrivbordsanslutning till den virtuella datorn.
-   3. Slutför testet genom att klicka på **Slutför testet**.
-   4. Klicka på **Kommentarer** om du vill skriva ner och spara observationer från redundanstestningen.
-   5. Klicka på **Redundanstestet är klart**. Rensa testmiljön så att den virtuella testdatorn stängs av och tas bort.
-   6. I det här skedet raderas alla element eller virtuella datorer som skapades automatiskt av Site Recovery under redundanstestningen. Övriga element som du har skapat för att testa redundansväxlingen tas inte bort.
-
-      > [!NOTE]
-      > Om ett redundanstest fortsätter längre än två veckor slutförs det automatiskt.
-      >
-      >
-6. När redundansväxlingen är klar bör du även kunna se Azure-replikdatorn på Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn har rätt storlek, att den är ansluten till rätt nätverk och körs.
-7. Om du [förberedde för anslutning efter redundansväxlingen](#prepare-to-connect-to-Azure-VMs-after-failover) bör du kunna ansluta till den virtuella Azure-datorn.
+Mer information finns i [Test failover to Azure](site-recovery-test-failover-to-azure.md) (Testa redundans till Azure).
 
 ## <a name="monitor-your-deployment"></a>Övervaka distributionen
 Så här gör du om du vill övervaka konfigurationsinställningarna, statusen och hälsotillståndet för Site Recovery-distributionen:
@@ -509,6 +491,6 @@ När du har konfigurerat och fått igång distributionen kan du [läsa mer](site
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

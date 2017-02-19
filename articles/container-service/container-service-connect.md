@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 01/30/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: ea59ff3f527d051e01baf12f596ff44af8a0dfc1
-ms.openlocfilehash: 7fe3bc6a5eab1d1b9a8b73ab3c88f9808817369a
+ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
+ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Ansluta till ett Azure Container Service-kluster
-När du har skapat ett Azure Container Service-kluster måste du ansluta till klustret för att distribuera och hantera arbetsbelastningar. Den här artikeln beskriver hur du ansluter till den virtuella huvuddatorn i klustret från en fjärrdator. Kubernetes-, DC/OS- och Docker Swarm-klustren exponerar REST-slutpunkter. För Kubernetes exponeras den här slutpunkten på ett säkert sätt på Internet och du kan komma åt den genom att köra `kubectl`-kommandoradsverktyget från valfri Internetansluten dator. För DC/OS och Docker Swarm måste du skapa en SSH-tunnel (Secure Shell) för att på ett säkert sätt ansluta till REST-slutpunkten. 
+När du har skapat ett Azure Container Service-kluster måste du ansluta till klustret för att distribuera och hantera arbetsbelastningar. Den här artikeln beskriver hur du ansluter till den virtuella huvuddatorn i klustret från en fjärrdator. 
+
+Kubernetes-, DC/OS- och Docker Swarm-klustren tillhandahåller HTTP-slutpunkter lokalt. För Kubernetes exponeras den här slutpunkten på ett säkert sätt på Internet och du kan komma åt den genom att köra `kubectl`-kommandoradsverktyget från valfri Internetansluten dator. 
+
+För DC/OS och Docker Swarm måste du skapa en SSH-tunnel (Secure Shell) till ett internt system. När tunneln har upprättats kan du köra kommandon som använder HTTP-slutpunkter och visa klustrets webbgränssnitt från det lokala systemet. 
 
 > [!NOTE]
 > Stöd för Kubernetes i Azure Container Service förhandsvisas just nu.
@@ -43,7 +47,7 @@ Följ stegen nedan för att installera och konfigurera `kubectl` på datorn.
 > 
 
 ### <a name="install-kubectl"></a>Installera kubectl
-Ett sätt att installera det här verktyget är att använda kommandot `az acs kubernetes install cli` från Azure CLI 2.0 (förhandsversion). Om du vill köra det här kommandot kontrollerar du att den senaste versionen av Azure CLI 2.0 (förhandsversion) är [installerad](/cli/azure/install-az-cli2) och att du är inloggad på ett Azure-konto (`az login`).
+Ett sätt att installera det här verktyget är att använda kommandot `az acs kubernetes install-cli` från Azure CLI 2.0 (förhandsversion). Om du vill köra det här kommandot kontrollerar du att den senaste versionen av Azure CLI 2.0 (förhandsversion) är [installerad](/cli/azure/install-az-cli2) och att du är inloggad på ett Azure-konto (`az login`).
 
 ```azurecli
 # Linux or OS X
@@ -68,7 +72,7 @@ Det här kommandot hämtar autentiseringsuppgifterna för klustret till `$HOME/.
 Du kan också använda `scp` för att kopiera filen från `$HOME/.kube/config` på den virtuella huvuddatorn till din dator på ett säkert sätt. Exempel:
 
 ```console
-mkdir $HOME/.kube/config
+mkdir $HOME/.kube
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
@@ -96,10 +100,10 @@ Mer information finns i [snabbstarten för Kubernetes](http://kubernetes.io/docs
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Ansluta till ett DC/OS- eller Swarm-kluster
 
-DC/OS- och Docker Swarm-kluster som distribueras med Azure Container Service exponerar REST-slutpunkter. De här slutpunkterna är dock inte öppna för allmänheten. Du måste skapa en SSH-tunnel (Secure Shell) för att kunna hantera de här slutpunkterna. När en SSH-tunnel har upprättats kan du köra kommandon mot klusterslutpunkter och visa klustergränssnittet via en webbläsare i ditt system. I följande avsnitt får du hjälp med att skapa en SSH-tunnel från datorer som kör Linux-, OS X- och Windows-operativsystem.
+Om du vill använda DC/OS- och Docker Swarm-kluster som distribueras av Azure Container Service, följer du dessa instruktioner för att skapa en SSH-tunnel (Secure Shell) från ditt lokala Linux-, OS X- eller Windows-system. 
 
 > [!NOTE]
-> Du kan skapa en SSH-session med ett klusterhanteringssystem. Men vi det rekommenderar inte. Om du arbetar direkt i ett hanteringssystem finns det en risk att konfigurationsändringar görs oavsiktligt.
+> Dessa anvisningar fokuserar på tunnling av TCP-trafik över SSH. Du kan också starta en interaktiv SSH-session med något av de interna klusterhanteringssystemen, men det rekommenderas inte. Det finns en risk för oavsiktliga konfigurationsändringar om du arbetar direkt i ett internt system.  
 > 
 
 ### <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Skapa en SSH-tunnel i Linux eller OS X
@@ -108,41 +112,47 @@ Det första du ska göra när du ska skapa en SSH-tunnel i Linux eller OS X är 
 
 1. På [Azure Portal](https://portal.azure.com) bläddrar du till resursgruppen som innehåller behållartjänstens kluster. Expandera resursgruppen så att varje resurs visas. 
 
-2. Leta upp och välj den virtuella huvuddatorn. I ett DC/OS-kluster har den här resursen ett namn som börjar med **dcos-master-**. 
-
-    Bladet **Virtuell dator** innehåller information om den offentliga IP-adressen, som innehåller DNS-namnet. Spara det här namnet för senare användning. 
+2. Klicka på resursen för behållartjänsten och klicka sedan på **Översikt**. **Master-FQDN** för klustret visas under **Essentials**. Spara det här namnet för senare användning. 
 
     ![Offentligt DNS-namn](media/pubdns.png)
 
+    Du kan också köra `az acs show`-kommandot i behållartjänsten. Leta reda på egenskapen **Master Profile:fqdn** i utdata från kommandot.
+
 3. Öppna ett gränssnitt och kör `ssh`-kommandot genom att ange följande värden: 
 
-    **PORT** är porten för den slutpunkt som du vill exponera. Använd port 2375 för Swarm. Använd port 80 för DC/OS.  
+    **LOCAL_PORT** är TCP-porten som ska anslutas till på serversidan av tunneln. För Swarm anger du port 2375. För DC/OS anger du 80.  
+    **REMOTE_PORT** är porten för den slutpunkt som du vill exponera. Använd port 2375 för Swarm. Använd port 80 för DC/OS.  
     **USERNAME** är det användarnamn som angavs när du distribuerade klustret.  
     **DNSPREFIX** är det DNS-prefix som du angav när du distribuerade klustret.  
     **REGION** är den region där resursgruppen finns.  
     **PATH_TO_PRIVATE_KEY** [VALFRITT] är sökvägen till den privata nyckeln som motsvarar den offentliga nyckeln som du angav när du skapade klustret. Använd det här alternativet med flaggan `-i`.
 
     ```bash
-    ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
-    > SSH-anslutningsporten är 2200, inte standardporten 22. I ett kluster med flera virtuella huvuddatorer är detta anslutningsporten till den första virtuella huvuddatorn.
+    > SSH-anslutningsporten är 2200 och inte standardporten 22. I ett kluster med flera virtuella huvuddatorer är detta anslutningsporten till den första virtuella huvuddatorn.
     > 
+
+
 
 Se exemplen för DC/OS och Swarm i följande avsnitt.    
 
 ### <a name="dcos-tunnel"></a>DC/OS-tunnel
-Om du vill öppna en tunnel till de DC/OS-relaterade slutpunkterna kör du ett kommando liknande följande:
+Om du vill öppna en tunnel för DC/OS-slutpunkter kör du ett kommando på följande sätt:
 
 ```bash
-sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -fNL 80:localhost:80 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
 ```
 
-Du kan nu komma åt de DC/OS-relaterade slutpunkterna på:
+> [!NOTE]
+> Du kan ange en annan lokal port än port 80, till exempel port 8888. Men vissa länkar i webbgränssnitt kanske inte fungerar när du använder den här porten.
 
-* DC/OS: `http://localhost/`
-* Marathon: `http://localhost/marathon`
-* Mesos: `http://localhost/mesos`
+Nu kan du komma åt DC/OS-slutpunkter från den lokala datorn via följande URL:er (förutsatt att port 80 används som lokal port):
+
+* DC/OS: `http://localhost:80/`
+* Marathon: `http://localhost:80/marathon`
+* Mesos: `http://localhost:80/mesos`
 
 På samma sätt kan du nå REST API:erna för alla program via den här tunneln.
 
@@ -150,7 +160,7 @@ På samma sätt kan du nå REST API:erna för alla program via den här tunneln.
 Om du vill öppna en tunnel till Swarm-slutpunkten kör du ett kommando liknande följande:
 
 ```bash
-ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com
 ```
 
 Du kan nu ange din DOCKER_HOST-miljövariabel på följande sätt. Du kan fortsätta att använda ditt Docker-kommandoradsgränssnitt (CLI) som vanligt.
@@ -211,6 +221,6 @@ Distribuera och hantera behållare i klustret:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

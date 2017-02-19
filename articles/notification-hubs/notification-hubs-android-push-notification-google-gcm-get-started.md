@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
-ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
+ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
+ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 
 
 ---
@@ -63,10 +63,10 @@ Din meddelandehubb har nu konfigurerats för att fungera med GCM och du har ansl
 ### <a name="create-a-new-android-project"></a>Skapa ett nytt Android-projekt
 1. Starta ett nytt Android Studio-projekt i Android Studio.
    
-     ![Android Studio – nytt projekt][13]
+   ![Android Studio – nytt projekt][13]
 2. Välj formfaktorn för **Telefoner och surfplattor** samt det **Minimum SDK** som du vill stödja. Klicka sedan på **Nästa**.
    
-     ![Android Studio – arbetsflöde för att skapa projekt][14]
+   ![Android Studio – arbetsflöde för att skapa projekt][14]
 3. Välj **Tom aktivitet** som huvudsaklig aktivitet, klicka på **Nästa** och sedan på **Slutför**.
 
 ### <a name="add-google-play-services-to-the-project"></a>Lägga till Google Play-tjänster till projektet
@@ -619,13 +619,14 @@ Förutom det som nämns ovan måste du se till att du har lagt till ditt Google-
 #### <a name="running-the-application"></a>Köra programmet
 1. Kör appen och lägg märke till att ett registrerings-ID rapporteras vid en lyckad registrering.
    
-       ![Testing on Android - Channel registration][18]
+      ![Tester på Android – Kanalregistrering][18]
 2. Ange ett meddelande som ska skickas till alla Android-enheter som har registrerats på hubben.
    
-       ![Testing on Android - sending a message][19]
+      ![Tester på Android – skicka ett meddelande][19]
+
 3. Tryck på **Skicka meddelande**. Alla enheter där appen körs kommer att visa en `AlertDialog` instans med push-meddelandet. Enheter där appen inte körs men som tidigare hade registrerats för att ta emot push-meddelanden, kommer att få ett meddelande i Android Notification Manager. Dessa kan visas genom att svepa nedåt från det övre vänstra hörnet.
    
-       ![Testing on Android - notifications][21]
+      ![Tester på Android – meddelanden][21]
 
 ## <a name="next-steps"></a>Nästa steg
 Vi rekommenderar att du går vidare med självstudiekursen [Använda Notification Hubs för att skicka push-meddelanden till användare] som nästa steg. Den visar hur du skickar meddelanden från en ASP.NET-backend med hjälp av taggar för att rikta in dig på vissa specifika användare.
@@ -671,6 +672,6 @@ Om du vill få mer allmän information om Notification Hubs kan du läsa våra [
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

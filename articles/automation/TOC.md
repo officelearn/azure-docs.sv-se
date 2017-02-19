@@ -26,6 +26,7 @@
 ### [Spåra ett Runbook-jobb](automation-runbook-execution.md)
 ### [Ändra Runbook-inställningar](automation-runbook-settings.md)
 ### [Hantera Azure Automation-data](automation-managing-data.md)
+### [Anropa Azure Automation Runbook från en Log Analytics-avisering](automation-invoke-runbook-from-omsla-alert.md)
 ## Distribuera konfigurationshantering (DSC)
 ### [Önskad tillståndskonfiguration (DSC)](automation-dsc-overview.md)
 ### [Komma igång](automation-dsc-getting-started.md)
@@ -43,6 +44,7 @@
 ### [Integreringsmoduler](automation-integration-modules.md)
 ### [Scheman](automation-schedules.md)
 ### [Variabler](automation-variables.md)
+### [Uppdatera Azure PowerShell-moduler](automation-update-azure-modules.md)
 ## Automatisera scenarier
 ### [Runbook-galleri](automation-runbook-gallery.md)
 ### [Starta/stoppa virtuella datorer](automation-solution-startstopvm-graphical.md)
@@ -53,7 +55,9 @@
 ### [Ta bort resursgrupp](automation-scenario-remove-resourcegroup.md)
 ### [Starta/stoppa virtuella datorer utanför arbetstid](automation-solution-vm-management.md)
 ### [Källkontrollintegrering med GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
-## [Övervaka](automation-manage-send-joblogs-log-analytics.md)
+## Övervaka
+### [Vidarebefordra jobbdata från Azure Automation till Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Ta bort länk till Azure Automation-konto från Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migrera
 ### [Migrera från Orchestrator](automation-orchestrator-migration.md)
 ### [Flytta Automation-konto](automation-migrate-account-subscription.md)
@@ -78,6 +82,6 @@
 ## [Introduktionsvideo för Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

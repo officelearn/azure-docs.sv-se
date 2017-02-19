@@ -21,11 +21,19 @@
 ### [Lägga till artefaktlagringsplats](devtest-lab-add-artifact-repo.md)
 ### [Skapa anpassade artefakter](devtest-lab-artifact-author.md)
 
-## Hantera VM-baser
-### [Skapa anpassad avbildning](devtest-lab-create-template.md)
+## Hantera VM-databaser och mallar
+### [Skapa miljöer med flera virtuella datorer med Azure Resource Manager-mallar](devtest-lab-create-environment-from-arm.md)
 ### [Konfigurera Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md)
-### [Hantera formler](devtest-lab-manage-formulas.md)
 ### [Jämföra avbildningar med formler](devtest-lab-comparing-vm-base-image-types.md)
+### [Hantera formler](devtest-lab-manage-formulas.md)
+### [Skapa en anpassad avbildning från en virtuell dator](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Skapa en anpassad avbildning från en virtuell hårddisk med Azure Portal](devtest-lab-create-template.md)
+### [Skapa en anpassad avbildning från en virtuell hårddisk med PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+### [Överför VHD-filen med AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
+### [Överför VHD-filen med PowerShell](devtest-lab-upload-vhd-using-powershell.md)
+### [Överför VHD-filen med Lagringsutforskaren](devtest-lab-upload-vhd-using-storage-explorer.md)
+
+
 
 # Resurser
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=devtest-lab)
@@ -35,6 +43,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -42,14 +42,13 @@
 ### [Anpassa dina index](documentdb-indexing-policies.md)
 ### [Säker åtkomst till data](documentdb-secure-access-to-data.md)
 ### [Säkerhetskopiera och återställa](documentdb-online-backup-and-restore.md)
-### [Prestandanivåer](documentdb-performance-levels.md)
+### [Dra tillbaka S1, S2, S3](documentdb-performance-levels.md)
 ### [Enheter för programbegäran](documentdb-request-units.md)
 ### Azure CLI
 #### [Skapa ett konto](documentdb-automation-resource-manager-cli.md)
 #### [Lägga till eller ta bort regioner](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Brandväggsstöd](documentdb-firewall-support.md)
-### [Förbättra ditt konto](documentdb-supercharge-your-account.md)
 
 ## Utveckla
 ### [SQL-fråga](documentdb-sql-query.md)
@@ -73,6 +72,7 @@
 ## Använda portalen
 ### [Skapa ett databaskonto](documentdb-create-account.md)
 ### [Skapa en samling](documentdb-create-collection.md)
+### [Ange dataflöde](documentdb-set-throughput.md)
 ### [Lägga till global replikering](documentdb-portal-global-replication.md)
 ### [Lägga till och redigera dokument](documentdb-view-json-document-explorer.md)
 ### [Köra frågor mot dokument](documentdb-query-collections-query-explorer.md)
@@ -90,7 +90,7 @@
 ### [Integrera med Azure Search](../search/search-howto-index-documentdb.md)
 ### [Flytta data med Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analysera realtidsdata med Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Få aviseringar med Logic Apps](documentdb-change-notification.md)
+### [Hämta ändrad HL7 FHIR-post med Logic Apps](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Bearbeta sensordata i realtid](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualisera din information med Power BI](documentdb-powerbi-visualize.md)
 ### [Utnyttja ODBC-drivrutinen för datavisualisering](documentdb-nosql-odbc-driver.md)
@@ -126,6 +126,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -23,7 +23,7 @@
 ### [Bästa metoder för autoskalning](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [Vanliga mått för autoskalning](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Skala skalningsuppsättningar för virtuell dator automatiskt med Resource Manager-mallar](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Skala automatiskt datorer i en skalningsuppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+### [Skala automatiskt datorer i en skalningsuppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Konfigurera webhooks och e-postaviseringar med autoskalning](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 ## Använd aktivitetsloggen
 ### [Visa händelser i aktivitetsloggen](../monitoring-and-diagnostics/insights-debugging-with-events.md)
@@ -38,17 +38,22 @@
 ## Använd REST API
 ### [Genomgång med REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
-
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
+## [Azure Diagnostics Schema](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+### [Diagnostics Schema 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
+### [Diagnostics Schema 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
+### [Diagnostics Schema 1.3–1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+
 
 # Resurser
 ## [PowerShell-exempel](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Exempel med Azure CLI 2.0 (förhandsversion)](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Exempel för Azure CLI 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Lista över mått som stöds](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

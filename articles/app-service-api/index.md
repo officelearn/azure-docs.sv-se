@@ -1,14 +1,25 @@
 ---
+title: "Dokumentation om API Apps i Azure App Service – Självstudier | Microsoft Docs"
+description: "Lär di hur du använder API Apps i Azure App Service för att utveckla, hantera och använda API:er i molnet och på plats. Självstudier, videoklipp och annan dokumentation."
+services: app-service\api
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service\api
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: ac7a22bd592cbb1e8cdee2e6d2896c0b8ad6ea26
-
+ms.sourcegitcommit: 741a6f2be3c8c689884cdeb180ff10dac046032b
+ms.openlocfilehash: b1a568d7a8f856c7d17aa7ebd14148452c1d29db
 
 ---
 # <a name="app-service---api-apps-documentation"></a>App Service – API Apps-dokumentation
 
-API Apps är en av fyra apptyper som erbjuds av Azure App Service. API-appar i Azure App Service innehåller funktioner som gör det enklare att utveckla, hantera och använda API:er i molnet och lokalt. Azure App Service är en helt hanterad plattform för webb-, mobil- och integreringsscenarier.
+Lär di hur du använder API Apps i Azure App Service för att utveckla, hantera och använda API:er i molnet och på plats. Självstudier, videoklipp och annan dokumentationen visar hur du skapar och distribuerar API-appar.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -121,38 +132,10 @@ API Apps är en av fyra apptyper som erbjuds av Azure App Service. API-appar i A
     </li>     
 </ul>
 
----
-
-<h2>Referens</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Resurser</h3>
-                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service-api%2ftoc.json">Azure Portal</a></p>
-                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service-api%2ftoc.json">App Service-referens</a></p>
-                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service-api%2ftoc.json">WebJobs-SDK</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Mobile Apps </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -43,6 +43,14 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
+## Disklagring 
+### [Skapa en virtuell dator med Resource Manager och PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Skapa en virtuell Linux-dator med Azure CLI 2.0 (förhandsvisning)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Koppla en hanterad disk på en virtuell Windows-dator med hjälp av PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [Lägga till en hanterad disk till en virtuell Linux-dator](../virtual-machines/virtual-machines-linux-add-disk.md)
+### [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
 # Gör så här för att
 ## [Skapa ett lagringskonto](storage-create-storage-account.md)
 ## Använda blobar
@@ -62,13 +70,21 @@
 ### [Översikt](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Felsöka Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Exempel](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## Använda virtuella datordiskar
+## Använda diskar
+### [Diskar och virtuella hårddiskar för virtuella Windows-datorer](storage-about-disks-and-vhds-windows.md)
+### [Diskar och virtuella hårddiskar för virtuella Linux-datorer](storage-about-disks-and-vhds-linux.md)
+### [Översikt över Azure Managed Disks](storage-managed-disks-overview.md)
+### [Migrera virtuella Azure-datorer till Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+### [Migrera från AWS och andra plattformar till Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Vanliga frågor om virtuella IaaS-datordiskar i Azure](storage-faq-for-disks.md)
 ### Premium Storage
-#### [Lagring med höga prestanda för virtuella arbetsbelastningar](storage-premium-storage.md)
-#### [Migrera till Premium Storage](storage-migration-to-premium-storage.md)
+#### [Premium Storage med höga prestanda för virtuella datordiskar](storage-premium-storage.md)
 #### [Designa för höga prestanda](storage-premium-storage-performance.md)
 ### Standardlagring
-#### [Säkerhetskopiera VM-diskar med inkrementella ögonblicksbilder](storage-incremental-snapshots.md)
+#### [Standard Storage med kostnadseffektiv lagring och ohanterade och hanterade virtuella datordiskar](storage-standard-storage.md)
+### Använda ohanterade diskar
+#### [Migrera till Premium Storage](storage-migration-to-premium-storage.md)
+#### [Säkerhetskopiera ohanterade virtuella datordiskar med inkrementella ögonblicksbilder](storage-incremental-snapshots.md)
 ## Planera och designa
 ### [Replikering](storage-redundancy.md)
 ### [Mål för skalbarhet och prestanda](storage-scalability-targets.md)
@@ -155,12 +171,12 @@
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
 ### [Dataförflyttning](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blobar, köer, tabeller och filer](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-## [Java](/java/api/)
+## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
-## [iOS](https://github.com/Azure/azure-storage-ios)
+## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
 ### [Blobar, köer, tabeller och filer](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
@@ -205,6 +221,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

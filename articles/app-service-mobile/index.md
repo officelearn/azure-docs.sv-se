@@ -1,14 +1,25 @@
 ---
+title: "Dokumentation om Azure Mobile Apps – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig hur du använder Mobile Apps i Azure App Service för att bygga och hantera interna iOS-, Android-, Windows- eller plattformsoberoende appar med hjälp av Xamarin eller Cordova."
+services: app-service\mobile
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service\mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 9cae18a8206e2828838c8b35733eee5d25d15cb1
-
+ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
+ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
 
 ---
 # <a name="mobile-apps-documentation"></a>Dokumentation om Mobile Apps
 
-Mobile Apps i Azure App Service är en skalbar plattform för mobilappsutveckling tänkt att användas av utvecklare av företagsprogram och systemintegrerare. Den ger mobilutvecklare tillgång till ett stort utbud av funktioner.
+Lär dig hur du använder Mobile Apps i Azure App Service för att bygga interna iOS-, Android-, Windows- eller plattformsoberoende appar med hjälp av Xamarin eller Cordova. Självstudier, videor, klient-SDK-dokumentation och mycket mer visar hur du bygger och hanterar serverdelen för alla sorters mobilappar.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -185,8 +196,13 @@ Mobile Apps i Azure App Service är en skalbar plattform för mobilappsutvecklin
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">SDK för .NET-serverdel</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">SDK för Node.js-serverdel</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">SDK för Android-klient</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">SDK för iOS-klient</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">SDK för JavaScript-/Cordova-klient</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">SDK för Windows-/Xamarin-klient</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -194,6 +210,7 @@ Mobile Apps i Azure App Service är en skalbar plattform för mobilappsutvecklin
 </ul>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

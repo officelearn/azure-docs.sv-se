@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentation om Azure Container Registry – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du skapar och underhåller behållarregister för att lagra dina distributionsavbildningar med en hanterad Docker registry-tjänst. Självstudier, API-referens och mycket annat."
+services: container-registry
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: container-registry
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: ab80e1ef9771caa4369863c0aff1cee2c3055830
-ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
+ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
+ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
 
 ---
 
@@ -90,7 +101,7 @@ Lär dig hur du använder Container Registry för att lagra och hantera avbildni
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/containerregistry">REST-API</a></p>
+                        <p><a href="/rest/api/containerregistry">REST API</a></p>
                      </div>
                 </div>
             </div>
@@ -100,6 +111,6 @@ Lär dig hur du använder Container Registry för att lagra och hantera avbildni
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

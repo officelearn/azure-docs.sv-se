@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure Analysis Services – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig hur du konfigurerar datamodellering med Analysis Services i molnet. Dokumentation som visar hur du skapar en företags-BI-lösning med hjälp av tabelldata."
+services: analysis-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: analysis-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: a10f328258bfe7d34d0807d4e15aa4a8ce5bbafb
+ms.sourcegitcommit: 565dfcc4ca69badecff981057681bb7bd61d048d
+ms.openlocfilehash: 931102cca5799d0117fdaf056ac479edac8de776
 
 ---
 # <a name="analysis-services-documentation"></a>Dokumentation för Analysis Services
 
-Azure Analysis Services, som skapats på den bevisade analytiska motorn i Microsoft SQL Server Analysis Services, ger datamodellering i företagsklass i molnet.
+Lär dig hur du konfigurerar och hanterar datamodellering med Analysis Services. Självstudier och annan dokumentation visar hur du skapar en BI-lösning i företagsklass med hjälp av tabelldata i molnet eller på plats.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -76,7 +88,7 @@ Azure Analysis Services, som skapats på den bevisade analytiska motorn i Micros
                 <div class="card">
                     <div class="cardText">
                         <h3>Kommandorad</h3>
-                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -88,7 +100,7 @@ Azure Analysis Services, som skapats på den bevisade analytiska motorn i Micros
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/analysisservices/">Referens för REST API</a></p>
+                        <p><a href="/rest/api/analysisservices/">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -96,18 +108,10 @@ Azure Analysis Services, som skapats på den bevisade analytiska motorn i Micros
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentationen för Analysis Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

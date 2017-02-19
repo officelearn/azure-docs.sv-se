@@ -1,17 +1,24 @@
 # Översikt
+
 ## [Vad är Machine Learning?](machine-learning-what-is-machine-learning.md)
-## Machine Learning Studio
-### [Vad är Studio?](machine-learning-what-is-ml-studio.md)
-### [Studiofunktioner](machine-learning-studio-overview-diagram.md)
-### [Informationsgrafik: Grundläggande om ML](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## TDSP (Team Data Science Process)
 ### [Översikt](http://aka.ms/datascienceprocess)
 ### [Livscykel](data-science-process-overview.md)
 ### [Genomgångar](data-science-process-walkthroughs.md)
+
+## Machine Learning Studio
+### [Vad är Studio?](machine-learning-what-is-ml-studio.md)
+### [Studiofunktioner](machine-learning-studio-overview-diagram.md)
+### [Informationsgrafik: Grundläggande om ML](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## [Vanliga frågor och svar](machine-learning-faq.md)
 ## [Nyheter](machine-learning-whats-new.md)
+
 # Kom igång
+
 ## [Skapa ditt första experiment](machine-learning-create-experiment.md)
+
 ## Exempelgenomgång
 ### [Skapa en förebyggande lösning](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: Skapa en arbetsyta](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -20,6 +27,7 @@
 ### [4: Träna och utvärdera](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 ### [5: Distribuera webbtjänst](machine-learning-walkthrough-5-publish-web-service.md)
 ### [6: Få åtkomst till webbtjänsten](machine-learning-walkthrough-6-access-web-service.md)
+
 ## Datavetenskap för nybörjare
 ### [1: Fem frågor](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
 ### [2: Är dina data klara?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
@@ -29,8 +37,8 @@
 
 ## [R-snabbstart](machine-learning-r-quickstart.md)
 
-
 # Gör så här för att
+
 ## Konfigurera verktyg och hjälpmedel
 ### [Konfigurera miljöer](machine-learning-data-science-environment-setup.md)
 ### [Konfigurera virtuella datorer](machine-learning-data-science-virtual-machines.md)
@@ -49,9 +57,11 @@
 #### [Felsöka](machine-learning-troubleshooting-creating-ml-workspace.md)
 #### [Distribuera med ARM](machine-learning-deploy-with-resource-manager-template.md)
 #### [Skapa i en annan region](machine-learning-multi-geo.md)
+
 ## Analysera verksamhetsbehov
 ### [Tekniska behov](machine-learning-data-science-plan-your-environment.md)
 ### [Identifiera ditt scenario](machine-learning-data-science-plan-sample-scenarios.md)
+
 ## Skaffa och förstå data
 ### Läs in data i lagringsutrymme
 #### [Översikt](machine-learning-data-science-ingest-data.md)
@@ -95,6 +105,7 @@
 ##### [Poängmodeller](machine-learning-data-science-spark-model-consumption.md)
 ##### [Avancerad datagranskning](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ##### [Använda Scala och Spark](machine-learning-data-science-process-scala-walkthrough.md)
+
 ## Utveckla modeller
 ### Ta fram och välj funktioner
 #### [Översikt](machine-learning-data-science-create-features.md)
@@ -104,6 +115,7 @@
 #### [TDSP-funktionsval](machine-learning-data-science-select-features.md)
 ### Skapa och träna modeller
 #### [Omvandla till bedömning](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+#### [Livscykelhantering för experiment](machine-learning-version-control.md)
 #### [Hantera iterationer](machine-learning-manage-experiment-iterations.md)
 #### [Använda PowerShell för att skapa modeller](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Välja algoritmer
@@ -120,11 +132,11 @@
 ##### [Köra R-skript](machine-learning-extend-your-experiment-with-r.md)
 ##### [Skapa anpassade R-moduler](machine-learning-custom-r-modules.md)
 ##### [Köra Python-skript](machine-learning-execute-python-scripts.md)
+
 ## Distribuera och använd modeller
 ### [Översikt](machine-learning-deploy-consume-web-service-guide.md)
 ### Distribuera modeller
 #### [Hur det fungerar](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Distribuera en ny webbtjänst](machine-learning-webservice-deploy-a-web-service.md)
 #### [Distribuera en webbtjänst](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Använda externa data](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Distribuera i flera områden](machine-learning-how-to-deploy-to-multiple-regions.md)
@@ -147,6 +159,7 @@
 #### [Använda Excel](machine-learning-consuming-from-excel.md)
 #### [Använda Excel-tillägg](machine-learning-excel-add-in-for-web-services.md)
 #### [Använda en mall för webbappar](machine-learning-consume-web-service-with-web-app-template.md)
+
 ## Exempel
 ### [Exempelexperiment](machine-learning-sample-experiments.md)
 ### [Exempeldatauppsättningar](machine-learning-use-sample-datasets.md)
@@ -158,10 +171,12 @@
 #### [Använda SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # Referens
+
 ## [PowerShell-modul (ny)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [PowerShell-modul (klassisk)](machine-learning-powershell-module.md)
 ## [Algoritm- och modulreferens](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST](/rest/api/machinelearning)
+## [REST API-referens](/rest/api/machinelearning)
+## [Felkoder för webbtjänst](machine-learning-web-service-error-codes.md)
 
 # Relaterat
 
@@ -176,6 +191,7 @@
 ### [Självstudier](machine-learning-gallery-tutorials.md)
 ### [Samlingar](machine-learning-gallery-collections.md)
 ### [Anpassade moduler](machine-learning-gallery-custom-modules.md)
+
 ## Cortana Analytics
 ### API:er
 #### [Avvikelseidentifiering](machine-learning-apps-anomaly-detection-api.md)
@@ -197,7 +213,7 @@
 ##### [Installation](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Resurser
-## [Felkoder för Machine Learning REST](/machine-learning/machine-learning-web-service-error-codes)
+
 ## [Net# Neural Networks-språk](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=machine-learning)
@@ -208,6 +224,6 @@
 ## [Få hjälp från live-chatt](machine-learning-live-chat.md)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

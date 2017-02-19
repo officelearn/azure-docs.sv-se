@@ -97,9 +97,10 @@
 ##### [Exempelprogram](virtual-networks-sample-app.md)
 
 ## Konfigurera
-### Snabbare nätverk
-#### [Azure-portal](virtual-network-accelerated-networking-portal.md)
+### Snabbare nätverk för virtuella datorer
+#### [Azure Portal](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [Optimera det virtuella nätverkets dataflöde](virtual-network-optimize-network-bandwidth.md)
 ### Listor för åtkomstkontroll
 #### [Klassisk portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
@@ -147,6 +148,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

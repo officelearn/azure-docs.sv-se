@@ -23,8 +23,11 @@
 ## [Identitetshantering](security-identity-management-overview.md)
 ### [Metodtips för identitetshanteringssäkerhet](azure-security-identity-management-best-practices.md)
 ## PaaS-tjänster
-### [Metodtips för IoT-säkerhet](azure-security-iot-best-practices.md)
+### [Skydda PaaS-distributioner](security-paas-deployments.md)
+#### [Skydda PaaS-program med hjälp av SQL](security-paas-applications-using-sql.md)
+#### [Skydda PaaS-program med hjälp av Apptjänster](security-paas-applications-using-app-services.md)
 ### [IoT-säkerhetsöversikt](security-internet-of-things-overview.md)
+### [Metodtips för IoT-säkerhet](azure-security-iot-best-practices.md)
 ## Vertikala branscher
 ### [Utforma säkra hälsolösningar](security-health-care-solution.md)
 ## [Säkerhetsarkitektur](azure-security-architecture-overview.md)
@@ -51,6 +54,6 @@
 ## [Säkerhetsvideor på Channel 9](security-channel-nine.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

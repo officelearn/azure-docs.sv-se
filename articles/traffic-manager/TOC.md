@@ -16,9 +16,10 @@
 # Gör så här för att
 ## [Konfigurera en routningsmetod](traffic-manager-configure-routing-method.md)
 ## [Testa dina inställningar](traffic-manager-testing-settings.md)
-## [Felsöka en degraderad slutpunkt](traffic-manager-troubleshooting-degraded.md)
 ## [Kombinera tjänster för belastningsutjämning](traffic-manager-load-balancing-azure.md)
 ## [Använda nätverksresurser](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## Felsöka
+### [Felsöka en degraderad slutpunkt](traffic-manager-troubleshooting-degraded.md)
 
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
@@ -45,6 +46,6 @@
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

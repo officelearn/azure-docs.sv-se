@@ -14,6 +14,7 @@
 ### [Skapa en autentiseringsleverantör](multi-factor-authentication-get-started-auth-provider.md)
 ### [Konfigurera inställningar](multi-factor-authentication-whats-next.md)
 ### [Rapporter i MFA](multi-factor-authentication-manage-reports.md)
+### [Använd befintliga servrar för nätverksprinciper](multi-factor-authentication-nps-extension.md)
 ### Azure MFA lokalt
 #### [Installera användarportalen](multi-factor-authentication-get-started-portal.md)
 #### [Avancerade VPN-konfigurationer](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,7 +39,7 @@
 ### [IIS-webbappar](multi-factor-authentication-get-started-server-iis.md)
 ### [Gateway för fjärrskrivbord](multi-factor-authentication-get-started-server-rdg.md)
 
-## Utveckla 
+## Utveckla
 ### [Bygga in i anpassade appar (SDK)](multi-factor-authentication-sdk.md)
 
 ## Felsöka
@@ -46,6 +47,6 @@
 ### [Ställ en fråga](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

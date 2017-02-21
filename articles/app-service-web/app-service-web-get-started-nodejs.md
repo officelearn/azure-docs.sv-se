@@ -129,7 +129,7 @@ Grattis, du har distribuerat din app till Azure App Service.
 ## <a name="see-your-app-running-live"></a>Köra appen live
 Du kan köra appen live i Azure genom att köra det här kommandot från valfri katalog i databasen:
 
-    azure site browse
+    az appservice web browse -n <app-name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Göra appuppdateringar
 Nu kan du använda Git och skicka skrivningar från projektroten (databasen) när som helst för att uppdatera liveplatsen. Du gör på samma sätt som när du distribuerade din kod första gången. Exempelvis kör du bara följande kommandon från projektroten (databasen) varje gång du vill skicka in en ny ändring som du har testat lokalt:

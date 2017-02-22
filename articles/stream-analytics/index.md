@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentation om Azure Stream Analytics – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du kör IoT-analys i molnet med fullständigt hanterad händelsebearbetning. Analysera data i realtid från program, sensorer, enheter och många fler."
+services: stream-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: stream-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
+ms.sourcegitcommit: 4835208ce6dcff978cb7b4d722763f705dc6dd33
+ms.openlocfilehash: 8cfa25410edc7c54e9139a596ab39d8d580f44a5
 
 ---
 
@@ -130,7 +141,8 @@ Lär dig hur du kör Sakernas Internet-analys (IoT) i molnet med Stream Analytic
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Command-Line</h3>
+                    <div class="cardText">
+                        <h3>Kommandorad</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
                     </div>
                 </div>
@@ -141,8 +153,9 @@ Lär dig hur du kör Sakernas Internet-analys (IoT) i molnet med Stream Analytic
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Languages</h3>
-                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                    <div class="cardText">
+                        <h3>Språk</h3>
+                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">NET</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Frågespråk</a></p>
                     </div>
                 </div>
@@ -153,8 +166,9 @@ Lär dig hur du kör Sakernas Internet-analys (IoT) i molnet med Stream Analytic
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="REST</h3>
-                        <p><a href="/rest/api/streamanalytics">Referens för REST API</a></p>
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/streamanalytics">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -166,6 +180,6 @@ Lär dig hur du kör Sakernas Internet-analys (IoT) i molnet med Stream Analytic
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

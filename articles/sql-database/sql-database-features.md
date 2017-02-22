@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
 
 
 ---
@@ -47,7 +47,7 @@ Vi fortsätter att lägga till funktioner till V12. Så vi rekommenderar att du 
 * Filtrerade till allmän tillgänglighet [meddelanden (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) för SQL Database-funktioner.
 
 > [!TIP]
-> Om du vill testa en befintlig databas för kompatibilitet med Azure SQL Database finns information i [Validera Azure SQL Database-kompatibilitet](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> Om du vill testa en befintlig databas för kompatibilitet med Azure SQL Database finns information i [Migrera en SQL Server-databas till Azure](sql-database-cloud-migrate.md).
 >
 
 | **Funktion** | **SQL Server** | **Azure SQL Database** | 
@@ -57,12 +57,12 @@ Vi fortsätter att lägga till funktioner till V12. Så vi rekommenderar att du 
 | AlwaysOn-tillgänglighetsgrupper | [Stöds](https://msdn.microsoft.com/library/hh510230.aspx) | Finns inte stöd för – [aktiv geo-replikering](sql-database-geo-replication-overview.md) |
 | Ansluta en databas | [Stöds](https://msdn.microsoft.com/library/ms190209.aspx) | Stöds inte |
 | Programroller | [Stöds](https://msdn.microsoft.com/library/ms190998.aspx) | [Stöds](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Autoskala | Stöds inte | [Stöds](sql-database-scale-up.md) |
+| Autoskala | Stöds inte | [Stöds](sql-database-service-tiers.md) |
 | Azure Active Directory | Stöds inte | [Stöds](sql-database-aad-authentication.md) |
 | Azure Data Factory | Finns inte stöd för – [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Stöds](https://azure.microsoft.com/services/data-factory/) |
-| Granskning | [Stöds](https://msdn.microsoft.com/library/cc280386.aspx) | [Stöds](sql-database-auditing-get-started.md) |
+| Granskning | [Stöds](https://msdn.microsoft.com/library/cc280386.aspx) | [Stöds](sql-database-auditing.md) |
 | BACPAC-fil (exportera) | [Stöds](https://msdn.microsoft.com/library/hh213241.aspx) | [Stöds](sql-database-export.md) |
-| BACPAC-fil (importera) | [Stöds](https://msdn.microsoft.com/library/hh710052.aspx) | [Stöds](sql-database-import.md) |
+| BACPAC-fil (importera) | [Stöds](https://msdn.microsoft.com/library/hh710052.aspx) | [Stöds](sql-database-import-portal.md) |
 | Uttryck för SÄKERHETSKOPIERING och ÅTERSTÄLLNING  | [Stöds](https://msdn.microsoft.com/library/ff848768.aspx) | Stöds inte |
 | Inbyggda funktioner | [Stöds](https://msdn.microsoft.com/library/ms174318.aspx) | [De flesta](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Registrering av ändringsdata | [Stöds](https://msdn.microsoft.com/library/cc645937.aspx) | Stöds inte |
@@ -132,7 +132,7 @@ Vi fortsätter att lägga till funktioner till V12. Så vi rekommenderar att du 
 | SQL Server Integration Services (SSIS) | [Stöds](https://msdn.microsoft.com/library/ms141026.aspx) | Finns inte stöd för – [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Stöds](https://msdn.microsoft.com/library/hh245198.aspx) | [Stöds](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server-profiler | [Stöds](https://msdn.microsoft.com/library/ms181091.aspx) | Finns inte stöd för – [utökade händelser](https://msdn.microsoft.com/library/ms181091.aspx) |
-| SQL Server-replikering | [Stöds](https://msdn.microsoft.com/library/ms151198.aspx) | [Prenumerant för tansaktions-och ögonblicksbildsreplikering endast](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| SQL Server-replikering | [Stöds](https://msdn.microsoft.com/library/ms151198.aspx) | [Prenumerant för tansaktions-och ögonblicksbildsreplikering endast](sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services (SSRS) | [Stöds](https://msdn.microsoft.com/library/ms159106.aspx) | Stöds inte |
 | Lagrade procedurer | [Stöds](https://msdn.microsoft.com/library/ms190782.aspx) | [Stöds](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Systemlagrade funktioner | [Stöds](https://msdn.microsoft.com/library/ff848780.aspx) | [Vissa](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -161,6 +161,6 @@ Vi fortsätter att lägga till funktioner till V12. Så vi rekommenderar att du 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

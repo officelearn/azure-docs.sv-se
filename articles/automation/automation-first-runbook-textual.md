@@ -16,15 +16,19 @@ ms.topic: get-started-article
 ms.date: 07/19/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: a244443b14b139544c224d9c57fc6e78b8432584
+ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
+ms.openlocfilehash: 992ea5448ebc4b27f18e5621fbe62659f6bc4864
 
 
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Min första PowerShell Workflow-runbook
-> [AZURE.SELECTOR] - [Grafiskt](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-powershell.md) - [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
->
->
+
+> [!div class="op_single_selector"]
+> * [Grafisk](automation-first-runbook-graphical.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
+> 
+> 
 
 Den här självstudien beskriver steg för steg hur du skapar en [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks) i Azure Automation. Vi börjar med en enkel runbook som vi testar och publicerar medan vi förklarar hur du spårar statusen för runbook-jobbet. Sedan ändrar vi vår runbook så att den hanterar Azure-resurser, i vårt exempel ska den starta en virtuell dator i Azure. Sedan ska vi göra runbooken mer robust genom att lägga till runbook-parametrar.
 
@@ -35,7 +39,7 @@ För att kunna genomföra den här kursen behöver du följande:
 * Ett [Automation-konto för Azure](automation-security-overview.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 * En virtuell dator i Azure. Eftersom vi ska stoppa och starta den här datorn bör den inte finnas i produktionsmiljön.
 
-## <a name="step-1-create-new-runbook"></a>Steg 1 – Skapa en ny runbook
+## <a name="step-1---create-new-runbook"></a>Steg 1 – Skapa en ny runbook
 Vi börjar genom att skapa en enkel runbook som visar texten *Hello World*.
 
 1. Öppna ditt Automation-konto på Azure-portalen.  
@@ -46,7 +50,7 @@ Vi börjar genom att skapa en enkel runbook som visar texten *Hello World*.
 5. Eftersom vi ska skapa en [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks) väljer du **Powershell-arbetsflöde** för **Typ av runbook**.<br> ![Ny runbook](media/automation-first-runbook-textual/new-runbook.png)
 6. Klicka på **Skapa** för att skapa runbooken och öppna textredigeraren.
 
-## <a name="step-2-add-code-to-the-runbook"></a>Steg 2 – Lägga till kod i runbooken
+## <a name="step-2---add-code-to-the-runbook"></a>Steg 2 – Lägga till kod i runbooken
 Du kan antingen skriva kod direkt i runbooken eller välja cmdlets, runbooks och resurser från bibliotekskontrollen och lägga till dem i runbooken med eventuella relaterade parametrar. I den här genomgången ska vi skriva koden direkt i runbooken.
 
 1. Vår runbook är tom så när som på det obligatoriska *workflow*-nyckelordet, namnet på runbooken och klammerparenteserna som ska omge hela arbetsflödet.
@@ -66,7 +70,7 @@ Du kan antingen skriva kod direkt i runbooken eller välja cmdlets, runbooks och
    ```
 3. Spara runbooken genom att klicka på **Spara**.<br> ![Spara runbook](media/automation-first-runbook-textual/runbook-edit-toolbar-save.png)
 
-## <a name="step-3-test-the-runbook"></a>Steg 3 – Testa runbooken
+## <a name="step-3---test-the-runbook"></a>Steg 3 – Testa runbooken
 Innan vi publicerar runbooken så att den blir tillgänglig i produktionsmiljön vill vi testa den och kontrollera att den fungerar som den ska. När du testar en runbook kör du dess **utkastversion** och visar dess utdata interaktivt.
 
 1. Öppna testfönstret genom att klicka på **Testfönster**.<br> ![Testfönster](media/automation-first-runbook-textual/runbook-edit-toolbar-test-pane.png)
@@ -76,7 +80,7 @@ Innan vi publicerar runbooken så att den blir tillgänglig i produktionsmiljön
 4. När runbook-jobbet är klart visas dess utdata. I detta fall bör du se *Hello World*.<br> ![Hello World](media/automation-first-runbook-textual/test-output-hello-world.png)
 5. Gå tillbaka till arbetsytan genom att stänga testfönstret.
 
-## <a name="step-4-publish-and-start-the-runbook"></a>Steg 4 – Publicera och starta runbooken
+## <a name="step-4---publish-and-start-the-runbook"></a>Steg 4 – Publicera och starta runbooken
 Den runbook som vi precis har skapat är fortfarande i utkastläge. Vi måste publicera den innan vi kan köra den i produktion. När du publicerar en runbook skriver du över den befintliga publicerade versionen med utkastversionen. I vårt fall har vi ingen publicerad version än eftersom vi precis har skapat runbooken.
 
 1. Klicka på **Publicera** för att publicera runbooken och sedan på **Ja** när du uppmanas att göra det.<br> ![Publicera](media/automation-first-runbook-textual/runbook-edit-toolbar-publish.png)
@@ -93,7 +97,7 @@ Den runbook som vi precis har skapat är fortfarande i utkastläge. Vi måste pu
 11. Öppna fönstret Jobb för runbooken genom att klicka på **Jobb**. Här visas alla jobb som skapats av den här runbooken. Vi bör endast se ett jobb i listan eftersom vi bara körde jobbet en gång.<br> ![Jobb](media/automation-first-runbook-textual/runbook-control-jobs.png)
 12. Du kan klicka på det här jobbet för att öppna samma jobbfönster som vi visade när vi startade runbooken. På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
 
-## <a name="step-5-add-authentication-to-manage-azure-resources"></a>Steg 5 – Lägga till autentisering för att hantera Azure-resurser
+## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Steg 5 – Lägga till autentisering för att hantera Azure-resurser
 Vi har testat och publicerat vår runbook, men hittills gör den egentligen inget användbart. Vi vill att den ska hantera Azure-resurser. Dock kan den inte göra det såvida vi inte konfigurerar den att autentisera med hjälp av autentiseringsuppgifterna som avses i [kravavsnittet](#prerequisites). Vi gör det med cmdleten **Add-AzureAccount**.
 
 1. Öppna textredigeraren genom att klicka på **Redigera** i fönstret MyFirstRunbook-Workflow.<br> ![Redigera runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png)
@@ -109,7 +113,7 @@ Vi har testat och publicerat vår runbook, men hittills gör den egentligen inge
 5. Klicka på **Testfönster** så att vi kan testa runbooken.
 6. Starta testet genom att klicka på **Starta**. När testet är klart visas utdata som liknar de nedan, med grundläggande information från ditt konto. Detta bekräftar att autentiseringsuppgifterna är giltiga.<br> ![Autentisera](media/automation-first-runbook-textual/runbook-auth-output.png)
 
-## <a name="step-6-add-code-to-start-a-virtual-machine"></a>Steg 6 – Lägga till kod för att starta en virtuell dator
+## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Steg 6 – Lägga till kod för att starta en virtuell dator
 Nu när våra runbook autentiseras med vår Azure-prenumeration kan vi hantera resurser. Vi ska lägga till ett kommando för att starta en virtuell dator. Du kan välja valfri virtuell dator i Azure-prenumerationen och vi ska hårdkoda namnet i cmdleten.
 
 1. Efter *Add-AzureRmAccount* skriver du *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* och anger namnet och resursgruppsnamnet för den virtuella dator som ska starta.  
@@ -125,7 +129,7 @@ Nu när våra runbook autentiseras med vår Azure-prenumeration kan vi hantera r
 2. Spara runbooken och klicka sedan på **Testfönster** så att vi kan testa den.
 3. Starta testet genom att klicka på **Starta**. När testet är klart kontrollerar du att den virtuella datorn har startat.
 
-## <a name="step-7-add-an-input-parameter-to-the-runbook"></a>Steg 7 – Lägga till en indataparameter i runbooken
+## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>Steg 7 – Lägga till en indataparameter i runbooken
 Vår runbook startar för närvarande den virtuella datorn som vi hårdkodade i runbooken, men den skulle vara mer användbar om vi kunde ange den virtuella datorn när runbooken startar. Nu ska vi lägga till indataparametrar för runbooken för att implementera den funktionen.
 
 1. Lägg till parametrar för *VMName* och *ResourceGroupName* i runbooken och använd dessa variabler med cmdleten **Start-AzureRmVM** som i exemplet nedan.

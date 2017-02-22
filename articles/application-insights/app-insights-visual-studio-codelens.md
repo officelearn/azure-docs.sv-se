@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 11/14/2016
 ms.author: daviste
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a42d55df223c25a26111bbcc05628ff7f4ff7204
+ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
+ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
 
 
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights Telemetry i Visual Studio CodeLens
-Metoderna i din webbapps kod kan kommenteras med telemetri om körtidsundantag och förfrågningssvarstider. Om du installerar [Visual Studio Application Insights](app-insights-overview.md) i ditt program visas i telemetrin i Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) - anteckningar längst upp i varje funktion där du är van att se användbar information som antalet platser funktionen refereras till, eller den person som senast redigerade den.
+Metoderna i din webbapps kod kan kommenteras med telemetri om körtidsundantag och förfrågningssvarstider. Om du installerar [Azure Application Insights](app-insights-overview.md) i ditt program visas telemetrin i Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) – anteckningarna längst upp för varje funktion där du är van att se användbar information som antalet platser som refererar till funktionen, eller den person som senast redigerade den.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
 
@@ -82,6 +82,6 @@ Om du vill se mer information klickar du på indikatorn CodeLens-begäran:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

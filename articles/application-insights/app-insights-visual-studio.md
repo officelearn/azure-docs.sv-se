@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 06/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8886107f96f31f668ce55ebb4c76e58ad1f21268
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: 2334a85402049eb8654039e98cf2c3131a43de62
 
 
 ---
 # <a name="working-with-application-insights-in-visual-studio"></a>Arbeta med Application Insights i Visual Studio
-I Visual Studio (2015 och senare) kan du analysera prestanda och diagnostisera problem både när du felsöker och i produktion med hjälp av telemetri från [Visual Studio Application Insights](app-insights-overview.md).
+I Visual Studio (2015 och senare) kan du analysera prestanda och diagnostisera problem både när du felsöker och i produktion med hjälp av telemetri från [Azure Application Insights](app-insights-overview.md).
 
 Om du inte har [installerat Application Insights i din app](app-insights-asp-net.md) än så gör du det nu.
 
@@ -94,6 +94,6 @@ För att hitta avvikelser i dina data väljer du ett av avvikelsealternativen i 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

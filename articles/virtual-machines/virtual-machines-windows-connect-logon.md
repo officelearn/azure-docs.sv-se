@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db417fb72442ea8a5cd4ef882eb657b08bebaa0a
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 9077746d8ffe968504f1dde90ed5f76dd1facc19
 
 
 ---
@@ -41,7 +41,7 @@ Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivb
 [!INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Om du får problem när du försöker ansluta läser du [Felsöka anslutningar till fjärrskrivbord](virtual-machines-windows-troubleshoot-rdp-connection.md). Den här artikeln beskriver hur du diagnostiserar och löser vanliga problem.
+Om du får problem när du försöker ansluta läser du [Felsöka anslutningar till fjärrskrivbord](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Den här artikeln beskriver hur du diagnostiserar och löser vanliga problem.
 
 
 

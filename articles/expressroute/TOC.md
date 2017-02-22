@@ -1,14 +1,15 @@
 # Översikt
 ## [Vad är ExpressRoute?](expressroute-introduction.md)
 ## [Vanliga frågor och svar för ExpressRoute](expressroute-faqs.md)
+## [Anslutningsmodeller](expressroute-connectivity-models.md)
 ## [Platser och partners](expressroute-locations.md)
 ### [Leverantörer efter plats](expressroute-locations-providers.md)
 ### [Platser efter leverantör](expressroute-locations.md)
 
 # Kom igång
-## [Kretsar och routningsdomäner](expressroute-circuit-peerings.md)
 ## [Arbetsflöden](expressroute-workflows.md)
 ## [Krav](expressroute-prerequisites.md)
+## [Kretsar och routningsdomäner](expressroute-circuit-peerings.md)
 ## [Routningskrav](expressroute-routing.md)
 ## [Optimera routning](expressroute-optimize-routing.md)
 ## [NAT-krav](expressroute-nat.md)
@@ -80,6 +81,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

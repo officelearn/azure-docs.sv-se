@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
+ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
+ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 
 
 ---
@@ -43,8 +43,8 @@ Du behöver följande för att komma igång:
 >
 
 ## <a name="create-a-sql-data-warehouse"></a>Skapa ett SQL Data Warehouse
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **+ Ny** > **Data + lagring** > **SQL Data Warehouse**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Klicka på **+ Nytt** > **Databaser** > **SQL Data Warehouse**.
 
     ![Skapa](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. I bladet **SQL Data Warehouse**, anger du informationen som behövs och trycker på Skapa för att skapa.
@@ -102,6 +102,6 @@ Det är också en bra idé att titta på [Metodtips][Best practices].
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

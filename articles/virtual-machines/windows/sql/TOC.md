@@ -12,13 +12,15 @@
 # Gör så här för att
 ## Konfigurera hög tillgänglighet
 ### [Alternativ för hög tillgänglighet](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Konfigurera Always On-tillgänglighetsgruppen](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Always On-tillgänglighetsgrupp](virtual-machines-windows-portal-sql-availability-group-overview.md)
 #### [Automatisk – med mall](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Manuellt – krav](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Manuellt – självstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Belastningsutjämnare – portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Belastningsutjämnare – PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Flera regioner](virtual-machines-windows-portal-sql-availability-group-dr.md)
+### Redundansklusterinstans
+#### [Konfigurera](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 ## Hantera
 ### [Använd SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md)
@@ -49,6 +51,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

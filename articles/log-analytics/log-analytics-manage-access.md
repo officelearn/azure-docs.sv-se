@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/03/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
-ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
+ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
+ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
 
 
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
-Du hanterar åtkomsten till Log Analytics genom att utföra olika administrativa uppgifter relaterade till arbetsytor. Den här artikeln innehåller riktlinjer och procedurer som hjälper dig att hantera arbetsytor med hjälp av olika kontotyper. En arbetsyta är i grunden en behållare som innehåller kontoinformation och enkel konfigurationsinformation för kontot. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
+Du hanterar åtkomsten till Log Analytics genom att utföra olika administrativa uppgifter relaterade till arbetsytor. Den här artikeln innehåller riktlinjer och procedurer för att hantera arbetsytor. En arbetsyta är i grunden en behållare som innehåller kontoinformation och enkel konfigurationsinformation för kontot. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
 
 För att skapa en arbetsyta måste du:
 
@@ -41,8 +41,9 @@ För närvarande tillhandahåller en arbetsyta:
 * En geografisk plats för lagring av data
 * Precision för fakturering
 * Dataisolering
+* Omfång för konfiguration
 
-Baserat på ovanstående egenskaper kan du behöva skapa flera arbetsytor om:
+Baserat på föregående egenskaper kan du behöva skapa flera arbetsytor om:
 
 * Du är ett globalt företag och data behöver lagras i vissa områden för datasuveränitet eller kompatibilitetsskäl.
 * Du använder Azure och du vill undvika kostnader för överföring av utgående data genom att ha en arbetsyta i samma region som de Azure-resurser som den hanterar.
@@ -78,15 +79,14 @@ Du hanterar användarnas åtkomst till arbetsytan på två platser:
 * I Azure kan du använda rollbaserad åtkomstkontroll för att ge åtkomst till Azure-prenumerationen och tillhörande Azure-resurser. Dessa tillstånd används också för PowerShell- och REST API-åtkomst.
 * Endast åtkomst till OMS-portalen, inte tillhörande Azure-prenumeration.
 
-Användarna ser inte data i lösningspanelerna säkerhetskopiering och återställning om du endast ger dem åtkomst till OMS-portalen men inte den Azure-prenumeration som den är länkad till.
-Om du vill tillåta alla användare att visa data i dessa lösningar ser du till att de har minst **läsåtkomst** för Backup Vault- och Site Recovery-valvet som är kopplat till arbetsytan.   
+Om du vill visa panelerna för Backup och Site Recovery måste du ha administratörs- eller medadministratörsbehörighet till den Azure-prenumeration som arbetsytan är länkad till.   
 
 ### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Hantera åtkomst till Log Analytics i Azure-portalen
 Om du ger användare åtkomst till arbetsytan Log Analytics med Azure-behörigheter, i Azure-portalen t.ex., kan samma användare sedan använda Log Analytics-portalen. Om användare är i Azure-portalen kan de navigera till OMS-portalen genom att klicka på åtgärden **OMS-portal** när de ser Log Analytics-arbetsytan.
 
 Vissa saker att tänka på vad gäller Azure-portalen:
 
-* Detta är inte *Rollbaserad åtkomstkontroll*. Om du har *Läs*-åtkomstbehörigheter i Azure-portalen för Log Analytics-arbetsytan kan du göra ändringar i OMS-portalen. OMS-portalen har ett koncept med administratör, deltagare och skrivskyddad användare. Om det konto du är inloggat med är i det Azure Active Directory som är länkat till arbetsytan är du en administratör i OMS-portalen, annars är du deltagare.
+* Detta är inte *Rollbaserad åtkomstkontroll*. Om du har *Läs*-åtkomstbehörigheter i Azure-portalen för Log Analytics-arbetsytan kan du göra ändringar i OMS-portalen. OMS-portalen har ett koncept med administratör, deltagare och skrivskyddad användare. Om det konto som du är inloggad med är i det Azure Active Directory som är länkat till arbetsytan är du en administratör i OMS-portalen, annars är du deltagare.
 * När du loggar in på OMS-portalen med hjälp av http://mms.microsoft.com, visas som standard listan **Välj en arbetsyta**. Den innehåller endast arbetsytor som har lagts till med hjälp av OMS-portalen. Om du vill se arbetsytorna du har åtkomst till med Azure-prenumerationer måste du ange en klient som en del av URL:en. Exempel:
 
   `mms.microsoft.com/?tenant=contoso.com` Klient-ID är ofta den sista delen av e-postadressen som du loggade in med.
@@ -199,7 +199,7 @@ Den nya dataplanen visas på menyfliken i OMS-portalen längst upp på webbsidan
 8. Klicka på **OK**. Arbetsytan är nu länkad till ditt Azure-konto.
 
 > [!NOTE]
-> Om du inte ser arbetsytan som du vill länka så har din Azure-prenumeration inte åtkomst till arbetsytan som du skapade via OMS-webbplatsen.  Du måste bevilja åtkomst till det här kontot via OMS-portalen. Du hittar information om att göra detta i [Lägga till en användare till en befintlig arbetsyta](#add-a-user-to-an-existing-workspace).
+> Om du inte ser arbetsytan som du vill länka så har din Azure-prenumeration inte åtkomst till arbetsytan som du skapade via OMS-webbplatsen.  Läs [Lägga till en användare i en befintlig arbetsyta](#add-a-user-to-an-existing-workspace) om du vill bevilja åtkomst till kontot från OMS-portalen.
 >
 >
 
@@ -232,15 +232,20 @@ Om du har ett Azure-betalningsåtagande på företagsregistreringen som är kopp
 
 Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan du använda Azure PowerShell-cmdlet:en [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).  
 
-### <a name="change-a-workspace-to-a-paid-data-plan"></a>Ändra en arbetsyta till en betald dataplan
+### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Ändra en arbetsyta till en betalnivå
 1. Logga in på [Azure-portalen](http://portal.azure.com).
 2. Bläddra efter **Log Analytics** och markera den.
 3. Du ser listan över befintliga arbetsytor. Välj en arbetsyta.  
 4. Klicka på **Prisnivå** under **Allmänt** på bladet för arbetsytan.  
-5. Välj en dataplan under **Prisnivå** och klicka på **Välj**.  
+5. Välj en prisnivå under **Prisnivå** och klicka på **Välj**.  
     ![välj plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. När du har uppdaterat vyn i Azure-portalen visas **Prisnivå** uppdaterad med den plan som du har valt.  
+6. När du har uppdaterat vyn i Azure Portal visas **Prisnivå** uppdaterad med den prisnivå som du har valt.  
     ![uppdaterad plan](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> Om arbetsytan är länkad till ett Automation-konto måste du ta bort alla **Automation and Control**-lösningar och ta bort länken för Automation-kontot innan du kan välja prisnivån *Fristående (per GB)*. I arbetsytebladet klickar du på **Lösningar** under **Allmänt** för att visa och ta bort lösningar. Du tar bort länken för Automation-kontot genom att klicka på namnet på Automation-kontot på bladet **Prisnivå**.
+>
+>
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Ändra hur länge Log Analytics lagrar data
 
@@ -293,6 +298,6 @@ Om du är administratör och det finns flera användare som är kopplade till ar
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

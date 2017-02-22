@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a0f4c9c5942ee75b9ca4f3924198e8a8ad8ccc7
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 2d4898694c69b5eb0194747982fa8bfbfea1f6f8
 
 
 ---
@@ -93,7 +93,13 @@ I Azure Search kräver strukturella uppdateringar av ett index att det aktuella 
 
 Ändringar som inte kräver att indexet återskapas omfattar att lägga till ett nytt fält, ändra bedömningsprofil, ändra förslagsställare eller ändra språkanalys. Mer information finns i [Uppdatera index](https://msdn.microsoft.com/library/azure/dn800964.aspx).
 
-## <a name="next-step"></a>Nästa steg
+## <a name="query-an-index-using-search-explorer"></a>Köra frågor mot ett index med hjälp av Sökutforskaren
+
+Portalen innehåller **Sökutforskaren** så att du kan köra frågor mot ett index utan att behöva skriva kod. Du kan använda Sökutforskaren för valfritt index.
+
+Sökupplevelsen baseras på standardinställningar, t.ex. [enkel syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och searchMode-standardfrågeparametern (https://docs.microsoft.com/rest/api/searchservice/search-documents). Resultaten returneras i JSON så att du kan gå igenom hela dokumentet.
+
+## <a name="next-steps"></a>Nästa steg
 Använd dessa länkar om du vill veta mer om indexerare:
 
 * [Indexera Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
@@ -107,6 +113,6 @@ Använd dessa länkar om du vill veta mer om indexerare:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -13,9 +13,10 @@
 ## Utveckla
 ### [Utveckla funktionsappar](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
-#### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
+#### [JavaScript](functions-reference-node.md)
 ### [Arbeta med utlösare och bindningar](functions-triggers-bindings.md)
+#### [DocumentDB-bindningar](functions-bindings-documentdb.md)
 #### [Händelsehubbindningar](functions-bindings-event-hubs.md)
 #### [HTTP- och webhook-bindningar](functions-bindings-http-webhook.md)
 #### [Mobile Apps-bindningar](functions-bindings-mobile-apps.md)
@@ -27,7 +28,7 @@
 ##### [Tabellbindningar](functions-bindings-storage-table.md)
 #### [Timerutlösare](functions-bindings-timer.md)
 #### [Twilio-utdatabindning](functions-bindings-twilio.md)
-### [Skapa en funktion från Azure Portal](functions-create-first-azure-function-azure-portal.md)
+### [Skapa en funktion från Azure Portal](functions-create-first-azure-function-azure-portal.md) 
 ### [Testa Azure Functions](functions-test-a-function.md)
 ### [Utveckla och felsöka lokalt](functions-run-local.md)
 ### [Metodtips för Azure Functions](functions-best-practices.md)
@@ -38,6 +39,7 @@
 
 ## Distribuera
 ### [Löpande distribution för Azure Functions](functions-continuous-deployment.md)
+### [Distribuera funktioner med infrastruktur som kod](functions-infrastructure-as-code.md)
 
 ## Övervaka
 ### [Övervaka Azure Functions](functions-monitoring.md)
@@ -46,9 +48,10 @@
 ## [Prissättning](https://azure.microsoft.com/pricing/details/functions/)  
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Azure Functions GitHub-lagringsplats](https://github.com/Azure/Azure-Functions/) 
 ## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

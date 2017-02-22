@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
 > * [Azure-portal](active-directory-groups-create-azure-portal.md)
 > * [Klassisk Azure-portal](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
 En av användarhanteringsfunktionerna i Azure Active Directory (AD Azure) är möjligheten att skapa grupper av användare. Du kan använda en grupp för att utföra hanteringsuppgifter som att tilldela licenser eller behörigheter till flera användare på en gång. Du kan också använda grupper för att ge behörighet till
 
@@ -73,13 +73,13 @@ När ett attribut för en användare ändras utvärderar systemet alla dynamiska
 
 > [!NOTE]
 > Du kan skapa en regel för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper. Kapslade gruppmedlemskap stöds för närvarande inte för gruppbaserad tilldelning till program.
-> 
+>
 > Dynamiskt medlemskap för grupper kräver en Azure AD Premium-licens som tilldelas till
-> 
+>
 > * administratören som hanterar regeln för en grupp
 > * Alla medlemmar i gruppen
-> 
-> 
+>
+>
 
 **Så här aktiverar du dynamiskt medlemskap för en grupp**
 
@@ -103,7 +103,6 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 16f6285577294ff49f11a27f48daea090655a2b1
+ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
+ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
 
 
 ---
@@ -36,7 +36,7 @@ Eftersom runbooks i Azure Automation baseras på Windows PowerShell eller Window
 [Runbook-galleriet](automation-runbook-gallery.md#runbooks-in-runbook-gallery) innehåller runbooks från Microsoft och communityn som du kan använda som de är i din miljö eller anpassa efter behov. De är också användbara som referenser när du lär dig hur du skapar egna runbooks. Du kan även bidra med egna runbooks i galleriet som du tror att andra användare kan ha nytta av. 
 
 ## <a name="creating-runbooks-with-azure-automation"></a>Skapa runbooks med Azure Automation
-Du kan [skapa dina egna runbooks](automation-creating-importing-runbook.md) från scratch eller ändra runbooks från [runbook-galleriet](http://msdn.microsoft.com/library/azure/dn781422.aspx) efter dina behov. Det finns tre olika [runbook-typer](automation-runbook-types.md) som du kan välja mellan beroende på dina krav och PowerShell-miljö. Om du föredrar att arbeta direkt med PowerShell-koden måste du använda en [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) eller [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks) som du redigerar offline eller med [textredigeraren](http://msdn.microsoft.com/library/azure/dn879137.aspx) på Azure-portalen. Om du vill redigera en runbook utan att arbeta direkt med den underliggande koden kan du skapa en [grafisk runbook](automation-runbook-types.md#graphical-runbooks) med hjälp av den [grafiska redigeraren](automation-graphical-authoring-intro.md) på Azure-portalen. 
+Du kan [skapa dina egna runbooks](automation-creating-importing-runbook.md) från scratch eller ändra runbooks från [runbook-galleriet](http://msdn.microsoft.com/library/azure/dn781422.aspx) efter dina behov. Det finns fyra olika [runbook-typer](automation-runbook-types.md) som du kan välja mellan beroende på dina krav och din PowerShell-miljö. Om du föredrar att arbeta direkt med PowerShell-koden måste du använda en [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) eller [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks) som du redigerar offline eller med [textredigeraren](http://msdn.microsoft.com/library/azure/dn879137.aspx) på Azure-portalen. Om du vill redigera en runbook utan att arbeta direkt med den underliggande koden kan du skapa en [grafisk runbook](automation-runbook-types.md#graphical-runbooks) med hjälp av den [grafiska redigeraren](automation-graphical-authoring-intro.md) på Azure-portalen. 
 
 Föredrar du att titta eller läsa? Titta på videoklippet nedan från Microsoft Ignite-sessionen i maj 2015. Obs! Begreppen och funktionerna som beskrivs i den här videon är korrekta, men Azure Automation har utvecklats mycket sedan videon spelades in och har nu ett mer omfattande användargränssnitt på Azure-portalen och stöd för fler funktioner.
 
@@ -87,6 +87,6 @@ Det finns många resurser där du kan lära dig mer om Azure Automation och hur 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

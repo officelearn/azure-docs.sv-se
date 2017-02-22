@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.date: 01/18/2017
 ms.author: darosa;sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: 9dd2696ebf4e2c4749471e5adcbc446c3945babf
+ms.sourcegitcommit: f223ea7ac168d3c800b6ba664b31ab66b382d6cc
+ms.openlocfilehash: 2657965ff3ee028263f9ef0c48024fe1839eee6e
 
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium- och Standard-meddelandenivåer
-Service Bus-meddelanden, inklusive meddelandeentiteter som köer och ämnen, kombinerar meddelandefunktioner för företag med utförlig publicerings-/prenumerationssemantik i molnskala. Service Bus-meddelanden används som kommunikationsryggrad i flera avancerade molnlösningar.
+Service Bus-meddelanden, inklusive entiteter som köer och ämnen, kombinerar meddelandefunktioner för företag med utförlig publicerings-/prenumerationssemantik i molnskala. Service Bus-meddelanden används som kommunikationsryggrad i flera avancerade molnlösningar.
 
 *Premium*-nivån av Service Bus-meddelanden är ett svar på vanliga kundönskemål gällande skala, prestanda och tillgänglighet för verksamhetskritiska program. Även om funktionsuppsättningarna är snudd på identiska är dessa två nivåer av Service Bus-meddelanden utformade för att passa olika användningsfall.
 
@@ -54,7 +54,7 @@ Det är enkelt att komma igång med Premium-meddelandetjänster och processen li
 
 ![create-premium-namespace][create-premium-namespace]
 
-Du kan också skapa ett [Premium-namnområde med hjälp av Azure Resource Manager-mallar](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+Du kan också skapa [Premium-namnområden med hjälp av Azure Resource Manager-mallar](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
 
 
 ## <a name="next-steps"></a>Nästa steg

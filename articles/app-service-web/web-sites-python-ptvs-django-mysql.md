@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1c29cfc0a5b6361a7f526c37d5421ee4be3fe2c1
 
 
 ---
@@ -47,7 +47,7 @@ I [Python Developer Center] finns flera artiklar om att utveckla appar i Azure A
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inget kreditkort krävs och du behöver inte göra några åtaganden.
+> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inget kreditkort krävs och du behöver inte göra några åtaganden.
 > 
 > 
 
@@ -162,8 +162,8 @@ Mer information finns i [Python Developer Center](/develop/python/).
 
 <!--External Link references-->
 
-[Azure-portalen]: https://portal.azure.com
-[Python Tools för Visual Studio]: https://www.visualstudio.com/vs/python/
+[Azure Portal]: https://portal.azure.com
+[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 för Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 för Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools för VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
@@ -179,6 +179,6 @@ Mer information finns i [Python Developer Center](/develop/python/).
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,23 +1,20 @@
 ---
-title: "Översikt över Operations Management Suite (OMS) | Microsoft Docs"
-description: "Microsoft Operations Management Suite (OMS) är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda din lokala och molnbaserade infrastruktur.  I den här artikeln identifierar vi de olika tjänster som ingår i OMS. Artikeln innehåller också länkar till mer detaljerat innehåll om tjänsterna."
+title: "Dokumentation om Azure Operations Management Suite (OMS) – Självstudier | Microsoft Docs"
+description: "Microsoft Operations Management Suite (OMS) är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda din lokala och molnbaserade infrastruktur. I den här artikeln identifierar vi de olika tjänster som ingår i OMS. Artikeln innehåller också länkar till mer detaljerat innehåll om tjänsterna."
 services: operations-management-suite
-documentationcenter: 
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 9dc437b9-e83c-45da-917c-cb4f4d8d6333
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
 ms.service: operations-management-suite
-ms.devlang: na
-ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: bwren
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
-ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
-
+ms.sourcegitcommit: ccfbd45def1ecf036a2464f560aa89817c37b419
+ms.openlocfilehash: 54b3ce2c8c3966ee36350fed71bdc48aa5bffa63
 
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Vad är Operations Management Suite (OMS)?
@@ -32,7 +29,7 @@ Med [Log Analytics](http://azure.microsoft.com/documentation/services/log-analyt
 
 Du kan enkelt lägga till lösningar i Log Analytics som definierar de data som ska samlas in och logiken för analys.  Lösningar kan innehålla ytterligare funktioner som skickas automatiskt till agenter med minimal eller ingen konfiguration.  Förutom att använda analysverktygen som tillhandahålls av enskilda lösningar kan du göra anpassade sökningar i hela datauppsättningen för att korrelera data mellan system och program.  
 
-## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Automatisering och kontroll](media/operations-management-suite-overview/icon-automation-control.png) Automatisering och kontroll
+## <a name="automation--controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation--control"></a>![Automatisering och kontroll](media/operations-management-suite-overview/icon-automation-control.png) Automatisering och kontroll
 Azure Automation automatiserar administrativa processer med [runbooks](../automation/automation-runbook-types.md) som baseras på PowerShell och som körs i Azure-molnet.  Runbooks kan komma åt alla produkter eller tjänster som kan hanteras med PowerShell, inklusive resurser i andra moln, till exempel Amazon Web Services (AWS).  Runbooks kan också köras på en server i ditt lokala datacenter för att hantera lokala resurser.
 
 Azure Automation tillhandahåller konfigurationshantering med [PowerShell DSC](../automation/automation-dsc-overview.md).  Du kan skapa och hantera DSC-resurser som finns i Azure och använda dem i molnbaserade och lokala system för att definiera och automatiskt genomdriva deras konfiguration.
@@ -58,6 +55,6 @@ Säkerhets- och efterlevnadsfunktionen hjälper dig att identifiera, utvärdera 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,7 +13,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 73cc9d1d02ed915466f0eac2d9a42fe8cf9e2fb9
@@ -56,6 +56,6 @@ Använd Elastic Database-verktygen när du vill utföra åtgärder som at
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

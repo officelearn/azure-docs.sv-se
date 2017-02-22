@@ -1,15 +1,11 @@
-## <a name="peering-virtual-networks-from-rm-to-classic"></a>Peerkoppla virtuella nätverk från RM till klassisk
-I det här scenariot skapar du en peering mellan två virtuella nätverk, nämligen **VNET1** och **VNET2** som hör till Azure Resource Manager-distributionsmodellen respektive den klassiska distributionsmodellen.
+## <a name="a-namex-modelapeering-virtual-networks-created-through-different-deployment-models"></a><a name="x-model"></a>Peering av virtuella nätverk som har skapats via olika distributionsmodeller
+I det här scenariot skapar du en peering mellan två virtuella nätverk med namnet **VNET1** respektive **VNET2**. VNET1 skapas via distributionsmodellen Resurshanteraren medan VNET2 skapas via den klassiska distributionsmodellen.
 
-> [!NOTE]
-> De virtuella nätverken måste finnas i samma prenumeration.
 > 
-> 
-
 ![Distributionsscenario med asm till arm](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

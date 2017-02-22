@@ -27,16 +27,12 @@
 ### [Skapa och hantera med CLI](key-vault-manage-with-cli.md)
 
 # Referens
-## [Om nycklar och hemligheter](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Kodexempel](https://www.microsoft.com/download/details.aspx?id=45343)
-
-## [PowerShell-cmdletar för Key Vault i Resource Manager](/powershell/resourcemanager/)
-## [Klassiska PowerShell-cmdletar för Key Vault](/powershell/servicemanagement/)
-## [Key Vault med Azure CLI](/cli/azure/)
-## [Key Vault i Java-referens](/java/api/)
-## [Key Vault-hanterad referens-API](/dotnet/api/) 
-## [Key Vault REST API-referens](/rest/api/keyvault) 
-## [Node.js för Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [Azure 2.0 CLI (förhandsversion)](/cli/azure/keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
+## [Java](/java/api/com.microsoft.azure.keyvault)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## [REST](/rest/api/keyvault)
 
 # Relaterat
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -45,11 +41,13 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Resurser
+## [Om nycklar och hemligheter](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Kodexempel](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blogg](http://blogs.technet.com/b/kv/)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

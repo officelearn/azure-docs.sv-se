@@ -1,10 +1,10 @@
 ---
-title: "Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med Azure Resource Manager och Azure Portal | Microsoft Docs"
-description: "Hur du skapar ett VNet med hjälp av Resource Manager-distributionen och ansluter det till ditt lokala nätverk via en S2S VPN Gateway-anslutning."
+title: "Ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk: VPN från plats till plats: Portal | Microsoft Docs"
+description: "Steg för att skapa en IPsec-anslutning från ditt lokala nätverk till ett virtuellt Azure-nätverk via offentligt Internet. Dessa steg hjälper dig att skapa en plats-till-plats-anslutning med VPN-gateway med hjälp av portalen."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 827a4db7-7fa5-4eaf-b7e1-e1518c51c815
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
-ms.openlocfilehash: f0491df77418c4d7c79beff87302b64ddc3fa9be
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: c99788aded849933289555dd133b8146d6b2bdf2
 
 
 ---
@@ -31,7 +31,7 @@ ms.openlocfilehash: f0491df77418c4d7c79beff87302b64ddc3fa9be
 
 Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-gateway från plats till plats till ditt lokala nätverk, med hjälp av Azure Resource Manager-distributionsmodellen och Azure-portalen. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
 
-![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
+![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Distributionsmodeller och metoder för plats-till-plats-anslutningar
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -130,6 +130,6 @@ Du kan verifiera VPN-anslutningen i portalen eller med hjälp av PowerShell.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

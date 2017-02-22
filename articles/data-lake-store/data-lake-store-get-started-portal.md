@@ -1,6 +1,6 @@
 ---
-title: "Kom igång med Data Lake Store | Microsoft Docs"
-description: "Använd portalen för att skapa ett Data Lake Store-konto och utför grundläggande åtgärder i Data Lake Store"
+title: "Använda Azure-portalen för att komma igång med Data Lake Store | Microsoft Docs"
+description: "Använd Azure-portalen för att skapa ett Data Lake Store-konto och utför grundläggande åtgärder i Data Lake Store"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
-ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 
 
 ---
@@ -51,7 +51,7 @@ Titta på följande videor för att komma igång med Data Lake Store.
 2. Klicka på **NY**, klicka på **Data + lagring** och klicka sedan på **Azure Data Lake Store**. Läs informationen på bladet **Azure Data Lake Store** och klicka sedan på **Skapa** i nedre vänstra hörnet på bladet.
 3. På bladet **Ny Data Lake Store**, anger du de värden som visas på skärmdumpen nedan:
    
-    ![Skapa ett nytt Azure Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
+    ![Skapa ett nytt Azure Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Skapa ett nytt Azure Data Lake-konto")
    
    * **Namn**. Ange ett unikt namn Data Lake Store-kontot.
    * **Prenumeration**. Välj den prenumeration under vilken du vill skapa ett nytt Data Lake Store-konto.
@@ -62,10 +62,10 @@ Titta på följande videor för att komma igång med Data Lake Store.
      * (Valfritt) Välj **Aktivera inte kryptering** från listrutan om du vill välja bort kryptering.
      * (Standard) Välj **Använd nycklar som hanteras av Azure Data Lake** om du vill att Azure Data Lake Store ska hantera dina krypteringsnycklar.
        
-         ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
+         ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store-kryptering")
      * (Valfritt) Välj **Välj nycklar från Azure Key Vault** om du vill använda egna nycklar i Azure Key Vault. Med det här alternativet kan du också skapa ett Key Vault-konto och nycklar även om du inte redan har ett konto.
        
-         ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
+         ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store-kryptering")
        
        Klicka på **OK** i bladet **krypteringsinställningar**.
        
@@ -80,7 +80,7 @@ Om du använder nycklar från ett Azure Key Vault för att konfigurera krypterin
 
 1. Om du använder nycklar från Azure Key Vault visar bladet för Data Lake Store-kontot en varning överst på sidan. Klicka på varningen att öppna bladet **Konfigurera behörigheter för Key Vault**.
    
-    ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store encryption")
+    ![Data Lake Store-kryptering](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store-kryptering")
 2. Bladet visar två alternativ för att konfigurera åtkomst.
    
    * Klicka på **Ge behörighet** på första alternativet för att konfigurera åtkomst. Det första alternativet är endast aktiverat när användaren som skapade kontot Data Lake Store också är administratör för Azure Key Vault.
@@ -92,30 +92,30 @@ Du kan skapa mappar under Data Lake Store-kontot för att hantera och lagra data
 1. Öppna Data Lake Store-kontot som du nyss skapade. I den vänstra rutan klickar du på **Bläddra**, klicka på **Data Lake Store** och från Data Lake Store-bladet klicka på kontonamnet där du vill skapa mappar. Om du fäst kontot på startsidan klickar du på kontoikonen.
 2. I ditt Data Lake Store-kontoblad klickar du på **Data Explorer**.
    
-    ![Skapa mappar i ett Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
+    ![Skapa mappar i Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Skapa mappar i Data Lake Store-konto")
 3. I ditt Data Lake Store-kontoblad klickar du på **Ny mapp**, ange ett namn på den nya mappen och klicka sedan på **OK**.
    
-    ![Skapa mappar i ett Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
+    ![Skapa mappar i Data Lake Store-konto](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Skapa mappar i Data Lake Store-konto")
    
     Den nya mappen visas i bladet **Data Explorer**. Du kan skapa kapslade mappar upp till valfri nivå.
    
-    ![Skapa mappar i Data Lake-konto](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
+    ![Skapa mappar i Data Lake-konto](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Skapa mappar i Data Lake-konto")
 
 ## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Ladda upp data till Azure Data Lake Store-konto
 Du kan ladda upp data till ett Azure Data Lake Store-konto direkt på rotnivå eller till en mapp som du har skapat i kontot. Följ stegen i skärmdumpen nedan för att ladda upp en fil till en undermapp från bladet **Data Explorer**. I den här skärmdumpen laddas filen upp till en undermapp som visas i länkarna (markerade med en röd ram).
 
 Om du behöver exempeldata att ladda upp, kan du hämta mappen **Ambulansdata** från [Azure Data Lake Git-lagringsplatsen](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-![Ladda upp data](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
+![Överföra data](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Överföra data")
 
 ## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Egenskaper och åtgärder som är tillgängliga för lagrade data
 Klicka på den nyligen tillagda filen för att öppna bladet **Egenskaper**. De egenskaper som är associerade med filen och de åtgärder du kan utföra i filen är tillgängliga i det här bladet. Du kan också kopiera den fullständiga sökvägen till filen i ditt Azure Data Lake Store-konto, markerat i den röda rutan i skärmdumpen nedan.
 
-![Egenskaper för data](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
+![Egenskaper för data](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Egenskaper för data")
 
 * Klicka på **Förhandsgranska** för att förhandsgranska filen direkt från webbläsaren. Du kan också ange format för förhandsgranskningen. Klicka på **Förhandsgranska**, klicka på **Format**, på bladet **Filförhandsgranskning** och på **Format på filförhandsgranskning** anger du alternativ såsom antal rader som ska visas, kodning som ska användas, avgränsare som ska användas osv.
   
-  ![Format för filförhandsgranskning](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "File preview format")
+  ![Format för filförhandsgranskning](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "Format för filförhandsgranskning")
 * Klicka på **Hämta** för att ladda ned filen till datorn.
 * Klicka på **Byt namn på filen** för att byta namn på filen.
 * Klicka på **Ta bort filen** för att ta bort filen.
@@ -126,7 +126,7 @@ Du kan skydda data som lagras i ditt Azure Data Lake Store-konto med hjälp av A
 ## <a name="delete-azure-data-lake-store-account"></a>Ta bort Azure Data Lake Store-konto
 Om du vill ta bort ett Azure Data Lake Store-konto från dina Data Lake Store-blad, klicka på **Ta bort**. För att bekräfta åtgärden uppmanas du att ange namnet på det konto som du vill ta bort. Ange namnet på kontot och klicka sedan på **Ta bort**.
 
-![Ta bort Data Lake-konto](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
+![Ta bort Data Lake-konto](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Ta bort Data Lake-konto")
 
 ## <a name="next-steps"></a>Nästa steg
 * [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
@@ -137,6 +137,6 @@ Om du vill ta bort ett Azure Data Lake Store-konto från dina Data Lake Store-bl
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure Cloud Services – Självstudier, API-referens | Microsoft Docs"
+description: "Självstudier, API-referenser och annan dokumentation visar hur du använder Cloud Services för att hantera och köra API:er och skalbara molnprogram med hög tillgänglighet."
+services: cloud-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: cloud-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: af0eb3ce49e509992ab582558a342933f950afdb
+ms.sourcegitcommit: c8e0cec964b7c72e45564ff776c55be1b06bfbc1
+ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
 
 ---
-#<a name="cloud-services-documentation"></a>Dokumentation om Cloud Services
+# <a name="cloud-services-documentation"></a>Dokumentation om Cloud Services
 
-Molntjänster är ett exempel på en implementering av plattform som en tjänst (PaaS). Det är skapat för att stödja driften av program som är skalbara, tillförlitliga och kostnadseffektiva. Med Cloud Services har du fördelen med virtualisering, men du har även kontroll över den virtuella datorn så du kan konfigurera, korrigera och installera programvara.  
+Lär dig hur du använder Cloud Services för att hantera och köra API:er och skalbara molnprogram med hög tillgänglighet.  Självstudier, API-referenser och annan dokumentation visar hur du hanterar virtuella datorvärdar och konfigurerar, korrigerar och installerar programvara.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,61 +98,39 @@ Molntjänster är ett exempel på en implementering av plattform som en tjänst 
 
 ---
 
-## <a name="reference"></a>Referens
-
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/ee460812">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Språk</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST API-referens för Cloud Services</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758711">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.Scheman</h3>
-                        <p>Cloud Services-definitionsschema</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758710">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Cloud Services-konfigurationsschema</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Cloud Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

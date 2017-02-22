@@ -6,7 +6,7 @@ documentationcenter:
 author: mgoedtel
 manager: jwhit
 editor: 
-keywords: "tjänstens huvudnamn, setspn, azure-autentisering"
+keywords: "tjänstobjektnamn, setspn, azure-autentisering"
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
@@ -394,6 +394,6 @@ Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-run
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

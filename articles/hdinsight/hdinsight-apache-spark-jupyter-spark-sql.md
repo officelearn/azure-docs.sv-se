@@ -1,5 +1,5 @@
 ---
-title: "Skapa ett Spark-kluster i Azure HDInsight och använda Spark SQL från Jupyter för interaktiv analys | Microsoft Docs"
+title: "Komma igång med Apache Spark-kluster i Azure HDInsight | Microsoft Docs"
 description: "Stegvisa instruktioner om hur du snabbt skapar ett Apache Spark-kluster i HDInsight och sedan använder Spark SQL från Jupyter-anteckningsböcker för att köra interaktiva frågor."
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/01/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 791b6a5a07bb87302cb382290a355c9a14c63ff0
-ms.openlocfilehash: cc1d484d40dce0b1c64f2e8cdebb9377a38705cb
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: d8d9c5111a19bb165c25d2796d6b6e933d75042a
 
 
 ---
 # <a name="get-started-create-apache-spark-cluster-in-azure-hdinsight-and-run-interactive-queries-using-spark-sql"></a>Komma igång: Skapa ett Apache Spark-kluster i Azure HDInsight och köra interaktiva frågor med Spark SQL
+
 Lär dig hur du skapar ett [Apache Spark](hdinsight-apache-spark-overview.md)-kluster i HDInsight och sedan använder [Jupyter](https://jupyter.org)-anteckningsboken för att köra interaktiva Spark SQL-frågor i Spark-klustret.
 
    ![Komma igång med Apache Spark i HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Självstudie: Komma igång med Apache Spark i HDInsight. Illustrerade steg: Skapa ett lagringskonto, Skapa ett kluster; Kör Spark SQL-uttryck")
@@ -30,7 +31,8 @@ Lär dig hur du skapar ett [Apache Spark](hdinsight-apache-spark-overview.md)-kl
 
 ## <a name="prerequisites"></a>Krav
 * **En Azure-prenumeration**. Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free).
-* **En Secure Shell-klient (SSH)**: Linux-, Unix- och OS X-system etablerar en SSH-klient via `ssh`-kommandot. För Windows-system, se [Använda SSH med Linux-baserat Hadoop i HDInsight från Windows med PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md). För Linux, Unix eller OS X, se [Använda SSH med Linux-baserat Hadoop i HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+* **En Secure Shell-klient (SSH)**: Linux-, Unix- och OS X-system etablerar en SSH-klient via `ssh`-kommandot. För Windows-klienter läser du [Använda SSH med Hadoop i HDInsight från Windows med PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md). För Linux, Unix och OS X läser du [Använda SSH med Hadoop i HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 > [!NOTE]
 > Den här artikeln använder en Azure Resource Manager-mall för att skapa ett Spark-kluster som använder [Azure Storage-blobbar som klusterlagring](hdinsight-hadoop-use-blob-storage.md). Du kan också skapa ett Spark-kluster som använder [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) som ett ytterligare lagringsutrymme, utöver Azure Storage-blobar som standardlagring. Instruktioner finns i [Skapa ett HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -68,19 +70,19 @@ I det här avsnittet använder du Jupyter-anteckningsboken för att köra Spark 
 * **PySpark** (för appar som skrivits i Python)
 * **Spark** (för appar som skrivits i Scala)
 
-I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels) kan du få mer information om fördelarna med att använda PySpark-kerneln. Några av de främsta fördelarna med att använda PySpark-kerneln är:
+I den här artikeln använder vi PySpark-kerneln. Mer information om dessa kernlar finns i [Använda kernlar i Jupyter-anteckningsböcker med Apache Spark-kluster i HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Några av de främsta fördelarna med att använda PySpark-kerneln är:
 
-* Du behöver inte ange kontexter för Spark och Hive. Dessa anges automatiskt åt dig.
-* Du kan använda användbara cellfunktioner som `%%sql` för att köra dina SQL- eller Hive-frågor direkt utan några föregående kodfragment.
+* Kontexter för Spark och Hive anges automatiskt.
+* Du kan använda cellfunktioner som `%%sql` för att köra dina SQL- eller Hive-frågor direkt utan några föregående kodfragment.
 * Utdata för SQL- eller Hive-frågor visualiseras automatiskt.
 
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Skapa en Jupyter-anteckningsbok med PySpark-kernel
 
 1. Öppna [Azure-portalen](https://portal.azure.com/).
-2. I den vänstra menyn klickar du på **Resursgrupper**.
+2. Klicka på **Resursgrupper** på den vänstra menyn.
 3. Klicka på resursgruppen som du skapade i det sista avsnittet. Du kan använda sökfunktionen om det finns för många resursgrupper. Du kan se två resurser i gruppen, HDInsight-klustret och standardlagringskontot.
 4. Klicka på klustret för att öppna det.
- 
+
 2. I **Snabblänkar** klickar du på **Klusterinstrumentpaneler** och sedan på **Jupyter Notebook**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
    ![HDInsight-klusterinstrumentpaneler](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "HDInsight-klusterinstrumentpaneler")
@@ -95,7 +97,7 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 
    ![Skapa en ny Jupyter-anteckningsbok](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Skapa en ny Jupyter-anteckningsbok")
 
-   En ny anteckningsbok skapas och öppnas med namnet Untitled(Untitled.pynb). 
+   En ny anteckningsbok skapas och öppnas med namnet Untitled(Untitled.pynb).
 
 4. Klicka på anteckningsbokens namn högst upp och ange ett beskrivande namn om du vill.
 
@@ -128,13 +130,13 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
         hvacdf.registerTempTable("hvac")
 
     Spark-kluster i HDInsight har en exempeldatafil, **hvac.csv**, under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
-    
+
 7. Kör följande kod för att köra en fråga mot dessa data:
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Eftersom du använder en PySpark-kernel kan du nu direkt köra en SQL-fråga för den tillfälliga tabellen **hvac** som du just skapade med den användbara `%%sql`-funktionen. Mer information om den användbara `%%sql`, samt andra mycket användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+   Eftersom du använder en PySpark-kernel kan du nu direkt köra en SQL-fråga för den tillfälliga tabellen **hvac** som du just skapade med den användbara `%%sql`-funktionen. Mer information om den användbara `%%sql`, samt andra mycket användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
    Följande tabellutdata visas som standard.
 
@@ -188,6 +190,6 @@ I den här artikeln använder vi PySpark-kerneln. I artikeln [Kernlar som är ti
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -70,10 +70,10 @@ sql-database-service-tiers.md
 | Maximalt antal eDTU:er per databas | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Elastisk databas delar lagringsutrymme för pool, så databaslagring är begränsad till det mindre av återstående lagringsutrymme för pool eller maximalt lagringsutrymme per databas
+\* pooldatabaser delar lagringsutrymme för pool, så databaslagring är begränsad till det mindre av återstående lagringsutrymme för pool eller maximalt lagringsutrymme per databas. Maximalt lagringsutrymme per pool avser det maximala lagringsutrymmet för datafiler i poolen och omfattar inte utrymme som används av loggfiler.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

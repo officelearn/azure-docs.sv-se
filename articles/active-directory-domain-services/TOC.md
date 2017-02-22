@@ -16,18 +16,21 @@
 ### [Synkroniserad klient](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 # Gör så här för att
-## [Ansluta en Windows Server VM](active-directory-ds-admin-guide-join-windows-vm.md)
-## [Ansluta en virtuell Windows Server VM med PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-## [Ansluta en Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-## [Administrera en hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
-## [Administrera DNS på en hanterad domän](active-directory-ds-admin-guide-administer-dns.md)
-## [Konfigurera säker LDAP för en hanterad domän](active-directory-ds-admin-guide-configure-secure-ldap.md)
-## [Skapa en OU på en hanterad domän](active-directory-ds-admin-guide-create-ou.md)
-## [Administrera grupprincip i en hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
+## Anslut till en hanterad domän
+### [Ansluta en Windows Server VM](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Ansluta en virtuell Windows Server VM med PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Ansluta en Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+## Administrera en hanterad domän
+### [Administrera en hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
+### [Administrera DNS på en hanterad domän](active-directory-ds-admin-guide-administer-dns.md)
+### [Konfigurera säker LDAP för en hanterad domän](active-directory-ds-admin-guide-configure-secure-ldap.md)
+### [Skapa en OU på en hanterad domän](active-directory-ds-admin-guide-create-ou.md)
+### [Administrera grupprincip i en hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Välj ett virtuellt nätverk](active-directory-ds-networking.md)
-## [Konfigurera support för profilsynkronisering för SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
-
-
+## Distribuera program
+### [Konfigurera support för profilsynkronisering för SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
+### [Konfigurera begränsad Kerberos-delegering](active-directory-ds-enable-kcd.md)
+### [Distribuera Azure AD Application Proxy](active-directory-ds-deploy-azure-app-proxy.md)
 ## Felsöka
 ### [Vanliga frågor och svar](active-directory-ds-faqs.md)
 ### [Felsökningsguide](active-directory-ds-troubleshooting.md)
@@ -44,6 +47,6 @@
 ## [Kontakta oss](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Funktionsöversikt för Azure Batch för utvecklare | Microsoft Docs"
+title: "Översikt över Azure Batch för utvecklare | Microsoft Docs"
 description: "Lär dig mer om funktionerna i Batch-tjänsten och dess API:er ur ett utvecklingsperspektiv."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 4bd60ab3b1be1fa590b20fbe292da69f6a2dac8e
-ms.openlocfilehash: 0b63ea1e6308732f6993357466d7e372ec53a78f
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
 
 
 ---
@@ -111,7 +111,7 @@ När du skapar en pool kan du ange följande attribut:
     Alla noderna i en pool har samma storlek. Om du avser att köra program med olika systemkrav och/eller belastningsnivåer rekommenderar vi att du använder olika pooler.
 * **Antalet målnoder**
 
-    Det här är antalet beräkningsnoder som du vill distribuera i poolen. Detta kallas för ett *mål* eftersom önskat antal noder inte alltid uppnås för poolen. Det önskade antalet noder kanske inte uppnås om poolen når [kärnkvoten](batch-quota-limit.md#batch-account-quotas) för ditt Batch-konto, eller om en formel för automatisk skalning tillämpas på poolen som begränsar det högsta antalet noder (se avsnittet ”Skalningsprincip” nedan).
+    Det här är antalet beräkningsnoder som du vill distribuera i poolen. Detta kallas för ett *mål* eftersom önskat antal noder inte alltid uppnås för poolen. Det önskade antalet noder kanske inte uppnås om poolen når [kärnkvoten](batch-quota-limit.md) för ditt Batch-konto, eller om en formel för automatisk skalning tillämpas på poolen som begränsar det högsta antalet noder (se avsnittet ”Skalningsprincip” nedan).
 * **Skalningsprincip**
 
     När det gäller dynamiska arbetsbelastningar kan du skriva och använda en [formel för automatisk skalning](#scaling-compute-resources) en pool. Batch-tjänsten utvärderar med jämna mellanrum din formel och justerar antalet noder i poolen baserat på olika pool-, jobb- och aktivitetsparametrar som du kan ange.
@@ -489,6 +489,6 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

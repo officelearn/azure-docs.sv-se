@@ -236,6 +236,6 @@ Läs mer om lösningarna för realtidsanalys med Apache Storm i HDInsight:
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

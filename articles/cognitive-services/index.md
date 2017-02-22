@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure Cognitive Services – Självstudier, API-referens | Microsoft Docs"
+description: "Läs mer om hur du lägger till intelligenta funktioner till dina program, som analyser av visuellt innehåll, tal och språk. Hämta snabbstartsguider och API-referenser."
+services: cognitive-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: cognitive-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: e4e35a7c13db98770295cbaa19cf33b18c1fb5e7
+ms.sourcegitcommit: 0c5f1ba593952cb6dc6a8200a5666ecb7a32fce7
+ms.openlocfilehash: 3895b02f25b0e27b46a5e5493fe2b7f8f83201c1
 
 ---
 #<a name="cognitive-services-documentation"></a>Dokumentation om Cognitive Services
 
-Cognitive Services (förhandsversion) är ett antal API:er som kan användas för att aktivera naturlig och sammanhangsberoende interaktion i dina program.  Cognitive Services erbjuder API:er för språk, tal, vision, sök och kunskap.
+Lär dig hur du möjliggör naturlig och kontextbaserad interaktion inom dina appar med hjälp av Cognitive Services. Snabbstartssjälvstudier och API-referenser hjälper dig att inkludera funktioner för artificiell intelligens för text, tal, visuellt innehåll och sökning. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -88,7 +100,7 @@ Cognitive Services (förhandsversion) är ett antal API:er som kan användas fö
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">Referens för REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -96,16 +108,10 @@ Cognitive Services (förhandsversion) är ett antal API:er som kan användas fö
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Cognitive Services </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

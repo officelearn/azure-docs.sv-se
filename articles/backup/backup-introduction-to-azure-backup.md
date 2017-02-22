@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/2/2017
+ms.author: markgal;jimpark;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: b50b62b9b9a800c4f42e763a7ff6eecd84de9e69
+ms.openlocfilehash: 084bf86a2f36d8b48344f5a42e18738c5a4ed6d9
 
 
 ---
@@ -45,7 +45,7 @@ Traditionella säkerhetskopieringslösningar har utvecklats för att behandla mo
 
 **Programkonsekvent säkerhetskopiering** – Oavsett om du säkerhetskopierar en filserver, en virtuell dator eller en SQL-databas behöver du veta att en återställningspunkt har alla nödvändiga data för att återställa säkerhetskopian. Azure Backup innehåller programkonsekventa säkerhetskopior vilket garanterar att inga ytterligare korrigeringar behövs för att återställa data. Återställning av konsekventa programdata minskar tiden för återställning, så att du snabbt kan återgå till körläge.
 
-**Långsiktig kvarhållning** – Säkerhetskopiera data till Azure i 99 år. I stället för att växla säkerhetskopior från disk till band och sedan flytta bandet till en annan plats för långsiktig lagring kan du använda Azure för kortsiktig och långsiktig kvarhållning.
+**Långsiktig kvarhållning** - I stället för att växla säkerhetskopior från disk till band och sedan flytta bandet till en annan plats för långsiktig lagring kan du använda Azure för kortsiktig och långsiktig kvarhållning. Azure begränsar inte hur lång tid du får behålla data i ett Backup- eller Recovery Services-valv. Du kan förvara data i ett valv hur länge du vill. Azure Backup har en gräns på 9999 återställningspunkter per skyddad instans. Läs avsnittet [Säkerhetskopiering och kvarhållning](backup-introduction-to-azure-backup.md#backup-and-retention) i den här artikeln för att få en förklaring av hur den här gränsen kan påverka dina säkerhetskopieringsbehov.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Vilka Azure Backup-komponenter ska jag använda?
 Om du inte är säker på vilken Azure Backup-komponent som passar dina behov kan du ta en titt i följande tabell och få information om vad du kan skydda med varje komponent. Azure Portal innehåller en guide, som är inbyggd i portalen, som hjälper dig att välja en komponent att ladda ned och distribuera. Guiden som är en del av skapandet av Recovery Services-valvet leder dig genom stegen för att välja ett mål för säkerhetskopiering och data eller program som ska skyddas.
@@ -175,7 +175,7 @@ Om du säkerhetskopierar data till ett System Center DPM eller Azure Backup Serv
 #### <a name="network-throttling"></a>Nätverksbegränsningar
 Azure Backup-agenten tillhandahåller nätverksbegränsning som du kan använda för att styra hur nätverksbandbredden används under dataöverföringar. Begränsning kan vara användbart om du behöver säkerhetskopiera data under arbetstid, men inte vill att säkerhetskopieringsprocessen ska störa annan Internettrafik. Begränsningar av dataöverföringar gäller säkerhetskopierings- och återställningsaktiviteter.
 
-### <a name="backup-and-retention"></a>Säkerhetskopiering och kvarhållning
+## <a name="backup-and-retention"></a>Säkerhetskopiering och kvarhållning
 
 Azure Backup har en gräns på 9 999 återställningspunkter (även kallade säkerhetskopior eller ögonblicksbilder) per *skyddad instans*. En skyddad instans är en dator eller server (fysisk eller virtuell) eller en arbetsbelastning som konfigurerats för att säkerhetskopiera data till Azure. Mer information finns i avsnittet [Vad är en skyddad instans?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). En instans är skyddad när en säkerhetskopia av data har sparats. Säkerhetskopian av data är skyddet. Om datakällan går förlorad eller skadas kan den återställas med hjälp av säkerhetskopian. Följande tabell visar den högsta säkerhetskopieringsfrekvensen för varje komponent. Din konfiguration av säkerhetskopieringspolicyer avgör hur snabbt du förbrukar återställningspunkterna. Om du till exempel skapar en återställningspunkt om dagen kan du behålla återställningspunkter i 27 år innan de tar slut. Om du skapar en månatlig återställningspunkt kan du behålla återställningspunkter i 833 år innan de tar slut. Backup-tjänsten ställer inte in någon gräns för giltighetstiden för en återställningspunkt.
 
@@ -234,6 +234,6 @@ Mer information om att skydda andra arbetsbelastningar finns i någon av följan
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

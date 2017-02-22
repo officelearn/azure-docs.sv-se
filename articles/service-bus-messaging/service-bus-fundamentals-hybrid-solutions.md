@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus | Microsoft Docs
+title: "Översikt över grunderna i Azure Service Bus | Microsoft Docs"
 description: "En introduktion till att använda Service Bus för att ansluta Azure-appar till andra program."
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8f82ce3494822b13943ad000c24582668bb55fe8
-ms.openlocfilehash: 74d032b37a856b141350fb6a1f73b7067624f926
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
 
 
 ---
@@ -53,7 +53,7 @@ Anta att du bestämmer dig för att ansluta två appar med hjälp av en Service 
 
 Processen är enkel: En avsändare skickar ett meddelande till en Service Bus-kö och en mottagare hämtar meddelandet vid ett senare tillfälle. En kö kan ha bara en enkel mottagare, som bild 2 visar. Eller så kan flera program läsa från samma kö. I det senare fallet läses varje meddelande av enbart en mottagare. För en tjänst med multi-cast bör du istället använda ett ämne.
 
-Varje meddelande består av två delar: en uppsättning egenskaper, som alla är ett nyckel-/värdepar, och en meddelandenyttolast. Nyttolasten kan vara binär, text eller till och med XML. Hur de används beror på vad en app försöker utföra. Ett exempel: Ett program som skickar ett meddelande om en nyligen genomförd försäljning kan innehålla egenskaperna *Säljare="Ava"* och *Belopp= 10000*. Meddelandetexten (brödtexten) kan innehålla en skannad bild av försäljningsavtalet, eller om det inte finns något sådant, bara vara tomt.
+Varje meddelande består av två delar: en uppsättning egenskaper, som alla är ett nyckel-/värdepar, och en meddelandenyttolast. Nyttolasten kan vara binär, text eller till och med XML. Hur de används beror på vad en app försöker utföra. Ett exempel: Ett program som skickar ett meddelande om en nyligen genomförd försäljning kan innehålla egenskaperna *Säljare="Ava"* och *Belopp=&10000;*. Meddelandetexten (brödtexten) kan innehålla en skannad bild av försäljningsavtalet, eller om det inte finns något sådant, bara vara tomt.
 
 En mottagare kan läsa ett meddelande från en Service Bus-kö på två olika sätt. Det första alternativet, som kallas *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, tar bort meddelandet från kön och raderar det direkt. Detta är ett enkelt alternativ men om mottagaren kraschar innan den har slutfört behandlingen av meddelandet så kommer det att gå förlorat. Eftersom det har tagits bort från kön kan inga andra mottagare komma åt det. 
 
@@ -119,6 +119,6 @@ Nu när du har lärt dig grunderna om Azure Service Bus, kan du följa dessa lä
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -345,6 +345,6 @@ Mer information finns i [Get Started with Azure Blob storage](storage-dotnet-how
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -6,12 +6,6 @@
 ### [Resursbegränsningar](sql-database-resource-limits.md)
 ### [Funktioner](sql-database-features.md)
 ### [Vanliga frågor om SQL Database](sql-database-faq.md)
-## Fördelar
-### [Lärdomar och tips](sql-database-learn-and-adapt.md)
-### [Skalningar i farten](sql-database-scale-on-the-fly.md)
-### [Bygger appar för flera innehavare](sql-database-build-multi-tenant-apps.md)
-### [Säkrar och skyddar](sql-database-helps-secures-and-protects.md)
-### [Fungerar i din miljö](sql-database-works-in-your-environment.md)
 ## Jämförelser
 ### [SQL Database jämfört med SQL på en virtuell dator](sql-database-paas-vs-sql-server-iaas.md)
 ### [T-SQL-skillnader](sql-database-transact-sql-information.md)

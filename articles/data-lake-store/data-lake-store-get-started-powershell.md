@@ -1,5 +1,5 @@
 ---
-title: "Kom igång med Data Lake Store | Microsoft Docs"
+title: "Använder PowerShell för att komma igång med Azure Data Lake Store | Microsoft Docs"
 description: "Använd Azure PowerShell för att skapa ett Data Lake Store-konto och utföra grundläggande åtgärder"
 services: data-lake-store
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a86fd04a7ec0cffabe42d30132b97777c752bbde
-ms.openlocfilehash: e37b698436c067faa20b0e589078927d5955934a
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: ebe8724d73769eb55e40b8af2056880a5a4007ce
 
 
 ---
@@ -63,13 +63,13 @@ Den här artikeln använder en enklare metod för autentisering med Data Lake St
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-    ![Skapa en Azure-resursgrupp](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
+    ![Skapa en Azure-resursgrupp](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Skapa en Azure-resursgrupp")
 3. Skapa ett Azure Data Lake Store-konto. Namnet du anger får bara innehålla gemener och siffror.
 
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-    ![Skapa ett Azure Data Lake Store-konto](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake Store account")
+    ![Skapa ett Azure Data Lake Store-konto](./media/data-lake-store-get-started-powershell/ADL.PS.CreateADLAcc.png "Skapa ett Azure Data Lake Store-konto")
 4. Kontrollera att kontot har skapats.
 
         Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
@@ -91,7 +91,7 @@ Du kan skapa kataloger under Azure Data Lake Store-kontot för att hantera och l
 
     Du bör se utdata som liknar följande:
 
-    ![Verifiera katalog](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verify Directory")
+    ![Verifiera katalog](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verifiera katalog")
 
 ## <a name="upload-data-to-your-azure-data-lake-store"></a>Ladda upp data till din Azure Data Lake Store
 Du kan ladda upp data till Data Lake Store direkt på rotnivå eller till en katalog som du har skapat i kontot. Fragmenten nedan visar hur du kan ladda upp exempeldata till katalogen (**mynewdirectory**) som du skapade i föregående avsnitt.
@@ -205,6 +205,6 @@ Du kan fortsätta att finjustera inställningarna genom att ändra **PerFileThre
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

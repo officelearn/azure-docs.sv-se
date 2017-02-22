@@ -1,103 +1,117 @@
 ---
-title: Azure Container Service Introduction | Microsoft Docs
-description: Azure Container Service provides a way to simplify the creation, configuration, and management of a cluster of virtual machines that are preconfigured to run containerized applications.
+title: "Docker-behållarkluster i Azure-molnet | Microsoft Docs"
+description: "Azure Container Service erbjuder ett sätt att förenkla skapande, konfiguration och hantering av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Mesos, Azure
-
+keywords: "Docker, behållare, Micro-tjänster, Mesos, Azure"
+ms.assetid: 52da4163-1182-4b2e-be00-4951e5c1da16
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 01/21/2017
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: cc3cc2dce324942f184b6a520dc4db28518a3091
+ms.openlocfilehash: 0521fbd689233c0f2359a10006e24c75c8997732
+
 
 ---
-# Azure Container Service introduction
-Azure Container Service makes it simpler for you to create,
-configure, and manage a cluster of virtual machines that are
-preconfigured to run containerized applications. It uses an optimized configuration of popular open-source scheduling and orchestration tools. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
+# <a name="azure-container-service-introduction"></a>Introduktion till Azure Container Service
+Azure Container Service gör det enklare för dig att skapa, konfigurera och hantera av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare. Det använder en optimerad konfiguration av populära verktyg för öppen källkod för schemaläggning och dirigering. På så sätt kan du använda dina befintliga kunskaper eller använda en stor och växande mängd communityexpertis för att distribuera och hantera behållarbaserade program i Microsoft Azure.
 
-![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
+![Med Azure Container Service kan du hantera program i behållare på flera värdar i Azure.](./media/acs-intro/acs-cluster-new.png)
 
-Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and DC/OS or Docker Swarm so that you can scale these applications to thousands of containers, or even tens of thousands.
+I Azure Container Service används formatet med Docker-behållare så att dina programbehållare är fullständigt bärbara. Formatet stöder Marathon och DC/OS, Docker Swarm eller Kubernetes så att du kan skala programmen till tusentals behållare eller till och med tiotusentals.
 
-By using Azure Container Service, you can take advantage of the
-enterprise-grade features of Azure, while still maintaining application portability--including portability at the orchestration layers.
+>[!NOTE]
+> Stöd för Kubernetes i Azure Container Service förhandsvisas just nu.
+>
 
-## Using Azure Container Service
-Our goal with Azure Container Service is to provide a container
-hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator (DC/OS or Docker Swarm). By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For DC/OS, you might choose to use the DCOS CLI.
+Genom att använda Azure Container Service kan du dra nytta av Azures funktioner på företagsnivå samtidigt som programmen fortsätter att vara bärbara – det gäller även orkestreringslagren.
 
-## Creating a Docker cluster by using Azure Container Service
-To begin using Azure Container Service, you deploy an Azure Container Service cluster via the portal (search for 'Azure Container Service'), by using an Azure Resource Manager template ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) or [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)) or with the [CLI](/documentation/articles/xplat-cli-install/). The provided quickstart templates can be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
+## <a name="using-azure-container-service"></a>Använda Azure Container Service
+Vårt mål med Azure Container Service är att tillhandahålla en behållarvärdmiljö genom att använda verktyg och teknik med öppen källkod som är populära bland kunderna idag. Därför exponerar vi standard API-slutpunkter för den dirigering du väljer (DC/OS, Docker Swarm eller Kubernetes). Genom att använda dessa slutpunkter kan du använda all programvara som kan kommunicera till slutpunkterna. För exempelvis Docker Swarm-slutpunkten kan du använda kommandoradsgränssnittet Docker (CLI). För DC/OS kanske du väljer att använda DCOS CLI. Du kan välja att använda kubectl för Kubernetes.
 
-## Deploying an application
-Azure Container Service provides a choice of either Docker Swarm or DC/OS for orchestration. How you deploy your application depends on your choice of orchestrator.
+## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Skapa ett Docker-kluster med Azure Container Service
+Om du vill börja använda Azure Container Service distribuerar du ett Azure Container Service-kluster via portalen (sök efter ”Azure Container Service”) med hjälp av en Azure Resource Manager-mall ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) eller [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) eller med [CLI](/articles/xplat-cli-install.md). De tillhandahållna snabbstartsmallarna kan ändras så att de inkluderar ytterligare eller avancerad Azure-konfiguration. Mer information om hur du distribuerar ett Azure Container Service-kluster finns i [Distribuera ett Azure Container Service-kluster](container-service-deployment.md).
 
-### Using DC/OS
-DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. Apache Mesos is housed at the Apache Software
-Foundation and lists some of the [biggest names in
-IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) as
-users and contributors.
+## <a name="deploying-an-application"></a>Distribuera ett program
+Azure Container Service erbjuder antingen Docker Swarm, DC/OS eller Kubernetes för dirigering. Hur du distribuerar programmet beror på ditt val av dirigering.
 
-![Azure Container Service configured for Swarm showing agents and masters.](media/acs-intro/dcos.png)
+### <a name="using-dcos"></a>Använda DC/OS
+DC/OS är ett distribuerat operativsystem som baseras på Apache Mesos distribuerade systemkernel. Apache Mesos finns i Apache Software Foundation och listar några av de [största namnen inom IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) som användare och bidragsgivare.
 
-DC/OS and Apache Mesos include an impressive feature set:
+![Azure Container Service som konfigurerats för Swarm visar agenter och masters.](media/acs-intro/dcos.png)
 
-* Proven scalability
-* Fault-tolerant replicated master and slaves using Apache ZooKeeper
-* Support for Docker-formatted containers
-* Native isolation between tasks with Linux containers
-* Multiresource scheduling (memory, CPU, disk, and ports)
-* Java, Python, and C++ APIs for developing new parallel applications
-* A web UI for viewing cluster state
+DC/OS och Apache Mesos har en imponerande funktionsuppsättning:
 
-By default, DC/OS running on Azure Container Service includes the Marathon  orchestration platform for scheduling workloads. However, included with the DC/OS deployment of ACS is the Mesosphere Universe of services that can be added to your service, these include Spark, Hadoop, Cassandra and much more.
+* Beprövad skalbarhet
+* Feltoleranta master och slavar med Apache ZooKeeper
+* Stöd för Docker-formaterade behållare
+* Intern isolering mellan aktiviteter med Linux-behållare
+* Schemaläggning med flera resurser (minne, CPU, disk och portar)
+* Java-, Python- och C++-API:er för att utveckla nya parallella program
+* Ett webbgränssnitt för att visa klustertillstånd
 
-![DC/OS Universe in Azure Container Service](media/dcos/universe.png)
+Som standard innehåller DC/OS som körs på  Azure Container Service Marathon-dirigeringsplattformen för att schemalägga arbetsbelastningar. Men tillsammans med DC/OS-distributionen av ACS Mesosphere Universe of services som kan läggas till i din tjänst inkluderar de Spark, Hadoop, Cassandra och mycket mer.
 
-#### Using Marathon
-Marathon is a cluster-wide init and control system for services in
-cgroups--or, in the case of Azure Container Service, Docker-formatted containers. Marathon provides a web UI from which you can deploy your applications. You can access this at a URL that looks something like
-`http://DNS_PREFIX.REGION.cloudapp.azure.com`
-where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [Container management through the web UI](container-service-mesos-marathon-ui.md).
+![DC/OS Universe i Azure Container Service](media/dcos/universe.png)
 
-![Marathon Applications List](media/dcos/marathon-applications-list.png)
+#### <a name="using-marathon"></a>Använda Marathon
+Marathon är ett klusteromfattande init- och kontrollsystem för tjänster i cgroups – eller, när det gäller Azure Container Service, Docker-formaterade behållare. Marathon tillhandahåller ett webbgränssnitt som du kan distribuera dina program från. Du kan komma åt det via en URL-adress som ser ut ungefär som `http://DNS_PREFIX.REGION.cloudapp.azure.com` där DNS\_PREFIX och REGION definieras vid tidpunkten för distribution. Du kan naturligtvis också ange ett eget DNS-namn. Mer information om hur du kör en behållare med Marathon-webbgränssnittet finns i [Behållarhantering via webbgränssnittet](container-service-mesos-marathon-ui.md).
 
-You can also use the REST APIs for communicating with Marathon. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for Marathon. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [Container management with the REST API](container-service-mesos-marathon-rest.md).
+![Marathon-programlista](media/dcos/marathon-applications-list.png)
 
-### Using Docker Swarm
-Docker Swarm provides native clustering for Docker. Because Docker Swarm
-serves the standard Docker API, any tool that already communicates with
-a Docker daemon can use Swarm to transparently scale to multiple hosts
-on Azure Container Service.
+Du kan också använda REST API:er för att kommunicera med Marathon. Det finns ett antal klientbibliotek som är tillgängliga för varje verktyg. De täcker flera olika språk – och naturligtvis kan du använda HTTP-protokollet på ett annat språk. Dessutom har många DevOps-verktyg stöd för Marathon. Detta ger maximal flexibilitet för driftsgruppen när du arbetar med Azure Container Service-kluster. Mer information om hur du kör en behållare med Marathon REST API finns i [Behållarhantering via REST API](container-service-mesos-marathon-rest.md).
 
-![Azure Container Service configured to use DC/OS--showing jumpbox, agents, and masters.](media/acs-intro/acs-swarm2.png)
+### <a name="using-docker-swarm"></a>Använda Docker Swarm
+Docker Swarm tillhandahåller interna kluster för Docker. Eftersom Docker Swarm tillhandahåller standard-API för Docker API kan vilket verktyg som helst som redan kommunicerar med en Docker-daemon använda Swarm för att transparent skala till flera värdar i Azure Container Service.
 
-Supported tools for managing containers on a Swarm cluster include, but are not limited
-to, the following:
+![Azure Container Service som konfigurerats för att använda DC/OS – visar jumpbox, agenter och masters.](media/acs-intro/acs-swarm2.png)
+
+Verktyg som stöds för att hantera behållare i ett Swarm-kluster omfattar, men är inte begränsat till, följande:
 
 * Dokku
-* Docker CLI and Docker Compose
+* Docker CLI och Docker Compose
 * Krane
 * Jenkins
 
-## Videos
-Getting started with Azure Container Service (101):  
+### <a name="using-kubernetes"></a>Använda Kubernetes
+Kubernetes är ett populärt dirigeringsverktyg för automatisk behållardistribution, skalning och hantering av program som använder behållare. Eftersom verktyget är baserat öppen källkod och drivs av communityn fungerar det smidigt i Azure Container Service och kan användas till att distribuera behållare i stor skala i Azure Container Service.
+
+![Azure Container Service som konfigurerats för att använda Kubernetes – visar agenter och masters.](media/acs-intro/kubernetes.png)
+
+Det har en omfattande uppsättning funktioner. Till exempel:
+* Horisontell skalning
+* Tjänstidentifiering och belastningsutjämning
+* Hemligheter och konfigurationshantering
+* API-baserade automatiserade distributioner och återställningar
+* Självåterställning
+* och mycket mer.
+
+
+
+## <a name="videos"></a>Videoklipp
+Komma igång med Azure Container Service (101):  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]
-> 
-> 
+>
+>
 
-Building Applications Using the Azure Container Service (Build 2016)
+Building Applications Using the Azure Container Service (Bygga program med Azure Container Service) (version 2016)
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/B822/player]
-> 
-> 
+>
+>
+
+
+
+<!--HONumber=Feb17_HO1-->
+
 

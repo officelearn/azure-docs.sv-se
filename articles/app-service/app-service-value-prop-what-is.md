@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
+ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
 
 
 ---
@@ -49,7 +49,7 @@ App Service tillhandahåller flera *apptyper*, som var och en är avsedd att han
 * [**Webbappar**](../app-service-web/app-service-web-overview.md) – för att hantera webbplatser och webbprogram.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) – för att hantera mobilappservrar.
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) – För att hantera RESTful-API:er.
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) – För att automatisera affärsprocesser och integrera system och data mellan moln utan att skriva kod.
+* [**Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md) – För att automatisera affärsprocesser och integrera system och data mellan moln utan att skriva kod.
 
 Ordet *app* här refererar till de värdresurser som är dedikerade för att köra en arbetsbelastning. Med ”webbapp” som exempel är du antagligen van vid att tänka på en webbapp som både beräkningsresurser och programkod som tillsammans ger funktioner till en webbläsare. I Apptjänst är en *webbapp* dock de beräkningsresurser som Azure tillhandahåller för hantering av programkoden. 
 
@@ -72,7 +72,7 @@ App Service-planer definierar följande:
 
 Alla program som har tilldelats en **App Service-plan** delar de resurser som definierats av planen så att du kan spara kostnader när flera appar finns i den.
 
-Din **App Service-plan** kan skalas från SKU:erna **Kostnadsfri** och **Shared** till SKU:erna **Basic**, **Standard** och **Premium** så att du får åtkomst till fler resurser och funktioner. När din App Service-plan är inställd på **Basic** eller högre kan du också styra **storleken** och skalningsantalet för de virtuella datorerna.
+Din **App Service-plan** kan skalas från SKU:erna **Kostnadsfri** och **Delad** till SKU:erna **Bas**, **Standard** och **Premium** så att du får åtkomst till fler resurser och funktioner. När din App Service-plan är inställd på **Basic** eller högre kan du också styra **storleken** och skalningsantalet för de virtuella datorerna.
 
 App Service-planens **SKU** och **Skala** avgör kostnaden och inte antalet appar som finns i den. 
 
@@ -82,18 +82,18 @@ Om du behöver mer skalbarhet och nätverksisolering kan du köra dina appar i e
 Information om hur mycket Apptjänst kostar finns i [Priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="test-drive-app-service"></a>Testköra App Service
-[Skapa en exempelwebbapp, exempelmobilapp eller exempellogikapp](http://go.microsoft.com/fwlink/?LinkId=523751) och testa appen i en timme – inget kreditkort behövs, inga åtaganden, inget krångel.
+[Skapa en exempelwebbapp, exempelmobilapp eller exempellogikapp](https://azure.microsoft.com/try/app-service/) och testa appen i en timme – inget kreditkort behövs, inga åtaganden, inget krångel.
 
 Eller öppna ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/) och prova en av våra självstudier för att komma igång:
 
 * [Självstudier: Skapa en webbapp](../app-service-web/app-service-web-get-started.md)
 * [Självstudier: Skapa en mobilapp](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Självstudier: Skapa en API-app](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Självstudier: Skapa en logikapp](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Självstudier: Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

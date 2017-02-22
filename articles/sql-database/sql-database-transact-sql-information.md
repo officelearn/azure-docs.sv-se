@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
-ms.author: rick.byham@microsoft.com
+ms.author: rickbyh
 translationtype: Human Translation
 ms.sourcegitcommit: 7db5939c88045ab59d7d9fb4b58f07374d7bca01
 ms.openlocfilehash: ebec6ca87cfd5e9d2c4ea726d5d31d20998ef33f
@@ -93,6 +93,6 @@ I vissa fall kan det allmänna ämnet för ett avsnitt användas i en produkt, m
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

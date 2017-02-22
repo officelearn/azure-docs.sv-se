@@ -12,12 +12,12 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: iaas-sql-server
-ms.date: 09/21/2016
+ms.workload: infrastructure-services
+ms.date: 02/02/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 171566e8b1eccfafc78bd8b422189c977421592d
+ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
+ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
 
 
 ---
@@ -46,14 +46,13 @@ I den här kursen ska du:
    > Om du inte har något Azure-konto besöker du sidan för [kostnadsfria utvärderingsversioner av Azure](https://azure.microsoft.com/pricing/free-trial/).
    > 
    > 
-2. Klicka på **Nytt** på Azure Portal. Portalen öppnas på bladet **Nytt**. VM-resurserna med SQL Server finns i gruppen **Virtual Machines** på Marketplace.
-3. På bladet **Nytt** klickar du på **Virtuella datorer**.
-4. Visa alla tillgängliga avbildningar genom att klicka på **Visa alla** på bladet **Virtual Machines**.
-   
-    ![Blad för Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
-5. Klicka på **SQL Server** under **Databasservrar**. Du kanske måste rulla nedåt för att hitta **Databasservrar**. Granska de tillgängliga SQL Server-mallarna.
-   
-    ![Avbildningar med SQL i galleriet för virtuella datorer](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
+2. Klicka på **Nytt** på Azure Portal. Portalen öppnas på bladet **Nytt**. VM-resurserna med SQL Server finns i gruppen **Compute** på Marketplace.
+3. I det **Nya** bladet klickar du på **Compute** och sedan på **Se alla**.
+4. I textrutan **Filter** anger du ”SQL Server” och trycker på RETUR-tangenten.
+
+   ![Blad för Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+
+5. Granska de tillgängliga SQL Server-mallarna.
 6. Varje mall identifierar en version av SQL Server och ett operativsystem. Välj någon av dessa avbildningar i listan. Gå sedan igenom informationsbladet som innehåller en beskrivning av avbildningen av den virtuella datorn.
    
    > [!NOTE]
@@ -82,7 +81,7 @@ Ange följande information i bladet **Grundläggande inställningar**:
 * Ange ett **användarnamn** för det lokala administratörskontot på den virtuella datorn. Det här kontot läggs också till i den fasta SQL Server-serverrollen **sysadmin**.
 * Ange ett starkt **lösenord**.
 * Om du har flera prenumerationer kontrollerar du att prenumerationen är rätt för den nya virtuella datorn.
-* I rutan **Resursgrupp** skriver du ett namn för en ny resursgrupp. Du kan också använda en befintlig resursgrupp genom att klicka på **Välj befintlig**. En resursgrupp är en samling relaterade resurser i Azure (virtuella datorer, lagringskonton, virtuella nätverk osv.).
+* I rutan **Resursgrupp** skriver du ett namn för en ny resursgrupp. Du kan även använda en befintlig resursgrupp genom att klicka på **Använd befintlig**. En resursgrupp är en samling relaterade resurser i Azure (virtuella datorer, lagringskonton, virtuella nätverk osv.).
   
   > [!NOTE]
   > En ny resursgrupp är praktiskt om du bara testar eller lär dig om SQL Server-distributioner i Azure. När du är klar med testet tar du bort resursgruppen. När du gör det tas den virtuella datorn och alla resurser som associeras med resursgruppen bort automatiskt. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
@@ -216,10 +215,12 @@ När du aktiverar automatisk SQL-säkerhetskopiering kan du konfigurera följand
 * Kvarhållningsperiod (dagar) för säkerhetskopieringar
 * Lagringskonto som ska användas för säkerhetskopieringar
 * Krypteringsalternativ och lösenord för säkerhetskopieringar
+* Säkerhetskopiera systemdatabaser
+* Konfigurera schema för säkerhetskopiering
 
 Om du vill kryptera säkerhetskopian klickar du på **Aktivera**. Ange sedan **lösenordet**. Azure skapar ett certifikat för att kryptera säkerhetskopiorna och använder det angivna lösenordet för att skydda certifikatet.
 
-![Automatisk SQL-säkerhetskopiering](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
+![Automatisk SQL-säkerhetskopiering](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
  Mer information finns i [Automatisk säkerhetskopiering av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
@@ -302,6 +303,6 @@ Om du vill titta på en videoöversikt över SQL Server på Azure Virtual Machin
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

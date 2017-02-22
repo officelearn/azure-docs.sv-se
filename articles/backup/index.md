@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure Backup – Självstudier, API-referens | Microsoft Docs"
+description: "I dokumentationen om Backup kan du läsa om hur du säkerhetskopierar till molnet. Mer information finns i självstudierna och videoklippen för säkerhetskopiering av program, Windows-server och virtuella Azure-datorer."
+services: backup
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: backup
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 4c3a00fe82ec903bcd756e8cd2ef940fc10e8af2
+ms.sourcegitcommit: 4d159b2cec70d9491a562f460629d8efa511d695
+ms.openlocfilehash: 29466a465865dc17350eb4aa70a86f9c973b693a
 
 ---
 #<a name="backup-documentation"></a>Dokumentation om Backup
 
-Azure Backup är en molnbaserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet.  Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris.  
+Lär dig hur du använder Azure Backup i molnet för att skydda data för långsiktig kvarhållning och återställning. Självstudier, videoklipp och annan dokumentation visar hur du säkerhetskopierar data, program, Windows-servrar och virtuella datorer i Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -124,7 +136,7 @@ Azure Backup är en molnbaserad tjänst som du använder för att säkerhetskopi
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.backupservices">NET</a></p>
                     </div>
                 </div>
             </div>
@@ -132,16 +144,10 @@ Azure Backup är en molnbaserad tjänst som du använder för att säkerhetskopi
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned Azure Backup-dokumentation </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

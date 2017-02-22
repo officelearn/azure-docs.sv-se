@@ -1,5 +1,5 @@
 ---
-title: "Skapa, starta eller ta bort en programgateway med hjälp av Azure Resource Manager | Microsoft Docs"
+title: "Skapa och hantera Azure Application Gateway – PowerShell | Microsoft Docs"
 description: "Den här sidan innehåller anvisningar för hur du skapar, konfigurerar, startar och tar bort en programgateway i Azure med hjälp av Azure Resource Manager"
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: cb2b7bc626294e12c6e19647c1e787e1f671595b
-ms.openlocfilehash: 5da4b087131b0adef49f7019297db834d7bb9416
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: baf389dcdfb38053b9feb976d19b471838f1315e
 
 
 ---
@@ -303,6 +303,6 @@ Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet l
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

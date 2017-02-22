@@ -1,203 +1,203 @@
-# How to use the Azure Command-Line Tools for Mac and Linux
-This guide describes how to use the Azure Command-Line Tools for Mac and Linux to create and manage services in Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Azure Websites**, and **creating and managing Azure Virtual Machines**. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
+# <a name="how-to-use-the-azure-command-line-tools-for-mac-and-linux"></a>Använda Azures kommandoradsverktyg för Mac och Linux
+Här beskrivs hur du använder Azures kommandoradsverktyg för Mac och Linux för att skapa och hantera tjänster i Azure. Du kan bland annat läsa om hur du **installerar verktygen**, **importerar dina publiceringsinställningar**, **skapar och hanterar Azure Websites** och **skapar och hanterar Azure Virtual Machines**. Omfattande referensdokumentation finns i [Dokumentation för Azure-kommandoradsverktyg för Mac och Linux][reference-docs]. 
 
-## Table of contents
-* [What are the Azure Command-Line Tools for Mac and Linux](#Overview)
-* [How to install the Azure Command-Line Tools for Mac and Linux](#Download)
-* [How to create an Azure account](#CreateAccount)
-* [How to download and import publish settings](#Account)
-* [How to create and manage an Azure Web Site](#WebSites)
-* [How to create and manage an Azure Virtual Machine](#VMs)
+## <a name="table-of-contents"></a>Innehållsförteckning
+* [Om Azures kommandoradsverktyg för Mac och Linux](#Overview)
+* [Installera Azures kommandoradsverktyg för Mac och Linux](#Download)
+* [Skapa ett Azure-konto](#CreateAccount)
+* [Hämta och importera publiceringsinställningar](#Account)
+* [Skapa och hantera en Azure-webbplats](#WebSites)
+* [Skapa och hantera en virtuell Azure-dator](#VMs)
 
-<h2><a id="Overview"></a>What are the Azure Command-Line Tools for Mac and Linux</h2>
+<h2><a id="Overview"></a>Om Azures kommandoradsverktyg för Mac och Linux</h2>
 
-The Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Azure services.
+Azures kommandoradsverktyg för Mac och Linux är en uppsättning kommandoradsverktyg för distribution och hantering av Azure-tjänster.
 
-The supported tasks include the following:
+Du kan till exempel:
 
-* Import publishing settings.
-* Create and manage Azure Websites.
-* Create and manage Azure Virtual Machines.
+* Importera publiceringsinställningar.
+* Skapa och hantera Azure Websites.
+* Skapa och hantera Azure Virtual Machines.
 
-For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the [reference documentation][reference-docs].
+Om du vill se en fullständig lista över kommandon som stöds kan du skriva `azure -help` på kommandoraden (efter att du har installerat verktygen) eller läsa [referensdokumentationen][reference-docs].
 
-<h2><a id="Download">How to install the Azure Command-Line Tools for Mac and Linux</a></h2>
+<h2><a id="Download">Installera Azures kommandoradsverktyg för Mac och Linux</a></h2>
 
-The following list contains information for installing the command-line tools, depending on your operating system:
+Följande lista innehåller information om hur du installerar kommandoradsverktyg, beroende på vilket operativsystem du har:
 
-* **Mac**: Download the [Azure SDK Installer][mac-installer]. Open the downloaded .pkg file and complete the installation steps as you are prompted.
-* **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
+* **Mac**: Hämta [Azure SDK Installer][mac-installer]. Öppna den hämtade PKG-filen och slutför installationsstegen.
+* **Linux**: Installera den senaste versionen av [Node.js][nodejs-org] (se [Installera Node.js via Package Manager][install-node-linux]) och kör sedan följande kommando:
   
         npm install azure-cli -g
   
-    **Note**: You may need to run this command with elevated privileges:
+    **Obs!** Du kan behöva köra det här kommandot med utökade privilegier:
   
         sudo npm install azure-cli -g
-* **Windows**: Run the Winows installer (.msi file), which is available here: [Azure Command Line Tools][windows-installer].
+* **Windows**: Kör Winows Installer (MSI-fil), som finns här: [Azures kommandoradsverktyg][windows-installer].
 
-To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
+Testa installationen genom att skriva `azure` i kommandotolken. När installationen är klar visas en lista över alla tillgängliga `azure`-kommandon.
 
-<h2><a id="CreateAccount"></a>How to create an Azure account</h2>
+<h2><a id="CreateAccount"></a>Skapa ett Azure-konto</h2>
 
-To use the Azure Command-Line Tools for Mac and Linux, you will need an Azure account.
+Du behöver ett Azure-konto för att kunna använda Azures kommandoradsverktyg för Mac och Linux.
 
-Open a web browser and browse to [http://www.windowsazure.com][windowsazuredotcom] and click **free trial** in the upper right corner.
+Öppna en webbläsare och gå till [http://www.windowsazure.com][windowsazuredotcom] och klicka på **kostnadsfritt konto** längst upp till höger.
 
-![Azure Web Site][Azure Web Site]
+![Azure-webbplats][Azure Web Site]
 
-Follow the instructions for creating an account.
+Följ instruktionerna för att skapa ett konto.
 
-<h2><a id="Account"></a>How to download and import publish settings</h2>
+<h2><a id="Account"></a>Hämta och importera publiceringsinställningar</h2>
 
-To get started, you need to first download and import your publish settings. This will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
+Innan du kan börja måste du hämta och importera dina publiceringsinställningar. Det krävs för att du ska kunna skapa och hantera Azure-tjänster med verktygen. Hämta dina publiceringsinställningar med `account download`-kommandot:
 
     azure account download
 
-This will open your default browser and prompt you to sign in to the Management Portal. After signing in, your `.publishsettings` file will be downloaded. Make note of where this file is saved.
+Din standardwebbläsare öppnas och du uppmanas att logga in på hanteringsportalen. När du har loggat in hämtas `.publishsettings`-filen. Notera var filen sparas.
 
-Next, import the `.publishsettings` file by running the following command, replacing `{path to .publishsettings file}` with the path to your `.publishsettings` file:
+Sedan importerar `.publishsettings`-filen genom att köra följande kommando (ersätt `{path to .publishsettings file}` med sökvägen till din `.publishsettings`-fil):
 
     azure account import {path to .publishsettings file}
 
-You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:
+Du kan ta bort all information som lagras av <code>import</code>-kommandot med hjälp av <code>account clear</code>-kommandot:
 
     azure account clear
 
-To see a list of options for `account` commands, use the `-help` option:
+Om du vill visa en lista över alternativ för `account`-kommandon kan du använda alternativet `-help`:
 
     azure account -help
 
-After importing your publish settings, you should delete the `.publishsettings` file for security reasons.
+När du har importerat publiceringsinställningarna bör du ta bort filen `.publishsettings` av säkerhetsskäl.
 
 > [!NOTE]
-> When you import publish settings, credentials for accessing your Azure subscription are stored inside your `user` folder. Your `user` folder is protected by your operating system. However, it is recommended that you take additional steps to encrypt your `user` folder. You can do so in the following ways:    
+> När du importerar publiceringsinställningar sparas inloggningsuppgifter för din Azure-prenumeration i mappen `user`. Mappen `user` skyddas av operativsystemet. Men vi rekommenderar att du vidtar ytterligare åtgärder för att kryptera mappen `user`. Så här kan du göra det:    
 > 
-> * On Windows, modify the folder properties or use BitLocker.
-> * On Mac, turn on FileVault for the folder.
-> * On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.
+> * I Windows ändrar du mappegenskaperna eller använder BitLocker.
+> * I Mac aktiverar du FileVault för mappen.
+> * I Ubuntu använder du katalogfunktionen Encrypted Home. Andra Linux-distributioner som har motsvarande funktioner.
 > 
 > 
 
-You are now ready to being creating and managing Azure Websites and Azure Virtual Machines.  
+Nu kan du börja skapa och hantera Azure Websites och Azure Virtual Machines.  
 
-<h2><a id="WebSites"></a>How to create and manage an Azure Website</h2>
+<h2><a id="WebSites"></a>Skapa och hantera en Azure-webbplats</h2>
 
-### Create a Website
-To create an Azure website, first create an empty directory called `MySite` and browse into that directory.
+### <a name="create-a-website"></a>Skapa en webbplats
+Om du vill skapa en Azure-webbplats börjar du med att skapa en tom katalog med namnet `MySite` och öppnar den katalogen.
 
-Then, run the following command:
+Kör sedan följande kommando:
 
     azure site create MySite --git
 
-The output from this command will contain the default URL for the newly created website. The `--git` option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
+Utdata från det här kommandot innehåller standard-URL för den nya webbplatsen. Med alternativet `--git` kan du använda git för att publicera till din webbplats genom att skapa git-arkiv både i din lokala programkatalog och i webbplatsens datacenter. Observera att om din lokala mapp redan är en git-lagringsplats kommer kommandot att lägga till en ny fjärrlagringsplats till den befintliga lagringsplatsen som pekar till lagringsplatsen på din webbplats datacenter.
 
-Note that you can execute the `azure site create` command with any of the following options:
+Observera att du kan köra `azure site create`-kommandot med följande alternativ:
 
-* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
-* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
+* `--location [location name]`. Med det här alternativet kan du ange platsen för det datacenter som din webbplats skapas i (t.ex. USA, västra). Om du utelämnar det här alternativet ombeds du välja en plats.
+* `--hostname [custom host name]`. Med det här alternativet kan du ange ett anpassat värdnamn för webbplatsen.
 
-You can then add content to your website directory. Use the regular git flow (`git add`, `git commit`) to commit your content. Use the following git command to push your website content to Azure: 
+Du kan sedan lägga till innehåll i din webbplatskatalog. Använd ditt vanliga git-flöde (`git add`, `git commit`) för att spara (eng. ”commit”) ditt innehåll. Du kan använda git-kommandot för att överföra (eng. ”push”) ditt webbplatsinnehåll till Azure: 
 
     git push azure master
 
-### Set up publishing from GitHub
-To set up continuous publishing from a GitHub repository, use the `--GitHub` option when creating a site:
+### <a name="set-up-publishing-from-github"></a>Konfigurera publicering från GitHub
+Om du vill konfigurera kontinuerlig publicering från en GitHub-lagringsplats använder du alternativet `--GitHub` när du skapar en webbplats:
 
     auzre site create MySite --github --githubusername username --githubpassword password --githubrepository githubuser/reponame
 
-If you have a local clone of a GitHub repository or if you have a repository with a single remote reference to a GitHub repository, this command will automatically publish code in the GitHub repository to your site. From then on, any changes pushed to the GitHub repository will automatically be published to your site.
+Om du har en lokal klon av en GitHub-lagringsplats eller om du har en lagringsplats med en enskild fjärreferens till en GitHub-lagringsplats publiceras koden automatiskt med det här kommandot i GitHub-lagringsplatsen till din webbplats. Därefter publiceras alla ändringar som skickas till GitHub-lagringsplatsen automatiskt på webbplatsen.
 
-When you set up publishing from GitHub, the default branch used is the master branch. To specify a different branch, execute the following command from your local repository:
+När du konfigurerar publicering från GitHub används mastergrenen (eng. ”master branch”) som standardgren. Om du vill ange en annan gren kör du följande kommando från din lokala lagringsplats:
 
     azure site repository <branch name>
 
-### Configure app settings
-App settings are key-value pairs that are available to your application at runtime. When set for an Azure Website, app setting values will override settings with the same key that are defined in your site's Web.config file. For Node.js and PHP applications, app settings are available as environment variables. The following example shows you how to set a key-value pair:
+### <a name="configure-app-settings"></a>Konfigurera appinställningar
+Appinställningarna är nyckel/värde-par som är tillgängliga för ditt program under körning. När appinställningsvärden har angetts för en Azure-webbplats åsidosätter de inställningar med samma nyckel som har definierats i filen Web.config för webbplatsen. Appinställningar är tillgängliga som miljövariabler för Node.js- och PHP-program. I följande exempel visas hur du installerar ett nyckel/värde-par:
 
     azure site config add <key>=<value> 
 
-To see a list of all key/value pairs, use the following:
+Använd följande om du vill visa en lista över alla nyckel/värde-par:
 
     azure site config list 
 
-Or if you know the key and want to see the value, you can use:
+Om du känner till nyckeln och vill visa värdet kan du använda:
 
     azure site config get <key> 
 
-If you want to change the value of an existing key you must first clear the existing key and then re-add it. The clear command is:
+Om du vill ändra värdet för en befintlig nyckel måste du först radera den befintliga nyckeln och sedan lägga till den på nytt. Kommandot för att radera är:
 
     azure site config clear <key> 
 
-### List and show sites
-To list your websites, use the following command:
+### <a name="list-and-show-sites"></a>Visa platser
+Om du vill visa dina webbplatser använder du följande kommando:
 
     azure site list
 
-To get detailed information about a site, use the `site show` command. The following example shows details for `MySite`:
+Om du vill ha detaljerad information om en webbplats kan använda kommandot `site show`. I följande exempel visas information om `MySite`:
 
     azure site show MySite
 
-### Stop, start, or restart a site
-You can stop, start, or restart a site with the `site stop`, `site start`, or `site restart` commands:
+### <a name="stop-start-or-restart-a-site"></a>Stoppa, starta eller starta om en webbplats
+Du kan stoppa, starta eller starta om en plats med kommandot `site stop`, `site start`, eller `site restart`:
 
     azure site stop MySite
     azure site start MySite
     azure site restart MySite
 
-### Delete a site
-Finally, you can delete a site with the `site delete` command:
+### <a name="delete-a-site"></a>Ta bort en webbplats
+Du kan ta bort en webbplats med kommandot `site delete`:
 
     azure site delete MySite
 
-Note that if you are running any of above commands from inside the folder where you ran `site create`, you do not need to specify the site name `MySite` as the last parameter.
+Observera att om du kör något av kommandona som anges ovan från den mapp där du körde `site create` så behöver du inte ange webbplatsnamnet `MySite` som sista parameter.
 
-To see a complete list of `site` commands, use the `-help` option:
+Om du vill visa en fullständig lista över `site`-kommandon använder du alternativet `-help`:
 
     azure site -help 
 
-<h2><a id="VMs"></a>How to create and manage an Azure Virtual Machine</h2>
+<h2><a id="VMs"></a>Skapa och hantera en virtuell Azure-dator</h2>
 
-an Azure Virtual Machine is created from a virtual machine image (a .vhd file) that you provide or that is available in the Image Gallery. To see images that are available, use the `vm image list` command:
+en virtuell Azure-dator skapas från en avbildning av en virtuell dator (en VHD-fil) som du tillhandahåller eller som finns i galleriet med avbildningar. Du kan visa tillgängliga avbildningar med kommandot `vm image list`:
 
     azure vm image list
 
-You can provision and start a virtual machine from one of the available images with the `vm create` command. The following example shows how to create a Linux virtual machine (called `myVM`) from an image in the Image Gallery (CentOS 6.2). The root user name and password for the virtual machine are `myusername` and `Mypassw0rd` respectively. (Note that the `--location` parameter specifies the data center in which the virtual machine is created. If you omit the `--location` parameter, you will be prompted to choose a location.)
+Du kan etablera och starta en virtuell dator från någon av de tillgängliga avbildningarna med kommandot `vm create`. I följande exempel visas hur du skapar en virtuell Linux-dator (kallas `myVM`) från en avbildning i galleriet (CentOS 6.2). Namn och lösenord för rotanvändaren för den virtuella datorn är `myusername` och `Mypassw0rd`. (Observera att parametern `--location` anger det datacenter som den virtuella datorn skapas i. Om du utelämnar parametern `--location` ombeds du välja en plats.)
 
     azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
 
-You may consider passing the `--ssh` flag (Linux) or `--rdp` flag (Windows) to `vm create` to enable remote connections to the newly-created virtual machine.
+Du kan skicka `--ssh`-flaggan (Linux) eller `--rdp`-flaggan (Windows) till `vm create` om du vill aktivera fjärranslutningar till den virtuella dator som du nyss har skapat.
 
-If you would rather provision a virtual machine from a custom image, you can create an image from a .vhd file with the `vm image create` command, then use the `vm create` command to provision the virtual machine. The following example shows how to create a Linux image (called `myImage`) from a local .vhd file. (The `--location` parameter specifies the data in which the image is stored.)
+Om du hellre vill etablera en virtuell dator från en anpassad avbildning kan du skapa en avbildning från en VHD-fil med kommandot `vm image create` och sedan använda kommandot `vm create` för att etablera den virtuella datorn. I följande exempel visas hur du skapar en Linux-avbildning (kallas `myImage`) från en lokal VHD-fil. (Parametern `--location` anger data som avbildningen lagras i.)
 
     azure vm image create myImage /path/to/myImage.vhd --os linux --location "West US"
 
-Instead of creating an image from a local .vhd, you can create an image from a .vhd stored in Azure Blob Storage. You can do this with the `blob-url` parameter:
+Du kan skapa en avbildning från en VHD-fil som lagras i Azure Blob Storage i stället för att skapa en avbildning från en lokal VHD-fil. Det kan du göra med parametern `blob-url`:
 
     azure vm image create myImage --blob-url <url to .vhd in Blob Storage> --os linux
 
-After creating an image, you can provision a virtual machine from the image by using `vm create`. The command below creates a virtual machine called `myVM` from the image created above (`myImage`).
+När du har skapat en avbildning kan du etablera en virtuell dator från avbildningen med `vm create`. Kommandot nedan skapar en virtuell dator med namnet `myVM` från den avbildning som skapades ovan (`myImage`).
 
     azure vm create myVM myImage myusername --location "West US"
 
-After you have provisioned a virtual machine, you may want to create endpoints to allow remote access to your virtual machine (for example). The following example uses the `vm create endpoint` command to open external port 22 and local port 22 on `myVM`:
+När du har etablerat en virtuell dator kanske du vill skapa slutpunkter för att tillåta fjärråtkomst till den virtuella datorn (till exempel). I följande exempel används kommandot `vm create endpoint` för att öppna extern port 22 och lokal port 22 på `myVM`:
 
     azure vm endpoint create myVM 22 22
 
-You can get detailed information about a virtual machine (including IP address, DNS name, and endpoint information) with the `vm show` command:
+Du kan få detaljerad information om en virtuell dator (inklusive IP-adress, DNS-namn och slutpunkt) med kommandot `vm show`:
 
     azure vm show myVM
 
-To shutdown, start, or restart the virtual machine, use one of the following commands:
+Om du vill stänga av, starta eller starta om den virtuella datorn använder du något av följande kommandon:
 
     azure vm shutdown myVM
     azure vm start myVM
     azure vm restart myVM
 
-And finally, to delete the VM, use the `vm delete` command:
+Och om du vill ta bort den virtuella datorn använder kommandot `vm delete`:
 
     azure vm delete myVM
 
-For a complete list of commands for creating and managing virtual machines, use the `-h` option:
+Om du vill ha en fullständig lista över kommandon för att skapa och hantera virtuella datorer använder du alternativet `-h`:
 
     azure vm -h
 
@@ -211,4 +211,9 @@ For a complete list of commands for creating and managing virtual machines, use 
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
+
+
+
+<!--HONumber=Jan17_HO5-->
+
 

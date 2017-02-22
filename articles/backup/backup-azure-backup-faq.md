@@ -5,7 +5,7 @@ description: "Svar på vanliga frågor om säkerhetskopieringstjänsten, säkerh
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: 
 keywords: "säkerhetskopiering och katastrofåterställning, säkerhetskopieringstjänst"
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
@@ -14,16 +14,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
-ms.author: trinadhk; giridham; arunak; markgal; jimpark;
+ms.date: 2/1/2017
+ms.author: trinadhk;giridham;arunak;markgal;jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
-ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
+ms.sourcegitcommit: b50b62b9b9a800c4f42e763a7ff6eecd84de9e69
+ms.openlocfilehash: 7033b660608897819b629d398450cd32ea7b48fa
 
 
 ---
 # <a name="azure-backup-service--faq"></a>Vanliga frågor och svar om tjänsten Azure Backup
-Den här artikeln innehåller en lista över vanliga frågor och svar om Azure Backup-tjänsten. Vår community svarar snabbt, och vanliga frågor publiceras i den här artikeln. Svaren på frågorna innehåller ofta referens- eller supportinformation. Du kan ställa frågor om Azure Backup i Disqus-rutan i den här eller en relaterad artikel. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Den här artikeln innehåller en lista över vanliga frågor och svar om Azure Backup-tjänsten. Vår community svarar snabbt, och vanliga frågor publiceras i den här artikeln. Svaren på frågorna innehåller ofta referens- eller supportinformation. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Från vilka operativsystem kan jag säkerhetskopiera till Azure med hjälp av Azure Backup? <br/>
 Azure Backup stöder följande lista över operativsystem för säkerhetskopiering av filer och mappar och arbetsbelastningsprogram som skyddas med Azure Backup Server och SCDPM.
@@ -68,7 +68,7 @@ Säkerhetskopierade data skickas till datacentret för det valv som det har regi
 
 ## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Vad händer om jag byter namn på en Windows-server som säkerhetskopierar data till Azure?<br/>
 När du byter namn på en server stoppas alla säkerhetskopieringar som är konfigurerade för närvarande.
-Registrera det nya namnet på servern med Backup-valvet. När du registrerar ett nytt namn med valvet är den första säkerhetskopieringen en *fullständig* säkerhetskopiering. Om du behöver återställa data som tidigare har säkerhetskopierats till valvet med det gamla servernamnet kan du återställa dessa data med hjälp av alternativet [**En annan server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) i guiden **Återställ data**.
+Registrera det nya namnet på servern med Backup-valvet. När du registrerar ett nytt namn med valvet är den första säkerhetskopieringen en *fullständig* säkerhetskopiering. Om du behöver återställa data som tidigare har säkerhetskopierats till valvet med det gamla servernamnet kan du återställa dessa data med hjälp av alternativet [**En annan server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) i guiden **Återställ data**.
 
 ## <a name="what-types-of-drives-can-i-backup-files-and-folders-from-br"></a>Från vilka typer av enheter kan jag säkerhetskopiera filer och mappar? <br/>
 Följande uppsättning enheter/volymer kan inte säkerhetskopieras:
@@ -89,7 +89,6 @@ Följande typer stöds:
 * Komprimerade + utspridda
 * Hårda länkar: Stöds inte, hoppas över
 * Referenspunkt: Stöds inte, hoppas över
-* Krypterade + komprimerade: Stöds inte, hoppas över
 * Krypterade + utspridda: Stöds inte, hoppas över
 * Komprimerad dataström: Stöds inte, hoppas över
 * Utspridd dataström: Stöds inte, hoppas över
@@ -277,6 +276,6 @@ Recovery Services-valv stöder båda modellerna.  Du kan säkerhetskopiera en kl
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

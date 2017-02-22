@@ -6,7 +6,7 @@
 2. Klicka på fliken **Bläddra** och sök sedan efter ”Microsoft.Azure.Relay” och markera posten **Microsoft Azure Relay**. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
 
 ### <a name="write-some-code-to-send-messages"></a>Skriva kod för att skicka meddelanden
-1. Lägg till följande `using`-instruktioner överst i Program.cs-filen.
+1. Ersätt de befintliga `using`-satserna överst i filen Program.cs med följande satser:
    
     ```csharp
     using System;
@@ -23,7 +23,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Lägg till en ny metod till `Program`-klassen enligt följande:
+3. Lägg till följande nya metod till `Program`-klassen:
    
     ```csharp
     private static async Task RunAsync()
@@ -176,6 +176,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

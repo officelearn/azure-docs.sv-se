@@ -1,5 +1,5 @@
 ---
-title: "Komma igång med Azure Stream Analytics för bearbetning av data från IoT-enheter. | Microsoft Docs"
+title: "IoT-realtidsdataströmmar och Azure Stream Analytics | Microsoft Docs"
 description: "IoT-sensortaggar och dataströmmar med dataströmsanalys och realtidsbearbetning av data"
 keywords: "iot-lösning, komma igång med iot"
 services: stream-analytics
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/19/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b4a725d55594885a5d9d4a62b4bf5fe6fd402849
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
 
 
 ---
@@ -122,6 +122,6 @@ Syftet med de här självstudierna är att demonstrera hur du skriver olika Stre
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

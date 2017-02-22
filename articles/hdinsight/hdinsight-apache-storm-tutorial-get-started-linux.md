@@ -1,5 +1,5 @@
 ---
-title: "Apache Storm-kurs: Komma igång med Linux-baserat Storm på HDInsight | Microsoft Docs"
+title: "Komma igång med Apache Storm i Azure HDInsight | Microsoft Docs"
 description: "Kom igång med analyser av stordata med Apache Storm och Storm Starter-exempel på Linux-baserade HDInsight. Ta reda på hur du använder Storm till att bearbeta data i realtid."
 keywords: "apache storm, apache storm självstudier, stordata-analys, storm starter"
 services: hdinsight
@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
-ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkningar i realtid för bearbetning av dataströmmar. Du kan skapa ett molnbaserat Storm-kluster som utför analyser av stordata i realtid med Storm på Azure HDInsight.
 
-> [!NOTE]
-> Anvisningarna i den här artikeln gäller för att skapa ett Linux-baserat HDInsight-kluster. Anvisningar om hur du skapar Windows-baserade Storm i HDInsight-kluster finns i [Apache Storm-kurs: Komma igång med Storm Starter-exempel med hjälp av dataanalys i HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
+> [!IMPORTANT]
+> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i avsnittet om [utfasningen av HDInsight i Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -216,6 +216,6 @@ Se följande exempel för exempeltopologier som kan användas med Storm på HDIn
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

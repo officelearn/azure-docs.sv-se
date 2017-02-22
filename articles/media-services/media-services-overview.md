@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
 
 
 ---
@@ -32,7 +32,7 @@ Du kan välja att strömma innehållet live eller på begäran. Det här avsnitt
 
 Bygg Media Services-lösningar genom att använda:
 
-* [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [Media Services REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * En av de tillgängliga klient-SDK:erna:
     * [Azure Media Services SDK för .NET](https://github.com/Azure/azure-sdk-for-media-services),
     * [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java),
@@ -46,7 +46,7 @@ Följande bild visar några av de vanligast använda objekten när du utvecklar 
 
 Klicka på bilden för att visa den i full storlek.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 Du kan visa hela modellen [här](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -79,8 +79,8 @@ Det här avsnittet beskriver vanliga scenarier och innehåller länkar till rele
 ![VoD-arbetsflöde](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
-    
+>När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**.
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Skydda lagrat innehåll och leverera strömmande media i klartext (okrypterat)
 1. Överför en mezzaninfil av hög kvalitet till en tillgång.
 
@@ -184,7 +184,8 @@ Media Services stöder integration med Azure CDN. Information om hur du aktivera
 Du kan skala **Media Services** genom att ange antalet **enheter som är reserverade för strömning** och **enheter som är reserverade för kodning** och som du vill att ditt konto ska etableras med.
 
 Du kan även skala ditt Media Services-konto genom att lägga till lagringskonton. Varje lagringskonto är begränsat till 500 TB. Du kan välja att koppla flera lagringskonton för till ett enda Media Services-konto om du vill expandera din lagring utöver standardbegränsningarna.
-Media Services-kunder väljer antingen en **Standard**-slutpunkt för direktuppspelning eller en eller flera **Premium**-slutpunkter för direktuppspelning, utifrån behov. Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Den innehåller samma funktioner som Premium-enheter för direktuppspelning. Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Om du har en avancerad arbetsbelastning, om dina kapacitetskrav för direktuppspelning inte passar genomflödesmål för standard-slutpunkter för direktuppspelning eller om du vill styra StreamingEndpoint-tjänstens kapacitet för att hantera växande bandbreddsbehov genom att justera skalningsenheter (kallas även premium-enheter för direktuppspelning) rekommenderas du att allokera skalningsenheter.
+Media Services-kunder väljer antingen en **Standard**-slutpunkt för direktuppspelning eller en eller flera **Premium**-slutpunkter för direktuppspelning, utifrån behov. Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Den innehåller samma funktioner som Premium-enheter för direktuppspelning.
+Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Om du har en avancerad arbetsbelastning, om dina kapacitetskrav för direktuppspelning inte passar genomflödesmål för standard-slutpunkter för direktuppspelning eller om du vill styra StreamingEndpoint-tjänstens kapacitet för att hantera växande bandbreddsbehov genom att justera skalningsenheter (kallas även premium-enheter för direktuppspelning) rekommenderas du att allokera skalningsenheter.
 
 [Denna](media-services-portal-scale-streaming-endpoints.md) artikel länkar till relevanta avsnitt.
 

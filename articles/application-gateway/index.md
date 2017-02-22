@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure Application Gateway – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig hur du distribuerar en domänkontrollant (Application Deliver Controller, ADC) för molnprogram. Dokumentationen visar hur du ställer in routning på appnivå och belastningsutjämning för en frontwebb."
+services: application-gateway
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: application-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: e81571dc2d0d52f8b04c7ff99a76d92c784c259e
+ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
+ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
 
 ---
 #<a name="application-gateway-documentation"></a>Dokumentation om Application Gateway
 
-Azure Application Gateway erbjuder Application Deliver Controller (ADC) som en tjänst.  Den låter kunder optimera produktiviteten för webbservergrupper genom att avlasta CPU-intensiva SSL-avslutningar till Application Gateway.  Det är en dedikerad virtuell tillämpning för ditt program med skalbarhet och hög tillgänglighet såväl som en omfattande uppsättning diagnos och loggning för bättre hanterbarhet.
+Lär dig hur du distribuerar Application Gateway, en Application Deliver Controller (ADC) som en tjänst. Självstudier, API-referenser och annan dokumentation som visar hur du konfigurerar routning på appnivå och belastningsutjämningstjänster som hjälper dig att bygga en skalbar och högtillgänglig frontwebb.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,25 +153,19 @@ Azure Application Gateway erbjuder Application Deliver Controller (ADC) som en t
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt684941">Referens för REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt684941">REST API-referens</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Referens för klassiskt REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
-</ul>   
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Application Gateway </div>
-    </a>
-</div>
+</ul>    
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

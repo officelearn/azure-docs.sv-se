@@ -1,3 +1,4 @@
+
 # Översikt
 ## [Vad är Azure Backup?](backup-introduction-to-azure-backup.md)
 # Kom igång
@@ -32,6 +33,7 @@
 ### [Hantera och övervaka virtuella Azure-säkerhetskopior i den klassiska portalen](backup-azure-manage-vms-classic.md)
 ### [Hantera virtuella Azure-säkerhetskopieringar i Azure Portal](backup-azure-manage-vms.md)
 ### [Övervaka varningar om virtuella Azure-säkerhetskopieringar i Azure Portal](backup-azure-monitor-vms.md)
+### [Återställa filer från säkerhetskopierade virtuella Azure-datorer](backup-azure-restore-files-from-vm.md)
 ### [Återställa virtuella datorer i Azure](backup-azure-restore-vms.md)
 ### [Återställa Resource Manager-distribuerade virtuella datorer i Azure Portal](backup-azure-arm-restore-vms.md)
 ### [Återställa nyckel och hemlighet för Key Vault för krypterade virtuella datorer med Azure Backup](backup-azure-restore-key-secret.md)
@@ -49,6 +51,7 @@
 ### [Återställ filer till en Windows S med hjälp av Resource Manager-distributionsmodellen](backup-azure-restore-windows-server.md)
 ### [Återställ filer till en Windows-server med hjälp av den klassiska distributionsmodellen](backup-azure-restore-windows-server-classic.md)
 
+## [Använda rollbaserad åtkomstkontroll för hantering av säkerhetskopiering](backup-rbac-rs-vault.md)
 ## [Aktivera säkerhetsfunktioner för hybridsäkerhetskopior](backup-azure-security-feature.md)
 ## [Radera ett Azure Backup-valv](backup-azure-delete-vault.md)
 ## [Konfigurera säkerhetskopiering offline](backup-azure-backup-import-export.md)
@@ -70,6 +73,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

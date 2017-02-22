@@ -11,11 +11,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/12/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 96e8177f57977f88c5a4a1ec0b9243b5b348f078
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
 
 ---
 
@@ -29,16 +29,16 @@ ms.openlocfilehash: 96e8177f57977f88c5a4a1ec0b9243b5b348f078
 >
 >
 
-Den här artikeln beskriver hur du skickar frågor mot ett index med hjälp av [REST-API:et för Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
+Den här artikeln beskriver hur du kör frågor mot ett index med hjälp av [REST-API:et för Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
 
 Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Search-index](search-what-is-an-index.md) och [fyllt det med data](search-what-is-data-import.md).
 
-## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Identifiera API-frågenyckeln för Azure Search-tjänsten
+## <a name="identify-your-azure-search-services-query-api-key"></a>Identifiera API-frågenyckeln för Azure Search-tjänsten
 En viktig del av varje sökåtgärd mot REST-API:et för Azure Search är *API-nyckeln* som genererades för tjänsten som du etablerat. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
+1. Om du vill hitta din tjänsts API-nycklar kan du logga in på [Azure Portal](https://portal.azure.com/)
 2. Gå till Azure Search-tjänstens blad
-3. Klicka på nyckelikonen
+3. Klicka på ikonen ”Nycklar”
 
 Tjänsten har *administratörsnycklar* och *frågenycklar*.
 
@@ -47,8 +47,8 @@ Tjänsten har *administratörsnycklar* och *frågenycklar*.
 
 Du kan använda en av din frågenycklar för att skicka frågor till ett index. Administratörsnycklarna kan även användas för frågor, men du bör använda en frågenyckel i programkoden eftersom detta bättre överensstämmer med [principen om lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## <a name="ii-formulate-your-query"></a>II. Formulera frågan
-Du kan [söka i ditt index med hjälp av REST-API:et](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) på två sätt. Ett sätt är att skicka en HTTP POST-begäran där dina frågeparametrar definieras i ett JSON-objekt i begärandetexten. Det andra sättet är att skicka en HTTP GET-begäran där dina frågeparametrar definieras i URL:en för begäran. Observera att POST har mindre [restriktiva gränser](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) vad gäller frågeparametrarnas storlek än GET. Av den anledningen rekommenderar vi att du använder POST såvida det inte finns särskilda omständigheter som gör att GET är lämpligare.
+## <a name="formulate-your-query"></a>Formulera frågan
+Du kan [söka i ditt index med hjälp av REST-API:et](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) på två sätt. Ett sätt är att skicka en HTTP POST-begäran där dina frågeparametrar definieras i ett JSON-objekt i begärandetexten. Det andra sättet är att skicka en HTTP GET-begäran där dina frågeparametrar definieras i URL:en för begäran. POST har mindre [restriktiva gränser](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) vad gäller frågeparametrarnas storlek än GET. Av den anledningen rekommenderar vi att du använder POST såvida det inte finns särskilda omständigheter som gör att GET är lämpligare.
 
 För både POST och GET måste du ange *tjänstnamnet*, *indexnamnet* och *API-versionen* (den aktuella API-versionen är `2016-09-01` vid tidpunkten för publiceringen av det här dokumentet) i URL:en för begäran. För GET anger du frågeparametrarna i *frågesträngen* i slutet av URL:en. Se URL-formatet nedan:
 
@@ -71,7 +71,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Använd ett filter för indexet för att hitta hotell som är billigare än&150; USD per natt och returnera `hotelId` och `description`:
+Använd ett filter för indexet för att hitta hotell som är billigare än 150 USD per natt och returnera `hotelId` och `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
@@ -98,13 +98,13 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-## <a name="iii-submit-your-http-request"></a>III. Skicka HTTP-begäran
+## <a name="submit-your-http-request"></a>Skicka HTTP-begäran
 Nu när du har formulerat frågan som en del av HTTP-begärans URL (för GET) eller brödtext (för POST) kan du definiera begärandehuvudena och skicka din fråga.
 
 #### <a name="request-and-request-headers"></a>Begäran och begärandehuvuden
 Du måste definiera två begärandehuvuden för GET, eller tre för POST:
 
-1. `api-key`-huvudet måste anges till frågenyckeln som du identifierade i steg I ovan. Observera att du även kan använda en administratörsnyckel som `api-key`-huvud, men vi rekommenderar att du använder en frågenyckel eftersom den ger exklusiv läsbehörighet till index och dokument.
+1. `api-key`-huvudet måste anges till frågenyckeln som du identifierade i steg I ovan. Du kan även använda en administratörsnyckel som `api-key`-huvud, men vi rekommenderar att du använder en frågenyckel eftersom den ger exklusiv läsbehörighet till index och dokument.
 2. `Accept`-huvudet måste anges till `application/json`.
 3. För POST måste `Content-Type`-huvudet också anges till `application/json`.
 
@@ -166,6 +166,6 @@ Om du vill veta mer går du till avsnittet ”Svar” i [Söka efter dokument](h
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

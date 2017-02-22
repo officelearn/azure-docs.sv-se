@@ -1,11 +1,10 @@
 ---
-title: "Komma igång med att skapa en Internetuppkopplad belastningsutjämnare i den klassiska distributionsmodellen med hjälp av CLI | Microsoft Docs"
+title: "Skapa en Internetaktiverad belastningsutjämnare – klassiska Azure CLI | Microsoft Docs"
 description: "Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i den klassiska distributionsmodellen med hjälp av Azure CLI"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: 
+author: kumudd
+manager: timlt
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
 ms.service: load-balancer
@@ -13,62 +12,72 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a346c1b2d430eceb4aa1b8bc94fbbe89394556
-
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: cf5ecd7652bf1b10d24731a5b6829995fea81e41
 
 ---
+
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Komma igång med att skapa en Internetuppkopplad belastningsutjämnare (klassisk) i Azure CLI
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+
+> [!div class="op_single_selector"]
+> * [Klassisk Azure-portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också läsa artikeln om [hur du skapar en Internetuppkopplad belastningsutjämnare med hjälp av Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Innan du börjar arbeta med Azure-resurser är det viktigt att du vet att Azure för närvarande har två distributionsmodeller: Azure Resource Manager och klassisk. Se till att du förstår [distributionsmodeller och verktyg](../azure-classic-rm.md) innan du börjar arbeta med Azure-resurser. Du kan granska dokumentationen för olika verktyg genom att klicka på flikarna överst i den här artikeln. Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Du kan också läsa artikeln om [hur du skapar en Internetuppkopplad belastningsutjämnare med hjälp av Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>Stegvisa anvisningar som beskriver hur du skapar en Internetuppkopplad belastningsutjämnare med CLI
+
 Den här guiden beskriver hur du skapar en Internetuppkopplad belastningsutjämnare baserat på scenariot ovan.
 
 1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../xplat-cli-install.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
 2. Kör kommandot **azure config mode** för att växla till klassiskt läge, som du ser nedan.
-   
-        azure config mode asm
-   
+
+    ```azurecli
+    azure config mode asm
+    ```
+
     Förväntad utdata:
-   
+
         info:    New mode is asm
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>Skapa slutpunkt och belastningsutjämningsuppsättning
+
 I det här scenariot förutsätter vi att de virtuella datorerna ”web1” och ”web2” har skapats.
 I den här guiden skapar vi en belastningsutjämningsuppsättning som använder port 80 som offentlig port och port 80 som lokal port. En avsökningsport konfigureras också på port 80 och belastningsutjämningsuppsättningen tilldelas namnet ”lbset”.
 
 ### <a name="step-1"></a>Steg 1
+
 Skapa den första slutpunkten och belastningsutjämningsuppsättningen med hjälp av `azure network vm endpoint create` för den virtuella datorn ”web1”.
 
-    azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset
-
-Parametrar som används:
-
-**-k** – lokal VM-port<br>
-**-o** – protokoll<BR>
-**-t** – avsökningsport<BR>
-**-b** – belastningsutjämnarens namn<BR>
+```azurecli
+azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
+```
 
 ## <a name="step-2"></a>Steg 2
+
 Lägg till en andra virtuell dator, ”web2”, i belastningsutjämningsuppsättningen.
 
-    azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+```azurecli
+azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
+```
 
 ## <a name="step-3"></a>Steg 3
+
 Kontrollera belastningsutjämnarens konfiguration med hjälp av `azure vm show` .
 
-    azure vm show web1
+```azurecli
+azure vm show web1
+```
 
 Följande utdata returneras:
 
@@ -115,25 +124,28 @@ Följande utdata returneras:
     info:    vm show command OK
 
 ## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Skapa en fjärrskrivbordsslutpunkt för en virtuell dator
+
 Du kan skapa en fjärrskrivbordsslutpunkt för att vidarebefordra nätverkstrafik från en offentlig port till en lokal port för en specifik virtuell dator med hjälp av `azure vm endpoint create`.
 
-    azure vm endpoint create web1 54580 -k 3389
-
+```azurecli
+azure vm endpoint create web1 54580 -k 3389
+```
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>Ta bort en virtuell dator från belastningsutjämnaren
+
 Du måste ta bort slutpunkten som är kopplad till belastningsutjämningsuppsättningen från den virtuella datorn. När slutpunkten har tagits bort tillhör inte den virtuella datorn belastningsutjämningsuppsättningen längre.
 
- I ovanstående exempel kan du ta bort slutpunkten som skapades för den virtuella datorn ”web1” från belastningsutjämnaren ”lbset” med hjälp av kommandot `azure vm endpoint delete`.
+I ovanstående exempel kan du ta bort slutpunkten som skapades för den virtuella datorn ”web1” från belastningsutjämnaren ”lbset” med hjälp av kommandot `azure vm endpoint delete`.
 
-    azure vm endpoint delete web1 tcp-80-80
-
+```azurecli
+azure vm endpoint delete web1 tcp-80-80
+```
 
 > [!NOTE]
 > Du kan utforska fler alternativ för hantering av slutpunkter med hjälp av kommandot `azure vm endpoint --help`
-> 
-> 
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Komma igång med att konfigurera en intern belastningsutjämnare](load-balancer-get-started-ilb-arm-ps.md)
 
 [Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
@@ -142,7 +154,6 @@ Du måste ta bort slutpunkten som är kopplad till belastningsutjämningsuppsät
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

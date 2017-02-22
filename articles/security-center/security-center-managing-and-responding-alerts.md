@@ -1,10 +1,10 @@
 ---
-title: "Hantera och åtgärda säkerhetsaviseringar i Azure Security Center | Microsoft Docs"
+title: "Hantera säkerhetsaviseringar i Azure Security Center | Microsoft Docs"
 description: "I det här dokumentet beskrivs hur du hanterar och åtgärdar säkerhetsaviseringar med hjälp av funktionerna i Azure Security Center."
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: 7a4413c6d2ecf497e72e2909e627761f0a9ff23a
+ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
+ms.openlocfilehash: 0093beda6af6d3b2400185fcd63bc73b2c8c9ba9
 
 
 ---
@@ -25,26 +25,27 @@ Det här dokumentet beskriver hur du använder Azure Security Center för att ha
 
 > [!NOTE]
 > För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. En kostnadsfri 90-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
-> 
-> 
+>
+>
 
 ## <a name="what-are-security-alerts"></a>Vad är säkerhetsaviseringar?
-Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar som brandväggs- och slutpunktsskyddslösningar för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. En lista över prioriterade säkerhetsvarningar visas i Security Center tillsammans med den information som du behöver för att snabbt undersöka problemet, samt rekommendationer för hur du åtgärdar ett angrepp. Azure Security Center visar också varningar om ”kill chain”-mönster i [Incidenter](security-center-incident.md). 
+Security Center samlar automatiskt in, analyserar och integrerar loggdata från Azure-resurser, nätverket och anslutna partnerlösningar som brandväggs- och slutpunktsskyddslösningar för att identifiera verkliga hot och minimera antalet falska positiva identifieringar. En lista över prioriterade säkerhetsvarningar visas i Security Center tillsammans med den information som du behöver för att snabbt undersöka problemet, samt rekommendationer för hur du åtgärdar ett angrepp.
+
 
 > [!NOTE]
 > Mer information om hur identifieringsfunktionerna i Security Center fungerar finns i [Identifieringsfunktioner i Azure Security Center](security-center-detection-capabilities.md).
-> 
-> 
+>
+>
 
 ## <a name="managing-security-alerts"></a>Hantera säkerhetsaviseringar
 Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)**. Öppna Azure Portal och följ stegen nedan om du vill ha mer information om varje typ av varning:
 
 1. På instrumentpanelen i Security Center hittar du rutan **Security alerts (Säkerhetsaviseringar)**.
-   
+
     ![Panelen Säkerhetsvarningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
 
 2. Om du klickar på rutan öppnas bladet **Security alerts (Säkerhetsaviseringar)** med mer information om aviseringarna så som visas på bilden nedan.
-   
+
    ![Bladet Säkerhetsvarningar i Säkerhetscenter](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 Längst ned i bladet visas information om de olika aviseringarna. Du kan sortera listan genom att klicka på den kolumn som du vill sortera efter. Här följer en förklaring av de olika kolumnerna:
@@ -61,7 +62,7 @@ Längst ned i bladet visas information om de olika aviseringarna. Du kan sortera
 Aviseringarna kan filtreras efter datum, status och allvarlighetsgrad. Att filtrera kan vara bra när du vill begränsa hur många aviseringar du vill se. Kanske vill du till exempel se säkerhetsaviseringar från det senaste dygnet eftersom du undersöker ett potentiellt angrepp i systemet under den här tiden.
 
 1. Klicka på **Filter** på bladet **Security Alerts (Säkerhetsaviseringar)**. Bladet **Filter** öppnas där du kan välja datum, status och vilka allvarlighetsgrader du vill se.
-   
+
     ![Filtrera varningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>Åtgärda säkerhetsaviseringar
@@ -79,8 +80,8 @@ Vilka åtgärder som rekommenderas varierar beroende på typ av säkerhetsaviser
 
 > [!NOTE]
 > Mer information om olika typer av aviseringar finns i [Typ med säkerhetsaviseringar i Azure Security Center](security-center-alerts-type.md).
-> 
-> 
+>
+>
 
 ## <a name="see-also"></a>Se även
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
@@ -93,7 +94,6 @@ I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i S
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentation om Azure Key Vault – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder Key Vault för att skapa och underhålla nycklar som ger åtkomst till och krypterar dina molnresurser, appar och lösningar. Självstudier, API-referenser och mycket annat."
+services: key-vault
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: key-vault
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
+ms.sourcegitcommit: ea6717f8c5e04883d2feb83537c1c1f96bec2287
+ms.openlocfilehash: 70a89aad208ae71d5c0aab462b6078dafa8efcfc
 
 ---
+
 # <a name="key-vault-documentation"></a>Dokumentation om Key Vault
 
 Lär dig hur du använder Key Vault för att skydda och hantera krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Självstudier, API-referenser och annan dokumentation visar hur du skapar och underhåller nycklar som ger åtkomst till och krypterar dina resurser och lösningar.
@@ -126,7 +138,7 @@ Lär dig hur du använder Key Vault för att skydda och hantera krypteringsnyckl
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.keyvault">NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.keyvault">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Node.js</a></p>
                         <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
@@ -154,6 +166,6 @@ Lär dig hur du använder Key Vault för att skydda och hantera krypteringsnyckl
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

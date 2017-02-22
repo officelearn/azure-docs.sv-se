@@ -17,14 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 7ffc593ee262f55a3fff6a2cd9cf62c691722478
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: bc1a78a2891c73df23bc2a57cec67e6b73414165
 
 
 ---
 # <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Använd C# om du vill skapa en SQL-databas med SQL Database-biblioteket för .NET
 
-Läs om hur man använder C# för att skapa en Azure SQL-databas med [Microsoft Azure SQL Management-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Den här artikeln beskriver hur du skapar en enkel databas med SQL och C#. Information om hur du skapar elastiska pooler finns i [Skapa en elastisk pool](sql-database-elastic-pool-create-csharp.md).
+Läs om hur man använder C# för att skapa en Azure SQL-databas med [Microsoft Azure SQL Management-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Den här artikeln beskriver hur du skapar en enkel databas med SQL och C#. Information om hur du skapar elastiska pooler finns i [Skapa en elastisk pool](sql-database-elastic-pool-manage-csharp.md).
 
 Azure SQL Database Management-biblioteket för .NET, tillhandahåller en [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-baserad API som omsluter det [Resource Manager-baserade SQL Database-REST API:et](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -51,9 +51,9 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 Skapa en SQL-databas med C# genom att läsa in nödvändiga hanteringsbibliotek (med hjälp av [Package Manager-konsolen](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Klicka på **Verktyg** > **NuGet Package Manager** > **Package Manager Console**.
-2. Skriv in `Install-Package Microsoft.Azure.Management.Sql –Pre` för att installera det senaste [Microsoft Azure SQL Management-biblioteket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-3. Installera [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) genom att skriva `Install-Package Microsoft.Azure.Management.ResourceManager –Pre`.
-4. Installera [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication) genom att skriva `Install-Package Microsoft.Azure.Common.Authentication –Pre`. 
+2. Skriv in `Install-Package Microsoft.Azure.Management.Sql -Pre` för att installera det senaste [Microsoft Azure SQL Management-biblioteket](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Installera [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager) genom att skriva `Install-Package Microsoft.Azure.Management.ResourceManager -Pre`.
+4. Installera [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication) genom att skriva `Install-Package Microsoft.Azure.Common.Authentication -Pre`. 
 
 > [!NOTE]
 > Exemplen i den här artikeln använder en synkron form av varje API-begäran och blockerar tills REST-anropet på den underliggande tjänsten har slutförts. Det finns asynkrona metoder tillgängliga.
@@ -287,6 +287,6 @@ När du nu har testat SQL Database och ställt in en databas med C#, är du redo
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

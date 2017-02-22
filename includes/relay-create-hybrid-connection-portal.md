@@ -2,7 +2,7 @@ Se till att du redan har skapat ett Relay-namnområde så som det visas [här][n
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I portalens vänstra navigationsfält klickar du på **Relay**.
-3. Välj det namnområde som du vill skapa hybridanslutningen i. I det här fallet är det **mynewns1**.
+3. Välj det namnområde som du vill skapa hybridanslutningen i. I det här fallet det **mynewns**.
    
     ![Skapa en hybridanslutning](./media/relay-create-hybrid-connection-portal/create-hc-1.png)
 4. På bladet **Relay-namnområde**, väljer du **Hybridanslutningar** och klickar sedan på **+ Hybridanslutning**.
@@ -15,6 +15,6 @@ Se till att du redan har skapat ett Relay-namnområde så som det visas [här][n
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

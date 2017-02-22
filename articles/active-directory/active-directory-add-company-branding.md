@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 
 ---
@@ -31,8 +31,8 @@ I det här avsnittet lär du dig hur du kan anpassa inloggningssidan och åtkoms
 > [!NOTE]
 > * Funktionen för företagsanpassning är en funktion som bara är tillgänglig om du har uppgraderat till Premium- eller Basic-versionen av Azure Active Directory, eller om du använder Office 365. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
 > * Azure Active Directory Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure Active Directory Premium och Basic stöds inte för närvarande i Microsoft Azure-tjänsten som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>Anpassa inloggningssidan
 Du använder vanligtvis inloggningssidan om du behöver webbläsarbaserad åtkomst till molnappar och tjänster som din organisation prenumererar på.
@@ -46,8 +46,8 @@ När du besöker en tjänst med en URL som inte är specifik för en klientorgan
 > [!NOTE]
 > * Domännamnet måste visas som ”Aktiv” i avsnittet **Active Directory** > **Katalog** > **Domäner** på den klassiska Azure-portalen där du har konfigurerat anpassningen.
 > * Anpassningen av inloggningssidan överförs inte till Microsofts konsumentinloggningssida. Om du loggar in med ett personligt Microsoft-konto kan du se en företagsanpassad lista över användarikoner som återges av Azure AD, men organisationens företagsanpassning används inte på inloggningssidan för Microsoft-konton.
-> 
-> 
+>
+>
 
 Om du vill att ditt företags varumärke, färger och andra anpassningsbara element ska återges på den här sidan tittar du på följande bilder som visar skillnaden mellan de båda upplevelserna.
 
@@ -91,8 +91,8 @@ Du kan anpassa följande element på inloggningssidan:
 
 > [!NOTE]
 > Alla element är valfria. Om du till exempel lägger till en banderollslogotyp men ingen stor bild så visas din logotyp och målwebbplatsens bild (dvs. bilden på en motorväg i Kalifornien för Office 365).
-> 
-> 
+>
+>
 
 På inloggningssidan gör kryssrutan **Håll mig inloggad** att användaren kan förbli inloggad när de stänger och öppnar webblösaren. Den påverkar inte sessionens längd. Du kan dölja kryssrutan på inloggningssidan för Azure Active Directory.
 
@@ -100,12 +100,12 @@ Inställningen för **Dölj KMSI** avgör om kryssrutan visas.
 
 ![][9]
 
-Konfigurera den här inställningen om du vill dölja kryssrutan **dold**. 
+Konfigurera den här inställningen om du vill dölja kryssrutan **dold**.
 
 > [!NOTE]
 > För vissa funktioner i SharePoint Online och Office 2010 måste användarna kunna markera den här kryssrutan. Om du konfigurerar den här inställningen som dold kan eventuellt ytterligare och oväntade uppmaningar att logga in visas för dina användare.
-> 
-> 
+>
+>
 
 Du kan också lokalisera alla element på den här sidan. När du har konfigurerat en standarduppsättning med anpassningselement kan du konfigurera fler versioner för olika språk. Du kan också blanda och matcha olika element. Du kan till exempel:
 
@@ -163,15 +163,15 @@ Det kan ta upp till en timme innan nya ändringar som du har gjort på inloggnin
 4. Klicka på **Anpassa profilering**.
 5. Välj **Redigera befintliga anpassningsinställningar** på sidan för att anpassa profilering och gå sedan till nästa sida.
 6. Beroende på vilka element du vill ta bort gör du något av följande:
-   
+
     a. Under **Banderollslogotyp** väljer du **Ta bort den uppladdade logotypen**.
-   
+
     b. Under **Ikonlogotyp** väljer du **Ta bort den uppladdade logotypen**.
-   
+
     c. Ta bort texten från alla textrutor.
-   
+
     d. Klicka på **Next**.
-   
+
     e. Ta bort texten från alla textrutor.
 7. Klicka på **Spara** för att ta bort elementen.
 8. Om det behövs klickar du på alternativet för att **anpassa profilering** igen och upprepar de här stegen för all språkspecifik anpassning som ska tas bort.
@@ -224,6 +224,6 @@ Vissa anpassningsbara element i Azure AD har flera användningsscenarier. Du kan
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

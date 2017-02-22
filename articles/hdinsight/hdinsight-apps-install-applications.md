@@ -1,6 +1,6 @@
 ---
-title: "Installera Hadoop-program på HDInsight | Microsoft Docs"
-description: "Ta reda på hur du installerar HDInsight-program på HDInsight-appar."
+title: "Installera Hadoop-program från tredje part i Azure HDInsight | Microsoft Docs"
+description: "Lär dig hur du installerar Hadoop-program från tredje part i Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/23/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
-ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
+ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
+ms.openlocfilehash: 815a9f357ec020ca02ef0b2bb553cb787ef9b131
 
 
 ---
-# <a name="install-hdinsight-applications"></a>Installera HDInsight-program
-Ett HDInsight-program är ett program som användarna kan installera på ett Linux-baserat HDInsight-kluster. Dessa program kan utvecklas av Microsoft, oberoende programvaruleverantörer och av dig själv. Den här artikeln beskriver hur du installerar ett publicerat program. Information om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md). 
+# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Installera Hadoop-program från tredje part i Azure HDInsight
 
-För närvarande finns det tre publicerade program:
+I den här artikeln lär du dig hur du installerar ett redan publicerat Hadoop-program från tredje part i Azure HDInsight. Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
 
+Ett HDInsight-program är ett program som användarna kan installera på ett Linux-baserat HDInsight-kluster. Dessa program kan utvecklas av Microsoft, oberoende programvaruleverantörer och av dig själv.  
+
+För närvarande finns det fyra publicerade program:
+
+* **DATAIKU DDS på HDInsight**: Dataiku DSS (Data Science Studio) är en programvara som gör att dataspecialister (dataforskare, affärsanalytiker, utvecklare med flera) kan skapa prototyper samt bygga och distribuera specifika tjänster som omvandlar rådata till effektfulla affärsförutsägelser.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) erbjuder analytiker ett interaktivt sätt att identifiera, analysera och visualisera resultat från stordata (Big Data). Hämta enkelt in fler datakällor för att identifiera nya relationer och snabbt få de svar du behöver.
 * **Streamsets Data Collector för HDnsight** tillhandahåller en komplett integrerad utvecklingsmiljö (IDE) som du kan använda för att utforma, testa, distribuera och hantera pipelines för ”alla-till-alla”-inmatningar som kopplar ihop dataströms- och batchdata. Du kan också ta med olika interna dataströmstransformationer, allt utan att skriva anpassad kod. 
 * **Cask CDAP 3.5 för HDInsight** är den första enhetliga integrationsplattformen för stordata som minskar tiden till produktion för dataprogram och datasjöar med 80 %. Det här programmet stöder endast Standard HBase 3.4-kluster.
@@ -42,18 +46,18 @@ I följande procedur beskriver vi hur du installerar HDInsight-program i ett bef
 **Så här installerar du ett HDInsight-program**
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **HDInsight-kluster** i den vänstra menyn.  Om du inte ser det klickar du på **Bläddra** och sedan på **HDInsight-kluster**.
+2. Klicka på **HDInsight-kluster** i den vänstra menyn.  Om du inte ser det klickar du på **Fler tjänster** och sedan på **HDInsight-kluster**.
 3. Klicka på ett HDInsight-kluster.  Om du inte har något måste du skapa ett först.  Mer information finns i [Skapa kluster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Klicka på **Program** under kategorin **Konfigurationer**. Du ser en lista över installerade program, om det finns några.
+4. Klicka på **Program** under kategorin **Konfigurationer**. Du ser en lista över installerade program, om det finns några. Om du kan hitta Program innebär det att det inte finns några program för den här versionen av HDInsight-klustret.
    
-    ![menyn för hdinsight-program på portalen](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    ![HDInsight-program – meny på portalen](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Klicka på **Lägg till** från bladets meny. 
    
-    ![hdinsight-program – installerade appar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
+    ![HDInsight-program – installerade appar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
     Du ser en lista över befintliga HDInsight-program.
    
-    ![hdinsight-program – tillgängliga program](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+    ![HDInsight-program – tillgängliga program](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 6. Klicka på ett av programmen, godkänn de juridiska villkoren och klicka sedan på **Välj**.
 
 Du kan se installationsstatusen i meddelandena på portalen (klicka på klockikonen överst på portalen). När programmet har installerats visas det på bladet Installerade appar.
@@ -89,7 +93,7 @@ På portalen kan du visa en lista över de installerade HDInsight-programmen fö
 3. Klicka på ett HDInsight-kluster.
 4. I bladet **Inställningar** klickar du på **Program** under kategorin **Allmänt**. På bladet Installerade appar visas alla installerade program. 
    
-    ![hdinsight-program – installerade appar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    ![HDInsight-program – installerade appar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Klicka på något av de installerade programmen för att visa egenskaperna. Egenskapsbladet innehåller:
    
    * Programnamn: programnamnet.
@@ -118,6 +122,6 @@ Läs [Felsöka installationen](hdinsight-apps-install-custom-applications.md#tro
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

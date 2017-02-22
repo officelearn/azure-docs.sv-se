@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
+ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
+ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
 
 
 ---
@@ -87,6 +87,14 @@ Med DocumentDB kan du skriva programlogiken som namngivna program helt skrivna i
 
 JavaScript-körning inom DocumentDB modelleras efter begrepp som stöds av relationsdatabassystem, med JavaScript som en modern ersättning för Transact-SQL. All JavaScript-logik körs inom en omgivande ACID-transaktion med ögonblicksbildisolering. Om JavaScript genererar ett undantag under körningen avbryts hela transaktionen.
 
+## <a name="are-there-any-online-courses-on-documentdb"></a>Finns det några onlinekurser på DocumentDB?
+
+Ja, det finns en kurs om [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) på Azure DocumentDB. 
+
+>[!VIDEO https://mva.microsoft.com/en-US/training-courses-embed/azure-documentdb-planetscale-nosql-16847]
+>
+>
+
 ## <a name="next-steps"></a>Nästa steg
 Har du redan ett Azure-konto? Då kan du komma igång med DocumentDB i [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) genom att [skapa ett databaskonto i DocumentDB](documentdb-create-account.md).
 
@@ -103,6 +111,6 @@ Sedan, när du vill veta mer, finns våra [utbildningsvägar](https://azure.micr
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

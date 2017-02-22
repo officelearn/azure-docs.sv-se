@@ -15,15 +15,15 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
+ms.sourcegitcommit: 6402c4cf43e087c22824555277deabc01ead2a0d
+ms.openlocfilehash: 25c6b0196de7f44fc77191dfe5a4c7c47bdd60e7
 
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Komma igång med Azure File Storage i Windows
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -38,7 +38,7 @@ Information om skalbarhets- och prestandamål för File Storage finns i [Skalbar
 ## <a name="video-using-azure-file-storage-with-windows"></a>Video: Använda Azure File Storage med Windows
 Här är en video som visar hur du skapar och använder Azure-filresurser i Windows.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -605,7 +605,7 @@ Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoo
     SAS stöds endast via REST-API:et eller klientbiblioteken. När du monterar filresursen via SMB-protokollet kan du inte använda en SAS för att delegera åtkomst till dess innehåll.
 2. **Syns Azure-filresurser offentligt över Internet eller går de bara att nå via Azure?**
    
-    Om port 445 (TCP utgående) är öppen och klienten stöder SMB 3.0-protokollet (*t.ex.* Windows 8 eller Windows Server 2012) så är filresursen tillgänglig via Internet.  
+    Om port 445 (TCP utgående) är öppen och klienten stöder SMB 3.0-protokollet (*t.ex.* Windows 8 eller Windows Server 2012) så är filresursen tillgänglig via Internet. Kontakta din lokala Internet-leverantör för att avblockera porten. Under tiden kan du se dina filer med Lagringsutforskaren eller annat program från en tredje part, som till exempel Cloudberry.
 3. **Räknas nätverkstrafiken mellan en virtuell Azure-dator och en filresurs som extern bandbredd som debiteras till prenumerationen?**
    
     Om filresursen och den virtuella datorn finns i olika områden debiteras trafiken mellan dem som extern bandbredd.
@@ -646,6 +646,12 @@ Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoo
     
     Du kan gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoot-file-connection-problems.md) för felsökningsinformation från slutpunkt till slutpunkt.               
 
+16. **Hur kan jag aktivera kryptering på serversidan för Azure Files?**
+
+    [Kryptering på serversidan](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) finns för närvarande i förhandsversionen. I förhandsversionen kan funktionen bara aktiveras för nyligen skapade lagringskonton för Azure Resource Manager (ARM).
+    Du kan aktivera den här funktionen på lagringskonton för Azure Resource Manager med Azure Portal. Vi planerar att ha [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) eller [API:t för Microsoft Azure Storage Resource Provider](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) för att aktivera kryptering för fillagring vid slutet av februari. Inga extra kostnader tillkommer för att aktivera den här funktionen. När du aktiverar Storage Service Encryption för Azure File Storage krypteras data automatiskt åt dig. 
+    Lär dig mer om Storage Service Encryption. Du kan även kontakta ssediscussions@microsoft.com för ytterligare frågor om förhandsversionen.
+
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure File Storage finns på följande länkar.
 
@@ -657,6 +663,7 @@ Mer information om Azure File Storage finns på följande länkar.
 * [Använd Azure PowerShell med Azure Storage](storage-powershell-guide-full.md)
 * [Använd AzCopy med Microsoft Azure Storage](storage-use-azcopy.md)
 * [Använd Azure CLI:et med Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+* [Felsökning av problem i Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referens
 * [Storage-klientbibliotek för .NET-referens](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -670,6 +677,6 @@ Mer information om Azure File Storage finns på följande länkar.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

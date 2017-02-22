@@ -17,13 +17,13 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: 62f29382a2b29c7e5b06126b0ab60c7136186103
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: cf626be4914168d3ed3caae7f959a79324487b4e
 
 
 ---
 
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-powershell"></a>SQL Database-självstudie: Komma igång med Azure SQL Database-baserade servrar, databaser och brandväggsregler med hjälp av PowerShell
+# <a name="tutorial-provision-and-access-an-azure-sql-database-using-powershell"></a>Självstudie: Etablera och få åtkomst till en Azure SQL Database med PowerShell
 
 I den här introduktionskursen lär du dig hur du använder PowerShell för att:
 
@@ -54,7 +54,7 @@ När du är klar med den här självstudiekursen har du en exempeldatabas och en
 
 ## <a name="prerequisites"></a>Krav
 
-* Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Du måste vara inloggad med ett konto som är medlem i rollen som prenumerationsägare eller deltagare. Mer information om rollbaserad åtkomstkontroll (RBAC) finns i [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md) (Komma igång med åtkomsthantering på Azure Portal).
 
@@ -566,7 +566,9 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har slutfört den här första ”komma igång”-självstudiekursen och skapat en databas med exempeldata finns det ett antal andra självstudier som du kanske vill utforska och som bygger vidare på det som du har lärt dig i den här kursen. 
 
-* Om du vill lära dig mer om säkerheten i Azure SQL Database läser du [Komma igång med säkerhet](sql-database-get-started-security.md).
+- En självstudiekurs som hjälper dig att komma igång med SQL Server-autentisering finns i [SQL-autensiering och -auktorisering](sql-database-control-access-sql-authentication-get-started.md)
+- En självstudiekurs som hjälper dig att komma igång med Azure Active Directory-autentisering finns i [Azure AD-autensiering och -auktorisering](sql-database-control-access-aad-authentication-get-started.md)
+* Om du vill fråga exempeldatabasen i Azure Portal kan du läsa [Public preview: Interactive query experience for SQL databases](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/) (Allmänt tillgänglig förhandsversion: Interaktiva frågor för SQL-databaser)
 * Om du kan Excel, lär du dig hur man [Ansluter till en SQL Database i Azure med Excel](sql-database-connect-excel.md).
 * Om du är redo att börja koda, väljer du programmeringsspråk på [Anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md).
 * Om du vill flytta dina lokala SQL Server-databaser till Azure läser du [Migrera en databas till SQL Database](sql-database-cloud-migrate.md).
@@ -577,6 +579,7 @@ Nu när du har slutfört den här första ”komma igång”-självstudiekursen 
 [Vad är SQL Database?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Feb17_HO3-->
 
 

@@ -16,13 +16,19 @@
 # Gör så här för att
 ## [Konfigurera en routningsmetod](traffic-manager-configure-routing-method.md)
 ## [Testa dina inställningar](traffic-manager-testing-settings.md)
-## [Felsöka en degraderad slutpunkt](traffic-manager-troubleshooting-degraded.md)
 ## [Kombinera tjänster för belastningsutjämning](traffic-manager-load-balancing-azure.md)
 ## [Använda nätverksresurser](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## Felsöka
+### [Felsöka en degraderad slutpunkt](traffic-manager-troubleshooting-degraded.md)
 
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell (klassisk)](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
+## [PowerShell (klassisk)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [Förhandsversion av Azure CLI 2.0](/cli/azure/network/traffic-manager)
+## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # Relaterat
@@ -40,6 +46,6 @@
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

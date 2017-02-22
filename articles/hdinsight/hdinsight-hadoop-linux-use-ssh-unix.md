@@ -1,6 +1,6 @@
 ---
-title: "Använda SSH-nycklar med Linux-baserade Hadoop från Linux, Unix eller OS X | Microsoft Docs"
-description: " Du kan komma åt Linux-baserade HDInsight med hjälp av SSH (Secure Shell). Det här dokumentet innehåller information om att använda SSH med HDInsight från Linux-, Unix- eller OS X-klienter."
+title: "Använda SSH med HDInsight (Hadoop) från Windows, Linux, Unix eller OS X | Microsoft Docs"
+description: " Du kan komma åt HDInsight med hjälp av SSH (Secure Shell). Det här dokumentet innehåller information om hur du använder SSH med HDInsight från Windows-, Linux-, Unix- eller OS X-klienter."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
-ms.openlocfilehash: f64cca8823a74c1c0f52e5d9112836661dc51d8e
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-linux-unix-or-os-x"></a>Använda SSH med Linux-baserat Hadoop i HDInsight från Linux, Unix eller OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Använda SSH med HDInsight (Hadoop) från Windows, Linux, Unix eller OS X
 
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
->
->
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 Med [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) kan du logga in i ett Linux-baserat HDInsight-kluster och köra kommandon med hjälp av ett kommandoradsgränssnitt. Det här dokumentet innehåller grundläggande information om SSH och specifik information om hur du använder SSH med HDInsight.
 
@@ -233,6 +231,6 @@ Nu när du vet hur du autentiserar genom att använda en SSH-nyckel kan du lära
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

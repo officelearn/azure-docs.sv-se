@@ -136,6 +136,6 @@ Klicka på **Välj** och **Ok**. Du kan nu se användare eller grupper som du la
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

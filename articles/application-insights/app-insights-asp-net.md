@@ -196,6 +196,6 @@ Om du använder Visual Studio Team Services, kan du [få en anteckningsmarkör](
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

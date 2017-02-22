@@ -1,10 +1,10 @@
 ---
-title: ExpressRoute-platser | Microsoft Docs
-description: "Den här artikeln innehåller en detaljerad översikt över platser där tjänster erbjuds och hur du ansluter till Azure-regioner."
+title: "Anslutningsleverantörer och platser: Azure ExpressRoute | Microsoft Docs"
+description: "Den här artikeln innehåller en detaljerad översikt över platser där tjänster erbjuds och hur du ansluter till Azure-regioner. Sorteras efter anslutningsleverantör."
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: c878513a-d594-42ad-8b0e-403efd0c4b25
 ms.service: expressroute
@@ -12,15 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 45b3c231f28b810c5fe1361cee1c896c58b52993
-ms.openlocfilehash: ae966cd39f8763e038acb5e992f388b8c0ad28ef
+ms.sourcegitcommit: 2e493afcd0de8baf8780a734ad62381e6062aa53
+ms.openlocfilehash: 16680e3eaa99524a1aa71501b2d3468004b63625
 
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
+
+> [!div class="op_single_selector"]
+> * [Platser efter leverantör](expressroute-locations.md)
+> * [Leverantörer efter plats](expressroute-locations-providers.md)
+
+
 Tabellerna i den här artikeln innehåller information om ExpressRoute-anslutningsleverantörer, ExpressRoutes geografiska täckning, Microsoft-molntjänster som stöds via ExpressRoute och ExpressRoutes systemintegratörer (SI).
 
 ## <a name="a-namepartnersaexpressroute-connectivity-providers"></a><a name="partners"></a>Anslutningsproviders för ExpressRoute
@@ -35,31 +41,30 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- |
-| **Nordamerika** |Östra USA, västra USA, östra USA 2, centrala USA, södra centrala USA, norra centrala USA, centrala Kanada, östra Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto |
+| **Nordamerika** |Östra USA, västra USA, östra USA 2, västra USA 2, centrala USA, södra centrala USA, norra centrala USA, västra centrala USA, centrala Kanada, östra Kanada |Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City+, Toronto |
 | **Sydamerika** |Södra Brasilien |Sao Paulo |
 | **Europa** |Norra Europa, Västra Europa, Västra Storbritannien, Södra Storbritannien |Amsterdam, Dublin, London, Newport (Wales), Paris |
 | **Asien** |Östra Asien, Sydostasien |Hongkong, Singapore |
 | **Japan** |Västra Japan, östra Japan |Osaka, Tokyo |
 | **Australien** |Sydöstra Australien, östra Australien |Melbourne, Sydney |
 | **Indien** |Västra Indien, centrala Indien, södra Indien |Chennai, Mumbai |
+| **Sydkorea** |Centrala Korea, Sydkorea |Busan+, Söul+ |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
 Tabellen nedan innehåller information om regioner och geopolitiska gränser för nationella moln.
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- | --- |
-| **Moln för amerikanska myndigheter** |Iowa (USA-förvaltad region), Virginia (USA-förvaltad region) |Chicago, Dallas, New York, Washington DC |
+| **Moln för amerikanska myndigheter** |Iowa (USA-förvaltad region), Virginia (USA-förvaltad region), US DoD centrala+, US DoD, östra+  |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
 | **Kina** |Norra Kina, östra Kina |Beijing, Shanghai |
 | **Tyskland** |Centrala Tyskland, östra Tyskland |Berlin, Frankfurt |
 
 Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i ExpressRoute. Du måste aktivera ExpressRoutes premiumtillägg som stöder global anslutning. Anslutning till nationella molnmiljöer stöds inte. Kontakta din anslutningsleverantör om detta behov uppstår.
 
 ## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Platser för anslutningsleverantörer
-> [!div class="op_single_selector"]
-> * [Platser efter leverantör](expressroute-locations.md#locations)
-> * [Leverantörer efter plats](expressroute-locations-providers.md#locations)
->
->
+
+I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillgängliga leverantörer efter plats går du till [Tjänsteleverantörer efter plats](expressroute-locations-providers.md#locations).
+
 
 ### <a name="production-azure"></a>Produktions-Azure
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365 och CRM Online** | **Platser** |
@@ -71,27 +76,31 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Stöds |Stöds |Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |Kommer snart |Kommer snart |Silicon Valley |
 | **China Telecom Global** |Stöds |Stöds inte |Hongkong |
-| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Stöds |Stöds |Dallas, Montreal+, Toronto |
+| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Stöds |Stöds |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Stöds |Stöds |Amsterdam, Dublin, London, Tokyo |
 | **Comcast** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
 | **Konsol**| Stöds | Stöds |Silicon Valley |
-| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Stöds |Stöds |Los Angeles |
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Stöds |Stöds |Los Angeles, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Amsterdam, Atlanta, Chicago, Dallas, Hongkong, London, Los Angeles, Melbourne, New York, Osaka, Paris+, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Stöds |Stöds |Amsterdam |
+| **Global Cloud Exchange (GCX)** | Kommer snart | Kommer snart | Chennai |
 | **GÉANT** |Stöds |Stöds |Amsterdam |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Stöds |Stöds |Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** |Stöds |Stöds |Amsterdam, London, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** |Stöds |Stöds |Amsterdam, London |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Stöds |Stöds |Amsterdam, London, Paris |
 | **Jisc** |Stöds |Stöds |London |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Washington DC |
+| **KINX** |Kommer snart |Kommer snart |Söul+ |
+| **[KPN](http://www.kpn.com/cloudconnect)** | Stöds | Stöds | Amsterdam | 
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Singapore, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds |Stöds |Dallas, Hongkong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Stöds |Stöds |London |
 | **[Nästa datageneration](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Stöds |Stöds |Newport(Wales) |
 | **NEXTDC** |Stöds |Stöds |Melbourne, Sydney |
-| **NTT Communications** |Stöds |Stöds |London, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
+| **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Stöds |Stöds |London, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Stöds |Stöds |Amsterdam, Hongkong, London, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** |Stöds |Stöds |Hongkong |
+| **Sejong Telecom** |Kommer snart |Kommer snart |Busan+, Söul+ |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Stöds |Stöds |Chennai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Stöds |Stöds |Singapore |
 | **Softbank** |Stöds |Stöds |Osaka, Tokyo |
@@ -112,8 +121,9 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Stöds |Stöds |Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Chicago, Dallas, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Chicago, Dallas, New York, Silicon Valley+, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Stöds |Stöds |Chicago, New York+, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds | Stöds | Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Stöds |Stöds |Chicago, Dallas, New York, Washington DC |
 
 ### <a name="china"></a>Kina
@@ -130,6 +140,7 @@ Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expres
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds inte |Frankfurt |
 | **e-shelter** |Stöds |Stöds inte |Berlin |
 | **Interxion** |Stöds |Stöds inte |Frankfurt |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds  | Stöds inte | Berlin+ |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Anslutning för leverantörer som inte listas
 Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fortfarande skapa en anslutning.
@@ -152,6 +163,8 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapore |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
+| **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
+| **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
 | **[Exponentiellt E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | London |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | London, Slough |
@@ -171,15 +184,15 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 
 | **Systemintegrator** | **Kontinent** |
 | --- | --- |
-| **[Avanade Inc.](http://www.avanade.com/)** |Asien, Europa, USA |
-| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Europa |
-| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |USA |
-| **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Australien |
+| **[Avanade Inc.](http://www.avanade.com/)** | Asien, Europa, Nordamerika, Sydamerika |
+| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Europa |
+| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | Nordamerika |
+| **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Australien |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europa (Tyskland) |
-| **[Nelite](http://nelite.com/)** |Europa |
-| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Asien |
-| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |USA |
-| **[Projektledarskap](http://www.projectleadership.net/azure)** |USA |
+| **[Nelite](http://nelite.com/)** | Europa |
+| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asien |
+| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | Nordamerika |
+| **[Projektledarskap](http://www.projectleadership.net/azure)** | Nordamerika |
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -191,6 +204,6 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

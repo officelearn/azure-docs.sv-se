@@ -1,10 +1,10 @@
 ---
-title: "Anslut virtuella nätverk med hjälp av Resource Manager-distributionsmodellen och Azure Portal | Microsoft Docs"
+title: "Ansluta ett virtuellt Azure-nätverk till ett annat VNet: portalen | Microsoft Docs"
 description: "Skapa en VPN-gateway-anslutning mellan virtuella nätverk med hjälp av Resource Manager och Azure Portal."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 28d81fe312195b9a9094e1ed066f5cba57c76933
-ms.openlocfilehash: b85017913316a450fe19f1760abff6a86f933e2e
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 7796ec3a7c65e320ca142de4d03f6de5d0698e21
 
 
 ---
@@ -51,7 +51,7 @@ Du ansluter ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-till-
 
 Du kan till och med kombinera VNet-till-VNet-kommunikation med konfigurationer för flera platser. Därmed kan du etablera nätverkstopologier som kombinerar anslutningar mellan olika anläggningar med virtuell nätverksanslutning enligt följande diagram:
 
-![Om anslutningar](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+![Om anslutningar](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Om anslutningar")
 
 ### <a name="why-connect-virtual-networks"></a>Varför ska man ansluta virtuella nätverk?
 Du kan vilja ansluta virtuella nätverk av följande skäl:
@@ -64,7 +64,7 @@ Du kan vilja ansluta virtuella nätverk av följande skäl:
   
   * Inom samma region kan du konfigurera flernivåprogram med flera virtuella nätverk som är anslutna till varandra på grund av isolering eller administrativa krav.
 
-Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga frågor om VNet-till-VNet](#faq) i slutet av den här artikeln.
+Mer information om VNet-till-VNet-anslutningar finns i [Att tänka på när du använder VNet-till-VNet](#faq) i slutet av den här artikeln.
 
 ### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Exempelinställningar
 När du använder de här stegen för att öva dig kan du använda exempelkonfigurationsvärdena. I exempelsyfte använder vi flera adressutrymmen för varje enskilt virtuellt nätverk. VNet-till-VNet-konfigurationer kräver dock inte flera adressutrymmen.
@@ -155,21 +155,21 @@ När de virtuella nätverksgatewayerna för både TestVNet1 och TestVNet4 har sl
 
 1. I **Alla resurser** navigerar du till den virtuella nätverksgatewayen för ditt virtuella nätverk. Till exempel **TestVNet1GW**. Klicka på **TestVNet1GW** för att öppna bladet för den virtuella nätverksgatewayen.
    
-    ![Bladet Anslutningar](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Connections blade")
+    ![Bladet Anslutningar](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Bladet Anslutningar")
 2. Klicka på **+ Lägg till** att öppna bladet **Lägg till anslutning**.
 3. I namnfältet på bladet **Lägg till anslutning** anger du ett namn för anslutningen. Till exempel **TestVNet1toTestVNet4**.
    
-    ![Anslutningsnamn](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Connection name")
+    ![Anslutningsnamn](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Anslutningsnamn")
 4. För **Anslutningstyp** väljer du **VNet till VNet** i den nedrullningsbara listan.
 5. Fältet **Första virtuella nätverksgateway** fylls i automatiskt eftersom du skapar den här anslutningen från den angivna virtuella nätverksgatewayen.
 6. Fältet **Andra virtuella nätverksgateway** är den virtuella nätverksgatewayen för det virtuella nätverk som du vill skapa en anslutning till. Klicka på **Välj en annan virtuell nätverksgateway** för att öppna bladet **Välj en virtuell nätverksgateway**.
    
-    ![Lägg till anslutning](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Add a connection")
+    ![Lägg till anslutning](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Lägg till en anslutning")
 7. Visa de virtuella nätverksgatewayer som anges på det här bladet. Observera att endast virtuella nätverksgatewayer som ingår i din prenumeration visas. Om du vill ansluta till en virtuell nätverksgateway som inte ingår i din prenumeration kan du läsa [PowerShell-artikeln](vpn-gateway-vnet-vnet-rm-ps.md). 
 8. Klicka på den virtuella nätverksgatewayen som du vill ansluta till.
 9. I fältet **Delad nyckel** anger du en delad nyckel för anslutningen. Du kan generera eller skapa den här nyckeln själv. I en plats-till-plats-anslutning är nyckeln du använder exakt densamma som för din lokala enhet och anslutningen via din virtuella nätverksgateway. Konceptet är i princip samma här, förutom att du istället för att ansluta till en VPN-enhet ansluter till en annan virtuell nätverksgateway.
    
-    ![Delad nyckel](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Shared key")
+    ![Delad nyckel](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Delad nyckel")
 10. Klicka på **OK** längst ned på bladet för att spara ändringarna.
 
 ## <a name="a-nametestvnet4connectiona8-configure-the-testvnet4-connection"></a><a name="TestVNet4Connection"></a>8. Konfigurera TestVNet4-anslutningen
@@ -183,13 +183,13 @@ Verifiera anslutningen. Gör följande för varje virtuell nätverksgateway:
 
 Visa anslutningarna och kontrollera statusen. När anslutningen har skapats kan du se **Lyckades** och **Ansluten** som statusvärden.
 
-![Lyckades](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
+![Lyckades](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Lyckades")
 
 Du kan dubbelklicka på varje anslutning om du vill visa mer information om anslutningen.
 
-![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
+![Information](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Information")
 
-## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>Vanliga frågor och svar om VNet-till-VNet
+## <a name="a-namefaqavnet-to-vnet-considerations"></a><a name="faq"></a>Att tänka på när du använder VNet-till-VNet
 Visa vanliga frågor och svar om du vill ha mer information om anslutningar mellan virtuella nätverk.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
@@ -199,6 +199,6 @@ När anslutningen är klar kan du lägga till virtuella datorer till dina virtue
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

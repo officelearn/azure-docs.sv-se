@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 6123373dced2a5cd2a639530d1b4040b88d4b7d9
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 06a8dfbac31024cb44fd38bcf9c4a4ea79dbc968
 
 
 ---
@@ -57,7 +57,7 @@ Du kan slutföra uppgiften med någon av följande CLI-versioner:
 * Ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Du kan [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
+> Du kan [Prova App Service](https://azure.microsoft.com/try/app-service/) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
 > 
 > 
 
@@ -129,7 +129,7 @@ Grattis, du har distribuerat din app till Azure App Service.
 ## <a name="see-your-app-running-live"></a>Köra appen live
 Du kan köra appen live i Azure genom att köra det här kommandot från valfri katalog i databasen:
 
-    azure site browse
+    az appservice web browse -n <app-name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Göra appuppdateringar
 Nu kan du använda Git och skicka skrivningar från projektroten (databasen) när som helst för att uppdatera liveplatsen. Du gör på samma sätt som när du distribuerade din kod första gången. Exempelvis kör du bara följande kommandon från projektroten (databasen) varje gång du vill skicka in en ny ändring som du har testat lokalt:
@@ -155,6 +155,6 @@ Eller gör mer med din första webbapp. Exempel:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: a866b757c9c6946cdff4fe636e81bedbdfa29322
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
 
 
 ---
@@ -51,7 +51,7 @@ Klicka på **Spara** för att spara ändringarna.
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill gå en introduktionskurs rekommenderar vi [Självstudiekurs om SQL Database: Skapa en server, en brandväggsregel på servernivå, en exempeldatabas, en brandväggsregel på databasnivå och ansluta till SQL Server](sql-database-get-started.md).
-- Om du vill gå en introduktionskurs om säkerhet rekommenderar vi [Komma igång med säkerhet](sql-database-get-started-security.md)
+- Om du vill gå en introduktionskurs om säkerhet rekommenderar vi [Komma igång med säkerhet](sql-database-control-access-sql-authentication-get-started.md)
 - Hjälp med att ansluta till en Azure SQL-databas från öppen källkod eller program från tredje part finns i [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Snabbstart med kodexempel för att ansluta klienter till SQL Database).
 - Information om hur du skapar fler användare som kan ansluta till databaser finns i [SQL Database Authentication and Authorization: Granting Access](https://msdn.microsoft.com/library/azure/ee336235.aspx) (SQL Database-autentisering och SQL Database-auktorisering: bevilja åtkomst).
 
@@ -64,6 +64,6 @@ Klicka på **Spara** för att spara ändringarna.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
+ms.sourcegitcommit: 9d80640a58171e94440ca02f44a73866f6412997
+ms.openlocfilehash: 296dfaaa05b89cae265a9926fad08495ea02a647
 
 
 ---
@@ -81,7 +81,9 @@ Det finns praktisk klientinformation, däribland anvisningar för att installera
   * Mac OS X
   * Windows RT
   * Android-surfplattor
-  * iPad-enheter och mobiler:
+  * iPad-enheter
+
+    Och telefonerna:
   * iPhone
   * Android-telefoner
   * Windows Phone
@@ -126,6 +128,6 @@ Visste du att du förutom att betygsätta den här artikeln och skriva kommentar
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

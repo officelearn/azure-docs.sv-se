@@ -38,7 +38,7 @@
     ![Serverplats](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > Du kan inte ändra kryssrutan för **Ge Azure-tjänster åtkomst till servern** på det här bladet. Du kan ändra den här inställningen på bladet Serverbrandvägg. Mer information finns i [Get started with security](../articles/sql-database/sql-database-get-started-security.md) (Komma igång med säkerhet).
+    > Du kan inte ändra kryssrutan för **Ge Azure-tjänster åtkomst till servern** på det här bladet. Du kan ändra den här inställningen på bladet Serverbrandvägg. Mer information finns i [Get started with security](../articles/sql-database/sql-database-manage-servers-portal.md) (Komma igång med säkerhet).
     >
     
 9. Klicka på **Skapa**.
@@ -47,6 +47,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

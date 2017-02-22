@@ -1,5 +1,5 @@
 ---
-title: " Komma igång med att leverera innehåll på begäran med hjälp av Azure Portal | Microsoft Docss"
+title: "Komma igång med VoD med hjälp av Azure Portal | Microsoft Docs"
 description: "De här självstudierna visar dig stegen för att implementera ett grundläggande leveransprogram för Video-on-Demand-innehåll (VoD) med Azure Media Services-appen (AMS) med hjälp av Azure Portal."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 76fd245f91e1bfab3df68120859c69e459283e5b
 
 
 ---
@@ -25,59 +25,19 @@ ms.openlocfilehash: b433c35817a0ba36003e8d506db9d2d6d97f9ff7
 
 De här självstudierna visar dig stegen för att implementera ett grundläggande leveransprogram för Video-on-Demand-innehåll (VoD) med Azure Media Services-appen (AMS) med hjälp av Azure Portal.
 
-> [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
+## <a name="prerequisites"></a>Krav
+Följande krävs för att kunna genomföra vägledningen:
+
+* Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 
 Vägledningen innehåller följande uppgifter:
 
-1. Skapa ett Azure Media Services-konto.
-2. Starta slutpunkt för direktuppspelning.
-3. Överföra en videofil.
-4. Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet.
-5. Publicera tillgången och få URL:er för strömning och progressiv överföring.  
-6. Spela upp ditt innehåll.
-
-## <a name="create-an-azure-media-services-account"></a>Skapa ett Azure Media Services-konto
-Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **+Ny** > **Webb + mobilt** > **Media Services**.
-   
-    ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. Ange de erfordrade värdena i **SKAPA MEDIA SERVICES-KONTO**.
-   
-    ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
-   1. Ange namnet på det nya AMS-kontot vid **Kontonamn**. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.
-   2. Vid Prenumeration väljer du mellan de olika Azure-prenumerationer som du har åtkomst till.
-   3. I **Resursgrupp** väljer du ny eller befintlig resurs.  En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Lär dig mer [här](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. För **Plats** väljer du den geografiska region som ska användas för att lagra media och metadataposter för ditt Media Services-konto. Den här regionen används för att bearbeta och strömma dina media. Endast de tillgängliga Media Services-regionerna visas i listrutan. 
-   5. Vid **Storage-konto** väljer du ett lagringskonto för att tillhandahålla Blob Storage av medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett lagringskonto. Ett nytt lagringskonto skapas i samma region. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
-      
-       Mer information om lagring finns [här](../storage/storage-introduction.md).
-   6. Välj **PIN-kod för instrumentpanelen** för att se förloppet för kontodistributionen.
-4. Klicka på **Skapa** längst ned i formuläret.
-   
-    När kontot har skapats läses översiktssidan in. I tabellen med slutpunkter för direktuppspelning har kontot en standardslutpunkt för direktuppspelning med tillståndet **Stoppad**. Slutpunkten för direktuppspelning som du vill spela upp vårt innehåll från måste ha tillståndet **Körs**. 
-   
-    ![Media Services-inställningar](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
-    För att hantera AMS-kontot (till exempel överföra videor, koda tillgångar och övervaka jobbförlopp) använder du fönstret **Inställningar**.
-
-## <a name="manage-keys"></a>Hantera nycklar
-Du behöver kontonamnet och den primära nyckelinformationen för att genom programmering få åtkomst till Media Services-kontot.
-
-1. Välj ditt konto i Azure-portalen. 
-   
-    Fönstret **Inställningar** visas till höger. 
-2. I fönstret **Inställningar** väljer du **Nycklar**. 
-   
-    I fönstret **Hantera nycklar** visas kontonamnet och de primära och sekundära nycklarna. 
-3. Tryck på kopieringsknappen för att kopiera värdena.
-   
-    ![Media Services-nycklar](./media/media-services-portal-vod-get-started/media-services-keys.png)
+1. Starta slutpunkt för direktuppspelning.
+2. Överföra en videofil.
+3. Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet.
+4. Publicera tillgången och få URL:er för strömning och progressiv överföring.  
+5. Spela upp ditt innehåll.
 
 ## <a name="start-streaming-endpoints"></a>Starta slutpunkter för direktuppspelning 
 
@@ -88,13 +48,14 @@ När du arbetar med Azure Media Services är ett av de vanligaste scenarierna at
 
 Starta slutpunkten för direktuppspelning genom att göra följande:
 
-1. I fönstret Inställningar klickar du på Slutpunkter för direktuppspelning. 
-2. Klicka på den slutpunkt för direktuppspelning som är standard. 
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. I fönstret Inställningar klickar du på Slutpunkter för direktuppspelning. 
+3. Klicka på den slutpunkt för direktuppspelning som är standard. 
 
     Fönstret INFORMATION OM DEN SLUTPUNKT FÖR DIREKTUPPSPELNING SOM ÄR STANDARD visas.
 
-3. Klicka på ikonen Start.
-4. Klicka på knappen Spara för att spara ändringarna.
+4. Klicka på ikonen Start.
+5. Klicka på knappen Spara för att spara ändringarna.
 
 ## <a name="upload-files"></a>Överföra filer
 För att strömma videor med Azure Media Services behöver du överföra källvideorna, koda dem till flera olika bithastigheter och publicera resultatet. I det här avsnittet beskrivs det första steget. 
@@ -129,7 +90,7 @@ I det här avsnittet beskrivs de steg som du kan vidta för att koda ditt inneh�
 1. I fönstret **Inställningar** väljer du **Tillgångar**.  
 2. I fönstret **Tillgångar** väljer du den tillgång som du vill koda.
 3. Tryck på knappen **Koda**.
-4. I fönstret **Koda en tillgång** väljer du processorn ”Media Encoder Standard” och en förinställning. Om du till exempel vet att din indatavideo har en upplösning på 1 920 x 1 080 bildpunkter, kan du använda förinställningen ”H264 multibithastighet 1080p”. Mer information om förinställningar finns i [denna](https://msdn.microsoft.com/library/azure/mt269960.aspx) artikel – det är viktigt att välja den förinställning som är mest lämplig för din videoinmatning. Om du har en video med låg upplösning (640 x 360) bör du inte använda standardförinställningen ”H264 multibithastighet 1080p”.
+4. I fönstret **Koda en tillgång** väljer du processorn ”Media Encoder Standard” och en förinställning. Om du till exempel vet att din indatavideo har en upplösning på 1 920 x 1 080 bildpunkter, kan du använda förinställningen ”H264 multibithastighet 1080p”. Mer information om förinställningar finns i [denna](media-services-mes-presets-overview.md) artikel – det är viktigt att välja den förinställning som är mest lämplig för din videoinmatning. Om du har en video med låg upplösning (640 x 360) bör du inte använda standardförinställningen ”H264 multibithastighet 1080p”.
    
    Du kan redigera namnet på utdatatillgången och namnet på jobbet för enklare hantering.
    
@@ -169,7 +130,7 @@ En SAS-URL har följande format.
 > 
 > 
 
-Du uppdaterar ett utgångsdatum för en lokaliserare med [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator)- eller [.NET](http://go.microsoft.com/fwlink/?LinkID=533259)-API:er. URL:en ändras när du uppdaterar en SAS-lokaliserare.
+Du uppdaterar ett utgångsdatum för en lokaliserare med [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator)- eller [.NET](http://go.microsoft.com/fwlink/?LinkID=533259)-API:er. URL:en ändras när du uppdaterar en SAS-lokaliserare.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Använda portalen för att publicera en tillgång
 Gör följande för att använda portalen för att publicera en tillgång:
@@ -207,6 +168,6 @@ Granska sökvägarna för Media Services-utbildning.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

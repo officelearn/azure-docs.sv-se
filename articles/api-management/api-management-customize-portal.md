@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
+ms.sourcegitcommit: 13431648e87d085161ad278dc991d49f7872be34
+ms.openlocfilehash: 60213f885020a5ba36d6ada0812f755e06b3c48b
 
 
 ---
@@ -43,17 +43,17 @@ Nu visas det nya sidhuvudet på varje sida på utvecklarportalen.
 > 
 
 ## <a name="change-headers-styling"> </a>Ändra formateringen i sidhuvudena
-Färger, teckensnitt, storlekar, avstånd och andra formatrelaterade element på en sida på portalen definieras av formatregler. Om du vill redigera formaten klickar du på **Utseende** på menyn **Utvecklarportal** på utgivarportalen och aktiverar sedan formatredigeraren genom att klicka på **Börja anpassning**.
+Färger, teckensnitt, storlekar, avstånd och andra formatrelaterade element på en sida på portalen definieras av formatregler. Öppna anpassningsverktygsfältet till vänster genom att flytta över anpassningsikonen och sedan välja "format" i verktygsfältet när du är i **Utvecklarportalen** för att redigera format.
 
-Webbläsaren växlar till en dold sida på utvecklarportalen som innehåller prover på innehåll, med exempel på alla formatregler som används på webbplatsen. Du öppnar formatredigeraren genom att placera pekaren över den tunna grå lodräta linjen längst till vänster på sidan. Verktygsfältet för redigeraren bör visas.
+![Knapp i verktygsfältet för anpassning][api-management-customization-toolbar-button]
+
+Det finns två huvudsakliga sätt att redigera formatregler. Du kan leta i listan över alla formatreglerna som används någonstans som visas som standard och där ändra format efter behov. Du kan även välja **Select an element on the page** (Markera ett element på sidan) och klicka var som helst på sidan för att endast visa formatet för just det elementet.
+
+I det här avsnittet vill vi bara ändra formatet på rubrikerna. Klicka på alternativet **Select an element on the page** (Markera ett element på sidan) i verktygsfältet i formatredigeraren. 
 
 ![Verktygsfält för anpassning][api-management-customization-toolbar]
 
-Du kan välja mellan två huvudlägen när du redigerar formatregler. Med **Redigera alla regler** kan du visa en lista över alla formatregler som används och med **Välj ett element** kan du välja ett element på den sida som du befinner dig på, så visas formaten för endast det elementet.
-
-I det här avsnittet vill vi bara ändra formatet på rubrikerna. Klicka på alternativet **Välj ett element** i verktygsfältet i formatredigeraren och klicka sedan på **Markera ett element som du vill anpassa**. Nu markeras elementen när du hovrar över dem med musen så att du ser vilket elements format som du kommer att redigera om du klickar. Flytta muspekaren över texten som representerar företagets namn i sidhuvudet (”Fabrikam Developer Portal” om du följde anvisningarna i föregående avsnitt) och klicka på den. En uppsättning namngivna och kategoriserade formatregler visas i formatredigeraren.
-
-Varje regel representerar en formategenskap för det valda elementet. Exempelvis har den markerade rubriktexten ovan storleken @font-size-h1, och namnet på teckensnittet med varianter är @headings-font-family.
+Nu markeras elementen när du hovrar över dem med musen så att du ser vilket elements format som du kommer att redigera om du klickar. Flytta muspekaren över texten som representerar företagets namn i sidhuvudet (”Fabrikam Developer Portal” om du följde anvisningarna i föregående avsnitt) och klicka på den. En uppsättning namngivna och kategoriserade formatregler visas i formatredigeraren. Varje regel representerar en formategenskap för det valda elementet. Exempelvis har den markerade rubriktexten ovan storleken @font-size-h1, och namnet på teckensnittet med varianter är @headings-font-family.
 
 > Om du är bekant med [bootstrap][bootstrap] (starttjänsten) så är dessa regler i själva verket [LESS-variabler][LESS variables] i starttemat som används på utvecklarportalen.
 > 
@@ -63,7 +63,7 @@ Nu ska vi ändra färg på rubriktexten. Välj posten i fältet **@headings-colo
 
 ![Färgväljare][api-management-customization-toolbar-color-picker]
 
-När du har gjort önskade formatändringar för det valda elementet klickar du på **Förhandsgranska ändringar** så visas resultaten på skärmen. Än så länge visas ändringarna bara för administratörer. Om du vill att alla ska se ändringarna klickar du på knappen **Publicera** i formatredigeraren och bekräftar ändringarna.
+Ändringar förhandsvisas i realtid under tiden du gör dem men visas endast för administratörer. Om du vill att alla ska se ändringarna klickar du på knappen **Publicera** i formatredigeraren och bekräftar ändringarna.
 
 ![Publicera-menyn][api-management-customization-toolbar-publish-form]
 
@@ -96,6 +96,7 @@ Klicka på **välkomstsidan** om du vill ändra vad som visas på utvecklarporta
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
@@ -107,6 +108,6 @@ Klicka på **välkomstsidan** om du vill ändra vad som visas på utvecklarporta
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -468,6 +468,6 @@ Mer information om Azure Relay finns i följande resurser:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

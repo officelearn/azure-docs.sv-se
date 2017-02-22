@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
 
 
 ---
@@ -39,8 +39,8 @@ Här loggar till exempel en användare med ett Microsoft-konto in på den klassi
 
 > [!NOTE]
 > För att kunna logga in på den klassiska Azure-portalen måste msmith@hotmail.com ha en prenumeration på Azure. Kontot måste antingen vara en tjänstadministratör eller en medadministratör för prenumerationen.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -104,8 +104,8 @@ Följ stegen nedan för att hantera både kataloger på den klassiska Azure-port
 
 > [!NOTE]
 > Dessa steg kan bara utföras när en användare är inloggad med ett Microsoft-konto. Om användaren har loggat in med ett arbets- eller skolkonto är inte alternativet **Använd befintlig katalog** tillgängligt eftersom ett arbets- eller skolkonto endast kan autentiseras av sin hemkatalog (dvs. den katalog där arbets- eller skolkontot lagras och som ägs av arbetet eller skolan).
-> 
-> 
+>
+>
 
 1. Logga in på den klassiska Azure-portalen med ditt Microsoft-konto.
 2. Klicka på **Nytt** > **Apptjänster** > **Active Directory** > **Katalog** > **Skapa anpassade**.
@@ -116,7 +116,7 @@ Följ stegen nedan för att hantera både kataloger på den klassiska Azure-port
 7. Logga in på den klassiska Azure-portalen igen med ditt Microsoft-konto. Båda mapparna visas i Active Directory-tillägget.
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om hur du ändrar administratörer för en Azure-prenumeration finns i [Lägga till eller ändra Azure-administratörsroller](../billing-add-change-azure-subscription-administrator.md)
+* Mer information om hur du ändrar administratörer för en Azure-prenumeration finns i [Lägga till eller ändra Azure-administratörsroller](../billing/billing-add-change-azure-subscription-administrator.md)
 * Mer information om hur resursåtkomsten hanteras i Microsoft Azure finns i [Förstå resursåtkomst i Azure](active-directory-understanding-resource-access.md)
 * Mer information om hur du tilldelar roller i Azure AD finns i [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles.md)
 * [Registrera dig för Azure som en organisation](sign-up-organization.md)
@@ -128,6 +128,6 @@ Följ stegen nedan för att hantera både kataloger på den klassiska Azure-port
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

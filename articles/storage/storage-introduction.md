@@ -1,5 +1,5 @@
 ---
-title: Introduktion till Storage | Microsoft Docs
+title: Introduktion till Azure Storage | Microsoft Docs
 description: "En översikt över Azure Storage, Microsofts onlinelagring i molnet. Lär dig hur du använder den bästa tillgängliga lösningen för molnlagring i dina program."
 services: storage
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/02/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
+ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
+ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
 
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduktion till Microsoft Azure Storage
+
 ## <a name="overview"></a>Översikt
 Azure Storage är molnlagringslösningen för moderna program som kräver hållbarhet, tillgänglighet och skalbarhet för att uppfylla kundernas behov. I den här artikeln kan utvecklare, IT-proffs och beslutsfattare lära sig mer om:
 
@@ -110,7 +111,7 @@ Precis som de andra Azure-lagringstjänsterna exponerar File Storage ett REST-AP
 
 Distribuerade program kan också använda File Storage för att lagra och dela användbara programdata och utvecklings- och testningsverktyg. Ett program kan till exempel lagra konfigurationsfiler och diagnostikdata som loggar, mätvärden och kraschdumpar på en File Storage-resurs så att de blir tillgängliga för flera virtuella datorer eller roller. Utvecklare och administratörer kan lagra verktyg som de behöver för att skapa och hantera ett program på en File Storage-resurs som är tillgänglig för alla komponenter i stället för att installera dem på varje virtuell dator eller rollinstans.
 
-## <a name="access-to-blob-table-queue-and-file-resources"></a>Åtkomst till blobb-, tabell-, kö- och filresurser
+## <a name="access-to-blob-table-queue-and-file-resources"></a>Åtkomst till blob-, tabell-, kö- och filresurser
 Som standard kan endast lagringskontoägaren komma åt resurser i lagringskontot. För att skydda dina data måste varje begäran som görs mot resurser på ditt konto autentiseras. Autentiseringen använder en modell med delade nycklar. Blobbar kan också konfigureras att stödja anonym autentisering.
 
 Ditt lagringskonto tilldelas två privata åtkomstnycklar när det skapas som används för autentisering. Eftersom det finns två nycklar förblir programmet tillgängligt när du regelbundet återskapar nycklarna, vilket är en vanlig säkerhetspraxis i samband med nyckelhantering.
@@ -208,6 +209,8 @@ Utforska gärna dessa resurser om du vill veta mer om Azure Storage:
 
 ### <a name="documentation"></a>Dokumentation
 * [Azure Storage-dokumentation](https://azure.microsoft.com/documentation/services/storage/)
+* [Skapa ett lagringskonto](storage-create-storage-account.md)
+* [Komma igång med Azure Storage på fem minuter](storage-getting-started-guide.md)
 
 ### <a name="for-administrators"></a>För administratörer
 * [Använd Azure PowerShell med Azure Storage](storage-powershell-guide-full.md)
@@ -219,7 +222,7 @@ Utforska gärna dessa resurser om du vill veta mer om Azure Storage:
 * [Komma igång med Azure Queue Storage med hjälp av .NET](storage-dotnet-how-to-use-queues.md)
 * [Komma igång med Azure File Storage i Windows](storage-dotnet-how-to-use-files.md)
 
-### <a name="for-javaandroid-developers"></a>För Java/Android-utvecklare
+### <a name="for-javaandroid-developers"></a>För Java-/Android-utvecklare
 * [Använda Blob Storage från Java](storage-java-how-to-use-blob-storage.md)
 * [Använda Table Storage från Java](storage-java-how-to-use-table-storage.md)
 * [Använda Queue Storage från Java](storage-java-how-to-use-queue-storage.md)
@@ -246,12 +249,8 @@ Utforska gärna dessa resurser om du vill veta mer om Azure Storage:
 * [Använda Queue Storage från Python](storage-python-how-to-use-queue-storage.md)
 * [Använda File Storage från Python](storage-python-how-to-use-file-storage.md)
 
-## <a name="next-steps"></a>Nästa steg
-
-* [Skapa ett lagringskonto](storage-create-storage-account.md)
-* [Komma igång med Azure Storage på fem minuter](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

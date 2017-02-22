@@ -1,6 +1,6 @@
 ---
-title: "Skapa en Azure-funktion som binder till en Azure-tjänst | Microsoft Docs"
-description: "Skapa en Azure-funktion, ett serverlöst program, som samverkar med andra Azure-tjänster."
+title: "Skapa en funktion som ansluter till Azure-tjänster | Microsoft-dokument"
+description: "Använd Azure Functions för att skapa ett serverlöst program som ansluter till andra Azure-tjänster."
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -14,24 +14,21 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
-ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
-# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Skapa en Azure-funktion som är ansluten till en Azure-tjänst
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Använd Azure Functions för att skapa en funktion som ansluter till andra Azure-tjänster
 
-I det här avsnittet får du lära dig att skapa en Azure-funktion som lyssnar efter meddelanden i en Azure Storage-kö och kopierar meddelandena till en Azure Storage-tabell. En timerutlöst funktion används för att läsa in meddelanden i kön. En andra funktion läser från kön och skriver meddelanden till tabellen. Både kön och tabellen skapas av Azure Functions utifrån bindningsdefinitionerna. 
+I det här avsnittet får du lära dig att skapa en funktion i Azure Functions som lyssnar efter meddelanden i en Azure Storage-kö och kopierar meddelandena till en Azure Storage-tabell. En timerutlöst funktion används för att läsa in meddelanden i kön. En andra funktion läser från kön och skriver meddelanden till tabellen. Både kön och tabellen skapas av Azure Functions utifrån bindningsdefinitionerna. 
 
-För att göra det ännu mer intressant är en funktion skriven i JavaScript och en i C#-skript. Detta visar hur en funktionsapp kan ha funktioner på olika språk.
+För att göra det ännu mer intressant är en funktion skriven i JavaScript och en i C#-skript. Detta visar hur en funktionsapp kan ha funktioner på olika språk. 
 
-## <a name="watch-the-video"></a>Titta på videon
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+Det här scenariot visas i en [video på Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Skapa en funktion som skriver till kön
 
@@ -197,6 +194,6 @@ Mer information om Azure Functions finns i dessa ämnen.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

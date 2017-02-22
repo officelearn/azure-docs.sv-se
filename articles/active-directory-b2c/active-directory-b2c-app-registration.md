@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 0b87ec728891d4f64bb7b2e4b7b4f0f2276b1ffc
-ms.openlocfilehash: ca75ddf8d099f411c4ae1af00e922f26e145f939
+ms.sourcegitcommit: fd22e9596feecbc12e577a4abfb47552e1b6e520
+ms.openlocfilehash: da8f083cb7bca59501df080036e789a0fb75731e
 
 
 ---
@@ -29,7 +29,7 @@ Om du vill skapa ett program som accepterar registrering och inloggning av konsu
 ## <a name="navigate-to-the-b2c-features-blade"></a>Gå till B2C-funktionsbladet
 Om B2C-funktionsbladet är fäst på startsidan visas bladet så fort du loggar in på [Azure-portalen](https://portal.azure.com/) som global administratör för B2C-klienten.
 
-Du kan också öppna bladet genom att klicka på **Bläddra** och sedan på **Azure AD B2C** i det vänstra navigeringsfönstret på [Azure-portalen](https://portal.azure.com/).
+Du kan också öppna bladet genom att klicka på **Fler tjänster** och sedan söka på **Azure AD B2C** i det vänstra navigeringsfönstret på [Azure Portal](https://portal.azure.com/).
 
 > [!IMPORTANT]
 > Du måste vara global administratör för B2C-klienten för att kunna komma åt B2C-funktionsbladet. En global administratör från en annan klient eller en användare från en klient kan inte komma åt det.  Du kan växla till din B2C-klient med klientväxlaren i det övre högra hörnet i Azure-portalen.
@@ -40,7 +40,7 @@ Du kan också öppna bladet genom att klicka på **Bläddra** och sedan på **Az
 1. Klicka på **Program** på B2C-funktionsbladet på Azure-portalen.
 2. Klicka på **+Lägg till** överst på bladet.
 3. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso B2C-app”.
-4. Om du skriver ett webbaserat program ändrar du växlingsknappen **Ta med webbapp/webb-API**till **Ja**. **Svars-URL:erna** är slutpunkter där Azure AD B2C returnerar de token som ditt program begär. Ange till exempel `https://localhost:44321/`. Om ditt webbprogram också kommer att anropa vissa webb-API som skyddas av Azure AD B2C ska du också skapa en **programhemlighet** genom att klicka på knappen **Generera nyckel**.
+4. Om du skriver ett webbaserat program ändrar du växlingsknappen **Ta med webbapp/webb-API**till **Ja**. **Svars-URL:erna** är slutpunkter där Azure AD B2C returnerar de token som ditt program begär. Ange till exempel `https://localhost:44316/`. Om ditt webbprogram också kommer att anropa vissa webb-API som skyddas av Azure AD B2C ska du också skapa en **programhemlighet** genom att klicka på knappen **Generera nyckel**.
    
    > [!NOTE]
    > En **programhemlighet** är en viktig autentiseringsuppgift och bör skyddas på lämpligt sätt.
@@ -63,6 +63,6 @@ Nu när du har registrerat ett program med Azure AD B2C kan du gå en av våra s
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

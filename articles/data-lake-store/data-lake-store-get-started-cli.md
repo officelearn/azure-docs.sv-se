@@ -1,5 +1,5 @@
 ---
-title: "Kom igång med Data Lake Store med hjälp av kommandoradsgränssnitt över flera plattformar | Microsoft Docs"
+title: "Använda kommandoradsgränssnittet för att komma igång med Azure Data Lake Store | Microsoft Docs"
 description: "Använd Azure-kommandoraden över flera plattformar för att skapa ett Data Lake Store-konto och utföra grundläggande åtgärder"
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
+ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
+ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 
 
 ---
@@ -33,9 +33,14 @@ ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
 >
 >
 
+> [!NOTE]
+> När du ska överföra och hämta stora mängder data (stora filer, ett stort antal filer eller både och) rekommenderar vi att du använder [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) eller [Azure PowerShell](data-lake-store-get-started-powershell.md). De alternativen har bättre prestanda eftersom de använder flera trådar för att parallellisera dataförflyttningen.
+> 
+>  
+
 Lär dig mer om att använda Azure-kommandoradsgränssnitt för att skapa ett Azure Data Lake Store-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta datafiler, ta bort ditt konto, osv. Mer information om Data Lake Store finns i [Översikt över Data Lake Store](data-lake-store-overview.md).
 
-Azure CLI är implementerat i Node.js. Det kan användas på alla plattformar som har stöd för Node.js, inklusive Windows, Mac- och Linux. Azure CLI är öppen källkod. Källkoden hanteras i GitHub på <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Den här artikeln beskriver bara hur man använder Azure CLI med hjälp av Data Lake Store. En allmän vägledning om hur du använder Azure CLI finns i [Så här använder du Azure CLI][azure-command-line-tools].
+Azure CLI är implementerat i Node.js. Det kan användas på alla plattformar som har stöd för Node.js, inklusive Windows, Mac- och Linux. Azure CLI är öppen källkod. Källkoden hanteras i GitHub på <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Den här artikeln beskriver bara hur man använder Azure CLI med hjälp av Data Lake Store. En allmän guide som beskriver hur du använder Azure CLI finns i [How to use the Azure CLI][azure-command-line-tools] (Använda Azure CLI).
 
 ## <a name="prerequisites"></a>Krav
 Innan du påbörjar den här artikeln måste du ha:
@@ -177,6 +182,6 @@ När du uppmanas, anger du **Y** för att ta bort kontot.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

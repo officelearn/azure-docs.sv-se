@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 6b41567f7b43fd6a56da1f571e007d31cef97b92
-ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 28984e14f5afc27b608ab37daf19d454eb7c3201
 
 
 ---
@@ -28,7 +28,7 @@ Innan du börjar måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] f
 
 1. Öppna ett gränssnitt.
 2. Navigera till rotmappen i den lokala kopian av databasen **azure-iot-gateway-sdk**.
-3. Kör skriptet **tools/build.sh --skip-unittests**. Det här skriptet använder verktyget **cmake** för att skapa en mapp som kallas **build** i rotmappen på den lokala kopian av databasen **azure-iot-gateway-sdk** och generera en make-fil. Skriptet bygger sedan lösningen och hoppar över enhetstester. Ta bort parametern **--skip-unittests** om du vill bygga och köra enhetstesterna.
+3. Kör skriptet **tools/build.sh**. Det här skriptet använder verktyget **cmake** för att skapa en mapp som kallas **build** i rotmappen på den lokala kopian av databasen **azure-iot-gateway-sdk** och generera en make-fil. Skriptet bygger sedan lösningen och hoppar över enhetstester och slutpunkt till slutpunkt-tester. Lägg till parametern **--run-unittests** om du vill skapa och köra enhetstesterna. Lägg till **--run-e2e-tests** om du vill skapa och köra slutpunkt till slutpunkt-testerna.
 
 > [!NOTE]
 > Varje gång du kör skriptet **build.sh** tar det bort och återskapar sedan mappen **build** i rotmappen på den lokala kopian av databasen **azure-iot-gateway-sdk**.
@@ -92,6 +92,6 @@ Innan du börjar måste du [ställa in din utvecklingsmiljö][lnk-setupdevbox] f
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

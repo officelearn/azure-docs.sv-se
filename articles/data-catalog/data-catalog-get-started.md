@@ -366,6 +366,6 @@ I den här självstudiekursen har du utforskat grundläggande funktioner i Azure
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

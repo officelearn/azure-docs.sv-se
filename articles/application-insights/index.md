@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure Application Insights – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig hur du använder Application Insights, en utökningsbar hantering av programprestanda för identifiering, sortering och diagnosticering av problem i webbappar och tjänster."
+services: application-insights
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: application-insights
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7f01669fe78aebfb17ebc6a33ae29d098b62868a
-ms.openlocfilehash: 8100f42cc97155431e4d3ba47f7946b546296700
+ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
+ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
 
 ---
 # <a name="application-insights-documentation"></a>Application Insights-dokumentation
 
-Application Insights är en utökningsbar hanteringstjänst för programprestanda (APM) för webbutvecklare. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar automatiskt prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet. Den fungerar för appar på en rad olika plattformar, däribland .NET, Node.js och J2EE som finns lokalt eller i molnet. Dessutom integrerar den med din devOps-process och har kopplingspunkter till ett stort antal andra verktyg.
+Lär dig att använda Application Insights, en utökningsbar hanteringstjänst för programprestanda, för webbutvecklare. Självstudier, API-referenser och annan dokumentation som visar hur du identifierar, sorterar och diagnosticerar problem i webbappar och tjänster.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -143,7 +155,7 @@ Application Insights är en utökningsbar hanteringstjänst för programprestand
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://dev.applicationinsights.io/">REST-API</a></p>
+                        <p><a href="https://dev.applicationinsights.io/">REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -151,16 +163,10 @@ Application Insights är en utökningsbar hanteringstjänst för programprestand
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentationen för Application Insights </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

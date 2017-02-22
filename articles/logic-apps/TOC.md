@@ -23,6 +23,7 @@
 ### [Logikappar som anropningsbara slutpunkter](logic-apps-http-endpoint.md)
 ### [Loopar, omfattningar och debatching](logic-apps-loops-and-scopes.md)
 ### [Använda din anpassade API](logic-apps-custom-hosted-api.md)
+### [Använda switch-sats](logic-apps-switch-case.md)
 ### [Undantagshantering](logic-apps-exception-handling.md)
 ### [Scenario för undantagshantering](logic-apps-scenario-error-and-exception-handling.md)
 ### [Hantera innehållstyper](logic-apps-content-type.md)
@@ -91,6 +92,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

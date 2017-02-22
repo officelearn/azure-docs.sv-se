@@ -1,6 +1,6 @@
 ---
 title: "Skapa, hantera eller ta bort ett lagringskonto på den klassiska Azure-portalen | Microsoft Docs"
-description: "Skapa ett nytt lagringskonto, hantera åtkomstnycklarna för ditt konto eller ta bort ett lagringskonto på Azure Portal. Läs mer om premium- och standardlagringskonton."
+description: "Skapa ett nytt lagringskonto, hantera åtkomstnycklarna för ditt konto eller ta bort ett lagringskonto på Azure-portalen. Läs mer om premium- och standardlagringskonton."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 879e199f0c712a46b89a686d6a3dd8dd877821e4
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: 599d509d00e8366a5095cac7503b11cf818e6a34
 
 
 ---
@@ -175,6 +175,6 @@ Om du vill ta bort ett lagringskonto som du inte längre använder klickar du p�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

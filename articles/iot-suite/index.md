@@ -1,10 +1,23 @@
 ---
+title: "Dokumentation om Azure IoT Suite – Självstudier, API-referens | Microsoft Docs"
+description: 
+services: iot-suite
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: iot-suite
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ceade1ccba2d1328faf548f43f51b4fa3a5343b0
+ms.sourcegitcommit: 29fb247771d662d3abcbf35e95ff0f7a8cf95af1
+ms.openlocfilehash: 461542095d9ef357460e93d65bb9f4dd8fe17c86
 
 ---
+
 # <a name="iot-suite-documentation"></a>IoT Suite-dokumentation
 
 Kom igång snabbt med Microsoft Azure IoT Suite. Använd förkonfigurerade lösningar och påskynda utvecklingen av din IoT-lösning (Sakernas Internet). Lägg till nya enheter och anslut befintliga, med hjälp av enhets-SDK:er för flera plattformar, inklusive Linux, Windows och operativsystem i realtid. Skala enkelt från några sensorer till miljontals simultant kopplade enheter och förlita dig på Azures globala tillgänglighet&mdash;oavsett hur stort eller litet ditt projekt är.
@@ -91,6 +104,6 @@ Kom igång snabbt med Microsoft Azure IoT Suite. Använd förkonfigurerade lösn
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

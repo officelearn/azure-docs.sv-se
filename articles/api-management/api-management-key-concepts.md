@@ -1,5 +1,5 @@
 ---
-title: Viktiga API Management-relaterade begrepp
+title: "Översikt över Azure API Management-relaterade viktiga begrepp | Microsoft Docs"
 description: "Läs mer om API:er, produkter, roller, grupper och andra viktiga API Management-relaterade begrepp."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
-ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
 
 ---
 # <a name="what-is-api-management"></a>Vad är API Management?
@@ -25,7 +24,7 @@ API Management hjälper organisationer att publicera API:er till externa partner
 
 Följande videoklipp innehåller en översikt över Azure API Management och demonstrerar hur du använder API Management för att lägga till många funktioner i ditt API, inklusive åtkomstkontroll, frekvensbegränsning, övervakning, händelseloggning och cachelagring av svar med minimalt arbete från din sida.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-API-Management-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
 > 
 > 
 
@@ -132,6 +131,6 @@ Om du vill veta mer om API Management tittar du på följande presentation från
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

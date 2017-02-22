@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
+ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
 
 
 ---
@@ -170,7 +170,7 @@ Klicka på en rad om du vill visa specifik information.
 Klicka på `...` om du vill visa fullständig telemetri om ett Ajax-anrop.
 
 ### <a name="no-ajax-calls-reported"></a>Rapporteras inga Ajax-anrop?
-AJAX-anrop omfattar alla HTTP-anrop som görs från skriptet på din webbsida. Om de inte har rapporterats kontrollerar du att kodfragmentet inte innehåller parametern `disableAjaxTracking` eller `maxAjaxCallsPerView`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+AJAX-anrop omfattar alla HTTP/HTTPS-anrop som görs från skriptet på din webbsida. Om de inte har rapporterats kontrollerar du att kodfragmentet inte innehåller parametern `disableAjaxTracking` eller `maxAjaxCallsPerView`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## <a name="browser-exceptions"></a>Webbläsarundantag
 Bladet Webbläsare innehåller ett sammanfattningsdiagram över undantag och ett rutnät med undantagstyper längre ned.
@@ -193,7 +193,7 @@ Välj en händelse om du vill visa mer information. Klicka på ”...” på det
 > 
 > 
 
-Du kan också använda de kraftfulla [Analytics-frågespråket](app-insights-analytics-tour.md) när du söker efter sidvyer.
+Du kan också använda de kraftfulla [Analytics-frågespråket](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) när du söker efter sidvyer.
 
 ### <a name="page-view-properties"></a>Egenskaper för sidvisning
 * **Sidvisningens varaktighet** 
@@ -230,6 +230,6 @@ Vill du veta vad användarna gör med din app?
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

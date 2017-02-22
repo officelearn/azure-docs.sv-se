@@ -78,6 +78,8 @@
 ### [Innan du börjar](azure-stack-app-service-before-you-get-started.md)
 ### [Distribuera App Service-resursprovider](azure-stack-app-service-deploy.md)
 ### [Lägga till fler webbarbetsroller](azure-stack-app-service-add-worker-roles.md)
+### [Aktivera FTP-publicering](azure-stack-app-service-enable-ftp.md)
+### [Konfigurera distributionskällor](azure-stack-app-service-configure-deployment-sources.md)
 
 
 # Felsöka
@@ -89,6 +91,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

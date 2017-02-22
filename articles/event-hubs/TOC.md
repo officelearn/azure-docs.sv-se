@@ -1,45 +1,64 @@
 # Översikt
-
 ## [Vad är Event Hubs?](event-hubs-what-is-event-hubs.md)
-## [Event Hubs-översikt](event-hubs-overview.md)
-## [Event Hubs API-översikt](event-hubs-api-overview.md)
-## [Översikt över autentisering och säkerhetsmodell](event-hubs-authentication-and-security-model-overview.md)
-
+## [Vanliga frågor och svar](event-hubs-faq.md)
 
 # Kom igång
-## [Kom igång med Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
-## [Programmeringsguide för Event Hubs](event-hubs-programming-guide.md)
-## [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
+## [Skapa en händelsehubb](event-hubs-create.md)
+## Skicka händelser
+### [.NET-standard](event-hubs-dotnet-standard-getstarted-send.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Java](event-hubs-java-get-started-send.md)
+### [C](event-hubs-c-getstarted-send.md)
+## Ta emot händelser
+### [.NET-standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+### [Java](event-hubs-java-get-started-receive-eph.md)
+### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+## [Programmeringsguide](event-hubs-programming-guide.md)
 
 # Gör så här för att
-## Kör exemplen
-### [Meddela användare om data som mottagits från sensorer](event-hubs-sensors-notify-users.md)
-### [Exempelprogram för Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
-### [Skala ut händelsebearbetning med exempelprogram för Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
+## Planera och designa
+### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
+### [Översikt över autentisering och säkerhetsmodell](event-hubs-authentication-and-security-model-overview.md)
+## Utveckla
+### [Tillgängliga API:er](event-hubs-api-overview.md)
+#### [.NET-standard](event-hubs-dotnet-standard-api-overview.md)
+#### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
+#### [Diagnostikloggar](event-hubs-diagnostic-logs.md)
+### [Autentisering och auktorisering](../service-bus-messaging/service-bus-sas.md)
+### [AMQP 1.0-protokollguide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Hantera
-### [Event Hubs-arkiv](event-hubs-archive-overview.md)
-### [Aktivera Event Hubs-arkivet med en mall](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+### [Event Hubs-hanteringsbibliotek](event-hubs-management-libraries.md)
+### Arkiv
+#### [Event Hubs-arkiv](event-hubs-archive-overview.md)
+#### [Aktivera Event Hubs-arkivet med en mall](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+#### [Använd Python för att aktivera Event Hubs-arkivet](event-hubs-archive-python.md)
 ### [Strömma Azure Diagnostics-data med Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Skapa och distribuera en händelsehubb med en Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub.md)
-### [Använd Python för att aktivera Event Hubs-arkivet](event-hubs-archive-python.md)
 
 # Referens
-## [.NET](/dotnet/api/microsoft.azure.eventhubs)
-## [Java](/java/api/com.microsoft.azure.eventhubs)
+## .NET
+### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
+### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
+### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
+## Java
+### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## [REST](/rest/api/eventhub)
+## [Undantag](event-hubs-messaging-exceptions.md)
+## [Kvoter](event-hubs-quotas.md)
 
 # Resurser
-## [Kvoter och begränsningar](event-hubs-quotas.md)
-## [Meddelandeundantag](event-hubs-messaging-exceptions.md)
-## [AMQP1.0-protokollguide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Prissättning](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Kodexempel](event-hubs-samples.md)
+## [Prissättning](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
-## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

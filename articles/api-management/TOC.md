@@ -14,6 +14,7 @@
 ## Skydda din serverdel
 ### [Skydda Webb-API-serverdelen med AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Skapa ett virtuellt nätverk](api-management-using-with-vnet.md)
+### [Anslut till ett internt virtuellt nätverk](api-management-using-with-internal-vnet.md)
 ### [Ömsesidig certifikatautentisering](api-management-howto-mutual-certificates.md)
 ## Konfigurera principer
 ### [Anpassad cachelagring](api-management-sample-cache-by-key.md)
@@ -82,6 +83,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

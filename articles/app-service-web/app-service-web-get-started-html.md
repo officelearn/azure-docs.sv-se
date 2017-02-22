@@ -1,5 +1,5 @@
 ---
-title: "Distribuera din första webbapp till Azure på fem minuter (CLI 2.0 Preview) | Microsoft Docs"
+title: "Distribuera din första HTML-webbapp till Azure på fem minuter (CLI 2.0 Preview) | Microsoft Docs"
 description: "Distribuera en exempelapp och se hur enkelt det är att köra webbappar i App Service. Börja snabbt utveckla på riktigt och se resultatet direkt."
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 42f3f17366a37e10d746fe177a93a2432dbdcca2
+ms.sourcegitcommit: fccbab2baafed3b0347f2c35b7926200ec69a450
+ms.openlocfilehash: 640f04ca9a8351543d44899946464ed7cd4db437
 
 
 ---
-# <a name="deploy-your-first-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Distribuera din första webbapp till Azure på fem minuter (CLI 2.0 Preview)
+# <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Distribuera din första HTML-webbapp till Azure på fem minuter (CLI 2.0 Preview)
 
 > [!div class="op_single_selector"]
 > * [Första HTML-webbplats](app-service-web-get-started-html.md)
@@ -57,7 +57,7 @@ Du kan slutföra uppgiften med någon av följande CLI-versioner:
 * Ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Du kan [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
+> Du kan [Prova App Service](https://azure.microsoft.com/try/app-service/) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
 > 
 > 
 
@@ -154,6 +154,6 @@ Eller gör mer med din första webbapp. Exempel:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

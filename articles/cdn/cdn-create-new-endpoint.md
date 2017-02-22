@@ -1,9 +1,9 @@
 ---
-title: "Använda Azure CDN | Microsoft Docs"
-description: "Det här avsnittet beskriver hur du aktiverar CDN (Content Delivery Network) för Azure. Självstudiekursen beskriver steg för steg hur du skapar en ny CDN-profil och CDN-slutpunkt."
+title: "Komma igång med Azure CDN | Microsoft Docs"
+description: "Det här avsnittet beskriver hur du aktiverar Azure Content Delivery Network (CDN). Självstudiekursen beskriver steg för steg hur du skapar en ny CDN-profil och CDN-slutpunkt."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
+ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
+ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
 
 
 ---
-# <a name="using-azure-cdn"></a>Använda Azure CDN
+# <a name="getting-started-with-azure-cdn"></a>Komma igång med Azure CDN
 Det här avsnittet beskriver steg för steg hur du aktiverar Azure CDN genom att skapa en ny profil och slutpunkt för CDN.
 
 > [!IMPORTANT]
@@ -106,6 +106,6 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
 
 
 ---
@@ -24,10 +24,26 @@ ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-> [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
->
->
+Den här självstudiekursen beskriver steg för steg hur du implementerar en enkel VoD-innehållsleveranstjänst (Video-on-Demand) med Azure Media Services-programmet (AMS) med hjälp av Azure Media Services .NET SDK.
+
+## <a name="prerequisites"></a>Krav
+
+Följande krävs för att kunna genomföra vägledningen:
+
+* Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
+* .NET Framework 4.0 eller senare
+* Visual Studio 2010 SP1 (Professional, Premium, Ultimate eller Express) eller senare versioner.
+
+Vägledningen innehåller följande uppgifter:
+
+1. Starta slutpunkt för direktuppspelning (med hjälp av Azure Portal).
+2. Skapar och konfigurerar ett Visual Studio-projekt.
+3. Ansluter till Media Services-kontot.
+2. Överföra en videofil.
+3. Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet.
+4. Publicera tillgången och få URL:er för strömning och progressiv överföring.  
+5. Spela upp ditt innehåll.
 
 ## <a name="overview"></a>Översikt
 Den här självstudiekursen vägleder dig genom stegen för att implementera ett program för leverans av Video-on-Demand (VoD) med Azure Media Services (AMS) SDK för .NET.
@@ -40,67 +56,27 @@ Följande bild visar några av de vanligast använda objekten när du utvecklar 
 
 Klicka på bilden för att visa den i full storlek.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
 Du kan visa hela modellen [här](https://media.windows.net/API/$metadata?api-version=2.15).  
-
-
-## <a name="prerequisites"></a>Krav
-Följande krävs för att kunna genomföra självstudien.
-
-* Du behöver ett Azure-konto för att slutföra den här självstudien.
-
-    Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda kostnadsfria Azure-tjänster och -funktioner som Web Apps-funktionen i Azure App Service.
-* Operativsystem: Windows 8 eller senare, Windows 2008 R2, Windows 7.
-* .NET Framework 4.0 eller senare
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate eller Express) eller senare versioner.
-
-## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Skapa ett Media Services-konto med Azure Portal
-Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
-
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **+New** > **Media + CDN** > **Media Services**.
-
-    ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. Ange de erfordrade värdena i **SKAPA MEDIA SERVICES-KONTO**.
-
-    ![Skapa Media Services](./media/media-services-portal-vod-get-started/media-services-new3.png)
-
-   1. Ange namnet på det nya AMS-kontot vid **Kontonamn**. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.
-   2. Vid Prenumeration väljer du mellan de olika Azure-prenumerationer som du har åtkomst till.
-   3. I **Resursgrupp** väljer du ny eller befintlig resurs.  En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Lär dig mer [här](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. För **Plats** väljer du den geografiska region som ska användas för att lagra media och metadataposter för ditt Media Services-konto. Den här regionen används för att bearbeta och strömma dina media. Endast de tillgängliga Media Services-regionerna visas i listrutan.
-   5. Vid **Storage-konto** väljer du ett lagringskonto för att tillhandahålla Blob Storage av medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett lagringskonto. Ett nytt lagringskonto skapas i samma region. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.
-
-       Mer information om lagring finns [här](../storage/storage-introduction.md).
-   6. Välj **PIN-kod för instrumentpanelen** för att se förloppet för kontodistributionen.
-4. Klicka på **Skapa** längst ned i formuläret.
-
-    När kontot har skapats läses översiktssidan in. I tabellen med slutpunkter för direktuppspelning har kontot en standardslutpunkt för direktuppspelning med tillståndet **Stoppad**.
-
-    >[!NOTE]
-    >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
-
-    ![Media Services-inställningar](./media/media-services-portal-vod-get-started/media-services-settings.png)
-
-    För att hantera AMS-kontot (till exempel överföra videor, koda tillgångar och övervaka jobbförlopp) använder du fönstret **Inställningar**.
 
 ## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Starta slutpunkter för direktuppspelning med Azure Portal
 
 När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera video via direktuppspelning med anpassningsbar bithastighet. Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-kodade innehåll med anpassningsbar bithastighet i direktuppspelningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) direkt när du så önskar, utan att du behöver lagra på förhand paketerade versioner av vart och ett av dessa direktuppspelningsformat.
 
 >[!NOTE]
->När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
+>När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**.
 
 Starta slutpunkten för direktuppspelning genom att göra följande:
 
-1. I fönstret Inställningar klickar du på Slutpunkter för direktuppspelning. 
-2. Klicka på den slutpunkt för direktuppspelning som är standard. 
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. I fönstret Inställningar klickar du på Slutpunkter för direktuppspelning.
+3. Klicka på den slutpunkt för direktuppspelning som är standard.
 
     Fönstret INFORMATION OM DEN SLUTPUNKT FÖR DIREKTUPPSPELNING SOM ÄR STANDARD visas.
 
-3. Klicka på ikonen Start.
-4. Klicka på knappen Spara för att spara ändringarna.
+4. Klicka på ikonen Start.
+5. Klicka på knappen Spara för att spara ändringarna.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
@@ -140,7 +116,7 @@ Starta slutpunkten för direktuppspelning genom att göra följande:
 
 När du använder Media Services med .NET ska du använda klassen **CloudMediaContext** för de flesta Media Services-programmeringsuppgifter. Det gäller till exempel att ansluta till Media Services-kontot, skapa, uppdatera, komma åt och ta bort följande objekt: tillgångar, tillgångsfiler, jobb, åtkomstprinciper, positionerare o.s.v.
 
-Skriv över den programklass som är standard med följande kod. Koden visar hur du läser anslutningsvärdena från filen App.config och hur du skapar objektet **CloudMediaContext** för att kunna ansluta till Media Services. Mer information om hur du ansluter till Media Services finns i [Ansluta till Media Services med Media Services SDK för .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Skriv över den programklass som är standard med följande kod. Koden visar hur du läser anslutningsvärdena från filen App.config och hur du skapar objektet **CloudMediaContext** för att kunna ansluta till Media Services. Mer information om hur du ansluter till Media Services finns i [Ansluta till Media Services med Media Services SDK för .NET](media-services-dotnet-connect-programmatically.md).
 
 Se till att uppdatera filnamnet och sökvägen till där du har din mediefil.
 
@@ -243,7 +219,7 @@ Om du vill dra nytta av dynamisk paketering måste du koda eller omkoda din mezz
 Följande kod visar hur du skickar ett kodningsjobb. Jobbet innehåller en uppgift som anger att omkodning av mezzaninfilen till en uppsättning MP4-filer med anpassningsbar bithastighet genom att använda **Media Encoder Standard**. Koden skickar jobbet och väntar tills det har slutförts.
 
 När jobbet har slutförts ska du kunna strömma din tillgång eller progressivt hämta MP4-filer som skapades på grund av omkodningen.
- 
+
 Lägg till följande metod i programklassen.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -426,7 +402,7 @@ Mer information finns i följande avsnitt:
 ## <a name="download-sample"></a>Hämta exempel
 Följande kodexempel innehåller koden som du skapade i den här kursen: [exempel](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

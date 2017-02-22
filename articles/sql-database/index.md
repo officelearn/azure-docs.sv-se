@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentation om Azure SQL Database – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig SQL Database, en databas-som-tjänst i molnet. Självstudier, videoklipp och annan dokumentation visar hur du konfigurerar, ansluter och hanterar en relationsdatabas."
+services: sql-database
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
+ms.sourcegitcommit: b7dd50ea4075bdd82ef671a3dcd05460444d2312
+ms.openlocfilehash: 53111017309665d9e2e1ca499f5b77e0424e47da
 
 ---
 
@@ -127,7 +138,7 @@ Läs om hur du använder SQL Database, en relationsdatabas-som-tjänst i molnet 
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
@@ -157,6 +168,6 @@ Läs om hur du använder SQL Database, en relationsdatabas-som-tjänst i molnet 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

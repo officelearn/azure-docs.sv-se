@@ -1,5 +1,5 @@
 ---
-title: "Distribuera din första webbapp till Azure på fem minuter | Microsoft Docs"
+title: "Distribuera din första HTML-webbapp till Azure på fem minuter | Microsoft Docs"
 description: "Distribuera en exempelapp och se hur enkelt det är att köra webbappar i App Service. Börja snabbt utveckla på riktigt och se resultatet direkt."
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: 4e2d846ef3ce6e78d5789c7b8e1b8228617837b6
+ms.sourcegitcommit: 5e532c130910e292d8b742353dfe7e24f1bf865e
+ms.openlocfilehash: 37c364ab2a3948acd20b016639887a46ee18c470
 
 
 ---
-# <a name="deploy-your-first-web-app-to-azure-in-five-minutes"></a>Distribuera din första webbapp till Azure på fem minuter
+# <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes"></a>Distribuera din första HTML-webbapp till Azure på fem minuter
 
 > [!div class="op_single_selector"]
 > * [Första HTML-webbplats](app-service-web-get-started-html-cli-nodejs.md)
@@ -57,7 +57,7 @@ Du kan slutföra uppgiften med någon av följande CLI-versioner:
 * Ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Du kan [Prova App Service](http://go.microsoft.com/fwlink/?LinkId=523751) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
+> Du kan [Prova App Service](https://azure.microsoft.com/try/app-service/) utan ett Azure-konto. Skapa en startapp och testa den i upp till en timme – inget kreditkort behövs, inga åtaganden.
 > 
 > 
 
@@ -135,6 +135,6 @@ Eller gör mer med din första webbapp. Exempel:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

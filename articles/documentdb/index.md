@@ -1,13 +1,26 @@
 ---
+title: "Dokumentation om Azure DocumentDB – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig hur du använder DocumentDB, en schemafri NoSQL-dokumentdatabas. Självstudier visar hur du integrerar med appar och använder SQL-förfrågningar i JSON-dokument."
+services: documentdb
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a7f5894e445cad808f38195838376c620a6b5944
-ms.openlocfilehash: 87fab3c99228f127326609a3e614020a982192f0
+ms.sourcegitcommit: be32b9d24db59618b42d0923b0ff4248f3329904
+ms.openlocfilehash: 347b2933a33d7a11505842ea437790d5fabf5b58
 
 ---
+
 #<a name="documentdb-documentation"></a>Dokumentation om DocumentDB
 
-Azure DocumentDB är en helt hanterad NoSQL-databastjänst för snabba och förutsägbara prestanda, hög tillgänglighet, elastisk skalning, global distribution och enkel utveckling. Som en schemafri NoSQL-databas tillhandahåller DocumentDB omfattande och välbekanta SQL-frågefunktioner med konsekvent korta svarstider för JSON-data.
+Lär dig hur du använder DocumentDB i högpresterande appar för webb, mobil, spel och IoT. Självstudier och annan dokumentation visar hur du lagrar JSON-data och utför SQL-frågor i ett flexibelt schema i denna NoSQL-databastjänst.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -176,40 +189,43 @@ Azure DocumentDB är en helt hanterad NoSQL-databastjänst för snabba och föru
 
 ---
 
-## <a name="reference"></a>Referens
+<h2>Referens</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Språk</h3>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet">NET</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/documentdb/">REST API</a></p>
+                        <p><a href="/rest/api/documentdbresourceprovider/">REST API för resursprovider</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
-### <a name="java"></a>Java
-[Java SDK-referens](http://azure.github.io/azure-documentdb-java)
-
-### <a name="net"></a>.NET
-[.NET-hanterad referens](https://msdn.microsoft.com/library/azure/dn948556)
-
-### <a name="node"></a>Node
-[Node SDK-referens](http://azure.github.io/azure-documentdb-node/DocumentClient)
-
-### <a name="python"></a>Python
-[Python-referens](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
-
-### <a name="sql"></a>SQL
-[SQL-referens](https://msdn.microsoft.com/library/azure/dn782250)
-
-### <a name="rest"></a>REST
-[REST API-referens](/rest/api/documentdb)
-
-[Resursprovider API-Referens](/rest/api/documentdbresourceprovider)
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om DocumentDB </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

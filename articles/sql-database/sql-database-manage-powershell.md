@@ -58,8 +58,8 @@ $sqlServerVersion = "12.0"
 $sqlServerLocation = "northcentralus"
 $serverAdmin = "loginname"
 $serverPassword = "password" 
-$securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-$creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+$creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 
 $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
@@ -179,6 +179,6 @@ Mer information om hur du hanterar elastiska pooler med hjälp av PowerShell fin
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

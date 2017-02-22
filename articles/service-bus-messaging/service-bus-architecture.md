@@ -1,5 +1,5 @@
 ---
-title: Service Bus-arkitektur | Microsoft Docs
+title: "Översikt över meddelandebearbetningsarkitekturen i Azure Service Bus | Microsoft Docs"
 description: "Här beskrivs arkitekturen för behandling av meddelanden och vidarebefordran i Azure Service Bus."
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
-ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: cd0e53955495752cd91323b9926f9494a70c5797
 
 
 ---
@@ -58,6 +58,6 @@ Nu när du har läst en översikt över Service Bus-arkitekturen hittar du mer i
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

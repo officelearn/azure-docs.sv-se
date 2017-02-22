@@ -19,10 +19,6 @@
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Övervaka produktjämförelse](operations-management-suite-monitoring-product-comparison.md)
 ### [Hantera aviseringar](operations-management-suite-monitoring-alerts.md)
-## Hantera
-### [Planera och distribuera](operations-management-suite-solutions-creating.md)
-### [Automation-resurser](operations-management-suite-solutions-resources-automation.md)
-### [Vyer](operations-management-suite-solutions-resources-views.md)
 ## Automatisera
 ### [Översikt över Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Backup
@@ -35,6 +31,11 @@
 ### [Utvärdering av skadlig kod](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Systemuppdateringsbedömning](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Ansluta säkerhetsprodukter](oms-security-connect-products.md)
+## Skapa lösningar
+### [Lösningar för hantering](operations-management-suite-solutions-creating.md)
+### [Automation-resurser](operations-management-suite-solutions-resources-automation.md)
+### [Loggsökningar och aviseringar](operations-management-suite-solutions-resources-searches-alerts.md)
+### [Vyer](operations-management-suite-solutions-resources-views.md)
 ## [Integrera med OMS](operations-management-suite-integration.md)
 
 
@@ -65,6 +66,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

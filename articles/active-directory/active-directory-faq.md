@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
+ms.date: 02/01/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3f550639f0e48f34200ad480f94524df2cc0b2b6
+ms.sourcegitcommit: 352e1a51787cc369b605fb16b1dfccbb8ff7e12e
+ms.openlocfilehash: 3342516b4f2cf7342761573553901d03e66efc2a
 
 
 ---
@@ -43,6 +43,13 @@ Mer information finns i:
 Alla användare som du har aktiverat för Microsofts onlinetjänster definieras i själva verket som användarkonton i en eller flera Azure AD-instanser. Du kan aktivera dessa konton för kostnadsfria Azure AD-funktioner, till exempel programåtkomst i molnet.
 
 Dessutom kompletterar Azure AD-betaltjänsterna (t.ex. Azure AD Basic, Premium, EMS osv.) andra onlinetjänster som Office 365 och Microsoft Azure med heltäckande hanterings- och säkerhetslösningar i företagsklass.
+
+- - -
+
+- - -
+**F: Finns det någon rapport som visar när mina Azure AD-användarlicenser upphör att gälla?**
+
+**S:** Nej.  Det är inte tillgängligt för närvarande.
 
 - - -
 ## <a name="getting-started-with-hybrid-azure-ad"></a>Komma igång med en Azure AD-hybridlösning
@@ -161,6 +168,6 @@ Mer information finns i [Automatisera användaretablering och avetablering för 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

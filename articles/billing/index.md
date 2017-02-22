@@ -1,17 +1,29 @@
 ---
+title: "Dokumentation om Azure Billing – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig förstå din Azure-fakturering samt att hantera och övervaka användning och kostnader. Självstudier, vanliga frågor och svar, API-referenser och annan dokumentation."
+services: billing
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: billing
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: c67a65aa1053a3acb6059625877ec1c515d49258
+ms.sourcegitcommit: 4a6b1a9e581904f7f7de2a6592dfb163ab2ec45e
+ms.openlocfilehash: 2284db5eaeba0bad709f7e2181ec357f58201d1e
 
 ---
 # <a name="azure-billing-documentation"></a>Dokumentation om Azure-fakturering
 
-Kunder och partners kräver möjligheten att kunna korrekt förutse och hantera sina Azure-kostnader. När de flyttar från en Capex- till en Opex-modell, behöver de också kunna göra en showback kontra chargeback analys, såväl som lägesåtergivning i uppskattning och fakturering, i synnerhet för stora molndistributioner.
+Lär dig förstå din Azure-fakturering och övervaka användning och kostnader. Självstudier, vanliga frågor och svar, API-referenser och annan dokumentationen visar hur du hanterar ditt konto.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing/billing-understand-your-bill">
+        <a href="/azure/billing/billing-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -76,7 +88,7 @@ Kunder och partners kräver möjligheten att kunna korrekt förutse och hantera 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">Referens för REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -98,17 +110,10 @@ Kunder och partners kräver möjligheten att kunna korrekt förutse och hantera 
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/billing.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Azure-fakturering </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

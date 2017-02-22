@@ -1,5 +1,5 @@
 ---
-title: "Översikt över Stretch Database | Microsoft Docs"
+title: "Arkivera kalla data till Azure – Stretch Database | Microsoft Docs"
 description: "Läs om hur Stretch Database migrerar dina kalldata transparent och säkert till Microsoft Azure-molnet."
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
+ms.sourcegitcommit: cfa45dbb2d6e7579ed151c0213d394581cb73c4d
+ms.openlocfilehash: 0c4355eb424f169238f274241747acff4532d589
 
 
 ---
-# <a name="stretch-database-overview"></a>Översikt över Stretch Database
+# <a name="introduction-to-stretch-database"></a>Introduktion till Stretch Database
 Stretch Database migrerar dina kalldata transparent och säkert till Microsoft Azure-molnet.
 
 Om du vill komma igång med Stretch Database direkt, se [Kom igång genom att köra guiden aktivera databas för Stretch](sql-server-stretch-database-wizard.md).
@@ -84,6 +84,6 @@ Använd Stretch Database Advisor, en funktion i SQL Server 2016 Upgrade Advisor,
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

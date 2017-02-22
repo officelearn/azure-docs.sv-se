@@ -1,4 +1,4 @@
-1. Logga in på [Azure-portalen][Azure-portalen].
+1. Logga in på [Azure portal][Azure portal].
 2. I det vänstra navigationsfältet i portalen klickar du på **Nytt**, på **Enterprise Integration** och sedan på **Relay**.
 3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
 4. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
@@ -18,6 +18,8 @@
    
     ![connection-string][connection-string]
 
+5. Upprepa föregående steg, kopiera och klistra in värdet för **primärnyckeln** till en tillfällig plats för senare användning.  
+
 <!--Image references-->
 
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
@@ -25,9 +27,9 @@
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure-portalen]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

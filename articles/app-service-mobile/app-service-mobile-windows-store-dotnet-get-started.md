@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 88f9a6b7e1f49ad58e91165a772e8453163d224c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1a031c4858bcbc75ee807ba520e1b22c89471498
 
 
 ---
@@ -41,7 +41,7 @@ För att kunna genomföra den här kursen behöver du följande:
 * [Visual Studio Community 2015] eller senare version.
 
 > [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://tryappservice.azure.com/?appServiceName=mobile). Där kan du direkt skapa en tillfällig startmobilapp i Apptjänst. Inget kreditkort behövs och du gör inga åtaganden.
+> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/mobile/). Där kan du direkt skapa en tillfällig startmobilapp i Apptjänst. Inget kreditkort behövs och du gör inga åtaganden.
 > 
 > 
 
@@ -91,6 +91,6 @@ När du har konfigurerat serverdelen för mobilappen kan du antingen skapa en ny
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

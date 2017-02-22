@@ -1,60 +1,60 @@
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
+Via Azure Marketplace får du tillgång till en mängd olika populära webbappar som har utvecklats av Microsoft och tredjepartsföretag samt programvara med öppen källkod, Webbappar som skapats från Azure Marketplace kräver inte installation av någon annan programvara än webbläsaren som används för att ansluta till [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
-In this tutorial, you'll learn:
+I den här självstudiekursen lär du dig:
 
-* How to create a new web app through the Azure Marketplace.
-* How to deploy the web app through the Azure Preview Portal.
+* Hur du skapar en ny webbapp via Azure Marketplace.
+* Hur du distribuerar webbappen via Azure Preview Portal.
 
-You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
+Du ska skapa en WordPress-blogg som använder en standardmall. Följande bild visar det färdiga programmet:
 
-![Wordpress blog][13]
+![WordPress-blogg][13]
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
 > 
 > 
 
-## Create a web app in the portal
-1. Log in to the Azure Preview Portal.
-2. Open the Azure Marketplace either by clicking the **Marketplace** icon:
+## <a name="create-a-web-app-in-the-portal"></a>Skapa en webbapp på portalen
+1. Logga in på Azure Preview Portal.
+2. Öppna Azure Marketplace antingen genom att klicka på **Marketplace**-ikonen:
    
-    ![Marketplace icon][marketplace]
+    ![Marketplace-ikon][marketplace]
    
-    Or by clicking the **New** icon on the upper right of the dashboard, and selecting **Marketplace** at the bottow of the list.
+    Eller genom att klicka på ikonen **Nytt** längst upp till höger på instrumentpanelen och välja **Marketplace** längst ned i listan.
    
-    ![Create New][5]
-3. Select **Web + Mobile**. Search for **WordPress** and click the **WordPress** icon.
+    ![Skapa ny][5]
+3. Välj **Webb + mobilt**. Leta upp **WordPress** och klicka på **WordPress**-ikonen.
    
-    ![WordPress from list][7]
-4. After reading the description of the WordPress app, select **Create**.
-5. Click on **Web app**, and provide the required values for configuring your web app.
+    ![WordPress från lista][7]
+4. När du har läst igenom beskrivningen av WordPress-appen väljer du **Skapa**.
+5. Klicka på **Webbapp** och ange de värden som krävs för att konfigurera webbappen.
    
-    ![configure your app][8]
-6. Click on **Database**, and provide the required values for configuring your MySQL database. 
+    ![konfigurera appen][8]
+6. Klicka på **Databas** och ange de värden som krävs för att konfigurera MySQL-databasen. 
    
-    ![configure database][database]
-7. Provide a name for a new resource group.
+    ![konfigurera databasen][database]
+7. Ange ett namn för en ny resursgrupp.
    
-    ![Set resource group][groupname]
-8. If necessary, click **SUBSCRIPTION**, and specify the subscription to use. 
-9. When you have finished defining the web app, click **Create**, and wait while the new web app is created.
+    ![Ange resursgrupp][groupname]
+8. Om det behövs klickar du på **PRENUMERATION** och anger vilken prenumeration du vill använda. 
+9. När du har definierat webbappen klickar du på **Skapa** och väntar medan den nya webbappen skapas.
    
-   When the app has been created, you will see the resource group containing web app and database.
+   När appen har skapats ser du resursgruppen som innehåller webbappen och databasen.
    
-   ![show group][resourcegroup]
+   ![visa grupp][resourcegroup]
 
-## Launch and manage your WordPress web app
-1. Click on your new web app to see details about your app.
+## <a name="launch-and-manage-your-wordpress-web-app"></a>Starta och hantera WordPress-webbappen
+1. Klicka på den nya webbappen för att visa information om appen.
    
-    ![launch dashboard][10]
-2. On the **Essentials** page, click either **Browse** or the link under **Url** to open the web app's welcome page.
+    ![starta instrumentpanelen][10]
+2. På sidan **Information** klickar du antingen på **Bläddra** eller på länken under **URL** för att öppna webbappens välkomstsida.
    
-    ![site URL][browse]
-3. If you have not installed WordPress, enter the appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web app's login page.
-4. Click **Login** and enter your credentials.  
-5. You'll have a new WordPress web app that looks similar to the web app below.    
+    ![webbadress][browse]
+3. Om du inte har installerat WordPress anger du konfigurationsinformationen som krävs av WordPress och klickar på **Installera WordPress** för att slutföra konfigurationen och öppna webbappens inloggningssida.
+4. Klicka på **Logga in** och ange dina autentiseringsuppgifter.  
+5. Nu har du en ny WordPress-webbapp som liknar webbappen nedan.    
    
-    ![your WordPress site][13]
+    ![din WordPress-plats][13]
 
 [5]: ./media/website-from-gallery/start-marketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
@@ -69,3 +69,8 @@ You'll build a WordPress blog that uses a default template. The following illust
 [browse]: ./media/website-from-gallery/browse-web.png
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
+
+
+<!--HONumber=Jan17_HO3-->
+
+

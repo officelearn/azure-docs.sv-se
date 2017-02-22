@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Dokumentation om Azure API Management – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder API Management för att publicera API:er på ett säkert sätt och i större skala. Dokumentation visar hur du skapar moderna API-gatewayer för befintliga serverdelstjänster."
+services: api-management
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: api-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: bc1895fc3b10c9fab96a120359e25324a1132a51
-ms.openlocfilehash: cd5342474c551bfb9eb1496ffd67f3b36933f1d8
+ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
+ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
 
 ---
 # <a name="api-management-documentation"></a>Dokumentation om API Management
@@ -96,7 +107,7 @@ Lär dig hur du använder API Management för att publicera API:er till externa,
                     <div class="cardText">
                         <h3>Kommandorad</h3>
                         <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">Klassiska PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">Klassisk PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -108,7 +119,7 @@ Lär dig hur du använder API Management för att publicera API:er till externa,
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/apimanagement/">REST-API</a></p>
+                        <p><a href="/rest/api/apimanagement/">REST API</a></p>
                         <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">REST-API (original)</a></p>
                     </div>
                 </div>
@@ -130,18 +141,12 @@ Lär dig hur du använder API Management för att publicera API:er till externa,
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om API Management </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

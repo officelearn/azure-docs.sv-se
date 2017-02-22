@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ccf25aab4d6454e27a57f9a18305ef752421896f
-ms.openlocfilehash: 6e4af8f21a3ec9613d9dc36ebceb710c0d8c9906
+ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
+ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
 
 
 ---
@@ -33,7 +33,7 @@ Den virtuella enheten StorSimple finns i två modeller, en Standardmodell, 8010 
 | **Virtuell Azure-dator** |Standard_A3 (4 kärnor, 7 GB minne) |Standard_DS3 (4 kärnor, 14 GB minne) |
 | **Versionskompatibilitet** |Versioner som körs före Uppdatering 2 eller senare |Versioner som körs med Uppdatering 2 eller senare |
 | **Regional tillgänglighet** |Alla Azure-regioner |Azure-regioner som har stöd för Premiumlagring<br></br>En lista över regioner finns i [regioner som stöds för 8020](#supported-regions-for-8020) |
-| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../storage/storage-premium-storage.md) |
 | **Riktlinjer för arbetsbelastning** |Hämtning av filer från säkerhetskopior på objektnivå |Scenarier för utveckling och test av molnet, låg latens, arbetsbelastningar med hög prestanda <br></br>Sekundär enhet för katastrofåterställning |
 
 <sup>1</sup> * Kallades tidigare 1100*.
@@ -103,7 +103,7 @@ Innan du etablerar den virtuella enheten måste du göra följande förberedelse
 Gör följande uppdateringar i din Azure StorSimple-tjänst innan du skapar en virtuell enhet:
 
 * Lägg till [åtkomstkontrollposter](storsimple-manage-acrs.md) för de virtuella datorer som ska vara värdservrar för den virtuella enheten.
-* Använd ett [lagringskonto](storsimple-manage-storage-accounts.md#add-a-storage-account) i samma region som den virtuella enheten. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premiumlagringskonto med den virtuella enheten. Mer information om hur du skapar ett [Standardlagringskonto](../storage/storage-create-storage-account.md) eller ett [Premiumlagringskonto](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+* Använd ett [lagringskonto](storsimple-manage-storage-accounts.md#add-a-storage-account) i samma region som den virtuella enheten. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premiumlagringskonto med den virtuella enheten. Mer information om hur du skapar ett [Standardlagringskonto](../storage/storage-create-storage-account.md) eller ett [Premiumlagringskonto](../storage/storage-premium-storage.md)
 * Använd ett annat lagringskonto för att skapa en virtuell enhet än det som används för dina data. Om samma lagringskonto används kan det resultera i sämre prestanda.
 
 Kontrollera att du har följande information innan du börjar:
@@ -259,6 +259,6 @@ Om du inte har någon anslutning till Internet när du skapar en virtuell enhet 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

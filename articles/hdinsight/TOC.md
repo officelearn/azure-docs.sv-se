@@ -77,9 +77,7 @@
 ### [Använda Phoenix och SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analysera tweets i realtid](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Skapa kluster i ett virtuellt nätverk](hdinsight-hbase-provision-vnet.md)
-### [Konfigurera VPN-anslutning](hdinsight-hbase-geo-replication-configure-vnets.md)
-### [Konfigurera DNS-servrar](hdinsight-hbase-geo-replication-configure-dns.md)
-### [Konfigurera HBase-geo-replikering](hdinsight-hbase-geo-replication.md)
+### [Konfigurera HBase-replikering](hdinsight-hbase-replication.md)
 ### [Utveckla en app med Java](hdinsight-hbase-build-java-maven-linux.md)
 ## Använda Storm
 ### [Distribuera och hantera topologier](hdinsight-storm-deploy-monitor-topology-linux.md)
@@ -198,7 +196,6 @@
 ### [Börja med Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
 ### [Börja med Storm](hdinsight-apache-storm-tutorial-get-started.md)
 ### [Börja med HBase](hdinsight-hbase-tutorial-get-started.md)
-### [HDInsight-exempelgalleri](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Köra MapReduce-exempel i Hadoop](hdinsight-run-samples.md)
 ### [Skapa Hadoop-kluster](hdinsight-provision-clusters.md)
 #### [Använda Azure Portal](hdinsight-hadoop-create-windows-clusters-portal.md)
@@ -228,6 +225,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

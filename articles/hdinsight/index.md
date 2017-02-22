@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentation om Azure HDInsight – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig om Hadoop på HDInsight. Dokumentation som visar dig hur du kan använda Hadoop, Spark, HBase, R-Server med flera för att bearbeta, analysera och få insikter från stordata."
+services: hdinsight
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: hdinsight
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: d78d12c6844e88da8b5d8b7cd99a38d6f4d36774
+ms.sourcegitcommit: 2d07e801ea3375e06c9f66db49219b6c79f97e61
+ms.openlocfilehash: bf303554aa47116cdfce074d87235901b5390769
 
 ---
+
 #<a name="azure-hdinsight-documentation"></a>Dokumentation om Azure HDInsight
 
 Lär dig hur du använder Hadoop i molnet på HDInsight för att analysera strömmande eller historiska data. Självstudiekurser och annan dokumentationen visar hur du skapar kluster, bearbetar och analyserar stordata och utvecklar lösningar med Hadoop, Spark, HBase, R-Server, Storm och andra tekologier i Hadoop-ekosystemet.
@@ -171,6 +183,6 @@ Lär dig hur du använder Hadoop i molnet på HDInsight för att analysera strö
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -21,11 +21,14 @@
 ## Skapa ett program
 ### [Mönster och scenarier](service-fabric-patterns-and-scenarios.md)
 ### Grundläggande inställningar
-#### [Programmeringsmodell](service-fabric-choose-framework.md)
 #### [Programmodell](service-fabric-application-model.md)
+#### [Programmeringsmodell som stöds](service-fabric-choose-framework.md)
+#### [Tjänsttillstånd](service-fabric-concepts-state.md)
 #### [Tjänstkommunikation](service-fabric-connect-and-communicate-with-services.md)
+#### [Lägga till en frontwebb](service-fabric-add-a-web-frontend.md)
 #### [Tjänstmanifestresurser](service-fabric-service-manifest-resources.md)
-#### [Verktyg](service-fabric-manage-application-in-visual-studio.md)
+#### [Hantera appar i Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+#### [Konfigurera säkra anslutningar i Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Felsökning
 ##### [Felsök en C#-tjänst i VS](service-fabric-debugging-your-application.md)
 ##### [Felsök en Java-tjänst i Eclipse](service-fabric-debugging-your-application-java.md)
@@ -36,6 +39,15 @@
 #### [Konfigurera säkerhetsprinciper för ditt program](service-fabric-application-runas-security.md)  
 #### [Konfigurera ditt program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md)  
 #### [Vanliga fel och undantag](service-fabric-errors-and-exceptions.md) 
+
+### Körbart gästprogram
+#### [Distribuera en körbar gäst](service-fabric-deploy-existing-app.md)
+#### [Distribuera flera körbara gäster](service-fabric-deploy-multiple-apps.md)
+
+### Behållarprogram
+#### [Översikt](service-fabric-containers-overview.md)
+#### [Distribuera Windows-behållare](service-fabric-deploy-container.md)
+#### [Distribuera Docker-behållare](service-fabric-deploy-container-linux.md)
 
 ### Reliable Services-program
 #### [Översikt](service-fabric-reliable-services-introduction.md)
@@ -73,15 +85,6 @@
 #### [Typserialisering](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Konfigurera kommunikationsinställningar](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
-### Körbart gästprogram
-#### [Distribuera en körbar gäst](service-fabric-deploy-existing-app.md)
-#### [Distribuera flera körbara gäster](service-fabric-deploy-multiple-apps.md)
-
-### Behållarprogram
-#### [Översikt](service-fabric-containers-overview.md)
-#### [Distribuera Windows-behållare](service-fabric-deploy-container.md)
-#### [Distribuera Docker-behållare](service-fabric-deploy-container-linux.md)
-
 ## Migrera från Cloud Services
 ### [Jämför Cloud Services med Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrera till Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -95,7 +98,7 @@
 #### [Visualisera ett kluster](service-fabric-visualizing-your-cluster.md)
 #### [Ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md)
 #### [Hantera ett kluster med Azure CLI](service-fabric-azure-cli.md) 
-#### [Säkerhet](service-fabric-cluster-security.md)
+#### [Säkra ett kluster](service-fabric-cluster-security.md)
 #### [Haveriberedskap](service-fabric-disaster-recovery.md)
 
 ### Kluster i Azure
@@ -108,6 +111,7 @@
 #### [Ta bort ett kluster](service-fabric-cluster-delete.md)
 #### [Åtkomstkontroll](service-fabric-cluster-security-roles.md)
 #### [Konfigurera ett kluster](service-fabric-cluster-fabric-settings.md)
+#### [Skydda ett kluster med certifikat](service-fabric-windows-cluster-x509-security.md)
 #### [Lägg till eller förnya klustercertifikat](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Testa ett Party-kluster utan kostnad](http://aka.ms/tryservicefabric)
 
@@ -116,30 +120,15 @@
 #### [Skapa ett fristående kluster på Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Skala ett kluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Uppgradera ett kluster](service-fabric-cluster-upgrade-windows-server.md)
-#### [Säkra ett kluster](service-fabric-windows-cluster-x509-security.md)
 #### [Åtkomstkontroll](service-fabric-cluster-security-roles.md)
 #### [Konfigurera ett kluster](service-fabric-cluster-manifest.md)
 #### [Skydda ett kluster med certifikat](service-fabric-windows-cluster-x509-security.md)  
 #### [Skydda ett kluster med Windows-säkerhet](service-fabric-windows-cluster-windows-security.md) 
 
-## Hantera och dirigera klusterresurser
-### [Översikt över Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-### [Cluster Resource Manager-arkitektur](service-fabric-cluster-resource-manager-architecture.md)
-### [Beskriv ett kluster](service-fabric-cluster-resource-manager-cluster-description.md)
-### [Översikt över programgrupper](service-fabric-cluster-resource-manager-application-groups.md)
-### [Konfigurera inställningar för Cluster Resource Manager](service-fabric-cluster-resource-manager-configure-services.md)
-### [Statistik över resursförbrukning](service-fabric-cluster-resource-manager-metrics.md)
-### [Använd tjänsttillhörighet](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-### [Placeringsprinciper av tjänster](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-### [Hantera ett kluster](service-fabric-cluster-resource-manager-management-integration.md)
-### [Klusterdefragmentering](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-### [Balansera ett kluster](service-fabric-cluster-resource-manager-balancing.md)
-### [Begränsning](service-fabric-cluster-resource-manager-advanced-throttling.md)
-### [Tjänstflöde](service-fabric-cluster-resource-manager-movement-cost.md)
-
 ## Hantera programlivscykel
 ### [Översikt](service-fabric-application-lifecycle.md)
 ### [Konfigurera kontinuerlig integrering](service-fabric-set-up-continuous-integration.md)
+### [Om inställningen ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Distribuera eller ta bort program
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -161,6 +150,7 @@
 ### [Visa hälsorapporter](service-fabric-view-entities-aggregated-health.md)
 
 ## Övervaka och diagnostisera
+### [Övervaka och diagnostisera program](service-fabric-diagnostics-overview.md)
 ### Övervaka och diagnostisera tjänster lokalt
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
@@ -168,8 +158,8 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Samla in loggar från en tjänstprocess](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Diagnostik i Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Diagnostik för tillståndskänslig Reliable Services](service-fabric-reliable-services-diagnostics.md)
+### [Diagnostik i Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Felsök ditt lokala kluster](service-fabric-troubleshoot-local-cluster-setup.md)
 ### [Felsök vanliga problem](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
@@ -191,6 +181,21 @@
 #### [Använda API:er för nodövergång](service-fabric-node-transition-apis.md)
 ### [Belastningstesta ditt program](service-fabric-vso-load-test.md)
 
+## Hantera och dirigera klusterresurser
+### [Översikt över Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+### [Cluster Resource Manager-arkitektur](service-fabric-cluster-resource-manager-architecture.md)
+### [Beskriv ett kluster](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Översikt över programgrupper](service-fabric-cluster-resource-manager-application-groups.md)
+### [Konfigurera inställningar för Cluster Resource Manager](service-fabric-cluster-resource-manager-configure-services.md)
+### [Statistik över resursförbrukning](service-fabric-cluster-resource-manager-metrics.md)
+### [Använd tjänsttillhörighet](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+### [Placeringsprinciper av tjänster](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+### [Hantera ett kluster](service-fabric-cluster-resource-manager-management-integration.md)
+### [Klusterdefragmentering](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+### [Balansera ett kluster](service-fabric-cluster-resource-manager-balancing.md)
+### [Begränsning](service-fabric-cluster-resource-manager-advanced-throttling.md)
+### [Tjänstflöde](service-fabric-cluster-resource-manager-movement-cost.md)
+
 # Referens
 ## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
 ## [Java-API](/java/api/microsoft.servicefabric.services)
@@ -208,6 +213,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

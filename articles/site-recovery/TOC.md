@@ -7,27 +7,30 @@
 ## [Titta på en presentation](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # Kom igång
-## [Förbereda för distribution](site-recovery-best-practices.md)
+## [Replikera virtuella VMWare-datorer till Azure](site-recovery-vmware-to-azure.md)
+## [Replikera virtuella VMware-datorer till Azure i en distribution för flera innehavare (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Replikera virtuella Hyper-V-datorer till Azure (med VMM)](site-recovery-vmm-to-azure.md)
+## [Replikera Hyper-V-VM:ar till Azure](site-recovery-hyper-v-site-to-azure.md)
+## [Replikera virtuella VMware-datorer och fysiska servrar till en sekundär plats](site-recovery-vmware-to-vmware.md)
+## [Replikera virtuella Hyper-V-datorer till en sekundär plats (med VMM)](site-recovery-vmm-to-vmm.md)
 
 # Gör så här för att
 ## Planera
-### [Kapacitetsplanering](site-recovery-capacity-planner.md)
-### [Resultat för prestanda och skalningstestning](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
+### [Förhandskrav för distribution](site-recovery-prereq.md)
 ### [Saker att tänka på gällande nätverksinfrastruktur](site-recovery-network-design.md)
-### [Nätverksmappning (VMM)](site-recovery-network-mapping.md)
-### [Lagringsmappning mellan lokala platser](site-recovery-storage-mapping.md)
-## Replikera
-### [Virtuella VMWare-datorer och fysiska servrar till Azure](site-recovery-vmware-to-azure.md)
-### [Virtuella VMware-datorer och fysiska servrar till en sekundär webbplats](site-recovery-vmware-to-vmware.md)
-### [Virtuella VMware-datorer med stöd för flera innehavare till Azure  med CSP-programmet](site-recovery-multi-tenant-support-vmware-using-csp.md)
-### [Virtuella Hyper-V-datorer till Azure (med VMM)](site-recovery-vmm-to-azure.md)
-### [Virtuella Hyper-V-datorer till Azure (ingen VMM)](site-recovery-hyper-v-site-to-azure.md)
-### [Hyper-V-VM:ar till en sekundär plats](site-recovery-vmm-to-vmm.md)
-### [Hyper-V-VM:ar till en sekundär plats med SAN](site-recovery-vmm-san.md)
-### [Virtuella Hyper-V-datorer med en enkel VMM-server](site-recovery-single-vmm.md)
+### [Använda Site Recovery Capacity Planner](site-recovery-capacity-planner.md)
+### [Planera kapacitet och skala VMware-replikering till Azure](site-recovery-plan-capacity-vmware.md)
+## Konfigurera
+### [Konfigurera källmiljön för replikering](site-recovery-set-up-vmware-to-azure.md)
+### [Konfigurera replikeringsinställningar](site-recovery-setup-replication-settings-vmware.md)
+### [Distribuera mobilitetstjänsten för VMware-replikering](site-recovery-vmware-to-azure-install-mob-svc.md)
+#### [Distribuera mobilitetstjänsten med System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
+#### [Distribuera mobilitetstjänsten med Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
+### [Ta bort servrar och inaktivera skydd](site-recovery-manage-registration-and-protection.md)
 ## Migrera
+### [Migrera till Azure](site-recovery-migrate-to-azure.md)
 ### [Migrera mellan Azure-regioner](site-recovery-migrate-azure-to-azure.md)
-### [AWS Windows-instanser till Azure](site-recovery-migrate-aws-to-azure.md)
+### [Migrera AWS Windows-instanser till Azure](site-recovery-migrate-aws-to-azure.md)
 ## Arbetsbelastningar
 ### [Active Directory och DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -38,14 +41,15 @@
 ### [SAP](site-recovery-workload.md#protect-sap)
 ### [Övriga arbetsbelastningar](site-recovery-workload.md#workload-summary)
 ## Automatisera replikering
-### [Virtuella Hyper-V-datorer (med VMM) till Azure](site-recovery-deploy-with-powershell.md)
-### [Virtuella Hyper-V-datorer (utan VMM) till Azure](site-recovery-deploy-with-powershell-resource-manager.md)
-### [Lägg till automatisering i återställningsplaner](site-recovery-runbook-automation.md)
-### [Automatisera tjänstdistribution med Mobility](site-recovery-automate-mobility-service-install.md)
-## Hantera
-### [Ta bort servrar och inaktivera skydd](site-recovery-manage-registration-and-protection.md)
-### [Konfigurera återställningsplaner](site-recovery-create-recovery-plans.md)
+### [Automatisera Hyper-V-replikering till Azure (utan VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
+### [Automatisera Hyper-V-replikering till Azure (med VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+### [Automatisera Hyper-V-replikering till en sekundär plats (med VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+## Redundans och återställning efter fel
 ### [Redundans i Site Recovery](site-recovery-failover.md)
+### [Konfigurera återställningsplaner](site-recovery-create-recovery-plans.md)
+#### [Lägga till Azure-runbookflöden i återställningsplaner](site-recovery-runbook-automation.md)
+### [Köra ett redundanstest från VMware till Azure](site-recovery-test-failover-to-azure.md)
+### [Köra ett redundanstest mellan två VMM-platser](site-recovery-test-failover-vmm-to-vmm.md)
 ### [Återställ virtuella VMware-datorer och fysiska servrar](site-recovery-failback-azure-to-vmware.md)
 ## [Övervaka och felsök](site-recovery-monitoring-and-troubleshooting.md)
 
@@ -65,6 +69,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

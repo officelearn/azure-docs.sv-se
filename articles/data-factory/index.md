@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure Data Factory – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig hur du använder Data Factory för att konfigurera automatiska datapipelines till och från källor på lokala platser och i molnet, för att flytta och bearbeta data för analys."
+services: data-factory
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-factory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 5742326de5bbe91340df69402bc551f87dafca78
+ms.sourcegitcommit: 7e5e1b41828d0c3d81f5594609910ecdba02a249
+ms.openlocfilehash: 9e9a23f8ddcff428b45f08ab001489d00b3ed7a9
 
 ---
 # <a name="azure-data-factory-documentation"></a>Dokumentation om Azure Data Factory
 
-Azure Data Factory är en molnbaserad dataintegreringstjänst som automatiserar flytt och omvandling av data. Tjänsten Data Factory skapar dataintegrationslösningar med hjälp av tjänsten som kan mata in data från olika lager, transformera och bearbeta data och publicera resultatdata till datalager igen.
+Lär dig att använda Data Factory, en tjänst för molndataintegrering, för att ordna datalagrings-, rörelse- och bearbetningstjänster i automatiserade datapipelines. Självstudier och annan dokumentation visar hur du konfigurerar och hanterar datapipelines, samt flyttar och omvandlar data för analys.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -106,8 +118,7 @@ Azure Data Factory är en molnbaserad dataintegreringstjänst som automatiserar 
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
-                        <p><a href="/azure/data-factory/data-factory-sdks">Azure Data Factory-utvecklarreferens</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">NET</a></p>
                    </div>
                 </div>
             </div>
@@ -119,7 +130,7 @@ Azure Data Factory är en molnbaserad dataintegreringstjänst som automatiserar 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datafactory/">Referens för REST API</a></p>
+                        <p><a href="/rest/api/datafactory/">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -127,18 +138,9 @@ Azure Data Factory är en molnbaserad dataintegreringstjänst som automatiserar 
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-factory.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Data Factory </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

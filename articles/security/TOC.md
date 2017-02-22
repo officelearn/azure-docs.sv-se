@@ -23,8 +23,11 @@
 ## [Identitetshantering](security-identity-management-overview.md)
 ### [Metodtips för identitetshanteringssäkerhet](azure-security-identity-management-best-practices.md)
 ## PaaS-tjänster
-### [Metodtips för IoT-säkerhet](azure-security-iot-best-practices.md)
+### [Skydda PaaS-distributioner](security-paas-deployments.md)
+#### [Skydda PaaS-program med hjälp av SQL](security-paas-applications-using-sql.md)
+#### [Skydda PaaS-program med hjälp av Apptjänster](security-paas-applications-using-app-services.md)
 ### [IoT-säkerhetsöversikt](security-internet-of-things-overview.md)
+### [Metodtips för IoT-säkerhet](azure-security-iot-best-practices.md)
 ## Vertikala branscher
 ### [Utforma säkra hälsolösningar](security-health-care-solution.md)
 ## [Säkerhetsarkitektur](azure-security-architecture-overview.md)
@@ -33,12 +36,10 @@
 ### [Metodtips och mönster för säkerhet](security-best-practices-and-patterns.md)
 ### [Utforma elastiska program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Referens
+# Relaterat
 ## [Säkerhetscenter](security-microsoft-trust-center.md)
 ## [Microsoft Security Response Center](azure-security-response-center.md)
 ## [Penntestning](azure-security-pen-testing.md)
-
-# Relaterat
 ## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Key Vault](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
@@ -52,6 +53,7 @@
 ## [Säkerhetskurser från Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Säkerhetsvideor på Channel 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO1-->
 
 

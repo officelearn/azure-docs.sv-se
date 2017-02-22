@@ -9,6 +9,6 @@ Erbjudanden med programvara som en tjänst (SaaS), till exempel Office 365 och D
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

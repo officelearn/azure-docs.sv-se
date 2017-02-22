@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure CDN – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig hur du använder nätverk för innehållsleverans (Content Delivery Network, CDN) för att leverera innehåll från globala datacenter till alla typer av enheter. Självstudier, API-referenser och annan dokumentation."
+services: cdn
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: cdn
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 79a8dc0dc2e81d0b159b07bbb496f04e06e5d28a
+ms.sourcegitcommit: 642f9469722dfe701db8e353f4aa2b17edc00081
+ms.openlocfilehash: 67fdc8b9b4db5d311a8247995d7f8f626b90e5c5
 
 ---
 # <a name="cdn-documentation"></a>Dokumentation om CDN
 
-Azure Content Delivery Network (CDN) ger utvecklare en global lösning för att leverera innehåll med hög bandbredd som finns i Azure eller på någon annan plats.  Med hjälp av CDN-nätverket kan du cachelagra offentligt tillgängliga objekt som läses in från Azure Blob Storage, en webbapp, virtuell dator, programmapp eller annan HTTP/HTTPS-plats.  CDN-nätverket används vanligtvis för att leverera statiskt innehåll, till exempel bilder, formatmallar, dokument, filer, klientskript och HTML-sidor.
+Lär dig hur du använder nätverk för innehållsleverans (Content Delivery Network, CDN) för att tillhandahålla innehållsleverans med hög bandbredd som är baserat i Azure eller någon annanstans. Självstudier, API-referenser och annan dokumentation visar hur du använder CDN för att leverera innehåll från globala datacenter till alla typer av enheter.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -100,7 +112,7 @@ Azure Content Delivery Network (CDN) ger utvecklare en global lösning för att 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/cdn/">Referens för REST API</a></p>
+                        <p><a href="/rest/api/cdn/">REST API-referens</a></p>
                     </div>
                 </div>
             </div>
@@ -109,16 +121,10 @@ Azure Content Delivery Network (CDN) ger utvecklare en global lösning för att 
 </ul>
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
-        <div class="img"></div>
-        <div class="text">
-Ladda ned dokumentation om Azure CDN </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

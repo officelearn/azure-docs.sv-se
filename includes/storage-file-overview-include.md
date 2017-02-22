@@ -7,6 +7,6 @@ Du kan skapa Azure-filresurser med hjälp av [Azure Portal](https://portal.azure
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

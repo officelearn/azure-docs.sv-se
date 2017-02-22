@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5a0519a0fdbfc428530e5b30a3f8e4e8bcdaa50b
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: e368ae8b249fe3c33371794160440e472b0f35e3
 
 
 ---
@@ -43,7 +43,7 @@ De här självstudierna visar hur du:
 * Importerar data till en tabell med bcp in-kommandot
 * Exporterar data från en tabell med bcp out-kommandot
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
 > 
 
@@ -82,7 +82,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Se [Tabellöversikt][Tabellöversikt] eller [CREATE TABLE-syntax][CREATE TABLE-syntax] för ytterligare information om hur man skapar en tabell i SQL Data Warehouse och alternativen som finns i WITH-satsen.
+> Se [Tabellöversikt][Table Overview] eller [CREATE TABLE-syntax][CREATE TABLE syntax] för ytterligare information om hur man skapar en tabell i SQL Data Warehouse och alternativen som finns i WITH-satsen.
 > 
 > 
 
@@ -140,7 +140,7 @@ Det ska returnera följande resultat:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Steg 4: Skapa statistik på dina nyinlästa data
-SQL Data Warehouse stöder inte än automatiskt skapande eller uppdatering av statistik. För att få bästa möjliga prestanda från dina frågor, är det viktigt att statistik skapas på alla kolumner i alla tabeller efter den första inläsningen eller vid betydande dataändringar. En detaljerad förklaring av statistik finns i ämnet [Statistik][Statistik] i ämnesgruppen Utveckla. Nedan följer ett enkelt exempel på hur du skapar statistik på tabellerna som lästs in i det här exemplet
+SQL Data Warehouse stöder inte än automatiskt skapande eller uppdatering av statistik. För att få bästa möjliga prestanda från dina frågor, är det viktigt att statistik skapas på alla kolumner i alla tabeller efter den första inläsningen eller vid betydande dataändringar. En detaljerad förklaring av statistik finns i ämnet [Statistik][Statistics] i ämnesgruppen Utveckla. Nedan följer ett enkelt exempel på hur du skapar statistik på tabellerna som lästs in i det här exemplet
 
 Kör följande CREATE STATISTICS-uttryck från en sqlcmd-kommandotolk:
 
@@ -184,27 +184,27 @@ Du kan verifiera att data exporterats korrekt genom att öppna den nya filen. De
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-En översikt över inläsning finns i [Läs in data i SQL Data Warehouse][Läs in data i SQL Data Warehouse].
-Flera utvecklingstips finns [Översikt över SQL Data Warehouse-utveckling][Översikt över SQL Data Warehouse-utveckling].
+Se [Läs in data till SQL Data Warehouse][Load data into SQL Data Warehouse] för en översikt över inläsning.
+För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Läs in data i SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[SQL Data Warehouse-utvecklingsöversikt]: ./sql-data-warehouse-overview-develop.md
-[Tabellöversikt]: ./sql-data-warehouse-tables-overview.md
-[Statistik]: ./sql-data-warehouse-tables-statistics.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE-syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

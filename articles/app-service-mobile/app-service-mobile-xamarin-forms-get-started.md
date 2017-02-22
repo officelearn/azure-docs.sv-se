@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a48181c6c22e6042dd8ef39c12415979e384f8b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 6b8c5c2ac2e721c4d6f73c7c17f34eadc041e0c9
 
 
 ---
@@ -36,7 +36,7 @@ För att kunna genomföra den här kursen behöver du följande:
 * En Mac med Xcode v7.0 eller senare och Xamarin Studio Community installerat. Se avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) och om [konfiguration, installation och verifieringar för Mac-användare](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 > [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://tryappservice.azure.com/?appServiceName=mobile). Där kan du direkt skapa en tillfällig startmobilapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
+> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/mobile/). Där kan du direkt skapa en tillfällig startmobilapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
 > 
 > 
 
@@ -74,7 +74,7 @@ Det här avsnittet handlar om att köra Xamarin iOS-projektet för iOS-enheter. 
 1. Högerklicka på iOS-projektet, och klicka sedan på **Set As Startup Project**.
 2. Gå till menyn **Run** och klicka på **Start Debugging** för att bygga projektet och starta appen i iPhone-emulatorn.
 
-#### <a name="in-visual-studio"></a>I Visual Studio 2013
+#### <a name="in-visual-studio"></a>I Visual Studio&2013;
 1. Högerklicka på iOS-projektet, och klicka sedan på **Set as StartUp Project**.
 2. Gå till menyn **Build** och klicka på **Configuration Manager**.
 3. I dialogrutan **Configuration Manager** markerar du kryssrutorna **Build** och **Deploy** för iOS-projektet.
@@ -103,7 +103,7 @@ Det här avsnittet handlar om att köra Xamarin droid-projektet för Android. Du
 1. Högerklicka på Androidprojektet, och klicka sedan på **Set As Startup Project**.
 2. Gå till menyn **Run** och klicka på **Start Debugging** för att bygga projektet och starta appen i en Androidemulator.
 
-#### <a name="in-visual-studio"></a>I Visual Studio 2013
+#### <a name="in-visual-studio"></a>I Visual Studio&2013;
 1. Högerklicka på Androidprojektet (Droid), och klicka sedan på **Set as StartUp Project**.
 2. Gå till menyn **Build** och klicka på **Configuration Manager**.
 3. I dialogrutan **Configuration Manager** markerar du kryssrutorna **Build** och **Deploy** för Androidprojektet.
@@ -128,7 +128,7 @@ En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. D
 ## <a name="optional-run-the-windows-project"></a>(Valfritt) Kör Windowsprojektet
 Det här avsnittet handlar om att köra Xamarin WinApp-projektet för Windowsenheter. Du kan hoppa över det här avsnittet om du inte arbetar med Windowsenheter.
 
-#### <a name="in-visual-studio"></a>I Visual Studio 2013
+#### <a name="in-visual-studio"></a>I Visual Studio&2013;
 1. Högerklicka på något av Windowsprojekten, och klicka sedan på **Set as StartUp Project**.
 2. Gå till menyn **Build** och klicka på **Configuration Manager**.
 3. I dialogrutan **Configuration Manager** markerar du kryssrutorna **Build** och **Deploy** för Windowsprojektet som du valde.
@@ -161,9 +161,9 @@ En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. D
   Läs om hur du arbetar med den hanterade klient-SDK:n i Xamarin-appen. 
 
 <!-- Anchors. -->
-[Kom igång med mobilapp-serverdelar]:#getting-started
-[Skapa en ny mobilapp-serverdel]:#create-new-service
-[Nästa steg]:#next-steps
+[Getting started with mobile app backends]:#getting-started
+[Create a new mobile app backend]:#create-new-service
+[Next Steps]:#next-steps
 
 
 <!-- Images. -->
@@ -177,12 +177,12 @@ En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. D
 
 <!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[Mobilapps-SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure-portalen]: https://portal.azure.com/
+[Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Azure Portal]: https://portal.azure.com/
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -8,6 +8,7 @@
 ## [Proxy och brandvägg](log-analytics-proxy-firewall.md)
 ## [Användningsdata](log-analytics-usage.md)
 ## [Vanliga frågor och svar om Log Analytics](log-analytics-faq.md)
+## [Tjänstleverantörer](log-analytics-service-providers.md)
 
 # Gör så här för att
 ## Samla in data
@@ -15,7 +16,7 @@
 #### [Windows-agenter](log-analytics-windows-agents.md)
 #### [Linux-agenter](log-analytics-linux-agents.md)
 #### [Azure Virtual Machines](log-analytics-azure-vm-extension.md)
-#### [Azure Storage](log-analytics-azure-storage.md)
+#### [Azure-resurser](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)
@@ -62,11 +63,13 @@
 ## Utveckla
 ### [API för datainsamling](log-analytics-data-collector-api.md)
 ### [PowerShell-cmdletar](log-analytics-powershell-workspace-configuration.md)
+### [Resource Manager-mallar](log-analytics-template-workspace-configuration.md)
 ### [Loggsöknings-API](log-analytics-log-search-api.md)
 ### [Aviserings-API](log-analytics-api-alerts.md)
 
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST](/rest/api/loganalytics)
 
 # Resurser
 ## [Uppgraderingsanalys](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
@@ -74,6 +77,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

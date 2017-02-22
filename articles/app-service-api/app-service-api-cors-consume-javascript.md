@@ -252,6 +252,6 @@ I den här artikeln har du sett hur du aktiverar stöd för Apptjänst-CORS så 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

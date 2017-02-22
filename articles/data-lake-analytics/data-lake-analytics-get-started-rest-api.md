@@ -7,16 +7,16 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
-ms.service: data-lake-store
+ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
+ms.sourcegitcommit: 2fea3686b1484406d31c5447c7d3d7e2451b827e
+ms.openlocfilehash: 1898b3d6aa1a9ccbc9f4427cf994c02f9fa35abd
 
 
 ---
@@ -33,7 +33,7 @@ Ta reda på hur du använder WebHDFS REST API: er och Data Lake Analytics REST A
 ## <a name="authenticate-with-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
 Det finns två metoder för hur du autentiserar med Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Slutanvändarautentisering (interaktiv)
+### <a name="end-user-authentication-interactive"></a>Slutanvändarautentisering (interaktiv)
 När du använder den här metoden blir användaren uppmanad att logga in och alla åtgärder utförs i användarkontexten. 
 
 Följ de här stegen för interaktiv autentisering:
@@ -76,7 +76,7 @@ Följ de här stegen för interaktiv autentisering:
 
 Mer information om interaktiv användarautentisering finns i [Flöde beviljat med auktoriseringskod](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Tjänst-till-tjänst-autentisering (icke-interaktivt)
+### <a name="service-to-service-authentication-non-interactive"></a>Tjänst-till-tjänst-autentisering (icke-interaktivt)
 När du använder den här metoden tillhandahåller programmet sina egna autentiseringsuppgifter för att utföra åtgärderna. När du väljer den här metoden måste du skicka en POST-begäran som den som visas nedan: 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -209,7 +209,7 @@ Ersätt \<`REDACTED`\> med autentiseringstoken, \<`AzureSubscriptionID`\> med di
         ]
     }
 
-## <a name="submit-usql-jobs"></a>Skicka U-SQL-jobb
+## <a name="submit-u-sql-jobs"></a>Skicka U-SQL-jobb
 Följande Curl-kommando visar hur du skapar ett U-SQL-jobb:
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
@@ -266,7 +266,7 @@ Utdatan liknar följande:
     }
 
 
-## <a name="list-usql-jobs"></a>Lista U-SQL-jobb
+## <a name="list-u-sql-jobs"></a>Lista U-SQL-jobb
 Följande Curl-kommando visar hur du anger U-SQL-jobb i en lista:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2016-11-01 
@@ -350,6 +350,6 @@ Utdatan liknar följande:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

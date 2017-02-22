@@ -12,6 +12,7 @@
 ### [Cross-origin resource sharing (CORS)](cdn-cors.md)
 
 ## Hantera
+### [Aktivera HTTPS på en anpassad domän](cdn-custom-ssl.md)
 ### [Hantera med PowerShell](cdn-manage-powershell.md)
 ### Konfigurera livslängd
 #### [Web Apps/Cloud Services, ASP.NET eller IIS-innehåll](cdn-manage-expiration-of-cloud-service-content.md)
@@ -62,6 +63,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

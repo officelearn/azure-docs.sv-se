@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
-ms.date: 09/19/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 420b2153f6115dd712d3033e30f11f79b18cd80f
@@ -130,6 +130,6 @@ Om du vill ta bort en SQL Database, klickar du på **Ta bort** på bladet **SQL 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

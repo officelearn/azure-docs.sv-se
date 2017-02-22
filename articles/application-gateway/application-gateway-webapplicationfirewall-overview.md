@@ -92,6 +92,6 @@ När du har lärt dig mer om funktionerna i WAF går du vidare till [Konfigurera
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
+ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
+ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 
 
 ---
@@ -32,6 +32,9 @@ Den här artikeln beskriver grundläggande överväganden som utvecklare bör t�
 Det finns kodexempel för olika programmeringsspråk och plattformar. Du hittar länkar till kodexemplen på: 
 
 * Mer information: [Anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md)
+
+## <a name="tools"></a>Verktyg 
+Du kan använda verktyg baserade på öppen källkod som [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) och [VS Code](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Du kan också använda Azure-hanteringsportalen, PowerShell och REST API: er för att ytterligare höja produktiviteten.
 
 ## <a name="resource-limitations"></a>Resursbegränsningar
 Azure SQL Database hanterar de resurser som är tillgängliga för en databas på två olika sätt: resursstyrning och verkställandet av gränser.
@@ -72,11 +75,10 @@ Elastisk skalning gör det enklare att skala ut (och in).
 * [Kom igång med förhandsversionen av Elastic Scale för Azure SQL Database](sql-database-elastic-scale-get-started.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Utforska alla [funktionerna i SQL Database](https://azure.microsoft.com/services/sql-database/).
+Utforska alla [funktioner i SQL Database](sql-database-technical-overview.md)
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -192,6 +192,6 @@ Om du vill uppdatera CLI går du till katalogen där du klonade CLI och kör `gi
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

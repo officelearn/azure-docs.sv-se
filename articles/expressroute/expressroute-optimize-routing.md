@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 01/27/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
+ms.sourcegitcommit: 1b26e82f862a3b2149024d863b907899e14e7d86
+ms.openlocfilehash: 404929cf0def75d92d8bb6de8b41be3aecced458
 
 
 ---
 # <a name="optimize-expressroute-routing"></a>Optimera ExpressRoute-routning
 När du har flera ExpressRoute-kretsar måste ha du mer än en sökväg för att ansluta till Microsoft. Därför kan en icke-optimal routning inträffa - vilket innebär att din trafik får en längre sökväg till Microsoft, och Microsoft till nätverket. Ju längre nätverkssökvägen är, desto längre svarstid. Svarstiden har direkt inverkan på programmens prestanda och användarupplevelse. Den här artikeln beskriver problemet och förklarar hur du optimerar routning med standardroutningstekniker.
 
-## <a name="suboptimal-routing-case-1"></a>Icke-optimal routning, fall 1
+## <a name="suboptimal-routing-from-customer-to-microsoft"></a>Icke-optimal routning från kund till Microsoft
 Låt oss titta närmare på routningsproblemet med ett exempel. Anta att du har två kontor i USA, ett i Los Angeles och ett i New York. Ditt kontor ansluts i ett WAN (Wide Area Network), som kan vara antingen ditt eget stamnät eller leverantörens IP VPN. Du har två ExpressRoute-kretsar, en i västra USA och en i östra USA, som även är anslutna i WAN-nätverket. Naturligtvis har du två sökvägar för att ansluta till Microsoft-nätverket. Anta nu att du har Azure-distribution (t.ex. Azure Apptjänst) i både västra och östra USA. Din avsikt är att ansluta dina användare i Los Angeles till Azure i västra USA och användarna i New York till Azure i östra USA, eftersom tjänstadministratören vill att varje kontorsanvändare ska ha åtkomst till närliggande Azure-tjänster för en optimal upplevelse. Planen fungerar bra för ostkustanvändarna, men inte för västkustanvändarna. Orsaken till problemet är följande. På varje ExpressRoute-krets annonserar vi både prefixet i Azure för östra USA (23.100.0.0/16) och prefixet i Azure för västra USA (13.100.0.0/16). Om du inte vet vilket prefix som är från vilken region, kan du inte behandla dem olika. WAN-nätverket kan tro att båda prefixen är närmare östra USA än västra USA och därför dirigera båda kontorens användare till ExpressRoute-kretsen i östra USA. Till slut har du många missnöjda användare på Los Angeles-kontoret.
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
@@ -33,7 +33,7 @@ För att optimera routningen för båda kontoren måste du veta vilket prefix so
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 
-## <a name="suboptimal-routing-case-2"></a>Icke-optimal routning, fall 2
+## <a name="suboptimal-routing-from-microsoft-to-customer"></a>Icke-optimal routning från Microsoft till kund
 Här är ett annat exempel där anslutningar från Microsoft tar en längre sökväg till ditt nätverk. I detta fall måste du använda lokala Exchange-servrar och Exchange Online i en [hybridmiljö](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Dina kontor är anslutna till ett WAN-nätverk. Du annonserar prefixen för dina lokala servrar på båda kontoren till Microsoft via de två ExpressRoute-kretsarna. Exchange Online initierar anslutningar till lokala servrar vid exempelvis migrering av postlådor. Tyvärr dirigeras anslutningen till Los Angeles-kontoret till ExpressRoute-kretsen i östra USA, innan den färdas över hela kontinenten tillbaka till västkusten. Orsaken till problemet liknar det första fallet. Microsofts nätverk kan inte att avgöra vilket kundprefix som är nära östra USA och vilket som är nära västra USA. Det råkar välja fel sökväg till kontoret i Los Angeles.
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
@@ -58,6 +58,6 @@ Den andra lösningen är att du fortsätter att annonsera båda prefixen för b�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

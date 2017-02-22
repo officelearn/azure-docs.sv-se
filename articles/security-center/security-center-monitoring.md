@@ -1,5 +1,5 @@
 ---
-title: "Övervakning av säkerhetshälsa i Azure Security Center | Microsoft Docs"
+title: "Säkerhetsövervakning i Azure Security Center | Microsoft Docs"
 description: "I den här artikeln får du hjälp att komma igång med övervakningsfunktionerna i Azure Security Center."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
-ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
 
 
 ---
@@ -60,8 +60,8 @@ I den här delen finns ett antal [rekommendationer för de virtuella datorer](se
 
 > [!NOTE]
 > Endast virtuella datorer som har minst en offentlig slutpunkt visas i bladet **Nätverkshälsa** i listan över **Nätverkstopologi**.
-> 
-> 
+>
+>
 
 Varje rekommendation har en uppsättning åtgärder som du kan utföra när du klickar på den. Om du till exempel klickar på **Systemuppdateringar saknas** öppnas bladet **Systemuppdateringar saknas**. Det visar de virtuella datorer som saknar uppdateringar och allvarlighetsgraden för saknad uppdatering såsom visas på följande skärmbild.
 
@@ -87,8 +87,8 @@ För att visa information om rekommendationen klickar du på namnet på den virt
 
 > [!NOTE]
 > Säkerhetsrekommendationerna här är desamma som de som visas i bladet **Rekommendationer**. Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md). Ovanstående gäller inte bara för virtuella datorer, utan för alla resurser i panelen **Resurshälsa**.
-> 
-> 
+>
+>
 
 #### <a name="virtual-machines-section"></a>Delen Virtuella datorer
 I delen med virtuella datorer får du en överblick över alla virtuella datorer och rekommendationer. Varje kolumn representerar en uppsättning rekommendationer såsom visas på följande skärmbild:
@@ -217,7 +217,6 @@ I den här artikeln har du fått lära dig hur du använder övervakningsfunktio
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

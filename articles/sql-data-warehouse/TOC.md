@@ -80,6 +80,7 @@
 
 ### [Översikt](sql-data-warehouse-overview-load.md)
 ### [Exempeldata](sql-data-warehouse-load-sample-databases.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [BCP från SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
@@ -147,6 +148,6 @@
 ### [Datahantering](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

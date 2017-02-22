@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure Automation – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig hur du använder Automation för att automatisera processer och konfigurationshantering, för att spara tid och öka tillförlitligheten i vanliga administrativa uppgifter."
+services: automation
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: automation
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c9444c341bc5746c96719e6ebfa464f294adf2f8
+ms.sourcegitcommit: 5a96f86157516585742bf184a65f42b1a2070a95
+ms.openlocfilehash: 008fe9bc549d2ba4bc043c344b39409a04efe598
 
 ---
 # <a name="automation-documentation"></a>Dokumentation om Automation
 
-Azure Automation gör det möjligt för användare att automatisera manuella, tidskrävande, felbenägna och ofta återkommande uppgifter som är vanliga i molnmiljöer. Det sparar tid och ökar tillförlitligheten i vanliga administrativa uppgifter och schemalägger dem även så att de kan utföras automatiskt med jämna mellanrum.
+Lär dig hur du använder Automation för att spara tid och öka tillförlitligheten i vanliga administrativa uppgifter som utförs i en molnmiljö. Självstudier, API-referenser och annan dokumentation visar hur du kan automatisera processer med hjälp av runbooks eller automatisera konfigurationshantering med Desired State Configuration.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -132,7 +144,7 @@ Azure Automation gör det möjligt för användare att automatisera manuella, ti
                     <div class="cardText">
                         <h3>Kommandorad</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">Klassiska PowerShell</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">Klassisk PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -144,7 +156,7 @@ Azure Automation gör det möjligt för användare att automatisera manuella, ti
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.automation">NET</a></p>
                      </div>
                 </div>
             </div>
@@ -156,7 +168,7 @@ Azure Automation gör det möjligt för användare att automatisera manuella, ti
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST-API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST API</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt163781">REST-API (klassisk)</a></p>
                     </div>
                 </div>
@@ -165,16 +177,10 @@ Azure Automation gör det möjligt för användare att automatisera manuella, ti
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation om Automation </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

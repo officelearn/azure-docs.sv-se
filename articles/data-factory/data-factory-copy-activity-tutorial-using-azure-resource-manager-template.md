@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: 9ad4378ab27433858d14237fe451b16690711f3a
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: cc25d521b4de64643c8920d45ec9aa6c07b94302
 
 
 ---
@@ -34,6 +34,11 @@ ms.openlocfilehash: 9ad4378ab27433858d14237fe451b16690711f3a
 > 
 
 I den här självstudien får du se hur du skapar och övervakar en Azure Data Factory med en Azure Resource Manager-mall. Pipelinen i den här datafabriken kopierar data från Azure Blob Storage till Azure SQL Database.
+
+> [!NOTE]
+> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
+> 
+> Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory). 
 
 ## <a name="prerequisites"></a>Krav
 * Gå igenom [Självstudier – Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför **förutsättningsstegen**.
@@ -578,11 +583,16 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 Observera att det första kommandot använder parameterfilen för utvecklingsmiljön, det andra för testmiljön och det tredje för produktionsmiljön.  
 
-Du kan även återanvända mallen för att utföra upprepade uppgifter. Du behöver till exempel skapa många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage och Azure SQL Database. I det här scenariot använder du samma mall i samma miljö (dev-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.   
+Du kan även återanvända mallen för att utföra upprepade uppgifter. Du behöver till exempel skapa många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage och Azure SQL Database. I det här scenariot använder du samma mall i samma miljö (utvecklings-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.   
+
+## <a name="see-also"></a>Se även
+| Avsnitt | Beskrivning |
+|:--- |:--- |
+| [Pipelines](data-factory-create-pipelines.md) |Den här artikeln beskriver pipelines och aktiviteter i Azure Data Factory. |
+| [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
+| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 
 
-
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

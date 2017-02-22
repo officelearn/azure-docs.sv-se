@@ -1,5 +1,5 @@
 ---
-title: "Skapa en Internetuppkopplad belastningsutjämnare i Resource Manager med hjälp av en mall | Microsoft Docs"
+title: "Skapa en Internetaktiverad belastningsutjämnare – Azure-mall | Microsoft Docs"
 description: "Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i Resource Manager med hjälp av en mall"
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 47a057a5ff7fc893a2f82d762db499ec10a8db8e
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 29d0fb3160b43d1733d843b4cf103ad821b46018
 
 ---
 
@@ -85,6 +85,6 @@ Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

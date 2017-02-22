@@ -1,6 +1,6 @@
 ---
-title: "Om VPN-enheter för VPN Gateway-anslutningar från plats till plats i virtuella Azure-nätverk | Microsoft Docs"
-description: "Den här artikeln diskuterar VPN-enheter och IPSec-parametrar för S2S VPN-Gateway-anslutningar och innehåller länkar till konfigurationsinstruktioner och exempel."
+title: "Om VPN-enheter för Azure-anslutningar på olika platser | Microsoft Docs"
+description: "Den här artikeln beskriver VPN-enheter och IPSec-parametrar för S2S VPN Gateway-anslutningar på olika platser. Länkar finns till konfigurationsanvisningar och exempel."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
-ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: b8e65f6c314457b76bd062ea09bda53099fb79d9
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter för VPN Gateway-anslutningar från plats till plats
-En VPN-enhet krävs för att konfigurera en plats-till-plats-anslutning (S2S) i VPN. Plats-till-plats-anslutningar kan användas för att skapa en hybridlösning, eller när du vill skapa en säker anslutning mellan ditt lokala nätverk och ditt virtuella nätverk. I den här artikeln beskrivs kompatibla VPN-enheter och konfigurationsparametrar.
+En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats (S2S) på olika platser med hjälp av en VPN-gateway. Plats-till-plats-anslutningar kan användas för att skapa en hybridlösning, eller när du vill skapa en säker anslutning mellan ditt lokala nätverk och ditt virtuella nätverk. I den här artikeln beskrivs kompatibla VPN-enheter och konfigurationsparametrar.
 
 > [!NOTE]
 > När du konfigurerar en plats-till-plats-anslutning krävs en offentlig IPv4-adress för VPN-enheten.                                                                                                                                                                               
@@ -115,7 +115,7 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 | **Egenskap** | **Principbaserad** | **Routningsbaserad och standard eller VPN-gateway med hög kapacitet** |
 | --- | --- | --- |
 | IKE-version |IKEv1 |IKEv2 |
-| Hash-algoritm |SHA1(SHA128) |SHA1(SHA128) |
+| Hash-algoritm |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Fas 2, Security Association (SA), livslängd (tid) |3&600; sekunder |3&600; sekunder |
 | Fas 2, Security Association (SA), livslängd (dataflöde) |102&400;&000; kB |- |
 | IPSec-kryptering för SA och autentisering (i prioritetsordning) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Saknas |Se *Routningsbaserad gateway-IPsec, Security Association (SA), erbjudanden* (nedan) |
@@ -153,6 +153,6 @@ Följande tabellen visar IPsec, SA-kryptering och autentiseringserbjudanden. Erb
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

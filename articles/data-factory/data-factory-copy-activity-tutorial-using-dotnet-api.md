@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/27/2016
+ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
-ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabrik med hjälp av .NET-API:et. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
@@ -37,6 +37,9 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
 
 > [!NOTE]
 > Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Mer information om Data Factory .NET SDK finns i [referensen för .NET-API:et för Data Factory](https://msdn.microsoft.com/library/mt415893.aspx).
+> 
+> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
+
 
 ## <a name="prerequisites"></a>Krav
 * Gå igenom [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för att få en översikt av självstudierna och slutför de **nödvändiga** stegen.
@@ -50,41 +53,58 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 1. Starta **PowerShell**.
 2. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
 
-        Login-AzureRmAccount
+    ```PowerShell
+    Login-AzureRmAccount
+    ```
 3. Kör följande kommando för att visa alla prenumerationer för det här kontot.
 
-        Get-AzureRmSubscription
+    ```PowerShell
+    Get-AzureRmSubscription
+    ```
 4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration.
 
-        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
 
    > [!IMPORTANT]
    > Anteckna **ID** och **TenantId** i kommandots utdata.
 
 5. Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando i PowerShell.
 
-        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
     Om resursgruppen redan finns anger du om du vill uppdatera den (Y) eller lämna den som den är (N).
 
     Om du använder en annan resursgrupp måste du använda namnet på din resursgrupp i stället för ADFTutorialResourceGroup i den här självstudiekursen.
 6. Skapa ett Azure Active Directory-program.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```PowerShell
+    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```
 
     Om följande fel returneras anger du en annan URL och kör kommandot igen.
-
-        Another object with the same value for property identifierUris already exists.
+    
+    ```PowerShell
+    Another object with the same value for property identifierUris already exists.
+    ```
 7. Skapa AD-tjänstobjektet.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```PowerShell
+    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```
 8. Lägg till tjänstobjektet till rollen som **Data Factory-deltagare**.
 
-        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```PowerShell
+    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```
 9. Hämta program-ID:t.
 
-        $azureAdApplication
-
+    ```PowerShell
+    $azureAdApplication 
+    ```
     Anteckna program-ID:t (**applicationID** från utdata).
 
 Du bör nu ha tillgång till följande fyra värden efter de här stegen:
@@ -474,7 +494,10 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 16. Skapa konsolprogrammet. Klicka på **Skapa** på menyn och klicka sedan på **Build Solution** (Skapa lösning).
 17. Kontrollera att det finns minst en fil i **adftutorial**-behållaren i Azure-blobblagringen. Om inte skapar du **Emp.txt**-filen i Anteckningar med följande innehåll och laddar upp den till adftutorial-behållaren.
 
-       John, Doe    Jane, Doe
+    ```
+    John, Doe
+    Jane, Doe
+    ```
 18. Kör exemplet genom att klicka på **Felsök** -> **Börja felsöka** på menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
 19. Använd Azure-portalen och kontrollera att datafabriken **APITutorialFactory** har skapats med följande artefakter:
    * Länkad tjänst: **LinkedService_AzureStorage**
@@ -483,12 +506,18 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 20. Kontrollera att de två medarbetarposterna skapas i den "**tomma**" tabellen i den angivna Azure SQL-databasen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer detaljerad information om kopieringsaktiviteten som du använde i den här självstudiekursen finns i artikeln om [dataflödesaktiviteter](data-factory-data-movement-activities.md).
-* Mer information om Data Factory .NET SDK finns i [referensen för .NET-API:et för Data Factory](https://msdn.microsoft.com/library/mt415893.aspx). Den här artikeln beskriver inte hela .NET-API:et för Data Factory.
+| Avsnitt | Beskrivning |
+|:--- |:--- |
+| [Pipelines](data-factory-create-pipelines.md) |Den här artikeln beskriver pipelines och aktiviteter i Azure Data Factory. |
+| [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
+| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
+[Referens för .NET-API:et för Data Factory](/dotnet/api/) | Innehåller information om Data Factory .NET SDK (leta efter Microsoft.Azure.Management.DataFactories.Models i trädvyn). 
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Feb17_HO1-->
 
 

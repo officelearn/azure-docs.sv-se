@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Dokumentation om Azure Logic Apps – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig att utveckla logikappar som automatiserar och förenklar affärs-arbetsflöden mellan lokala platser och molnet. Självstudier, mallar och API-referenser."
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
-ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
+ms.sourcegitcommit: 2c45896d603913d21bebb5f5a157bb60ad9e73ac
+ms.openlocfilehash: f85fbd5c9cce81c5934abce25ccd343810bcc4dd
 
 ---
+
 # <a name="logic-apps-documentation"></a>Dokumentation om Logic Apps
 
 Lär dig hur du utvecklar Logic Apps som förenklar och integrerar skalbara arbetsflöden i molnet. Självstudier, mallar och API-referenser som hjälper dig att utforma och distribuera automatiserade affärs-arbetsflöden över lokala platser och i molnet.
@@ -150,6 +162,6 @@ Lär dig hur du utvecklar Logic Apps som förenklar och integrerar skalbara arbe
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

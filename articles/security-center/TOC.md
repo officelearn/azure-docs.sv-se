@@ -4,11 +4,13 @@
 ## [Datasäkerhet](security-center-data-security.md)
 ## Scenarier
 ### [Incidenthantering](security-center-incident-response.md)
+### [Använd rekommendationer för att förbättra säkerheten](security-center-using-recommendations.md)
 
 # Kom igång
 ## [Snabbstart](security-center-get-started.md)
 ## [Planering och drift](security-center-planning-and-operations-guide.md)
 ## [Behörigheter](security-center-permissions.md)
+## [Partnerintegration](security-center-partner-integration.md)
 ## [Vanliga frågor och svar](security-center-faq.md)
 
 # Gör så här för att
@@ -19,11 +21,13 @@
 
 ### [Programrekommendationer](security-center-application-recommendations.md)
 #### [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md)
+#### [Slutför programskydd](security-center-add-web-application-firewall.md#finalize-application-protection)
 
 ### [Nätverksrekommendationer](security-center-network-recommendations.md)
 #### [Lägga till en nästa generations brandvägg](security-center-add-next-generation-firewall.md)
 #### [Aktivera nätverkssäkerhetsgrupper](security-center-enable-network-security-groups.md)
 #### [Begränsa åtkomst via Internet-riktade slutpunkter](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Dirigera trafiken endast via NGFW](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Rekommendationer för SQL-tjänster](security-center-sql-service-recommendations.md)
 #### [Aktivera granskning på SQL-databaser](security-center-enable-auditing-on-sql-databases.md)
@@ -34,9 +38,11 @@
 #### [Tillämpa diskkryptering](security-center-apply-disk-encryption.md)
 #### [Tillämpa systemuppdateringar](security-center-apply-system-updates.md)
 #### [Aktivera datainsamling](security-center-enable-data-collection.md)
+#### [Aktivera kryptering för lagringskonto](security-center-enable-encryption-for-storage-account.md)
 #### [Aktivera VM-Agent](security-center-enable-vm-agent.md)
 #### [Installera slutpunktsskydd](security-center-install-endpoint-protection.md)
 #### [Ange säkerhetskontaktinformation](security-center-provide-security-contact-details.md)
+#### [Starta om datorn efter uppdateringarna](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Åtgärda sårbarheter i operativsystem](security-center-remediate-os-vulnerabilities.md)
 #### [Lösa slutpunktsskydd för hälsovarningar](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Uppdatera OS-versionen](security-center-update-os-version.md)
@@ -70,6 +76,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

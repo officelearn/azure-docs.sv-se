@@ -54,6 +54,6 @@ Ladda ned diagrammet **Översikt över funktioner i Microsoft Azure Machine Lear
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

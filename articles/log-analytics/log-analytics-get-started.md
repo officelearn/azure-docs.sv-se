@@ -15,11 +15,13 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 49e624dd9bfc534fdbae25fd0c8646be36851635
-ms.openlocfilehash: 4ab71b6ee09883abd4d095f2b1788cf69d44a219
+ms.sourcegitcommit: f3be7887a33578da1b2df1f5aa02e09c50f22390
+ms.openlocfilehash: 5aa5e5006bf1d0d13f96494cc13df2c970f0d765
 
 
 ---
+Obs! Om du använder Microsoft Azure Government Cloud ska du använda https://review.docs.microsoft.com/en-us/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics i stället.
+
 # <a name="get-started-with-log-analytics"></a>Komma igång med Log Analytics
 Du kan komma igång med Log Analytics i Microsoft Operations Management Suite (OMS) på bara några minuter. När du väljer hur du ska skapa en OMS-arbetsyta, vilket liknar ett konto, har du två alternativ:
 
@@ -146,6 +148,6 @@ Med Operations Management Suite kan du snabbt söka i händelser och IIS-loggar 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Nätverkssäkerhetsgrupper | Microsoft Docs"
+title: "Nätverkssäkerhetsgrupper i Azure | Microsoft Docs"
 description: "Lär dig mer om hur du isolerar och styr trafikflödet i dina virtuella nätverk med hjälp av den distribuerade brandväggen i Azure genom att använda nätverkssäkerhetsgrupper."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
 ms.service: virtual-network
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
-ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
+ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
+ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
 
 
 ---
-# <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
+# <a name="control-network-traffic-flow-with-network-security-groups"></a>Styra flödet i nätverkstrafiken med nätverkssäkerhetsgrupper
 
 En nätverkssäkerhetsgrupp (NSG) innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till dina VM-instanser i ett virtuellt nätverk. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet. Dessutom kan trafik till en enskild VM begränsas ytterligare genom att koppla en NSG direkt till den VM:en.
 
@@ -261,6 +261,6 @@ Eftersom vissa av de ovanstående NSG:erna måste kopplas till individuella nät
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

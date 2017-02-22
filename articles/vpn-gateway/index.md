@@ -1,5 +1,5 @@
 ---
-title: "Dokumentation om VPN-gateway – Självstudier och API-referens | Microsoft Docs"
+title: "Dokumentation om Azure VPN-gateway – Självstudier och API-referens | Microsoft Docs"
 description: "Lär dig hur du konfigurerar gatewayer för virtuellt privat nätverk (VPN-gateway) för att hantera trafik mellan virtuella nätverk i molnet och lokala platser, eller mellan olika virtuella nätverk i molnet."
 services: vpn-gateway
 author: carolz
@@ -13,9 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
-ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
-
+ms.sourcegitcommit: b481f480d44696476497e0eaeeee7150ed8d365b
+ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
 
 ---
 # <a name="vpn-gateway-documentation"></a>Dokumentation om VPN-gateway
@@ -169,6 +168,6 @@ Lär dig hur du konfigurerar VPN-gateway, en gateway för virtuellt privat nätv
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

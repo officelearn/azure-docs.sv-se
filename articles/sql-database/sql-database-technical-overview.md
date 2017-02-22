@@ -1,5 +1,5 @@
 ---
-title: "Vad är SQL Database? Introduktion till SQL Database | Microsoft Docs"
+title: "Vad är tjänsten Azure SQL Database? | Microsoft Docs"
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: "introduktion till sql, sql-introduktion, vad är sql database"
 services: sql-database
@@ -11,27 +11,27 @@ ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 12/20/2016
-ms.author: shkurhek;carlrab
+ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 399fdbeee479f5598e6ed7f9bd6b6080ec919c98
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: c99f16e7aa6ea6fe82f7a115b4642025a05bb241
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Vad är SQL Database? Introduktion till SQL Database
 SQL Database är en relationsdatabastjänst i Microsoft Cloud som är baserad på den marknadsledande Microsoft SQL Server-motorn och som kan hantera verksamhetskritiska arbetsbelastningar. SQL Database levererar förutsägbar prestanda på flera tjänstenivåer, dynamisk skalbarhet utan avbrott, verksamhetskontinuitet och dataskydd – allt med nästan obefintlig administration. Dessa funktioner gör att du kan fokusera på snabb apputveckling och att accelerera din tid till marknaden, istället för att ägna värdefull tid och resurser åt att hantera virtuella datorer och infrastruktur. Eftersom SQL Database är baserad på [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx)-motorn stöder SQL Database befintliga SQL Server-verktyg, bibliotek och API:er. Därför är det enkelt att utveckla nya lösningar, att flytta dina befintliga SQL Server-lösningar och att utöka dina befintliga SQL Server-lösningar till Microsoft Cloud utan att lära dig nya färdigheter.
 
-Den här artikeln ger en introduktion till nyckelkoncept och funktioner för SQL Database som relaterar till prestanda, skalbarhet och hanterbarhet, med länkar till mer detaljerad information. Om du är redo att komma igång med praktiska självstudier så ka+n du gå till [skapa din första SQL-databas](sql-database-get-started.md) eller [skapa en elastisk pool](sql-database-elastic-pool-create-portal.md). Se dem här videon för en kort demonstration.
+Den här artikeln ger en introduktion till nyckelkoncept och funktioner för SQL Database som relaterar till prestanda, skalbarhet och hanterbarhet, med länkar till mer detaljerad information. Om du är redo att komma igång med praktiska självstudier så ka+n du gå till [skapa din första SQL-databas](sql-database-get-started.md) eller [skapa en elastisk pool](sql-database-elastic-pool-manage-portal.md). Se dem här videon för en kort demonstration.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Justera prestanda och skalning utan avbrott
-SQL Database-tjänsten erbjuder tre tjänstnivåer: Basic, Standard och Premium. Varje tjänstnivå erbjuder [olika prestandanivåer och funktioner](sql-database-service-tiers.md) för att stödja lätta till tunga arbetsbelastningar för databaser. Du kan skapa din första app på en liten databas för några kronor i månaden och sedan [ändra dess tjänstnivå](sql-database-scale-up.md) manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan göra detta utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
+SQL Database-tjänsten erbjuder tre tjänstnivåer: Basic, Standard och Premium. Varje tjänstnivå erbjuder [olika prestandanivåer och funktioner](sql-database-service-tiers.md) för att stödja lätta till tunga arbetsbelastningar för databaser. Du kan skapa din första app på en liten databas för några kronor i månaden och sedan [ändra dess tjänstnivå](sql-database-service-tiers.md) manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan göra detta utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
 
 ## <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
 För många företag och appar räcker det att kunna skapa enkla databaser och reglera prestanda för fristående databaser upp eller ner efter behov, speciellt om användningsmönstren är relativt förutsägbara. Men om du har oförutsägbara användningsmönster, kan det vara svårt att hantera kostnader och din affärsmodell. [Elastiska pooler](sql-database-elastic-pool.md) är utformade för att lösa detta problem. Konceptet är enkelt. Du allokerar prestandaresurser till en pool snarare än till en individuell databas, och betalar för de samlade prestandaresurserna för poolen istället för en enskild databas prestanda. Med elastiska pooler behöver du inte fokusera på att reglera databasprestanda upp och ner när behovet av resurser varierar. Databaserna i poolen förbrukar den elastiska poolens prestandaresurser efter behov. Databaser i poolen förbrukar, men överskrider inte begränsningarna i poolen. Dina kostnader förblir förutsägbara även om den individuella databasanvändningen inte är det. Dessutom kan du [lägga till och ta bort databaser i poolen](sql-database-elastic-pool-manage-portal.md) och därmed skala din app från några få databaser till tusentals, inom en budget som du själv styr över. Slutligen kan du också styra de minimalt och maximalt tillgängliga resurser som är tillgängliga för databaser i poolen, för att säkerställa att ingen databas i poolen använder alla poolresurser och att varje databas i poolen har garanterade resurser. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
@@ -62,6 +62,6 @@ Nu när du har läst en introduktion till SQL Database och besvarat frågan "Vad
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med den klassiska Azure-portalen | Microsoft Docs"
-description: "Skapa ett VNet med en S2S VPN Gateway-anslutning mellan flera platser och hybridkonfigurationer med hjälp av den klassiska distributionsmodellen."
+title: "Ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk: VPN från plats till plats: Klassisk portal | Microsoft Docs"
+description: "Steg för att skapa en IPsec-anslutning från ditt lokala nätverk till ett virtuellt Azure-nätverk via offentligt Internet. Dessa steg hjälper dig att skapa en plats-till-plats-anslutning med VPN-gateway med hjälp av den klassiska portalen och den klassiska distributionsmodellen."
 services: vpn-gateway
 documentationcenter: 
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 024ecb29-64de-4ff1-84f1-1a45a8595f0b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
-ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-classic-portal"></a>Skapa ett VNet med en anslutning från plats till plats med den klassiska Azure-portalen
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Skapa ett VNet med en plats-till-plats-anslutning med hjälp av den klassiska portalen
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,7 +31,7 @@ ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
 
 Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-gateway från plats till plats till ditt lokala nätverk med hjälp av den klassiska distributionsmodellen och den klassiska portalen. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
 
-![Plats-till-plats-diagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
+![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Distributionsmodeller och metoder för plats-till-plats-anslutningar
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -102,6 +102,6 @@ Konfigurera den virtuella nätverksgatewayen för att skapa en säker plats-till
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

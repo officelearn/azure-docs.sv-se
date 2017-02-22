@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure Data Catalog – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig hur du konfigurerar en datakatalog där din organisation kan hitta, förstå och använda datakällor. Självstudier, API-referens och annan dokumentation."
+services: data-catalog
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-catalog
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7c2c989ca2119f7a2c14ca55a56a2bce69d94efa
+ms.sourcegitcommit: c5ada5ff9a0ba37cecff9e2d507736457cc11eb5
+ms.openlocfilehash: b04ec1a07bd1d74aa061409823c78ea814d127fc
 
 ---
 #<a name="data-catalog-documentation"></a>Dokumentation om Data Catalog
 
-Azure Data Catalog är en helt hanterad molntjänst som hjälper användarna att identifiera de datakällor de behöver och förstå datakällorna de identifierar, samtidigt som organisationerna får ut mer av sina befintliga investeringar. Data Catalog innehåller funktioner som gör att alla användare – från analytiker till datavetare och utvecklare – kan identifiera, förstå och använda datakällor. Data Catalog innehåller en gemensam modell för metadata och kommentarer så att alla användare kan bidra med sina kunskaper för att skapa en databaserad gemenskap och kultur.
+Lär dig hur du använder Data Catalog för att hjälpa ditt team och din organisation att identifiera, förstå och använda dina datakällor. Självstudier, REST API-referens och annan dokumentation visar hur du planerar och konfigurerar ditt datalager, där datakonsumenterna kan identifiera tillgängliga datakällor och få kunskap av experter inom olika ämnen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -58,7 +70,7 @@ Azure Data Catalog är en helt hanterad molntjänst som hjälper användarna att
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datacatalog/">REST-API</a></p>
+                        <p><a href="/rest/api/datacatalog/">REST API</a></p>
                     </div>
                 </div>
             </div>
@@ -66,15 +78,10 @@ Azure Data Catalog är en helt hanterad molntjänst som hjälper användarna att
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta dokumentation för Data Catalog </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

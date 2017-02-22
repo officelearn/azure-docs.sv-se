@@ -1,13 +1,25 @@
 ---
+title: "Dokumentation om Azure Data Lake Store – Självstudier, API-referens | Microsoft Docs"
+description: "Lär dig hur du konfigurerar, hanterar och får åtkomst till en högskalig, Hadoop-kompatibel Data Lake-lagringsplats för analys av data av alla storlekar, typer och inmatningshastigheter."
+services: data-lake-store
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-lake-store
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 5ddeaf6f2049983f80618d9e2294f82c60fe9af5
-ms.openlocfilehash: 2948011d1d321d0371928bbdf7a9a9414036589c
+ms.sourcegitcommit: dcc8f86fe5871d307bf304252e80e64a0084ef49
+ms.openlocfilehash: d7f56dd2658de2cc270f569b871ebf28ad610fd7
 
 ---
 # <a name="data-lake-store-documentation"></a>Dokumentation om Data Lake Store
 
-Azure Data Lake Store är en lagringsplats i hyperskala för arbetsbelastningar med stordata-analys. Med Azure Data Lake kan du samla in data av olika storlekar, former, typer och inmatningshastighet på en enda plats för drifts- och undersökande analyser.  Azure Data Lake Store kan nås från Hadoop (tillgängligt med HDInsight-kluster) med hjälp av WebHDFS-kompatibla scenarier. Den innehåller alla funktioner i företagsklass för säkerhet, hanterbarhet, skalbarhet, tillförlitlighet och tillgänglighet.
+Lär dig hur du använder Data Lake Store för att skapa en högskalig, Hadoop-kompatibel lagringsplats för analys av data av alla storlekar, typer och inmatningshastigheter. Självstudier, API-referenser och annan dokumentation visar hur du konfigurerar, hanterar och får åtkomst till en Data Lake-lagringsplats för drifts- och förberedande analys.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -157,80 +169,54 @@ Azure Data Lake Store är en lagringsplats i hyperskala för arbetsbelastningar 
 </ul>
 
 ---
-
-## <a name="reference"></a>Referens
-
+ 
+<h2>Referens</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell-referens</p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/dotnet/api">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET-hanterad referens</p>
+                        <h3>Språk</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.store">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (kontohantering)</a></p>
+                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (filsystemshantering)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java SDK-referens</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/datalakestore">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Data Lake Store REST API-referens</p>
+                        <p><a href="/rest/api/datalakestore">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-store.pdf">
-        <div class="img"></div>
-        <div class="text">
-Hämta Azure Data Lake Store-dokumentationen </div>
-    </a>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

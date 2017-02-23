@@ -8,6 +8,7 @@
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Lägga till data](search-what-is-data-import.md)
+### [Azure Portal](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Söka i ett index](search-query-overview.md)
@@ -25,7 +26,6 @@
 ### [Tjänstbegränsningar](search-limits-quotas-capacity.md)
 ### [Tjänstskalbarhet](search-capacity-planning.md)
 ### [Utforma mönster för flera innehavare](search-modeling-multitenant-saas-applications.md)
-
 
 ## Utveckla
 ### [Uppgradera SDK](search-dotnet-sdk-migration.md)
@@ -49,15 +49,16 @@
 ### [Index JSON-blobar](search-howto-index-json-blobs.md)
 ### [Konfigurera indexerarens anslutningar till SQL Server på Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Fältmappningar i indexerare](search-indexer-field-mappings.md)
-##  Design av sökupplevelse
+##  Sökupplevelse
+### [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+### [Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 ### [Exempel på Lucene-syntaxfråga](search-query-lucene-examples.md)
-### [Poängprofiler](search-get-started-scoring-profiles.md)
-### [Förslag på alternativ](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)
-### [Taggeffektivisering](https://azure.microsoft.com/blog/2015/02/05/personalizing-search-results-announcing-tag-boosting-in-azure-search/)
+### [Filtrera uttryckssyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### [Resultat](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+### [Förslag](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Aspektbaserad navigering](search-faceted-navigation.md)
-### [Språkanalysverktyg](https://msdn.microsoft.com/library/azure/dn879793)
-### [Anpassade analysverktyg](https://msdn.microsoft.com/library/azure/mt605304)
-### [Flerspråkig sökning](search-language-support.md)
+### [Språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support)
+### [Anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
 # Referens
 ## [.NET](/dotnet/api/microsoft.azure.search)
@@ -86,6 +87,6 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

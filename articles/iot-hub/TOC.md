@@ -7,11 +7,10 @@
 ## Använda en simulerad enhet
 ### [NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
-### [Node](iot-hub-node-node-getstarted.md)
+### [Node.js](iot-hub-node-node-getstarted.md)
 
 ## Använda Raspberry Pi
-### Node.js
-#### [Börja](iot-hub-raspberry-pi-kit-node-get-started.md)
+### [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### Lektion 1: Konfigurera din enhet
 ##### [Konfigurera din enhet](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
 ##### [Hämta verktygen (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
@@ -32,8 +31,7 @@
 ##### [Valfritt: Ändra LED-beteende](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 #### [Felsöka](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 
-### C
-#### [Börja](iot-hub-raspberry-pi-kit-c-get-started.md)
+### [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### Lektion 1: Konfigurera din enhet
 ##### [Konfigurera din enhet](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 ##### [Hämta verktygen (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
@@ -55,8 +53,7 @@
 #### [Felsöka](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
 ## Använda Intel Edison
-### Node.js
-#### [Börja](iot-hub-intel-edison-kit-node-get-started.md)
+### [Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### Lektion 1: Konfigurera din enhet
 ##### [Konfigurera din enhet](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
 ##### [Hämta verktygen (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
@@ -77,8 +74,7 @@
 ##### [Valfritt: Ändra LED-beteende](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
 #### [Felsöka](iot-hub-intel-edison-kit-node-troubleshooting.md)
 
-### C
-#### [Börja](iot-hub-intel-edison-kit-c-get-started.md)
+### [C](iot-hub-intel-edison-kit-c-get-started.md)
 #### Lektion 1: Konfigurera din enhet
 ##### [Konfigurera din enhet](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
 ##### [Hämta verktygen (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
@@ -100,8 +96,7 @@
 #### [Felsöka](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Använda Arduino
-### Node.js
-#### [Börja](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lektion 1: Konfigurera din enhet
 ##### [Konfigurera din enhet](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Hämta verktygen (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -127,9 +122,7 @@
 ### [Simulering i Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
 ## Använda IoT Gateway-startpaketet
-### Simulerad enhet
-
-#### [Börja](iot-hub-gateway-kit-c-sim-get-started.md)
+### [Simulerad enhet](iot-hub-gateway-kit-c-sim-get-started.md)
 #### Lektion 1: Konfigurera din NUC
 ##### [Konfigurera Intel NUC som en IoT-gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
@@ -149,8 +142,7 @@
 
 #### [Felsökning](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
-### SensorTag-enhet
-#### [Börja](iot-hub-gateway-kit-c-get-started.md)
+### [SensorTag-enhet](iot-hub-gateway-kit-c-get-started.md)
 #### Lektion 1: Konfigurera din NUC
 ##### [Konfigurera Intel NUC som en IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 
@@ -170,8 +162,7 @@
 
 ##### [Felsökning](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## Använda SDK för IoT-enheter för C
-### [Introduktion](iot-hub-device-sdk-c-intro.md)
+## [Använd SDK för IoT-enhet för C](iot-hub-device-sdk-c-intro.md)
 ### [Använda IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Använda serialiseraren](iot-hub-device-sdk-c-serializer.md)
 
@@ -280,6 +271,6 @@
 ## [Azure Certified for IoT-enhetskatalog](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

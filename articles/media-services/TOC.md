@@ -21,16 +21,18 @@
 
 # Gör så här för att
 ## Hantera
-### Hantera konton
+### Konton
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Hantera entiteter
-#### [.NET](media-services-dotnet-manage-entities.md)
+### Entiteter
+#### [NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Hantera slutpunkter för direktuppspelning](media-services-streaming-endpoints-overview.md)
-#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+### [Slutpunkter för direktuppspelning](media-services-streaming-endpoints-overview.md)
+#### [Portalen](media-services-portal-manage-streaming-endpoints.md)
 #### [NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Uppdatera Media Services efter återställning av lagringsåtkomstnycklar](media-services-roll-storage-access-keys.md)
+### Lagring
+#### [Uppdatera Media Services efter återställning av lagringsåtkomstnycklar](media-services-roll-storage-access-keys.md)
+#### [Hantera tillgångar över flera lagringskonton](meda-services-managing-multiple-storage-accounts.md)
 ### [Kvoter och begränsningar](media-services-quotas-and-limitations.md)
 
 ## Överföra innehåll
@@ -123,6 +125,8 @@
 ### [Använda PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
 ### [Använda Azure Media Services för att direktuppspela ditt HLS-innehåll som skyddats med Apple FairPlay](media-services-protect-hls-with-fairplay.md)
 ### [CENC med Multi-DRM och Access Control: En referensdesign och implementering i Azure och Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+### [Använda Axinom för att leverera Widevine-licenser till Azure Media Services](media-services-axinom-integration.md)
+### [Använda castLabs för att leverera Widevine-licenser till Azure Media Services](media-services-castlabs-integration.md)
 
 ### Tillgångsleverans
 #### Konfigurera tillgångsleveransprinciper
@@ -165,6 +169,7 @@
 ### [Översikt över filter och dynamiska manifest](media-services-dynamic-manifest-overview.md)
 #### [Skapa filter med .NET](media-services-dotnet-dynamic-manifest.md)
 #### [Skapa filter med REST](media-services-rest-dynamic-manifest.md)
+### [CDN-cachelagringsprincip i Media Services-tillägget](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publicera innehåll
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -180,20 +185,18 @@
 #### [HTML5-program med DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Adobe Open Source Media Framework-spelare](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Infoga annonser på klientsidan](media-services-inserting-ads-on-client-side.md)
+### [Licensiera Microsoft Smooth Streaming-klientportningskit](media-services-sspk.md)
 
 ## Integrera
-### [CDN-cachelagringsprincip i Media Services-tillägget](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licensiera Microsoft†" Smooth Streaming-klientportningskit](media-services-sspk.md)
-### [Hantera tillgångar över flera lagringskonton](meda-services-managing-multiple-storage-accounts.md)
-### [Använda Axinom för att leverera Widevine-licenser till Azure Media Services](media-services-axinom-integration.md)
-### [Använda castLabs för att leverera Widevine-licenser till Azure Media Services](media-services-castlabs-integration.md)
+### [Azure Functions](https://github.com/azure-samples/media-services-dotnet-functions-integration)
 
 ## Övervaka
 ### Kontrollera jobbförlopp
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
-#### [.NET](media-services-check-job-progress.md)
-### [Köa lagring för att övervaka jobbmeddelanden](media-services-dotnet-check-job-progress-with-queues.md)
+#### [NET](media-services-check-job-progress.md)
+### [Övervaka jobbaviseringar med kölagring](media-services-dotnet-check-job-progress-with-queues.md)
+### [Övervaka jobbaviseringar med webhookar](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Felsöka
 ### [Vanliga frågor och svar](media-services-frequently-asked-questions.md)
@@ -214,6 +217,6 @@
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

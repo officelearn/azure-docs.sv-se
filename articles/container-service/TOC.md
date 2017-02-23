@@ -3,7 +3,7 @@
 ## [Vanliga frågor och svar](container-service-faq.md)
 # Kom igång
 ## [Distribuera ett ACS-kluster](container-service-deployment.md)
-## [Distribuera till ACS med Azure CLI 2.0 (förhandsvisning)](container-service-create-acs-cluster-cli.md)
+## [Distribuera till ACS med Azure CLI 2.0](container-service-create-acs-cluster-cli.md)
 ## [Anslut med ett ACS-kluster](container-service-connect.md)
 ## [Skala ett ACS-kluster](container-service-scale.md)
 # Gör så här för att
@@ -23,6 +23,7 @@
 #### [Övervaka med Dynatrace](container-service-monitoring-dynatrace.md)
 ## Hantera med Kubernetes
 ### [Kom igång med Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Kom igång med Kubernetes och Windows](container-service-kubernetes-windows-walkthrough.md)
 ### [Konfigurera ett huvudnamn för tjänsten](container-service-kubernetes-service-principal.md)
 ### [Hantering av behållare – användargränssnitt för Kubernetes](container-service-kubernetes-ui.md)
 ### [Kubernetes-behållare för belastningsutjämning](container-service-kubernetes-load-balancing.md)
@@ -34,7 +35,7 @@
 ### [Docker och Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm kontinuerlig integrering](container-service-docker-swarm-setup-ci-cd.md)
 # Referens
-## [Azure CLI 2.0 (förhandsversion)](/cli/azure/acs)
+## [Azure CLI 2.0](/cli/azure/acs)
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST](/rest/api/compute/containerservices)
@@ -44,6 +45,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

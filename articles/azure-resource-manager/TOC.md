@@ -26,8 +26,7 @@
 ### [PowerShell](resource-group-template-deploy.md)
 ### [Azure CLI](resource-group-template-deploy-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
-### [REST-API](resource-group-template-deploy-rest.md)
-### [Utvecklings- och testmiljöer](solution-dev-test-environments.md)
+### [REST API](resource-group-template-deploy-rest.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Hantera
 ### [PowerShell](powershell-azure-resource-manager.md)
@@ -43,21 +42,24 @@
 ### [Skapa tjänstens huvudnamn med Azure CLI](resource-group-authenticate-service-principal-cli.md)
 ### [Skapa tjänstens huvudnamn med portalen](resource-group-create-service-principal-portal.md)
 ### [Autentiserings-API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md)
-### [Ange hanteringsprinciper](resource-manager-policy.md)
 ### [Lås resurser](resource-group-lock-resources.md)
 ### [Säkerhetsöverväganden](best-practices-resource-manager-security.md)
+## Ange resursprinciper
+### [Vad är resursprinciper?](resource-manager-policy.md)
+### [Tilldela och hantera principer](resource-manager-policy-create-assign.md)
+### [Resursprinciper för taggar](resource-manager-policy-tags.md)
+### [Lagringsprinciper](resource-manager-policy-storage.md)
+### [Principer för virtuella Linux-datorer](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Principer för virtuella Windows-datorer](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Granska och felsöka
 ### [Felsök vanliga distributionsfel](resource-manager-common-deployment-errors.md)
 ### [Visa aktivitetsloggar](resource-group-audit.md)
-### [Visa distributionsåtgärder med portalen](resource-manager-troubleshoot-deployments-portal.md)
-### [Visa distributionsåtgärder med PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [Visa distributionsåtgärder med Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
-### [Visa distributionsåtgärder med REST API](resource-manager-troubleshoot-deployments-rest.md)
+### [Visa distributionsåtgärder](resource-manager-deployment-operations.md)
 
 # Referens
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Azure 2.0 CLI (förhandsversion)](/cli/azure/resource)
-## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+## [Azure 2.0 CLI](/cli/azure/resource)
+## [NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
 ## [Mallscheman](https://github.com/Azure/azure-resource-manager-schemas)
@@ -65,11 +67,12 @@
 
 # Resurser
 ## [Begränsningsbegäranden](resource-manager-request-limits.md)
+## [Spåra asynkrona åtgärder](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Konfigurera inställningar för proxy och brandvägg i Log Analytics | Microsoft Docs"
+title: "Konfigurera inställningar för proxy och brandvägg i Azure Log Analytics | Microsoft Docs"
 description: "Konfigurera inställningar för proxy och brandvägg när dina agenter eller OMS-tjänster behöver använda specifika portar."
 services: log-analytics
 documentationcenter: 
@@ -12,18 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
-ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
+ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
+ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
 
 
 ---
 # <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Konfigurera inställningar för proxy och brandvägg i Log Analytics
-Åtgärder som krävs för att konfigurera proxy- och brandväggsinställningar för Log Analytics i OMS skiljer sig åt när du använder Operations Manager och dess agenter, jämfört med Microsoft Monitoring Agents som ansluter direkt till servrar. Läs följande avsnitt för den typ av agent som du använder.
+Åtgärder som krävs att konfigurera proxy- och brandväggsinställningar för Log Analytics skiljer sig åt för den typ av agenter som du använder. Läs följande avsnitt för den typ av agent som du använder.
 
-## <a name="configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent"></a>Konfigurera inställningar för proxy och brandvägg med Microsoft Monitoring Agent
+## <a name="settings-for-the-oms-gateway"></a>Inställningar för OMS-gatewayen
+
+Om agenterna inte har tillgång till Internet kan de i stället skicka sina data med egna nätverksresurser till OMS-gateway. Gatewayen samlar in deras data och skickar dem till OMS-tjänsten för deras räkning.
+
+Konfigurera agenter som kommunicerar med OMS-gatewayen med dess fullständiga domännamn och ett anpassat portnummer.
+
+OMS-gatewayen måste ha tillgång till Internet. Använd samma proxyserver eller brandväggsinställningar för OMS-gatewayen som du skulle använda för den typ av agenter som du har. Mer information om OMS-gatewayen finns i avsnittet [Ansluta datorer och enheter till OMS med OMS-gateway](log-analytics-oms-gateway.md).
+
+## <a name="configure-settings-with-the-microsoft-monitoring-agent"></a>Konfigurera inställningar med Microsoft Monitoring Agent
 För att Microsoft Monitoring Agent ska kunna ansluta till och registrera med OMS-tjänsten, måste den ha åtkomst till portnumret för dina domäner och URL:erna. Om du använder en proxyserver för kommunikation mellan agenten och OMS-tjänsten måste du se till att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till Internet, måste du konfigurera brandväggen att tillåta åtkomst till OMS. Följande tabeller visar vilka portar som OMS behöver.
 
 | **Agentresurs** | **Portar** | **Kringgå HTTPS-kontroll** |
@@ -71,7 +79,7 @@ Kopiera följande exempel, uppdatera den information som är specifik för din m
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 
 
-## <a name="configure-proxy-and-firewall-settings-with-operations-manager"></a>Konfigurera inställningar för proxy och brandvägg med Operations Manager
+## <a name="configure-settings-with-operations-manager"></a>Konfigurera inställningar med Operations Manager
 För att Operations Manager-hanteringsgruppen ska kunna ansluta till och registrera med OMS-tjänsten, måste den ha åtkomst till portnumren för dina domäner och URL:er. Om du använder en proxyserver för kommunikation mellan Operations Manager-hanteringsservern och OMS-tjänsten, måste du se till att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till Internet, måste du konfigurera brandväggen att tillåta åtkomst till OMS. Även om en Operations Manager-hanteringsserver inte finns bakom en proxyserver kanske dess agenter gör det. I det här fallet ska proxyservern konfigureras på samma sätt som agenterna för att kunna aktivera och tillåta att säkerhets- och logghanteringsdata skickas till OMS-webbtjänsten.
 
 För att Operations Manager-agenter ska kunna kommunicera med OMS-tjänsten måste Operations Manager-infrastrukturen (inklusive agenter) ha rätt proxyinställningar och version. Proxyinställningen för agenter har angetts i Operations Manager-konsolen. Din version måste vara något av följande:
@@ -180,6 +188,6 @@ Du kan också leta efter OMS-hanteringspaket genom att använda följande Window
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

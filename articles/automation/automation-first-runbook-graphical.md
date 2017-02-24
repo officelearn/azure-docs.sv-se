@@ -16,13 +16,17 @@ ms.topic: get-started-article
 ms.date: 07/06/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc65ebe89e1242e7fda00cede9211e267f2061f5
+ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
+ms.openlocfilehash: 6e5ccae8837491e042b85ba4b7d42227e194cb94
 
 
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
-> [AZURE.SELECTOR] - [Grafiskt](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-powershell.md) - [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
+
+> [!div class="op_single_selector"]
+> * [Grafisk](automation-first-runbook-graphical.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
 > 
 > 
 
@@ -35,7 +39,7 @@ För att kunna genomföra den här kursen behöver du följande:
 * Ett [”Kör som”-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 * En virtuell dator i Azure.  Eftersom vi ska stoppa och starta den här datorn bör den inte finnas i produktionsmiljön.
 
-## <a name="step-1-create-new-runbook"></a>Steg 1 – Skapa en ny runbook
+## <a name="step-1---create-new-runbook"></a>Steg 1 – Skapa en ny runbook
 Vi börjar genom att skapa en enkel runbook som visar texten *Hello World*.
 
 1. Öppna ditt Automation-konto på Azure-portalen.  
@@ -46,7 +50,7 @@ Vi börjar genom att skapa en enkel runbook som visar texten *Hello World*.
 5. Eftersom du ska skapa en [grafisk runbook](automation-graphical-authoring-intro.md) väljer du **Grafisk** för **Typ av runbook**.<br> ![Ny runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
 6. Klicka på **Skapa** för att skapa den nya runbooken och öppna den grafiska redigeraren.
 
-## <a name="step-2-add-activities-to-the-runbook"></a>Steg 2 – Lägga till aktiviteter i runbooken
+## <a name="step-2---add-activities-to-the-runbook"></a>Steg 2 – Lägga till aktiviteter i runbooken
 Du kan lägga till aktiviteter i din runbook med hjälp av bibliotekskontrollen till vänster i redigeraren.  Vi ska lägga till en **Write-Output**-cmdlet som returnerar text från runbooken.
 
 1. I bibliotekskontrollen klickar du i sökrutan och skriver **Write-Output**.  Sökresultaten visas nedan. <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
@@ -61,7 +65,7 @@ Du kan lägga till aktiviteter i din runbook med hjälp av bibliotekskontrollen 
 8. I rutan **Uttryck** skriver du *"Hello World"* och klickar på **OK** två gånger för att återgå till arbetsytan.<br> ![PowerShell-uttryck](media/automation-first-runbook-graphical/expression-hello-world.png)
 9. Spara runbooken genom att klicka på **Spara**.<br> ![Spara runbook](media/automation-first-runbook-graphical/runbook-toolbar-save-revised20165.png)
 
-## <a name="step-3-test-the-runbook"></a>Steg 3 – Testa runbooken
+## <a name="step-3---test-the-runbook"></a>Steg 3 – Testa runbooken
 Innan vi publicerar runbooken så att den blir tillgänglig i produktionsmiljön vill vi testa den och kontrollera att den fungerar som den ska.  När du testar en runbook kör du dess **utkastversion** och visar dess utdata interaktivt.
 
 1. Öppna bladet Test genom att klicka på **Testfönster**.<br> ![Testfönstret](media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
@@ -71,7 +75,7 @@ Innan vi publicerar runbooken så att den blir tillgänglig i produktionsmiljön
 4. När runbook-jobbet är klart visas dess utdata. I detta fall bör du se *Hello World*.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 5. Stäng bladet Test för att återgå till arbetsytan.
 
-## <a name="step-4-publish-and-start-the-runbook"></a>Steg 4 – Publicera och starta runbooken
+## <a name="step-4---publish-and-start-the-runbook"></a>Steg 4 – Publicera och starta runbooken
 Den runbook som vi precis har skapat är fortfarande i utkastläge. Vi måste publicera den innan vi kan köra den i produktion.  När du publicerar en runbook skriver du över den befintliga publicerade versionen med utkastversionen.  I vårt fall har vi ingen publicerad version än eftersom vi precis har skapat runbooken.
 
 1. Klicka på **Publicera** för att publicera runbooken och sedan på **Ja** när du uppmanas att göra det.<br> ![Publicera](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
@@ -88,7 +92,7 @@ Den runbook som vi precis har skapat är fortfarande i utkastläge. Vi måste pu
 11. Öppna bladet Jobb för den här runbooken genom att klicka på **Jobb**.  Här visas alla jobb som skapats av den här runbooken. Vi bör endast se ett jobb i listan eftersom vi bara körde jobbet en gång.<br> ![Jobb](media/automation-first-runbook-graphical/runbook-control-jobs.png)
 12. Du kan klicka på det här jobbet för att öppna samma jobbfönster som vi visade när vi startade runbooken.  På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
 
-## <a name="step-5-create-variable-assets"></a>Steg 5 – Skapa variabler för tillgångar
+## <a name="step-5---create-variable-assets"></a>Steg 5 – Skapa variabler för tillgångar
 Vi har testat och publicerat vår runbook, men hittills gör den egentligen inget användbart. Vi vill att den ska hantera Azure-resurser.  Innan vi konfigurerar runbooken för autentisering skapar vi en variabel som ska lagra prenumerations-ID:t och referera till det när vi har konfigurerat aktiviteten för autentisering i steg 6 nedan.  Genom att ta med en referens till prenumerationskontexten kan du enkelt arbeta mellan flera prenumerationer.  Kopiera prenumerations-ID:t från alternativet Prenumerationer vid navigeringsfönstret innan du fortsätter.  
 
 1. Klicka på panelen **Tillgångar** på bladet Automation-konton. Bladet **Tillgångar** öppnas.
@@ -97,7 +101,7 @@ Vi har testat och publicerat vår runbook, men hittills gör den egentligen inge
 4. Skriv **AzureSubscriptionId** i rutan **Namn** på bladet Ny variabel och skriv ditt prenumerations-ID i rutan **Värde**.  Behåll *sträng* som **Typ** och standardvärdet för **Kryptering**.  
 5. Skapa variabeln genom att klicka på **Skapa**.  
 
-## <a name="step-6-add-authentication-to-manage-azure-resources"></a>Steg 6 – Lägga till autentisering för att hantera Azure-resurser
+## <a name="step-6---add-authentication-to-manage-azure-resources"></a>Steg 6 – Lägga till autentisering för att hantera Azure-resurser
 Nu när vi har en variabel som ska innehålla vårt prenumerations-ID kan vi konfigurerar vår runbook för att autentisera med ”Kör som”-autentiseringsuppgifterna som avses i [kravavsnittet](#prerequisites).  Vi gör det genom att lägga till **Add-AzureRMAccount**-cmdleten och **tillgången** för Azures ”kör som”-anslutning på arbetsytan.  
 
 1. Öppna den grafiska redigeraren genom att klicka på **Redigera** på bladet MyFirstRunbook.<br> ![Redigera runbook](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
@@ -126,7 +130,7 @@ Nu när vi har en variabel som ska innehålla vårt prenumerations-ID kan vi kon
 
 Din runbook bör se ut ungefär så här nu: <br>![Konfiguration av runbook-autentisering](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
-## <a name="step-7-add-activity-to-start-a-virtual-machine"></a>Steg 7 – Lägga till aktivitet för att starta en virtuell dator
+## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Steg 7 – Lägga till aktivitet för att starta en virtuell dator
 Nu ska vi lägga till en **Start-AzureRmVM**-aktivitet för att starta en virtuell dator.  Du kan välja valfri virtuell dator i Azure-prenumerationen och vi ska hårdkoda namnet i cmdleten.
 
 1. Skriv **StartsAzureRm** i sökrutan för bibliotekskontrollen.
@@ -140,7 +144,7 @@ Nu ska vi lägga till en **Start-AzureRmVM**-aktivitet för att starta en virtue
 
 Din runbook bör se ut ungefär så här nu: <br>![Konfiguration av runbook-autentisering](media/automation-first-runbook-graphical/runbook-startvm.png)
 
-## <a name="step-8-add-additional-input-parameters-to-the-runbook"></a>Steg 8 – Lägga till ytterligare indataparametrar för runbooken
+## <a name="step-8---add-additional-input-parameters-to-the-runbook"></a>Steg 8 – Lägga till ytterligare indataparametrar för runbooken
 Vår runbook startar för närvarande den virtuella datorn i resursgruppen som vi angav i cmdleten **Start-AzureRmVM**, men runbooken skulle vara mer användbar om vi kunde ange båda när runbooken startar.  Nu ska vi lägga till indataparametrar för runbooken för att implementera den funktionen.
 
 1. Öppna den grafiska redigeraren genom att klicka på **Redigera** i fönstret **MyFirstRunbook**.
@@ -157,7 +161,7 @@ Vår runbook startar för närvarande den virtuella datorn i resursgruppen som v
 12. Starta runbooken genom att klicka på **Starta**.  Skriv **VMName** och **ResourceGroupName** för den virtuella datorn som du ska starta.<br> ![Starta runbook](media/automation-first-runbook-graphical/runbook-start-inputparams.png)
 13. När runbooken har slutförts kontrollerar du att den virtuella datorn har startat.
 
-## <a name="step-9-create-a-conditional-link"></a>Steg 9 – Skapa en villkorlig länk
+## <a name="step-9---create-a-conditional-link"></a>Steg 9 – Skapa en villkorlig länk
 Nu ska vi ändra runbooken så att den endast försöker starta den virtuella datorn om den inte redan startats.  Vi ska göra detta genom att lägga till en **Get-AzureRmVM**-cmdlet till runbooken som hämtar den virtuella datorns status på instansnivå. Sedan lägger vi till PowerShell-kodmodulen **Hämta status** med PowerShell-kod som kontrollerar om den virtuella datorn körs eller är stoppad.  En villkorlig länk från modulen **Hämta status** kör bara **Start-AzureRmVM** om körningsstatusen är Stoppad.  Slutligen ska vi mata ut ett meddelande som meddelar om den virtuella datorn startades eller inte med hjälp av PowerShell-cmdleten Write-Output.
 
 1. Öppna **MyFirstRunbook** i den grafiska redigeraren.

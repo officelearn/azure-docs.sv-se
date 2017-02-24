@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2016
+ms.date: 11/11/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5cd87c888a5e3407da2bad1bc3f2ef10aa75312b
+ms.sourcegitcommit: dd6b2fa2a1ca003578eaee82ef42741b9b1bf2a4
+ms.openlocfilehash: 432321c66fc991136b0b473abd0880876c31887e
 
 
 ---
@@ -28,7 +28,7 @@ Den här artikeln täcker de olika autentiseringsscenarier som stöds av Azure A
 ## <a name="automation-account-overview"></a>Översikt för Automation-konton
 När du startar Azure Automation för första gången måste du skapa minst ett Automation-konto. Automation-konton gör att du kan isolera dina Automation-resurser (runbooks, tillgångar, konfigurationer) från resurserna som finns i andra Automation-konton. Du kan använda Automation-konton för att hålla resurser åtskilda i separata logiska miljöer. Du kan exempelvis använda ett konto för utveckling, ett annat för produktion och ett annat för din lokala miljö.  Ett Azure Automation-konto skiljer sig från ditt eller dina Microsoft-konton som skapats i Azure-prenumerationen.
 
-Automation-resurserna för varje Automation-konto associeras med en enda Azure-region, men Automation-konton kan hantera resurser i alla regioner. Huvudskälet till att skapa Automation-konton i olika regioner är om du har principer som kräver att data och resurser är isolerade i en specifik region.
+Automation-resurserna för varje Automation-konto associeras med en enda Azure-region, men Automation-konton kan hantera alla resurser i din prenumeration. Huvudskälet till att skapa Automation-konton i olika regioner är om du har principer som kräver att data och resurser är isolerade i en specifik region.
 
 > [!NOTE]
 > Automation-konton, och de resurser som de innehåller, som skapats på Azure-portalen kan inte nås på den klassiska Azure-portalen. Om du vill hantera dessa konton eller deras resurser med Windows PowerShell måste du använda Azure Resource Manager-modulerna.
@@ -60,6 +60,6 @@ Följande tabell sammanfattar de olika autentiseringsmetoderna för varje miljö
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

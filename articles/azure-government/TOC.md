@@ -1,29 +1,33 @@
 # Översikt
-## [Vad är Azure Government?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Vad är Azure Government?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Domstol och allmän säkerhet](documentation-government-overview-jps.md)
 ## [USA:s försvarsdepartement](documentation-government-overview-dod.md)
 
 # Kom igång
-## [Utvecklarguide](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
+## [Utvecklarguide](documentation-government-developer-guide.md)
+## [Logga in på Azure Government-portalen](documentation-government-get-started-connect-with-portal.md)
+## [Etablera en webbapp](documentation-government-howto-deploy-webandmobile.md)
+## [Ansluta med PowerShell](documentation-government-get-started-connect-with-ps.md)
+## [Ansluta med CLI](documentation-government-get-started-connect-with-cli.md)
+## [Konfigurera Visual Studio för Azure Government](documentation-government-get-started-connect-with-vs.md)
+## [Tillgängliga tjänster](documentation-government-services.md)
 
 # Gör så här för att
 ## Planera
 ### [Säkerhet](documentation-government-plan-security.md)
 ### [Efterlevnad](documentation-government-plan-compliance.md)
 ## Hantera
-### [Avbildningar](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
-### [Marketplace](documentation-government-manage-marketplace.md)
-### [Marketplace för partners](documentation-government-manage-marketplace-partners.md)
-### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Prenumeration](documentation-government-manage-subscriptions.md)
-## Distribuera
-### Webb + mobilt
-#### [App Services](documentation-government-howto-deploy-webandmobile.md)
+
 
 # Referens
-## [Tjänster](documentation-government-services.md)
+## [Avbildningar](documentation-government-image-gallery.md)
+## [Marketplace](documentation-government-manage-marketplace.md)
+## [Marketplace för partners](documentation-government-manage-marketplace-partners.md)
+
+## Tjänster
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
 ### [Databas](documentation-government-services-database.md)
@@ -31,6 +35,7 @@
 ### [Säkerhet och identitet](documentation-government-services-securityandidentity.md)
 ### [Övervakning och hantering](documentation-government-services-monitoringandmanagement.md)
 ### [Webb och mobilt](documentation-government-services-webandmobile.md)
+
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/)

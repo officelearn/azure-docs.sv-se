@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
+ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
 
 
 ---
@@ -45,7 +45,7 @@ Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som 
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-#### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Trafik från nätverket till Microsoft
+### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Trafik från nätverket till Microsoft
 * Du måste se till att trafiken som kommer till Microsofts peeringsökväg har en giltig offentlig IPv4-adress. Microsoft måste kunna verifiera ägaren till IPv4 NAT-adresspoolen mot ett regionalt RIR (Routing Internet Registry) eller ett IRR (Internet Routing Registry). En kontroll utförs baserat på antalet AS-nummer som peerkopplas och de IP-adresser som används för NAT-enheten. Se sidan [ExpressRoute-routningskrav](expressroute-routing.md) för information om routningsregister.
 * IP-adresser som används vid konfigurationen av Azures offentliga peering och andra ExpressRoute-kretsar får inte annonseras till Microsoft via BGP-sessionen. Det finns inga begränsningar för längden på NAT:s IP-prefix som annonseras via den här peeringen.
   
@@ -54,7 +54,7 @@ Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som 
   > 
   > 
 
-#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Trafik från Microsoft till ditt nätverk
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Trafik från Microsoft till ditt nätverk
 * Vissa scenarier kräver att Microsoft initierar anslutningen till tjänstens slutpunkter som finns i ditt nätverk. Ett typexempel på scenariot är anslutningen till ADFS-servrar i ditt nätverk från Office 365. I sådana fall måste du meddela lämpliga prefix från ditt nätverk till Microsofts peering. 
 * Du måste använda SNAT för trafik till IP-adresser i ditt nätverk från Microsoft. 
 
@@ -70,6 +70,6 @@ Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

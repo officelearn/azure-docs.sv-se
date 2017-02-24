@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86a4bc7ea89416f2c67626439f08fa615a2e6511
+ms.sourcegitcommit: 337a88105d1d19fd69805caeaaef5040dad42316
+ms.openlocfilehash: 663b8a0d27e3746aec5097364643eac981810368
 
 
 ---
-# <a name="secure-your-cloud-and-onpremises-resources-using-azure-multifactor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Skydda molnresurser och lokala resurser med Azure Multi-Factor Authentication Server med AD FS i Windows Server 2012 R2
+# <a name="secure-your-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Skydda molnresurser och lokala resurser med Azure Multi-Factor Authentication Server med AD FS i Windows Server 2012 R2
 Om du använder Active Directory Federation Services (AD FS) och vill skydda molnresurser eller lokala resurser kan du konfigurera Azure Multi-Factor Authentication Server att fungera med AD FS. Den här konfigurationen utlöser tvåstegsverifiering för slutpunkter med högt värde.
 
 I den här artikeln diskuterar vi hur du använder Azure Multi-Factor Authentication Server med AD FS i Windows Server 2012 R2. Mer information finns i [Skydda molnresurser och lokala resurser med hjälp av Azure Multi-Factor Authentication Server med AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
 
-## <a name="secure-windows-server-2012-r2-ad-fs-with-azure-multifactor-authentication-server"></a>Skydda Windows Server 2012 R2 AD FS med Azure Multi-Factor Authentication Server
+## <a name="secure-windows-server-2012-r2-ad-fs-with-azure-multi-factor-authentication-server"></a>Skydda Windows Server 2012 R2 AD FS med Azure Multi-Factor Authentication Server
 När du installerar Azure Multi-Factor Authentication Server kan du välja mellan följande alternativ:
 
 * Installera Azure Multi-Factor Authentication Server lokalt på samma server som AD FS.
@@ -39,7 +39,7 @@ Innan du börjar bör du vara medveten om följande:
 * Installationsguiden för Multi-Factor Authentication AD FS-adapter skapar en säkerhetsgrupp med namnet PhoneFactor Admins i din instans av Active Directory. AD FS-tjänstkontot för federationstjänsten läggs sedan till i den här gruppen. Vi rekommenderar att du kontrollerar att gruppen PhoneFactor Admins verkligen har skapats och att AD FS-tjänstkontot är medlem i den här gruppen på domänkontrollanten. Om det behövs lägger du till AD FS-tjänstkontot i gruppen PhoneFactor Admins på domänkontrollanten manuellt.
 * Information om hur du installerar webbtjänst-SDK med användarportalen finns i [Distribuera användarportalen för Azure Multi-Factor Authentication Server.](multi-factor-authentication-get-started-portal.md)
 
-### <a name="install-azure-multifactor-authentication-server-locally-on-the-ad-fs-server"></a>Installera Azure Multi-Factor Authentication Server lokalt på AD FS-servern
+### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Installera Azure Multi-Factor Authentication Server lokalt på AD FS-servern
 1. Hämta och installera Azure Multi-Factor Authentication Server på AD FS-servern. Mer information om installationen finns i [Komma igång med Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server.md).
 2. I Azure Multi-Factor Authentication Server-hanteringskonsolen klickar du på **AD FS**-ikonen och väljer sedan alternativen **Tillåt användarregistrering** och **Tillåt användare att välja metod**.
 3. Välj ytterligare alternativ som du vill ange för din organisation.
@@ -93,7 +93,7 @@ Följ dessa steg om du vill konfigurera webbtjänst-SDK med ett klientcertifikat
 3. Exportera de offentliga och privata nycklarna för klientcertifikatet till en PFX-fil.  
 4. Exportera den offentliga nyckeln i Base64-format till en CER-fil.  
 5. I Serverhanteraren kontrollerar du att funktionen Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication är installerad. Om den inte är installerad väljer du **Lägg till roller och funktioner** för att lägga till funktionen.  
-6. I IIS-hanteraren dubbelklickar du på **Konfigurationsredigeraren** i webbplatsen som innehåller den virtuella katalogen för webbtjänst-SDK. Det är viktigt att du gör detta på webbplatsnivå och inte på nivån för den virtuella katalogen.  
+6. I IIS-hanteraren dubbelklickar du på **Konfigurationsredigeraren** i webbplatsen som innehåller den virtuella katalogen för webbtjänst-SDK. Det är viktigt att du markerar webbplatsen och inte den virtuella katalogen.  
 7. Gå till avsnittet **system.webServer/security/authentication/iisClientCertificateMappingAuthentication**.  
 8. Ange aktiverat till **sant**.  
 9. Ange oneToOneCertificateMappingsEnabled till **sant**.  
@@ -116,12 +116,34 @@ Följ dessa steg om du vill konfigurera webbtjänst-SDK med ett klientcertifikat
 
 Registrera adaptern genom att köra skriptet \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 i PowerShell. Adaptern registreras som WindowsAzureMultiFactorAuthentication. Starta om AD FS-tjänsten för att registreringen ska börja gälla.
 
+## <a name="secure-azure-ad-resources-using-ad-fs"></a>Skydda Azure AD-resurser med hjälp av AD FS
+Ställ in en anspråksregel så att Active Directory Federation Services genererar multipleauthn-kravet när en användare utför tvåstegsverifiering om du vill skydda din molnresurs. Det här anspråket överförs till Azure AD. Följ dessa steg:
+
+1. Öppna AD FS-hantering.
+2. Välj **Förlitande partsförtroenden** till vänster.
+3. Högerklicka på **Microsoft Office 365 Identity Platform** och välj **Redigera anspråksregler...**
+
+   ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+
+4. För Utfärdande av transformeringsregler klickar du på **Lägg till regel.**
+
+   ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.
+
+   ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Namnge din regel. 
+7. Välj **Autentiseringsmetodreferenser** som den inkommande anspråkstypen.
+8. Välj **Släpp igenom alla anspråksvärden**.
+    ![Guiden Lägg till anspråksregel för transformering](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. Klicka på **Slutför**. Stäng AD FS-hanteringskonsolen.
+
 ## <a name="related-topics"></a>Relaterade ämnen
 Hjälp med felsökning finns i [Azure Multi-Factor Authentication FAQs (Vanliga frågor och svar om Azure Multi-Factor Authentication)](multi-factor-authentication-faq.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -7,12 +7,13 @@ Eftersom Azure Functions-snabbstart innehåller funktionell kod kan du testa den
  
     ![](./media/functions-quickstart-test/function-app-develop-tab-testing.png)
 
-3. I textrutan **Begärandetext** ändrar du värdet för egenskapen *Namn* till ditt namn och klickar på **Kör**. Du ser att utförandet utlöses av en HTTP-testbegäran, informationen skrivs till loggarna och svaret "hello" visas i **Utdata**. 
+3. I textrutan **Begärandetext** ändrar du värdet för egenskapen *Namn* till ditt namn och klickar på **Kör**. Du ser att utförandet utlöses av en HTTP-testbegäran, informationen skrivs till loggarna och svaret "hello..." visas i **Utdata**. 
 
 4. Om du vill utlösa körningen av samma funktion från ett HTTP-testverktyg eller i ett annat fönster i webbläsaren kopierar du värdet för **Funktionswebbadress** från fliken **Utveckla** och klistrar in det i verktyget eller webbläsarens adressfält. Lägg till frågesträngsvärdet `&name=yourname` till URL:en och utför begäran. Observera att samma information skrivs till loggarna och att samma sträng finns i brödtexten i svarsmeddelandet.
 
     ![](./media/functions-quickstart-test/function-app-browser-testing.png)
 
-<!--HONumber=Feb17_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

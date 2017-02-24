@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2985119b60bf11bf1ce1b951c40f8b87351e749
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
 
 
 ---
@@ -25,7 +25,7 @@ I den här artikeln beskrivs hur du hanterar en katalog som har skapats för en 
 
 När du har slutfört Azure-prenumerationen kan du logga in på den klassiska Azure-portalen och komma åt Azure-tjänster. Klicka på Active Directory-tillägget om du vill hantera samma katalog som autentiserar dina Office 365-användare.
 
-Om du redan har en Azure-prenumeration är processen lika enkel om du vill hantera ytterligare en katalog. Anta till exempel att Michael Smith har en prenumeration på Office 365 för Contoso.com. Han har också en Azure-prenumeration som han har registrerat sig för med sitt Microsoft-konto, msmith@hotmail.com. I det här fallet hanterar han två kataloger.
+Om du redan har en Azure-prenumeration är processen lika enkel om du vill hantera ytterligare en katalog. Anta till exempel att Michael Smith har en prenumeration på Office 365 för Contoso.com. Han har också en Azure-prenumeration som han har registrerat sig för med sitt Microsoft-konto, msmith@hotmail.com. I detta fall hanterar han två kataloger.
 
 | Prenumeration | Office 365 | Azure |
 | --- | --- | --- |
@@ -49,17 +49,17 @@ För att Michael Smith ska kunna hantera båda katalogerna när han är inloggad
 1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com) som msmith@hotmail.com.
 2. Klicka på **Nytt** > **Apptjänster** > **Active Directory** > **Katalog** > **Skapa anpassade**.
 3. Klicka på Använd befintlig katalog och markera kryssrutan **Jag är redo att bli utloggad nu**.
-4. Logga in på den klassiska Azure-portalen som global administratör för Contoso.onmicrosoft.com (till exempel msmith@contoso.com).
+4. Logga in på den klassiska Azure-portalen som global administratör för Contoso.onmicrosoft.com (till exempel msmith@contoso.com)).
 5. När du tillfrågas om du vill **använda Contoso-katalogen med Azure** klickar du på **Fortsätt**.
 6. Klicka på **Logga ut nu**.
-7. Logga in på den klassiska Azure-katalogen som msmith@hotmail.com. Contoso-katalogen och standardkatalogen visas i Active Directory-tillägget.
+7. Logga in på den klassiska Azure-portalen som msmith@hotmail.com. Contoso-katalogen och standardkatalogen visas i Active Directory-tillägget.
 
 När dessa steg har slutförts är msmith@hotmail.com en global administratör i Contoso-katalogen.
 
 ## <a name="to-administer-resources-as-the-global-admin"></a>Så här administrerar du resurser som den globala administratören
-Anta nu att Jane Doe behöver administrera webbplatser och databasresurser som är associerade med Azure-prenumerationen för msmith@hotmail.com. Innan hon gör detta måste Michael Smith slutföra dessa ytterligare steg:
+Anta nu att Jane Doe behöver administrera webbplatser och databasresurser som är associerade med Azure-prenumerationen för msmith@hotmail.com. Innan hon kan göra det måste Michael Smith utföra dessa steg:
 
-1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) med tjänstadministratörskontot för Azure-prenumerationen (i det här exemplet msmith@hotmail.com).
+1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) med tjänstadministratörskontot för Azure-prenumerationen (i det här exemplet msmith@hotmail.com)).
 2. Överföra prenumerationen till Contoso-katalogen: klicka på **Inställningar** > **Prenumerationer** > välj prenumerationen > **Redigera katalog** > välj **Contoso (Contoso.com)**. Som en del av överföringen tas alla arbets- eller skolkonton som är medadministratörer i prenumerationen bort.
 3. Lägga till Jane Doe som medadministratör för prenumerationen: klicka på **Inställningar** > **Administratörer** > välj prenumerationen > **Lägg till** > skriv **JohnDoe@Contoso.com**.
 
@@ -68,6 +68,6 @@ Mer information om relationen mellan prenumerationer och kataloger finns i [Hur 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

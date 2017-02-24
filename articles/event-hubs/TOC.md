@@ -20,6 +20,7 @@
 ## Planera och designa
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Översikt över autentisering och säkerhetsmodell](event-hubs-authentication-and-security-model-overview.md)
+### [Tillgänglighet och konsekvens](event-hubs-availability-and-consistency.md)
 ## Utveckla
 ### [Tillgängliga API:er](event-hubs-api-overview.md)
 #### [.NET-standard](event-hubs-dotnet-standard-api-overview.md)
@@ -59,6 +60,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

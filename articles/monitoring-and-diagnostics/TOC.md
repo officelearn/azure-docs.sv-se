@@ -45,7 +45,7 @@
 ## [Azure Diagnostics Schema](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
 ### [Diagnostics Schema 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
 ### [Diagnostics Schema 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
-### [Diagnostics Schema 1.3–1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+### [Diagnostics Schema 1.3 till 1.7](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
 
 
 # Resurser
@@ -54,6 +54,6 @@
 ## [Lista över mått som stöds](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

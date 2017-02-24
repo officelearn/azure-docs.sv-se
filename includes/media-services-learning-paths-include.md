@@ -1,10 +1,9 @@
-Du kan visa sökvägar för AMS-utbildning här:
+Här kan du visa Azure Media Services-utbildningsvägar:
 
-* [Arbetsflöde för AMS-liveuppspelning](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Arbetsflöde för AMS-strömning på begäran](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+* [Arbetsflöde för Media Services Live-strömning](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [Arbetsflöde för Media Services-strömning på begäran](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

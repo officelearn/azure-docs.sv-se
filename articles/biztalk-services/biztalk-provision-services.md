@@ -15,13 +15,12 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Skapa BizTalk Services med Azure-portalen
-Skapa Azure BizTalk Services i Azure-portalen.
 
 > [!TIP]
 > Om du vill logga in på Azure-portalen behöver du ett Azure-konto och en Azure-prenumeration. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se [Kostnadsfri utvärderingsversion av Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
@@ -116,7 +115,7 @@ När du är klar har Azure BizTalk-tjänsten skapats och är redo för dina prog
 
 Det finns vissa åtgärder som inte går att slutföra beroende på status för BizTalk-tjänsten. En lista över dessa åtgärder finns i [Statusdiagram för BizTalk Services](biztalk-service-state-chart.md).
 
-## <a name="postprovisioning-steps"></a>Steg efter etableringen
+## <a name="post-provisioning-steps"></a>Steg efter etableringen
 * [Installera certifikatet på en lokal dator](#InstallCert)
 * [Lägg till ett produktionsklart certifikat](#AddCert)
 * [Hämta namnområdet Access Control](#ACS)
@@ -131,7 +130,7 @@ Som en del av etableringen av BizTalk-tjänsten skapas ett självsignerat certif
    ![Ändra SSL-certifikat][QuickGlance]
 5. Dubbelklicka på certifikatet och använd guiden för att installera det. Kontrollera att du installerar certifikatet under arkivet **Betrodda rotcertifikatutfärdare**.
 
-#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>Lägg till ett produktionsklart certifikat
+#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Lägg till ett produktionsklart certifikat
 Det självsignerade certifikat som skapas automatiskt när du skapar BizTalk Services är endast avsett att användas i utvecklingsmiljöer. I produktionsscenarier ersätter du det med ett produktionsklart certifikat.
 
 1. På fliken **Instrumentpanel** väljer du **Uppdatera SSL-certifikat**.
@@ -275,6 +274,6 @@ Nu när en BizTalk-tjänst har skapats kan du bekanta dig med [BizTalk Services:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

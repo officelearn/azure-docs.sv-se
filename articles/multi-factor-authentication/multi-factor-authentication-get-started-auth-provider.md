@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 
 
 ---
@@ -25,17 +25,13 @@ Tvåstegsverifiering är tillgängligt som standard för globala administratöre
 
 > [!NOTE]
 > En Azure Multi-Factor Authentication-provider används för att dra nytta av funktionerna i den fullständiga versionen av Azure MFA. Den är avsedd för användare som **inte har licenser genom Azure MFA, Azure AD Premium eller EMS**.  Azure MFA Azure AD Premium och EMS innehåller den fullständiga versionen av Azure MFA som standard.  Om du har licenser behöver du inte någon Azure Multi-Factor Authentication-provider.
-> 
-> 
 
 En Azure Multi-Factor Auth-provider krävs för att hämta SDK:n.
 
 > [!IMPORTANT]
 > För att hämta SDK:n skapar du en Azure Multi-Factor Auth-provider, även om du har Azure MFA-, AAD Premium- eller EMS-licenser.  Om du skapar en Azure Multi-Factor Authentication-provider för detta ändamål och redan har licenser, se till att skapa providern med modellen **Per aktiverad användare**. Koppla sedan providern till katalogen som innehåller Azure MFA, Azure AD Premium eller EMS-licenser.  Detta ser till att du bara faktureras om har fler unika användare som använder SDK:n än antalet licenser som du äger.
-> 
-> 
 
-## <a name="to-create-a-multi-factor-auth-provider"></a>Så här skapar du en Multi-Factor Authentication-provider
+## <a name="create-a-multi-factor-auth-provider"></a>Skapa en Multi-Factor Authentication-provider
 Följ stegen nedan om du vill skapa en Azure Multi-FactorAuthentication-provider.
 
 1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör.
@@ -64,6 +60,6 @@ Följ stegen nedan om du vill skapa en Azure Multi-FactorAuthentication-provider
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

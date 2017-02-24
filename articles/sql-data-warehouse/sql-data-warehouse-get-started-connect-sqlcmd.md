@@ -1,6 +1,6 @@
 ---
-title: "Fråga Azure SQL Data Warehouse (sqlcmd)| Microsoft Docs"
-description: "Fråga Azure SQL Data Warehouse med kommandoradsverktyget sqlcmd."
+title: Ansluta till Azure SQL Data Warehouse sqlcmd | Microsoft Docs
+description: "Använd kommandoradsverktyget [sqlcmd][sqlcmd] för att ansluta till och hämta information från ett Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 1cd3bd8cab4e74da820f844d2ba96243cc6ccdcd
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Fråga Azure SQL Data Warehouse (sqlcmd)
+# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Anslut till SQL Data Warehouse med sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -30,7 +30,7 @@ ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
 > 
 > 
 
-Den här genomgången använder kommandoradsverktyget [sqlcmd][sqlcmd] för att fråga en Azure SQL Data Warehouse.  
+Använd kommandoradsverktyget [[sqlcmd]][[sqlcmd]] för att ansluta till och hämta information från ett Azure SQL Data Warehouse.  
 
 ## <a name="1-connect"></a>1. Anslut
 Du kommer igång med [sqlcmd][sqlcmd] genom att öppna kommandotolken och ange **sqlcmd** följt av anslutningssträngen för din SQL Data Warehouse-databas. Anslutningssträngen kräver följande parametrar:
@@ -100,6 +100,6 @@ Se [sqlcmd-dokumentationen][sqlcmd] för mer information om tillgängliga altern
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

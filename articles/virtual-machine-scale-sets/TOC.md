@@ -3,6 +3,7 @@
 
 # Kom igång
 ## [Skapa en skalningsuppsättning på portalen](virtual-machine-scale-sets-portal-create.md)
+## [Skapa en skalningsuppsättning med Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Gör så här för att
 ## Planera och designa
@@ -10,12 +11,18 @@
 
 ## Distribuera
 ### [Skalningsuppsättning med portalen](virtual-machine-scale-sets-portal-create.md)
+### [Skalningsuppsättning med hanterade diskar](virtual-machine-scale-sets-managed-disks.md)
 ### [Skalningsuppsättning med Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Skalningsuppsättning med PowerShell](virtual-machine-scale-sets-windows-create.md)
 ### [Skalningsuppsättning med Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Linux-skalningsuppsättning med automatisk skalning](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows-skalningsuppsättning med automatisk skalning](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Program i skalningsuppsättningar](virtual-machine-scale-sets-deploy-app.md)
+### [Använda datadiskar med skalningsuppsättningar](virtual-machine-scale-sets-attached-disks.md)
+### [Arbeta med stora skalningsuppsättningar](virtual-machine-scale-sets-placement-groups.md)
+### [Konvertera en skalningsuppsättningsmall för användning av hanterad disk](virtual-machine-scale-sets-convert-template-to-md.md)
+
+
 
 ## Hantera
 ### [Windows-skalningsuppsättning med PowerShell](virtual-machine-scale-sets-windows-manage.md)
@@ -24,6 +31,7 @@
 ### [Uppgraderingar för skalningsuppsättningar](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Avancerad automatisk skalning](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Använda DSC och skalningsuppsättningar](virtual-machine-scale-sets-dsc.md)
+### [Konvertera en mall till hanterade diskar](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Felsöka
 ### [Automatisk skalning](virtual-machine-scale-sets-troubleshoot.md)
@@ -31,7 +39,7 @@
 # Referens
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/compute/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # Resurser
 ## Prissättning 
@@ -40,6 +48,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "Lägga till ett anpassat domännamn och konfigurera sammansluten inloggn
 description: "Här lär du dig hur du lägger till ditt företags domännamn i Azure Active Directory och hur du konfigurerar sammansluten inloggning mellan Azure Active Directory och din lokala federationslösning."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d

@@ -26,7 +26,8 @@
 
 ## Gör så här för att
 ### [Hantera via Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Installera den senaste uppdateringen](storsimple-virtual-array-install-update.md)
+#### [Installera den senaste uppdateringen](storsimple-virtual-array-install-update-04.md)
+##### [Installera Uppdatering 0.3](storsimple-virtual-array-install-update.md)
 #### [Skapa och hantera säkerhetskopior](storsimple-virtual-array-backup.md)
 #### [Klona från säkerhetskopior](storsimple-virtual-array-clone.md)
 #### [Redundans och DR](storsimple-virtual-array-failover-dr.md)
@@ -40,6 +41,8 @@
 #### [Hantera jobb](storsimple-virtual-array-manage-jobs.md)
 #### [Ändra enhetens lösenord](storsimple-virtual-array-change-device-admin-password.md)
 #### [Konfigurera MPIO på Windows Server-värden](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Diagnostisera och felsöka](storsimple-virtual-array-diagnose-problems.md)
+#### [Logga supportbegäran](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Hantera via den klassiska Azure-portalen](storsimple-ova-manager-service-administration.md)
 #### [Installera den senaste uppdateringen](storsimple-ova-install-update-01.md)
@@ -56,7 +59,8 @@
 ### [Konfigurera via lokalt webbgränssnitt](storsimple-ova-web-ui-admin.md)
 
 ## Viktig information
-### [Uppdatering 0.3 – aktuell](storsimple-ova-update-03-release-notes.md)
+### [Uppdatering 0.4 – aktuell](storsimple-virtual-array-update-04-release-notes.md)
+### [Uppdatering 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Uppdatering 0.2 och 0.1](storsimple-ova-update-01-release-notes.md)
 
 # StorSimple 8000-serien
@@ -150,6 +154,7 @@
 ### Övervaka
 #### [Använd tjänstens instrumentpanel](storsimple-service-dashboard.md)
 #### [Använd tjänstens instrumentpanel](storsimple-device-dashboard.md)
+#### [Använd övervakningsdiagram](storsimple-monitor-device.md)
 #### [Använd tjänstaviseringar](storsimple-manage-alerts.md)
 #### [Använd maskinvarustatus](storsimple-monitor-hardware-status.md)
 #### [Använd övervaknings-LED:ar](storsimple-monitoring-indicators.md)
@@ -172,6 +177,7 @@
 #### [Från andra lagringsenheter](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Uppdatering
+#### [Installera Uppdatering 4](storsimple-install-update-4.md)
 #### [Installera Uppdatering 3](storsimple-install-update-3.md)
 #### [Installera Uppdatering 2.2](storsimple-install-update-21.md)
 #### [Installera Uppdatering 2](storsimple-install-update-2.md)
@@ -179,7 +185,8 @@
 #### [Uppdatera din enhet](storsimple-update-device.md)
 
 ## Viktig information
-### [Uppdatering 3 – aktuell](storsimple-update3-release-notes.md)
+### [Uppdatering 4 – aktuell](storsimple-update4-release-notes.md)
+### [Uppdatering 3](storsimple-update3-release-notes.md)
 ### [Uppdatering 2.2](storsimple-update21-release-notes.md)
 ### [Uppdatering 2](storsimple-update2-release-notes.md)
 ### [Uppdatering 1](storsimple-update1-release-notes.md)
@@ -203,6 +210,18 @@
 ## Gör så här för att
 ### [Använd .NET för att omvandla data](storsimple-data-manager-dotnet-jobs.md)
 
+# StorSimple för partner
+## Översikt
+### [Vad är lösningen?](storsimple-partner-csp-overview.md)
+
+## Kom igång
+### [Distribuera virtuell matris för CSP](storsimple-partner-csp-deploy.md)
+
+## Viktig information
+### [Viktig information om StorSimple](https://aka.ms/storsimple-virtual-array-latest-relnote)
+### [Viktig information för CSP](https://partner.microsoft.com/Support/whats-new)
+### [StorSimple för CSP: Vanliga frågor och svar](storsimple-partner-csp-faq.md)
+
 # Relaterat
 ## [StorSimple 5000-7000-serien](http://onlinehelp.storsimple.com)
 
@@ -220,6 +239,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

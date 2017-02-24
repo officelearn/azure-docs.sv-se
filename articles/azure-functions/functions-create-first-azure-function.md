@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/02/2016
+ms.date: 02/09/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ab0b218a99ab3ff98edfa075eabbd3eb2c2bd1d4
-ms.openlocfilehash: eacba057de5065acc3baa610a76a9ae135d6060a
+ms.sourcegitcommit: 7743bfb98552f7fa2334d8daa6a6f6935969f393
+ms.openlocfilehash: d76630e0be4a021720d88e6d7e64cf2258f84266
 
 
 ---
@@ -40,7 +40,7 @@ En funktionsapp är värd för körningen av dina funktioner i Azure. Följ dess
 Innan du kan skapa din första funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto, [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/).
 
 1. Gå till [Azure Functions-portalen](https://functions.azure.com/signin) och logga in med ditt Azure-konto.
-2. Skriv ett unikt **namn** för din nya funktionsapp eller acceptera det genererade namnet, välj **Region** och klicka på **Skapa + Kom igång**. Observera att du måste ange ett giltigt namn som endast får innehålla bokstäver, siffror och bindestreck. Understreck (**_**) är inte tillåtna.
+2. Skriv ett unikt **Namn** för din nya funktionsapp eller acceptera namnet som genererats automatiskt, välj **Region** och klicka på **Skapa + Kom igång**. Observera att du måste ange ett giltigt namn som endast får innehålla bokstäver, siffror och bindestreck. Understreck (**_**) är inte tillåtna.
 3. På fliken **Snabbstart** klickar du på **WebHook + API**och**JavaScript**, klicka sedan på **Skapa en funktion**. En ny fördefinierad JavaScript-funktion skapas. 
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
@@ -57,6 +57,6 @@ Innan du kan skapa din första funktion måste du ha ett aktivt Azure-konto. Om 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

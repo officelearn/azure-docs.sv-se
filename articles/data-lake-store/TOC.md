@@ -39,9 +39,10 @@
 ## Integrera med Azure-tjänster
 ### [Åtkomst från virtuella datorer i Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Använd tillsammans med Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Skapa HDInsight-kluster med Data Lake Store via portalen](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Skapa HDInsight-kluster med Data Lake Store via PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Skapa HDInsight-kluster med Data Lake Store via Resource Manager-mall](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [HDInsight med Data Lake Store – Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [HDInsight med Data Lake Store som standardlagringsplats – PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+### [HDInsight med Data Lake Store som ytterligare lagringsplats – PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [HDInsight med Data Lake Store – Azure-mall](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Använd med Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Använd med Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Använd med Power BI](data-lake-store-power-bi.md)
@@ -71,6 +72,6 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

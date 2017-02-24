@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med Log Analytics | Microsoft Docs"
-description: "Du kan komma igång med Log Analytics på bara några minuter."
+title: "Komma igång med en arbetsyta för Azure Log Analytics | Microsoft Docs"
+description: "Du kan komma igång med en arbetsyta i Log Analytics på bara några minuter."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,142 +12,147 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: f3be7887a33578da1b2df1f5aa02e09c50f22390
-ms.openlocfilehash: 5aa5e5006bf1d0d13f96494cc13df2c970f0d765
+ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
+ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
 
 
 ---
-Obs! Om du använder Microsoft Azure Government Cloud ska du använda https://review.docs.microsoft.com/en-us/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics i stället.
+# <a name="get-started-with-a-log-analytics-workspace"></a>Komma igång med en arbetsyta för Log Analytics
+Du kan snabbt komma igång med Azure Log Analytics som hjälper dig att utvärdera operativ information som samlas in från din IT-infrastruktur. Med den här artikeln kan du enkelt börja utforska, analysera och vidta åtgärder baserat på data som du samlar in *kostnadsfritt*.
 
-# <a name="get-started-with-log-analytics"></a>Komma igång med Log Analytics
-Du kan komma igång med Log Analytics i Microsoft Operations Management Suite (OMS) på bara några minuter. När du väljer hur du ska skapa en OMS-arbetsyta, vilket liknar ett konto, har du två alternativ:
+Den här artikeln fungerar som en introduktion till Log Analytics med en kort självstudie som leder dig igenom en minimal distribution i Azure och hjälper dig att komma igång med att använda tjänsten. Den logiska behållaren där dina hanteringsdata i Azure lagras kallas för en arbetsyta. När du har granskat den här informationen och slutfört din egna utvärdering kan du ta bort utvärderingsarbetsytan. Eftersom den här artikeln är en självstudie tar den inte upp vägledning för affärsbehov, planering och arkitektur.
 
-* Webbplatsen Microsoft Operations Management Suite
-* Microsoft Azure-prenumeration
+>[!NOTE]
+>Om du använder Microsoft Azure Government-molnet bör du istället använda [Azure Government-övervakning + Management-dokumentation](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
 
-Du kan skapa en kostnadsfri OMS-arbetsyta med hjälp av OMS-webbplats. Du kan också använda en Microsoft Azure-prenumeration för att skapa en kostnadsfri Log Analytics-arbetsyta. Arbetsytorna fungerar likadant oavsett hur de har skapats. Fria arbetsytor kan bara skicka 500 MB data per dag till OMS-tjänsten. Alla arbetsytor kräver en Azure-prenumeration, så du kan även använda din prenumeration för att få åtkomst till andra Azure-tjänster. Oavsett vilken metod som används för att skapa arbetsytan finns kan du skapa arbetsytan med ett Microsoft-konto eller organisationskonto.
+Här är en snabb översikt över processen som används för att komma igång:
 
-Här är en titt på processen:
+![processdiagram](./media/log-analytics-get-started/onboard-oms.png)
 
-![förberedande diagram](./media/log-analytics-get-started/oms-onboard-diagram.png)
+## <a name="1-create-an-azure-account-and-sign-in"></a>1 Skapa ett Azure-konto och logga in
 
-## <a name="log-analytics-prerequisites-and-deployment-considerations"></a>Log Analytics-krav och överväganden vid distribution
-* Du behöver en betald prenumeration för Microsoft Azure för att helt kunna använda Log Analytics. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) som gäller under 30 dagar och som ger dig åtkomst till vilka Azure-tjänster du vill. Du kan också skapa ett kostnadsfritt OMS-konto på webbplatsen för [Operations Management Suite](http://microsoft.com/oms).
-* Du måste skapa en ny arbetsyta
-* Varje Windows-datorer som du vill samla in data från måste köra Windows Server 2008 SP1 eller senare
-* [Brandvägg](log-analytics-proxy-firewall.md)såtkomst till OMS-webbtjänstens adresser
-* Bestäm om datorerna ska ha direkt Internetåtkomst. Om inte kräver de en gateway-server för att komma åt OMS-webbtjänstens platser. All åtkomst sker via HTTPS. Du kan konfigurera en [OMS Gateway](log-analytics-oms-gateway.md)-server som vidarebefordrar trafik från servrar till OMS, om Internetåtkomst inte är tillgänglig från datorerna.
-* Om du använder Operations Manager har Log Analytics stöd för Operations Manager 2012 SP1 UR6 och senare samt Operations Manager 2012 R2 UR2 och senare. Stöd för proxy har lagts till i Operations Manager 2012 SP1 UR7 och Operations Manager 2012 R2 UR3. Bestäm hur den ska integreras med OMS.
-* Bestäm vilka tekniker och servrar som ska skicka data till OMS. Exempelvis domänkontrollanter, SQL Server osv.
-* Bevilja behörighet till användare i OMS och Azure.
-* Om du är orolig för dataanvändning, distribuerar du varje lösning individuellt och testar prestandapåverkan innan du lägger till ytterligare lösningar.
-* Granska din dataanvändning och prestanda när du lägger till funktioner och lösningar i Log Analytics. Detta inkluderar händelseinsamling, logginsamling, insamling av prestandadata osv. Det är bättre att börja med minimal insamling innan dataanvändning eller prestandapåverkan har identifierats.
-* Kontrollera att Windows-agenter inte också hanteras med hjälp av Operations Manager, annars kan dubblettvärden uppstå. Detta gäller även för Azure-baserade agenter som har aktiverat Azure-diagnostik.
-* När du har installerat agenter bör du kontrollera att agenten fungerar korrekt. Om inte, kontrollera att CNG (Cryptography API: Next Generation) Key Isolation inte inaktiveras med en grupprincip.
-* Vissa Log Analytics-lösningar har ytterligare krav
+Om du inte redan har ett Azure-konto måste du skapa ett för att kunna använda Log Analytics. Du kan skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) som gäller i 30 dagar och som ger dig åtkomst till vilka Azure-tjänster du vill.
 
-## <a name="sign-up-in-3-steps-using-oms"></a>Registrera dig i 3 steg med hjälp av OMS
-1. Gå till webbplatsen för [Operations Management Suite](http://microsoft.com/oms). Logga in med det Microsoft-konto, till exempel Outlook.com eller med ett organisationskonto från ditt företag eller din utbildningsinstitution, som ska användas med Office 365 eller andra Microsoft-tjänster.
-2. Ange ett unikt arbetsytenamn. En arbetsyta är en logisk behållare där dina hanteringsdata lagras. Med den kan du partitionera data mellan olika team i organisationen, när datan endast finns på sin arbetsyta. Ange en e-postadress och den region där du vill att datan ska lagras.  
-    ![skapa arbetsyta och länka prenumeration](./media/log-analytics-get-started/oms-onboard-create-workspace-link01.png)
-3. Du kan sedan skapa en ny kostnadsfri Azure-prenumeration eller länka till en befintlig Azure-prenumeration.  
-   ![skapa arbetsyta och länka prenumeration](./media/log-analytics-get-started/oms-onboard-create-workspace-link02.png)
+### <a name="to-create-a-free-account-and-sign-in"></a>För att skapa ett kostnadsfritt konto och logga in
+1. Följ anvisningarna i [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+2. Gå till [Azure Portal](https://portal.azure.com) och logga in.
 
-Du är redo att komma igång med Operations Management Suite-portalen.
+## <a name="2-create-a-workspace"></a>2 Skapa en arbetsyta
 
-Du kan lära dig mer om att konfigurera din arbetsyta och länka befintliga Azure-konton till arbetsytor som skapats med Operations Management Suite i [Hantera arbetsytor](log-analytics-manage-access.md).
+Nästa steg är att skapa en arbetsyta.
 
-## <a name="sign-up-quickly-using-microsoft-azure"></a>Registrera dig snabbt med Microsoft Azure
-1. Gå till [Azure Portal](https://portal.azure.com) och logga in, bläddra i listan över tjänster och välj sedan **Log Analytics**.  
-    ![Azure Portal](./media/log-analytics-get-started/oms-onboard-azure-portal.png)
-2. Klicka på **Lägg till** och välj alternativ för följande objekt:
-   * Namn på **OMS-arbetsyta**
+1. I Azure Portal söker du efter *Log Analytics* i listan över tjänster på Marketplace och väljer sedan **Log Analytics**.  
+    ![Azure Portal](./media/log-analytics-get-started/log-analytics-portal.png)
+2. Klicka på **Skapa** och välj alternativ för följande objekt:
+   * **OMS-arbetsytan** – Ange ett namn för arbetsytan.
    * **Prenumeration** – Om du har flera prenumerationer väljer du den du vill associera med den nya arbetsytan.
    * **Resursgrupp**
    * **Plats**
    * **prisnivå**  
        ![snabbregistrering](./media/log-analytics-get-started/oms-onboard-quick-create.png)
-3. Klicka på **OK**, så visas en lista över dina arbetsytor.
-4. Välj en arbetsyta om du vill visa dess information i Azure Portal.       
+3. Klicka på **OK** för att se en lista över dina arbetsytor.
+4. Välj en arbetsyta om du vill se information om den i Azure Portal.       
     ![information om arbetsytan](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
-5. Klicka på länken **OMS-portal** för att öppna webbplatsen Operations Management Suite med den nya arbetsytan.
 
-Du är redo att börja använda Operations Management Suite-portalen.
+## <a name="3-add-solutions-and-solution-offerings"></a>3 Lägg till lösningar och erbjudanden för lösningar
 
-Du kan lära dig mer om att konfigurera din arbetsyta och länka befintliga arbetsytor som skapats med Operations Management Suite till Azure-prenumerationer i [Hantera åtkomst till Log Analytics](log-analytics-manage-access.md).
+Lägg sedan till hanteringslösningar och erbjudanden för lösningar. Hanteringslösningar är en samling logik, visualisering och datahämtningsregler som tillhandahåller mått som pivoteras runt ett särskilt problematisk område. Ett erbjudande för lösningar är ett paket med hanteringslösningar.
 
-## <a name="get-started-with-the-operations-management-suite-portal"></a>Komma igång med Operations Management Suite-portalen
-Om du vill välja lösningar och ansluta servrar som du vill hantera, klickar du på ikonen **Inställningar** och följer anvisningarna i avsnittet.  
+Genom att lägga till lösningar i arbetsytan kan Log Analytics samla in olika typer av data från datorer som är anslutna till din arbetsyta med agenter. Vi täcker publicering av agenter senare.
 
-![komma igång](./media/log-analytics-get-started/oms-onboard-get-started.png)  
+### <a name="to-add-solutions-and-solution-offerings"></a>Lägg till lösningar och erbjudanden för lösningar
 
-1. **Lägg till lösningar** – Visa dina installerade lösningar.  
-    ![lösningar](./media/log-analytics-get-started/oms-onboard-solutions.png)  
-    Klicka på **Besök galleriet** för att lägga till fler lösningar.  
-    ![lösningar](./media/log-analytics-get-started/oms-onboard-solutions02.png)  
-    Välj en lösning och klicka sedan på **Lägg till**.
-2. **Ansluta en källa** – Välj hur du vill ansluta till din servermiljö för att samla in data:
+1. I Azure Portal klickar du på **Ny** och sedan skriver du **Activity Log Analytics** i rutan **Sök på marketplace** och trycker på RETUR.
+2. Välj **Activity Log Analytics** och klicka sedan på **Skapa** på bladet Allt.  
+    ![Activity Log Analytics](./media/log-analytics-get-started/activity-log-analytics.png)  
+3. På bladet *hanteringslösningsnamn* väljer du en arbetsyta som du vill koppla till hanteringslösningen.
+4. Klicka på **Skapa**.  
+    ![lösningens arbetsyta](./media/log-analytics-get-started/solution-workspace.png)  
+5. Upprepa steg 1-4 om du vill lägga till:
+    - Tjänsterbjudandet **Säkerhet och efterlevnad** med lösningarna Utvärdering av program mot skadlig kod samt Säkerhet och granskning.
+    - Tjänsterbjudandet **Automatisering och kontroll** med lösningarna Automation Hybrid Worker, Ändringsspårning och Systemuppdateringsbedömning (kallas även för Hantering av uppdateringar). När du lägger till lösningserbjudandet måste du skapa ett Automation-konto.  
+        ![Automation-konto](./media/log-analytics-get-started/automation-account.png)  
+6. Du kan se de hanteringslösningar som du lade till arbetsytan genom att navigera till **Log Analytics** > **Prenumerationer** > ***Namn på arbetsyta*** > **Översikt**. Paneler för hanteringslösningar som du har lagt till visas.  
+    >[!NOTE]
+    >Eftersom vi inte ännu har anslutit några agenter till arbetsytan visas inte några data för de lösningar som du har lagt till.  
 
-   * Anslut en Windows Server eller en klient direkt genom att installera en agent.
-   * Anslut Linux-servrar med OMS-agenten för Linux.
-   * Använd ett Azure Storage-konto som konfigurerats med Windows eller Linux Azure-diagnostiska VM-tillägg.
-   * Använd System Center Operations Manager om du vill ansluta dina hanteringsgrupper eller hela Operations Manager-distributionen.
-   * Aktivera Windows-telemetri för att använda uppgraderingsanalys.
-       ![Anslutna källor](./media/log-analytics-get-started/oms-onboard-data-sources.png)    
-3. **Samla data** Konfigurera minst en datakälla för att lägga till data i din arbetsyta. När du är klar klickar du på **Spara**.    
+    ![lösningspaneler utan data](./media/log-analytics-get-started/solutions-no-data.png)
 
-    ![samla data](./media/log-analytics-get-started/oms-onboard-logs.png)    
+## <a name="4-create-a-vm-and-onboard-an-agent"></a>4 Skapa en virtuell dator och publicera en agent
 
-## <a name="optionally-connect-windows-computers-by-installing-an-agent"></a>Du kan också ansluta Windows-datorer genom att installera en agent
-I följande exempel visas hur du installerar en Windows-agent.
+Härnäst skapar du en enkel virtuell dator i Azure. När du har skapat en virtuell dator publicerar du OMS-agenten för att aktivera den. När du aktiverar agenten börjar insamling av data från den virtuella datorn och skickar data till Log Analytics.
 
-1. Klicka på panelen **Inställningar**, klicka sedan på fliken **Anslutna källor**, klicka på en flik för den typ av källa som du vill lägga till och antingen hämta en agent eller läs om hur du aktiverar en agent. Klicka till exempel på **Hämta Windows-agent (64-bitars)**. För Windows-agenter kan du bara installera agenten på Windows Server 2008 SP1 eller senare, samt på Windows 7 SP1 eller senare.
-2. Installera agenten på en eller flera servrar. Du kan installera en agent i taget eller använda en mer automatiserad metod med ett [anpassat skript](log-analytics-windows-agents.md). Du kan också använda en befintlig distributionslösning för programvara som du kanske redan har.
-3. När du har godkänt licensavtalet och valt installationsmapp väljer du **Anslut agenten till Azure Log Analytics (OMS)**.   
-    ![agentinstallation](./media/log-analytics-get-started/oms-onboard-agent.png)
-4. På nästa sida uppmanas du ange ditt arbetsyte-ID och arbetsytenyckel. Ditt arbetsyte-ID och nyckel visas på den skärm som du hämtade agentfilen till.  
-    ![agentnycklar](./media/log-analytics-get-started/oms-onboard-mma-keys.png)  
+### <a name="to-create-a-virtual-machine"></a>Skapa en virtuell dator
 
-    ![anslut servrar](./media/log-analytics-get-started/oms-onboard-key.png)
-5. Under installationen kan du klicka på **Avancerat** om du vill konfigurera proxyservern och ange autentiseringsinformation. Klicka på knappen **Nästa** för att återgå till skärmen med arbetsytans information.
-6. Klicka på **Nästa** för att verifiera ditt arbetsyte-ID och nyckel. Om det finns några fel kan du klicka på **Tillbaka** för att göra ändringar. När ditt arbetsyte-ID och nyckel verifierats, klickar du på **Installera** för att slutföra agentinstallationen.
-7. Klicka på Microsoft Monitoring Agent > fliken Azure loggen Analytics (OMS) i kontrollpanelen. En grön bockikon visas när agenterna kommunicerar med Operations Management Suite-tjänsten. Första gången tar detta cirka 5–10 minuter.
+- Följ anvisningarna i [Skapa din första virtuella Windows-dator på Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) och starta den nya virtuella datorn.
 
-> [!NOTE]
-> Lösningar för kapacitetshantering och konfigurationskontroll stöds för närvarande inte av servrar som är direkt anslutna till Operations Management Suite.
+### <a name="connect-the-virtual-machine-to-log-analytics"></a>Anslut den virtuella datorn till Log Analytics
 
+- Följ anvisningarna i [Connect Azure virtual machines to Log Analytics](log-analytics-azure-vm-extension.md) (Anslut virtuella Azure-datorer till Log Analytics) för att ansluta den virtuella datorn till Log Analytics i Azure Portal.
 
-Du kan också ansluta agenten till System Center Operations Manager 2012 SP1 och senare. Gör detta genom att välja **Anslut agenten till System Center Operations Manager**. När du väljer detta alternativ skickar du data till tjänsten utan att ytterligare maskinvara krävs eller att någon belastning görs på dina hanteringsgrupper.
+## <a name="5-view-and-act-on-data"></a>5 Se och vidta åtgärder för data
 
-Du kan läsa mer om att ansluta agenter till Operations Management Suite på [Anslut Windows-datorer till Log Analytics](log-analytics-windows-agents.md).
+Tidigare aktiverade du Activity Log Analytics-lösningen och tjänsterbjudandena för säkerhet och efterlevnad samt automatisering och kontroll. Härnäst börjar vi titta på de data som samlas in av lösningar och resultat i loggsökningar.
 
-## <a name="optionally-connect-servers-using-system-center-operations-manager"></a>Du kan också ansluta servrar med System Center Operations Manager
-1. I Operations Manager-konsolen väljer du **Administration**.
-2. Expandera noden **Operational Insights** och välj sedan **Operational Insights-anslutning**.
+Titta först på data som visas från lösningarna. Titta sedan på några loggsökningar som kan nås från loggsökningar. Loggsökningar låter dig kombinera och korrelera datordata från flera källor i din miljö. Mer information finns i [Loggsökningar i Log Analytics](log-analytics-log-searches.md). Till sist kan du vidta åtgärder för data som vi hittar med OMS-portalen, som är utanför Azure Portal.
 
-   > [!NOTE]
-   > Beroende på vilken samlad uppdatering av SCOM du använder, kan du se en nod för *System Center Advisor*, *Operational Insights* eller *Operations Management Suite*.
-   >
-   >
-3. Klicka på länken **Registrera Operational Insights** överst till höger och följ instruktionerna.
-4. När du har slutfört registreringsguiden klickar du på länken **Lägg till en dator/grupp**.
-5. I dialogrutan **Datorsökning** kan du söka efter datorer eller grupper som övervakas av Operations Manager. Välj datorer eller grupper för att publicera dem i Log Analytics, klicka på **Lägg till** och klicka sedan på **OK**. Du kan kontrollera att OMS-tjänsten tar emot data genom att gå till ikonen **Användning** i Operations Management Suite-portalen. Datan bör visas i cirka 5–10 minuter.
+### <a name="to-view-antimalware-data"></a>Visa data för program mot skadlig kod
 
-Du kan läsa mer om att ansluta Operations Manager till Operations Management Suite i [Ansluta Operations Manager till Log Analytics](log-analytics-om-agents.md).
+1. Navigera till **Log Analytics** > ***din arbetsyta*** i Azure Portal.
+2. Klicka på **Översikt** under **Allmänt** på bladet för din arbetsyta.  
+    ![Översikt](./media/log-analytics-get-started/overview.png)
+3. Klicka på ikonen **Utvärdering av program mot skadlig kod**. I det här exemplet kan du se att Windows Defender är installerat på en dator, men att dess signatur är inaktuell.  
+    ![Programvara mot skadlig kod](./media/log-analytics-get-started/solution-antimalware.png)
+4. I det här exemplet klickar du på **Signature out of date** (Signaturen är inaktuell) under **Skyddsstatus** för att öppna loggsökning och se information om de datorer som har inaktuella signaturer. Observera att namnet på datorn i det här exemplet är *getstarted*. Om fler än en dator har inaktuella signaturer visas de i loggsökningsresultaten.  
+    ![Program mot skadlig kod är inaktuellt](./media/log-analytics-get-started/antimalware-search.png)
 
-## <a name="optionally-analyze-data-from-cloud-services-in-microsoft-azure"></a>Du kan också analysera data från molntjänster i Microsoft Azure
-Med Operations Management Suite kan du snabbt söka i händelser och IIS-loggar för molntjänster och virtuella datorer genom att aktivera diagnostik för Azure Cloud Services. Du kan också få fler funktioner för dina virtuella Azure-datorer genom att installera Microsoft Monitoring Agent. Du kan läsa mer om hur du konfigurerar Azure-miljön till att använda Operations Management Suite i [Anslut Azure-lagring till Log Analytics](log-analytics-azure-storage.md).
+### <a name="to-view-security-and-audit-data"></a>För att se säkerhet- och granskningsdata
+
+1. Klicka på **Översikt** under **Allmänt** på bladet för din arbetsyta.  
+2. Klicka på ikonen **Säkerhet och granskning**. I det här exemplet kan du se att det finns två viktiga problem: en dator saknar viktiga uppdateringar och en dator har otillräckligt skydd.  
+    ![Säkerhet och granskning](./media/log-analytics-get-started/security-audit.png)
+3. I det här exemplet klickar du på **Datorer som saknar viktiga uppdateringar** under **Anmärkningsvärda problem** för att öppna loggsökning och se information om datorer som saknar viktiga uppdateringar. I det här exemplet saknas en viktig uppdatering och 63 andra uppdateringar.  
+    ![Loggsökning för säkerhet och granskning](./media/log-analytics-get-started/security-audit-log-search.png)
+
+### <a name="to-view-and-act-on-system-update-data"></a>Visa och vidta åtgärder för systemuppdateringsdata
+
+1. Klicka på **Översikt** under **Allmänt** på bladet för din arbetsyta.  
+2. Klicka på ikonen **Bedömning av systemuppdatering**. I det här exemplet kan du se att en Windows-dator med namnet *getstarted* saknar viktiga uppdateringar och en saknar definitionsuppdateringar.  
+    ![Systemuppdateringar](./media/log-analytics-get-started/system-updates.png)
+3. Det här exemplet klickar du på **Viktiga uppdateringar** under **Saknade uppdateringar** för att öppna loggsökning och se information om datorer som saknar viktiga uppdateringar. I det här exemplet saknas en uppdatering och det finns en nödvändig uppdatering.  
+    ![Systemuppdateringar för loggsökning](./media/log-analytics-get-started/system-updates-log-search.png)
+4. Gå till webbplatsen [Operations Management Suite](http://microsoft.com/oms) och logga in med ditt Azure-konto. Observera att lösningsinformationen liknar det som visas i Azure Portal när du har loggat in.  
+    ![OMS-portalen](./media/log-analytics-get-started/oms-portal.png)
+5. Klicka på ikonen **Hantering av uppdateringar**.
+6. Observera att systemuppdateringsinformationen i instrumentpanelen Hantering av uppdateringar liknar systemuppdateringsinformationen som du kan se i Azure Portal. Men ikonen för att **hantera distributioner av uppdateringar** är ny. Klicka på ikonen för att **hantera distributioner av uppdateringar**.  
+    ![ikonen Hantering av uppdateringar](./media/log-analytics-get-started/update-management.png)
+7. Klicka på **Lägg till** på sidan **Distributioner av uppdateringar** för att skapa en *uppdateringskörning*.  
+    ![Distributioner av uppdateringar](./media/log-analytics-get-started/update-management-update-deployments.png)
+8.  Gå till sidan **Ny distribution av uppdateringar** och skriv ett namn för distributionen. Välj sedan de datorer som ska uppdateras (i det här exemplet *getstarted*), välj ett schema och klicka sedan på **Spara**.  
+    ![Ny distribution](./media/log-analytics-get-started/new-deployment.png)  
+    När du har sparat distributionen av uppdateringar kan du se den schemalagda uppdateringen.  
+    ![schemalagd uppdatering](./media/log-analytics-get-started/scheduled-update.png)  
+    När uppdateringskörningen har slutförts visas statusen **Slutförd**.
+    ![färdig uppdatering](./media/log-analytics-get-started/completed-update.png)
+9. När uppdateringskörningen har slutförts kan du se om körningen lyckades eller inte, och du kan se information om vilka uppdateringar som tillämpades.
+
+## <a name="after-evaluation"></a>Efter utvärdering
+
+I den här självstudien installerade du en agent på en virtuell dator och kom igång snabbt. Stegen som du följde var snabba och enkla. Men de flesta stora organisationer och företag har komplexa lokala IT-infrastrukturer. Därmed kan det krävas ytterligare planering och arbete för att samla in data från dessa komplexa miljöer än vad som visas i självstudien. Granska informationen i det följande avsnittet med de efterföljande stegen för länkar till användbara artiklar.
+
+Du kan eventuellt ta bort arbetsytan som du skapade med den här självstudien.
 
 ## <a name="next-steps"></a>Nästa steg
+* Lär dig mer om hur du ansluter [Windows-agenter](log-analytics-windows-agents.md) till Log Analytics.
+* Lär dig mer om hur du ansluter [Operations Manager-agenter](log-analytics-om-agents.md) till Log Analytics.
 * [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md) för att lägga till funktioner och samla in data.
 * Bekanta dig med [loggsökningar](log-analytics-log-searches.md) för att visa detaljerad information som samlas in av lösningar.
-* Använd [instrumentpaneler](log-analytics-dashboards.md) att spara och visa dina egna anpassade sökningar.
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -4,10 +4,9 @@
 * [CloudIdentity.com](http://cloudidentity.com)
 
 ## <a name="get-security-updates-for-our-products"></a>Hämta säkerhetsuppdateringar för våra produkter
-Vi rekommenderar att du aktiverar aviseringar om säkerhetsincidenter genom att gå till [den här sidan](https://technet.microsoft.com/security/dd252948) och prenumerera på Microsoft Security Advisory-aviseringar.
+Vi rekommenderar att du aktiverar aviseringar om säkerhetsincidenter genom att gå till [TechCenter-sidan för tekniska säkerhetsaviseringar från Microsoft](https://technet.microsoft.com/security/dd252948) och prenumererar på dessa aviseringar.
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

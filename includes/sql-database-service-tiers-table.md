@@ -38,8 +38,8 @@ sql-database-service-tiers.md
 | Maximalt antal samtidiga sessioner | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* Maximal databasstorlek avser den maximala storleken för datafilerna och omfattar inte utrymmet som används av loggfiler
+\* Maximal databasstorlek avser den maximala storleken för datafilerna och omfattar inte utrymmet som används av loggfiler.
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

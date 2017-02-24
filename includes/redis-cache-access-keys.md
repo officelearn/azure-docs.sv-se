@@ -1,4 +1,4 @@
-För att ansluta till en Azure Redis-Cache-instans behöver cacheklienter värdnamnet, portar och nycklar för cacheminnet. Vissa klienter kan referera till de här objekten med något annorlunda namn. För att hämta de här objekten [bläddrar](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) du till ditt cacheminne i [Azure-portalen](https://portal.azure.com) och klickar på **Inställningar** eller **Alla inställningar**. 
+För att ansluta till en Azure Redis-Cache-instans behöver cacheklienter värdnamnet, portar och nycklar för cacheminnet. Vissa klienter kan referera till de här objekten med något annorlunda namn. Hämta de här objekten genom att [bläddra](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) till ditt cacheminne i [Azure Portal](https://portal.azure.com) och klicka på önskad post i **Resursmenyn**. 
 
 ![Inställningar för Redis-cache](media/redis-cache-access-keys/redis-cache-settings.png)
 
@@ -14,6 +14,6 @@ För att komma åt åtkomstnycklarna klickar du på **Åtkomstnycklar**.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Skydda molnresurser med Azure MFA och AD FS
+title: Skydda molnresurser med Azure MFA och AD FS | Microsoft Docs
 description: "Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och AD FS i molnet."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,43 +12,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
-
+ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
+ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 
 ---
+
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
-Om din organisation är federerad med Azure Active Directory använder du Azure Multi-Factor Authentication eller Active Directory Federation Services för att skydda dessa resurser. Skydda dina resurser i Azure Active Directory med Azure Multi-Factor Authentication eller Active Directory Federation Services genom att använda följa steg.
+Om din organisation är federerad med Azure Active Directory använder du Azure Multi-Factor Authentication eller Active Directory Federation Services (AD FS) för att skydda dessa resurser. Skydda dina resurser i Azure Active Directory med Azure Multi-Factor Authentication eller Active Directory Federation Services genom att använda följa steg.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Skydda Azure AD-resurser med hjälp av AD FS
-För att skydda din molnresurs ska du först aktivera ett konto för användare och sedan skapa en anspråksregel. Följ dessa steg:
+Ställ in en anspråksregel så att Active Directory Federation Services genererar multipleauthn-kravet när en användare utför tvåstegsverifiering om du vill skydda din molnresurs. Det här anspråket överförs till Azure AD. Följ dessa steg:
 
-1. Följ anvisningarna i [Aktivera Multi-Factor-Authentication för användare](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) för att aktivera ett konto.
-2. Starta AD FS-hanteringskonsolen.
-   ![Moln](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-3. Gå till **Förlitande partsförtroenden** och högerklicka på Förlitande partsförtroenden. Välj **Redigera anspråksregler...**
-4. Klicka på **Lägg till regel...**
-5. Välj **Skicka anspråk med hjälp av en anpassad regel** i listrutan och klicka på **Nästa**.
-6. Ange ett namn för anspråksregeln.
-7. Lägg till följande text under Anpassad regel:
 
-    ```
-    => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
-    ```
+1. Öppna AD FS-hantering.
+2. Välj **Förlitande partsförtroenden** till vänster.
+3. Högerklicka på **Microsoft Office 365 Identity Platform** och välj **Redigera anspråksregler...**
 
-    Motsvarande anspråk:
+   ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
-    ```
-    <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
-    <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
-    </saml:Attribute>
-    ```
-8. Klicka på **OK** sedan **Slutför**. Stäng AD FS-hanteringskonsolen.
+4. För Utfärdande av transformeringsregler klickar du på **Lägg till regel**.
 
-Användarna kan slutföra inloggningen med hjälp av den lokala metoden (t.ex. smartkort).
+   ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.
+
+   ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Namnge din regel. 
+7. Välj **Autentiseringsmetodreferenser** som den inkommande anspråkstypen.
+8. Välj **Släpp igenom alla anspråksvärden**.
+    ![Guiden Lägg till anspråksregel för transformering](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. Klicka på **Slutför**. Stäng AD FS-hanteringskonsolen.
 
 ## <a name="trusted-ips-for-federated-users"></a>Tillförlitliga IP-adresser för federerade användare
 Tillförlitliga IP-adresser gör att administratörer kan kringgå tvåstegsverifiering för specifika IP-adresser eller federerade användare som har förfrågningar som kommer inifrån det egna intranätet. Följande avsnitt beskriver hur du konfigurerar tillförlitliga IP-adresser för Azure Multi-Factor Authentication med federerade användare och hur du kringgår tvåstegsverifiering när en begäran kommer inifrån en federerad användares intranät. Du gör detta genom att konfigurera AD FS att släppa igenom eller filtrera en mall för inkommande anspråk med anspråkstypen I företagsnätverket.
@@ -56,7 +53,7 @@ Tillförlitliga IP-adresser gör att administratörer kan kringgå tvåstegsveri
 I det här exemplet används Office 365 för våra förlitande partsförtroenden.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>Konfigurera anspråksreglerna för AD FS
-Det första vi måste göra är att konfigurera AD FS-anspråken. Vi ska skapa två anspråksregler, en för anspråkstypen inom företagsnätverket och ytterligare en som gör att våra användare förblir inloggade.
+Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två anspråksregler, en för anspråkstypen inom företagsnätverket och ytterligare en som gör att våra användare förblir inloggade.
 
 1. Öppna AD FS-hantering.
 2. Välj **Förlitande partsförtroenden** till vänster.
@@ -100,6 +97,6 @@ Klart! I det här läget behöver federerade Office 365-användare endast  anvä
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

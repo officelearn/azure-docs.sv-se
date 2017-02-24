@@ -23,7 +23,7 @@ ms.openlocfilehash: d1ab1ab2132d12bf06dbe2504b7d7111ef2ae851
 ---
 # <a name="how-app-service-works"></a>Så här fungerar App Service
 Azure App Service är en molntjänst som har utformats för att lösa de praktiska problem som tekniker möter idag.
-Apptjänst fokuserar på att erbjuda överlägsen utvecklarproduktivitet utan att ge avkall på behovet att leverera program i molnskala.
+Apptjänst fokuserar på att erbjuda överlägsen utvecklarproduktivitet utan att ge avkall på behovet att leverera program i molnskala. 
 
 App Service innehåller också de funktioner och ramverk som är nödvändiga för att skapa anpassade affärsområdesprogram samtidigt som man förser utvecklarna med de populäraste utvecklingsspråken (som Microsoft .NET, Java, PHP, Node.js och Python).
 Med Apptjänst kan utvecklare göra följande:

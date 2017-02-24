@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
 
 
 ---
@@ -39,37 +39,37 @@ På den här sidan kan du se **nyligen tillagda** experiment eller bläddra ner�
 Bläddra bland alla experiment:
 
 1. Klicka på **Browse all** längst upp på sidan.
-2. Under **Förfina efter** väljer du **Experiment** om du vill se alla experiment i galleriet.
+2. Under **Förfina efter** i avsnittet **Kategorier** väljer du **Experiment** om du vill se alla experiment i galleriet.
 3. Du kan hitta experiment som uppfyller kraven på ett par olika sätt:
    * **Välj filter till vänster.** Om du till exempel vill bläddra bland experiment som använder en PCA-baserad algoritm för avvikelseidentifiering väljer du **Experiment** under **Kategorier** och **PCA-baserad avvikelseidentifiering** under **Algoritmer som används**. (Om du inte ser den algoritmen klickar du på **Visa alla** längst ned i listan.)<br></br>
      ![Välj filter](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Använd sökrutan.** Om du till exempel vill hitta experiment från Microsoft som rör sifferigenkänning som använder en algoritm för stödvektormaskin med två klasser anger du ”digit recognition” i sökrutan. Välj sedan filtren **Experiment**, **Endast Microsoft-innehåll** och **Stödvektormaskin med två klasser**: ![Använd sökrutan](./media/machine-learning-sample-experiments/search-for-experiments.png)
+   * **Använd sökrutan.** Om du till exempel vill hitta experiment från Microsoft som rör sifferigenkänning som använder en algoritm för stödvektormaskin med två klasser anger du ”digit recognition” i sökrutan. Välj sedan filtren **Experiment**, **Endast Microsoft innehåll** och **Stödvektormaskin med två klasser**:<br></br>
+     ![Använd sökrutan](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Klicka på ett experiment om du vill veta mer om det.
-5. Om du vill köra och/eller ändra experimentet klickar du på **Open in Studio** på experimentsidan.
-
-   > [!NOTE]
-   > För att kunna öppna ett experiment i Machine Learning Studio måste du logga in med autentiseringsuppgifterna för ditt Microsoft-konto. Om du inte har någon arbetsyta i Machine Learning än skapas en kostnadsfri utvärderingsversion. [Mer information om vad som ingår i den kostnadsfria utvärderingsversionen av Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)
-   >
-   >
+5. Om du vill köra och/eller ändra experimentet klickar du på **Open in Studio** på experimentsidan. <br></br>
 
     ![Exempelexperiment](./media/machine-learning-sample-experiments/example-experiment.png)
+
+    > [!NOTE]
+    > När du öppnar ett experiment i Machine Learning Studio för första gången kan du prova det kostnadsfritt eller köpa en Azure-prenumeration. [Lär dig mer om den kostnadsfria utvärderingsversionen och den betalda tjänsten Machine Learning Studio](https://azure.microsoft.com/pricing/details/machine-learning/)
+    >
+    >
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Använda en mall i Machine Learning Studio
 Du kan även skapa ett nytt försök i Machine Learning Studio med ett exempel från galleriet som mall.
 
-1. Skapa ett nytt experiment genom att logga in i [Studio](https://studio.azureml.net) med dina Microsoft-autentiseringsuppgifter och klicka sedan på **Nytt**.
+1. Skapa ett experiment genom att logga in i [Studio](https://studio.azureml.net) med dina autentiseringsuppgifter för Microsoft-kontot och klicka sedan på **Nytt**.
 2. Bläddra igenom exemplen och klicka på ett.
 
 Ett nytt experiment skapas i arbetsytan med exempelexperimentet som mall.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Förbereda dina data](machine-learning-data-science-import-data.md)
-* [Testa att använda R i experimentet](machine-learning-r-quickstart.md)
-* [Se R-exempelexperiment](machine-learning-r-csharp-web-service-examples.md)
-* [Skapa ett webbtjänst-API](machine-learning-publish-a-machine-learning-web-service.md)
+* [Importera data från olika källor](machine-learning-data-science-import-data.md)
+* [Snabbstartssjälvstudier till R-språket i Machine Learning](machine-learning-r-quickstart.md)
+* [Distribuera en Machine Learning-webbtjänst](machine-learning-publish-a-machine-learning-web-service.md)
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

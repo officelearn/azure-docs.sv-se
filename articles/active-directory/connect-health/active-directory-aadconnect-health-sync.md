@@ -1,4 +1,3 @@
-
 ---
 title: "Använda Azure AD Connect Health med synkronisering | Microsoft Docs"
 description: "Den här sidan om Azure AD Connect Health innehåller information om hur du övervakar Azure AD Connect-synkronisering."
@@ -13,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/10/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 2daa6c07191da7bd732cadf62b414f8027682071
-ms.openlocfilehash: 6546725b887dd9980913a651219dd2a2c4b8a783
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: 7a2f53de0067879a811c9954199026ecfe3ec906
 
 
 ---
@@ -106,7 +105,7 @@ Följande data är tillgängliga i den detaljerade vyn för varje fel
 ![Rapportdetaljer för synkroniseringsfel](./media/active-directory-aadconnect-health-sync/errorreport04.png)
 
 ### <a name="download-the-error-report-as-csv"></a>Hämta felrapporten som CSV
-Den här funktionen kommer snart. Håll ögonen öppna för uppdateringar.
+Du kan hämta en CSV-fil med all information om felen genom att klicka på Exportera.
 
 ## <a name="related-links"></a>Relaterade länkar
 * [Felsöka fel under synkronisering](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)
@@ -120,7 +119,6 @@ Den här funktionen kommer snart. Håll ögonen öppna för uppdateringar.
 * [Versionshistorik för Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

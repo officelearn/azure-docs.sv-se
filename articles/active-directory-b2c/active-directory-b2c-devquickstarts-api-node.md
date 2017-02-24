@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cea04afd22270c77d91148d3c4a95e87f37406db
+ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
+ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
 
 
 ---
@@ -279,7 +279,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 `policyName`: Den princip som du vill använda för att validera token som kommer till servern. Det bör vara samma princip som du använder i klientprogrammet för inloggning.
 
 > [!NOTE]
-> Använd samma principer för både klient- och serverinstallationen när det gäller B2C-förhandsgranskning. Om du har redan gjort en genomgång och skapat dessa principer behöver du inte göra det igen. Eftersom du har gjort genomgången ska du inte behöva ställa in nya principer för klientgenomgångarna på webbplatsen.
+> Använd samma principer för både klient- och serverinstallationen. Om du har redan gjort en genomgång och skapat dessa principer behöver du inte göra det igen. Eftersom du har gjort genomgången ska du inte behöva ställa in nya principer för klientgenomgångarna på webbplatsen.
 >
 >
 
@@ -763,6 +763,6 @@ Du kan nu gå vidare  till mer avancerade ämnen, till exempel:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: c42aebb3aaf5c32ebdc4f79e2ace2f127e4fb20d
-ms.openlocfilehash: fe875fba2651b770d910d257282f5e9f41f8a043
+ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
+ms.openlocfilehash: b95f37db90b105962c01545e25c8e14c53257ebc
 
 
 ---
@@ -53,6 +53,10 @@ De senaste build-versionerna av [jedis](https://github.com/xetorthio/jedis) stö
     JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
+> [!NOTE]
+> Icke-SSL-porten har inaktiverats för nya Azure Redis Cache-instanser. Om du använder en annan klient som inte har stöd för SSL kan du läsa [Aktivera icke-SSL-porten](cache-configure.md#access-ports) (på engelska).
+> 
+> 
 
 ## <a name="add-something-to-the-cache-and-retrieve-it"></a>Lägg till något i cachen och hämta det
     package com.mycompany.app;
@@ -80,6 +84,6 @@ De senaste build-versionerna av [jedis](https://github.com/xetorthio/jedis) stö
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

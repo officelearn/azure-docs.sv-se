@@ -1,28 +1,28 @@
 ---
-title: "Diagnostisera prestandaproblem på en webbplats som kör IIS | Microsoft Docs"
-description: "Övervaka prestanda för en webbplats utan att distribuera den igen. Använd fristående eller med Application Insights SDK för att hämta telemetri om beroenden."
+title: "Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microsoft Docs"
+description: "Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: ee9ebc23ce805bb4665669077a4d3fddf4c43e32
-ms.openlocfilehash: a190b1990a4ae4e7ad52cc1a7e802c8002522917
+ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
+ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentera webbappar vid körning med Application Insights
 
 
-Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Om dina appar finns på en lokal IIS-server installerar du Statusövervakare. Om de är Azure-webbappar eller körs i en virtuell Azure-dator kan du installera Application Insights-tillägget. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).)
+Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Om dina appar finns på en lokal IIS-server installerar du Statusövervakare. Om apparna är Azure-webbappar eller körs i en virtuell Azure-dator kan du installera Application Insights-tillägget. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).) Du behöver en [Microsoft Azure](http://azure.com)-prenumeration.
 
 ![exempeldiagram](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -45,88 +45,63 @@ Här är en sammanfattning av vad du får med respektive väg:
 | [Sidvy och användardata](app-insights-javascript.md) |Ja | |
 | Du behöver inte återskapa kod |Nej | |
 
-## <a name="instrument-your-web-app-at-run-time"></a>Instrumentera din webbapp under körning
-Du behöver en [Microsoft Azure](http://azure.com)-prenumeration.
 
-### <a name="if-your-app-is-an-azure-web-app-or-cloud-service"></a>Om din app är en Azure-webbapp eller Cloud Service-app
+## <a name="monitor-a-live-azure-web-app"></a>Övervaka en Azure-livewebbapp
+
+Om programmet körs som en Azure-webbtjänst kan du aktivera övervakning på följande sätt:
+
 * Välj Application Insights på appens kontrollpanel i Azure.
 
-    [Läs mer](app-insights-azure.md).
+    ![Konfigurera Application Insights för en Azure-webbapp](./media/app-insights-monitor-performance-live-website-now/azure-web-setup.png)
+* Klicka på länken längst ned för att öppna den fullständiga Applications Insights-resursen när sammanfattningssidan öppnas.
 
-### <a name="if-your-app-is-hosted-on-your-iis-server"></a>Om appen körs på din IIS-server
+    ![Klicka här så kommer du till Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
+
+[Övervaka appar för moln och virtuella datorer](app-insights-azure.md).
+
+## <a name="monitor-a-live-iis-web-app"></a>Övervaka en IIS-livewebbapp
+
+Om din app finns på en IIS-server aktiverar du Application Insights med hjälp av Statusövervakaren.
+
 1. Logga in med administratörsbehörighet på IIS-webbservern.
-2. Ladda ned och kör [installationsprogrammet för Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).  
-3. Välj den installerade webbappen eller webbplatsen som du vill övervaka och konfigurera sedan den resurs där du vill visa resultatet på Application Insights-portalen. Du bör vara inloggad på Microsoft Azure.
+2. Om Application Insights Status Monitor inte redan är installerat laddar du ned och kör [installationsprogrammet för Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+3. I statusövervakaren väljer du den installerade webbappen eller en webbplats som du vill övervaka. Logga in med dina Azure autentiseringsuppgifter.
+
+    Konfigurera den resurs där du vill visa resultatet i Application Insights-portalen. (Normalt är det bäst att skapa en ny resurs. Välj en befintlig resurs om du redan har [webbtester][availability] eller [klientövervakning][client] för den här appen.) 
 
     ![Välj en app och en resurs.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    Normalt kan du välja att konfigurera en ny resurs och [resursgrupp][roles].
-
-    Annars kan du använda en befintlig resurs om du redan har konfigurerat [webbtester][availability] för webbplatsen eller [webbklientövervakning][client].
 4. Starta om IIS.
 
     ![Välj Starta om överst i dialogrutan.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     Webbtjänsten avbryts en liten stund.
-5. Observera att ApplicationInsights.config har lagts till för de webbappar som du vill övervaka.
 
-    ![Leta upp webbappens .config-fil och kodfiler.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
-   
+## <a name="customize-monitoring-options"></a>Anpassa övervakningsalternativ
 
-#### <a name="want-to-reconfigure-later"></a>Vill du ändra konfigurationen senare?
-När du har slutfört guiden kan du konfigurera agenten igen när du vill. Du kan också använda det här alternativet om du installerade agenten och det uppstod problem med den ursprungliga installationen.
+När Application Insights aktiveras läggs DLL-filer och ApplicationInsights.config till i webbappen. Du kan [redigera .config-filen](app-insights-configuration-with-applicationinsights-config.md) och ändra en del av alternativen.
 
-![Klicka på ikonen för Application Insights i Aktivitetsfältet](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
+## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>När du publicerar appen igen ska du återaktivera Application Insights
 
-## <a name="view-performance-telemetry"></a>Visa telemetri om prestanda
-Logga in på [Azure-portalen](https://portal.azure.com), bläddra till Application Insights och öppna den resurs som du skapade.
+Innan du publicerar din app igen bör du överväga att [lägga till Applications Insights i koden i Visual Studio][greenbrown]. Du får mer detaljerad telemetri och möjligheten att skriva anpassad telemetri.
 
-![Välj Bläddra, Application Insights och välj din app](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
+Om du vill publicera på nytt utan att lägga till Application Insights i koden, tänk på att distributionsprocessen kan ta bort DLL-filer och ApplicationInsights.config från den publicerade webbplatsen. Därför:
 
-Öppna bladet Prestanda om du vill visa information om förfrågningar, svarstider, beroenden och andra data.
+1. Om du har redigerat ApplicationInsights.config tar du en kopia av den innan du publicerar appen igen.
+2. Publicera om appen.
+3. Återaktivera övervakning med Application Insights. (Använd lämplig metod: antingen Azure-kontrollpanelen för webbappar eller statusövervakaren på en IIS-värd.)
+4. Återställa redigeringar som har utförts på .config-filen.
 
-![Prestanda](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Klicka på ett valfritt diagram om du vill öppna en mer detaljerad vy.
+## <a name="troubleshooting-runtime-configuration-of-application-insights"></a>Felsöka körningskonfigurationen av Application Insights
 
-Du kan [redigera, ändra, spara](app-insights-metrics-explorer.md) och fästa diagram eller hela bladet på en [instrumentpanel](app-insights-dashboards.md).
+### <a name="cant-connect-no-telemetry"></a>Går det inte att ansluta? Ser du ingen telemetri?
 
-## <a name="dependencies"></a>Beroenden
-Diagrammet Beroendevaraktighet visar hur lång tid anropen tar från din app till externa komponenter, t.ex databaser, REST-API: er eller Azure Blob Storage.
+* Du måste öppna [vissa utgående portar](app-insights-ip-addresses.md#outgoing-ports) i serverns brandvägg för att Statusövervakare ska fungera.
 
-Så här delar du in diagrammet efter anrop till olika beroenden: Redigera diagrammet, aktivera Gruppering och gruppera sedan efter beroende, beroendetyp eller beroendeprestanda.
-
-![Beroende](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
-
-## <a name="performance-counters"></a>Prestandaräknare
-Klicka på Servrar på översiktsbladet om du vill visa diagram över serverprestandaräknare, till exempel processor- och minnesanvändning.
-
-Om du har flera serverinstanser vill du kanske redigera de diagram som ska grupperas efter rollinstans.
-
-![Servrar](./media/app-insights-monitor-performance-live-website-now/22-servers.png)
-
-Du kan också ändra uppsättningen prestandaräknare som rapporteras av SDK. 
-
-## <a name="exceptions"></a>Undantag
-![Klicka dig igenom diagrammet med serverundantag](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
-
-Du kan undersöka specifika undantag (från de senaste sju dagarna) och visa stackspårning och kontextdata.
-
-## <a name="sampling"></a>Samling
-Om programmet skickar stora mängder data och du använder Application Insights SDK för ASP.NET version 2.0.0-beta3 eller senare kan den anpassade samplingsfunktionen skicka bara en del av din telemetri. [Läs mer om sampling.](app-insights-sampling.md)
-
-## <a name="troubleshooting"></a>Felsökning
-### <a name="connection-errors"></a>Anslutningsfel
-Du måste öppna [vissa utgående portar](app-insights-ip-addresses.md#outgoing-ports) i serverns brandvägg för att Statusövervakare ska fungera.
-
-### <a name="no-telemetry"></a>Ser du ingen telemetri?
-* Generera lite data genom att använda din webbplats.
-* Vänta några minuter så att data hinner tas emot och klicka sedan på **Uppdatera**.
-* Öppna Diagnostiksökning (panelen Sök) om du vill visa enskilda händelser. Händelser visas ofta i Diagnostiksökning innan sammanställda data visas i diagrammen.
 * Öppna Status Monitor och välj ditt program i den vänstra rutan. Kontrollera om det finns några diagnostikmeddelanden för det här programmet i avsnittet ”Konfigurationsmeddelanden”:
 
   ![Öppna bladet Prestanda om du vill visa information om förfrågningar, svarstider, beroenden och andra data](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
-* Kontrollera att serverbrandväggen tillåter utgående trafik på de portar som anges ovan.
 * Om du ser ett meddelande om ”otillräcklig behörighet” på servern provar du följande:
   * I IIS-hanteraren väljer du programpoolen, öppnar **Avancerade inställningar** och noterar identiteten under **Processmodell**.
   * På kontrollpanelen för Datorhantering lägger du till den här identiteten i gruppen Användare av prestandaövervakning.
@@ -209,10 +184,19 @@ Ta reda på vilka appar som övervakas:
 * Laddar ned senaste Application Insights SDK till servern.
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Nästa steg
+
+Visa telemetrin:
+
+* [Utforska mått](app-insights-metrics-explorer.md) för att övervaka prestanda och användning
+* [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem
+* [Analys](app-insights-analytics.md) för mer avancerade frågor
+* [Skapa instrumentpaneler](app-insights-dashboards.md)
+
+Lägg till mer telemetri:
+
 * [Skapa webbtester][availability] så att du är säker på att webbplatsen är aktiv.
-* [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem.
 * [Lägg till telemetri för webbklienten][usage] om du vill visa undantag från webbsidans kod och lägga till spårningsanrop.
-* [Lägg till Application Insights SDK i koden för din webbtjänst][greenbrown] om du vill lägga till spårnings- och logganrop i serverkoden.
+* [Lägg till Application Insights SDK i koden][greenbrown] om du vill lägga till spårnings- och logganrop
 
 <!--Link references-->
 
@@ -227,6 +211,6 @@ Ta reda på vilka appar som övervakas:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

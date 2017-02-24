@@ -16,7 +16,8 @@
 
 # Resurser
 ##[Anslutningar till datakälla](analysis-services-datasource.md)
-##[Dataprovidrar](analysis-services-data-providers.md) 
+##[Dataprovidrar](analysis-services-data-providers.md)
+##[Skapa en ODC-fil](analysis-services-odc.md)
 
 
 <!--HONumber=Feb17_HO3-->

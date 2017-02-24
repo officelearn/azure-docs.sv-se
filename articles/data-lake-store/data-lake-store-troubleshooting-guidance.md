@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
-ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
+ms.sourcegitcommit: a3629845014cb401df96d2d8bf7b9801a0664150
+ms.openlocfilehash: 2f184f5289b9394572023fe9d1aec2d28a73c4f7
 
 
 ---
@@ -41,7 +41,7 @@ Om ett nationellt strömavbrott uppstår kan du sedan hämta dina data från reg
 Azure Data Lake Store skyddar data med hjälp av automatiska repliker. Detta utgör dock inte ett skydd mot att ditt program (eller utvecklare/användare) skadar eller oavsiktligen raderar data.
 
 #### <a name="best-practices"></a>Bästa praxis
-För att förhindra oavsiktlig borttagning, rekommenderar vi att du först ställer in rätt åtkomstprinciper för ditt Data Lake Store-konto med hjälp av tillgängliga [säkerhetsfunktioner för Data Lake Store](data-lake-store-security-overview.md). Vi rekommenderar dessutom att du skapar regelbundna kopior av dina viktigaste data med [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) eller [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) i ett annat Data Lake Store-konto eller Azure-prenumeration.  Detta kan användas för att återställa från skadade data eller en borttagning. Azure Data Factory är användbart för att skapa och distribuera pipelines för datarörlighet regelbundet.
+För att förhindra oavsiktlig borttagning rekommenderar vi att du först ställer in rätt åtkomstprinciper för ditt Data Lake Store-konto.  Det innebär att tillämpa [lås för Azure-resurser](../azure-resource-manager/resource-group-lock-resources.md) för att låsa viktiga resurser samt tillämpa åtkomstkontroll på konto- och filnivå med de tillgängliga [säkerhetsfunktionerna i Data Lake Store](data-lake-store-security-overview.md). Vi rekommenderar dessutom att du skapar regelbundna kopior av dina viktigaste data med [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) eller [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) i ett annat Data Lake Store-konto eller Azure-prenumeration.  Detta kan användas för att återställa från skadade data eller en borttagning. Azure Data Factory är användbart för att skapa och distribuera pipelines för datarörlighet regelbundet.
 
 Organisationer kan även aktivera [Diagnostisk loggning](data-lake-store-diagnostic-logs.md) för sitt konto för att samla in granskningshistorik för dataåtkomst till Azure Data Lake Store som ger information om vem som har tagit bort eller uppdaterat en fil.
 
@@ -52,6 +52,6 @@ Organisationer kan även aktivera [Diagnostisk loggning](data-lake-store-diagnos
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

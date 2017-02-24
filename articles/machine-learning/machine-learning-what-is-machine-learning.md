@@ -1,7 +1,7 @@
 ---
 title: "Vad är Machine Learning i Azure? | Microsoft Docs"
 description: "Förklarar grundläggande begrepp relaterade till maskininlärning i molnet och vad du kan använda det till, samt definierar viktiga termer inom maskininlärning."
-keywords: "Vad är maskininlärning, termer inom maskininlärning, förutsäga, vad är förutsägelseanalys, operationalisera"
+keywords: what is machine learning,machine learning terms,predictive,what is predictive analytics,machine learning terms
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a0415a3a07a1334f1947ff89e79bc710332de113
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
 
 
 ---
-# <a name="introduction-to-machine-learning-in-the-cloud"></a>Introduktion till maskininlärning i molnet
+# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Introduktion till Azure Machine Learning i molnet
 ## <a name="what-is-machine-learning"></a>Vad är maskininlärning?
 Maskininlärning är en datavetenskapsteknik som hjälper datorer att lära sig från befintliga data för att kunna göra prognoser om framtida beteenden, resultat och trender.  
 
@@ -30,47 +30,47 @@ Dessa prognoser eller förutsägelser från maskininlärning kan göra appar och
 För en kortfattad översikt rekommenderar vi videoserien [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) (datavetenskap för nybörjare). Utan teknisk jargong eller matematiskt språk förklarar videoserien vad maskininlärning är och vägleder dig genom en enkel förutsägelsemodell.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Vad är Machine Learning i Microsoft Azure-molnet?
-Azure Machine Learning är kraftfull molnbaserad tjänst för förutsägelseanalys som gör det möjligt att snabbt skapa och distribuera förutsägelsemodeller som analyslösningar. När du använder Azure-molnet för att köra maskininlärningsexperiment eller skapa lösningar behöver du inte köpa dyr maskinvara eller infrastruktur.
+Azure Machine Learning är en molnbaserad tjänst för förutsägelseanalys som gör det möjligt att snabbt skapa och distribuera förutsägelsemodeller som analyslösningar.
+
+Du kan utgå från ett färdigt bibliotek med algoritmer, använda dem för att skapa modeller på en Internetansluten dator och snabbt distribuera din förutsägelselösning. Börja från färdiga exempel och lösningar i [Cortana Intelligence-galleriet](https://gallery.cortanaintelligence.com/).
 
 ![Vad är maskininlärning? Grundläggande arbetsflöde för att operationalisera förutsägelseanalyser i Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
-Azure Machine Learning ger inte bara tillgång till verktyg för att modellera förutsägelseanalyser, utan tillhandahåller också en fullständigt hanterad tjänst som du kan använda för att distribuera förutsägelsemodeller som användningsklara webbtjänster. Azure Machine Learning innehåller de verktyg som du behöver för att skapa fullständiga förutsägelseanalyslösningar i molnet. Du kan snabbt skapa, testa, operationalisera och hantera förutsägelsemodeller.
-
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+Azure Machine Learning ger inte bara tillgång till verktyg för att modellera förutsägelseanalyser, utan tillhandahåller också en fullständigt hanterad tjänst som du kan använda för att distribuera förutsägelsemodeller som användningsklara webbtjänster.
 
 ## <a name="what-is-predictive-analytics"></a>Vad är förutsägelseanalyser?
-Förutsägelseanalyser använder olika matematiska formler kallade algoritmer som analyserar historiska eller aktuella data för att identifiera mönster eller trender som sedan används som utgångspunkt för prognoser om framtida händelser.
+Förutsägelseanalyser använder matematiska formler kallade algoritmer som analyserar historiska eller aktuella data för att identifiera mönster eller trender som sedan används som utgångspunkt för prognoser om framtida händelser.
 
-Azure Machine Learning är ett särskilt kraftfullt sätt att göra förutsägelseanalyser: du kan arbeta från ett färdigt bibliotek med algoritmer, använda algoritmerna för att skapa modeller på en Internetansluten dator och snabbt distribuera din förutsägelselösning. För att snabbt få resultat kan du börja med färdiga exempel och lösningar i [Cortana Intelligence-galleriet](http://gallery.cortanaintelligence.com/).
-
-## <a name="build-complete-machine-learning-solutions-in-the-cloud"></a>Skapa fullständiga maskininlärningslösningar i molnet
-Azure Machine Learning har allt du behöver för att skapa förutsägelseanalyslösningar i molnet: ett stort algoritmbibliotek, verktyg för modellutveckling och ett enkelt sätt att distribuera din modell som en webbtjänst.
+## <a name="tools-to-build-complete-machine-learning-solutions-in-the-cloud"></a>Verktyg för att skapa kompletta maskininlärningslösningar i molnet
+Azure Machine Learning har allt du behöver för att skapa heltäckande förutsägelseanalyslösningar i molnet: ett stort algoritmbibliotek, verktyg för modellutveckling och ett enkelt sätt att distribuera din modell som en webbtjänst. Skapa, testa, operationalisera och hantera snabbt dina förutsägelsemodeller.
 
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio: Skapa förutsägelsemodeller
-I [Machine Learning Studio](machine-learning-what-is-ml-studio.md) kan du snabbt skapa förutsägelsemodeller genom att dra, släppa och ansluta moduler. Det är enkelt att experimentera med olika kombinationer och du kan [prova verktyget utan kostnad](https://studio.azureml.net/?selectAccess=true&o=2).
+I [Machine Learning Studio](machine-learning-what-is-ml-studio.md) kan du snabbt skapa förutsägelsemodeller genom att dra, släppa och ansluta moduler. Du kan experimentera med olika kombinationer och [prova kostnadsfritt](https://studio.azureml.net/?selectAccess=true&o=2).
 
 * I [Cortana Intelligence-galleriet](machine-learning-gallery-how-to-use-contribute-publish.md) kan du prova analyslösningar som skapats av andra eller bidra med dina egna. Skicka frågor eller kommentarer om experiment till communityn eller dela länkar till experiment via sociala nätverk, till exempel LinkedIn och Twitter.
-  
+
   ![Prova förutsägelseexperiment eller bidra med egna i Azure Cortana Intelligence-galleriet](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Kom snabbt igång med dina förutsägelsemodeller genom att dra nytta av det stora biblioteket med [algoritmer och moduler för maskininlärning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) i Machine Learning Studio. Välj bland exempelexperiment, R- och Python-paket och algoritmer av högsta klass från Xbox och Bing med flera. Utöka Studio-modulerna med dina egna anpassade [R](machine-learning-r-quickstart.md)- och [Python](machine-learning-execute-python-scripts.md)-skript.
-  
+
   ![Vad är förutsägelseanalyser: Exempel på ett förutsägelseanalysexperiment i Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
-### <a name="operationalize-predictive-analytics-solutions-purchase-web-services-or-publish-your-own"></a>Operationalisera förutsägelseanalyslösningar: Köp webbtjänster eller publicera dina egna
-* Köp användningsklara webbtjänster från [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), till exempel Recommendations, Text Analytics och Anomaly Detection.
-* Operationalisera förutsägelseanalysmodeller:
-  
-  * [Distribuera webbtjänster](machine-learning-publish-a-machine-learning-web-service.md)
-  * [Träna och träna om modeller via API:er](machine-learning-retrain-models-programmatically.md)
-  * [Hantera slutpunkter för webbtjänster](machine-learning-create-endpoint.md)
-  * [Skala en webbtjänst](machine-learning-scaling-webservice.md)
-  * [Konsumera webbtjänster](machine-learning-consume-web-services.md)
+### <a name="operationalize-predictive-analytics-solutions-by-publishing-your-own"></a>Operationalisera lösningar för förutsägelseanalys genom att publicera dina egna
+Följande självstudier beskriver hur du operationaliserar dina förutsägelseanalysmodeller:
+
+ * [Distribuera webbtjänster](machine-learning-publish-a-machine-learning-web-service.md)
+ * [Träna om modeller via API:er](machine-learning-retrain-models-programmatically.md)
+ * [Hantera slutpunkter för webbtjänster](machine-learning-create-endpoint.md)
+ * [Skala en webbtjänst](machine-learning-scaling-webservice.md)
+ * [Konsumera webbtjänster](machine-learning-consume-web-services.md)
 
 ## <a name="key-machine-learning-terms-and-concepts"></a>Viktiga termer och begrepp inom maskininlärning
 Maskininlärningstermerna kan vara förvirrande. Här följer definitioner av de viktigaste termerna. Skicka gärna kommentarer om det finns andra termer som du vill få förklarade.
 
 ### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Datagranskning, beskrivande analys och förutsägelseanalys
-**Datagranskning** är en process där du samlar in information om en stor och ofta ostrukturerad datauppsättning för att identifiera egenskaper för fokuserad analys. **Datautvinning** syftar på automatiserad datagranskning.
+
+**Datagranskning** är en process där du samlar in information om en stor och ofta ostrukturerad datauppsättning för att identifiera egenskaper för fokuserad analys.
+
+**Datautvinning** syftar på automatiserad datagranskning.
 
 **Beskrivande analys** är en process där du analyserar en datauppsättning för att sammanfatta vad som hänt. Merparten av alla företagsanalyser – försäljningsrapporter, mätvärden från webben och analys av sociala nätverk – är beskrivande.
 
@@ -115,6 +115,6 @@ Du kan lära dig grunderna i förutsägelseanalyser och maskininlärning genom a
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

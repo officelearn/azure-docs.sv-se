@@ -10,10 +10,12 @@
 ## [Felsöka](multi-factor-authentication-end-user-troubleshoot.md)
 ## [Konfigurera applösenord](multi-factor-authentication-end-user-app-passwords.md)
 ## Använd Microsoft Authenticator-appen
-### [Kom igång](microsoft-authenticator-app-how-to.md)
+### [Kom igång med appen](microsoft-authenticator-app-how-to.md)
+### [Logga in med telefonen](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Vanliga frågor och svar](microsoft-authenticator-app-faq.md)
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,26 +12,23 @@ Och eftersom du programmässigt kan skapa virtuella datorer och Linux-behållare
 I den här artikeln beskrivs inte bara dessa koncept på hög nivå, utan här finns även en mängd länkar till mer information, självstudier och produkter som hör till behållar- och klusteranvändning på Azure. Om du känner till allt detta och bara vill ha länkarna finns de här i [verktyg för att arbeta med behållare](#tools-for-working-with-azure-vms-and-containers).
 
 ## <a name="the-difference-between-virtual-machines-and-containers"></a>Skillnaden mellan virtuella datorer och behållare
-Virtuella datorer körs i en isolerad maskinvaruvirtualiseringsmiljö som tillhandahålls av ett [hypervisor-program](http://en.wikipedia.org/wiki/Hypervisor). I Azure hanterar tjänsten [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) allt detta åt dig: Du skapar bara virtuella datorer genom att välja operativsystemet och konfigurera datorn så att den körs som du vill&mdash;eller genom att överföra dina egen anpassade virtuella datoravbildning. Virtual Machines är en tidstestad och beprövad teknik och det finns många verktyg som är tillgängliga för att hantera operativsystem och konfigurera program som du installerar och kör. Allt som körs i en virtuell dator är dolt från värdoperativsystemet och, för ett program eller användare som körs i en virtuell dator, verkar den virtuella datorn verkar vara en självständig fysisk dator.
+Virtuella datorer körs i en isolerad maskinvaruvirtualiseringsmiljö som tillhandahålls av ett [hypervisor-program](http://en.wikipedia.org/wiki/Hypervisor). I Azure hanterar tjänsten [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) allt detta åt dig: Du skapar virtuella datorer genom att välja operativsystemet och konfigurera &mdash;eller genom att överföra en egen anpassad VM-avbildning. Virtual Machines är en tidstestad och beprövad teknik och det finns många tillgängliga verktyg för att hantera operativsystem och konfigurera program i VM.  Appar i en virtuell dator är dolda för värdoperativsystemet. För de som använder den virtuella datorn och för programmen ser den virtuella datorn ut som en autonom fysisk dator.
 
-[Linux-behållare](http://en.wikipedia.org/wiki/LXC)&mdash;, även de som skapas och hanteras med hjälp av docker-verktyg, och det finns andra sätt&mdash;, kräver eller använder inte ett hypervisor-program för att ge isolering. Behållarvärden använder i stället process- och filsystemsisoleringsfunktionerna i Linux-kerneln för att exponera behållaren (och dess program) enbart för vissa kernelfunktioner och ett eget isolerat filsystem (minst). Behållaren verkar vara en unik operativsystemsinstans för ett program som körs i en behållare. Ett inneslutet program kan inte se processer eller andra resurser utanför dess behållare.
+[Linux-behållare](http://en.wikipedia.org/wiki/LXC) och de som skapas och hanteras med hjälp av Docker-verktyg använder inte ett hypervisor-program för isolering. När det gäller behållare använder behållarvärden process- och filsystemsisoleringsfunktionerna i Linux-kerneln för att exponera behållaren, dess program, vissa kernelfunktioner och dess egna isolerade filsystem. Behållaren verkar vara en unik operativsystemsinstans för en app som körs i en behållare. En innesluten app kan inte se processer eller andra resurser utanför dess behållare.
 
-I den här isolerings- och körningsmodellen delas nämligen kerneln för en Docker-värddator, och eftersom diskkraven för behållaren nu inte innehåller ett helt operativsystem är både uppstartstiden för behållaren och krav på diskutrymme mycket mindre.
+Mycket färre resurser används i en Docker-behållare än i en virtuell dator. Docker-behållare använder en modell för isolering och körning av program som inte delar Docker-värdens kernel. Behållaren tar mycket mindre diskutrymme eftersom den inte innehåller hela operativsystemet. Starttiden och det diskutrymme som krävs är betydligt lägre än i en virtuell dator.
+Windows-behållare ger samma fördelar som Linux-behållare för appar som körs i Windows. Windows-behållare har stöd för Docker-avbildningsformatet och Docker API, men de kan också hanteras med hjälp av PowerShell. Två behållarkörningar är tillgängliga med Windows-behållare: Windows Server-behållare och Hyper-V-behållare. Hyper-V-behållare ger ett extra lager av isolering genom värdhantering av varje behållare i en superoptimerad virtuell dator. Mer information om Windows-behållare finns i avsnittet [About Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) (Om Windows-behållare). Om du vill komma igång med Windows-behållare i Azure bör du lära dig att [distribuera ett kluster med Azure Container Service](/articles/container-service/container-service-deployment.md).
 
-Det är rätt intressant.
+## <a name="what-are-containers-good-for"></a>Vad är behållare bra för?
 
-Windows-behållare ger samma fördelar som Linux-behållare för program som körs i Windows. Windows-behållare har stöd för Docker-avbildningsformatet och Docker API, men de kan också hanteras med hjälp av PowerShell. Två behållarkörningar är tillgängliga med Windows-behållare: Windows Server-behållare och Hyper-V-behållare. Hyper-V-behållare ger ett extra lager av isolering genom värdhantering av varje behållare i en superoptimerad virtuell dator. Mer information om Windows-behållare finns i avsnittet [About Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) (Om Windows-behållare). Om du vill komma igång med Windows-behållare i Azure bör du lära dig att [distribuera ett kluster med Azure Container Service](/articles/container-service/container-service-deployment.md).
-
-Det är rätt intressant också.
-
-### <a name="is-this-too-good-to-be-true"></a>Är detta för bra för att vara sant?
-Både ja och&mdash; nej. Behållare, precis som andra tekniker, trollar inte bort allt det hårda arbete som distribuerade program kräver. Men samtidigt kan behållare faktiskt förändra följande:
+Behållare kan förbättra:
 
 * hur snabbt programkod kan utvecklas och delas brett
-* hur snabbt och med vilken pålitlighet den kan testas
-* hur snabbt och med vilken tillförlitlighet den kan distribueras
+* hur snabbt och tillförlitligt en app kan testas
+* hur snabbt och tillförlitligt en app kan distribueras
 
-Med detta konstaterat, kom ihåg att behållare körs på en behållarvärd&mdash;ett operativsystem, och i Azure innebär det en Azure Virtual Machine. Även om du redan gillar tanken på behållare kommer du fortfarande att behöva en virtuell datorinfrastruktur som fungerar som värd för behållarna, men fördelen är att det för behållarna inte spelar någon roll på vilken virtuell dator de körs (även om det kan spela roll att exempelvis en Linux- eller Windows-körningsmiljö passar bäst för behållaren).
+Behållare körs på en behållarvärd&mdash;ett operativsystem, och i Azure innebär det en virtuell Azure-dator. Även om du redan gillar tanken på behållare kommer du fortfarande att behöva en virtuell datorinfrastruktur som fungerar som värd för behållarna, men fördelen är att det för behållarna inte spelar någon roll på vilken virtuell dator de körs (även om det kan spela roll att exempelvis en Linux- eller Windows-körningsmiljö passar bäst för behållaren).
+
 
 ## <a name="what-are-containers-good-for"></a>Vad är behållare bra för?
 De fungerar bra för många saker, men de uppmuntrar&mdash;precis som [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) och [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)&mdash;skapandet av mikrotjänstinriktade distribuerade program med en tjänst, där programmets utformning bygger fler små, sammansättningsbara delar i stället för större och mer starkt sammanfogade komponenter.
@@ -198,6 +195,6 @@ Titta på [Docker](https://www.docker.com) och [Windows-behållare](https://msdn
 <!--Image references-->
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

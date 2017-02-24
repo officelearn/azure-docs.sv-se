@@ -1,5 +1,6 @@
 # Översikt
 ## [Vad är Application Gateway](application-gateway-introduction.md)
+## [Vanliga frågor och svar om Application Gateway](application-gateway-faq.md)
 ## [Brandvägg för webbappar](application-gateway-webapplicationfirewall-overview.md)
 ## [Hälsoövervakning](application-gateway-probe-overview.md)
 ## [URL-routning](application-gateway-url-route-overview.md)
@@ -49,7 +50,7 @@
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
-## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
 ## [REST (klassisk)](https://msdn.microsoft.com/library/azure/mt299393)
 # Relaterat
 ## [ExpressRoute](/azure/expressroute/)
@@ -66,6 +67,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

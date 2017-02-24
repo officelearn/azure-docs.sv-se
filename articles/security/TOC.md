@@ -52,8 +52,19 @@
 ## [Cybersäkerhetsrådgivning](azure-security-cyber-services.md)
 ## [Säkerhetskurser från Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Säkerhetsvideor på Channel 9](security-channel-nine.md)
+## [Hotmodelleringsverktyg](azure-security-threat-modeling-tool.md)
+###[Granskning och loggning](azure-security-threat-modeling-tool-auditing-and-logging.md)
+###[Autentisering](azure-security-threat-modeling-tool-authentication.md)
+###[Auktorisering](azure-security-threat-modeling-tool-authorization.md)
+###[Kommunikationssäkerhet](azure-security-threat-modeling-tool-communication-security.md)
+###[Konfigurationshantering](azure-security-threat-modeling-tool-configuration-management.md)
+###[Kryptografi](azure-security-threat-modeling-tool-cryptography.md)
+###[Hantering av undantag](azure-security-threat-modeling-tool-exception-management.md)
+###[Indataverifiering](azure-security-threat-modeling-tool-input-validation.md)
+###[Känsliga data](azure-security-threat-modeling-tool-sensitive-data.md)
+###[Sessionshantering](azure-security-threat-modeling-tool-session-management.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

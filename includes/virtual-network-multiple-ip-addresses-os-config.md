@@ -6,7 +6,7 @@ Anslut och logga in på en virtuell dator som du skapade med flera privata IP-ad
 
 1. Från en kommandotolk skriver du *ipconfig /all*.  Du ser bara den *primära* privata IP-adressen (via DHCP).
 2. Skriv *ncpa.cpl* i kommandotolken för att öppna fönstret **Nätverksanslutningar**.
-3. Öppna egenskaperna för **Anslutning till lokalt nätverk**.
+3. Öppna egenskaperna för det passande nätverkskortet: **Anslutning till lokalt nätverk**.
 4. Dubbelklicka på Internet Protocol version 4 (IPv4).
 5. Välj **Använd följande IP-adress** och ange följande värden:
 
@@ -16,9 +16,24 @@ Anslut och logga in på en virtuell dator som du skapade med flera privata IP-ad
     * Klicka på **Använd följande DNS-serveradresser** och ange följande värden:
         * **Önskad DNS-server**: Ange 168.63.129.16 om du inte använder en egen DNS-server.  Om du använder en egen DNS-server måste du ange dess IP-adress.
     * Klicka på knappen **Avancerat** och lägg till ytterligare IP-adresser. Lägg till varje sekundär privat IP-adress som anges i steg 8 till NIC med samma undernät som angetts för den primära IP-adressen.
+        >[!WARNING] 
+        >Om du inte följer du stegen ovan på rätt sätt kan du förlora anslutningen till den virtuella datorn. Kontrollera att informationen i steg 5 är korrekt innan du fortsätter.
+
     * Klicka på **OK** för att stänga TCP/IP-inställningarna och sedan på **OK** igen för att stänga inställningarna för nätverkskortet. RDP-anslutningen återupprättats.
+
 6. Från en kommandotolk skriver du *ipconfig /all*. Alla IP-adresser som du lade till visas och DHCP är avstängt.
-    
+
+
+### <a name="validation-windows"></a>Validering (Windows)
+
+Om du vill kontrollera att du kan ansluta till internet från den sekundära IP-konfigurationen via den offentliga IP-adress som är knuten till den använder du följande kommando när du har lagt till den korrekt med hjälp av stegen ovan:
+
+```bash
+ping -S 10.0.0.5 hotmail.com
+```
+>[!NOTE]
+>Du kan bara pinga till internet om den privata IP-adress som du använder ovan har en offentlig IP-adress som är kopplad till den.
+
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
 1. Öppna ett terminalfönster.
@@ -39,13 +54,7 @@ Anslut och logga in på en virtuell dator som du skapade med flera privata IP-ad
         ```
 
     Du bör se en .cfg-fil.
-4. Öppna filen:
-
-        ```bash
-        vi eth0.cfg
-        ```
-
-    Du bör se följande rader i slutet av filen:
+4. Öppna filen. Du bör se följande rader i slutet av filen:
 
     ```bash
     auto eth0
@@ -57,6 +66,7 @@ Anslut och logga in på en virtuell dator som du skapade med flera privata IP-ad
     ```bash
     iface eth0 inet static
     address <your private IP address here>
+    netmask <your subnet mask>
     ```
 
 6. Spara filen med följande kommando:
@@ -78,11 +88,11 @@ Anslut och logga in på en virtuell dator som du skapade med flera privata IP-ad
 8. Kontrollera att IP-adressen läggs till i nätverksgränssnittet med följande kommando:
 
     ```bash
-    Ip addr list eth0
+    ip addr list eth0
     ```
 
     Du bör se IP-adressen som du lade till i listan.
-    
+
 ### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS och andra)
 
 1. Öppna ett terminalfönster.
@@ -122,11 +132,10 @@ Anslut och logga in på en virtuell dator som du skapade med flera privata IP-ad
 
     ```bash
     DEVICE=eth0:0
-        BOOTPROTO=static
-        ONBOOT=yes
-        IPADDR=192.168.101.101
-        NETMASK=255.255.255.0
-
+    BOOTPROTO=static
+    ONBOOT=yes
+    IPADDR=192.168.101.101
+    NETMASK=255.255.255.0
     ```
 
 8. Spara filen med följande kommando:
@@ -144,7 +153,31 @@ Anslut och logga in på en virtuell dator som du skapade med flera privata IP-ad
 
     Du bör se IP-adressen som du lade till, *eth0:0*, i listan som returneras.
 
+### <a name="validation-linux"></a>Validering (Linux)
 
-<!--HONumber=Feb17_HO1-->
+Om du vill kontrollera att du kan ansluta till Internet från en sekundär IP-konfiguration via den offentliga IP-adress som är kopplad till den använder du följande kommando:
+
+```bash
+ping -I 10.0.0.5 hotmail.com
+```
+>[!NOTE]
+>Du kan bara pinga till internet om den privata IP-adress som du använder ovan har en offentlig IP-adress som är kopplad till den.
+
+För virtuella Linux-datorer kan du behöva lägga till lämpliga vägar när du försöker verifiera utgående anslutningar från ett sekundärt nätverkskort. Det finns flera sätt att göra detta på. Se motsvarande dokumentation för din distribution av Linux. Detta går exempelvis att åstadkomma med hjälp av följande metod:
+
+```bash
+echo 150 custom >> /etc/iproute2/rt_tables 
+
+ip rule add from 10.0.0.5 lookup custom
+ip route add default via 10.0.0.1 dev eth2 table custom
+
+```
+- Se till att ersätta:
+    - **10.0.0.5** med den privata IP-adress som har en offentlig IP-adress som är kopplad till den
+    - **10.0.0.1** till standard-gatewayen
+    - **eth2** till namnet på det sekundära nätverkskortet
+
+
+<!--HONumber=Feb17_HO2-->
 
 

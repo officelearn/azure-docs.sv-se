@@ -1,6 +1,6 @@
 ---
 title: "Konfigurera Azure AD-användarkonto | Microsoft Docs"
-description: "Den här artikeln beskriver hur du konfigurerar autentiseringsuppgifter för ett Azure AD-användarkonto för runbooks i Azure Automation för att autentisera mot ARM och ASM."
+description: "Den här artikeln beskriver hur du konfigurerar autentiseringsuppgifter för ett Azure AD-användarkonto som runbooks i Azure Automation ska autentisera med."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 11/14/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: db4eb96b3354d83864a7869c1fd08e9bb2884a1f
+ms.sourcegitcommit: 0078d544d5c30e31874d75fece62ca560d2aa2d6
+ms.openlocfilehash: 0544d4df8f50db2182375aec8ec2a0a9d47ed644
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-service-management-and-resource-manager"></a>Autentisera runbooks med Azure Service Management och Resource Manager
-Den här artikeln beskriver de steg du utför när du konfigurerar ett Azure AD-användarkonto för Azure Automation-runbooks som körs mot Azure Service Management- (ASM) eller Azure Resource Manager-resurser (ARM).  Även om detta fortfarande är en autentiseringsidentitet som stöds för dina ARM-baserade runbooks är den rekommenderade metoden att använda det nya ”Kör som”-kontot i Azure.       
+Den här artikeln beskriver de steg du utför när du konfigurerar ett Azure AD-användarkonto för Azure Automation-runbooks som körs mot Azure Service Management- eller Azure Resource Manager-resurser.  Även om detta fortfarande är en autentiseringsidentitet som stöds för dina Azure Resource Manager-baserade runbooks är den rekommenderade metoden att använda det nya ”Kör som”-kontot i Azure.       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Skapa en ny Azure Active Directory-användare
 1. Logga in på den klassiska Azure-portalen som tjänstadministratör för den Azure-prenumeration som du vill hantera.
@@ -39,12 +39,12 @@ Den här artikeln beskriver de steg du utför när du konfigurerar ett Azure AD-
 12. Logga ut från Azure och logga sedan in igen med det konto som du nyss skapat. Du uppmanas att ändra användarens lösenord.
 
 ## <a name="create-an-automation-account-in-azure-classic-portal"></a>Skapa ett Automation-konto på den klassiska Azure-portalen
-I det här avsnittet ska du utföra följande steg för att skapa ett nytt Azure Automation-konto på Azure-portalen som ska användas med dina runbooks för att hantera resurser i ASM- och ARM-läge.  
+I det här avsnittet utför du följande steg för att skapa ett nytt Azure Automation-konto i Azure Portal som ska användas med dina runbooks för att hantera resurser i Azure Service Manager- och Azure Resource Manager-läge.  
 
 > [!NOTE]
 > Automation-konton som skapats med den klassiska Azure-portalen kan hanteras av både den klassiska Azure-portalen och Azure-portalen och endera uppsättning cmdlets. När kontot har skapats spelar det ingen roll hur du skapar och hanterar resurser i kontot. Om du vill fortsätta att använda den klassiska Azure-portalen använder du den i stället för Azure-portalen för att skapa Automation-konton.
->
->
+> 
+> 
 
 1. Logga in på den klassiska Azure-portalen som tjänstadministratör för den Azure-prenumeration som du vill hantera.
 2. Välj **Automation**.
@@ -60,7 +60,7 @@ I det här avsnittet ska du utföra följande steg för att skapa ett nytt Azure
 12. På nästa sida av typen **Definiera autentiseringsuppgift** anger du användarnamnet för AD-användarkontot som du skapade tidigare i fältet **Användarnamn** och lösenordet i fälten **Lösenord** och **Bekräfta lösenord**. Spara ändringarna genom att klicka på **OK**.
 
 ## <a name="create-an-automation-account-in-the-azure-portal"></a>Skapa ett Automation-konto på Azure-portalen
-I det här avsnittet ska du utföra följande steg för att skapa ett nytt Azure Automation-konto på Azure-portalen som ska användas med dina runbooks för att hantera resurser i ARM-läge.  
+I det här avsnittet utför du följande steg för att skapa ett nytt Azure Automation-konto i Azure Portal som ska användas med dina runbooks för att hantera resurser i Azure Resource Manager-läge.  
 
 1. Logga in på Azure-portalen som tjänstadministratör för den Azure-prenumeration som du vill hantera.
 2. Välj **Automation-konton**.
@@ -68,12 +68,12 @@ I det här avsnittet ska du utföra följande steg för att skapa ett nytt Azure
 4. På bladet **Lägg till Automation-konto** skriver du namnet på det nya Automation-kontot i rutan **Namn**.
 5. Om du har mer än en prenumeration anger du den som du vill använda för det nya kontot, samt en ny eller befintlig **resursgrupp** och en **plats** för Azure-datacentret.
 6. Välj värdet **Nej** för alternativet **Skapa Kör som-konto i Azure** och klicka på knappen **Skapa**.  
-
+   
    > [!NOTE]
-   > Om du väljer att inte skapa ”Kör som”-kontot genom att välja alternativet **Nej** visas ett varningsmeddelande på bladet **Lägg till Automation-konto**.  När kontot skapas och tilldelas till rollen **Deltagare** i prenumerationen har den ingen tillhörande autentiseringsidentitet i din prenumerationskatalogtjänst och har därför ingen åtkomst till resurser i din prenumeration.  Detta förhindrar att runbooks som refererar till det här kontot kan autentisera och utföra åtgärder mot ARM-resurser.
-   >
-   >
-
+   > Om du väljer att inte skapa ”Kör som”-kontot genom att välja alternativet **Nej** visas ett varningsmeddelande på bladet **Lägg till Automation-konto**.  När kontot skapas och tilldelas till rollen **Deltagare** i prenumerationen har den ingen tillhörande autentiseringsidentitet i din prenumerationskatalogtjänst och har därför ingen åtkomst till resurser i din prenumeration.  Det förhindrar att runbooks som refererar till det här kontot kan autentisera och utföra åtgärder mot Azure Resource Manager-resurser.
+   > 
+   > 
+   
     ![Varningsmeddelande för Lägg till Automation-konto](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 7. Medan Azure skapar Automation-kontot kan du följa förloppet under **Meddelanden** på menyn.
 
@@ -93,6 +93,7 @@ Upprepa dessa rader efter eventuella [kontrollpunkter](http://technet.microsoft.
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

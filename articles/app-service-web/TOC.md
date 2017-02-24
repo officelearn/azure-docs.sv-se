@@ -3,6 +3,7 @@
 ## [Vad är App Service?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service-planer](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service på Linux](app-service-linux-intro.md)
+## [Vanliga frågor och svar om App Service på Linux](app-service-linux-faq.md)
 
 # Kom igång
 
@@ -13,7 +14,7 @@
 ### [Python](app-service-web-get-started-python.md)
 ### [Java](app-service-web-get-started-java.md)
 ### [Marketplace-app](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-get-started-php.md)   
+### [PHP](app-service-web-get-started-php.md)    
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,10 +61,13 @@
 ### [Azure Portal](app-service-web-app-azure-portal.md)
 ### [WebJobs-SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### ASP.NET-appar
 #### [Skapa ett ASP.NET-program i Azure med Visual Studio](web-sites-dotnet-get-started.md)
 #### [Skapa en REST-tjänst med hjälp av ASP.NET-webb-API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Skapa en ASP.NET 5-webbapp i Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+#### [Använda .NET Core i Web Apps på Linux](app-service-linux-using-dotnetcore.md)
+
 
 ### Node.js-appar
 #### [Utveckla Node.js för App Service](app-service-web-nodejs-get-started.md)
@@ -74,7 +78,7 @@
 #### [Skapa och distribuera via WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP-appar
-#### [Utveckla PHP-appar för App Service](app-service-web-php-get-started.md) 
+#### [Utveckla PHP-appar för App Service](app-service-web-php-get-started.md)    
 #### [Skapa en PHP-SQL-webbapp och distribuera med Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Skapa en WordPress-webbapp i Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Skapa och ansluta till en MySQL-databas i Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -98,6 +102,9 @@
 #### [Flask och Table Storage med Python Tools 2.2 för Visual Studio](web-sites-python-ptvs-flask-table-storage.md)
 #### [Django och MySQL på Azure med Python Tools 2.2 för Visual Studio](web-sites-python-ptvs-django-mysql.md)
 #### [Django och SQL Database på Azure med Python Tools 2.2 för Visual Studio](web-sites-python-ptvs-django-sql.md)
+
+### Ruby-appar
+#### [Använda Ruby i Web Apps på Linux](app-service-linux-using-ruby.md)
 
 ### [Distribuera din första grundläggande webbapp till Azure på fem minuter](app-service-web-get-started-html.md)
 ### [Komma igång med test i produktion för Web Apps](app-service-web-test-in-production-get-start.md)
@@ -144,9 +151,11 @@
 #### [Konfigurera Python](web-sites-python-configure.md)
 #### [Konfigurera Node.js-start på Linux](app-service-linux-using-nodejs-pm2.md)
 
+
 ### Anpassade domäner
 #### [Köpa och konfigurera anpassade domäner](custom-dns-web-site-buydomains-web-app.md)
 #### [Mappa din egen anpassade domän](web-sites-custom-domain-name.md)
+#### [Migrera en aktiv anpassad domän](app-service-custom-domain-name-migrate.md)
 #### [Konfigurera GoDaddy-domäner](web-sites-godaddy-custom-domain-name.md)
 #### [Anpassade domäner med Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 
@@ -267,6 +276,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

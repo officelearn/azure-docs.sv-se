@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 
 ---
@@ -40,7 +40,7 @@ Web SDK är i förhandsgranskningsläge med endast stöd för Analytics för til
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Konfigurera Mobile Engagement för din Web-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 I de här självstudierna behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data.
 
 Vi skapar en grundläggande webbapp med Visual Studio för att demonstrera integrationen, men du kan även följa stegen med alla typer av webbprogram som har skapats utanför Visual Studio. 
@@ -65,7 +65,7 @@ Du har nu skapat ett nytt tomt Windows App-projekt i vilket vi kommer att integr
    
     ![Visual Studio med js-filer][1]
 
-## <a name="enable-realtime-monitoring"></a>Aktivera realtidsövervakning
+## <a name="enable-real-time-monitoring"></a>Aktivera realtidsövervakning
 För att kunna börja skicka data och försäkra dig om att användarna är aktiva måste du skicka minst en aktivitet till Mobile Engagement-serverdelen. En aktivitet i kontexten för en webbapp är en webbsida. 
 
 1. Skapa en ny sida med namnet **home.html** i din lösning och ange den som startsida för din webbapp. 
@@ -88,7 +88,7 @@ För att kunna börja skicka data och försäkra dig om att användarna är akti
         </body>
         </html>
 
-## <a name="connect-app-with-realtime-monitoring"></a>Anslut appen med realtidsövervakning
+## <a name="connect-app-with-real-time-monitoring"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
   ![][2]

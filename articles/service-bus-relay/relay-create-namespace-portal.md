@@ -1,6 +1,6 @@
 ---
 title: "Skapa ett Relay-namnområde med Azure Portal | Microsoft Docs"
-description: "För att komma igång med Azure Relay behöver du ett namnområde. Så här skapar du ett med hjälp av Azure Portal."
+description: "Så här skapar du ett Relay-namnområde med Azure Portal."
 services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub
+ms.date: 02/13/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
-ms.openlocfilehash: e51dc77e0a0fc3c0a2cc4050d7b896e177a86cc0
-
+ms.sourcegitcommit: 97c793abc9935707115c166a97f6f7bdfee1a8c5
+ms.openlocfilehash: d6ef2e0c75a27b294ee653bf9a0219c2233d272c
 
 ---
+
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Skapa ett Relay-namnområde med Azure Portal
 Ett namnområde är en gemensam behållare för alla dina Relay-komponenter. Flera Relays kan finnas i ett enda namnområde och namnområden fungerar ofta som programbehållare. Det finns för närvarande två sätt att skapa ett Relay-namnområde.
 
@@ -39,6 +39,6 @@ Grattis! Nu har du skapat ett Relay-namnområde.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

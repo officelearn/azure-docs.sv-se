@@ -54,7 +54,8 @@
 ### [Starta/stoppa virtuell dator med JSON-taggar](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Ta bort resursgrupp](automation-scenario-remove-resourcegroup.md)
 ### [Starta/stoppa virtuella datorer utanför arbetstid](automation-solution-vm-management.md)
-### [Källkontrollintegrering med GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+### [Källkontrollsintegrering med GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+### [Källkontrollsintegrering med VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Övervaka
 ### [Vidarebefordra jobbdata från Azure Automation till Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Ta bort länk till Azure Automation-konto från Log Analytics](automation-unlink-from-log-analytics.md)
@@ -82,6 +83,6 @@
 ## [Introduktionsvideo för Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: bd8082c46ee36c70e372208d1bd15337acc558a1
-ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
+ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
+ms.openlocfilehash: 4993a873742db5ca2bd8c31eaab098beb0a0a030
 
 
 ---
@@ -24,13 +24,11 @@ ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
 
 Den här artikeln beskriver den underliggande arkitekturen i tjänsten Azure Site Recovery och de komponenter som gör att den fungerar.
 
-Organisationer behöver en BCDR-strategi som beskriver hur appar, arbetsbelastningar och data fungerar och är tillgängliga under planerade och oplanerade driftavbrott och som ser till att systemets normala drifttillstånd återställs så fort som möjligt. Avsikten med en BCDR-strategi är att skydda affärsdata och se till att de kan återställas samt att säkerställa att arbetsbelastningar förblir tillgängliga i händelse av allvarliga fel.
-
 Site Recovery är en Azure-tjänst som understödjer din BCDR-strategi genom att dirigera replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till ett sekundärt datacenter. Vid driftstopp på den primära platsen växlar du över till den sekundära platsen så att program och arbetsbelastningar fortsätter att vara tillgängliga. Du växlar tillbaka till den primära platsen när den har återgått till normal drift. Läs mer i [Vad är Site Recovery?](site-recovery-overview.md)
 
 Den här artikeln beskriver distribution i [Azure-portalen](https://portal.azure.com). Den [klassiska Azure-portalen](https://manage.windowsazure.com/) kan användas för att bibehålla befintliga Site Recovery-valv men du kan inte skapa nya valv.
 
-Skriva eventuella kommentarer längst ned i den här artikeln. Om du har tekniska frågor kan du ställa dem i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Skriv dina kommentarer längst ned i den här artikeln eller i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="deployment-scenarios"></a>Distributionsscenarier
@@ -54,7 +52,7 @@ Site Recovery kan replikera appar som körs på virtuella datorer och fysiska se
 **Komponent** | **Detaljer**
 --- | ---
 **Azure** | I Azure behöver du ett Microsoft Azure-konto, ett Azure-lagringskonto och ett Azure-nätverk.<br/><br/> Lagring och nätverk kan vara Resource Manager-konton eller klassiska konton.<br/><br/>  Replikerade data lagras i lagringskontot och virtuella Azure-datorer skapas med replikerad data när redundansväxling uppstår från din lokala plats. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
-**Konfigurationsserver** | Du ställer in en konfigurationsservern lokalt för att samordna kommunikationen mellan den lokala platsen och Azure och för att hantera datareplikering.
+**Konfigurationsserver** | Du ställer in en konfigurationsserver lokalt för att samordna kommunikationen mellan den lokala platsen och Azure samt för att hantera datareplikering.
 **Processervern** | Installeras som standard på den lokala konfigurationsservern.<br/><br/> Fungerar som en replikeringsgateway. Den tar emot replikeringsdata från skyddade källdatorer, optimerar dem med cachelagring, komprimering och kryptering och skickar data till Azure-lagring.<br/><br/> Hanterar push-installationen av mobilitetstjänsten till skyddade datorer och utför automatisk identifiering av virtuella VMware-datorer.<br/><br/> Allt eftersom distributionen växer kan du lägga till ytterligare separata dedikerade servrar för att hantera allt större mängder replikeringstrafik.
 **Huvudmålservern** | Installeras som standard på den lokala konfigurationsservern.<br/><br/> Hanterar replikeringsdata vid återställning efter fel från Azure. Om trafikvolymer för återställning efter fel är stora, kan du distribuera en separat huvudmålserver för återställning efter fel.
 **VMware-servrar** | Du lägger till vCenter- och vSphere-servrar till ditt Recovery Services-valv, för att replikera virtuella VMware-datorer.<br/><br/> Om du replikerar fysiska servrar, behöver du en lokal VMware-infrastruktur för återställning efter fel. Du kan inte återställa till en fysisk dator.
@@ -84,7 +82,7 @@ Site Recovery kan replikera appar som körs på virtuella datorer och fysiska se
 
 1. Du kör oplanerade redundansväxlingar från lokala virtuella VMware-datorer och fysiska servrar till Azure. Planerad redundans stöds inte.
 2. Du kan redundansväxla en enskild dator eller skapa [återställningsplaner](site-recovery-create-recovery-plans.md) för att samordna redundans för flera datorer.
-3. När du kör en växling vid fel, skapas virtuella replikdatorer i Azure. Du etablerar en redundansväxling för att komma åt arbetsbelastningen från den virtuella Azure-replikdatorn.
+3. När du kör en redundans skapas virtuella replikdatorer i Azure. Du etablerar en redundansväxling för att komma åt arbetsbelastningen från den virtuella Azure-replikdatorn.
 4. När din primära lokala plats är tillgänglig igen, kan du återställa dit. Du ställer in en infrastruktur för återställning efter fel, startar replikering av datorn från den sekundära platsen till den primära och kör en oplanerad redundans från den sekundära platsen. När du etablerat den här redundansen, är dina data tillbaka lokalt och du måste aktivera replikering till Azure igen. [Läs mer](site-recovery-failback-azure-to-vmware.md)
 
 Det finns några återställningskrav:
@@ -133,8 +131,9 @@ Det finns några återställningskrav:
 
 **Komponent** | **Detaljer**
 --- | ---
+
 **Azure** | I Azure behöver du ett Microsoft Azure-konto, ett Azure-lagringskonto och ett Azure-nätverk.<br/><br/> Lagring och nätverk kan vara Resource Manager-baserade eller klassiska konton.<br/><br/> Replikerade data lagras i lagringskontot och virtuella Azure-datorer skapas med replikerad data när redundansväxling uppstår från din lokala plats.<br/><br/> Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
-**VMM-server** | Om Hyper-V-värdar finns i VMM-moln, måste logiska och VM-nätverk ha ställts in för att konfigurera [nätverksmappning](site-recovery-network-mapping.md). Ett nätverk för virtuella datorer bör vara kopplat till ett logiskt nätverk som är associerat med molnet.
+**VMM-server** | Om Hyper-V-värdar finns i VMM-moln måste logiska och VM-nätverk ha ställts in för att konfigurera nätverksmappning. Ett nätverk för virtuella datorer bör vara kopplat till ett logiskt nätverk som är associerat med molnet.
 **Hyper-V-värd** | Du behöver en eller flera Hyper-V-värdservrar.
 **Virtuella Hyper-V-datorer** | Du behöver en eller flera virtuella datorer på Hyper-V-värdservern. Providern som körs på Hyper-V-värden samordnar och styr replikeringen med Site Recovery-tjänsten via Internet. Agenten hanterar replikeringsdata över HTTPS-port 443. Kommunikation från både providern och agenten är säker och krypterad. Replikerade data i Azure-lagring krypteras också.
 
@@ -200,8 +199,8 @@ Det finns några återställningskrav:
 
 1. Du kan köra en planerad eller oplanerad [redundansväxling](site-recovery-failover.md) mellan lokala platser. Om du kör en planerad redundansväxling stängs de virtuella källdatorerna av för att säkerställa att inga data går förlorade.
 2. Du kan redundansväxla en enskild dator eller skapa [återställningsplaner](site-recovery-create-recovery-plans.md) för att samordna redundans för flera datorer.
-4. Om du utför en oplanerad redundansväxling till en sekundär plats efter att redundansdatorerna på den sekundära platsen inte aktiverats för skydd eller replikering. Om du utförde en planerad redundans efter att redundansdatorerna på den sekundära platsen skyddades.
-5. Du etablerar därefter redundansen att börja ha åtkomst till arbetsbelastningen från den virtuella replikdatorn.
+4. Om du utför en oplanerad redundansväxling till en sekundär plats efter att redundansdatorerna på den sekundära platsen inte aktiverats för skydd eller replikering. Om du utför en planerad redundans skyddas datorerna på den sekundära platsen efter redundansen.
+5. Sedan kan du etablera redundansen för att få åtkomst till arbetsbelastningen från den virtuella replikdatorn.
 6. När din primära plats är tillgänglig igen, kan du initiera omvänd replikering för att replikera från den sekundära platsen till den primära. Omvänd replikering skyddar de virtuella datorerna, men det sekundära datacentret är fortfarande den aktiva platsen.
 7. För att göra den primära platsen till den aktiva platsen igen, initierar du en planerad redundans från sekundär till primär, följt av en till omvänd replikering.
 
@@ -223,10 +222,10 @@ Det finns några återställningskrav:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Förbereda för distribution](site-recovery-best-practices.md)
+[Kontrollera krav](site-recovery-prereq.md)
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

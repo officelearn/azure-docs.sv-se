@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/14/2017
+ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
 ms.sourcegitcommit: db84d2b03ad1542a898c2c452e62a3f7ef7e6af8
@@ -35,7 +35,7 @@ ms.openlocfilehash: 4824a8a24a7e43bc8e8112303f20d916e67b6aff
 
 Ett enkelt sätt att komma igång med skalningsuppsättningar med hanterade diskar är att distribuera en från Azure Portal. Mer information finns i [den här artikeln](./virtual-machine-scale-sets-portal-create.md). Ett annat enkelt sätt att komma igång är att använda [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) för att distribuera en skalningsuppsättning. Följande exempel visar hur du skapar en Ubuntu-baserad skalningsuppsättning med 10 virtuella datorer, där var och en har en datadisk på 50 och 100 GB:
 
-```bash
+```azurecli
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```

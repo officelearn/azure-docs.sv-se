@@ -1,5 +1,5 @@
 ---
-title: ".NET-flernivåapp med hjälp av Azure Service Bus-köer | Microsoft Docs"
+title: ".NET-flernivåprogram med hjälp av Azure Service Bus | Microsoft Docs"
 description: "En .NET-självstudiekurs som hjälper dig att utveckla en flernivåapp i Azure som använder Service Bus-köer för att kommunicera mellan nivåerna."
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
-ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
+ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
+ms.openlocfilehash: 0f2caeed40b59a65ec08e7d94701c93b862199fc
 
 
 ---
@@ -61,7 +61,7 @@ I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 ## <a name="set-up-the-development-environment"></a>Konfigurera utvecklingsmiljön
 Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som krävs och ställa in din utvecklingsmiljö.
 
-1. Installera Azure SDK för .NET på [Hämta verktyg och SDK](https://azure.microsoft.com/downloads/).
+1. Installera Azure SDK för .NET från [hämtningssidan](https://azure.microsoft.com/downloads/) för SDK.
 2. I kolumnen **.NET** klickar du på den version av Visual Studio som du använder. Stegen i den här självstudiekursen använder Visual Studio 2015.
 3. När du uppmanas att köra eller spara installationsprogrammet, klickar du på **Kör**.
 4. I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
@@ -397,6 +397,6 @@ Mer information om flernivåscenarier finns i:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

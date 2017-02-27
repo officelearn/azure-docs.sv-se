@@ -1,5 +1,5 @@
 ---
-title: Hybridprogram lokalt/i molnet (.NET) | Microsoft Docs
+title: Azure WCF Relay-hybridprogram lokalt/i molnet (.NET) | Microsoft Docs
 description: "Lär dig hur du skapar ett lokalt eller molnbaserat .NET-hybridprogram med hjälp av Azure WCF Relay."
 services: service-bus-relay
 documentationcenter: .net
@@ -12,17 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
-ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
+ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
+ms.openlocfilehash: ae5e08e7a5c483fd89390580647722b2c9da0ecb
 
 
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Lokalt eller molnbaserat .NET-hybridprogram med hjälp av Azure WCF Relay
 ## <a name="introduction"></a>Introduktion
-I den här artikeln beskriver vi hur du skapar ett hybridprogram i molnet med Microsoft Azure och Visual Studio. Den här självstudiekursen förutsätter att du inte har några tidigare erfarenheter av att använda Azure. På mindre än 30 minuter kommer du att ha ett program färdigt i molnet som använder en rad Azure-resurser.
+Den här artikeln visar hur du skapar ett hybridprogram i molnet med Microsoft Azure och Visual Studio. Den här självstudiekursen förutsätter att du inte har några tidigare erfarenheter av att använda Azure. På mindre än 30 minuter kommer du att ha ett program färdigt i molnet som använder en rad Azure-resurser.
 
 Du kommer att lära dig:
 
@@ -36,7 +36,7 @@ Företagslösningar består normalt av en kombination av anpassad kod – som sk
 
 Lösningsarkitekter har börjat använda molnet för enklare hantering av skalkrav och lägre driftskostnader. När de gör detta upptäcker de att de befintliga tjänstetillgångarna, som de vill utnyttja som byggblock för sina lösningar, ligger innanför företagets brandvägg och därför är svåra att nå för de lösningar som ligger i molnet. Många interna tjänster är inte skapade eller värdbaserade på ett sätt som gör att de enkelt kan exponeras vid företagets nätverksgräns.
 
-Azure Relay är avsett för användningsfall där befintliga WCF-webbtjänster (Windows Communication Foundation) på ett säkert sätt görs tillgängliga för lösningar som finns utanför företagets perimeter, utan behov av störande ändringar i företagets nätverksinfrastruktur. Sådana relätjänster finns fortfarande i deras befintliga miljö, men de delegerar lyssnandet efter inkommande sessioner och förfrågningar till relätjänsten i molnet. Azure Relay skyddar även tjänsterna mot obehörig åtkomst med hjälp av [SAS-autentisering](../service-bus-messaging/service-bus-sas-overview.md) (signatur för delad åtkomst).
+[Azure Relay](https://azure.microsoft.com/services/service-bus/) är avsett för användningsfall där befintliga WCF-webbtjänster (Windows Communication Foundation) på ett säkert sätt görs tillgängliga för lösningar som finns utanför företagets perimeter, utan behov av störande ändringar i företagets nätverksinfrastruktur. Sådana relätjänster finns fortfarande i deras befintliga miljö, men de delegerar lyssnandet efter inkommande sessioner och förfrågningar till relätjänsten i molnet. Azure Relay skyddar även tjänsterna mot obehörig åtkomst med hjälp av [signatur för delad åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md)-autentisering.
 
 ## <a name="solution-scenario"></a>Lösningsscenario
 I den här självstudiekursen kommer du att skapa en ASP.NET-webbplats som gör att du kan se en lista över produkter på sidan för inventarieförteckningar.
@@ -50,18 +50,16 @@ Följande är en skärmbild av startsidan i det färdiga webbprogrammet.
 ![][1]
 
 ## <a name="set-up-the-development-environment"></a>Konfigurera utvecklingsmiljön
-Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som krävs och ställa in din utvecklingsmiljö.
+Innan du kan börja utveckla Azure-program måste du hämta de verktyg som krävs och ställa in din utvecklingsmiljö:
 
-1. Installera Azure SDK för .NET från sidan [Hämta verktyg och SDK][Get Tools and SDK].
-2. Klicka på **Installera SDK** för den version av Visual Studio som du använder. Stegen i den här självstudiekursen använder Visual Studio 2015.
+1. Installera Azure SDK för .NET från [hämtningssidan](https://azure.microsoft.com/downloads/) för SDK.
+2. I kolumnen **.NET** klickar du på den version av Visual Studio som du använder. Stegen i den här självstudiekursen använder Visual Studio 2015.
 3. När du uppmanas att köra eller spara installationsprogrammet, klickar du på **Kör**.
 4. I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
 5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt. Om du inte har Visual Studio installerat på din dator kommer SDK även att installera den kostnadsfria versionen Visual Studio Express.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
-För att komma igång med reläfunktionerna i Azure måste du först skapa ett namnområde för tjänsten. Ett namnområde tillhandahåller en omfångsbehållare för adressering av Azure-resurser i ditt program.
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+För att komma igång med reläfunktionerna i Azure måste du först skapa ett namnområde för tjänsten. Ett namnområde tillhandahåller en omfångsbehållare för adressering av Azure-resurser i ditt program. Följ [anvisningarna här](relay-create-namespace-portal.md) för att skapa ett Relay-namnområde.
 
 ## <a name="create-an-on-premises-server"></a>Skapa en lokal server
 Först ska du skapa ett lokalt produktkatalogsystem (ett fingerat sådant). Det kan vara ett ganska enkel system. Du kan se detta som en representation av ett faktiskt, lokalt produktkatalogsystem med en fullständig serviceyta som vi försöker integrera.
@@ -69,7 +67,7 @@ Först ska du skapa ett lokalt produktkatalogsystem (ett fingerat sådant). Det 
 Det här projektet är ett konsolprogram för Visual Studio som använder [Azure Service Bus NuGet-paketet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) för att inkludera Service Bus-bibliotek och -konfigurationsinställningar.
 
 ### <a name="create-the-project"></a>Skapa projektet
-1. Starta Microsoft Visual Studio med administratörsbehörighet. Du startar Visual Studio med administratörsbehörighet genom att högerklicka på programikonen för **Visual Studio** och sedan klicka på **Kör som administratör**.
+1. Starta Microsoft Visual Studio med administratörsbehörighet. För att göra det högerklickar du på programikonen för Visual Studio och sedan på **Kör som administratör**.
 2. I Visual Studio klickar du på **Nytt** i menyn **Arkiv** och sedan på **Projekt**.
 3. Klicka på **Konsolprogram** från **Installerade mallar** under **Visual C#**. I rutan **Namn** anger du namnet **ProductsServer**:
 
@@ -86,7 +84,7 @@ Det här projektet är ett konsolprogram för Visual Studio som använder [Azure
 9. I rutan **Namn** anger du namnet **ProductsServer.cs**. Klicka sedan på **Lägg till**.
 10. I **ProductsContract.cs** ersätter du definitionen för namnområdet med följande kod. Den definierar kontraktet för tjänsten.
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System.Collections.Generic;
@@ -122,7 +120,7 @@ Det här projektet är ett konsolprogram för Visual Studio som använder [Azure
     ```
 11. Ersätt definitionen för namnområdet i Program.cs med följande kod. Den lägger till profiltjänsten och värden för den.
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System;
@@ -174,9 +172,9 @@ Det här projektet är ett konsolprogram för Visual Studio som använder [Azure
         }
     }
     ```
-12. Dubbelklicka på filen **App.config** i Solution Explorer för att öppna den i Visual Studio-redigeraren. Lägg till följande XML-kod längst ned i elementet **&lt;system.ServiceModel&gt;** (men fortfarande inom &lt;system.ServiceModel&gt;). Se till att ersätta *yourServiceNamespace* med namnet på ditt namnområdet och *yourKey* med den SAS-nyckel som du tidigare hämtade från portalen:
+12. Dubbelklicka på filen **App.config** i Solution Explorer för att öppna den i Visual Studio-redigeraren. Längst ned i elementet `<system.ServiceModel>` (men fortfarande i `<system.ServiceModel>`), lägger du till följande XML-kod. Se till att ersätta *yourServiceNamespace* med namnet på ditt namnområdet och *yourKey* med den SAS-nyckel som du tidigare hämtade från portalen:
 
-    ```
+    ```xml
     <system.serviceModel>
     ...
       <services>
@@ -197,9 +195,9 @@ Det här projektet är ett konsolprogram för Visual Studio som använder [Azure
       </behaviors>
     </system.serviceModel>
     ```
-13. Medan du fortfarande är kvar i App.config byter du ut värdet för anslutningssträngen med den anslutningssträng som du tidigare fick från portalen. Det här görs i elementet **&lt;appSettings&gt;**.
+13. Medan du fortfarande är kvar i App.config, i elementet `<appSettings>`, byter du ut värdet för anslutningssträngen mot den sträng som du tidigare fick från portalen.
 
-    ```
+    ```xml
     <appSettings>
        <!-- Service Bus specific app settings for messaging connections -->
        <add key="Microsoft.ServiceBus.ConnectionString"
@@ -236,22 +234,22 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
 ### <a name="modify-the-web-application"></a>Göra ändringar i webbprogrammet
 1. Ersätt den befintliga definitionen för namnområdet med följande kod i filen Product.cs i Visual Studio.
 
-   ```
-   // Declare properties for the products inventory.
+   ```csharp
+    // Declare properties for the products inventory.
     namespace ProductsWeb.Models
-   {
+    {
        public class Product
        {
            public string Id { get; set; }
            public string Name { get; set; }
            public string Quantity { get; set; }
        }
-   }
-   ```
+    }
+    ```
 2. I Solution Explorer expanderar du mappen **Controllers** och sedan dubbelklickar du på filen **HomeController.cs** för att öppna den i Visual Studio.
 3. Ersätt den befintliga definitionen för namnområdet med följande kod i **HomeController.cs**.
 
-    ```
+    ```csharp
     namespace ProductsWeb.Controllers
     {
         using System.Collections.Generic;
@@ -278,7 +276,7 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
 7. Expandera mappen Views\Home i Solution Explorer och dubbelklicka sedan på **Index.cshtml** så att den öppnas i Visual Studio-redigeraren.
    Ersätt hela innehållet i filen med följande kod.
 
-   ```
+   ```html
    @model IEnumerable<ProductsWeb.Models.Product>
 
    @{
@@ -334,7 +332,7 @@ Nästa steg är att koppla samman den lokala produktservern med ASP.NET-programm
    ![][24]
 6. Öppna nu filen **HomeController.cs** i Visual Studio-redigeraren och ersätt definitionen för namnområde med följande kod. Se till att ersätta *yourServiceNamespace* med namnet på ditt namnområde för tjänsten och *yourKey* med din SAS-nyckel. Detta aktiverar klienten för att anropa den lokala tjänsten och returnera resultatet av anropet.
 
-   ```
+   ```csharp
    namespace ProductsWeb.Controllers
    {
        using System.Linq;
@@ -441,7 +439,6 @@ Mer information om Azure Relay finns i följande resurser:
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 [NuGet]: http://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
@@ -468,6 +465,6 @@ Mer information om Azure Relay finns i följande resurser:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

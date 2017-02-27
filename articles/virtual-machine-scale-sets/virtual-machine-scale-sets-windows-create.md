@@ -1,6 +1,6 @@
 ---
-title: "Skapa en skaluppsättning för virtuella datorer med PowerShell | Microsoft Docs"
-description: "Skapa en skaluppsättning för virtuella datorer med PowerShell"
+title: "Skapa en Azure VM-skalningsuppsättning med PowerShell | Microsoft Docs"
+description: "Skapa en Azure VM-skalningsuppsättning med PowerShell"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 02/21/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
+ms.sourcegitcommit: 1f8e66fac5b82698525794f0486dd0432c7421a7
+ms.openlocfilehash: 7286fed39839675eb960b749f3235f83e36c5e9a
 
 
 ---
@@ -55,46 +55,6 @@ En skaluppsättning för virtuella datorer måste ingå i en resursgrupp.
         ProvisioningState : Succeeded
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
-
-### <a name="storage-account"></a>Lagringskonto
-Ett lagringskonto används av en virtuell dator för att lagra operativsystemsdisken och diagnostikdata som används för skalning. När så är möjligt är det bäst att ha ett lagringskonto för varje virtuell dator som skapats i en skaluppsättning. Om det inte går bör du inte planera för fler än 20 VM per lagringskonto. I exemplet i den här artikeln skapas tre lagringskonton för tre virtuella datorer.
-
-1. Ersätt värdet för **$saName** med ett namn för lagringskontot. Testa namnet för att se om det är unikt. 
-   
-        $saName = "storage account name"
-        Get-AzureRmStorageAccountNameAvailability $saName
-   
-    Om svaret är **Sant** är det föreslagna namnet unikt.
-2. Ersätt värdet **$saType** med lagringskontots typ och skapa sedan variabeln:  
-   
-        $saType = "storage account type"
-   
-    Möjliga värden är: Standard_LRS, Standard_GRS, Standard_RAGRS och Premium_LRS.
-3. Skapa kontot:
-   
-        New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
-   
-    Du bör se något som liknar det här exemplet:
-   
-        ResourceGroupName   : myrg1
-        StorageAccountName  : myst1
-        Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-                              .Storage/storageAccounts/myst1
-        Location            : centralus
-        AccountType         : StandardLRS
-        CreationTime        : 3/15/2016 4:51:52 PM
-        CustomDomain        :
-        LastGeoFailoverTime :
-        PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
-        PrimaryLocation     : centralus
-        ProvisioningState   : Succeeded
-        SecondaryEndpoints  :
-        SecondaryLocation   :
-        StatusOfPrimary     : Available
-        StatusOfSecondary   :
-        Tags                : {}
-        Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
-4. Upprepa steg 1 till 4 för att skapa tre lagringskonton, till exempel myst1, myst2 och myst3.
 
 ### <a name="virtual-network"></a>Virtuellt nätverk
 Ett virtuellt nätverk krävs för de virtuella datorerna i skaluppsättningen.
@@ -173,12 +133,10 @@ Du har alla resurser som du behöver för konfigurationen av skaluppsättningen,
         $imageSku = "2012-R2-Datacenter"
    
     Om du vill ha information om andra avbildningar du kan använda ska du titta i [Hitta och välj avbildningar av virtuella datorer i Azure med Windows PowerShell och Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-3. Ersätt värdet för **$vhdContainers** med en lista som innehåller sökvägar till platser där de virtuella hårddiskarna lagras, till exempel https://mystorage.blob.core.windows.net/vhds, och skapa sedan variabeln:
+
+3. Skapa lagringsprofilen:
    
-        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
-4. Skapa lagringsprofilen:
-   
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### <a name="virtual-machine-scale-set"></a>Skaluppsättning för virtuella datorer
 Slutligen kan du skapa skaluppsättningen.
@@ -225,6 +183,6 @@ Använd dessa resurser för att utforska den skaluppsättning för virtuella dat
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

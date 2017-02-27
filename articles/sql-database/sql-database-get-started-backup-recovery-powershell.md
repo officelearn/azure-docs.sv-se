@@ -1,5 +1,5 @@
 ---
-title: "Komma igång med säkerhetskopiering och återställning av Azure SQL-databaser för dataskydd och återställning med Azure PowerShell | Microsoft Docs"
+title: "Powershell: Säkerhetskopiera och återställ med Azure SQL Database | Microsoft-dokument"
 description: "Den här självstudiekursen förklarar hur du återställer data från automatiska säkerhetskopieringar till en tidigare tidpunkt, hur du lagrar automatiska säkerhetskopieringar i Azure Recovery Services-valvet och hur du återställer från Azure Recovery Services-valvet med Azure PowerShell"
 keywords: sql database tutorial
 services: sql-database
@@ -17,16 +17,16 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 68a4ed7aad946dda644a0f085c48fd33f453e018
-ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: 8a3ede8af471e656e830e38e0cf2f3a909fdaadb
 
 
 ---
 
 
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery-using-powershell"></a>Komma igång med säkerhetskopiering och återställning för dataskydd och återställning med PowerShell
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-powershell"></a>Självstudie: Säkerhetskopiera och återställ en Azure SQL-databas med hjälp av PowerShell
 
-I den här introduktionskursen lär du dig hur du använder Azure PowerShell för att:
+I den här självstudien kommer du att lära dig att använda Azure PowerShell för att göra följande:
 
 - Visa befintliga säkerhetskopieringar av en databas
 - Återställa en databas till en tidigare tidpunkt
@@ -38,7 +38,7 @@ I den här introduktionskursen lär du dig hur du använder Azure PowerShell fö
 
 ## <a name="prerequisites"></a>Krav
 
-* Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Du måste ansluta till Azure med ett konto som är medlem i rollen som prenumerationsägare eller deltagare. Mer information om rollbaserad åtkomstkontroll (RBAC) finns i [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md) (Komma igång med åtkomsthantering på Azure Portal).
 
@@ -47,7 +47,7 @@ I den här introduktionskursen lär du dig hur du använder Azure PowerShell fö
 * Du har slutfört [Komma igång med Azure SQL Database-servrar, databaser och brandväggsregler med hjälp av Azure Portal och SQL Server Management Studio](sql-database-get-started.md) eller motsvarande [PowerShell-version](sql-database-get-started-powershell.md). Om du inte har gjort det går du kursen eller kör PowerShell-skriptet i slutet av [PowerShell-versionen](sql-database-get-started-powershell.md) innan du fortsätter.
 
 > [!TIP]
-> Du kan utföra samma uppgifter i en ”komma igång”-självstudiekurs med hjälp av [Azure Portal](sql-database-get-started-backup-recovery.md).
+> Du kan utföra samma uppgifter i en ”komma igång”-självstudiekurs med hjälp av [Azure Portal](sql-database-get-started-backup-recovery-portal.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -114,7 +114,7 @@ I det här avsnittet av självstudiekursen ska du [konfigurera ett Azure Recover
 
 
 > [!TIP]
-> Om du vill ta bort säkerhetskopior med lång kvarhållning, se [Ta bort säkerhetskopior med lång kvarhållning](sql-database-long-term-retention-delete.md).
+> Mer information om borttagning av säkerhetskopior i långsiktig kvarhållning finns i [Hantera långsiktig kvarhållning av säkerhetskopior med PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 
 ### <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
@@ -380,6 +380,7 @@ $restoredDbFromLtr
 - Mer information om hur du återställer från säkerhetskopior finns i avsnittet om hur du [återställer från säkerhetskopior](sql-database-recovery-using-backups.md)
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Feb17_HO3-->
 
 

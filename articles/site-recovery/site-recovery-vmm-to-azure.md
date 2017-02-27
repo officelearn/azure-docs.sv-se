@@ -1,6 +1,6 @@
 ---
 title: Replikera virtuella Hyper-V-datorer i VMM-moln till Azure | Microsoft Docs
-description: "Beskriver hur du distribuerar Site Recovery för att dirigera replikering, redundans och återställning av virtuella Hyper-V-datorer i VMM-moln till Azure."
+description: "Dirigera replikering, redundans och återställning av virtuella Hyper-V-datorer hanterade i System Center VMM-moln till Azure"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,16 +12,15 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/23/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
-ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
+ms.sourcegitcommit: 89668033a5e9cf6b727992b7d221e49624fb3314
+ms.openlocfilehash: 448023b57d0beadc49e89d7dc22d324303700fa4
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-the-azure-portal"></a>Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med hjälp av Azure-portalen
-
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med hjälp av Site Recovery i Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [Klassiska Azure](site-recovery-vmm-to-azure-classic.md)
@@ -29,45 +28,12 @@ ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
 > * [PowerShell – Klassisk](site-recovery-deploy-with-powershell.md)
 
 
-Välkommen till Azure Site Recovery-tjänsten!
+Den här artikeln beskriver hur du replikerar lokala virtuella Hyper-V-datorer som hanteras i System Center VMM-moln till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md)-tjänsten på Azure Portal.
 
-Site Recovery är en Azure-tjänst som bidrar till din strategi för affärsstabilitet och haveriberedskap (BCDR). Site Recovery arrangerar replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till ett sekundärt datacenter. Vid driftstopp på den primära platsen växlar du över till den sekundära platsen så att program och arbetsbelastningar fortsätter att vara tillgängliga. Du växlar tillbaka till den primära platsen när den har återgått till normal drift. Läs mer i [Vad är Azure Site Recovery?](site-recovery-overview.md)
-
-Den här artikeln beskriver hur du replikerar lokala virtuella Hyper-V-datorer som hanteras i System Center VMM-moln till Azure med hjälp av Azure Site Recovery på Azure-portalen.
-
-När du har läst den här artikeln kan du skriva eventuella kommentarer längst ned. Om du har tekniska frågor kan du ställa dem i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-## <a name="quick-reference"></a>Snabbreferens
-För en fullständig distribution rekommenderar vi att du följer alla stegen i artikeln. Men om du har ont om tid har du en snabb sammanfattning här.
-
-| **Område** | **Detaljer** |
-| --- | --- |
-| **Scenario för distribution** |Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med hjälp av Azure-portalen |
-| **Lokala krav** |En eller flera VMM-servrar som körs i System Center 2012 R2 med ett eller flera moln.<br/><br/> Moln bör innehålla en eller flera värdgrupper för VMM.<br/><br/> Minst en Hyper-V-server i molnet som kör minst Windows Server 2012 R2 med Hyper-V-rollen eller Microsoft Hyper-V Server 2012 R2 med de senaste uppdateringarna installerade.<br/><br/> VMM-servrar och Hyper-V-värdar behöver internetåtkomst och måste kunna komma åt specifika URL:er direkt eller via en proxyserver. [Fullständig information](#on-premises-prerequisites). |
-| **Lokala begränsningar** |HTTPS-baserade proxyservrar stöds inte |
-| **Provider/agent** |Replikerade virtuella datorer behöver Azure Site Recovery-providern.<br/><br/> Hyper-V-värdar behöver Recovery Services-agenten.<br/><br/> Du installerar dessa under distributionen. |
-|  **Krav för Azure** |Azure-konto<br/><br/> Recovery Services-valv<br/><br/> LRS- eller GRS-lagringskontot i valvregionen<br/><br/> Standardlagringskonto<br/><br/> Virtuellt Azure-nätverk i valvregionen. [Fullständig information](#azure-prerequisites). |
-|  **Begränsningar för Azure** |Om du använder GRS behöver du ett annat LRS-konto för loggning<br/><br/> Lagringskonton som skapats på Azure-portalen kan inte flyttas mellan resursgrupper i samma, eller olika, prenumerationer. <br/><br/> Premium-lagring stöds inte.<br/><br/> Azure-nätverk som används för Site Recovery kan inte flyttas mellan resursgrupper i samma, eller olika, prenumerationer.
-|  **VM-replikering** |[Virtuella datorer måste uppfylla kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
-|  **Begränsningar för replikering** |Du kan inte replikera virtuella datorer som kör Linux med en statisk IP-adress.<br/><br/> Du kan utesluta specifika diskar från replikeringen, men inte OS-disken.
-| **Distributionssteg** |1) Förbered Azure (prenumeration, lagring, nätverk) -> 2) Förbered lokalt (VMM och nätverksmappning) -> 3) Skapa Recovery Services-valv > 4) Konfigurera VMM och Hyper-V-värdar -> 5) Konfigurera replikeringsinställningar -> 6) Aktivera replikering -> 7) Testa replikering och redundans. |
-
-## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery på Azure Portal
-
-Azure har två olika [distributionsmodeller](../resource-manager-deployment-model.md) för att skapa och arbeta med resurser – Azure Resource Manager och den klassiska distributionsmodellen. Azure har också två portaler – den klassiska Azure-portalen och Azure-portalen. Den här artikeln beskriver hur du distribuerar i Azure-portalen.
+När du har läst den här artikeln kan du lämna kommentarer längst ned på sidan eller på [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-Den här artikeln beskriver hur du distribuerar på Azure-portalen, som tillhandahåller en smidig distributionsmiljö. Den klassiska portalen kan användas för att underhålla befintliga valv. Du kan inte skapa nya valv med hjälp av den klassiska portalen.
 
-
-## <a name="site-recovery-in-your-business"></a>Site Recovery i ditt företag
-
-Organisationer behöver en BCDR-strategi som beskriver hur appar och data fungerar och är tillgängliga under planerade och oplanerade driftavbrott och som ser till att systemets normala drifttillstånd återställs så fort som möjligt. Här är vad Site Recovery kan göra:
-
-* Offsiteskydd för affärsappar som körs på virtuella Hyper-V datorer.
-* En enda plats för att installera, hantera och övervaka replikering, redundans och återställning.
-* Enkel redundans till Azure och återställning efter fel (återställning) från Azure Hyper-V-värdservrar på din lokala plats.
-* Återställningsplaner som innehåller flera virtuella datorer, så att nivåbaserade programbelastningar redundansväxlar tillsammans.
 
 ## <a name="scenario-architecture"></a>Scenariots arkitektur
 Dessa är komponenterna i scenariot:
@@ -108,7 +74,7 @@ När du förbereder distributionen måste du:
 1. [Skapa ett Azure-nätverk](#set-up-an-azure-network) som de virtuella Azure-datorerna ska anslutas till efter en redundansväxling.
 2. [Skapa ett Azure-lagringskonto](#set-up-an-azure-storage-account) för replikerade data.
 3. [Förbereda VMM-servern](#prepare-the-vmm-server) för Site Recovery-distribution.
-4. [Förbereda för nätverksmappning](#prepare-for-network-mapping). Konfigurera nätverk så att du kan konfigurera nätverksmappning under Site Recovery-distributionen.
+4. Förbereda för nätverksmappning. Konfigurera nätverk så att du kan konfigurera nätverksmappning under Site Recovery-distributionen.
 
 ### <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 Du behöver ett Azure-nätverk dit de virtuella Azure-datorerna som skapats kan anslutas efter redundansväxlingen.
@@ -137,7 +103,6 @@ Du måste konfigurera nätverksmappning under distributionen av Site Recovery. N
 
   * Se till att de virtuella datorerna på Hyper-V-källvärdservern är anslutna till ett VM-nätverk i VMM. Nätverket ska kopplas till ett logiskt nätverk som är associerat med molnet.
   * Ett Azure-nätverk så som det beskrivs [ovan](#set-up-an-azure-network)
-* [Lär dig mer](site-recovery-network-mapping.md) om hur nätverksmappning fungerar.
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 1. Logga in på [Azure-portalen](https://portal.azure.com).
@@ -177,14 +142,17 @@ Installera Azure Site Recovery-providern på VMM-servern och registrera servern 
 1. Klicka på **Steg 2: Förbereda infrastrukturen** > **Källa**.
 
     ![Konfigurera källan](./media/site-recovery-vmm-to-azure/set-source1.png)
+    
 2. I **Förbered källa** klickar du på **+ VMM** för att lägga till en VMM-server.
 
     ![Konfigurera källan](./media/site-recovery-vmm-to-azure/set-source2.png)
+    
 3. På bladet **Lägg till server** kontrollerar du att **System Center VMM-server** visas i **Servertyp** och att VMM-servern uppfyller [de allmänna kraven och URL-kraven](#on-premises-prerequisites).
 4. Ladda ned installationsfilen för Azure Site Recovery-providern.
 5. Ladda ned registreringsnyckeln. Du behöver den när du kör installationsprogrammet. Nyckeln är giltig i fem dagar efter att du har genererat den.
 
     ![Konfigurera källan](./media/site-recovery-vmm-to-azure/set-source3.png)
+    
 6. Installera Azure Site Recovery-providern på VMM-servern.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>Konfigurera Azure Site Recovery-providern
@@ -274,7 +242,7 @@ Ange Azure-lagringskontot som ska användas för replikering och det Azure-nätv
     ![Lagring](./media/site-recovery-vmm-to-azure/enablerep3.png)
 
 2. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
-    ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+      ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
 4. Om du inte har skapat ett lagringskonto och vill skapa ett med hjälp av Resource Manager klickar du på **+Lagringskonto** för att göra det direkt.  På bladet **Skapa lagringskonto** anger du kontonamn, typ, prenumeration och plats. Kontot måste finnas på samma plats som Recovery Services-valvet.
 
@@ -291,7 +259,8 @@ Ange Azure-lagringskontot som ska användas för replikering och det Azure-nätv
    Om du vill skapa ett nätverk med den klassiska modellen gör du det på Azure-portalen. [Läs mer](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ### <a name="configure-network-mapping"></a>Konfigurera nätverksmappning
-* [Läs](#prepare-for-network-mapping) en snabb överblick över vad nätverksmappning gör. [Läs detta](site-recovery-network-mapping.md) om du vill ha en mer detaljerad förklaring.
+
+* [Läs](#prepare-for-network-mapping) för en snabb överblick över vad nätverksmappning gör.
 * Kontrollera att virtuella datorer på VMM-servern är anslutna till ett virtuellt datornätverk och att du har skapat minst ett virtuellt Azure-nätverk. Flera virtuella datornätverk kan mappas till ett enda Azure-nätverk.
 
 Konfigurera mappning på följande sätt:
@@ -396,10 +365,10 @@ Aktivera replikering på följande sätt:
 
     >[!NOTE]
     >
-    > * Endast standarddiskar kan undantas från replikering. Du kan inte utesluta OS-disken och vi rekommenderar att du inte undantar dynamiska diskar. ASR kan inte identifiera vilken virtuell hårddisk som är en standarddisk eller dynamisk disk på den virtuella gästdatorn.  Om beroende dynamiska volymdiskar inte undantas identifieras en skyddad dynamisk disk som felaktig på den virtuella datorn vid redundansväxlingen och data på disken kan inte nås.
+    > * Endast standarddiskar kan undantas från replikering. Du kan inte utesluta OS-diskar och vi rekommenderar inte att du undantar dynamiska diskar. Site Recovery kan inte identifiera om en virtuell hårddisk som är en standarddisk eller dynamisk disk på den virtuella gästdatorn.  Om alla beroende dynamiska volymdiskar inte undantas identifieras skyddade dynamiska diskar som felaktiga på den virtuella datorn vid redundansväxling, och data på disken kan inte nås.
     > * När replikering har aktiverats kan du inte lägga till eller ta bort diskar för replikering. Om du vill lägga till eller undanta en disk måste du inaktivera skyddet för den virtuella datorn och sedan aktivera det igen.
     > * Om du undantar en disk som behövs för att ett program ska fungera efter redundansväxlingen till Azure måste du skapa den manuellt i Azure så att det replikerade programmet kan köras. Du kan också integrera Azure Automation i en återställningsplan för att skapa disken under en redundansväxling av datorn.
-    > * Diskar som du skapar manuellt i Azure växlas inte tillbaka igen. Om du till exempel växlar över tre diskar och skapar två direkt på den virtuella datorn i Azure kommer endast tre diskar som växlades över att växlas tillbaka från Azure till Hyper-V. Du kan inte ta med diskar som har skapats manuellt i redundansväxlingar eller omvända replikeringar från Hyper-V till Azure.
+    > * Diskar som du skapar manuellt i Azure växlas inte tillbaka igen. Om du till exempel växlar över tre diskar och skapar två direkt på den virtuella datorn i Azure så kommer endast de tre diskarna som växlades över att växlas tillbaka från Azure till Hyper-V. Du kan inte ta med diskar som har skapats manuellt i redundansväxlingar eller omvända replikeringar från Hyper-V till Azure.
     >
     >
 
@@ -473,7 +442,7 @@ Du kan testa distributionen genom att köra ett redundanstest för en enskild vi
 1. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att visa dess egenskaper, eller i jobbet **Testa redundans** i **Inställningar** > **Site Recovery-jobb**.
 1. När redundansväxlingen är klar bör du även kunna se Azure-replikdatorn på Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn har rätt storlek, att den är ansluten till rätt nätverk och körs.
 1. Om du [förberedde för anslutning efter redundansväxlingen](#prepare-to-connect-to-Azure-VMs-after-failover) bör du kunna ansluta till den virtuella Azure-datorn.
-1. När du är klar klickar du på **Rensa redundanstest** i återställningsplanen. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen. När du gör det tas de virtuella datorerna som skapades under redundanstestningen bort. 
+1. När du är klar klickar du på **Rensa redundanstest** i återställningsplanen. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen. När du gör det tas de virtuella datorerna som skapades under redundanstestningen bort.
 
 Mer information finns i [Test failover to Azure](site-recovery-test-failover-to-azure.md) (Testa redundans till Azure).
 
@@ -483,7 +452,7 @@ Så här gör du om du vill övervaka konfigurationsinställningarna, statusen o
 1. Klicka på valvnamnet för att få åtkomst till **Essentials**-instrumentpanelen. På den här instrumentpanelen kan du övervaka Site Recovery-jobb, replikeringsstatusen, återställningsplaner, servertillstånd och händelser.  Du kan anpassa **Essentials** och visa de paneler och layouter som är mest användbara för dig, inklusive status för andra Site Recovery- och Backup-valv.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. På ikonen **Hälsa** kan du övervaka problem på platsservrar (VMM- eller konfigurationsservrar) och de händelser som har uppmärksammats av Site Recovery under de senaste 24 timmarna.
+2. Under *Hälsa* kan du övervaka problem på lokala servrar (VMM- eller konfigurationsservrar) och de händelser som har uppmärksammats av Site Recovery under de senaste 24 timmarna.
 3. Du kan hantera och övervaka replikeringen på panelerna **Replikerade objekt**, **Återställningsplaner** och **Site Recovery-jobb**. Du kan visa mer detaljer om jobb i **Inställningar** > **Jobb** > **Site Recovery-jobb**.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -491,6 +460,6 @@ När du har konfigurerat och fått igång distributionen kan du [läsa mer](site
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO4-->
 
 

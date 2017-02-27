@@ -85,13 +85,13 @@ Följande tabell visar en jämförelse mellan de två lagringsnivåerna:
 </tr>
 <tr>
     <td><strong><center>Tillgänglighet</center></strong></td>
-    <td><center>99,9 %</center></td>
-    <td><center>99 %</center></td>
+    <td><center>99.9%</center></td>
+    <td><center>99%</center></td>
 </tr>
 <tr>
     <td><strong><center>Tillgänglighet<br>(RA-GRS-läsningar)</center></strong></td>
-    <td><center>99,99 %</center></td>
-    <td><center>99,9 %</center></td>
+    <td><center>99.99%</center></td>
+    <td><center>99.9%</center></td>
 </tr>
 <tr>
     <td><strong><center>Avgifter för användning</center></strong></td>
@@ -345,6 +345,6 @@ Mer information finns i [Get Started with Azure Blob storage](storage-dotnet-how
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

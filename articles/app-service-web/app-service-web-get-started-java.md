@@ -4,7 +4,7 @@ description: "Distribuera en exempelapp och se hur enkelt det är att köra webb
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 82accfbfa92dfe77d17da05425c2e05af33e5a31
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Distribuera din första Java-webbapp till Azure på fem minuter (CLI 2.0 Preview)
-
-> [!div class="op_single_selector"]
-> * [Första HTML-webbplats](app-service-web-get-started-html-cli-nodejs.md)
-> * [Första .NET-app](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Första PHP-app](app-service-web-get-started-php-cli-nodejs.md)
-> * [Första Node.js-app](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Första Python-app](app-service-web-get-started-python-cli-nodejs.md)
-> * [Första Java-app](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 I de här självstudierna lär du dig hur du distribuerar en enkel webbapp med Java via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Du kan använda App Service för att skapa webbappar, [serverdelar för mobilappar](/documentation/learning-paths/appservice-mobileapps/) och [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -127,10 +119,5 @@ Eller gör mer med din första webbapp. Exempel:
 
 * Prova [andra sätt att distribuera din kod till Azure](web-sites-deploy.md). 
 * Ta din Azure-app till nästa nivå. Autentisera användarna. Skala den på begäran. Konfigurera prestandavarningar. Allt med några få klickningar. Mer information finns i [Lägga till funktioner till din första webbapp](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

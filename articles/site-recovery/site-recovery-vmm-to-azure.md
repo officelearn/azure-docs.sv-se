@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 89668033a5e9cf6b727992b7d221e49624fb3314
-ms.openlocfilehash: 448023b57d0beadc49e89d7dc22d324303700fa4
+ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
+ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -66,7 +67,7 @@ Här är vad du behöver lokalt
 ## <a name="protected-machine-prerequisites"></a>Krav för skyddade datorer
 | **Krav** | **Detaljer** |
 | --- | --- |
-| **Skyddade virtuella datorer** |Innan du växlar över en virtuell dator kontrollerar du att namnet som tilldelats den virtuella Azure-datorn uppfyller [kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). Du kan ändra namnet efter att du har aktiverat replikering för den virtuella datorn. <br/><br/> Utrymmet på en enskild disk på skyddade datorer får inte vara över 1 023 GB. En virtuell dator kan ha upp till 64 diskar (alltså upp till 64 TB).<br/><br/> Gästkluster med delade diskar stöds inte.<br/><br/> Start via UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface) stöds inte.<br/><br/> Om NIC-teamindelning används på den virtuella källdatorn konverteras det till ett enda nätverkskort efter en redundansväxling till Azure.<br/><br/>Du kan inte skydda virtuella Hyper-V-datorer som kör Linux med en statisk IP-adress. |
+| **Skyddade virtuella datorer** |Innan du växlar över en virtuell dator kontrollerar du att namnet som tilldelats den virtuella Azure-datorn uppfyller [kraven för Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). Du kan ändra namnet efter att du har aktiverat replikering för den virtuella datorn. <br/><br/> Utrymmet på en enskild disk på skyddade datorer får inte vara över 1 023 GB. En virtuell dator kan ha upp till 64 diskar (alltså upp till 64 TB).<br/><br/> Gästkluster med delade diskar stöds inte.<br/><br/> Start via UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface) stöds inte.<br/><br/> Om NIC-teamindelning används på den virtuella källdatorn konverteras det till ett enda nätverkskort efter en redundansväxling till Azure.<br/><br/>Du kan inte skydda virtuella Hyper-V-datorer som kör Linux med en statisk IP-adress. |
 
 ## <a name="prepare-for-deployment"></a>Förbereda för distribution
 När du förbereder distributionen måste du:
@@ -260,7 +261,7 @@ Ange Azure-lagringskontot som ska användas för replikering och det Azure-nätv
 
 ### <a name="configure-network-mapping"></a>Konfigurera nätverksmappning
 
-* [Läs](#prepare-for-network-mapping) för en snabb överblick över vad nätverksmappning gör.
+* [Läs](#prepare-for-network-mapping) en snabb överblick över vad nätverksmappning gör.
 * Kontrollera att virtuella datorer på VMM-servern är anslutna till ett virtuellt datornätverk och att du har skapat minst ett virtuellt Azure-nätverk. Flera virtuella datornätverk kan mappas till ett enda Azure-nätverk.
 
 Konfigurera mappning på följande sätt:
@@ -359,7 +360,8 @@ Aktivera replikering på följande sätt:
 6. I **Virtual Machines** > **Välj virtuella datorer** klickar du på och väljer de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**.
 
     ![Aktivera replikering](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. I **Egenskaper** > **Konfigurera egenskaper** väljer du operativsystemet för de valda virtuella datorerna och operativsystemdisken. Som standard markeras alla diskar på den virtuella datorn för replikering. Du kanske vill undanta diskar från replikeringen och därigenom begränsa användningen av bandbredd för att replikera onödiga data till Azure. Till exempel kanske du inte vill replikera diskar med tillfälliga data eller data som uppdateras varje gång en dator eller ett program startar om (till exempel pagefile.sys eller tempdb för Microsoft SQL Server). Du kan undanta en disk från replikering genom att avmarkera den. Kontrollera att namnet på den virtuella datorn i Azure (målnamnet) uppfyller [kraven för virtuella datorer i Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) och ändra det om det behövs. Klicka sedan på **OK**. Du kan ange ytterligare egenskaper senare.
+
+7. I **Egenskaper** > **Konfigurera egenskaper** väljer du operativsystemet för de valda virtuella datorerna och operativsystemdisken. Som standard markeras alla diskar på den virtuella datorn för replikering. Du kanske vill undanta diskar från replikeringen och därigenom begränsa användningen av bandbredd för att replikera onödiga data till Azure. Till exempel kanske du inte vill replikera diskar med tillfälliga data eller data som uppdateras varje gång en dator eller ett program startar om (till exempel pagefile.sys eller tempdb för Microsoft SQL Server). Du kan undanta en disk från replikering genom att avmarkera den. Kontrollera att namnet på den virtuella datorn i Azure (målnamnet) uppfyller [kraven för virtuella datorer i Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) och ändra det om det behövs. Klicka sedan på **OK**. Du kan ange ytterligare egenskaper senare.
 
     ![Aktivera replikering](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -380,7 +382,7 @@ Aktivera replikering på följande sätt:
 Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 
 ### <a name="view-and-manage-vm-properties"></a>Visa och hantera egenskaper för virtuella datorer
-Vi rekommenderar att du kontrollerar egenskaperna för källdatorn. Kom ihåg att namnet på den virtuella Azure-datorn måste uppfylla [kraven för virtuella datorer i Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Vi rekommenderar att du kontrollerar egenskaperna för källdatorn. Kom ihåg att namnet på den virtuella Azure-datorn måste uppfylla [kraven för virtuella datorer i Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. Klicka på **Inställningar** > **Skyddade objekt** > **Replikerade objekt** och välj den dator som du vill visa information om.
 
@@ -388,7 +390,7 @@ Vi rekommenderar att du kontrollerar egenskaperna för källdatorn. Kom ihåg at
 2. I **Egenskaper** kan du visa information om replikering och redundans för den virtuella datorn.
 
     ![Aktivera replikering](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. I **Beräkning och nätverk** > **Beräkna egenskaper** kan du ange namnet och storleken på den virtuella Azure-datorn. Ändra namnet så att det uppfyller [kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) om det behövs. Du kan också visa och ändra information om målnätverket, undernätet och IP-adressen som ska tilldelas den virtuella Azure-datorn.
+3. I **Beräkning och nätverk** > **Beräkna egenskaper** kan du ange namnet och storleken på den virtuella Azure-datorn. Ändra namnet så att det uppfyller [kraven för Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) om det behövs. Du kan också visa och ändra information om målnätverket, undernätet och IP-adressen som ska tilldelas den virtuella Azure-datorn.
 Tänk på följande:
 
    * Du kan ange IP-måladressen. Om du inte anger någon adress använder den redundansväxlade datorn DHCP. Om du anger en adress som inte är tillgänglig under redundansväxlingen, misslyckas växlingen. Samma mål-IP-adress kan användas för att testa redundans om adressen är tillgänglig i nätverket för redundanstestet.
@@ -457,9 +459,4 @@ Så här gör du om du vill övervaka konfigurationsinställningarna, statusen o
 
 ## <a name="next-steps"></a>Nästa steg
 När du har konfigurerat och fått igång distributionen kan du [läsa mer](site-recovery-failover.md) om olika typer av redundansväxlingar.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

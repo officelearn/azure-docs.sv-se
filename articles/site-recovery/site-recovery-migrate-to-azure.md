@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
-ms.openlocfilehash: f0edea9c1509b0eb4b2590019610ccc9eb9d5f55
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 2fb457166b4ebe61c11173aa75bdcd2fbce3f03d
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -47,7 +48,7 @@ Du kan:
 
 För att migrera lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska servrar följer du i princip samma steg som vid vanlig replikering. Du ställer in ett Recovery Services-valv, konfigurerar de nödvändiga hanteringsservrarna (beroende på vad du vill migrera), lägger till dem i valvet och anger replikeringsinställningarna. Du aktiverar replikering för de datorer som du vill migrera och kör en snabb testredundans för att se till att allt fungerar som den ska.
 
-När du har kontrollerat att din replikeringsmiljö fungerar, använder du en planerad eller oplanerad redundans beroende på [vad som stöds](site-recovery-failover.md#failover-and-failback) för scenariot. För migrering behöver du inte utföra någon redundansväxling. Istället väljer du alternativet **Fullständig migrering** för varje dator som du vill migrera. Åtgärden **Fullständig migrering** slutför migreringsprocessen, tar bort replikering för datorn och stoppar Site Recovery-debitering för datorn.
+När du har kontrollerat att din replikeringsmiljö fungerar, använder du en planerad eller oplanerad redundans beroende på [vad som stöds](site-recovery-failover.md) för scenariot. För migrering behöver du inte utföra någon redundansväxling. Istället väljer du alternativet **Fullständig migrering** för varje dator som du vill migrera. Åtgärden **Fullständig migrering** slutför migreringsprocessen, tar bort replikering för datorn och stoppar Site Recovery-debitering för datorn.
 
 ![fullständig migrering](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
@@ -69,9 +70,4 @@ Du kan migrera AWS-instanser till virtuella Azure-datorer. I det här scenariot 
 - [Migrera virtuella Hyper-V-datorer utan VMM till Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Migrera virtuella Azure-datorer mellan Azure-regioner](site-recovery-migrate-azure-to-azure.md)
 - [Migrera AWS-instanser till Azure](site-recovery-migrate-aws-to-azure.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

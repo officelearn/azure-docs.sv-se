@@ -16,7 +16,7 @@ På bladet Grundläggande inställningar anger du administrativ information för
 
 2. Ange ett **användarnamn** och ett starkt **lösenord** som ska användas för att skapa ett lokalt konto på den virtuella datorn. Det lokala kontot används för att logga in på och hantera den virtuella datorn. I exemplet är _azureuser_ användarnamnet.
 
- Lösenordet måste innehålla mellan 8 och 123 tecken och uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Läs mer om [krav för användarnamn och lösenord](../articles/virtual-machines.md/virtual-machines-windows-faq).
+ Lösenordet måste innehålla mellan 8 och 123 tecken och uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Läs mer om [krav för användarnamn och lösenord](../articles/virtual-machines/virtual-machines-windows-faq.md).
 
 3. **Prenumeration** är valfritt. En vanlig inställning är ”Betala per användning”.
 
@@ -51,15 +51,6 @@ Bladet Sammanfattning innehåller en lista över de inställningar som du angav 
 
  ![Bladet Sammanfattning med angivna inställningar för den virtuella datorn](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
-<!--  deleted 2/16/2017 - RABixby
-  * A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For more information, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  -->
-
 När du har skapat den virtuella datorn visas den virtuella datorn på portalen under **Alla resurser**, och en panel visas för den virtuella datorn på instrumentpanelen. Den tillhörande molntjänsten och det associerade lagringskontot skapas och visas också. Både den virtuella datorn och molntjänsten startas automatiskt och deras status visas som **Körs**.
 
  ![Konfigurera VM-agenten och slutpunkterna för den virtuella datorn](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -4,7 +4,7 @@ description: "Lär dig hur du använder Azure Mobile Engagement med analyser och
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: aa34692f-87f7-47c6-a20c-a1972750bc25
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc6f97db04ae9dc547beb5a1fa3ee0c8c61885a6
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 3f1f8d74eb2f562991b351cae87c372897644cf8
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -41,10 +42,10 @@ För den här kursen behöver du följande:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-windows-phone-app"></a><a id="setup-azme"></a>Konfigurera Mobile Engagement för din Windows Phone-app
+## <a name="a-idsetup-azmeasetup-mobile-engagement-for-your-windows-phone-app"></a><a id="setup-azme"></a>Konfigurera Mobile Engagement för din Windows Phone-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 I den här kursen behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. Den fullständiga integrationsdokumentationen finns i [Mobile Engagement Windows Phone SDK integration](mobile-engagement-windows-phone-sdk-overview.md)
 
 Vi skapar en grundläggande app i Visual Studio för att demonstrera integrationen.
@@ -91,7 +92,7 @@ Nu har du skapat en ny Windows Phone Silverlight-app där Azure Mobile Engagemen
                EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a name="a-idmonitoraenable-realtime-monitoring"></a><a id="monitor"></a>Aktivera realtidsövervakning
+## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>Aktivera realtidsövervakning
 För att kunna börja skicka data och försäkra dig om att användarna är aktiva måste du skicka minst en skärm (aktivitet) till Mobile Engagement-serverdelen.
 
 1. Lägg till instruktionen `using` i MainPage.xaml.cs:
@@ -108,10 +109,10 @@ För att kunna börja skicka data och försäkra dig om att användarna är akti
    
     b. Ersätt `phone:PhoneApplicationPage` i XML-taggnamnet med `engagement:EngagementPage`.
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
 I följande avsnitt konfigurerar du appen för att ta emot dem.
 
@@ -150,7 +151,7 @@ Du bör nu se ett meddelande på enheten som visas som en avisering via app om a
 
 <!-- URLs. -->
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9874664
-[Mobile Engagement Windows Phone SDK-dokumentation]: ../mobile-engagement-windows-phone-integrate-engagement/
+[Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-windows-phone-get-started/project-properties.png
@@ -158,9 +159,4 @@ Du bör nu se ett meddelande på enheten som visas som en avisering via app om a
 [3]: ./media/mobile-engagement-windows-phone-get-started/add-connection-string.png
 [5]: ./media/mobile-engagement-windows-phone-get-started/reach-capabilities.png
 [6]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

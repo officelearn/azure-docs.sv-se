@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
-ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
+ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
+ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -179,21 +180,21 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 * [REST-API för Storage Services](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Storage-klientbibliotek för .NET, Windows Phone och Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Storage-klientbibliotek för C++](https://github.com/Azure/azure-storage-cpp)
-* [Storage-klientbibliotek för Java/Android](/develop/java/)
+* [Storage-klientbibliotek för Java/Android](https://azure.microsoft.com/develop/java/)
 * [Storage-klientbibliotek för Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [Storage-klientbibliotek för PHP](/develop/php/)
-* [Storage-klientbibliotek för Ruby](/develop/ruby/)
-* [Storage-klientbibliotek för Python](/develop/python/)
+* [Storage-klientbibliotek för PHP](https://azure.microsoft.com/develop/php/)
+* [Storage-klientbibliotek för Ruby](https://azure.microsoft.com/develop/ruby/)
+* [Storage-klientbibliotek för Python](https://azure.microsoft.com/develop/python/)
 * [Storage-cmdletar för PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### <a name="azure-storage-management-services"></a>Azure Storage Management Services
-* [Referens för REST-API för Storage Resource Provider](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-* [Klientbibliotek för Storage Resource Provider för .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx)
-* [Cmdlets för Storage Resource Provider för PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt607151.aspx)
+* [Referens för REST-API för Storage Resource Provider](/rest/api/storagerp/)
+* [Klientbibliotek för Storage Resource Provider för .NET](/dotnet/api/microsoft.azure.management.storage)
+* [Cmdlets för Storage Resource Provider för PowerShell 1.0](/powershell/storage/)
 * [REST-API för Service Management för Storage (klassisk)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Azure Storage Data Movement Services
-* [REST-API för Storage Import/Export Service](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+* [REST-API för Storage Import/Export Service](storage-import-export-service.md)
 * [Klientbibliotek för Storage Data Movement för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>Verktyg och hjälpmedel
@@ -248,9 +249,4 @@ Utforska gärna dessa resurser om du vill veta mer om Azure Storage:
 * [Använda Table Storage från Python](storage-python-how-to-use-table-storage.md)
 * [Använda Queue Storage från Python](storage-python-how-to-use-queue-storage.md)
 * [Använda File Storage från Python](storage-python-how-to-use-file-storage.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

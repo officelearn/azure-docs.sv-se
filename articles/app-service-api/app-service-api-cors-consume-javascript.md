@@ -4,7 +4,7 @@ description: "Lär dig hur du använder CORS-stöd i Azure Apptjänst."
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
 ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -248,10 +249,5 @@ Mer information om Visual Studio-funktioner som gör det lättare att felsöka f
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du sett hur du aktiverar stöd för Apptjänst-CORS så att klientens JavaScript-kod kan anropa ett API i en annan domän. Läs mer information om API Apps i [Introduktion till autentisering i Apptjänst](../app-service/app-service-authentication-overview.md),. Gå sedan till självstudierna [Användarautentisering för API Apps](app-service-api-dotnet-user-principal-auth.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -13,20 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: b922127076a8cb29ffb89c7fd184d4b8fa2d7e13
+ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
+ms.openlocfilehash: 086c87c52adf972307003ff78fd0c07f3035321c
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>Så här skapar du ett DocumentDB NoSQL-konto med Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure-portalen](documentdb-create-account.md)
-> * [Azure CLI och Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
->
->
+> * [Azure Portal](documentdb-create-account.md)
+> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 Om du vill skapa en databas med Microsoft Azure DocumentDB måste du:
 
@@ -38,9 +39,9 @@ Du kan skapa ett DocumentDB-konto via Azure Portal, Azure Resource Manager-malla
 Har du inte använt DocumentDB förut? Titta på [den här](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) fyra minuter långa videon av Scott Hanselman, så får du se hur du utför de vanligaste uppgifterna i onlineportalen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. I Jumpbar klickar du på **Ny**, **Databaser** och sedan på **DocumentDB (NoSQL)**.
+2. I det vänstra navigeringsfönstret klickar du på **Ny**, **Databaser** och sedan på **NoSQL (DocumentDB)**.
 
-   ![Skärmbild av Azure Portal, med fokus på Fler tjänster och DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
+   ![Skärmbild av Azure-portalen, med fokus på Fler tjänster och NoSQL (DocumentDB).](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. På **Nytt konto**-bladet anger du önskad konfiguration för DocumentDB-kontot.
 
     ![Skärmbild av Nytt DocumentDB-bladet](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
@@ -80,16 +81,11 @@ Du kan skapa en ny samling och databas genom att använda något av följande:
 
 När du har skapat databasen och samlingen behöver du [lägga till dokument ](documentdb-view-json-document-explorer.md) i samlingarna.
 
-När du har dokument i en samling kan du använda [DocumentDB SQL](documentdb-sql-query.md) för att [köra frågor](documentdb-sql-query.md#executing-sql-queries) mot dokumenten. Du kan köra frågor genom att använda [Frågeutforskaren](documentdb-query-collections-query-explorer.md) i portalen, [REST API:t](https://msdn.microsoft.com/library/azure/dn781481.aspx) eller en av [SDK:erna](documentdb-sdk-dotnet.md).
+När du har dokument i en samling kan du använda [DocumentDB SQL](documentdb-sql-query.md) för att [köra frågor](documentdb-sql-query.md#ExecutingSqlQueries) mot dokumenten. Du kan köra frågor genom att använda [Frågeutforskaren](documentdb-query-collections-query-explorer.md) i portalen, [REST API:t](https://msdn.microsoft.com/library/azure/dn781481.aspx) eller en av [SDK:erna](documentdb-sdk-dotnet.md).
 
 ### <a name="learn-more"></a>Läs mer
 Mer information om DocumentDB finns i följande resurser:
 
 * [Utbildningsväg för DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 * [Hierarkisk resursmodell och begrepp i DocumentDB](documentdb-resources.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

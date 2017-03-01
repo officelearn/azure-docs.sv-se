@@ -4,7 +4,7 @@ description: "Läs om vilken nytta du har av Apptjänst i dina befintliga Mobile
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -63,10 +64,5 @@ Serverdelen och databasen kan säkerhetskopieras automatiskt. Kod och data är s
 Med *Azure Apptjänst* kan du nu skapa flera olika privata testnings- och mellanlagringsmiljöer för dina mobilappar. I de här miljöerna kan du testa apparna innan du distribuerar ut dem. Du kan växla till produktionsmiljö utan avbrott. Webbappar är förinstallerade, vilket ger bästa möjliga kundupplevelse.
 
 Du kan komma igång och utnyttja alla fördelarna med *Apptjänst* för din befintliga mobiltjänst genom att gå igenom den här [kursen](app-service-mobile-migrating-from-mobile-services.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

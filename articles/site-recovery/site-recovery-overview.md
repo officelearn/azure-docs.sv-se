@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
+ms.sourcegitcommit: 5adacea6033070e808f9bf5e76bae0f45f7f1199
+ms.openlocfilehash: e922590c500517c93f7682b5cca5ef6a2c89de53
 
 
 ---
@@ -49,6 +49,9 @@ Här är exempel på hur Site Recovery kan hjälpa ditt företag:
 * **Redundans av flera virtuella datorer** – Du kan konfigurera återställningsplaner som omfattar skript och Azure Automation-runbookföden. Med en återställningsplan kan du modellera och anpassa redundans och återställning av program på flera nivåer som finns på olika virtuella datorer.
 * **Integrerar med befintlig BCDR-teknik** – Site Recovery integrerar sig med andra BCDR-tekniker. Du kan exempelvis använda Site Recovery för att skydda serverdelen för SQL Server för företagets arbetsbelastningar, inklusive inbyggt stöd för SQL Server AlwaysOn, för att hantera redundans för tillgänglighetsgrupper.
 
+## <a name="which-regions-are-supported"></a>Vilka regioner stöds?
+Om du vill veta mer om de regioner där Azure Site Recovery finns tillgängligt, kan du gå [hit](https://azure.microsoft.com/en-us/regions/services/) 
+
 ## <a name="what-can-i-replicate"></a>Vad kan jag replikera?
 Här är en sammanfattning av vad du kan replikera med Site Recovery.
 
@@ -78,7 +81,6 @@ Site Recovery tillhandahåller programmedveten replikering, vilket gör att arbe
 
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

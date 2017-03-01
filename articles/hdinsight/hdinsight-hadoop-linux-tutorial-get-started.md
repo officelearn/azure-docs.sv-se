@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
-ms.openlocfilehash: 1cf85c16847aad632d52fe72cd827f0ef8e66e91
+ms.sourcegitcommit: c08b568642e88da1aeddd36cb25a9f5c94b083e2
+ms.openlocfilehash: f283f103804d8e6d4a3c2037c8d38daafcb3f3e8
 
 
 ---
@@ -26,7 +26,6 @@ ms.openlocfilehash: 1cf85c16847aad632d52fe72cd827f0ef8e66e91
 Lär dig hur du skapar [Hadoop](http://hadoop.apache.org/)-kluster i HDInsight och hur du kör Hive-jobb i HDInsight. [Apache Hive](https://hive.apache.org/) är den populäraste komponenten i Hadoop-ekosystemet. För närvarande levereras HDInsight med sex olika klustertyper: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (förhandsversion)](hdinsight-hadoop-use-interactive-hive.md) och [R server](hdinsight-hadoop-r-server-overview.md).  Varje typ av kluster har stöd för olika komponentuppsättningar. Samtliga sex klustertyper stöder Hive. En lista över stödda komponenter som hanteras i HDInsight finns i [Vad är nytt i de Hadoop-klusterversioner som tillhandahålls av HDInsight?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
 ## <a name="prerequisites"></a>Krav
 Innan du börjar den här vägledningen måste du ha:
 
@@ -59,11 +58,13 @@ Resource Manager-mallen som används i den här självstudien finns i [Github](h
     Vissa egenskaper har hårdkodats i mallen.  Du kan konfigurera dessa värden från mallen.
 
     * **Plats**: Både platsen för klustret och det beroende lagringskontot använder samma plats som resursgruppen.
-    * **Klusterversion**: 3.4
+    * **Klusterversion**: 3.5
     * **OS-typ**: Linux
     * **Antal arbetsnoder**: 2
 
-     Varje kluster är beroende av ett Azure Blob Storage-konto. Det kallas vanligtvis Storage-konto av standardtyp. HDInsight-kluster och Storage-kontot av standardtyp måste finnas i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster. I mallen definieras namnet för Storage-kontot av standardtyp som det klusternamn som har tillägget ”store”. 
+     Varje kluster är beroende av ett Azure Blob Storage-konto. Det kallas vanligtvis Storage-konto av standardtyp. HDInsight-kluster och Storage-kontot av standardtyp måste finnas i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster. 
+     
+     Fler förklaringar av dessa egenskaper finns i [Skapa Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Välj **Jag godkänner villkoren som anges ovan** och **Fäst på instrumentpanelen** och klicka sedan på **Köp**. Du ska se en ny panel som heter **Skicka malldistribution** på portalens instrumentpanel. Det tar cirka 20 minuter att skapa ett kluster. När klustret skapas, ändras namnet i rubriktexten på panelen till det resursgruppsnamn som du har angett. Då öppnar portalen automatiskt resursgruppen i ett nytt blad. Du kan se både klustret och standardlagringsutrymmet i listan.
    
@@ -148,28 +149,16 @@ Mer information om att skapa eller hantera HDInsight-kluster hittar du här:
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-provision]: hdinsight-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-[powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-open]: /powershell/azureps-cmdlets-docs#Install
-
-[img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
-[img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
-[img-hdi-dashboard-query-select-result]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.result.png
-[img-hdi-dashboard-query-select-result-output]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.result.output.png
-[img-hdi-dashboard-query-browse-output]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.browse.output.png
-[image-hdi-clusterstatus]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.ClusterStatus.png
-[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
-[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

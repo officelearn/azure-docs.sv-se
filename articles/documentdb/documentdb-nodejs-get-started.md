@@ -1,5 +1,5 @@
 ---
-title: "Självstudie om oSQL Node.js för DocumentDB | Microsoft Docs"
+title: "Självstudie om NoSQL Node.js för DocumentDB | Microsoft Docs"
 description: "En självstudie om NoSQL Node.js där du skapar en NoSQL-databas och ett konsolprogram med DocumentDB Node.js SDK. DocumentDB är en NoSQL-databas för JSON."
 keywords: "självstudier för node.js, noddatabas"
 services: documentdb
@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 08f4cd48ea41d66203e296415181d5da14327854
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: 49b765010be87bacdb486391c28bf58aad1a9d24
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -56,7 +57,7 @@ Se till att du har följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
     * Du kan också använda [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för den här självstudien.
-* [Node.js](https://nodejs.org/) version 0.10.29 eller högre.
+* [Node.js](https://nodejs.org/) version&0;.10.29 eller högre.
 
 ## <a name="step-1-create-a-documentdb-account"></a>Steg 1: Skapa ett DocumentDB-konto
 Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [Konfigurera Node.js-programmet](#SetupNode). Om du använder DocumentDB-emulatorn följer du stegen i artikeln om [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för att konfigurera emulatorn och gå vidare med att [konfigurera Node.js-programmet](#SetupNode).
@@ -406,7 +407,7 @@ Följande diagram illustrerar hur DocumentDB SQL-frågesyntaxen anropas mot saml
 
 ![Självstudie om Node.js – Diagram som illustrerar frågans omfång och innebörd – Node-databas](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-Nyckelordet [FROM](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
+Nyckelordet [FROM](documentdb-sql-query.md#FromClause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
 
 Kopiera och klistra in koden under anropet till **getFamilyDocument** för att köra funktionen **queryCollection**.
 
@@ -627,9 +628,4 @@ Då är det bara att bygga den, så är du på väg!
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

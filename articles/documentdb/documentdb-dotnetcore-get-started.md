@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/11/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9fe3ce6f5556c92e51a74e51772e1e020f8628
-ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: e31be1a97b9b3d7718e4e6f58f22a2c6f5550beb
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -425,7 +426,7 @@ Nedanstående diagram illustrerar hur DocumentDB SQL-frågesyntaxen anropas mot 
 
 ![Diagram som illustrerar omfånget och innebörden av frågan som används i NoSQL-självstudiekursen för att skapa en C#-konsolapp](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-Nyckelordet [FROM](documentdb-sql-query.md#from-clause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
+Nyckelordet [FROM](documentdb-sql-query.md#FromClause) är valfritt i frågan eftersom DocumentDB-frågor redan är begränsade till en enda samling. ”FROM Families f” kan därför bytas mot ”FROM root r” eller annat valfritt variabelnamn som du väljer. DocumentDB drar slutsatsen att familjer, roten eller variabelnamnet som du har valt som standard refererar till den aktuella samlingen.
 
 ## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Steg 8: Ersätta JSON-dokument
 DocumentDB har stöd för att ersätta JSON-dokument.  
@@ -559,9 +560,4 @@ Om du vill återställa referenser till .NET DocumentDB Core SDK i Visual Studio
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

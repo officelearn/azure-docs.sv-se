@@ -15,18 +15,17 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f82634af931a1e9a9646c5631ebd0e5923a0adcc
-ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 2fb457166b4ebe61c11173aa75bdcd2fbce3f03d
+ms.lasthandoff: 02/23/2017
 
 
 ---
-# <a name="migrate-to-azure-with-site-recovery"></a>Migrera till Azure med Site Recovery?
+# <a name="migrate-to-azure-with-site-recovery"></a>Migrera till Azure med Site Recovery
 
 Läs den här artikeln för en översikt över användning av Azure Site Recovery-tjänsten för migrering av virtuella datorer och fysiska servrar.
 
-Organisationer behöver en BCDR-strategi som beskriver hur appar, arbetsbelastningar och data fungerar och är tillgängliga under planerade och oplanerade driftavbrott och som ser till att systemets normala drifttillstånd återställs så fort som möjligt. Avsikten med en BCDR-strategi är att skydda affärsdata och se till att de kan återställas samt att säkerställa att arbetsbelastningar förblir tillgängliga i händelse av allvarliga fel.
-
-Site Recovery är en Azure-tjänst som understödjer din BCDR-strategi genom att dirigera replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till ett sekundärt datacenter. Vid driftstopp på den primära platsen växlar du över till den sekundära platsen så att program och arbetsbelastningar fortsätter att vara tillgängliga. Du växlar tillbaka till den primära platsen när den har återgått till normal drift. Läs mer i [Vad är Site Recovery?](site-recovery-overview.md)
+Site Recovery är en Azure-tjänst som understödjer din BCDR-strategi genom att dirigera replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till ett sekundärt datacenter. Vid driftstopp på den primära platsen växlar du över till den sekundära platsen så att program och arbetsbelastningar fortsätter att vara tillgängliga. Du växlar tillbaka till den primära platsen när den har återgått till normal drift. Läs mer i [Vad är Site Recovery?](site-recovery-overview.md) Du kan även använda Site Recovery för att migrera dina befintliga lokala arbetsbelastningar till Azure för att påskynda ditt molnresa och utnyttja samlingen med funktioner som Azure erbjuder.
 
 Den här artikeln beskriver distribution i [Azure-portalen](https://portal.azure.com). Den [klassiska Azure-portalen](https://manage.windowsazure.com/) kan användas för att bibehålla befintliga Site Recovery-valv men du kan inte skapa nya valv.
 
@@ -35,7 +34,7 @@ Skriva eventuella kommentarer längst ned i den här artikeln. Om du har teknisk
 
 ## <a name="what-do-we-mean-by-migration"></a>Vad menar vi med migrering?
 
-Du kan distribuera Site Recovery för fullständig replikering av lokala virtuella datorer och fysiska servrar till Azure eller till en sekundär plats. Du kan replikera datorer, växla dem från den primära platsen när avbrott uppstår och återställa dem till den primära platsen när den återhämtat sig. Förutom fullständig replikering kan du använda Site Recovery för att migrera virtuella datorer och fysiska servrar till Azure, så att användarna kan komma åt datorns arbetsbelastning via virtuella Azure-datorer. Migrering innebär replikering och redundans från den primära platsen till Azure. Men till skillnad från fullständig replikering saknar den en mekanism för återställning efter fel.
+Du kan distribuera Site Recovery för replikering av lokala virtuella datorer och fysiska servrar till Azure eller till en sekundär plats. Du kan replikera datorer, växla dem från den primära platsen när avbrott uppstår och återställa dem till den primära platsen när den har återhämtat sig. Förutom detta kan du använda Site Recovery för att migrera virtuella datorer och fysiska servrar till Azure så att användarna kan komma åt dem som virtuella Azure-datorer. Migrering innebär replikering, redundans från den primära platsen till Azure och en fullständig migreringsgest.
 
 ## <a name="what-can-site-recovery-migrate"></a>Vad kan Site Recovery migrera?
 
@@ -49,7 +48,9 @@ Du kan:
 
 För att migrera lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska servrar följer du i princip samma steg som vid vanlig replikering. Du ställer in ett Recovery Services-valv, konfigurerar de nödvändiga hanteringsservrarna (beroende på vad du vill migrera), lägger till dem i valvet och anger replikeringsinställningarna. Du aktiverar replikering för de datorer som du vill migrera och kör en snabb testredundans för att se till att allt fungerar som den ska.
 
-När du har kontrollerat att din replikeringsmiljö fungerar, använder du en planerad eller oplanerad redundans beroende på [vad som stöds](site-recovery-failover.md#failover-and-failback) för scenariot. För migrering behöver du inte utföra en redundansväxling eller ta bort något. Istället väljer du alternativet **Fullständig migrering** för varje dator som du vill migrera. Åtgärden **Fullständig migrering** slutför migreringsprocessen, tar bort replikering för datorn och stoppar Site Recovery-debitering för datorn.
+När du har kontrollerat att din replikeringsmiljö fungerar, använder du en planerad eller oplanerad redundans beroende på [vad som stöds](site-recovery-failover.md) för scenariot. För migrering behöver du inte utföra någon redundansväxling. Istället väljer du alternativet **Fullständig migrering** för varje dator som du vill migrera. Åtgärden **Fullständig migrering** slutför migreringsprocessen, tar bort replikering för datorn och stoppar Site Recovery-debitering för datorn.
+
+![fullständig migrering](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
 ## <a name="migrate-between-azure-regions"></a>Migrera mellan Azure-regioner
 
@@ -65,14 +66,8 @@ Du kan migrera AWS-instanser till virtuella Azure-datorer. I det här scenariot 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Migrera virtuella VMware-datorer till Azure](site-recovery-vmware-to-azure.md)
-- [Migrera fysiska servrar till Azure](site-recovery-vmware-to-azure.md)
 - [Migrera virtuella Hyper-V-datorer i VMM-moln till Azure](site-recovery-vmm-to-azure.md)
 - [Migrera virtuella Hyper-V-datorer utan VMM till Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Migrera virtuella Azure-datorer mellan Azure-regioner](site-recovery-migrate-azure-to-azure.md)
 - [Migrera AWS-instanser till Azure](site-recovery-migrate-aws-to-azure.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

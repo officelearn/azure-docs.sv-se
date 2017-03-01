@@ -1,6 +1,6 @@
 ---
 title: Hantera arbetsytor | Microsoft Docs
-description: "Hantera arbetsytor i Log Analytics med hjälp av olika administrativa uppgifter för användare, konton, arbetsytor och Azure-konton."
+description: "Hantera arbetsytor i Azure Log Analytics med hjälp av olika administrativa uppgifter för användare, konton, arbetsytor och Azure-konton."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
-ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
 
 
 ---
@@ -97,10 +97,13 @@ Vissa saker att tänka på vad gäller Azure-portalen:
 
   URL-adressen liknar: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
+För att exempelvis lägga till eller ta bort hanteringslösningar måste användaren vara administratör eller bidragsgivare till Azure-prenumerationen vid användning av Azure Portal. Användaren måste dessutom ha bidragsgivar- eller ha administratörsrollen för OMS-arbetsytan i OMS-portalen.
+
 ### <a name="managing-users-in-the-oms-portal"></a>Hantera användare i OMS-portalen
 Du kan hantera användare och grupp på fliken **Hantera användare** under fliken **Konton** på sidan Inställningar.   
 
 ![hantera användare](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### <a name="add-a-user-to-an-existing-workspace"></a>Lägga till en användare till en befintlig arbetsyta
 Följ stegen nedan om du vill lägga till en användare eller grupp på en arbetsyta.
@@ -298,6 +301,6 @@ Om du är administratör och det finns flera användare som är kopplade till ar
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

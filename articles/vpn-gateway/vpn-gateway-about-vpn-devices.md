@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
-ms.openlocfilehash: b8e65f6c314457b76bd062ea09bda53099fb79d9
+ms.sourcegitcommit: ba659fe42fa2264708833f5674711334845defcc
+ms.openlocfilehash: 283e71f03f3907fd1e72283059ba7acbdac054d4
 
 
 ---
@@ -30,6 +30,9 @@ En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats
 >
 
 Om enheten inte finns med i tabellen med [verifierade VPN-enheter](#devicetable) kan du gå till avsnittet [Icke-verifierade VPN-enheter](#additionaldevices) i den här artikeln. Det är möjligt att enheten fungerar med Azure ändå. Kontakta enhetstillverkaren för att se vilket stöd som finns för VPN-enheter.
+
+> [!IMPORTANT]
+> Om du har problem med anslutningen mellan dina lokala VPN-enheter och Azure VPN-gateways läser du avsnittet [Kända enhetskompatibilitetsproblem](#known).
 
 **Observera följande när du läser tabellerna:**
 
@@ -49,14 +52,14 @@ Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall F-serien |Principbaserad: 5.4.3<br>Routningsbaserad: 6.2.0 |[Konfigurationsanvisningar](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Konfigurationsanvisningar](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-serien |Barracuda Firewall 6.5 |[Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Inte kompatibel |
 | Brocade |Vyatta 5400 vRouter |Virtuell router 6.6R3 GA |[Konfigurationsanvisningar](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Inte kompatibel |
-| Check Point |Security Gateway |R75.40<br>R75.40VS |[Konfigurationsanvisningar](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Konfigurationsanvisningar](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
+| Check Point |Security Gateway |R77.30 |[Konfigurationsanvisningar](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Konfigurationsanvisningar](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco |ASA |8.3 |[Cisco-exempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |Inte kompatibel |
 | Cisco |ASR |Principbaserad: IOS 15.1<br>Routningsbaserad: IOS 15.2 |[Cisco-exempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Cisco-exempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |Principbaserad: IOS 15.0<br>Routningsbaserad*: IOS 15.1 |[Cisco-exempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Cisco-exempel*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 och senare |[Integreringsanvisningar](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Inte kompatibel |
 | Dell SonicWALL |TZ-serie, NSA-serie<br>SuperMassive-serie<br>NSA-serie i E-klassen |SonicOS 5.8.x<br>[SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850)<br>[SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) |[Konfigurationsguide för SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Konfigurationsguide för SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Konfigurationsguide för SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Konfigurationsguide för SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 |BIG-IP-serien |12.0 |[Konfigurationsanvisningar](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Konfigurationsanvisningar](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.4.x |[Konfigurationsanvisningar](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Konfigurationsanvisningar](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
+| Fortinet |FortiGate |FortiOS 5.4.2 |[Konfigurationsanvisningar](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Konfigurationsanvisningar](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
 | Internet Initiative Japan (IIJ) |SEIL-serien |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Konfigurationsanvisningar](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Inte kompatibel |
 | Juniper |SRX |Principbaserad: JunOS 10.2<br>Routningsbaserad: JunOSS 11.4 |[Juniper-exempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Juniper-exempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
 | Juniper |J-serien |Principbaserad: JunOS 10.4r9<br>Routningsbaserad: JunOSS 11.4 |[Juniper-exempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Juniper-exempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
@@ -65,7 +68,7 @@ Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig
 | Microsoft |Routning och fjärråtkomst |Windows Server 2012 |Inte kompatibel |[Microsoft-exempel](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Open Systems AG |Mission Control Security Gateway |Saknas |[Installationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Installationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Kommer snart) |Inte kompatibel |
-| Palo Alto Networks |Alla enheter som kör PAN-OS |PAN-OS<br>Principbaserad: 6.1.5 eller senare<br>Routningsbaserad: 7.0.5 eller senare |[Konfigurationsanvisningar](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Konfigurationsanvisningar](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| Palo Alto Networks |Alla enheter som kör PAN-OS |PAN-OS<br>Principbaserad: 6.1.5 eller senare<br>Routningsbaserad: 7.1.4 |[Konfigurationsanvisningar](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Konfigurationsanvisningar](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
 | WatchGuard |Alla |Fireware XTM<br> Principbaserad: v11.11.x<br>Routningsbaserad: v11.12.x |[Konfigurationsanvisningar](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Konfigurationsanvisningar](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) ISR 7200 serie routrar stöder endast principbaserade VPN.
@@ -151,8 +154,21 @@ Följande tabellen visar IPsec, SA-kryptering och autentiseringserbjudanden. Erb
 * Du kan ange IPsec ESP NULL-kryptering med VPN-gatewayer som är routningsbaserade och har hög kapacitet. Null-baserad kryptering ger inget skydd av data under överföringen och bör endast användas när maximalt dataflöde och lägsta svarstid krävs.  Klienter kan välja att använda detta i scenarier med VNet-till-VNet-kommunikation eller när kryptering används någon annanstans i lösningen.
 * Vid Internetanslutning på flera platser bör du använda standardinställningarna för Azure VPN Gateway med kryptering och de hash-algoritmer som anges i tabellen ovan, för att garantera säkerheten för din kritiska kommunikation.
 
+## <a name="a-nameknownaknown-device-compatibility-issues"></a><a name="known"></a>Kända enhetskompatibilitetsproblem
+
+> [!IMPORTANT]
+> Dessa problem är kända kompatibilitetsproblem mellan VPN-enheter från tredje part och Azure VPN-gateways. Azure-teamet arbetar aktivt med leverantörerna för att åtgärda de problem som beskrivs här. Den här sidan uppdateras med den senaste informationen när problemen har åtgärdats. Kom tillbaka regelbundet.
+
+###<a name="feb-16-2017"></a>16 februari 2017
+
+**Palo Alto Networks-enheter med tidigare versioner än 7.1.4** för Azure-vägbaserad VPN: Om du använder VPN-enheter från Palo Alto Networks med en PAN-OS-version äldre än 7.1.4 och har problem att ansluta till Azure-vägbaserade VPN-gateways följer du dessa steg:
+
+1. Kontrollera Palo Alto Networks-enhetens version av den inbyggda programvaran (firmware). Om din PAN-OS-version är äldre än 7.1.4 uppgraderar du till 7.1.4
+2. På Palo Alto Networks-enheten ändrar du livslängden för Phase 2 SA (eller Quick Mode SA) till 28 800 sekunder (8 timmar) vid anslutning till Azure VPN-gateways
+3. Om du fortfarande har anslutningsproblem skapar du en supportbegäran på Azure Portal 
 
 
-<!--HONumber=Jan17_HO4-->
+
+<!--HONumber=Feb17_HO3-->
 
 

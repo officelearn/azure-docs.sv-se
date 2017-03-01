@@ -44,8 +44,9 @@
 ### [Säkerhetskopiera och återställa](documentdb-online-backup-and-restore.md)
 ### [Dra tillbaka S1, S2, S3](documentdb-performance-levels.md)
 ### [Enheter för programbegäran](documentdb-request-units.md)
-### Azure CLI
-#### [Skapa ett konto](documentdb-automation-resource-manager-cli.md)
+### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+### Azure CLI 1.0
+#### [Skapa ett konto](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Lägga till eller ta bort regioner](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Brandväggsstöd](documentdb-firewall-support.md)
@@ -124,8 +125,3 @@
 ## [Förklaring av datakonsekvens med hjälp av baseboll](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Bok: Använda Microsoft Azure DocumentDB i ett Node.js-program](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

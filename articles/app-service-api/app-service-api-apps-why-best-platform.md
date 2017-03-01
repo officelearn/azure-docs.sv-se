@@ -4,7 +4,7 @@ description: "Lär dig hur Azure Apptjänst hjälper dig att utveckla, hantera o
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60049a16-8159-47aa-a34b-110be0d8dab6
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 62b1541414543fc947886374424dadee09759323
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -58,10 +59,5 @@ Kom igång med API Apps genom att distribuera exempelkod till en, se självstudi
 * [Java](app-service-api-java-api-app.md) 
 
 Starta en tråd [forumet för API Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps) om du vill ställa frågor om API Apps. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

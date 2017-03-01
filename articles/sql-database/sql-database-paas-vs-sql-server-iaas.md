@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: a2e65de2ec77da9005cea18876fd86fd2928b9da
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: bdcf28703f007d32144278c7f0956fe4c27c3b27
 
 
 ---
@@ -121,7 +121,7 @@ För många IT-avdelningar är det av högsta vikt att uppfylla skyldigheterna p
 
 För **SQL Database**-servicenivåerna Basic, Standard och Premium ger Microsoft en SLA med 99,99 % tillgänglighet. Den senaste informationen finns i [Serviceavtalet](https://azure.microsoft.com/support/legal/sla/sql-database/). Den senaste informationen om servicenivåer för SQL Database och de planer för verksamhetskontinuitet som stöds finns i [servicenivåer](sql-database-service-tiers.md).
 
-För **SQL Server som kör på virtuella Azure-datorer** erbjuder Microsoft en tillgänglighets-SLA på 99,95 %, vilket bara täcker den virtuella datorn. Det här SLA:t omfattar inte de processer som körs på den virtuella datorn (till exempel SQL Server) som kräver att du är värd för minst två VM-instanser i en tillgänglighetsuppsättning. Den senaste informationen finns på [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). För hög tillgänglighet (HA) för databaser inom VM:ar, bör du konfigurera en av de alternativ för hög tillgänglighet som stöds i SQL Server, som [AlwaysOn-tillgänglighetsgrupper](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Användningen av ett alternativ för hög tillgänglighet som stöds medför inget nytt SLA, men ger > 99,99 % databastillgänglighet.
+För **SQL Server som kör på virtuella Azure-datorer** erbjuder Microsoft en tillgänglighets-SLA på 99,95 %, vilket bara täcker den virtuella datorn. Det här SLA:t omfattar inte de processer som körs på den virtuella datorn (till exempel SQL Server) som kräver att du är värd för minst två VM-instanser i en tillgänglighetsuppsättning. Den senaste informationen finns på [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). För hög tillgänglighet (HA) för databaser inom VM:ar, bör du konfigurera en av de alternativ för hög tillgänglighet som stöds i SQL Server, som [AlwaysOn-tillgänglighetsgrupper](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Användningen av ett alternativ för hög tillgänglighet som stöds medför inget nytt SLA, men ger >&99;,99 % databastillgänglighet.
 
 ### <a name="a-namemarketatime-to-market"></a><a name="market"></a>Tid till marknad
 **SQL Database** är den rätta lösningen för molnutformade program där utvecklarproduktivitet och en snabb tid till marknad är avgörande. Med sin programmässiga DBA-lika funktionalitet, är det perfekt för molnarkitekter och utveckare, eftersom det sänker behovet av att hantera det underliggande operativsystemet och databasen. Du kan till exempel använda [REST-API:n](http://msdn.microsoft.com/library/azure/dn505719.aspx) och [PowerShell-Cmdletar](http://msdn.microsoft.com/library/mt740629.aspx) för att automatisera och hantera administrativa åtgärder för tusentals databaser. Funktioner som [elastiska pooler](sql-database-elastic-pool.md) låter dig fokusera på programlagret och leverera din lösning till marknaden snabbare.
@@ -142,14 +142,13 @@ Välj **SQL Server på virtuella Azure-datorer** om:
 * Du har befintliga IT-resurser och kan själv hantera korrigeringar, säkerhetskopieringar och hög databastillgänglighet. Observera att vissa automatiska funktioner avsevärt förenklar dessa åtgärder. 
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [SQL Database-självstudier: Skapa en SQL-databas på några minuter med hjälp av Azure-portalen](sql-database-get-started.md) för att komma igång med SQL Database.
+* Se [Din första Azure SQL Database](sql-database-get-started.md) för att komma igång med SQL Database.
 * Se [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Se [Etablera en virtuell SQL Server-dator i Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) för att komma igång med SQL Server på virtuella Azure-datorer.
-* Se [Utbildningsvägen för SQL Server på en virtuell dator i Azure](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

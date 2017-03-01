@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 83f9a2716086730f22527a9321b6b111f6e69907
-ms.openlocfilehash: 9e794e89e5ecf4633c2e6312c69487bfa0c7795c
+ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
+ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
 
 
 ---
@@ -52,10 +52,10 @@ Observera hur Azure-infrastrukturen tar på sig rollen som router och tillåter 
   >
 
 ## <a name="subnets"></a>Undernät
-Ett undernät är ett IP-adressintervall i VNet. Du kan dela upp ett VNet i flera undernät av organisations- och säkerhetsskäl. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera route-tabeller och NSG:er till ett undernät.
+Ett undernät är ett IP-adressintervall i det virtuella nätverket. Du kan dela upp ett virtuellt nätverk i flera undernät av organisations- och säkerhetsskäl. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera route-tabeller och NSG:er till ett undernät.
 
 ## <a name="ip-addresses"></a>IP-adresser
-Det finns två typer av IP-adresser som tilldelas resurser i Azure: *offentliga* och *privata*. Offentliga IP-adresser låter Azure-resurser kommunicera med Internet och andra Azure-resurser som är offentligt riktade som [Azure Redis-cache](https://azure.microsoft.com/services/cache/) och [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Privata IP-adresser tillåter kommunikation mellan resurser i ett virtuellt nätverk, samt de som är anslutna via en VPN, utan att använda Internet-dirigerbara IP-adresser.
+Det finns två typer av IP-adresser som tilldelas resurser i Azure: *offentliga* och *privata*. Offentliga IP-adresser gör att Azure-resurserna kan kommunicera med Internet och andra offentliga Azure-tjänster som [Azure Redis Cache](https://azure.microsoft.com/services/cache/) och [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Privata IP-adresser tillåter kommunikation mellan resurser i ett virtuellt nätverk, samt de som är anslutna via ett VPN-nätverk, utan att använda Internetdirigerbara IP-adresser.
 
 Om du vill veta mer om IP-adresser i Azure kan du besöka [IP-adresser i virtuella nätverk](virtual-network-ip-addresses-overview-arm.md)
 
@@ -91,6 +91,6 @@ Det finns inget extra kostnad för att använda Virtual Networks i Azure. De com
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

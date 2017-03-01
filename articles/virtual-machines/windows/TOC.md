@@ -150,7 +150,6 @@
 ### [Infrastrukturexempel](../virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Planerat Azure-underhåll](../virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Schema](../virtual-machines-windows-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Schemalagda händelser](../virtual-machines-scheduled-events.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Hantera arbetsbelastningar
 ### [Databehandling med höga prestanda (HPC)](../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -184,8 +183,8 @@
 
 # Referens
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Azure CLI 2.0 (förhandsversion)](/cli/azure/vm)
-## [.NET](/dotnet/api/microsoft.azure.management.compute)
+## [Azure CLI 2.0](/cli/azure/vm)
+## [NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Java](/java/api)
 ## [Node.js](https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html)
@@ -199,8 +198,3 @@
 ## [Regional tillgänglighet](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

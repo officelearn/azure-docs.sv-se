@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
-ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 45d399b72f8d037fb828d9ad22bbd3543847feb3
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,14 +30,11 @@ Kubernetes-, DC/OS- och Docker Swarm-klustren tillhandahåller HTTP-slutpunkter 
 
 För DC/OS och Docker Swarm måste du skapa en SSH-tunnel (Secure Shell) till ett internt system. När tunneln har upprättats kan du köra kommandon som använder HTTP-slutpunkter och visa klustrets webbgränssnitt från det lokala systemet. 
 
-> [!NOTE]
-> Stöd för Kubernetes i Azure Container Service förhandsvisas just nu.
->
 
 ## <a name="prerequisites"></a>Krav
 
 * Ett Kubernetes-, DC/OS- eller Swarm-kluster [som distribuerats i Azure Container Service](container-service-deployment.md).
-* En SSH-fil för privat nyckel som motsvarar den offentliga nyckeln som lades till i klustret under distributionen. Dessa kommandon förutsätter att den privata SSH-nyckeln finns i `$HOME/.ssh/id_rsa` på din dator. Mer information finns i dessa anvisningar för [OS X och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) eller [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). Om SSH-anslutningen inte fungerar kan du behöva [återställa dina SSH-nycklar](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* En SSH RSA-fil för privat nyckel som motsvarar den offentliga nyckel som lades till i klustret under distributionen. Dessa kommandon förutsätter att den privata SSH-nyckeln finns i `$HOME/.ssh/id_rsa` på din dator. Mer information finns i dessa anvisningar för [OS X och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) eller [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). Om SSH-anslutningen inte fungerar kan du behöva [återställa dina SSH-nycklar](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Ansluta till ett Kubernetes-kluster
 
@@ -47,7 +45,7 @@ Följ stegen nedan för att installera och konfigurera `kubectl` på datorn.
 > 
 
 ### <a name="install-kubectl"></a>Installera kubectl
-Ett sätt att installera det här verktyget är att använda kommandot `az acs kubernetes install-cli` från Azure CLI 2.0 (förhandsversion). Om du vill köra det här kommandot kontrollerar du att den senaste versionen av Azure CLI 2.0 (förhandsversion) är [installerad](/cli/azure/install-az-cli2) och att du är inloggad på ett Azure-konto (`az login`).
+Ett sätt att installera det här verktyget är att använda kommandot `az acs kubernetes install-cli` från Azure CLI 2.0. Om du vill köra det här kommandot kontrollerar du att den senaste versionen av Azure CLI 2.0 är [installerad](/cli/azure/install-az-cli2) och att du är inloggad på ett Azure-konto (`az login`).
 
 ```azurecli
 # Linux or OS X
@@ -57,7 +55,7 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Du kan också hämta klienten direkt på [sidan med versioner](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+Du kan också hämta den senaste klienten direkt på [Kubernetes-sidan med versioner](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Mer information finns i [Installera och konfiguera kubectl](https://kubernetes.io/docs/user-guide/prereqs/).
 
 ### <a name="download-cluster-credentials"></a>Hämta autentiseringsuppgifter för kluster
 När du har installerat `kubectl` måste du kopiera klustrets autentiseringsuppgifter till datorn. Ett sätt att hämta autentiseringsuppgifterna är att använda kommandot `az acs kubernetes get-credentials`. Ange namnet på resursgruppen och namnet på behållartjänstens resurs:
@@ -128,7 +126,7 @@ Det första du ska göra när du ska skapa en SSH-tunnel i Linux eller OS X är 
     **PATH_TO_PRIVATE_KEY** [VALFRITT] är sökvägen till den privata nyckeln som motsvarar den offentliga nyckeln som du angav när du skapade klustret. Använd det här alternativet med flaggan `-i`.
 
     ```bash
-    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
     > SSH-anslutningsporten är 2200 och inte standardporten 22. I ett kluster med flera virtuella huvuddatorer är detta anslutningsporten till den första virtuella huvuddatorn.
@@ -203,7 +201,7 @@ Det finns flera olika sätt att skapa SSH-tunnlar i Windows. Det här avsnittet 
 
     ![PuTTY-händelselogg](media/putty4.png)
 
-När du har konfigurerat tunneln för DC/OS kan du komma åt den relaterade slutpunkten på:
+När du har konfigurerat tunneln för DC/OS kan du komma åt de relaterade slutpunkterna på:
 
 * DC/OS: `http://localhost/`
 * Marathon: `http://localhost/marathon`
@@ -217,10 +215,5 @@ Distribuera och hantera behållare i klustret:
 * [Arbeta med Azure Container Service och Kubernetes](container-service-kubernetes-ui.md)
 * [Arbeta med Azure Container Service och DC/OS](container-service-mesos-marathon-rest.md)
 * [Arbeta med Azure Container Service och Docker Swarm](container-service-docker-swarm.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
 
 ---
 # <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett behållarregister med hjälp av Docker CLI
@@ -33,7 +33,7 @@ Mer bakgrundsinformation och förklaringar av begrepp finns i [Vad är Azure Con
 > 
 
 ## <a name="prerequisites"></a>Krav
-* **Azure-behållarregister** – Skapa ett behållarregister i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI 2.0 Preview](container-registry-get-started-azure-cli.md).
+* **Azure-behållarregister** – Skapa ett behållarregister i din Azure-prenumeration. Använd till exempel [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
 * **Docker CLI** – Om du vill konfigurera den lokala datorn som en Docker-värd och komma åt Docker CLI-kommandona installerar du [Docker-motorn](https://docs.docker.com/engine/installation/).
 
 ## <a name="log-in-to-a-registry"></a>Logga in i ett register
@@ -118,6 +118,6 @@ Nu när du känner till grunderna är du redo att börja använda registret! Du 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

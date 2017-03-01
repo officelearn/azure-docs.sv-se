@@ -39,6 +39,7 @@
 ### [Partitionerade köer och ämnen](service-bus-partitioning.md)
 ### [Köer för obeställbara meddelanden](service-bus-dead-letter-queues.md)
 ### [Transaktionsbearbetning](service-bus-transactions.md)
+### [Diagnostikloggar](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -71,10 +72,5 @@
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

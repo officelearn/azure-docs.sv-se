@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 9ee2d2ef7b21fab8cfc4a70561d612be7367d366
 
 
 ---
@@ -182,7 +182,7 @@ Det här är ett exempel på den här typen av varning:
 ![Utgående DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## <a name="resource-analysis"></a>Resursanalys
-Resursanalysen i Security Center fokuserar på PaaS-tjänster, till exempel integration med funktionen [Hotidentifiering i Azure SQL DB](../sql-database/sql-database-threat-detection-get-started.md). Baserat på analysresultatet från dessa områden utlöser Security Center en relaterad resursavisering.
+Resursanalysen i Security Center fokuserar på PaaS-tjänster, till exempel integration med funktionen [Hotidentifiering i Azure SQL Database](../sql-database/sql-database-threat-detection.md). Baserat på analysresultatet från dessa områden utlöser Security Center en relaterad resursavisering.
 
 ### <a name="potential-sql-injection"></a>Potentiell SQL-inmatning
 SQL-inmatning är en attack där skadlig kod matas in i strängar som senare skickas till en instans av SQL Server för parsning och körning. Sårbarhet för den här typen av inmatning bör granskas för alla procedurer som konstruerar SQL-instruktioner eftersom SQL Server kör alla syntaktiskt giltiga frågor som den tar emot. SQL-hotidentifiering använder Machine Learning, beteendeanalys och avvikelseidentifiering för att hitta misstänkta händelser i Azure SQL-databaserna. Några exempel:
@@ -216,6 +216,6 @@ I det här dokumentet lär du dig om de olika typerna av säkerhetsvarningar i S
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

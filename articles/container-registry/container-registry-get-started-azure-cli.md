@@ -1,6 +1,6 @@
 ---
 title: "Skapa ett Azure-behållarregister – CLI | Microsoft Docs"
-description: "Kom igång med att skapa och hantera Azure-behållarregister med Azure CLI 2.0 Preview"
+description: "Komma igång med att skapa och hantera Azure-behållarregister med Azure CLI 2.0"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: bd2f3f5331eb83f09f5d187699a39c74be6282d5
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1d5e16952cbc56a381ead23843515cf6ed1d74a9
 
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Skapa ett behållarregister med hjälp av Azure CLI
-Använd kommandon i [Azure CLI 2.0 Preview](https://github.com/Azure/azure-cli) för att skapa ett behållarregister och hantera dess inställningar från din Linux-, Mac- eller Windows-dator. Du kan också skapa och hantera behållarregister med hjälp av [Azure Portal](container-registry-get-started-portal.md) eller via programmering med [REST-API:et](https://go.microsoft.com/fwlink/p/?linkid=834376) för Container Registry.
+Använd kommandon i [Azure CLI 2.0](https://github.com/Azure/azure-cli) för att skapa ett behållarregister och hantera inställningarna från din Linux-, Mac- eller Windows-dator. Du kan också skapa och hantera behållarregister med hjälp av [Azure Portal](container-registry-get-started-portal.md) eller via programmering med [REST-API:et](https://go.microsoft.com/fwlink/p/?linkid=834376) för Container Registry.
 
 
 * Bakgrundsinformation och förklaringar av begrepp finns i [Vad är Azure Container Registry?](container-registry-intro.md)
@@ -34,9 +34,9 @@ Använd kommandon i [Azure CLI 2.0 Preview](https://github.com/Azure/azure-cli) 
 > 
 
 ## <a name="prerequisites"></a>Krav
-* **Azure CLI 2.0 Preview** – Information om hur du installerar och kommer igång med CLI 2.0 Preview finns i [installationsanvisningarna](https://github.com/Azure/azure-cli/blob/master/README.rst). Logga in i din Azure-prenumeration genom att köra `az login`.
-* **Resursgrupp** –Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md#resource-groups) innan skapar ett behållarregister eller använd en befintlig resursgrupp. Kontrollera att resursgruppen finns på en plats där Container Registry-tjänsten är [tillgänglig](https://azure.microsoft.com/regions/services/). Om du vill skapa en resursgrupp med hjälp av CLI 2.0 Preview rekommenderar vi att du går igenom [CLI 2.0 Preview-exemplen](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
-* **Lagringskonto** (valfritt) – Skapa ett Azure-[standardlagringskonto](../storage/storage-introduction.md) för användning med behållarregistret på samma plats. Om du inte anger ett lagringskonto när du skapar ett register med `az acr create` skapar kommandot ett automatiskt. Om du vill skapa ett lagringskonto med CLI 2.0 Preview rekommenderar vi att du går igenom [CLI 2.0 Preview-exemplen](https://github.com/Azure/azure-cli-samples/tree/master/storage).
+* **Azure CLI 2.0** – Information om hur du installerar och kommer igång med CLI 2.0 finns i avsnittet med [installationsanvisningar](https://github.com/Azure/azure-cli/blob/master/README.rst). Logga in i din Azure-prenumeration genom att köra `az login`.
+* **Resursgrupp** –Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md#resource-groups) innan skapar ett behållarregister eller använd en befintlig resursgrupp. Kontrollera att resursgruppen finns på en plats där Container Registry-tjänsten är [tillgänglig](https://azure.microsoft.com/regions/services/). Information om hur du skapar en resursgrupp med hjälp av CLI 2.0 finns i [CLI 2.0-exemplen](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
+* **Lagringskonto** (valfritt) – Skapa ett Azure-[standardlagringskonto](../storage/storage-introduction.md) för användning med behållarregistret på samma plats. Om du inte anger ett lagringskonto när du skapar ett register med `az acr create` skapar kommandot ett automatiskt. Information om hur du skapar ett lagringskonto med hjälp av CLI 2.0 finns i [CLI 2.0-exemplen](https://github.com/Azure/azure-cli-samples/tree/master/storage).
 * **Tjänstobjekt** (valfritt) – När du skapar ett register med CLI skapas det inte för åtkomst som standard. Beroende på dina behov kan du tilldela ett befintligt Azure Active Directory-tjänstobjekt till ett register (eller skapa och tilldela ett nytt) eller aktivera registrets administratörsanvändarkonto. Mer information finns i avsnitten nedan. Mer information om registeråtkomst finns i [Authenticate with a container registry](container-registry-authentication.md) (Autentisera med ett behållarregister). 
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
@@ -66,7 +66,7 @@ Notera särskilt:
 * `loginServer` – Det fullständigt kvalificerade namnet som du anger för att [logga in i registret](container-registry-authentication.md). I det här exemplet är namnet `myregistry-contoso.exp.azurecr.io` (endast gemener).
 
 ## <a name="assign-a-service-principal"></a>Tilldela ett tjänstobjekt
-Använd CLI 2.0 Preview-kommandon om du vill tilldela ett Azure Active Directory-tjänstobjekt till ett register. Tjänstobjektet i dessa exempel tilldelas rollen Owner (ägare), men du kan tilldela [andra roller](../active-directory/role-based-access-control-configure.md) om du vill.
+Använd CLI 2.0-kommandon om du vill associera ett Azure Active Directory-tjänstobjekt med ett register. Tjänstobjektet i dessa exempel tilldelas rollen Owner (ägare), men du kan tilldela [andra roller](../active-directory/role-based-access-control-configure.md) om du vill.
 
 ### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Skapa ett tjänstobjekt och tilldela åtkomst till registret
 I följande kommando tilldelas ett nytt tjänstobjekt åtkomst med rollen Owner (ägare) till register-ID:t som anges med parametern `--scopes`. Ange ett starkt lösenord med parametern `--password`.
@@ -131,6 +131,6 @@ az acr repository show-tags -n myRegistry --repository samples/nginx -o json
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

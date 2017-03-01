@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
+ms.sourcegitcommit: e34b10aec5ee4316c8e2ffc03e1714dc6753e4d1
+ms.openlocfilehash: 96504042c4fb6a83c4ab2c35c20a8264d7db85bb
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
 >
 >
 
-Azure Site Recovery-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att samordna replikering, redundans och återställning av virtuella datorer och fysiska servrar. Datorer kan replikeras till Azure eller till ett sekundärt lokalt datacenter. En snabb översikt finns i [Vad är Azure Site Recovery?](site-recovery-overview.md).
+Azure Site Recovery-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att samordna replikering, redundans och återställning av virtuella datorer och fysiska servrar. Datorer kan replikeras till Azure eller till ett sekundärt lokalt datacenter. En snabb översikt finns i [Vad är Azure Site Recovery?](site-recovery-overview.md)
 
 ## <a name="overview"></a>Översikt
 Den här artikeln beskriver hur du distribuerar Site Recovery för att replikera virtuella Hyper-V-datorer på Hyper-V-värdservrar som finns i privata VMM-moln till Azure.
@@ -74,13 +74,6 @@ Om du vill distribuera nätverksmappning behöver du följande:
 * De virtuella datorerna som du vill skydda på VMM-källservern måste vara anslutna till ett virtuellt datornätverk. Nätverket ska kopplas till ett logiskt nätverk som är associerat med molnet.
 * Ett Azure-nätverk som de replikerade virtuella datorerna kan ansluta till efter redundansväxlingen. Du väljer det här nätverket vid tidpunkten för redundansväxlingen. Nätverket måste finnas i samma region som din Azure Site Recovery-prenumeration.
 
-Så här förbereder du nätverksmappningen:
-
-1. [Läs om](site-recovery-network-mapping.md) kraven för nätverksmappning.
-2. Förbereda virtuella datornätverk i VMM:
-
-   * [Konfigurera logiska nätverk](https://technet.microsoft.com/library/jj721568.aspx).
-   * [Konfigurera virtuella datornätverk](https://technet.microsoft.com/library/jj721575.aspx).
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Steg 1: Skapa ett Site Recovery-valv
 1. Logga in på [hanteringsportalen](https://portal.azure.com) från den VMM-server som du vill registrera.
@@ -146,7 +139,7 @@ Generera en registreringsnyckel i valvet. När du har laddat ned Azure Site Reco
 12. I **Synkronisera molnmetadata** väljer du om du vill synkronisera metadata för alla moln på VMM-servern med valvet. Den här åtgärden behöver bara göras en gång på varje server. Om du inte vill synkronisera alla moln kan du lämna den här inställningen avmarkerad och synkronisera varje moln individuellt i molnegenskaperna i VMM-konsolen.
 13. Slutför processen genom att klicka på **Nästa**. Efter registreringen hämtas metadata från VMM-servern av Azure Site Recovery. Servern visas på fliken **VMM-servrar** på sidan **Servrar** i valvet.
 
-    ![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
+    ![Sista sidan](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
 Efter registreringen hämtas metadata från VMM-servern av Azure Site Recovery. Servern visas på fliken **VMM-servrar** på sidan **Servrar** i valvet.
 
@@ -296,10 +289,10 @@ Om du vill testa distributionen kan du köra ett redundanstest för en enskild v
 Ett redundanstest simulerar redundans- och återställningsmekanismen i ett isolerat nätverk. Tänk på följande:
 
 * Om du vill ansluta till den virtuella datorn i Azure med hjälp av Fjärrskrivbord efter redundansväxlingen aktiverar du Anslutning till fjärrskrivbord på den virtuella datorn innan du kör redundanstestet.
-* Efter redundansväxlingen använder du en offentlig IP-adress för att ansluta till den virtuella datorn i Azure med hjälp av Fjärrskrivbord. Om du vill göra det ser du till att det inte finns några domänprinciper som hindrar dig från att ansluta till en virtuell dator med en offentlig adress.
+* Efter redundansväxlingen använder du en offentlig IP-adress för att ansluta till den virtuella Azure-datorn med hjälp av Fjärrskrivbord. Om du vill göra det ser du till att det inte finns några domänprinciper som hindrar dig från att ansluta till en virtuell dator med en offentlig adress.
 
 > [!NOTE]
-> För att få bästa möjliga prestanda under en redundansväxling till Azure kontrollerar du att du har installerat Azure-agenten på den skyddade datorn. Detta gör att starten går snabbare och gör det också lättare att diagnostisera eventuella fel. Du hittar Linux-agenten [här](https://github.com/Azure/WALinuxAgent) och Windows-agenten [här](http://go.microsoft.com/fwlink/?LinkID=394789)
+> För att få bästa möjliga prestanda när du redundansväxlar till Azure kan du kontrollera att du installerat Azure-agenten på den virtuella datorn. Den gör att starten går snabbare och underlättar felsökning. Hämta [Linux-agenten](https://github.com/Azure/WALinuxAgent) eller [Windows-agenten](http://go.microsoft.com/fwlink/?LinkID=394789).
 >
 >
 
@@ -334,8 +327,8 @@ Gör följande om du vill köra ett redundanstest:
     ![Inget nätverk](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
 3. Om datakryptering är aktiverat för molnet går du till **Krypteringsnyckel** och väljer det certifikat som utfärdades under installationen av providern på VMM-servern när du aktiverade alternativet för att använda datakryptering för ett moln.
 4. Du kan följa redundansförloppet på fliken **Jobb**. Du bör även kunna se den virtuella testreplikdatorn på Azure-portalen. Om du har åtkomst till de virtuella datorerna från ditt lokala nätverk kan du initiera en fjärrskrivbordsanslutning till den virtuella datorn.
-5. När redundansväxlingen kommer till fasen **Slutför testning** slutför du redundanstestet genom att klicka på **Slutför test**. Om du vill visa mer information går du till fliken **Jobb** där du kan övervaka förloppet och statusen för redundansväxlingen, samt utföra eventuella nödvändiga åtgärder.
-6. Efter redundansväxlingen visas den virtuella testreplikdatorn på Azure-portalen. Om du har åtkomst till de virtuella datorerna från ditt lokala nätverk kan du initiera en fjärrskrivbordsanslutning till den virtuella datorn. Gör följande:
+5. När redundansväxlingen kommer till fasen **Slutför testning** slutför du det genom att klicka på **Slutför test**. Om du vill visa mer information går du till fliken **Jobb** där du kan övervaka förloppet och statusen för redundansväxlingen, samt utföra eventuella nödvändiga åtgärder.
+6. Efter redundansväxlingen visas den virtuella testreplikdatorn i Azure Portal. Om du har åtkomst till de virtuella datorerna från ditt lokala nätverk kan du initiera en fjärrskrivbordsanslutning till den virtuella datorn. Gör följande:
 
    1. Kontrollera att de virtuella datorerna startas.
    2. Om du vill ansluta till den virtuella datorn i Azure med hjälp av Fjärrskrivbord efter redundansväxlingen aktiverar du Anslutning till fjärrskrivbord på den virtuella datorn innan du kör redundanstestet. Du måste också lägga till en RDP-slutpunkt på den virtuella datorn. Du kan använda [Azure Automation Runbook-rutiner](site-recovery-runbook-automation.md) för att göra det.
@@ -351,6 +344,6 @@ Lär dig mer om hur du [konfigurerar återställningsplaner](site-recovery-creat
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

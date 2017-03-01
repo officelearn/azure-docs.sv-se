@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 01fe5302e1c596017755c4669103bac910e3452c
-ms.openlocfilehash: 470bf39bf0e61325f36a2f45316f57545c69e3de
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: b9be92498f9daf1d2f964cc689bacb2358b237be
 
 
 ---
@@ -28,10 +28,7 @@ ms.openlocfilehash: 470bf39bf0e61325f36a2f45316f57545c69e3de
 
 Azure Container Service ger snabb distribution av populär behållarklustring med öppen källkod och orchestration-lösningar. Det här dokumentet innehåller anvisningar för att distribuera ett Azure Container Service-kluster via Azure Portal eller en snabbstartsmall för Azure Resource Manager. 
 
-> [!NOTE]
-> Stöd för Kubernetes i Azure Container Service förhandsvisas just nu.
-
-Du kan även distribuera ett Azure Container Service-kluster via [Azure CLI 2.0 (Förhandsversion)](container-service-create-acs-cluster-cli.md) eller Azure Container Service-API:er.
+Du kan även distribuera ett Azure Container Service-kluster med hjälp av [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) eller Azure Container Service-API:erna.
 
 
 
@@ -39,7 +36,7 @@ Du kan även distribuera ett Azure Container Service-kluster via [Azure CLI 2.0 
 
 * **Azure-prenumeration**: Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
-* **Offentlig SSH-nyckel**: När du distribuerar genom portalen eller en av Azures snabbstartmallar så måste du ange den offentliga nyckeln för autentisering gentemot Azure Container Service Virtual Machines. Se [OS X och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)- och [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)-artiklarna för vägledning för att skapa Secure Shell-nycklar. 
+* **Offentlig SSH RSA-nyckel**: När du distribuerar via portalen eller en av Azures snabbstartsmallar måste du ange den offentliga nyckeln för autentisering mot virtuella datorer i Azure Container Service. Information om hur du skapar SSH (Secure Shell) RSA-nycklar finns i hjälpartiklarna för [OS X och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) eller [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
 * **Klient-ID och hemlighet för tjänstens huvudnamn** (endast Kubernetes): Mer information och vägledning om hur du skapar en tjänsts huvudnamn finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md)
 
@@ -58,36 +55,36 @@ Du kan även distribuera ett Azure Container Service-kluster via [Azure CLI 2.0 
 
     * **Användarnamn**: Användarnamnet för ett konto på var och en av de virtuella datorerna och skalningsuppsättningarna för virtuella datorer i Azure Container Service-klustret.
     * **Prenumeration**: Välj en Azure-prenumeration.
-    * **Resursgrupp**: Välj en befintlig resursgrupp eller skapa en ny.
+    * **Resursgrupp**: Välj en befintlig resursgrupp eller skapa en ny. Vi rekommenderar att du använder en ny resursgrupp för varje distribution.
     * **Plats**: Välj en Azure-region för Azure Container Service-distributionen.
-    * **Offentlig SSH-nyckel**: Lägg till den offentliga nyckel som ska användas för autentisering mot Azure Container Service Virtual Machines. Det är viktigt att den här nyckeln inte innehåller några radbrytningar och att den innehåller prefixet `ssh-rsa`. Postfixen `username@domain` är valfri. Nyckeln bör vara lik följande: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
+    * **Offentlig SSH RSA-nyckel**: Lägg till den offentliga nyckel som ska användas för autentisering mot virtuella datorer i Azure Container Service. Det är viktigt att den här nyckeln inte innehåller några radbrytningar och att den innehåller prefixet `ssh-rsa`. Postfixen `username@domain` är valfri. Nyckeln bör vara lik följande: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
 
 4. Klicka på **OK** när du är redo att gå vidare.
 
     ![Grundläggande inställningar](media/container-service-deployment/acs-portal3.png)  <br />
 
-5. Välj en Orchestration-typ. Alternativen är:
+5. På bladet **Framework configuration** (Konfiguration av ramverk) väljer du en **Orchestrator configuration** (Dirigeringskonfiguration). Följande alternativ är tillgängliga:
 
   * **DC/OS**: distribuerar ett DC/OS-kluster.
   * **Swarm**: distribuerar ett Docker Swarm-kluster.
-  * **Kubernetes**: Distribuerar ett Kubernetes-kluster
+  * **Kubernetes**: Distribuerar ett Kubernetes-kluster.
 
 
 6. Klicka på **OK** när du är redo att gå vidare.
 
     ![Välj en orchestrator](media/container-service-deployment/acs-portal4-new.png)  <br />
 
-7. Om **Kubernetes** har valts i listrutan måste du ange ett klient-ID för tjänstobjektet och klienthemligheten för tjänstobjektet. Mer information finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md).
+7. Om du väljer **Kubernetes** i listrutan måste du ange ett klient-ID för tjänstobjektet (kallas även appId) och en klienthemlighet för tjänstobjektet (lösenord). Mer information finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md).
 
     ![Ange tjänstens huvudnamn för Kubernetes](media/container-service-deployment/acs-portal10.png)  <br />
 
-7. I inställningsbladet i **Azure Container Service** anger du följande information:
+7. På bladet för **Azure Container Service-inställningar** anger du följande information:
 
-    * **Antal huvudservrar**: antal huvudservrar i klustret. Om Kubernetes har valts anges antalet huvudservrar till standardvärdet 1.
+    * **Antal huvudservrar**: antal huvudservrar i klustret.
     * **Antal agenter**: För Docker Swarm och Kubernetes är det här värdet det inledande antalet agenter i agentskalningsuppsättningen. När det gäller DC/OS utgör det här det inledande antalet agenter i en privat skalningsuppsättning. Dessutom skapas en offentlig skalningsuppsättning för DC/OS som innehåller ett förinställt antal agenter. Antalet agenter i den här offentliga skalningsuppsättningen bestäms av hur många huvudservrar som har skapats i klustret. En offentlig agent för en huvudserver och två offentliga agenter för tre eller fem huvudservrar.
     * **Storlek på agentens virtuella dator**: storleken på agentens virtuella datorer.
     * **DNS-prefix**: Ett helt unikt namn som används som prefix i viktiga delar i de fullständigt kvalificerade domännamnen för tjänsten.
-    * **VM-diagnostik**: För vissa orchestrator som du väljer kan du aktivera VM-diagnostik.
+    * **VM-diagnostik**: För vissa dirigerare kan du välja att aktivera VM-diagnostik.
 
 8. Klicka på **OK** när du är redo att gå vidare.
 
@@ -112,12 +109,12 @@ Distributionen tar normalt flera minuter för att slutföras. Sedan kan Azure Co
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Skapa ett kluster med en snabbstartsmall
 Azure-snabbstartsmallar är tillgängliga för att distribuera ett kluster i Azure Container Service. De tillhandahållna snabbstartsmallarna kan ändras så att de inkluderar ytterligare eller avancerad Azure-konfiguration. Du måste ha en Azure-prenumeration för att kunna skapa ett Azure Container Service-kluster med en Azure-snabbstartsmall. Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Följ stegen nedan för att distribuera ett kluster med en mall och Azure CLI 2.0 (Förhandsversion) (se [anvisningar för installation och konfiguration](/cli/azure/install-az-cli2.md)).
+Följ stegen nedan för att distribuera ett kluster med hjälp av en mall och Azure CLI 2.0 (se [installations- och konfigurationsanvisningarna](/cli/azure/install-az-cli2.md)).
 
 > [!NOTE] 
 > Du kan använda liknande steg för att distribuera en mall med Azure PowerShell om du är på ett Windows-system. Se anvisningarna senare i det här avsnittet. Du kan även distribuera en mall genom [Portalen](../azure-resource-manager/resource-group-template-deploy-portal.md) eller genom andra metoder.
 
-1. Om du vill distribuera ett DC/OS-, Docker Swarm- eller Kubernetes-kluster väljer du någon av nedanstående mallar från GitHub. Observera att DC/OS- och Swarm-mallarna är likadana, med undantag för standardvalet av orchestrator.
+1. Om du vill distribuera ett DC/OS-, Docker Swarm- eller Kubernetes-kluster väljer du någon av de tillgängliga snabbstartsmallarna från GitHub. En ofullständig lista finns nedan. Observera att DC/OS- och Swarm-mallarna är likadana, med undantag för standardvalet av orchestrator.
 
     * [DC/OS-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -165,7 +162,7 @@ Följ stegen nedan för att distribuera ett kluster med en mall och Azure CLI 2.
 ### <a name="equivalent-powershell-commands"></a>Motsvarande PowerShell-kommandon
 Du kan även distribuera en mall för ett Azure Container Service-kluster med PowerShell. Det här dokumentet utgår från version 1.0 av [Azure PowerShell-modulen](https://azure.microsoft.com/blog/azps-1-0/).
 
-1. För att distribuera ett DC/OS-, Docker Swarm- eller Kubernetes-kluster, väljer du en av följande mallar. Observera att DC/OS- och Swarm-mallarna är likadana, med undantag för standardvalet av orchestrator.
+1. Om du vill distribuera ett DC/OS-, Docker Swarm- eller Kubernetes-kluster väljer du någon av de tillgängliga snabbstartsmallarna från GitHub. En ofullständig lista finns nedan. Observera att DC/OS- och Swarm-mallarna är likadana, med undantag för standardvalet av orchestrator.
 
     * [DC/OS-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -214,6 +211,6 @@ Nu när du har ett fungerande kluster kan du visa dessa dokument för anslutning
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

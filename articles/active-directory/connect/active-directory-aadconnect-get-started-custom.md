@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c0c33506d134db9fc49bd873e9c95063dd2ab845
-ms.openlocfilehash: d5dcdc94490ff46e39ff5894f6d70d5dcb5dd527
+ms.sourcegitcommit: 6c26fdd11031ab482d12611ca338df5c90a14193
+ms.openlocfilehash: a482e20bdbf60889f93f4532ed042b41ec51b81e
 
 
 ---
@@ -95,7 +95,10 @@ Granska varje domän som markerats med **Inte tillagd** och **Inte verifierad**.
 
 ### <a name="domain-and-ou-filtering"></a>Domän- och organisationsenhetsfiltrering
 Som standard synkroniseras alla domäner och organisationsenheter. Om det finns vissa domäner och organisationsenheter som du inte vill synkronisera till Azure AD kan du avmarkera dessa domäner och organisationsenheter.  
-![Filtrering av domän-OU](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) På den här sidan i guiden konfigureras den domänbaserade och OU-baserade filtreringen. Mer information finns i [domänbaserad filtrering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) och [OU-baserad filtrering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Om du använder OU-baserad filtrering synkroniseras nya organisationsenheter som läggs till senare som standard. Om du inte vill att nya organisationsenheter ska synkroniseras kan du konfigurera det när guiden har slutförts med [OU-baserad filtrering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+![Filtrering av domän-OU](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
+På den här sidan i guiden konfigureras den domänbaserade och OU-baserade filtreringen. Om du planerar att göra ändringar, se [domänbaserad filtrering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) och [OU-baserad filtrering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) innan du gör dessa ändringar. Vissa organisationsenheter är viktiga för funktionen och får inte vara omarkerade.
+
+Om du använder OU-baserad filtrering synkroniseras nya organisationsenheter som läggs till senare som standard. Om du inte vill att nya organisationsenheter ska synkroniseras kan du konfigurera det när guiden har slutförts med [OU-baserad filtrering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
 
 Om du planerar att använda [gruppbaserad filtrering](#sync-filtering-based-on-groups) ska du kontrollera att organisationsenheten med gruppen ingår och inte filtreras med OU-filtrering. OU-filtrering utvärderas före gruppbaserad filtrering.
 
@@ -174,8 +177,8 @@ Mer information finns i [Katalogtillägg](active-directory-aadconnectsync-featur
 ### <a name="enabling-single-sign-on-sso"></a>Aktivera enkel inloggning (SSO)
 Det är enkelt att konfigurera enkel inloggning för användning med lösenordssynkronisering eller Direktautentisering och du behöver bara utföra processen en gång för varje skog som synkroniseras med Azure AD. Konfigurationen omfattar följande två steg:
 
-1.  Skapa nödvändigt datorkonto i lokala Active Directory.
-2.  Konfigurera zonen Intranät på klientdatorerna så att den har stöd för enkel inloggning.
+1.    Skapa nödvändigt datorkonto i lokala Active Directory.
+2.    Konfigurera zonen Intranät på klientdatorerna så att den har stöd för enkel inloggning.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Skapa datorkontot i Active Directory
 För varje skog som har lagts till i Azure AD Connect måste du ange inloggningsuppgifterna för domänadministratören så att datorkontot kan skapas i varje skog. Autentiseringsuppgifter används bara för att skapa kontot och varken lagras eller används för andra åtgärder. Lägg bara till autentiseringsuppgifterna på sidan **Aktivera enkel inloggning** i Azure AD Connect-guiden som du ser:
@@ -189,20 +192,22 @@ För varje skog som har lagts till i Azure AD Connect måste du ange inloggnings
 För att se till att klienten loggar in automatiskt i zonen Intranät måste du kontrollera att två URL:er ingår i zonen Intranät. Detta säkerställer att den domänanslutna datorn automatiskt skickar en Kerberos-biljett till Azure AD när den ansluter till företagsnätverket.
 På en dator med verktyg för grupprinciphantering.
 
-1.  Öppna verktygen för grupprinciphantering
-2.  Redigera grupprincipen som ska tillämpas på alla användare. Till exempel standarddomänprincipen.
-3.  Gå till **Användarkonfiguration\Administrativa mallar\Windows-komponenter\Internet Explorer\Internet på Kontrollpanelen\Sidan Säkerhet** och välj **Tilldelning av platser till zoner** enligt bilden nedan.
-4.  Aktivera principen och ange följande två poster i dialogrutan.
+1.    Öppna verktygen för grupprinciphantering
+2.    Redigera grupprincipen som ska tillämpas på alla användare. Till exempel standarddomänprincipen.
+3.    Gå till **Användarkonfiguration\Administrativa mallar\Windows-komponenter\Internet Explorer\Internet på Kontrollpanelen\Sidan Säkerhet** och välj **Tilldelning av platser till zoner** enligt bilden nedan.
+4.    Aktivera principen och ange följande två poster i dialogrutan.
 
-        Value: `https://autologon.microsoftazuread-sso.com`  
+        Värde:`https://autologon.microsoftazuread-sso.com`
+        
         Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+        Värde:`https://aadg.windows.net.nsatc.net`
+  
+  Data: 1
 
-5.  Det bör se ut ungefär så här:  
+5.    Det bör se ut ungefär så här:  
 ![Intranätszoner](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.  Klicka på **OK** två gånger.
+6.    Klicka på **OK** två gånger.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Konfigurera federation med AD FS
 Du kan konfigurera AD FS med Azure AD Connect med bara några klickningar. Du behöver följande innan konfigurationen.
@@ -316,6 +321,6 @@ Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Director
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

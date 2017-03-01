@@ -4,7 +4,7 @@ description: "Lär dig att skapa, distribuera och använda en ASP.NET API-app i 
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -438,10 +439,5 @@ Om du vill skapa nya API-app-projekt från grunden ska du använda mallen för *
 ![Mall för API Apps i Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 Projektmallen för **Azure API Apps** motsvarar att välja den **tomma** ASP.NET 4.5.2-mallen, markera kryssrutan för att lägga till stöd för Web API och installera Swashbuckle NuGet-paketet. Mallen lägger dessutom till en del Swashbuckle-konfigurationskod som är skapad för att förhindra att duplicerade Swagger-åtgärds-ID skapas. När du har skapat ett API-app-projekt kan du distribuera det till en API-app på samma sätt som du lärt dig i den här kursen.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

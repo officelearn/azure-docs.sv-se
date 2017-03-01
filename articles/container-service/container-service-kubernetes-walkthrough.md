@@ -19,6 +19,7 @@ ms.author: anhowe
 translationtype: Human Translation
 ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
 ms.openlocfilehash: 1742a6d4d99b81509564696e6faaf9e6fbf8f604
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -81,7 +82,7 @@ az acs kubernetes install-cli
 När `kubectl` har installerats kör du följande kommando för att hämta huvudkonfigurationen för Kubernetes till ~/.kube/config-filen:
 
 ```console
-az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$SERVICE_NAME
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
 Nu bör du kunna komma åt ditt kluster från datorn. Prova att köra:
@@ -176,9 +177,4 @@ Information om fler åtgärder som du kan utföra med ett Kubernetes-kluster fin
 * [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) – visar hur du distribuerar, skalar, uppdaterar och felsöker program som använder behållare.
 * [Användarhandboken för Kubernetes](http://kubernetes.io/docs/user-guide/) – innehåller information om hur du kör program i ett befintligt Kubernetes-kluster.
 * [Kubernetes-exempel](https://github.com/kubernetes/kubernetes/tree/master/examples) – innehåller exempel på hur du kör verkliga program med Kubernetes.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

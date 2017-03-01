@@ -257,8 +257,8 @@
 ### [Felsöka prestandaproblem med webbappar](app-service-web-troubleshoot-performance-degradation.md)
 
 # Referens
-## [Förhandsversion av Azure CLI 2.0](/cli/azure/appservice)
-## [.NET](/dotnet/api)
+## [Azure CLI 2.0](/cli/azure/appservice)
+## [NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
@@ -273,9 +273,3 @@
 # Resurser
 ## [Bästa praxis](app-service-best-practices.md)
 ## [Lista över WebJob-resurser](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

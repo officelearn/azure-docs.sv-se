@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med Azure Search| Microsoft Docs"
-description: "Lär dig skapa ditt första Azure-sökindex med den här guiden och exempeldata för DocumentDB. Den här portalbaserade kodfria övningen använder guiden Importera data."
+title: "Skapa ditt första Azure Search-index i portalen | Microsoft Docs"
+description: "Använd fördefinierade exempeldata för att generera ett index i Azure Portal. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning, geosearch och mycket annat."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,174 +13,170 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 10/03/2016
+ms.date: 02/15/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
+ms.sourcegitcommit: cb0843ec739d11e997794a8217c95696c4e78d23
+ms.openlocfilehash: 70999d615038e7a5a11a623a9eef3e08c09f5eb9
 
 
 ---
-# <a name="get-started-with-azure-search-in-the-portal"></a>Komma igång med Azure Search på portalen
-Den här introduktionen utan kod hjälper dig att komma igång med Microsoft Azure Search med funktioner som är inbyggda i portalen. 
+# <a name="build-and-query-your-first-azure-search-index-in-the-portal"></a>Skapa och avfråga ditt första Azure Search-index i portalen
 
-I självstudiekursen används en [Azure DocumentDB-exempeldatabas](#apdx-sampledata), som du enkelt kan skapa med våra data och instruktioner, men du kan också anpassa stegen till dina befintliga data i en DocumentDB- eller SQL-databas.
+Gå till Azure-portalen och utgå från en fördefinierad exempeldatauppsättning för att snabbt skapa ett index med hjälp av guiden **Importera data**. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning och geosearch med **Sökutforskaren**.  
 
-> [!NOTE]
-> Den här introduktionskursen kräver en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) och en [Azure Search-tjänst](search-create-service-portal.md). 
-> 
-> 
+Det här är en introduktion helt utan kodning, så att du kan komma igång med att skriva intressanta frågor direkt utifrån fördefinierade data. Portalverktygen kan aldrig bli en fullgod ersättning för kodning, men de är mycket användbara till följande uppgifter:
+
++ Praktisk utbildning med minimal startsträcka
++ Skapa ett prototypindex innan du skriver kod i **Importera data**
++ Testa frågor och parsa syntax i **Sökutforskaren**
++ Visa ett befintligt index som redan finns publicerat för din tjänst och söka efter attribut
+
+**Tidsuppskattning:** Ungefär 15 minuter, eventuellt längre om det krävs registrering till kontot eller tjänsten. 
+
+Alternativt kan du titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in på denna [översiktsvideo över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+
+## <a name="prerequisites"></a>Krav
+
+Självstudiekursen förutsätter en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) och tillgång till [Azure Search-tjänsten](search-create-service-portal.md). 
 
 ## <a name="find-your-service"></a>Hitta din tjänst
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Öppna instrumentpanelen för Azure Search-tjänsten. Här är några sätt som du kan hitta instrumentpanelen på.
+2. Öppna instrumentpanelen för Azure Search-tjänsten. Om du inte har fäst tjänstepanelen på instrumentpanelen kan du hitta din tjänst på det här sättet: 
    
-   * Klicka på **Söktjänster** i snabbåtkomstfältet. Alla etablerade tjänster i din prenumeration visas i snabbåtkomstfältet. Om en söktjänst har definierats kan du se **Söktjänster** i listan.
-   * Klicka på **Bläddra** i snabbåtkomstfältet och skriv ”search” i sökrutan för att visa en lista med alla söktjänster som skapats i dina prenumerationer.
+   * Klicka på **Fler tjänster** längst ned i det vänstra navigeringsfönstret.
+   * Skriv *sök* i sökrutan för att hämta en lista över söktjänster till din prenumeration. Din tjänst ska finnas med i listan. 
 
 ## <a name="check-for-space"></a>Kontrollera utrymmet
-Många kunder börjar med den kostnadsfria tjänsten. Den här versionen är begränsad till tre index, tre datakällor och tre indexerare. Kontrollera att du har plats för extra objekt innan du börjar. Den här guiden skapar ett av varje sorts ibjekt.
+Många kunder börjar med den kostnadsfria tjänsten. Den här versionen är begränsad till tre index, tre datakällor och tre indexerare. Kontrollera att du har plats för extra objekt innan du börjar. Med den här guiden kan du skapa ett objekt av varje sort. 
 
-## <a name="create-an-index-and-load-data"></a>Skapa ett index och läsa in data
-Sökfrågor iterera över ett *index* med sökbara data, metadata och konstruktioner som används för att optimera vissa sökbeteenden. Det första steget är att definiera och fyll i ett index.
+> [!TIP] 
+> Panelerna på instrumentpanelen med tjänster visar hur många index, indexerare och datakällor du redan har. Panelen Indexerare visar lyckade och misslyckade operationer. Klicka på panelen för att visa antalet indexerare. 
+>
+> ![Paneler för indexerare och datakällor][1]
+>
 
-Du kan skapa ett index på flera sätt. Om dina data finns i ett datalager som Azure Search kan crawla – till exempel Azure SQL Database, SQL Server på en virtuell Azure-dator eller DocumentDB – kan du enkelt skapa och fylla ett index med hjälp av en *indexerare*.
+## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a> Skapa ett index och läsa in data
+Sökfrågor iterera över ett *index* med sökbara data, metadata och konstruktioner som används för att optimera vissa sökbeteenden.
 
-För att den här uppgiften ska förbli portalbaserad använder vi data från DocumentDB som kan crawlas med en indexerare via guiden **Importera data**. 
+För att den här uppgiften ska förbli portalbaserad använder vi en inbyggd exampeldatauppsättning som kan crawlas med en indexerare via guiden **Importera data**. 
 
-Innan du fortsätter måste du skapa en [DocumentDB-exempeldatabas](#apdx-sampledata) som du kan använda med den här självstudiekursen. När du är klar kommer du tillbaka till det här avsnittet och följer stegen nedan.
-
-<a id="defineDS"></a>
-
-#### <a name="step-1-define-the-data-source"></a>Steg 1: Definiera datakällan
+#### <a name="step-1-start-the-import-data-wizard"></a>Steg 1: Starta guiden Importera data
 1. Klicka på **Importera data** i kommandofältet på instrumentpanelen för Azure Search-tjänsten för att starta en guide som hjälper dig att skapa och fylla ett index.
    
-    ![][7]
-2. I guiden klickar du på **Datakälla** > **DocumentDB** > **Namn** och skriver ett namn för datakällan. En datakälla är ett anslutningsobjekt i Azure Search som kan användas med andra indexerare. När du har skapat det blir det tillgängligt som en ”befintlig datakälla” i din tjänst.
-3. Välj ditt befintliga DocumentDB-konto, databasen och samlingen. Om du använder exempeldata som vi tillhandahåller kommer definitionen av din datakälla att se ut så här:
-   
-    ![][2]
+    ![Kommandot Importera data][2]
 
-Observera att vi hoppar över frågan. Det beror på att vi inte implementerar för ändringsspårning i vår datamängd den här gången. Om datamängden innehåller ett fält som håller reda på när en post uppdateras kan du konfigurera en Azure Search-indexerare att använda ändringsspårning för selektiva uppdateringar av ditt index.
+2. I guiden klickar du på **Datakälla** > **Exempel** > **realestate-us-sample**. Den här datakällan är förkonfigurerad med namn, typ och anslutningsinformation. När du har skapat den blir den en ”befintlig datakälla” som kan återanvändas i andra importåtgärder.
 
-Slutför det här steget i guiden genom att klicka på **OK**.
+    ![Välj exempeldatauppsättning][9]
+
+3. Klicka på **OK** att använda den.
 
 #### <a name="step-2-define-the-index"></a>Steg 2: Definiera indexet
-Klicka på **Index** i guiden och ta en titt på designytan som används för att skapa ett Azure Search-index. Ett index kräver minst ett namn och en samling fält, där ett fält är markerat som dokumentnyckeln. Eftersom vi använder en DocumentDB-datamängd identifieras fälten automatiskt av guiden och indexet har redan inlästa fält och datatypstilldelningar. 
+Att skapa ett index är vanligtvis en manuell och kodbaserad process, men guiden kan skapa ett index för alla datakällor som den kan crawla. Ett index kräver minst ett namn och en samling fält, där ett fält är markerat som dokumentnyckeln som fungerar som en unik identifierare för dokumentet.
 
-  ![][3]
-
-Även om fälten och datatyperna har konfigurerats måste du fortfarande tilldela attribut. Kryssrutorna längs överkanten av fältlistan är *indexattribut* som styr hur fältet används. 
+Fälten har datatyper och attribut. Kryssrutorna högst upp är *indexattribut* som styr hur fältet används. 
 
 * **Hämtningsbar** innebär att det visas i listor med sökresultat. Du kan markera enskilda fält som ska utelämnas från sökresultat genom att avmarkera den här kryssrutan, till exempel om fält endast används i filteruttryck. 
 * **Filtrerbar**, **Sorterbar** och **Fasettbar** avgör om ett fält kan användas i ett filter, en sortering eller en struktur för aspektbaserad navigering. 
-* **Sökbar** innebär att ett fält ingår i fulltextsökning. Strängar är vanligtvis sökbara. Numeriska fält och fält för booleska värden är ofta markerade som icke sökbara. 
+* **Sökbar** innebär att ett fält ingår i fulltextsökning. Strängarna är sökbara. Numeriska fält och fält för booleska värden är ofta markerade som icke sökbara. 
 
-Innan du lämnar den här sidan markerar du fälten i indexet så att följande alternativ används (Hämtningsbar, Sökbar osv.). De flesta fält är hämtningsbara. De flesta strängfält är sökbara (du behöver inte göra nyckeln sökbar). Några fält som genre, orderableOnline, rating och tags är också filtrerbara, sorterbara och fasettbara. 
+Som standard söker guiden igenom datakällan för att hitta unika identifierare som utgör själva grunden för sökordsfältet. Strängarna får attributen hämtningsbara och sökbara. Heltal får attributen hämtningsbara, filtrerbara, sorterbara och fasettbara.
 
-| Fält | Typ | Alternativ |
-| --- | --- | --- |
-| id |Edm.String | |
-| albumTitle |Edm.String |Hämtningsbar, Sökbar |
-| albumUrl |Edm.String |Hämtningsbar, Sökbar |
-| genre |Edm.String |Hämtningsbar, Sökbar, Filtrerbar, Sorterbar, Fasettbar |
-| genreDescription |Edm.String |Hämtningsbar, Sökbar |
-| artistName |Edm.String |Hämtningsbar, Sökbar |
-| orderableOnline |Edm.Boolean |Hämtningsbar, Filtrerbar, Sorterbar, Fasettbar |
-| tags |Collection(Edm.String) |Hämtningsbar, Filtrerbar, Fasettbar |
-| price |Edm.Double |Hämtningsbar, Filtrerbar, Fasettbar |
-| margin |Edm.Int32 | |
-| rating |Edm.Int32 |Hämtningsbar, Filtrerbar, Sorterbar, Fasettbar |
-| inventory |Edm.Int32 |Hämtningsbar |
-| lastUpdated |Edm.DateTimeOffset | |
+  ![Genererade realestate-index][3]
 
-Som en jämförelse är följande skärmbild en illustration av ett index som skapats enligt specifikationen i föregående tabell.
-
- ![][4]
-
-Slutför det här steget i guiden genom att klicka på **OK**.
+Klicka på **OK** för att skapa indexet.
 
 #### <a name="step-3-define-the-indexer"></a>Steg 3: Definiera indexeraren
-Klicka på **Indexer** > **Namn** i guiden **Importera data**, skriv ett namn för indexeraren och använd standardinställningarna för alla andra värden. Det här objektet definierar en körbar process. När du har skapat det kan du lägga till det i ett återkommande schema, men för stunden ska du använda standardalternativet och köra indexeraren en gång direkt när du klickar på **OK**. 
+Klicka på **Indexnamn** > **** i guiden **Importera data** och skriv in ett namn på indexeraren. 
 
-Dina importerade dataposter bör alla vara ifyllda och klara att användas.
+Det här objektet definierar en körbar process. Du kan lägga till det i ett återkommande schema, men för stunden ska du använda standardalternativet och köra indexeraren en gång direkt när du klickar på **OK**.  
 
-  ![][5]
-
-Kör guiden genom att klicka på **OK** för att starta importen och stänga guiden.
+  ![realestate indexer][8]
 
 ## <a name="check-progress"></a>Kontrollera förloppet
-Kontrollera förloppet genom att gå tillbaka till instrumentpanelen för tjänsten, rulla nedåt och dubbelklicka på panelen **Indexerare** för att öppna listan med indexerare. Du bör se de indexerare som du nyss skapade i listan och du bör se statusen ”pågående” eller ”lyckades”, tillsammans med antalet dokument som indexerats i Azure Search.
+Övervaka dataimporten genom att gå tillbaka till instrumentpanelen för tjänsten, rulla nedåt och dubbelklicka på panelen **Indexerare** för att öppna listan med indexerare. Du bör då se den nyskapade indexeraren i listan med statusen ”pågående” eller ”lyckades”, tillsammans med antalet dokument som indexerats.
 
-  ![][6]
+   ![Meddelande om pågående indexeringsaktiviteter][4]
 
-## <a name="query-the-index"></a>Skicka frågor mot indexet
-Nu har du ett sökindex som du kan börja skicka frågor mot. 
+## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Skicka frågor mot indexet
+Nu har du ett sökindex som du kan börja skicka frågor mot. **Sökutforskaren** är ett frågeverktyg som är inbyggt i portalen. Det innehåller en sökruta så att du kan kontrollera att en sökning returnerar det du förväntar dig. 
 
-**Sökutforskaren** är ett frågeverktyg som är inbyggt i portalen. Det innehåller en kryssruta så att du kan bekräfta att en sökning returnerar de data som du förväntar dig. 
+   ![Kommandot Sökutforskaren][5]
+
+> [!TIP]
+> Följande steg demonstreras 6 minuter och 8 sekunder in i [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+>
 
 1. Klicka på **Sökutforskaren** i kommandofältet.
-2. Notera vilket index som är aktivt. Om det inte är det index som du precis har skapat klickar du på **Ändra index** i kommandofältet för att välja det index som du vill använda.
-3. Lämna sökrutan tom och klicka sedan på **Sök** för att köra en sökning med jokertecken som returnerar alla dokument.
-4. Ange några textsökningsfrågor. Du kan granska resultatet från sökningen med jokertecken för att få en uppfattning om de artister, album och genrer som du kan skicka frågor mot.
-5. Prova med andra frågesyntaxer med hjälp av [exemplen i slutet av den här artikeln](https://msdn.microsoft.com/library/azure/dn798927.aspx) om du vill ha idéer om hur du kan ändra en fråga så att den använder söksträngar som kan hittas i indexet.
+
+2. Klicka på **Ändra index** i kommandofältet för att byta till *realestate-us-sample*.
+
+   ![Index- och API-kommandon][6]
+
+3. Klicka på **Ange API-version** i kommandofältet om du vill se vilka REST-API:er som finns tillgängliga. Förhandsversions-API:er ger dig tillgång till nya funktioner som inte är släppta till allmänheten ännu. Använd den allmänt tillgängliga versionen (2016-09-01), om inget annat anges. 
+
+    > [!NOTE]
+    > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) och [.NET-biblioteket](search-howto-dotnet-sdk.md#core-scenarios) är fullständigt likvärdiga, men **Sökutforskaren** kan endast hantera REST-anrop. Den accepterar syntax från både [enkel frågeparser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [fullständig frågeparser (Lucene)](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) samt alla tillgängliga sökparametrar i [dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+    > 
+    > **Sökutforskaren** returnerar resultat i JSON, vilket kan vara detaljerat och svårläst om dokumenten har en kompakt struktur. Beroende på vilka dokument som används kan du behöva skriva kod som hanterar sökresultaten för att kunna extrahera viktiga element.
+
+4. Skriv in frågesträngarna nedan i sökfältet och klicka på **Sök**.
+
+  ![Exempel på sökfråga][7]
+
+**`search=seattle`** Parametern `search` används för att ange en sökordssökning i det här fallet, och returnerar resultat från King County i delstaten Washington med Seattle i valfritt sökbart fält i dokumentet.
+
+**`search=seattle&facet=beds`** Parametern `facet` returnerar en navigeringsstruktur som du kan skicka till en kontroll i användargränssnittet. Den returnerar kategorier och antal. I det här fallet baseras kategorierna på antalet sovrum och antalet dokument eller matchningar för vart och ett. `"beds"` kan klassas som ett fasettvärde eftersom det är märkt som ett filtrerbart och fasettbart fält i indexet. Värdena (numeriska, 1–5) är väl lämpade för att kategorisera och dela upp listor i grupper (listor med 3 sovrum, 4 sovrum etc.).  Symbolen `&` används för att lägga till sökparametrar.
+
+**`search=seattle&filter=bed gt 3`** Parametern `filter` returnerar resultat som matchar de kriterier som du har angett. I det här fallet sovrum som är större än 3. Syntaxen för filtret är en OData-konstruktion. Mer information finns i [OData-filtersyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+
+**`search=granite countertops&highlight=description`** Om du använder träffmarkering formateras all text som matchar sökordet på ett särskilt sätt inom ett givet fält. Om sökordet begravt långt ned i en beskrivning kan du använda träffmarkering för att göra det lättare att hitta ordet. I det här fallet blir det mycket lättare att hitta den formaterade frasen `"granite countertops"` i beskrivningsfältet.
+
+**`search=mice&highlight=description`** Fulltextsökning hittar ordformer med liknande semantisk struktur. I det här fallet har någon sökt på ”möss”. Sökresultaten innehåller då även texter med ordet ”mus” och referenser till skadedjursbekämpning. Tack vare språkanalysen kan olika former av samma ord visas i resultaten. Azure Search har stöd för 56 analysverktyg från både Lucene och Microsoft. Som standard används analysverktyget från Lucene av Azure Search. 
+
+**`search=samamish`** Normalt sett får du inga träffar på felstavade ord – om du till exempel skrivit ”samamish” när du sökte på ”Sammamish Plateau” utanför Seattle. Använd fuzzy-sökning för att hantera felstavningar. En beskrivning av detta finns i nästa exempel.
+
+**`search=samamish~&queryType=full`** Fuzzy-sökning aktiveras när du skriver in symbolen `~` och använder den fullständiga frågeparsern för att tolka och parsa `~`-syntaxen på korrekt sätt. Som standard används den enklare frågeparsern eftersom den är snabbare, men du kan välja den fullständiga frågeparsern om du behöver tillgång till fuzzy-sökning, reguljära uttryck, närhetssökning eller andra typer av avancerade frågor. Mer information om frågescenarier i den fullständiga frågeparsern finns i [Lucene-frågesyntax i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+
+**`search=*`** Tomma sökningar returnerar allt. Du kan använda en tom fråga för att hämta totalt antal dokument i ditt index eller om du vill filtrera eller fasettera en fullständig dokumentuppsättning enligt beskrivningen nedan.
+
+**`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`** Geospatial sökning stöds av [datatypen edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i fält som innehåller koordinater. Med den här frågan filtreras alla resultat efter platsdata, där resultaten måste ligga mindre än 10 km från en given plats (koordinaterna anges med latitud och longitud). Geosearch är en filtertyp som finns med i [OData-filtersyntaxen](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+
+Normalt sett anges filteruttryck som $filter med hjälp av tecknet `$`. Utelämna `$` i Sökutforskaren.
+
+Geospatial sökning kan vara användbart om sökprogrammet har en funktion av typen ”hitta en bensinstation i närheten av där jag befinner mig” eller om programmet har en funktion för kartnavigering. Det är dock inte fråga om någon fulltextsökning. Om användarna ställer krav på att kunna söka efter en ort eller ett land lägger du till fält för ort eller land som ett komplement till koordinaterna.
 
 ## <a name="next-steps"></a>Nästa steg
-När du har kört guiden en gång kan du gå tillbaka och visa eller ändra enskilda komponenter: index, indexerare eller datakälla. Vissa ändringar, till exempel ändring av ett fälts datatyp, är inte tillåtet i indexet, men de flesta egenskaper och inställningar kan ändras. Du kan visa enskilda komponenter genom att klicka på panelerna **Index**, **Indexerare** eller **Datakällor** på instrumentpanelen för att visa en lista med befintliga objekt.
 
-Mer information om andra funktioner som anges i den här artikeln finns på dessa länkar:
++ Ändra något av de objekt som du nyss skapade. När du har kört guiden en gång kan du gå tillbaka och visa eller ändra enskilda komponenter: index, indexerare eller datakälla. Vissa ändringar, till exempel ändring av ett fälts datatyp, är inte tillåtet i indexet, men de flesta egenskaper och inställningar kan ändras.
 
-* [Indexerare](search-indexer-overview.md)
-* [Skapa index (innehåller en detaljerad förklaring av indexattributen)](https://msdn.microsoft.com/library/azure/dn798941.aspx)
+  Du kan visa enskilda komponenter genom att klicka på panelerna **Index**, **Indexerare** eller **Datakällor** på instrumentpanelen för att visa en lista med befintliga objekt. Mer information om indexredigeringar som inte kräver återskapning finns i [Uppdatera index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
+
++ Prova att använda verktygen och stegen med andra datakällor. Exempeldatauppsättningen `realestate-us-sample` kommer från en Azure SQL-databas som Azure Search kan crawla. Utöver Azure SQL Database kan Azure Search crawla Azure Table Storage, Blob Storage, SQL Server på en virtuell Azure-dator och DocumentDB. Guiden stöder samtliga dessa datakällor. I koden kan du på ett enkelt sätt skapa och fylla i ett index med en *indexerare*.
+
++ Alla övriga datakällor stöds via en push-modell, där koden skickar nya och ändrade raduppsättningar i JSON till ditt index. Mer information finns i [Lägga till, uppdatera eller ta bort dokument i Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+
+Mer information om andra funktioner som omnämns i den här artikeln finns på dessa länkar:
+
+* [Översikt över indexerare](search-indexer-overview.md)
+* [Skapa index (innehåller en detaljerad förklaring av indexattributen)](https://docs.microsoft.com/rest/api/searchservice/create-index)
 * [Sökutforskaren](search-explorer.md)
-* [Söka efter dokument (innehåller exempel på frågesyntax)](https://msdn.microsoft.com/library/azure/dn798927.aspx)
+* [Söka efter dokument (innehåller exempel på frågesyntax)](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 
-Du kan prova med samma arbetsflöde och använda guiden Importera data för andra datakällor som Azure SQL Database eller SQL Server på virtuella datorer i Azure.
-
-> [!NOTE]
-> En ny funktion är indexeringsstöd för crawling i Azure Blob Storage. Funktionen är dock fortfarande i förhandsgranskningsfasen och är inte tillgänglig på portalen än. Om du vill försöka att använda indexeraren måste du skriva kod. Mer information finns i [Indexera Azure Blob Storage i Azure Search](search-howto-indexing-azure-blob-storage.md).
-> <a id="apdx-sampledata"></a>
-> 
-> 
-
-## <a name="appendix-create-sample-data-in-documentdb"></a>Tillägg: Skapa exempeldata i DocumentDB
-Det här avsnittet beskriver hur du skapar en liten databas i DocumentDB som kan användas för att utföra åtgärderna i den här självstudiekursen.
-
-Följande anvisningar ger allmänna riktlinjer, men är inte en fullständig beskrivning. Om du behöver mer hjälp med navigera eller använda DocumentDB portal kan du läsa DocumentDB-dokumentationen, men de flesta kommandon som du behöver finns i tjänstkommandofältet överst i instrumentpanelen eller i databasbladet. 
-
-  ![][1]
-
-### <a name="create-musicstoredb-for-this-tutorial"></a>Skapa musicstoredb för den här självstudiekursen
-1. [Klicka här](https://github.com/HeidiSteen/azure-search-get-started-sample-data) för att ladda ned en ZIP-fil som innehåller JSON-datafilerna för musikarkivet. Vi tillhandahåller 246 JSON-dokument för den här datauppsättningen.
-2. Lägg till DocumentDB i din prenumeration och öppna instrumentpanelen för tjänsten.
-3. Klicka på **Lägg till databas** för att skapa en ny databas med ID:t `musicstoredb`. Den visas i databaspanelen längre ned på sidan efter att den har skapats.
-4. Klicka på namnet på databasen för att öppna databasbladet.
-5. Klicka på **Lägg till samling** för att skapa en samling med ID:t `musicstorecoll`.
-6. Klicka på **Dokumentutforskaren**.
-7. Klicka på **Överför**.
-8. I **Överför dokument** navigerar du till den lokala mappen som innehåller de JSON-filer som du hämtade tidigare. Välj JSON-filer i batchar om 100 eller färre.
-   * 386.json
-   * 387.json
-   * . . .
-   * 486.json
-9. Upprepa samma steg för att hämta nästa batch med filer tills du har laddat upp den sista, 669.json.
-10. Klicka på **Frågeutforskaren** för att bekräfta att data har laddats upp och uppfyller överföringskraven för Dokumentutforskaren.
-
-Ett enkelt sätt att göra detta är att använda standardfrågan, men du kan också ändra standardfrågan så att den filtrerar upp 300 (det finns färre än 300 objekt i den här datauppsättningen).
-
-Du bör få tillbaka JSON-utdata, som börjar med dokument 386 och slutar med 669. När data har lästs in kan du [gå tillbaka till stegen i den här genomgången](#defineDS) för att skapa ett index med hjälp av **guiden Importera data**.
 
 <!--Image references-->
-[1]: ./media/search-get-started-portal/AzureSearch-GetStart-Docdbmenu1.png
-[2]: ./media/search-get-started-portal/AzureSearch-GetStart-DataSource.png
-[3]: ./media/search-get-started-portal/AzureSearch-GetStart-DefaultIndex.png
-[4]: ./media/search-get-started-portal/AzureSearch-GetStart-FinishedIndex.png
-[5]: ./media/search-get-started-portal/AzureSearch-GetStart-ImportReady.png
-[6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
-[7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
+[1]: ./media/search-get-started-portal/tiles-indexers-datasources2.png
+[2]: ./media/search-get-started-portal/import-data-cmd2.png
+[3]: ./media/search-get-started-portal/realestateindex2.png
+[4]: ./media/search-get-started-portal/indexers-inprogress2.png
+[5]: ./media/search-get-started-portal/search-explorer-cmd2.png
+[6]: ./media/search-get-started-portal/search-explorer-changeindex-se2.png
+[7]: ./media/search-get-started-portal/search-explorer-query2.png
+[8]: ./media/search-get-started-portal/realestate-indexer2.png
+[9]: ./media/search-get-started-portal/import-datasource-sample2.png
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

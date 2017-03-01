@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
-ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
+ms.sourcegitcommit: f9a0218b55ed30c0dd5022965241d1374c70c3d7
+ms.openlocfilehash: 1b5f96750b92bc7b7398fdaa177f360746747964
 
 
 ---
@@ -142,7 +142,7 @@ Nu när du har konfigurerat en återställningsprincip för användare och anget
 5. När användaren bekräftar sitt telefonnummer och klickar på Ring upp visas en rotationsruta och hans eller hennes telefon ringer.  Ett meddelande spelas upp när användaren tar upp luren och uppmanar **användaren att trycka på ”#”** för att verifiera sitt konto.  När användaren trycker på den här knappen verifieras användaren i den första kontrollen och tas automatiskt till nästa verifieringssteg.
    
    ![][015]
-6. När användaren har klarat den första kontrollen uppdateras användargränssnittet automatiskt och kontrollen tas bort från listan med tillgängliga alternativ.  I vårt exempel, eftersom vi valde **Arbetstelefon**, finns bara **Mobiltelefon** och **Alternativ e-postadress** kvar som giltiga alternativ för verifiering i det andra verifieringssteget.  Klicka på e-postalternativet **Skicka e-post till min alternativa e-postadress **.  När du har gjort det och trycker på Skicka-knappen skickas ett e-postmeddelande till den registrerade alternativa e-postadressen.
+6. När användaren har klarat den första kontrollen uppdateras användargränssnittet automatiskt och kontrollen tas bort från listan med tillgängliga alternativ.  I vårt exempel, eftersom du valde **Arbetstelefon** först, finns bara **Mobiltelefon** och **Alternativ e-postadress** kvar som giltiga alternativ för verifiering i det andra verifieringssteget.  Klicka på e-postalternativet **Skicka e-post till min alternativa e-postadress **.  När du har gjort det och trycker på Skicka-knappen skickas ett e-postmeddelande till den registrerade alternativa e-postadressen.
    
    ![][016]
 7. Här är ett exempel på ett e-postmeddelande som skickas till användaren – observera företagsanpassningen:
@@ -393,6 +393,6 @@ Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställni
 
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

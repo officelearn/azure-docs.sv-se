@@ -4,7 +4,7 @@ description: "Den här artikeln är avsedd att hjälpa dig att förstå hur du a
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/21/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
-ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
+ms.sourcegitcommit: ca1e8b9ef8c7543c2b21441c761b0c309d22f202
+ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
 
 
 ---
@@ -24,6 +24,8 @@ ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 Uppdateringshanteringslösningen i OMS gör att du kan du hantera uppdateringar för dina Windows- och Linux-datorer.  Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och starta processen för att installera nödvändiga uppdateringar för servrar. 
 
 ## <a name="prerequisites"></a>Krav
+* Lösningen stöder endast utvärderingar av uppdateringar av Windows Server 2008 eller senare och uppdateringsdistributioner av Windows Server 2012 och högre.  Installationsalternativ för Server Core och Nano Server stöds inte.
+* Windows-klientoperativsystem stöds inte.  
 * Windows-agenter måste antingen konfigureras för att kommunicera med en WSUS-server (Windows Server Update Services) eller ha åtkomst till Microsoft Update.  
   
   > [!NOTE]
@@ -104,7 +106,9 @@ Klicka på ikonen **Uppdateringshantering** för att öppna instrumentpanelen **
 ## <a name="installing-updates"></a>Installera uppdateringar
 När uppdateringar har utvärderats för alla Windows-datorer i din miljö kan du installera nödvändiga uppdateringar genom att skapa en *Uppdateringsdistribution*.  En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera Windows-datorer.  Du kan ange datum och tid för distributionen förutom den dator eller grupp av datorer som ska inkluderas.  
 
-Uppdateringar installeras av runbooks i Azure Automation.  För närvarande kan du inte kan se dessa runbooks och de kräver inte någon konfigurering.  När en uppdateringsdistribution skapas så skapar den ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för de datorer som ingår.  Denna master-runbook startar en underordnad runbook på varje Windows-agent som utför installationen av de nödvändiga uppdateringarna.  
+Uppdateringar installeras av runbooks i Azure Automation.  Du kan inte kan se dessa runbook-flöden och de kräver inte någon konfigurering.  När en uppdateringsdistribution skapas så skapar den ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för de datorer som ingår.  Denna master-runbook startar en underordnad runbook på varje Windows-agent som utför installationen av de nödvändiga uppdateringarna.  
+
+För virtuella datorer som skapats från de Red Hat Enterprise Linux (RHEL)-avbildningar på begäran som finns i Azure Marketplace är de registrerade för att få åtkomst till [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) som är distribuerat i Azure.  Andra Linux-distributioner måste uppdateras från distributionens fildatabas på nätet genom de metoder som distributionerna stöder.  
 
 ### <a name="viewing-update-deployments"></a>Visa uppdateringsdistributioner
 Klicka på ikonen **Uppdateringsdistribution** för att visa en lista över befintliga uppdateringsdistributioner.  De grupperas efter status – **Schemalagda**, **Kör** och **Slutförda**.<br><br> ![Uppdatera sidan med scheman över uppdateringsdistributioner](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -247,6 +251,6 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

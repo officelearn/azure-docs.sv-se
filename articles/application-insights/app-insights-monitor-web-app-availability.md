@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: af6728d23ba228b436546c13529189f649416dba
-ms.openlocfilehash: cbddda10fa2b91e46a9789379fde8011be0e8381
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
 
 
 ---
@@ -78,37 +78,20 @@ Dessa diagram kombinerar resultaten för alla webbtester för det här programme
 ## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Om du ser fel
 Klicka på en röd punkt.
 
-![Klicka på en röd punkt](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Klicka på en röd punkt](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-Eller rulla ned och klicka på ett test där du ser ett resultat som är mindre än 100 % lyckat.
 
-![Klicka på ett specifikt webbtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+Från ett webbtestresultat kan du göra följande:
 
-Testresultatet öppnas.
+* Kontrollera de svar som mottas från servern.
+* Öppna telemetrin som har skickas av serverappen samtidigt som den misslyckades begärandeinstansen behandlas.
+* Logga ett problem eller arbetsuppgift i Git eller VSTS för att spåra problemet. Buggen innehåller en länk till den här händelsen.
+* Öppna resultatet av webbtestet i Visual Studio.
 
-![Klicka på ett specifikt webbtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-Testet körs från flera platser: välj en där resultatet är mindre än 100 %.
-
-![Klicka på ett specifikt webbtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Rulla ned till **Misslyckade tester** och välj ett resultat.
-
-Klicka på resultatet för att utvärdera det på portalen och se orsaken till felet.
-
-![Körningsresultat från webbtest](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-Du kan också hämta resultatfilen och granska den i Visual Studio.
 
 *Ser det okej ut trots att fel har rapporterats?* Kontrollera alla bilder, skript, formatmallar och andra filer som lästs in av sidan. Om någon av komponenterna inte kunde läsas in rapporteras testet som misslyckat, även om HTML-huvudsidan kan läsas in korrekt.
 
-### <a name="open-the-server-request-and-exceptions"></a>Öppna serverbegäran och undantag
-
-Från de detaljerade egenskaperna för ett visst test kan du öppna rapporten på serversidan av begäran och andra händelser, till exempel undantag.
-
-![Körningsresultat från webbtest](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-Om du inte ser relaterade objekt kan det bero på en pågående [sampling](app-insights-sampling.md).
+*Inga relaterade objekt?* Det kan bero på att [sampling](app-insights-sampling.md) pågår.
 
 ## <a name="multi-step-web-tests"></a>Webbtester med flera steg
 Du kan övervaka ett scenario med en serie URL:er. Om du till exempel övervakar en försäljningswebbplats kan du testa att det går att lägga till objekt i kundvagnen korrekt.
@@ -294,6 +277,6 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

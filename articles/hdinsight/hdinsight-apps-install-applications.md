@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
-ms.openlocfilehash: 815a9f357ec020ca02ef0b2bb553cb787ef9b131
+ms.sourcegitcommit: 8e7911a3a8080ef8fa125779aa1f6778b9655cde
+ms.openlocfilehash: 8780c193c6aa4b6b183723f88d67ac0990347d1e
 
 
 ---
@@ -48,7 +48,7 @@ I följande procedur beskriver vi hur du installerar HDInsight-program i ett bef
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Klicka på **HDInsight-kluster** i den vänstra menyn.  Om du inte ser det klickar du på **Fler tjänster** och sedan på **HDInsight-kluster**.
 3. Klicka på ett HDInsight-kluster.  Om du inte har något måste du skapa ett först.  Mer information finns i [Skapa kluster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Klicka på **Program** under kategorin **Konfigurationer**. Du ser en lista över installerade program, om det finns några. Om du kan hitta Program innebär det att det inte finns några program för den här versionen av HDInsight-klustret.
+4. Klicka på **Program** under kategorin **Konfigurationer**. Du ser en lista över installerade program, om det finns några. Om du inte kan hitta Program innebär det att det inte finns några program för den här versionen av HDInsight-klustret.
    
     ![HDInsight-program – meny på portalen](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Klicka på **Lägg till** från bladets meny. 
@@ -122,6 +122,6 @@ Läs [Felsöka installationen](hdinsight-apps-install-custom-applications.md#tro
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

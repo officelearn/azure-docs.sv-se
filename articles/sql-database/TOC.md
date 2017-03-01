@@ -12,7 +12,6 @@
 ### [SQL kontra NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
 ## [SQL Database-verktyg](sql-database-manage-overview.md)
 ## [SQL Database-självstudier](sql-database-explore-tutorials.md)
-## [Snabbstarter för lösningar](sql-database-solution-quick-starts.md)
 ## Säkerhet
 ### [Säkerhetsöversikt](sql-database-security-overview.md)
 ### [Azure Security Center för Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
@@ -273,7 +272,8 @@
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
 ## [PowerShell (Elastic Database)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
-## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
+## [Azure CLI 2.0](/cli/azure/appservice)
+## [NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
 ## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
 ## [Python](https://msdn.microsoft.com/library/mt652092.aspx)
@@ -302,8 +302,3 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

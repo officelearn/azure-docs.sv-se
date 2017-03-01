@@ -1,10 +1,10 @@
 ---
-title: "Lista över Microsoft-hanterade anslutningar för användning i logikappar i Microsoft Azure | Microsoft Docs"
-description: "Hämta en fullständig lista över de Microsoft-hanterade anslutningar som du kan använda för att skapa logikappar i Azure Apptjänst"
+title: "Anslutningsappar för Azure Logic Apps | Microsoft Docs"
+description: Bygg och skapa logikappar med Microsoft-hanterade anslutningsappar
 services: logic-apps
 documentationcenter: 
-author: MSFTMAN
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
@@ -13,15 +13,15 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/07/2016
-ms.author: deonhe
+ms.date: 01/27/2017
+ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: d2eefb6b99955f9b9a1bd5b5c94617d538f079ec
-ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
+ms.sourcegitcommit: 671eed117f5577f3fdec2e03b1ba814e0e1a439b
+ms.openlocfilehash: 094d7a9ca2d14e506371488ee880fe8a2ab36707
 
 
 ---
-# <a name="list-of-connectors"></a>Lista över anslutningsappar
+# <a name="connectors-list"></a>Lista över anslutningsappar
 Markera en anslutningsapp för att lära dig hur du skapar arbetsflöden snabbt.
 
 ## <a name="standard-connectors"></a>Anslutningsappar av standardtyp
@@ -32,20 +32,21 @@ Markera en anslutningsapp för att lära dig hur du skapar arbetsflöden snabbt.
 |![API-ikon][Bitlyicon]<br/>**Bitly**|![API-ikon][BizTalk-Servericon]<br/>**BizTalk Server**|![API-ikon][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Ruta**][boxDoc]|
 |![API-ikon][Campfireicon]<br/>**Campfire**|![API-ikon][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>-textanalys**|![API-ikon][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
 |[! [API ikonen] [Delayicon]<br/>**Fördröjning**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![API-ikon][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>för finans**|
-|![API-ikon][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>för åtgärder**|![API-ikon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|
-|![API-ikon][GitHubicon]<br/>**GitHub**|![API-ikon][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![API-ikon][Google-Sheetsicon]<br/>**Google-blad**|
-|![API-ikon][Google-Tasksicon]<br/>**Google-uppgifter**|![API-ikon][HideKeyicon]<br/>**HideKey**|![API-ikon][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP-<br/>begäran**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP-<br/>svar**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
-|![API-ikon][Insightlyicon]<br/>**Insightly**|![API-ikon][Instagramicon]<br/>**Instagram**|![API-ikon][Instapapericon]<br/>**Instapaper**|![API-ikon][JIRAicon]<br/>**JIRA**|
-|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API-ikon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Kapslad<br/>logikapp**][Nested-Logic-Appdoc]|
-[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>-användare**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive för<br/>företag**][OneDrive-for-Businessdoc]|
-[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API-ikon][PagerDutyicon]<br/>**PagerDuty**|![API-ikon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
-[![API Icon][Queryicon]<br/>**Fråga**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Upprepning**][Recurrencedoc]|![API-ikon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
-[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![API-ikon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API-ikon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
+|![API-ikon][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>för åtgärder**|![API-ikon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**Filsystem**][FileSystemdoc]|
+|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![API-ikon][GitHubicon]<br/>**GitHub**|![API-ikon][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|
+|![API-ikon][Google-Sheetsicon]<br/>**Google-blad**|![API-ikon][Google-Tasksicon]<br/>**Google-uppgifter**|![API-ikon][HideKeyicon]<br/>**HideKey**|![API-ikon][HipChaticon]<br/>**HipChat**|
+|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP-<br/>begäran**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP-<br/>svar**][HTTP-Responsedoc]|
+|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|![API-ikon][Insightlyicon]<br/>**Insightly**|![API-ikon][Instagramicon]<br/>**Instagram**|![API-ikon][Instapapericon]<br/>**Instapaper**|
+|![API-ikon][JIRAicon]<br/>**JIRA**|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API-ikon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|
+|[![API Icon][Nested-Logic-Appicon]<br/>**Kapslad<br/>logikapp**][Nested-Logic-Appdoc]|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>-användare**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|
+|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive för<br/>företag**][OneDrive-for-Businessdoc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API-ikon][PagerDutyicon]<br/>**PagerDuty**|
+|![API-ikon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Fråga**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Upprepning**][Recurrencedoc]|
+|![API-ikon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
+|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
+|![API-ikon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API-ikon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
 |![API-ikon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
 |![API-ikon][Vimeoicon]<br/>**Vimeo**|![API-ikon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API-ikon][WordPressicon]<br/>**WordPress**|
-|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API-ikon][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**Filsystem**][FileSystemdoc]
+|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API-ikon][YouTubeicon]<br/>**YouTube**|
 
 ### <a name="integration-account-connectors"></a>Anslutningar för integrationskonton 
 
@@ -56,12 +57,10 @@ Markera en anslutningsapp för att lära dig hur du skapar arbetsflöden snabbt.
 | [![API Icon][x12icon]<br/>**EDIFACT-</br>avkodning**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT-</br>kodning**][EDIFACTencode] | | |
 
 > [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto går du till [Prova logikapp](https://tryappservice.azure.com/?appservice=logic). Du kan genast skapa en tillfällig startlogikapp i Apptjänsten. Inget kreditkort krävs, och du gör inga åtaganden.
-> 
-> 
+> Om du vill prova Azure Logic Apps innan du registrerar dig för ett Azure-konto går du till [Prova Logic Apps](https://tryappservice.azure.com/?appservice=logic). Du kan skapa en kortvarig startlogikapp omedelbart i Apptjänsten. Inget kreditkort krävs, och du gör inga åtaganden.
 
 ## <a name="enterprise-connectors"></a>Enterprise-anslutningsappar
-Använd Enterprise-anslutningsappar för att skapa logikappar för B2B-scenarier som omfattar EAI och EDI.  
+Använd företagsanslutningsapparna för att skapa logikappar för B2B-scenarier som omfattar EAI och EDI.  
 
 | enterprise<br/>anslutningar |  |
 | --- | --- |
@@ -71,7 +70,7 @@ Använd Enterprise-anslutningsappar för att skapa logikappar för B2B-scenarier
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### <a name="connectors-can-be-triggers"></a>Anslutningar kan vara utlösare
-Flera anslutningar innehåller utlösare som kan meddela din app när specifika händelser äger rum. FTP-anslutningen innehåller till exempel utlösaren OnUpdatedFile . Du kan skapa antingen en logikapp, en PowerApp eller ett flöde som lyssnar av utlösaren och vidtar en åtgärd när utlösaren aktiveras.
+Flera anslutningar innehåller utlösare som kan meddela din app när specifika händelser äger rum. FTP-anslutningen innehåller till exempel utlösaren OnUpdatedFile . Du kan skapa en logikapp, en PowerApp eller ett flöde som lyssnar på utlösaren och utför en åtgärd när utlösaren aktiveras.
 
 Det finns två typer av utlösare:  
 
@@ -79,12 +78,12 @@ Det finns två typer av utlösare:
 * Push-utlösare: de här utlösarna lyssnar efter data på en slutpunkt eller efter att en händelse ska inträffa och utlöser därefter en ny instans av din app. Twitter-anslutningen är ett exempel på en sådan.
 
 ### <a name="connectors-can-be-actions"></a>Anslutningar kan vara åtgärder
-Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är användbara för att söka efter data som sedan kan användas då appen körs. Du kan till exempel behöva söka efter kunddata från en SQL-databas vid bearbetningen av en order. Eller så kan du behöva skriva, uppdatera eller ta bort data i en destinationstabell. Du kan göra detta med de åtgärder som tillhandahålls av anslutningarna. Åtgärder mappar till åtgärder som har definierats i Swagger-metadata.
+Du kan också använda anslutningsappar som åtgärder i dina appar. Åtgärder är användbara för att leta upp data, som du sedan kan använda när du kör appen. Du kanske till exempel behöver leta upp kunddata från en SQL-databas när du arbetar med en order. Eller så kanske du behöver skriva, uppdatera eller ta bort data i en tabell med destinationer. Du kan utföra dessa uppgifter med de åtgärder som tillhandahålls av anslutningsapparna. Åtgärder mappar till åtgärder som har definierats i Swagger-metadata.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa en logikapp redan nu](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-* [Skapa en anpassad anslutningsapp](../app-service-logic/app-service-logic-create-api-app.md)
-* [Övervaka dina logikappar](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [Skapa din första logiska app](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Skapa anpassade API:er för logikappar](../logic-apps/logic-apps-create-api-app.md)
+* [Övervaka dina logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Anslut till Azure-blob för att hantera filer i din blobehållare."
@@ -104,7 +103,7 @@ Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är an
 [onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Ansluter till din Microsoft OneDrive för företag och laddar upp, tar bort och listar filer och mycket mer."
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Anslut till din postlåda i Outlook och få åtkomst till din e-post och mycket mer."
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Ansluter till Microsoft Project Online."
-[rssdoc]: ./connectors-create-api-rss.md "Med RSS-anslutningsappen kan användarna publicera och hämta flödesobjekt. Användarna kan också utlösa åtgärder när en nytt objekt publiceras i flödet."
+[rssdoc]: ./connectors-create-api-rss.md "Med RSS-anslutningsappen kan du publicera och hämta flödesobjekt. Du kan också utlösa åtgärder när ett nytt objekt publiceras i flödet."
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Anslut till ditt Salesforce-konto och hantera konton, leads, affärsmöjligheter och mycket mer."
 [sendgriddoc]: ./connectors-create-api-sendgrid.md "Ansluter till Microsoft Project Online."
 [service-busdoc]: ./connectors-create-api-servicebus.md "Kan skicka meddelanden från Service Bus-köer och Service Bus-ämnen och kan ta emot meddelanden från Service Bus-köer och Service Bus-prenumerationer."
@@ -120,18 +119,18 @@ Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är an
 [twitterdoc]: ./connectors-create-api-twitter.md "Ansluter till Twitter och hämtar tidslinjer, skickar tweets och mycket mer."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Synka ditt liv."
 [yammerdoc]: ./connectors-create-api-yammer.md "Ansluter till Yammer och skickar meddelanden och hämtar nya meddelanden."
-[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Läs mer om AS2 för Enterprise-integration."
-[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Läs mer om X12 för Enterprise-integration"
-[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Läs mer om platta filer för Enterprise-integration."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Läs mer om platta filer för Enterprise-integration."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Läs mer om XML-verifiering för Enterprise-integration."
-[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Läs mer om transformeringar för Enterprise-integration."
-[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Läs mer om AS2-avkodning för Enterprise-integration"
-[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Läs mer om AS2-kodning för Enterprise-integration"
-[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Läs mer om X12-avkodning för Enterprise-integration"
-[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Läs mer om X12-kodning för Enterprise-integration"
-[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Läs mer om EDIFACT-avkodning för Enterprise-integration"
-[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Läs mer om EDIFACT-kodning för Enterprise-integration"
+[as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Läs mer om AS2 för Enterprise-integration."
+[x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Läs mer om X12 för Enterprise-integration"
+[flatfiledoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Läs mer om platta filer för Enterprise-integration."
+[flatfiledecodedoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Läs mer om platta filer för Enterprise-integration."
+[xmlvalidatedoc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Läs mer om XML-verifiering för Enterprise-integration."
+[xmltransformdoc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Läs mer om transformeringar för Enterprise-integration."
+[as2decode]: ..//logic-apps/logic-apps-enterprise-integration-as2-decode.md "Läs mer om AS2-avkodning för Enterprise-integration"
+[as2encode]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Läs mer om AS2-kodning för Enterprise-integration"
+[X12decode]: ..//logic-apps/logic-apps-enterprise-integration-X12-decode.md "Läs mer om X12-avkodning för Enterprise-integration"
+[X12encode]: ..//logic-apps/logic-apps-enterprise-integration-X12-encode.md "Läs mer om X12-kodning för Enterprise-integration"
+[EDIFACTdecode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Läs mer om EDIFACT-avkodning för Enterprise-integration"
+[EDIFACTencode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Läs mer om EDIFACT-kodning för Enterprise-integration"
 [httpdoc]: ./connectors-native-http.md "HTTP-anslutningsapp för att göra HTTP-anrop."
 [http-requestdoc]: ./connectors-native-reqres.md "Åtgärder för begäran och svar."
 [http-responsedoc]: ./connectors-native-reqres.md "Åtgärder för begäran och svar."
@@ -139,9 +138,9 @@ Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är an
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP + Swagger-anslutningsapp för att göra HTTP-anrop."
 [querydoc]: ./connectors-native-query.md "Frågeåtgärd för att välja och filtrera matriser."
 [webhookdoc]: ./connectors-native-webhook.md "Webhook-åtgärd och webhook-utlösare för logikappar."
-[azure-functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integrera logikappar med Azure Functions."
-[api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "Integrera logikappar med App Service API Apps."
-[nested-logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Integrera logikappar med ett kapslat arbetsflöde."
+[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integrera logikappar med Azure Functions."
+[api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrera logikappar med App Service API Apps."
+[nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Integrera logikappar med ett kapslat arbetsflöde."
 [recurrencedoc]:  ./connectors-native-recurrence.md "Upprepningsutlösare för logikappar."
 [google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Ansluter till Google Kalkylark och kan ändra blad."
 [google-tasksdoc]: ./connectors-create-api-googletasks.md "Ansluter till Google Tasks och kan hantera uppgifter."
@@ -150,8 +149,8 @@ Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är an
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Ansluter till Mandrill och kan användas för kommunikation."
 [youtubedoc]: ./connectors-create-api-youtube.md "Ansluter till YouTube och kan interagera med videor och kanaler."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Ansluter till SparkPost och kan användas för kommunikation."
-[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Använd filsystemets anslutningsapp för att kommunicera med det lokala filsystemet."
-[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "Lär dig mer om SAP Connector"
+[filesystemdoc]: ..//logic-apps/logic-apps-using-file-connector.md "Använd filsystemets anslutningsapp för att kommunicera med det lokala filsystemet."
+[sapconnector]: ..//logic-apps/logic-apps-using-sap-connector.md "Lär dig mer om SAP Connector"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -249,6 +248,6 @@ Anslutningar kan också användas som åtgärder i dina appar. Åtgärder är an
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Distribuera ett Docker-behållarkluster – Azure CLI | Microsoft Docs"
-description: "Distribuera ett Azure Container Service-kluster med hjälp av Azure CLI 2.0 Preview"
+description: "Distribuera ett Azure Container Service-kluster med hjälp av Azure CLI 2.0"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,23 +17,23 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Skapa ett Azure Container Service-kluster med hjälp av Azure CLI 2.0 (Förhandsversion)
+# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Skapa ett Azure Container Service-kluster med hjälp av Azure CLI 2.0
 
-Använd `az acs`-kommandon i förhandsversionen av Azure CLI 2.0 för att skapa och hantera kluster i Azure Container Service. Du kan även distribuera ett Azure Container Service-kluster via [Azure Portal](container-service-deployment.md) eller Azure Container Service-API:er.
+Använd `az acs`-kommandona i Azure CLI 2.0 för att skapa och hantera kluster i Azure Container Service. Du kan även distribuera ett Azure Container Service-kluster via [Azure Portal](container-service-deployment.md) eller Azure Container Service-API:er.
 
 Om du vill visa hjälp om `az acs`-kommandon använder du `-h`-parametern med valfritt kommando. Till exempel: `az acs create -h`.
 
 
 
 ## <a name="prerequisites"></a>Krav
-För att skapa ett Azure Container Service-kluster med hjälp av förhandsversionen av Azure CLI 2.0 måste du:
+För att skapa ett Azure Container Service-kluster med hjälp av Azure CLI 2.0 måste du
 * ha ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/))
-* ha installerat och konfigurerat [Azure CLI v. 2.0 (Förhandsversion)](/cli/azure/install-az-cli2)
+* ha installerat och konfigurerat [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
 ## <a name="get-started"></a>Kom igång 
 ### <a name="log-in-to-your-account"></a>Logga in på ditt konto
@@ -41,7 +41,7 @@ För att skapa ett Azure Container Service-kluster med hjälp av förhandsversio
 az login 
 ```
 
-Följ anvisningarna för att logga in interaktivt. Andra metoder för att logga in finns i [Get started with Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2) (Kom igång med Azure CLI 2.0 (förhandsversion)).
+Följ anvisningarna för att logga in interaktivt. Andra metoder för att logga in finns i [Get started with Azure CLI 2.0](/cli/azure/get-started-with-az-cli2) (Kom igång med Azure CLI 2.0).
 
 ### <a name="set-your-azure-subscription"></a>Ange din Azure-prenumeration
 
@@ -74,7 +74,7 @@ Andra indata är inställda på standardvärdena (se skärmbilden nedan) om de i
 
 
 ### <a name="quick-acs-create-using-defaults"></a>Snabbt använda `acs create` med standardinställningarna
-Om du har en offentlig SSH-nyckelfil `id_rsa.pub` på standardplatsen (eller om du har skapat en för [OS X- och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) eller [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)) så använder du ett kommando som följande:
+Om du har en offentlig SSH RSA-nyckelfil `id_rsa.pub` på standardplatsen (eller om du har skapat en för [OS X- och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) eller [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)) så använder du ett kommando enligt följande:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -145,6 +145,6 @@ Nu när du har ett fungerande kluster kan du visa dessa dokument för anslutning
 * [Arbeta med Azure Container Service och Kubernetes](container-service-kubernetes-walkthrough.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

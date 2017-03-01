@@ -13,10 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
-ms.author: dhanyahk
+ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ce0e0ce9004e1b331328fca5830f01b6ce6af6c
+ms.sourcegitcommit: eec9b73cbaccfa50eec6f237e4d1d810c6efa1d9
+ms.openlocfilehash: e5b8ac91914203156bd395d7f462385e9f6dbcb4
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -79,7 +80,7 @@ Först måste du logga in på [den klassiska Azure-portalen](https://manage.wind
 ### <a name="navigate-to-reports"></a>Gå till Rapporter
 Du visar rapporterna genom att gå till fliken Rapporter längst upp i din katalog.
 
-Om det här är första gången du visar rapporterna måste du accepterar en dialogruta innan du kan visa rapporterna. Avsikten med detta är att bekräfta att administratörer i organisationen får se dessa data, som kan betraktas som privat information i vissa länder.
+Om det här är första gången du visar rapporterna måste du accepterar en dialogruta innan du kan visa rapporterna. Avsikten med detta är att bekräfta att administratörer i organisationen får se dessa data, som kan betraktas som privat information i vissa länder/regioner.
 
 ![Dialogruta](./media/active-directory-reporting-getting-started/dialogBox.png)
 
@@ -113,7 +114,7 @@ Aktivera eller inaktivera avsnittet ”Skicka e-postmeddelanden om avvikande inl
 ### <a name="integrate-with-the-azure-ad-reporting-api"></a>Integrera med Azure AD Reporting-API:et
 Läs [Komma igång med Reporting-API:et](active-directory-reporting-api-getting-started.md).
 
-### <a name="engage-multifactor-authentication-on-users"></a>Aktivera Multi-Factor Authentication för användare
+### <a name="engage-multi-factor-authentication-on-users"></a>Aktivera Multi-Factor Authentication för användare
 Välj en användare i en rapport.
 
 Klicka på knappen ”Aktivera MFA” längst ned på skärmen.
@@ -139,10 +140,5 @@ E-post [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) f
 > Mer dokumentation om Azure AD Reporting finns i [Visa åtkomst- och användningsrapporter](active-directory-view-access-usage-reports.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

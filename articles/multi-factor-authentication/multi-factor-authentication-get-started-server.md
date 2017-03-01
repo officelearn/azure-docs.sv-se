@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2017
+ms.date: 02/16/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
-ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
+ms.sourcegitcommit: eccd394a29376a20371732023bfbf9b53435f0ae
+ms.openlocfilehash: 51c994a37ebaca472c360e0c5f7b4a7fab5f55fc
 
 ---
 
@@ -30,7 +30,7 @@ Nu när vi har bestämt oss för att använda en lokal Multi-Factor Authenticati
 Du kan ladda ned Azure Multi-Factor Authentication Server på två sätt. Både görs via Azure-portalen. Det första är genom att hantera Multi-Factor Auth-providern direkt. Det andra är via tjänstinställningarna. Det andra alternativet kräver antingen en Multi-Factor Auth-provider eller en Azure MFA-, Azure AD Premium- eller Enterprise Mobility Suite-licens.
 
 > [!Important]
-> De här två alternativen kan verka liknande, men det är viktigt att veta vilken som ska användas. Om användarna har licenser med MFA, ska du inte skapa en Multi-Factor Auth Provider för att komma till serverhämtningen. Använd istället alternativ 2 för att hämta servern från tjänstinställningssidan. 
+> De här två alternativen kan verka liknande, men det är viktigt att veta vilken som ska användas. Om dina användare har licenser där MFA (Azure MFA, Azure AD Premium eller Enterprise Mobility + Security) ingår skapar du inte en Multi-Factor Authentication-provider för att komma till servernedladdningen. Använd istället alternativ 2 för att hämta servern från tjänstinställningssidan. 
 
 ### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Alternativ 1: Hämta Azure Multi-Factor Authentication-server från den klassiska Azure-portalen
 
@@ -67,7 +67,7 @@ Nu när du har laddat ned servern kan du installera och konfigurera den.  Se til
 
 | Krav för Azure Multi-Factor Authentication Server | Beskrivning |
 |:--- |:--- |
-| Maskinvara |<li>200 MB ledigt hårddiskutrymme</li><li>x32- eller x64-processor</li><li>Minst 1 GB RAM-minne</li> |
+| Maskinvara |<li>200 MB ledigt hårddiskutrymme</li><li>x32- eller x64-processor</li><li>Minst&1; GB RAM-minne</li> |
 | Programvara |<li>Windows Server 2008 eller senare om värden är ett serveroperativsystem</li><li>Windows 7 eller senare om värden är ett klientoperativsystem</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li> |
 
 ### <a name="azure-multi-factor-authentication-server-firewall-requirements"></a>Krav för Azure Multi-Factor Authentication Server-brandvägg

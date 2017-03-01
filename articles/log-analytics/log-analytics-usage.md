@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
+ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
+ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
 
 
 ---
@@ -47,6 +47,12 @@ Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehålle
     - Hur lång tid det tar att samla in och indexera data
 - Lista med frågor
 
+## <a name="understanding-nodes-for-oms-offers"></a>Förstå noder för OMS-erbjudanden
+
+Om du har prisnivån *per nod (OMS)* debiteras du därefter baserat på antalet noder och lösningar som du har aktiverat. Du kan se hur många noder i varje erbjudande som används i avsnittet *erbjudanden* på instrumentpanelen för användning.
+
+![instrumentpanelen användning](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## <a name="to-work-with-usage-data"></a>Att arbeta med användningsdata
 1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com) med din Azure-prenumeration.
 2. På **navmenyn** klickar du på **Fler tjänster** och skriver **Log Analytics** i listan med resurser. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
@@ -66,6 +72,6 @@ Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehålle
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

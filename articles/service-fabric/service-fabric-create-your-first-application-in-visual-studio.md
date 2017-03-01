@@ -1,5 +1,5 @@
 ---
-title: "Skapa ditt första Service Fabric-program i Visual Studio | Microsoft Docs"
+title: "Skapa ditt första Azure-mikrotjänstprogram | Microsoft Docs"
 description: "Skapa, distribuera och felsöka ett Service Fabric-program med Visual Studio"
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
-ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
+ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
+ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
 
 
 ---
@@ -36,7 +36,7 @@ Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan 
 ## <a name="video-walkthrough"></a>Videogenomgång
 Följande videoklipp går igenom stegen i den här självstudiekursen:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -122,6 +122,19 @@ Som standard är det lokala utvecklingsklustret konfigurerat att köras som ett 
 
 Utvecklingsklustret återställs när du ändrar klusterläge och alla program som etablerats eller körs i klustret tas bort.
 
+Du kan även byta klusterläge med hjälp av PowerShell:
+
+1. Starta ett nytt PowerShell-fönster som administratör.
+2. Kör installationsskriptet för klustret från SDK-mappen:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    Klusterinstallationen tar en stund. När installationen är klar bör skärmen visa något som liknar detta:
+   
+    ![Utdata efter klusterinstallationen][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>Rensa
 Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. Om du stoppar felsökningen tar du bort din instans av programmet och avregistrerar programtypen. Klustret fortsätter dock att köras i bakgrunden. Du kan hantera klustret på flera sätt:
 
@@ -150,9 +163,10 @@ Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är ve
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

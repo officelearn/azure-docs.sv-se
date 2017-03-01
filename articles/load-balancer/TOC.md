@@ -46,8 +46,8 @@
 
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
-## [Azure CLI 2.0 (förhandsversion)](/cli/azure/network/lb)
-## [.NET](/dotnet/api/microsoft.azure.management.network.models)
+## [Azure CLI 2.0](/cli/azure/network/lb)
+## [NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
@@ -66,8 +66,3 @@
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=load-balancer)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

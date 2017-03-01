@@ -6,11 +6,11 @@
 
 ## [Skapa en DNS-zon](dns-getstarted-create-dnszone-portal.md)
 ### [PowerShell](dns-getstarted-create-dnszone.md)
-### [CLI](dns-getstarted-create-dnszone-cli.md)
+### [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 ## [Skapa DNS-poster](dns-getstarted-create-recordset-portal.md)
 ### [PowerShell](dns-getstarted-create-recordset.md)
-### [CLI](dns-getstarted-create-recordset-cli.md)
+### [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
 ## [Delegera din domän till Azure DNS](dns-domain-delegation.md)
 ## [Skapa anpassade DNS-poster för en webbapp](dns-web-sites-custom-domain.md)
@@ -19,14 +19,15 @@
 
 ## Hantera DNS-zoner
 ### [PowerShell](dns-operations-dnszones.md)
-### [CLI](dns-operations-dnszones-cli.md)
+### [Azure CLI](dns-operations-dnszones-cli.md)
+
 
 ## [Hantera DNS-poster](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [CLI](dns-operations-recordsets-cli.md)
+### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## [Hantera omvända DNS-poster](dns-reverse-dns-record-operations-ps.md)
-### [CLI](dns-reverse-dns-record-operations-cli.md)
+### [Azure CLI](dns-reverse-dns-record-operations-cli.md)
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Importera och exportera en DNS-zonfil](dns-import-export.md)
@@ -39,8 +40,8 @@
 
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
-## [Azure CLI 2.0 (förhandsversion)](/cli/azure/network/dns)
-## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
+## [Azure CLI](/cli/azure/network/dns)
+## [NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0)
@@ -60,8 +61,3 @@
 ## [Prissättning](https://azure.microsoft.com/pricing/details/dns/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Nätverksblogg](http://azure.microsoft.com/blog/topics/networking)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

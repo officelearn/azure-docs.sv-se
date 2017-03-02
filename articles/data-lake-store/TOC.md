@@ -21,6 +21,7 @@
 ### [Använda DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Använda Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Ladda upp data från offlinekällor](data-lake-store-offline-bulk-data-upload.md)
+### [Migrera Azure Data Lake Store över regioner](data-lake-store-migration-cross-region.md)
 
 ## Säkra data
 ### [Säkerhetsöversikt](data-lake-store-security-overview.md)
@@ -70,8 +71,3 @@
 ## [Ge feedback på UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Data Lake Store-blogg](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -45,9 +45,17 @@
 
 ## [Koda innehåll](media-services-encode-asset.md)
 ### [Jämför kodare](media-services-compare-encoders.md)
-### [Felkoder](media-services-encoding-error-codes.md)
 ### Media Encoder Standard (MES)
 #### [Format och codecs för Media Encoder Standard](media-services-media-encoder-standard-formats.md)
+#### [Använda MES för att generera en bithastighetsstege automatiskt](media-services-autogen-bitrate-ladder-with-mes.md)
+#### Koda med Media Encoder Standard
+##### [Portal](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Avancerad kodning med MES](media-services-advanced-encoding-with-mes.md)
+##### [Anpassa förval för Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
+##### [Generera miniatyrer med Media Encoder Standard med .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Beskära videoklipp med Media Encoder Standard](media-services-crop-video.md)
 #### MES-scheman
 ##### [Media Encoder Standard-schema](media-services-mes-schema.md)
 ##### [Inkommande metadata](media-services-input-metadata-schema.md)
@@ -78,13 +86,6 @@
 ##### [H264, enkel bithastighet, 720p för Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [H264, enkel bithastighet, hög kvalitet, SD för Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [H264, enkel bithastighet, låg kvalitet, SD för Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-#### Koda med Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-##### [REST](media-services-rest-encode-asset.md)
-#### [Avancerad kodning med MES](media-services-advanced-encoding-with-mes.md)
-##### [Generera miniatyrer med Media Encoder Standard med .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Beskära videoklipp med Media Encoder Standard](media-services-crop-video.md)
 ### Arbetsflöde för Media Encoder Premium
 #### [Arbetsflödesformat och codecs för Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
 #### Koda med Media Encoder Premium-arbetsflöde
@@ -92,9 +93,11 @@
 ##### [Självstudier för arbetsflödet för Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [Skapa avancerade arbetsflöden för kodning med Workflow Designer](media-services-workflow-designer.md)
 ##### [Premium-arbetsflöde med flera indatafiler](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [Skapa en uppgift som genererar fMP4-segment](media-services-generate-fmp4-chunks.md)
 ### Mediebearbetare
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### [Felkoder](media-services-encoding-error-codes.md)
 ### Inaktuell
 #### [Statisk paketering och kryptering](media-services-static-packaging.md)
 
@@ -215,8 +218,3 @@
 ## [Prissättning](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services-community](media-services-community.md)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=media-services)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

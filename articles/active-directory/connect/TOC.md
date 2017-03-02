@@ -22,8 +22,10 @@
 ## Planera och designa
 ### [Designbegrepp](active-directory-aadconnect-design-concepts.md)
 ### [Topologier för Azure AD Connect](active-directory-aadconnect-topologies.md)
+### [Enkel inloggning](active-directory-aadconnect-sso.md)
+### [Active Directory Federation Services i Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Att tänka på för instanser](active-directory-aadconnect-instances.md)
-
+### [När du redan har Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Hantera Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Förnya certifikat för O365 och Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Aktivera tillbakaskrivning av enheter](active-directory-aadconnect-feature-device-writeback.md)
@@ -32,20 +34,24 @@
 ### [Automatisk uppgradering](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
+
 ## Hantera Azure AD Connect Sync
 ### [Förhindra oavsiktliga borttagningar](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Direktautentisering](active-directory-aadconnect-pass-through-authentication.md)
 ### [Azure AD-tjänstkonto](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installationsguide](active-directory-aadconnectsync-installation-wizard.md)
 ### [Ändra standardkonfigurationen](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Konfigurera filtrering](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Katalogtillägg](active-directory-aadconnectsync-feature-directory-extensions.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [Åtgärder](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [Åtgärder](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Anslutningsappar](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Metaversumdesigner](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Metaversumsökning](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
 
 ## Hantera Federation Services
 ### [Hantera och anpassa](active-directory-aadconnect-federation-management.md)
@@ -83,8 +89,3 @@
 # Resurser
 ##[Vanliga frågor och svar om Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[DirSync-utfasning](active-directory-aadconnect-dirsync-deprecated.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

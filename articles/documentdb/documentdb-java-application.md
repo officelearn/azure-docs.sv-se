@@ -18,6 +18,7 @@ ms.author: denlee
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -732,7 +733,7 @@ Med Azure Websites är det enkelt att distribuera Java-appar. Allt du behöver g
 3. Nu när du har en WAR-fil kan du bara ladda upp den till katalogen **Webbappar** på Azure Websites. Anvisningar för uppladdning av filen finns på [Lägga till ett program på din Java-webbplats på Azure](../app-service-web/web-sites-java-add-app.md).
    
     När WAR-filen har laddats upp till katalogen Webbappar identifierar körningsmiljön att du har lagt till den och läser in den automatiskt.
-4. Du kan visa din färdiga produkt genom att besöka http://NAMNETPÅ DIN\_WEBBPLATS\_.azurewebsites.net/azure-documentdb-java-sample/ och börja lägga till aktiviteter!
+4. Du kan visa din färdiga produkt genom att besöka http:/ /NAMNETPÅDIN\_WEBBPLATS\_.azurewebsites.net/azure-documentdb-java-sample/ och börja lägga till aktiviteter!
 
 ## <a name="a-idgetprojectaget-the-project-from-github"></a><a id="GetProject"></a>Hämta projektet från GitHub
 Alla exempel i den här självstudien finns i projektet [Todo](https://github.com/Azure-Samples/documentdb-java-todo-app) på GitHub. Om du vill importera Todo-projektet till Eclipse ska du se till att du har de program och resurser som anges i avsnittet [Förutsättningar](#Prerequisites) och sedan göra följande:
@@ -761,9 +762,4 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 22. [Steg 6 innehåller information om hur du distribuerar ditt projekt till en Azure-webbplats. Distribuera appen till Azure Websites](#Deploy).
 
 [1]: media/documentdb-java-application/keys.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

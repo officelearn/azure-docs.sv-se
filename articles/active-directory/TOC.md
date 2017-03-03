@@ -9,12 +9,31 @@
 ## [Hämta en Azure AD-klientorganisation](active-directory-howto-tenant.md)
 ## [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md)
 ## [Associera Azure-prenumerationer](active-directory-how-subscriptions-associated-directory.md)
-## [Hantera AD-licensiering](active-directory-licensing-what-is.md)
+## Hantera Azure AD-licensiering
+### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
+### [Klassisk portal](active-directory-licensing-what-is.md)
 ## [Skaffa Azure till din organisation](sign-up-organization.md)
 ## [Vanliga frågor och svar](active-directory-faq.md)
 ## [Självstudier för SaaS-appar](active-directory-saas-tutorial-list.md)
 
 # Gör så här för att
+## Planera och designa
+### [Distribuera en hybrididentitetslösning](active-directory-hybrid-identity-design-considerations-overview.md)
+#### Fastställa krav
+##### [Identitet](active-directory-hybrid-identity-design-considerations-business-needs.md)
+##### [Katalogsynkronisering](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Flerfaktorautentisering](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Strategi för identitetslivscykel](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Planera för datasäkerhet](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Dataskydd](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [Innehållshantering](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Åtkomstkontroll](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Incidenthantering](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+#### Planera din identitetslivscykel
+##### [Uppgifter](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Införandestrategi](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Nästa steg](active-directory-hybrid-identity-design-considerations-nextsteps.md)
+#### [Jämförelse av verktyg](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 ## Hantera användare
 ### Lägga till användare
 #### [Azure-portal](active-directory-users-create-azure-portal.md)
@@ -47,17 +66,26 @@
 ### Skapa avancerade regler
 #### [Azure-portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Klassisk portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [Gruppbaserad licensiering](active-directory-licensing-whatis-azure-portal.md)
+#### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifiera och lösa licensproblem för en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
+#### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
 ### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
 ### [Felsöka](active-directory-accessmanagement-troubleshooting.md)
 
-## [Visa aktivitet och säkerhetsrapporter](active-directory-view-access-usage-reports.md)
-### [Azure AD-rapportering](active-directory-reporting-getting-started.md)
+## [Visa aktivitetsrapporter](active-directory-view-access-usage-reports.md)
+### [Inloggningar](active-directory-reporting-activity-sign-ins.md)
+### [Granskningsloggar](active-directory-reporting-activity-audit-logs.md)
+### [Användare i riskzonen](active-directory-reporting-security-user-at-risk.md)
+### [Riskfyllda inloggningar](active-directory-reporting-security-risky-sign-ins.md)
 ### [Vanliga frågor och svar](active-directory-reporting-faq.md)
 ### [Rapportera migrering](active-directory-reporting-migration.md)
-
 ### [Kända nätverk](active-directory-known-networks.md)
 
-### [Rapporteringsguide](active-directory-reporting-guide.md)
+### Klassisk portal
+#### [Azure AD-rapportering](active-directory-reporting-getting-started.md)
+#### [Rapporteringsguide](active-directory-reporting-guide.md)
 #### [Förhandsversion](active-directory-reporting-azure-portal.md)
 #### [API](active-directory-reporting-api-getting-started.md)
 ##### [Granskningsreferens](active-directory-reporting-api-audit-reference.md)
@@ -65,20 +93,18 @@
 ##### [Krav](active-directory-reporting-api-prerequisites.md)
 ##### [Inloggningsreferens](active-directory-reporting-api-sign-in-activity-reference.md)
 ##### [Inloggningsexempel](active-directory-reporting-api-sign-in-activity-samples.md)
-
-
 #### [Granska händelser](active-directory-reporting-audit-events.md)
 #### [Kvarhållning](active-directory-reporting-retention.md)
 #### [Svarstider](active-directory-reporting-latencies.md)
 #### [Meddelanden](active-directory-reporting-notifications.md)
-### Förstå rapporter
-#### [Oregelbunden inloggning](active-directory-reporting-irregular-sign-in-activity.md)
-#### [Flera fel](active-directory-reporting-sign-ins-after-multiple-failures.md)
-#### [Misstänkta IP-adresser](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-#### [Flera geografiska områden](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-#### [Potentiellt infekterade enheter](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-#### [Okända källor](active-directory-reporting-sign-ins-from-unknown-sources.md)
-#### [Avvikande inloggningar](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
+#### Förstå rapporter
+##### [Oregelbunden inloggning](active-directory-reporting-irregular-sign-in-activity.md)
+##### [Flera fel](active-directory-reporting-sign-ins-after-multiple-failures.md)
+##### [Misstänkta IP-adresser](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
+##### [Flera geografiska områden](active-directory-reporting-sign-ins-from-multiple-geographies.md)
+##### [Potentiellt infekterade enheter](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
+##### [Okända källor](active-directory-reporting-sign-ins-from-unknown-sources.md)
+##### [Avvikande inloggningar](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Hantera lösenord](active-directory-manage-passwords.md)
 ### [Uppdatera ditt eget lösenord](active-directory-passwords-update-your-own-password.md)
@@ -99,9 +125,11 @@
 #### [Felsöka](active-directory-passwords-troubleshoot.md)
 
 ## Hantera enheter
+### [Registrera enheter](active-directory-conditional-access-device-registration-overview.md)
+#### [Hantera automatisk registrering](active-directory-conditional-access-automatic-device-registration.md)
+#### [Installation](active-directory-conditional-access-automatic-device-registration-setup.md)
 ### [Registrera din enhet](active-directory-azureadjoin-personal-device.md)
 ### [Registrera en enhet för Windows 10](active-directory-azureadjoin-user-upgrade.md)
-
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planera](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Konfigurera enhetsregistrering](active-directory-azureadjoin-setup.md)
@@ -176,6 +204,7 @@
 ### [Dokumentbibliotek](active-directory-apps-index.md)
 
 ## Hantera din katalog
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Egna domännamn
 #### [Översikt](active-directory-add-domain-concepts.md)
 #### Lägg till ditt domännamn
@@ -249,10 +278,6 @@
 ### [Villkorlig åtkomst](active-directory-conditional-access.md)
 #### [Kom igång](active-directory-conditional-access-azuread-connected-apps.md)
 #### [Appar som stöds](active-directory-conditional-access-supported-apps.md)
-#### [Registrera enheter](active-directory-conditional-access-device-registration-overview.md)
-#### [Hantera automatisk registrering](active-directory-conditional-access-automatic-device-registration.md)
-##### [Installation](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Hantera autentiseringsapp](active-directory-conditional-access-azure-authenticator-app.md)
 #### [Förstå enhetsprinciper](active-directory-conditional-access-device-policies.md)
 #### [Konfigurera åtkomst till anslutna appar](active-directory-conditional-access-policy-connected-applications.md)
 #### [Distribuera lokalt](active-directory-conditional-access-on-premises-setup.md)
@@ -274,27 +299,12 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Distribuera på virtuella Azure-datorer](virtual-networks-windows-server-active-directory-virtual-machines.md)
+## [Distribuera AD DS på virtuella Azure-datorer](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory på virtuella Azure-datorer](active-directory-deploying-ws-ad-guidelines.md)
 ### [Replikeringsdomänkontrollant i ett virtuellt Azure-nätverk](active-directory-install-replica-active-directory-domain-controller.md)
 ### [Ny skog i ett virtuellt Azure-nätverk](active-directory-new-forest-virtual-machine.md)
 
-## [Distribuera en hybrididentitetslösning](active-directory-hybrid-identity-design-considerations-overview.md)
-### Fastställa krav
-#### [Identitet](active-directory-hybrid-identity-design-considerations-business-needs.md)
-#### [Katalogsynkronisering](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-#### [Flerfaktorautentisering](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-#### [Strategi för identitetslivscykel](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-### [Planera för datasäkerhet](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-#### [Dataskydd](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-#### [Innehållshantering](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-#### [Åtkomstkontroll](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-#### [Incidenthantering](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
-### Planera din identitetslivscykel
-#### [Uppgifter](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-#### [Införandestrategi](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-### [Nästa steg](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-### [Jämförelse av verktyg](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 
 ## [Distribuera AD FS i Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Hög tillgänglighet](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -323,8 +333,3 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Azures feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

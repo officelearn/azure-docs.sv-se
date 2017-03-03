@@ -3,7 +3,7 @@
 ## [Vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Översikt över enhetshantering](iot-hub-device-management-overview.md)
 
-# Kom igång
+# [Kom igång](iot-hub-get-started.md)
 ## Använda en simulerad enhet
 ### [NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
@@ -23,7 +23,7 @@
 ##### [Hämta Azure-verktygen (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Skapa din IoT-hubb och registrera Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Lektion 3: Skicka meddelanden från enheten till molnet
-##### [Skapa en Azure-funktionsapp och ett lagringskonto]#(iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Skapa en Azure-funktionsapp och ett lagringskonto](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [Kör exempelprogrammet för att skicka meddelanden](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 ##### [Lästa meddelanden sparas i minnet](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
 #### Lektion 4: Skicka meddelanden från molnet till enheten
@@ -66,7 +66,7 @@
 ##### [Hämta Azure-verktygen (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [Skapa din IoT-hubb och registrera Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Lektion 3: Skicka meddelanden från enheten till molnet
-##### [Skapa en Azure-funktionsapp och ett lagringskonto]#(iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Skapa en Azure-funktionsapp och ett lagringskonto](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [Kör exempelprogrammet för att skicka meddelanden](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
 ##### [Lästa meddelanden sparas i minnet](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
 #### Lektion 4: Skicka meddelanden från molnet till enheten
@@ -107,13 +107,13 @@
 ##### [Hämta Azure-verktygen (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
 ##### [Hämta Azure-verktygen (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
 ##### [Hämta Azure-verktygen (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-##### [Skapa din IoT-hubb och registrera Raspberry Pi]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+##### [Skapa din IoT-hubb och registrera Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
 #### Lektion 3: Skicka meddelanden från enheten till molnet
-##### [Skapa en Azure-funktionsapp och ett lagringskonto]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+##### [Skapa en Azure-funktionsapp och ett lagringskonto](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
 ##### [Kör exempelprogrammet för att skicka meddelanden](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
 ##### [Lästa meddelanden sparas i minnet](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
 #### Lektion 4: Skicka meddelanden från molnet till enheten
-##### [Kör exempelprogrammet för att ta emot meddelanden]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+##### [Kör exempelprogrammet för att ta emot meddelanden](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Valfritt: Ändra LED-beteende](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Felsöka](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
 
@@ -172,7 +172,7 @@
 ### [Skala din lösning](iot-hub-scaling.md)
 ### [Hög tillgänglighet och haveriberedskap](iot-hub-ha-dr.md)
 ### [Stöd för ytterligare protokoll](iot-hub-protocol-gateway.md)
-## Utveckla
+## [Utveckla](iot-hub-how-to.md)
 ### [Utvecklarguide](iot-hub-devguide.md)
 #### [Skicka och ta emot meddelanden](iot-hub-devguide-messaging.md)
 #### [Funktionsguide enheten till molnet](iot-hub-devguide-d2c-guidance.md)
@@ -269,8 +269,3 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT-enhetskatalog](https://catalog.azureiotsuite.com/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

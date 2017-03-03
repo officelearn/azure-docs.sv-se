@@ -20,8 +20,10 @@
 ### [Saker att tänka på gällande nätverksinfrastruktur](site-recovery-network-design.md)
 ### [Använda Site Recovery Capacity Planner](site-recovery-capacity-planner.md)
 ### [Planera kapacitet och skala VMware-replikering till Azure](site-recovery-plan-capacity-vmware.md)
+### [Kör distributionsplaneraren för VMware-replikering till Azure](site-recovery-deployment-planner.md)
 ## Konfigurera
-### [Konfigurera källmiljön för replikering](site-recovery-set-up-vmware-to-azure.md)
+### [Konfigurera källmiljön](site-recovery-set-up-vmware-to-azure.md)
+### [Konfigurera målmiljön](site-recovery-prepare-target-vmware-to-azure.md)
 ### [Konfigurera replikeringsinställningar](site-recovery-setup-replication-settings-vmware.md)
 ### [Distribuera mobilitetstjänsten för VMware-replikering](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Distribuera mobilitetstjänsten med System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
@@ -32,7 +34,8 @@
 #### [Lägga till Azure-runbookflöden i återställningsplaner](site-recovery-runbook-automation.md)
 ### [Kör ett redundanstest till Azure](site-recovery-test-failover-to-azure.md)
 ### [Köra ett redundanstest mellan två VMM-platser](site-recovery-test-failover-vmm-to-vmm.md)
-### [Återställ virtuella VMware-datorer och fysiska servrar](site-recovery-failback-azure-to-vmware.md)
+### [Återställa virtuella VMware-datorer/fysiska servrar från Azure](site-recovery-how-to-failback-azure-to-vmware.md)
+### [Återställa virtuella Hyper-V-datorer från Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
 ## Migrera
 ### [Migrera till Azure](site-recovery-migrate-to-azure.md)
@@ -53,8 +56,8 @@
 ### [Automatisera Hyper-V-replikering till en sekundär plats (med VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Hantera
 ### [Ta bort servrar och inaktivera skydd](site-recovery-manage-registration-and-protection.md)
-### [Redigera replikeringsinställningar](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
-## [Övervaka och felsök](site-recovery-monitoring-and-troubleshooting.md)
+### [Skala ut processervrar](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [Övervaka och felsök](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
@@ -70,8 +73,3 @@
 ## [Blogg](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/site-recovery/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=site-recovery)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

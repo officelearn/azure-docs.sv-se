@@ -31,6 +31,7 @@
 ### [Fönsterfunktioner](stream-analytics-window-functions.md)
 
 ## Hantera
+### [Tillförlitlighet för jobb](stream-analytics-job-reliability.md)
 ### [Övervaka jobb](stream-analytics-monitoring.md)
 ### [Diagnostikloggar](stream-analytics-job-diagnostic-logs.md)
 ### [Övervaka jobb programmässigt](stream-analytics-monitor-jobs.md)
@@ -59,8 +60,3 @@
 ## [Feedback-forum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

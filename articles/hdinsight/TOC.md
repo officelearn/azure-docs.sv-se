@@ -54,6 +54,7 @@
 ### [Installera RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Compute-sammanhang](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Använda Spark för minnesintern bearbetning
+### [Använda Caffe för djupinlärning](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Med Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Med BI-verktyg](hdinsight-apache-spark-use-bi-tools.md)
 ### [Fristående app](hdinsight-apache-spark-create-standalone-application.md)
@@ -223,8 +224,3 @@
 # Resurser
 ## [Få hjälp i forumet](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

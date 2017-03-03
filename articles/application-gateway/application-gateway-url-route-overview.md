@@ -17,6 +17,7 @@ ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
 ms.openlocfilehash: 1f273f3b55d719e37b9cdb6cefda30c3566e7226
+ms.lasthandoff: 11/18/2016
 
 
 ---
@@ -28,42 +29,38 @@ I följande exempel servar Application Gateway trafik åt contoso.com från tre 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
 Begäranden för http://contoso.com/video* dirigeras till VideoServerPool och http://contoso.com/images* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
-
+    
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap-konfigurationselementet
 
 UrlPathMap-elementet används för att ange sökvägsmönster till mappningar för serverdels-serverpoolen. Följande kodexempel är utdrag av urlPathMap-element från mallfilen.
 
 ```json
-"urlPathMaps": [
-{
-"name": "<urlPathMapName>",
-"id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>",
-"properties": {
-    "defaultBackendAddressPool": {
-        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName>"
-    },
-    "defaultBackendHttpSettings": {
-        "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpSettingsList/<settingsName>"
-    },
-    "pathRules": [
-        {
-            "paths": [
-                <pathPattern>
-            ],
-            "backendAddressPool": {
-                "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName2>"
-            },
-            "backendHttpsettings": {
-                "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpsettingsList/<settingsName2>"
-            },
-
+"urlPathMaps": [{
+    "name": "<urlPathMapName>",
+    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/urlPathMaps/<urlPathMapName>",
+    "properties": {
+        "defaultBackendAddressPool": {
+            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName>"
         },
-
-    ],
-
-}
-}
-]
+        "defaultBackendHttpSettings": {
+            "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpSettingsList/<settingsName>"
+        },
+        "pathRules": [{
+            "name": "<pathRuleName>",
+            "properties": {
+                "paths": [
+                    "<pathPattern>"
+                ],
+                "backendAddressPool": {
+                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendAddressPools/<poolName2>"
+                },
+                "backendHttpsettings": {
+                    "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/backendHttpsettingsList/<settingsName2>"
+                }
+            }
+        }]
+    }
+}]
 ```
 
 > [!NOTE]
@@ -99,10 +96,5 @@ Utdrag från PathBasedRouting-regeln:
 ## <a name="next-steps"></a>Nästa steg
 
 När du läst om URL-baserad innehållsroutning, kan du gå till [skapa en Application Gateway med URL-baserad routing](application-gateway-create-url-route-portal.md) för att skapa en Application Gateway med regler för URL-routning.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

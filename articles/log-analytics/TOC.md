@@ -16,7 +16,7 @@
 #### [Windows-agenter](log-analytics-windows-agents.md)
 #### [Linux-agenter](log-analytics-linux-agents.md)
 #### [Azure Virtual Machines](log-analytics-azure-vm-extension.md)
-#### [Azure-resurser](log-analytics-azure-storage.md)
+#### [Azure Storage](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)
@@ -31,8 +31,8 @@
 ## Frågedata
 ### [Översikt över loggsökningar](log-analytics-log-searches.md)
 ### [Sökreferens](log-analytics-search-reference.md)
+#### [Reguljära uttryck](log-analytics-log-searches-regex.md)
 ### [Datorgrupper](log-analytics-computer-groups.md)
-### [Aviseringar](log-analytics-alerts.md)
 ## Analysera data
 ### [Instrumentpaneler](log-analytics-dashboards.md)
 ### [Vydesigner](log-analytics-view-designer.md)
@@ -42,6 +42,7 @@
 #### [AD-bedömning](log-analytics-ad-assessment.md)
 #### [AD-replikeringsstatus](log-analytics-ad-replication-status.md)
 #### [Varningshantering](log-analytics-solution-alert-management.md)
+#### [Azure SQL Analytics](log-analytics-azure-sql.md)
 #### [Kapacitetshantering](log-analytics-capacity.md)
 #### [Spårning av ändringar](log-analytics-change-tracking.md)
 #### [Behållare](log-analytics-containers.md)
@@ -60,6 +61,15 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
 #### [SCOM-utvärdering](log-analytics-scom-assessment.md)
+## Skapa aviseringar
+### [Förstå aviseringar](log-analytics-alerts.md)
+### [Aviseringsåtgärder](log-analytics-alerts-actions.md)
+### Skapa aviseringsregler
+#### [OMS-portalen](log-analytics-alerts-creating.md)
+#### [REST-API](log-analytics-api-alerts.md)
+#### [Resource Manager-mall](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
+### [Webhook-åtgärdsexempel](log-analytics-alerts-webhooks.md)
+### [Lösning för aviseringshantering](log-analytics-solution-alert-management.md)
 ## Utveckla
 ### [API för datainsamling](log-analytics-data-collector-api.md)
 ### [PowerShell-cmdletar](log-analytics-powershell-workspace-configuration.md)
@@ -75,8 +85,3 @@
 ## [Uppgraderingsanalys](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=log-analytics)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

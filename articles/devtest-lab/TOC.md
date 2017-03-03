@@ -4,9 +4,9 @@
 ## [DevTest Labs-koncept](devtest-lab-concepts.md)
 
 # Kom igång
-## [Skapa ett labb](devtest-lab-create-lab.md)
-## [Skapa VM-artefakter](devtest-lab-add-vm-with-artifacts.md)
-## [Skapa ett labb för träning](devtest-lab-training-lab.md)
+## [Skapa labb](devtest-lab-create-lab.md)
+## [Skapa VM](devtest-lab-add-vm.md)
+## [Skapa labb för träning](devtest-lab-training-lab.md)
 ## [Vanliga frågor och svar](devtest-lab-faq.md)
 
 # Gör så här för att
@@ -20,6 +20,7 @@
 ## Hantera artefakter
 ### [Lägga till artefaktlagringsplats](devtest-lab-add-artifact-repo.md)
 ### [Skapa anpassade artefakter](devtest-lab-artifact-author.md)
+### [Hantera artefakter](devtest-lab-add-vm-with-artifacts.md)
 
 ## Hantera VM-databaser och mallar
 ### [Skapa miljöer med flera virtuella datorer med Azure Resource Manager-mallar](devtest-lab-create-environment-from-arm.md)
@@ -41,8 +42,3 @@
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

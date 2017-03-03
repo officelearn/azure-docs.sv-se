@@ -15,6 +15,7 @@
 ### [Skydda Webb-API-serverdelen med AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Skapa ett virtuellt nätverk](api-management-using-with-vnet.md)
 ### [Anslut till ett internt virtuellt nätverk](api-management-using-with-internal-vnet.md)
+### [Integrera Application Gateway i internt VNET](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Ömsesidig certifikatautentisering](api-management-howto-mutual-certificates.md)
 ## Konfigurera principer
 ### [Anpassad cachelagring](api-management-sample-cache-by-key.md)
@@ -24,13 +25,16 @@
 ### [Principreferensindex](api-management-policy-reference.md)
 ### [Principöversikt](api-management-howto-policies.md)
 ### [Hantera hemligheter med hjälp av egenskaper](api-management-howto-properties.md)
+### [Säkra API:er med autentisering med klientcertifikat](api-management-howto-mutual-certificates-for-clients.md)
 ## Anpassa utvecklarupplevelsen
-### [Anpassa utvecklarportalen](api-management-customize-portal.md)
+### [Ändra innehåll och layout](api-management-modify-content-layout.md)
+### [Anpassa formatering för sidelement](api-management-customize-styles.md)
+### [Anpassa systemsidor med mallar](api-management-developer-portal-templates.md)
 ### [Autentisering med AAD](api-management-howto-aad.md)
+### [Autentisering med AAD B2C](api-management-howto-aad-b2c.md)
 ### [Delegerad autentisering](api-management-howto-setup-delegation.md)
 ### [E-postaviseringar och mallar](api-management-howto-configure-notifications.md)
 ### [Aktivera OAuth-stöd för konsolen](api-management-howto-oauth2.md)
-### [Anpassa med hjälp av mallar](api-management-developer-portal-templates.md)
 ## Hantera i produktionen
 ### [Hantera grupper](api-management-howto-create-groups.md)
 ### [Distribuera till flera Azure-regioner](api-management-howto-deploy-multi-region.md)
@@ -80,9 +84,4 @@
 ## [Tillhandahåll RBAC-liknande åtkomst med REST-API:et](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Konfigurera PostMan att anropa API Management API:er](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [API Management plugin för SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

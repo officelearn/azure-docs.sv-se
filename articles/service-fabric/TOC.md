@@ -105,6 +105,7 @@
 #### Skapa ett kluster på Azure
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio och Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [Nodtyper och skalningsuppsättningar för virtuella datorer](service-fabric-cluster-nodetypes.md)
 #### [Skala ett kluster](service-fabric-cluster-scale-up-down.md)
 #### [Uppgradera ett kluster](service-fabric-cluster-upgrade.md)
@@ -116,6 +117,8 @@
 #### [Testa ett Party-kluster utan kostnad](http://aka.ms/tryservicefabric)
 
 ### Fristående kluster
+#### [Planera och förbereda för distributionen](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Innehåll i fristående Service Fabric-paket](service-fabric-cluster-standalone-package-contents.md)
 #### [Skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md)
 #### [Skapa ett fristående kluster på Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Skala ett kluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
@@ -211,8 +214,3 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -45,7 +45,7 @@
 
 ## Disklagring 
 ### [Skapa en virtuell dator med Resource Manager och PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Skapa en virtuell Linux-dator med Azure CLI 2.0 (förhandsvisning)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 ### [Koppla en hanterad disk på en virtuell Windows-dator med hjälp av PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 ### [Lägga till en hanterad disk till en virtuell Linux-dator](../virtual-machines/virtual-machines-linux-add-disk.md)
 ### [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
@@ -100,7 +100,7 @@
 ### [Ange och hämta egenskaper och metadata](storage-properties-metadata.md)
 ## Hantera
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI 2.0 (förhandsversion)](storage-azure-cli.md)
+### [Azure CLI 2.0](storage-azure-cli.md)
 ### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Skydda
@@ -219,8 +219,3 @@
 ### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
 ### [iOS](https://github.com/Azure/azure-storage-ios)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

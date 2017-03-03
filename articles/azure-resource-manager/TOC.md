@@ -17,6 +17,7 @@
 ### [Skapa mallar](resource-group-authoring-templates.md)
 ### [Mallfunktioner](resource-group-template-functions.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
+### [Ange underordnat resursnamn och typ](resource-manager-template-child-resource.md)
 ### [Skapa flera instanser av en resurstyp](resource-group-create-multiple.md)
 ### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)
 ### [Länk till andra mallar](resource-group-linked-templates.md)
@@ -71,8 +72,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

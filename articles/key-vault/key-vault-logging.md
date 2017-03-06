@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
+ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
+ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -39,8 +40,6 @@ Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault-lo
 > För närvarande kan du inte konfigurera Azure Key Vault på Azure-portalen. I stället använder du dessa Azure PowerShell-instruktioner.
 > 
 > 
-
-Loggarna som du samlar in kan visualiseras med hjälp av Log Analytics från Operations Management Suite. Mer information finns i [Azure Key Vault (förhandsversion) i Log Analytics](../log-analytics/log-analytics-azure-key-vault.md).
 
 Översiktlig information om Azure Key Vault finns i [Vad är Azure Key Vault?](key-vault-whatis.md)
 
@@ -254,6 +253,10 @@ Följande tabell innehåller operationName och motsvarande REST-API-kommando.
 | SecretList |[Visa en lista över hemligheterna i ett valv](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Visa en lista över versionerna av en hemlighet](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
+## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Använda Log Analytics
+
+Du kan använda Azure Key Vault-lösningen i Log Analytics för att läsa igenom AuditEvent-loggarna i Azure Key Vault. Mer information och information om hur du konfigurerar detta finns i [Azure Key Vault i Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). I artikeln hittar du dessutom anvisningar ifall du behöver migrera från den gamla Key Vault-lösningen som fanns i förhandsversionen av Log Analytics. Där började du med att dirigera loggarna till ett Azure Storage-konto och konfigurerade Log Analytics till att läsa därifrån.
+
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Nästa steg
 En självstudiekurs där Azure Key Vault används i en webbapp finns i [Använda Azure Key Vault från en webbapp](key-vault-use-from-web-application.md).
 
@@ -262,10 +265,5 @@ Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](key-vaul
 En lista med Azure PowerShell 1.0-cmdlets för Azure Key Vault finns i [Cmdlets för Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
 Självstudierna om nyckelrotering och logggranskning med Azure Key Vault finns i [Ställa in Key Vault med heltäckande nyckelrotering och granskning](key-vault-key-rotation-log-monitoring.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

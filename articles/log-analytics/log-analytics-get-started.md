@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
 ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -150,9 +151,4 @@ Du kan eventuellt ta bort arbetsytan som du skapade med den här självstudien.
 * Lär dig mer om hur du ansluter [Operations Manager-agenter](log-analytics-om-agents.md) till Log Analytics.
 * [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md) för att lägga till funktioner och samla in data.
 * Bekanta dig med [loggsökningar](log-analytics-log-searches.md) för att visa detaljerad information som samlas in av lösningar.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

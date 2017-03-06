@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed200529f8f21f15d9b77a403f9ef07582d449
-ms.openlocfilehash: 975c8fbc9afdc7b01da85f56a075aa44dade9dde
+ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
+ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -35,7 +36,7 @@ Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point
 * Dynamisk routning mellan ditt nätverk och Microsoft med branschens standardprotokoll (BGP).
 * Inbyggd redundans i varje peeringplats för högre tillförlitlighet.
 * Anslutningens drifttids-[SLA](https://azure.microsoft.com/support/legal/sla/).
-* QoS och stöd för flera tjänstklasser för särskilda program, till exempel Skype för företag.
+* QoS-stöd för Skype för företag.
 
 Mer information finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 
@@ -108,8 +109,4 @@ Du kan välja den faktureringsmodell som passar dig bäst. Välj mellan fakturer
   * [Skapa en ExpressRoute-krets](expressroute-howto-circuit-portal-resource-manager.md)
   * [Konfigurera routning](expressroute-howto-routing-portal-resource-manager.md)
   * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

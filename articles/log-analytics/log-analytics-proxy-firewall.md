@@ -17,6 +17,7 @@ ms.author: banders;magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
 ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -185,9 +186,4 @@ Du kan också leta efter OMS-hanteringspaket genom att använda följande Window
 ## <a name="next-steps"></a>Nästa steg
 * [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md) för att lägga till funktioner och samla in data.
 * Bekanta dig med [loggsökningar](log-analytics-log-searches.md) för att visa detaljerad information som samlas in av lösningar.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

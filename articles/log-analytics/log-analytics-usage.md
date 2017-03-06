@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
 ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -69,9 +70,4 @@ Om du har prisnivån *per nod (OMS)* debiteras du därefter baserat på antalet 
 
 ## <a name="next-steps"></a>Nästa steg
 * Detaljerad information om data som samlas in och skickas till OMS av tjänster och lösningar finns i [Log searches in Log Analytics](log-analytics-log-searches.md) (Loggsökningar i Log Analytics).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 16930bbdc08bdccfdc150d8f25eaa6cec10595e4
+ms.sourcegitcommit: 623f502a92dc8eb152a9b01c4f6db0640ce57e54
+ms.openlocfilehash: 38156f31bfacbefd0518581d05ad9854e47b0c12
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -29,6 +30,7 @@ Azures tjänster för Sakernas Internet (IoT, Internet of Things) tillhandahåll
 * Lagra och skicka frågor mot stora datamängder
 * Visualisera både realtidsdata och historiska data
 * Integrera med back office-system
+* Hantera dina enheter
 
 För att leverera dessa funktioner paketerar Azure IoT Suite samman flera Azure-tjänster med anpassade tillägg i form av  *förkonfigurerade lösningar*. Dessa förkonfigurerade lösningar är grundläggande implementeringar av vanliga IoT-lösningsmönster som kan minska den tid det tar att leverera IoT-lösningar. Med [programutvecklingspaketen för IoT][lnk-sdks] kan du anpassa och utöka dessa lösningar efter dina egna behov. Du kan också använda dessa lösningar som exempel eller mallar när du utvecklar nya IoT-lösningar.
 
@@ -41,18 +43,18 @@ Följande videoklipp innehåller en introduktion till Azure IoT Suite:
 ## <a name="azure-iot-services-in-azure-iot-suite"></a>Azure IoT-tjänster i Azure IoT Suite
 De förkonfigurerade lösningarna använder vanligtvis följande tjänster:
 
-* Kärnan i Azure IoT Suite är [Azure IoT Hub][lnk-iot-hub] Den här tjänsten tillhandahåller funktioner för meddelandehantering från ”enhet till moln” och från ”moln till enhet” och fungerar som en gateway till molnet och andra viktiga IoT Suite-tjänster. Tjänsten gör att du kan ta emot meddelanden från dina enheter i hög skala och skicka kommandon till dina enheter.
-* [Azure Stream Analytics][lnk-asa] tillhandahåller analys av data i rörelse. IoT Suite utnyttjar den här tjänsten för att bearbeta inkommande telemetri, utföra aggregeringar och identifiera händelser. De förkonfigurerade lösningarna använder också Stream Analytics för att bearbeta informationsmeddelanden som innehåller data, till exempel metadata eller kommandosvar från enheter. Lösningarna använder Stream Analytics för att hantera meddelanden från dina enheter och leverera dem till andra tjänster.
+* Kärnan i Azure IoT Suite är [Azure IoT Hub][lnk-iot-hub]-tjänsten. Den här tjänsten tillhandahåller funktioner för meddelandehantering från ”enhet till moln” och från ”moln till enhet” och fungerar som en gateway till molnet och andra viktiga IoT Suite-tjänster. Tjänsten gör att du kan ta emot meddelanden från dina enheter i hög skala och skicka kommandon till dina enheter. Med tjänsten kan du även [hantera dina enheter][lnk-device-management]. Du kan till exempel konfigurera, starta om eller utföra en fabriksåterställning på en eller flera enheter som är anslutna till hubben.
+* [Azure Stream Analytics][lnk-asa] tillhandahåller analys av data i rörelse. IoT Suite använder den här tjänsten för att bearbeta inkommande telemetri, utföra aggregeringar och identifiera händelser. De förkonfigurerade lösningarna använder också Stream Analytics för att bearbeta informationsmeddelanden som innehåller data, till exempel metadata eller kommandosvar från enheter. Lösningarna använder Stream Analytics för att hantera meddelanden från dina enheter och leverera dem till andra tjänster.
 * [Azure Storage][lnk-azure-storage] och [Azure DocumentDB][lnk-document-db] tillhandahåller funktioner för datalagring. De förkonfigurerade lösningarna använder Blob Storage för att lagra telemetri och för att göra den tillgänglig för analys. Lösningarna använda DocumentDB för att lagra metadata om enheter och för att aktivera enhetshanteringsfunktionerna i lösningarna.
 * [Azure Web Apps][lnk-web-apps] och [Microsoft Power BI][lnk-power-bi] tillhandahåller visualiseringsfunktioner. Flexibiliteten i Power BI gör att du snabbt kan skapa egna interaktiva instrumentpaneler som använder IoT Suite-data.
 
 En översikt över arkitekturen i en typisk IoT-lösning finns i [Microsoft Azure och Sakernas Internet (IoT)][iot-suite-what-is-azure-iot].
 
 ## <a name="preconfigured-solutions"></a>Förkonfigurerade lösningar
-IoT Suite erbjuder förkonfigurerade lösningar som hjälper dig att snabbt komma igång med och utforska vanliga IoT-scenarier som *Fjärrövervakning* och *Förebyggande underhåll*, som blir möjliga med Azure IoT Suite. Du kan distribuera lösningarna till din Azure-prenumeration och sedan köra ett komplett IoT-scenario från slutpunkt till slutpunkt.
+IoT Suite erbjuder förkonfigurerade lösningar som hjälper dig att snabbt komma igång med och utforska vanliga IoT-scenarier som *Fjärrövervakning* och *Förebyggande underhåll*. Du kan distribuera lösningarna till din Azure-prenumeration och sedan köra ett komplett IoT-scenario från slutpunkt till slutpunkt.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har en översikt över vad IoT Suite kan göra och dess huvudkomponenter kan du lära dig mer om de förinställda lösningarna i IoT Suite genom att läsa [Vad är förkonfigurerade lösningar i Azure IoT?][lnk-what-are-preconfig]
+Nu när du har en översikt över vad IoT Suite kan göra och dess huvudkomponenter kan du lära dig mer om de förinställda lösningarna i IoT Suite. Mer information finns i [Var är förkonfigurerade lösningar i Azure IoT?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -63,9 +65,5 @@ Nu när du har en översikt över vad IoT Suite kan göra och dess huvudkomponen
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md
 

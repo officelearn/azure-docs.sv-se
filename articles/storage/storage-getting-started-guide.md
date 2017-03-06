@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
-ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
+ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
+ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,7 +30,7 @@ Om du vill lära dig mer om Azure Storage innan du dyker in i koden går du till
 ## <a name="prerequisites"></a>Krav
 Du behöver följande innan du börjar:
 
-1. För att kompilera och bygga programmet behöver du en version av [Visual Studio](https://www.visualstudio.com/) installerad på datorn.
+1. När du ska kompilera och bygga programmet måste [Visual Studio 2015](https://www.visualstudio.com/) eller senare vara installerat i datorn.
 2. Installera den senaste versionen av [Azure SDK för .NET](https://azure.microsoft.com/downloads/). SDK innehåller Azure QuickStart-exempelprojekt, Azure Storage-emulatorn och [Azure Storage-klientbiblioteket för .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 3. Kontrollera att du har [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) installerat på datorn eftersom det krävs för Azure-snabbstartsexempelprojekten som vi ska använda i den här självstudiekursen.
 
@@ -45,9 +46,12 @@ När du har ett konto kan du skapa ett enkelt Azure Storage-program med hjälp a
 1. Starta Visual Studio.
 2. Öppna **Arkiv**-menyn och klicka på **Nytt projekt**.
 3. I dialogrutan **Nytt projekt** klickar du på **Installerade** > **Mallar** > **Visual C#** > **Moln** > **Snabbstart** > **Datatjänster**.
-    a. Välj någon av följande mallar: **Azure Storage: Blobbar**, **Azure Storage: Filer**, **Azure Storage: Köer** eller **Azure Storage: Tabeller**.
-    b. Kontrollera att **.NET Framework 4.5** är valt som målramverk.
-    c. Ange ett namn för ditt projekt och skapa den nya Visual Studio-lösningen, som du ser här:
+   
+   a. Välj någon av följande mallar: **Azure Storage: Blobbar**, **Azure Storage: Filer**, **Azure Storage: Köer** eller **Azure Storage: Tabeller**.
+   
+   b. Kontrollera att **.NET Framework 4.5** är valt som målramverk.
+   
+   c. Ange ett namn för ditt projekt och skapa den nya Visual Studio-lösningen, som du ser här:
 
     ![Snabbstarter för Azure][Image1]
 
@@ -55,11 +59,11 @@ Du kanske vill granska källkoden innan du kör programmet. Om du vill granska k
 
 Kör exempelprogrammet:
 
-1. I Visual Studio väljer du **Solution Explorer** på **Visa**-menyn. Öppna filen App.config och kommentera ut anslutningssträngen för Azure Storage-emulatorn:
+1. I Visual Studio väljer du **Solution Explorer** på **Visa**-menyn. Öppna filen **App.config** och kommentera ut anslutningssträngen för Azure Storage-emulatorn:
 
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2. Ta bort kommentarerna för anslutningssträngen för Azure Storage-tjänsten och ange lagringskontots namn och åtkomstnyckel i filen App.config:
+2. Ta bort utkommenteringen för anslutningssträngen för Azure Storage-tjänsten i filen App.config och byt ut `[AccountName]` och `[AccountKey]` mot inloggningsuppgifterna för ditt konto:
 
    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
@@ -76,8 +80,11 @@ Vill du prova? Då ska vi skapa ett enkelt Azure Storage-program med hjälp av e
 1. Starta Visual Studio.
 2. Öppna **Arkiv**-menyn och klicka på **Nytt projekt**.
 3. I dialogrutan **Nytt projekt** klickar du på **Installerade** > **Mallar** > **Visual C#** > **Moln** > **Snabbstart** > **Datatjänster**.
+    
     a. Välj någon av följande mallar: **Azure Storage: Blobbar**, **Azure Storage: Filer**, **Azure Storage: Köer** eller **Azure Storage: Tabeller**.
+    
     b. Kontrollera att **.NET Framework 4.5** är valt som målramverk.
+    
     c. Ange ett namn för ditt projekt och skapa den nya Visual Studio-lösningen, som du ser här:
 
     ![Snabbstarter för Azure][Image1]
@@ -109,9 +116,4 @@ Se dessa resurser om du vill lära dig mer om Azure Storage:
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

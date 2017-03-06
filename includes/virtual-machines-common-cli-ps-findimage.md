@@ -1,8 +1,8 @@
 
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (förhandsversion)
+## <a name="azure-cli-20"></a>Azure CLI 2.0
 
-När du har [installerat Azure CLI 2.0 (förhandsversion)](https://docs.microsoft.com/cli/azure/install-az-cli2) kan du använda kommandot `az vm image list` för att visa en cachelagrad lista över populära VM-avbildningar. Följande exempel på kommandot `az vm image list -o table` visar:
+När du har [installerat Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) kan du använda kommandot `az vm image list` för att visa en cachelagrad lista över populära VM-avbildningar. Följande exempel på kommandot `az vm image list -o table` visar:
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -294,7 +294,3 @@ Kopiera det valda SKU-namnet från listan så har du all information om `Set-Azu
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
-
-<!--HONumber=Feb17_HO3-->
-
-

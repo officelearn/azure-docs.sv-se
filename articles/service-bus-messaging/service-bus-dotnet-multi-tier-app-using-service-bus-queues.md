@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
-ms.openlocfilehash: 0f2caeed40b59a65ec08e7d94701c93b862199fc
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -62,10 +63,10 @@ I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som krävs och ställa in din utvecklingsmiljö.
 
 1. Installera Azure SDK för .NET från [hämtningssidan](https://azure.microsoft.com/downloads/) för SDK.
-2. I kolumnen **.NET** klickar du på den version av Visual Studio som du använder. Stegen i den här självstudiekursen använder Visual Studio 2015.
+2. Klicka på den version av [Visual Studio](http://www.visualstudio.com) du använder i kolumnen **.NET**. Stegen i den här självstudiekursen använder Visual Studio 2015.
 3. När du uppmanas att köra eller spara installationsprogrammet, klickar du på **Kör**.
 4. I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
-5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt. Om du inte har Visual Studio installerat på din dator kommer SDK även att installera den kostnadsfria versionen Visual Studio Express.
+5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
 Nästa steg är att skapa ett namnområde för tjänsten och få en nyckel till signatur för delad åtkomst (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnområdet och SAS-nyckeln ger referensen för Service Bus som används för att tillåta åtkomst till ett program.
@@ -394,9 +395,4 @@ Mer information om flernivåscenarier finns i:
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

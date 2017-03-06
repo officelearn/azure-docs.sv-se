@@ -14,30 +14,31 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 1175da1e2a1c4ed7bb3a9ee463c359d2d410d92f
-ms.openlocfilehash: 5386a96a41e6bf15d5441ec52c5bb14f003bc293
+ms.sourcegitcommit: 6d8133299b062bf3935df9c30dc8a6fcf88a525e
+ms.openlocfilehash: d3af6358a5786510f4f150425d0eb8ed45e52a6c
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="use-hdfs-compatible-storage-with-hadoop-in-hdinsight"></a>Använd HDFS-kompatibel lagring med Hadoop i HDInsight
 
-För att analysera data i HDInsight-klustret kan du lagra data i antingen Azure Blob Storage, Azure Data Lake Store eller bådadera. I den här artikeln får du lära dig mer om hur de två lagringsalternativen fungerar med HDInsight-kluster.
+För att analysera data i HDInsight-klustret kan du lagra data i antingen Azure Blob Storage, Azure Data Lake Store eller bådadera. Båda lagringsalternativen låter dig ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
+
+Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange Azure Blob Storage-behållare som standardfilsystemet när du skapar HDInsight-kluster. Med HDInsight 3.5 kan du välja antingen Azure Blob Storage eller Azure Data Lake Store som standardfilsystem.
+
+I den här artikeln får du lära dig mer om hur de två lagringsalternativen fungerar med HDInsight-kluster. Mer information om hur du skapar ett HDInsight-kluster finns i [Komma igång med HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="using-azure-blob-storage-with-hdinsight-clusters"></a>Använda Azure Blob-lagring med HDInsight-kluster
 
 Azure Blob Storage är en robust lagringslösning för allmänna ändamål som smidigt kan integreras med HDInsight. Genom ett gränssnitt för Hadoop-distribuerat filsystem (HDFS) kan alla komponenter i HDInsight tillämpas direkt på strukturerade eller ostrukturerade data i Blob Storage.
 
-Om du lagrar data i Blob Storage kan du ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
-
 > [!IMPORTANT]
 > HDInsight stöder endast blockblobar. Det stöder inte sid- eller tilläggsblobar.
 > 
 > 
-
-Information om hur du skapar ett HDInsight-kluster finns i [Komma igång med HDInsight][hdinsight-get-started] och [Skapa HDInsight-kluster][hdinsight-creation].
 
 ### <a name="hdinsight-storage-architecture"></a>Lagringsarkitekturen i HDInsight
 Följande diagram visar en abstrakt vy av lagringsarkitekturen i HDInsight:
@@ -52,16 +53,10 @@ Dessutom ger HDInsight möjlighet att komma åt data som är lagrade i Azure Blo
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
-> [!NOTE]
-> I tidigare versioner av HDInsight än 3.0 användes `asv://` i stället för `wasb://`. `asv://` ska inte användas med HDInsight-kluster 3.0 eller senare, eftersom det kommer att orsaka fel.
-> 
-> 
-
-Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under processen med att skapa HDInsight utses ett Azure Storage-konto och en specifik Azure Blob Storage-behållare från detta konto till standardfilsystem.
-
-Förutom det här lagringskontot kan du lägga till ytterligare lagringskonton från samma Azure-prenumeration eller andra Azure-prenumerationer under skapandeprocessen eller efter att ett kluster har skapats. Mer information om hur du lägger till ytterligare lagringskonton finns i [Skapa HDInsight-kluster][hdinsight-creation].
+Här är några saker att tänka på när du använder Azure Storage-konton med HDInsight-kluster.
 
 * **Behållare på de lagringskonton som är anslutna till ett kluster:** Eftersom kontonamnet och nyckeln associeras med klustret när det skapas har du full tillgång till blobarna i dessa behållare.
+
 * **Offentliga behållare eller offentliga blobar på lagringskonton som INTE är anslutna till något kluster:** Du har läsbehörighet till blobarna i dessa behållare.
   
   > [!NOTE]
@@ -95,7 +90,7 @@ Vissa MapReduce-jobb och -paket kan skapa mellanresultat som du inte egentligen 
 > 
 
 ### <a name="create-blob-containers"></a>Skapa blob-behållare
-Om du vill använda blobar måste du först skapa ett [Azure Storage-konto][azure-storage-create]. Som en del av detta kan du ange en Azure-region där objekten som du skapar med det här kontot kommer att lagras. Klustret och lagringskontot måste finnas i samma region. SQL Server-databasen för Hive metastore och SQL Server-databasen för Oozie metastore måste också finnas i samma region.
+Om du vill använda blobar måste du först skapa ett [Azure Storage-konto][azure-storage-create]. Som en del av detta anger du en Azure-region där lagringskontot ska skapas. Klustret och lagringskontot måste finnas i samma region. SQL Server-databasen för Hive metastore och SQL Server-databasen för Oozie metastore måste också finnas i samma region.
 
 Oavsett var den finns tillhör varje blob som du skapar en behållare på ditt Azure Storage-konto. Den här behållaren kan vara en befintlig blob som skapats utanför HDInsight eller en behållare som skapats för ett HDInsight-kluster.
 
@@ -281,6 +276,11 @@ $clusterName = "<HDInsightClusterName>"
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 
+### <a name="using-additional-storage-accounts"></a>Använda ytterligare lagringskonton
+
+När du skapar ett HDInsight-kluster kan du ange ett Azure Storage-konto som du vill koppla till det. Förutom det här lagringskontot kan du lägga till ytterligare lagringskonton från samma Azure-prenumeration eller andra Azure-prenumerationer under skapandeprocessen eller efter att ett kluster har skapats. Mer information om hur du lägger till ytterligare lagringskonton finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
+
+
 ## <a name="using-azure-data-lake-store-with-hdinsight-clusters"></a>Använda Azure Data Lake Store med HDInsight-kluster
 
 HDInsight-kluster kan använda Azure Data Lake Store på två sätt:
@@ -328,7 +328,7 @@ Det finns ett antal sätt att komma åt filer i Azure Data Lake Store från ett 
 
 ### <a name="using-azure-data-lake-store-as-additional-storage"></a>Använda Azure Data Lake Store som kompletterande lagringsutrymme
 
-När du använder Data Lake Store som ytterligare lagringsutrymme lagras alla klusterspecifika filer i Azure Storage Blob som primärt lagringsutrymme. Du använder vanligtvis det kompletterande lagringsutrymmet för att lagra data som du vill köra analysjobb på. För att komma åt data som finns lagrade i Azure Data Lake Store från ett HDInsight-kluster måste du i sådana fall använda den fullständiga sökvägen till filerna. Exempel:
+Du kan även använda Data Lake Store som ytterligare lagringsutrymme för klustret. I sådana fall kan standardlagringsutrymmet för klustret antingen vare en Azure Storage Blob- eller ett Azure Data Lake Store-konto. Om du kör HDInsight-jobb mot data som finns lagrade i Azure Data Lake Store som ytterligare lagringsutrymme måste du använda den fullständiga sökvägen till filerna. Exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -344,6 +344,7 @@ Följ länkarna nedan för mer detaljerade instruktioner om hur du skapar HDInsi
 * [Använda PowerShell (med Data Lake Store som ytterligare lagringsutrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Använda Azure-mallar](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
+
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln beskrivs hur du använder HDFS-kompatibel Azure Blob-lagring och Azure Data Lake Store med HDInsight. Du kan skapa skalbara, långsiktiga lösningar för arkivering av insamlade data samt HDInsight för att få tillgång till informationen i lagrade strukturerade och ostrukturerade data.
 
@@ -358,8 +359,8 @@ Mer information finns i:
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[hdinsight-creation]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
+[hdinsight-creation]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
@@ -370,9 +371,4 @@ Mer information finns i:
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png  
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

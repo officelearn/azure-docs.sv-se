@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
-ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
+ms.sourcegitcommit: 54673cbc69e418bdbe7cb5791dfb5d20e7ebcb9f
+ms.openlocfilehash: 2294587fd3f978a3f8383112ece329b47307db7a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="virtual-machine-scale-sets-overview"></a>Översikt över skaluppsättningar för virtuella datorer
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Vad är skalningsuppsättningar för virtuella datorer i Azure?
 Skaluppsättningar för virtuella datorer är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning identiska virtuella datorer. När alla virtuella datorer är likadant konfigurerade är VM-skaluppsättningar utformade för att stödja äkta autoskalning – ingen företablering av VM krävs. Det gör det enklare att bygga storskaliga tjänster som riktar in sig på big compute, stordata och arbetsbelastningar i behållare.
 
 För program som behöver skala beräkningsresurser ut och in är skalningsåtgärderna balanserade implicit i fel- och uppdateringsdomäner. En introduktion till VM-skaluppsättningar finns i [Azure-bloggmeddelandet](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -127,9 +129,4 @@ Det här avsnittet innehåller några vanliga scenarier för VM-skaluppsättning
 **F.** Fungerar VM-skaluppsättningar med Azures tillgänglighetsuppsättningar?
 
 **S.** Ja. En VM-skaluppsättning är en implicit tillgänglighetsuppsättning med 5 FD och 5 UD.  Du behöver inte konfigurera något under virtualMachineProfile. Skalningsuppsättningar för virtuella datorer med mer än 100 virtuella datorer sträcker sig över flera "placeringsgrupper" som är likvärdiga med flera tillgänglighetsuppsättningar. En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma VNET som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer som ofta kräver unika konfigurationer i tillgänglighetsuppsättningen och datanoder i skalningsuppsättningen.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

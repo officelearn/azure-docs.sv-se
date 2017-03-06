@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 02/28/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 13ff55ff06d0afd5e29ce85e7cc8e1c7e0a12a6c
-ms.openlocfilehash: b2e82cffa9c258d99dc26346851ebfc016d09839
+ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
+ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -34,16 +35,23 @@ Det finns andra artiklar som du kan läsa om du är intresserad av följande:
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
 ## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a> Steg 1: Lägg till Application Insights SDK
-Kontrollera att Application Insights är markerat när du skapar ett nytt projekt i Visual Studio.
 
-![Skärmbild av nytt ASP.NET-projekt](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
-
-Om det är ett befintlig projekt högerklickar du på projektet i Solution Explorer och väljer **Lägg till Application Insights Telemetry...** eller **Konfigurera Application Insights**.
+Högerklicka på webbapp-projektet i Solution Explorer och välj **Lägg till**, **Application Insights Telemetry...** eller **Konfigurera Application Insights**.
 
 ![Skärmbild av Solution Explorer med Lägg till Application Insights Telemetry markerat](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
-> [!NOTE]
-> Om du arbetar med ett ASP.NET Core-projekt [följer du de här anvisningarna för att åtgärda några rader med kod](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
+(I Visual Studio 2015 finns det också ett alternativ för att lägga till Application Insights i dialogrutan Nytt projekt.)
+
+Fortsätt till konfigurationssidan för Application Insights:
+
+![Skärmbild av sidan Register your app with Application Insights (Registrera din app med Application Insights)](./media/app-insights-asp-net/visual-studio-register-dialog.png)
+
+1. Välj det konto och din prenumeration som du använder för att få åtkomst till Azure.
+2. Markera resursen i Azure där du vill visa data från din app. Vanligtvis skapar du en separat resurs för en varje app. Om du vill ange resursgruppen eller den plats där dina data är lagrade klickar du på **Konfigurera inställningar**. Resursgrupper används för att styra dataåtkomst. Om du exempelvis har flera appar som ingår i samma system kan du placera deras Application Insights-data i samma resursgrupp.
+3. Application Insights är kostnadsfritt upp till en viss telemetrinivå. Du kan tillämpa ett tak vid den volymen för att undvika avgifter. När resursen har skapats kan du ändra ditt val i portalen genom att öppna **Features + pricing** (Funktioner och prissättning), **Data volume management** (Datavolymhantering), **Daily volume cap** (Dagligt volymtak).
+4. Klicka på **Registrera** för att fortsätta att konfigurera Application Insights för din webbapp. Telemetri kommer att skickas till [Azure Portal](https://portal.azure.com), både under felsökningen och när du har publicerat din app.
+5. Du kan också bara lägga till Application Insights SDK till appen. I det här fallet kommer du att kunna se telemetri i Visual Studio när du felsöker. Du kan senare återvända till den här konfigurationssidan eller vänta tills du har distribuerat appen och [aktivera telemetri vid körtid](app-insights-monitor-performance-live-website-now.md).
+
 
 ## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a> Steg 2: Kör appen
 Kör din app med F5. Öppna olika sidor för att skapa viss telemetri.
@@ -194,9 +202,4 @@ Om du använder Visual Studio Team Services, kan du [få en anteckningsmarkör](
 **[Arbeta med Application Insights i Visual Studio](app-insights-visual-studio.md)**<br/>Innehåller information om att felsöka med telemetri, köra diagnostiksökningar och gå igenom koden.
 
 **[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/> Innehåller information om instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, realtidsmappning av beroenden för din app och telemetriexport.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

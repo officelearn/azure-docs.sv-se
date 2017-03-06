@@ -16,144 +16,139 @@ ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: b5cd321f3cd4c415f5e97ca550b7ab1679324921
-ms.openlocfilehash: 94ef8147f1f73b293e818fc508096789373df7fc
+ms.sourcegitcommit: 4ba44128ec19d3937643ac934ca3e787cb9819a3
+ms.openlocfilehash: 690ba97d2b0634548a0ec424d441ad34d70667b9
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planera Azure-domänanslutna Hadoop-kluster i HDInsight
 
-Traditionellt är Hadoop ett kluster för en användare. Det passar för de flesta företag som har små applikationsteam som bygger stordataarbetsbelastningar. Hadoop ökar i popularitet och många företag går mot en modell där kluster hanteras av IT-team, och flera applikationsteam delar kluster. Det gör att kluster med flera användare är en av de mest efterfrågade funktionerna i HDInsight.
+Traditionellt är Hadoop ett kluster för en användare. Det passar för de flesta företag som har små applikationsteam som bygger stordataarbetsbelastningar. Hadoop ökar i popularitet och många företag går mot en modell där kluster hanteras av IT-team, och flera applikationsteam delar kluster. Det gör att funktioner som kluster med flera användare är en av de mest efterfrågade funktionerna i Azure HDInsight.
 
-I stället för att skapa en egen autentisering och auktorisering för flera användare använder HDInsight på den populäraste identitetsprovidern – Active Directory (AD). Säkerhetsgrupper är en kraftfull funktion i Active Directory som kan användas för att hantera auktorisering i HDInsight. Genom att integrera HDInsight med Active Directory kan Active Directory-användare kommunicera med klustren med hjälp av sina Active Directory-autentiseringsuppgifter. HDInsight mappar Active Directory-användare till en lokal Hadoop-användare så att alla tjänster som körs på HDInsight (Ambari, Hive-server, Ranger, Spark Thrift-server med flera) fungerar sömlöst för autentiserade användare.
+I stället för att skapa en egen autentisering och auktorisering för flera användare använder HDInsight på den populäraste identitetsprovidern – Azure Active Directory (Azure AD). De kraftfulla säkerhetsfunktionerna i Azure AD kan användas för att hantera auktorisering av flera användare i HDInsight. Genom att integrera HDInsight med Azure AD kan du kommunicera med klusterna genom att använda dina autentiseringsuppgifter för Azure AD. HDInsight mappar Azure AD-användare till en lokal Hadoop-användare så att alla tjänster som körs på HDInsight (Ambari, Hive-server, Ranger, Spark Thrift-server med flera) fungerar sömlöst för autentiserade användare.
 
-## <a name="integrate-hdinsight-with-active-directory"></a>Integrera HDInsight med Active Directory
+## <a name="integrate-hdinsight-with-azure-ad"></a>Integrera HDInsight med Azure AD
 
-När du integrerar HDInsight med Active Directory domänansluts HDInsight-klusternoder till Active Directory-domänen. HDInsight skapar tjänsthuvudnamn för de Hadoop-tjänster som körs i klustret och placerar dem i en angiven organisationsenhet (OU) i Active Directory. HDInsight skapar även omvända DNS-mappningar i Active Directory-domänen för IP-adresserna för de noder som är anslutna till domänen.
+När du integrerar HDInsight med Azure AD domänansluts HDInsight-klusternoder till Azure AD-domänen. HDInsight skapar tjänsthuvudnamn för de Hadoop-tjänster som körs i klustret och placerar dem i en angiven organisationsenhet (OU) i Azure AD. HDInsight skapar även omvända DNS-mappningar i Azure AD-domänen för IP-adresserna för de noder som är anslutna till domänen.
 
-Det finns flera arkitekturer som du kan följa för att uppnå den här konfigurationen. Välj den arkitektur som fungerar bäst för dig.
+Det finns flera olika arkitekturer som du kan använda för att uppnå den här konfigurationen. Du kan välja från följande arkitekturer.
 
-**1. HDInsight integrerad med AD som körs på Azure IAAS**
+**HDInsight integrerad med Azure AD som körs på Azure IaaS**
 
-Det här är den enklaste arkitekturen för integrering av HDInsight med Active Directory. Active Directory-domänkontrollanten körs på en (eller flera) virtuella datorer (VM) i Azure. Dessa virtuella datorer finns vanligtvis i ett virtuellt nätverk. Du konfigurerar ett annat virtuellt nätverk för HDInsight-kluster. För att HDInsight ska ha åtkomst till Active Directory måste du peer-koppla dessa virtuella nätverk med hjälp av en [VNet-till-VNet-peering](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md).
+Det här är den enklaste arkitekturen för integrering av HDInsight med Azure AD. Azure AD-domänkontrollanten körs på en (eller flera) virtuella datorer (VM) i Azure. Dessa virtuella datorer finns vanligtvis i ett virtuellt nätverk. Du konfigurerar ett annat virtuellt nätverk för HDInsight-klustret. För att HDInsight ska ha åtkomst till Azure AD måste du peer-koppla dessa virtuella nätverk med hjälp av [VNet-till-VNet-peering](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md).
 
 ![Domänansluten HDInsight-klustertopologi](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_1.png)
 
 > [!NOTE]
-> Du kan inte använda Azure Data Lake Store med HDInsight-kluster i den här arkitekturen.
- 
+> Du kan inte använda Azure Data Lake Store med HDInsight-klustret i den här arkitekturen.
 
-Krav för Active Directory:
+
+Krav för Azure AD:
 
 * Du måste skapa en [organisationsenhet](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) som de virtuella datorerna i HDInsight-klustret och tjänsthuvudnamnen som används av klustret ska placeras i.
-* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) måste konfigureras för kommunikation med Active Directory. Certifikatet som används för att konfigurera LDAPS måste vara ett verkligt certifikat (inte ett självsignerat certifikat).
+* [Lightweight Directory Access Protocols](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAPs) måste ställas in för att kommunicera med Azure AD. Certifikatet som används för att konfigurera LDAPS måste vara ett verkligt certifikat (inte ett självsignerat certifikat).
 * Omvända DNS-zoner måste skapas på domänen för HDInsight-undernätets IP-adressintervall (till exempel 10.2.0.0/24 på föregående bild).
-* Ett tjänstkonto eller ett användarkonto krävs (som utfärdades för att skapa HDInsight-klustret). Följande behörigheter krävs för kontot:
+* Ett tjänstkonto eller ett användarkonto krävs. Använd det här kontot för att skapa HDInsight-klustret. Följande behörigheter krävs för kontot:
 
-    - Behörigheter för att skapa tjänsthuvudnamnsobjekt och datorobjekt inom organisationsenheten.
+    - Behörigheter för att skapa tjänsthuvudnamnsobjekt och datorobjekt inom organisationsenheten
     - Behörigheter för att skapa regler för omvänd DNS-proxy
-    - Behörigheter för att ansluta datorer till Active Directory-domänen.
+    - Behörigheter för att ansluta datorer till Active Directory-domänen
 
-**2. HDInsight integrerad med endast molnbaserad Azure AD**
+**HDInsight integrerad med endast molnbaserad Azure AD**
 
-För en endast molnbaserad Azure Active Directory (AD Azure) måste du konfigurera en domänkontrollant så att HDInsight kan integreras med Azure Active Directory. Detta uppnås med hjälp av [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS). Azure AD DS skapar domänkontrollanter i molnet och tillhandahåller IP-adresser till dem. Två domänkontrollanter skapas för hög tillgänglighet.
+För endast molnbaserad Azure AD måste du konfigurera en domänkontrollant så att HDInsight kan integreras med Azure AD. Detta uppnås med hjälp av [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS). Azure AD DS skapar domänkontrollanter i molnet och tillhandahåller IP-adresser för dem. Två domänkontrollanter skapas för hög tillgänglighet.
 
-Azure AD DS finns för närvarande bara i klassiska virtuella nätverk. Det är bara tillgängligt med den klassiska Azure-portalen. HDInsight VNet finns i Azure Portal som måste vara peer-kopplad med den klassiska VNet med VNet-till-VNet-peering.
+Azure AD DS finns för närvarande bara i klassiska virtuella nätverk. Det är bara tillgängligt med den klassiska Azure-portalen. Virtuella HDInsight-nätverk finns i Azure Portal som måste vara peer-kopplad med den klassiska virtuella nätverket med VNet-till-VNet-peering.
 
 > [!NOTE]
-> För peering mellan ett klassiskt virtuellt nätverk och ett virtuellt Azure Resource Manager-nätverk krävs att båda de virtuella nätverken är i samma region, och att båda de virtuella nätverken ingår i samma Azure-prenumeration.
+> För peering mellan ett klassiskt virtuellt nätverk och ett virtuellt Azure Resource Manager-nätverk krävs att båda virtuella nätverken är i samma region, och att de ingår i samma Azure-prenumeration.
 
 ![Domänansluten HDInsight-klustertopologi](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
 
-Krav för Active Directory:
+Krav för Azure AD:
 
-* Du måste skapa en [organisationsenhet](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) som de virtuella datorerna i HDInsight-klustret och tjänsthuvudnamnen som används av klustret ska placeras i. 
-* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) måste konfigureras när du konfigurerar AD DS. Certifikatet som används för att konfigurera LDAPS måste vara ett verkligt certifikat (inte ett självsignerat certifikat).
-* Omvända DNS-zoner måste skapas på domänen för HDI-undernätets IP-adressintervall (till exempel 10.2.0.0/24 på föregående bild). 
-* [Hashvärden för lösenord](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) måste synkroniseras från Azure AD till AD DS.
-* Ett tjänstkonto eller ett användarkonto krävs (används för att skapa HDInsight-klustret). Följande behörigheter krävs för kontot:
+* Du måste skapa en [organisationsenhet](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) som de virtuella datorerna i HDInsight-klustret och tjänsthuvudnamnen som används av klustret ska placeras i.
+* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) måste konfigureras när du konfigurerar Azure AD DS. Certifikatet som används för att konfigurera LDAPS måste vara ett verkligt certifikat (inte ett självsignerat certifikat).
+* Omvända DNS-zoner måste skapas på domänen för HDInsight-undernätets IP-adressintervall (till exempel 10.2.0.0/24 på föregående bild).
+* [Hashvärden för lösenord](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) måste synkroniseras från Azure AD till Azure AD DS.
+* Ett tjänstkonto eller ett användarkonto krävs. Använd det här kontot för att skapa HDInsight-klustret. Följande behörigheter krävs för kontot:
 
-    - Behörigheter för att skapa tjänsthuvudnamnsobjekt och datorobjekt inom organisationsenheten.
+    - Behörigheter för att skapa tjänsthuvudnamnsobjekt och datorobjekt inom organisationsenheten
     - Behörigheter för att skapa regler för omvänd DNS-proxy
-    - Behörigheter för att ansluta datorer till Active Directory-domänen.
+    - Behörigheter för att ansluta datorer till Azure AD-domänen
 
-**3. HDInsight integrerad med lokal AD via VPN**
+**HDInsight integrerad med lokal Active Directory via VPN**
 
-Den här arkitekturen liknar arkitektur #1. Den enda skillnaden är att Active Directory finns lokalt och att HDInsight är tillgänglig för Active Directory via en [VPN-anslutning från Azure till det lokala nätverket](../expressroute/expressroute-introduction.md).
+Den här arkitekturen liknar HDInsight integrerad med Azure AD som körs på Azure IaaS. Den enda skillnaden är att Azure AD finns lokalt och att HDInsight är tillgänglig för Azure AD via en [VPN-anslutning från Azure till ett lokalt nätverk](../expressroute/expressroute-introduction.md).
 
 ![Domänansluten HDInsight-klustertopologi](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_3.png)
 
 > [!NOTE]
-> Du kan inte använda Azure Data Lake Store med HDInsight-kluster i den här arkitekturen.
+> Du kan inte använda Azure Data Lake Store med HDInsight-klustret i den här arkitekturen.
 
-Krav för Active Directory:
+Krav för Azure AD:
 
 * Du måste skapa en [organisationsenhet](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) som de virtuella datorerna i HDInsight-klustret och tjänsthuvudnamnen som används av klustret ska placeras i.
-* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) måste konfigureras för kommunikation med Active Directory. Certifikatet som används för att konfigurera LDAPS måste vara ett verkligt certifikat (inte ett självsignerat certifikat).
-* Omvända DNS-zoner måste skapas på domänen för HDI-undernätets IP-adressintervall (till exempel 10.2.0.0/24 på föregående bild).
-* Ett tjänstkonto eller ett användarkonto krävs (används för att skapa HDInsight-klustret). Följande behörigheter krävs för kontot:
+* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) måste konfigureras för kommunikation med Azure AD. Certifikatet som används för att konfigurera LDAPS måste vara ett verkligt certifikat (inte ett självsignerat certifikat).
+* Omvända DNS-zoner måste skapas på domänen för HDInsight-undernätets IP-adressintervall (till exempel 10.2.0.0/24 på föregående bild).
+* Ett tjänstkonto eller ett användarkonto krävs. Använd det här kontot för att skapa HDInsight-klustret. Följande behörigheter krävs för kontot:
 
-    - Behörigheter för att skapa tjänsthuvudnamnsobjekt och datorobjekt inom organisationsenheten.
+    - Behörigheter för att skapa tjänsthuvudnamnsobjekt och datorobjekt inom organisationsenheten
     - Behörigheter för att skapa regler för omvänd DNS-proxy
-    - Behörigheter för att ansluta datorer till Active Directory-domänen.
+    - Behörigheter för att ansluta datorer till Azure AD-domänen
 
-**4. HDInsight integrerad med lokal AD som är synkroniserad med Azure AD**
+**HDInsight integrerad med lokal Active Directory som är synkroniserad med Azure AD**
 
-Den här arkitekturen liknar arkitektur #2. Den enda skillnaden är att den lokala Active Directory är synkroniserad med Azure Active Directory. Du måste konfigurera en domänkontrollant så att HDInsight kan integreras med Azure Active Directory. Detta uppnås med hjälp av [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS). AD DS skapar domänkontrollanter i molnet och ger dig IP-adresser till dem. Två domänkontrollanter skapas för hög tillgänglighet.
+Den här arkitekturen liknar HDInsight integrerad med endast molnbaserad Azure AD. Den enda skillnaden är att den lokala Active Directory är synkroniserad med Azure AD. Konfigurera en domänkontrollant i molnet så att HDInsight kan integreras med Azure AD. Detta uppnås med hjälp av [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md). Azure AD DS skapar domänkontrollanter i molnet och tillhandahåller IP-adresser för dem. Två domänkontrollanter skapas för hög tillgänglighet.
 
-Azure AD DS finns för närvarande bara i klassiska virtuella nätverk. Det är bara tillgängligt med den klassiska Azure-portalen. HDInsight VNet finns i Azure Portal som måste vara peer-kopplad med den klassiska VNet med VNet-till-VNet-peering.
+Azure AD DS finns för närvarande bara i klassiska virtuella nätverk. Det är bara tillgängligt med den klassiska Azure-portalen. Virtuella HDInsight-nätverk finns i Azure Portal som måste vara peer-kopplad med den klassiska virtuella nätverket med VNet-till-VNet-peering.
 
 > [!NOTE]
-> För peering mellan ett klassiskt virtuellt nätverk och ett virtuellt Azure Resource Manager-nätverk krävs att båda de virtuella nätverken är i samma region, och att båda de virtuella nätverken ingår i samma Azure-prenumeration.
+> För peering mellan ett klassiskt virtuellt nätverk och ett virtuellt Azure Resource Manager-nätverk krävs att båda virtuella nätverken är i samma region, och att de ingår i samma Azure-prenumeration.
 
 ![Domänansluten HDInsight-klustertopologi](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
 
-Krav för Active Directory:
+Krav för Azure AD:
 
-* Du måste skapa en [organisationsenhet](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) som de virtuella datorerna i HDInsight-klustret och tjänsthuvudnamnen som används av klustret ska placeras i. 
-* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) måste konfigureras när du konfigurerar AD DS. Certifikatet som används för att konfigurera LDAPS måste vara ett verkligt certifikat (inte ett självsignerat certifikat).
-* Omvända DNS-zoner måste skapas på domänen för HDI-undernätets IP-adressintervall (till exempel 10.2.0.0/24 på föregående bild). 
-* [Hashvärden för lösenord](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) måste synkroniseras från Azure AD till AD DS.
-* Ett tjänstkonto eller ett användarkonto krävs (används för att skapa HDInsight-klustret). Följande behörigheter krävs för kontot:
+* Du måste skapa en [organisationsenhet](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) som de virtuella datorerna i HDInsight-klustret och tjänsthuvudnamnen som används av klustret ska placeras i.
+* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) måste konfigureras när du konfigurerar Azure AD DS. Certifikatet som används för att konfigurera LDAPS måste vara ett verkligt certifikat (inte ett självsignerat certifikat).
+* Omvända DNS-zoner måste skapas på domänen för HDInsight-undernätets IP-adressintervall (till exempel 10.2.0.0/24 på föregående bild).
+* [Hashvärden för lösenord](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) måste synkroniseras från Azure AD till Azure AD DS.
+* Ett tjänstkonto eller ett användarkonto krävs. Använd det här kontot för att skapa HDInsight-klustret. Följande behörigheter krävs för kontot:
 
-    - Behörigheter för att skapa tjänsthuvudnamnsobjekt och datorobjekt inom organisationsenheten.
+    - Behörigheter för att skapa tjänsthuvudnamnsobjekt och datorobjekt inom organisationsenheten
     - Behörigheter för att skapa regler för omvänd DNS-proxy
-    - Behörigheter för att ansluta datorer till Active Directory-domänen.
+    - Behörigheter för att ansluta datorer till Active Directory-domänen
 
-**5. HDInsight integrerad med ett icke-förvalt Azure AD (rekommenderas endast för testning och utveckling)**
+**HDInsight integrerad med ett icke-förvalt Azure AD (rekommenderas endast för testning och utveckling)**
 
-Den här arkitekturen liknar arkitektur #2. För de flesta företag är administratörsåtkomsten till Active Directory begränsad till endast vissa personer. När du vill göra en POC (proof-of-concept) eller bara prova att skapa ett domänanslutet kluster kan det vara fördelaktigt att bara skapa en ny Azure Active Directory i prenumerationen, i stället för att vänta tills administratören har konfigurerat krav i Active Directory. Eftersom du skapat en Azure AD har du fullständiga behörigheter till denna Azure AD för att konfigurera AD DS.
+Den här arkitekturen liknar HDInsight integrerad med endast molnbaserad Azure AD. För de flesta företag är administratörsåtkomsten till Azure AD begränsad till vissa personer. När du vill göra en POC (proof-of-concept) eller prova att skapa ett domänanslutet kluster kan det vara fördelaktigt att skapa en Azure AD-instans i prenumerationen i stället för att vänta tills en administratör har konfigurerat krav i Azure AD. Eftersom det här är en Azure AD-instans som du skapat har du fullständiga behörigheter till den här Azure AD-instansen och kan konfigurera Azure AD DS.
 
-AD DS skapar domänkontrollanter i molnet och ger dig IP-adresser till dem. Två domänkontrollanter skapas för hög tillgänglighet.
+Azure AD DS skapar domänkontrollanter i molnet och tillhandahåller IP-adresser för dem. Två domänkontrollanter skapas för hög tillgänglighet.
 
-AD DS finns bara i klassiska VNets idag, och du behöver därför åtkomst till den klassiska portalen, och du behöver skapa ett klassiskt VNet för att konfigurera AD DS. HDInsight VNet finns i Azure Portal som måste vara peer-kopplad med den klassiska VNet med VNet-till-VNet-peering.
+Azure AD DS finns bara i klassiska virtuella nätverk så du behöver ha åtkomst till den klassiska Azure-portalen och du måste skapa ett klassiskt virtuella nätverk för att konfigurera Azure AD DS. Virtuella HDInsight-nätverk finns i Azure Portal som måste vara peer-kopplad med den klassiska virtuella nätverket med VNet-till-VNet-peering.
 
 > [!NOTE]
-> För peering mellan ett klassiskt virtuellt nätverk och ett virtuellt Azure Resource Manager-nätverk krävs att båda de virtuella nätverken är i samma region, och att båda de virtuella nätverken ingår i samma Azure-prenumeration.
+> För peering mellan det klassiska virtuella nätverket och virtuella Azure Resource Manager-nätverk krävs att båda virtuella nätverken är i samma region och att de ingår i samma Azure-prenumeration.
 
 ![Domänansluten HDInsight-klustertopologi](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
 
-Krav för Active Directory:
+Krav för Azure AD:
 
-* Du måste skapa en [organisationsenhet](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) som de virtuella datorerna i HDInsight-klustret och tjänsthuvudnamnen som används av klustret ska placeras i. 
-* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) måste konfigureras när du konfigurerar AD DS. Du kan skapa en [självsignerat certifikat](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) för att konfigurera LDAPS. Men om du vill använda ett självsignerat certifikat måste du begära ett undantag från <a href="mailto:hdipreview@microsoft.com">hdipreview@microsoft.com</a>.
-* Omvända DNS-zoner måste skapas på domänen för HDI-undernätets IP-adressintervall (till exempel 10.2.0.0/24 på föregående bild). 
-* [Hashvärden för lösenord](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) måste synkroniseras från Azure AD till AD DS.
-* Ett tjänstkonto eller ett användarkonto krävs (används för att skapa HDInsight-klustret). Följande behörigheter krävs för kontot:
+* Du måste skapa en [organisationsenhet](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) som de virtuella datorerna i HDInsight-klustret och tjänsthuvudnamnen som används av klustret ska placeras i.
+* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) måste konfigureras när du konfigurerar Azure AD DS. Du kan skapa en [självsignerat certifikat](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) för att konfigurera LDAPS. Men om du vill använda ett självsignerat certifikat måste du begära ett undantag från <a href="mailto:hdipreview@microsoft.com">hdipreview@microsoft.com</a>.
+* Omvända DNS-zoner måste skapas på domänen för HDInsight-undernätets IP-adressintervall (till exempel 10.2.0.0/24 på föregående bild).
+* [Hashvärden för lösenord](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) måste synkroniseras från Azure AD till Azure AD DS.
+* Ett tjänstkonto eller ett användarkonto krävs. Använd det här kontot för att skapa HDInsight-klustret. Följande behörigheter krävs för kontot:
 
-    - Behörigheter för att skapa tjänsthuvudnamnsobjekt och datorobjekt inom organisationsenheten.
+    - Behörigheter för att skapa tjänsthuvudnamnsobjekt och datorobjekt inom organisationsenheten
     - Behörigheter för att skapa regler för omvänd DNS-proxy
-    - Behörigheter för att ansluta datorer till Active Directory-domänen.
+    - Behörigheter för att ansluta datorer till Azure Active Directory-domänen
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill konfigurera ett domänanslutet HDInsight-kluster kan du läsa i [Konfigurera domänanslutna HDInsight-kluster](hdinsight-domain-joined-configure.md).
+* Om du vill konfigurera ett domänanslutet HDInsight-kluster kan du läsa [Konfigurera domänanslutna HDInsight-kluster](hdinsight-domain-joined-configure.md).
 * Information om hantering av domänanslutna HDInsight-kluster finns i [Hantera domänanslutna HDInsight-kluster](hdinsight-domain-joined-manage.md).
-* Om du vill konfigurera Hive-principer och köra Hive-frågor kan du läsa i [Konfigurera Hive-principer för domänanslutna HDInsight-kluster](hdinsight-domain-joined-run-hive.md).
-* Om du vill köra Hive-frågor med SSH på domänanslutna HDInsight-kluster kan du läsa i [Använd SSH med Linux-baserade Hadoop på HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+* Om du vill konfigurera Hive-principer och köra Hive-frågor kan du läsa [Konfigurera Hive-principer för domänanslutna HDInsight-kluster](hdinsight-domain-joined-run-hive.md).
+* Om du vill köra Hive-frågor med SSH på domänanslutna HDInsight-kluster kan du läsa [Använd SSH med Linux-baserade Hadoop på HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 

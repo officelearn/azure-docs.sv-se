@@ -1,5 +1,5 @@
 ---
-title: "Batch- och HPC-lösningar i molnet | Microsoft Docs"
+title: "Batch- och HPC-lösningar i molnet – Azure| Microsoft Docs"
 description: "Läs mer om scenarier och lösningsalternativ för databehandling med höga prestanda (HCP och Big Compute) i Azure"
 services: batch, virtual-machines, cloud-services
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: c3e80bc18e4d1007146d9d3c80c2618400480046
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-and-hpc-solutions-in-the-azure-cloud"></a>Batch- och HPC-lösningar i Azure-molnet
+# <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Batch- och HPC-lösningar för storskaliga beräkningsarbetsbelastningar
+
 Azure erbjuder effektiva, skalbara molnlösningar för Batch och HCP (High Performance Computing – databehandling med höga prestanda), även kallat *Big Compute*. Lär dig mer om Big Compute-arbetsbelastningar och Azures tjänster som stöder dem, eller gå direkt till [lösningsscenarierna](#scenarios) längre fram i den här artikeln. Den här artikeln är främst avsedd för tekniska beslutsfattare, IT-chefer och oberoende programvaruleverantörer, men även andra IT-experter och utvecklare kan ha nytta av den för att bekanta sig med dessa lösningar.
 
 Många organisationer har problem med storskalig databearbetning, till exempel inom områden som teknisk design och analys, bildrendering, komplex modellering, Monte Carlo-simuleringar, beräkning av finansiella risker med mera. Azure hjälper organisationer att lösa dessa problem med de resurser, den skalning och det schema som de behöver. Med Azure kan organisationer:
@@ -134,9 +137,4 @@ Din Big Compute-lösning kan behöva andra Azure-tjänster för att ansluta till
 [iaas_cluster]: ./media/batch-hpc-solutions/iaas_cluster.png
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

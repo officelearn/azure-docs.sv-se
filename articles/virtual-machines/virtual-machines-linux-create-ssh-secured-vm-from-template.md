@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ea1274dd53a93f00fa251ed03684b17b58b009c2
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-an-azure-template"></a>Skapa en virtuell Linux-dator med hjälp av en Azure-mall
+# <a name="how-to-create-a-linux-vm-using-an-azure-resourec-manager-template"></a>Så här skapar du en virtuell Linux-dator med hjälp av en Azure Resource Manager-mall
 I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator i Azure med hjälp av en Azure-mall.  Artikeln kräver:
 
 * ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/)).
@@ -78,10 +80,5 @@ I det exemplet distribueras en virtuell dator med parametern `--template-uri`.  
 
 ## <a name="next-steps"></a>Nästa steg
 Sök i [mallgalleriet](https://azure.microsoft.com/documentation/templates/) för att se vilka appramverk som du ska distribuera härnäst.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

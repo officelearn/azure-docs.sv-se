@@ -15,8 +15,9 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6402c4cf43e087c22824555277deabc01ead2a0d
-ms.openlocfilehash: 25c6b0196de7f44fc77191dfe5a4c7c47bdd60e7
+ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
+ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -215,10 +216,10 @@ För att demonstrera hur du monterar en Azure-filresurs ska vi nu skapa en virtu
 3. Öppna ett PowerShell-fönster på den virtuella datorn.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Spara autentiseringsuppgifterna för ditt lagringskonto för den virtuella datorn
-Innan du monterar till filresursen sparar du autentiseringsuppgifterna för ditt lagringskonto på den virtuella datorn. Det här steget gör att Windows kan återansluta till filresursen automatiskt när den virtuella datorn startar om. För att spara dina kontouppgifterna kör du kommandot `cmdkey` från PowerShell-fönstret på den virtuella datorn. Ersätt `<storage-account-name>` med namnet på ditt lagringskonto och `<storage-account-key>` med din åtkomstnyckel för lagring.
+Innan du monterar till filresursen sparar du autentiseringsuppgifterna för ditt lagringskonto på den virtuella datorn. Det här steget gör att Windows kan återansluta till filresursen automatiskt när den virtuella datorn startar om. För att spara dina kontouppgifterna kör du kommandot `cmdkey` från PowerShell-fönstret på den virtuella datorn. Ersätt `<storage-account-name>` med namnet på ditt lagringskonto och `<storage-account-key>` med din åtkomstnyckel för lagring. Du måste uttryckligen ange domänen ”AZURE” som i exemplet nedan. 
 
 ```
-cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 ```
 
 Nu återansluter Windows till din filresurs när den virtuella datorn startas om. Du kan kontrollera att resursen har återanslutit genom att köra kommandot `net use` från ett PowerShell-fönster.
@@ -238,10 +239,10 @@ net use z: \\samples.file.core.windows.net\logs
 Eftersom du sparade autentiseringsuppgifterna för ditt lagringskonto i föregående steg så behöver du inte ange dem med kommandot `net use`. Om du inte redan har sparat dina autentiseringsuppgifter tar du med dem som en parameter som skickas till kommandot `net use`, som du ser i följande exempel.
 
 ```
-net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
 
 example :
-net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-account-key>
 ```
 
 Nu kan du arbeta med File Storage-resursen från den virtuella datorn precis som med andra enheter. Du kan köra standardfilkommandon från Kommandotolken eller visa den monterade resursen och dess innehåll från Utforskaren. Du kan också köra kod på den virtuella datorn som ansluter till filresursen med standard-I/O-API:er för Windows-filer, till exempel de som finns i [System.IO-namnrymderna](http://msdn.microsoft.com/library/gg145019.aspx) i .NET Framework.
@@ -602,51 +603,57 @@ Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoo
    
     För närvarande stöds inte AD-baserad autentisering eller ACL:er, men vi har det i åtanke för framtida versioner. Nu används i stället Azure Storage-kontonycklar för att tillhandahålla autentisering till filresursen. Vi erbjuder dock en lösning som använder signaturer för delad åtkomst (SAS) via REST-API:et eller klientbiblioteken. Med SAS kan du generera token med särskilda behörigheter som är giltiga under ett angivet tidsintervall. Du kan till exempel generera en token med skrivskyddad åtkomst till en viss fil. Alla som har denna token under tiden då den är giltig har skrivskyddad åtkomst till filen.
    
-    SAS stöds endast via REST-API:et eller klientbiblioteken. När du monterar filresursen via SMB-protokollet kan du inte använda en SAS för att delegera åtkomst till dess innehåll.
-2. **Syns Azure-filresurser offentligt över Internet eller går de bara att nå via Azure?**
-   
-    Om port 445 (TCP utgående) är öppen och klienten stöder SMB 3.0-protokollet (*t.ex.* Windows 8 eller Windows Server 2012) så är filresursen tillgänglig via Internet. Kontakta din lokala Internet-leverantör för att avblockera porten. Under tiden kan du se dina filer med Lagringsutforskaren eller annat program från en tredje part, som till exempel Cloudberry.
-3. **Räknas nätverkstrafiken mellan en virtuell Azure-dator och en filresurs som extern bandbredd som debiteras till prenumerationen?**
+    SAS stöds endast via REST-API:et eller klientbiblioteken. När du monterar filresursen via SMB-protokollet kan du inte använda en SAS för att delegera åtkomst till dess innehåll. 
+
+2. **Hur kan jag ge åtkomst till en specifik fil via en webbläsare?**
+   Med SAS kan du generera token med särskilda behörigheter som är giltiga under ett angivet tidsintervall. Du kan till exempel generera ett token med skrivskyddad åtkomst till en viss fil under en viss tidsperiod. Alla som har den här URL:en kan hämta direkt från valfri webbläsare medan den är giltig. SAS-nycklar går lätt att generera från användargränssnitt som Storage Explorer.
+
+3.   **Vad finns det för olika sätt att komma åt filer i Azure File Storage?**
+    Du kan montera filresursen på den lokala datorn med SMB 3.0-protokollet eller med verktyg som [Storage Explorer](http://storageexplorer.com/) eller Cloudberry för att få åtkomst till filer i filresursen. Från programmet kan du använda Klientbibliotek, REST API eller Powershell för att få åtkomst till dina filer i Azure-filresursen.
+    
+4.   **Hur monterar jag Azure-filresursen på datorn lokalt?** Om port 445 (TCP utgående) är öppen och klienten stöder SMB 3.0-protokollet (*t.ex.* Windows 8 eller Windows Server 2012) kan du montera filresursen via SMB-protokollet. Kontakta din lokala Internet-leverantör för att avblockera porten. Under tiden kan du se dina filer med Lagringsutforskaren eller annat program från en tredje part, som till exempel Cloudberry.
+
+5. **Räknas nätverkstrafiken mellan en virtuell Azure-dator och en filresurs som extern bandbredd som debiteras till prenumerationen?**
    
     Om filresursen och den virtuella datorn finns i olika områden debiteras trafiken mellan dem som extern bandbredd.
-4. **Är nätverkstrafik mellan en virtuell dator och filresurs inom samma region kostnadsfri?**
+6. **Är nätverkstrafik mellan en virtuell dator och filresurs inom samma region kostnadsfri?**
    
     Ja. Trafiken är kostnadsfri om den är i samma region.
-5. **Är anslutningen från lokala virtuella datorer till Azure File Storage beroende av Azure ExpressRoute?**
+7. **Är anslutningen från lokala virtuella datorer till Azure File Storage beroende av Azure ExpressRoute?**
    
     Nej. Om du inte har ExpressRoute kan du fortfarande komma åt filresursen från lokala virtuella datorer under förutsättning att port 445 (TCP utgående) är öppen för Internetåtkomst. Men du kan använda ExpressRoute med File Storage om du vill.
-6. **Är ett ”filresursvittne” för ett redundanskluster en av användningsfallen för Azure File Storage?**
+8. **Är ett ”filresursvittne” för ett redundanskluster en av användningsfallen för Azure File Storage?**
    
     Detta stöds inte för närvarande.
-7. **Replikeras File Storage bara via LRS eller GRS för tillfället?**  
+9. **Replikeras File Storage bara via LRS eller GRS för tillfället?**  
    
     Vi planerar att implementera stöd för RA-GRS men tidsplanen är inte fastställd än.
-8. **När kan jag använda befintliga lagringskonton för Azure File Storage?**
+10. **När kan jag använda befintliga lagringskonton för Azure File Storage?**
    
     Nu är Azure File Storage aktiverat för alla lagringskonton.
-9. **Kommer en namnbytesåtgärd också att läggas till i REST API:et?**
+11. **Kommer en namnbytesåtgärd också att läggas till i REST API:et?**
    
     Namnbyten stöds inte än i vårt REST-API.
-10. **Går det att ha inbäddade resurser, det vill säga en resurs inuti en resurs?**
+12. **Går det att ha inbäddade resurser, det vill säga en resurs inuti en resurs?**
     
     Nej. Filresursen är den virtuella drivrutin som du kan montera, så kapslade resurser stöds inte.
-11. **Är det möjligt att ange skrivskydd eller lässkydd för mappar inom resursen?**
+13. **Är det möjligt att ange skrivskydd eller lässkydd för mappar inom resursen?**
     
     Du har inte den här kontrollnivån över behörigheterna om du monterar filresursen via SMB. Du kan dock åstadkomma detta genom att skapa en signatur för delad åtkomst (SAS) via REST-API:et eller klientbiblioteken.  
-12. **Min prestanda var långsam när jag försökte zippa upp filer till File Storage. Vad ska jag göra?**
+14. **Min prestanda var långsam när jag försökte zippa upp filer till File Storage. Vad ska jag göra?**
     
     Om du vill överföra ett stort antal filer till File Storage rekommenderar vi att du använder AzCopy, Azure PowerShell (Windows) eller Azure CLI (Linux/Unix) eftersom dessa verktyg har optimerats för nätverksöverföring.
-13. **En snabbkorrigering släpptes för att fixa problemet med långsam prestanda med Azure Files**
+15. **En snabbkorrigering släpptes för att fixa problemet med långsam prestanda med Azure Files**
     
     Windows-teamet släppte nyligen en korrigering som löser problemet med långsamma prestanda när kunden ansluter till Azure Storage från Windows 8.1 eller Windows Server 2012 R2. Mer information finns i KB-artikeln [Låga prestanda när du ansluter till Azure File Storage från Windows 8.1 eller Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
-14. **Använd Azure File Storage med IBM MQ**
+16. **Använd Azure File Storage med IBM MQ**
     
     IBM har publicerat ett dokument som hjälper IBM MQ-kunder att konfigurera Azure File Storage med deras tjänst. Mer information finns i [Konfigurera IBM MQ MIQM (Multi Instance Queue Manager) med Microsoft Azures filtjänst](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
-15. **Hur felsöker jag Azure File Storage-fel?**
+17. **Hur felsöker jag Azure File Storage-fel?**
     
     Du kan gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoot-file-connection-problems.md) för felsökningsinformation från slutpunkt till slutpunkt.               
 
-16. **Hur kan jag aktivera kryptering på serversidan för Azure Files?**
+18. **Hur kan jag aktivera kryptering på serversidan för Azure Files?**
 
     [Kryptering på serversidan](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) finns för närvarande i förhandsversionen. I förhandsversionen kan funktionen bara aktiveras för nyligen skapade lagringskonton för Azure Resource Manager (ARM).
     Du kan aktivera den här funktionen på lagringskonton för Azure Resource Manager med Azure Portal. Vi planerar att ha [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) eller [API:t för Microsoft Azure Storage Resource Provider](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) för att aktivera kryptering för fillagring vid slutet av februari. Inga extra kostnader tillkommer för att aktivera den här funktionen. När du aktiverar Storage Service Encryption för Azure File Storage krypteras data automatiskt åt dig. 
@@ -674,9 +681,4 @@ Mer information om Azure File Storage finns på följande länkar.
 * [Inuti Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introduktion till Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Bevara anslutningar till Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

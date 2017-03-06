@@ -11,16 +11,18 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ca87ad0165c7333fd43a828f7d92d46a432d8f78
-ms.openlocfilehash: 6956353771e6b4bcb814eb7cc9dfde01c452b8bd
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 15db7dad6b83f6df3891aea60b308f2cf6008dd9
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="application-gateway-overview"></a>Översikt över Application Gateway
+# <a name="overview-of-application-gateway"></a>Översikt över Application Gateway
 
 ## <a name="what-is-application-gateway"></a>Vad är Application Gateway
 
@@ -92,9 +94,4 @@ Du kan skapa och hantera en Application Gateway med hjälp av REST API:er, Power
 När du läst om Application Gateway så kan du [skapa en application gateway](application-gateway-create-gateway-portal.md), eller så kan du [skapa en SSL-avlastning för Application Gateway](application-gateway-ssl-arm.md) för att belastningsutjämna HTTPS-anslutningar.
 
 För att läsa hur man skapar en Application Gateway med hjälp av URL-baserad innehållsroutning, kan du gå till [Skapa en Application Gateway med hjälp av URL-baserad routning](application-gateway-create-url-route-arm-ps.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

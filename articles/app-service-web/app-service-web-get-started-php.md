@@ -4,7 +4,7 @@ description: "Distribuera en PHP-exempelapp och se hur enkelt det är att köra 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,25 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: f739bf6101936ff6bb25738e4888476e3b33a38f
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 68298208d2e2cc1fe7ab4050afecb25ca7d619cd
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Distribuera din första PHP-webbapp till Azure på fem minuter (CLI 2.0 Preview)
-
-> [!div class="op_single_selector"]
-> * [Första HTML-webbplats](app-service-web-get-started-html.md)
-> * [Första .NET-app](app-service-web-get-started-dotnet.md)
-> * [Första PHP-app](app-service-web-get-started-php.md)
-> * [Första Node.js-app](app-service-web-get-started-nodejs.md)
-> * [Första Python-app](app-service-web-get-started-python.md)
-> * [Första Java-app](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 I de här självstudierna lär du dig hur du distribuerar din första PHP-webbapp via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Du kan använda App Service för att skapa webbappar, [serverdelar för mobilappar](/documentation/learning-paths/appservice-mobileapps/) och [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Du kommer att:
 Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
 - [Azure CLI 1.0](app-service-web-get-started-php-cli-nodejs.md) – vår CLI för distributionsmodellerna klassisk och resurshantering
-- [Azure CLI 2.0 (förhandsversion)](app-service-web-get-started-php.md) –vår nästa generations CLI för distributionsmodellen resurshantering
+- [Azure CLI 2.0](app-service-web-get-started-php.md) – vår nästa generations CLI för distributionsmodellen resurshantering
 
 ## <a name="prerequisites"></a>Krav
 * [Git](http://www.git-scm.com/downloads).
@@ -62,7 +54,7 @@ Du kan slutföra uppgiften med någon av följande CLI-versioner:
 > 
 
 ## <a name="deploy-a-php-web-app"></a>Distribuera en PHP-webbapp
-1. Öppna en ny Windows-kommandotolk, ett PowerShell-fönster, Linux-gränssnittet eller en OS X-terminal. Kör `git --version` och `azure --version` för att kontrollera att Git och Azure CLI är installerade på datorn.
+1. Öppna en ny Windows-kommandotolk, ett PowerShell-fönster, Linux-gränssnittet eller en OS X-terminal. Kör `git --version` och `az --version` för att kontrollera att Git och Azure CLI är installerade på datorn.
    
     ![Testa installationen av CLI-verktygen för din första webbapp i Azure](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
    
@@ -77,7 +69,7 @@ Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
 3. Ange distributionsanvändare för App Service. Du distribuerar kod med dessa autentiseringsuppgifterna senare.
    
-        az appservice web deployment user set --user-name <username> --password <password>
+        az appservice web deployment user set --user-name <unique-username> --password <8-char-or-longer-password-letters-and-numbers>
 
 3. Skapa en ny [resursgrupp](../azure-resource-manager/resource-group-overview.md). För denna första App Service-självstudie behöver du egentligen inte veta vad det är.
 
@@ -128,7 +120,7 @@ Grattis, du har distribuerat din app till Azure App Service.
 ## <a name="see-your-app-running-live"></a>Köra appen live
 Du kan köra appen live i Azure genom att köra det här kommandot från valfri katalog i databasen:
 
-    azure site browse
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Göra appuppdateringar
 Nu kan du använda Git och skicka skrivningar från projektroten (databasen) när som helst för att uppdatera liveplatsen. Du gör på samma sätt som när du distribuerade din kod första gången. Exempelvis kör du bara följande kommandon från projektroten (databasen) varje gång du vill skicka in en ny ändring som du har testat lokalt:
@@ -151,10 +143,5 @@ Eller gör mer med din första webbapp. Exempel:
 
 * Prova [andra sätt att distribuera din kod till Azure](web-sites-deploy.md). Markera till exempel **GitHub** istället för **Lokal Git-lagringsplats** i **Distributionsalternativ** för att distribuera från någon av dina GitHub-lagringsplatser.
 * Ta din Azure-app till nästa nivå. Autentisera användarna. Skala den på begäran. Konfigurera prestandavarningar. Allt med några få klickningar. Mer information finns i [Lägga till funktioner till din första webbapp](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: ca1e8b9ef8c7543c2b21441c761b0c309d22f202
-ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
+ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
+ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -38,7 +39,7 @@ Uppdateringshanteringslösningen i OMS gör att du kan du hantera uppdateringar 
 Utför följande steg för att lägga till uppdateringshanteringslösningen till din OMS-arbetsyta och lägga till Linux-agenter. Windows-agenter läggs till automatiskt utan någon ytterligare konfiguration.
 
 > [!NOTE]
-> För närvarande om du aktiverar den här lösningen konfigureras en Windows-dator som du ansluter till din OMS-arbetsyta automatiskt som en Hybrid Runbook Worker för att ge stöd för runbooks som ingår i den här lösningen.  Men den registreras inte med Hybrid Worker-grupper som du har skapat i ditt Automation-konto och du kan inte lägga till den i en Hybrid Worker-grupp för att köra dina egna runbooks.  Om en Windows-dator redan har konfigurerats som en Hybrid Runbook Worker och anslutits till OMS-arbetsytan måste du ta bort den från OMS-arbetsytan innan du lägger till lösningen för att förhindra att dina runbooks inte fungerar som förväntat.  
+> Om du aktiverar den här lösningen konfigureras en Windows-dator som du ansluter till din OMS-arbetsyta automatiskt som en Hybrid Runbook Worker för att ge stöd för runbooks som ingår i den här lösningen.  Den är emellertid inte registrerad med några Hybrid Worker-grupper som du redan kanske har definierat i ditt Automation-konto.  Du kan lägga till den till en Hybrid Runbook Worker-grupp i ditt Automation-konto så att den stöder Automation-runbooks så länge du använder samma konto för både lösningen och Hybrid Runbook Worker-gruppmedlemskapet.  Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.   
 
 1. Lägg till uppdateringshanteringslösningen i din OMS-arbetsyta med hjälp av den process som beskrivs i [Lägg till OMS-lösningar](../log-analytics/log-analytics-add-solutions.md) från lösningsgalleriet.  
 2. I OMS-portalen OMS väljer du **Inställningar** och sedan **Anslutna källor**.  Observera **arbetsyte-ID** och antingen **primärnyckel** eller **sekundärnyckel**.
@@ -247,10 +248,5 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 * Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-searches.md) för att visa detaljerad uppdateringsinformation.
 * [Skapa egna instrumentpaneler](../log-analytics/log-analytics-dashboards.md) som visar uppdateringskompatibilitet för dina hanterade datorer.
 * [Skapa aviseringar](../log-analytics/log-analytics-alerts.md) som visas när viktiga uppdateringar saknas på datorer eller när automatiska uppdateringar är inaktiverade för en dator.  
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: cb0843ec739d11e997794a8217c95696c4e78d23
-ms.openlocfilehash: 70999d615038e7a5a11a623a9eef3e08c09f5eb9
+ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
+ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -102,50 +103,93 @@ Det här objektet definierar en körbar process. Du kan lägga till det i ett å
 ## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Skicka frågor mot indexet
 Nu har du ett sökindex som du kan börja skicka frågor mot. **Sökutforskaren** är ett frågeverktyg som är inbyggt i portalen. Det innehåller en sökruta så att du kan kontrollera att en sökning returnerar det du förväntar dig. 
 
-   ![Kommandot Sökutforskaren][5]
-
 > [!TIP]
 > Följande steg demonstreras 6 minuter och 8 sekunder in i [översiktsvideon över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 >
 
 1. Klicka på **Sökutforskaren** i kommandofältet.
 
+   ![Kommandot Sökutforskaren][5]
+
 2. Klicka på **Ändra index** i kommandofältet för att byta till *realestate-us-sample*.
 
    ![Index- och API-kommandon][6]
 
-3. Klicka på **Ange API-version** i kommandofältet om du vill se vilka REST-API:er som finns tillgängliga. Förhandsversions-API:er ger dig tillgång till nya funktioner som inte är släppta till allmänheten ännu. Använd den allmänt tillgängliga versionen (2016-09-01), om inget annat anges. 
+3. Klicka på **Ange API-version** i kommandofältet om du vill se vilka REST-API:er som finns tillgängliga. Förhandsversions-API:er ger dig tillgång till nya funktioner som inte är släppta till allmänheten ännu. Använd den allmänt tillgängliga versionen (2016-09-01) för frågorna nedan om inget annat anges. 
 
     > [!NOTE]
     > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) och [.NET-biblioteket](search-howto-dotnet-sdk.md#core-scenarios) är fullständigt likvärdiga, men **Sökutforskaren** kan endast hantera REST-anrop. Den accepterar syntax från både [enkel frågeparser](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [fullständig frågeparser (Lucene)](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) samt alla tillgängliga sökparametrar i [dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/search-documents).
     > 
-    > **Sökutforskaren** returnerar resultat i JSON, vilket kan vara detaljerat och svårläst om dokumenten har en kompakt struktur. Beroende på vilka dokument som används kan du behöva skriva kod som hanterar sökresultaten för att kunna extrahera viktiga element.
 
 4. Skriv in frågesträngarna nedan i sökfältet och klicka på **Sök**.
 
   ![Exempel på sökfråga][7]
 
-**`search=seattle`** Parametern `search` används för att ange en sökordssökning i det här fallet, och returnerar resultat från King County i delstaten Washington med Seattle i valfritt sökbart fält i dokumentet.
+**`search=seattle`**
 
-**`search=seattle&facet=beds`** Parametern `facet` returnerar en navigeringsstruktur som du kan skicka till en kontroll i användargränssnittet. Den returnerar kategorier och antal. I det här fallet baseras kategorierna på antalet sovrum och antalet dokument eller matchningar för vart och ett. `"beds"` kan klassas som ett fasettvärde eftersom det är märkt som ett filtrerbart och fasettbart fält i indexet. Värdena (numeriska, 1–5) är väl lämpade för att kategorisera och dela upp listor i grupper (listor med 3 sovrum, 4 sovrum etc.).  Symbolen `&` används för att lägga till sökparametrar.
++ Parametern `search` används för att ange en sökordssökning i det här fallet, och returnerar resultat från King County i delstaten Washington med *Seattle* i valfritt sökbart fält i dokumentet. 
 
-**`search=seattle&filter=bed gt 3`** Parametern `filter` returnerar resultat som matchar de kriterier som du har angett. I det här fallet sovrum som är större än 3. Syntaxen för filtret är en OData-konstruktion. Mer information finns i [OData-filtersyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
++ **Sökutforskaren** returnerar resultat i JSON, vilket kan vara detaljerat och svårläst om dokumenten har en kompakt struktur. Beroende på vilka dokument som används kan du behöva skriva kod som hanterar sökresultaten för att kunna extrahera viktiga element. 
 
-**`search=granite countertops&highlight=description`** Om du använder träffmarkering formateras all text som matchar sökordet på ett särskilt sätt inom ett givet fält. Om sökordet begravt långt ned i en beskrivning kan du använda träffmarkering för att göra det lättare att hitta ordet. I det här fallet blir det mycket lättare att hitta den formaterade frasen `"granite countertops"` i beskrivningsfältet.
++ Dokument består av alla fält som är markerade som hämtningsbara i indexet. Om du vill visa indexattribut i portalen klickar du på *realestate-us-sample* på ikonen **Index**.
 
-**`search=mice&highlight=description`** Fulltextsökning hittar ordformer med liknande semantisk struktur. I det här fallet har någon sökt på ”möss”. Sökresultaten innehåller då även texter med ordet ”mus” och referenser till skadedjursbekämpning. Tack vare språkanalysen kan olika former av samma ord visas i resultaten. Azure Search har stöd för 56 analysverktyg från både Lucene och Microsoft. Som standard används analysverktyget från Lucene av Azure Search. 
+**`search=seattle&$count=true&$top=100`**
 
-**`search=samamish`** Normalt sett får du inga träffar på felstavade ord – om du till exempel skrivit ”samamish” när du sökte på ”Sammamish Plateau” utanför Seattle. Använd fuzzy-sökning för att hantera felstavningar. En beskrivning av detta finns i nästa exempel.
++ Symbolen `&` används för att lägga till sökparametrar, som kan anges i valfri ordning. 
 
-**`search=samamish~&queryType=full`** Fuzzy-sökning aktiveras när du skriver in symbolen `~` och använder den fullständiga frågeparsern för att tolka och parsa `~`-syntaxen på korrekt sätt. Som standard används den enklare frågeparsern eftersom den är snabbare, men du kan välja den fullständiga frågeparsern om du behöver tillgång till fuzzy-sökning, reguljära uttryck, närhetssökning eller andra typer av avancerade frågor. Mer information om frågescenarier i den fullständiga frågeparsern finns i [Lucene-frågesyntax i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++  Parametern `$count=true` returnerar ett antal för summan av alla returnerade dokument. Du kan verifiera filterfrågor genom att övervaka ändringar som rapporterats via `$count=true`. 
 
-**`search=*`** Tomma sökningar returnerar allt. Du kan använda en tom fråga för att hämta totalt antal dokument i ditt index eller om du vill filtrera eller fasettera en fullständig dokumentuppsättning enligt beskrivningen nedan.
++ `$top=100` returnerar de högst rangordnade 100 dokumenten bland alla dokument. Som standard returnerar Azure Search de första 50 bästa matchningarna. Du kan öka eller minska antalet via `$top`.
 
-**`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`** Geospatial sökning stöds av [datatypen edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i fält som innehåller koordinater. Med den här frågan filtreras alla resultat efter platsdata, där resultaten måste ligga mindre än 10 km från en given plats (koordinaterna anges med latitud och longitud). Geosearch är en filtertyp som finns med i [OData-filtersyntaxen](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+**`search=*&facet=city&$top=2`**
 
-Normalt sett anges filteruttryck som $filter med hjälp av tecknet `$`. Utelämna `$` i Sökutforskaren.
++ `search=*` är en tom sökning. Tomma sökningar söker efter allt. En anledning till att skicka en tom fråga är att filtrera eller fasettera över hela uppsättningen dokument. Om du exempelvis vill att en fasetterande navigeringsstruktur ska bestå av alla städer i indexet.
 
-Geospatial sökning kan vara användbart om sökprogrammet har en funktion av typen ”hitta en bensinstation i närheten av där jag befinner mig” eller om programmet har en funktion för kartnavigering. Det är dock inte fråga om någon fulltextsökning. Om användarna ställer krav på att kunna söka efter en ort eller ett land lägger du till fält för ort eller land som ett komplement till koordinaterna.
++  `facet` returnerar en navigeringsstruktur som du kan skicka till en kontroll i användargränssnittet. Den returnerar kategorier och antal. I det här fallet baseras kategorier på antalet städer. Det finns ingen aggregering i Azure Search, men du kan uppskatta aggregering via `facet`, som ger en uppräkning av dokument i varje kategori.
+
++ `$top=2` hämtar tillbaka två dokument, som visar att du kan använda `top` för att både minska eller öka resultat.
+
+**`search=seattle&facet=beds`**
+
++ De här frågan är en aspekt för sängar, i en textsökning för *Seattle*. `"beds"` kan klassas som ett fasettvärde eftersom fältet är märkt som ett hämtningsbart, filtrerbart och fasettbart fält i indexet. Värdena (numeriska, 1–5) är väl lämpade för att kategorisera och dela upp listor i grupper (listor med 3 sovrum, 4 sovrum etc.). 
+
++ Endast filtrerbara fält kan fasetteras. Endast hämtningsbara fält kan returneras i resultatet.
+
+**`search=seattle&$filter=beds gt 3`**
+
++ Parametern `filter` returnerar resultat som matchar de kriterier som du har angett. I det här fallet sovrum som är större än 3. 
+
++ Syntaxen för filtret är en OData-konstruktion. Mer information finns i [OData-filtersyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+
+**`search=granite countertops&highlight=description`**
+
++ Träffmarkering innebär att formatera all text som matchar sökordet på ett särskilt sätt inom ett givet fält. Om sökordet begravt långt ned i en beskrivning kan du använda träffmarkering för att göra det lättare att hitta ordet. I det här fallet blir det mycket lättare att hitta den formaterade frasen `"granite countertops"` i beskrivningsfältet.
+
+**`search=mice&highlight=description`**
+
++ Fulltextsökning hittar ordformer med liknande semantisk struktur. I det här fallet har någon sökt på ”möss”. Sökresultaten innehåller då även texter med ordet ”mus” och referenser till skadedjursbekämpning. Tack vare språkanalysen kan olika former av samma ord visas i resultaten. 
+
++ Azure Search har stöd för 56 analysverktyg från både Lucene och Microsoft. Som standard används analysverktyget från Lucene av Azure Search. 
+
+**`search=samamish`**
+
++ Normalt sett får du inga träffar på felstavade ord – om du till exempel skrivit ”samamish” när du sökte på ”Sammamish Plateau” utanför Seattle. Använd fuzzy-sökning för att hantera felstavningar. En beskrivning av detta finns i nästa exempel.
+
+**`search=samamish~&queryType=full`**
+
++ Fuzzy-sökning aktiveras när du skriver in symbolen `~` och använder den fullständiga frågeparsern för att tolka och parsa `~`-syntaxen på korrekt sätt. 
+
++ Fuzzy-sökning är tillgängligt när du väljer den fullständiga frågeparsern, som sker när du ställer in `queryType=full`. Mer information om frågescenarier i den fullständiga frågeparsern finns i [Lucene-frågesyntax i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+
++ När `queryType` inte är angivet används den enklare standardfrågeparsern. Den enklare frågeparsern är snabbare, men om du behöver tillgång till fuzzy-sökning, reguljära uttryck, närhetssökning eller andra typer av avancerade frågetyper behöver du den fullständiga syntaxen. 
+
+**`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
+
++ Geospatial sökning stöds av [datatypen edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i fält som innehåller koordinater. Geosearch är en filtertyp som finns med i [OData-filtersyntaxen](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+
++ Med den här exempelfrågan filtreras alla resultat efter platsdata, där resultaten måste ligga mindre än 5 km från en given plats (koordinaterna anges med latitud och longitud). Om du lägger till `$count` kan du se hur många resultat som returneras när du ändrar antingen avståndet eller koordinaterna. 
+
++ Geospatial sökning kan vara användbart om sökprogrammet har en funktion av typen ”hitta en bensinstation i närheten av där jag befinner mig” eller om programmet har en funktion för kartnavigering. Det är dock inte fråga om någon fulltextsökning. Om användarna ställer krav på att kunna söka efter en ort eller ett land lägger du till fält för ort eller land som ett komplement till koordinaterna.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -153,9 +197,9 @@ Geospatial sökning kan vara användbart om sökprogrammet har en funktion av ty
 
   Du kan visa enskilda komponenter genom att klicka på panelerna **Index**, **Indexerare** eller **Datakällor** på instrumentpanelen för att visa en lista med befintliga objekt. Mer information om indexredigeringar som inte kräver återskapning finns i [Uppdatera index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Prova att använda verktygen och stegen med andra datakällor. Exempeldatauppsättningen `realestate-us-sample` kommer från en Azure SQL-databas som Azure Search kan crawla. Utöver Azure SQL Database kan Azure Search crawla Azure Table Storage, Blob Storage, SQL Server på en virtuell Azure-dator och DocumentDB. Guiden stöder samtliga dessa datakällor. I koden kan du på ett enkelt sätt skapa och fylla i ett index med en *indexerare*.
++ Prova att använda verktygen och stegen med andra datakällor. Exempeldatauppsättningen `realestate-us-sample` kommer från en Azure SQL-databas som Azure Search kan crawla. Utöver Azure SQL Database kan Azure Search crawla och dra slutsatsen av ett index från fasta datastukturer i Azure Table Storage, Blob Storage, SQL Server på en virtuell Azure-dator och DocumentDB. Guiden stöder samtliga dessa datakällor. I koden kan du på ett enkelt sätt fylla i ett index med en *indexerare*.
 
-+ Alla övriga datakällor stöds via en push-modell, där koden skickar nya och ändrade raduppsättningar i JSON till ditt index. Mer information finns i [Lägga till, uppdatera eller ta bort dokument i Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
++ Alla övriga icke-indexerare-datakällor stöds via en push-modell, där koden skickar nya och ändrade raduppsättningar i JSON till ditt index. Mer information finns i [Lägga till, uppdatera eller ta bort dokument i Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 Mer information om andra funktioner som omnämns i den här artikeln finns på dessa länkar:
 
@@ -175,8 +219,3 @@ Mer information om andra funktioner som omnämns i den här artikeln finns på d
 [7]: ./media/search-get-started-portal/search-explorer-query2.png
 [8]: ./media/search-get-started-portal/realestate-indexer2.png
 [9]: ./media/search-get-started-portal/import-datasource-sample2.png
-
-
-<!--HONumber=Feb17_HO3-->
-
-

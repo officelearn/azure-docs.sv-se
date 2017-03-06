@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4cde035f75bfa3c448f12e9ebf2896b9a54a6873
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Använda SSH med HDInsight (Hadoop) från Windows, Linux, Unix eller OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-bash-on-windows-10-linux-unix-or-os-x"></a>Använda SSH med HDInsight (Hadoop) från Bash på Windows 10, Linux, Unix eller OS X
 
 > [!div class="op_single_selector"]
 > * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -42,13 +43,11 @@ Många operativsystem tillhandahåller funktioner för SSH-klienten genom `ssh`-
 * __SSH__: En allmän SSH-klient som kan användas för att upprätta en kommandoradssession via en fjärranslutning och för att skapa tunnlar.
 * __SCP__: Ett verktyg som kopierar filer mellan lokala och fjärranslutna system med hjälp av SSH-protokollet.
 
-Före Windows 10 Anniversary Edition tillhandahöll inte Windows någon SSH-klient. Den här versionen av Windows innehåller funktionen Bash för Windows 10 för utvecklare, som tillhandahåller `ssh`, `scp` och andra Linux-kommandon. Mer information om hur du använder Bash för Windows 10 finns i artikeln om [Bash i Ubuntu för Windows](https://msdn.microsoft.com/commandline/wsl/about).
+Windows 10 Anniversary Edition tillhandahåller Bash som en funktion för utvecklare. Den tillhandahåller `ssh`, `scp`, och andra Linux-kommandon. Mer information om hur du använder Bash för Windows 10 finns i artikeln om [Bash i Ubuntu för Windows](https://msdn.microsoft.com/commandline/wsl/about).
 
 Om du använder Windows och inte har tillgång till Bash för Windows 10 rekommenderar vi följande SSH-klienter:
 
 * [Git för Windows](https://git-for-windows.github.io/): Tillhandahåller `ssh`- och `scp`-kommandoradsverktygen.
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/): Tillhandahåller en grafisk SSH-klient.
-* [MobaXterm](http://mobaxterm.mobatek.net/): Tillhandahåller en grafisk SSH-klient.
 * [Cygwin](https://cygwin.com/): Tillhandahåller `ssh`- och `scp`-kommandoradsverktygen.
 
 > [!NOTE]
@@ -64,7 +63,7 @@ Om du använder kryptografi med offentliga nycklar måste du skapa ett par med e
 
 * Den **privata nyckeln** är den nyckel som du uppger till HDInsight-klustret när du loggar in med en SSH-klient för att verifiera din identitet. Skydda den privata nyckeln. Dela den inte med andra.
 
-    Du kan öka säkerheten ytterligare genom att skapa en lösenfras för den privata nyckeln. Du måste ange den här lösenfrasen innan nyckeln kan användas.
+    Du kan öka säkerheten ytterligare genom att skapa en lösenfras för den privata nyckeln. Om du använder en lösenfras måste du ange den när du autentiserar med SSH.
 
 ### <a name="create-a-public-and-private-key"></a>Skapa en offentlig och privat nyckel
 
@@ -91,7 +90,7 @@ När kommandot har körts har du två nya filer:
 * __id\_rsa__: Den här filen innehåller den privata nyckeln.
 
     > [!WARNING]
-    > Du måste begränsa åtkomsten till den här filen för att förhindra obehörig åtkomst till tjänster som skyddas av den offentliga nyckeln.
+    > Begränsa åtkomsten till den här filen för att förhindra obehörig åtkomst till tjänster som skyddas av den offentliga nyckeln.
 
 * __id\_rsa.pub__: Den här filen innehåller den offentliga nyckeln. Du använder den här filen när du skapar ett HDInsght-kluster.
 
@@ -115,7 +114,7 @@ Mer information om hur du konfigurerar SSH när klustret skapas finns i följand
 
 Ytterligare SSH-användare kan läggas till i klustret när det har skapats, men detta rekommenderas inte.
 
-* Du måste manuellt lägga till nya SSH-användare till varje nod i klustret.
+* Nya SSH-användare måste läggas till varje nod i klustret.
 
 * Nya SSH-användare har samma åtkomst till HDInsight som standardanvändaren. Det går inte att begränsa åtkomsten till data eller jobb i HDInsight baserat på SSH-användarkonto.
 
@@ -147,7 +146,7 @@ Om du använder en offentlig nyckel för att skydda SSH-kontot kan du behöva an
 
 ### <a name="connect-to-other-nodes"></a>Ansluta till andra noder
 
-Arbetarnoderna och Zookeeper-noderna kan inte nås direkt utanför klustret, men de kan nås från huvudnoderna eller kantnoderna i klustret. Här är de allmänna steg som du följer för att åstadkomma detta:
+Arbetarnoderna och Zookeeper-noderna kan inte nås direkt utanför klustret, men de kan nås från huvudnoderna eller kantnoderna i klustret. Här är de allmänna steg som du följer för att ansluta till andra noder:
 
 1. Använd SSH för att ansluta till en huvud- eller kantnod:
 
@@ -183,7 +182,7 @@ Om du använder en SSH-nyckel för att autentisera ditt konto måste du kontroll
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Om inget returneras beror det på att `ssh-agent` inte körs. Läs informationen om skripten för agentstart i [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Använda ssh-agent med ssh) eller läs dokumentationen för din SSH-klient för specifika steg som beskriver hur du installerar och konfigurerar `ssh-agent`.
+    Om inget returneras så körs inte `ssh-agent`. Läs informationen om skripten för agentstart i [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Använda ssh-agent med ssh) eller läs dokumentationen för din SSH-klient för specifika steg som beskriver hur du installerar och konfigurerar `ssh-agent`.
 
 4. När du har verifierat att **ssh-agent** körs använder du följande för att lägga till din privata SSH-nyckel till agenten:
 
@@ -196,7 +195,7 @@ Om du använder en SSH-nyckel för att autentisera ditt konto måste du kontroll
 
 [Domänanslutna HDInsight](hdinsight-domain-joined-introduction.md) integrerar Kerberos med Hadoop i HDInsight. Eftersom SSH-användaren inte är en Active Directory-domänanvändare kan du inte köra Hadoop-kommandon förrän du autentiserar med Active Directory. Använd följande steg för att autentisera SSH-sessionen med Active Directory:
 
-1. Anslut till ett domänanslutet HDInsight-kluster med hjälp av SSH (se avsnittet [Ansluta till HDInsight](#connect)). Följande kommando ansluter till exempel till ett HDInsight-kluster med namnet __myhdi__ med hjälp av SSH-kontot __sshuser__.
+1. Anslut till ett domänanslutet HDInsight-kluster med SSH. Följande kommando ansluter till exempel till ett HDInsight-kluster med namnet __myhdi__ med hjälp av SSH-kontot __sshuser__.
 
         ssh sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -212,12 +211,12 @@ Efter autentiseringen med `kinit`-kommandot kan du använda Hadoop-kommandon som
 
 ## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH-tunnel
 
-SSH kan användas för lokala tunnelbegäranden, till exempel webbegäranden, till HDInsight-klustret. Begäran dirigeras sedan till den begärda resursen som om den hade sitt ursprung i HDInsight-klustrets huvudnod.
+SSH kan användas för lokala tunnelbegäranden, till exempel webbegäranden, till HDInsight-klustret. Begäran vidarebefordras till klustret och blir sedan löst inom klustret.
 
 > [!IMPORTANT]
 > En SSH-tunnel är ett krav för att komma åt webbgränssnittet för vissa Hadoop-tjänster. Till exempel kan både jobbhistorikgränssnittet eller resurshanterargränssnittet bara användas med en SSH-tunnel.
 
-Mer information om hur du skapar och använder en SSH-tunnel finns i [Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) (Använda SSH-tunnlar för att komma åt Ambari-webbgränssnittet, JobHistory, NameNode, Oozie och andra webbgränssnitt).
+Mer information om hur du skapar och använder en SSH-tunnel finns i [Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md) (Använda SSH-tunnlar för att komma åt Ambari-webbgränssnittet, JobHistory, NameNode, Oozie och andra webbgränssnitt).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -228,9 +227,4 @@ Nu när du vet hur du autentiserar genom att använda en SSH-nyckel kan du lära
 * [Använda MapReduce-jobb med HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

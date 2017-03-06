@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
-ms.openlocfilehash: ae5e08e7a5c483fd89390580647722b2c9da0ecb
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -53,10 +54,10 @@ Följande är en skärmbild av startsidan i det färdiga webbprogrammet.
 Innan du kan börja utveckla Azure-program måste du hämta de verktyg som krävs och ställa in din utvecklingsmiljö:
 
 1. Installera Azure SDK för .NET från [hämtningssidan](https://azure.microsoft.com/downloads/) för SDK.
-2. I kolumnen **.NET** klickar du på den version av Visual Studio som du använder. Stegen i den här självstudiekursen använder Visual Studio 2015.
+2. Klicka på den version av [Visual Studio](http://www.visualstudio.com) du använder i kolumnen **.NET**. Stegen i den här självstudiekursen använder Visual Studio 2015.
 3. När du uppmanas att köra eller spara installationsprogrammet, klickar du på **Kör**.
 4. I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
-5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt. Om du inte har Visual Studio installerat på din dator kommer SDK även att installera den kostnadsfria versionen Visual Studio Express.
+5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
 För att komma igång med reläfunktionerna i Azure måste du först skapa ett namnområde för tjänsten. Ett namnområde tillhandahåller en omfångsbehållare för adressering av Azure-resurser i ditt program. Följ [anvisningarna här](relay-create-namespace-portal.md) för att skapa ett Relay-namnområde.
@@ -462,9 +463,4 @@ Mer information om Azure Relay finns i följande resurser:
 [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
 [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

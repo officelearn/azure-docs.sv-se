@@ -1,5 +1,5 @@
 ---
-title: IIS-autentisering och Azure Multi-Factor Authentication Server
+title: IIS-autentisering och Azure MFA Server | Microsoft Docs
 description: "Det här är sidan om Azure Multi-Factor Authentication som hjälper dig att distribuera IIS-autentisering och Azure Multi-Factor Authentication Server."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 02/26/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: 6f1e4d5f8e86b621d2bfc446583324163424dc60
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: 71ba44c00036b3ed45518f58fa534a1767ab8c34
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="iis-authentication"></a>IIS-autentisering
+# <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Konfigurera Azure Multi-Factor Authentication Server för IIS-webbappar
+
 Via IIS-autentisering på Azure Multi-Factor Authentication-servern kan du aktivera och konfigurera IIS-autentisering för integrering med Microsoft IIS-webbprogram. Azure MFA Server installerar ett plugin-program som kan filtrera begäranden som görs till IIS-webbservern för att lägga till Azure Multi-Factor Authentication. IIS-plugin-programmet har stöd för formulärbaserad autentisering och integrerad Windows-HTTP-autentisering. Betrodda IP-adresser kan även konfigureras att undanta interna IP-adresser från tvåfaktorsautentisering.
 
 ![IIS-autentisering](./media/multi-factor-authentication-get-started-server-iis/iis.png)
@@ -74,10 +76,5 @@ Tillförlitliga IP-adresser låter användarna kringgå Azure Multi-Factor Authe
 2. Klicka på **Lägg till**.
 3. När dialogrutan för att lägga till tillförlitliga IP-adresser visas väljer du alternativknappen **Enkel IP**, **IP-intervall** eller **Undernät**.
 4. Ange IP-adressen, IP-adressintervallet eller undernätet som ska vitlistas. Om du anger ett undernät väljer du lämplig nätmask och klickar på **OK**. Nu har vitlistan lagts till.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

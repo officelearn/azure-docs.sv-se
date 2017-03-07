@@ -52,8 +52,3 @@
 ## [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=cognitive-services)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

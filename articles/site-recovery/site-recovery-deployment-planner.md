@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: f438db1d0129dfb0e2eaa00146147084cd8c11b6
-ms.openlocfilehash: 179e8cf928d83a3a66ed3489173e4c28a2bc9d4f
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -309,7 +309,7 @@ ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter
 
 **To meet RPO 90% of the time**: (För att nå RPO-målet 90 % av gångerna) om bandbreddspriserna är för höga eller om du av någon annan anledning inte kan tilldela den bandbredd som krävs för att uppnå RPO-målet 100 % av gångerna så kan du välja att tilldela en bandbredd som gör att du uppnår önskat RPO 90 % av gångerna. I rapporten ges även en ”tänk om”-analys av hur många RPO-överträdelser du kan förvänta dig och deras varaktighet, så att du bättre ska förstå vad som kan hända om du tilldelar den här lägre bandbredden.
 
-**Achieved Throughput:** (Uppnått dataflöde) är dataflödet från servern där du körde kommandot GetThroughput till den Microsoft Azure-region där Azure Storage-kontot är beläget. Värdet är en uppskattning av det dataflöde du kan uppnå när du skyddar de kompatibla virtuella datorerna med Azure Site Recovery, förutsatt att egenskaperna för konfigurationsservern/processervern, lagringen och nätverket är samma som för servern där du körde verktyget. Achieved Throughput (Uppnått dataflöde) är dataflödet från servern där du körde kommandot GetThroughput till den Microsoft Azure-region där Azure Storage-kontot är beläget. Värdet är en uppskattning av det dataflöde du kan uppnå när du skyddar de kompatibla virtuella datorerna med Azure Site Recovery, förutsatt att egenskaperna för konfigurationsservern/processervern, lagringen och nätverket är samma som för servern där du körde verktyget.
+**Achieved Throughput:** (Uppnått dataflöde) är dataflödet från servern där du körde kommandot GetThroughput till den Microsoft Azure-region där Azure Storage-kontot är beläget. Värdet är en uppskattning av det dataflöde du kan uppnå när du skyddar de kompatibla virtuella datorerna med Azure Site Recovery, förutsatt att egenskaperna för konfigurationsservern/processervern, lagringen och nätverket är samma som för servern där du körde verktyget.    
 
 När det gäller replikering ska du tilldela den bandbredd som rekommenderas för att uppfylla RPO-målet 100 % av gångerna. Om inte verktyget rapporterar ökade dataflöden även när du har tilldelat rätt mängd bandbredd kan du kontrollera följande:
 

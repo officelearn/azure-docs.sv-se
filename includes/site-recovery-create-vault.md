@@ -1,4 +1,4 @@
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+
 1. Logga in på [Azure Portal](https://portal.azure.com) > **Site Recovery**
 2. Klicka på **Ny** > **Hantering** >
 3. I **Namn** anger du ett eget namn som identifierar valvet. Om du har mer än en prenumeration väljer du en av dem.
@@ -8,8 +8,3 @@
    ![Nytt valv](./media/site-recovery-create-vault/new-vault-settings.png)
 
    Det nya valvet visas på **instrumentpanelen** > **Alla resurser** och på huvudbladet för **Recovery Services-valv**.
-
-
-<!--HONumber=Feb17_HO4-->
-
-

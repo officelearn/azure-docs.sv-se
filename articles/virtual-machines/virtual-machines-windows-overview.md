@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
+ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
+ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ I den här tabellen finns några exempel på hur du kan hämta en lista över ti
 | Metod | Beskrivning |
 | --- | --- |
 | Azure Portal |Välj en plats i listan när du skapar en virtuell dator. |
-| Azure PowerShell |Använd kommandot [Get-AzureRmLocation](https://msdn.microsoft.com/library/mt619449.aspx). |
-| REST API |Använd åtgärden [List locations](https://msdn.microsoft.com/library/dn790540.aspx) (Listplatser). |
+| Azure PowerShell |Använd kommandot [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation). |
+| REST API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) (Listplatser). |
 
 ### <a name="vm-size"></a>Storlek på virtuell dator
 [Storleken](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) på den virtuella datorn som du använder bestäms av den arbetsbelastning som du vill köra. Storleken som du väljer avgör sedan faktorer som processorkraft, minne och lagringskapacitet. Azure erbjuder en rad olika storlekar för att passa en mängd olika användningar.
@@ -79,8 +80,8 @@ I den här tabellen hittar du några olika sätt för att hitta informationen om
 | Metod | Beskrivning |
 | --- | --- |
 | Azure Portal |Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx) -Location "location" -Publisher "publisherName" -Offer "offerName" |
-| REST API:er |[Lista över avbildningsutgivare](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[Lista över avbildningserbjudanden](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[Lista över avbildnings-SKU:er](https://msdn.microsoft.com/library/mt743701.aspx) |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| REST API:er |[Lista över avbildningsutgivare](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lista över avbildningserbjudanden](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lista över avbildnings-SKU:er](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
 Du kan välja att [ladda upp och använda en egen avbildning](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Om du gör det används inte utgivarnamn, erbjudande och sku.
 
@@ -91,7 +92,7 @@ Dessa vanliga uppgifter kan utföras med hjälp av tillägg:
 
 * **Köra anpassade skript** – [Tillägget för anpassat skript](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) hjälper dig att konfigurera arbetsbelastningar på den virtuella datorn genom att köra skriptet när den virtuella datorn har etablerats.
 * **Distribuera och hantera konfigurationer** – Med [PowerShell-tillägget för önskad tillståndskonfiguration (DSC)](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kan du konfigurera DSC på en virtuell dator så att du kan hantera konfigurationer och miljöer.
-* **Samla in diagnostikdata** – Med [Azure Diagnostics-tillägget](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) kan du konfigurera den virtuella datorn så att den samlar in diagnostikdata som kan användas för att övervaka hälsotillståndet för programmet.
+* **Samla in diagnostikdata** – Med [Azure Diagnostics-tillägget](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kan du konfigurera den virtuella datorn så att den samlar in diagnostikdata som kan användas för att övervaka hälsotillståndet för programmet.
 
 ### <a name="related-resources"></a>Relaterade resurser
 Resurserna i den här tabellen används av den virtuella datorn och måste finnas eller skapas när den virtuella datorn skapas.
@@ -116,7 +117,7 @@ Den här tabellen innehåller information som hjälper dig att komma igång med 
 | Mallar |[Skapa en virtuell Windows-dator med en Resource Manager-mall](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[Skapa en virtuell Windows-dator med PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Klient-SDK: er |[Distribuera Azure-resurser med C#](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| REST API:er |[Skapa eller uppdatera en virtuell dator](https://msdn.microsoft.com/library/mt163591.aspx) |
+| REST API:er |[Skapa eller uppdatera en virtuell dator](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 
 Man hoppas att det aldrig händer, men ibland går något fel. Om det händer kan du läsa informationen i [Felsöka distributionsproblem i Resource Manager när du skapar en virtuell Windows-dator i Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -130,7 +131,7 @@ I den här tabellen visar vi några exempel på hur du kan få information om en
 | --- | --- |
 | Azure Portal |På hubbmenyn klickar du på **Virtuella datorer** och sedan väljer du den virtuella datorn från listan. På bladet för den virtuella datorn har du åtkomst till översikter med information, inställning av värden och övervakning av mått. |
 | Azure PowerShell |Information om hur du använder PowerShell för att hantera virtuella datorer finns i [Hantera Azure Virtual Machines med hjälp av Resource Manager och PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| REST API |Använd åtgärden [Get VM information](https://msdn.microsoft.com/library/mt163682.aspx) (Hämta information om virtuell dator) för att få information om en virtuell dator. |
+| REST API |Använd åtgärden [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) (Hämta information om virtuell dator) för att få information om en virtuell dator. |
 | Klient-SDK: er |Information om hur du använder C# för att hantera virtuella datorer finns i [Hantera Azure Virtual Machines med hjälp av Azure Resource Manager och C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
 ### <a name="log-on-to-the-vm"></a>Logga in på den virtuella datorn
@@ -148,10 +149,5 @@ Ett [Recovery Services-valv](../backup/backup-introduction-to-azure-backup.md) a
 * Om du har för avsikt att arbeta med virtuella datorer i Linux kan du läsa mer i [Azure och Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Ta reda på mer om riktlinjerna för konfiguration av infrastrukturen i [Genomgång av en exempelinfrastruktur i Azure](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Se till att du följer [Metodtips för att köra en virtuell Windows-dator på Azure](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

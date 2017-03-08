@@ -24,7 +24,7 @@
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
 ## [PowerShell (klassisk)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
-## [Förhandsversion av Azure CLI 2.0](/cli/azure/network/traffic-manager)
+## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
@@ -44,8 +44,3 @@
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=traffic-manager)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

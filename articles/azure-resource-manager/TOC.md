@@ -36,8 +36,6 @@
 ### [REST-API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
-### [Länka relaterade resurser](resource-group-link-resources.md)
-### [Azure Resource Explorer](resource-manager-resource-explorer.md)
 ## Styr åtkomsten
 ### [Skapa tjänstens huvudnamn med PowerShell](resource-group-authenticate-service-principal.md)
 ### [Skapa tjänstens huvudnamn med Azure CLI](resource-group-authenticate-service-principal-cli.md)

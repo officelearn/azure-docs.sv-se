@@ -2,6 +2,7 @@
 # Översikt
 ## [Vad är Cognitive Services?](https://azure.microsoft.com/services/cognitive-services/)
 # Kom igång
+## [Skapa ett konto](cognitive-services-apis-create-account.md)
 ## [Snabbstart för textanalys](cognitive-services-text-analytics-quick-start.md)
 ## [Snabbstart för rekommendationer](cognitive-services-recommendations-quick-start.md)
 

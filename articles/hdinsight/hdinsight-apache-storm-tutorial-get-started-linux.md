@@ -199,7 +199,7 @@ Gå tillbaka till sidan **Topology summary** (Topologiöversikt) för ordräknin
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Nästa steg
+## <a id="next"></a>Nästa steg
 
 I den här självstudien för Apache Storm har du lärt dig grunderna för att arbeta med Storm på HDInsight. Härnäst får du lära dig att [Utveckla Java-baserade topologier med Maven](hdinsight-storm-develop-java-topology.md).
 

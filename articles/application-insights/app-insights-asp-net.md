@@ -34,7 +34,7 @@ Det finns andra artiklar som du kan läsa om du är intresserad av följande:
 * [Instrumentering av en webbapp under körning](app-insights-monitor-performance-live-website-now.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a> Steg 1: Lägg till Application Insights SDK
+## <a name="ide"></a> Steg 1: Lägg till Application Insights SDK
 
 Högerklicka på webbapp-projektet i Solution Explorer och välj **Lägg till**, **Application Insights Telemetry...** eller **Konfigurera Application Insights**.
 
@@ -53,7 +53,7 @@ Fortsätt till konfigurationssidan för Application Insights:
 5. Du kan också bara lägga till Application Insights SDK till appen. I det här fallet kommer du att kunna se telemetri i Visual Studio när du felsöker. Du kan senare återvända till den här konfigurationssidan eller vänta tills du har distribuerat appen och [aktivera telemetri vid körtid](app-insights-monitor-performance-live-website-now.md).
 
 
-## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a> Steg 2: Kör appen
+## <a name="run"></a> Steg 2: Kör appen
 Kör din app med F5. Öppna olika sidor för att skapa viss telemetri.
 
 Du ser hur många händelser som har loggats i Visual Studio.
@@ -124,7 +124,7 @@ Du kan också fortsätta att analysera din telemetri i [Visual Studio](app-insig
 >
 >
 
-## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a>Vad används kommandot Lägg till Application Insights till?
+## <a name="land"></a>Vad används kommandot Lägg till Application Insights till?
 Application Insights skickar telemetri från din app till Application Insights-portalen (som finns i Azure).
 
 ![Diagram över flödet av telemetri](./media/app-insights-asp-net/01-scheme.png)

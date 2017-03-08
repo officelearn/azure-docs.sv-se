@@ -57,7 +57,7 @@ Functions innehåller mallar för att komma igång med viktiga scenarier, inklus
 
 Azure Functions stöder *utlösare*, som kan användas för att starta körning av din kod, och *bindningar*, som kan användas för att förenkla kodning för in- och utdata. En detaljerad beskrivning av utlösare och bindningar i Azure Functions finns i [Azure Functions-utlösare och -bindningar, info för utvecklare](functions-triggers-bindings.md).
 
-## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Integreringar
+## <a name="integrations"></a>Integreringar
 Azure Functions kan integreras med en mängd Azure- och tredjepartstjänster. Du kan använda tjänsterna för att utlösa funktionen och starta körning, eller så kan de fungera som indata och utdata för din kod. Följande tjänsteintegreringar stöds av Azure Functions. 
 
 * Azure DocumentDB
@@ -70,7 +70,7 @@ Azure Functions kan integreras med en mängd Azure- och tredjepartstjänster. Du
 * Lokal (med hjälp av Service Bus)
 * Twilio (SMS-meddelanden)
 
-## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Hur mycket kostar Functions?
+## <a name="pricing"></a>Hur mycket kostar Functions?
 Azure Functions har två typer av prissättningar, välj den som bäst passar dina behov: 
 
 * **Förbrukningsplan** – När din funktion körs tillhandahåller Azure alla nödvändiga beräkningsresurser. Du behöver inte bry dig om resurshantering, och du betalar endast för den tid då din kod körs. 

@@ -57,7 +57,7 @@ Många kunder börjar med den kostnadsfria tjänsten. Den här versionen är beg
 > ![Paneler för indexerare och datakällor][1]
 >
 
-## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a> Skapa ett index och läsa in data
+## <a name="create-index"></a> Skapa ett index och läsa in data
 Sökfrågor iterera över ett *index* med sökbara data, metadata och konstruktioner som används för att optimera vissa sökbeteenden.
 
 För att den här uppgiften ska förbli portalbaserad använder vi en inbyggd exampeldatauppsättning som kan crawlas med en indexerare via guiden **Importera data**. 
@@ -100,7 +100,7 @@ Det här objektet definierar en körbar process. Du kan lägga till det i ett å
 
    ![Meddelande om pågående indexeringsaktiviteter][4]
 
-## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Skicka frågor mot indexet
+## <a name="query-index"></a> Skicka frågor mot indexet
 Nu har du ett sökindex som du kan börja skicka frågor mot. **Sökutforskaren** är ett frågeverktyg som är inbyggt i portalen. Det innehåller en sökruta så att du kan kontrollera att en sökning returnerar det du förväntar dig. 
 
 > [!TIP]

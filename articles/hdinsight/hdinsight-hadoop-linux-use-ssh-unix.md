@@ -122,7 +122,7 @@ Om du vill begränsa åtkomsten per användare måste du använda ett domänansl
 
 Med ett domänanslutet HDInsight-kluster kan du autentisera med hjälp av Active Directory när du har anslutit via SSH. Flera användare kan ansluta med SSH och sedan autentisera mot deras Active Directory-konto när de har anslutit. Mer information finns i avsnittet [Domänanslutet HDInsight](#domainjoined).
 
-##<a name="a-idconnecta-connect-to-hdinsight"></a><a id="connect"></a> Ansluta till HDInsight
+##<a id="connect"></a> Ansluta till HDInsight
 
 När alla noder i ett HDInsight-kluster kör SSH-servern kan du bara ansluta till huvud- eller kantnoderna via det offentliga Internet.
 
@@ -209,7 +209,7 @@ Om du använder en SSH-nyckel för att autentisera ditt konto måste du kontroll
 
 Efter autentiseringen med `kinit`-kommandot kan du använda Hadoop-kommandon som `hdfs dfs -ls /` eller `hive`.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH-tunnel
+## <a id="tunnel"></a>SSH-tunnel
 
 SSH kan användas för lokala tunnelbegäranden, till exempel webbegäranden, till HDInsight-klustret. Begäran vidarebefordras till klustret och blir sedan löst inom klustret.
 

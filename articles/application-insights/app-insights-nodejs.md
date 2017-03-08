@@ -34,7 +34,7 @@ Du behöver:
 
 * En prenumeration på [Microsoft Azure](http://azure.com). Om ditt team eller din organisation har en Azure-prenumeration kan ägaren lägga till dig med hjälp av ditt [Microsoft-konto](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Skapa en Application Insights-resurs
+## <a name="add"></a>Skapa en Application Insights-resurs
 Logga in på [Azure Portal][portal] och skapa en ny Application Insights-resurs. En [resurs][roles] i Azure är en instans av en tjänst. Det är i den här resursen som telemetrin från din app analyseras och visas.
 
 ![Klicka på Nytt, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
@@ -46,7 +46,7 @@ Nyckeln identifierar resursen och du ska snart installera den i SDK för att dir
 
 ![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C.](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Installera SDK i ditt program
+## <a name="sdk"></a> Installera SDK i ditt program
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ Instrumenteringsnyckeln kan också anges i miljövariabeln APPINSIGHTS_INSTRUMEN
 
 Du kan prova SDK utan att skicka telemetri: ange instrumenteringsnyckeln till en sträng som inte är tom.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Köra projektet
+## <a name="run"></a> Köra projektet
 Kör ditt program och prova det: öppna olika sidor för att generera telemetri.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Visa telemetrin
+## <a name="monitor"></a> Visa telemetrin
 Gå tillbaka till [Azure-portalen](https://portal.azure.com) och bläddra till Application Insights-resursen.
 
 Titta efter data på sidan Översikt. Först ser du bara en eller två punkter. Till exempel:

@@ -162,7 +162,7 @@ Med Apptjänst kan du distribuera din kod till en API-app på många olika sätt
    
     ![Användargränssnittet för Swagger](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a>Skapa en ny API-app
+## <a id="createapiapp"></a>Skapa en ny API-app
 I det här avsnittet använder du Azure-portalen för att skapa en ny API-app i Azure. Den här API-appen representerar de beräkningsresurser som Azure tillhandahåller för att köra din kod. Du kommer att distribuera din kod till den nya API-appen i senare avsnitt.
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com/). 

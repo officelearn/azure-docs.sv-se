@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 02/22/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: b9be92498f9daf1d2f964cc689bacb2358b237be
+ms.sourcegitcommit: 716a6f4507b05b8a8548cd34f8227e8366a91645
+ms.openlocfilehash: 17a4ab1920e020ddf453e9b42319ba260e9700a5
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -30,15 +31,16 @@ Azure Container Service ger snabb distribution av populär behållarklustring me
 
 Du kan även distribuera ett Azure Container Service-kluster med hjälp av [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) eller Azure Container Service-API:erna.
 
+Bakgrundsinformation finns i [Introduktion till Azure Container Service](container-service-intro.md).
 
 
 ## <a name="prerequisites"></a>Krav
 
-* **Azure-prenumeration**: Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+* **Azure-prenumeration**: Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
 * **Offentlig SSH RSA-nyckel**: När du distribuerar via portalen eller en av Azures snabbstartsmallar måste du ange den offentliga nyckeln för autentisering mot virtuella datorer i Azure Container Service. Information om hur du skapar SSH (Secure Shell) RSA-nycklar finns i hjälpartiklarna för [OS X och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) eller [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
-* **Klient-ID och hemlighet för tjänstens huvudnamn** (endast Kubernetes): Mer information och vägledning om hur du skapar en tjänsts huvudnamn finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md)
+* **Klient-ID och hemlighet för tjänstens huvudnamn** (endast Kubernetes): Mer information och vägledning om hur du skapar ett Azure Active Directory-huvudnamn finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md).
 
 
 
@@ -47,63 +49,61 @@ Du kan även distribuera ett Azure Container Service-kluster med hjälp av [Azur
 
     ![Azure Container Service i Marketplace](media/container-service-deployment/acs-portal1.png)  <br />
 
-2. Välj **Azure Container Service** och klicka på **Skapa**.
+2. Klicka på **Azure Container Service** och klicka på **Skapa**.
 
-    ![Skapa en behållartjänst](media/container-service-deployment/acs-portal2.png)  <br />
+3. Ange följande information i bladet **Grundläggande inställningar**:
 
-3. Ange följande information:
-
-    * **Användarnamn**: Användarnamnet för ett konto på var och en av de virtuella datorerna och skalningsuppsättningarna för virtuella datorer i Azure Container Service-klustret.
+    * **Orchestrator**: Välj något av behållardirigeringsverktygen för att distribuera klustret.
+        * **DC/OS**: distribuerar ett DC/OS-kluster.
+        * **Swarm**: distribuerar ett Docker Swarm-kluster.
+        * **Kubernetes**: Distribuerar ett Kubernetes-kluster.
     * **Prenumeration**: Välj en Azure-prenumeration.
-    * **Resursgrupp**: Välj en befintlig resursgrupp eller skapa en ny. Vi rekommenderar att du använder en ny resursgrupp för varje distribution.
-    * **Plats**: Välj en Azure-region för Azure Container Service-distributionen.
-    * **Offentlig SSH RSA-nyckel**: Lägg till den offentliga nyckel som ska användas för autentisering mot virtuella datorer i Azure Container Service. Det är viktigt att den här nyckeln inte innehåller några radbrytningar och att den innehåller prefixet `ssh-rsa`. Postfixen `username@domain` är valfri. Nyckeln bör vara lik följande: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
-
-4. Klicka på **OK** när du är redo att gå vidare.
-
+    * **Resursgrupp**: Ange namnet på en ny resursgrupp för distributionen.
+    * **Plats**: Välj en Azure-region för Azure Container Service-distributionen. Om du vill kontrollera tillgänglighet läser du [Produkttillgänglighet per region](https://azure.microsoft.com/regions/services/).
+    
     ![Grundläggande inställningar](media/container-service-deployment/acs-portal3.png)  <br />
+    
+    Klicka på **OK** när du är redo att gå vidare.
 
-5. På bladet **Framework configuration** (Konfiguration av ramverk) väljer du en **Orchestrator configuration** (Dirigeringskonfiguration). Följande alternativ är tillgängliga:
+4. På bladet **Konfiguration av huvudservrar** anger du följande inställningar för den överordnade Linux-noden eller -noderna i klustret (vissa inställningar är specifika för varje orchestrator):
 
-  * **DC/OS**: distribuerar ett DC/OS-kluster.
-  * **Swarm**: distribuerar ett Docker Swarm-kluster.
-  * **Kubernetes**: Distribuerar ett Kubernetes-kluster.
-
-
-6. Klicka på **OK** när du är redo att gå vidare.
-
-    ![Välj en orchestrator](media/container-service-deployment/acs-portal4-new.png)  <br />
-
-7. Om du väljer **Kubernetes** i listrutan måste du ange ett klient-ID för tjänstobjektet (kallas även appId) och en klienthemlighet för tjänstobjektet (lösenord). Mer information finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md).
-
-    ![Ange tjänstens huvudnamn för Kubernetes](media/container-service-deployment/acs-portal10.png)  <br />
-
-7. På bladet för **Azure Container Service-inställningar** anger du följande information:
-
+    * **Huvud-DNS-namn**: Prefixet som används för att skapa ett unikt fullständigt kvalificerat domännamn (FQDN) för huvudservern. Det fullständiga domännamnet är i formatet *prefix*mgmt.*location*.cloudapp.azure.com.
+    * **Användarnamn**: Användarkontot för ett konto på varje virtuell Linux-dator i klustret.
+    * **Offentlig SSH RSA-nyckel**: Lägg till den offentliga nyckel som ska användas för autentisering mot virtuella datorer i Linux. Det är viktigt att den här nyckeln inte innehåller några radbrytningar och att den innehåller prefixet `ssh-rsa`. Postfixen `username@domain` är valfri. Nyckeln bör vara lik följande: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
+    * **Tjänstens huvudnamn**: Om du valde Kubernetes-orchestrator anger du ett Azure Active Directory-**klient-ID för tjänstens huvudnamn** (kallas även appId) och en **klienthemlighet för tjänstens huvudnamn** (lösenord). Mer information finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md).
     * **Antal huvudservrar**: antal huvudservrar i klustret.
-    * **Antal agenter**: För Docker Swarm och Kubernetes är det här värdet det inledande antalet agenter i agentskalningsuppsättningen. När det gäller DC/OS utgör det här det inledande antalet agenter i en privat skalningsuppsättning. Dessutom skapas en offentlig skalningsuppsättning för DC/OS som innehåller ett förinställt antal agenter. Antalet agenter i den här offentliga skalningsuppsättningen bestäms av hur många huvudservrar som har skapats i klustret. En offentlig agent för en huvudserver och två offentliga agenter för tre eller fem huvudservrar.
+    * **VM-diagnostik**: För vissa orchestrators kan du aktivera VM-diagnostik för huvudservrarna.
+
+    ![Konfiguration av huvudservrar](media/container-service-deployment/acs-portal4.png)  <br />
+
+    Klicka på **OK** när du är redo att gå vidare.
+
+5. Ange följande information i bladet **Agentkonfiguration**:
+
+    * **Antal agenter**: För Docker Swarm och Kubernetes är det här värdet det inledande antalet agenter i agentskalningsuppsättningen. När det gäller DC/OS utgör det här det inledande antalet agenter i en privat skalningsuppsättning. Dessutom skapas en offentlig skalningsuppsättning för DC/OS som innehåller ett förinställt antal agenter. Antalet agenter i den här offentliga skalningsuppsättningen bestäms av antalet huvudservrar i klustret. En offentlig agent för en huvudserver och två offentliga agenter för tre eller fem huvudservrar.
     * **Storlek på agentens virtuella dator**: storleken på agentens virtuella datorer.
-    * **DNS-prefix**: Ett helt unikt namn som används som prefix i viktiga delar i de fullständigt kvalificerade domännamnen för tjänsten.
-    * **VM-diagnostik**: För vissa dirigerare kan du välja att aktivera VM-diagnostik.
+    * **Operativsystem**: Den här inställningen är för närvarande endast tillgänglig om du har valt Kubernetes-orchestratorn. Välj antingen en Linux-distribution eller ett Windows Server-operativsystem som ska köras på agenterna. Den här inställningen bestämmer om ditt kluster kan köra Linux- eller Windows-behållarappar. 
 
-8. Klicka på **OK** när du är redo att gå vidare.
+        > [!NOTE]
+        > Stöd för Windows-behållare finns i förhandsgranskningen för Kubernetes-kluster. På DC-/OS- och Swarm-kluster stöds för närvarande endast Linux-agenter i Azure Container Service.
 
-    ![Inställningar för Container Service](media/container-service-deployment/acs-portal5.png)  <br />
+    * **Agentautentiseringsuppgifter**: Om du valde Windows-operativsystemet anger du ett **administratörsanvändarnamn** och **lösenord** för VM-agenten. 
 
-9. Klicka på **OK** när tjänsteverifieringen är klar.
+    ![Agentkonfiguration](media/container-service-deployment/acs-portal5.png)  <br />
+
+    Klicka på **OK** när du är redo att gå vidare.
+
+6. Klicka på **OK** när tjänsteverifieringen är klar.
 
     ![Validering](media/container-service-deployment/acs-portal6.png)  <br />
 
-10. Granska villkoren. Klicka på **Köp** för att starta distributionsprocessen.
-
-    ![Köp](media/container-service-deployment/acs-portal7.png)  <br />
+7. Granska villkoren. Klicka på **Skapa** för att starta distributionsprocessen.
 
     Om du har valt att fästa distributionen på Azure Portal, visas distributionsstatusen.
 
     ![Status för distribution](media/container-service-deployment/acs-portal8.png)  <br />
 
 Distributionen tar normalt flera minuter för att slutföras. Sedan kan Azure Container Service-klustret användas.
-
 
 
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Skapa ett kluster med en snabbstartsmall
@@ -114,7 +114,7 @@ Följ stegen nedan för att distribuera ett kluster med hjälp av en mall och Az
 > [!NOTE] 
 > Du kan använda liknande steg för att distribuera en mall med Azure PowerShell om du är på ett Windows-system. Se anvisningarna senare i det här avsnittet. Du kan även distribuera en mall genom [Portalen](../azure-resource-manager/resource-group-template-deploy-portal.md) eller genom andra metoder.
 
-1. Om du vill distribuera ett DC/OS-, Docker Swarm- eller Kubernetes-kluster väljer du någon av de tillgängliga snabbstartsmallarna från GitHub. En ofullständig lista finns nedan. Observera att DC/OS- och Swarm-mallarna är likadana, med undantag för standardvalet av orchestrator.
+1. Om du vill distribuera ett DC/OS-, Docker Swarm- eller Kubernetes-kluster väljer du någon av de tillgängliga snabbstartsmallarna från GitHub. En ofullständig lista finns nedan. DC/OS- och Swarm-mallarna är likadana, med undantag för standardvalet av orchestrator.
 
     * [DC/OS-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -193,9 +193,9 @@ Du kan även distribuera en mall för ett Azure Container Service-kluster med Po
     ```
 
 #### <a name="provide-template-parameters"></a>Ange mallparametrar
-Om du är bekant med PowerShell vet du att du kan gå igenom tillgängliga parametrar för en cmdlet genom att skriva ett minustecken (-) och sedan trycka på TABB-tangenten. Den här metoden går även att använda med parametrar som du anger i mallen. När du anger mallnamnet hämtar cmdleten mallen, parsar parametrarna och lägger dynamiskt till mallparametrarna i kommandot. På så sätt är det mycket enkelt att ange parametervärden för mallen. Och om du glömmer ett nödvändigt parametervärde efterfrågar PowerShell värdet.
+Om du är bekant med PowerShell vet du att du kan gå igenom tillgängliga parametrar för en cmdlet genom att skriva ett minustecken (-) och sedan trycka på TABB-tangenten. Den här metoden går även att använda med parametrar som du anger i mallen. När du anger mallnamnet hämtar cmdleten mallen, parsar parametrarna och lägger dynamiskt till mallparametrarna i kommandot. På så sätt är det enkelt att ange parametervärden för mallen. Och om du glömmer ett nödvändigt parametervärde efterfrågar PowerShell värdet.
 
-Nedan visas det fullständiga kommandot inklusive parametrar. Du kan ange egna värden för resursnamnen.
+Här visas det fullständiga kommandot inklusive parametrar. Ange egna värden för resursnamnen.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
@@ -208,9 +208,4 @@ Nu när du har ett fungerande kluster kan du visa dessa dokument för anslutning
 * [Arbeta med Azure Container Service och DC/OS](container-service-mesos-marathon-rest.md)
 * [Arbeta med Azure Container Service och Docker Swarm](container-service-docker-swarm.md)
 * [Arbeta med Azure Container Service och Kubernetes](container-service-kubernetes-walkthrough.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

@@ -25,8 +25,3 @@
 # Relaterat
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Rollbaserad åtkomstkontroll](../role-based-access-control-what-is.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

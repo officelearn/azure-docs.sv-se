@@ -17,8 +17,9 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: c99f16e7aa6ea6fe82f7a115b4642025a05bb241
+ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
+ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Vad är SQL Database? Introduktion till SQL Database
@@ -43,7 +44,7 @@ Vilken väg du än väljer – enskilda databaser eller elastiska pooler – är
 Men hur kan man jämföra den relativa prestandan för enskilda databaser och elastiska pooler? Hur vet man rätt värden när man reglerar upp eller ner? Du använder den [inbyggda prestandaövervakningen](sql-database-performance.md) och [aviserings](sql-database-insights-alerts-portal.md)verktyg, i kombination med prestandaklassificeringarna baserade på [databastransaktionsenheter (DTU:er) för enskilda databaser och elastiska DTU:er (eDTU:er) för elastiska pooler](sql-database-what-is-a-dtu.md). Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller projekterade prestandakrav. Se [SQL Database, alternativ och prestanda: Förstå vad varje tjänstnivå erbjuder](sql-database-service-tiers.md) för mer information.
 
 ## <a name="keep-your-app-and-business-running"></a>Håll igång din app och din verksamhet
-Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/legal/sla/) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. Med varje SQL-databas drar du nytta av inbyggd säkerhet, feltolerans och [dataskydd](sql-database-automated-backups.md) som du annars skulle behöva köpa, utforma, utveckla och hantera. Med SQL Database erbjuder varje tjänstnivå en omfattande uppsättning funktioner för affärskontinuitet och alternativ som du kan använda för att komma igång. Du kan använda [point-in-time-återställning](sql-database-recovery-using-backups.md) för att återställa en databas till ett tidigare skede, så långt tillbaka som 35 dagar. Du kan konfigurera [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md) där säkerhetskopiorna lagras i ett säkert valv i upp till 10 år. Om det uppstår ett avbrott i datacentret som är värd för dina databasmiljöer kan du återställa databaser från [geo-redundanta kopior av säkerhetskopior som nyligen skapats]((sql-database-recovery-using-backups.md). Om det behövs kan du också konfigurera [geo-redundanta läsbara repliker](sql-database-geo-replication-overview.md) i en eller flera regioner för snabb redundans vid avbrott i datacentret. Du kan också använda dessa repliker för snabbare inläsningsprestanda i olika geografiska regioner eller för [programuppgraderingar utan driftavbrott](sql-database-manage-application-rolling-upgrade.md). 
+Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/legal/sla/) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. Med varje SQL-databas drar du nytta av inbyggd säkerhet, feltolerans och [dataskydd](sql-database-automated-backups.md) som du annars skulle behöva köpa, utforma, utveckla och hantera. Med SQL Database erbjuder varje tjänstnivå en omfattande uppsättning funktioner för affärskontinuitet och alternativ som du kan använda för att komma igång. Du kan använda [point-in-time-återställning](sql-database-recovery-using-backups.md) för att återställa en databas till ett tidigare skede, så långt tillbaka som 35 dagar. Du kan konfigurera [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md) där säkerhetskopiorna lagras i ett säkert valv i upp till 10 år. Om det uppstår ett avbrott i datacentret som är värd för dina databasmiljöer kan du återställa databaser från [geo-redundanta kopior av säkerhetskopior som nyligen skapats](sql-database-recovery-using-backups.md). Om det behövs kan du också konfigurera [geo-redundanta läsbara repliker](sql-database-geo-replication-overview.md) i en eller flera regioner för snabb redundans vid avbrott i datacentret. Du kan också använda dessa repliker för snabbare inläsningsprestanda i olika geografiska regioner eller för [programuppgraderingar utan driftavbrott](sql-database-manage-application-rolling-upgrade.md). 
 
 ![SQL Database Geo-replikering](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -59,9 +60,4 @@ Nu när du har läst en introduktion till SQL Database och besvarat frågan "Vad
 * Läs mer om [elastiska pooler](sql-database-elastic-pool.md).
 * Kom igång genom att [skapa din första databas](sql-database-get-started.md).
 * Skapa din första app i C#, Java, Node.js, PHP, Python eller Ruby: [Anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

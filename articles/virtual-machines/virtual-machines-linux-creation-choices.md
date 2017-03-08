@@ -13,55 +13,51 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/03/2016
+ms.date: 01/03/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 44c46fff9ccf9c7dba9ee380faf5f8213b58e3c3
-ms.openlocfilehash: 4397d84ef4d97bdee387777a193ec0b969f2d5e1
+ms.sourcegitcommit: d4cff286de1abd492ce7276c300b50d71f06345b
+ms.openlocfilehash: 1287a028122080c0d9745502a4a98a957894a0de
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="different-ways-to-create-a-linux-vm-including-azure-cli-20-preview"></a>Olika sätt att skapa en virtuell Linux-dator inklusive Azure CLI 2.0 (förhandsvisning)
-I Azure har du tillräcklig flexibilitet för att kunna skapa en virtuell Linux-dator (VM) med hjälp av de verktyg och arbetsflöden som du känner dig mest bekväm med. I den här artikeln sammanfattas skillnader och exempel när du ska skapa dina virtuella Linux-datorer.
+# <a name="different-ways-to-create-a-linux-vm"></a>Olika sätt att skapa en virtuell Linux-dator
+I Azure har du tillräcklig flexibilitet för att kunna skapa en virtuell Linux-dator (VM) med hjälp av de verktyg och arbetsflöden som du känner dig mest bekväm med. I den här artikeln sammanfattas skillnader och exempel när du ska skapa dina virtuella Linux-datorer, inklusive Azure CLI 2.0. Du kan också visa andra alternativ för skapandet, som [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md).
 
-## <a name="azure-cli"></a>Azure CLI
+[Azure CLI 2.0](/cli/azure/install-az-cli2) är tillgängligt på flera plattformar via ett npm-paket, distro-paket eller en Docker-behållare. Installera den lämpligaste versionen för din miljö och logga in på ett Azure-konto med hjälp av [az login](/cli/azure/#login)
 
-Du kan slutföra uppgiften med någon av följande CLI-versioner:
+I följande exempel används Azure CLI 2.0. Läs alla artiklarna för mer information om de kommandon som visas. Du hittar också exempel på hur du skapar virtuella Linux-datorer med hjälp av [Azure CLI 1.0](virtual-machines-linux-creation-choices-nodejs.md).
 
-- Azure CLI 1.0 – vår CLI för distributionsmodellerna klassisk och Resource Management
-- [Azure CLI 2.0 (förhandsversion)](../xplat-cli-install.md) –vår nästa generations CLI för distributionsmodellen resurshantering
-
-Azure CLI 2.0 (förhandsvisning) finns tillgänglig på plattformar via ett npm-paket, via distro-paket eller som Docker-behållare. Kontrollera att du är inloggad med **az-inloggning**.
-
-Följande självstudier innehåller exempel på hur du använder Azure CLI 2.0 (förhandsvisning). Läs alla artiklarna för mer information om de kommandon som visas:
-
-* [Skapa en virtuell Linux-dator med Azure CLI 2.0 (förhandsvisning)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * Det här exemplet skapar en resursgrupp som heter myResourceGroup: 
-    
+  * I det här exemplet används [az group create](/cli/azure/group#create) för att skapa en resursgrupp med namnet `myResourceGroup`: 
+-    
     ```azurecli
-    az group create -n myResourceGroup -l westus
+    az group create --name myResourceGroup --location westus
     ```
-
-  * Det här exemplet skapar en virtuell dator i den nya resursgruppen som använder sig av den senaste Debian-avbildningen med en offentlig nyckel med namnet `id_rsa.pub`:
+    
+  * I det här exemplet används [az vm create](/cli/azure/vm#create) för att skapa en virtuell dator med namnet `myVM` med hjälp av den senaste Debian-avbildningen med Azure Managed Disks och en offentlig nyckel med namnet `id_rsa.pub`:
 
     ```azurecli
     az vm create \
     --image credativ:Debian:8:latest \
-    --admin-username ops \
+     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --public-ip-address-dns-name mydns \
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –-new --size-gb 5    --public-ip-address-dns-name myPublicDNS \
     --resource-group myResourceGroup \
     --location westus \
     --name myVM
     ```
 
+    * Om du vill använda ohanterade diskar lägger du till `--use-unmanaged-disks`-flaggan till kommandot ovan. Ett lagringskonto skapas åt dig. Mer information finns i [Översikt över Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+
 * [Skapa en säker virtuell Linux-dator med hjälp av en Azure-mall](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * Följande exempel skapar en VM med en mall som lagrats i GitHub:
+  * I följande exempel används [az group deployment create](/cli/azure/group/deployment#create) för att skapa en virtuell dator med hjälp av en mall som lagras på GitHub:
     
     ```azurecli
-    az group deployment create -g myResourceGroup \ 
+    az group deployment create --resource-group myResourceGroup \ 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
       --parameters @myparameters.json
     ```
@@ -72,11 +68,11 @@ Följande självstudier innehåller exempel på hur du använder Azure CLI 2.0 (
 
 * [Lägg till en disk till en virtuell Linux-dator](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * I följande exempel läggs en disk på 5 GB till på en befintlig virtuell dator med namnet `myVM`:
-    
+  * I följande exempel används [az vm disk attach-new](/cli/azure/vm/disk#attach-new) till att lägga till en hanterad disk på 50 GB med namnet `myVM`:
+  
     ```azurecli
-    az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
-      --disk-size 5 --vhd https://myStorage.blob.core.windows.net/vhds/myDataDisk1.vhd
+    az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  \
+    –-new --size-gb 50
     ```
 
 ## <a name="azure-portal"></a>Azure Portal
@@ -89,35 +85,35 @@ I [Azure Portal](https://portal.azure.com) kan du snabbt skapa en virtuell dator
 När du skapar en virtuell dator, väljer du en avbildning baserat på vilket operativsystem du vill köra. Azure och dess samarbetspartner erbjuder många avbildningar, varav några innehåller förinstallerade program och verktyg. Eller ladda upp en av dina egna avbildningar (se [följande avsnitt](#use-your-own-image)).
 
 ### <a name="azure-images"></a>Azure-avbildningar
-Använd `az vm image` CLI-kommandon för att se vad som finns tillgängligt via utgivare, distributionsutgåva och version.
+Använd [az vm image](/cli/azure/vm/image)-kommandona för att se vad som är tillgängligt efter utgivare, distributionsutgåva och version.
 
 Lista tillgängliga utgivare:
 
 ```azurecli
-az vm image list-publishers -l WestUS
+az vm image list-publishers --location WestUS
 ```
 
 Lista tillgängliga produkter (erbjudanden) för en viss utgivare:
 
 ```azurecli
-az vm image list-offers --publisher-name Canonical -l WestUS
+az vm image list-offers --publisher Canonical --location WestUS
 ```
 
 Lista tillgängliga SKU:er (distributionsutgåvor) för ett givet erbjudande:
 
 ```azurecli
-az vm image list-skus --publisher-name Canonical --offer UbuntuServer -l WestUS
+az vm image list-skus --publisher Canonical --offer UbuntuServer --location WestUS
 ```
 
 Lista alla tillgängliga bilder för en viss version:
 
 ```azurecli
-az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS -l WestUS
+az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --location WestUS
 ```
 
 Se [Analysera och välja avbildningar för virtuell Azure-datorer med Azure CLI](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för fler exempel på hur du hittar och använder tillgängliga avbildningar.
 
-`az vm create`-kommandot har alias som du kan använda för att snabbt komma åt vanliga distributioner och deras senaste versioner. Det går snabbare att använda alias än ange utgivare, erbjudande, SKU och version varje gång du skapar en virtuell dator:
+**az vm create**-kommandot har alias som du kan använda för att snabbt komma åt vanliga distributioner och deras senaste versioner. Det går snabbare att använda alias än ange utgivare, erbjudande, SKU och version varje gång du skapar en virtuell dator:
 
 | Alias | Utgivare | Erbjudande | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
@@ -136,22 +132,16 @@ Om du behöver specifika anpassningar kan du använda en avbildning baserad på 
 * [Information om icke-godkända distributioner](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Avbilda en virtuell Linux-dator som en Resource Manager-mall](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   
-  * Snabbstart med exempelkommandon för att avbilda en befintlig virtuell dator:
+  * Snabbstart med **az vm**-exempelkommandon för att avbilda en befintlig virtuell dator med ohanterade diskar:
     
     ```azurecli
-    az vm deallocate -g myResourceGroup -n myVM
-    az vm generalize -g myResourceGroup -n myVM
-    az vm capture -g myResourceGroup -n myVM --vhd-name-prefix myCapturedVM
+    az vm deallocate --resource-group myResourceGroup --name myVM
+    az vm generalize --resource-group myResourceGroup --name myVM
+    az vm capture --resource-group myResourceGroup --name myVM --vhd-name-prefix myCapturedVM
     ```
 
 ## <a name="next-steps"></a>Nästa steg
 * Skapa en virtuell Linux-dator från [portalen](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), med [CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller genom att använda en [Azure Resource Manager-mall](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * När du har skapat en virtuell Linux-dator kan du [lägga till en datadisk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Snabba steg för att [återställa ett lösenord eller SSH-nycklar och hantera användare](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

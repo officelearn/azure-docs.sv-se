@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/02/2017
+ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
-ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
+ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
+ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -52,11 +53,14 @@ I den här kursen ska du:
 
    ![Blad för Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Granska de tillgängliga SQL Server-mallarna.
-6. Varje mall identifierar en version av SQL Server och ett operativsystem. Välj någon av dessa avbildningar i listan. Gå sedan igenom informationsbladet som innehåller en beskrivning av avbildningen av den virtuella datorn.
+5. Granska de tillgängliga SQL Server-mallarna. Varje mall identifierar en version av SQL Server och ett operativsystem. 
+6. Välj mallen för SQL Server 2016 SP1 Developer i Windows Server 2016.
+
+   > [!TIP]
+   > Vi använder Developer-versionen i den här självstudiekursen eftersom det är en komplett version av SQL Server som är kostnadsfri i samband med utvecklingstester. Du betalar endast för kostnaden för den VM som körs.
    
    > [!NOTE]
-   > SQL VM-avbildningarna inkluderar licensieringskostnaderna för SQL Server i per minut-priset för den virtuella dator som du skapar. Ett annat alternativ är att använda en egen licens (BYOL, bring-your-own-license) och endast betala för den virtuella datorn. Dessa avbildningsnamn föregås av {BYOL}. Mer information om det här alternativet finns i [Komma igång med SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+   > Licenskostnaden för SQL Server ingår i minutpriset för den VM du skapar (förutom för versionerna Developer och Express). SQL Server Developer är kostnadsfri när den används till utveckling och testning (inte i samband med produktion) och SQL Express är kostnadsfri för enklare arbetsbelastningar (mindre än 1 GB minne och mindre än 10 GB lagringsutrymme). Ett annat alternativ är att använda en egen licens (BYOL, bring-your-own-license) och endast betala för den virtuella datorn. Dessa avbildningsnamn föregås av {BYOL}. Mer information om det här alternativet finns i [Komma igång med SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
 7. Under **Välj en distributionsmodell** kontrollerar du att **Resource Manager** är valt. Resource Manager är den rekommenderade distributionsmodellen för nya virtuella datorer. Klicka på **Skapa**.
@@ -242,15 +246,11 @@ Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server
 
 När du har konfigurerat inställningarna för SQL Server klickar du på **OK**.
 
-### <a name="r-services"></a>R-tjänster
-I SQL Server 2016 Enterprise edition har du möjlighet att aktivera [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). Det ger dig möjlighet att använda avancerad analys med SQL Server 2016. Klicka på **Aktivera** på bladet **SQL Server-inställningar**.
+### <a name="r-services"></a>R Services
+Du kan välja att aktivera [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). Det ger dig möjlighet att använda avancerad analys med SQL Server 2016. Klicka på **Aktivera** på bladet **SQL Server-inställningar**.
 
 ![Aktivera SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
-> [!NOTE]
-> För SQL Server-avbildningar som inte är 2016 Enterprise edition är möjligheten att aktivera R Services inaktiverad.
-> 
-> 
 
 ## <a name="5-review-the-summary"></a>5. Granska sammanfattningen
 I bladet **Sammanfattning** granskar du sammanfattningen och klickar på **OK** för att skapa SQL Server, resursgruppen och resurserna som angetts för den här virtuella datorn.
@@ -299,10 +299,5 @@ Mer information om hur du använder SQL Server i Azure finns i [SQL Server på A
 Om du vill titta på en videoöversikt över SQL Server på Azure Virtual Machines tittar du på [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (Azure VM är den bästa plattformen för SQL Server 2016).
 
 [Utforska utbildningsvägen](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) för SQL Server på virtuella datorer i Azure.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

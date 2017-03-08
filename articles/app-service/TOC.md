@@ -28,20 +28,6 @@
 ### [Marketplace-app](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# Vanliga exempel
-## CLI-exempel
-### [Skapa en webbapp och distribuera kod från GitHub](./scripts/app-service-cli-deploy-github.md)
-### [Skapa en webbapp med kontinuerlig distribution från GitHub](./scripts/app-service-cli-continuous-deployment-github.md)
-### [Skapa en webbapp och distribuera kod från en lokal Git-databas](./scripts/app-service-cli-deploy-local-git.md)
-### [Skapa en webbapp och distribuera kod till en mellanlagringsmiljö](./scripts/app-service-cli-deploy-staging-environment.md)
-### [Skapa en ASP.NET Core-webbapp i en Docker-behållare](./scripts/app-service-cli-linux-docker-aspnetcore.md)
-### [Mappa en anpassad domän till en webbapp](./scripts/app-service-cli-configure-custom-domain.md)
-### [Skala en webbapp manuellt](./scripts/app-service-cli-scale-manual.md)
-### [Skala en webbapp över hela världen med en arkitektur med hög tillgänglighet](./scripts/app-service-cli-scale-high-availability.md)
-### [Ansluta en webbapp till en SQL Database](./scripts/app-service-cli-app-service-sql.md)
-### [Ansluta en webbapp till ett lagringskonto](./scripts/app-service-cli-app-service-storage.md)
-### [Övervaka en webbapp med webbserverloggar](./scripts/app-service-cli-monitor.md)
-
 # Gör så här för att
 
 ## Planera och designa

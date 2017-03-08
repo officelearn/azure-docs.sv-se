@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 02/24/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: 035ec56b638797d650f73e1112b77991555d5194
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="secure-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-20"></a>Skydda molnet och lokala resurser med Azure Multi-Factor Authentication Server med AD FS 2.0
+# <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS 2.0
 Den här artikeln är för organisationer som federerade med Azure Active Directory och som vill skydda resurser som finns lokalt eller i molnet. Skydda dina resurser genom att använda Azure Multi-Factor Authentication-servern och konfigurera den för att fungera med AD FS så att tvåstegsverifiering utlöses för slutpunkter med högt värde.
 
 Den här dokumentationen beskriver hur du använder Azure Multi-Factor Authentication Server med AD FS 2.0. Mer information om AD FS finns i [Skydda molnresurser och lokala resurser med Azure Multi-Factor Authentication Server med Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md).
@@ -115,9 +116,4 @@ Tillförlitliga IP-adresser låter användarna kringgå Azure Multi-Factor Authe
 4. Ange IP-adressen, IP-adressintervallet eller undernätet som ska vitlistas. Om du anger ett undernät väljer du lämplig nätmask och klickar på **OK**. Nu har den tillförlitliga IP-adressen lagts till.
 
 <center>![Installation](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Översikt över Azure Batch-tjänsten | Microsoft Docs"
+title: "Azure Batch kör storskaliga parallella beräkningslösningar i molnet | Microsoft Docs"
 description: "Lär dig mer om hur du använder Azure Batch-tjänsten för storskaliga parallella arbetsbelastningar och HPC-arbetsbelastningar"
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3a01764b6a0e777e947cf8648606cdd568d118ff
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: e204a3c79768ddbd433f3b00a3db456ef3258173
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="basics-of-azure-batch"></a>Grunderna i Azure Batch
+# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Köra parallella arbetsbelastningar med Batch
+
 Azure Batch är en plattformstjänst för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i molnet. Azure Batch schemalägger beräkningsintensivt arbete för körning i en hanterad samling virtuella datorer. Tjänsten kan automatiskt skala beräkningsresurser efter jobbens behov.
 
 Med Azure Batch kan du enkelt definiera Azure-beräkningsresurser för att köra dina program parallellt och i stor skala. Det finns inget behov av att manuellt skapa, konfigurera och hantera ett HPC-kluster, enskilda virtuella datorer, virtuella nätverk eller en komplex infrastruktur för jobb- och aktivitetsschemaläggning. Azure Batch automatiserar eller förenklar dessa uppgifter åt dig.
@@ -156,9 +159,4 @@ Nu när du har en högnivåöversikt över Batch-tjänsten är det dags att gå 
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

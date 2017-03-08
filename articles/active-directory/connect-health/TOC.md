@@ -22,8 +22,3 @@
 # Resurser
 ##[Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

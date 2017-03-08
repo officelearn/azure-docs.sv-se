@@ -3,6 +3,7 @@
 ## [Vad är SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Arbetsbelastning i informationslager](sql-data-warehouse-overview-workload.md)
 ## [Distribuerad data](sql-data-warehouse-distributed-data.md)
+## [Vanliga frågor och svar](sql-data-warehouse-overview-faq.md)
 
 # Kom igång
 
@@ -10,6 +11,7 @@
 ## [Bästa praxis](sql-data-warehouse-best-practices.md)
 ## [Hantera](sql-data-warehouse-overview-manage.md)
 ## [Få support](sql-data-warehouse-get-started-create-support-ticket.md)
+## [Felsöka](sql-data-warehouse-troubleshoot.md)
 
 # Gör så här för att
 
@@ -114,7 +116,6 @@
 ### [Columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Frågor](sql-data-warehouse-manage-monitor.md)
 ### [Arbetsbelastning](sql-data-warehouse-develop-concurrency.md)
-### [Felsöka](sql-data-warehouse-troubleshoot.md)
 
 ## Säkerhet
 

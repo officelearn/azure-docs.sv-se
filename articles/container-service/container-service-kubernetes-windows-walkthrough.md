@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: dlepow
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 010a9a4a9ad0f6f7584b1c9a54e665557078d25b
+ms.sourcegitcommit: 31aaa122bfca5140dcd22d2a2233c46cd28f27b9
+ms.openlocfilehash: c139fc34d15545ce6a7a91842a3ebdff7c029a01
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -55,9 +56,13 @@ Alla virtuella datorer finns i samma privata virtuella nätverk och kan nås av 
 
 ## <a name="create-the-cluster"></a>Skapa klustret
 
-Du kan använda Azure-portalen för att [skapa ett Kubernetes-kluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) med Windows-agentnoder. 
+Du kan använda Azure-portalen för att [skapa ett Kubernetes-kluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) med Windows-agentnoder. Tänk på följande inställningar när du skapar klustret:
 
-I rutan **Framework configuration** (Konfiguration av ramverk) väljer du **Kubernetes - Windows** i **Orchestrator configuration** (Dirigeringskonfiguration). 
+* På bladet **Basics** i **Orchestrator** markerar du **Kubernetes**. 
+* På bladet **Konfiguration av huvudservrar** anger du autentiseringsuppgifterna och autentiseringsuppgifter för tjänstens huvudnamn för överordnade Linux-noder.
+* På bladet **Agentkonfiguration** i **Operativsystem**, väljer du **Windows (preview)** (Windows (förhandsversion)). Ange administratörsautentiseringsuppgifter för Windows-agentnoder.
+
+Mer information finns i [Distribuera ett Azure Container Service-kluster](container-service-deployment.md).
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
@@ -67,7 +72,7 @@ Använd kommandoradsverktyget `kubectl` för att ansluta från den lokala datorn
 
 När klustret har skapats och anslutits till `kubectl` kan du prova att starta en enkel Windows-webbapp och exponera den för Internet. I det här exemplet anger du behållarresurserna med hjälp av en YAML-fil och skapar den sedan med `kubctl apply`.
 
-1. Om du vill visa en lista över noderna skriver du `kubectl get nodes`.  Om du vill visa fullständig information om noderna skriver du:  
+1. Om du vill visa en lista över noderna skriver du `kubectl get nodes`. Om du vill visa fullständig information om noderna skriver du:  
 
   ```
   kubectl get nodes -o yaml
@@ -198,8 +203,3 @@ Här är en lista med rekommenderade länkar till mer information om Kubernetes:
 * [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) – visar hur du distribuerar, skalar, uppdaterar och felsöker program som använder behållare.
 * [Användarhandboken för Kubernetes](http://kubernetes.io/docs/user-guide/) – innehåller information om hur du kör program i ett befintligt Kubernetes-kluster.
 * [Kubernetes-exempel](https://github.com/kubernetes/kubernetes/tree/master/examples) – innehåller exempel på hur du kör verkliga program med Kubernetes.
-
-
-<!--HONumber=Feb17_HO4-->
-
-

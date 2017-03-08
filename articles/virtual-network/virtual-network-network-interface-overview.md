@@ -1,6 +1,6 @@
 ---
 title: "Nätverksgränssnitt i Azure | Microsoft Docs"
-description: "Läs mer om Azure-nätverksgränssnitt i Azure Resource Manager-distributionsmodellen."
+description: "Läs mer om Azures nätverksgränssnitt och hur de används med virtuella datorer."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 02/24/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
-ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 395cff80b3f97b6340e15f370c13f783e2f5dde3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="network-interfaces-in-azure"></a>Nätverksgränssnitt i Azure
+# <a name="what-are-network-interfaces"></a>Vad är nätverksgränssnitt?
+
 Ett nätverksgränssnitt (NIC) är gränssnittet mellan en virtuell dator (VM) och det underliggande programvarunätverket. Den här artikeln förklarar vad ett nätverksgränssnitt är och hur det används i Azure Resource Manager-distributionsmodellen.
 
 Microsoft rekommenderar att du distribuerar nya resurser med hjälp av Resource Manager-distributionsmodellen, men du kan också distribuera virtuella datorer med nätverksanslutningar i den [klassiska](virtual-network-ip-addresses-overview-classic.md) distributionsmodellen. Om du är bekant med den klassiska modellen finns det viktiga skillnader i VM-nätverksfunktionerna jämfört med Resource Manager-distributionsmodellen. Mer information om skillnaderna finns i artikeln om [virtuella nätverksfunktioner i den klassiska distributionsmodellen](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
@@ -34,7 +37,7 @@ I Azure har ett nätverksgränssnitt följande egenskaper:
 4. Kan anslutas till en virtuell dator, men kan endast kopplas till en enda virtuell dator som finns på samma plats som nätverkskortet.
 5. Har en MAC-adress, som bevaras med nätverkskortet så länge det är anslutet till en virtuell dator. MAC-adressen bevaras även om den virtuella datorn startas om (inifrån operativsystemet) eller stoppas (frigörs) och startas med hjälp av Azure Portal, Azure PowerShell eller Azure-kommandoradsgränssnittet. Om det kopplas bort från en virtuell dator och ansluts till en annan virtuell dator får nätverkskortet en annan MAC-adress. Om nätverkskortet tas bort tilldelas MAC-adressen till andra nätverkskort.
 6. Måste tilldelas en primär **privat** statisk eller dynamisk *IPv4*-adress.
-7. Kan associeras med en offentlig IP-adressresurs.
+7. Kan ha en eller flera offentliga IP-adressresurser kopplade till sig. Läs dokumentationen om [hur du har flera IP-adresser per nätverkskort](virtual-network-multiple-ip-addresses-portal.md) om du vill veta mer.
 8. Har stöd för nätverksaccelerering med SR-IOV (Single-Root I/O Virtualization) för specifika VM-storlekar som kör specifika versioner av Microsoft Windows Server-operativsystemet. Mer information om den här förhandsfunktionen finns i artikeln [Accelerated networking for a virtual machine](virtual-network-accelerated-networking-powershell.md) (Nätverksaccelerering för en virtuell dator).
 9. Kan ta emot trafik som inte är avsedda för privata IP-adresser som det tilldelats om IP-vidarebefordring är aktiverat för nätverkskortet. Om en virtuell dator till exempel kör brandväggsprogramvara dirigerar det paket som inte är avsedda för dess egna IP-adresser. Den virtuella datorn måste fortfarande köra programvara som kan dirigera eller vidarebefordra trafik, men för att göra det måste IP-vidarebefordring vara aktiverat för ett nätverkskort.
 10. Skapas ofta i samma resursgrupp som den virtuella datorn som det är anslutet till eller i samma virtuella nätverk som det är anslutet till, även om det inte är ett krav.
@@ -52,10 +55,5 @@ Flera nätverkskort kan anslutas till en virtuell dator, men när du gör det ä
 * Mer information om hur du skapar en virtuell dator med ett enda nätverkskort finns i artikeln [Skapa en virtuell dator](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 * Mer information om hur du skapar en virtuell dator med flera nätverkskort finns i artikeln [Distribuera en virtuell dator med flera nätverkskort](virtual-network-deploy-multinic-arm-ps.md).
 * Mer information om hur du skapar ett nätverkskort med flera IP-konfigurationer finns i artikeln [Flera IP-adresser för virtuella datorer i Azure](virtual-network-multiple-ip-addresses-powershell.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

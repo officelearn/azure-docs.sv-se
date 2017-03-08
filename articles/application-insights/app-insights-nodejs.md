@@ -1,21 +1,22 @@
 ---
-title: "Övervaka din Node.js-app genom att lägga till Application Insights SDK | Microsoft Docs"
+title: "Övervaka din Node.js-app med Azure Application Insights SDK | Microsoft Docs"
 description: "Analysera användningen, tillgängligheten och prestanda i din lokala program eller Microsoft Azure-webbapp med Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -31,22 +32,21 @@ SDK tillhandahåller automatisk insamling av frekvens och svar för inkommande H
 #### <a name="before-you-start"></a>Innan du börjar
 Du behöver:
 
-* Visual Studio 2013 eller senare. Senare versioner är att föredra.
 * En prenumeration på [Microsoft Azure](http://azure.com). Om ditt team eller din organisation har en Azure-prenumeration kan ägaren lägga till dig med hjälp av ditt [Microsoft-konto](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Skapa en Application Insights-resurs
-Logga in på [Azure-portalen][portal] och skapa en ny Application Insights-resurs. En [resurs][roles] i Azure är en instans av en tjänst. Det är i den här resursen som telemetrin från din app analyseras och visas.
+## <a name="add"></a>Skapa en Application Insights-resurs
+Logga in på [Azure Portal][portal] och skapa en ny Application Insights-resurs. En [resurs][roles] i Azure är en instans av en tjänst. Det är i den här resursen som telemetrin från din app analyseras och visas.
 
 ![Klicka på Nytt, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
-Välj Annan som programtyp. Valet av programtyp anger standardinnehållet i resursbladen och egenskaperna som visas i [Metrics Explorer][metrics].
+Välj General (Allmänt) som programtyp. Valet av programtyp anger standardinnehållet i resursbladen och egenskaperna som visas i [Metrics Explorer][metrics].
 
 #### <a name="copy-the-instrumentation-key"></a>Kopiera instrumenteringsnyckeln
 Nyckeln identifierar resursen och du ska snart installera den i SDK för att dirigera data till resursen.
 
 ![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C.](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Installera SDK i ditt program
+## <a name="sdk"></a> Installera SDK i ditt program
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ Instrumenteringsnyckeln kan också anges i miljövariabeln APPINSIGHTS_INSTRUMEN
 
 Du kan prova SDK utan att skicka telemetri: ange instrumenteringsnyckeln till en sträng som inte är tom.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Köra projektet
+## <a name="run"></a> Köra projektet
 Kör ditt program och prova det: öppna olika sidor för att generera telemetri.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Visa telemetrin
+## <a name="monitor"></a> Visa telemetrin
 Gå tillbaka till [Azure-portalen](https://portal.azure.com) och bläddra till Application Insights-resursen.
 
 Titta efter data på sidan Översikt. Först ser du bara en eller två punkter. Till exempel:
@@ -197,9 +197,4 @@ server.on("listening", () => {
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

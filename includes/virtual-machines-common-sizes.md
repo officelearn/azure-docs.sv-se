@@ -92,44 +92,45 @@ Mer information och saker att tänka på när du använder dessa storlekar finns
 
 ## <a name="av2-series"></a>Av2-serien
 
-| Storlek        | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort/nätverksbandbredd |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2 × 500              | 1 / måttlig              |
-| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4 × 500              | 2 / måttlig              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8 × 500              | 4 / hög                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16 × 500             | 8 / hög                  |
-| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4 × 500              | 2 / måttlig              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8 × 500              | 4 / hög                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16 × 500             | 8 / hög                  |
-
+| Storlek            | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt diskdataflöde: IOPS/Mbit/s vid läsning/Mbit/s vid skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/nätverksbandbredd |
+|-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_A1_v2  | 1         | 2           | 10             | 1 000 / 20 / 10                                           | 2 / 2 x 500                         | 1 / måttlig                 |
+| Standard_A2_v2  | 2         | 4           | 20             | 2 000 / 40 / 20                                           | 4 / 4 x 500                         | 2 / måttlig                 |
+| Standard_A4_v2  | 4         | 8           | 40             | 4 000 / 80 / 40                                           | 8 / 8 x 500                         | 4 / hög                     |
+| Standard_A8_v2  | 8         | 16          | 80             | 8 000 / 160 / 80                                          | 16 / 16 x 500                       | 8 / hög                     |
+| Standard_A2m_v2 | 2         | 16          | 20             | 2 000 / 40 / 20                                           | 4 / 4 x 500                         | 2 / måttlig                 |
+| Standard_A4m_v2 | 4         | 32          | 40             | 4 000 / 80 / 40                                           | 8 / 8 x 500                         | 4 / hög                     |
+| Standard_A8m_v2 | 8         | 64          | 80             | 8 000 / 160 / 80                                          | 16 / 16 x 500                       | 8 / hög                     |
 
 ## <a name="d-series"></a>D-serien
-| Storlek | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort/nätverksbandbredd |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1 |1 |3.5 |50 |2 |2 × 500 |1 / måttlig |
-| Standard_D2 |2 |7 |100 |4 |4 × 500 |2 / hög |
-| Standard_D3 |4 |14 |200 |8 |8 × 500 |4 / hög |
-| Standard_D4 |8 |28 |400 |16 |16 × 500 |8 / hög |
-| Standard_D11 |2 |14 |100 |4 |4 × 500 |2 / hög |
-| Standard_D12 |4 |28 |200 |8 |8 × 500 |4 / hög |
-| Standard_D13 |8 |56 |400 |16 |16 × 500 |8 / hög |
-| Standard_D14 |16 |112 |800 |32 |32 ×&500; |8 / mycket hög |
 
+| Storlek         | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt diskdataflöde: IOPS/Mbit/s vid läsning/Mbit/s vid skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/nätverksbandbredd |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1  | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 2 / 2 x 500                         | 1 / måttlig                 |
+| Standard_D2  | 2         | 7           | 100            | 6 000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / hög                     |
+| Standard_D3  | 4         | 14          | 200            | 12 000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / hög                     |
+| Standard_D4  | 8         | 28          | 400            | 24 000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / hög                     |
+| Standard_D11 | 2         | 14          | 100            | 6 000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / hög                     |
+| Standard_D12 | 4         | 28          | 200            | 12 000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / hög                     |
+| Standard_D13 | 8         | 56          | 400            | 24 000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / hög                     |
+| Standard_D14 | 16        | 112         | 800            | 48 000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / mycket hög                |
 <br>
 
 ## <a name="dv2-series"></a>Dv2-serien
-| Storlek | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort/nätverksbandbredd |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3.5 |50 |2 |2 × 500 |1 / måttlig |
-| Standard_D2_v2 |2 |7 |100 |4 |4 × 500 |2 / hög |
-| Standard_D3_v2 |4 |14 |200 |8 |8 × 500 |4 / hög |
-| Standard_D4_v2 |8 |28 |400 |16 |16 × 500 |8 / hög |
-| Standard_D5_v2 |16 |56 |800 |32 |32 ×&500; |8 / extremt hög |
-| Standard_D11_v2 |2 |14 |100 |4 |4 × 500 |2 / hög |
-| Standard_D12_v2 |4 |28 |200 |8 |8 × 500 |4 / hög |
-| Standard_D13_v2 |8 |56 |400 |16 |16 × 500 |8 / hög |
-| Standard_D14_v2 |16 |112 |800 |32 |32 ×&500; |8 / extremt hög |
-| Standard_D15_v2** |20 |140 |1,000 |40 |40 × 500 |8 / extremt hög* |
+
+
+| Storlek              | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt diskdataflöde: IOPS/Mbit/s vid läsning/Mbit/s vid skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/nätverksbandbredd |
+|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1_v2    | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 2 / 2 x 500                         | 1 / måttlig                 |
+| Standard_D2_v2    | 2         | 7           | 100            | 6 000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / hög                     |
+| Standard_D3_v2    | 4         | 14          | 200            | 12 000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / hög                     |
+| Standard_D4_v2    | 8         | 28          | 400            | 24 000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / hög                     |
+| Standard_D5_v2    | 16        | 56          | 800            | 48 000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / extremt hög           |
+| Standard_D11_v2   | 2         | 14          | 100            | 6 000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / hög                     |
+| Standard_D12_v2   | 4         | 28          | 200            | 12 000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / hög                     |
+| Standard_D13_v2   | 8         | 56          | 400            | 24 000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / hög                     |
+| Standard_D14_v2   | 16        | 112         | 800            | 48 000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / extremt hög           |
+| Standard_D15_v2** | 20        | 140         | 1,000          | 60 000 / 937 / 468                                        | 40 / 40 x 500                       | 8 / extremt hög*          |
 
 * Snabbare nätverksfunktioner är tillgängliga för Standard_D15_v2-storleken i vissa regioner. Mer information om användning och tillgänglighet finns i [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Snabbare nätverksfunktioner finns som förhandsversion) och [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md) (Snabbare nätverksfunktioner för en virtuell dator).
 
@@ -138,7 +139,7 @@ Mer information och saker att tänka på när du använder dessa storlekar finns
 <br>
 
 ## <a name="ds-series"></a>DS-serien*
-| Storlek | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt cachelagrat diskgenomflöde: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt cachelagrat och lokalt diskdataflöde: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort/nätverksbandbredd |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |1 / måttlig |
 | Standard_DS2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 64 |2 / hög |
@@ -179,18 +180,18 @@ Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte.
 <br>
 
 ## <a name="f-series"></a>F-serien
-| Storlek | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort/nätverksbandbredd |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1 |1 |2 |16 |2 |2 × 500 |1 / måttlig |
-| Standard_F2 |2 |4 |32 |4 |4 × 500 |2 / hög |
-| Standard_F4 |4 |8 |64 |8 |8 × 500 |4 / hög |
-| Standard_F8 |8 |16 |128 |16 |16 × 500 |8 / hög |
-| Standard_F16 |16 |32 |256 |32 |32 ×&500; |8 / extremt hög |
 
+| Storlek         | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt diskdataflöde: IOPS/Mbit/s vid läsning/Mbit/s vid skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/nätverksbandbredd |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_F1  | 1         | 2           | 16             | 3 000 / 46 / 23                                           | 2 / 2 x 500                         | 1 / måttlig                 |
+| Standard_F2  | 2         | 4           | 32             | 6 000 / 93 / 46                                           | 4 / 4 x 500                         | 2 / hög                     |
+| Standard_F4  | 4         | 8           | 64             | 12 000 / 187 / 93                                         | 8 / 8 x 500                         | 4 / hög                     |
+| Standard_F8  | 8         | 16          | 128            | 24 000 / 375 / 187                                        | 16 / 16 x 500                       | 8 / hög                     |
+| Standard_F16 | 16        | 32          | 256            | 48 000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / extremt hög           |
 <br>
 
 ## <a name="fs-series"></a>Fs-serien*
-| Storlek | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt cachelagrat diskgenomflöde: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt cachelagrat och lokalt diskdataflöde: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort/nätverksbandbredd |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |2 |4,000 / 32 (12) |3,200 / 48 |1 / måttlig |
 | Standard_F2s |2 |4 |8 |4 |8,000 / 64 (24) |6,400 / 96 |2 / hög |
@@ -205,19 +206,20 @@ Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte.
 <br>
 
 ## <a name="g-series"></a>G-serien
-| Storlek | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort/nätverksbandbredd |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_G1 |2 |28 |384 |4 |4 × 500 |1 / hög |
-| Standard_G2 |4 |56 |768 |8 |8 × 500 |2 / hög |
-| Standard_G3 |8 |112 |1,536 |16 |16 × 500 |4 / mycket hög |
-| Standard_G4 |16 |224 |3,072 |32 |32 × 500 |8 / extremt hög |
-| Standard_G5* |32 |448 |6,144 |64 |64 × 500 |8 / extremt hög |
+
+| Storlek         | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt diskdataflöde: IOPS/Mbit/s vid läsning/Mbit/s vid skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/nätverksbandbredd |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_G1  | 2         | 28          | 384            | 6 000 / 93 / 46                                           | 4 / 4 x 500                       | 1 / hög                     |
+| Standard_G2  | 4         | 56          | 768            | 12 000 / 187 / 93                                         | 8 / 8 x 500                       | 2 / hög                     |
+| Standard_G3  | 8         | 112         | 1,536          | 24 000 / 375 / 187                                        | 16 / 16 x 500                     | 4 / mycket hög                |
+| Standard_G4  | 16        | 224         | 3,072          | 48 000 / 750 / 375                                        | 32 / 32 x 500                     | 8 / extremt hög           |
+| Standard_G5* | 32        | 448         | 6,144          | 96 000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / extremt hög           |
 
 *Instansen är isolerad till maskinvara som är dedikerad till en enda kund.
 <br>
 
 ## <a name="gs-series"></a>GS-serien*
-| Storlek | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt cachelagrat diskgenomflöde: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort/nätverksbandbredd |
+| Storlek | Processorkärnor | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt cachelagrat och lokalt diskdataflöde: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort/nätverksbandbredd |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10,000 / 100 (264) |5,000 / 125 |1 / hög |
 | Standard_GS2 |4 |56 |112 |8 |20,000 / 200 (528) |10,000 / 250 |2 / hög |
@@ -227,7 +229,7 @@ Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte.
 
 Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte.
 
-*Det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i GS-serien kan begränsas av de anslutna diskarnas antal, storlek och striping. 
+*Det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i GS-serien kan begränsas av de anslutna diskarnas antal, storlek och striping. Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/storage/storage-premium-storage.md). 
 
 **Instansen är isolerad till maskinvara som är dedikerad till en enda kund.
 <br>
@@ -253,7 +255,7 @@ Mer information och saker att tänka på när du använder dessa storlekar finns
 <br>
 
 
-## <a name="ls-series"></a>Ls-serien 
+## <a name="ls-series"></a>Ls-serien* 
 
 Ls-serien är optimerad för arbetsbelastningar som kräver lokal lagring med låg svarstid, som NoSQL-databaser (t.ex. Cassandra, MongoDB, Cloudera och Redis). Ls-serien ger upp till 32 processorkärnor med hjälp av den [Intel® Xeon®-processorns E5 v3-familj](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Det här är samma CPU-prestanda som G/GS-serien och kommer med 8 GiB minne per CPU-kärna.  
 
@@ -263,9 +265,13 @@ Ls-serien är optimerad för arbetsbelastningar som kräver lokal lagring med l�
 | Standard_L4s  | 4    | 32   | 678   | 8              | NA / NA (0)          | 5,000 / 125                               | 2 / hög       | 
 | Standard_L8s  | 8    | 64   | 1,388 | 16             | NA / NA (0)          | 10,000 / 250                              | 4 / mycket hög  | 
 | Standard_L16s | 16   | 128  | 2,807 | 32             | NA / NA (0)          | 20,000 / 500                              | 8 / extremt hög | 
-| Standard_L32s | 32   | 256  | 5,630 | 64             | NA / NA (0)          | 40,000 / 1,000                            | 8 / extremt hög | 
+| Standard_L32s** | 32   | 256  | 5,630 | 64             | NA / NA (0)          | 40,000 / 1,000                            | 8 / extremt hög | 
  
 Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte. 
+
+*Det maximala diskdataflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i Ls-serien kan begränsas av de anslutna diskarnas antal, storlek och striping. Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/storage/storage-premium-storage.md). 
+
+**Instansen är isolerad till maskinvara som är dedikerad till en enda kund.
 
 
 
@@ -322,9 +328,4 @@ I den klassiska distributionsmodellen skiljer sig vissa namn på VM-storlekarna 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [Azure-prenumerationer, tjänstbegränsningar, kvoter och krav](../articles/azure-subscription-service-limits.md).
 * Lär dig mer [om H-serien och beräkningsintensiva virtuella datorer i A-serien](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för arbetsbelastningar som HPC-arbetsbelastningar för databehandling med höga prestanda.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e34b10aec5ee4316c8e2ffc03e1714dc6753e4d1
-ms.openlocfilehash: 96504042c4fb6a83c4ab2c35c20a8264d7db85bb
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: d315c5ed186c24236c860df1ad1b79d55c9a4d57
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -60,7 +61,7 @@ Det här behöver du lokalt.
 | --- | --- |
 | **VMM** |Du behöver minst en VMM-server som distribuerats som en fristående fysisk eller virtuell server eller som ett virtuellt kluster. <br/><br/>VMM-servern måste köra System Center 2012 R2 med de senaste kumulativa uppdateringarna.<br/><br/>Du behöver minst ett moln som konfigurerats på VMM-servern.<br/><br/>Källmolnet som du vill skydda måste innehålla en eller flera VMM-värdgrupper.<br/><br/>Läs mer om hur du konfigurerar VMM-moln i [Genomgång: Skapa privata moln med System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) i Keith Mayers blogg. |
 | **Hyper-V** |Du behöver en eller flera Hyper-V-värdservrar eller Hyper-V-kluster i VMM-molnet. Värdservern bör ha en eller flera virtuella datorer. <br/><br/>Hyper-V-servrar måste köras på minst **Windows Server 2012 R2** med Hyper-V-rollen eller **Microsoft Hyper-V Server 2012 R2** och ha de senaste uppdateringarna installerade.<br/><br/>Hyper-V-servrar som innehåller virtuella datorer som du vill skydda måste finnas i ett VMM-moln.<br/><br/>Om du kör Hyper-V i ett kluster bör du vara medveten om att klusterutjämning inte skapas automatiskt om du har ett statiskt IP-adressbaserat kluster. Du måste konfigurera klusterutjämningen manuellt. [Lär dig mer](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) i Aidan Finns blogginlägg. |
-| **Skyddade datorer** |Virtuella datorer som du vill skydda måste uppfylla [kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements). |
+| **Skyddade datorer** | Virtuella datorer som du vill skydda måste uppfylla [kraven för Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). |
 
 ## <a name="network-mapping-prerequisites"></a>Krav för nätverksmappning
 När du skyddar virtuella datorer i Azure mappar nätverksmappningen mellan virtuella datornätverk på VMM-källservern och Azure-målnätverken för att följande ska vara möjligt:
@@ -73,6 +74,12 @@ Om du vill distribuera nätverksmappning behöver du följande:
 
 * De virtuella datorerna som du vill skydda på VMM-källservern måste vara anslutna till ett virtuellt datornätverk. Nätverket ska kopplas till ett logiskt nätverk som är associerat med molnet.
 * Ett Azure-nätverk som de replikerade virtuella datorerna kan ansluta till efter redundansväxlingen. Du väljer det här nätverket vid tidpunkten för redundansväxlingen. Nätverket måste finnas i samma region som din Azure Site Recovery-prenumeration.
+
+
+Förbereda nätverk i VMM:
+
+   * [Konfigurera logiska nätverk](https://technet.microsoft.com/library/jj721568.aspx).
+   * [Konfigurera virtuella datornätverk](https://technet.microsoft.com/library/jj721575.aspx).
 
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Steg 1: Skapa ett Site Recovery-valv
@@ -246,7 +253,7 @@ Observera att om målnätverket har flera undernät och ett av dessa undernät h
 ## <a name="step-8-enable-protection-for-virtual-machines"></a>Steg 8: Aktivera skydd för virtuella datorer
 När du har konfigurerar servrar, moln och nätverk kan du aktivera skydd för virtuella datorer i molnet. Observera följande:
 
-* Virtuella datorer måste uppfylla [kraven för Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Virtuella datorer måste uppfylla [kraven för Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 * För att kunna aktivera skydd måste du ange egenskaperna för operativsystemet och operativsystemdisken för den virtuella datorn. Du kan ange egenskapen när du skapar en virtuell dator i VMM med hjälp av en mall för virtuella datorer. Du kan också ange dessa egenskaper för befintliga virtuella datorer på flikarna **Allmänt** och **Maskinvarukonfiguration** i egenskaperna för de virtuella datorerna. Om du inte anger dessa egenskaper i VMM kan du konfigurera dem på Azure Site Recovery-portalen.
 
     ![Skapa en virtuell dator](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
@@ -315,7 +322,7 @@ Du kan köra ett redundanstest mot Azure på två sätt.
 * **Testa redundans utan ett Azure-nätverk** – Den här typen av redundanstest kontrollerar att den virtuella datorn visas korrekt i Azure. Den virtuella datorn ansluts inte till något Azure-nätverk efter redundansväxlingen.
 * **Testa redundans med ett Azure-nätverk** – Den här typen av redundanstest kontroller att hela replikeringsmiljön visas som förväntat och att redundansväxlade virtuella datorer ansluts korrekt till det angivna Azure-målnätverket. Vad gäller hanteringen av undernät i samband med ett redundanstest så identifierar testet undernätet för de virtuella datorerna baserat på undernätet för den virtuella replikdatorn. Detta skiljer sig från vanlig replikering då undernätet för en virtuell replikdator baseras på undernätet för den virtuella källdatorn.
 
-Om du vill köra ett redundanstest för en virtuell dator som du har aktiverat skydd för till Azure utan att ange något Azure-målnätverk behöver du inte förbereda något. Om du vill köra ett redundanstest med ett Azure-målnätverk måste du skapa ett nytt Azure-nätverk som är isolerat från Azure-produktionsnätverket (standardbeteendet när du skapar ett nytt nätverk i Azure). Mer information finns i [Köra ett redundanstest](site-recovery-failover.md#run-a-test-failover).
+Om du vill köra ett redundanstest för en virtuell dator som du har aktiverat skydd för till Azure utan att ange något Azure-målnätverk behöver du inte förbereda något. Om du vill köra ett redundanstest med ett Azure-målnätverk måste du skapa ett nytt Azure-nätverk som är isolerat från Azure-produktionsnätverket (standardbeteendet när du skapar ett nytt nätverk i Azure). Mer information finns i [Köra ett redundanstest](site-recovery-failover.md).
 
 Du måste också konfigurera infrastrukturen för att den replikerade virtuella datorn ska fungera som förväntat. Exempelvis kan en virtuell dator med en domänkontrollant och DNS replikeras till Azure med hjälp av Azure Site Recovery och kan skapas i testnätverket med hjälp av funktionen Testa redundans. Mer information finns i avsnittet [Saker att tänka på vid redundanstestning för Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
@@ -341,9 +348,4 @@ Gör följande om du vill köra ett redundanstest:
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om hur du [konfigurerar återställningsplaner](site-recovery-create-recovery-plans.md) och [redundans](site-recovery-failover.md).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

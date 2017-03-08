@@ -2,6 +2,7 @@
 # Översikt
 ## [Vad är Cognitive Services?](https://azure.microsoft.com/services/cognitive-services/)
 # Kom igång
+## [Skapa ett konto](cognitive-services-apis-create-account.md)
 ## [Snabbstart för textanalys](cognitive-services-text-analytics-quick-start.md)
 ## [Snabbstart för rekommendationer](cognitive-services-recommendations-quick-start.md)
 
@@ -52,8 +53,3 @@
 ## [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=cognitive-services)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

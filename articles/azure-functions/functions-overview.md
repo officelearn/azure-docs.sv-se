@@ -14,16 +14,18 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 30cc3b8749d5b36b89b242e2691003cc6f67f7d2
-ms.openlocfilehash: 00359057d702c556cd8beb91cf17ccf41c96f601
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 045ec40811468eeffb25ed28ec5bfc84f074c19d
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="azure-functions-overview"></a>Översikt över Azure Functions
-Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda det programmeringsspråk du föredrar, till exempel C#, Node.js, Python eller PHP. Betala endast för tiden koden körs och lita på att Azure skalar enligt behov.
+# <a name="an-introduction-to-azure-functions"></a>En introduktion till Azure Functions  
+Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda det programmeringsspråk du föredrar, till exempel C#, Node.js, Python eller PHP. Betala endast för tiden koden körs och lita på att Azure skalar enligt behov. Azure Functions låter dig utveckla utan program utan server på Microsoft Azure.
 
 Det här ämnet innehåller en översikt över Azure Functions. Om du vill komma igång snabbt med Azure Functions, börja med att [Skapa din första Azure-funktion](functions-create-first-azure-function.md). Mer teknisk information om Azure Functions finns i [Info för utvecklare](functions-reference.md).
 
@@ -39,7 +41,7 @@ Här följer några funktioner i Azure Functions:
 * **Öppen källkod** – Functions-runtime är öppen källkod och [tillgänglig på GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>Vad kan jag göra med Functions?
-Azure Functions är en bra lösning för att behandla data, integrera system, arbeta med Sakernas Internet (IoT) och skapa enkla API:er och mikrotjänster. Functions kan användas för uppgifter som bild- eller orderbearbetning, filunderhåll, långvariga uppgifter som du vill köra i en bakgrundstråd eller för alla aktiviteter som du vill ska köras enligt ett schema. 
+Azure Functions är en bra lösning för att behandla data, integrera system, arbeta med Sakernas Internet (IoT) och skapa enkla API:er och mikrotjänster. Functions kan användas för uppgifter som avbildnings- eller orderbearbetning, filunderhåll eller för alla aktiviteter som du vill ska köras enligt ett schema. 
 
 Functions innehåller mallar för att komma igång med viktiga scenarier, inklusive följande:
 
@@ -55,7 +57,7 @@ Functions innehåller mallar för att komma igång med viktiga scenarier, inklus
 
 Azure Functions stöder *utlösare*, som kan användas för att starta körning av din kod, och *bindningar*, som kan användas för att förenkla kodning för in- och utdata. En detaljerad beskrivning av utlösare och bindningar i Azure Functions finns i [Azure Functions-utlösare och -bindningar, info för utvecklare](functions-triggers-bindings.md).
 
-## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Integreringar
+## <a name="integrations"></a>Integreringar
 Azure Functions kan integreras med en mängd Azure- och tredjepartstjänster. Du kan använda tjänsterna för att utlösa funktionen och starta körning, eller så kan de fungera som indata och utdata för din kod. Följande tjänsteintegreringar stöds av Azure Functions. 
 
 * Azure DocumentDB
@@ -66,8 +68,9 @@ Azure Functions kan integreras med en mängd Azure- och tredjepartstjänster. Du
 * Azure Storage (blob, köer och tabeller) 
 * GitHub (webhooks)
 * Lokal (med hjälp av Service Bus)
+* Twilio (SMS-meddelanden)
 
-## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Hur mycket kostar Functions?
+## <a name="pricing"></a>Hur mycket kostar Functions?
 Azure Functions har två typer av prissättningar, välj den som bäst passar dina behov: 
 
 * **Förbrukningsplan** – När din funktion körs tillhandahåller Azure alla nödvändiga beräkningsresurser. Du behöver inte bry dig om resurshantering, och du betalar endast för den tid då din kod körs. 
@@ -86,10 +89,5 @@ Fullständig prisinformation är tillgänglig på sidan [Prissättning för Func
   Beskriver tillgängliga serviceplaner för Azure Functions, inklusive värdplanen för förbrukning, och hur du väljer rätt plan. 
 * [Läs mer om Azure App Service](../app-service/app-service-value-prop-what-is.md)  
   Azure Functions utnyttjar plattformen Azure App Service för grundläggande funktioner som distributioner, miljövariabler och diagnostik. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

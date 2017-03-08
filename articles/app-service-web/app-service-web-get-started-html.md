@@ -4,7 +4,7 @@ description: "Distribuera en exempelapp och se hur enkelt det är att köra webb
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: fccbab2baafed3b0347f2c35b7926200ec69a450
-ms.openlocfilehash: 640f04ca9a8351543d44899946464ed7cd4db437
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7bc52251f2d0a6aca271bd3d013690bdd0d6b752
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Distribuera din första HTML-webbapp till Azure på fem minuter (CLI 2.0 Preview)
-
-> [!div class="op_single_selector"]
-> * [Första HTML-webbplats](app-service-web-get-started-html.md)
-> * [Första .NET-app](app-service-web-get-started-dotnet.md)
-> * [Första PHP-app](app-service-web-get-started-php.md)
-> * [Första Node.js-app](app-service-web-get-started-nodejs.md)
-> * [Första Python-app](app-service-web-get-started-python.md)
-> * [Första Java-app](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 I den här kursen lär du dig hur du distribuerar en enkel webbapp med HTML+CSS via [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Du kan använda App Service för att skapa webbappar, [serverdelar för mobilappar](/documentation/learning-paths/appservice-mobileapps/) och [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Du kommer att:
 Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
 - [Azure CLI 1.0](app-service-web-get-started-html-cli-nodejs.md) – vår CLI för distributionsmodellerna klassisk och resurshantering
-- [Azure CLI 2.0 (förhandsversion)](app-service-web-get-started-html.md) –vår nästa generations CLI för distributionsmodellen resurshantering
+- [Azure CLI 2.0](app-service-web-get-started-html.md) – vår nästa generations CLI för distributionsmodellen resurshantering
 
 ## <a name="prerequisites"></a>Krav
 * [Git](http://www.git-scm.com/downloads).
@@ -150,10 +142,5 @@ Eller gör mer med din första webbapp. Exempel:
 
 * Prova [andra sätt att distribuera din kod till Azure](web-sites-deploy.md). Markera till exempel **GitHub** istället för **Lokal Git-lagringsplats** i **Distributionsalternativ** för att distribuera från någon av dina GitHub-lagringsplatser.
 * Ta din Azure-app till nästa nivå. Autentisera användarna. Skala den på begäran. Konfigurera prestandavarningar. Allt med några få klickningar. Mer information finns i [Lägga till funktioner till din första webbapp](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

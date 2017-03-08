@@ -1,6 +1,6 @@
 ---
-title: "Skapa DNS-poster med hjälp av Azure CLI | Microsoft Docs"
-description: "Skapa värdposter för Azure DNS genom att konfigurera postuppsättningar och poster med CLI"
+title: "Skapa DNS-poster med hjälp av Azure CLI 2.0 | Microsoft Docs"
+description: "Skapa värdposter för Azure DNS genom att konfigurera postuppsättningar och poster med Azure CLI 2.0"
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -10,21 +10,24 @@ ms.service: dns
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/21/2016
+ms.date: 02/27/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 18a21cdc0f9641356dfaf6f6d93edfcac11af210
-ms.openlocfilehash: 790af1544ed86155f5f864f3914b5fd1c4f42f4b
+ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
+ms.openlocfilehash: ca713647a9f795d7803c32eac7fba9b5b6ac95cf
+ms.lasthandoff: 02/28/2017
 
 ---
 
-# <a name="create-dns-records-using-the-azure-cli"></a>Skapa DNS-poster med hjälp av Azure CLI
+# <a name="how-to-create-dns-records-using-the-azure-cli-20"></a>Skapa DNS-poster med hjälp av Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [Azure CLI](dns-getstarted-create-recordset-cli.md)
+> * [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md)
 
 Den här artikeln beskriver steg för steg hur du skapar poster och postuppsättningar med hjälp av Azure CLI.
 
@@ -36,35 +39,42 @@ Innan du skapar DNS-poster i Azure DNS, måste du först förstå hur Azure DNS 
 
 Mer information om DNS-poster i Azure DNS finns i [DNS-zoner och poster](dns-zones-records.md).
 
+## <a name="cli-versions-to-complete-the-task"></a>CLI-versioner för att slutföra uppgiften
+
+Du kan slutföra uppgiften med någon av följande CLI-versioner:
+
+* [Azure CLI 1.0](dns-getstarted-create-recordset-cli-nodejs.md) – vår CLI för distributionsmodellerna klassisk och resurshantering.
+* [Azure CLI 2.0](dns-getstarted-create-recordset-cli.md) – vår nästa generations CLI för distributionsmodellen resurshantering.
+
 ## <a name="create-a-record-set-and-record"></a>Skapa en postuppsättning och poster
 
-I det här avsnittet beskrivs hur du kan skapa DNS-poster i Azure DNS. I exemplen antar vi att du redan har [installerat Azure CLI, loggat in och skapat en DNS-zon](dns-getstarted-create-dnszone-cli.md).
+I det här avsnittet beskrivs hur du kan skapa DNS-poster i Azure DNS. I exemplen förutsätter vi att du redan har [installerat Azure CLI 2.0, loggat in och skapat en DNS-zon](dns-getstarted-create-dnszone-cli.md).
 
-Alla exempel på den här sidan använder DNS-posttypen A. När det gäller överiga posttyper och ytterligare information om hur man hanterar DNS-poster och registrerar postuppsättningar finns i [Hantera DNS-poster och registrera postuppsättningar med hjälp av Azure CLI](dns-operations-recordsets-cli.md).
+Alla exempel på den här sidan använder DNS-posttypen A. När det gäller övriga posttyper och ytterligare information om hur man hanterar DNS-poster och registrerar postuppsättningar finns i [Hantera DNS-poster och registrera postuppsättningar med hjälp av Azure CLI 2.0](dns-operations-recordsets-cli.md).
 
 ## <a name="create-a-dns-record"></a>Skapa en DNS-post
 
-Skapa en DNS-post genom att använda kommandot `azure network dns record-set add-record`. Om du vill ha hjälp, så gå till `azure network dns record-set add-record -h`.
+Skapa en DNS-post genom att använda kommandot `az network dns record-set ? add` (var? är posttypen). Om du vill ha hjälp, så gå till `az network dns record-set --help`.
 
 När du skapar en post måste du ange resursgruppsnamn, zonnamn, postuppsättningsnamn, posttyp och information om posten som skapas.
 
 Om postuppsättningen inte redan finns, skapar det här kommandot den åt dig. Om postuppsättningen redan finns, lägger det här kommandot till posten som du anger till den befintliga postuppsättningen. 
 
-Om en ny postuppsättning skapas, används ett standard TTL-värde (Time to Live) på 3600. Anvisningar för hur du använder olika TTL:er, finns i [Hantera DNS-poster i Azure DNS med Azure CLI](dns-operations-recordsets-cli.md).
+Om en ny postuppsättning skapas, används ett standard TTL-värde (Time to Live) på 3600. Anvisningar för hur du använder olika TTL:er finns i [Hantera DNS-poster i Azure DNS med Azure CLI 2.0](dns-operations-recordsets-cli.md).
 
 Följande exempel skapar en A-post som heter *www* i zonen *contoso.com* i resursgruppen *MyResourceGroup*. IP-adressen för A-posten är *1.2.3.4*.
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
+az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-För att skapa en postuppsättning högst upp i zonen (i det här fallet ”contoso.com”), använder du postnamnet "@",, inklusive citattecken:
+Skapa en post överst i zonen (i det här fallet ”contoso.com”) genom att använda postnamnet "@", inklusive citattecknen.
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2.3.4
+az network dns record-set a --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
-Parametrarna som används för att ange postdata varierar beroende på posttypen. För en post av typen "A", anger du exempelvis IPv4-adressen med parametern `-a <IPv4 address>`. Läs i `azure network dns record-set add-record -h` om hur du listar parametrar för andra posttyper. För exempel för varje posttyp, kan du se [Hantera DNS-poster och postuppsättningar med Azure CLI](dns-operations-recordsets-cli.md).
+Parametrarna som används för att ange postdata varierar beroende på posttypen. För en post av typen "A", anger du exempelvis IPv4-adressen med parametern `--ipv4-address <IPv4 address>`. Läs i `az network dns record --help` om hur du listar parametrar för andra posttyper. Om du vill ha exempel för varje posttyp kan du läsa [Hantera DNS-poster och postuppsättningar med Azure CLI 2.0](dns-operations-recordsets-cli.md).
 
 
 ## <a name="verify-name-resolution"></a>Verifiera namnmatchning
@@ -90,13 +100,8 @@ Address:  1.2.3.4
 
 Lär dig hur du [delegerar ditt domännamn till Azure DNS-namnservrarna](dns-domain-delegation.md)
 
-Läs mer om hur du kan [Hantera DNS-zoner med Azure CLI](dns-operations-dnszones-cli.md).
+Läs mer om hur du kan [Hantera DNS-zoner med Azure CLI 2.0](dns-operations-dnszones-cli.md).
 
-Läs mer om hur du kan [Hantera DNS-poster och postuppsättningar med Azure CLI](dns-operations-recordsets-cli.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+Läs mer om hur du kan [Hantera DNS-poster och postuppsättningar med Azure CLI 2.0](dns-operations-recordsets-cli.md).
 
 

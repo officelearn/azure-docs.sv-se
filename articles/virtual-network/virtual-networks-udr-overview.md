@@ -1,10 +1,10 @@
 ---
-title: "Vad är användardefinierade vägar och IP-vidarebefordring?"
-description: "Lär dig hur du använder användardefinierade vägar (UDR) och IP-vidarebefordring för att vidarebefordra trafik till nätverks-virtuella installationer i Azure."
+title: "Användardefinierade vägar och IP-vidarebefordran i Azure | Microsoft Docs"
+description: "Lär dig hur du använder användardefinierade vägar (UDR) och IP-vidarebefordran till att vidarebefordra trafik till nätverks-virtuella installationer i Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
-ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
+ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
+ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>Vad är användardefinierade vägar och IP-vidarebefordring?
+# <a name="user-defined-routes-and-ip-forwarding"></a>Användardefinierade vägar och IP-vidarebefordran
+
 När du lägger till virtuella datorer (VM:ar) till ett virtuellt nätverk (VNet) i Azure, märker du att VM:arna kan kommunicera automatiskt med varandra över nätverket. Du behöver inte ange någon gateway, även om VM:arna befinner sig på olika undernät. Samma sak gäller för kommunikation från VM:arna till det offentliga Internet samt till ditt lokala nätverk när det finns en hybridanslutning från Azure till ditt eget datacenter.
 
 Det här flödet av kommunikation är möjligt eftersom Azure använder en uppsättning systemvägar för att definiera hur IP-trafiken flödar. Systemvägar kontrollerar kommunikationsflödet i följande scenarier:
@@ -53,8 +56,8 @@ Paketen dirigeras över ett TCP/IP-nätverk som baseras på en routingtabell som
 | Egenskap | Beskrivning | Villkor | Överväganden |
 | --- | --- | --- | --- |
 | Adressprefix |Mål-CIDR som vägen gäller för, till exempel 10.1.0.0/16. |Måste vara ett giltigt CIDR-intervall som representerar adresser på det offentliga Internet, Azure-virtuella nätverk eller lokala datacenter. |Kontrollera att **Adressprefix** inte innehåller adressen för **Nexthop-adress**, annars hamnar dina paket i en evig loop från källan till nexthop utan att någonsin nå målet. |
-| Nexthop-typ |Den typ av Azure-hop som paketet ska skickas till. |Måste vara ett av följande värden: <br/> **Virtuellt nätverk**. Representerar det lokala virtuella nätverket. Om du till exempel har två undernät, 10.1.0.0/16 och 10.2.0.0/16 i samma virtuella nätverk, kommer vägen för varje undernät i routingtabellen att ha nexthop-värdet *Virtuellt nätverk*. <br/> **Virtuell nätverksgateway**. Representerar en Azure S2S VPN-gateway. <br/> **Internet**. Representerar standard Internet-gatewayen från Azure-infrastrukturen. <br/> **Virtuell installation**. Representerar en virtuell installation som du lagt till i ditt Azure-virtuella nätverk. <br/> **Ingen**. Representerar ett svart hål. Paket som vidarebefordras till en svart hål, vidarebefordras inte alls. |Du kan använda en **Ingen**-typ för att stoppa paket från att flöda till ett givet mål. |
-| Nexthop-adress |Nexthop-adressen innehåller IP-adressen som paket ska vidarebefordras till. Nexthop-värden tillåts bara i vägar där nexthop-typen är *virtuell installation*. |Måste vara en IP-adress som kan nås i det virtuella nätverket där den användardefinierad vägen används. |Om IP-adressen representerar en VM, bör du se till att aktivera [IP-vidarebefordring](#IP-forwarding) i Azure för den VM:n. |
+| Nexthop-typ |Den typ av Azure-hop som paketet ska skickas till. |Måste vara ett av följande värden: <br/> **Virtuellt nätverk**. Representerar det lokala virtuella nätverket. Om du till exempel har två undernät, 10.1.0.0/16 och 10.2.0.0/16 i samma virtuella nätverk, kommer vägen för varje undernät i routingtabellen att ha nexthop-värdet *Virtuellt nätverk*. <br/> **Virtuell nätverksgateway**. Representerar en Azure S2S VPN-gateway. <br/> **Internet**. Representerar standard Internet-gatewayen från Azure-infrastrukturen. <br/> **Virtuell installation**. Representerar en virtuell installation som du lagt till i ditt Azure-virtuella nätverk. <br/> **Ingen**. Representerar ett svart hål. Paket som vidarebefordras till en svart hål, vidarebefordras inte alls. |Med **virtuella installationer** kan du dirigera trafik till en intern IP-adress för en VM eller Azure Load Balancer.  Med den här typen kan du ange en IP-adress på det sätt som beskrivs nedan. Du kan använda en **Ingen**-typ för att stoppa paket från att flöda till ett givet mål. |
+| Nexthop-adress |Nexthop-adressen innehåller IP-adressen som paket ska vidarebefordras till. Nexthop-värden tillåts bara i vägar där nexthop-typen är *virtuell installation*. |Måste vara en IP-adress som kan nås i det virtuella nätverket där den användardefinierad vägen används. |Om IP-adressen representerar en VM, bör du se till att aktivera [IP-vidarebefordring](#IP-forwarding) i Azure för den VM:n. Om IP-adressen representerar den interna IP-adressen för Azure Load Balancer måste du se till att du har en matchande regel för belastningsutjämning för varje port du vill utjämna.|
 
 I Azure PowerShell har vissa "NextHopType"-värden har olika namn:
 
@@ -108,10 +111,5 @@ Den här virtuella installations-VM:en måste kunna ta emot inkommande trafik so
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [skapar vägar i Resource Manager-distributionsmodellen](virtual-network-create-udr-arm-template.md) och kopplar dem till undernät. 
 * Lär dig hur du [skapar vägar i den klassiska distributionsmodellen](virtual-network-create-udr-classic-ps.md) och kopplar dem till undernät.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

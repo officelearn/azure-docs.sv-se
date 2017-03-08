@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
-ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e4302e7c5b54a46994eccaa8cf9ecbb0a84446d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -51,7 +51,7 @@ I den här självstudien använder vi en Azure AD-programklienthemlighet för at
 2. Hämta klient-ID:t, klienthemligheten och token- slutpunkten för Azure AD-webbappen.
 3. Konfigurera åtkomst för Azure AD-webbappen på Data Lake Store-filen/-mappen som du vill ha åtkomst till från Java-programmet du skapar.
 
-Instruktioner om hur du utför de här stegen finns i [Skapa ett Active Directory-program](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
+Instruktioner om hur du utför de här stegen finns i [Skapa ett Active Directory-program](data-lake-store-authenticate-using-active-directory.md).
 
 Azure Active Directory erbjuder även andra alternativ för att hämta en token. Du kan välja från ett antal olika autentiseringsmekanismer för att passa ditt scenario, till exempel ett program som körs i en webbläsare, ett program som distribueras som ett skrivbordsprogram eller ett serverprogram som körs lokalt eller på en virtuell Azure-dator. Du kan också välja mellan olika typer av autentiseringsuppgifter som lösenord, certifikat, tvåfaktorautentisering och så vidare. Dessutom låter Azure Active Directory dig synkronisera dina lokala Active Directory-användare med molnet. För information, se [Autentiseringsscenarier för Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md). 
 

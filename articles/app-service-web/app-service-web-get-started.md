@@ -4,7 +4,7 @@ description: "Distribuera en exempelapp och se hur enkelt det är att köra webb
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 65c9bdd9-8763-4c56-8e15-f790992e951e
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9ea90a7e2f69344fa86e20bc869f5b8af629a226
-ms.openlocfilehash: 77de5a58dc792ff2d65855e726dd35d9824276cb
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7cf4f7c5e0d3e4b51c98fb7a98bbf9de95c9fd7b
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -38,7 +39,7 @@ Du kommer att:
 Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
 - [Azure CLI 1.0](app-service-web-get-started-cli-nodejs.md) – vår CLI för distributionsmodellerna klassisk och resurshantering
-- [Azure CLI 2.0 (förhandsversion)](app-service-web-get-started.md) –vår nästa generations CLI för distributionsmodellen resurshantering
+- [Azure CLI 2.0](app-service-web-get-started.md) – vår nästa generations CLI för distributionsmodellen resurshantering
 
 ## <a name="prerequisites"></a>Krav
 * [Git](http://www.git-scm.com/downloads).
@@ -157,10 +158,5 @@ Eller gör mer med din första webbapp. Exempel:
 
 * Prova [andra sätt att distribuera din kod till Azure](web-sites-deploy.md). Markera till exempel **GitHub** istället för **Lokal Git-lagringsplats** i **Distributionsalternativ** för att distribuera från någon av dina GitHub-lagringsplatser.
 * Ta din Azure-app till nästa nivå. Autentisera användarna. Skala den på begäran. Konfigurera prestandavarningar. Allt med några få klickningar. Mer information finns i [Lägga till funktioner till din första webbapp](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

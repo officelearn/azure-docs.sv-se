@@ -4,7 +4,7 @@ description: "Distribuera en ASP.NET-exempelapp och se hur enkelt det är att k�
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 0458cc3b-b630-4632-8cd0-76e2ed96498b
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: cd4c048baff62deff42c4f8794aa7aac8eb1599d
+ms.sourcegitcommit: d24e78a826de9fb72e0eedc48877c83e867f70ca
+ms.openlocfilehash: 58683e50ab57e0d162dde92c2f9558d5c2379d5b
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="deploy-your-first-aspnet-web-app-to-azure-in-five-minutes"></a>Distribuera din första ASP.NET-webbapp via Azure på fem minuter
-
-> [!div class="op_single_selector"]
-> * [Första HTML-webbplats](app-service-web-get-started-html-cli-nodejs.md)
-> * [Första .NET-app](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Första PHP-app](app-service-web-get-started-php-cli-nodejs.md)
-> * [Första Node.js-app](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Första Python-app](app-service-web-get-started-python-cli-nodejs.md)
-> * [Första Java-app](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started-nodejs-cli](../../includes/app-service-web-selector-get-started-nodejs-cli.md)]  
 
 I de här självstudierna lär du dig hur du distribuerar en enkel ASP.NET-webbapp till [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 Du kan använda App Service för att skapa webbappar, [serverdelar för mobilappar](/documentation/learning-paths/appservice-mobileapps/) och [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Du kommer att:
 Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
 - [Azure CLI 1.0](app-service-web-get-started-dotnet-cli-nodejs.md) – vår CLI för distributionsmodellerna klassisk och resurshantering
-- [Azure CLI 2.0 (förhandsversion)](app-service-web-get-started-dotnet.md) –vår nästa generations CLI för distributionsmodellen resurshantering
+- [Azure CLI 2.0](app-service-web-get-started-dotnet.md) – vår nästa generations CLI för distributionsmodellen resurshantering
 
 ## <a name="prerequisites"></a>Krav
 * [Git](http://www.git-scm.com/downloads).
@@ -127,10 +119,5 @@ Eller gör mer med din första webbapp. Exempel:
 
 * Prova [andra sätt att distribuera din kod till Azure](web-sites-deploy.md). Markera till exempel **GitHub** istället för **Lokal Git-lagringsplats** i **Distributionsalternativ** för att distribuera från någon av dina GitHub-lagringsplatser.
 * Ta din Azure-app till nästa nivå. Autentisera användarna. Skala den på begäran. Konfigurera prestandavarningar. Allt med några få klickningar. Mer information finns i [Lägga till funktioner till din första webbapp](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

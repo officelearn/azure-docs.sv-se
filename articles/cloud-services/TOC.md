@@ -115,8 +115,3 @@
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

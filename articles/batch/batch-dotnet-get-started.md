@@ -1,6 +1,6 @@
 ---
 title: "Självstudiekurs – Använda Azure Batch-klientbiblioteket för .NET | Microsoft Docs"
-description: "Lär dig mer om grundläggande Azure Batch-begrepp och hur du utvecklar för Batch-tjänsten med ett enkelt exempelscenario."
+description: "Lär dig de grundläggande principerna för Azure Batch och skapa en enkel lösning med .NET."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 5af894b60180d32593ed19c13aecf2732645120a
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-the-azure-batch-library-for-net"></a>Komma igång med Azure Batch-biblioteket för .NET
+# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Börja utveckla lösningar med Batch-klientbibliotek för .NET
+
 > [!div class="op_single_selector"]
 > * [NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -802,9 +805,4 @@ Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lös
 [9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Batch-autentiseringsuppgifter på portalen"
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Storage-autentiseringsuppgifter på portalen"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Arbetsflödet i en Batch-lösning (minimalt diagram)"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

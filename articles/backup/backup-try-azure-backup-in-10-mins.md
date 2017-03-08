@@ -1,5 +1,5 @@
 ---
-title: "Säkerhetskopiera filer och mappar från Windows till Azure med hjälp av Resource Manager-distributionsmodellen | Microsoft Docs"
+title: "Säkerhetskopiera Windows-filer och -mappar till Azure (Resource Manager) | Microsoft Docs"
 description: "Lär dig att säkerhetskopiera Windows-filer och -mappar till Azure i en distribution av resurshanteraren."
 services: backup
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/10/2017
+ms.date: 2/23/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
-ms.openlocfilehash: cb464ad823b9123ad0bfa66e0df64a616e3fb5d0
+ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
+ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -26,17 +27,6 @@ Den här artikeln förklarar hur du säkerhetskopierar filer och mappar i Window
 
 Om du vill veta mer om Azure Backup läser du den här [översikten](backup-introduction-to-azure-backup.md).
 
-Följande aktiviteter krävs när du säkerhetskopierar filer och mappar till Azure:
-
-![Steg 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Skaffa en Azure-prenumeration (om du inte redan har en).<br>
-![Steg 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Skapa ett Recovery Services-valv.<br>
-![Steg 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Ladda ned de nödvändiga filerna.<br>
-![Steg 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Installera och registrera Recovery Services-agenten.<br>
-![Steg 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Säkerhetskopiera dina filer och mappar.
-
-![Säkerhetskopiera Windows-datorn med Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## <a name="get-an-azure-subscription"></a>Skaffa en Azure-prenumeration
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) som ger dig åtkomst till Azure-tjänsten.
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
@@ -70,6 +60,7 @@ Innan du kan säkerhetskopiera filer och mappar måste du skapa ett Recovery Ser
   Fullständig information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 7. Klicka på **Plats** för att välja en geografisk region för valvet. Det här alternativet anger den geografiska region som dina säkerhetskopierade data skickas till.
+
 8. Längst ned på bladet för Recovery Services-valvet klickar du på **Skapa**.
 
     Det kan ta flera minuter innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena uppe till höger i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valvet efter ett par minuter, klickar du på **Uppdatera**.
@@ -229,9 +220,4 @@ Om du har frågor eller om du saknar en funktion är du välkommen att [lämna f
 * Få mer information om hur du [säkerhetskopierar Windows-datorer](backup-configure-vault.md).
 * Nu när du har säkerhetskopierat dina filer och mappar kan du [hantera dina valv och servrar](backup-azure-manage-windows-server.md).
 * Om du behöver återställa en säkerhetskopia använder du den här artikeln för att [återställa filer till en Windows-dator](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

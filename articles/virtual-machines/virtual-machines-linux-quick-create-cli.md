@@ -1,6 +1,6 @@
 ---
-title: "Skapa en Linux-baserad virtuell dator med hjälp av Azure CLI 2.0 Preview | Microsoft Azure"
-description: "Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0 Preview (förhandsversion)."
+title: "Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0 | Microsoft Azure"
+description: "Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -12,27 +12,23 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/13/2016
+ms.date: 01/13/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 1081eb18bd63b1ad580f568201e03258901e4eaf
-ms.openlocfilehash: e926f22b94da30e1d3b790432ffdc229d9f4e609
+ms.sourcegitcommit: 892e3c62a2ad4dc4fd0691874d46bb296e379524
+ms.openlocfilehash: cc51b04c31c02aabf25c9efb1e9cd975077811a4
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Skapa en virtuell Linux-dator med Azure CLI 2.0 Preview (az.py)
-Den här artikeln beskriver hur du snabbt distribuerar en Linux-baserad virtuell dator på Azure med kommandot [az vm create](/cli/azure/vm#create) med hjälp av Azure CLI 2.0 (förhandsutgåva) genom att använda både hanterade diskar och diskar på egna lagringskonton.
-
-> [!NOTE] 
-> Azure CLI 2.0 Preview är vår nästa generations CLI för flera plattformar. [Prova.](https://docs.microsoft.com/cli/azure/install-az-cli2)
->
-> Om du vill skapa en virtuell dator med hjälp av befintliga Azure CLI 1.0 och inte Azure CLI 2.0 Preview läser du [Skapa en virtuell dator med Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="create-a-linux-vm-using-the-azure-cli-20"></a>Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0
+Den här artikeln beskriver hur du snabbt distribuerar en Linux-baserad virtuell dator på Azure med kommandot [az vm create](/cli/azure/vm#create) med hjälp av Azure CLI 2.0 genom att använda både hanterade diskar och diskar på egna lagringskonton. Du kan också utföra dessa steg med [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Om du vill skapa en virtuell dator behöver du följande: 
 
 * ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/))
-* [Azure CLI v. 2.0 Preview](/cli/azure/install-az-cli2) installerat
+* [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad
 * vara inloggad på ditt Azure-konto (skriv [az login](/cli/azure/#login))
 
 (Du kan också distribuera en virtuell Linux-dator med hjälp av [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
@@ -202,10 +198,5 @@ bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  
 * [Skapa en SSH-skyddad virtuell Linux-dator i Azure med hjälp av mallar](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Du kan också [använda Azure-drivrutinen `docker-machine` med olika kommandon för att snabbt skapa en virtuell Linux-dator som en Docker-värd ](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), och om du använder Java kan du prova metoden [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine).
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

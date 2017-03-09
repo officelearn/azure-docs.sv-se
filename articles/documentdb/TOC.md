@@ -1,6 +1,7 @@
 
 # Översikt
 ## [Vad är DocumentDB?](documentdb-introduction.md)
+## [Vad är DocumentDB: API för MongoDB?](documentdb-protocol-mongodb.md)
 ## [Huvudkoncept](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
 ## [TCO-analys för NoSQL](https://aka.ms/documentdb-tco-paper)
@@ -14,9 +15,11 @@
 ### [.NET Core-konsolapp](documentdb-dotnetcore-get-started.md)
 ### [Java-konsolapp](documentdb-java-get-started.md)
 ### [Node.js-konsolapp](documentdb-nodejs-get-started.md)
+### [Node.js-konsolapp för MongoDB-API:er](documentdb-mongodb-samples.md)
 ### [C++-konsolapp](documentdb-cpp-get-started.md)
 ## Bygga en webbapp
 ### [.NET-webbapp](documentdb-dotnet-application.md)
+### [.NET-webbapp för MongoDB-API:er](documentdb-mongodb-application.md)
 ### [Node.js-webbapp](documentdb-nodejs-application.md)
 ### [Java-webbapp](documentdb-java-application.md)
 ### [Python Flask-webbapp](documentdb-python-application.md)
@@ -34,6 +37,10 @@
 
 ## Hantera
 ### [Importera dina data](documentdb-import-data.md)
+### [Importera till API för MongoDB](documentdb-mongodb-migrate.md)
+### [Ansluta till ditt MongoDB-konto](documentdb-connect-mongodb-account.md)
+### [Använda MongoChef](documentdb-mongodb-mongochef.md)
+### [Använda Robomongo](documentdb-mongodb-robomongo.md)
 ### [Forma dina data](documentdb-modeling-data.md)
 ### [Använda geospatiala data](documentdb-geospatial.md)
 ### [Utveckla för flera regioner](documentdb-developing-with-multiple-regions.md)
@@ -60,15 +67,6 @@
 ### Bästa praxis
 #### [Konfiguration med flera huvudservrar](documentdb-multi-region-writers.md)
 #### [DateTimes](documentdb-working-with-dates.md)
-
-## Använd DocumentDB-stöd för MongoDB
-### [Protokollstöd för MongoDB](documentdb-protocol-mongodb.md)
-### [Skapa ett konto](documentdb-create-mongodb-account.md)
-### [Ansluta till ditt konto](documentdb-connect-mongodb-account.md)
-### [Migrera dina data](documentdb-mongodb-migrate.md)
-### [Använda Robomongo](documentdb-mongodb-robomongo.md)
-### [Använda MongoChef](documentdb-mongodb-mongochef.md)
-### [Exempel på protokollstöd](documentdb-mongodb-samples.md)
 
 ## Använda portalen
 ### [Skapa ett databaskonto](documentdb-create-account.md)

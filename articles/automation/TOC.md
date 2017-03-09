@@ -1,12 +1,16 @@
 # Översikt
 ## [Vad är Azure Automation?](automation-intro.md)
-## [Säkerhet i Azure Automation](automation-security-overview.md)
 # Kom igång
 ## [Skapa Runbook](automation-first-runbook-graphical.md)
 ## [Skapa PowerShell-runbook](automation-first-runbook-textual-powershell.md)
 ## [Skapa PowerShell Workflow-runbook](automation-first-runbook-textual.md)
 ## [Hantera rollbaserad åtkomstkontroll](automation-role-based-access-control.md)
 # Gör så här för att
+## Konfigurera autentisering
+### [Autentisering i Azure Automation](automation-security-overview.md)
+### [Kör som-konto i Azure](automation-sec-configure-azure-runas-account.md)
+### [Azure Service Management och Resource Manager](automation-sec-configure-aduser-account.md)
+### [Amazon Web Services](automation-sec-configure-aws-account.md)
 ## Skapa runbooks
 ### [Runbook-typer](automation-runbook-types.md)
 ### [Skapa och importera Runbooks](automation-creating-importing-runbook.md)
@@ -28,15 +32,11 @@
 ### [Hantera Azure Automation-data](automation-managing-data.md)
 ### [Anropa Azure Automation Runbook från en Log Analytics-avisering](automation-invoke-runbook-from-omsla-alert.md)
 ## Distribuera konfigurationshantering (DSC)
-### [Önskad tillståndskonfiguration (DSC)](automation-dsc-overview.md)
+### [Översikt över önskad tillståndskonfiguration (DSC)](automation-dsc-overview.md)
 ### [Komma igång](automation-dsc-getting-started.md)
 ### [Konfigurera datorer för hantering](automation-dsc-onboarding.md)
 ### [Kompilera DSC-konfigurationer](automation-dsc-compile.md)
 ### [Kontinuerlig distribution med Chocolatey](automation-dsc-cd-chocolatey.md)
-## Konfigurera autentisering
-### [Azure Service Management och Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
-### [Kör som-konto i Azure](automation-sec-configure-azure-runas-account.md)
 ## Hantera automationstillgångar
 ### [Certifikat](automation-certificates.md)
 ### [Anslutningar](automation-connections.md)
@@ -47,8 +47,6 @@
 ### [Uppdatera Azure PowerShell-moduler](automation-update-azure-modules.md)
 ## Automatisera scenarier
 ### [Runbook-galleri](automation-runbook-gallery.md)
-### [Starta/stoppa virtuella datorer](automation-solution-startstopvm-graphical.md)
-### [Starta/stoppa virtuella datorer med PowerShell](automation-solution-startstopvm-psworkflow.md)
 ### [Skapa virtuella Amazon Web Service-datorer](automation-scenario-aws-deployment.md)
 ### [Åtgärda varning från virtuell Azure-dator](automation-azure-vm-alert-integration.md)
 ### [Starta/stoppa virtuell dator med JSON-taggar](automation-scenario-start-stop-vm-wjson-tags.md)
@@ -81,8 +79,3 @@
 ## [Azure Automation-utbildning](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Introduktionsvideo för Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

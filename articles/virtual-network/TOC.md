@@ -12,8 +12,7 @@
 ### [Namnmatchning](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Kom igång
-## [Skapa ett virtuellt nätverk](virtual-networks-create-vnet-arm-pportal.md)
-## [Distribuera en virtuell dator till ett virtuellt nätverk](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [Skapa ditt första virtuella nätverk](virtual-network-get-started-vnet-subnet.md)
 
 # Gör så här för att
 ## Planera och designa
@@ -146,8 +145,3 @@
 ## [Nätverksforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

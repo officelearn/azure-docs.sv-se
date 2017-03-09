@@ -1,3 +1,4 @@
+
 # Översikt
 ## [Vad är Azure Government?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
@@ -31,6 +32,7 @@
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
 ### [Databas](documentation-government-services-database.md)
+### [Information och analys](documentation-government-services-intelligenceandanalytics.md)
 ### [Nätverk](documentation-government-networking.md)
 ### [Säkerhet och identitet](documentation-government-services-securityandidentity.md)
 ### [Övervakning och hantering](documentation-government-services-monitoringandmanagement.md)
@@ -42,8 +44,3 @@
 ## [Utvärdering](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Blogg](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Azure Government-webbplatsen](https://azure.microsoft.com/overview/clouds/government/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

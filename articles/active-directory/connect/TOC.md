@@ -60,7 +60,8 @@
 ## Felsöka
 ### [Anslutning](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Fel under synkronisering](active-directory-aadconnect-troubleshoot-sync-errors.md)
-
+### [Objektet har inte synkroniserats](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Lösenordssynkronisering](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 
 # Referens
 ## [Identitetssynkronisering och duplicerad attributåterhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

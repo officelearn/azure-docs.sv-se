@@ -4,7 +4,7 @@ description: "I den här kursen får du hjälp att komma igång med Mobile Apps 
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile

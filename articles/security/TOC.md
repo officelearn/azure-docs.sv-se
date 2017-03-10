@@ -9,13 +9,13 @@
 ### [Metodtips för datasäkerhet och kryptering](azure-security-data-encryption-best-practices.md)
 ### [Lagringssäkerhetsguide](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Compute-säkerhet](security-virtual-machines-overview.md)
+### [Metodtips för virtuella Azure-datorer](azure-security-best-practices-vms.md)
 ### [Metodtips för IaaS-arbetsbelastningar ](azure-security-iaas.md)
 ### [Microsoft-programvara mot skadlig kod](azure-security-antimalware.md)
 ### [Diskkryptering](azure-security-disk-encryption.md)
 ### [Kryptera Azure-VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Säkerhetshantering och övervakning](security-management-and-monitoring-overview.md)
 ### [Säkerhetshantering](azure-security-management.md)
-### [Metodtips för programuppdateringar på IaaS](azure-security-best-practices-software-updates-iaas.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Azure-loggintegrering](security-azure-log-integration-overview.md)
 #### [Kom igång](security-azure-log-integration-get-started.md)
@@ -63,8 +63,3 @@
 ###[Indataverifiering](azure-security-threat-modeling-tool-input-validation.md)
 ###[Känsliga data](azure-security-threat-modeling-tool-sensitive-data.md)
 ###[Sessionshantering](azure-security-threat-modeling-tool-session-management.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

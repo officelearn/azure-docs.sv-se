@@ -264,6 +264,7 @@
 
 # Relaterat
 ## [Viktig information om Azure SDK för .NET](azure-sdk-dotnet-release-notes.md)
+### [3.0-versionen](azure-sdk-dotnet-release-notes-3-0.md)
 ### [2.9-versionen](azure-sdk-dotnet-release-notes-2-9.md)
 ### [2.8.x-versionerna](azure-sdk-dotnet-release-notes-2-8.md)
 ### [2.7.x-versionerna](azure-sdk-dotnet-release-notes-2-7.md)

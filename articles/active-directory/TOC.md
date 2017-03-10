@@ -34,15 +34,13 @@
 ##### [Införandestrategi](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 #### [Nästa steg](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 #### [Jämförelse av verktyg](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 ## Hantera användare
 ### Lägga till användare
 #### [Azure-portal](active-directory-users-create-azure-portal.md)
 #### [Klassisk portal](active-directory-create-users.md)
 
-### Lägga till användare från andra kataloger
-#### [Azure-portal](active-directory-users-create-external-azure-portal.md)
-#### [Klassisk portal](active-directory-create-users-external.md)
-
+### [Lägg till användare från andra kataloger (klassiska portalen)](active-directory-create-users-external.md)
 ### [Ta bort användare](active-directory-users-delete-user-azure-portal.md)
 ### [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
 ### [Återställ ett lösenord](active-directory-users-reset-password-azure-portal.md)
@@ -68,33 +66,34 @@
 #### [Klassisk portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [Gruppbaserad licensiering](active-directory-licensing-whatis-azure-portal.md)
 #### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identifiera och lösa licensproblem för en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Identifiera och lös licensproblem för en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
 ### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
 ### [Felsöka](active-directory-accessmanagement-troubleshooting.md)
 
-## [Visa aktivitetsrapporter](active-directory-view-access-usage-reports.md)
-### [Inloggningar](active-directory-reporting-activity-sign-ins.md)
-### [Granskningsloggar](active-directory-reporting-activity-audit-logs.md)
+## [Hantera rapporter](active-directory-reporting-azure-portal.md)
+### [Inloggningsaktiviteter](active-directory-reporting-activity-sign-ins.md)
+### [Granska aktivitet](active-directory-reporting-activity-audit-logs.md)
 ### [Användare i riskzonen](active-directory-reporting-security-user-at-risk.md)
 ### [Riskfyllda inloggningar](active-directory-reporting-security-risky-sign-ins.md)
+### [Riskhändelser](active-directory-reporting-risk-events.md)
+### [Namngivna nätverk](active-directory-known-networks-azure-portal.md)
 ### [Vanliga frågor och svar](active-directory-reporting-faq.md)
 ### [Rapportera migrering](active-directory-reporting-migration.md)
-### [Kända nätverk](active-directory-known-networks.md)
-
-### Klassisk portal
+### [Kvarhållning](active-directory-reporting-retention.md)
+###    Programmässig åtkomst
+#### [Granska referens](active-directory-reporting-api-audit-reference.md)
+#### [Granska exempel](active-directory-reporting-api-audit-samples.md)
+#### [Förutsättningar](active-directory-reporting-api-prerequisites.md)
+#### [Inloggningsreferens](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Inloggningsexempel](active-directory-reporting-api-sign-in-activity-samples.md)
+### [Klassisk portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD-rapportering](active-directory-reporting-getting-started.md)
 #### [Rapporteringsguide](active-directory-reporting-guide.md)
-#### [Förhandsversion](active-directory-reporting-azure-portal.md)
+#### [Kända nätverk](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
-##### [Granskningsreferens](active-directory-reporting-api-audit-reference.md)
-##### [Granska exempel](active-directory-reporting-api-audit-samples.md)
-##### [Krav](active-directory-reporting-api-prerequisites.md)
-##### [Inloggningsreferens](active-directory-reporting-api-sign-in-activity-reference.md)
-##### [Inloggningsexempel](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Granska händelser](active-directory-reporting-audit-events.md)
-#### [Kvarhållning](active-directory-reporting-retention.md)
 #### [Svarstider](active-directory-reporting-latencies.md)
 #### [Meddelanden](active-directory-reporting-notifications.md)
 #### Förstå rapporter
@@ -108,6 +107,7 @@
 
 ## [Hantera lösenord](active-directory-manage-passwords.md)
 ### [Uppdatera ditt eget lösenord](active-directory-passwords-update-your-own-password.md)
+### [Konfigurera återställning av lösenord för självbetjäning](active-directory-passwords.md)
 ### [Förstå lösenordshantering](active-directory-passwords-how-it-works.md)
 ### [Förstå principer och begränsningar](active-directory-passwords-policy.md)
 ### Återställa lösenord
@@ -117,7 +117,6 @@
 ### Aktivera lösenordshantering
 #### [Kom igång](active-directory-passwords-getting-started.md)
 #### [Distribuera](active-directory-passwords-best-practices.md)
-#### [Konfigurera återställning av lösenord för självbetjäning](active-directory-passwords.md)
 #### [Anpassa](active-directory-passwords-customize.md)
 #### [Visa rapporter](active-directory-passwords-get-insights.md)
 #### [Läs mer](active-directory-passwords-learn-more.md)
@@ -128,22 +127,19 @@
 ### [Registrera enheter](active-directory-conditional-access-device-registration-overview.md)
 #### [Hantera automatisk registrering](active-directory-conditional-access-automatic-device-registration.md)
 #### [Installation](active-directory-conditional-access-automatic-device-registration-setup.md)
-### [Registrera din enhet](active-directory-azureadjoin-personal-device.md)
-### [Registrera en enhet för Windows 10](active-directory-azureadjoin-user-upgrade.md)
+#### [Vanliga frågor och svar](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Felsöka
+##### [Felsökning för Windows 10 och Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Felsökning för tidigare Windows-klientversioner](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planera](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Konfigurera enhetsregistrering](active-directory-azureadjoin-setup.md)
 #### [Registrera nya enheter](active-directory-azureadjoin-user-frx.md)
 #### [Distribuera](active-directory-azureadjoin-devices-group-policy.md)
-#### [Autentisera utan lösenord](active-directory-azureadjoin-passport.md)
-#### [Aktivera Windows Hello för företag](active-directory-azureadjoin-passport-deployment.md)
-
 #### [Förstå Windows 10-integrering](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Använda Windows 10-enheter](active-directory-azureadjoin-windows10-devices.md)
-#### [Vanliga frågor och svar](active-directory-conditional-access-automatic-device-registration-faq.md)
-#### Felsökning
-##### [Felsökning för Windows 10 och Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Felsökning för tidigare Windows-klientversioner](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+#### [Anslut din enhet](active-directory-azureadjoin-personal-device.md)
+#### [Anslut en Windows 10-enhet](active-directory-azureadjoin-user-upgrade.md)
 
 ## Hantera appar
 ### [Översikt](active-directory-enable-sso-scenario.md)
@@ -237,6 +233,7 @@
 #### [Inlösning av inbjudan](active-directory-b2b-redemption-experience.md)
 #### [B2B-användaregenskaper](active-directory-b2b-user-properties.md)
 #### [Lägg till en gästanvändare till en roll](active-directory-b2b-add-guest-to-role.md)
+#### [Granskning och rapporter](active-directory-b2b-auditing-and-reporting.md)
 #### [API och anpassning](active-directory-b2b-api.md)
 #### [Delegera inbjudningar](active-directory-b2b-delegate-invitations.md)
 #### [Dynamiska grupper och B2B](active-directory-b2b-dynamic-groups.md)
@@ -284,6 +281,9 @@
 #### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
 #### [Felsöka](active-directory-conditional-access-device-remediation.md)
 #### [Referens](active-directory-conditional-access-technical-reference.md)
+### Windows Hello
+#### [Autentisera utan lösenord](active-directory-azureadjoin-passport.md)
+#### [Aktivera Windows Hello för företag](active-directory-azureadjoin-passport-deployment.md)
 ### Certifikatbaserad autentisering
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

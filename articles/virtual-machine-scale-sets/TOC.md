@@ -4,6 +4,7 @@
 # Kom igång
 ## [Skapa en skalningsuppsättning på portalen](virtual-machine-scale-sets-portal-create.md)
 ## [Skapa en skalningsuppsättning med Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Skapa en skalningsuppsättning med en Resource Manager-mall](virtual-machine-scale-sets-mvss-start.md)
 
 # Gör så här för att
 ## Planera och designa
@@ -46,8 +47,3 @@
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

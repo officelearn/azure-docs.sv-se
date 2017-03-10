@@ -1,6 +1,7 @@
 # Översikt
 ## [Vad är Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 ## [Hur det fungerar](multi-factor-authentication-how-it-works.md)
+## [Så här skaffar du Azure MFA](multi-factor-authentication-versions-plans.md)
 
 # Kom igång
 ## [Välj var du vill distribuera](multi-factor-authentication-get-started.md)
@@ -20,6 +21,7 @@
 #### [Avancerade VPN-konfigurationer](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Webbtjänsten för mobilappar](multi-factor-authentication-get-started-server-webservice.md)
 #### [Windows-autentisering](multi-factor-authentication-get-started-server-windows.md)
+#### [Uppgradera MFA Server](multi-factor-authentication-server-upgrade.md)
 #### [Uppgradera från PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Hantera användare
@@ -45,8 +47,3 @@
 ## Felsöka
 ### [Vanliga frågor och svar](multi-factor-authentication-faq.md)
 ### [Ställ en fråga](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

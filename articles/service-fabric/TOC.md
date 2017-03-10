@@ -81,9 +81,10 @@
 #### [Timers och påminnelser](service-fabric-reliable-actors-timers-reminders.md)
 #### [Händelser](service-fabric-reliable-actors-events.md)
 #### [Tillståndshantering](service-fabric-reliable-actors-state-management.md)
-#### [Konfigurera tillståndsprovider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [Konfigurera KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Typserialisering](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [Konfigurera kommunikationsinställningar](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Konfigurera ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ## Migrera från Cloud Services
 ### [Jämför Cloud Services med Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -106,6 +107,7 @@
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio och Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
+#### [Nätverksmönster för kluster](service-fabric-patterns-networking.md)
 #### [Nodtyper och skalningsuppsättningar för virtuella datorer](service-fabric-cluster-nodetypes.md)
 #### [Skala ett kluster](service-fabric-cluster-scale-up-down.md)
 #### [Uppgradera ett kluster](service-fabric-cluster-upgrade.md)

@@ -12,16 +12,17 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
-ms.openlocfilehash: 559ecab373adf6441635f2ed0d572ab02159f50c
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: a8bc1b0a1011cc2d7719d93fad9db76a7b0f0795
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-java"></a>Kom igång med Azure IoT Hub (Java)
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-java"></a>Anslut din simulerade enhet till IoT Hub med Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 I slutet av den här självstudiekursen har du tre Java-konsolappar:
@@ -58,13 +59,12 @@ I det här avsnittet ska du skapa en Java-konsolapp som skapar en enhetsidentite
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=create-device-identity -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 2. Gå till mappen create-device-identity i Kommandotolken.
-3. Använd en textredigerare och öppna filen pom.xml i mappen create-device-identity och lägg till följande beroende till noden **dependencies**. Det här beroendet gör att du kan använda iothub-service-sdk-paketet i din app:
+3. Använd en textredigerare och öppna filen pom.xml i mappen create-device-identity och lägg till följande beroende till noden **dependencies**. Det här beroendet gör att du kan använda paketet iot-service-client i din app:
    
     ```
-    <dependency>
-      <groupId>com.microsoft.azure.iothub-java-client</groupId>
-      <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.11</version>
+    <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-service-client</artifactId>
+      <version>1.0.14</version>
     </dependency>
     ```
 4. Spara och stäng filen pom.xml.
@@ -72,9 +72,9 @@ I det här avsnittet ska du skapa en Java-konsolapp som skapar en enhetsidentite
 6. Lägg till följande **Import**-instruktioner i filen:
    
     ```
-    import com.microsoft.azure.iot.service.exceptions.IotHubException;
-    import com.microsoft.azure.iot.service.sdk.Device;
-    import com.microsoft.azure.iot.service.sdk.RegistryManager;
+    import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+    import com.microsoft.azure.sdk.iot.service.sdk.Device;
+    import com.microsoft.azure.sdk.iot.service.sdk.RegistryManager;
    
     import java.io.IOException;
     import java.net.URISyntaxException;
@@ -147,7 +147,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.10.0</version> 
+        <version>0.11.0</version> 
     </dependency>
     ```
 4. Spara och stäng filen pom.xml.
@@ -158,16 +158,12 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
     import java.io.IOException;
     import com.microsoft.azure.eventhubs.*;
     import com.microsoft.azure.servicebus.*;
-   
-    import java.io.IOException;
+
     import java.nio.charset.Charset;
     import java.time.*;
-    import java.util.Collection;
-    import java.util.concurrent.ExecutionException;
     import java.util.function.*;
-    import java.util.logging.*;
     ```
-7. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt **{youriothubkey}**, **{youreventhubcompatibleendpoint}** och **{youreventhubcompatiblename}** med de värden som du skrev ner tidigare:
+7. Lägg till följande klassnivåvariabler i klassen **App**. Ersätt **{youriothubkey}**, **{youreventhubcompatibleendpoint}** och **{youreventhubcompatiblename}** med de värden som du skrev ner tidigare:
    
     ```
     private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
@@ -282,9 +278,9 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
    
     ```
     <dependency>
-      <groupId>com.microsoft.azure.iothub-java-client</groupId>
-      <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.16</version>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-device-client</artifactId>
+      <version>1.0.20</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -297,13 +293,15 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
 6. Lägg till följande **Import**-instruktioner i filen:
    
     ```
-    import com.microsoft.azure.iothub.DeviceClient;
-    import com.microsoft.azure.iothub.IotHubClientProtocol;
-    import com.microsoft.azure.iothub.Message;
-    import com.microsoft.azure.iothub.IotHubStatusCode;
-    import com.microsoft.azure.iothub.IotHubEventCallback;
-    import com.microsoft.azure.iothub.IotHubMessageResult;
+    import com.microsoft.azure.sdk.iot.device.DeviceClient;
+    import com.microsoft.azure.sdk.iot.device.IotHubClientProtocol;
+    import com.microsoft.azure.sdk.iot.device.Message;
+    import com.microsoft.azure.sdk.iot.device.IotHubStatusCode;
+    import com.microsoft.azure.sdk.iot.device.IotHubEventCallback;
+    import com.microsoft.azure.sdk.iot.device.MessageCallback;
+    import com.microsoft.azure.sdk.iot.device.IotHubMessageResult;
     import com.google.gson.Gson;
+
     import java.io.IOException;
     import java.net.URISyntaxException;
     import java.util.Random;
@@ -353,14 +351,13 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
     
     ```
     private static class MessageSender implements Runnable {
-      public volatile boolean stopThread = false;
     
       public void run()  {
         try {
           double avgWindSpeed = 10; // m/s
           Random rand = new Random();
     
-          while (!stopThread) {
+          while (true) {
             double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
             telemetryDataPoint.deviceId = deviceId;

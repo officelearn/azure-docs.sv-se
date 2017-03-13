@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a18ffc2b3b0f317a4209a9d6457bdcc571d9f899
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 8d24ab744715df69c707df5a119fa71c72338b62
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: a18ffc2b3b0f317a4209a9d6457bdcc571d9f899
 Det här dokumentet beskriver de avancerade identifieringsfunktionerna i Azure Security Center, som hjälper dig att identifiera aktiva hot mot dina Microsoft Azure-resurser och som ger dig de insikter som du behöver för att reagera snabbt.
 
 > [!NOTE]
-> Avancerade identifieringar är tillgängliga på standardnivån för Azure Security Center. En kostnadsfri 90-dagars utvärderingsversion är tillgänglig. Information om hur du uppgraderar prisnivån finns i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information om priser finns på [sidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
+> Avancerade identifieringar är tillgängliga på standardnivån för Azure Security Center. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Information om hur du uppgraderar prisnivån finns i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information om priser finns på [sidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
 > 
 > 
 
@@ -89,10 +90,5 @@ I det här dokumentet har vi tittat på identifieringsfunktionerna i Azure Secur
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

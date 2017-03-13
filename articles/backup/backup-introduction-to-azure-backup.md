@@ -1,6 +1,6 @@
 ---
 title: "Vad är Azure Backup? | Microsoft Docs"
-description: "Du kan säkerhetskopiera och återställa data och program från Windows-servrar och -arbetsstationer, System Center DPM-servrar och -arbetsbelastningar och virtuella datorer i Azure med Azure Backup och Recovery Services."
+description: "Du kan använda Azure Backup till att säkerhetskopiera och återställa data och arbetsbelastningar från Windows-servrar, Windows-arbetsstationer, System Center DPM-servrar och virtuella datorer i Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,16 +13,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/23/2017
+ms.date: 2/27/2017
 ms.author: markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 39ad8e07659a228e4a4b861cc98e9f3e830aaab0
-ms.openlocfilehash: 63d3d95300f3d2353471b8ca4923f3bf682464bb
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
+ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="what-is-azure-backup"></a>Vad är Azure Backup?
+# <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett säkerhetskopieringsvalv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
 
 [Titta på en videoöversikt över Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
@@ -94,17 +95,15 @@ I följande tabell visas de Azure Backup-komponenter som har stöd för Linux.
 | Säkerhetskopiering av virtuella IaaS-datorer i Azure |Ja |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Använd virtuella Premium Storage-datorer med Azure Backup
-Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium-lagring finns i artikeln [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../storage/storage-premium-storage.md)
+Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium-lagring finns i artikeln [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Säkerhetskopiera virtuella datorer i Premium Storage
-När du säkerhetskopierar virtuella datorer i Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats i Premium Storage-kontot. Mellanlagringsplatsen, som har namnet ”AzureBackup-”, motsvarar den totala datastorleken på premium-diskarna som är kopplade till den virtuella datorn. Kontrollera om det finns tillräckligt med ledigt utrymme för en tillfällig mellanlagringsplats i lagringskontot. Mer information finns i artikeln om [Premium Storage-begränsningar](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+När du säkerhetskopierar virtuella datorer i Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet ”AzureBackup-” i Premium Storage-kontot. Mellanlagringsplatsen är lika stor som återställningspunkten för ögonblicksbilden. Se till att det finns tillräckligt med ledigt utrymme i lagringskontot för mellanlagringsplatsen. Mer information finns i artikeln om [Premium Storage-begränsningar](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets). När säkerhetskopieringen är klar tas mellanlagringsplatsen bort. Priset för lagringen som används för mellanlagringsplatsen följer [prissättningen för Premium-lagring](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Ändra inte mellanlagringsplatsen.
 >
 >
-
-När säkerhetskopieringen är klar tas mellanlagringsplatsen bort. Priset för lagringen som används för mellanlagringsplatsen följer [prissättningen för Premium-lagring](../storage/storage-premium-storage.md#pricing-and-billing).
 
 ### <a name="restore-premium-storage-vms"></a>Återställa virtuella datorer i Premium Storage
 Virtuell dator för Premium Storage VM kan återställas till antingen Premium Storage-lagring eller normal lagring. I en typisk återställningsprocess återställs en återställningspunkt för virtuella datorer i Premium Storage till Premium Storage. Det kan dock vara kostnadseffektivt att återställa en återställningspunkt för virtuella datorer i Premium Storage till standardlagring. Den här typen av återställning kan vara praktisk om du behöver en delmängd av filerna från den virtuella datorn.
@@ -156,7 +155,7 @@ Förbrukning av lagringsutrymme, mål för återställningstid (RTO) och nätver
 
 ![bild som visar jämförelser av metoder för säkerhetskopiering](./media/backup-introduction-to-azure-backup/backup-method-comparison.png)
 
-Med **fullständig säkerhetskopiering** innehåller varje säkerhetskopia hela datakällan. Fullständig säkerhetskopiering förbrukar en stora mängd av nätverkets bandbredd och lagring varje gång en säkerhetskopia överförs.
+Med **fullständig säkerhetskopiering** innehåller varje säkerhetskopia hela datakällan. Fullständig säkerhetskopiering förbrukar en stor mängd av nätverkets bandbredd och lagring varje gång en säkerhetskopia överförs.
 
 **Differentiell säkerhetskopiering** lagrar endast de block som har ändrats sedan den första fullständiga säkerhetskopieringen, vilket resulterar i en lägre förbrukning av nätverk och lagringsutrymme. Differentiella säkerhetskopieringar lagrar inte redundanta kopior av oförändrade data. Men eftersom de datablock som förblir oförändrade mellan efterföljande säkerhetskopieringar överförs och lagras är differentiella säkerhetskopieringar ineffektiva. I den andra månaden säkerhetskopieras ändrade A2- A3- A4- och A9-block. Den tredje månaden säkerhetskopieras samma block igen, tillsammans med ändrade A5-block. De ändrade blocken fortsätter att säkerhetskopieras tills nästa fullständiga säkerhetskopiering sker.
 

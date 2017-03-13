@@ -1,5 +1,5 @@
 ---
-title: "Privat Docker-behållarregister i Azure | Microsoft Docs"
+title: "Privata Docker-behållarregister i Azure | Microsoft Docs"
 description: "Introduktion till Azure Container Registry-tjänsten, som tillhandahåller molnbaserade, hanterade, privata Docker-register."
 services: container-registry
 documentationcenter: 
@@ -16,12 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: 69d1750f13b5507268229b29a392c38662c0f5f0
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="what-is-azure-container-registry"></a>Vad är Azure Container Registry?
+# <a name="introduction-to-private-docker-container-registries"></a>Introduktion till privata Docker-behållarregister
 > [!NOTE]
 > Container Registry finns för närvarande endast som förhandsversion.
 
@@ -68,9 +70,4 @@ Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsf
 * [Skicka din första avbildning med hjälp av Docker CLI](container-registry-get-started-docker-cli.md)
 * Om du vill skapa ett kontinuerligt arbetsflöde för integrering och distribution med Visual Studio Team Services, Azure Container Service och Azure Container Registry kan du kika på den här [självstudiekursen](../container-service/container-service-setup-ci-cd.md).
 * Information om hur du ställer in ett privat Docker-register i Azure (utan en offentlig slutpunkt) finns i [Distribuera ditt egna privata Docker-register på Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

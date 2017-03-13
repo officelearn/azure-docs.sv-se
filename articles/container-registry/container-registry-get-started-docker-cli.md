@@ -1,6 +1,6 @@
 ---
-title: "Docker-avbildningar i Azure-behållarregister | Microsoft Docs"
-description: "Skicka och hämta Docker-avbildningar till ett Azure-behållarregister med hjälp av Docker CLI"
+title: "Överför Docker-avbildningen till det privata Azure-registret | Microsoft-dokument"
+description: "Skicka och hämta Docker-avbildningar till ett privat behållarregister i Azure med hjälp av Docker CLI"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,15 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: e778c09991da73cd5064532119d92bff36f0a00e
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett behållarregister med hjälp av Docker CLI
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-behållarregister med hjälp av Docker CLI
 Ett Azure-behållarregister lagrar och hanterar privata [Docker](http://hub.docker.com)-behållaravbildningar, på samma sätt som [Docker Hub](https://hub.docker.com/) lagrar offentliga Docker-avbildningar. Du använder [Docker-kommandoradsgränssnittet](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) för att [logga in](https://docs.docker.com/engine/reference/commandline/login/), [skicka](https://docs.docker.com/engine/reference/commandline/push/) och [hämta](https://docs.docker.com/engine/reference/commandline/pull/), samt för andra åtgärder för behållarregistret. 
 
-Mer bakgrundsinformation och förklaringar av begrepp finns i [Vad är Azure Container Registry?](container-registry-intro.md)
+Mer bakgrund och koncept beskrivs i [översikten](container-registry-intro.md)
 
 
 > [!NOTE]
@@ -114,10 +116,5 @@ docker rmi myregistry-contoso.azurecr.io/samples/nginx
 Nu när du känner till grunderna är du redo att börja använda registret! Du kan till exempel börja distribuera behållaravbildningar till ett [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/)-kluster.
 
 
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

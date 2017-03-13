@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 31157645006b24e9ed6ee9187c355310356615a7
-ms.openlocfilehash: 7d9dbf3af8e7d84d470bf6f42e2d2be01c5cb27d
+ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
+ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -83,7 +84,7 @@ Du kan ladda ned data till ett Machine Learning Studio-experiment på tre sätt:
 
 Mer information om vilka filformat som stöds finns i [Importera träningsdata till Machine Learning Studio](machine-learning-data-science-import-data.md).
 
-#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>Hur stor kan datauppsättningen vara för mina moduler?
+#### <a id="ModuleLimit"></a>Hur stor kan datauppsättningen vara för mina moduler?
 Modulerna i Machine Learning Studio stöder datauppsättningar på upp till 10 GB med kompakta numeriska data för vanliga användningsfall. Om en modul hämtar indata från mer än ett ställe är värdet 10 GB summan av alla indata. Du kan också ta prover av större datauppsättningar med frågor från Hive eller Azure SQL Database, eller så kan du bearbeta data i förväg med modulen Inlärning med antal före införandet.  
 
 Följande typer av data kan expanderas till större datauppsättningar under funktionsnormalisering och är begränsade till mindre än 10 GB:
@@ -101,7 +102,7 @@ Följande moduler är begränsade till datauppsättningar som är mindre än 10�
 * Moduler där den utgående datastorleken kan vara större än den inkommande datastorleken, till exempel kopplings- eller funktions-hashning
 * Korsvalidering, hyperparametrar för justeringsmodeller, ordningstalsregression och ”en eller alla”-multiklasser, om antalet iterationer är mycket stort
 
-#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>Vilka gränser gäller för datauppladdningar?
+#### <a id="UploadLimit"></a>Vilka gränser gäller för datauppladdningar?
 För datauppsättningar som är större än ett par GB laddar du upp data till Azure Storage eller Azure SQL Database. Du kan också använda Azure HDInsight i stället för att ladda upp direkt från en lokal fil.
 
 **Kan jag läsa data från Amazon S3?**
@@ -167,7 +168,7 @@ Dokumentationen innehåller en del information om algoritmerna, och parametrarna
 
 Nej, för närvarande stöds endast omträning via programmering.
 
-**Kan jag visualisera lagren i en neuronätverksmodell med hjälp av den inbyggda modulen?**
+**Kan jag visualisera lagren i en neuronnätverksmodell med hjälp av den inbyggda modulen?**
 
 Nej.
 
@@ -315,7 +316,7 @@ Azure Machine Learning har även ett community-forum på MSDN där du kan ställ
 
 Azure Machine Learning har två komponenter: Machine Learning Studio och Machine Learning-webbtjänster.
 
-När du utvärderar Machine Learning Studio kan du använda den kostnadsfria faktureringsnivån. På den kostnadsfria nivån kan du distribuera en klassiska webbtjänst med begränsad kapacitet.
+När du utvärderar Machine Learning Studio kan du använda den kostnadsfria faktureringsnivån. På den kostnadsfria nivån kan du distribuera en klassisk webbtjänst med begränsad kapacitet.
 
 När du har bekräftat att Azure Machine Learning uppfyller dina behov kan du registrera dig för standardnivån. Du måste ha en Microsoft Azure-prenumeration för att registrera dig.
 
@@ -429,7 +430,11 @@ Vi rekommenderar att du börjar med standardnivån S1 och övervakar hur tjänst
 
 **I vilka regioner är de nya planerna tillgängliga?**
 
-Information om tillgänglighet i olika regioner finns i [Produkttillgänglighet per region](https://azure.microsoft.com/regions/services/).
+De nya faktureringsplanerna är tillgängliga i de tre produktionsregioner där vi stöder de nya webbtjänsterna:
+
+* Södra centrala USA
+* Västra Europa
+* Sydostasien
 
 **Jag har webbtjänster i flera regioner. Behöver jag en plan för varje region?**
 
@@ -464,7 +469,13 @@ Ja, de klassiska webbtjänsterna finns kvar i Azure Machine Learning.
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Den kostnadsfria nivån och standardnivån för Azure Machine Learning
 **Vad ingår i den kostnadsfria Azure Machine Learning-nivån?**
 
-Den kostnadsfria Azure Machine Learning-nivån är avsedd att ge en detaljerad introduktion till Azure Machine Learning Studio. Allt du behöver är ett Microsoft-konto för att registrera dig. Den kostnadsfria nivån tillhandahåller gratis åtkomst till en Azure Machine Learning Studio-arbetsyta per [Microsoft-konto](https://www.microsoft.com/account/default.aspx). I den här nivån kan du använda upp till 10 GB lagringsutrymme och operationalisera modeller som API:er för mellanlagring. Arbetsbelastningar på den kostnadsfria nivån omfattas inte av något SLA och är endast avsedda för utveckling och personligt bruk. Arbetsbelastningar på den kostnadsfria nivån får inte åtkomst till data genom att ansluta till en lokal server som kör SQL Server.
+Den kostnadsfria Azure Machine Learning-nivån är avsedd att ge en detaljerad introduktion till Azure Machine Learning Studio. Allt du behöver är ett Microsoft-konto för att registrera dig. Den kostnadsfria nivån tillhandahåller gratis åtkomst till en Azure Machine Learning Studio-arbetsyta per [Microsoft-konto](https://www.microsoft.com/account/default.aspx). I den här nivån kan du använda upp till 10 GB lagringsutrymme och operationalisera modeller som API:er för mellanlagring. Arbetsbelastningar på den kostnadsfria nivån omfattas inte av något SLA och är endast avsedda för utveckling och personligt bruk. 
+
+Arbetsytor på den kostnadsfria nivån har följande begränsningar:
+
+* Arbetsbelastningar kan inte få åtkomst till data genom att ansluta till en lokal server som kör SQL Server.
+* Du kan inte distribuera nya grundläggande Resource Manager-webbtjänster.
+
 
 **Vad ingår i standardnivån och standardplanerna för Azure Machine Learning?**
 
@@ -546,9 +557,4 @@ Gäståtkomst är en begränsad utvärderingsmiljö. Du kan skapa och köra expe
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

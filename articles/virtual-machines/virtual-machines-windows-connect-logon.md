@@ -13,16 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2016
+ms.date: 03/01/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 9077746d8ffe968504f1dde90ed5f76dd1facc19
+ms.sourcegitcommit: 00f6b2e60c20eb27771d9d54df63f930ee88a55a
+ms.openlocfilehash: 7427c8126ab73a851bc696d4925366b3b714616d
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Ansluta till och logga in på en virtuell Azure-dator som kör Windows
-Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP). Du börjar med att ansluta till den virtuella datorn och loggar sedan in.
+Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP) från ett Windows-skrivbord. Du börjar med att ansluta till den virtuella datorn och loggar sedan in.
+
+Om du försöker ansluta till en virtuell Windows-dator från en Mac måste du installera en RDP-klient för Mac som [Microsoft Remote Desktop](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
 
 ## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com/).
@@ -42,10 +45,5 @@ Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivb
 
 ## <a name="next-steps"></a>Nästa steg
 Om du får problem när du försöker ansluta läser du [Felsöka anslutningar till fjärrskrivbord](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Den här artikeln beskriver hur du diagnostiserar och löser vanliga problem.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

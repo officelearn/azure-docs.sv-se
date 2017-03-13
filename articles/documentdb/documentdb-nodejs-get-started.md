@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 49b765010be87bacdb486391c28bf58aad1a9d24
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -26,8 +26,9 @@ ms.lasthandoff: 02/23/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js för MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +65,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupnodeastep-2-setup-your-nodejs-application"></a><a id="SetupNode"></a>Steg 2: Konfigurera Node.js-programmet
+## <a id="SetupNode"></a>Steg 2: Konfigurera Node.js-programmet
 1. Öppna valfri terminal.
 2. Leta reda på mappen eller katalogen där du vill spara Node.js-programmet.
 3. Skapa två tomma JavaScript-filer med följande kommandon:
@@ -79,7 +80,7 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
 
 Bra! Nu när vi har slutfört installationen kan vi börja skriva kod.
 
-## <a name="a-idconfigastep-3-set-your-apps-configurations"></a><a id="Config"></a>Steg 3: Ange appkonfigurationer
+## <a id="Config"></a>Steg 3: Ange appkonfigurationer
 Öppna ```config.js``` i valfri textredigerare.
 
 Kopiera och klistra sedan in kodfragmentet nedan och ange egenskaper för ```config.endpoint``` och ```config.primaryKey``` till slutpunkts-URI och primärnyckel i DocumentDB. Båda dessa konfigurationer finns i [Azure Portal](https://portal.azure.com).
@@ -176,7 +177,7 @@ Exportera slutligen ```config```-objektet, så att du kan referera till det i fi
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a name="a-idconnecta-step-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>Steg 4: Anslut till ett DocumentDB-konto
+## <a id="Connect"></a>Steg 4: Anslut till ett DocumentDB-konto
 Öppna den tomma filen ```app.js``` i textredigeraren. Kopiera och klistra in koden nedan för att importera modulen ```documentdb``` och modulen ```config``` som du just skapade.
 
     // ADD THIS PART TO YOUR CODE
@@ -260,7 +261,7 @@ Leta upp filen ```app.js``` i terminalen och kör kommandot: ```node app.js```
 
 Grattis! Du har skapat en DocumentDB-databas.
 
-## <a name="a-idcreatecollastep-6-create-a-collection"></a><a id="CreateColl"></a>Steg 6: Skapa en samling
+## <a id="CreateColl"></a>Steg 6: Skapa en samling
 > [!WARNING]
 > **CreateDocumentCollectionAsync** skapar en ny samling, vilket får konsekvenser för priset. Mer information finns på vår [sida med priser](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -314,7 +315,7 @@ Leta upp filen ```app.js``` i terminalen och kör kommandot: ```node app.js```
 
 Grattis! Du har skapat en DocumentDB-samling.
 
-## <a name="a-idcreatedocastep-7-create-a-document"></a><a id="CreateDoc"></a>Steg 7: Skapa ett dokument
+## <a id="CreateDoc"></a>Steg 7: Skapa ett dokument
 Du kan skapa ett [dokument](documentdb-resources.md#documents) med metoden [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) för klassen **DocumentClient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Du kan nu infoga ett dokument i DocumentDB.
 
 Kopiera och klistra in funktionen **getFamilyDocument** under funktionen **getCollection** för att skapa dokumenten med de JSON-data som sparas i objektet ```config```. Vi kontrollerar igen att det inte redan finns ett dokument med samma id.
@@ -368,7 +369,7 @@ Grattis! Du har skapat ett DocumentDB-dokument.
 
 ![Självstudie om Node.js – Diagram som illustrerar den hierarkiska relationen mellan kontot, databasen, samlingen och dokumenten – Node-databas](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>Steg 8: Skicka frågor till DocumentDB-resurser
+## <a id="Query"></a>Steg 8: Skicka frågor till DocumentDB-resurser
 DocumentDB stöder [komplexa frågor](documentdb-sql-query.md) mot JSON-dokument som lagras i varje samling. Följande exempelkod visar en fråga som du kan köra mot dokumenten i samlingen.
 
 Kopiera och klistra in funktionen **queryCollection** under funktionen **getFamilyDocument** i app.js-filen. DocumentDB stöder SQL-liknande frågor som visas nedan. Mer information om hur du skapar komplexa frågor finns i [Query Playground](https://www.documentdb.com/sql/demo) och [frågedokumentationen](documentdb-sql-query.md).
@@ -425,7 +426,7 @@ Leta upp filen ```app.js``` i terminalen och kör kommandot: ```node app.js```
 
 Grattis! Du har skickat en fråga till DocumentDB-dokument.
 
-## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>Steg 9: Ersätta ett dokument
+## <a id="ReplaceDocument"></a>Steg 9: Ersätta ett dokument
 DocumentDB har stöd för att ersätta JSON-dokument.
 
 Kopiera och klistra in funktionen **replaceFamilyDocument** under funktionen **queryCollection** i app.js-filen.
@@ -472,7 +473,7 @@ Leta upp filen ```app.js``` i terminalen och kör kommandot: ```node app.js```
 
 Grattis! Du har ersatt ett DocumentDB-dokument.
 
-## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>Steg 10: Ta bort ett dokument
+## <a id="DeleteDocument"></a>Steg 10: Ta bort ett dokument
 DocumentDB har stöd för att ta bort JSON-dokument.
 
 Kopiera och klistra in funktionen **deleteFamilyDocument** under funktionen **replaceFamilyDocument**.
@@ -516,7 +517,7 @@ Leta upp filen ```app.js``` i terminalen och kör kommandot: ```node app.js```
 
 Grattis! Du har tagit bort ett DocumentDB-dokument.
 
-## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>Steg 11: Ta bort Node-databasen
+## <a id="DeleteDatabase"></a>Steg 11: Ta bort Node-databasen
 Om du tar bort databasen du skapade försvinner databasen och alla underordnade resurser (t.ex. samlingar och dokument).
 
 Kopiera och klistra in funktionen **cleanup** under funktionen **deleteFamilyDocument** för att ta bort databasen och alla underordnade resurser.
@@ -551,7 +552,7 @@ Kopiera och klistra in koden under anropet till **deleteFamilyDocument** för at
     .then(() => { exit(`Completed successfully`); })
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
-## <a name="a-idrunastep-12-run-your-nodejs-application-all-together"></a><a id="Run"></a>Steg 12: Kör Node.js-programmet i sin helhet!
+## <a id="Run"></a>Steg 12: Kör Node.js-programmet i sin helhet!
 Hela sekvensen för att anropa dina funktioner bör se ut så här:
 
     getDatabase()
@@ -602,7 +603,7 @@ Du bör nu se utdata från din kom-igång-app. Dina utdata bör motsvara exempel
 
 Grattis! Du har slutfört självstudien om Node.js och skapat ditt första DocumentDB-konsolprogram!
 
-## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>Hämta den fullständiga lösningen till Node.js-självstudien
+## <a id="GetSolution"></a>Hämta den fullständiga lösningen till Node.js-självstudien
 Om du inte har tid att slutföra stegen i den här självstudien eller bara vill hämta koden kan du hämta dem från [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 För att köra GetStarted-lösningen med alla exempel i den här artikeln behöver du följande:

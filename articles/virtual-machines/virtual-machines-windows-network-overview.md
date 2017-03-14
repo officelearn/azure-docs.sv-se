@@ -139,7 +139,7 @@ Du måste också beakta dessa konfigurationselement när du skapar en belastning
 - **Backend adresspool** – IP-adresser som är associerade med det NIC till vilket belastningen distribueras.
 - **NAT-regler** – Definierar hur inkommande trafik flödar genom frontend IP-adressen och distribueras till backend IP-adressen.
 - **Belastningsutjämnarregler** – Mappar en given frontend-IP och portkombination till en uppsättning med backend-IP-adresser och portkombinationer. En enskild belastningsutjämnare kan ha flera regler för belastningsutjämning. Varje regel är en kombination av en frontend-IP och port och backend-IP och port som associeras med virtuella datorer.
-- **[Probes](../load-balancer/load-balancer-custom-probe-overview.md) ** – Övervakar hälsotillståndet för virtuella datorer. När en avsökning inte svarar slutar belastningsutjämnaren att skicka nya anslutningar till den ohälsosamma virtuella datorn. Befintliga anslutningar påverkas inte och nya anslutningar skickas till felfria virtuella datorer.
+- **[Probes](../load-balancer/load-balancer-custom-probe-overview.md)** – Övervakar hälsotillståndet för virtuella datorer. När en avsökning inte svarar slutar belastningsutjämnaren att skicka nya anslutningar till den ohälsosamma virtuella datorn. Befintliga anslutningar påverkas inte och nya anslutningar skickas till felfria virtuella datorer.
 
 Den här tabellen anger de metoder som du kan använda för att skapa en internetuppkopplad belastningsutjämnare.
 

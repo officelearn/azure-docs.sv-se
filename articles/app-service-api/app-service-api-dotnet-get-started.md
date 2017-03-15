@@ -104,7 +104,7 @@ I det här avsnittet av kursen får du titta på de genererade Swagger 2.0-metad
    
     ![Hämta JSON-metadata i IE](./media/app-service-api-dotnet-get-started/iev1json.png)
    
-    Om du använder Chrome, Firefox eller Edge visar webbläsaren JSON i webbläsarfönstret. Olika webbläsare hanterar JSON på olika sätt och ditt webbläsarfönster ser kanske inte precis likadant ut som exemplet.
+    Om du använder Chrome, Firefox eller Microsoft Edge visar webbläsaren JSON i webbläsarfönstret. Olika webbläsare hanterar JSON på olika sätt och ditt webbläsarfönster ser kanske inte precis likadant ut som exemplet.
    
     ![JSON-metadata i Chrome](./media/app-service-api-dotnet-get-started/chromev1json.png)
    
@@ -199,13 +199,13 @@ Swashbuckle fungerar med alla ASP.NET Web API-projekt. Om du vill lägga till ge
 > 
 > 
 
-## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Skapa en API-app i Azure och distribuera kod till den
+## <a id="createapiapp"></a> Skapa en API-app i Azure och distribuera kod till den
 I det här avsnittet använder du Azure-verktyg som är inbyggda i Visual Studio-guiden **Publicera webbplats** för att skapa en ny API-app i Azure. Sedan distribuerar du ToDoListDataAPI-projektet till den nya API-appen och anropar API:n genom att köra Swagger-användargränssnittet.
 
 1. I **Solution Explorer** högerklickar du på ToDoListDataAPI-projektet och sedan på **Publicera**.
    
     ![Klicka på Publicera i Visual Studio](./media/app-service-api-dotnet-get-started/pubinmenu.png)
-2. I steget **Profil ** i guiden **Publicera webbplats** klickar du på  **Microsoft Azure Apptjänst**.
+2. I steget **Profil** i guiden **Publicera webbplats** klickar du på  **Microsoft Azure Apptjänst**.
    
    ![Klicka på Azure Apptjänst i Publicera webbplats](./media/app-service-api-dotnet-get-started/selectappservice.png)
 3. Logga in på ditt Azure-konto om du inte redan har gjort det eller uppdatera dina autentiseringsuppgifter om de har upphört att gälla.
@@ -303,7 +303,7 @@ I det här avsnittet använder du Azure-verktyg som är inbyggda i Visual Studio
     
     När du väljer en API-app för att generera klientkod till den hämtar Visual Studio metadata från denna URL.
 
-## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Generera klientkod för datanivån
+## <a id="codegen"></a> Generera klientkod för datanivån
 En av fördelarna med att integrera Swagger i Azure API Apps är automatisk kodgenerering. Genererade klientklasser gör det enklare att skriva kod som anropar en API-app.
 
 ToDoListAPI-projektet har redan genererat klientkoden, men i följande steg ska du ta bort den och återskapa den för att se hur du utför kodgenereringen.

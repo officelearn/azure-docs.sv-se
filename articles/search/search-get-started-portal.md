@@ -16,9 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
-ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -35,11 +35,13 @@ Det här är en introduktion helt utan kodning, så att du kan komma igång med 
 
 **Tidsuppskattning:** Ungefär 15 minuter, eventuellt längre om det krävs registrering till kontot eller tjänsten. 
 
-Alternativt kan du titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in på denna [översiktsvideo över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+Alternativt kan du starta med en [kodbaserad introduktion för att programmera Azure Search i .NET](search-howto-dotnet-sdk.md).
 
 ## <a name="prerequisites"></a>Krav
 
 Självstudiekursen förutsätter en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) och tillgång till [Azure Search-tjänsten](search-create-service-portal.md). 
+
+Om du inte vill etablera en tjänst omedelbart kan du titta på en sex minuter lång demonstration av stegen i den här självstudiekursen. Demonstrationen finns cirka tre minuter in i denna [översiktsvideo över Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Hitta din tjänst
 1. Logga in på [Azure-portalen](https://portal.azure.com).

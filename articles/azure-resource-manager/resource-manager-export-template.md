@@ -12,11 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 4f1e8850aee2cc9578ce80ceb4a5eecf121c4c60
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: f8512229ee30fee6315d8ba167f1716e40f79b3e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -36,7 +37,7 @@ I den här självstudiekursen loggar du in på Azure-portalen, skapar ett lagrin
 1. På [Azure Portal](https://portal.azure.com) väljer du **Nytt** > **Lagring** > **Lagringskonto**.
    
       ![Skapa lagring](./media/resource-manager-export-template/create-storage.png)
-2. Skapa ett lagringskonto med namnet **lagring**, din initialer och datumet. Namnet på lagringskontot måste vara unikt i Azure. Om namnet redan används, visas ett felmeddelande som anger att namnet används. Försök med en annan variant. Skapa en ny resursgrupp för resursgruppen och döp den till **ExportGroup**. Du kan använda standardvärden för de andra egenskaperna. Välj **Skapa**.
+2. Skapa ett lagringskonto med namnet **lagring**, din initialer och datumet. Namnet på lagringskontot måste vara unikt i Azure. Om namnet redan används, visas ett felmeddelande som anger att namnet används. Försök med en annan variant. Välj **Skapa ny** för resursgruppen och ge den namnet **ExportGroup**. Du kan använda standardvärden för de andra egenskaperna. Välj **Skapa**.
    
       ![Ange värden för lagring](./media/resource-manager-export-template/provide-storage-values.png)
 
@@ -57,6 +58,7 @@ Distributionen kan ta någon minut. När distributionen är klar innehåller din
    1. **Mall**– Mallen som definierar infrastrukturen för lösningen. När du skapade lagringskontot på portalen använde Resource Manager en mall för att distribuera det och sparade mallen för framtida bruk.
    2. **Parametrar** – En parameterfil som du kan använda för att skicka in värden under distributionen. Den innehåller de värden som du angav under den första distributionen, men du kan ändra dessa värden när du distribuerar om mallen.
    3. **CLI** – En Azure CLI-skriptfil (Command-Line-Interface) som du kan använda för att distribuera mallen.
+   3. **CLI 2.0** – En Azure CLI-skriptfil (Command-Line-Interface) som du kan använda för att distribuera mallen.
    4. **PowerShell** – En Azure PowerShell-skriptfil som du kan använda för att distribuera mallen.
    5. **.NET** – En .NET-klass som du kan använda för att distribuera mallen.
    6. **Ruby**– En Ruby-klass som du kan använda för att distribuera mallen.
@@ -67,48 +69,49 @@ Distributionen kan ta någon minut. När distributionen är klar innehåller din
       
       Vi ska titta närmare på mallen. Mallen bör se ut ungefär så här:
       
-        {
-      
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "name": {
-              "type": "String"
-            },
-            "accountType": {
-              "type": "String"
-            },
-            "location": {
-              "type": "String"
-            },
-            "encryptionEnabled": {
-              "defaultValue": false,
-              "type": "Bool"
-            }
+      ```json
+      {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+          "name": {
+            "type": "String"
           },
-          "resources": [
-            {
-              "type": "Microsoft.Storage/storageAccounts",
-              "sku": {
-                "name": "[parameters('accountType')]"
-              },
-              "kind": "Storage",
-              "name": "[parameters('name')]",
-              "apiVersion": "2016-01-01",
-              "location": "[parameters('location')]",
-              "properties": {
-                "encryption": {
-                  "services": {
-                    "blob": {
-                      "enabled": "[parameters('encryptionEnabled')]"
-                    }
-                  },
-                  "keySource": "Microsoft.Storage"
-                }
+          "accountType": {
+            "type": "String"
+          },
+          "location": {
+            "type": "String"
+          },
+          "encryptionEnabled": {
+            "defaultValue": false,
+            "type": "Bool"
+          }
+        },
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+              "name": "[parameters('accountType')]"
+            },
+            "kind": "Storage",
+            "name": "[parameters('name')]",
+            "apiVersion": "2016-01-01",
+            "location": "[parameters('location')]",
+            "properties": {
+              "encryption": {
+                "services": {
+                  "blob": {
+                    "enabled": "[parameters('encryptionEnabled')]"
+                  }
+                },
+                "keySource": "Microsoft.Storage"
               }
             }
-          ]
-        }
+          }
+        ]
+      }
+      ```
 
 Den här mallen är den mall som används för att skapa ditt lagringskonto. Observera att den innehåller parametrar som gör att du kan distribuera olika typer av lagringskonton. Mer information om strukturen i en mall finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md). En fullständig lista över de funktioner som du kan använda i en mall finns i [Funktioner i en Azure Resource Manager-mall](resource-group-template-functions.md).
 
@@ -144,25 +147,29 @@ Exportera en mall som visar en ögonblicksbild av resursgruppen för att hämta 
    
      Alla resurstyper stöder inte funktionen för mallexport. Om din resursgrupp bara innehåller lagringskontot och det virtuella nätverket som visas i den här artikeln ser du inget fel. Om du har skapat andra resurstyper kan du dock se ett fel som anger att det har uppstått problem med exporten. Du lär dig hur du hanterar dessa problem i avsnittet [Åtgärda exportproblem](#fix-export-issues).
 2. Återigen ser du de sex filer som du kan använda för att distribuera lösningen igen, men nu är mallen lite annorlunda. Den här mallen har bara två parametrar: en för lagringskontots namn och en för det virtuella nätverkets namn.
-   
-        "parameters": {
-          "virtualNetworks_VNET_name": {
-            "defaultValue": "VNET",
-            "type": "String"
-          },
-          "storageAccounts_storagetf05092016_name": {
-            "defaultValue": "storagetf05092016",
-            "type": "String"
-          }
-        },
+
+  ```json
+  "parameters": {
+    "virtualNetworks_VNET_name": {
+      "defaultValue": "VNET",
+      "type": "String"
+    },
+    "storageAccounts_storagetf05092016_name": {
+      "defaultValue": "storagetf05092016",
+      "type": "String"
+    }
+  },
+  ```
    
      Resource Manager hämtade inte mallarna som du använde under distributionen. I stället skapades en ny mall som baseras på resursernas aktuella konfiguration. Exempelvis anger mallen lagringskontots plats och replikeringsvärdet till:
-   
-        "location": "northeurope",
-        "tags": {},
-        "properties": {
-            "accountType": "Standard_RAGRS"
-        },
+
+  ```json 
+  "location": "northeurope",
+  "tags": {},
+  "properties": {
+    "accountType": "Standard_RAGRS"
+  },
+  ```
 3. Du har ett par alternativ för att fortsätta att arbeta med den här mallen. Du kan antingen hämta mallen och arbeta med den lokalt med en JSON-redigerare, eller så kan du spara mallen i biblioteket och arbeta med den via portalen.
    
      Om du är nöjd med en JSON-redigerare såsom [VS-kod](resource-manager-vs-code.md) eller [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), kanske du föredrar att hämta mallen lokalt och använda denna redigerare. Om du inte har en JSON-redigerare kanske du föredrar att redigera mallen via portalen. Resten av det här avsnittet förutsätter att du har sparat mallen i biblioteket i portalen. Du gör dock samma syntaxändringar för mallen oavsett om du arbetar lokalt med en JSON-redigerare eller via portalen.
@@ -197,81 +204,90 @@ I det här avsnittet ska du lägga till parametrar till den exporterade mallen s
    
      ![redigera mall](./media/resource-manager-export-template/edit-template.png)
 3. För att kunna skicka de värden som du eventuellt vill ange under distributionen ersätter du avsnittet **Parametrar** med nya parameterdefinitioner. Observera värdena för **allowedValues** för **storageAccount_accountType**. Om du råkar ange ett ogiltigt värde upptäcks felet innan distributionen startar. Observera också att du bara anger ett prefix för lagringskontonamnet och att prefixet är begränsat till 11 tecken. Genom att begränsa prefixet till 11 tecken kan du vara säker på att det fullständiga namnet inte överskrider det högsta antalet tillåtna tecken för ett lagringskonto. Prefixet gör att du kan använda en namngivningskonvention för dina lagringskonton. Du ser hur du skapar ett unikt namn i nästa steg.
-   
-        "parameters": {
-          "storageAccount_prefix": {
-            "type": "string",
-            "maxLength": 11
-          },
-          "storageAccount_accountType": {
-            "defaultValue": "Standard_RAGRS",
-            "type": "string",
-            "allowedValues": [
-              "Standard_LRS",
-              "Standard_ZRS",
-              "Standard_GRS",
-              "Standard_RAGRS",
-              "Premium_LRS"
-            ]
-          },
-          "virtualNetwork_name": {
-            "type": "string"
-          },
-          "addressPrefix": {
-            "defaultValue": "10.0.0.0/16",
-            "type": "string"
-          },
-          "subnetName": {
-            "defaultValue": "subnet-1",
-            "type": "string"
-          },
-          "subnetAddressPrefix": {
-            "defaultValue": "10.0.0.0/24",
-            "type": "string"
-          }
-        },
+
+  ```json
+  "parameters": {
+    "storageAccount_prefix": {
+      "type": "string",
+      "maxLength": 11
+    },
+    "storageAccount_accountType": {
+      "defaultValue": "Standard_RAGRS",
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ]
+    },
+    "virtualNetwork_name": {
+      "type": "string"
+    },
+    "addressPrefix": {
+      "defaultValue": "10.0.0.0/16",
+      "type": "string"
+    },
+    "subnetName": {
+      "defaultValue": "subnet-1",
+      "type": "string"
+    },
+    "subnetAddressPrefix": {
+      "defaultValue": "10.0.0.0/24",
+      "type": "string"
+    }
+  },
+  ```
+
 4. Avsnittet **variables** i mallen är tomt för närvarande. I avsnittet **Variabler** kan du skapa värden som förenklar syntaxen för resten av mallen. Ersätt det här avsnittet med en ny variabeldefinition. Variabeln **storageAccount_name** sammanfogar prefixet från parametern till en unik sträng som genereras baserat på resursgruppens identifierare. Du behöver inte längre gissa ett unikt namn när du anger ett parametervärde.
-   
-        "variables": {
-          "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-        },
+
+  ```json
+  "variables": {
+    "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+  },
+  ```
+
 5. Om du vill använda parametrarna och variabeln i resursdefinitionerna ersätter du avsnittet **Resurser** med nya resursdefinitioner. Observera att det inte är mycket som har ändrats i resursdefinitionerna förutom värdet som tilldelats till resursegenskapen. Egenskaperna är samma som egenskaperna från den exporterade mallen. Du tilldelar bara parametervärden egenskaper i stället för hårdkodade värden. Platsen för resurserna är konfigurerad att använda samma plats som resursgruppen via uttrycket **resourceGroup().location**. **Variabeluttrycket** refererar till variabeln som du skapade för lagringskontonamnet.
-   
-        "resources": [
+
+  ```json
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('virtualNetwork_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('addressPrefix')]"
+          ]
+        },
+        "subnets": [
           {
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetwork_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
+            "name": "[parameters('subnetName')]",
             "properties": {
-              "addressSpace": {
-                "addressPrefixes": [
-                  "[parameters('addressPrefix')]"
-                ]
-              },
-              "subnets": [
-                {
-                  "name": "[parameters('subnetName')]",
-                  "properties": {
-                    "addressPrefix": "[parameters('subnetAddressPrefix')]"
-                  }
-                }
-              ]
-            },
-            "dependsOn": []
-          },
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccount_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "properties": {
-                "accountType": "[parameters('storageAccount_accountType')]"
-            },
-            "dependsOn": []
+              "addressPrefix": "[parameters('subnetAddressPrefix')]"
+            }
           }
         ]
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccount_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "accountType": "[parameters('storageAccount_accountType')]"
+      },
+      "dependsOn": []
+    }
+  ]
+  ```
+
 6. Välj **OK** när du har redigerat klart mallen.
 7. Välj **Spara** för att spara ändringarna i mallen.
    
@@ -286,7 +302,7 @@ Om du arbetar med hämtade filer (i stället för portalbiblioteket) måste du u
 
 Ersätt innehållet i filen parameters.json med:
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
@@ -304,7 +320,7 @@ Ersätt innehållet i filen parameters.json med:
 Den uppdaterade parameterfilen innehåller bara värden för parametrar som inte har något standardvärde. Du kan ange värden för de andra parametrarna om du vill använda ett annat värde än standardvärdet.
 
 ## <a name="fix-export-issues"></a>Åtgärda exportproblem
-Alla resurstyper stöder inte funktionen för mallexport. Resource Manager exporterar inte vissa resurstyper för att förhindra att känsliga data exponeras. Om det till exempel finns en anslutningssträng i platsens config-fil vill du förmodligen inte att den ska visas uttryckligen i en exporterad mall. Du kan komma runt det här problemet genom att manuellt lägga till de resurser som saknas i mallen.
+Alla resurstyper stöder inte funktionen för mallexport. Resource Manager exporterar inte vissa resurstyper för att förhindra att känsliga data exponeras. Om det till exempel finns en anslutningssträng i platsens config-fil vill du förmodligen inte att den ska visas uttryckligen i en exporterad mall. Du kan lösa det här problemet genom att manuellt lägga till de resurser som saknas i mallen.
 
 > [!NOTE]
 > Exportproblem uppstår bara när du exporterar från en resursgrupp i stället för från distributionshistoriken. Om din senaste distribution korrekt representerar resursgruppens aktuella tillstånd exporterar du mallen från distributionshistoriken i stället för från resursgruppen. Exportera bara från en resursgrupp om du har gjort ändringar i resursgruppen som inte är definierade i samma mall.
@@ -324,7 +340,7 @@ I det här avsnittet beskrivs vanliga korrigeringar.
 ### <a name="connection-string"></a>Anslutningssträng
 Lägg till en definition för anslutningssträngen till databasen i webbplatsresursen:
 
-```
+```json
 {
   "type": "Microsoft.Web/sites",
   ...
@@ -350,7 +366,7 @@ Lägg till en definition för anslutningssträngen till databasen i webbplatsres
 ### <a name="web-site-extension"></a>Tillägg för webbplats
 I webbplatsresursen lägger du till en definition för koden för att installera:
 
-```
+```json
 {
   "type": "Microsoft.Web/sites",
   ...
@@ -382,7 +398,7 @@ Exempel på tillägg för virtuella datorer finns i [Konfigurationsexempel med W
 ### <a name="virtual-network-gateway"></a>Virtuell nätverksgateway
 Lägg till en resurstyp för virtuella nätverksgateways.
 
-```
+```json
 {
   "type": "Microsoft.Network/virtualNetworkGateways",
   "name": "[parameters('<gateway-name>')]",
@@ -417,7 +433,7 @@ Lägg till en resurstyp för virtuella nätverksgateways.
 ### <a name="local-network-gateway"></a>Lokal nätverksgateway
 Lägg till en resurstyp för lokala nätverksgateways.
 
-```
+```json
 {
     "type": "Microsoft.Network/localNetworkGateways",
     "name": "[parameters('<local-network-gateway-name>')]",
@@ -434,7 +450,7 @@ Lägg till en resurstyp för lokala nätverksgateways.
 ### <a name="connection"></a>Anslutning
 Lägg till en resurstyp för anslutningar.
 
-```
+```json
 {
     "apiVersion": "2015-06-15",
     "name": "[parameters('<connection-name>')]",
@@ -461,10 +477,5 @@ Grattis! Nu vet du hur du exporterar en mall från resurser som du har skapat p�
 * Du kan distribuera en mall genom [PowerShell](resource-group-template-deploy.md), [Azure CLI](resource-group-template-deploy-cli.md) eller [REST API](resource-group-template-deploy-rest.md).
 * Information om hur du exporterar en mall med PowerShell finns i [Använda Azure PowerShell med Azure Resource Manager](powershell-azure-resource-manager.md).
 * Information om hur du exporterar en mall med Azure CLI finns i [Använda Azure CLI för Mac, Linux och Windows med Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

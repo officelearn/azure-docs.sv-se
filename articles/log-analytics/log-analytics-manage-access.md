@@ -1,6 +1,6 @@
 ---
-title: Hantera arbetsytor | Microsoft Docs
-description: "Hantera arbetsytor i Azure Log Analytics med hjälp av olika administrativa uppgifter för användare, konton, arbetsytor och Azure-konton."
+title: Hantera arbetsytor i Azure Log Analytics och OMS-portalen | Microsoft-dokument
+description: "Du kan hantera arbetsytor i Azure Log Analytics och OMS-portalen med hjälp av olika administrativa uppgifter för användare, konton, arbetsytor och Azure-konton."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
+ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -163,25 +163,16 @@ Följ stegen nedan om du vill ta bort en användare från en arbetsyta. Borttagn
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Länka en befintlig arbetsyta till en Azure-prenumeration
 Alla arbetsytor som skapats efter den 26 september 2016 måste kopplas till en Azure-prenumeration vid tidpunkten för skapandet. Arbetsytor som skapats innan detta datum måste kopplas till en arbetsyta nästa gång du loggar in. När du skapar arbetsytan från Azure Portal eller när du länkar arbetsytan till en Azure-prenumeration länkas din Azure Active Directory som ditt organisationskonto.
 
-![länka Azure-prenumeration](./media/log-analytics-manage-access/required-link.png)
-
-> [!IMPORTANT]
-> För att länka en arbetsyta måste Azure-kontot redan ha åtkomst till arbetsytan som du vill länka.  Med andra ord måste kontot som du använder för att få åtkomst till Azure Portal vara **samma** som det konto som används för att komma åt arbetsytan. Om det inte är det hittar du mer information i [Lägga till en användare till en befintlig arbetsyta](#add-a-user-to-an-existing-workspace).
->
->
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Om du vill länka en arbetsyta till en Azure-prenumeration i OMS-portalen
-För att länka en arbetsyta till en Azure-prenumeration i OMS-portalen måste den inloggade användaren redan ha ett betalt Azure-konto.
 
-1. Klicka på panelen **Inställningar** på OMS-portalen.
-2. Klicka på fliken **Konton** och klicka sedan på fliken **Azure-prenumeration och dataplan**.
-3. Klicka på den plan som du vill använda.
-4. Klicka på **Spara**.  
-   ![prenumeration och dataplaner](./media/log-analytics-manage-access/subscription-tab.png)
+- När du loggar in till OMS-portalen uppmanas du att välja en Azure-prenumeration. Välj den prenumeration som du vill länka till din arbetsyta och klicka sedan på **Länka**.  
+    ![länka Azure-prenumeration](./media/log-analytics-manage-access/required-link.png)
 
-Den nya dataplanen visas på menyfliken i OMS-portalen längst upp på webbsidan.
+    > [!IMPORTANT]
+    > För att länka en arbetsyta måste Azure-kontot redan ha åtkomst till arbetsytan som du vill länka.  Med andra ord måste kontot som du använder för att få åtkomst till Azure Portal vara **samma** som det konto som används för att komma åt arbetsytan. Om det inte är det hittar du mer information i [Lägga till en användare till en befintlig arbetsyta](#add-a-user-to-an-existing-workspace).
 
-![OMS-menyflikar](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Om du vill länka en arbetsyta till en Azure-prenumeration i Azure-portalen
 1. Logga in på [Azure-portalen](http://portal.azure.com).
@@ -236,7 +227,7 @@ Om du har ett Azure-betalningsåtagande på företagsregistreringen som är kopp
 
 Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan du använda Azure PowerShell-cmdlet:en [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).  
 
-### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Ändra en arbetsyta till en betalnivå
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Ändra en arbetsyta till en prisnivå i Azure Portal
 1. Logga in på [Azure-portalen](http://portal.azure.com).
 2. Bläddra efter **Log Analytics** och markera den.
 3. Du ser listan över befintliga arbetsytor. Välj en arbetsyta.  
@@ -250,6 +241,21 @@ Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan 
 > Om arbetsytan är länkad till ett Automation-konto måste du ta bort alla **Automation and Control**-lösningar och ta bort länken för Automation-kontot innan du kan välja prisnivån *Fristående (per GB)*. I arbetsytebladet klickar du på **Lösningar** under **Allmänt** för att visa och ta bort lösningar. Du tar bort länken för Automation-kontot genom att klicka på namnet på Automation-kontot på bladet **Prisnivå**.
 >
 >
+
+## <a name="change-your-data-plan-in-the-oms-portal"></a>Byt dataplan i OMS-portalen
+
+Om du vill ändra en dataplan via OMS-portalen måste den inloggade användaren redan ha ett Azure-konto.
+
+1. Klicka på panelen **Inställningar** på OMS-portalen.
+2. Klicka på fliken **Konton** och klicka sedan på fliken **Azure-prenumeration och dataplan**.
+3. Klicka på den plan som du vill använda.
+4. Klicka på **Spara**.  
+   ![prenumeration och dataplaner](./media/log-analytics-manage-access/subscription-tab.png)
+
+Den nya dataplanen visas på menyfliken i OMS-portalen längst upp på webbsidan.
+
+![OMS-menyflikar](./media/log-analytics-manage-access/data-plan-changed.png)
+
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Ändra hur länge Log Analytics lagrar data
 
@@ -266,8 +272,8 @@ När du använder den fristående prisnivån och OMS-prisnivån kan du behålla 
 2. Bläddra efter **Log Analytics** och markera den.
 3. Du ser listan över befintliga arbetsytor. Välj en arbetsyta.  
 4. Klicka på **Kvarhållning** under **Allmänt** på bladet för arbetsytan.  
-5. Använd skjutreglaget för att öka eller minska antalet dagar för kvarhållning och klicka sedan på **Spara**
-![ändra kvarhållning](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+5. Använd skjutreglaget för att öka eller minska antalet dagar för kvarhållning och klicka sedan på **Spara**.  
+    ![ändringskvarhållning](./media/log-analytics-manage-access/manage-access-change-retention01.png)
 
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Ändra en organisations Azure Active Directory för en arbetsyta
 

@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 78c3da6fd83a6fca0351a90846d10acd82924be3
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -24,8 +25,9 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 > [!div class="op_single_selector"]
 > * [NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js för MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,13 +66,13 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupcastep-2-set-up-your-c-application"></a><a id="SetupC++"></a>Steg 2: Konfigurera din app
+## <a id="SetupC++"></a>Steg 2: Konfigurera din app
 1. Öppna Visual Studio och klicka på **Nytt** i menyn **Arkiv** och sedan på **Projekt**. 
-2. I fönstret **Nytt projekt** på panelen **Installerade** expanderar du **Visual C++**. Klicka sedan på **Win32** och klicka sedan på **Win32-konsolprogrammet**. Namnge project hellodocumentdb och klicka sedan på **OK**. 
+2. I fönstret **Nytt projekt** på panelen **Installerade** expanderar du **Visual C++**. Klicka sedan på **Win32** och klicka sedan på **Win32-konsolprogrammet**. Namnge projektet hellodocumentdb och klicka sedan på **OK**. 
    
     ![Skärmdump som visar fönstret Nytt projekt](media/documentdb-cpp-get-started/hellodocumentdb.png)
 3. När guiden Win32-program startas, klickar du på **Slutför**.
-4. När projektet har skapats öppar du pakethanteraren NuGet genom att högerklicka på projektet **hellodocumentdb** i **Solution Explorer** och därefter på **Hantera NuGet-paketet**. 
+4. När projektet har skapats öppnar du pakethanteraren NuGet genom att högerklicka på projektet **hellodocumentdb** i **Solution Explorer** och därefter på **Hantera NuGet-paketet**. 
    
     ![Skärmbild som visar Hantera NuGet-paketet på menyn Projekt](media/documentdb-cpp-get-started/nuget.png)
 5. På fliken **NuGet: hellodocumentdb** klickar du på **Bläddra**, och sedan söker du efter *documentdbcpp*. Välj DocumentDbCPP bland resultaten, enligt följande skärmbild. Paketet installerar referenser till C++ REST SDK, som är ett beroende för DocumentDbCPP.  
@@ -79,12 +81,12 @@ Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill
    
     När paketen har lagts till i projektet, kan vi börja skriva kod.   
 
-## <a name="a-idconfigastep-3-copy-connection-details-from-azure-portal-for-your-documentdb-database"></a><a id="Config"></a>Steg 3: Kopiera anslutningsinformation från Azure-portalen för DocumentDB-databasen
+## <a id="Config"></a>Steg 3: Kopiera anslutningsinformation från Azure-portalen för DocumentDB-databasen
 Ta fram [Azure-portalen](https://portal.azure.com) och bläddra till NoSQL-databaskontot (DocumentDB) du har skapat. Vi behöver URI och den primära nyckeln från Azure-portalen i nästa steg för att upprätta en anslutning från vårt C++-kodfragment. 
 
 ![DocumentDB-URI och nycklar i Azure-portalen](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a name="a-idconnectastep-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>Steg 4: Anslut till ett DocumentDB-konto
+## <a id="Connect"></a>Steg 4: Anslut till ett DocumentDB-konto
 1. Lägg till följande rubriker och namnområden i källkoden efter `#include "stdafx.h"`.
    
         #include <cpprest/json.h>
@@ -102,7 +104,7 @@ Ta fram [Azure-portalen](https://portal.azure.com) och bläddra till NoSQL-datab
    
     Nu har du koden för att initiera DocumentDB-klienten och det är dags att gå vidare till arbete med DocumentDB-resurser.
 
-## <a name="a-idcreatedbcollastep-5-create-a-c-database-and-collection"></a><a id="CreateDBColl"></a>Steg 5: Skapa en C++-databas och -samling
+## <a id="CreateDBColl"></a>Steg 5: Skapa en C++-databas och -samling
 Innan vi utför det här steget ska vi gå igenom hur en databas, samling och dokument interagerar för dig som precis har börjat med DocumentDB. En [databas](documentdb-resources.md#databases) är en logisk behållare för dokumentlagring, partitionerad över samlingarna. En [samling](documentdb-resources.md#collections) är en behållare för JSON-dokument och associerad JavaScript-applogik. Du kan lära dig mer om den hierarkiska resursmodellen för DocumentDB och begrepp i [Hierarkisk resursmodell och begrepp i DocumentDB](documentdb-resources.md).
 
 Om du vill skapa en databas och en motsvarande samling ska du lägga till följande kod i slutet av din huvudfunktion. Detta skapar en databas som heter "FamilyRegistry" och en samling som heter "FamilyCollection' med klientkonfigurationen du deklarerade i föregående steg.
@@ -115,7 +117,7 @@ Om du vill skapa en databas och en motsvarande samling ska du lägga till följa
     }
 
 
-## <a name="a-idcreatedocastep-6-create-a-document"></a><a id="CreateDoc"></a>Steg 6: Skapa ett dokument
+## <a id="CreateDoc"></a>Steg 6: Skapa ett dokument
 [Dokument](documentdb-resources.md#documents) är användardefinierat (godtyckligt) JSON-innehåll. Du kan nu infoga ett dokument i DocumentDB. Du kan skapa ett dokument genom att kopiera följande kod till slutet av huvudfunktionen. 
 
     try {
@@ -137,7 +139,7 @@ Sammanfattningsvis skapar den här koden en DocumentDB-databas, -samling och -do
 
 ![Självstudie om C++ – Diagram som illustrerar den hierarkiska relationen mellan kontot, databasen, samlingen och dokumenten](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a name="a-idquerydbastep-7-query-documentdb-resources"></a><a id="QueryDB"></a>Steg 7: Skicka frågor till DocumentDB-resurser
+## <a id="QueryDB"></a>Steg 7: Skicka frågor till DocumentDB-resurser
 DocumentDB stöder [komplexa frågor](documentdb-sql-query.md) mot JSON-dokument som lagras i varje samling. Nedanstående exempelkod visar olika frågor med både DocumentDB SQL-syntax som du kan köra mot dokumenten som infogades i föregående steg.
 
 Funktionen tar som argument den unika identifieraren eller resurs-id för databasen och samlingen tillsammans med dokumentklienten. Lägg till den här koden före huvudfunktionen.
@@ -168,7 +170,7 @@ Funktionen tar som argument den unika identifieraren eller resurs-id för databa
       }
     }
 
-## <a name="a-idreplaceastep-8-replace-a-document"></a><a id="Replace"></a>Steg 8: Ersätta ett dokument
+## <a id="Replace"></a>Steg 8: Ersätta ett dokument
 DocumentDB stöder ersättning av JSON-dokument, som visas i följande kod. Lägg till den här koden efter funktionen executesimplequery.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -188,7 +190,7 @@ DocumentDB stöder ersättning av JSON-dokument, som visas i följande kod. Läg
       }
     }
 
-## <a name="a-iddeleteastep-9-delete-a-document"></a><a id="Delete"></a>Steg 9: Ta bort ett dokument
+## <a id="Delete"></a>Steg 9: Ta bort ett dokument
 DocumentDB har stöd för att ta bort JSON-dokument. Kopiera och klistra in följande kod efter replacedocument-funktionen. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -203,7 +205,7 @@ DocumentDB har stöd för att ta bort JSON-dokument. Kopiera och klistra in föl
       }
     }
 
-## <a name="a-iddeletedbastep-10-delete-a-database"></a><a id="DeleteDB"></a>Steg 10: Ta bort en databas
+## <a id="DeleteDB"></a>Steg 10: Ta bort en databas
 Om du tar bort databasen du skapade försvinner databasen och alla underordnade resurser (t.ex. samlingar och dokument).
 
 Kopiera och klistra in följande kodutdrag (funktionen cleanup) efter funktionen deletedocument för att ta bort databasen och alla underordnade resurser.
@@ -216,7 +218,7 @@ Kopiera och klistra in följande kodutdrag (funktionen cleanup) efter funktionen
       }
     }
 
-## <a name="a-idrunastep-11-run-your-c-application-all-together"></a><a id="Run"></a>Steg 11: Kör C++-appen i sin helhet!
+## <a id="Run"></a>Steg 11: Kör C++-appen i sin helhet!
 Nu har vi lagt till kod för att skapa, läsa, ändra och ta bort olika DocumentDB-resurser.  Nu är det dags att samla detta genom att lägga till anrop till de olika funktionerna från vår huvudfunktion i hellodocumentdb.cpp, tillsammans med vissa diagnostiska meddelanden.
 
 Du kan göra det genom att ersätta huvudfunktionen i ditt program med följande kod. Detta skriver över account_configuration_uri och primary_key som du kopierade till koden i steg 3, så spara raden eller kopiera värdena igen från portalen. 
@@ -276,7 +278,7 @@ Du bör nu se utdata från din kom-igång-app. Utdata bör matcha följande skä
 
 Grattis! Du har slutfört självstudien om C++ och skapat ditt första DocumentDB-konsolprogram!
 
-## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a>Hämta den fullständiga lösningen till C++-självstudiekursen
+## <a id="GetSolution"></a>Hämta den fullständiga lösningen till C++-självstudiekursen
 För att bygga GetStarted-lösningen med alla exempel i den här artikeln behöver du följande:
 
 * [DocumentDB-konto][documentdb-create-account].
@@ -289,10 +291,5 @@ För att bygga GetStarted-lösningen med alla exempel i den här artikeln behöv
 
 [documentdb-create-account]: documentdb-create-account.md
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

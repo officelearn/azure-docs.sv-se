@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 2ab4e2be8509bb264f496e7ebc6b4b50187c0151
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -37,8 +38,11 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://msdn.micro
 
 ## <a name="prerequisites"></a>Krav
 * **Visual Studio 2013 eller 2015**. Anvisningarna nedan använder Visual Studio 2015.
+
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 * **Azure Data Lake Store-konto**. Mer information om hur du skapar ett konto finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md)
+
 * **Skapa ett program i Azure Active Directory**. Du kan använda Azure AD-program för att autentisera Data Lake Store-program med Azure AD. Det finns olika sätt att autentisera med Azure AD: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Autentisera med Data Lake Store med Azure Active Directory (Authenticate with Data Lake Store using Azure Active Directory)](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
@@ -58,9 +62,9 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://msdn.micro
    2. I fliken **Nuget Package Manager** ser du till att **Paketkällan** har angetts som **nuget.org** och att kryssrutan **Inkludera förhandsversion** är markerad.
    3. Sök efter och installera följande NuGet-paket:
       
-      * `Microsoft.Azure.Management.DataLake.Store` - De här självstudierna använder v0.12.5-förhandsversion.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` - De här självstudierna använder v0.10.6-förhandsversion.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - De här självstudierna använder v2.2.8-förhandsversion.
+      * `Microsoft.Azure.Management.DataLake.Store` - I den här självstudien används v1.0.4.
+      * `Microsoft.Azure.Management.DataLake.StoreUploader` - I den här självstudien används förhandsutgåvan av v1.0.1.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -I den här självstudien används v2.2.11.
         
         ![Lägg till en Nuget-källa](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Skapa ett nytt Azure Data Lake-konto")
    4. Stäng **Nuget Package Manager**.
@@ -71,7 +75,11 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://msdn.micro
    
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.Azure.Management.DataLake.StoreUploader;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using System.Security.Cryptography.X509Certificates; //Required only if you are using an Azure AD application created with certificates
+
 7. Deklarera variablerna enligt nedan och ange värden för Data Lake Store-namnet och resursgruppens namn som redan finns. Kontrollera också att den lokala sökvägen och filnamnet som du anger här finns på datorn. Lägg till följande kodfragment efter namnområdesdeklarationerna.
    
         namespace SdkSample
@@ -104,32 +112,31 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://msdn.micro
 I de återstående avsnitten i artikeln kan du se hur du använder tillgängliga .NET-metoder för att utföra åtgärder som autentisering, ladda upp filer, osv.
 
 ## <a name="authentication"></a>Autentisering
+
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Om du använder autentisering för slutanvändare (rekommenderas för den här kursen)
-Använd det här med ett befintligt ”internt Azure AD-klientprogram”. Ett sådant anges nedan. Om du vill få hjälp att slutföra den här kursen snabbare, rekommenderar vi att du använder den här metoden.
+
+Använd detta med ett befintligt internt Azure AD-program för att autentisera programmet **interaktivt**, vilket innebär att du blir ombedd att ange dina autentiseringsuppgifter för Azure. 
+
+För att underlätta användningen använder kodavsnittet nedan de standardvärden för klient-ID och omdirigerings-URI som fungerar med alla Azure-prenumerationen. Om du vill få hjälp att slutföra den här kursen snabbare, rekommenderar vi att du använder den här metoden. I kodavsnittet nedan anger du bara värdet för ditt klient-ID. Du kan hämta den med hjälp av anvisningarna i [Create an Active Directory Application](data-lake-store-end-user-authenticate-using-active-directory.md) (Skapa ett Active Directory-program).
 
     // User login via interactive popup
-    // Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD Web application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
+    var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
+    var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
 
 Några saker att känna till om följande utdrag.
 
 * För att hjälpa dig att slutföra kursen snabbare använder utdraget en Azure AD-domän och ett klient-ID som är tillgängligt som standard för alla Azure-prenumerationer. Så kan du **använder detta utdrag i befintligt skick i ditt program**.
-* Men om du vill använda en egen Azure AD-domän och program klient-ID måste du skapa ett enhetligt Azure AD-program och sedan använda Azure AD-domänen, klient-ID och omdirigerings-URI för det program som du skapade. I [Create an Active Directory Application (Skapa ett program i Active Directory)](data-lake-store-end-user-authenticate-using-active-directory.md) finns instruktioner.
-
-> [!NOTE]
-> Anvisningarna i länkarna ovan är för ett Azure AD-webbprogram. Stegen är dock exakt samma även om du väljer att skapa ett internt klientprogram i stället. 
-> 
-> 
+* Men om du vill använda en egen Azure AD-domän och ett eget programklient-ID måste du skapa ett eget Azure AD-program och sedan använda Azure AD-domänens ID, klient-ID och omdirigerings-URI för det program som du skapade. Se [Create an Active Directory Application for end-user authentication with Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md) (Skapa ett Active Directory-program för slutanvändarautentisering med Data Lake Store) för anvisningar.
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Om du använder serviceautentisering med klienthemlighet
-Du kan använda följande fragment för att autentisera ditt program icke-interaktivt, med hjälp av klienthemlighet/nyckel för ett program/tjänstobjekt. Använd det här med ett befintligt [Azure AD-"webbapp"-program](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Följande kodavsnitt kan användas för att autentisera ditt program **icke-interaktivt** med hjälp av klienthemlighet/-nyckeln för ett program-/tjänsthuvudnamn. Använd det här med ett befintligt Azure AD-program av typen webbapp. Anvisningar för att skapa Azure AD-webbappen och hur hämta klient-ID:t och klienthemligheten som krävs i kodavsnittet nedan finns i [Create an Active Directory Application for service-to-service authentication with Data Lake Store](data-lake-store-authenticate-using-active-directory.md) (Skapa ett Active Directory-program för autentisering mellan tjänster med Data Lake Store).
 
     // Service principal / appplication authentication with client secret / key
-    // Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -138,7 +145,7 @@ Du kan använda följande fragment för att autentisera ditt program icke-intera
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Om du använder serviceautentisering med certifikat
-Ett tredje alternativ är att använda följande fragment för att autentisera ditt program icke-interaktivt, med hjälp av certifikatet för ett program/tjänstobjekt. Använd det här med ett befintligt [Azure AD-"webbapp"-program](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Ett tredje alternativ är att använda följande kodavsnitt för att autentisera ditt program **icke-interaktivt**, med hjälp av certifikatet för ett huvudnamn till Azure Active Directory-program eller -tjänst. Använd det här med ett befintligt [Azure AD-program med certifikat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -257,10 +264,5 @@ I följande fragment visas en `DownloadFile`-metod som du kan använda för att 
 * [Använd Azure HDInsight med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Data Lake Store .NET SDK-referens](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Data Lake Store REST-referens](https://msdn.microsoft.com/library/mt693424.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

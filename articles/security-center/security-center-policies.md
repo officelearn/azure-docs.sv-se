@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
-ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -33,38 +34,38 @@ Det går att ställa in särskilda säkerhetsprinciper för varje prenumeration 
 
 1. Klicka på rutan **Policy** (Princip) i instrumentpanelen i Security Center.
 2. På bladet **Säkerhetsprincip – ange princip för prenumeration eller resursgrupp** markerar du den prenumeration som du vill ställa in en säkerhetsprincip för. Om du vill ställa in en säkerhetsprincip för en resursgrupp i stället för hela prenumerationen går du ned till nästa avsnitt, där vi berättar hur du ställer in säkerhetsprinciper för resursgrupper.
-   
+
     ![Ange princip](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. Bladet **Säkerhetsprincip** för den valda prenumerationen öppnas med ett antal alternativ som liknar dem på följande skärm:
-   
+
     ![Aktivera datainsamling](./media/security-center-policies/security-center-policies-fig2-ga.png)
-   
+
     Alternativen på det här bladet är:
-   
+
    * **Förebyggandeprincip**: Med det här alternativet kan du konfigurera principer per prenumeration eller resursgrupp.  
    * **E-postavisering**: Använd det här alternativet för att konfigurera ett e-postmeddelande som skickas vid den första dagliga förekomsten av en avisering och endast för varningar med hög angelägenhetsgrad. E-postinställningar kan bara konfigureras för prenumerationsprinciper. Mer information om hur du konfigurerar e-postaviseringar finns i [Lägga till säkerhetskontaktuppgifter i Azure Security Center](security-center-provide-security-contact-details.md).
-   * **Prisnivå**: Använd det här alternativet för att uppgradera valet av prisnivå. Mer information om prisalternativ finns på [sidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+   * **Prisnivå**: Använd det här alternativet för att uppgradera valet av prisnivå. Mer information om prisalternativen finns i [Security Center-prissättning](security-center-pricing.md).
 4. Kontrollera att alternativet **Samla in data från virtuella datorer** är inställt på **På**. Med den här inställningen samlas loggar in automatiskt för befintliga och nya resurser.
-   
+
    > [!NOTE]
    > Vi rekommenderar att du aktiverar datainsamling för alla prenumerationer, eftersom du då kan vara säker på att alla befintliga och nya virtuella datorer är säkerhetsövervakade. När du aktiverar datainsamling installeras övervakningsagenten. Om du inte vill aktivera datainsamling här kan du göra det senare i vyerna **Hälsa** och **Rekommendationer**. Du kan även aktivera datainsamling för endast prenumerationen eller för specifika virtuella datorer. I avsnittet med [vanliga frågor och svar om Azure Security Center](security-center-faq.md) kan du läsa om vilka virtuella datorer som stöds.
-   > 
-   > 
+   >
+   >
 5. Om ditt lagringskonto inte har konfigurerats än ser du antagligen en varning som i följande bild när du öppnar **Säkerhetsprincip**. Om du inte väljer något lagringskonto för en region skapas ett åt dig.
-   
+
     ![Val av lagringsutrymme](./media/security-center-policies/security-center-policies-fig2.png)
 6. Om du ser den här varningen klickar du på alternativet och väljer region så som visas på följande skärm:
-   
+
     ![Val av lagringsutrymme](./media/security-center-policies/security-center-policies-fig3-ga.png)
 7. För varje region där det finns virtuella datorer som körs väljer du på vilket lagringskonto data som samlas in från de datorerna ska lagras. På så sätt kan du behålla data inom samma geografiska område, vilket förenklar sekretess- och datalagstiftningshanteringen. När du har bestämt vilken region som du vill använda markerar du den regionen och väljer lagringskonto.
 8. På bladet **Välj lagringskonton** klickar du på **OK**.
-   
+
    > [!NOTE]
    > Om du vill kan du samla ihop data från virtuella datorer i olika regioner på ett enda centralt lagringskonto. Mer information finns i våra [vanliga frågor och svar om Azure Security Center](security-center-faq.md).
-   > 
-   > 
+   >
+   >
 9. På bladet **Säkerhetsprincip** klickar du på **På** för de säkerhetsrekommendationer du vill aktivera för aktuell prenumeration. Klicka på **Skyddsprincip** för att se alternativ som de som finns i följande skärmbild:
-   
+
     ![Val av säkerhetsprinciper](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 Använd följande tabell som referens för vad de olika alternativen innebär:
@@ -72,7 +73,7 @@ Använd följande tabell som referens för vad de olika alternativen innebär:
 | Princip | När den är aktiverad |
 | --- | --- |
 | Systemuppdateringar |Hämtar en daglig lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services. Den hämtade listan beror på vilken tjänst som har konfigurerats för den virtuella datorn och rekommenderar att saknade uppdateringar tillämpas. I Linux-system använder principen pakethanteringssystemet med distribution för att se vilka paket som har tillgängliga uppdateringar. Den söker också efter säkerhetsuppdateringar och viktiga uppdateringar från virtuella datorer i [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure.md). |
-| Sårbarheter i operativsystem |Analyserar dagligen konfigurationer av operativsystemet för att fastställa problem som kan göra den virtuella datorn sårbar för angrepp. Principen rekommenderar också konfigurationsändringar för att åtgärda dessa sårbarheter. Se [listan med rekommenderade baslinjer](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för mer information om vilka konfigurationer som övervakas. |
+| Sårbarheter i operativsystem |Analyserar dagligen konfigurationer av operativsystemet för att fastställa problem som kan göra den virtuella datorn sårbar för angrepp. Principen rekommenderar också konfigurationsändringar för att åtgärda dessa sårbarheter. Se [listan med rekommenderade baslinjer](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för mer information om vilka konfigurationer som övervakas. (Just nu stöds inte Windows Server 2016 fullt ut.) |
 | Slutpunktsskydd |Rekommendationer går ut om att slutpunktsskydd ska installeras på alla virtuella datorer med Windows så att virus, spionprogram och annan skadlig programvara kan tas bort. |
 | Diskkryptering |Rekommenderar att aktivera diskkryptering på alla virtuella datorer för att förbättra skydd av data i vila. |
 | Nätverkssäkerhetsgrupper |Rekommenderar att [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) ska konfigureras för kontroll av inkommande och utgående trafik till virtuella datorer med offentliga slutpunkter. Nätverkssäkerhetsgrupper som konfigureras för ett undernät ärvs av alla virtuella datorers nätverksgränssnitt om inget annat anges. Den här principen innebär, förutom kontroll av om nätverkssäkerhetsgrupp har konfigurerats, även att inkommande säkerhetsregler kontrolleras för att se om det finns några regler som tillåter inkommande trafik. |
@@ -95,8 +96,8 @@ När du har markerat en resursgrupp öppnas bladet **Säkerhetsprincip**. Som st
 
 > [!NOTE]
 > Om en princip på prenumerationsnivå motsäger en princip på resursgruppsnivå gäller principen på resursgruppsnivå i första hand.
-> 
-> 
+>
+>
 
 ## <a name="see-also"></a>Se även
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
@@ -107,10 +108,4 @@ I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i A
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md). Lär dig att övervaka hälsotillståndet för dina partnerlösningar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Här finns vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

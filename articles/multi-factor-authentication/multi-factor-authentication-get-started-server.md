@@ -13,18 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 02/26/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: eccd394a29376a20371732023bfbf9b53435f0ae
-ms.openlocfilehash: 51c994a37ebaca472c360e0c5f7b4a7fab5f55fc
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c5a26a17ab50993f8b57c8868b02541251de1cb1
+ms.lasthandoff: 03/06/2017
 
 ---
 
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Komma igång med Azure Multi-Factor Authentication Server
+
 <center>![MFA lokalt](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Nu när vi har bestämt oss för att använda en lokal Multi-Factor Authentication-server, är det dags att sätta igång. Den här sidan innehåller anvisningar för hur du installerar servern och konfigurerar den med ditt lokala Active Directory. Om du redan har installerat PhoneFactor-servern och behöver uppgradera läser du avsnittet [Uppgradera till Azure Multi-Factor Server](multi-factor-authentication-get-started-server-upgrade.md). Om du letar efter information om hur du installerar bara webbtjänsten läser du [Distribuera webbtjänsten Azure Multi-Factor Authentication Server Mobile App](multi-factor-authentication-get-started-server-webservice.md).
+Nu när vi har bestämt oss för att använda en lokal Multi-Factor Authentication-server, är det dags att sätta igång. Den här sidan innehåller anvisningar för hur du installerar servern och konfigurerar den med ditt lokala Active Directory. Om du redan har installerat MFA-servern och vill uppgradera så kan du läsa artikeln om att [uppgradera till den senaste Azure Multi-Factor Authentication-servern](multi-factor-authentication-server-upgrade.md). Om du vill veta hur du endast installerar webbtjänsten kan du läsa artikeln [Aktivera mobilappautentisering och Azure Multi-Factor Authentication-servern](multi-factor-authentication-get-started-server-webservice.md).
+ 
 
 ## <a name="download-the-azure-multi-factor-authentication-server"></a>Ladda ned Azure Multi-Factor Authentication Server
 Du kan ladda ned Azure Multi-Factor Authentication Server på två sätt. Både görs via Azure-portalen. Det första är genom att hantera Multi-Factor Auth-providern direkt. Det andra är via tjänstinställningarna. Det andra alternativet kräver antingen en Multi-Factor Auth-provider eller en Azure MFA-, Azure AD Premium- eller Enterprise Mobility Suite-licens.
@@ -86,7 +89,7 @@ Om brandväggar för utgående trafik är begränsade på port 443 öppnar du f�
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
 | 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254 |
 
-Om du inte använder funktionen Händelsebekräftelse, och om användarna inte använder mobilappar för att verifiera från enheter i företagets nätverk, kan IP-adresserna begränsas till följande intervall:
+Om du inte använder funktionen Händelsebekräftelse och om användarna inte använder mobilappar för verifiering från enheter i företagets nätverk så behöver du bara följande intervall:
 
 | IP-undernät | Nätmask | IP-intervall |
 |:--- |:--- |:--- |
@@ -96,14 +99,14 @@ Om du inte använder funktionen Händelsebekräftelse, och om användarna inte a
 
 ### <a name="to-install-and-configure-the-azure-multi-factor-authentication-server"></a>Så här installerar du och konfigurerar Azure Multi-Factor Authentication-servern
 
-1. Dubbelklicka på den körbara filen. När du gör det startar installationen.
+I de här stegen görs en snabbinstallation i konfigurationsguiden. Om du inte ser guiden eller om du vill köra den igen så kan du välja den från menyn **Verktyg** på servern.
+
+1. Dubbelklicka på den körbara filen. 
 2. Kontrollera att mappen på skärmen Välj installationsmapp stämmer och klicka på **Nästa**.
 3. När installationen har slutförts klickar du på **Slutför**.  Konfigurationsguiden startar.
-4. Markera **Hoppa över autentiseringskonfigurationsguiden** på välkomstskärmen i konfigurationsguiden och klicka på **Nästa**.  När du gör det stängs guiden och servern startas.
+4. Markera **Hoppa över autentiseringskonfigurationsguiden** på välkomstskärmen i konfigurationsguiden och klicka på **Nästa**.  Guiden stängs och servern startas.
     ![Molnet](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Tillbaka på sidan som vi laddade ned servern från klickar du på **Skapa autentiseringsuppgifter för aktivering**. Kopiera den här informationen till Azure MFA Server i de tillgängliga rutorna och klicka på **Aktivera**.
-
-Stegen ovan demonstrerar en snabbinstallation med konfigurationsguiden.  Du kan köra autentiseringsguiden igen genom att välja den från Verktyg-menyn på servern.
 
 ## <a name="import-users-from-active-directory"></a>Importera användare från Active Directory
 Nu när servern har installerats och konfigurerats kan du snabbt importera användare till Azure MFA Server.
@@ -116,9 +119,9 @@ Nu när servern har installerats och konfigurerats kan du snabbt importera anvä
 ![Molnet](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## <a name="send-users-an-email"></a>Skicka ett e-postmeddelande till användare
-Nu när du har importerat användarna till MFA-servern rekommenderar vi att du skickar ett e-postmeddelande för att meddela dem att de har registrerats för tvåstegsverifiering.
+Nu när du har importerat användarna till MFA-servern ska du skicka ett e-postmeddelande om att de har registrerats för tvåstegsverifiering.
 
-Innehållet i e-postmeddelandet som du skickar beror på hur du konfigurerade användarna för tvåstegsverifiering. Om du till exempel importerade dina användares telefonnummer från företagets katalog bör e-postmeddelandet innehålla de fördefinierade telefonnumren så att användarna vet vad de ska förvänta sig. Om du inte importerade användarnas telefonnummer, eller om användarna har konfigurerats att använda mobilappen, skickar du på motsvarande sätt ett e-postmeddelande som uppmanar dem att slutföra kontoregistreringen genom att klicka på en länk till användarportalen för Azure Multi-Factor Authentication.
+Innehållet i e-postmeddelandet som du skickar beror på hur du konfigurerade användarna för tvåstegsverifiering. Om du till exempel importerade telefonnummer från företagets katalog bör e-postmeddelandet innehålla de fördefinierade telefonnumren så att användarna vet vad de ska förvänta sig. Om du inte importerade användarnas telefonnummer, eller om användarna kommer att använda mobilappen, skickar du ett e-postmeddelande där de uppmanas att slutföra kontoregistreringen genom att klicka på en länk till användarportalen för Azure Multi-Factor Authentication.
 
 Innehållet i e-postmeddelandet varierar också beroende på vilken verifieringsmetod som har konfigurerats för användarna (telefonsamtal, SMS eller mobilapp).  Om användarna till exempel måste använda en PIN-kod när de autentiserar så meddelar e-postmeddelandet vilken deras ursprungliga PIN-kod är.  Användarna uppmanas att ändra sina PIN-koder under den första verifieringen.
 
@@ -149,23 +152,18 @@ När du använder MFA Server (Multi-Factor Authentication) lokalt lagras en anv�
 Förutom fälten ovan lagras även verifieringsresultatet (lyckades/avvisades) och orsaken till ett eventuellt avvisande tillsammans med autentiseringsinformationen och är tillgängligt i autentiserings-/användningsrapporterna.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om avancerade inställningar och konfigurationsinformation nås genom länkarna i följande tabell:
 
-| Metod | Beskrivning |
-|:--- |:--- |
-| [Användarportal](multi-factor-authentication-get-started-portal.md) |Information om hur du installerar och konfigurerar användarportalen, inklusive distribution och självbetjäning. |
-| [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md) |Information om hur du  konfigurerar Azure Multi-Factor Authentication med AD FS. |
-| [RADIUS-autentisering](multi-factor-authentication-get-started-server-radius.md) |Information om hur du installerar och konfigurerar Azure MFA Server med RADIUS. Genom att använda RADIUS kan du integrera olika tredjepartssystem med Azure MFA Server. |
-| [IIS-autentisering](multi-factor-authentication-get-started-server-iis.md) |Information om hur du installerar och konfigurerar Azure MFA Server med IIS. Genom att använda IIS kan du integrera olika tredjepartssystem med Azure MFA Server. |
-| [Windows-autentisering](multi-factor-authentication-get-started-server-windows.md) |Information om hur du installerar och konfigurerar Azure MFA Server med Windows-autentisering. |
-| [LDAP-autentisering](multi-factor-authentication-get-started-server-ldap.md) |Information om hur du installerar och konfigurerar Azure MFA Server med LDAP-autentisering. Genom att använda LDAP kan du integrera olika tredjepartssystem med Azure MFA Server. |
-| [Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS](multi-factor-authentication-get-started-server-rdg.md) |Information om hur du installerar och konfigurerar Azure MFA Server med Fjärrskrivbordsgateway med RADIUS. |
-| [Synkronisera med Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md) |Information om hur du installerar och konfigurerar synkronisering mellan Active Directory och Azure MFA Server. |
-| [Distribuera webbtjänsten Azure Multi-Factor Authentication Server Mobile App](multi-factor-authentication-get-started-server-webservice.md) |Information om hur du installerar och konfigurerar Azure MFA Server-webbtjänsten. |
-| [Avancerade scenarier med Azure Multi-Factor Authentication och virtuella privata nätverk från tredje part](multi-factor-authentication-advanced-vpn-configurations.md) | Stegvisa konfigurationsguider för Cisco-, Citrix- och Juniper-baserade VPN-tillämpningar. |
+- Skapa och konfigurera [användarportalen](multi-factor-authentication-get-started-portal.md) för självbetjäning.
 
+- Konfigurera [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md) i Azure Multi-Factor Authentication.
 
+- Konfigurera [RADIUS-autentisering](multi-factor-authentication-get-started-server-radius.md) på Azure MFA-servern. Genom att använda RADIUS kan du integrera olika tredjepartssystem med Azure MFA Server. 
 
-<!--HONumber=Feb17_HO3-->
+- Konfigurera [Windows-autentisering](multi-factor-authentication-get-started-server-windows.md) på Azure MFA-servern.
 
+- Konfigurera [Remote Desktop Gateway och Azure Multi-Factor Authentication Server med hjälp av RADIUS](multi-factor-authentication-get-started-server-rdg.md). 
+
+- [Distribuera webbtjänsten Azure Multi-Factor Authentication Server Mobile App](multi-factor-authentication-get-started-server-webservice.md).
+
+- [Avancerade scenarier med Azure Multi-Factor Authentication och virtuella privata nätverk från tredje part](multi-factor-authentication-advanced-vpn-configurations.md).
 

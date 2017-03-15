@@ -4,20 +4,20 @@
 | Resurs | Standardgräns | 
 | --- | --- | 
 | Azure Media Services-konton (AMS) i en enskild prenumeration | 25 (fast) |
-| Mediereserverade enheter per AMS-konto |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
-| Jobb per AMS-konto | 50,000<sup>2</sup> |
+| Mediereserverade enheter per AMS-konto |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Jobb per AMS-konto | 50,000<sup>(2)</sup> |
 | Länkade uppgifter per jobb | 30 (fast) |
 | Tillgångar per AMS-konto | 1,000,000|
 | Tillgångar per uppgift | 50 |
 | Tillgångar per jobb | 100 |
-| Unik positionerare som är associerad med en tillgång vid ett tillfälle | 5<sup>4</sup> |
+| Unik positionerare som är associerad med en tillgång vid ett tillfälle | 5<sup>(4)</sup> |
 | Livekanaler per AMS-konto |5|
 | Program i stoppat tillstånd per kanal |50|
 | Program i körningstillstånd per kanal |3|
 | Strömmande slutpunkter i körningstillstånd per AMS-konto|2|
 | Strömningsenheter per slutpunkt för direktuppspelning |10 |
-| Lagringskonton | 1,000<sup>5</sup> (fast) |
-| Principer | 1,000,000<sup>6</sup> |
+| Lagringskonton | 1&000;<sup>(5)</sup> (fast) |
+| Principer | 1&000;&000;<sup>(6)</sup> |
 | Filstorlek| I vissa fall finns det en gräns för maximal filstorlek för bearbetning i Media Services. <sup>7</sup> |
   
 <sup>1</sup> S3 RU:er är inte tillgängliga i västra Indien.
@@ -44,8 +44,3 @@ Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre �
 |S1    | 325|
 |S2    | 640|
 |S3    | 260|
-
-
-<!--HONumber=Feb17_HO2-->
-
-

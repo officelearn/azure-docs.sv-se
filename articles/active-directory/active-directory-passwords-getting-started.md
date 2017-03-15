@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d391aeacd5a755c3d344a359cae130788d1a5402
-ms.openlocfilehash: 02c7cd73951b7af83760ee10be4bb8f2da142283
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -80,13 +80,10 @@ Konfigurera en princip för lösenordsåterställning för användare genom att 
 
    ![][003]
 
-5. Under fliken **Konfigurera** bläddrar du ned till avsnittet **Princip för lösenordsåterställning för användare**.  Här konfigurerar du alla aspekter av principen för lösenordsåterställning för användare för en viss katalog. *Om du inte ser fliken Konfigurera kontrollerar du att du har registrerat dig för Azure Active Directory Premium eller Basic och** tilldelat en licens** till administratörskontot som konfigurerar den här funktionen.*  
+5. Under fliken **Konfigurera** bläddrar du ned till avsnittet **Princip för lösenordsåterställning för användare**.  Här konfigurerar du alla aspekter av principen för lösenordsåterställning för användare för en viss katalog. *Om du inte ser fliken Konfigurera kontrollerar du att du har registrerat dig för Azure Active Directory Premium eller Basic och har __tilldelat en licens__ till administratörskontot som konfigurerar den här funktionen.*  
 
    > [!NOTE]
    > **Principen du konfigurerar gäller bara för slutanvändare i din organisation, inte administratörer**. Av säkerhetsskäl kontrollerar Microsoft principen för lösenordsåterställning för administratörer. Den aktuella principen för administratörer kräver två utmaningar – mobiltelefon och e-postadress.
-
-   >
-   >
 
    ![][004]
 6. Du konfigurerar principen för lösenordsåterställning för användare genom att dra växlingsknappen **Användare som har aktiverats för lösenordsåterställning** till inställningen **Ja**.  Nu visas fler kontroller som du kan använda för att konfigurera hur den här funktionen fungerar i din katalog.  Anpassa lösenordsåterställningen som det passar dig.  Om du vill ha mer information om vad de olika kontrollerna för principer för lösenordsåterställning gör läser du [Anpassa: Lösenordshantering i Azure AD](active-directory-passwords-customize.md).
@@ -264,13 +261,19 @@ Du kan också kontrollera att tjänsten har installerats korrekt genom att öppn
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Steg 3: Konfigurera brandväggen
-När du har aktiverat tillbakaskrivning av lösenord måste du kontrollera att den dator som kör Azure AD Connect kan nå Microsofts molntjänster och ta emot förfrågningar för tillbakaskrivning av lösenord. Det här steget inbegriper uppgradering av anslutningsreglerna för dina nätverksinstallationer (proxyservrar, brandväggar osv), vilka tillåter utgående anslutningar till vissa webbadresser som ägs av Microsoft och IP-adresser via vissa specifika nätverksportar. Dessa ändringar kan variera beroende på vilken version av Azure AD Connect-verktyget som du använder. Om du vill ha mer sammanhang kan du läsa [Hur tillbakaskrivning av lösenord fungerar](active-directory-passwords-learn-more.md#how-password-writeback-works) och [Säkerhetsmodell för tillbakaskrivning av lösenord](active-directory-passwords-learn-more.md#password-writeback-security-model).
+När du har aktiverat tillbakaskrivning av lösenord måste du kontrollera att den dator som kör Azure AD Connect kan nå Microsofts molntjänster och ta emot förfrågningar för tillbakaskrivning av lösenord. Det här steget inbegriper uppgradering av anslutningsreglerna för dina nätverksinstallationer (proxyservrar, brandväggar osv.), vilka tillåter utgående anslutningar till vissa [webbadresser och IP-adresser som ägs av Microsoft](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US) via vissa specifika nätverksportar. Dessa ändringar kan variera beroende på vilken version av Azure AD Connect-verktyget som du använder. Om du vill ha mer sammanhang kan du läsa [Hur tillbakaskrivning av lösenord fungerar](active-directory-passwords-learn-more.md#how-password-writeback-works) och [Säkerhetsmodell för tillbakaskrivning av lösenord](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
 #### <a name="why-do-i-need-to-do-this"></a>Varför måste jag göra detta?
 
 För att tillbakaskrivning av lösenord ska fungera korrekt måste datorn som kör Azure AD Connect kunna upprätta utgående HTTPS-anslutningar till **. servicebus.windows.net* och en specifik IP-adress som används av Azure, enligt definitionen i [IP-intervallslistan för Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
-För version 1.0.8667.0 och senare av Azure AD Connect-verktyget:
+För version **1.1.439.0** (senaste) och senare verktyget Azure AD Connect:
+
+- Den senaste versionen av verktyget Azure AD Connect behöver åtkomst till **utgående HTTPS** till:
+    - *passwordreset.microsoftonline.com*
+    - *servicbus.Windows.NET*
+
+För versionerna **1.0.8667.0** till **1.1.380.0** av verktyget Azure AD Connect:
 
 - **Alternativ 1:** Tillåt utgående HTTPS-anslutningar över port 443 (med URL-adress eller IP-adress).
     - När du ska använda detta:
@@ -280,7 +283,7 @@ För version 1.0.8667.0 och senare av Azure AD Connect-verktyget:
 <br><br>
 - **Alternativ 2:** Tillåt utgående HTTPS-anslutningar till specifika IP-intervall och URL: er
     - När du ska använda detta:
-        - Använd det här alternativet om du befinner dig i en begränsad nätverksmiljö, eller av någon annan anledning inte känner dig bekväm med att tillåta utgpende anslutningar.
+        - Använd det här alternativet om du befinner dig i en begränsad nätverksmiljö, eller av någon annan anledning inte känner dig bekväm med att tillåta utgående anslutningar.
         - Om du vill att tillbakaskrivning av lösenord ska fortsätta att fungera i den här konfigurationen, måste du se till att dina nätverksresurser hålls uppdaterade varje vecka med de senaste IP-adresserna från listan över IP-intervall i Microsoft Azure Datacenter. Dessa IP-intervall som är tillgängliga som en XML-fil som uppdateras varje onsdag (Stillahavstid) och träder i kraft följande måndag (Stillahavstid).
     - Nödvändiga steg:
         - Tillåt alla utgående HTTPS-anslutningar till *. servicebus.windows.net
@@ -298,6 +301,9 @@ För version 1.0.8667.0 och senare av Azure AD Connect-verktyget:
 > Om du har en version av Azure AD Connect som är äldre än 1.0.8667.0 så rekommenderar Microsoft starkt att du uppgraderar till den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). Den innehåller ett antal förbättringar vad gäller nätverkstillbakaskrivning, vilket underlättar konfigurationen.
 
 När nätverksutrustningen har konfigurerats kan du starta om den dator där Azure AD Connect-verktyget körs.
+
+#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Inaktiva anslutningar i Azure AD Connect (1.1.439.0 och senare)
+Verktyget Azure AD Connect skickar regelbundet pingar/keepalive-överföringar till ServiceBus-slutpunkterna så att anslutningarna förblir aktiva. Om verktyget identifierar att för många anslutningar avslutas så ökas automatiskt pingfrekvensen till slutpunkten. Det kortaste pingintervallet är 1 ping var 60:e sekund, men **vi rekommenderar att proxyservrar/brandväggar tillåter inaktiva anslutningar i minst 2–3 minuter.** \*För äldre versioner rekommenderar vi 4 minuter eller mer.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Steg 4: Konfigurera Active Directory-behörigheter
 För varje skog som innehåller användare vars lösenord ska återställas, om X är det konto som angavs för skogen i konfigurationsguiden (vid den ursprungliga konfigurationen), så måste X tilldelas följande utökade behörigheter för rotobjektet i varje domän i skogen: **Återställ lösenord**, **Ändra lösenord**, **Skrivbehörighet** för `lockoutTime` och **Skrivbehörighet** för `pwdLastSet`. Rättigheten måste konfigureras att ärvas av alla användarobjekt.  

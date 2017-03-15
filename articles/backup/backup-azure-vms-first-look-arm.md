@@ -15,20 +15,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/15/2017
 ms.author: markgal;jimpark
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dca042ce1684b35e6a874075e0de28b9d8766331
-ms.openlocfilehash: 7aa9305bf8a32bb7e911dfda3d331adcf1c70383
+ms.sourcegitcommit: 05a3b32e6d059c219b1b99df02536c5b287c29fd
+ms.openlocfilehash: 9a73f361ba80c7c4219de68d39026b936a77aa05
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="first-look-protect-azure-vms-with-a-recovery-services-vault"></a>En första titt: Skydda virtuella datorer i Azure med ett Recovery Services-valv
+# <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
 > [!div class="op_single_selector"]
 > * [Skydda virtuella datorer med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md)
 > * [Skydda virtuella datorer med ett säkerhetskopieringsvalv](backup-azure-vms-first-look.md)
 >
 >
 
-Den här självstudierna beskriver steg för steg hur du skapar ett Recovery Services-valv och säkerhetskopierar en virtuell Azure-dator (VM). Recovery Services-valv skyddar:
+Den här självstudiekursen beskriver steg för steg hur du skapar ett Recovery Services-valv och säkerhetskopierar en virtuell Azure-dator (VM). Recovery Services-valv skyddar:
 
 * Azure Resource Manager-distribuerade virtuella datorer
 * Klassiska virtuella datorer
@@ -50,7 +52,7 @@ Beroende på hur många virtuella datorer du vill skydda kan du börja från oli
 
 ## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Konfigurera säkerhetskopieringsjobbet från bladet VM-hantering
 
-Följande steg vägleder dig genom konfigurationen av säkerhetskopieringsjobbet från bladet för hantering av virtuella datorer på Azure Portal. Dessa steg gäller inte för virtuella datorer på den klassiska portalen.
+Gör så här när du ska konfigurera säkerhetskopieringsjobbet från bladet för hantering av virtuella datorer i Azure Portal. Dessa steg gäller inte för virtuella datorer på den klassiska portalen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **Fler tjänster** på navmenyn och skriv **Virtuella datorer** i dialogrutan Filter. När du skriver filtreras listan med resurser. När du ser Virtuella datorer väljer du det alternativet.
@@ -65,33 +67,36 @@ Följande steg vägleder dig genom konfigurationen av säkerhetskopieringsjobbet
 
   ![Listan över virtuella datorer i prenumerationen visas.](./media/backup-azure-vms-first-look-arm/list-of-vms-selected.png)
 
-  När du väljer den virtuella datorn flyttas listan över virtuella datorer till vänster och bladet för hantering av virtuella datorer och instrumentpanelen för virtuella datorer öppnas.
- ![VM-hanteringsbladet](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+  När du väljer den virtuella datorn flyttas listan över virtuella datorer till vänster och bladet för hantering av virtuella datorer och instrumentpanelen för virtuella datorer öppnas. </br>
+ ![Bladet för hantering av virtuell dator](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
 
-4. Klicka på **Säkerhetskopiering** i avsnittet **Inställningar** på bladet VM-hantering.
-![Säkerhetskopieringsalternativ på bladet VM-hantering](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
-    Bladet Aktivera säkerhetskopiering öppnas.
+4. Klicka på **Säkerhetskopiering** i avsnittet **Inställningar** på bladet VM-hantering. </br>
+
+  ![Säkerhetskopieringsalternativet på bladet VM-hantering](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+
+  Bladet Aktivera säkerhetskopiering öppnas.
 
   ![Säkerhetskopieringsalternativet på bladet VM-hantering](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
 5. För Recovery Services-valvet klickar du på **Välj befintlig** och väljer valvet i den nedrullningsbara listan.
 
-    ![Guiden Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+  ![Guiden Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-    Om det inte finns några Recovery Services-valv, eller om du vill använda ett nytt valv, klickar du på **Skapa nytt** och anger namnet för det nya valvet. Ett nytt valv skapas i samma resursgrupp och på samma plats som den virtuella datorn. Om du vill skapa ett Recovery Services-valv med andra värden läser du avsnittet om hur du [skapar ett Recovery Services-valv](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
+  Om det inte finns några Recovery Services-valv, eller om du vill använda ett nytt valv, klickar du på **Skapa nytt** och anger namnet för det nya valvet. Ett nytt valv skapas i samma resursgrupp och på samma plats som den virtuella datorn. Om du vill skapa ett Recovery Services-valv med andra värden läser du avsnittet om hur du [skapar ett Recovery Services-valv](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
 
 6. Om du vill visa mer information om säkerhetskopieringspolicyn klickar du på **Säkerhetskopieringspolicy**.
 
-    Bladet **Säkerhetskopieringspolicy** öppnas och innehåller information om den valda principen. Om det finns andra principer använder du den nedrullningsbara menyn för att välja en annan säkerhetskopieringspolicy. Om du vill skapa en ny policy väljer du **Skapa ny** i listrutan. Mer information om hur du definierar en säkerhetskopieringspolicy finns i [Definiera en säkerhetskopieringspolicy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Om du vill spara ändringarna i säkerhetskopieringspolicyn och återgå till bladet Aktivera säkerhetskopiering klickar du på **OK**.
+  Bladet **Säkerhetskopieringspolicy** öppnas och innehåller information om den valda principen. Om det finns andra principer använder du den nedrullningsbara menyn för att välja en annan säkerhetskopieringspolicy. Om du vill skapa en ny policy väljer du **Skapa ny** i listrutan. Mer information om hur du definierar en säkerhetskopieringspolicy finns i [Definiera en säkerhetskopieringspolicy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Om du vill spara ändringarna i säkerhetskopieringspolicyn och återgå till bladet Aktivera säkerhetskopiering klickar du på **OK**.
 
-    ![Välja säkerhetskopieringspolicy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new-2.png)
+  ![Välja säkerhetskopieringspolicy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new-2.png)
 
-7. På bladet Aktivera säkerhetskopieringspolicy klickar du på **Aktivera säkerhetskopiering** för att utlösa principdistributionen som associerar principen med valvet och den eller de virtuella datorerna.
+7. Klicka på **Aktivera säkerhetskopiering** på bladet Aktivera säkerhetskopiering så att principen distribueras. När principen distribueras så associeras den med valvet och de virtuella datorerna.
 
   ![Knappen Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
 
 8. Du kan följa konfigurationsförloppet med hjälp av meddelandena som visas på portalen. I följande exempel ser du att distributionen har startat.
-![Avisering för Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
+
+  ![Avisering för Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
 
 9. När konfigurationsförloppet har slutförts på bladet VM-hantering klickar du på **Säkerhetskopiering** för att öppna bladet Säkerhetskopieringsobjekt och visa informationen.
 
@@ -114,10 +119,10 @@ Följande steg vägleder dig genom konfigurationen av säkerhetskopieringsjobbet
   Distributionsmeddelanden visas som anger att säkerhetskopieringsjobbet har initierats, och du kan övervaka förloppet för jobbet på sidan Säkerhetskopieringsjobb.
 
 ## <a name="configure-the-backup-job-from-the-recovery-services-vault"></a>Konfigurera säkerhetskopieringsjobbet från Recovery Services-valvet
-Här är de generella steg som du utför.  
+Med de här stegen kan du konfigurera säkerhetskopieringsjobbet.  
 
 1. Skapa ett Recovery Services-valv för en virtuell dator.
-2. Använd Azure-portalen för att välja ett scenario, ange en princip och identifiera objekt som ska skyddas.
+2. Använd Azure Portal till att välja ett scenario, ange en säkerhetskopieringspolicy och identifiera vilka objekt som ska skyddas.
 3. Kör den första säkerhetskopieringen.
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>Skapa ett Recovery Services-valv för en virtuell dator
@@ -135,7 +140,7 @@ Så här skapar du ett Recovery Services-valv:
 
     ![Skapa Recovery Services-valv (steg 1)](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
-    Om det finns Recovery Services-valv i prenumerationen visas valven.
+    Om det finns Recovery Services-valv i prenumerationen så visas de.
 
     ![Skapa Recovery Services-valv (steg 2)](./media/backup-azure-vms-first-look-arm/list-of-rs-vault.png)
 3. På menyn **Recovery Services-valv** klickar du på **Lägg till**.
@@ -152,7 +157,7 @@ Så här skapar du ett Recovery Services-valv:
 
 6. Gör följande i avsnittet **Resursgrupp**:
 
-    * Välj **Skapa nytt** om du vill skapa en ny resursgrupp.
+    * Välj **Skapa ny** om du vill skapa en resursgrupp.
     Eller
     * Välj **Använd befintlig** och klicka på listrutan om du vill se listan över tillgängliga resursgrupper.
 
@@ -161,12 +166,12 @@ Så här skapar du ett Recovery Services-valv:
 7. Klicka på **Plats** för att välja en geografisk region för valvet. Det här alternativet anger den geografiska region som dina säkerhetskopierade data skickas till.
 
   > [!IMPORTANT]
-  > Om du är osäker på var din virtuella dator finns stänger du dialogrutan för valvgenerering och går till listan med virtuella datorer på portalen. Om du har virtuella datorer i flera regioner skapar du ett Recovery Services-valv i varje region. Skapa valvet på den första platsen innan du fortsätter till nästa plats. Du behöver inte ange lagringskonton för att lagra säkerhetskopierade data: Recovery Services-valvet och tjänsten Azure Backup hanterar detta automatiskt.
+  > Om du är osäker på var din virtuella dator finns stänger du dialogrutan för valvgenerering och går till listan med virtuella datorer på portalen. Om du har virtuella datorer i olika regioner skapar du ett Recovery Services-valv i varje region. Skapa valvet på den första platsen innan du fortsätter till nästa plats. Du behöver inte ange vilka lagringskonton som används för säkerhetskopierade data. Recovery Services-valvet och tjänsten Azure Backup hanterar lagringen automatiskt.
   >
 
 8. Längst ned på bladet för Recovery Services-valvet klickar du på **Skapa**.
 
-    Det kan ta flera minuter innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena uppe till höger i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valvet efter ett par minuter, klickar du på **Uppdatera**.
+    Det kan ta flera minuter innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena uppe till höger i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valv efter ett par minuter klickar du på **Uppdatera**.
 
     ![Klicka på Uppdatera](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
@@ -175,17 +180,18 @@ Så här skapar du ett Recovery Services-valv:
 Nu när du har skapat valvet ska vi se hur du konfigurerar lagringsreplikeringen.
 
 ### <a name="set-storage-replication"></a>Konfigurera lagringsreplikering
-Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Valvet använder geo-redundant lagring som standard. Lämna alternativet inställt på geo-redundant lagring om det här är din primära säkerhetskopia. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om alternativen för [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) och [lokalt redundant](../storage/storage-redundancy.md#locally-redundant-storage) lagring i [Översikt över Azure Storage-replikering](../storage/storage-redundancy.md).
+Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Valvet använder geo-redundant lagring som standard. Om Recovery Services-valvet är din primära plats för säkerhetskopiering ska du lämna alternativet för lagringsreplikering på geo-redundant lagring. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt. Läs mer om alternativen för [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) och [lokalt redundant](../storage/storage-redundancy.md#locally-redundant-storage) lagring i [Översikt över Azure Storage-replikering](../storage/storage-redundancy.md).
 
 Så här redigerar du inställningen för lagringsreplikering:
 
-1. På bladet **Recovery Services-valv** klickar du på det nya valvet.
+1. Välj det nya valvet på bladet **Recovery Services-valv**.
 
   ![Välj det nya valvet i listan över Recovery Services-valv](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-  Om du väljer valvet minimeras bladet **Recovery Services-valv** och bladet Inställningar (*som har namnet på valvet överst*) och bladet med valvinformation öppnas.
+  När du väljer valvet minimeras bladet Inställningar (*där namnet på valvet står överst*) och bladet med valvinformation öppnas.
 
-    ![Visa lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+  ![Visa lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+
 2. På det nya valvets inställningsblad använder du det lodräta reglaget och bläddrar ned till avsnittet Hantera. Där klickar du på **	Infrastruktur för säkerhetskopiering**.
     Bladet Infrastruktur för säkerhetskopiering öppnas.
 3. På bladet Infrastruktur för säkerhetskopiering klickar du på **Konfiguration av säkerhetskopiering** för att öppna bladet **Konfiguration av säkerhetskopiering**.
@@ -195,7 +201,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
     ![alternativ för lagringskonfiguration](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Valvet använder geo-redundant lagring som standard. Om du använder Azure som primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda **geo-redundant** lagring. Om du inte använder Azure som en slutpunkt för primär lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring. Läs mer om alternativen för [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) och [lokalt redundant](../storage/storage-redundancy.md#locally-redundant-storage) i denna [översikt av lagringsredundans](../storage/storage-redundancy.md).
+    Valvet använder geo-redundant lagring som standard. Om du använder Azure som primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda **geo-redundant** lagring. Om du inte använder Azure som primär slutpunkt för lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring. Läs mer om alternativen för [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) och [lokalt redundant](../storage/storage-redundancy.md#locally-redundant-storage) i denna [översikt av lagringsredundans](../storage/storage-redundancy.md).
 
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Välj ett säkerhetskopieringsmål, ange en princip och definiera objekt som ska skyddas
@@ -213,7 +219,7 @@ Innan du registrerar en virtuell dator med ett valv kör du identifieringsproces
 
      ![Öppna bladet för valvet](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. På menyn på instrumentpanelen för valvet öppnar du bladet Säkerhetskopiering genom att klicka på **Säkerhetskopiering**.
+2. Öppna bladet Säkerhetskopiering på menyn på instrumentpanelen för valvet genom att klicka på **Säkerhetskopiering**.
 
     ![Öppna bladet Säkerhetskopiering](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
@@ -222,7 +228,7 @@ Innan du registrerar en virtuell dator med ett valv kör du identifieringsproces
     ![Öppna bladet Scenario](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 3. På bladet Säkerhetskopieringsmål väljer du Azure i listrutan **Var körs din arbetsbelastning?** Från listrutan **Vad vill du säkerhetskopiera?** väljer du Virtuell dator och klickar sedan på **OK**.
 
-    Nu registreras VM-tillägget med valvet. Bladet Säkerhetskopieringsmål stängs och bladet **Säkerhetskopieringspolicy** öppnas.
+    Nu registreras tillägget för den virtuella datorn i valvet. Bladet Säkerhetskopieringsmål stängs och bladet **Säkerhetskopieringspolicy** öppnas.
 
     ![Öppna bladet Scenario](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
@@ -240,7 +246,7 @@ Innan du registrerar en virtuell dator med ett valv kör du identifieringsproces
 
     Den valda virtuella datorn verifieras. Om du inte ser de virtuella datorer som du förväntar dig kontrollerar du att de finns på samma Azure-plats som Recovery Services-valvet. Platsen för Recovery Services-valvet visas på instrumentpanelen för valvet.
 
-6. Nu när du har definierat alla inställningar för valvet klickar du på **Aktivera säkerhetskopiering** på bladet Säkerhetskopiering. När du gör det distribueras policyn till valvet och de virtuella datorerna. Dock skapas inte den första återställningspunkten för den virtuella datorn med den här åtgärden.
+6. Nu när du har definierat alla inställningar för valvet klickar du på **Aktivera säkerhetskopiering** på bladet Säkerhetskopiering så att principen distribueras till valvet och de virtuella datorerna. När du distribuerar säkerhetskopieringspolicyn skapas inte den första återställningspunkten för den virtuella datorn.
 
     ![Aktivera säkerhetskopiering](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
@@ -311,7 +317,7 @@ Så här kör du det första säkerhetskopieringsjobbet:
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installera VM-agenten på den virtuella datorn
-Den här informationen tillhandahålls om den behövs. VM-agenten i Azure måste installeras på den virtuella Azure-datorn för att säkerhetskopieringstillägget ska fungera. Men om din virtuella dator skapades från Azure-galleriet finns VM-agenten redan på den virtuella datorn. VM-agenten är inte installerad på virtuella datorer som migrerats från lokala datacenter. I dessa fall måste VM-agenten installeras. Om du har problem med att säkerhetskopiera den virtuella datorn i Azure kontrollerar du att VM-agenten i Azure är korrekt installerad på den virtuella datorn (se tabellen nedan). Om du skapar en anpassad virtuell dator [ser du till att kryssrutan **Installera VM-agenten** är markerad](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) innan den virtuella datorn etableras.
+Den här informationen tillhandahålls om den behövs. VM-agenten i Azure måste installeras på den virtuella Azure-datorn för att säkerhetskopieringstillägget ska fungera. Men om din virtuella dator skapades från Azure-galleriet finns VM-agenten redan på den virtuella datorn. VM-agenten är inte installerad på virtuella datorer som migrerats från lokala datacenter. I dessa fall måste VM-agenten installeras. Om du har problem med att säkerhetskopiera den virtuella datorn i Azure kontrollerar du att VM-agenten i Azure är korrekt installerad på den virtuella datorn (se följande tabell). Om du skapar en anpassad virtuell dator [ser du till att kryssrutan **Installera VM-agenten** är markerad](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) innan den virtuella datorn etableras.
 
 Lär dig mer om [VM-agenten](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) och [hur du installerar den](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -326,19 +332,14 @@ Följande tabell innehåller ytterligare information om VM-agenten för virtuell
 ### <a name="backup-extension"></a>Säkerhetskopieringstillägg
 När VM-agenten har installerats på den virtuella datorn installerar Azure Backup-tjänsten säkerhetskopieringstillägget till VM-agenten. Azure Backup-tjänsten uppgraderar och korrigerar säkerhetskopieringstillägget utan ytterligare användarinteraktion.
 
-Säkerhetskopieringstillägget installeras av Backup-tjänsten oavsett om den virtuella datorn körs eller inte. En virtuell dator som körs har bäst chans att tilldelas en programkonsekvent återställningspunkt. Azure Backup-tjänsten fortsätter dock att säkerhetskopiera den virtuella datorn även om den är avstängd och det inte gick att installera tillägget. Detta kallas för en virtuell offlinedator. I detta fall är återställningspunkten *kraschkonsekvent*.
+Backup-tjänsten installerar tillägget för säkerhetskopiering även om den virtuella datorn inte är igång. En virtuell dator som körs har bäst chans att tilldelas en programkonsekvent återställningspunkt. Azure Backup-tjänsten fortsätter dock att säkerhetskopiera den virtuella datorn även om den är avstängd och det inte gick att installera tillägget. Den här typen av säkerhetskopiering kallas för offline-VM och återställningspunkten är *kraschkonsekvent*.
 
 ## <a name="troubleshooting-information"></a>Felsökningsinformation
 Om du har problem med att utföra vissa uppgifter i den här artikeln läser du [felsökningsanvisningarna](backup-azure-vms-troubleshoot.md).
 
 ## <a name="pricing"></a>Priser
-Azure VM-säkerhetskopiering kommer att debiteras baserat på modellen för skyddade instanser. Läs mer under [priser för säkerhetskopiering](https://azure.microsoft.com/pricing/details/backup/)
+Kostnaden för att säkerhetskopiera virtuella datorer i Azure baseras på hur många instanser som skyddas. I [Vad är en skyddad instans](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) definieras begreppet skyddad instans. I avsnittet om att [beräkna skyddade instanser](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances) ges ett exempel på hur du kan beräkna kostnaden för säkerhetskopiering av en virtuell dator. På sidan med prissättning för Azure-säkerhetskopiering finns information om [priser för säkerhetskopiering](https://azure.microsoft.com/pricing/details/backup/).
 
 ## <a name="questions"></a>Frågor?
 Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](http://aka.ms/azurebackup_feedback).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

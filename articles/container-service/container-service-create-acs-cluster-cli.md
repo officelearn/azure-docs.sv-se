@@ -1,6 +1,6 @@
 ---
 title: "Distribuera ett Docker-behållarkluster – Azure CLI | Microsoft Docs"
-description: "Distribuera ett Azure Container Service-kluster med hjälp av Azure CLI 2.0"
+description: "Distribuera en Kubernetes-, DC/OS- eller Docker Swarm-lösning i Azure Container Service med hjälp av Azure CLI 2.0"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: a0cbf24c2e2f1e6f3a1d2097e6146c09b4eee4fe
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Skapa ett Azure Container Service-kluster med hjälp av Azure CLI 2.0
+# <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Distribuera en Dockerbehållare med en värdlösning med hjälp av Azure CLI 2.0
 
 Använd `az acs`-kommandona i Azure CLI 2.0 för att skapa och hantera kluster i Azure Container Service. Du kan även distribuera ett Azure Container Service-kluster via [Azure Portal](container-service-deployment.md) eller Azure Container Service-API:er.
 
@@ -143,8 +145,3 @@ Nu när du har ett fungerande kluster kan du visa dessa dokument för anslutning
 * [Arbeta med Azure Container Service och DC/OS](container-service-mesos-marathon-rest.md)
 * [Arbeta med Azure Container Service och Docker Swarm](container-service-docker-swarm.md)
 * [Arbeta med Azure Container Service och Kubernetes](container-service-kubernetes-walkthrough.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

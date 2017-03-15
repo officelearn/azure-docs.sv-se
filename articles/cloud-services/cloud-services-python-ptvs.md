@@ -15,25 +15,28 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: c03122972228f30d56a8e0636b1c35ac92b42977
+ms.lasthandoff: 03/07/2017
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
 
-Den här artikeln innehåller en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][Python Tools för Visual Studio]. Du får lära dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
+I den här artikeln ges en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][Python Tools for Visual Studio]. Du får lära dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
 
 ## <a name="prerequisites"></a>Krav
-* Visual Studio 2013 eller 2015
-* [Python Tools för Visual Studio][Python Tools för Visual Studio] (PTVS)
-* [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] eller [Azure SDK-verktyg för VS 2015][Azure SDK-verktyg för VS 2015]
-* [Python 2.7 32-bitars][Python 2.7 32-bitars] eller [Python 3.5 32-bitars][Python 3.5 32-bitars]
+* [Visual Studio 2013, 2015 eller 2017](https://www.visualstudio.com/)
+* [Python Tools för Visual Studio][Python Tools for Visual Studio] (PTVS)
+* [Azure SDK Tools för VS 2013][Azure SDK Tools for VS 2013] eller  
+[Azure SDK Tools för VS 2015][Azure SDK Tools for VS 2015] eller  
+[Azure SDK Tools för VS 2017][Azure SDK Tools for VS 2017]
+* [Python 2.7 32-bitars][Python 2.7 32-bit] eller [Python 3.5 32-bitars][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Vad är webb- och arbetsroller för Python?
-Azure tillhandahåller tre beräkningsmodeller för program som körs: [funktionen Web Apps i Azure App Service][körningsmodell för webbplatser], [Azure Virtual Machines][körningsmodell för virtuella datorer] och [Azure Cloud Services][körningsmodell för molntjänster]. Alla tre modeller stöder Python. Cloud Services, där webb- och arbetsroller ingår, tillhandahåller *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad IIS-webbserver (Internet Information Services) som fungerar som värd för frontend-webbprogram, medan en arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
+Azure har tre beräkningsmodeller för att köra program: [funktionen Web Apps i Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] och [Azure Cloud Services][execution model-cloud services]. Alla tre modeller stöder Python. Cloud Services, där webb- och arbetsroller ingår, tillhandahåller *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad IIS-webbserver (Internet Information Services) som fungerar som värd för frontend-webbprogram, medan en arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
 
 Mer information finns i [Vad är en molntjänst?].
 
@@ -329,43 +332,39 @@ När den virtuella molntjänstdatorn startar och installerar Python, kan du titt
 ## <a name="next-steps"></a>Nästa steg
 Mer detaljerad information om hur du arbetar med webb- och arbetsroller i Python Tools för Visual Studio finns i dokumentationen till PTVS:
 
-* [Molntjänstprojekt][Molntjänstprojekt]
+* [Molntjänstprojekt][Cloud Service Projects]
 
 Mer information om hur du använder Azure-tjänster från dina webb- och arbetsroller, t.ex. Azure Storage eller Azure Service Bus, finns i följande artiklar.
 
-* [Blob-tjänsten][Blob-tjänst]
-* [Tabelltjänst][Tabelltjänst]
-* [Kötjänst][Kötjänst]
-* [Service Bus-köer][Service Bus-köer]
-* [Service Bus-avsnitt][Service Bus-avsnitt]
+* [Blob Service][Blob Service]
+* [Table Service][Table Service]
+* [Kötjänst][Queue Service]
+* [Service Bus-köer][Service Bus Queues]
+* [Service Bus-avsnitt][Service Bus Topics]
 
 <!--Link references-->
 
 [Vad är en molntjänst?]: cloud-services-choose-me.md
-[körningsmodell för webbplatser]: ../app-service-web/app-service-web-overview.md
-[körningsmodell för virtuella datorer]: ../virtual-machines/virtual-machines-windows-about.md
-[körningsmodell för molntjänster]: cloud-services-choose-me.md
+[execution model-web sites]: ../app-service-web/app-service-web-overview.md
+[execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
+[execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob-tjänst]: ../storage/storage-python-how-to-use-blob-storage.md
-[Kötjänst]: ../storage/storage-python-how-to-use-queue-storage.md
-[Tabelltjänst]: ../storage/storage-python-how-to-use-table-storage.md
-[Service Bus-köer]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
-[Service Bus-avsnitt]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
+[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
-[Python Tools för Visual Studio]: http://aka.ms/ptvs
-[Dokumentation för Python Tools för Visual Studio]: http://aka.ms/ptvsdocs
-[Molntjänstprojekt]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK-verktyg för VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32-bitars]: https://www.python.org/downloads/
-[Python 3.5 32-bitars]: https://www.python.org/downloads/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
+[Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
+[Python 2.7 32-bit]: https://www.python.org/downloads/
+[Python 3.5 32-bit]: https://www.python.org/downloads/
 

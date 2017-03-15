@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 90ca7089b2ce6a541f6890c6d50e912f2127ff85
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 969e6bd55ca69e293f13b66f1a51f1d5fd1996b7
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-net"></a>Kom igång med Azure IoT Hub (.NET)
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-net"></a>Anslut din simulerade enhet till IoT Hub med hjälp av .NET
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 I slutet av den här självstudiekursen har du tre .NET-konsolappar:
@@ -36,7 +38,7 @@ I slutet av den här självstudiekursen har du tre .NET-konsolappar:
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 eller Visual Studio 2017.
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -46,7 +48,7 @@ Nu har du skapat din IoT Hub och du har värdnamnet och IoT Hub-anslutningssträ
 ## <a name="create-a-device-identity"></a>Skapa en enhetsidentitet
 I det här avsnittet ska du skapa en .NET-konsolapp som skapar en enhetsidentitet i identitetsregistret i IoT Hub. En enhet kan inte ansluta till IoT Hub om den inte har en post i identitetsregistret. Mer information finns i avsnittet om identitetsregistret i [utvecklarhandboken för IoT Hub][lnk-devguide-identity]. När du kör den här konsolappen genererar det ett unikt enhets-ID och en nyckel som din enhet kan använda för att identifiera sig själv när den skickar ”enhet-till-molnet”-meddelanden till IoT Hub.
 
-1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **CreateDeviceIdentity**.
+1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den nya lösningen med hjälp av projektmallen **Konsolapp (.NET Framework)**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **CreateDeviceIdentity** och lösningen namnet **IoTHubGetStarted**.
    
     ![Nytt Visual C# Windows Classic Desktop-projekt][10]
 2. Högerklicka i Solution Explorer på projektet **CreateDeviceIdentity** och klicka sedan på **Hantera NuGet-paket**.
@@ -101,9 +103,9 @@ I det här avsnittet ska du skapa en .NET-konsolapp som läser ”enhet till mol
 > 
 > 
 
-1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **ReadDeviceToCloudMessages**.
+1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Console App (.NET Framework)**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **ReadDeviceToCloudMessages**.
    
-    ![Nytt Visual C# Windows Classic Desktop-projekt][10]
+    ![Nytt Visual C# Windows Classic Desktop-projekt][10a]
 2. Högerklicka i Solution Explorer på projektet **ReadDeviceToCloudMessages** och klicka sedan på **Hantera NuGet-paket**.
 3. I fönstret för **NuGet-pakethanteraren** letar du upp **WindowsAzure.ServiceBus**, väljer **Installera** och godkänner användningsvillkoren. Denna procedur hämtar, installerar och lägger till en referens för [Azure Service Bus][lnk-servicebus-nuget], med alla dess beroenden. Det här paketet gör att programmet kan ansluta till Event Hub-kompatibla slutpunkter i din IoT Hub.
 4. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
@@ -158,9 +160,9 @@ I det här avsnittet ska du skapa en .NET-konsolapp som läser ”enhet till mol
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 I det här avsnittet ska du skapa en .NET-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT Hub.
 
-1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Konsolprogram**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **SimulatedDevice**.
+1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Console App (.NET Framework)**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **SimulatedDevice**.
    
-    ![Nytt Visual C# Windows Classic Desktop-projekt][10]
+    ![Nytt Visual C# Windows Classic Desktop-projekt][10b]
 2. Högerklicka på projektet **SimulatedDevice** i Solution Explorer och klicka sedan på **Hantera NuGet-paket**.
 3. Välj **Bläddra** i fönstret för **NuGet-pakethanteraren**, leta upp **Microsoft.Azure.Devices.Client**, välj **Installera** för att installera **Microsoft.Azure.Devices.Client**-paketet och godkänn användningsvillkoren. Denna procedur hämtar, installerar och lägger till en referens för [NuGet-paketet SDK för Azure IoT-enheter][lnk-device-nuget] och dess beroenden.
 4. Lägg till följande `using`-instruktion högst upp i filen **Program.cs**:
@@ -245,6 +247,8 @@ Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 [10]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp1.png
+[10a]: ./media/iot-hub-csharp-csharp-getstarted/create-receive-csharp1.png
+[10b]: ./media/iot-hub-csharp-csharp-getstarted/create-device-csharp1.png
 [11]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp2.png
 [12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 
@@ -267,9 +271,4 @@ Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

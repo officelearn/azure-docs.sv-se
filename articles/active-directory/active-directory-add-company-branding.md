@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -133,6 +134,10 @@ Om din språkinställning är tyska visas standardbanderollslogotypen men med de
 
 Tekniskt sett kan du konfigurera olika uppsättningar för varje språk som stöds av Azure AD, men av prestanda- och underhållsskäl rekommenderar vi att du nöjer dig med några få varianter.
 
+> [!IMPORTANT]
+> Yammer visar inte den Azure AD-märkta inloggningssidan förrän användaren loggar in. Användaren ser den allmänna Office 365-inloggningssidan först och sedan den märkta sidan.   
+ 
+ 
 **Utför följande steg om du vill lägga till företagsprofilering för din katalog:**
 
 1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör för den katalog som du vill anpassa.
@@ -148,7 +153,7 @@ Det kan ta upp till en timme innan nya ändringar som du har gjort på inloggnin
 
 1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör för den katalog som du vill anpassa.
 2. Välj den katalog som du vill anpassa.
-3. Klicka på **Konfigurera** i verktygsfältet högst upp.
+fs3. Klicka på **Konfigurera** i verktygsfältet högst upp.
 4. Klicka på **Anpassa profilering**.
 5. Klicka på **Lägg till företagsanpassning för ett specifikt språk**.
 6. Välj det språk som du vill anpassa logotypen för och klicka sedan på **Nästa**.
@@ -221,9 +226,4 @@ Vissa anpassningsbara element i Azure AD har flera användningsscenarier. Du kan
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

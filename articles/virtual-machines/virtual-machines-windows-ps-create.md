@@ -10,20 +10,20 @@ tags: azure-resource-manager
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
-ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 3de1e04c3ce1d6d465c5a54bc9db676639709371
+ms.lasthandoff: 03/08/2017
 
 ---
 
-# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Skapa en virtuell Windows-dator med hjälp av Resource Manager och PowerShell
+# <a name="create-a-windows-vm-using-azure-resource-manager-and-powershell"></a>Skapa en virtuell Windows-dator med hjälp av Azure Resource Manager och PowerShell
 
-I den här artikeln får du lära dig att snabbt skapa en virtuell Azure-dator som kör Windows Server och om de resurser som behövs, med hjälp av [Resource Manager](../azure-resource-manager/resource-group-overview.md) och Azure PowerShell.  
+I den här artikeln får du lära dig att snabbt skapa en virtuell Azure-dator som kör Windows Server och mer om de resurser som behövs, med hjälp av [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) och Azure PowerShell.  
 
-Alla steg i den här artikeln behövs för att skapa en virtuell maskin och det tar cirka 30 minuter att utföra stegen. Ersätt exempelparametervärden i kommandona med namn som passar din miljö.
+Alla steg i den här artikeln behövs för att skapa en virtuell dator och det tar cirka 10 minuter att kopiera, klistra in och köra kommandona.
 
 ## <a name="step-1-install-azure-powershell"></a>Steg 1: Installera Azure PowerShell
 
@@ -79,7 +79,7 @@ Du kan för närvarande välja mellan att använda [Azure Managed Disks](../stor
 
 ## <a name="step-4-create-a-virtual-network"></a>Steg 4: Skapa ett virtuellt nätverk
 
-Alla virtuella datorer ingår i ett [virtuellt nätverk](../virtual-network/virtual-networks-overview.md).
+Alla virtuella datorer ingår i ett [virtuellt nätverk](virtual-machines-windows-network-overview.md).
 
 1. Skapa ett undernät för det virtuella nätverket. Det här kommandot skapar ett undernät med namnet **mySubnet** med adressprefixet 10.0.0.0/24.
    

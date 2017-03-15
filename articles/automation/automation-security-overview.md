@@ -1,28 +1,30 @@
 ---
-title: "Säkerheten i Azure Automation | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över automatiseringssäkerheten och de olika tillgängliga autentiseringsmetoderna för Automation-konton i Azure Automation."
+title: Introduktion till autentisering i Azure Automation | Microsoft Docs
+description: "I den här artikeln ges en översikt över säkerheten i Automation och de olika autentiseringsmetoder som är tillgängliga för Automation-konton i Azure Automation."
 services: automation
 documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-keywords: "Säkerheten i Azure Automation"
+keywords: automation security, secure automation; automation authentication
 ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 03/01/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dd6b2fa2a1ca003578eaee82ef42741b9b1bf2a4
-ms.openlocfilehash: 432321c66fc991136b0b473abd0880876c31887e
+ms.sourcegitcommit: 7224da31e71f3f6c912cd486198135945f90a8a4
+ms.openlocfilehash: aa639886ba3379ef30f9abef8f3dff4acb5b1181
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="azure-automation-security"></a>Säkerheten i Azure Automation
-Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders, till exempel Amazon Web Services (AWS).  För att en runbook ska kunna utföra sina åtgärder måste den ha behörighet att komma åt resurserna på ett säkert sätt med den minsta behörighet som krävs i prenumerationen.  
+# <a name="introduction-to-authentication-in-azure-automation"></a>Introduktion till autentisering i Azure Automation  
+Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders, till exempel Amazon Web Services (AWS).  För att en runbook ska kunna utföra sina åtgärder måste den ha behörighet att komma åt resurserna på ett säkert sätt med den minsta behörighet som krävs i prenumerationen. 
+ 
 Den här artikeln täcker de olika autentiseringsscenarier som stöds av Azure Automation och visar hur du kommer igång baserat på den eller de miljöer som du behöver hantera.  
 
 ## <a name="automation-account-overview"></a>Översikt för Automation-konton
@@ -32,7 +34,6 @@ Automation-resurserna för varje Automation-konto associeras med en enda Azure-r
 
 > [!NOTE]
 > Automation-konton, och de resurser som de innehåller, som skapats på Azure-portalen kan inte nås på den klassiska Azure-portalen. Om du vill hantera dessa konton eller deras resurser med Windows PowerShell måste du använda Azure Resource Manager-modulerna.
-> 
 > 
 
 Alla aktiviteter som du utför mot resurser med hjälp av Azure Resource Manager och Azure-cmdletar i Azure Automation måste autentisera till Azure med hjälp av autentiseringsuppgiftsbaserad autentisering med organisationens Azure Active Directory-ID.  Certifikatbaserad autentisering var den ursprungliga autentiseringsmetoden i Azure Service Management-läge men det var svårt att konfigurera.  Autentisering i Azure med Azure AD-användare infördes igen 2014 inte bara för att förenkla processen att konfigurera ett autentiseringskonto, men även för att ge stöd för icke-interaktiv autentisering i Azure med ett enda användarkonto som fungerade med både Azure Resource Manager- och klassiska resurser.   
@@ -56,10 +57,5 @@ Följande tabell sammanfattar de olika autentiseringsmetoderna för varje miljö
 | Klassiskt Kör som-konto i Azure |Azure Service Management |[Autentisera runbooks med ett ”Kör som”-konto i Azure](automation-sec-configure-azure-runas-account.md) |
 | Windows-autentisering |Lokalt datacenter |[Autentisera runbooks för Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) |
 | AWS-autentiseringsuppgifter |Amazon Web Services |[Autentisera runbooks med Amazon Web Services (AWS)](automation-sec-configure-aws-account.md) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

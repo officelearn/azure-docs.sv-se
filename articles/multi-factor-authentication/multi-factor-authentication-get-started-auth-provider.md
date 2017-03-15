@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2016
+ms.date: 02/24/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: b0c3c5dfd695b28b75bf44c9f835b34966413a9a
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -29,7 +30,7 @@ Tvåstegsverifiering är tillgängligt som standard för globala administratöre
 En Azure Multi-Factor Auth-provider krävs för att hämta SDK:n.
 
 > [!IMPORTANT]
-> För att hämta SDK:n skapar du en Azure Multi-Factor Auth-provider, även om du har Azure MFA-, AAD Premium- eller EMS-licenser.  Om du skapar en Azure Multi-Factor Authentication-provider för detta ändamål och redan har licenser, se till att skapa providern med modellen **Per aktiverad användare**. Koppla sedan providern till katalogen som innehåller Azure MFA, Azure AD Premium eller EMS-licenser.  Detta ser till att du bara faktureras om har fler unika användare som använder SDK:n än antalet licenser som du äger.
+> För att hämta SDK:n skapar du en Azure Multi-Factor Auth-provider, även om du har Azure MFA-, AAD Premium- eller EMS-licenser.  Om du skapar en Azure Multi-Factor Authentication-provider för detta ändamål och redan har licenser, se till att skapa providern med modellen **Per aktiverad användare**. Koppla sedan providern till katalogen som innehåller Azure MFA, Azure AD Premium eller EMS-licenser.  Den här konfigurationen gör att du bara faktureras om du har fler unika användare som utför tvåstegsverifiering än antalet licenser du äger.
 
 ## <a name="create-a-multi-factor-auth-provider"></a>Skapa en Multi-Factor Authentication-provider
 Följ stegen nedan om du vill skapa en Azure Multi-FactorAuthentication-provider.
@@ -46,7 +47,7 @@ Följ stegen nedan om du vill skapa en Azure Multi-FactorAuthentication-provider
    ![Skapa en MFA-provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
 7. Fyll i följande fält och välj **Skapa**.
    1. **Namn** – Namnet på Multi-Factor Auth-providern.
-   2. **Användningsmodell** – Om du vill aktivera enskilda användare eller betala per verifiering. Välj ett av två alternativ:
+   2. **Användningsmodell** – Välj ett av två alternativ:
       * Per autentisering – köpmodell som debiterar per autentisering. Används vanligtvis för scenarier som använder Azure Multi-Factor Authentication i ett program som riktar sig till konsumenter.
       * Per aktiverad användare – köpmodell som debiterar per aktiverad användare. Används vanligtvis för medarbetaråtkomst till program som Office 365. Välj det här alternativet om du har några användare som redan har licens för Azure MFA.
    3. **Katalog** – Azure Active Directory-klienten som Multi-Factor Authentication-providern är kopplad till. Tänk på följande:
@@ -56,10 +57,5 @@ Följ stegen nedan om du vill skapa en Azure Multi-FactorAuthentication-provider
         ![Skapa en MFA-provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 8. När du klickar på Skapa skapas Multi-Factor Authentication-providern och ett meddelande visas som anger att **Multi-Factor Authentication-providern** har skapats. Klicka på **OK**.
    ![Skapa en MFA-provider](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

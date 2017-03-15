@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 623f502a92dc8eb152a9b01c4f6db0640ce57e54
-ms.openlocfilehash: 38156f31bfacbefd0518581d05ad9854e47b0c12
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: ecae2cb9c0cdc78226c100cd287b840b6b2a6bb8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="what-is-azure-iot-suite"></a>Vad är Azure IoT Suite?
+# <a name="overview-of-azure-iot-suite"></a>Översikt över Azure IoT Suite
 Azures tjänster för Sakernas Internet (IoT, Internet of Things) tillhandahåller en rad intressanta funktioner. Med dessa tjänster i företagsklass kan du:
 
 * Samla in data från enheter
@@ -32,7 +33,7 @@ Azures tjänster för Sakernas Internet (IoT, Internet of Things) tillhandahåll
 * Integrera med back office-system
 * Hantera dina enheter
 
-För att leverera dessa funktioner paketerar Azure IoT Suite samman flera Azure-tjänster med anpassade tillägg i form av  *förkonfigurerade lösningar*. Dessa förkonfigurerade lösningar är grundläggande implementeringar av vanliga IoT-lösningsmönster som kan minska den tid det tar att leverera IoT-lösningar. Med [programutvecklingspaketen för IoT][lnk-sdks] kan du anpassa och utöka dessa lösningar efter dina egna behov. Du kan också använda dessa lösningar som exempel eller mallar när du utvecklar nya IoT-lösningar.
+För att leverera dessa funktioner paketerar Azure IoT Suite samman flera Azure-tjänster med anpassade tillägg i form av *förkonfigurerade lösningar*. Dessa förkonfigurerade lösningar är grundläggande implementeringar av vanliga IoT-lösningsmönster som kan minska den tid det tar att leverera IoT-lösningar. Med [programutvecklingspaketen för IoT][lnk-sdks] kan du anpassa och utöka dessa lösningar efter dina egna behov. Du kan också använda dessa lösningar som exempel eller mallar när du utvecklar nya IoT-lösningar.
 
 Följande videoklipp innehåller en introduktion till Azure IoT Suite:
 

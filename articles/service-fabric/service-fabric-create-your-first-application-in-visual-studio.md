@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/14/2016
+ms.date: 03/07/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
-ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
 > 
 > 
 
-Service Fabric SDK innehåller ett tillägg för Visual Studio som tillhandahåller mallar och verktyg som hjälper dig att skapa, distribuera och felsöka Service Fabric-program. Den här artikeln beskriver steg för steg hur du skapar ditt första program i Visual Studio.
+Service Fabric SDK innehåller ett tillägg för Visual Studio som tillhandahåller mallar och verktyg som hjälper dig att skapa, distribuera och felsöka Service Fabric-program. Den här artikeln beskriver steg för steg hur du skapar ditt första program i Visual Studio 2017 eller Visual Studie 2015.
 
 ## <a name="prerequisites"></a>Krav
 Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan du börjar.
@@ -164,9 +165,4 @@ Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är ve
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

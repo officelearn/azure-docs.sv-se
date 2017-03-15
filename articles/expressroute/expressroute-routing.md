@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2017
+ms.date: 03/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: e678062429605db34c1e6c835841aaf2508d81a3
+ms.lasthandoff: 03/03/2017
 
 
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om de inte gör det så måste du följa följande krav. 
 
-Referera till artikeln [Kretsar och routningsdomäner](expressroute-circuit-peerings.md) för en beskrivnign av de routningssessioner som behöver ställas in för att förenkla anslutningen.
+Referera till artikeln [Kretsar och routningsdomäner](expressroute-circuit-peerings.md) för en beskrivning av de routningssessioner som behöver ställas in för att förenkla anslutningen.
 
 > [!NOTE]
 > Microsoft stöder inte några protokoll för router-redundans (t.ex., HSRP, VRRP) för konfigurationer med hög tillgänglighet. Vi förlitar oss på ett redundant par med BGP-sessioner per peering för hög tillgänglighet.
@@ -161,6 +162,9 @@ Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera 
 | Södra Indien |12076:51019 |
 | Västra Indien |12076:51018 |
 | Centrala Indien |12076:51017 |
+| **Korea** | |
+| Sydkorea |12076:51028 |
+| Centrala Korea |12076:51029 |
 
 Alla vägar som annonseras från Microsoft taggas med lämpligt community-värde. 
 
@@ -212,10 +216,5 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
   * [Skapa en ExpressRoute-krets för den klassiska distributionsmodellen](expressroute-howto-circuit-classic.md) eller [Skapa och ändra en ExpressRoute-krets med Azure Resource Manager](expressroute-howto-circuit-arm.md)
   * [Konfigurera routning för den klassiska distributionsmodellen](expressroute-howto-routing-classic.md) eller [Konfigurera routning för Resource Manager-distributionsmodellen](expressroute-howto-routing-arm.md)
   * [Länka ett klassiskt VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md) eller [Länka ett Resource Manager-VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

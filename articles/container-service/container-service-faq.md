@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="frequently-asked-questions-azure-container-service"></a>Vanliga frågor och svar: Azure Container Service
+# <a name="container-service-frequently-asked-questions"></a>Vanliga frågor och svar om Container Service
 
 
 ## <a name="orchestrators"></a>Dirigeringsverktyg
@@ -81,6 +83,17 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 Du hittar vanliga URL:er för ditt kluster i Azure Portal, Azure Resource Explorer eller andra Azure-verktyg.
+
+### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Hur tar jag reda på vilken orchestrator-version som körs i mitt kluster?
+
+* DC/OS: läs i [Mesosphere-dokumentationen](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* Docker Swarm: kör `docker version`
+* Kubernetes: kör `kubectl version`
+
+
+### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Hur uppgraderar jag orchestratorn efter distributionen?
+
+Azure Container Service innehåller för närvarande inget verktyg för uppgradering av den orchestrator-version du har distribuerat i klustret. Om Container Service har stöd för en senare version så kan du distribuera ett nytt kluster. Ett annat alternativ är att använda orchestrator-specifika verktyg till att uppgradera ett kluster på plats, om några sådana verktyg är tillgängliga. Läs exempelvis artikeln om [uppgradering av DC/OS](https://dcos.io/docs/1.8/administration/upgrading/).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Var hittar jag SSH-anslutningssträngen till mitt kluster?
 
@@ -109,8 +122,3 @@ Mer information finns i [Ansluta till ett Azure Container Service-kluster](conta
 
 * [Läs mer](container-service-intro.md) om Azure Container Service.
 * Distribuera ett behållartjänstkluster med hjälp av [portalen](container-service-deployment.md) eller [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).
-
-
-<!--HONumber=Feb17_HO4-->
-
-

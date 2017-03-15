@@ -1,18 +1,6 @@
 ---
-title: ''
-description: ''
-documentationcenter: ''
-services: ''
-solutions: ''
-writer: kathydav
-editor: tysonn
-manager: jeffreyg
-
-{}
-
----
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 > 
 > 
 

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 124eff2edccb6b4ad56ee39a2b37e892ef8c6cb4
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -33,8 +33,8 @@ Följande krävs för att kunna genomföra vägledningen:
 
 * Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
-* .NET Framework 4.0 eller senare
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate eller Express) eller senare versioner.
+* .NET Framework 4.0 eller senare.
+* Visual Studio.
 
 Vägledningen innehåller följande uppgifter:
 
@@ -81,7 +81,7 @@ Starta slutpunkten för direktuppspelning genom att göra följande:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-1. Skapa ett nytt C#-konsolprogram i Visual Studio 2013, Visual Studio 2012 eller Visual Studio 2010 SP1. Ange **namn**, **plats** och **lösningsnamn**. Klicka sedan på **OK**.
+1. Skapa ett nytt C#-konsolprogram i Visual Studio. Ange **namn**, **plats** och **lösningsnamn**. Klicka sedan på **OK**.
 2. Använd NuGet-paketet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) för att installera **Azure Media Services .NET SDK-tilläggen**.  Media Services .NET SDK-tilläggen är en uppsättning tilläggsmetoder och hjälpfunktioner som förenklar koden och gör det enklare att utveckla med Media Services. När du installerar det här paketet installeras även **Media Services .NET SDK** och lägger till alla andra nödvändiga beroenden.
 
     Så här lägger du till referenser med hjälp av NuGet: Högerklicka på projektnamnet i Solution Explorer och välj **Hantera NuGet-paket**. Sök sedan efter **windowsazure.mediaservices.extensions** och klicka på **Installera**.
@@ -184,7 +184,7 @@ Den **UploadFile**-metod som definieras nedan kallas **CreateFromFile** (definie
 
 * **Ingen** – Ingen kryptering används. Detta är standardvärdet. Observera att när du använder det här alternativet skyddas inte innehållet under överföring eller i vila i lagringsutrymmet.
   Om du planerar att leverera en MP4 med progressivt nedladdning ska du använda det här alternativet.
-* **StorageEncrypted** – Använd det här alternativet för att kryptera innehållet lokalt med hjälp av 256-bitars AES-kryptering (Advanced Encryption Standard), som sedan överför det till Azure Storage där den lagras krypterat i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
+* **StorageEncrypted** – Använd det här alternativet för att kryptera innehållet lokalt med hjälp av&256;-bitars AES-kryptering (Advanced Encryption Standard), som sedan överför det till Azure Storage där den lagras krypterat i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
 * **CommonEncryptionProtected** – Använd det här alternativet om du överför innehåll som redan har krypterats och som skyddas med vanlig kryptering eller PlayReady DRM (till exempel Smooth Streaming som skyddas med PlayReady DRM).
 * **EnvelopeEncryptionProtected** – Använd det här alternativet om du överför HLS som krypterats med AES. Observera att filerna måste ha kodats och krypterats av Transform Manager.
 

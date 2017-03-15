@@ -215,7 +215,7 @@ I filuppladdningsåtgärden definierar *python_tutorial_client.py* först samlin
 
 Med hjälp av en listkonstruktion (”list comprehension”) anropas funktionen `upload_file_to_container` för varje fil i samlingarna och två [ResourceFile][py_resource_file]-samlingar fylls. `upload_file_to_container`-funktionen visas nedan:
 
-```
+```python
 def upload_file_to_container(block_blob_client, container_name, file_path):
     """
     Uploads a local file to an Azure Blob storage container.
@@ -572,7 +572,7 @@ def download_blobs_from_container(block_blob_client,
 ## <a name="step-8-delete-containers"></a>Steg 8: Ta bort behållare
 Eftersom du debiteras för data som finns i Azure Storage är det alltid en bra idé att ta bort alla blobbar som inte längre behövs för dina Batch-jobb. I *python_tutorial_client.py* görs detta med tre anrop till [BlockBlobService.delete_container][py_delete_container]:
 
-```
+```python
 # Clean up storage resources
 print('Deleting containers...')
 blob_client.delete_container(app_container_name)

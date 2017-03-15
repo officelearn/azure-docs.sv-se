@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -32,7 +33,7 @@ Det här scenariot visas i en [video på Channel 9](https://channel9.msdn.com/Se
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Skapa en funktion som skriver till kön
 
-Innan du kan ansluta till en lagringskö måste du skapa en funktion som läser in meddelandekön. JavaScript-funktionen använder en timer som utlösare som skriver ett meddelande till kön var 10: e sekund. Om du inte redan har ett Azure-konto kan du kika på [Try Azure Functions](https://functions.azure.com/try) (Prova Azure Functions) eller [skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+Innan du kan ansluta till en lagringskö måste du skapa en funktion som läser in meddelandekön. JavaScript-funktionen använder en timer som utlösare som skriver ett meddelande till kön var 10: e sekund. Om du inte redan har ett Azure-konto kan du läsa [Try Azure Functions](https://functions.azure.com/try) (Prova Azure Functions) eller [skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 1. Gå till Azure Portal och leta upp din funktionsapp.
 
@@ -125,7 +126,7 @@ Du kan skapa en annan funktion som läser från kön och skriver meddelanden per
 
     ![Lägga till en bindning till en Azure Storage-tabell](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Skriv `TableItem` som **Tabellnamn** och `functionbindings` som **Tabellparameternamn**, välj en **Lagringskontoanslutning** eller skapa en ny, och klicka på **Spara**.
+2. Skriv `functionbindings` som **Tabellnamn** och `myTable` som **Tabellparameternamn**, välj en **Lagringskontoanslutning** eller skapa en ny, och klicka på **Spara**.
 
     ![Konfigurera Storage-tabellbindning](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -180,7 +181,7 @@ Du kan skapa en annan funktion som läser från kön och skriver meddelanden per
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Functions finns i dessa ämnen.
+Mer information om Azure Functions finns i följande ämnen:
 
 * [Azure Functions, info för utvecklare](functions-reference.md)  
   Info för programmerare om att koda funktioner och definiera utlösare och bindningar.
@@ -190,10 +191,5 @@ Mer information om Azure Functions finns i dessa ämnen.
   Beskriver tillgängliga serviceplaner för Azure Functions, inklusive värdplanen för förbrukning, och hur du väljer rätt plan. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/21/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
-ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: b1bbe3a43d071b452b7b60e1c56571958b444237
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -129,8 +129,8 @@ Starta Komma igång-guiden genom att välja hur du vill distribuera Site Recover
 ## <a name="step-1-choose-your-protection-goals"></a>Steg 1: Välja skyddsmål
 Välj vad och vart du vill replikera.
 
-1. På bladet **Recovery Services-valv** väljer du ditt valv och klickar på **Inställningar**.
-2. I **Komma igång** klickar du på **Site Recovery** > **Steg 1: Förbereda infrastrukturen** > **Skyddsmål**.
+1. Välj valvet på bladet **Recovery Services-valv**.
+2. Under **Komma igång** klickar du på **Webbplatsåterställning** > **Steg 1: Förbereda infrastrukturen** > **Skyddsmål**.
 
     ![Välja mål](./media/site-recovery-vmm-to-azure/choose-goals.png)
 3. I **Skyddsmål** väljer du **Till Azure** och sedan **Ja, med Hyper-V**. Välj **Ja** för att bekräfta att du hanterar Hyper-V-värdar och återställningsplatsen med hjälp av VMM. Klicka på **OK**.
@@ -143,17 +143,17 @@ Installera Azure Site Recovery-providern på VMM-servern och registrera servern 
 1. Klicka på **Steg 2: Förbereda infrastrukturen** > **Källa**.
 
     ![Konfigurera källan](./media/site-recovery-vmm-to-azure/set-source1.png)
-    
+
 2. I **Förbered källa** klickar du på **+ VMM** för att lägga till en VMM-server.
 
     ![Konfigurera källan](./media/site-recovery-vmm-to-azure/set-source2.png)
-    
+
 3. På bladet **Lägg till server** kontrollerar du att **System Center VMM-server** visas i **Servertyp** och att VMM-servern uppfyller [de allmänna kraven och URL-kraven](#on-premises-prerequisites).
 4. Ladda ned installationsfilen för Azure Site Recovery-providern.
 5. Ladda ned registreringsnyckeln. Du behöver den när du kör installationsprogrammet. Nyckeln är giltig i fem dagar efter att du har genererat den.
 
     ![Konfigurera källan](./media/site-recovery-vmm-to-azure/set-source3.png)
-    
+
 6. Installera Azure Site Recovery-providern på VMM-servern.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>Konfigurera Azure Site Recovery-providern
@@ -163,7 +163,7 @@ Installera Azure Site Recovery-providern på VMM-servern och registrera servern 
 
     ![Installationsplats](./media/site-recovery-vmm-to-azure/provider2.png)
 4. När installationen är klar klickar du på **Registrera** för att registrera VMM-servern i valvet.
-5. I **Valvinställningar** klickar du på **Bläddra** för att välja valvnyckelfilen. Ange Azure Site Recovery-prenumerationen och valvnamnet.
+5. På sidan **Valvinställningar** klickar du på **Bläddra** och väljer valvnyckelfilen. Ange Azure Site Recovery-prenumerationen och valvnamnet.
 
     ![Serverregistrering](./media/site-recovery-vmm-to-azure/provider10.PNG)
 6. I **Internetanslutning** anger du hur providern som körs på VMM-servern ska ansluta till Site Recovery via internet.
@@ -180,7 +180,7 @@ Installera Azure Site Recovery-providern på VMM-servern och registrera servern 
 9. Aktivera **Synkronisera molnmetadata** om du vill synkronisera metadata för alla moln på VMM-servern med valvet. Den här åtgärden behöver bara göras en gång på varje server. Om du inte vill synkronisera alla moln kan du lämna den här inställningen avmarkerad och synkronisera varje moln individuellt i molnegenskaperna i VMM-konsolen. Slutför processen genom att klicka på **Registrera**.
 
     ![Serverregistrering](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. Registreringen startar. När registreringen är klar visas servern på bladet **Inställningar** > **Servrar** i valvet.
+10. Registreringen startar. När registreringen är klar visas servern på bladet **Site Recovery-infrastruktur** >  **VMM-servrar**.
 
 #### <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Installation från kommandoraden för Azure Site Recovery-providern
 Azure Site Recovery-providern kan installeras från kommandoraden. Den här metoden kan användas för att installera providern på Server Core för Windows Server 2012 R2.
@@ -266,7 +266,7 @@ Ange Azure-lagringskontot som ska användas för replikering och det Azure-nätv
 
 Konfigurera mappning på följande sätt:
 
-1. I **Inställningar** > **Site Recovery-infrastruktur** > **Nätverksmappningar** > **Nätverksmappning** klickar du på ikonen **+Nätverksmappning**.
+1. Under **Site Recovery-infrastruktur** > **Nätverksmappningar** > **Nätverksmappning** klickar du på ikonen **+Nätverksmappning**.
 
     ![Nätverksmappning](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. På **Lägg till nätverksmappning** väljer du VMM-källservern och **Azure** som mål.
@@ -295,7 +295,7 @@ Det här händer när nätverksmappningen börjar:
 7. I **Kryptera data lagrade på Azure** anger du om du vill kryptera vilande data i Azure-lagring. Klicka sedan på **OK**.
 
     ![Replikeringsprincip](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. När du skapar en ny princip associeras den automatiskt med VMM-molnet. Klicka på **OK**. Du kan associera ytterligare VMM-moln (och de virtuella datorerna i dem) med den här replikeringsprincipen i **Inställningar** > **Replikering** > Principnamn > **Associera VMM-moln**.
+8. När du skapar en ny princip associeras den automatiskt med VMM-molnet. Klicka på **OK**. Du kan associera ytterligare VMM-moln (och de virtuella datorerna i dem) med den här replikeringsprincipen i **Replikering** > principnamn > **Associera VMM-moln**.
 
     ![Replikeringsprincip](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -375,16 +375,16 @@ Aktivera replikering på följande sätt:
     >
 
 
-8. I **Replikeringsinställningar** > **Konfigurera replikeringsinställningar** väljer du den replikeringsprincip som du vill använda för de skyddade virtuella datorerna. Klicka sedan på **OK**. Du kan ändra replikeringsprincipen i **Inställningar** > **Replikeringsprinciper** > Principnamn > **Redigera inställningar**. De ändringar du gör används både för datorer som redan replikeras och för nya datorer.
+8. I **Replikeringsinställningar** > **Konfigurera replikeringsinställningar** väljer du den replikeringsprincip som du vill använda för de skyddade virtuella datorerna. Klicka sedan på **OK**. Du kan ändra replikeringsprincipen under **Replikeringsprinciper** > principnamn > **Redigera inställningar**. De ändringar du gör används både för datorer som redan replikeras och för nya datorer.
 
    ![Aktivera replikering](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
+Du kan följa förloppet för jobbet **Aktivera skydd** under **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 
 ### <a name="view-and-manage-vm-properties"></a>Visa och hantera egenskaper för virtuella datorer
 Vi rekommenderar att du kontrollerar egenskaperna för källdatorn. Kom ihåg att namnet på den virtuella Azure-datorn måste uppfylla [kraven för virtuella datorer i Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. Klicka på **Inställningar** > **Skyddade objekt** > **Replikerade objekt** och välj den dator som du vill visa information om.
+1. Gå till **Skyddade objekt**, klicka på **Replikerade objekt** och välj den dator som du vill visa information om.
 
     ![Aktivera replikering](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 2. I **Egenskaper** kan du visa information om replikering och redundans för den virtuella datorn.
@@ -438,10 +438,10 @@ Om du vill komma åt en virtuell Azure-dator som kör Linux efter en redundansv�
 ## <a name="step-7-test-your-deployment"></a>Steg 7: Testa distributionen
 Du kan testa distributionen genom att köra ett redundanstest för en enskild virtuell dator eller genom att köra en återställningsplan som innehåller en eller flera virtuella datorer.
 
-1. Om du vill redundansväxla en enstaka virtuell dator klickar du på den virtuella datorn > **+Testa redundans** i **Inställningar** > **Replikerade objekt**.
-1. Om du vill redundansväxla en återställningsplan går du till **Inställningar** > **Återställningsplaner**, högerklickar på planen > **Testa redundans**. Om du vill skapa en återställningsplan [följer du dessa instruktioner](site-recovery-create-recovery-plans.md).
+1. Om du vill redundansväxla en enstaka virtuell dator klickar du på den virtuella datorn under **Replikerade objekt** > **+Testa redundans**.
+1. Om du vill redundansväxla en återställningsplan går du till **Återställningsplaner**, högerklickar på planen > **Testa redundans**. Om du vill skapa en återställningsplan [följer du dessa instruktioner](site-recovery-create-recovery-plans.md).
 1. I **Testa redundans** väljer du det Azure-nätverk som de virtuella Azure-datorerna ska ansluta till efter redundansväxlingen.
-1. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att visa dess egenskaper, eller i jobbet **Testa redundans** i **Inställningar** > **Site Recovery-jobb**.
+1. Starta redundansväxlingen genom att klicka på **OK**. Du kan följa förloppet genom att klicka på den virtuella datorn för att visa dess egenskaper, eller i jobbet **Testa redundans** under **Site Recovery-jobb**.
 1. När redundansväxlingen är klar bör du även kunna se Azure-replikdatorn på Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn har rätt storlek, att den är ansluten till rätt nätverk och körs.
 1. Om du [förberedde för anslutning efter redundansväxlingen](#prepare-to-connect-to-Azure-VMs-after-failover) bör du kunna ansluta till den virtuella Azure-datorn.
 1. När du är klar klickar du på **Rensa redundanstest** i återställningsplanen. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen. När du gör det tas de virtuella datorerna som skapades under redundanstestningen bort.
@@ -454,9 +454,9 @@ Så här gör du om du vill övervaka konfigurationsinställningarna, statusen o
 1. Klicka på valvnamnet för att få åtkomst till **Essentials**-instrumentpanelen. På den här instrumentpanelen kan du övervaka Site Recovery-jobb, replikeringsstatusen, återställningsplaner, servertillstånd och händelser.  Du kan anpassa **Essentials** och visa de paneler och layouter som är mest användbara för dig, inklusive status för andra Site Recovery- och Backup-valv.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. Under *Hälsa* kan du övervaka problem på lokala servrar (VMM- eller konfigurationsservrar) och de händelser som har uppmärksammats av Site Recovery under de senaste 24 timmarna.
-3. Du kan hantera och övervaka replikeringen på panelerna **Replikerade objekt**, **Återställningsplaner** och **Site Recovery-jobb**. Du kan visa mer detaljer om jobb i **Inställningar** > **Jobb** > **Site Recovery-jobb**.
+2. Under **Hälsotillstånd** kan du övervaka problem på lokala servrar (VMM- eller konfigurationsservrar) och de händelser som har uppmärksammats av Site Recovery under de senaste 24 timmarna.
+3. Du kan hantera och övervaka replikeringen på panelerna **Replikerade objekt**, **Återställningsplaner** och **Site Recovery-jobb**. Du kan visa mer detaljer om jobb under **Jobb** > **Site Recovery-jobb**.
 
 ## <a name="next-steps"></a>Nästa steg
-När du har konfigurerat och fått igång distributionen kan du [läsa mer](site-recovery-failover.md) om olika typer av redundansväxlingar.
+När du har konfigurerat och fått igång distributionen kan du [läsa mer](site-recovery-failover.md) om redundansväxling.
 

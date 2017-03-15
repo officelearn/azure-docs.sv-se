@@ -13,38 +13,42 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ba659fe42fa2264708833f5674711334845defcc
-ms.openlocfilehash: 283e71f03f3907fd1e72283059ba7acbdac054d4
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter för VPN Gateway-anslutningar från plats till plats
 En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats (S2S) på olika platser med hjälp av en VPN-gateway. Plats-till-plats-anslutningar kan användas för att skapa en hybridlösning, eller när du vill skapa en säker anslutning mellan ditt lokala nätverk och ditt virtuella nätverk. I den här artikeln beskrivs kompatibla VPN-enheter och konfigurationsparametrar.
 
-> [!NOTE]
-> När du konfigurerar en plats-till-plats-anslutning krävs en offentlig IPv4-adress för VPN-enheten.                                                                                                                                                                               
->
->
-
-Om enheten inte finns med i tabellen med [verifierade VPN-enheter](#devicetable) kan du gå till avsnittet [Icke-verifierade VPN-enheter](#additionaldevices) i den här artikeln. Det är möjligt att enheten fungerar med Azure ändå. Kontakta enhetstillverkaren för att se vilket stöd som finns för VPN-enheter.
 
 > [!IMPORTANT]
 > Om du har problem med anslutningen mellan dina lokala VPN-enheter och Azure VPN-gateways läser du avsnittet [Kända enhetskompatibilitetsproblem](#known).
+> 
+> 
 
-**Observera följande när du läser tabellerna:**
+
+###<a name="items-to-note-when-viewing-the-tables"></a>Observera följande när du läser tabellerna:
 
 * Terminologin har ändrats för statisk och dynamisk routning. Du kommer troligen stöta på båda termerna. Funktionen har inte ändrats, bara namnen.
   * Statisk routning = Principbaserad
   * Dynamisk routning = Routningsbaserad
 * Specifikationerna för en VPN-gateway med hög kapacitet och en routningsbaserad VPN-gateway är samma, om inget annat anges. Till exempel är verifierade VPN-enheter som är kompatibla med routningsbaserade VPN-gatewayer också kompatibla med Azure VPN-gatewayen med hög kapacitet.
 
-## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Verifierade VPN-enheter
+> [!NOTE]
+> När du konfigurerar en plats-till-plats-anslutning krävs en offentlig IPv4-adress för VPN-enheten.                                                                                                                                                                               
+>
+>
+
+
+## <a name="devicetable"></a>Verifierade VPN-enheter
 Vi har verifierat en uppsättning VPN-standardenheter tillsammans med våra enhetsleverantörer. Alla enheter i enhetsfamiljerna som finns i följande lista ska fungera med Azures VPN-gatewayer. I [Om VPN-gatewayer](vpn-gateway-about-vpngateways.md) kan du kontrollera vilken typ av gateway som du måste skapa för den lösning som du vill konfigurera.
 
-Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig enhetsfamilj. Kontakta enhetstillverkaren för att se vilket stöd som finns för VPN-enheter.
+Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig enhetsfamilj. Kontakta enhetens tillverkare för att se vilka VPN-enheter som stöds.
 
 | **Leverantör** | **Enhetsfamilj** | **Minsta operativsystemversion** | **Principbaserad** | **Routningsbaserad** |
 | --- | --- | --- | --- | --- |
@@ -73,13 +77,13 @@ Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig
 
 (*) ISR 7200 serie routrar stöder endast principbaserade VPN.
 
-## <a name="a-nameadditionaldevicesanon-validated-vpn-devices"></a><a name="additionaldevices"></a>Icke-verifierade VPN-enheter
-Om du inte hittar din enhet i tabellen med verifierade VPN-enheter kan den ändå fungera med en plats-till-plats-anslutning. Kontrollera att VPN-enheten uppfyller de minimikrav som beskrivs i avsnittet Gateway-krav i artikeln [Om VPN-gateway](vpn-gateway-about-vpngateways.md). Enheter som uppfyller minimikraven bör också fungera bra med VPN-gatewayer. Kontakta enhetstillverkaren för ytterligare information om support och konfiguration.
+## <a name="additionaldevices"></a>Icke-verifierade VPN-enheter
+Om du inte hittar din enhet i tabellen med verifierade VPN-enheter kan enheten ändå fungera med en plats-till-plats-anslutning. Kontakta enhetstillverkaren för ytterligare information om support och konfiguration.
 
-## <a name="editing-device-configuration-samples"></a>Redigera enhetens konfigurationsexempel
+## <a name="editing"></a>Redigera enhetens konfigurationsexempel
 När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du byta ut vissa värden så att de motsvarar inställningarna för din miljö.
 
-**Så här redigerar du ett exempel:**
+###<a name="to-edit-a-sample"></a>Så här redigerar du ett exempel:
 
 1. Öppna exemplet med Anteckningar.
 2. Sök och ersätt alla <*text*>-strängar med de värden som gäller för din miljö. Var noga med att inkludera < och >. När ett namn anges måste det vara unikt. Om ett kommando inte fungerar kan du läsa mer i din enhetstillverkares dokumentation.
@@ -98,7 +102,7 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 | &lt;SP_AzureGatewayIpAddress&gt; |Den här informationen är specifik för ditt virtuella nätverk och finns i hanteringsportalen som **IP-adress för gateway**. |
 | &lt;SP_PresharedKey&gt; |Den här informationen är specifik för ditt virtuella nätverk och finns i hanteringsportalen som Hantera nyckel. |
 
-## <a name="ipsec-parameters"></a>IPsec-parametrar
+## <a name="IPSec"></a>IPsec-parametrar
 > [!NOTE]
 > Även om de värden som anges i följande tabell stöds av Azure VPN Gateway går det för närvarande inte att ange eller välja en specifik kombination från Azure VPN Gateway. Du måste ange eventuella begränsningar från den lokala VPN-enheten. Du måste dessutom foga ihop MSS vid 1350.
 >
@@ -121,14 +125,14 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 | Hash-algoritm |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Fas 2, Security Association (SA), livslängd (tid) |3&600; sekunder |3&600; sekunder |
 | Fas 2, Security Association (SA), livslängd (dataflöde) |102&400;&000; kB |- |
-| IPSec-kryptering för SA och autentisering (i prioritetsordning) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Saknas |Se *Routningsbaserad gateway-IPsec, Security Association (SA), erbjudanden* (nedan) |
+| IPSec-kryptering för SA och autentisering (i prioritetsordning) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Saknas |Se Routningsbaserad gateway-IPsec, Security Association (SA), erbjudanden (nedan) |
 | PFS (Perfect Forward Secrecy) |Nej |Nej (*) |
 | Utebliven peer-identifiering |Stöds inte |Stöds |
 
 (*) Azure Gateway som IKE-svarare kan acceptera PFS DH grupp 1, 2, 5, 14, 24.
 
 ### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>Routningsbaserad gateway-IPsec, Security Association (SA), erbjudanden
-Följande tabellen visar IPsec, SA-kryptering och autentiseringserbjudanden. Erbjudandena visas i prioritetsordning efter när erbjudandet visats eller godkänts.
+I följande tabell visas IPsec, SA-kryptering och autentiseringserbjudanden. Erbjudandena visas i prioritetsordning efter när erbjudandet visats eller godkänts.
 
 | **IPsec, SA-kryptering och autentiseringserbjudanden** | **Azure Gateway som initierare** | **Azure Gateway som svarare** |
 | --- | --- | --- |
@@ -154,21 +158,16 @@ Följande tabellen visar IPsec, SA-kryptering och autentiseringserbjudanden. Erb
 * Du kan ange IPsec ESP NULL-kryptering med VPN-gatewayer som är routningsbaserade och har hög kapacitet. Null-baserad kryptering ger inget skydd av data under överföringen och bör endast användas när maximalt dataflöde och lägsta svarstid krävs.  Klienter kan välja att använda detta i scenarier med VNet-till-VNet-kommunikation eller när kryptering används någon annanstans i lösningen.
 * Vid Internetanslutning på flera platser bör du använda standardinställningarna för Azure VPN Gateway med kryptering och de hash-algoritmer som anges i tabellen ovan, för att garantera säkerheten för din kritiska kommunikation.
 
-## <a name="a-nameknownaknown-device-compatibility-issues"></a><a name="known"></a>Kända enhetskompatibilitetsproblem
+## <a name="known"></a>Kända enhetskompatibilitetsproblem
 
 > [!IMPORTANT]
-> Dessa problem är kända kompatibilitetsproblem mellan VPN-enheter från tredje part och Azure VPN-gateways. Azure-teamet arbetar aktivt med leverantörerna för att åtgärda de problem som beskrivs här. Den här sidan uppdateras med den senaste informationen när problemen har åtgärdats. Kom tillbaka regelbundet.
+> Det här är kända kompatibilitetsproblem mellan VPN-enheter från tredje part och Azure VPN-gateways. Azure-teamet arbetar aktivt med leverantörerna för att åtgärda de problem som beskrivs här. Den här sidan uppdateras med den senaste informationen när problemen har åtgärdats. Kom tillbaka regelbundet.
 
 ###<a name="feb-16-2017"></a>16 februari 2017
 
-**Palo Alto Networks-enheter med tidigare versioner än 7.1.4** för Azure-vägbaserad VPN: Om du använder VPN-enheter från Palo Alto Networks med en PAN-OS-version äldre än 7.1.4 och har problem att ansluta till Azure-vägbaserade VPN-gateways följer du dessa steg:
+**Palo Alto Networks-enheter med tidigare versioner än 7.1.4** för Azure-vägbaserad VPN: Om du använder VPN-enheter från Palo Alto Networks med en PAN-OS-version äldre än 7.1.4 och har problem att ansluta till Azure-vägbaserade VPN-gateways ska du göra så här:
 
-1. Kontrollera Palo Alto Networks-enhetens version av den inbyggda programvaran (firmware). Om din PAN-OS-version är äldre än 7.1.4 uppgraderar du till 7.1.4
-2. På Palo Alto Networks-enheten ändrar du livslängden för Phase 2 SA (eller Quick Mode SA) till 28 800 sekunder (8 timmar) vid anslutning till Azure VPN-gateways
-3. Om du fortfarande har anslutningsproblem skapar du en supportbegäran på Azure Portal 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+1. Kontrollera Palo Alto Networks-enhetens version av den inbyggda programvaran (firmware). Om din version av PAN-OS är äldre än 7.1.4 uppgraderar du till 7.1.4.
+2. På Palo Alto Networks-enheten ändrar du livslängden för Phase 2 SA (eller Quick Mode SA) till 28 800 sekunder (8 timmar) vid anslutning till Azure VPN-gatewayen.
+3. Om du fortfarande har anslutningsproblem skapar du en supportbegäran på Azure Portal.
 

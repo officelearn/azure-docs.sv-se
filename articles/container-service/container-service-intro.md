@@ -1,5 +1,5 @@
 ---
-title: "Docker-behållarkluster i Azure-molnet | Microsoft Docs"
+title: "Dockerbehållarvärdar i Azure-molnet | Microsoft Docs"
 description: "Azure Container Service erbjuder ett sätt att förenkla skapande, konfiguration och hantering av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare."
 services: container-service
 documentationcenter: 
@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: a11b133794f7aedfa6740757fd8c1e89da665744
+ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
+ms.openlocfilehash: 04fabadb1c713deb007b740369496b61bb5f424f
+ms.lasthandoff: 03/02/2017
+
 
 
 ---
-# <a name="azure-container-service-introduction"></a>Introduktion till Azure Container Service
+# <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Introduktion till värdlösningar med Dockerbehållare med Azure Container Service 
 Azure Container Service gör det enklare för dig att skapa, konfigurera och hantera av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare. Det använder en optimerad konfiguration av populära verktyg för öppen källkod för schemaläggning och dirigering. På så sätt kan du använda dina befintliga kunskaper eller använda en stor och växande mängd communityexpertis för att distribuera och hantera behållarbaserade program i Microsoft Azure.
 
 ![Med Azure Container Service kan du hantera program i behållare på flera värdar i Azure.](./media/acs-intro/acs-cluster-new.png)
@@ -109,8 +112,3 @@ Building Applications Using the Azure Container Service (Bygga program med Azure
 ## <a name="next-steps"></a>Nästa steg
 
 Distribuera ett behållartjänstkluster med hjälp av [portalen](container-service-deployment.md) eller [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).
-
-
-<!--HONumber=Feb17_HO4-->
-
-

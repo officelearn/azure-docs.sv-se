@@ -17,6 +17,7 @@ ms.author: osamam
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -71,10 +72,5 @@ Ett annat sätt att lösa problem med asymmetrisk routning är att använda SNAT
 
 ## <a name="asymmetric-routing-detection"></a>Identifiering av asymmetrisk routning
 Traceroute är det bästa sättet att kontrollera att nätverkstrafik skickas via rätt väg. Om du förväntar dig att trafik från din lokala SMTP-server till Microsoft ska ta Internetvägen så är förväntad traceroute från SMTP-servern till Office 365. Resultatet bekräftar att trafiken verkligen lämnar ditt nätverk mot Internet och inte mot ExpressRoute.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

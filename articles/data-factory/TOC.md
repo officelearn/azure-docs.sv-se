@@ -62,12 +62,12 @@
 ### [HDInsight-piggningsåtgärd](data-factory-pig-activity.md)
 ### [HDInsight MapReduce-aktivitet](data-factory-map-reduce.md)
 ### [HDInsight-strömningsaktivitet](data-factory-hadoop-streaming-activity.md)
+### [HDInsight Spark-aktivitet](data-factory-spark.md)
 ### [Machine Learning Batch-körningsaktivitet](data-factory-azure-ml-batch-execution-activity.md)
 ### [Machine Learning-uppdateringsresursaktivitet](data-factory-azure-ml-update-resource-activity.md)
 ### [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 ### [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
 ### [.NET-anpassad aktivitet](data-factory-use-custom-activities.md)
-### [Anropa Spark-program](data-factory-spark.md)
 ### [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## Utveckla
 ### [Azure Resource Manager-mall](data-factory-how-to-use-resource-manager-templates.md)

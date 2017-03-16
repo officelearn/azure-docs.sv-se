@@ -39,9 +39,10 @@
 ## [Konfigurera BGP för Azure VPN-gatewayer med PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Konfigurera aktiv-aktiv-anslutningar med hög tillgänglighet](vpn-gateway-activeactive-rm-powershell.md)
 ## [Ändra inställningar för lokal nätverksgateway med PowerShell](vpn-gateway-modify-local-network-gateway.md)
-## [Verifiera en gatewayanslutning](vpn-gateway-verify-connection-resource-manager.md)
-## [Återställa en Azure VPN-gateway](vpn-gateway-resetgw-classic.md)
-## [Arbeta med självsignerade certifikat för punkt-till-plats-anslutningar](vpn-gateway-certificates-point-to-site.md)
+## [Verifiera en anslutning till VPN-gateway](vpn-gateway-verify-connection-resource-manager.md)
+## [Återställ en VPN-gateway](vpn-gateway-resetgw-classic.md)
+## [Ta bort en VPN-gateway](vpn-gateway-delete-vnet-gateway-powershell.md)
+## [Skapa självsignerade rotcertifikat för P2S-anslutningar](vpn-gateway-certificates-point-to-site.md)
 ## [Konfigurera en VPN-gateway (klassisk)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Referens
@@ -64,8 +65,3 @@
 ## [Prissättning](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

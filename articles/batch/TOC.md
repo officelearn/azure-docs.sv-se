@@ -1,6 +1,7 @@
 # Översikt
 ## [Vad är Azure Batch?](batch-technical-overview.md)
 ## [Översikt över funktioner](batch-api-basics.md)
+## [API:er och verktyg](batch-apis-tools.md)
 ## [Kvoter och begränsningar](batch-quota-limit.md)
 # Kom igång
 ## [Skapa ett Batch-konto](batch-account-create-portal.md)
@@ -25,8 +26,9 @@
 ### [Batch-diagnostikloggar](batch-diagnostics.md)
 
 # Referens
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
-## [.NET](/dotnet/api/microsoft.azure.batch)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [Azure CLI](/cli/azure/batch)
+## [NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
 ## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
@@ -45,9 +47,4 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C#-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

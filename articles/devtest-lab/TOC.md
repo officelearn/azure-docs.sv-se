@@ -5,17 +5,20 @@
 
 # Kom igång
 ## [Skapa labb](devtest-lab-create-lab.md)
+## [Skapa formler](devtest-lab-create-formulas.md)
 ## [Skapa VM](devtest-lab-add-vm.md)
+## [Hantera grundläggande labbprinciper](devtest-lab-get-started-with-lab-policies.md)
 ## [Skapa labb för träning](devtest-lab-training-lab.md)
 ## [Vanliga frågor och svar](devtest-lab-faq.md)
 
 # Gör så här för att
 ## Hantera labb
 ### [Lägga till labbägare och användare](devtest-lab-add-devtest-user.md)
-### [Definiera labbprinciper](devtest-lab-set-lab-policy.md)
+### [Hantera alla labbprinciper](devtest-lab-set-lab-policy.md)
 ### [Bevilja behörigheter för principer](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Konfigurera kostnadshantering](devtest-lab-configure-cost-management.md)
 ### [Konfigurera virtuella nätverk](devtest-lab-configure-vnet.md)
+### [Förstå delade IP-adresser](devtest-lab-shared-ip.md)
 
 ## Hantera artefakter
 ### [Lägga till artefaktlagringsplats](devtest-lab-add-artifact-repo.md)
@@ -33,8 +36,6 @@
 ### [Överför VHD-filen med AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Överför VHD-filen med PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Överför VHD-filen med Lagringsutforskaren](devtest-lab-upload-vhd-using-storage-explorer.md)
-
-
 
 # Resurser
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=devtest-lab)

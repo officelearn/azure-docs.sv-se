@@ -1,269 +1,212 @@
 # Översikt
-## [Vad är SQL Database?](sql-database-technical-overview.md)
+## [Om SQL DB](sql-database-technical-overview.md)
+## Jämför
+### [SQL DB-funktioner](sql-database-features.md)
+# Snabbstart
+## [Skapa DB – Portal](sql-database-get-started.md)
+## [Skapa DB – Azure CLI](sql-database-get-started-cli.md)
+## [Skapa DB – PowerShell](sql-database-get-started-powershell.md)
+# Exempel
+## [Azure CLI](sql-database-cli-samples.md)
+## [PowerShell](sql-database-powershell-samples.md)
+# Självstudier
+## Databaser, servrar och brandväggar
+### [PowerShell](sql-database-get-started-powershell.md)
+### [C#](sql-database-get-started-csharp.md)
+## Autentisering och åtkomst
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure Active Directory](sql-database-control-access-aad-authentication-get-started.md)
+## Säkerhetskopiera och återställa
+### [Azure Portal](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+# Koncept
+## Databaser och servrar
+### [Databaser](sql-database-overview.md)
+### [Servrar](sql-database-server-overview.md)
+### [Elastiska pooler](sql-database-elastic-pool.md)
+### [När elastisk pooler används](sql-database-elastic-pool-guidance.md)
+## Beräkning och lagring
 ### [Tjänstnivåer](sql-database-service-tiers.md)
 ### [DTU:er och eDTU:er](sql-database-what-is-a-dtu.md)
 ### [Benchmark-översikt för DTU](sql-database-benchmark-overview.md)
 ### [Resursbegränsningar](sql-database-resource-limits.md)
-### [Funktioner](sql-database-features.md)
-### [Vanliga frågor om SQL Database](sql-database-faq.md)
-## Jämförelser
-### [SQL Database jämfört med SQL på en virtuell dator](sql-database-paas-vs-sql-server-iaas.md)
-### [T-SQL-skillnader](sql-database-transact-sql-information.md)
-### [SQL kontra NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
-## [SQL Database-verktyg](sql-database-manage-overview.md)
-## [SQL Database-självstudier](sql-database-explore-tutorials.md)
-## Säkerhet
-### [Säkerhetsöversikt](sql-database-security-overview.md)
+## [Utvecklings- och hanteringsverktyg](sql-database-manage-overview.md)
+## Datapartitionering
+### [Shardade databaser](sql-database-elastic-scale-introduction.md)    
+###    [Elastiskt klientbibliotek](sql-database-elastic-database-client-library.md)
+### [Karthantering för shard](sql-database-elastic-scale-shard-map-management.md)
+### [Databeroende routning](sql-database-elastic-scale-data-dependent-routing.md)
+### [Hantera autentiseringsuppgifter](sql-database-elastic-scale-manage-credentials.md)
+### [Frågor med flera shards](sql-database-elastic-scale-multishard-querying.md)
+### [Ordlista över elastiska verktyg](sql-database-elastic-scale-glossary.md)
+### [Flytta data mellan shard](sql-database-elastic-scale-overview-split-and-merge.md)
+### [Vanliga frågor och svar om elastiska verktyg](sql-database-elastic-scale-faq.md)
+## Frågor över flera databaser
+### [Översikt](sql-database-elastic-query-overview.md)
+### [Vågrätt partitionerade data](sql-database-elastic-query-horizontal-partitioning.md)
+### [Lodrätt partitionerade data](sql-database-elastic-query-vertical-partitioning.md)
+## [Transaktioner över flera databaser](sql-database-elastic-transactions-overview.md)
+## [Jobb över flera databaser](sql-database-elastic-jobs-overview.md)
+## Säkerhet för data och databaser
+### [Översikt](sql-database-security-overview.md)
 ### [Azure Security Center för Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
-### [SQL-säkerhetscenter](https://msdn.microsoft.com/library/azure/bb510589)
-# Kom igång
-## Databaser och servrar
-### Läs mer
-#### [Servrar](sql-database-server-overview.md)
-#### [Enkla databaser](sql-database-overview.md)
-#### [Flera databaser](sql-database-elastic-scale-introduction.md)
-##### Mappning av klienter
-###### [Elastiskt klientbibliotek](sql-database-elastic-database-client-library.md)
-###### [Karthanterare för shard](sql-database-elastic-scale-shard-map-management.md)
-###### [Databeroende routning](sql-database-elastic-scale-data-dependent-routing.md)
-###### [Hantera autentiseringsuppgifter](sql-database-elastic-scale-manage-credentials.md)
-###### [Frågor med flera shards](sql-database-elastic-scale-multishard-querying.md)
-##### Elastiska pooler (resurspooler)
-###### [Vad är en elastisk pool?](sql-database-elastic-pool.md)
-###### [När elastisk pooler används](sql-database-elastic-pool-guidance.md)
-###### [Priser för elastisk pool](sql-database-elastic-pool-price.md)
-##### Shardade databaser
-###### [Ordlista över elastiska verktyg](sql-database-elastic-scale-glossary.md)
-###### [Flytta data mellan shard](sql-database-elastic-scale-overview-split-and-merge.md)
-###### [Vanliga frågor och svar om elastiska verktyg](sql-database-elastic-scale-faq.md)
-##### Elastisk förfrågan (frågor över flera databaser)
-###### [Vad är en elastisk förfrågan?](sql-database-elastic-query-overview.md)
-##### Elastiska transaktioner (distribuerade transaktioner)
-###### [Transaktioner över molndatabaser](sql-database-elastic-transactions-overview.md)
-##### Elastiska jobb (jobb över flera databaser)
-###### [Vad är ett elastiskt jobb?](sql-database-elastic-jobs-overview.md)
-#### [Använda Azure RemoteApp för att ansluta till SQL Database](sql-database-ssms-remoteapp.md)
-#### [Hantera SQL-databaser med Azure Automation-tjänsten](sql-database-manage-automation.md)
-### Gör följande
-#### [Skapa en enskild databas med Azure-portalen](sql-database-get-started.md)
-#### [Skapa en enskild databas med PowerShell](sql-database-get-started-powershell.md)
-#### [Skapa en enskild databas med C#](sql-database-get-started-csharp.md)
-#### [Skapa delat program](sql-database-elastic-scale-get-started.md)
-#### [Flytta data mellan shard](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-#### [Kom igång med elastiska jobb](sql-database-elastic-jobs-getting-started.md)
-#### [Kom igång med elastiska förfrågningar](sql-database-elastic-query-getting-started-vertical.md)
-#### [Skapa rapporter med hjälp av elastisk förfrågan](sql-database-elastic-query-getting-started.md)
-#### [Frågedatabaser med olika scheman](sql-database-elastic-query-vertical-partitioning.md)
-#### [Rapportering över utskalade databaser](sql-database-elastic-query-horizontal-partitioning.md)
-## Migrera och flytta data
-### Läs mer
-#### [Migrera en databas](sql-database-cloud-migrate.md)
-#### [Exportera en databas](sql-database-export.md)
-#### [Datasynkronisering](sql-database-get-started-sql-data-sync.md)
-#### [Kopiera en SQL-databas](sql-database-copy.md)
-## Brandväggsregler, autentisering och auktorisering
-### Läs mer
-#### [Åtkomstkontroll](sql-database-control-access.md)
-#### [Brandväggsregler](sql-database-firewall-configure.md)
-#### [Hantera inloggningar](sql-database-manage-logins.md)
-#### [Azure AD-autentisering](sql-database-aad-authentication.md)
-#### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
-### Gör följande
-#### [SQL autentisering och auktorisering](sql-database-control-access-sql-authentication-get-started.md)
-#### [Autentisering och auktorisering av Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Säkra och skydda data
-### Läs mer
-#### Granskning
-##### [Granska](sql-database-auditing.md)
-##### [Stöd för tidigare klientversioner och IP-slutpunktsändringar för granskning](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [Hotidentifiering](sql-database-threat-detection.md)
-#### Kryptera data
-##### [Transparent datakryptering](https://msdn.microsoft.com/library/azure/dn948096)
-##### [Kolumnkryptering](https://msdn.microsoft.com/library/azure/ms179331)
-#### Maskera data
-##### [Dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md)
-### Gör följande
-#### [Dynamisk datamaskning i Azure Portal](sql-database-dynamic-data-masking-get-started-portal.md)
-#### [Konfigurera granskning med Azure Portal](sql-database-auditing-portal.md)
-#### [Konfigurera granskning med PowerShell](sql-database-auditing-powershell.md)
-#### [Konfigurera granskning med REST API](sql-database-auditing-rest.md)
-#### [Always Encrypted med Windows-certifikat](sql-database-always-encrypted.md)
-#### [Always Encrypted med Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
+## Autentisering och åtkomst
+### [Översikt](sql-database-control-access.md)
+### [Brandväggsregler](sql-database-firewall-configure.md)
+### [Azure AD-autentisering](sql-database-aad-authentication.md)
+### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
+### [Roller och behörigheter](sql-database-manage-logins.md)
+## Granska
+### [Översikt](sql-database-auditing.md)
+### [Support för äldre klienter](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
+## [Hotidentifiering](sql-database-threat-detection.md)
+## Datakryptering
+### [Transparent datakryptering](https://msdn.microsoft.com/library/azure/dn948096)
+### [Alltid krypterad](https://msdn.microsoft.com/library/mt163865.aspx)
+### [Kolumnkryptering](https://msdn.microsoft.com/library/azure/ms179331)
+## [Datamaskering](sql-database-dynamic-data-masking-get-started.md)
 ## Verksamhetskontinuitet
-### Läs mer
-#### [Översikt](sql-database-business-continuity.md)
-#### [Säkerhetskopior av databasen](sql-database-automated-backups.md)
-#### [Långsiktig kvarhållning](sql-database-long-term-retention.md)
-#### [Återställning av databas med hjälp av säkerhetskopior](sql-database-recovery-using-backups.md)
-#### [Återställa en enskild tabell](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
-#### [Återställa från ett strömavbrott i ett datacenter](sql-database-disaster-recovery.md)
-#### [Autentiseringskrav för haveriberedskap](sql-database-geo-replication-security-config.md)
-#### [Designscenarier för företagskontinuitet](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-#### [Strategier för haveriberedskap med elastiska pooler](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
-#### [Löpande uppgraderingar](sql-database-manage-application-rolling-upgrade.md)
-#### [Utföra programåterställningstest](sql-database-disaster-recovery-drills.md)
-#### [Översikt över aktiv geo-replikering](sql-database-geo-replication-overview.md)
-### Gör följande
-#### [Azure Portal: säkerhetskopiera och återställ](sql-database-get-started-backup-recovery-portal.md)
-#### [PowerShell: säkerhetskopiera och återställ](sql-database-get-started-backup-recovery-powershell.md)
-## Apputveckling
-### Läs mer
-#### [Översikt över utveckling av databasprogram](sql-database-develop-overview.md)
-#### [Anslutningsbibliotek](sql-database-libraries.md)
-#### [SaaS-program för flera innehavare](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-#### [Skala SaaS-program för flera innehavare med säkerhet på radnivå](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-#### [Använda andra portar än 1433 för ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md)
-#### [Hämta de värden som krävs för att autentisera ett program](sql-database-client-id-keys.md)
-### Gör följande
-#### Ansluta ett program
-##### [.NET](sql-database-develop-dotnet-simple.md)
-##### [C och C++](sql-database-develop-cplusplus-simple.md)
-##### [Java](sql-database-develop-java-simple.md)
-##### [Node.js](sql-database-develop-nodejs-simple.md)
-##### [PHP](sql-database-develop-php-simple.md)
-##### [Python](sql-database-develop-python-simple.md)
-##### [Ruby](sql-database-develop-ruby-simple.md)
-##### [Excel](sql-database-connect-excel.md)
-#### [Anslut med Visual Studio](sql-database-connect-query.md)
-#### [Skapa ett klientprogram](https://www.microsoft.com/sql-server/developer-get-started)
-#### [Arbeta med felmeddelanden](sql-database-develop-error-messages.md)
-#### [Använda Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-#### [Använd klientbibliotek med Dapper](sql-database-elastic-scale-working-with-dapper.md)
-### Kundimplementeringar
-#### [Daxko/CSI Software](sql-database-implementation-daxko.md)
-#### [GEP](sql-database-implementation-gep.md)
-#### [SnelStart](sql-database-implementation-snelstart.md)
-#### [Umbraco](sql-database-implementation-umbraco.md)
-## Databasutveckling
-### Läs mer
-#### Temporala tabeller
-##### [Temporala tabeller](sql-database-temporal-tables.md)
-##### [Principer för kvarhållning](sql-database-temporal-tables-retention-policy.md)
-#### [JSON-data](sql-database-json-features.md)
-#### [Minnesintern optimering](sql-database-in-memory.md)
-### Gör följande
-#### [SQL Server-utveckling](https://msdn.microsoft.com/library/ms179422.aspx)
-#### [Använda minnesintern OLTP](sql-database-in-memory-oltp-migration.md)
+### [Översikt](sql-database-business-continuity.md)
+### [Säkerhetskopior av databasen](sql-database-automated-backups.md)
+### [Långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md)
+### [Återställning av databas med hjälp av säkerhetskopior](sql-database-recovery-using-backups.md)
+### [Aktiv geo-replikering](sql-database-geo-replication-overview.md)
+### [Haveriberedskap och autentisering](sql-database-geo-replication-security-config.md)
+### [Programutformning för affärskontinuitet](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+### [Strategier för haveriberedskap med elastiska pooler](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+### [Löpande programuppgraderingar](sql-database-manage-application-rolling-upgrade.md)
+## Utveckling
+### [Översikt över utveckling av databasprogram](sql-database-develop-overview.md)
+### [Anslutningsbibliotek](sql-database-libraries.md)
+### [Programutformning för SaaS-program för flera innehavare](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+### [Säkerhet på radnivå för SaaS-program för flera innehavare](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+### [Portar utöver 1433 för ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md)
+### [Autentisera ett program](sql-database-client-id-keys.md)
+### [Felmeddelanden](sql-database-develop-error-messages.md)
+### [Klientbibliotek och Dapper](sql-database-elastic-scale-working-with-dapper.md)
+### [JSON-data](sql-database-json-features.md)
+### [Minnesintern optimering](sql-database-in-memory.md)
+## Databasmigrering
+### [Migrera en SQL Server-databas](sql-database-cloud-migrate.md)
+### [T-SQL-ändringar för migrering](sql-database-transact-sql-information.md)
+## Dataförflyttning
+### [Kopiera en SQL-databas](sql-database-copy.md)
+### [Exportera en databas](sql-database-export.md)
 ## Övervaka och finjustera
-### Läs mer
-#### [Enkla databaser](sql-database-single-database-monitor.md)
-#### [Översikt över SQL Database Advisor](sql-database-advisor.md)
-#### [Vägledning för enkel databas](sql-database-performance-guidance.md)
-#### [Prestandainsikter: Azure Portal](sql-database-performance.md)
-#### [Använda batchbearbetning](sql-database-use-batching-to-improve-performance.md)
-#### [Utökade händelser](sql-database-xevent-db-diff-from-svr.md)
-## SQL Database V11
-### [Webb- och företagsversioner sunset](sql-database-web-business-sunset-faq.md)
-### [Tjänstnivå-rådgivaren](sql-database-service-tier-advisor.md)
-### [Utvärderingsverktyg för elastiska pooler](sql-database-elastic-pool-database-assessment-powershell.md)
-### [Uppgradera till V12](sql-database-v12-plan-prepare-upgrade.md)
-#### [Uppgradera med Azure Portal](sql-database-upgrade-server-portal.md)
-#### [Uppgradera med PowerShell](sql-database-upgrade-server-powershell.md)
-# Gör så här för att
-## Skapa och hantera
-### [Hantera med Azure Portal](sql-database-manage-portal.md)
-### [Hantera med PowerShell](sql-database-manage-powershell.md)
-### [Hantera med SSMS](sql-database-manage-azure-ssms.md)
-### Servrar
-#### [Hantera med Azure Portal](sql-database-manage-servers-portal.md)
-#### [Hantera med PowerShell](sql-database-manage-servers-powershell.md)
-### Enkla databaser
-#### [Hantera med Azure Portal](sql-database-manage-single-databases-portal.md)
-#### [Hantera med PowerShell](sql-database-manage-single-databases-powershell.md)
-#### [Hantera med Transact-SQL](sql-database-manage-single-databases-tsql.md)
-### Brandväggsregler
-#### [Skapa med Azure Portal](sql-database-configure-firewall-settings.md)
-#### [Skapa med PowerShell](sql-database-configure-firewall-settings-powershell.md)
-#### [Skapa med REST-API](sql-database-configure-firewall-settings-rest.md)
-#### [Skapa med T-SQL](sql-database-configure-firewall-settings-tsql.md)
-### Flera databaser
-#### [Uppgradera klientbibliotek i klientprogram](sql-database-elastic-scale-upgrade-client-library.md)
-#### Shardade databaser
-##### [Säkerhetskonfiguration](sql-database-elastic-scale-split-merge-security-configuration.md)
-##### [Lägg till en shard](sql-database-elastic-scale-add-a-shard.md)
-##### [Lösa problem i shardkarta](sql-database-elastic-database-recovery-manager.md)
-##### [Migrera till fragmenterade databaser](sql-database-elastic-convert-to-use-elastic-tools.md)
-##### [Skapa prestandaräknare för karthanteraren för shard](sql-database-elastic-database-perf-counters.md)
-#### Elastiska jobb
-##### [Hur installerar jag?](sql-database-elastic-jobs-service-installation.md)
-##### [Hantera med PowerShell](sql-database-elastic-jobs-powershell.md) 
-##### [Hantera med Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
-##### [Hur avinstallerar jag?](sql-database-elastic-jobs-uninstall.md)
-#### Elastiska pooler
-##### [Hantera med Azure Portal](sql-database-elastic-pool-manage-portal.md)
-##### [Hantera med PowerShell](sql-database-elastic-pool-manage-powershell.md)
-##### [Hantera med C#](sql-database-elastic-pool-manage-csharp.md)
-##### [Hantera med T-SQL](sql-database-elastic-pool-manage-tsql.md)
-## Autentisera och auktorisera
-### [Konfigurera Azure AD-autentisering](sql-database-aad-authentication-configure.md)
-### [Konfigurera multifaktorautentisering](sql-database-ssms-mfa-authentication-configure.md)
-## Konfigurera hotidentifiering
-### [Konfigurera hotidentifiering med Azure Portal](sql-database-threat-detection-portal.md)
-## Kryptera data
+### [Enkla databaser](sql-database-single-database-monitor.md)
+### [Översikt över SQL Database Advisor](sql-database-advisor.md)
+### [Query Performance Insight](sql-database-query-performance.md)
+### [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+### [Query Store-användningsscenarier](https://msdn.microsoft.com/library/mt614796.aspx)
+### [DMV](sql-database-monitoring-with-dmvs.md)
+### [Vägledning för enkel databas](sql-database-performance-guidance.md)
+### [Använda batchbearbetning](sql-database-use-batching-to-improve-performance.md)
+### [Utökade händelser](sql-database-xevent-db-diff-from-svr.md)
+### [Efterlevnadsnivåer](sql-database-compatibility-level-query-performance-130.md)
+# Instruktionsguider
+## Skapa och hantera brandväggsregler
+### [Azure Portal](sql-database-configure-firewall-settings.md)
+### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
+### [REST-API](sql-database-configure-firewall-settings-rest.md)
+### [Transact-SQL](sql-database-configure-firewall-settings-tsql.md)
+## Hantera elastiska pooler
+### [Azure Portal](sql-database-elastic-pool-manage-portal.md)
+### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
+### [C#](sql-database-elastic-pool-manage-csharp.md)
+## Konfigurera granskning och identifiering av hot
+### [Azure Portal: Granskning](sql-database-auditing-portal.md)
+### [Azure Portal: Hotidentifiering](sql-database-threat-detection-portal.md)
+## Återställ en databas
+### [Azure Portal](sql-database-restore-database-portal.md)
+## Hantera långsiktig kvarhållning av säkerhetskopior
+### [Azure Portal](sql-database-manage-long-term-backup-retention-portal.md)
+### [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
+## [Återställa en enskild tabell](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Konfigurera geo-replikering
+### [Azure Portal](sql-database-geo-replication-portal.md)
+### [Transact-SQL: Konfigurera](sql-database-geo-replication-transact-sql.md)
+### [Transact-SQL: Redundans](sql-database-geo-replication-failover-transact-sql.md)
+## [Återställa från ett strömavbrott i ett datacenter](sql-database-disaster-recovery.md)
+## [Utföra programåterställningstest](sql-database-disaster-recovery-drills.md)
+## Kopiera en databas
+### [Azure Portal](sql-database-copy-portal.md)
+### [Transact-SQL](sql-database-copy-transact-sql.md)
+## Importera en databas
+### [Azure Portal](sql-database-import-portal.md)
+### [SQLPackage](sql-database-import-sqlpackage.md)
+## Exportera en databas
+### [Azure Portal](sql-database-export-portal.md)
+### [PowerShell](sql-database-export-powershell.md)
+### [SSMS](sql-database-export-ssms.md)
+### [SQLPackage](sql-database-export-sqlpackage.md)
+## Läsa in data
+### [BCP](sql-database-load-from-csv-with-bcp.md)
+### [Azure Data Factory](../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+## [Konfigurera datasynkronisering](sql-database-get-started-sql-data-sync.md)
+## Autentisera och auktorisera användare
+### [Azure AD-autentisering](sql-database-aad-authentication-configure.md)
+## Anslut program
+### [NET](sql-database-develop-dotnet-simple.md)
+### [C och C++](sql-database-develop-cplusplus-simple.md)
+### [Java](sql-database-develop-java-simple.md)
+### [Node.js](sql-database-develop-nodejs-simple.md)
+### [PHP](sql-database-develop-php-simple.md)
+### [Python](sql-database-develop-python-simple.md)
+### [Ruby](sql-database-develop-ruby-simple.md)
+### [Visual Studio](sql-database-connect-query.md)
+### [SSMS med Azure RemoteApp](sql-database-ssms-remoteapp.md)
+### [SSMS med multifaktorautentisering](sql-database-ssms-mfa-authentication-configure.md)
+### [Excel](sql-database-connect-excel.md)
+### [Vägledning för anslutning](sql-database-connectivity-issues.md)
+### [Lös anslutningsproblem](sql-database-troubleshoot-common-connection-issues.md)
+## Konfigurera kryptering
+### [Kryptera data med Windows-certifikat](sql-database-always-encrypted.md)
+### [Kryptera data med Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ### [Transparent datakryptering](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Kolumnkryptering](https://msdn.microsoft.com/library/azure/ms179331)
+## Konfigurera dynamisk datamaskering
+### [Azure Portal](sql-database-dynamic-data-masking-get-started-portal.md)
+## Skapa och hantera temporala tabeller
+### [Översikt](sql-database-temporal-tables.md)
+### [Principer för kvarhållning](sql-database-temporal-tables-retention-policy.md)
+## [Konfigurera minnesintern OLTP](sql-database-in-memory-oltp-migration.md)
+## Skapa och hantera shardade databaser
+### [Skapa ett shardat program](sql-database-elastic-scale-get-started.md)
+### [Flytta data mellan shard](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+### [Säkerhetskonfiguration](sql-database-elastic-scale-split-merge-security-configuration.md)
+### [Lägg till en shard](sql-database-elastic-scale-add-a-shard.md)
+### [Lösa problem i shardkarta](sql-database-elastic-database-recovery-manager.md)
+### [Migrera till befintliga shardade databaser](sql-database-elastic-convert-to-use-elastic-tools.md)
+### [Skapa prestandaräknare](sql-database-elastic-database-perf-counters.md)
+### [Använda Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
+## [Uppgradera elastiskt skalat klientbibliotek](sql-database-elastic-scale-upgrade-client-library.md)
+## Skapa och hantera elastiska jobb
+### [Installera](sql-database-elastic-jobs-service-installation.md)
+### [Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
+### [PowerShell](sql-database-elastic-jobs-powershell.md) 
+### [Jobb över flera databaser](sql-database-elastic-jobs-getting-started.md)
+### [Avinstallera](sql-database-elastic-jobs-uninstall.md)
+## Frågedata
+### [SSMS](sql-database-connect-query-ssms.md)
+### [Vågrätt partitionerade data](sql-database-elastic-query-getting-started.md)
+### [Lodrätt partitionerade data](sql-database-elastic-query-getting-started-vertical.md)
 ## Övervaka och finjustera
-### [Query Performance Insight](sql-database-query-performance.md)
-### [SQL Database Advisor](sql-database-advisor-portal.md)
-### [DMV](sql-database-monitoring-with-dmvs.md)
-### [Efterlevnadsnivåer](sql-database-compatibility-level-query-performance-130.md)
-### [Tips vid prestandajustering](sql-database-troubleshoot-performance.md)
+### [Använd SQL Database Advisor](sql-database-advisor-portal.md)
+### [Använd Query Performance Insight](sql-database-performance.md)
+### [Utvärdera och finjustera](sql-database-troubleshoot-performance.md)
 ### [Skapa aviseringar](sql-database-insights-alerts-portal.md)
 ### [Övervaka minnesintern OLTP-lagring](sql-database-in-memory-oltp-monitoring.md)
-### Query Store
-#### [Övervakning av prestanda med hjälp av Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
-#### [Query Store-användningsscenarier](https://msdn.microsoft.com/library/mt614796.aspx)
-#### [Använda Query Store](sql-database-operate-query-store.md)
-### Utökade händelser
-#### [Händelsefilens målkod](sql-database-xevent-code-event-file.md)
-#### [Ringbuffertens målkod](sql-database-xevent-code-ring-buffer.md)
-## Flytta data
-### Kopiera en SQL-databas
-#### [Kopiera med Azure Portal](sql-database-copy-portal.md)
-#### [Kopiera med PowerShell](sql-database-copy-powershell.md)
-#### [Kopiera med T-SQL](sql-database-copy-transact-sql.md)
-### Exportera databasen till en BACPAC-fil
-#### [Exportera med hjälp av Azure-portalen](sql-database-export-portal.md)
-#### [Exportera med hjälp av verktyg för SQL-paket](sql-database-export-sqlpackage.md)
-#### [Exportera med hjälp av PowerShell](sql-database-export-powershell.md)
-#### [Exportera med hjälp av SSMS](sql-database-export-ssms.md)
-## Importera data
-### [Importera med hjälp av Azure-portalen](sql-database-import-portal.md)
-### [Importera med hjälp av PowerShell](sql-database-import-powershell.md)
-### [Importera med hjälp av SQLPackage](sql-database-import-sqlpackage.md)
-### [Läsa in från CSV-filen med BCP](sql-database-load-from-csv-with-bcp.md)
-## Fråga
-### [Fråga med hjälp av SSMS](sql-database-connect-query-ssms.md)
-## Säkerhetskopiering och återställning
-### Långsiktig kvarhållning av säkerhetskopior
-#### [Hantera långsiktig kvarhållning av säkerhetskopior med Azure Portal](sql-database-manage-long-term-backup-retention-portal.md)
-#### [Hantera långsiktig kvarhållning av säkerhetskopior med PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### Återställa borttagen databas
-#### [Återställa borttagna med hjälp av Azure-portalen](sql-database-restore-deleted-database-portal.md)
-#### [Återställa borttagna med hjälp av PowerShell](sql-database-restore-deleted-database-powershell.md)
-### Återställning till tidpunkt av databas
-#### [Återställning till tidpunkt med Azure Portal](sql-database-point-in-time-restore-portal.md)
-#### [Återställning till tidpunkt med PowerShell](sql-database-point-in-time-restore-powershell.md)
-### Återställa från geo-redundant säkerhetskopia
-### [Geo-återställa med hjälp av Azure-portalen](sql-database-geo-restore-portal.md)
-### [Geo-återställa med hjälp av PowerShell](sql-database-geo-restore-powershell.md)
-## Aktiv geo-replikering
-### [Konfigurera med hjälp av Azure-portalen](sql-database-geo-replication-portal.md)
-### [Konfigurera med hjälp av PowerShell](sql-database-geo-replication-powershell.md)
-### [Konfigurera med hjälp av T-SQL](sql-database-geo-replication-transact-sql.md)
-### [Redundans med hjälp av Azure-portalen](sql-database-geo-replication-failover-portal.md)
-### [Redundans med hjälp av PowerShell](sql-database-geo-replication-failover-powershell.md)
-### [Redundans med hjälp av T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-## Felsöka
-### [Anslutningsproblem](sql-database-troubleshoot-common-connection-issues.md)
-### [Tillfälligt anslutningsfel](sql-database-troubleshoot-connection.md)
-### [Diagnostisera och förhindra](sql-database-connectivity-issues.md)
-### [Behörigheter](sql-database-troubleshoot-permissions.md)
-### [Flytta databaser](sql-database-troubleshoot-moving-data.md)
+### [Konfigurera Query Store](sql-database-operate-query-store.md)
+### [Samla in utökade händelser till händelsefilmål](sql-database-xevent-code-event-file.md)
+### [Samla in utökade händelser till ringbuffertmål](sql-database-xevent-code-ring-buffer.md)
+### [Telemetri för elastisk pool med PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools)
+### [Anpassad instrumentpanel för elastisk pool för SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard)
+## [Hantera med tjänsten Azure Automation](sql-database-manage-automation.md)
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
 ## [PowerShell (Elastic Database)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
-## [Azure CLI 2.0](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/sql)
 ## [NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
 ## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
@@ -272,24 +215,28 @@
 ## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/bb510741.aspx)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163571.aspx)
-
-# Relaterat
-## Bibliotek för SQL Database-hantering
-### [Hämta bibliotekspaketet för SQL Database-hanteringen](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
-## [SQL Server-drivrutiner](https://msdn.microsoft.com/library/mt654049.aspx)
-### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
-### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-
-# Resurser
-## [Prissättning](https://azure.microsoft.com/pricing/details/sql-database/)
-## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
-## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
-## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?service=sql-database)
 ## [SQL Server-verktyg](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
+## [Bibliotekspaket för SQL Database-hantering](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
+## [SQL Server-drivrutiner](https://msdn.microsoft.com/library/mt654049.aspx)
+### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
+### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
+### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
+# Resurser
+## [Vanliga frågor och svar](sql-database-faq.md)
+## [Felsök anslutningsproblem](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database)
+## [Prissättning](https://azure.microsoft.com/pricing/details/sql-database/)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?service=sql-database)
+## [Vägledning för arkitektur](https://docs.microsoft.com/sql/#pivot=architecture)
+## [Kundimplementeringar](sql-database-customer-implementations.md)
+## Exempelprogram
+### [Tailspin Surveys-exempelprogram](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md)
+### [Contoso Clinic-demoprogram](https://github.com/Microsoft/azure-sql-security-sample)
+

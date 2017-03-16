@@ -53,6 +53,7 @@
 ### [Lagringsalternativ](hdinsight-hadoop-r-server-storage.md)
 ### [Installera RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Compute-sammanhang](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR och SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Använda Spark för minnesintern bearbetning
 ### [Med Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Med BI-verktyg](hdinsight-apache-spark-use-bi-tools.md)

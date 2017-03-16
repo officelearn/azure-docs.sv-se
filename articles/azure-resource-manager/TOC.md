@@ -38,7 +38,8 @@
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
 ## Styr åtkomsten
 ### [Skapa tjänstens huvudnamn med PowerShell](resource-group-authenticate-service-principal.md)
-### [Skapa tjänstens huvudnamn med Azure CLI](resource-group-authenticate-service-principal-cli.md)
+### [Skapa tjänstens huvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Skapa tjänstens huvudnamn med Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 ### [Skapa tjänstens huvudnamn med portalen](resource-group-create-service-principal-portal.md)
 ### [Autentiserings-API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md)
 ### [Lås resurser](resource-group-lock-resources.md)

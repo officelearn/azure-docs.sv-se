@@ -2,13 +2,16 @@
 ## [Vad är skalningsuppsättningar för virtuella datorer?](virtual-machine-scale-sets-overview.md)
 
 # Kom igång
-## [Skapa en skalningsuppsättning på portalen](virtual-machine-scale-sets-portal-create.md)
-## [Skapa en skalningsuppsättning med Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
-## [Skapa en skalningsuppsättning med en Resource Manager-mall](virtual-machine-scale-sets-mvss-start.md)
+## [Distribuera en skalningsuppsättning på portalen](virtual-machine-scale-sets-portal-create.md)
+## [Distribuera en skalningsuppsättning med Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
+## [Distribuera en enkel skalningsuppsättning med en Resource Manager-mall](virtual-machine-scale-sets-mvss-start.md)
 
 # Gör så här för att
 ## Planera och designa
 ### [Designöverväganden](virtual-machine-scale-sets-design-overview.md)
+## Skriva skalningsuppsättningsmallar till
+### [Distribuera en enkel skalningsuppsättning](virtual-machine-scale-sets-mvss-start.md)
+### [Distribuera en skalningsuppsättning till ett befintligt virtuellt nätverk](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Distribuera
 ### [Skalningsuppsättning med portalen](virtual-machine-scale-sets-portal-create.md)
@@ -36,6 +39,9 @@
 
 ## Felsöka
 ### [Automatisk skalning](virtual-machine-scale-sets-troubleshoot.md)
+
+## VANLIGA FRÅGOR OCH SVAR
+### [Vanliga frågor och svar om skalningsuppsättningar](virtual-machine-scale-sets-faq.md)
 
 # Referens
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

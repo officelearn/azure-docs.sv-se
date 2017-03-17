@@ -17,6 +17,7 @@ ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 1062af9abfd167dd251621a43943dea399aed027
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -214,9 +215,4 @@ You can now move onto more advanced B2C topics. You may try:
 [Customize the UX of your B2C app]()
 
 -->
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

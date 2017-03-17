@@ -37,6 +37,8 @@
 ### [Aktivera diagnostikinställningar med Resource Manager-mallar](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
 ## Använd REST API
 ### [Genomgång med REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+## Använd Azure Diagnostics
+### [Skicka till Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-applicationinsights.md)
 
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
@@ -52,8 +54,3 @@
 ## [PowerShell-exempel](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Exempel för Azure CLI 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Lista över mått som stöds](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

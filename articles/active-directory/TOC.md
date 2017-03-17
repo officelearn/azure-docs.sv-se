@@ -79,9 +79,12 @@
 ### [Riskfyllda inloggningar](active-directory-reporting-security-risky-sign-ins.md)
 ### [Riskhändelser](active-directory-reporting-risk-events.md)
 ### [Namngivna nätverk](active-directory-known-networks-azure-portal.md)
-### [Vanliga frågor och svar](active-directory-reporting-faq.md)
 ### [Rapportera migrering](active-directory-reporting-migration.md)
 ### [Kvarhållning](active-directory-reporting-retention.md)
+### [Vanliga frågor och svar](active-directory-reporting-faq.md)
+### Felsöka
+#### [Granskningsdata som saknas](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [Data som saknas i nedladdningar](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Programmässig åtkomst
 #### [Granska referens](active-directory-reporting-api-audit-reference.md)
 #### [Granska exempel](active-directory-reporting-api-audit-samples.md)
@@ -124,13 +127,14 @@
 #### [Felsöka](active-directory-passwords-troubleshoot.md)
 
 ## Hantera enheter
-### [Registrera enheter](active-directory-conditional-access-device-registration-overview.md)
-#### [Hantera automatisk registrering](active-directory-conditional-access-automatic-device-registration.md)
+### [Registrera enheter](active-directory-device-registration-overview.md)
+#### [Hantera automatisk registrering](active-directory-device-registration.md)
 #### [Installation](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Vanliga frågor och svar](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
+#### [Vanliga frågor och svar](active-directory-device-registration-faq.md)
 #### Felsöka
-##### [Felsökning för Windows 10 och Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Felsökning för tidigare Windows-klientversioner](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+##### [Felsökning för Windows 10 och Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+##### [Felsökning för tidigare Windows-klientversioner](active-directory-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planera](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Konfigurera enhetsregistrering](active-directory-azureadjoin-setup.md)
@@ -277,7 +281,6 @@
 #### [Appar som stöds](active-directory-conditional-access-supported-apps.md)
 #### [Förstå enhetsprinciper](active-directory-conditional-access-device-policies.md)
 #### [Konfigurera åtkomst till anslutna appar](active-directory-conditional-access-policy-connected-applications.md)
-#### [Distribuera lokalt](active-directory-conditional-access-on-premises-setup.md)
 #### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
 #### [Felsöka](active-directory-conditional-access-device-remediation.md)
 #### [Referens](active-directory-conditional-access-technical-reference.md)

@@ -54,6 +54,9 @@
 ### [Starta/stoppa virtuella datorer utanför arbetstid](automation-solution-vm-management.md)
 ### [Källkontrollsintegrering med GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Källkontrollsintegrering med VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Lösningar
+### [Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md)
+### [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)
 ## Övervaka
 ### [Vidarebefordra jobbdata från Azure Automation till Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Ta bort länk till Azure Automation-konto från Log Analytics](automation-unlink-from-log-analytics.md)

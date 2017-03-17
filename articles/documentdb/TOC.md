@@ -4,6 +4,7 @@
 ## [Vad är DocumentDB: API för MongoDB?](documentdb-protocol-mongodb.md)
 ## [Huvudkoncept](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [Säkerhet](documentdb-nosql-database-security.md)
 ## [TCO-analys för NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Scenarier
 ### [Vanliga användarsituationer](documentdb-use-cases.md)
@@ -15,11 +16,11 @@
 ### [.NET Core-konsolapp](documentdb-dotnetcore-get-started.md)
 ### [Java-konsolapp](documentdb-java-get-started.md)
 ### [Node.js-konsolapp](documentdb-nodejs-get-started.md)
-### [Node.js-konsolapp för MongoDB-API:er](documentdb-mongodb-samples.md)
+### [Node.js-konsolapp för MongoDB-API](documentdb-mongodb-samples.md)
 ### [C++-konsolapp](documentdb-cpp-get-started.md)
 ## Bygga en webbapp
 ### [.NET-webbapp](documentdb-dotnet-application.md)
-### [.NET-webbapp för MongoDB-API:er](documentdb-mongodb-application.md)
+### [.NET-webbapp för MongoDB-API](documentdb-mongodb-application.md)
 ### [Node.js-webbapp](documentdb-nodejs-application.md)
 ### [Java-webbapp](documentdb-java-application.md)
 ### [Python Flask-webbapp](documentdb-python-application.md)
@@ -36,32 +37,33 @@
 ### [Kostnadseffektiva läsningar och skrivningar](documentdb-key-value-store-cost.md)
 
 ## Hantera
+### [Enheter för programbegäran](documentdb-request-units.md)
 ### [Importera dina data](documentdb-import-data.md)
 ### [Importera till API för MongoDB](documentdb-mongodb-migrate.md)
 ### [Ansluta till ditt MongoDB-konto](documentdb-connect-mongodb-account.md)
 ### [Använda MongoChef](documentdb-mongodb-mongochef.md)
 ### [Använda Robomongo](documentdb-mongodb-robomongo.md)
 ### [Forma dina data](documentdb-modeling-data.md)
-### [Använda geospatiala data](documentdb-geospatial.md)
-### [Utveckla för flera regioner](documentdb-developing-with-multiple-regions.md)
-### [Regionala redundanstestningar](documentdb-regional-failovers.md)
 ### [Få data att förfalla automatiskt](documentdb-time-to-live.md)
-### [Anpassa dina index](documentdb-indexing-policies.md)
-### [Säker åtkomst till data](documentdb-secure-access-to-data.md)
 ### [Säkerhetskopiera och återställa](documentdb-online-backup-and-restore.md)
+### [Regionala redundanstestningar](documentdb-regional-failovers.md)
+### Automation
+#### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+#### [Azure CLI 1.0: Skapa ett konto](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Azure CLI 1.0: Lägg till eller ta bort regioner](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### Säkerhet
+#### [Säker åtkomst till data](documentdb-secure-access-to-data.md)
+#### [Brandväggsstöd](documentdb-firewall-support.md)
 ### [Dra tillbaka S1, S2, S3](documentdb-performance-levels.md)
-### [Enheter för programbegäran](documentdb-request-units.md)
-### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
-### Azure CLI 1.0
-#### [Skapa ett konto](documentdb-automation-resource-manager-cli-nodejs.md)
-#### [Lägga till eller ta bort regioner](documentdb-automation-region-management.md)
-### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
-### [Brandväggsstöd](documentdb-firewall-support.md)
 
 ## Utveckla
 ### [SQL-fråga](documentdb-sql-query.md)
 ### [Lagrade procedurer, utlösare och UDF:er](documentdb-programming.md)
+### [Anpassa dina index](documentdb-indexing-policies.md)
+### [Utveckling i flera regioner](documentdb-developing-with-multiple-regions.md)
 ### [Spåra ändringar med ändringsfeed](documentdb-change-feed.md)
+### [Använda geospatiala data](documentdb-geospatial.md)
 ### [Prestandatestning](documentdb-performance-testing.md)
 ### [Prestandatips](documentdb-performance-tips.md)
 ### Bästa praxis

@@ -55,6 +55,8 @@
 #### [Innan du börjar](azure-stack-app-service-before-you-get-started.md)
 #### [Distribuera App Service-resursprovider](azure-stack-app-service-deploy.md)
 #### [Lägga till fler webbarbetsroller](azure-stack-app-service-add-worker-roles.md)
+#### [Konfigurera distributionskällor](azure-stack-app-service-configure-deployment-sources.md)
+#### [Aktivera FTP i App Service i Azure Stack](azure-stack-app-service-enable-ftp.md)
 ### Lägga till i Marketplace
 #### [Marketplace-översikt](azure-stack-marketplace.md)
 #### [Hämta Marketplace-objekt](azure-stack-download-azure-marketplace-item.md)
@@ -110,6 +112,7 @@
 
 # Felsöka
 ## [Kända problem](azure-stack-troubleshooting.md)
+## [Diagnostik i Azure Stack](azure-stack-diagnostics.md)
 
 # Resurser
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

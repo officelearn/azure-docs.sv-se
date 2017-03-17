@@ -8,14 +8,11 @@
 
 # Kom igång
 ## [Kom igång med Advisor ](advisor-get-started.md)
-
+# Referens
+## [REST](https://docs.microsoft.com/rest/api/advisor)
 # Relaterat
 ## [Security Center](https://azure.microsoft.com/services/security-center/)
 ## [SQL DB Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
 ## [Redis Cache](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [App Services](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
  
-
-<!--HONumber=Nov16_HO4-->
-
-

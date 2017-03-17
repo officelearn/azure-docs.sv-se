@@ -96,7 +96,10 @@
 #### [Felsöka](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Använda Arduino
-### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+
+### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+
+### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lektion 1: Konfigurera din enhet
 ##### [Konfigurera din enhet](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Hämta verktygen (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -116,6 +119,7 @@
 ##### [Kör exempelprogrammet för att ta emot meddelanden](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Valfritt: Ändra LED-beteende](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Felsöka](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 
 ## Använda SDK för gateway
 ### [Simulering i Linux](iot-hub-linux-gateway-sdk-get-started.md)
@@ -140,6 +144,8 @@
 ##### [Skapa en Azure-funktionsapp och ett Azure Storage-konto](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 ##### [Läs meddelanden som sparas i Azure Table Storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
 
+#### [Lektion 5: Skapa din första Azure IoT Gateway-modul](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
+
 #### [Felsökning](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
 ### [SensorTag-enhet](iot-hub-gateway-kit-c-get-started.md)
@@ -159,6 +165,8 @@
 #### Lektion 4: Spara meddelanden i Azure Table Storage
 ##### [Skapa en Azure-funktionsapp och ett Azure Storage-konto](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 ##### [Läs meddelanden som sparas i Azure Table Storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+#### [Lektion 5: Skapa din första Azure IoT Gateway-modul](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
 
 ##### [Felsökning](iot-hub-gateway-kit-c-troubleshooting.md)
 
@@ -219,7 +227,7 @@
 ## Hantera
 ### Skapa en IoT Hub 
 #### [Använda portalen](iot-hub-create-through-portal.md)
-#### [Använda förhandsversionen av CLI 2.0](iot-hub-create-using-cli.md)
+#### [Använda CLI 2.0](iot-hub-create-using-cli.md)
 #### [Använda CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Använda REST-API](iot-hub-rm-rest.md)
 #### [Använda PowerShell](iot-hub-rm-template-powershell.md)

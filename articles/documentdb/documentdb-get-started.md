@@ -480,7 +480,7 @@ Kopiera och klistra in nedanstående kod till metoden **GetStartedDemo** efter k
     // ADD THIS PART TO YOUR CODE
     this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-Innan du kör programmet klickar du på *Projektnamn*, **Egenskaper... **, och därefter på **Skapa** i **Projekt**-menyn. Rensa rutan **Föredrar 32-bitar** eftersom partitionsroutnings-informationen inte kan extraheras från frågan när du kör i en 32-bitarsprocess.
+Innan du kör programmet klickar du på *Projektnamn*, **Egenskaper...**, och därefter på **Skapa** i **Projekt**-menyn. Rensa rutan **Föredrar 32-bitar** eftersom partitionsroutnings-informationen inte kan extraheras från frågan när du kör i en 32-bitarsprocess.
 
 Kör appen genom att trycka på **F5**.
 
@@ -617,7 +617,7 @@ För att bygga GetStarted-lösningen behöver du följande:
 
 Om du vill återställa referenser till .NET DocumentDB SDK i Visual Studio högerklickar du på **GetStarted**-lösningen i Solution Explorer och klickar sedan på **Aktivera NuGet-paketåterställning**. I filen App.config uppdaterar du sedan värdena EndpointUrl och AuthorizationKey enligt beskrivningen i [Ansluta till ett DocumentDB-konto](#Connect).
 
-Innan du kör programmet klickar du på *Projektnamn*, **Egenskaper... **, och därefter på **Skapa** i **Projekt**-menyn. Rensa rutan **Föredrar 32-bitar**.
+Innan du kör programmet klickar du på *Projektnamn*, **Egenskaper...**, och därefter på **Skapa** i **Projekt**-menyn. Rensa rutan **Föredrar 32-bitar**.
 
 Då är det bara att bygga den, så är du på väg!
 

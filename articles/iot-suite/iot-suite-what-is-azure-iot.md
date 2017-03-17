@@ -18,13 +18,14 @@ ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
 ms.openlocfilehash: 57c7b895579e1c1e86224a60d961721d2d4cf638
+ms.lasthandoff: 02/09/2017
 
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Azure IoT Suite
-Microsoft Azure IoT Suite är en lösning i företagsklass som hjälper dig att snabbt komma igång med hjälp av en samling utökningsbara, förkonfigurerade lösningar. Med dessa lösningar kan du hantera vanliga IoT-scenarier som [fjärrövervakning] [ lnk-preconfigured-solutions] och [förebyggande underhåll][lnk-predictive-maintenance]. Dessa lösningar är implementeringar av IoT-lösningsarkitekturen som beskrivs i den här artikeln.
+Microsoft Azure IoT Suite är en lösning i företagsklass som hjälper dig att snabbt komma igång med hjälp av en samling utökningsbara, förkonfigurerade lösningar. Med dessa lösningar kan du hantera vanliga IoT-scenarier som [fjärrövervakning][lnk-preconfigured-solutions] och [förebyggande underhåll][lnk-predictive-maintenance]. Dessa lösningar är implementeringar av IoT-lösningsarkitekturen som beskrivs i den här artikeln.
 
 De förkonfigurerade lösningarna är färdiga kompletta lösningar, som bland annat innehåller:
 
@@ -52,9 +53,4 @@ Utforska dessa resurser för att lära dig mer om IoT Suite och de förkonfigure
 [Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

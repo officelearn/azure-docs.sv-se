@@ -54,7 +54,6 @@
 #### Kom igång
 ##### [C# i Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java i Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Arkitektur](service-fabric-reliable-services-platform-architecture.md)
 #### [Reliable Services-livscykel](service-fabric-reliable-services-lifecycle.md)
 #### [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
 #### [Använd Reliable Collections](service-fabric-work-with-reliable-collections.md)
@@ -78,8 +77,8 @@
 #### [Livscykel och skräpinsamling](service-fabric-reliable-actors-lifecycle.md)
 #### [Polymorfism](service-fabric-reliable-actors-polymorphism.md)
 #### [Återinträde](service-fabric-reliable-actors-reentrancy.md)
+#### [Händelser](service-fabric-reliable-actors-events.md) 
 #### [Timers och påminnelser](service-fabric-reliable-actors-timers-reminders.md)
-#### [Händelser](service-fabric-reliable-actors-events.md)
 #### [Tillståndshantering](service-fabric-reliable-actors-state-management.md)
 #### [Konfigurera KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Typserialisering](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
@@ -166,7 +165,6 @@
 ### [Diagnostik för tillståndskänslig Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostik i Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Felsök ditt lokala kluster](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Felsök vanliga problem](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
 ## Skala program
 ### [Partitionera Reliable Services](service-fabric-concepts-partitioning.md)
@@ -181,7 +179,6 @@
 #### [Använda kontrollerat kaos](service-fabric-controlled-chaos.md)
 #### [Använda teståtgärder](service-fabric-testability-actions.md)
 #### [Under arbetsbelastningar](service-fabric-testability-workload-tests.md)
-#### [Genom att aktivera dataförlust](service-fabric-use-data-loss-api.md)
 #### [Använda testscenarier](service-fabric-testability-scenarios.md)
 #### [Använda API:er för nodövergång](service-fabric-node-transition-apis.md)
 ### [Belastningstesta ditt program](service-fabric-vso-load-test.md)

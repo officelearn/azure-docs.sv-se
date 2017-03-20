@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -60,7 +60,7 @@ Vi fortsätter att lägga till funktioner till V12. Så vi rekommenderar att du 
 | Programroller | [Stöds](https://msdn.microsoft.com/library/ms190998.aspx) | [Stöds](https://msdn.microsoft.com/library/ms190998.aspx) |
 | Autoskala | Stöds inte | [Stöds](sql-database-service-tiers.md) |
 | Azure Active Directory | Stöds inte | [Stöds](sql-database-aad-authentication.md) |
-| Azure Data Factory | Finns inte stöd för – [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Stöds](https://azure.microsoft.com/services/data-factory/) |
+| Azure Data Factory | [Stöds](../data-factory/data-factory-introduction.md) | [Stöds](../data-factory/data-factory-introduction.md) |
 | Granskning | [Stöds](https://msdn.microsoft.com/library/cc280386.aspx) | [Stöds](sql-database-auditing.md) |
 | BACPAC-fil (exportera) | [Stöds](https://msdn.microsoft.com/library/hh213241.aspx) | [Stöds](sql-database-export.md) |
 | BACPAC-fil (importera) | [Stöds](https://msdn.microsoft.com/library/hh710052.aspx) | [Stöds](sql-database-import-portal.md) |

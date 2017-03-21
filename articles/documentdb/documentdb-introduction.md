@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
-ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4f6ae0c3c40a10f75b46c6e44b0aa9e8ce440b4d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -45,8 +46,9 @@ Azure DocumentDB erbjuder följande viktiga funktioner och fördelar:
 * **Fullständigt hanterad:** Eliminerar behovet av att hantera databasen och datorresurser. Eftersom det är en fullständigt hanterad Microsoft Azure-tjänst behöver du inte hantera virtuella datorer, distribuera och konfigurera programvara, hantera skalning eller hantera komplexa uppgraderingar av datanivåer. Alla databaser säkerhetskopieras och skyddas automatiskt mot regionala fel. Du kan enkelt lägga till ett DocumentDB-konto och etablera kapacitet när du behöver den, så att du kan fokusera på din app i stället för på att använda och hantera din databas. 
 * **Öppen design:** Kom igång snabbt med hjälp av befintliga kunskaper och verktyg. Det är enkelt och användarvänligt att programmera mot DocumentDB och det kräver inte att du skaffar nya verktyg eller följer anpassade tillägg till JSON eller JavaScript. Du kommer åt databasens alla funktioner, som CRUD-, fråge- och JavaScript-bearbetning, över ett enkelt RESTful HTTP-gränssnitt. DocumentDB omfattar befintliga format, språk och standarder och erbjuder dessutom värdefull databaskapacitet.
 * **Automatisk indexering:** Som standard indexerar DocumentDB automatiskt alla dokument i databasen och varken förväntar sig eller kräver något schema eller att sekundära index skapas. Vill du inte indexera allt? Oroa dig inte, du kan även [välja bort sökvägar i JSON-filer](documentdb-indexing-policies.md).
+* **Kompatibilitet med MongoDB-appar:** Med DocumentDB: API för MongoDB kan du använda DocumentDB-databaser som datalager för appar som är skrivna för MongoDB. Det innebär att ditt program som är skrivet för MongoDB nu kan kommunicera med DocumentDB och använda DocumentDB-databaser istället för MongoDB-databaser genom att använda befintliga drivrutiner för MongoDB-databaser. I många fall kan du växla från att använda MongoDB till DocumentDB genom att bara ändra en anslutningssträng. Läs mer i [Vad är DocumentDB: API för MongoDB?](documentdb-protocol-mongodb.md)
 
-## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Hur hanterar DocumentDB data?
+## <a name="data-management"></a>Hur hanterar DocumentDB data?
 Azure DocumentDB hanterar JSON-data via väldefinierade databasresurser. Dessa resurser replikeras för hög tillgänglighet och är unikt adresserbara genom sina logiska URI:er. DocumentDB erbjuder en enkel HTTP-baserad RESTful-programmeringsmiljö för alla resurser. 
 
 DocumentDB-databaskontot är ett unikt namnområde som ger dig tillgång till Azure DocumentDB. Innan du kan skapa ett databaskonto måste du ha en Azure-prenumeration, som ger dig tillgång till en mängd olika Azure-tjänster. 
@@ -59,8 +61,8 @@ Bilden nedan visar relationerna mellan DocumentDB-resurser:
 
 Ett databaskonto består av en uppsättning databaser som alla innehåller flera samlingar, som i sin tur kan innehålla lagrade procedurer, utlösare, UDF:er, dokument och relaterade bilagor. En databas har också associerade användare med en uppsättning behörigheter att komma åt andra samlingar, lagrade procedurer, utlösare, UDF:er, dokument eller bilagor. Databaser, användare, behörigheter och samlingar är systemdefinierade resurser med välkända scheman, men dokument, lagrade procedurer, utlösare, UDF:er och bilagor innehåller godtyckligt användardefinierat JSON-innehåll.  
 
-## <a name="a-namedevelopa-how-can-i-develop-apps-with-documentdb"></a><a name="develop"></a> Hur kan jag utveckla appar med DocumentDB?
-Azure DocumentDB visar resurser via ett REST-API som kan anropas av alla språk som kan göra HTTP/HTTPS-förfrågningar. Dessutom erbjuder DocumentDB programmeringsbibliotek för flera populära språk. Biblioteken förenklar många aspekter av arbetet med Azure DocumentDB eftersom de hanterar information om till exempel cachelagring av adresser, hantering av undantag och automatiska nya försök. Bibliotek finns just nu tillgängliga för följande språk och plattformar:  
+## <a name="develop"></a> Hur kan jag utveckla appar med DocumentDB?
+Azure DocumentDB visar resurser via ett REST-API som kan anropas av alla språk som kan göra HTTP/HTTPS-förfrågningar. Dessutom erbjuder DocumentDB programmeringsbibliotek för flera populära språk, och det är kompatibelt med API:er för MongoDB. Klientbiblioteken förenklar många aspekter av arbetet med Azure DocumentDB eftersom de hanterar information om till exempel cachelagring av adresser, hantering av undantag och automatiska nya försök. Bibliotek finns just nu tillgängliga för följande språk och plattformar:  
 
 | Ladda ned | Dokumentation |
 | --- | --- |
@@ -70,6 +72,7 @@ Azure DocumentDB visar resurser via ett REST-API som kan anropas av alla språk 
 | [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript-bibliotek](http://azure.github.io/azure-documentdb-js/) |
 | Saknas |[JavaScript SDK för serversidan](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python-bibliotek](http://azure.github.io/azure-documentdb-python/) |
+| Saknas | [API för MongoDB](documentdb-protocol-mongodb.md)
 
 Med [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) kan du utveckla och testa ditt program lokalt, utan att skapa en Azure-prenumeration och utan kostnad. När du är nöjd med hur programmet fungerar i DocumentDB-emulatorn kan du växla till ett Azure DocumentDB-konto i molnet.
 
@@ -107,10 +110,5 @@ Har du inte ett Azure-konto? Du kan:
 Sedan, när du vill veta mer, finns våra [utbildningsvägar](https://azure.microsoft.com/documentation/learning-paths/documentdb/) där du hittar alla tillgängliga utbildningsresurser. 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

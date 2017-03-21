@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
-ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -94,7 +94,7 @@ I den här självstudiekursen använder vi SQL Server Management Studio (SSMS) f
 
 ### <a name="get-connection-information"></a>Hämta anslutningsinformation
 
-För att ansluta till ditt datalager måste du ansluta via den logiska SQL-server som du skapade i [Krav].
+Om du vill ansluta till ditt informationslager måste du ansluta via den logiska SQL-server som du skapade i [Krav].
 
 1. Välj ditt datalager på instrumentpanelen eller sök efter det i dina resurser.
 
@@ -415,13 +415,13 @@ Du är nu redo att läsa in data till datalagret. Det här steget visar hur du h
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
-### Import the data from Azure blob storage.
+### <a name="import-the-data-from-azure-blob-storage"></a>Importera data från Azure Blob Storage.
 
-SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+SQL Data Warehouse har stöd för en nyckelinstruktion som kallas CREATE TABLE AS SELECT (CTAS). Den här instruktionen skapar en ny tabell baserat på resultatet av en select-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen.  Detta är ett smidigt sätt att importera data från Azure Blob Storage till SQL Data Warehouse.
 
-1. Run this script to import your data.
+1. Kör det här skriptet för att importera dina data.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -496,9 +496,9 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ;
     ```
 
-2. View your data as it loads.
+2. Visa data som laddas.
 
-   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+   Du läser in flera GB data och komprimerar dem till högpresterande klustrade Columnstore-index. Kör följande fråga som använder en dynamisk hanteringsvy (DMV) för att visa status för belastningen. När du har startat frågan kan du hämta lite kaffe och något att äta medan SQL Data Warehouse sköter grovjobbet.
     
     ```sql
     SELECT
@@ -528,62 +528,61 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         gb_processed desc;
     ```
 
-3. View all system queries.
+3. Visa alla systemfrågor.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
+4. Se hur dina data läses in i Azure SQL Data Warehouse.
 
-    ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
+    ![Visa inlästa data](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## Improve query performance
+## <a name="improve-query-performance"></a>Förbättra prestanda för frågor
 
-There are several ways to improve query performance and to achieve the high-speed performance that SQL Data Warehouse is designed to provide.  
+Det finns flera sätt att förbättra frågeprestanda och få den snabba prestanda som SQL Data Warehouse har utformats för att ge.  
 
-### See the effect of scaling on query performance 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Se effekten av skalning på frågeprestanda 
 
-One way to improve query performance is to scale resources by changing the DWU service level for your data warehouse. Each service level costs more, but you can scale back or pause resources at any time. 
+Ett sätt att förbättra frågeprestanda är att skala resurser genom att ändra DWU-tjänstenivån för informationslagret. Varje tjänstenivå kostar mer, men du kan minska eller pausa resurser när som helst. 
 
-In this step, you compare performance at two different DWU settings.
+I det här steget jämför du prestanda på två olika DWU-inställningar.
 
-First, let's scale the sizing down to 100 DWU so we can get an idea of how one compute node might perform on its own.
+Vi ska först skala ned till 100 DWU:er för att få en uppfattning av hur en beräkningsnod kan prestera på egen hand.
 
-1. Go to the portal and select your SQL Data Warehouse.
+1. Gå till portalen och välj SQL Data Warehouse.
 
-2. Select scale in the SQL Data Warehouse blade. 
+2. Välj skala på bladet SQL Data Warehouse. 
 
-    ![Scale DW From portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
+    ![Skala DW från portalen](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-3. Scale down the performance bar to 100 DWU and hit save.
+3. Skala ned prestandafältet till 100 DWU och klicka på Spara.
 
-    ![Scale and save](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
+    ![Skala och spara](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
-4. Wait for your scale operation to finish.
+4. Vänta tills skalningen har slutförts.
 
     > [!NOTE]
-    > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
+    > Frågor kan inte köras medan du ändrar skalan. Skalning **stoppar** dina frågor som körs för närvarande. Du kan starta om dem när åtgärden är klar.
     >
     
-5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
+5. Kör en genomsökningsåtgärd mot reseinformationen och välj den översta miljonen poster för alla kolumner. Om du är otålig och vill gå vidare snabbt kan du välja färre rader. Notera hur lång tid det tar att utföra den här åtgärden.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
+6. Skala tillbaka informationslagret till 400 DWU. Kom ihåg att varje 100 DWU lägger till en till beräkningsnod till ditt Azure SQL Data Warehouse.
 
-7. Run the query again! You should notice a significant difference. 
+7. Kör frågan igen! Du bör märka en stor skillnad. 
 
 > [!NOTE]
-> Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
-> Azure SQL Data Warehouse.
+> Eftersom SQL Data Warehouse använder massiv parallell bearbetning (MPP). Frågor som skannar eller utför analysfunktioner på miljoner rader utnyttjar den verkliga kraften i Azure SQL Data Warehouse.
 >
 
-### See the effect of statistics on query performance
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>Se effekten av statistik på frågeprestanda
 
-1. Run a query that joins the Date table with the Trip table
+1. Kör en fråga som kopplar datumtabellen med resetabellen
 
     ```sql
     SELECT TOP (1000000) 
@@ -615,10 +614,10 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
         ON  tr.DateID = dt.DateID
     ```
 
-    This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
+    Den här frågan tar en stund eftersom SQL Data Warehouse måste blanda data innan den kan utföra kopplingen. Kopplingar behöver inte blanda data om de har utformats för att koppla data på samma sätt som de distribueras. Det är ett djupare ämne. 
 
-2. Statistics make a difference. 
-3. Run this statement to create statistics on the join columns.
+2. Statistik gör skillnad. 
+3. Kör den här instruktionen för att skapa statistik på de kopplade kolumnerna.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -626,48 +625,45 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     ```
 
     > [!NOTE]
-    > SQL DW does not automatically manage statistics for you. Statistics are important for query
-    > performance and it is highly recommended you create and update statistics.
+    > SQL DW hanterar inte statistik automatiskt åt dig. Statistik är viktigt för frågeprestanda och vi rekommenderar att du skapar och uppdaterar statistik.
     > 
-    > **You gain the most benefit by having statistics on columns involved in joins, columns
-    > used in the WHERE clause and columns found in GROUP BY.**
+    > **Du får ut mest genom att använda statistik med kolumner som ingår i kopplingar, kolumner som används i WHERE-satsen och kolumner som finns i GROUP BY.**
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
+3. Kör frågan från Krav igen och notera eventuella skillnader i prestanda. Även om skillnaderna i frågeprestanda inte är lika drastiska som när du skalar upp, bör du märka att det går snabbare. 
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-You're now ready to query and explore. Check out our best practices or tips.
+Nu är du redo att köra frågor och utforska. Se våra bästa praxis och tips.
 
-If you're done exploring for the day, make sure to pause your instance! In production, you can experience enormous 
-savings by pausing and scaling to meet your business needs.
+Om du är klar för dagen ser du till att pausa din instans. I en produktionsmiljö kan du uppnå enorma besparingar genom att pausa och skala utifrån dina affärsbehov.
 
-![Pause](./media/sql-data-warehouse-get-started-tutorial/pause.png)
+![Pausa](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## Useful readings
+## <a name="useful-readings"></a>Bra information
 
-[Concurrency and Workload Management][]
+[Concurrency and workload management][] (Hantering av samtidiga körningar och arbetsbelastningar)
 
-[Best practices for Azure SQL Data Warehouse][]
+[Metodtips för Azure SQL Data Warehouse][]
 
-[Query Monitoring][]
+[Query Monitoring][] (Frågeövervakning)
 
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][]
+[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][] (Tio rekommendationer för att skapa ett storskaligt relationsinformationslager)
 
-[Migrating Data to Azure SQL Data Warehouse][]
+[Migrating Data to Azure SQL Data Warehouse][] (Migrera data till Azure SQL Data Warehouse)
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
-[Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
-[Query Monitoring]: sql-data-warehouse-manage-monitor.md
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Migrating Data to Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example (Hantering av samtidiga körningar och arbetsbelastningar)
+[Metodtips för Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[Query Monitoring]: sql-data-warehouse-manage-monitor.md (Frågeövervakning)
+[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/ (Tio rekommendationer för att skapa ett storskaligt relationsinformationslager)
+[Migrating Data to Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/ (Migrera data till Azure SQL Data Warehouse)
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[Krav]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/

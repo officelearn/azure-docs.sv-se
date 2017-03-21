@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 22b50dd6242e8c10241b0626b48f8ef842b6b0fd
-ms.openlocfilehash: c33ca9e5292096a0fd96d98da3e89d721463e903
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4674985363bc1267449e018ab15a53757a8fd32d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -28,14 +28,17 @@ Den här artikeln beskriver den underliggande arkitekturen i tjänsten [Azure Si
 Skriv dina kommentarer längst ned i den här artikeln eller i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="replication-to-azure"></a>Replikering till Azure
+## <a name="replicate-to-azure"></a>Replikera till Azure
 
 Du kan replikera följande till Azure:
+
 - **VMware**: Lokala virtuella VMware-datorer som körs på en [värd som stöds](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). Du kan replikera virtuella VMware-datorer som kör [operativsystem som stöds](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 - **Hyper-V**: Lokala virtuella Hyper-V-datorer som körs på [värdar som stöds](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 - **Fysiska datorer**: Lokala fysiska servrar som kör Windows eller Linux på [operativsystem som stöds](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). Du kan replikera virtuella Hyper-V-datorer som körs på ett gästoperativsystem [som stöds av Hyper-V och Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-## <a name="vmware-replication-to-azure"></a>Replikering av VMware till Azure
+## <a name="vmware-to-azure"></a>VMware till Azure
+
+Följande behöver du för att replikera virtuella VMware-datorer till Azure.
 
 Område | Komponent | Information
 --- | --- | ---
@@ -85,14 +88,16 @@ Det finns några återställningskrav:
 
 ![Återställning efter fel](./media/site-recovery-components/enhanced-failback.png)
 
-## <a name="physical-server-replication-to-azure"></a>Fysisk serverreplikering till Azure
+## <a name="physical-to-azure"></a>Fysisk till Azure
 
-Det här replikeringsscenariot använder även samma komponenter och samma process som vid [VMware till Azure](#vmware-replication-to-azure), men tänk på dessa skillnader:
+När du replikerar fysiska lokala servrar till Azure använder replikeringen också samma komponenter och processer som [VMware till Azure](#vmware-replication-to-azure), men tänk på dessa skillnader:
 
 - Du kan använda en fysisk server för konfigurationsservern istället för en virtuell VMware-dator
 - Du behöver en lokal VMware-infrastruktur för återställning efter fel. Du kan inte återställa till en fysisk dator.
 
-## <a name="hyper-v-replication-to-azure"></a>Hyper-V-replikering till Azure
+## <a name="hyper-v-to-azure"></a>Hyper-V till Azure
+
+Följande behöver du för att replikera virtuella Hyper-V-datorer till Azure.
 
 **Område** | **Komponent** | **Detaljer**
 --- | --- | ---
@@ -130,7 +135,7 @@ Det här replikeringsscenariot använder även samma komponenter och samma proce
 ![Komponenter](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-## <a name="replication-to-a-secondary-site"></a>Replikering till en sekundär plats
+## <a name="replicate-to-a-secondary-site"></a>Replikera till en sekundär plats
 
 Du kan replikera följande till din sekundära plats:
 
@@ -139,13 +144,15 @@ Du kan replikera följande till din sekundära plats:
 - **Hyper-V**: Lokala virtuella Hyper-V-datorer som körs på [Hyper-V-värdar som stöds](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) och hanteras i VMM-moln. [värdar som stöds](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). Du kan replikera virtuella Hyper-V-datorer som körs på ett gästoperativsystem [som stöds av Hyper-V och Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 
-## <a name="vmware-vmphysical-server-replication-to-a-secondary-site"></a>Replikering av virtuella VMware-datorer/fysiska servrar till en sekundär plats
+## <a name="vmwarephysical-to-a-secondary-site"></a>VMware/fysiska till en sekundär plats
+
+Du replikerar virtuella VMware-datorer eller fysiska servrar till en sekundär plats med InMage Scout.
 
 ### <a name="components"></a>Komponenter
 
 **Område** | **Komponent** | **Detaljer**
 --- | --- | ---
-**Azure** | Du kan distribuera det här scenariot med InMage Scout. | För att hämta InMage Scout behöver du en Azure-prenumeration.<br/><br/> När du har skapat ett Recovery Services-valv laddar du ned InMage Scout och installerar de senaste uppdateringarna för att konfigurera distributionen.
+**Azure** | InMage Scout. | För att hämta InMage Scout behöver du en Azure-prenumeration.<br/><br/> När du har skapat ett Recovery Services-valv laddar du ned InMage Scout och installerar de senaste uppdateringarna för att konfigurera distributionen.
 **Processervern** | Finns på primär plats | Du distribuerar processervern för att hantera cachelagring, komprimering och dataoptimering.<br/><br/> Den hanterar också push-installationen av Unified Agent till de datorer som du vill skydda.
 **Konfigurationsserver** | Finns på sekundär plats | Konfigurationsservern hanterar, konfigurerar och övervakar distributionen, antingen med hjälp av hanteringswebbplatsen eller vContinuum-konsolen.
 **vContinuum-server** | Valfri. Installeras på samma plats som konfigurationsservern. | Den innehåller en konsol för att hantera och övervaka din skyddade miljö.
@@ -166,7 +173,9 @@ Du kan replikera följande till din sekundära plats:
 
 
 
-## <a name="hyper-v-vm-replication-to-a-secondary-site"></a>Replikering av virtuella Hyper-V-datorer till sekundär sida
+## <a name="hyper-v-to-a-secondary-site"></a>Hyper-V till en sekundär plats
+
+Följande behöver du för att replikera virtuella Hyper-V-datorer till en sekundär plats.
 
 
 **Område** | **Komponent** | **Detaljer**
@@ -202,25 +211,8 @@ Du kan replikera följande till din sekundära plats:
 7. För att göra den primära platsen till den aktiva platsen igen, initierar du en planerad redundans från sekundär till primär, följt av en till omvänd replikering.
 
 
-## <a name="hyper-v-replication-workflow"></a>Arbetsflöde för Hyper-V-replikering
-
-**Arbetsflödesfas** | **Åtgärd**
---- | ---
-1. **Aktivera skydd** | Efter att du aktiverar skydd för en virtuell Hyper-V-dator initieras jobbet **Aktivera skydd**, för att kontrollera att datorn överensstämmer med förhandskraven. Jobbet anropar två metoder:<br/><br/> [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) för att konfigurera replikeringen med de inställningar som du har konfigurerat.<br/><br/> [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), för att initiera en fullständig VM-replikering.
-2. **Inledande replikering** |  En ögonblicksbild av den virtuella datorn tas och de virtuella hårddiskarna replikeras en i taget tills alla har kopierats till den sekundära platsen.<br/><br/> Hur lång tid det tar att slutföra detta beror på storleken på de virtuella datorerna, nätverkets bandbredd och metoden för inledande replikering.<br/><br/> Om diskändringar inträffar under en pågående inledande replikering spåras dessa ändringar av spårningsverktyget för Hyper-V-replikering som Hyper-V-replikeringsloggar (.hrl) som finns i samma mapp som diskarna.<br/><br/> Varje disk har en associerad HRL-fil som skickas till den sekundära lagringsplatsen.<br/><br/> Ögonblicksbilden och loggfilerna använder diskresurser när den inledande replikeringen pågår. När den inledande replikeringen är klar tas ögonblicksbilden av den virtuella datorn bort och diskförändringarna (delta) i loggen synkroniseras och sammanfogas.
-3. **Slutför skyddet** | När replikeringen har slutförts konfigurerar jobbet **Slutför skydd** nätverksinställningar och andra inställningar som krävs efter replikeringen så att den virtuella datorn är skyddad.<br/><br/> Om du replikerar till Azure kan du behöva justera inställningarna för den virtuella datorn så att den är redo för redundans.<br/><br/> Nu kan du köra ett redundanstest för att kontrollera att allt fungerar som förväntat.
-4. **Replikering** | Efter den första replikeringen startar deltasynkroniseringen baserat på replikeringsinställningarna.<br/><br/> **Replikeringsfel**: Om deltareplikeringen misslyckas och om en fullständig replikering skulle bli för tids- och bandbreddskrävande så görs en omsynkronisering. Om HRL-filerna till exempel når 50 % av diskstorleken markeras den virtuella datorn för omsynkronisering. Vid en omsynkronisering minimeras mängden data som skickas genom att kontrollsummor beräknas för de virtuella käll- och måldatorerna varefter endast förändringarna (delta) skickas. När omsynkroniseringen är klar återupptas deltareplikeringen. Omsynkroniseringen schemaläggs som standard för automatisk körning utanför kontorstid, men du kan synkronisera om en virtuell dator manuellt.<br/><br/> **Replikeringsfel**: Om det uppstår ett replikeringsfel finns det en inbyggd funktion som gör ett nytt försök. Om det är ett oåterkalleligt fel, till exempel ett autentiserings- eller auktoriseringsfel, eller en replikdator som har ett ogiltigt tillstånd, så görs inget nytt försök. Om det är ett korrigerbart fel, till exempel ett nätverksfel eller ont om ledigt utrymme/minne, så görs ett nytt försök med längre och längre intervall mellan försöken (varje minut, varannan minut, var 4:e, var 8:e, var 10:e och sedan var 30: e minut).
-5. **Planerad/oplanerad redundans** | Du kan köra planerade eller oplanerade redundansväxlingar efter behov.<br/><br/> Om du kör en planerad redundansväxling stängs de virtuella källdatorerna av för att säkerställa att inga data går förlorade.<br/><br/> När de virtuella replikdatorerna har skapats försätts de i ett tillstånd där de väntar på bekräftelse. Du måste etablera dem för att slutföra redundansen.<br/><br/> När den primära platsen är igång kan du återgå till den när den är tillgänglig.
-
-
-**Bild 8: Hyper-V-arbetsflöde**
-
-![arbetsflöde](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
-
-
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-[Kontrollera krav](site-recovery-prereq.md)
+- [Läs mer](site-recovery-hyper-v-azure-architecture.md) om arbetsflödet för Hyper-V-replikering.
+- [Kontrollera krav](site-recovery-prereq.md)
 

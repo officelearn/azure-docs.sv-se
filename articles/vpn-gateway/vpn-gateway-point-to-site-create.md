@@ -1,10 +1,10 @@
 ---
-title: "Konfigurera en VPN-gatewayanslutning från punkt till plats till ett virtuell Azure-nätverk med hjälp av den klassiska portalen | Microsoft Docs"
-description: "Anslut säkert till Azure Virtual Network genom att skapa en VPN-gatewayanslutning från punkt till plats."
+title: "Ansluta en dator till ett virtuellt Azure-nätverk med hjälp av punkt-till-plats: klassisk portal | Microsoft Docs"
+description: "Anslut säkert till ett klassiskt virtuellt Azure-nätverk genom att skapa en VPN-gateway-anslutning från punkt-till-plats med den klassiska portalen."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 4f5668a5-9b3d-4d60-88bb-5d16524068e0
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/02/2017
+ms.date: 03/08/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 3ff2dcba568ed7ff83154cb6e1f1861ffb32a0d2
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ffd5690853a7344c7122940ad9676d1903ba2d4a
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-classic-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med hjälp av den klassiska portalen
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-classic-portal-classic"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med den klassiska portalen (klassisk)
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -31,11 +31,11 @@ ms.lasthandoff: 03/03/2017
 > 
 > 
 
-Med en P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning från en enskild klientdator till ett virtuellt nätverk. En P2S-anslutning är användbar när du vill ansluta till ditt VNet från en annan plats, t.ex. hemifrån eller från en konferens, eller när du bara har ett fåtal klienter som behöver kunna ansluta till ett virtuellt nätverk.
+Med en P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning från en enskild klientdator till ett virtuellt nätverk. P2S är en VPN-anslutning över SSTP (Secure Socket Tunneling Protocol). En punkt-till-plats-anslutning är användbar när du vill ansluta till ditt virtuella nätverk från en annan plats, t.ex. hemifrån eller från en konferens, eller när du bara har ett fåtal klienter som behöver kunna ansluta till ett virtuellt nätverk. P2S-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. Du upprättar VPN-anslutningen från klientdatorn.
 
-Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress för att fungera. VPN-anslutningen upprättas genom att du startar anslutningen från klientdatorn. Mer information om punkt-till-plats-anslutningar finns i [Vanliga frågor och svar om punkt-till-plats](#faq) i slutet av den här artikeln.
+Den här artikeln beskriver steg för steg hur du skapar ett virtuellt nätverk med en punkt-till-plats-anslutning i den klassiska distributionsmodellen på den klassiska portalen. Mer information om punkt-till-plats-anslutningar finns i [Vanliga frågor och svar om punkt-till-plats](#faq) i slutet av den här artikeln.
 
-Den här artikeln beskriver steg för steg hur du skapar ett virtuellt nätverk med en punkt-till-plats-anslutning i den klassiska distributionsmodellen på den klassiska portalen.
+
 
 ### <a name="deployment-models-and-methods-for-p2s-connections"></a>Distributionsmodeller och metoder för P2S-anslutningar
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -47,16 +47,19 @@ Följande tabell visar de två distributionsmodellerna och tillgängliga distrib
 ## <a name="basic-workflow"></a>Grundläggande arbetsflöde
 ![Punkt-till-plats-diagram](./media/vpn-gateway-point-to-site-create/p2sclassic.png "punkt-till-plats")
 
-Följande steg visar hur du skapar en säker punkt-till-plats-anslutning till ett virtuellt nätverk. 
-
-Konfigurationen för en punkt-till-plats-anslutning är uppdelad i fyra delar. Det är viktigt att du följer konfigurationsordningen i vart och ett av dessa avsnitt. Hoppa inte över några steg.
+Följande steg visar hur du skapar en säker punkt-till-plats-anslutning till ett virtuellt nätverk. Konfigurationen för en punkt-till-plats-anslutning är uppdelad i fyra delar. Det är viktigt att du följer konfigurationsordningen i vart och ett av dessa avsnitt. Hoppa inte över några steg.
 
 * **Avsnitt 1** – Skapa ett virtuellt nätverk (VNet) och en VPN-gateway.
 * **Avsnitt 2** – Skapa certifikaten som används för autentisering och ladda upp dem.
 * **Avsnitt 3** – Exportera och installera klientcertifikaten.
 * **Avsnitt 4** – Konfigurera VPN-klienten.
 
+
+
 ## <a name="vnetvpn"></a>Avsnitt 1 – Skapa ett virtuellt nätverk och en VPN-gateway
+
+Kontrollera att du har en Azure-prenumeration innan du börjar. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial).
+
 ### <a name="part-1-create-a-virtual-network"></a>Steg 1: Skapa ett virtuellt nätverk
 1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com). I de här stegen används den klassiska portalen, inte Azure-portalen. För närvarande kan du inte skapa en P2S-anslutning med hjälp av Azure-portalen.
 2. I det nedre vänstra hörnet på skärmen klickar du på **Nytt**. I navigeringsfönstret klickar du på **Nätverkstjänster** och sedan på **Virtuellt nätverk**. Klicka på **Skapa anpassade** för att starta konfigurationsguiden.
@@ -88,57 +91,83 @@ Gateway-typen måste vara konfigurerad som dynamisk. Gateways för statisk routn
 2. Klicka på **Skapa gateway** längst ned på sidan **Instrumentpanel**. Ett meddelande visas som frågar om du vill **skapa en gateway för det virtuella nätverket ”VNet1”**. Klicka på **Ja** för att börja skapa gatewayen. Det tar upp till 45 minuter att skapa gatewayen.
 
 ## <a name="generate"></a>Avsnitt 2 – Skapa och ladda upp certifikat
-Certifikat används för att autentisera VPN-klienter för punkt-till-plats-VPN. Du kan använda ett rotcertifikat som genererats av en företagscertifikatlösning eller använda ett självsignerat certifikat. Du kan överföra upp till 20 rotcertifikat till Azure. När CER-filen har överförts kan Azure använda informationen som den innehåller för att autentisera klienter som har ett installerat klientcertifikat. Klientcertifikatet måste genereras från samma certifikat som representeras av CER-filen.
+Certifikat används av Azure för att autentisera VPN-klienter för punkt-till-plats-VPN:er. När du har skapat rotcertifikatet exporterar du offentliga certifikatdata (inte den privata nyckeln) som en Base64-kodad X.509 .cer-fil. Du kan sedan överföra offentliga certifikatdata från rotcertifikatet till Azure.
+
+Varje klientdator som ansluter till ett virtuellt nätverk med punkt-till-plats måste ha ett klientcertifikat installerat. Klientcertifikatet genereras från rotcertifikatet och installeras på varje klientdator. Autentiseringen misslyckas om ett giltigt certifikat inte är installerat och klienten försöker ansluta till det virtuella nätverket.
 
 I det här avsnittet ska du göra följande:
 
-* Hämta CER-filen för ett rotcertifikat. Detta kan vara ett självsignerat certifikat eller så kan du använda ditt företagscertifikatsystem.
+* Hämta CER-filen för ett rotcertifikat. Detta kan vara ett självsignerat rotcertifikat eller så kan du använda ditt företagscertifikatsystem.
 * Ladda upp CER-filen till Azure.
 * Generera klientcertifikat.
 
 ### <a name="root"></a>Del 1: Hämta cer.-filen för rotcertifikatet
+
+
 Om du använder en företagslösning kan du använda din befintliga certifikatkedja. Hämta .cer-filen för det rotcertifikat som du vill använda.
 
-Om du inte använder en företagscertifikatlösning måste du generera ett självsignerat rotcertifikat. Använd makecert om du vill skapa ett självsignerat certifikat som innehåller de fält som behövs för P2S.autentisering. Avsnittet [Create a self-signed root certificate for P2S connections](vpn-gateway-certificates-point-to-site.md) (Skapa ett självsignerat rotcertifikat för P2S-anslutningar) vägleder dig genom stegen för att skapa ett självsignerat rotcertifikat. Vi är medvetna om att makecert är inaktuellt, men det är den lösning som stöds för tillfället.
 
->[!NOTE]
->Det går att använda PowerShell för att skapa självsignerande certifikat, men certifikatet som genereras med PowerShell innehåller inte de fält som krävs för P2S-autentisering.
+Om du inte använder en företagscertifikatlösning måste du generera ett självsignerat rotcertifikat. Du kan använda PowerShell om du vill skapa ett självsignerat rotcertifikat som innehåller de fält som behövs för P2S-autentisering. Avsnittet [Create a self-signed root certificate for Point-to-Site connections using PowerShell](vpn-gateway-certificates-point-to-site.md) (Skapa ett självsignerat rotcertifikat för punkt-till-plats-anslutningar med PowerShell) vägleder dig genom stegen för att skapa ett självsignerat rotcertifikat.
+
+> [!NOTE]
+> Tidigare var makecert den metod som rekommenderades för att skapa självsignerade rotcertifikat och generera klientcertifikat för punkt-till-plats-anslutningar. Du kan nu använda PowerShell för att skapa dessa certifikat. En fördel med att använda PowerShell är möjligheten att skapa SHA-2-certifikat. I [Create a self-signed root certificate for Point-to-Site connections using PowerShell](vpn-gateway-certificates-point-to-site.md) (Skapa ett självsignerat rotcertifikat för punkt-till-plats-anslutningar med PowerShell) finns information om nödvändiga värden.
+>
 >
 
 
-#### <a name="to-obtain-the-cer-file-from-a-self-signed-root-certificate"></a>Hämta .cer-filen från ett självsignerat rotcertifikat
+#### <a name="to-export-the-public-key-for-a-self-signed-root-certificate"></a>Så här exporterar du den offentliga nyckeln för ett självsignerat rotcertifikat.
 
-1. Om du vill hämta en .cer-fil från ett självsignerat rotcertifikat öppnar du **certmgr.msc** och letar upp rotcertifikatet du skapade. Certifikatet ligger vanligtvis under Certificates-Current User/Personal/Certificates och har det namn du valde när du skapade det. Högerklicka på det självsignerade rotcertifikatet, klicka på **alla uppgifter** och klicka sedan på **exportera**. **Guiden Exportera certifikat** öppnas.
-2. I guiden klickar du på **Nästa** och väljer **Nej, exportera inte den privata nyckeln**. Klicka sedan på **Nästa**.
-3. På sidan **Filformat för export** väljer du **Base&64;-kodad X.509 (. CER).** Klicka sedan på **Nästa**.
+Punkt-till-plats-anslutningar kräver att den offentliga nyckeln (.cer) överförs till Azure. Följande steg hjälper dig att exportera .cer-filen för det självsignerade rotcertifikatet.
+
+1. Om du vill hämta en .cer-fil från certifikatet kan du öppna **certmgr.msc**. Leta upp det självsignerade rotcertifikatet, som vanligtvis finns under ”Certifikat – aktuell användare\Personligt\Certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas.
+2. Klicka på **Nästa** i guiden. Välj **Nej, exportera inte den privata nyckeln** och klicka sedan på **Nästa**.
+3. På sidan **Filformat för export** väljer du **Base&64;-kodad X.509 (. CER).** och klickar sedan på **Nästa**. 
 4. På sidan **Fil som ska exporteras** **bläddrar** du till den plats som du vill exportera certifikatet till. För **Filnamn** anger du ett namn för certifikatfilen. Klicka sedan på **Nästa**.
-5. Klicka på **Slutför** för att exportera certifikatet.
+5. Klicka på **Slutför** för att exportera certifikatet. Meddelandet **Exporten lyckades**. Stäng guiden genom att klicka på **OK**.
 
 ### <a name="upload"></a>Del 2: Ladda upp certifikatets .cer-fil till den klassiska Azure-portalen
-Lägg till ett betrott certifikat i Azure. När du lägger till en Base64-kodad X.509-fil (.cer) till Azure uppmanar du Azure att lita på rotcertifikatet som filen representerar.
+
+Lägg till ett betrott certifikat i Azure. När du lägger till en Base64-kodad X.509-fil (.cer) till Azure uppmanar du Azure att lita på rotcertifikatet som filen representerar. Du kan överföra filer för upp till 20 rotcertifikat. Du överför inte den privata nyckeln för rotcertifikatet till Azure. När .cer-filen har överförts använder Azure den för att autentisera klienter som ansluter till det virtuella nätverket.
 
 1. På sidan **Certifikat** i den klassiska Azure-portalen för det virtuella nätverket, klickar du på **Överför ett rotcertifikat**.
 2. På sidan **Överför certifikat** bläddrar du efter .cer-rotcertifikatet och klickar sedan på bockmarkeringen.
 
 ### <a name="createclientcert"></a>Del 3: Generera ett klientcertifikat
-Nu ska du generera klientcertifikaten. Du kan antingen generera ett unikt certifikat för varje klient som ska ansluta eller använda samma certifikat på flera klienter. Fördelen med att generera unika klientcertifikat är möjligheten att återkalla ett enskilt certifikat om det behövs. Om alla i stället använder samma klientcertifikat och du upptäcker att du behöver återkalla certifikatet för en klient så måste du generera och installera nya certifikat för alla klienter som använder certifikatet för att autentisera.
+Du kan antingen generera ett unikt certifikat för varje klient som ska ansluta eller använda samma certifikat på flera klienter. Fördelen med att generera unika klientcertifikat är möjligheten att återkalla ett enskilt certifikat om det behövs. Om alla istället använder samma klientcertifikat och du upptäcker att du behöver återkalla certifikatet för en klient så måste du generera och installera nya certifikat för alla klienter som använder certifikatet för att autentisera.
 
 ####<a name="enterprise-certificate"></a>Företagscertifikat
 - Om du använder en lösning för företagscertifikat genererar du ett klientcertifikat med det allmänna namnvärdesformatet name@yourdomain.com istället för formatet ”domännamn\användarnamn”.
 - Se till att det klientcertifikat som du utfärdar baseras på certifikatmallen ”Användare” där ”Klientautentisering” är den första posten i användningslistan, i stället för Logga in med smartkort osv. Du kan kontrollera certifikatet genom att dubbelklicka på klientcertifikatet och visa **Information > Förbättrad nyckelanvändning**.
 
-####<a name="self-signed-certificate"></a>Självsignerat certifikat 
-Information om hur du genererar ett klientcertifikat om du använder ett självsignerat certifikat finns i [Arbeta med självsignerade rotcertifikat för punkt-till-plats-konfigurationer](vpn-gateway-certificates-point-to-site.md).
+####<a name="self-signed-root-root-certificate"></a>Självsignerat rotcertifikat 
+Om du använder ett självsignerat rotcertifikat kan du läsa [Generate a client certificate using PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert) (Generera ett klientcertifikat med PowerShell) för att få anvisningar om att generera ett klientcertifikat som är kompatibelt med punkt-till-plats-anslutningar.
+
 
 ## <a name="installclientcert"></a>Avsnitt 3 – Exportera och installera klientcertifikatet
-Installera ett klientcertifikat på varje dator som du vill ansluta till det virtuella nätverket. Ett klientcertifikat krävs för autentisering. Du kan automatisera installationen av klientcertifikatet eller installera manuellt. Följande steg beskriver hur du exporterar och installerar klientcertifikatet manuellt.
 
-1. Du kan exportera ett klientcertifikat med hjälp av *certmgr.msc*. Högerklicka på det klientcertifikat som du vill exportera, klicka på **alla aktiviteter** och sedan på **exportera**.
-2. Exportera klientcertifikatet med den privata nyckeln. Det här är en *PFX*-fil. Var noga med att skriva ner eller komma ihåg lösenordet (nyckeln) som du anger för det här certifikatet.
-3. Kopiera *.pfx*-filen till klientdatorn. Installera *PFX*-filen genom att dubbelklicka på den på klientdatorn. Ange lösenordet när det efterfrågas. Ändra inte installationsplatsen.
+När du har genererat ett klientcertifikat måste du exportera certifikatet som en .pfx-fil och sedan installera det på klientdatorn. Varje klientdator måste ha ett klientcertifikat för autentisering. Du kan automatisera installationen av klientcertifikatet eller installera certifikatet manuellt. Följande steg beskriver hur du exporterar och installerar klientcertifikatet manuellt.
+
+### <a name="export-the-client-certificate"></a>Exportera klientcertifikat
+
+1. Du kan exportera ett klientcertifikat genom att öppna **certmgr.msc**. Högerklicka på det klientcertifikat som du vill exportera, klicka på **alla aktiviteter** och sedan på **exportera**. **Guiden Exportera certifikat** öppnas.
+2. I guiden klickar du på **Nästa** och väljer **Ja, exportera den privata nyckeln**. Klicka sedan på **Nästa**.
+3. På sidan **Filformat för export** kan du låta standardalternativen vara markerade. Klicka sedan på **Nästa**. 
+4. Du måste skydda den privata nyckeln på sidan **Säkerhet**. Om du väljer att använda ett lösenord måste du vara noga med att skriva ned eller komma ihåg lösenordet som du anger för det här certifikatet. Klicka sedan på **Nästa**.
+5. På sidan **Fil som ska exporteras** **bläddrar** du till den plats som du vill exportera certifikatet till. För **Filnamn** anger du ett namn för certifikatfilen. Klicka sedan på **Nästa**.
+6. Klicka på **Slutför** för att exportera certifikatet.
+
+### <a name="install-the-client-certificate"></a>Installera klientcertifikatet
+
+När du installerar klientcertifikatet, behöver du lösenordet som skapades när klientcertifikatet exporterades.
+
+1. Leta upp och kopiera *.pfx*-filen till klientdatorn. Installera *.pfx*-filen genom att dubbelklicka på den på klientdatorn. Låt **Lagringsplats** stå som **Aktuell användare** och klicka sedan på **Nästa**.
+2. Gör inga ändringar på sidan för den **Fil** som ska importeras. Klicka på **Nästa**.
+3. På sidan **Skydd av privat nyckel** anger du lösenordet för certifikatet, om du har använt ett sådant, eller bekräftar att säkerhetsobjektet som installerar certifikatet är korrekt, och klickar sedan på **Nästa**.
+4. På sidan **Certifikatarkiv** låter du standardplatsen stå kvar och klickar sedan på **Nästa**.
+5. Klicka på **Slutför**. På sidan **Säkerhetsvarning** för certifikatinstallationen klickar du på **Ja**. Eftersom du har genererat certifikatet kan du klicka på ”Ja” utan att oroa dig. Certifikatet har nu importerats.
 
 ## <a name="vpnclientconfig"></a>Avsnitt 4 – Konfigurera din VPN-klient
-För att ansluta till det virtuella nätverket måste du också konfigurera en VPN-klient. Klienten kräver både ett klientcertifikat och rätt VPN-klientkonfiguration för att kunna ansluta. Utför följande steg i rätt ordning för att konfigurera VPN-klienten.
+För att ansluta till det virtuella nätverket måste du också konfigurera en VPN-klient. Klienten kräver både ett klientcertifikat och rätt konfigurationspaket för VPN-klienten för att kunna ansluta. Utför följande steg i rätt ordning för att konfigurera VPN-klienten.
 
 ### <a name="part-1-create-the-vpn-client-configuration-package"></a>Del 1: Skapa ett konfigurationspaket för VPN-klienten
 1. På den klassiska Azure-portalen går du till snabbmenyn i det högra hörnet på sidan **Instrumentpanel** för det virtuella nätverket. VPN-klientpaketet innehåller konfigurationsinformation för att konfigurera VPN-klientprogrammet som är inbyggt i Windows. Paketet installerar inte någon ytterligare programvara. Inställningarna är specifika för det virtuella nätverk som du vill ansluta till. En lista över klientoperativsystem som stöds finns i avsnittet [Vanliga frågor och svar om punkt-till-plats](#faq) i slutet av den här artikeln.<br><br>Välj det paket som motsvarar klientoperativsystemet som det kommer att installeras i:
@@ -192,8 +221,6 @@ Exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-
-Mer information om virtuella nätverk finns på sidan [Dokumentation för virtuella nätverk](/azure/virtual-network).
+När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
 
 

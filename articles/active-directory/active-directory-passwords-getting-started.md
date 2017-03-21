@@ -13,35 +13,168 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Komma igång med lösenordshantering
 > [!IMPORTANT]
-> **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md).
+> **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
 Konfigurera systemet i några få enkla steg så att användarna kan hantera sina Azure Active Directory-lösenord i molnet eller sina lokala Active Directory-lösenord. När du har kontrollerat att du uppfyller några enkla krav kan du snabbt implementera funktioner för lösenordsändring och lösenordsåterställning för hela organisationen. I den här artikeln går vi igenom följande:
 
+* [**Bra tips från våra kunder att läsa innan du börjar**](#top-tips-from-our-customers-to-read-before-you-begin)
+ * [**TOPPTIPS: DOKUMENTATIONSNAVIGERING** – Använd vår innehållsförteckning och webbläsarens sökfunktion för att hitta svar](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+ * [**Tips 1: LICENSIERING** – Kontrollera att du förstår licenskraven](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+ * [**Tips 2: TESTA** – Testa med en slutanvändare, inte en administratör, och kör en pilotversion med en liten uppsättning användare](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Tips 3: DISTRIBUTION** – Fyll i data i förväg för dina användare så att de inte behöver registrera sig](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+ * [**Tips 4: DISTRIBUTION** – Använd lösenordsåterställning så behöver du inte kommunicera tillfälliga lösenord](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+ * [**Tips 5: TILLBAKASKRIVNING** – Titta på programmets händelselogg på AAD Connect-datorn om du vill felsöka tillbakaskrivning av lösenord](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+ * [**Tips 6: TILLBAKASKRIVNING** – Kontrollera att du aktiverar rätt behörigheter, brandväggsregler och anslutningsinställningar för tillbakaskrivning av lösenord](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+ * [**Tips 7: RAPPORTERING** – Se vem som registrerar eller återställer lösenord med Azure AD SSPR-granskningsloggar](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+ * [**Tips 8: FELSÖKNING** – Läs vår felsökningsguide och vanliga frågor och svar så kan du lösa många problem](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+ * [**Tips 9: FELSÖKNING** – Om du fortfarande behöver hjälp är det viktigt att du tar med tillräckligt med information så att vi kan hjälpa dig](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 * [**Hur du konfigurerar systemet så att användarna kan återställa sina Azure Active Directory-lösenord**](#enable-users-to-reset-their-azure-ad-passwords)
-  * [Krav för lösenordsåterställning via självbetjäning](#prerequisites)
-  * [Steg 1: Konfigurera en princip för återställning av lösenord](#step-1-configure-password-reset-policy)
-  * [Steg 2: Lägga till kontaktdata för testanvändaren](#step-2-add-contact-data-for-your-test-user)
-  * [Steg 3: Återställa ditt lösenord som en användare](#step-3-reset-your-azure-ad-password-as-a-user)
+ * [Krav för lösenordsåterställning via självbetjäning](#prerequisites)
+ * [Steg 1: Konfigurera en princip för återställning av lösenord](#step-1-configure-password-reset-policy)
+ * [Steg 2: Lägga till kontaktdata för testanvändaren](#step-2-add-contact-data-for-your-test-user)
+ * [Steg 3: Återställa ditt lösenord som en användare](#step-3-reset-your-azure-ad-password-as-a-user)
 * [**Konfigurera systemet så att användarna kan återställa eller ändra sina lokala Active Directory-lösenord**](#enable-users-to-reset-or-change-their-ad-passwords)
-  * [Krav för tillbakaskrivning av lösenord](#writeback-prerequisites)
-  * [Steg 1: Ladda ned den senaste versionen av Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
-  * [Steg 2: Aktivera tillbakaskrivning av lösenord i Azure AD Connect via användargränssnittet eller PowerShell och verifiera](#step-2-enable-password-writeback-in-azure-ad-connect)
-  * [Steg 3: Konfigurera brandväggen](#step-3-configure-your-firewall)
-  * [Steg 4: Konfigurera lämpliga behörigheter](#step-4-set-up-the-appropriate-active-directory-permissions)
-  * [Steg 5: Återställa ditt AD-lösenord som en användare och verifiera](#step-5-reset-your-ad-password-as-a-user)
+ * [Krav för tillbakaskrivning av lösenord](#writeback-prerequisites)
+ * [Steg 1: Ladda ned den senaste versionen av Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
+ * [Steg 2: Aktivera tillbakaskrivning av lösenord i Azure AD Connect via användargränssnittet eller PowerShell och verifiera](#step-2-enable-password-writeback-in-azure-ad-connect)
+ * [Steg 3: Konfigurera brandväggen](#step-3-configure-your-firewall)
+ * [Steg 4: Konfigurera lämpliga behörigheter](#step-4-set-up-the-appropriate-active-directory-permissions)
+ * [Steg 5: Återställa ditt AD-lösenord som en användare och verifiera](#step-5-reset-your-ad-password-as-a-user)
+
+## <a name="top-tips-from-our-customers-to-read-before-you-begin"></a>Bra tips från våra kunder att läsa innan du börjar
+Här är några av de bästa tipsen som vi har sett är användbara för kunder som distribuerar lösenordshantering inom organisationen.
+
+* [**TOPPTIPS: DOKUMENTATIONSNAVIGERING** – Använd vår innehållsförteckning och webbläsarens sökfunktion för att hitta svar](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+* [**Tips 1: LICENSIERING** – Kontrollera att du förstår licenskraven](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+* [**Tips 2: TESTA** – Testa med en slutanvändare, inte en administratör, och kör en pilotversion med en liten uppsättning användare](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Tips 3: DISTRIBUTION** – Fyll i data i förväg för dina användare så att de inte behöver registrera sig](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+* [**Tips 4: DISTRIBUTION** – Använd lösenordsåterställning så behöver du inte kommunicera tillfälliga lösenord](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+* [**Tips 5: TILLBAKASKRIVNING** – Titta på programmets händelselogg på AAD Connect-datorn om du vill felsöka tillbakaskrivning av lösenord](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+* [**Tips 6: TILLBAKASKRIVNING** – Kontrollera att du aktiverar rätt behörigheter, brandväggsregler och anslutningsinställningar för tillbakaskrivning av lösenord](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+* [**Tips 7: RAPPORTERING** – Se vem som registrerar eller återställer lösenord med Azure AD SSPR-granskningsloggar](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+* [**Tips 8: FELSÖKNING** – Läs vår felsökningsguide och vanliga frågor och svar så kan du lösa många problem](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+* [**Tips 9: FELSÖKNING** – Om du fortfarande behöver hjälp är det viktigt att du tar med tillräckligt med information så att vi kan hjälpa dig](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
+
+### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>TOPPTIPS: DOKUMENTATIONSNAVIGERING – Använd vår innehållsförteckning och webbläsarens sökfunktion för att hitta svar
+Om du använder någon av vår dokumentation har vi försökt att tillhandahålla snabblänkar till alla intressanta platser där administratörer kan få veta mer i innehållsförteckningen. 
+
+Titta på innehållsförteckningen nedan: 
+* [Återställning av lösenord för Azure AD: Innehållsförteckning för dokumentation](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
+
+### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Tips 1: LICENSIERING – Kontrollera att du förstår licenskraven
+För att återställning av lösenordet till Azure AD ska fungera måste du ha minst en engångslicens tilldelad inom organisationen. Vi kräver inte licensiering per användare för själva lösenordsåterställningen, men om du använder funktionen utan att en licens har tilldelats en användare kan det betraktas som att du inte följer Microsofts licensavtal, och du måste i så fall tilldela dessa användare licenser.
+
+Här följer några dokument som kan hjälpa dig att förstå vilka licenser som krävs för återställning av lösenord.
+* [Allmän licensinformation för lösenordsåterställning]()
+* [Per-funktion-licensinformation för lösenordsåterställning]()
+* [Scenarier som stöds för tillbakaskrivning av lösenord]()
+
+### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Tips 2: TESTA – Testa med en slutanvändare, inte en administratör, och kör en pilotversion med en liten uppsättning användare
+När du testar med en administratör tvingar vi principen för återställning av administratörslösenord, som definieras nedan.  Det innebär att du INTE ser de förväntade resultaten av den princip som du har konfigurerat för dina slutanvändare.
+
+Principerna som konfigureras i det administrativa UX gäller ENBART för slutanvändare, och inte administratörer. Microsoft använder starka standardprinciper för lösenordsåterställning för dina administratörer – som kan skilja sig från de principer som du angett för dina slutanvändare – för att se till att din organisation hålls skyddad.
+
+#### <a name="administrator-password-reset-policy"></a>Återställningsprincip för administratörslösenord
+* **Gäller för** – alla administratörsroller (global administratör, supportavdelningens administratör, lösenordsadministratör osv.)
+* **Enportsprincipen gäller...**
+ * ... under de första 30 dagarna efter att en utvärderingsversion har startats skapats **ELLER**
+ * ... om en anpassad domän inte finns **OCH** identiteter inte synkroniseras med Azure AD Connect
+ * **_Kräver_**: att **något av alternativen** e-postadress för autentisering, alternativ e-postadress, telefonnummer för autentisering, mobiltelefon eller arbetstelefon har ett värde
+* **Tvåportsprincipen gäller...** 
+ * ... när de första 30 dagarna av en utvärdering har passerat **ELLER**
+ * ... när en anpassad domän finns **ELLER** 
+ * ... du har aktiverat Azure AD Connect för att synkronisera identiteter från din lokala miljö
+ * _**Kräver**_: att **två av alternativen** e-postadress för autentisering, alternativ e-postadress, telefon för autentisering, mobiltelefon eller arbetstelefon har ett värde
+
+### <a name="tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register"></a>Tips 3: DISTRIBUTION – Fyll i data i förväg för dina användare så att de inte behöver registrera sig
+Många inser inte att användarna inte behöver registrera sig för lösenordsåterställning för att kunna använda funktionen.  Genom att ange telefon eller e-postegenskaper för användarna i förväg kan du omedelbart distribuera lösenordsåterställning för hela organisationen **utan att användarna behöver göra något!**
+
+Läs igenom dokumentationen nedan om du vill veta hur du gör detta med hjälp av ett API, PowerShell eller Azure AD Connect:
+* [Distribuera lösenordsåterställning utan att användarna behöver registrera sig](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration)
+* [Vilka data som används vid återställning av lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset)
+
+### <a name="tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords"></a>Tips 4: DISTRIBUTION – Använd lösenordsåterställning så behöver du inte kommunicera tillfälliga lösenord
+Det här är en fortsättning på tips 3. När du har förkonfigurerat användarna för lösenordsåterställning, tänk dig ett scenarion där en medarbetare anställs vid företaget för första gången. I stället för att kommunicera det tillfälliga lösenordet åt honom eller henne kan du nu bara låta personen navigera till [portalen för Azure AD-lösenordsåterställning](https://passwordreset.microsoftonline.com) så att de kan återställa sina lösenord.
+
+Om användaren använder en [Windows 10 Azure AD-domänansluten enhet](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) kan han eller hon även skaffa den här behörigheten från Windows 10 Out of Box-inloggningsskärmen och få åtkomst till en helt ny PC utan att du behöver göra någonting.
+
+Läs igenom dokumentationen nedan om du vill veta hur du gör detta med hjälp av ett API, PowerShell eller Azure AD Connect. Om du fyller i uppgifterna i förväg kan du bara uppmana dina användare att återställa sina lösenord, så får de tillgång till sina konton direkt:
+* [Distribuera lösenordsåterställning utan att användarna behöver registrera sig](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration)
+* [Vilka data som används vid återställning av lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset)
+
+### <a name="tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback"></a>Tips 5: TILLBAKASKRIVNING – Titta på programmets händelselogg på AAD Connect-datorn om du vill felsöka tillbakaskrivning av lösenord
+Azure AD Connect-programhändelseloggen innehåller en omfattande uppsättning loggningsinformation som beskriver mycket av vad som händer med tjänsten för tillbakaskrivning av lösenord i realtid. Följ stegen nedan för att få åtkomst till den här loggen:
+
+1. Logga in på din **Azure AD Connect**-dator
+2. Öppna den **Loggboken i Windows** genom att trycka på **Start** och skriva **”Loggboken”**
+3. Öppna händelseloggen **Program**
+4. Leta efter händelser från följande källor: **PasswordResetService** eller **ADSync** för att ta reda på mer om vilket problem det kan handla om
+
+Se en fullständig lista över händelser som kan visas i den här loggen samt mycket mer felsökningsinformation för tillbakaskrivning av lösenord:
+* [Felsök: tillbakaskrivning av lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)
+* [Felkoder för tillbakaskrivning av händelseloggen](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
+* [Felsök: anslutning för tillbakaskrivning av lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)
+* [Distribution av tillbakaskrivning – Steg 3: Konfigurera brandväggen](#step-3-configure-your-firewall)
+* [Distribution av tillbakaskrivning – Steg 4: Konfigurera lämpliga behörigheter](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback"></a>Tips 6: TILLBAKASKRIVNING – Kontrollera att du aktiverar rätt behörigheter, brandväggsregler och anslutningsinställningar för tillbakaskrivning av lösenord
+För att tillbakaskrivning ska fungera korrekt måste du kontrollera följande:
+
+1. Rätt **Active Directory-behörigheter** har angetts för användare som använder funktionen för tillbakaskrivning av lösenord så att de har behörighet att ändra sina egna lösenord och kontoupplåsningsflaggor i AD
+2. Rätt **portar i brandväggen** har öppnats för att tillåta tjänsten för tillbakaskrivning av lösenord att kommunicera säkert med världen utanför via en utgående anslutning
+3. Rätt **undantag i brandväggen** har gjorts för återställning av nyckellösenord till tjänst-URL: er, till exempel Service Bus
+4. Din **proxy och brandvägg avbryter inte inaktiva utgående anslutningar**, vi rekommenderar 10 minuter eller längre
+
+Se en fullständig lista över felsökningsvägledning och specifika riktlinjer för att konfigurera behörigheter och brandväggsregler för tillbakaskrivning av lösenord:
+* [Felsök: tillbakaskrivning av lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)
+* [Felkoder för tillbakaskrivning av händelseloggen](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
+* [Felsök: anslutning för tillbakaskrivning av lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)
+* [Distribution av tillbakaskrivning – Steg 3: Konfigurera brandväggen](#step-3-configure-your-firewall)
+* [Distribution av tillbakaskrivning – Steg 4: Konfigurera lämpliga behörigheter](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Tips 7: RAPPORTERING – Se vem som registrerar eller återställer lösenord med Azure AD SSPR-granskningsloggar 
+När lösenordsåterställningen har distribuerats och fungerar är nästa logiska steg att se hur den fungerar och analysera vem som fortfarande behöver registreras, de vanligaste problem som användarna stöter på när de återställer och avkastningen på investeringen för funktionen.
+
+Med granskningsloggarna för Azure AD-lösenordsåterställning kan du göra detta och mycket mer från Azure Portal, PowerBI, Azure AD Reporting Event-API eller PowerShell.  Mer information om hur du använder dessa rapporteringsfunktioner finns i:
+* [Översikt över rapporter om lösenordshantering](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#overview-of-password-management-reports)
+* [Så här visar du lösenordshanteringsrapporter i Azure Portal](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-view-password-management-reports)
+* [Självbetjäning av aktivitetstyper för lösenordshantering i Azure Portal](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#self-service-password-management-activity-types-in-the-new-azure-portal)
+* [Så här hämtar du lösenordshanteringshändelser från Azure AD-rapporter och händelse-API](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api)
+* [Så här hämtar du snabbt registreringshändelser för lösenordsåterställning med PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-download-password-reset-registration-events-quickly-with-powershell)
+
+### <a name="tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues"></a>Tips 8: FELSÖKNING – Läs vår felsökningsguide och vanliga frågor och svar så kan du lösa många problem
+Visste du att lösenordsåterställning har en omfattande uppsättning felsökningsvägledning och svar på vanliga frågor? Det finns goda chanser att du hittar svaret på eventuella frågor via länkarna nedan.
+
+Utöver detta kan du också använda bladet **Support & Troubleshooting** (Support och felsökning) i [Azure Portal](https://portal.azure.com) och få en omfattande uppsättning felsökningsinnehåll direkt från administratörsanvändarens lösenordshantering som finns under **Azure Active Directory** -> **Användare och grupper** -> **Lösenordsåterställning** -> **Support och felsökning** i det vänstra navigeringsfönstret.
+
+Länkar till felsökningsvägledning samt vanliga frågor och svar om återställning av lösenord:
+* [Felsök lösenordshantering](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot)
+* [Vanliga frågor och svar om lösenordshantering](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-faq)
+
+### <a name="tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you"></a>Tips 9: FELSÖKNING – Om du fortfarande behöver hjälp är det viktigt att du tar med tillräckligt med information så att vi kan hjälpa dig
+Om du fortfarande behöver hjälp med felsökning finns vi här för dig. Du kan antingen öppna ett supportärende eller kontakta kontohanteringsteamet för att nå till oss direkt. Vi vill gärna höra vad du har att säga!
+
+Men innan du tar kontakt bör du kontrollera att **du har samlat in all information som begärs nedan** så att vi kan hjälpa dig snabbt!
+* [Information som ska inkluderas om du behöver hjälp](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#information-to-include-when-you-need-help)
+
+#### <a name="ways-to-provide-password-reset-feedback"></a>Sätt att ge feedback för lösenordsåterställning
+* [Funktionsbegäranden eller felsökning – posta på Azure AD MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
+* [Funktionsbegäranden eller felsökning – post på StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Funktionsbegäranden eller felsökning – Tweet @azuread!](https://twitter.com/azuread)
+* [Funktionsbegäranden enbart – Lämna en kommentar på UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 ## <a name="enable-users-to-reset-their-azure-ad-passwords"></a>Konfigurera systemet så att användarna kan återställa sina Azure AD-lösenord
 Det här avsnittet beskriver hur du aktiverar lösenordsåterställning via självbetjäning för din AAD-molnkatalog, hur du registrerar användare för lösenordsåterställning via självbetjäning och hur du testar en lösenordsåterställning via självbetjäning som en användare.
@@ -147,7 +280,7 @@ Nu när du har konfigurerat en återställningsprincip för användare och anget
 5. När användaren bekräftar sitt telefonnummer och klickar på Ring upp visas en rotationsruta och hans eller hennes telefon ringer.  Ett meddelande spelas upp när användaren tar upp luren och uppmanar **användaren att trycka på ”#”** för att verifiera sitt konto.  När användaren trycker på den här knappen verifieras användaren i den första kontrollen och tas automatiskt till nästa verifieringssteg.
 
    ![][015]
-6. När användaren har klarat den första kontrollen uppdateras användargränssnittet automatiskt och kontrollen tas bort från listan med tillgängliga alternativ.  I vårt exempel, eftersom du valde **Arbetstelefon** först, finns bara **Mobiltelefon** och **Alternativ e-postadress** kvar som giltiga alternativ för verifiering i det andra verifieringssteget.  Klicka på e-postalternativet **Skicka e-post till min alternativa e-postadress **.  När du har gjort det och trycker på Skicka-knappen skickas ett e-postmeddelande till den registrerade alternativa e-postadressen.
+6. När användaren har klarat den första kontrollen uppdateras användargränssnittet automatiskt och kontrollen tas bort från listan med tillgängliga alternativ.  I vårt exempel, eftersom du valde **Arbetstelefon** först, finns bara **Mobiltelefon** och **Alternativ e-postadress** kvar som giltiga alternativ för verifiering i det andra verifieringssteget.  Klicka på e-postalternativet **Skicka e-post till min alternativa e-postadress**.  När du har gjort det och trycker på Skicka-knappen skickas ett e-postmeddelande till den registrerade alternativa e-postadressen.
 
    ![][016]
 7. Här är ett exempel på ett e-postmeddelande som skickas till användaren – observera företagsanpassningen:
@@ -267,11 +400,11 @@ När du har aktiverat tillbakaskrivning av lösenord måste du kontrollera att d
 
 För att tillbakaskrivning av lösenord ska fungera korrekt måste datorn som kör Azure AD Connect kunna upprätta utgående HTTPS-anslutningar till **. servicebus.windows.net* och en specifik IP-adress som används av Azure, enligt definitionen i [IP-intervallslistan för Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
-För version **1.1.439.0** (senaste) och senare verktyget Azure AD Connect:
+För version **1.1.443.0** (senaste) och senare av verktyget Azure AD Connect:
 
 - Den senaste versionen av verktyget Azure AD Connect behöver åtkomst till **utgående HTTPS** till:
     - *passwordreset.microsoftonline.com*
-    - *servicbus.Windows.NET*
+    - *servicebus.Windows.NET*
 
 För versionerna **1.0.8667.0** till **1.1.380.0** av verktyget Azure AD Connect:
 
@@ -302,11 +435,11 @@ För versionerna **1.0.8667.0** till **1.1.380.0** av verktyget Azure AD Connect
 
 När nätverksutrustningen har konfigurerats kan du starta om den dator där Azure AD Connect-verktyget körs.
 
-#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Inaktiva anslutningar i Azure AD Connect (1.1.439.0 och senare)
+#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Inaktiva anslutningar i Azure AD Connect (1.1.443.0 och senare)
 Verktyget Azure AD Connect skickar regelbundet pingar/keepalive-överföringar till ServiceBus-slutpunkterna så att anslutningarna förblir aktiva. Om verktyget identifierar att för många anslutningar avslutas så ökas automatiskt pingfrekvensen till slutpunkten. Det kortaste pingintervallet är 1 ping var 60:e sekund, men **vi rekommenderar att proxyservrar/brandväggar tillåter inaktiva anslutningar i minst 2–3 minuter.** \*För äldre versioner rekommenderar vi 4 minuter eller mer.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Steg 4: Konfigurera Active Directory-behörigheter
-För varje skog som innehåller användare vars lösenord ska återställas, om X är det konto som angavs för skogen i konfigurationsguiden (vid den ursprungliga konfigurationen), så måste X tilldelas följande utökade behörigheter för rotobjektet i varje domän i skogen: **Återställ lösenord**, **Ändra lösenord**, **Skrivbehörighet** för `lockoutTime` och **Skrivbehörighet** för `pwdLastSet`. Rättigheten måste konfigureras att ärvas av alla användarobjekt.  
+För varje skog som innehåller användare vars lösenord ska återställas, om X är det konto som angavs för skogen i konfigurationsguiden (vid den ursprungliga konfigurationen), måste X tilldelas följande utökade behörigheter för antingen rotobjektet i varje domän i skogen: **Återställ lösenord**, **Ändra lösenord**, **Skrivbehörighet** för `lockoutTime` och **Skrivbehörighet** för `pwdLastSet` ELLER användarens OU som du vill ska finnas med i omfånget för SSPR.  Du kan använda det senare alternativet om du vill att återställningsbehörigheten enbart ska omfatta en specifik uppsättning användarobjekt om det inte är möjligt att göra det mot domänroten. Rättigheten måste konfigureras att ärvas av alla användarobjekt.  
 
 Om du inte är säker på vilket konto som avses ovan öppnar du konfigurationsgränssnittet för Azure Active Directory Connect och klickar på alternativet **Granska din lösning**.  Det konto som du ska lägga till behörigheter till är understruket i rött i skärmbilden nedan.
 
@@ -361,7 +494,7 @@ Nu när tillbakaskrivning av lösenord har aktiverats kan du testa att det funge
 ## <a name="next-steps"></a>Nästa steg
 Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställning i Azure AD:
 
-* **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md).
+* **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Så här fungerar det**](active-directory-passwords-how-it-works.md) – lär dig om de sex olika komponenterna i tjänsten och vad de gör
 * [**Anpassa**](active-directory-passwords-customize.md) – lär dig hur du anpassar tjänstens utseende, känsla och beteende efter din organisations behov
 * [**Metodtips**](active-directory-passwords-best-practices.md) – lär dig hur du snabbt distribuerar och effektivt hanterar lösenord i din organisation

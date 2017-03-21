@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/07/2017
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 935b0ba8725b083878a0f9213e4fbd31bd27ab2c
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: cf48dc816661fa3d61f831fb176aba048a6f5b58
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -56,7 +56,7 @@ Du måste också installera Microsoft Azure Service Fabric SDK, med hjälp av in
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Använda Visual Studio 2015 (kräver Visual Studio 2015 Update 2 eller senare)
 För Visual Studio 2015 installeras Service Fabric-verktyg tillsammans med SDK med hjälp av installationsprogrammet för webbplattform:
 
-* [Installera Microsoft Azure Service Fabric SDK och verktyg)][full-bundle-vs2015]
+* [Installera Microsoft Azure Service Fabric SDK och verktyg][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>SDK-installation endast
 Om du bara behöver SDK kan du installera det här paketet:

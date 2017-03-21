@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
-ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,8 +56,8 @@ Använd dessa länkar om du vill utforska tjänsten mer i detalj:
 
 * Ta del av [Azure Active Directory B2C-prisinformation](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Granska våra [kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) för Azure Active Directory B2C. 
-* Få hjälp på Stack Overflow genom att använda taggarna [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) eller [adal](http://stackoverflow.com/questions/tagged/adal).
-* Lämna feedback via [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) – vi vill veta vad du tycker! Använd frasen ”AzureADB2C:” i rubriken på ditt inlägg så att vi kan hitta den.
+* Få hjälp på Stack Overflow genom att använda taggen [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
+* Lämna feedback via [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) – vi vill veta vad du tycker!
 * Granska [protokollreferens för Azure AD B2C](active-directory-b2c-reference-protocols.md).
 * Granska [tokenreferens för Azure AD B2C](active-directory-b2c-reference-tokens.md).
 * Läs [vanliga frågor och svar om Azure Active Directory B2C](active-directory-b2c-faqs.md).
@@ -64,10 +65,5 @@ Använd dessa länkar om du vill utforska tjänsten mer i detalj:
 
 ## <a name="get-security-updates-for-our-products"></a>Hämta säkerhetsuppdateringar för våra produkter
 Vi rekommenderar att du aktiverar aviseringar om säkerhetsincidenter genom att gå till [den här sidan](https://technet.microsoft.com/security/dd252948) och prenumerera på Microsoft Security Advisory-aviseringar.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

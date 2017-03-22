@@ -1,6 +1,6 @@
 ---
 title: "Fråga efter data i HDFS-kompatibelt Azure-lagringsutrymme | Microsoft Docs"
-description: "Lär dig mer om hur du frågar efter data från Blob Storage och Azure Data Lake Store för att lagra resultatet av dina analyser."
+description: "Lär dig mer om hur du frågar efter data från Azure Storage och Azure Data Lake Store för att lagra resultatet av dina analyser."
 keywords: blob storage,hdfs,structured data,unstructured data, data lake store
 services: hdinsight,storage
 documentationcenter: 
@@ -17,28 +17,33 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8133299b062bf3935df9c30dc8a6fcf88a525e
-ms.openlocfilehash: d3af6358a5786510f4f150425d0eb8ed45e52a6c
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: f739459681b0941a3dde6ec615ee468444d92c36
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="use-hdfs-compatible-storage-with-hadoop-in-hdinsight"></a>Använd HDFS-kompatibel lagring med Hadoop i HDInsight
 
-För att analysera data i HDInsight-klustret kan du lagra data i antingen Azure Blob Storage, Azure Data Lake Store eller bådadera. Båda lagringsalternativen låter dig ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
+För att analysera data i HDInsight-klustret kan du lagra data i antingen Azure Storage, Azure Data Lake Store eller bådadera. Båda lagringsalternativen låter dig ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
 
-Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange Azure Blob Storage-behållare som standardfilsystemet när du skapar HDInsight-kluster. Med HDInsight 3.5 kan du välja antingen Azure Blob Storage eller Azure Data Lake Store som standardfilsystem.
+Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange en blobbehållare i Azure Storage som standardfilsystemet när du skapar HDInsight-kluster. Med HDInsight 3.5 kan du välja antingen Azure Storage eller Azure Data Lake Store som standardfilsystem.
 
 I den här artikeln får du lära dig mer om hur de två lagringsalternativen fungerar med HDInsight-kluster. Mer information om hur du skapar ett HDInsight-kluster finns i [Komma igång med HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-## <a name="using-azure-blob-storage-with-hdinsight-clusters"></a>Använda Azure Blob-lagring med HDInsight-kluster
+## <a name="using-azure-storage-with-hdinsight-clusters"></a>Använda Azure-lagring med HDInsight-kluster
 
-Azure Blob Storage är en robust lagringslösning för allmänna ändamål som smidigt kan integreras med HDInsight. Genom ett gränssnitt för Hadoop-distribuerat filsystem (HDFS) kan alla komponenter i HDInsight tillämpas direkt på strukturerade eller ostrukturerade data i Blob Storage.
+Azure Storage är en robust lagringslösning för allmänna ändamål som smidigt kan integreras med HDInsight. HDInsight kan använda en blobbehållare i Azure Storage som standardfilsystem för klustret. Genom ett gränssnitt för Hadoop-distribuerat filsystem (HDFS) kan alla komponenter i HDInsight tillämpas direkt på strukturerade eller ostrukturerade data som har lagrats som blobar.
 
-> [!IMPORTANT]
-> HDInsight stöder endast blockblobar. Det stöder inte sid- eller tilläggsblobar.
+> [!WARNING]
+> Det finns flera tillgängliga alternativ när du skapar ett Azure Storage-konto. I följande tabell finns information om vilka alternativ som stöds med HDInsight:
 > 
-> 
+> | Storage Account-typ | Lagringsnivå | Stöds av HDInsight |
+> | ------- | ------- | ------- |
+> | Allmänna lagringskonton | Standard | __Ja__ |
+> | &nbsp; | Premium | Nej |
+> | Blob Storage-konto | Frekvent | Nej |
+> | &nbsp; | Lågfrekvent | Nej |
 
 ### <a name="hdinsight-storage-architecture"></a>Lagringsarkitekturen i HDInsight
 Följande diagram visar en abstrakt vy av lagringsarkitekturen i HDInsight:
@@ -49,7 +54,7 @@ HDInsight ger tillgång till det distribuerade filsystemet som är lokalt anslut
 
     hdfs://<namenodehost>/<path>
 
-Dessutom ger HDInsight möjlighet att komma åt data som är lagrade i Azure Blob Storage. Syntax:
+Dessutom ger HDInsight möjlighet att komma åt data som är lagrade i Azure Storage. Syntax:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -65,27 +70,27 @@ Här är några saker att tänka på när du använder Azure Storage-konton med 
   > 
 * **Privata behållare på lagringskonton som INTE är anslutna till något kluster:** Du kan inte komma åt blobarna i behållarna om du inte definierar lagringskontot när du skickar WebHCat-jobben. Detta beskrivs senare i artikeln.
 
-De lagringskonton som definieras under skapandeprocessen och deras nycklar lagras i %HADOOP_HOME%/conf/core-site.xml i klusternoderna. Standardbeteendet för HDInsight är att använda de lagringskonton som definieras i filen core-site.xml. Vi rekommenderar inte att du redigerar filen core-site.xml eftersom klustrets huvudnod (master) kan bli föremål för en ny avbildning eller migreras när som helst, och då kommer alla ändringar i denna fil att gå förlorade.
+De lagringskonton som definieras under skapandeprocessen och deras nycklar lagras i %HADOOP_HOME%/conf/core-site.xml i klusternoderna. Standardbeteendet för HDInsight är att använda de lagringskonton som definieras i filen core-site.xml. Vi rekommenderar inte att du redigerar filen core-site.xml direkt eftersom klustrets huvudnod (master) kan bli föremål för en ny avbildning eller migreras när som helst, och då kommer alla ändringar i denna fil att gå förlorade.
 
 Flera WebHCat-jobb, inklusive Hive, MapReduce, Hadoop-strömning och Pig, kan ha med sig en beskrivning av lagringskonton och metadata. (För närvarande fungerar för Pig med lagringskonton, men inte för metadata.) I avsnittet [Komma åt blobar med hjälp av Azure PowerShell](#powershell) i den här artikeln finns det ett exempel på den här funktionen. Mer information finns i [Använda ett HDInsight-kluster med alternativa lagringskonton och metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
-Blob Storage kan användas för strukturerade och ostrukturerade data. I behållare för Blob Storage förvaras data som nyckel/värde-par och det finns ingen kataloghierarki. Däremot kan snedstreck (/) användas i nyckelnamnet så att det visas som om det vore en fil som lagrats i en katalogstruktur. Nyckeln för en blob kan till exempel vara *input/log1.txt*. Det finns ingen faktisk katalog för *indata*, men eftersom det finns ett snedstreck i nyckelnamnet ser namnet ut som en filsökväg.
+Blobar kan användas för strukturerade och ostrukturerade data. I blob-behållare förvaras data som nyckel/värde-par och det finns ingen kataloghierarki. Däremot kan snedstreck (/) användas i nyckelnamnet så att det visas som om det vore en fil som lagrats i en katalogstruktur. Nyckeln för en blob kan till exempel vara *input/log1.txt*. Det finns ingen faktisk katalog för *indata*, men eftersom det finns ett snedstreck i nyckelnamnet ser namnet ut som en filsökväg.
 
-### <a id="benefits"></a>Fördelar med Blob Storage
-Den implicerade prestandakostnaden för att inte samplacera beräkningsklustren och lagringsresurserna minskar på grund av sättet på vilket beräkningsklustren skapas nära lagringskontoresurserna i Azure-regionen där höghastighetsnätverket gör att beräkningsnoderna kan komma åt data i Azure Blob Storage på ett mycket effektivt sätt.
+### <a id="benefits"></a>Fördelar med Azure Storage
+Den implicerade prestandakostnaden för att inte samplacera beräkningsklustren och lagringsresurserna minskar på grund av sättet på vilket beräkningsklustren skapas nära lagringskontoresurserna i Azure-regionen där höghastighetsnätverket gör att beräkningsnoderna kan komma åt data i Azure Storage på ett mycket effektivt sätt.
 
-Det finns flera fördelar med att lagra data i Azure Blob Storage i stället för i HDFS:
+Det finns flera fördelar med att lagra data i Azure Storage i stället för i HDFS:
 
-* **Återanvändning och delning av data:** Data i HDFS lagras inuti beräkningsklustren. Endast de program som har åtkomst till beräkningsklustren kan använda dessa data med hjälp av HDFS-API:er. Data i Azure Blob Storage kan antingen nås via HDFS-API:erna eller via [REST-API:erna för Blob Storage][blob-storage-restAPI]. Därmed kan en större grupp program (inklusive andra HDInsight-kluster) och verktyg användas för att skapa och använda data.
-* **Dataarkivering:** Om data lagras i Azure Blob Storage kan de HDInsight-kluster som används för beräkning tryggt tas bort utan att användardata går förlorade.
-* **Kostnad för datalagring:** Att lagra data långsiktigt i DFS är dyrare än att lagra data i Azure Blob Storage eftersom kostnaden för ett beräkningskluster är högre än kostnaden för en Azure Blob Storage-behållare. Eftersom data inte behöver läsas in på nytt för varje generation av beräkningskluster sparar du dessutom kostnader för datainläsning.
-* **Elastisk utskalning:** Även om HDFS ger dig ett utskalat filsystem bestäms skalan av antalet noder som du skapar för klustret. Att ändra skala med HDFS kan vara en mer komplicerad process än att använda de elastiska skalningsfunktionerna som du automatiskt har tillgång till i Azure Blob Storage.
-* **Geo-replikering:** Dina Azure Blob Storage-behållare kan geo-replikeras. Även om detta ger dig geografisk återställning och dataredundans, innebär en växling till den geo-replikerade platsen en avsevärd försämring av prestandan och kan medföra ytterligare kostnader. Vår rekommendation är därför att tänka efter när du väljer geo-replikering och bara göra det om värdet i informationen motiverar den extra kostnaden.
+* **Återanvändning och delning av data:** Data i HDFS lagras inuti beräkningsklustren. Endast de program som har åtkomst till beräkningsklustren kan använda dessa data med hjälp av HDFS-API:er. Data i Azure Storage kan antingen nås via HDFS-API:erna eller via [REST-API:erna för Blob Storage][blob-storage-restAPI]. Därmed kan en större grupp program (inklusive andra HDInsight-kluster) och verktyg användas för att skapa och använda data.
+* **Dataarkivering:** Om data lagras i Azure Storage kan de HDInsight-kluster som används för beräkning tryggt tas bort utan att användardata går förlorade.
+* **Kostnad för datalagring:** Att lagra data långsiktigt i DFS är dyrare än att lagra data i Azure Storage eftersom kostnaden för ett beräkningskluster är högre än kostnaden för Azure Storage. Eftersom data inte behöver läsas in på nytt för varje generation av beräkningskluster sparar du dessutom kostnader för datainläsning.
+* **Elastisk utskalning:** Även om HDFS ger dig ett utskalat filsystem bestäms skalan av antalet noder som du skapar för klustret. Att ändra skala med HDFS kan vara en mer komplicerad process än att använda de elastiska skalningsfunktionerna som du automatiskt har tillgång till i Azure Storage.
+* **Geo-replikering:** Din Azure Storage kan geo-replikeras. Även om detta ger dig geografisk återställning och dataredundans, innebär en växling till den geo-replikerade platsen en avsevärd försämring av prestandan och kan medföra ytterligare kostnader. Vår rekommendation är därför att tänka efter när du väljer geo-replikering och bara göra det om värdet i informationen motiverar den extra kostnaden.
 
-Vissa MapReduce-jobb och -paket kan skapa mellanresultat som du inte egentligen vill lagra i Azure Blob Storage. I så fall kan du välja att lagra data i ditt lokala HDFS. Faktum är att HDInsight använder DFS för flera av dessa mellanresultat i Hive-jobb och andra processer.
+Vissa MapReduce-jobb och -paket kan skapa mellanresultat som du inte egentligen vill lagra i Azure Storage. I så fall kan du välja att lagra data i ditt lokala HDFS. Faktum är att HDInsight använder DFS för flera av dessa mellanresultat i Hive-jobb och andra processer.
 
 > [!NOTE]
-> De flesta HDFS-kommandon (till exempel <b>ls</b>, <b>copyFromLocal</b> och <b>mkdir</b>) fungerar fortfarande som förväntat. Endast de kommandon som är specifika för den interna HDFS-implementeringen (så kallade DFS-kommandon) som <b>fschk</b> och <b>dfsadmin</b> har ett avvikande beteende i Azure Blob Storage.
+> De flesta HDFS-kommandon (till exempel <b>ls</b>, <b>copyFromLocal</b> och <b>mkdir</b>) fungerar fortfarande som förväntat. Endast de kommandon som är specifika för den interna HDFS-implementeringen (så kallade DFS-kommandon) som <b>fschk</b> och <b>dfsadmin</b> har ett avvikande beteende i Azure Storage.
 > 
 > 
 
@@ -94,7 +99,7 @@ Om du vill använda blobar måste du först skapa ett [Azure Storage-konto][azur
 
 Oavsett var den finns tillhör varje blob som du skapar en behållare på ditt Azure Storage-konto. Den här behållaren kan vara en befintlig blob som skapats utanför HDInsight eller en behållare som skapats för ett HDInsight-kluster.
 
-Standardbehållaren lagrar klusterspecifik information, till exempel jobbhistorik och loggar. Låt inte flera HDInsight-kluster dela en standardblob-behållare. Detta kan förstöra jobbhistoriken och klustret kommer inte att fungera som det ska. Du rekommenderas att använda en annan behållare för varje kluster och publicera delade data på ett konto för länkad lagring som anges vid distributionen av alla relevanta kluster snarare än på standardkontot för lagring. Mer information om hur du konfigurerar länkade lagringskonton finns i [Skapa HDInsight-kluster][hdinsight-creation]. Du kan emellertid återanvända en standardbehållare för lagring när det ursprungliga HDInsight-klustret har tagits bort. När det gäller HBase-kluster kan du faktiskt behålla HBase-tabellschemat och data genom att skapa en ny Blob Storage som standard som använts av ett HBase-kluster som har tagits bort.
+Standardbehållaren lagrar klusterspecifik information, till exempel jobbhistorik och loggar. Låt inte flera HDInsight-kluster dela en standardblob-behållare. Detta kan skada jobbets historik. Du rekommenderas att använda en annan behållare för varje kluster och publicera delade data på ett konto för länkad lagring som anges vid distributionen av alla relevanta kluster snarare än på standardkontot för lagring. Mer information om hur du konfigurerar länkade lagringskonton finns i [Skapa HDInsight-kluster][hdinsight-creation]. Du kan emellertid återanvända en standardbehållare för lagring när det ursprungliga HDInsight-klustret har tagits bort. När det gäller HBase-kluster kan du faktiskt behålla HBase-tabellschemat och data genom att skapa en ny blob-behållare som standard som använts av ett HBase-kluster som har tagits bort.
 
 #### <a name="using-the-azure-portal"></a>Använda Azure Portal
 När du skapar ett HDInsight-kluster från portalen kan du använda ett befintligt lagringskonto (enligt nedan) och ange uppgifterna för lagringskontot. Du kan även ange om du vill att ett konto med ytterligare lagringsutrymme som är associerade med klustret och välj i så fall från Data Lake Store eller en annan Azure Storage-blob som ytterligare lagringsutrymme.
@@ -149,15 +154,14 @@ Om du har [installerat och konfigurerat Azure PowerShell][powershell-install] ka
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="address-files-in-blob-storage"></a>Adressera filer i Blob Storage
-Följande URI-schema används för att komma åt filer i Blob Storage från HDInsight:
+### <a name="address-files-in-azure-storage"></a>Adressera filer i Azure Storage
+Följande URI-schema används för att komma åt filer i Azure Storage från HDInsight:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-
 URI-schemat ger okrypterad åtkomst (med prefixet *wasb:*) och SSL-krypterad åtkomst (med *wasbs*). Vi rekommenderar att du använder *wasbs* när det är möjligt, även för åtkomst till data som finns i samma region i Azure.
 
-&lt;BlobStorageContainerName&gt; identifierar namnet på behållaren i Azure Blob Storage.
+&lt;BlobStorageContainerName&gt; identifierar namnet på blobbehållaren i Azure Storage.
 &lt;StorageAccountName&gt; identifierar namnet på Azure Storage-kontot. Ett fullständigt kvalificerat domännamn (FQDN) krävs.
 
 Om varken &lt;BlobStorageContainerName&gt; eller &lt;StorageAccountName&gt; har angetts används standardfilsystemet. För filer i filsystemet kan du använda en relativ sökväg eller en absolut sökväg. Till exempel kan du referera till den *hadoop-mapreduce-examples.jar*-fil som medföljer HDInsight-kluster på något av följande sätt:
@@ -171,7 +175,7 @@ Om varken &lt;BlobStorageContainerName&gt; eller &lt;StorageAccountName&gt; har 
 > 
 > 
 
-&lt;Sökvägen&gt; är filens eller katalogens HDFS-sökvägsnamn. Eftersom behållare i Azure Blob Storage helt enkelt är lagringsplatser för nyckel-/värdepar finns det inte något faktiskt hierarkiskt filsystem. Ett snedstreck (/) i en blob-nyckel tolkas som en katalogavgränsare. Blob-namnet för *hadoop-mapreduce-examples.jar* är till exempel:
+&lt;Sökvägen&gt; är filens eller katalogens HDFS-sökvägsnamn. Eftersom behållare i Azure Storage helt enkelt är lagringsplatser för nyckel-/värdepar finns det inte något faktiskt hierarkiskt filsystem. Ett snedstreck (/) i en blob-nyckel tolkas som en katalogavgränsare. Blob-namnet för *hadoop-mapreduce-examples.jar* är till exempel:
 
     example/jars/hadoop-mapreduce-examples.jar
 
@@ -346,7 +350,7 @@ Följ länkarna nedan för mer detaljerade instruktioner om hur du skapar HDInsi
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln beskrivs hur du använder HDFS-kompatibel Azure Blob-lagring och Azure Data Lake Store med HDInsight. Du kan skapa skalbara, långsiktiga lösningar för arkivering av insamlade data samt HDInsight för att få tillgång till informationen i lagrade strukturerade och ostrukturerade data.
+I den här artikeln beskrivs hur du använder HDFS-kompatibel Azure Storage och Azure Data Lake Store med HDInsight. Du kan skapa skalbara, långsiktiga lösningar för arkivering av insamlade data samt HDInsight för att få tillgång till informationen i lagrade strukturerade och ostrukturerade data.
 
 Mer information finns i:
 

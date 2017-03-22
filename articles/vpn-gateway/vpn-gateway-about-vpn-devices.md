@@ -16,33 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 13ef48ebe79571c7139e46f9510a5f8d2f504cb7
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter för VPN Gateway-anslutningar från plats till plats
-En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats (S2S) på olika platser med hjälp av en VPN-gateway. Plats-till-plats-anslutningar kan användas för att skapa en hybridlösning, eller när du vill skapa en säker anslutning mellan ditt lokala nätverk och ditt virtuella nätverk. I den här artikeln beskrivs kompatibla VPN-enheter och konfigurationsparametrar.
+# <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter och IPSec-/IKE-parametrar för anslutningar för VPN-gateway från plats till plats
+
+En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats (S2S) på olika platser med hjälp av en VPN-gateway. Plats-till-plats-anslutningar kan användas för att skapa en hybridlösning, eller när du vill skapa en säker anslutning mellan ditt lokala nätverk och ditt virtuella nätverk. I den här artikeln beskrivs kompatibla VPN-enheter och konfigurationsparametrar. Det här dokumentet innehåller listan över IPsec-/IKE-parametrar för Azure VPN-gateways och en lista över validerade VPN-enheter som ansluter till Azure VPN-gateways.
 
 
 > [!IMPORTANT]
-> Om du har problem med anslutningen mellan dina lokala VPN-enheter och Azure VPN-gateways läser du avsnittet [Kända enhetskompatibilitetsproblem](#known).
-> 
-> 
+> Om du har problem med anslutningen mellan dina lokala VPN-enheter och Azure VPN-gateways läser du avsnittet [Kända enhetskompatibilitetsproblem](#known). 
 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Observera följande när du läser tabellerna:
 
-* Terminologin har ändrats för statisk och dynamisk routning. Du kommer troligen stöta på båda termerna. Funktionen har inte ändrats, bara namnen.
+* Terminologin har ändrats för Azure VPN-gateways. Du kommer troligen stöta på båda termerna. Funktionen har inte ändrats, bara namnen.
   * Statisk routning = Principbaserad
   * Dynamisk routning = Routningsbaserad
 * Specifikationerna för en VPN-gateway med hög kapacitet och en routningsbaserad VPN-gateway är samma, om inget annat anges. Till exempel är verifierade VPN-enheter som är kompatibla med routningsbaserade VPN-gatewayer också kompatibla med Azure VPN-gatewayen med hög kapacitet.
 
 > [!NOTE]
 > När du konfigurerar en plats-till-plats-anslutning krävs en offentlig IPv4-adress för VPN-enheten.                                                                                                                                                                               
->
->
 
 
 ## <a name="devicetable"></a>Verifierade VPN-enheter
@@ -102,58 +99,80 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 | &lt;SP_AzureGatewayIpAddress&gt; |Den här informationen är specifik för ditt virtuella nätverk och finns i hanteringsportalen som **IP-adress för gateway**. |
 | &lt;SP_PresharedKey&gt; |Den här informationen är specifik för ditt virtuella nätverk och finns i hanteringsportalen som Hantera nyckel. |
 
-## <a name="IPSec"></a>IPsec-parametrar
+## <a name="IPSec"></a>IPsec-/IKE-parametrar
 > [!NOTE]
-> Även om de värden som anges i följande tabell stöds av Azure VPN Gateway går det för närvarande inte att ange eller välja en specifik kombination från Azure VPN Gateway. Du måste ange eventuella begränsningar från den lokala VPN-enheten. Du måste dessutom foga ihop MSS vid 1350.
->
->
+> Även om de värden som anges i följande tabell stöds av Azure VPN Gateway går det för närvarande inte att ange eller välja en specifik kombination av algoritmer eller parametrar från Azure VPN-gatewayen. Du måste ange eventuella begränsningar från den lokala VPN-enheten.
+> 
+> Du måste dessutom foga ihop **MSS** vid **1350**.
 
-### <a name="ike-phase-1-setup"></a>Installation av IKE, fas 1
-| **Egenskap** | **Principbaserad** | **Routningsbaserad och standard eller VPN-gateway med hög kapacitet** |
-| --- | --- | --- |
-| IKE-version |IKEv1 |IKEv2 |
-| Diffie-Hellman Group |Grupp 2 (1 024 bitar) |Grupp 2 (1 024 bitar) |
-| Autentiseringsmetod |I förväg delad nyckel |I förväg delad nyckel |
-| Krypteringsalgoritmer |AES256 AES128 3DES |AES256 3DES |
-| Hash-algoritm |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Fas 1, Security Association (SA), livslängd (tid) |28&800; sekunder |10&800; sekunder |
+I tabellerna nedan:
 
-### <a name="ike-phase-2-setup"></a>Installation av IKE, fas 2
-| **Egenskap** | **Principbaserad** | **Routningsbaserad och standard eller VPN-gateway med hög kapacitet** |
-| --- | --- | --- |
-| IKE-version |IKEv1 |IKEv2 |
-| Hash-algoritm |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
-| Fas 2, Security Association (SA), livslängd (tid) |3&600; sekunder |3&600; sekunder |
-| Fas 2, Security Association (SA), livslängd (dataflöde) |102&400;&000; kB |- |
-| IPSec-kryptering för SA och autentisering (i prioritetsordning) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Saknas |Se Routningsbaserad gateway-IPsec, Security Association (SA), erbjudanden (nedan) |
-| PFS (Perfect Forward Secrecy) |Nej |Nej (*) |
-| Utebliven peer-identifiering |Stöds inte |Stöds |
+* SA = Security Association
+* IKE fas 1 kallas även "Huvudläge"
+* IKE fas 2 kallas även "Snabbläge"
 
-(*) Azure Gateway som IKE-svarare kan acceptera PFS DH grupp 1, 2, 5, 14, 24.
+### <a name="ike-phase-1-main-mode-parameters"></a>Parametrar för IKE fas 1 (huvudläge)
+| **Egenskap**          |**Principbaserad**    | **Routningsbaserad**    |
+| ---                   | ---               | ---               |
+| IKE-version           |IKEv1              |IKEv2              |
+| Diffie-Hellman Group  |Grupp 2 (1 024 bitar) |Grupp 2 (1 024 bitar) |
+| Autentiseringsmetod |I förväg delad nyckel     |I förväg delad nyckel     |
+| Krypterings- och hash-algoritmer |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
+| SA-livstid           |28&800; sekunder     |10&800; sekunder     |
 
-### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>Routningsbaserad gateway-IPsec, Security Association (SA), erbjudanden
-I följande tabell visas IPsec, SA-kryptering och autentiseringserbjudanden. Erbjudandena visas i prioritetsordning efter när erbjudandet visats eller godkänts.
+### <a name="ike-phase-2-quick-mode-parameters"></a>Parametrar för IKE fas 2 (snabbläge)
+| **Egenskap**                  |**Principbaserad**| **Routningsbaserad**                              |
+| ---                           | ---           | ---                                         |
+| IKE-version                   |IKEv1          |IKEv2                                        |
+| Krypterings- och hash-algoritmer |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
+| SA-livstid (tid)            |3&600; sekunder  |3&600; sekunder                                |
+| SA-livstid (byte)           |102&400;&000; kB | -                                           |
+| PFS (Perfect Forward Secrecy) |Nej             |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
+| Utebliven peer-identifiering (DPD)     |Stöds inte  |Stöds                                    |
 
-| **IPsec, SA-kryptering och autentiseringserbjudanden** | **Azure Gateway som initierare** | **Azure Gateway som svarare** |
-| --- | --- | --- |
-| 1 |ESP AES_256 SHA |ESP AES_128 SHA |
-| 2 |ESP AES_128 SHA |ESP 3_DES MD5 |
-| 3 |ESP 3_DES MD5 |ESP 3_DES SHA |
-| 4 |ESP 3_DES SHA |AH SHA1 med ESP AES_128 med null HMAC |
-| 5 |AH SHA1 med ESP AES_256 med null HMAC |AH SHA1 med ESP 3_DES med null HMAC |
-| 6 |AH SHA1 med ESP AES_128 med null HMAC |AH MD5 med ESP 3_DES med null HMAC, ingen föreslagen livslängd |
-| 7 |AH SHA1 med ESP 3_DES med null HMAC |AH SHA1 med ESP 3_DES SHA1, ingen livslängd |
-| 8 |AH MD5 med ESP 3_DES med null HMAC, ingen föreslagen livslängd |AH MD5 med ESP 3_DES MD5, ingen livslängd |
-| 9 |AH SHA1 med ESP 3_DES SHA1, ingen livslängd |ESP DES MD5 |
-| 10 |AH MD5 med ESP 3_DES MD5, ingen livslängd |ESP DES SHA1, ingen livslängd |
-| 11 |ESP DES MD5 |AH SHA1 med ESP DES, null HMAC, ingen föreslagen livslängd |
-| 12 |ESP DES SHA1, ingen livslängd |AH MD5 med ESP DES, null HMAC, ingen föreslagen livslängd |
-| 13 |AH SHA1 med ESP DES, null HMAC, ingen föreslagen livslängd |AH SHA1 med ESP DES SHA1, ingen livslängd |
-| 14 |AH MD5 med ESP DES, null HMAC, ingen föreslagen livslängd |AH MD5 med ESP DES MD5, ingen livslängd |
-| 15 |AH SHA1 med ESP DES SHA1, ingen livslängd |ESP SHA, ingen livslängd |
-| 16 |AH MD5 med ESP DES MD5, ingen livslängd |ESP MD5, ingen livslängd |
-| 17 |- |AH SHA, ingen livslängd |
-| 18 |- |AH MD5, ingen livslängd |
+
+### <a name ="RouteBasedOffers"></a>Erbjudanden för RouteBased VPN IPsec-säkerhetsassociation (IKE-snabbläge SA)
+Följande tabell visar erbjudanden för IPsec SA (IKE-snabbläge). Erbjudandena visas i prioritetsordning efter när erbjudandet visats eller godkänts.
+
+#### <a name="azure-gateway-as-initiator"></a>Azure Gateway som initierare
+|-  |**Kryptering**|**Autentisering**|**PFS-grupp**|
+|---| ---          |---               |---          |
+| 1 |GCM AES256    |GCM (AES256)      |Ingen         |
+| 2 |AES256        |SHA1              |Ingen         |
+| 3 |3DES          |SHA1              |Ingen         |
+| 4 |AES256        |SHA256            |Ingen         |
+| 5 |AES128        |SHA1              |Ingen         |
+| 6 |3DES          |SHA256            |Ingen         |
+
+#### <a name="azure-gateway-as-responder"></a>Azure Gateway som svarare
+|-  |**Kryptering**|**Autentisering**|**PFS-grupp**|
+|---| ---          | ---              |---          |
+| 1 |GCM AES256    |GCM (AES256)      |Ingen         |
+| 2 |AES256        |SHA1              |Ingen         |
+| 3 |3DES          |SHA1              |Ingen         |
+| 4 |AES256        |SHA256            |Ingen         |
+| 5 |AES128        |SHA1              |Ingen         |
+| 6 |3DES          |SHA256            |Ingen         |
+| 7 |DES           |SHA1              |Ingen         |
+| 8 |AES256        |SHA1              |1            |
+| 9 |AES256        |SHA1              |2            |
+| 10|AES256        |SHA1              |14           |
+| 11|AES128        |SHA1              |1            |
+| 12|AES128        |SHA1              |2            |
+| 13|AES128        |SHA1              |14           |
+| 14|3DES          |SHA1              |1            |
+| 15|3DES          |SHA1              |2            |
+| 16|3DES          |SHA256            |2            |
+| 17|AES256        |SHA256            |1            |
+| 18|AES256        |SHA256            |2            |
+| 19|AES256        |SHA256            |14           |
+| 20|AES256        |SHA1              |24           |
+| 21|AES256        |SHA256            |24           |
+| 22|AES128        |SHA256            |Ingen         |
+| 23|AES128        |SHA256            |1            |
+| 24|AES128        |SHA256            |2            |
+| 25|AES128        |SHA256            |14           |
+| 26|3DES          |SHA1              |14           |
 
 * Du kan ange IPsec ESP NULL-kryptering med VPN-gatewayer som är routningsbaserade och har hög kapacitet. Null-baserad kryptering ger inget skydd av data under överföringen och bör endast användas när maximalt dataflöde och lägsta svarstid krävs.  Klienter kan välja att använda detta i scenarier med VNet-till-VNet-kommunikation eller när kryptering används någon annanstans i lösningen.
 * Vid Internetanslutning på flera platser bör du använda standardinställningarna för Azure VPN Gateway med kryptering och de hash-algoritmer som anges i tabellen ovan, för att garantera säkerheten för din kritiska kommunikation.

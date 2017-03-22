@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2017
+ms.date: 03/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 009e80535a4ba094d5ea2c706cd126ea518d46bb
-ms.openlocfilehash: 373bc5242c21fb8d993db6dea0bca74ba9d4a836
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 44b393a2316825fd335bca2a1a7bb7033c10a565
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -42,7 +43,7 @@ När du konfigurerar en VPN-gateway varierar instruktionerna som du följer bero
 
 
 
-## <a name="a-namediagramsaconnection-topology-diagrams"></a><a name="diagrams"></a>Diagram för anslutningstopologi
+## <a name="diagrams"></a>Diagram för anslutningstopologi
 Det är viktigt att känna till att det finns olika konfigurationer för VPN-gatewayanslutningar. Du måste bestämma vilken konfiguration som passar bäst för dina behov. I avsnitten nedan kan du se information och topologidiagram om följande VPN-gatewayanslutningar: följande avsnitt innehåller tabeller som visar:
 
 * tillgänglig distributionsmodell
@@ -52,29 +53,29 @@ Det är viktigt att känna till att det finns olika konfigurationer för VPN-gat
 Använd diagrammen och beskrivningarna för att välja den anslutningstopologi som passar dina behov. Diagrammen visar de viktigaste grundläggande topologierna, men du kan skapa mer komplexa konfigurationer och använda diagrammen som utgångspunkt.
 
 
-### <a name="site-to-site-and-multi-site-connections"></a>Plats-till-plats-anslutning och anslutning till flera platser
-#### <a name="a-names2sasite-to-site"></a><a name="S2S"></a>Plats-till-plats-anslutning
+## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Plats-till-plats och flera platser (IPsec/IKE VPN-tunnel)
+### <a name="S2S"></a>Plats-till-plats-anslutning
 En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en VPN-tunnel med IPsec/IKE (IKEv1 eller IKEv2). Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats en offentlig IP-adress och som inte finns bakom en NAT. S2S-anslutningar kan användas för konfigurationer mellan platser och för hybridkonfigurationer.   
 
 ![Exempel på Azure VPN Gateway-anslutningar för plats-till-plats](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
-#### <a name="a-namemultiamulti-site"></a><a name="Multi"></a>Anslutning till flera platser
+### <a name="Multi"></a>Anslutning till flera platser
 Den här typen av anslutning är en variant av plats-till-plats-anslutningen. Du skapar fler än en VPN-anslutning från din virtuella nätverksgateway, vanligtvis sker anslutningen till flera lokala platser. När du arbetar med flera anslutningar måste du använda en RouteBased VPN-typ (kallas även en ”dynamisk gateway” för klassiska virtuella nätverk). Eftersom varje virtuellt nätverk bara kan ha en VPN-gateway delar alla anslutningar via gatewayen på den tillgängliga bandbredden. Det här kallas ofta en ”anslutning till flera platser”.
 
 ![Exempel på Azure VPN Gateway-anslutningar för flera platser](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
-#### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Distributionsmodeller och metoder för plats-till-plats och flera platser
+### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Distributionsmodeller och metoder för plats-till-plats och flera platser
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-### <a name="a-namep2sapoint-to-site-connections"></a><a name="P2S"></a>Punkt-till-plats-anslutningar
+## <a name="P2S"></a>Punkt-till-plats (VPN över SSTP)
 Med en VPN-gatewayanslutning med P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. P2S är en VPN-anslutning över SSTP (Secure Socket Tunneling Protocol). P2S-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress för att fungera. Du kan upprätta VPN-anslutningen genom att starta den från klientdatorn. Detta är en användbar lösning när du vill ansluta till ditt VNet från en annan plats, t.ex. hemifrån eller från en konferens, eller när du bara har ett fåtal klienter som behöver kunna ansluta till ett VNet. P2S-anslutningar kan användas tillsammans med S2S-anslutningar via samma VPN-gateway, under förutsättning att alla konfigurationskrav för båda anslutningarna är kompatibla.
 
 ![Exempel på Azure VPN-Gateway-anslutningar för punkt-till-plats](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 
-#### <a name="deployment-models-and-methods-for-point-to-site"></a>Distributionsmodeller och metoder för punkt-till-plats
+### <a name="deployment-models-and-methods-for-point-to-site"></a>Distributionsmodeller och metoder för punkt-till-plats
 [!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
-### <a name="a-namev2vavnet-to-vnet-connections"></a><a name="V2V"></a>VNet-till-VNet-anslutningar
+## <a name="V2V"></a>Anslutningar mellan virtuella nätverk (IPsec/IKE VPN-tunnel)
 Du ansluter ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-till-VNet) på nästan samma sätt som du ansluter ett VNet till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE. Du kan till och med kombinera VNet-till-VNet-kommunikation med anslutningskonfigurationer för flera platser. Det innebär att du kan etablera nätverkstopologier som kombinerar anslutningen för flera platser med en intern virtuell nätverksanslutning.
 
 De virtuella nätverk som du ansluter kan finnas:
@@ -85,28 +86,28 @@ De virtuella nätverk som du ansluter kan finnas:
 
 ![Exempel på VNet-till-VNet-anslutningar med Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
-####<a name="connections-between-deployment-models"></a>Anslutningar mellan distributionsmodeller
+###<a name="connections-between-deployment-models"></a>Anslutningar mellan distributionsmodeller
 Azure har för närvarande två distributionsmodeller: klassisk och Resource Manager. Om du har använt Azure ett tag har du förmodligen virtuella Azure-datorer och instansroller som kör i ett klassiskt VNet. Dina nyare virtuella datorer och rollinstanser kanske körs i ett VNet som skapats i Resource Manager. Du kan skapa en anslutning mellan virtuella nätverk så att resurserna i ett VNet kan kommunicera direkt med resurserna i ett annat.
 
-####<a name="vnet-peering"></a>VNet-peering
+###<a name="vnet-peering"></a>VNet-peering
 Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt virtuella nätverk uppfyller vissa krav. Ingen VNet-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
 
-####<a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Distributionsmodeller och metoder för VNet-till-VNet
+###<a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Distributionsmodeller och metoder för VNet-till-VNet
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-### <a name="a-nameexpressrouteaexpressroute"></a><a name="ExpressRoute"></a>ExpressRoute-anslutning
+## <a name="ExpressRoute"></a>ExpressRoute (dedicerad privat anslutning)
 [!INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
 
 En ExpressRoute-anslutning använder inte en VPN-gateway, men en virtuell nätverksgateway används som en del i den obligatoriska konfigurationen. I en ExpressRoute-anslutning konfigureras den virtuella nätverksgatewayen med gatewaytypen ”ExpressRoute” istället för ”Vpn”. Mer information om ExpressRoute finns i [Teknisk översikt över ExpressRoute](../expressroute/expressroute-introduction.md).
 
-### <a name="a-namecoexistingasite-to-site-and-expressroute-coexisting-connections"></a><a name="coexisting"></a>Plats-till-plats- och samexisterande ExpressRoute-anslutningar
+## <a name="coexisting"></a>Plats-till-plats- och samexisterande ExpressRoute-anslutningar
 ExpressRoute är en direkt, dedikerad anslutning från ditt WAN (inte över offentliga Internet) till Microsoft Services, inklusive Azure. VPN-trafiken från plats-till-plats transporteras krypterat över offentligt Internet. Det finns flera fördelar med att kunna konfigurera VPN-anslutningar för plats-till-plats- och ExpressRoute-anslutningar för samma virtuella nätverk.
 
 Du kan konfigurera ett VPN för plats-till-plats som en säker redundansväxlingsväg för ExpressRoute, eller använda VPN för plats-till-plats för att ansluta till platser som inte finns i ditt nätverk, men som ansluts via ExpressRoute. Den här konfigurationen kräver två virtuella nätverksgateways för samma virtuella nätverk, en med gatewaytypen Vpn och en annan med gatewaytypen ExpressRoute.
 
 ![Exempel på samtidiga ExpressRoute- och VPN Gateway-anslutningar](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-#### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>Distributionsmodeller och metoder för S2S och ExpressRoute
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>Distributionsmodeller och metoder för S2S och ExpressRoute
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
 ## <a name="pricing"></a>Priser
@@ -124,10 +125,5 @@ Se [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för inform
 - Planera konfigurationen av din VPN-gateway. Se [Planering och design för VPN-gateway](vpn-gateway-plan-design.md).
 - Mer information finns i avsnittet [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md).
 - Läs [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md#networking-limits).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

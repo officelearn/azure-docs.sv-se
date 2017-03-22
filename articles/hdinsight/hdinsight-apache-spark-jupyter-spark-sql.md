@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 03/13/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
-ms.openlocfilehash: d8d9c5111a19bb165c25d2796d6b6e933d75042a
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 33256025811f18529c942fa00726b40191127b7a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,23 +28,11 @@ Lär dig hur du skapar ett [Apache Spark](hdinsight-apache-spark-overview.md)-kl
 
    ![Komma igång med Apache Spark i HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Självstudie: Komma igång med Apache Spark i HDInsight. Illustrerade steg: Skapa ett lagringskonto, Skapa ett kluster; Kör Spark SQL-uttryck")
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
 ## <a name="prerequisites"></a>Krav
 * **En Azure-prenumeration**. Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free).
 
-* **En Secure Shell-klient (SSH)**: Linux-, Unix- och OS X-system etablerar en SSH-klient via `ssh`-kommandot. För Windows-klienter läser du [Använda SSH med Hadoop i HDInsight från Windows med PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md). För Linux, Unix och OS X läser du [Använda SSH med Hadoop i HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-> [!NOTE]
-> Den här artikeln använder en Azure Resource Manager-mall för att skapa ett Spark-kluster som använder [Azure Storage-blobbar som klusterlagring](hdinsight-hadoop-use-blob-storage.md). Du kan också skapa ett Spark-kluster som använder [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) som ett ytterligare lagringsutrymme, utöver Azure Storage-blobar som standardlagring. Instruktioner finns i [Skapa ett HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
->
->
-
-### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
-## <a name="create-spark-cluster"></a>Skapa Spark-kluster
-I det här avsnittet skapar du ett Spark-kluster i HDInsight med en [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Information om HDInsight-versioner och deras serviceavtal finns i [Versionshantering för HDInsight-komponenter](hdinsight-component-versioning.md). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
+## <a name="create-a-spark-cluster"></a>Skapa ett Spark-kluster
+I det här avsnittet skapar du ett Spark-kluster i HDInsight med en [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Klicka på följande bild för att öppna mallen i Azure Portal.         
 
@@ -53,24 +42,32 @@ I det här avsnittet skapar du ett Spark-kluster i HDInsight med en [Azure Resou
 
     ![Skapa Spark-kluster i HDInsight med en Azure Resource Manager-mall](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Skapa Spark-kluster i HDInsight med en Azure Resource Manager-mall")
 
-   * **Prenumeration**: Välj din Azure-prenumeration för det här klustret.
-   * **Resursgrupp**: Skapa en ny resursgrupp eller välj en befintlig. Resursgrupp används för att hantera Azure-resurser till dina projekt.
-   * **Plats**: Välj en plats för resursgruppen.  Den här platsen används också för standardklusterlagringen och HDInsight-klustret.
-   * **Klusternamn**: Ange ett namn för det Hadoop-kluster du vill skapa.
-   * **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard ”admin”.
-   * **SSH-användarnamn och lösenord**.
+    * **Prenumeration**: Välj din Azure-prenumeration för det här klustret.
+    * **Resursgrupp**: Skapa en resursgrupp eller välj en befintlig. Resursgrupp används för att hantera Azure-resurser till dina projekt.
+    * **Plats**: Välj en plats för resursgruppen.  Den här platsen används också för standardklusterlagringen och HDInsight-klustret.
+    * **Klusternamn**: Ange ett namn för det Hadoop-kluster du skapar.
+    * **Spark-version**: Välj den Spark-version som du vill installera på klustret.
+    * **Klustrets inloggningsnamn och lösenord**: Inloggningsnamnet är som standard ”admin”.
+    * **SSH-användarnamn och lösenord**.
 
-   Skriv ned dessa värden.  Du behöver dem senare under kursen.
+   Anteckna dessa värden.  Du behöver dem senare under kursen.
 
 3. Välj **Jag godkänner villkoren som anges ovan**, välj **Fäst på instrumentpanelen** och klicka sedan på **Köp**. En ny panel visas med rubriken Skicka distribution för malldistribution. Det tar cirka 20 minuter att skapa klustret.
 
-## <a name="run-spark-sql-queries-using-a-jupyter-notebook"></a>Köra Spark SQL-frågor med en Jupyter-anteckningsbok
-I det här avsnittet använder du Jupyter-anteckningsboken för att köra Spark SQL-frågor mot Spark-klustret. HDInsight Spark-kluster tillhandahåller två kernlar som du kan använda med Jupyter-anteckningsboken. Dessa är:
+> [!NOTE]
+> Den här artikeln skapar ett Spark-kluster som använder [Azure Storage-blobar som klusterlagring](hdinsight-hadoop-use-blob-storage.md). Du kan även skapa ett Spark-kluster som använder [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) som ytterligare lagring, utöver Azure Storage-blobar som standardlagring. Instruktioner finns i [Skapa ett HDInsight-kluster med Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+>
+>
+
+## <a name="run-a-spark-sql-query"></a>Kör en Spark SQL-fråga
+
+I det här avsnittet använder du Jupyter-anteckningsboken för att köra Spark SQL-frågor mot Spark-klustret. HDInsight Spark-kluster tillhandahåller tre kernels som du kan använda med Jupyter-anteckningsboken. Dessa är:
 
 * **PySpark** (för appar som skrivits i Python)
+* **PySpark3** (för appar som skrivits i Python3)
 * **Spark** (för appar som skrivits i Scala)
 
-I den här artikeln använder vi PySpark-kerneln. Mer information om dessa kernlar finns i [Använda kernlar i Jupyter-anteckningsböcker med Apache Spark-kluster i HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Några av de främsta fördelarna med att använda PySpark-kerneln är:
+I den här artikeln använder du **PySpark**-kerneln. Mer information om dessa kernlar finns i [Använda kernlar i Jupyter-anteckningsböcker med Apache Spark-kluster i HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Några av de främsta fördelarna med att använda PySpark-kerneln är:
 
 * Kontexter för Spark och Hive anges automatiskt.
 * Du kan använda cellfunktioner som `%%sql` för att köra dina SQL- eller Hive-frågor direkt utan några föregående kodfragment.
@@ -79,11 +76,12 @@ I den här artikeln använder vi PySpark-kerneln. Mer information om dessa kernl
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Skapa en Jupyter-anteckningsbok med PySpark-kernel
 
 1. Öppna [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **Resursgrupper** på den vänstra menyn.
-3. Klicka på resursgruppen som du skapade i det sista avsnittet. Du kan använda sökfunktionen om det finns för många resursgrupper. Du kan se två resurser i gruppen, HDInsight-klustret och standardlagringskontot.
-4. Klicka på klustret för att öppna det.
 
-2. I **Snabblänkar** klickar du på **Klusterinstrumentpaneler** och sedan på **Jupyter Notebook**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
+2. Om du har valt att fästa klustret på instrumentpanelen klickar du på klusterikonen på instrumentpanelen för att öppna klusterbladet.
+
+    Om du inte har fäst klustret på instrumentpanelen går du till den vänstra rutan och klickar på **HDInsight-kluster**. Klicka sedan på det kluster du har skapat.
+
+3. I **Snabblänkar** klickar du på **Klusterinstrumentpaneler** och sedan på **Jupyter Notebook**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
    ![HDInsight-klusterinstrumentpaneler](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "HDInsight-klusterinstrumentpaneler")
 
@@ -93,15 +91,16 @@ I den här artikeln använder vi PySpark-kerneln. Mer information om dessa kernl
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. Skapa en ny anteckningsbok. Klicka på **Ny** och sedan på **PySpark**.
+3. Skapa en anteckningsbok. Klicka på **Ny** och sedan på **PySpark**.
 
-   ![Skapa en ny Jupyter-anteckningsbok](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Skapa en ny Jupyter-anteckningsbok")
+   ![Skapa en Jupyter-anteckningsbok](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Skapa en Jupyter-anteckningsbok")
 
    En ny anteckningsbok skapas och öppnas med namnet Untitled(Untitled.pynb).
 
 4. Klicka på anteckningsbokens namn högst upp och ange ett beskrivande namn om du vill.
 
     ![Ange ett namn för anteckningsboken](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Ange ett namn för anteckningsboken")
+
 5. Klistra in följande kod i en tom cell och tryck sedan på **SKIFT+RETUR** för att köra koden. Koden importerar de typer som krävs för det här scenariot:
 
         from pyspark.sql.types import *
@@ -110,9 +109,9 @@ I den här artikeln använder vi PySpark-kerneln. Mer information om dessa kernl
 
     ![Status för ett Jupyter-anteckningsboksjobb](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status för ett Jupyter-anteckningsboksjobb")
 
-    Varje gång du kör ett jobb i Jupyter kommer fönsterrubriken i din webbläsare att visa statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du kan även se en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet. När jobbet har slutförts ändras denna till en tom cirkel.
+    Varje gång du kör ett jobb i Jupyter visar fönsterrubriken i webbläsaren statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du ser även en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet. När jobbet har slutförts ändras detta till en tom cirkel.
 
-6. Kör följande kod för att registrera exempeldata i en tillfällig tabell med namnet **hvac**.
+6. Registrera en exempeldatauppsättning som en tillfällig tabell (**hvac**) genom att köra följande kod.
 
         # Load the data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -131,12 +130,12 @@ I den här artikeln använder vi PySpark-kerneln. Mer information om dessa kernl
 
     Spark-kluster i HDInsight har en exempeldatafil, **hvac.csv**, under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
-7. Kör följande kod för att köra en fråga mot dessa data:
+7. Kör följande kod för att köra en fråga mot dessa data.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Eftersom du använder en PySpark-kernel kan du nu direkt köra en SQL-fråga för den tillfälliga tabellen **hvac** som du just skapade med den användbara `%%sql`-funktionen. Mer information om den användbara `%%sql`, samt andra mycket användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+   Eftersom du använder en PySpark-kernel kan du nu direkt köra en SQL-fråga för den tillfälliga tabellen **hvac** som du skapade med den användbara `%%sql`-funktionen. Mer information om `%%sql`-funktionen, samt andra användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
    Följande tabellutdata visas som standard.
 
@@ -146,7 +145,14 @@ I den här artikeln använder vi PySpark-kerneln. Mer information om dessa kernl
 
     ![Områdesdiagram över frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Områdesdiagram över frågeresultat")
 
-9. När du har kört appen kan du stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Då avslutas anteckningsboken och stängs ned.
+9. När du har kört programmet stänger du anteckningsboken för att frigöra klusterresurserna. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny.
+
+## <a name="troubleshoot"></a>Felsöka
+
+Följande är några vanliga problem som du kan stöta på när du arbetar med HDInsight-kluster.
+
+### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -187,9 +193,4 @@ I den här artikeln använder vi PySpark-kerneln. Mer information om dessa kernl
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

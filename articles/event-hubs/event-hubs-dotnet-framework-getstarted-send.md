@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
-ms.author: jotaub
+ms.date: 03/08/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: c52f7055897ba8e851add431e5ab9c0defdb5bfc
-ms.openlocfilehash: 29523e308e038904773582c73c1688f57e3c31e3
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 5c326a025a4276ae9b1a777439ed6c728d3e7103
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -29,17 +30,21 @@ I den här kursen får du lära dig att skapa en händelsehubb i [Azure Portal](
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* [Microsoft Visual Studio](http://visualstudio.com)
+* [Microsoft Visual Studio 2015 eller senare](http://visualstudio.com). För skärmdumparna i de här självstudierna används Visual Studio 2017.
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
 
-## <a name="send-messages-to-event-hubs"></a>Skicka meddelanden till Event Hubs
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett Event Hubs-namnområde och en Event Hub
+
+Det första steget är att använda [Azure Portal](https://portal.azure.com) för att skapa ett namnområde av typen Event Hubs, och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med Event Hub. Om du vill skapa ett namnområde och en Event Hub följer du anvisningarna i [den här artikeln](event-hubs-create.md) och fortsätter sedan enligt följande steg.
+
+## <a name="create-a-console-application"></a>Skapa ett konsolprogram
 I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till din Event Hub.
 
 1. I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av projektmallen **Konsolprogram**. Namnge projektet **Avsändare**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
-2. Högerklicka på lösningen i Solution Explorer och klicka sedan på **Hantera NuGet-paket för lösningen**. 
-3. Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus`. Kontrollera att projektnamnet (**Avsändare**) har angetts i rutan **Versioner**. Klicka på **Installera** och godkänn användningsvillkoren. 
+2. Högerklicka på projektet **Avsändare** i Solution Explorer och klicka sedan på **Hantera NuGet-paket för lösningen**. 
+3. Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus`. Klicka på **Installera** och godkänn användningsvillkoren. 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
@@ -91,6 +96,9 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
     Console.ReadLine();
     SendingRandomMessages();
     ```
+8. Kör programmet och kontrollera att det inte finns några fel.
+  
+Grattis! Du har nu skickat meddelanden till en Event Hub.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har skapat ett fungerande program som skapar en händelsehubb och skickar data kan du gå vidare till följande scenarier:
@@ -104,14 +112,5 @@ Nu när du har skapat ett fungerande program som skapar en händelsehubb och ski
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
-
-<!-- Links -->
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-overview.md
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

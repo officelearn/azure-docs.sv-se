@@ -4,18 +4,19 @@ description: "Kom snabbt åt din Application Insights-begäran och undantagstele
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
-manager: douge
+manager: carmonm
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2016
+ms.date: 03/17/2017
 ms.author: daviste
 translationtype: Human Translation
 ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
 ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
+ms.lasthandoff: 11/16/2016
 
 
 ---
@@ -72,16 +73,11 @@ Om du vill se mer information klickar du på indikatorn CodeLens-begäran:
 * Välj **Trend** för att se en trendvisualisering för begäranden, misslyckade begäranden eller genomsnittliga svarstider för de senaste 24 timmarna.
 * Välj namnet på Application Insights-resursen i det övre vänstra hörnet i CodeLens-informationsvyn för att ändra den resurs som är källa för CodeLens-datan.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Nästa steg
+## <a name="next"></a>Nästa steg
 |  |  |
 | --- | --- |
 | **[Arbeta med Application Insights i Visual Studio](app-insights-visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/app-insights-visual-studio-codelens/34.png) |
 | **[Lägga till mer information](app-insights-asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
 | **[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

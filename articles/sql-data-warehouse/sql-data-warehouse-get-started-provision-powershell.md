@@ -15,8 +15,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 2b78101f6abd675487c7879de5440021832af181
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 58ba34f8f99b7cd2b6a9a199bc70d79431405100
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -34,7 +35,7 @@ I den här artikeln visas hur du skapar ett SQL Data Warehouse med PowerShell.
 Du behöver följande för att komma igång:
 
 * **Azure-konto**: Gå till [Kostnadsfri utvärderingsversion av Azure][Azure Free Trial] eller [MSDN Azure-krediter][MSDN Azure Credits] för att skapa ett konto.
-* **Azure SQL Server**: Mer information finns i [Skapa en logisk Azure SQL Database-server med Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] och [Skapa en logisk Azure SQL Database-server med PowerShell][Create an Azure SQL Database logical server with PowerShell].
+* **Azure SQL Server**: Mer information finns i [Skapa en Azure SQL-databas i Azure Portal][Create an Azure SQL database in the Azure Portal] eller [Skapa en Azure SQL-databas med PowerShell][Create an Azure SQL database with PowerShell].
 * **Resursgrupp**: Använd antingen samma resursgrupp som din Azure SQL-server eller se [hur du kan skapa en resursgrupp](../azure-resource-manager/resource-group-portal.md).
 * **PowerShell version 1.0.3 eller senare**: Du kan kontrollera din version genom att köra **Get-Module -ListAvailable -Name Azure**.  Den senaste versionen kan installeras från [Installationsprogram för Microsoft-webbplattform][Microsoft Web Platform Installer].  Mer information om hur du installerar den senaste versionen finns i [Installera och konfigurera Azure PowerShell][How to install and configure Azure PowerShell].
 
@@ -84,7 +85,7 @@ Mer information om hur du hanterar SQL Data Warehouse via programmering finns i 
 <!--Image references-->
 
 <!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: ./sql-data-warehouse-overview-what-is.md
 [migrate]: ./sql-data-warehouse-overview-migrate.md
 [develop]: ./sql-data-warehouse-overview-develop.md
 [load]: ./sql-data-warehouse-load-with-bcp.md
@@ -94,8 +95,8 @@ Mer information om hur du hanterar SQL Data Warehouse via programmering finns i 
 
 [How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
-[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#complete-azure-powershell-script-to-create-a-server-firewall-rule-and-database
+[Create an Azure SQL database in the Azure Portal]: ../sql-database/sql-database-get-started.md
+[Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-get-started-powershell.md
 [how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references-->
@@ -108,9 +109,4 @@ Mer information om hur du hanterar SQL Data Warehouse via programmering finns i 
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

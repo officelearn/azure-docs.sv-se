@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 03/16/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8f11b9a6606e30e323295d4144497fae90040d2a
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -88,17 +88,17 @@ Med dynamisk kryptering behöver du bara skapa en tillgång som innehåller en u
 
 Mer information om att koda finns i [Koda en tillgång med Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Skapa en innehållsnyckel och associera den med den kodade tillgången
+## <a id="create_contentkey"></a>Skapa en innehållsnyckel och associera den med den kodade tillgången
 I Media Services innehåller innehållsnyckeln den nyckel som du vill kryptera en tillgång med.
 
 Utförlig information finns i [Skapa en innehållsnyckel](media-services-dotnet-create-contentkey.md).
 
-## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Konfigurera en auktoriseringsprincip för innehållsnyckeln
+## <a id="configure_key_auth_policy"></a>Konfigurera en auktoriseringsprincip för innehållsnyckeln
 Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Innehållsnyckelns auktoriseringsprincip måste konfigureras av dig och uppfyllas av klienten (spelaren) för att nyckeln ska kunna levereras till klienten. Auktoriseringsprincipen för innehållsnyckeln kan ha en eller flera auktoriseringsbegränsningar: öppen eller tokenbegränsning.
 
 Mer information finns i [Konfigurera  innehållsnyckelns auktoriseringsprincip](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Konfigurera tillgångsleveransprincip
+## <a id="configure_asset_delivery_policy"></a>Konfigurera tillgångsleveransprincip
 Konfigurera leveransprincipen för din tillgång. Tillgångsleveransprincipen innehåller bland annat följande:
 
 * URL för anskaffning av DRM-licens.
@@ -107,7 +107,7 @@ Konfigurera leveransprincipen för din tillgång. Tillgångsleveransprincipen in
 
 Detaljerad information finns i [Konfigurera tillgångsleveransprincip ](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Skapa en lokaliserare för OnDemand-strömning för att få en strömnings-URL
+## <a id="create_locator"></a>Skapa en lokaliserare för OnDemand-strömning för att få en strömnings-URL
 Du måste förse din användare med strömnings-URL:en för Smooth, DASH eller HLS.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ Hämta en testtoken baserat på de tokenbegränsningar som användes för nyckel
 
 Du kan använda [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) för att testa din dataström.
 
-## <a name="a-idexampleaexample"></a><a id="example"></a>Exempel
+## <a id="example"></a>Exempel
 I följande exempel visas de funktioner som introducerades i Azure Media Services SDK för .Net -Version 3.5.2 (särskilt möjligheten att definiera en Widevine-licensmall och begära en Widevine-licens från Azure Media Services). Följande Nuget-paketkommando användes för att installera paketet:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
@@ -160,6 +160,9 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
               </appSettings>
         </configuration>
 7. Skriv över koden i Program.cs-filen med koden som visas i det här avsnittet.
+
+    >[!NOTE]
+    >Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) avsnitt.
 
     Se till att uppdatera variablerna så att de pekar på mappar där dina indatafiler finns.
 
@@ -276,20 +279,10 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }
@@ -484,7 +477,6 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
 
                     return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
                 }
-
 
                 private static string ConfigureWidevineLicenseTemplate()
                 {

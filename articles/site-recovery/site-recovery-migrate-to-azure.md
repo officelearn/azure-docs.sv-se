@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 2fb457166b4ebe61c11173aa75bdcd2fbce3f03d
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -26,6 +26,9 @@ ms.lasthandoff: 02/23/2017
 Läs den här artikeln för en översikt över användning av Azure Site Recovery-tjänsten för migrering av virtuella datorer och fysiska servrar.
 
 Site Recovery är en Azure-tjänst som understödjer din BCDR-strategi genom att dirigera replikeringen av lokala fysiska servrar och virtuella datorer till molnet (Azure) eller till ett sekundärt datacenter. Vid driftstopp på den primära platsen växlar du över till den sekundära platsen så att program och arbetsbelastningar fortsätter att vara tillgängliga. Du växlar tillbaka till den primära platsen när den har återgått till normal drift. Läs mer i [Vad är Site Recovery?](site-recovery-overview.md) Du kan även använda Site Recovery för att migrera dina befintliga lokala arbetsbelastningar till Azure för att påskynda ditt molnresa och utnyttja samlingen med funktioner som Azure erbjuder.
+
+I den här videon får du en snabb översikt över hur du utför migrering.
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
 Den här artikeln beskriver distribution i [Azure-portalen](https://portal.azure.com). Den [klassiska Azure-portalen](https://manage.windowsazure.com/) kan användas för att bibehålla befintliga Site Recovery-valv men du kan inte skapa nya valv.
 

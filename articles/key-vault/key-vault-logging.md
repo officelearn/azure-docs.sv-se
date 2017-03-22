@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
-ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -50,7 +50,7 @@ För att kunna slutföra den här självstudiekursen behöver du följande:
 * Azure PowerShell, **minst version 1.0.1**. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs). Om du redan har installerat Azure PowerShell och inte vet vilken version du har skriver du `(Get-Module azure -ListAvailable).Version` i Azure PowerShell-konsolen.  
 * Tillräckligt med utrymme i Azure för Key Vault-loggarna.
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Ansluta till dina prenumerationer
+## <a id="connect"></a>Ansluta till dina prenumerationer
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:  
 
     Login-AzureRmAccount
@@ -65,9 +65,14 @@ Skriv sedan följande för att ange den prenumeration som är associerad med nyc
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
+> [!NOTE]
+> Detta är ett viktigt steg och särskilt användbart om du har flera prenumerationer som är kopplade till ditt konto. Du kan få ett felmeddelande om att registrera Microsoft.Insights om du hoppar över det här steget. 
+>   
+>
+
 Mer information om hur du konfigurerar Azure PowerShell finns  i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Skapa ett nytt lagringskonto för dina loggar
+## <a id="storage"></a>Skapa ett nytt lagringskonto för dina loggar
 Även om du kan använda ett befintligt lagringskonto för dina loggar ska vi skapa ett nytt lagringskonto som ska användas specifikt för Key Vault-loggar. För att underlätta för oss när vi senare ska ange detta så lagrar vi informationen i en variabel med namnet **sa**.
 
 För att underlätta ytterligare använder vi också samma resursgrupp som den som innehåller vårt nyckelvalv. I [Komma igång-självstudiekursen](key-vault-get-started.md) heter den här resursgruppen **ContosoResourceGroup** och vi kommer även att fortsätta att använda platsen East Asia (Östasien). Ersätt värdena med dina egna efter behov:
@@ -80,13 +85,13 @@ För att underlätta ytterligare använder vi också samma resursgrupp som den s
 > 
 > 
 
-## <a name="a-ididentifyaidentify-the-key-vault-for-your-logs"></a><a id="identify"></a>Identifiera nyckelvalvet för dina loggar
+## <a id="identify"></a>Identifiera nyckelvalvet för dina loggar
 I Komma igång-självstudien heter nyckelvalvet **ContosoKeyVault** och vi fortsätter att använda det namnet och lagrar informationen i en variabel med namnet **kv**:
 
     $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
-## <a name="a-idenableaenable-logging"></a><a id="enable"></a>Aktivera loggning
+## <a id="enable"></a>Aktivera loggning
 För att aktivera loggning för nyckelvalvet ska vi använda cmdleten Set-AzureRmDiagnosticSetting tillsammans med variabeln som vi skapade för vårt nya lagringskonto och vårt nyckelvalv. Vi kan också ange flaggan **-Enabled** till **$true** och ange kategorin till AuditEvent (den enda kategorin för Nyckelvalvloggning):
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
@@ -117,11 +122,16 @@ Vad loggas:
 * Åtgärder med nycklar och hemligheter i nyckelvalvet, t.ex. att skapa, ändra eller ta bort nycklar eller hemligheter; åtgärder som att signera, verifiera, kryptera, dekryptera, omsluta eller ta bort en nyckelomslutning, hämta hemligheter, visa nycklar och hemligheter samt deras versioner.
 * Oautentiserade förfrågningar som resulterar i ett 401-svar. Till exempel förfrågningar som inte har någon ägartoken, som är felaktiga, som har upphört att gälla eller som har en ogiltig token.  
 
-## <a name="a-idaccessaaccess-your-logs"></a><a id="access"></a>Komma åt loggarna
+## <a id="access"></a>Komma åt loggarna
 Loggarna för nyckelvalvet lagras i behållaren **insights-logs-auditevent** i det lagringskonto som du angav. Om du vill visa alla blobbar i den här behållaren skriver du:
 
-    Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+Börja med att skapa en variabel för behållarens namn. Detta kommer att användas i resten av genomgången.
 
+    $container = 'insights-logs-auditevent'
+
+Om du vill visa alla blobbar i den här behållaren skriver du:
+
+    Get-AzureStorageBlob -Container $container -Context $sa.Context
 Följande utdata returneras för detta:
 
 **Behållarens URI: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
@@ -172,7 +182,7 @@ Nu är det dags att börja titta på vad som finns i loggarna. Men innan vi går
 * Om du vill fråga efter statusen för nyckelvalvsresursens diagnostikinställningar: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
 * Om du vill inaktivera loggning för nyckelvalvsresursen: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
-## <a name="a-idinterpretainterpret-your-key-vault-logs"></a><a id="interpret"></a>Tolka Key Vault-loggarna
+## <a id="interpret"></a>Tolka Key Vault-loggarna
 Enskilda blobbar lagras som text, formaterad som en JSON-blobb. Det här är ett exempel på en loggpost från `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
     {
@@ -253,11 +263,11 @@ Följande tabell innehåller operationName och motsvarande REST-API-kommando.
 | SecretList |[Visa en lista över hemligheterna i ett valv](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Visa en lista över versionerna av en hemlighet](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
-## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Använda Log Analytics
+## <a id="loganalytics"></a>Använda Log Analytics
 
 Du kan använda Azure Key Vault-lösningen i Log Analytics för att läsa igenom AuditEvent-loggarna i Azure Key Vault. Mer information och information om hur du konfigurerar detta finns i [Azure Key Vault i Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). I artikeln hittar du dessutom anvisningar ifall du behöver migrera från den gamla Key Vault-lösningen som fanns i förhandsversionen av Log Analytics. Där började du med att dirigera loggarna till ett Azure Storage-konto och konfigurerade Log Analytics till att läsa därifrån.
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Nästa steg
+## <a id="next"></a>Nästa steg
 En självstudiekurs där Azure Key Vault används i en webbapp finns i [Använda Azure Key Vault från en webbapp](key-vault-use-from-web-application.md).
 
 Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](key-vault-developers-guide.md).

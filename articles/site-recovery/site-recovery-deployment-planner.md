@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2575621d72b7db2b090ba923324697b7fa7b8308
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -82,9 +82,9 @@ Kopiera zip-filen till den Windows Server du vill köra verktyget från. Även o
 Extrahera zip-filen. Den innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
 Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den.
-E:\ASR Deployment Planner-Preview_v1.0.zip
+E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.0\ ASR Deployment Planner-Preview_v1.0\ ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ##<a name="capabilities"></a>Funktioner
 Du kan köra kommandoradsverktyget (ASRDeploymentPlanner.exe) i någon av följande tre lägen:
@@ -199,7 +199,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 
 ##### <a name="example-2-to-generate-report-when-profiled-data-is-on-a-remote-server-user-should-have-readwrite-access-on-the-remote-directory"></a>Example 2: generera en rapport när profileringsdata ligger på en fjärrserver. Användaren ska ha läs-/skrivbehörighet för fjärrkatalogen.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** ”\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** ”\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
 ##### <a name="example-3-generate-report-with-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exempel 3: generera en rapport med specifik bandbredd och mål för att slutföra IR inom angiven tid
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** ”E:\vCenter1_ProfiledData” **-VMListFile** ”E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -407,10 +407,10 @@ Total number of disks across all compatible virtual machines (Totalt antal diska
 
 **Virtual Machines to Place** (Virtuella datorer att placera ut) innehåller de virtuella datorer som ska placeras i det angivna Azure Storage-kontot för att prestanda och användningsgrad ska vara optimala.
 
-##<a name="compatible-vms"></a>Compatible VMs (Kompatibla virtuella datorer)
+## <a name="compatible-vms"></a>Compatible VMs (Kompatibla virtuella datorer)
 ![Deployment Planner](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM Name** (Namn på virtuell dator) är namnet eller IP-adressen för den virtuella datorn i filen VMListFile när rapporten genererades. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna.
+**VM Name** (Namn på virtuell dator) är namnet eller IP-adressen för den virtuella datorn i filen VMListFile när rapporten genererades. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. Virtuella datorer på en vCenter med dubbla namn eller IP-adresser anges med ESXi-värdnamn för att skilja mellan varje virtuell dator. ESXi-värden i listan är den värd där den virtuella datorn placerades när verktyget identifierade den för första gången under profileringsperioden.
 
 **VM Compatibility** (VM-kompatibilitet) har två värden – Ja/Ja*. Ja* är till för de fall där den virtuella datorn passar för [premiumlagring i Azure Storage](https://aka.ms/premium-storage-workload) eftersom diskens omsättning/IOPS hamnar i kategorin P20 eller P30, men där diskens storlek gör att den hamnar i P10 eller P20. Azure Storage avgör vilken typ av premiumlagring en disk ska mappas till baserat på storleken: < 128 GB är en P10, 128 till 512 GB är en P20 och 512 GB till 1 023 GB är en P30. Så om arbetsbelastningens egenskaper för en disk gör den lämplig för P20 eller P30, men storleken mappas till en lägre premiumlagringstyp, markeras den virtuella datorn med Ja* i verktyget. Du rekommenderas då att antingen ändra källdiskens storlek så att den passar den rekommenderade premiumlagringen eller att ändra måldisktypen efter redundansväxling.
 Lagringstyp är antingen standard eller premium.
@@ -439,7 +439,7 @@ Lagringstyp är antingen standard eller premium.
 
 ![Deployment Planner](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM Name** (Namn på virtuell dator) är namnet eller IP-adressen för den virtuella datorn i filen VMListFile när rapporten genererades. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna.
+**VM Name** (Namn på virtuell dator) är namnet eller IP-adressen för den virtuella datorn i filen VMListFile när rapporten genererades. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. Virtuella datorer på en vCenter med dubbla namn eller IP-adresser anges med ESXi-värdnamn för att skilja mellan varje virtuell dator. ESXi-värden i listan är den värd där den virtuella datorn placerades när verktyget identifierade den för första gången under profileringsperioden.
 
 **VM Compatibility** (VM-kompatibilitet) anger varför den här virtuella datorn inte kan skyddas med Azure Site Recovery. Orsakerna beskrivs per inkompatibel disk i den virtuella datorn och kan vara något av följande, baserat på de angivna [gränserna](https://aka.ms/azure-storage-scalbility-performance) för Azure Storage.
 
@@ -483,7 +483,24 @@ Det här är genomsnittliga värden baserade på en I/O-överlappning på 30 %. 
 
 De gränser som anges ovan är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska värdena varierar beroende på blandningen av I/O i ditt program. Du får bästa resultat och en bättre prestandabild om du fortsätter att köra omfattande programtester med redundanstester även efter distributionsplaneringen.
 
-##<a name="release-notes"></a>Viktig information
+## <a name="how-to-update-the-deployment-planner"></a>Hur uppdaterar man Deployment Planner?
+[Ladda ned](site-recovery-deployment-planner.md#download) den senaste versionen av Azure Site Recovery Deployment Planner. Kopiera zip-filen till en server där du vill köra. Extrahera zip-filen.
+Om du redan har en tidigare version av Deployment Planner och profilering pågår behöver du inte stoppa profileringen, om det inte är så att den nya versionen har en profileringskorrigering. Om versionen innehåller korrigeringar i profileringskomponenten rekommenderar vi att du stoppar profilering med den äldre versionen och startar profileringen igen med den nya versionen. Tänk på att när du startar profilering med den nya versionen måste du skicka samma katalogsökväg för utdata så att verktyget bifogar profildata på befintliga filer och så att en fullständig uppsättning profilerade data används när rapporter skapas. Om du skickar en annan utdatakatalog kommer nya filer att skapas och gamla profilerade data kan inte användas för att skapa rapporter.<br> Alla uppdateringar är kumulativa uppdateringar med en zip-fil. Du behöver inte kopiera de nya versionsfilerna till mappen med den tidigare versionen för att använda den. Du kan använda en ny mapp för den.
+
+
+##<a name="version-history"></a>Versionshistorik
+### <a name="11"></a>1.1
+Uppdaterat den: 09-mar-2017 <br>
+
+Åtgärdat följande problem<br>
+
+* Kan inte profilera virtuella datorer om vCenter har två eller fler virtuella datorer med samma namn/IP-adress hos olika ESXi-värdar.<br>
+* Kopiering och sökning har inaktiverats för blad för kompatibla virtuella datorer och inkompatibla virtuella datorer.
+
+
+### <a name="10"></a>1.0 
+Uppdaterat den: 23-feb-2017 
+
 Azure Site Recovery Deployment Planner Public Preview 1.0 har följande kända problem som kommer att åtgärdas i senare uppdateringar.
 
 * Verktyget fungerar bara för scenariot VMware till Azure, inte för distributioner med Hyper-V till Azure. För scenarier av typen Hyper-V till Azure ska du använda [kapacitetsplaneringsverktyget för Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).

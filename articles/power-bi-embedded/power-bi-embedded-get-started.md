@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
-ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4afa8d2c7f8ec1942521ba5fa131967dfd581c91
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Komma igång med Microsoft Power BI Embedded
+
 **Power BI Embedded** är en Azure-tjänst som gör det möjligt för apputvecklare att lägga till interaktiva Power BI-rapporter till sina egna appar. **Power BI Embedded** fungerar med befintliga program utan att behöva designa om eller ändra hur användarna loggar in.
 
 Resurser för **Microsoft Power BI Embedded** distribueras via [Azure ARM-API:er](https://msdn.microsoft.com/library/mt712306.aspx). I det här fallet är den resurs som du etablerar en **Power BI-arbetsytesamling**.
@@ -30,6 +30,7 @@ Resurser för **Microsoft Power BI Embedded** distribueras via [Azure ARM-API:er
 ![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Skapa en arbetsytesamling
+
 En **arbetsytesamling** är en Azure-resurs på högsta nivå och en behållare för det innehåll som kommer att vara inbäddat i din app. En **arbetsytesamling** kan skapas på två sätt:
 
 * Använda Azure Portal manuellt
@@ -55,7 +56,8 @@ Bladet **Skapa** innehåller den information du behöver för att anropa de API:
 
 <a name="view-access-keys"/>
 
-## <a name="view-power-bi-api-access-keys"></a>Visa API-åtkomstnycklar för Power BI 
+## <a name="view-power-bi-api-access-keys"></a>Visa API-åtkomstnycklar för Power BI
+
 En av de viktigaste informationsdelarna som krävs för att anropa Power BI REST-API:er är **åtkomstnycklarna**. Dessa används för att generera de **apptoken** som används för att autentisera dina API-begäranden. För att visa dina **åtkomstnycklar**, klickar du på **Åtkomstnycklar** på bladet **Inställningar**. Mer information om **apptoken**, finns i [Autentisering och auktorisering med Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media/power-bi-embedded-get-started/access-keys.png)
@@ -74,7 +76,8 @@ Nu när du har en Power BI-instans för din app och **åtkomstnycklar** kan du i
 
 När du har skapat arbetsytesamlingen behöver du skapa en arbetsyta för dina rapporter och datauppsättningar. Du behöver använda [REST-API-anropet Post Workspace](https://msdn.microsoft.com/library/azure/mt711503.aspx) för att skapa en arbetsyta.
 
-## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Skapa Power BI-datauppsättningar och -rapporter som ska bäddas in i en app
+## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Skapa Power BI-datauppsättningar och -rapporter som ska bäddas in i en app med hjälp av Power BI Desktop
+
 Nu när du har skapat en Power BI-instans för din app och har **åtkomstnycklar** måste du skapa de Power BI-datauppsättningar och -rapporter som du vill bädda in. Datauppsättningar och rapporter kan skapas med hjälp av **Power BI Desktop**. Du kan hämta [Power BI Desktop kostnadsfritt](https://go.microsoft.com/fwlink/?LinkId=521662). Om du vill komma igång snabbt kan du också hämta [exempel på detaljhandelsanalys PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
 
 > [!NOTE]
@@ -95,20 +98,25 @@ När du har sparat ditt arbete i **Power BI Desktop** skapas en PBIX-fil. Den h�
 > [!NOTE]
 > **Power BI Embedded** har ytterligare API:er för att ändra den server och den databas som din datauppsättning pekar på och ange autentiseringsuppgifter för tjänstekontot som datauppsättningen kommer att använda för att ansluta till databasen. Se [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) och [Datakälla för korrigeringsgateway](https://msdn.microsoft.com/library/mt711498.aspx).
 
-## <a name="next-steps"></a>Nästa steg
-I de föregående stegen skapade du en arbetsytesamling, din första rapport och dina första datauppsättningar. Nu är det dags att lära sig att skriva kod för **Power BI Embedded**. För att hjälpa dig att komma igång har vi tagit fram ett exempel på en webbapp: [Komma igång med exemplet](power-bi-embedded-get-started-sample.md). I det här exemplet visas hur du:
+## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Skapa Power BI-datauppsättningar och -rapporter med hjälp av API:er
 
-* Etablerar innehåll
-  * Skapar en arbetsyta
-  * Importerar en PBIX-fil
-  * Uppdaterar anslutningssträngarna och anger autentiseringsuppgifter för dina datauppsättningar
-* Bäddar in en rapport på ett säkert sätt
+### <a name="datsets"></a>Datauppsättningar
+
+Du kan skapa datauppsättningar i Power BI Embedded med hjälp av REST API. Du kan sedan skicka data till datauppsättningen. På så sätt kan du arbeta med data utan att du behöver Power BI Desktop. Mer information finns i [Post Datasets](https://msdn.microsoft.com/library/azure/mt778875.aspx) (Lägga upp datauppsättningar).
+
+### <a name="reports"></a>Rapporter
+
+Du kan skapa en rapport från en datamängd direkt i programmet med hjälp av JavaScript API. Mer information finns i [Skapa en ny rapport från en datauppsättning i Power BI Embedded](power-bi-embedded-create-report-from-dataset.md).
 
 ## <a name="see-also"></a>Se även
-* [Komma igång med exemplet](power-bi-embedded-get-started-sample.md)
-* [Autentisering och auktorisering med Power BI Embedded](power-bi-embedded-app-token-flow.md)
-* [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+[Komma igång med exemplet](power-bi-embedded-get-started-sample.md)  
+[Autentisering och auktorisering i Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Bädda in en rapport](power-bi-embedded-embed-report.md)  
+[Skapa en ny rapport från en datauppsättning i Power BI Embedded](power-bi-embedded-create-report-from-dataset.md)
+[Spara rapporter](power-bi-embedded-save-reports.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)
 
 

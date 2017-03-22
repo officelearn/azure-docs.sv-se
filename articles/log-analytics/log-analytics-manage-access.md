@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 03/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
-ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -35,7 +35,7 @@ För att skapa en arbetsyta måste du:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Bestämma antalet arbetsytor du behöver
 En arbetsyta är en Azure-resurs och en behållare där data samlas in, aggregeras, analyseras och presenteras på Azure Portal.
 
-Det är möjligt att skapa flera arbetsytor så att användare har åtkomst till en eller flera arbetsytor. Genom att minimera antalet arbetsytor kan du förfråga och kombinera över de flesta data. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
+Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta. När du minimerar antalet arbetsytor kan du söka och samordna de flesta data eftersom det inte går att söka i flera arbetsytor. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
 
 För närvarande tillhandahåller en arbetsyta:
 
@@ -52,7 +52,7 @@ Baserat på föregående egenskaper kan du behöva skapa flera arbetsytor om:
 * Du är en leverantör av hanterade tjänster och behöver logganalysdata för varje kund du hanterar isolerade från andra kunders data.
 * Du hanterar flera kunder och vill att varje kund/avdelning/affärsgrupp ska se sina egna data, men inte data för några andra.
 
-När du använder agenter för att samla in data måste du konfigurera varje agent så att den rapporterar till en eller flera arbetsytor.
+När du använder agenter för att samla in data måste du [konfigurera varje agent så att den rapporterar till en eller flera arbetsytor](log-analytics-windows-agents.md).
 
 Om du använder System Center Operations Manager kan varje hanteringsgrupp för Operations Manager endast anslutas till en arbetsyta. Du kan installera Microsoft Monitoring Agent på datorer som hanteras av Operations Manager och låta agenten rapporten till både Operations Manager och en annan Log Analytics-arbetsyta.
 
@@ -71,34 +71,64 @@ Du kan visa information om din arbetsyta på Azure Portal. Du kan också visa in
 
 
 ## <a name="manage-accounts-and-users"></a>Hantera konton och användare
-Varje arbetsyta kan ha flera associerade användarkonton, och varje användarkonto (Microsoft-konto eller organisationskonto) kan ha åtkomst till flera arbetsytor.
+Varje arbetsyta kan ha flera associerade konton, och varje konto (Microsoft-konto eller organisationskonto) kan ha åtkomst till flera arbetsytor.
 
-Som standard blir det Microsoft-konto eller organisationskonto som använts för att skapa arbetsytan administratör för arbetsytan. Administratören kan sedan bjuda in ytterligare Microsoft-konton eller välja användare från Azure Active Directory.
+Som standard blir det Microsoft-konto eller organisationskonto som använts för att skapa arbetsytan administratör för arbetsytan.
 
-Du hanterar användarnas åtkomst till arbetsytan på två platser:
+Det finns två behörighetsmodeller som kontrollerar åtkomst till en Log Analytics-arbetsyta:
 
-* I Azure kan du använda rollbaserad åtkomstkontroll för att ge åtkomst till Azure-prenumerationen och tillhörande Azure-resurser. Dessa tillstånd används också för PowerShell- och REST API-åtkomst.
-* Endast åtkomst till OMS-portalen, inte tillhörande Azure-prenumeration.
+1. Äldre Log Analytics-användarroller
+2. [Rollbaserad åtkomst i Azure](../active-directory/role-based-access-control-configure.md) 
 
-Om du vill visa panelerna för Backup och Site Recovery måste du ha administratörs- eller medadministratörsbehörighet till den Azure-prenumeration som arbetsytan är länkad till.   
+I följande tabell sammanfattas åtkomsten som kan ställas in med varje behörighetsmodell:
 
-### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Hantera åtkomst till Log Analytics i Azure-portalen
-Om du ger användare åtkomst till arbetsytan Log Analytics med Azure-behörigheter, i Azure-portalen t.ex., kan samma användare sedan använda Log Analytics-portalen. Om användare är i Azure-portalen kan de navigera till OMS-portalen genom att klicka på åtgärden **OMS-portal** när de ser Log Analytics-arbetsytan.
+|                          | Log Analytics-portal | Azure Portal | API (inklusive PowerShell) |
+|--------------------------|----------------------|--------------|----------------------------|
+| Log Analytics-användarroller | Ja                  | Nej           | Nej                         |
+| Rollbaserad åtkomst i Azure  | Ja                  | Ja          | Ja                        |
+
+> [!NOTE]
+> Log Analytics flyttar för att använda Azure-rollbaserad åtkomst som behörighetsmodell, vilket ersätter Log Analytics-användarrollerna.
+>
+>
+
+De äldre Log Analytics-användarrollerna kontrollerar endast åtkomst till aktiviteter som utförs i [Log Analytics-portalen](https://mms.microsoft.com).
+
+Följande aktiviteter i Log Analytics-portalen kräver även Azure-behörigheter:
+
+| Åtgärd                                                          | Azure-behörigheter krävs | Anteckningar |
+|-----------------------------------------------------------------|--------------------------|-------|
+| Lägga till och ta bort hanteringslösningar                        | Resursgrupp, skriva <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Ändra prisnivån                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
+| Visa data i lösningspanelerna *säkerhetskopiering* och *Site Recovery* | Administratör/medadministratör | Åtkomst till resurser som distribueras med den klassiska distributionsmodellen |
+ 
+### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Hantera åtkomst till Log Analytics med Azure-behörighet
+Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../active-directory/role-based-access-control-configure.md).
+
+Om du har minst Azure-läsbehörighet i Log Analytics-arbetsytan kan du öppna OMS-portalen genom att klicka på uppgiften **OMS-portal** när du visar Log Analytics-arbetsytan.
+
+När du öppnar Log Analytics-portalen växlar du till de äldre Log Analytics-användarrollerna. Om du inte har någon rolltilldelning i Log Analytics-portalen [kontrollerar tjänsten vilka Azure-behörigheter du har på arbetsytan](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). Din rolltilldelning i Log Analytics-portalen fastställs så här:
+
+| Villkor                                                   | Tilldelad Log Analytics-användarroll | Anteckningar |
+|--------------------------------------------------------------|----------------------------------|-------|
+| Ditt konto tillhör en tidigare Log Analytics-användarroll     | Den angivna Log Analytics-användarrollen | |
+| Ditt konto tillhör inte en tidigare Log Analytics-användarroll <br> Fullständiga Azure-behörigheter för arbetsytan (`*` behörighet <sup>1</sup>) | Administratör ||
+| Ditt konto tillhör inte en tidigare Log Analytics-användarroll <br> Fullständiga Azure-behörigheter för arbetsytan (`*` behörighet <sup>1</sup>) <br> *inte åtgärder* för `Microsoft.Authorization/*/Delete` och `Microsoft.Authorization/*/Write` | Deltagare ||
+| Ditt konto tillhör inte en tidigare Log Analytics-användarroll <br> Läsbehörighet för Azure | Skrivskyddad ||
+| Ditt konto tillhör inte en tidigare Log Analytics-användarroll <br> Azure-behörigheter kan inte tolkas | Skrivskyddad ||
+| För CSP-hanterade (Cloud Solution Provider) prenumerationer <br> Kontot du är inloggad med är i Azure Active Directory, länkat till arbetsytan | Administratör | Vanligtvis en CSP-kund |
+| För CSP-hanterade (Cloud Solution Provider) prenumerationer <br> Kontot du är inloggad med är inte i Azure Active Directory, länkat till arbetsytan | Deltagare | Vanligtvis CSP |
+
+<sup>1</sup> Läs [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) (Azure-behörigheter) om du vill ha mer information om rolldefinitioner. När du utvärderar roller motsvarar åtgärden `*` inte `Microsoft.OperationalInsights/workspaces/*`. 
 
 Vissa saker att tänka på vad gäller Azure-portalen:
 
-* Detta är inte *Rollbaserad åtkomstkontroll*. Om du har *Läs*-åtkomstbehörigheter i Azure-portalen för Log Analytics-arbetsytan kan du göra ändringar i OMS-portalen. OMS-portalen har ett koncept med administratör, deltagare och skrivskyddad användare. Om det konto som du är inloggad med är i det Azure Active Directory som är länkat till arbetsytan är du en administratör i OMS-portalen, annars är du deltagare.
-* När du loggar in på OMS-portalen med hjälp av http://mms.microsoft.com, visas som standard listan **Välj en arbetsyta**. Den innehåller endast arbetsytor som har lagts till med hjälp av OMS-portalen. Om du vill se arbetsytorna du har åtkomst till med Azure-prenumerationer måste du ange en klient som en del av URL:en. Exempel:
-
-  `mms.microsoft.com/?tenant=contoso.com` Klient-ID är ofta den sista delen av e-postadressen som du loggade in med.
-* Om det konto som du loggar in med är ett konto i klient-Azure Active Directory är du en *Administratör* i OMS-portalen. Detta är ofta vanligt om du inte loggar in som en kryptografiprovider.  Om ditt konto inte är i klient-Azure Active Directory så är du en *Användare* i OMS-portalen.
+* När du loggar in på OMS-portalen med hjälp av http://mms.microsoft.com, visas listan **Välj en arbetsyta**. Listan innehåller endast arbetsytor där du har en Log Analytics-användarroll. Om du vill se arbetsytorna du har åtkomst till med Azure-prenumerationer måste du ange en klient som en del av URL:en. Till exempel: `mms.microsoft.com/?tenant=contoso.com`. Klient-ID är ofta den sista delen av e-postadressen som du loggade in med.
 * Om du vill gå direkt till en portal som du har åtkomst till genom att använda Azure-behörigheter måste du ange resursen som en del av URL:en. Det är möjligt att hämta den här URL:en med hjälp av PowerShell.
 
   Till exempel `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
   URL-adressen liknar: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
-
-För att exempelvis lägga till eller ta bort hanteringslösningar måste användaren vara administratör eller bidragsgivare till Azure-prenumerationen vid användning av Azure Portal. Användaren måste dessutom ha bidragsgivar- eller ha administratörsrollen för OMS-arbetsytan i OMS-portalen.
 
 ### <a name="managing-users-in-the-oms-portal"></a>Hantera användare i OMS-portalen
 Du kan hantera användare och grupp på fliken **Hantera användare** under fliken **Konton** på sidan Inställningar.   
@@ -114,7 +144,7 @@ Följ stegen nedan om du vill lägga till en användare eller grupp på en arbet
 3. I avsnittet **Hantera användare** väljer du kontotyp för att lägga till: **Organisationskonto**, **Microsoft-konto**, **Microsoft Support**.
 
    * Om du väljer Microsoft-konto, skriver du e-postadressen för den användare som är associerad med Microsoft-kontot.
-   * Om du väljer organisationskonto kan du ange en del av användarens eller gruppens namn eller e-postalias så visas en lista över matchande användare och grupper i en listruta. Välj en användare eller grupp.
+   * Om du väljer organisationskonto kan du ange en del av användarens/gruppens namn eller e-postalias så visas en lista över matchande användare och grupper i en listruta. Välj en användare eller grupp.
    * Använd Microsoft Support för att ge en Microsoft-supporttekniker eller annan Microsoft-medarbetare tillfällig åtkomst till ditt arbetsområde för hjälp med felsökning.
 
      > [!NOTE]
@@ -204,7 +234,7 @@ Det finns tre typer av planer för arbetsytor i OMS: **Kostnadsfri**, **Friståe
 ### <a name="using-entitlements-from-an-oms-subscription"></a>Använda rättigheter från en OMS-prenumeration
 För att använda rättigheter som kommer från inköp av OMS E1, OMS E2 OMS eller MS-tillägg för System Center väljer du *OMS*-planen för OMS Log Analytics.
 
-När du köper en OMS-prenumeration läggs rättigheterna till i ditt Enterprise Agreement. Alla Azure-prenumerationer som har skapats under det här avtalet kan använda rättigheterna. Detta gör att du till exempel kan ha flera arbetsytor som använder rättigheten från OMS-prenumerationerna.
+När du köper en OMS-prenumeration läggs rättigheterna till i ditt Enterprise Agreement. Alla Azure-prenumerationer som har skapats under det här avtalet kan använda rättigheterna. Alla arbetsytor på dessa prenumerationer använder OMS-rättigheter.
 
 För att säkerställa att användningen av en arbetsyta tillämpas på dina rättigheter från OMS-prenumerationen måste du:
 
@@ -219,11 +249,11 @@ För att säkerställa att användningen av en arbetsyta tillämpas på dina rä
 OMS-prenumerationens rättigheter är inte synliga i Azure eller OMS-portalen. Du kan se rättigheter och användning i Enterprise Portal.  
 
 Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan du använda Azure PowerShell-cmdlet:en [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
-
+till
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Använda Azure-åtagande från ett Enterprise-avtal
 Om du inte har en OMS-prenumeration betalar du separat för varje komponent i OMS och användningen visas på din Azure-faktura.
 
-Om du har ett Azure-betalningsåtagande på företagsregistreringen som är kopplad till dina Azure-prenumerationer, kommer all användning av Log Analytics automatiskt att debiteras mot eventuella återstående betalningsåtaganden.
+Om du har ett Azure-betalningsåtagande på företagsregistreringen som är kopplad till dina Azure-prenumerationer kommer all användning av Log Analytics automatiskt att debiteras mot eventuella återstående betalningsåtaganden.
 
 Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan du använda Azure PowerShell-cmdlet:en [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).  
 
@@ -242,14 +272,14 @@ Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan 
 >
 >
 
-## <a name="change-your-data-plan-in-the-oms-portal"></a>Byt dataplan i OMS-portalen
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Ändra en arbetsyta till en prisnivå i OMS-portalen
 
-Om du vill ändra en dataplan via OMS-portalen måste den inloggade användaren redan ha ett Azure-konto.
+Om du vill ändra prisnivån med OMS-portalen måste du ha en Azure-prenumeration.
 
 1. Klicka på panelen **Inställningar** på OMS-portalen.
 2. Klicka på fliken **Konton** och klicka sedan på fliken **Azure-prenumeration och dataplan**.
-3. Klicka på den plan som du vill använda.
-4. Klicka på **Spara**.  
+3. Klicka på den prisnivå som du vill använda.
+4. Klicka på **Save** (Spara).  
    ![prenumeration och dataplaner](./media/log-analytics-manage-access/subscription-tab.png)
 
 Den nya dataplanen visas på menyfliken i OMS-portalen längst upp på webbsidan.

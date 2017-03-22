@@ -4,7 +4,7 @@ description: "Använd Azure Machine Learning för att skapa en förutsägbar Mac
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
-manager: barbkess
+manager: jhubbard
 editor: 
 ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
 ms.service: sql-data-warehouse
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
+ms.date: 03/02/2017
+ms.author: kevin
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: db402a9d8bdccf0db9783450fa4cb60a2c047ece
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: a5befbf1dc1862b3b0803eb4940341d246ec036c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -41,7 +42,7 @@ För att gå igenom de här självstudierna, behöver du:
 
 * Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta läser du [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] och väljer att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata kan du [läsa in exempeldata manuellt][load sample data manually].
 
-## <a name="1-get-data"></a>1. Hämta data
+## <a name="1-get-the-data"></a>1. Hämta data
 Aktuella data finns i dbo.vTargetMail-vyn i AdventureWorksDW-databasen. Så här läser du in dessa data:
 
 1. Logga in i [Azure Machine Learning Studio][Azure Machine Learning studio] och klicka på My experiments (Mina experiment).
@@ -146,9 +147,4 @@ Mer information om hur du skapar förutsägbara maskininlärningsmodeller finns 
 [Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [load sample data manually]: sql-data-warehouse-load-sample-databases.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

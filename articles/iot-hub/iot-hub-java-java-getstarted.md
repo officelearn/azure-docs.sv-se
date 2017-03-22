@@ -151,7 +151,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.11.0</version> 
+        <version>0.13.0</version> 
     </dependency>
     ```
 

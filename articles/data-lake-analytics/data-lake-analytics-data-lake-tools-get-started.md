@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
-ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -28,7 +29,7 @@ Lär dig hur du installerar Data Lake-verktyg för Visual Studio och använder D
 U-SQL är ett hyperskalbart, mycket utökningsbart språk för att förbereda, transformera och analysera alla data i Data Lake och andra lagringsplatser. Mer information finns i [Använd U-SQL-referens](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Krav
-* **Visual Studio 2015, Visual Studio 2013 uppdatering 4 eller Visual Studio 2012. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte. Visual Studio 2017 stöds inte för närvarande.**
+* **Visual Studio 2015 uppdatering 3, Visual Studio 2013 uppdatering 4 eller Visual Studio 2012. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte. Visual Studio 2017 stöds inte för närvarande.**
 * **Microsoft Azure SDK för .NET version 2.7.1 eller senare**.  Installera den med hjälp av [installationsprogrammet för webbplattformen](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake-verktyg för Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -127,9 +128,9 @@ Data Lake Analytics-jobb skrivs på U-SQL-språket. Läs mer om U-SQL i [Kom ig�
        Namn automatiskt slutfört och medlemmarna kommer att visas för raduppsättningen, klasser, databaser, scheman och användardefinierade objekt (UDO).
 
        IntelliSense för katalogentiteter (databaser, scheman, tabeller, användardefinierade objekt o.s.v.) är relaterat till ditt beräkningskonto. Du kan kontrollera aktuellt aktivt beräkningskonto, databas och schema i det översta verktygsfältet och aktivera dem i listrutorna.
-   * **Expandera * kolumner**
+   * **Expandera* kolumner**
 
-       Högerklicka på *, så ser du en blå understrykning under *. Håll musmarkören på den blå understrykningen och klicka sedan på nedpilen.
+       Högerklicka på *, så ser du en blå understrykning under*. Håll musmarkören på den blå understrykningen och klicka sedan på nedpilen.
        ![Data Lake Visual Studio-verktygen expanderar *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Klicka på **Expanderar kolumner**, verktyget ersätter * med kolumnnamn.
@@ -349,9 +350,4 @@ Följande PowerShell-skript förbereder ett Azure Data Lake Analytics-konto och 
     Write-Host "List the source data ..."  -ForegroundColor Green
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

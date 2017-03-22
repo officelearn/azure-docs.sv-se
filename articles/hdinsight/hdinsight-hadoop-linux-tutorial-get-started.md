@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: c08b568642e88da1aeddd36cb25a9f5c94b083e2
-ms.openlocfilehash: f283f103804d8e6d4a3c2037c8d38daafcb3f3e8
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: d038245747ff8cfd2c80d7a7e0f05373ccb1e5fe
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -62,7 +63,7 @@ Resource Manager-mallen som används i den här självstudien finns i [Github](h
     * **OS-typ**: Linux
     * **Antal arbetsnoder**: 2
 
-     Varje kluster är beroende av ett Azure Blob Storage-konto. Det kallas vanligtvis Storage-konto av standardtyp. HDInsight-kluster och Storage-kontot av standardtyp måste finnas i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster. 
+     Varje kluster är beroende av ett Azure Storage-konto. Det kallas vanligtvis Storage-konto av standardtyp. HDInsight-kluster och Storage-kontot av standardtyp måste finnas i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster. 
      
      Fler förklaringar av dessa egenskaper finns i [Skapa Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -134,7 +135,7 @@ Mer information om att analysera data med HDInsight finns här:
 
 Om du är redo att börja arbeta med dina egna data och vill veta mer om hur data lagras i HDInsight eller om att hämta data till HDInsight, hittar du mer information här:
 
-* Mer information om hur HDInsight använder Azure Blob Storage finns i [Använda Azure Blob Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md).
+* Mer information om hur HDInsight använder Azure Storage finns i [Använda Azure Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md).
 * Mer information om hur du överför data till HDInsight finns i [Överföra data till HDInsight][hdinsight-upload-data].
 
 Mer information om att skapa eller hantera HDInsight-kluster hittar du här:
@@ -155,10 +156,5 @@ Mer information om att skapa eller hantera HDInsight-kluster hittar du här:
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

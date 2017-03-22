@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 03/09/2017
 ms.author: briz
 translationtype: Human Translation
-ms.sourcegitcommit: 55d3f08de7f8c7ba68faba1945e8fd960e888853
-ms.openlocfilehash: 5e1b1333212af0b9042e7ed3793c08e305085519
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -38,7 +39,11 @@ IoT medför en unik uppsättning utmaningar för enhetshantering, och en lösnin
 
 * **Skala och automatisering**: IoT-lösningar kräver enkla verktyg som kan automatisera rutiner och som låter en mycket liten personalstyrka hantera miljontals enheter. I det dagliga arbetet förväntas operatörer fjärrhantera enhetsåtgärder gruppvis och endast få aviseringar när problem som kräver direkta åtgärder uppstår.
 * **Insyn och kompatibilitet**: Enhetsmiljön är ovanligt mångfaldig. Hanteringsverktygen måste skräddarsys för att hantera en mängd olika enhetsklasser, plattformar och protokoll. Operatörer måste ha stöd för många typer av enheter, från de mest begränsade inbäddade enkelprocesschippen till kraftfulla och helt funktionella datorer.
-* **Kontextmedvetenhet**: IoT-miljöer är dynamiska och föränderliga. Tjänstens tillförlitlighet är avgörande. Enhetshanteringsåtgärder ta SLA-underhållsfönster, nätverks- och krafttillstånd, användningsförutsättningar och enhetens plats i åtanke så att driftavbrotten inte påverkar viktiga företagsrutiner eller skapar farliga förutsättningar.
+* **Kontextmedvetenhet**: IoT-miljöer är dynamiska och föränderliga. Tjänstens tillförlitlighet är avgörande. Enhetshanteringsåtgärder måste ha följande faktorer i åtanke så att driftavbrotten inte påverkar viktiga företagsrutiner eller skapar farliga förutsättningar:
+    * SLA-underhållsfönster
+    * Nätverks- och krafttillstånd
+    * Användningsförutsättningar
+    * Enhetens geografiska plats
 * **Stöd för många roller**: stöd för IoT-åtgärdernas unika arbetsflöden och processer är avgörande. Driftpersonalen måste arbeta harmoniskt med de givna begränsningarna för interna IT-avdelningar.  De måste också hitta hållbara sätt för att exponera information om enhetsåtgärder i realtid för chefer och andra företagsledarroller. 
 
 ## <a name="device-lifecycle"></a>Enhetens livscykel
@@ -50,19 +55,19 @@ I var och en av dessa fem faser finns det flera enhetsoperatorskrav som måste u
 
 * **Planera**: Operatörer kan skapa ett schema med enhetens metadata. Schemat kan användas till att snabbt och korrekt skicka frågor till eller fokusera på en enhetsgrupp för massåtgärder. Du kan använda enhetstvillingen för att lagra dessa enhetsmetadata i form av taggar och egenskaper.
   
-    *Mer information*: [Get started with device twins][lnk-twins-getstarted] (Komma igång med enhetstvillingar), [Understand device twins][lnk-twins-devguide] (Förstå enhetstvillingar), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar)
+    *Mer information*: [Kom igång med enhetstvillingar][lnk-twins-getstarted], [Förstå enhetstvillingar][lnk-twins-devguide], [How to use device twin properties ][lnk-twin-properties] (Använda egenskaper för enhetstvillingar).
 * **Etablera**: Etablera säkert nya enheter i IoT Hub där operatörerna kan se enhetens funktioner direkt.  Använd IoT Hub-identitetsregistret för att skapa flexibla enhetsidentiteter och autentiseringsuppgifter och utför åtgärden gruppvis med hjälp av ett jobb. Skapa enheter om du vill rapportera deras kapacitet och villkor via enhetens egenskaper i enhetstvillingen.
   
-    *Mer information*: [Manage device identities][lnk-identity-registry] (Hantera enhetsidentiteter), [Bulk management of device identities][lnk-bulk-identity] (Masshantering av enhetsidentiteter), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar)
+    *Mer information*: [Hantera enhetsidentiteter][lnk-identity-registry], [Bulk management of device identities][lnk-bulk-identity] (Masshantering av enhetsidentiteter), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar).
 * **Konfigurera**: underlätta massinläsning av konfigurationsändringar och uppdaterad enhetsprogramvara utan att förlora funktion eller säkerhet. Utför dessa åtgärder för enhetshantering gruppvis genom att använda önskade egenskaper eller med direkta metoder och sändningsjobb.
   
-    *Mer information*:  [Use direct methods][lnk-c2d-methods] (Använda direkta metoder), [Invoke a direct method on a device][lnk-methods-devguide] (Anropa en direkt metod på en enhet), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar, [Schedule and broadcast jobs][lnk-jobs] (Schemalägga och sända jobb), [Schedule jobs on multiple devices][lnk-jobs-devguide] (Schemalägga jobb på flera enheter)
+    *Mer information*:  [Använda direkta metoder][lnk-c2d-methods], [Invoke a direct method on a device][lnk-methods-devguide] (Anropa en direkt metod på en enhet), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [Schemalägga och sända jobb][lnk-jobs], [Schemalägga jobb på flera enheter][lnk-jobs-devguide] (Schemalägga jobb på flera enheter).
 * **Övervaka**: Övervaka enhetssamlingens allmänna funktion samt statusen för pågående åtgärder så att operatörerna blir medvetna om problem som kräver åtgärder.  Använd enhetstvillingen för att tillåta att enheterna rapporterar driftsförhållanden och status för uppdateringsåtgärder i realtid. Skapa kraftfulla instrumentpanelsrapporter som lyfter fram de mest omedelbara problemen genom att använda enhetstvillingsfrågor.
   
-    *Mer information*: [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [IoT Hub query language for device twins and jobs][lnk-query-language] (IoT Hub-frågespråk för enhetstvillingar och jobb)
+    *Mer information*: [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [IoT Hub query language for device twins and jobs][lnk-query-language] (IoT Hub-frågespråk för enhetstvillingar och jobb).
 * **Inaktivera**: ersätta eller inaktivera enheter efter ett fel, uppgraderingscykel eller efter enhetens funktionstid har löpt ut.  Använd enhetstvillingen för att underhålla enhetsinformation om den fysiska enheten håller på att ersättas eller arkiveras om den har återkallats. Använd IoT Hub-identitetsregistret för att säkert återkalla enhetsidentiteter och autentiseringsuppgifter.
   
-    *Mer information*: [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [Manage device identities][lnk-identity-registry] (Hantera enhetsidentiteter)
+    *Mer information*: [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [Hantera enhetsidentiteter][lnk-identity-registry].
 
 ## <a name="device-management-patterns"></a>Enhetshanteringsmönster
 IoT Hub använder följande uppsättning enhetshanteringsmönster.  [Självstudiekursen om enhetshantering][lnk-get-started] beskriver i mer detalj hur du utökar dessa mönster så att de passar just ditt scenario och hur du designar nya mönster utifrån dessa basmallar.
@@ -109,9 +114,4 @@ Om du vill lära dig mer om enhetshanteringsfunktionerna i IoT Hub går du själ
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

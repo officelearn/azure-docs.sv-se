@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f72a3650de5b1d43c992a801ffce1384774594f2
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -54,8 +55,9 @@ Anvisningarna i kursen gäller båda följande produkter:
 
 * Visual Studio 2013
 * Visual Studio 2015
+* Visual Studio 2017
 
-Om du inte har någon av dessa kommer Visual Studio 2015 att installeras automatiskt när du installerar Azure SDK.
+Om du inte har någon av dessa kan Visual Studio installeras automatiskt när du installerar Azure SDK.
 
 ## <a name="application-architecture"></a>Programarkitektur
 Appen lagrar annonser i en SQL-databas och använder Entity Framework Code First för att skapa tabellerna och komma åt data. Databasen lagrar två URL:er för varje annons, en för bilden i full storlek och en för miniatyrbilden.
@@ -76,7 +78,7 @@ När en användare laddar upp en bild, lagrar klientdelen som körs i en webbrol
 
     Som standard återställer Visual Studio automatiskt NuGet-paketinnehållet som inte ingick i *.zip*-filen. Om paketinnehållet inte återställs kan du installera det manuellt genom att öppna dialogrutan **Manage NuGet Packages for Solution** (Hantera NuGet-paket för lösningen) och klicka på knappen **Restore** (Återställ) högst upp till höger.
 5. I **Solution Explorer** ska du kontrollera att **ContosoAdsCloudService** har markerats som startprojekt.
-6. Om du använder Visual Studio 2015, ska du ändra SQL Server-anslutningssträngen i filen *Web.config* i ContosoAdsWeb-projektet samt i filen *ServiceConfiguration.Local.cscfg* i ContosoAdsCloudService-projektet. I båda fallen ska du ändra ”(localdb)\v11.0” till ”(localdb)\MSSQLLocalDB”.
+6. Om du använder Visual Studio 2015 eller högre, ska du ändra SQL Server-anslutningssträngen i filen *Web.config* i ContosoAdsWeb-projektet samt i filen *ServiceConfiguration.Local.cscfg* i ContosoAdsCloudService-projektet. I båda fallen ska du ändra ”(localdb)\v11.0” till ”(localdb)\MSSQLLocalDB”.
 7. Tryck på CTRL+F5 för att köra programmet.
 
     När du kör ett molntjänstprojekt lokalt anropar Visual Studio automatiskt *beräkningsemulatorn* och *lagringsemulatorn* i Azure. Beräkningsemulatorn använder datorns resurser för att simulera webbrolls- och arbetsrollsmiljöerna. Lagringsemulatorn använder en [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx)-databas för att simulera Azure-molnlagring.
@@ -165,7 +167,7 @@ I ett riktigt program skapar du vanligtvis separata konton för programdata jäm
     När molntjänsten och lagringskontot är i olika datacenter (olika regioner), ökar svarstiden och du debiteras för bandbredden utanför datacentret. Bandbredd inom ett datacenter är kostnadsfri.
 
     Azure-tillhörighetsgrupper tillhandahåller en funktion som minskar avståndet mellan resurser i datacentret, vilket kan förkorta svarstiden. Under den här kursen används inte tillhörighetsgrupper. Mer information finns i [Skapa en tillhörighetsgrupp i Azure](http://msdn.microsoft.com/library/jj156209.aspx).
-4.  Välj **Locally redundant** (Lokalt redundant) i listrutan **Replication** (Replikering).
+4. Välj **Locally redundant** (Lokalt redundant) i listrutan **Replication** (Replikering).
 
     När geo-replikering har aktiverats för ett lagringskonto, replikeras det lagrade innehållet till ett sekundärt datacenter för att aktivera redundans till den platsen om det skulle inträffa en större katastrof på den primära platsen. Geo-replikering kan medföra ytterligare kostnader. När det gäller test- och utvecklingskonton ska du vanligtvis inte betala för geo-replikering. Mer information finns i [Skapa, hantera eller ta bort ett lagringskonto](../storage/storage-create-storage-account.md).
 5. Klicka på **Create Storage Account** (Skapa lagringskonto).
@@ -364,7 +366,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
     </connectionStrings>
     ```
 
-    Om du använder Visual Studio 2015 ersätter du ”v11.0” med ”MSSQLLocalDB”.
+    Om du använder Visual Studio 2015 eller högre ersätter du ”v11.0” med ”MSSQLLocalDB”.
 2. Spara ändringarna.
 3. Högerklicka på ContosoAdsWeb under **Roles** (Roller) i ContosoAdsCloudService-projektet, och klicka sedan på **Properties** (Egenskaper).
 
@@ -381,7 +383,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 
    * Namn: ContosoAdsDbConnectionString
    * Typ: Sträng
-   * Värde: Klistra in samma anslutningssträng som du använde för webbrollsprojektet. (Följande exempel gäller Visual Studio 2013. Glöm inte att ändra datakällan om du kopierar det här exemplet och använder Visual Studio 2015.)
+   * Värde: Klistra in samma anslutningssträng som du använde för webbrollsprojektet. (Följande exempel gäller Visual Studio 2013. Glöm inte att ändra datakällan om du kopierar det här exemplet och använder Visual Studio 2015 eller högre.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -769,9 +771,4 @@ Mer information finns i följande resurser:
 * [Hantera molntjänster](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 * [Hur man väljer molntjänstleverantör](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 03/08/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4d7523c2bd865039cc989b3d6a288f870288b102
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,7 +33,7 @@ Service Bus är en molntjänst med flera klienter, vilket innebär att tjänsten
 
 **Bild 1: Service Bus erbjuder en tjänst för flera innehavare för att ansluta program via molnet.**
 
-Du kan använda en eller flera instanser av fyra olika kommunikationsmekanismer inom namnområdet. Dessa ansluter till appar på olika sätt. Alternativen är:
+Du kan använda en eller flera instanser av tre olika kommunikationsmekanismer inom namnområdet. Dessa ansluter till appar på olika sätt. Alternativen är:
 
 * *Köer*, som tillåter en enkelriktad kommunikation. Varje kö fungerar som en mellanhand (kallas ibland för en *koordinator*) som sparar skickade meddelanden tills de tas emot. Varje meddelande tas emot av en enda mottagare.
 * *Ämnen*, som ger enkelriktad kommunikation med hjälp av *prenumerationer*. Ett ämne kan ha flera prenumerationer. Precis som med köerna fungerar ämnena som en koordinator (broker), men varje prenumeration kan sedan använda ett filter för att endast ta emot meddelanden som uppfyller specifika villkor.
@@ -40,7 +41,7 @@ Du kan använda en eller flera instanser av fyra olika kommunikationsmekanismer 
 
 När du skapar en kö, ett ämne eller ett relä ger du dem ett namn. Det här namnet, tillsammans med det namn som du gav namnområdet, skapar en unik identifierare för objektet. Appen kan överföra detta namn till Service Bus och sedan använda den kön, det ämnet eller det reläet i sin kommunikation med varandra. 
 
-Windows-program kan använda Windows Communication Foundation (WCF) för att använda något av dessa objekt vid vidarebefordran. För köer och ämnen kan Windows-program använda API:er för Service Bus-definierade meddelandefunktioner. Om du vill att det ska vara enklare att använda objekten från andra program som inte är från Windows, tillhandahåller Microsoft SDK:er för Java, Node.js och andra programmeringsspråk. Du kan även få åtkomst till köer och ämnen med hjälp av REST-API:er via HTTP. 
+Windows-program kan använda Windows Communication Foundation (WCF) för att använda något av dessa objekt vid vidarebefordran. För köer och ämnen kan Windows-program använda API:er för Service Bus-definierade meddelandefunktioner. Om du vill att det ska vara enklare att använda objekten från andra program som inte är från Windows, tillhandahåller Microsoft SDK:er för Java, Node.js och andra programmeringsspråk. Du kan även få åtkomst till köer och ämnen med hjälp av [REST-API:er](/rest/api/servicebus/) via HTTP. 
 
 Det är viktigt att förstå att även om själva Service Bus körs i molnet (det vill säga i datacenter för Microsoft Azure) så kan apparna som använder den köras var som helst. Du kan använda Service Bus för att ansluta appar som körs på Azure, till exempel, eller program som körs i ditt eget datacenter. Du kan också använda Service Bus för att ansluta en app som körs på Azure eller på en annan molnplattform med ett lokalt program, eller med surfplattor och smartmobiler. Det går till och med att ansluta hushållsapparater, sensorer och andra enheter till ett centralt program eller till varandra. Service Bus är en kommunikationsmekanism i molnet och den är tillgänglig från nästan var som helst. Hur du använder den beror på vad dina appar behöver göra.
 
@@ -55,15 +56,15 @@ Processen är enkel: En avsändare skickar ett meddelande till en Service Bus-k�
 
 Varje meddelande består av två delar: en uppsättning egenskaper, som alla är ett nyckel-/värdepar, och en meddelandenyttolast. Nyttolasten kan vara binär, text eller till och med XML. Hur de används beror på vad en app försöker utföra. Ett exempel: Ett program som skickar ett meddelande om en nyligen genomförd försäljning kan innehålla egenskaperna *Säljare="Ava"* och *Belopp=&10000;*. Meddelandetexten (brödtexten) kan innehålla en skannad bild av försäljningsavtalet, eller om det inte finns något sådant, bara vara tomt.
 
-En mottagare kan läsa ett meddelande från en Service Bus-kö på två olika sätt. Det första alternativet, som kallas *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, tar bort meddelandet från kön och raderar det direkt. Detta är ett enkelt alternativ men om mottagaren kraschar innan den har slutfört behandlingen av meddelandet så kommer det att gå förlorat. Eftersom det har tagits bort från kön kan inga andra mottagare komma åt det. 
+En mottagare kan läsa ett meddelande från en Service Bus-kö på två olika sätt. Det första alternativet, som kallas *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, tar bort meddelandet från kön och raderar det direkt. Detta är ett enkelt alternativ men om mottagaren kraschar innan den har slutfört behandlingen av meddelandet så kommer det att gå förlorat. Eftersom det har tagits bort från kön kan inga andra mottagare komma åt det. 
 
-Det andra alternativet, *[PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, är utformat för att lösa detta problem. Precis som **ReceiveAndDelete**, tar **PeekLock** bort meddelandet från kön. Men det raderar inte meddelandet. I stället låser det meddelandet, vilket gör det osynligt för andra mottagare, och sedan inväntar alternativet en av följande tre händelser:
+Det andra alternativet, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, är utformat för att lösa detta problem. Precis som **ReceiveAndDelete**, tar **PeekLock** bort meddelandet från kön. Men det raderar inte meddelandet. I stället låser det meddelandet, vilket gör det osynligt för andra mottagare, och sedan inväntar alternativet en av följande tre händelser:
 
-* Om mottagaren kan bearbeta meddelandet anropas **[Complete()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)** och meddelandet tas bort i kön. 
-* Om mottagaren inte kan bearbeta meddelandet på rätt sätt anropas **[Abandon()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)**. Kön tar bort spärren från meddelandet och gör det tillgängligt för andra mottagare.
+* Om mottagaren kan bearbeta meddelandet anropas [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) och meddelandet tas bort i kön. 
+* Om mottagaren inte kan bearbeta meddelandet på rätt sätt anropas [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). Kön tar bort spärren från meddelandet och gör det tillgängligt för andra mottagare.
 * Om mottagaren inte anropar något av dessa alternativ inom en konfigurerbar tidsperiod (standardvärdet är 60 sekunder), förutsätter kön att mottagaren har misslyckats. I det här fallet reagerar den som om mottagaren hade anropat **Avbryt** och gör meddelandet tillgängligt för andra mottagare.
 
-Observera vad som kan inträffa här: samma meddelande kan levereras två gånger, kanske till två olika mottagare. Appar som använder Service Bus-köer måste förberedas för detta. För att förenkla identifieringen av dubbletter har varje meddelande en unik **[MessageID](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)**-egenskap. ID:t är som standard alltid detsamma, oavsett hur många gånger meddelandet har lästs från en kö. 
+Observera vad som kan inträffa här: samma meddelande kan levereras två gånger, kanske till två olika mottagare. Appar som använder Service Bus-köer måste förberedas för detta. För att förenkla identifiering av dubbletter har varje meddelande en unik [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)-egenskap. Denna är som standard alltid densamma, oavsett hur många gånger meddelandet har lästs från en kö. 
 
 Köer är användbara i ett ganska stort antal situationer. De gör att appar kan kommunicera även när båda inte körs på samma gång, något som är särskilt praktiskt med batch- och mobilappar. En kö med flera mottagare ger också automatisk belastningsbalansering eftersom skickade meddelanden sprids ut bland dessa mottagare.
 
@@ -80,7 +81,7 @@ Ett *ämne* liknar på många sätt en kö. Avsändare skickar meddelanden till 
 * Prenumerant 2 tar emot meddelanden som innehåller egenskapen *Säljare="Ruth"* och/eller innehåller en egenskap för *belopp* vars värde är större än 100 000. Ruth kanske är försäljningschef så hon vill se både sina egna försäljningar och alla stora försäljningar, oavsett vem som gör dem.
 * Prenumerant 3 har ställt in sitt filter på *Sant*, vilket innebär att han eller hon får alla meddelanden. Den här appen kan till exempel ansvara för att bibehålla ett revisionsspår och därför behöver den visa alla meddelanden.
 
-På samma sätt som med köer kan de som prenumererar på ett ämne läsa meddelanden med antingen [**ReceiveAndDelete** eller **PeekLock**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). Men till skillnad från köer kan ett enskilt meddelande som skickas till ett ämne tas emot av flera prenumerationer. Den här metoden, som ofta kallas *publicera och prenumerera*, (eller *pub/sub*) är användbar när flera appar är intresserade av samma meddelanden. Genom att definiera rätt typ av filter kan varje prenumerant ta del av enbart den del av meddelandeströmmen som de behöver se.
+På samma sätt som med köer kan de som prenumererar på ett ämne läsa meddelanden med antingen [ReceiveAndDelete eller PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). Men till skillnad från köer kan ett enskilt meddelande som skickas till ett ämne tas emot av flera prenumerationer. Den här metoden, som ofta kallas *publicera och prenumerera*, (eller *pub/sub*) är användbar när flera appar är intresserade av samma meddelanden. Genom att definiera rätt typ av filter kan varje prenumerant ta del av enbart den del av meddelandeströmmen som de behöver se.
 
 ## <a name="relays"></a>Reläer
 Både köer och ämnen ger dig enkelriktad, asynkron kommunikation via en koordinator. Trafiken flödar endast i en riktning och det finns ingen direkt anslutning mellan avsändarna och mottagarna. Men vad händer om du inte vill använda denna lösning? Anta att dina appar både måste kunna skicka och ta emot meddelanden. Eller så kanske du vill ha en direktlänk mellan dem och du har inget behov av en koordinator för att lagra meddelanden. För att kunna hantera scenarier som detta tillhandahåller Service Bus *reläer* (relays), som visas på bild 4.
@@ -116,9 +117,4 @@ Nu när du har lärt dig grunderna om Azure Service Bus, kan du följa dessa lä
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

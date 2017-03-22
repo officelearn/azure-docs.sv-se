@@ -2,21 +2,22 @@
 title: "Konfigurera en utvecklingsmiljö i Mac OS X | Microsoft Docs"
 description: "Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program i Mac OS X."
 services: service-fabric
-documentationcenter: .net
-author: seanmck
-manager: timlt
+documentationcenter: java
+author: saysa
+manager: raunakp
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/27/2016
-ms.author: seanmck
+ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: d5a04e34a3f46097b3ad1b04ac6b2b845fc946af
-ms.openlocfilehash: beb869fd5c1fcc19101b16149244187c37a6d6a3
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: fc73eedae7ec9664da714567f47a543e625cd023
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -36,11 +37,15 @@ Service Fabric kan inte köras internt i OS X. För att du ska kunna köra ett l
 * [Vagrant (v1.8.4 eller senare)](http://www.vagrantup.com/downloads.html)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
+>[!NOTE]
+>  Du behöver använda versioner som både stöds av Vagrant och VirtualBox. Vagrant kan bete sig oförutsägbart med en VirtualBox-version som inte stöds.
+>
+
 ## <a name="create-the-local-vm"></a>Skapa den lokala virtuella datorn
 För att skapa den lokala virtuella datorn med ett 5-nods Service Fabric-kluster utför du följande steg:
 
 1. Klona **Vagrantfile**-lagringsplatsen
-   
+
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
@@ -62,31 +67,29 @@ För att skapa den lokala virtuella datorn med ett 5-nods Service Fabric-kluster
     ```bash
     vagrant up
     ```
-  
+
    I det här steget laddas den förkonfigurerade VM-avbildningen ned. Avbildningen startas lokalt och ett lokalt Service Fabric-kluster konfigureras sedan på datorn. Det här kan ta några minuter. Om installationen lyckas, får du upp ett meddelande som indikerar att klustret startas.
-   
+
     ![Klusterinstallationen startar efter att den virtuella datorn har etablerats][cluster-setup-script]
-    
+
 5. Testa att klustret är korrekt installerat genom att gå till Service Fabric Explorer på http://192.168.50.50:19080/Explorer (förutsatt att du har behållit standard-IP för det privata nätverket).
 
     ![Service Fabric Explorer på Mac-värddatorn][sfx-mac]
 
-## <a name="install-the-service-fabric-plugin-for-eclipse-neon-optional"></a>Installera Service Fabric-plugin-programmet för Eclipse Neon (valfritt)
-Service Fabric innehåller ett plugin-program för Eclipse Neon IDE som förenklar processen att skapa och distribuera Java-tjänster.
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Installera Service Fabric-plugin-programmet för Eclipse Neon
 
-1. Kontrollera att du har Buildship version 1.0.17 eller senare installerat i Eclipse. Du kan kontrollera vilka versioner de installerade komponenterna har genom att välja **Help > Installation Details** (Hjälp > Installationsinformation). Du kan uppdatera Buildship genom att följa instruktionerna [här][buildship-update].
-2. Om du vill installera Service Fabric-plugin-programmet väljer du **Help > Install New Software...** (Hjälp > Installera ny programvara...).
-3. Ange följande i textrutan Work with (Arbeta med): http://dl.windowsazure.com/eclipse/servicefabric.
-4. Klicka på Add (Lägg till).
+Service Fabric innehåller ett plugin-program för **Eclipse Neon för Java IDE** som förenklar processen att skapa, bygga och distribuera Java-tjänster. Du kan följa installationsstegen som nämns i den här allmänna [dokumentationen](service-fabric-get-started-eclipse.md#install-or-update-service-fabric-plugin-on-eclipse-neon) om att installera eller uppdatera Service Fabric Eclipse-plugin-programmet.
 
-    ![Eclipse Neon-plugin-programmet för Service Fabric][sf-eclipse-plugin-install]
-5. Välj Service Fabric-plugin-programmet och klicka på Next (Nästa).
-6. Fortsätt med installationen och acceptera licensvillkoren.
+## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Använda Service Fabric Eclipse-plugin-programmet på Mac
+
+Se till att du har gått igenom stegen som beskrivs i [dokumentationen för Service Fabric Eclipse-plugin-programmet](service-fabric-get-started-eclipse.md). Stegen för att skapa, bygga och distribuera Service Fabric Java-program med Vagrant-gästbehållare på en Mac-värd är i stort sett desamma som för den allmänna dokumentationen, förutom några få punkter som du måste komma ihåg, vilka nämns nedan –
+* Eftersom Service Fabric-bibliotek krävs av Service Fabric Java-programmet för att byggas på rätt sätt måste Eclipse-projektet skapas i en delad sökväg. Som standard delas innehållet i sökvägen på din värd där ``Vagrantfile`` finns med sökvägen ``/vagrant`` för gästen.
+* Så om du helt enkelt har ``Vagrantfile`` i en sökväg, till exempel , ``~/home/john/allprojects/``, måste du skapa ditt Service Fabric-projekt ``MyActor`` på plats ``~/home/john/allprojects/MyActor``, och sökvägen till din Eclipse-arbetsyta skulle bli ``~/home/john/allprojects``.
 
 ## <a name="next-steps"></a>Nästa steg
 <!-- Links -->
-
-* [Skapa ditt första Service Fabric-program för Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Skapa och distribuera ditt första Service Fabric-program med Java i Linux med hjälp av Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
+* [Skapa och distribuera ditt första Service Fabric-program med Java i Linux med Service Fabric-plugin-programmet för Eclipse](service-fabric-get-started-eclipse.md)
 * [Skapa ett Service Fabric-kluster i Azure-portalen](service-fabric-cluster-creation-via-portal.md)
 * [Skapa ett Service Fabric-kluster med Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Förstå Service Fabric-programmodellen](service-fabric-application-model.md)
@@ -96,9 +99,4 @@ Service Fabric innehåller ett plugin-program för Eclipse Neon IDE som förenkl
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

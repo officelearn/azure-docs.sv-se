@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/26/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e4bb13a73f6338d2d844a0561edc65063c685d59
-ms.openlocfilehash: e554a0ba87efb0272e092a121ba96edc9d9eb011
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="what-is-site-recovery"></a>Vad är Site Recovery?
 
-Välkommen till Azure Site Recovery-tjänsten! Den här artikeln innehåller en översikt över tjänsten och länkar till mer information.
+Välkommen till Azure Site Recovery-tjänsten! Den här artikeln innehåller en snabb översikt över tjänsten.
 
-Avbrott i verksamheten kan både orsakas av naturliga händelser och av operativa fel. Din organisation behöver ha en strategi för affärskontinuitet och haveriberedskap (BCDR) som ser till att data är säkra och appar tillgängliga under planerade såväl som oplanerade avbrott och att återställning sker till vanliga driftsförhållanden så snart som möjligt.
+Avbrott kan både orsakas av naturliga händelser och av operativa fel. Din organisation behöver ha en strategi för affärskontinuitet och haveriberedskap som ser till att appar och data förblir säkra och tillgängliga under planerade såväl som oplanerade avbrott och att återställning sker till ordinarie driftsförhållanden så snart som möjligt.
 
-Azure Recovery Services kan ingå i BCDR-strategin. Med [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) kan du skydda och återställa data. Med Site Recovery kan du replikera, redundansväxla och återställa arbetsbelastningar så att de fortfarande är tillgängliga om det inträffar ett fel.
+Azure Recovery Services kan ingå i din BCDR-strategi. Med tjänsten [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) kan du skydda och återställa data. Med Site Recovery kan du replikera, redundansväxla och återställa arbetsbelastningar så att de fortfarande är tillgängliga om det inträffar ett fel.
 
 ## <a name="what-does-site-recovery-provide"></a>Vad tillhandahåller Site Recovery?
 
@@ -47,12 +47,6 @@ Replikerade data lagras flexibelt i Azure Storage. Vid redundans skapas virtuell
 * **Integrering med Automation-biblioteket** – det omfattande Azure Automation-biblioteket innehåller produktionsklara, programspecifika skript som kan hämtas och integrerats med Site Recovery.
 * **Enkel nätverkshantering** – avancerad nätverkshantering i Site Recovery och Azure förenklar nätverkskraven för program, inklusive reservation av IP-adresser, konfiguration av belastningsutjämnare och integration av Azure Traffic Manager för effektiv nätverksväxling.
 
-## <a name="which-azure-portal"></a>Vilken Azure Portal?
-
-* Site Recovery kan distribueras både i nya [Azure Portal](https://portal.azure.com) och i [den klassiska Azure-portalen](https://manage.windowsazure.com/).
-* På den klassiska Azure-portalen kan du använda Site Recovery med den klassiska tjänsthanteringsmodellen.
-* Azure Portal har stöd för den klassiska modellen och den nyare modellen med [Resource Manager-distribution](../azure-resource-manager/resource-manager-deployment-model.md).
-- Du bör bara använda den klassiska portalen till att underhålla befintliga Site Recovery-distributioner. Du kan inte skapa nya valv i den klassiska portalen.
 
 ## <a name="whats-supported"></a>Vad stöds?
 
@@ -64,6 +58,14 @@ Replikerade data lagras flexibelt i Azure Storage. Vid redundans skapas virtuell
 **Vad kan jag använda för replikeringsmål?** | Till Azure Storage eller till ett sekundärt datacenter<br/><br/> För Hyper-V går det bara att replikera virtuella datorer på Hyper-V-värdar som hanteras i System Center VMM-moln till ett sekundärt datacenter.
 **Vilka servrar/värdar för VMware behöver jag?** | De virtuella VMware-datorer du vill replikera kan hanteras av [de vSphere-värdar/vCenter-servrar som stöds](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
 **Vilka arbetsbelastningar kan jag replikera?** | Du kan replikera alla arbetsbelastningar som körs på en dator det finns replikeringsstöd för. Dessutom har Site Recovery-teamet utfört appspecifika tester för ett [antal appar](site-recovery-workload.md#workload-summary).
+
+
+## <a name="which-azure-portal"></a>Vilken Azure Portal?
+
+* Site Recovery kan distribueras både i nya [Azure Portal](https://portal.azure.com) och i [den klassiska Azure-portalen](https://manage.windowsazure.com/).
+* På den klassiska Azure-portalen kan du använda Site Recovery med den klassiska tjänsthanteringsmodellen.
+* Azure Portal har stöd för den klassiska modellen och den nyare modellen med [Resource Manager-distribution](../azure-resource-manager/resource-manager-deployment-model.md).
+- Du bör bara använda den klassiska portalen till att underhålla befintliga Site Recovery-distributioner. Du kan inte skapa nya valv i den klassiska portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [stöd för arbetsbelastning](site-recovery-workload.md)

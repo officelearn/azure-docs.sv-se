@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 08b478b3108f0673f3a130612020408a0e61c815
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -48,7 +48,7 @@ I den här artikeln förutsätter vi att du har erfarenhet av att arbeta med C# 
 >
 
 ### <a name="visual-studio"></a>Visual Studio
-Du måste ha **Visual Studio 2015** för att kunna skapa exempelprojektet. Du hittar kostnadsfria versioner och utvärderingsversioner av Visual Studio i [Översikt över Visual Studio 2015-produkter][visual_studio].
+Du måste ha **Visual Studio 2015** eller senare för att kunna skapa exempelprojektet. Du hittar kostnadsfria versioner och utvärderingsversioner av Visual Studio i [Översikt över Visual Studio-produkter][visual_studio].
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial*kodexempel
 [DotNetTutorial][github_dotnettutorial]-exemplet är ett av många Batch-kodexempel i [azure-batch-samples][github_samples]-databasen på GitHub. Du kan ladda ned alla exempel genom att klicka på **Klona eller ladda ned > Ladda ned ZIP** på startsidan för databasen eller genom att klicka på direktnedladdningslänken för [azure-batch-samples-master.zip][github_samples_zip]. När du har extraherat innehållet i ZIP-filen hittar du lösningen i följande mapp:
@@ -59,7 +59,7 @@ Du måste ha **Visual Studio 2015** för att kunna skapa exempelprojektet. Du hi
 [Azure Batch Explorer][github_batchexplorer] är ett kostnadsfritt verktyg som ingår i [azure-batch-samples][github_samples]-databasen på GitHub. Det krävs inte för att slutföra den här kursen men kan vara praktiskt när du skapar och felsöker Batch-lösningar.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Översikt över DotNetTutorial-exempelprojekt
-*DotNetTutorial*-kodexemplet är en Visual Studio 2015-lösning som består av två projekt: **DotNetTutorial** och **TaskApplication**.
+*DotNetTutorial*-kodexemplet är en Visual Studio-lösning som består av två projekt: **DotNetTutorial** och **TaskApplication**.
 
 * **DotNetTutorial** är klientprogrammet som samverkar med Batch- och Storage-tjänsterna för att köra en parallell arbetsbelastning på beräkningsnoder (virtuella datorer). DotNetTutorial körs på den lokala arbetsstationen.
 * **TaskApplication** är programmet som körs på beräkningsnoder i Azure för att utföra det faktiska arbetet. I exemplet parsar `TaskApplication.exe` texten i en fil som hämtats från Azure Storage (indatafilen). Därefter genererar den en textfil (utdatafilen) som innehåller en lista med de tre översta orden i indatafilen. När utdatafilen har skapats laddar TaskApplication upp filen till Azure Storage. På så sätt blir den tillgänglig för klientprogrammet för nedladdning. TaskApplication körs parallellt på flera beräkningsnoder i Batch-tjänsten.
@@ -792,7 +792,7 @@ Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lös
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Skapa behållare i Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Ladda upp filer för aktivitetsprogram och indata till behållare"

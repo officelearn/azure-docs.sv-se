@@ -1,10 +1,7 @@
 
 > [!TIP]
-> **Letar du efter något annat?**  
-> Om inte det här ämnet innehåller det som du väntade dig, saknar något eller på något annat sätt inte motsvarade dina behov, får du gärna ge oss feedback i Disqus-tråden nedan.
+> **Looking for something else?**  
+> If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
 > 
 > 
-
-<!--HONumber=Sep16_HO3-->
-
 

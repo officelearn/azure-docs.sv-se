@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 36e0a52013b8d12c7e66c5955756a61a2c72b7dc
-ms.openlocfilehash: c3507aed3cc44d6360b8ba3ddf172e1437c1227a
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a28e325e8a7e902a64f8cc267e2f0d3be151bcb3
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -73,7 +73,7 @@ Hanteringsplanets och dataplanets åtkomstkontroller fungerar oberoende av varan
 Hanteringsplanet består av åtgärder som påverkar själva nyckelvalvet. Du kan till exempel skapa eller ta bort ett nyckelvalv. Du kan hämta en lista över valv i en prenumeration. Du kan hämta nyckelvalvsegenskaper (till exempel SKU-taggar) och ange nyckelvalvsprinciper som styr vilka användare och program som har åtkomst till nycklar och hemligheter i nyckelvalvet. Åtkomstkontroll för hanteringsplanet använder sig av RBAC. Se den fullständiga listan med nyckelvalvsåtgärder som kan utföras, via hanteringsplanet i tabellen i det föregående avsnittet. 
 
 ### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Varje Azure-prenumerationen har en Azure Active Directory. Användare, grupper och program från den här katalogen kan beviljas åtkomst för att hantera resurser i Azure-prenumerationen som använder Azure Resource Manager-distributionsmodellen. Den här typen av åtkomstkontroll kallas rollbaserad åtkomstkontroll (RBAC). För att hantera den här åtkomsten, kan du använda [Azure Portal](https://portal.azure.com/), [Azure CLI-verktygen](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) eller [Azure Resource Manager REST API:er](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Varje Azure-prenumerationen har en Azure Active Directory. Användare, grupper och program från den här katalogen kan beviljas åtkomst för att hantera resurser i Azure-prenumerationen som använder Azure Resource Manager-distributionsmodellen. Den här typen av åtkomstkontroll kallas rollbaserad åtkomstkontroll (RBAC). För att hantera den här åtkomsten, kan du använda [Azure Portal](https://portal.azure.com/), [Azure CLI-verktygen](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) eller [Azure Resource Manager REST API:er](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Med Azure Resource Manager-modellen, skapar du nyckelvalv i en resursgrupp och kontrollerar åtkomst till hanteringsplanet för det här nyckelvalvet med Azure Active Directory. Du kan till exempel ge användare eller en grupp möjlighet att hantera nyckelvalv i en specifik resursgrupp.
 
@@ -90,7 +90,7 @@ Nyckelvalvets dataplan består av åtgärder som påverkar objekten i ett nyckel
 Åtkomst till dataplanet ges genom att ställa in åtkomstprinciper för ett nyckelvalv. En användare, grupp eller ett program måste ha bidragsgivarbehörighet (RBAC) för hanteringsplanet för ett nyckelvalv för att kunna ställa in åtkomstprinciper för det nyckelvalvet. En användare, grupp eller ett program kan beviljas åtkomst för att utföra specifika åtgärder för nycklar eller hemligheter i nyckelvalvet. nyckelvalv stöder upp till 16 åtkomstprinciper för ett nyckelvalv. Skapa en säkerhetsgrupp i Azure Active Directory och lägg till användare i den gruppen för att tilldela dataplansåtkomst till ett nyckelvalv för flera användare.
 
 ### <a name="key-vault-access-policies"></a>Åtkomstprinciper för nyckelvalvet
-åtkomstprinciper till nyckelvalvet ger separata behörigheter till nycklar, hemligheter och certifikat. Du kan till exempel ge en användare åtkomst till bara nycklar, men inte hemligheter. Behörighet att komma åt nycklar eller hemligheter eller certifikat är dock valvnivå. Med andra ord stöder inte åtkomstprinciper för nyckelvalvet behörigheter på objektsnivå. Du kan använda [Azure Portal](https://portal.azure.com/), [Azure CLI verktyg](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs), eller [REST API:er för nyckelvalvshantering](https://msdn.microsoft.com/library/azure/mt620024.aspx) för att ställa in åtkomstprinciper för ett nyckelvalv.
+åtkomstprinciper till nyckelvalvet ger separata behörigheter till nycklar, hemligheter och certifikat. Du kan till exempel ge en användare åtkomst till bara nycklar, men inte hemligheter. Behörighet att komma åt nycklar eller hemligheter eller certifikat är dock valvnivå. Med andra ord stöder inte åtkomstprinciper för nyckelvalvet behörigheter på objektsnivå. Du kan använda [Azure Portal](https://portal.azure.com/), [Azure CLI verktyg](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), eller [REST API:er för nyckelvalvshantering](https://msdn.microsoft.com/library/azure/mt620024.aspx) för att ställa in åtkomstprinciper för ett nyckelvalv.
 
 > [!IMPORTANT]
 > Observera att åtkomstprinciper för nyckelvalv gäller på valvnivå. En användare som har beviljats behörighet att skapa och ta bort nycklar, kan utföra de åtgärderna på alla nycklar i nyckelvalvet.

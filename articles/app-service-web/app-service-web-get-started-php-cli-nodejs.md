@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: d24e78a826de9fb72e0eedc48877c83e867f70ca
-ms.openlocfilehash: f574612734ff9cef0c717d5a12ee2962ef211178
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3db31549b02fbcb72ce2b0c5da32d7800f8287f3
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -45,7 +45,7 @@ Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
 ## <a name="prerequisites"></a>Krav
 * [Git](http://www.git-scm.com/downloads).
-* [Azure CLI](../xplat-cli-install.md).
+* [Azure CLI](../cli-install-nodejs.md).
 * Ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]

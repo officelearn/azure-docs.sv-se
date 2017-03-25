@@ -3,7 +3,7 @@ title: "Stöd för CORS i Apptjänst | Microsoft Docs"
 description: "Lär dig hur du använder CORS-stöd i Azure Apptjänst."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/27/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
-ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
-ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
-ms.lasthandoff: 12/21/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 79fe018bb6721c431a935dda14b36968688d34e3
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Den här artikeln innehåller två avsnitt:
 * Avsnittet [Hur du konfigurerar CORS](#corsconfig) förklarar i allmänhet hur du konfigurerar CORS för API Apps, webbappar eller mobilappar. Det gäller även för alla ramverk som stöds av Apptjänsten, inklusive .NET, Node.js och Java. 
 * Från och med avsnittet [Fortsättning på självstudierna för att komma igång med .NET](#tutorialstart) är artikeln en genomgång som visar CORS-stöd genom att bygga vidare på vad du gjorde i [de första självstudierna för att komma igång med API Apps](app-service-api-dotnet-get-started.md). 
 
-## <a name="a-idcorsconfiga-how-to-configure-cors-in-azure-app-service"></a><a id="corsconfig"></a> Så här konfigurerar du CORS i Azure App Service
+## <a id="corsconfig"></a> Så här konfigurerar du CORS i Azure App Service
 Du kan konfigurera CORS i Azure-portalen eller genom att använda verktygen i  [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 #### <a name="configure-cors-in-the-azure-portal"></a>Konfigurera CORS i Azure-portalen
@@ -52,7 +52,7 @@ Du kan konfigurera CORS i Azure-portalen eller genom att använda verktygen i  [
    När du klickar på **Spara** kommer API-appen att acceptera JavaScript-anrop från angivna URL:er.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Konfigurera CORS med hjälp av Azure Resource Manager-verktyg
-Du kan även konfigurera CORS för en API-app genom att använda [mallarna i Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) i kommandoradsverktyg som [Azure PowerShell](/powershell/azureps-cmdlets-docs) och [Azure CLI](../xplat-cli-install.md). 
+Du kan även konfigurera CORS för en API-app genom att använda [mallarna i Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) i kommandoradsverktyg som [Azure PowerShell](/powershell/azureps-cmdlets-docs) och [Azure CLI](../cli-install-nodejs.md). 
 
 Se ett exempel på en mall i Azure Resource Manager som anger CORS-egenskapen genom att öppna filen [azuredeploy.json i lagringsplatsen för den här kursens exempelprogram](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Leta reda på det avsnitt i mallen som ser ut som följande exempel:
 
@@ -62,7 +62,7 @@ Se ett exempel på en mall i Azure Resource Manager som anger CORS-egenskapen ge
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> Fortsättning på självstudierna för att komma igång med .NET
+## <a id="tutorialstart"></a> Fortsättning på självstudierna för att komma igång med .NET
 Om du följer serien för att komma igång med Node.js eller Java för API Apps har du slutfört komma igång-serien. Gå vidare till avsnittet [Nästa steg](#next-steps) för att få förslag på ytterligare utbildning om API Apps.
 
 Resten av den här artikeln är en förlängning av serien för att komma igång med .NET och förutsätter att du har slutfört de [första självstudierna](app-service-api-dotnet-get-started.md).

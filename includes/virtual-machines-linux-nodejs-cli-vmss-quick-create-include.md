@@ -1,6 +1,6 @@
 ## <a name="prerequisites"></a>Krav
 
-Om du inte redan har gjort det så kan du skaffa en [kostnadsfri utvärderingsprenumeration på Azure](https://azure.microsoft.com/pricing/free-trial/) och få [Azure CLI 1.0](../articles/xplat-cli-install.md) [anslutet till ditt Azure-konto](../articles/xplat-cli-connect.md). Kontrollera att Azure CLI är i Resource Manager-läge på följande sätt:
+Om du inte redan har gjort det så kan du skaffa en [kostnadsfri utvärderingsprenumeration på Azure](https://azure.microsoft.com/pricing/free-trial/) och få [Azure CLI 1.0](../articles/cli-install-nodejs.md) [anslutet till ditt Azure-konto](../articles/xplat-cli-connect.md). Kontrollera att Azure CLI är i Resource Manager-läge på följande sätt:
 
 ```azurecli
 azure config mode arm

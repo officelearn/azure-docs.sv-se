@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 44b393a2316825fd335bca2a1a7bb7033c10a565
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 3be72ac862650d2381a56c4ab682e41a8aaa8a27
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -41,8 +41,6 @@ Du kan börja skapa och konfigurera resurser med hjälp av ett konfigurationsver
 ###<a name="deployment-model"></a>Distributionsmodell
 När du konfigurerar en VPN-gateway varierar instruktionerna som du följer beroende på vilken distributionsmodell du använde för att skapa det virtuella nätverket. Om du exempelvis har skapat ditt VNet med den klassiska distributionsmodellen, ska du använda riktlinjerna och instruktionerna för den modellen när du skapar och konfigurerar dina VPN Gateway-inställningar. Mer information om distributionsmodellerna finns i [Förstå Resource Manager- och klassiska distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md).
 
-
-
 ## <a name="diagrams"></a>Diagram för anslutningstopologi
 Det är viktigt att känna till att det finns olika konfigurationer för VPN-gatewayanslutningar. Du måste bestämma vilken konfiguration som passar bäst för dina behov. I avsnitten nedan kan du se information och topologidiagram om följande VPN-gatewayanslutningar: följande avsnitt innehåller tabeller som visar:
 
@@ -51,7 +49,6 @@ Det är viktigt att känna till att det finns olika konfigurationer för VPN-gat
 * länkar som tar dig direkt till en artikel om en sådan finns
 
 Använd diagrammen och beskrivningarna för att välja den anslutningstopologi som passar dina behov. Diagrammen visar de viktigaste grundläggande topologierna, men du kan skapa mer komplexa konfigurationer och använda diagrammen som utgångspunkt.
-
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Plats-till-plats och flera platser (IPsec/IKE VPN-tunnel)
 ### <a name="S2S"></a>Plats-till-plats-anslutning
@@ -96,7 +93,9 @@ Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt vi
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 ## <a name="ExpressRoute"></a>ExpressRoute (dedicerad privat anslutning)
-[!INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+Med Microsoft Azure ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet via en dedikerad privat anslutning från en anslutningsleverantör. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och CRM Online. Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning.
+
+ExpressRoute-anslutningar går inte via offentligt Internet. Det innebär att ExpressRoute-anslutningar är tillförlitligare, snabbare, har kortare svarstider och högre säkerhet än vanliga anslutningar över Internet.
 
 En ExpressRoute-anslutning använder inte en VPN-gateway, men en virtuell nätverksgateway används som en del i den obligatoriska konfigurationen. I en ExpressRoute-anslutning konfigureras den virtuella nätverksgatewayen med gatewaytypen ”ExpressRoute” istället för ”Vpn”. Mer information om ExpressRoute finns i [Teknisk översikt över ExpressRoute](../expressroute/expressroute-introduction.md).
 

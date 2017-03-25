@@ -1,65 +1,65 @@
-Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. Med de här 25 000 kostnadsfria e-postmeddelandena varje månad får du åtkomst till avancerade rapporter och analyser samt [alla API:er][all APIs] (bland annat webb, SMTP, händelser och parsning). Information om ytterligare tjänster från SendGrid finns på sidan om [SendGrid-lösningar][SendGrid Solutions].
+Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more). For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
 
-### <a name="to-sign-up-for-a-sendgrid-account"></a>Registrera ett SendGrid-konto
-1. Logga in på [Azure-hanteringsportalen][Azure Management Portal].
-2. Klicka på **Nytt** i den vänstra menyn.
+### <a name="to-sign-up-for-a-sendgrid-account"></a>To sign up for a SendGrid account
+1. Log in to the [Azure Management Portal][Azure Management Portal].
+2. In the menu on the left, click **New**.
 
     ![command-bar-new][command-bar-new]
-3. Klicka på **Tillägg** och sedan **SendGrid Email Delivery** (E-postleverans med SendGrid).
+3. Click **Add-ons** and then **SendGrid Email Delivery**.
 
     ![sendgrid-store][sendgrid-store]
-4. Fyll i registreringsformuläret och välj **Skapa**.
+4. Complete the signup form and select **Create**.
 
     ![sendgrid-create][sendgrid-create]
-5. Ange ett **namn** som ska identifiera SendGrid-tjänsten i dina Azure-inställningar. Namnet måste vara mellan 1 och 100 tecken långt och får bara innehålla alfanumeriska tecken, bindestreck, punkter och understreck. Namnet måste vara unikt i listan med de objekt du prenumererar på i Azure Store.
-6. Ange och bekräfta ett **lösenord**.
-7. Välj din **prenumeration**.
-8. Skapa en ny **resursgrupp** eller välj en befintlig.
-9. I avsnittet **Prisnivå** väljer du den SendGrid-plan som du vill registrera dig för.
+5. Enter a **Name** to identify your SendGrid service in your Azure settings. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+6. Enter and confirm your **Password**.
+7. Choose your **Subscription**.
+8. Create a new **Resource group** or use an existing one.
+9. In the **Pricing tier** section select the SendGrid plan you want to sign up for.
 
     ![sendgrid-pricing][sendgrid-pricing]
-10. Ange en **kampanjkod** om du har en.
-11. Ange dina **kontaktuppgifter**.
-12. Läs igenom och godkänn de **juridiska villkoren**.
-13. När du har bekräftat köpet visas ett meddelande om att **distributionen utförts** och du ser ditt konto i avsnittet **Alla resurser**.
+10. Enter a **Promotion Code** if you have one.
+11. Enter your **Contact Information**.
+12. Review and accept the **Legal terms**.
+13. After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed in the **All resources** section.
 
     ![all-resources][all-resources]
 
-    När du har slutfört köpet och klickar på knappen **Hantera** för att starta processen med e-postverifiering så får du ett e-postmeddelande från SendGrid där du uppmanas att verifiera ditt konto. Om du inte får det här e-postmeddelandet eller får problem när du ska verifiera ditt konto kan du läsa dessa vanliga frågor och svar.
+    After you have completed your purchase and clicked the **Manage** button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account. If you do not receive this email, or have problems verifying your account, please see this FAQ.
 
     ![manage][manage]
 
-    **Du kan bara skicka upp till 100 e-postmeddelanden per dag innan du har verifierat ditt konto.**
+    **You can only send up to 100 emails/day until you have verified your account.**
 
-    Om du vill byta prenumerationsavtal eller visa kontaktinställningarna för SendGrid klickar du på namnet på SendGrid-tjänsten så att instrumentpanelen för SendGrid Marketplace öppnas.
+    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
 
     ![settings][settings]
 
-    Om du vill skicka ett e-postmeddelande med SendGrid måste du ange din API-nyckel.
+    To send an email using SendGrid, you must supply your API Key.
 
-### <a name="to-find-your-sendgrid-api-key"></a>Så här hittar du din SendGrid API-nyckel
-1. Klicka på **Hantera**.
+### <a name="to-find-your-sendgrid-api-key"></a>To find your SendGrid API Key
+1. Click **Manage**.
 
     ![manage][manage]
-2. Välj **Inställningar** på instrumentpanelen för SendGrid sedan **API Keys** (API-nycklar) på menyn till vänster.
+2. In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.
 
     ![api-keys][api-keys]
 
-3. Klicka på listrutan **Create API Key** (Skapa API-nyckel) och välj **General API Key** (Allmän API-nyckel).
+3. Click the **Create API Key** dropdown and select **General API Key**.
 
     ![general-api-key][general-api-key]
-4. Ange minst **Name of this key** (Den här nyckelns namn), ge fullständig åtkomst till **Mail Send** (Skicka e-post) och välj **Spara**.
+4. At a minimum, provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.
 
     ![access][access]
-5. Din API-nyckel visas nu en enda gång. Se till att förvara den säkert.
+5. Your API will be displayed at this point one time. Please be sure to store it safely.
 
-### <a name="to-find-your-sendgrid-credentials"></a>Så här hittar du dina inloggningsuppgifter för SendGrid API
-1. Om du klickar på nyckelikonen så visas ditt **användarnamn**.
+### <a name="to-find-your-sendgrid-credentials"></a>To find your SendGrid credentials
+1. Click the key icon to find your **Username**.
 
     ![key][key]
-2. Lösenordet är det du valde vid installationen. Om du vill ändra det så kan du välja **Ändra lösenord** eller **Återställ lösenord**.
+2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
 
-Om du vill hantera inställningarna för e-postleverans så klickar du på knappen **Hantera**. Då öppnas [instrumentpanelen för SendGrid][SendGrid dashboard].
+To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
 
     ![manage][manage]
 
@@ -78,7 +78,6 @@ Om du vill hantera inställningarna för e-postleverans så klickar du på knapp
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
 [key]: ./media/sendgrid-sign-up/key.png
-[SendGrid dashboard]: ./media/sendgrid-sign-up/dashboard.png
 
 <!--Links-->
 
@@ -88,4 +87,3 @@ Om du vill hantera inställningarna för e-postleverans så klickar du på knapp
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 [Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
-

@@ -1,50 +1,47 @@
-Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration.
+The following limits apply only for networking resources managed through the classic deployment model per subscription.
 
-| Resurs | Standardgräns | Övre gräns |
+| Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Virtuella nätverk per prenumeration |50 |100 |
-| Lokala nätverksplatser per prenumeration |20 |kontakta supporten |
-| DNS-servrar per virtuellt nätverk |20 |100 |
-| Privata IP-adresser per virtuellt nätverk |4096 |4096 |
-| Samtidiga TCP-anslutningar för en virtuell dator eller rollinstans |500 000 |500 000 |
-| Nätverkssäkerhetsgrupper (NSG) |100 |200 |
-| NSG-regler per NSG |200 |400 |
-| Användardefinierade vägtabeller |100 |200 |
-| Användardefinierade vägar vägtabell |100 |400 |
-| Offentliga IP-adresser (dynamiska) |5 |kontakta supporten |
-| Reserverade offentliga IP-adresser |20 |kontakta supporten |
-| Offentlig VIP per distribution |5 |kontakta supporten |
-| Privat VIP (ILB) per distribution |1 |1 |
-| Åtkomstkontrollistor (ACL:er) för slutpunkt |50 |50 |
+| Virtual networks per subscription |50 |100 |
+| Local network sites per subscription |20 |contact support |
+| DNS Servers per virtual network |20 |100 |
+| Private IP Addresses per virtual network |4096 |4096 |
+| Concurrent TCP connections for a virtual machine or role instance |500K |500K |
+| Network Security Groups (NSG) |100 |200 |
+| NSG rules per NSG |200 |400 |
+| User defined route tables |100 |200 |
+| User defined routes per route table |100 |400 |
+| Public IP addresses (dynamic) |5 |contact support |
+| Reserved public IP addresses |20 |contact support |
+| Public VIP per deployment |5 |contact support |
+| Private VIP (ILB) per deployment |1 |1 |
+| Endpoint Access Control Lists (ACLs) |50 |50 |
 
-#### <a name="a-nameazure-resource-manager-virtual-networking-limitsanetworking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Nätverksgränser – Azure Resource Manager
-Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration.
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking Limits - Azure Resource Manager
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription.
 
-| Resurs | Standardgräns | Övre gräns |
+| Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
-| Virtuella nätverk per prenumeration |50 |500 |
-| Undernät per virtuellt nätverk |1,000 |kontakta supporten |
-| DNS-servrar per virtuellt nätverk |9 |25 |
-| Privata IP-adresser per virtuellt nätverk |4096 |4096 |
-| Samtidiga TCP-anslutningar för en virtuell dator eller rollinstans |500 000 |500 000 |
-| Nätverksgränssnitt (NIC) |300 |10000 |
-| Nätverkssäkerhetsgrupper (NSG) |100 |400 |
-| NSG-regler per NSG |200 |500 |
-| Användardefinierade vägtabeller |100 |200 |
-| Användardefinierade vägar vägtabell |100 |400 |
-| Offentliga IP-adresser (dynamiska) |60 |kontakta supporten |
-| Offentliga IP-adresser (statiska) |20 |kontakta supporten |
-| Belastningsutjämnare (interna och internetkopplade) |100 |kontakta supporten |
-| Regler för belastningsutjämnare per belastningsutjämnare |150 |150 |
-| IP för offentlig klient per belastningsutjämnare |10 |kontakta supporten |
-| IP för privat klient per belastningsutjämnare |10 |kontakta supporten |
-| VNets-peering-sessioner per virtuellt nätverk |10 |50 |
-| Punkt-till-plats-rotcertifikat per VPN-gateway |20 |20 |
+| Virtual networks per subscription |50 |500 |
+| Subnets per virtual network |1,000 |contact support |
+| DNS Servers per virtual network |9 |25 |
+| Private IP Addresses per virtual network |4096 |4096 |
+| Private IP Addresses per network interface |50 |contact support |
+| Concurrent TCP connections for a virtual machine or role instance |500K |500K |
+| Network Interfaces (NIC) |300 |10000 |
+| Network Security Groups (NSG) |100 |400 |
+| NSG rules per NSG |200 |500 |
+| User defined route tables |100 |200 |
+| User defined routes per route table |100 |400 |
+| Public IP addresses (dynamic) |60 |contact support |
+| Public IP addresses (Static) |20 |contact support |
+| Load balancers (internal and internet facing) |100 |contact support |
+| Load balancer rules per load balancer |150 |150 |
+| Public front end IP per load balancer |10 |contact support |
+| Private front end IP per load balancer |10 |contact support |
+| VNets peerings per Virtual Network |10 |50 |
+| Point-to-Site Root Certificates per VPN Gateway |20 |20 |
+| Secondary IP configurations per virtual network |1000 |contact support |
 
-Kontakta support om du måste öka gränserna från standardvärdet.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+Contact support in case you need to increase limits from default.
 

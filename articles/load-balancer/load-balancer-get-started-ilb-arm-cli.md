@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bd1f5e497bcf39a0d8848cc63c718e693f775d63
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 128b91c685b5f7e494a69ca5b04165a0ee7cbb78
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -51,7 +52,7 @@ Mer information finns i [Azure Resource Manager-stöd för belastningsutjämnare
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>Konfigurera CLI för att använda Resource Manager
 
-1. Om du aldrig har använt Azure CLI hittar du mer information i [Installera och konfigurera Azure CLI](../xplat-cli-install.md). Följ instruktionerna fram till den punkt där du kan välja Azure-konto och -prenumeration.
+1. Om du aldrig har använt Azure CLI hittar du mer information i [Installera och konfigurera Azure CLI](../cli-install-nodejs.md). Följ instruktionerna fram till den punkt där du kan välja Azure-konto och -prenumeration.
 2. Kör kommandot **azure config mode** för att växla till Resource Manager-läge, enligt följande:
 
     ```azurecli
@@ -214,10 +215,5 @@ azure network lb delete --resource-group nrprg --name ilbset
 [Konfigurera ett distributionsläge för en belastningsutjämnare med hjälp av käll-IP-tilldelning](load-balancer-distribution-mode.md)
 
 [Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

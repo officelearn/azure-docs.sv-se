@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 71b75afc7a31c875672b53c2b2b106220b8c36dd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6a31b039825acf3033fa58820bb800f53a355ffb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -46,7 +46,7 @@ Utöver dessa grundläggande resurser bör du även överväga dessa valfria res
 
 ## <a name="network-interfaces"></a>Nätverksgränssnitt
 
-Ett [nätverksgränssnitt (NIC)](../virtual-network/virtual-network-network-interface-overview.md) är gränssnittet mellan en virtuell dator och ett virtuellt nätverk (VNet). En virtuell dator måste ha minst ett NIC, men kan ha flera, beroende på storleken på den virtuella dator som du skapar. Lär dig mer om hur många NICs varje virtuell datorstorlek stöder i [Storlekar för virtuella datorer i Azure](virtual-machines-windows-sizes.md). 
+Ett [nätverksgränssnitt (NIC)](../virtual-network/virtual-network-network-interface.md) är gränssnittet mellan en virtuell dator och ett virtuellt nätverk (VNet). En virtuell dator måste ha minst ett NIC, men kan ha flera, beroende på storleken på den virtuella dator som du skapar. Lär dig mer om hur många NICs varje virtuell datorstorlek stöder i [Storlekar för virtuella datorer i Azure](virtual-machines-windows-sizes.md). 
 
 Om du vill skapa en virtuell dator med mer än ett NIC måste du skapa den virtuella datorn med minst två.  När den har skapats kan du lägga till ytterligare NICs, upp till det antal som stöds av den virtuella datorns storlek, men du kan inte lägga till fler NICs till en virtuell dator som skapats med bara ett, oavsett hur många NICs som den virtuella datorns storlek stöder. 
 
@@ -180,3 +180,4 @@ Den här tabellen anger de metoder som du kan använda för att skapa en virtuel
 - Läs mer om konfigurering av [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md). 
 - Läs mer om hur du konfigurerar [VNet-till-VNet-anslutningar](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Läs mer om [Felsökningsvägar](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+

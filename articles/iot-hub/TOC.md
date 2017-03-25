@@ -227,10 +227,11 @@
 ## Hantera
 ### Skapa en IoT Hub 
 #### [Använda portalen](iot-hub-create-through-portal.md)
+#### [Använda PowerShell](iot-hub-create-using-powershell.md)
 #### [Använda CLI 2.0](iot-hub-create-using-cli.md)
 #### [Använda CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Använda REST-API](iot-hub-rm-rest.md)
-#### [Använda PowerShell](iot-hub-rm-template-powershell.md)
+#### [Använda en mall från PowerShell](iot-hub-rm-template-powershell.md)
 #### [Använda en mall från .NET](iot-hub-rm-template.md)
 ### [Konfigurera filuppladdning](iot-hub-configure-file-upload.md)
 ### [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)

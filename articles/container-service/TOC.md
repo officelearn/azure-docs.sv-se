@@ -15,6 +15,7 @@
 ### [Aktivera offentlig åtkomst till DC/OS](container-service-enable-public-access.md)
 ### [DC/OS-behållare för belastningsutjämning](container-service-load-balancing.md)
 ### [App-/användarspecifik initierare i DC/OS](container-service-application-specific-marathon.md)
+### [Lägg till en filresurs](container-service-dcos-fileshare.md)
 ### Övervaka DC/OS
 #### [Övervaka med ELK](container-service-monitoring-elk.md)
 #### [Övervaka med OMS](container-service-monitoring-oms.md)

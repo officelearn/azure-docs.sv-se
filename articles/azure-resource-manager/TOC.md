@@ -7,14 +7,13 @@
 
 # Kom igång
 ## [Exportera mall](resource-manager-export-template.md)
-## [Genomgång av mallar](resource-manager-template-walkthrough.md)
+## [Skapa din första mall](resource-manager-create-first-template.md)
 ## [Visual Studio med Resurshanteraren](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [VS Code med Resource Manager](resource-manager-vs-code.md)
 
 # Gör så här för att
 ## Skapa mallar
 ### [Metodtips för mallar](resource-manager-template-best-practices.md)
-### [Skapa mallar](resource-group-authoring-templates.md)
+### [Mall-avsnitt](resource-group-authoring-templates.md)
 ### [Mallfunktioner](resource-group-template-functions.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
 ### [Ange underordnat resursnamn och typ](resource-manager-template-child-resource.md)
@@ -62,7 +61,7 @@
 ## [NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Mallscheman](https://github.com/Azure/azure-resource-manager-schemas)
+## [Mallformat](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Resurser

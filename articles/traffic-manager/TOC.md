@@ -1,29 +1,30 @@
 # Översikt
 ## [Vad är Traffic Manager?](traffic-manager-overview.md)
-## [Så här fungerar Traffic Manager](traffic-manager-how-traffic-manager-works.md)
-## [Traffic Manager-slutpunkter](traffic-manager-endpoint-types.md)
-## [Slutpunktsövervakning av och redundansväxling för Traffic Manager](traffic-manager-monitoring.md)
-## [Metoder för trafikroutning](traffic-manager-routing-methods.md)
-## [Kapslade profiler](traffic-manager-nested-profiles.md)
-## [Prestandaöverväganden för Traffic Manager](traffic-manager-performance-considerations.md)
-## [Stöd för Azure Resource Manager](traffic-manager-powershell-arm.md)
+## [Metoder för routning](traffic-manager-routing-methods.md)
+### [Hierarki för land/region som används av Traffic Manager](traffic-manager-geographic-regions.md)
+## [Slutpunktstyper](traffic-manager-endpoint-types.md)
+## [Slutpunktsövervakning](traffic-manager-monitoring.md)
+## [Vanliga frågor och svar](traffic-manager-FAQs.md)
 
 # Kom igång
-## [Hantera slutpunkter](traffic-manager-manage-endpoints.md)
-## [Hantera profiler](traffic-manager-manage-profiles.md)
-## [Peka din Internetdomän till Traffic Manager](traffic-manager-point-internet-domain.md)
+## [Skapa en Traffic Manager-profil](traffic-manager-create-profile.md)
 
 # Gör så här för att
-## [Konfigurera en routningsmetod](traffic-manager-configure-routing-method.md)
-## [Testa dina inställningar](traffic-manager-testing-settings.md)
+
+## [Konfigurera geografisk routningsmetod](traffic-manager-configure-geographic-routing-method.md)
+## [Konfigurera prioriterad routningsmetod](traffic-manager-configure-priority-routing-method.md)
+## [Konfigurera viktad routningsmetod](traffic-manager-configure-weighted-routing-method.md)
+## [Konfigurera routningsmetod för prestanda](traffic-manager-configure-performance-routing-method.md)
+## [Hantera slutpunkter](traffic-manager-manage-endpoints.md)
+## [Hantera profiler](traffic-manager-manage-profiles.md)
+## [Verifiera Traffic Manager-inställningar](traffic-manager-testing-settings.md)
 ## [Kombinera tjänster för belastningsutjämning](traffic-manager-load-balancing-azure.md)
-## [Använda nätverksresurser](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
-## Felsöka
-### [Felsöka en degraderad slutpunkt](traffic-manager-troubleshooting-degraded.md)
+## [Mät Traffic Manager-prestanda](traffic-manager-performance-considerations.md)
+## [Hantera Traffic Manager med hjälp av PowerShell](traffic-manager-powershell-arm.md)
+## [Peka din Internetdomän till Traffic Manager](traffic-manager-point-internet-domain.md)
 
 # Referens
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
-## [PowerShell (klassisk)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

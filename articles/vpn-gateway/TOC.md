@@ -14,12 +14,12 @@
 ## Konfigurera en plats-till-plats-anslutning
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Klassisk portal (klassisk)](vpn-gateway-site-to-site-create.md)
 ## Konfigurera en punkt-till-plats-anslutning
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Klassisk portal (klassisk)](vpn-gateway-point-to-site-create.md)
 ## Konfigurera en VNet-till-VNet-anslutning
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -41,7 +41,9 @@
 ## [Ändra inställningar för lokal nätverksgateway med PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Verifiera en anslutning till VPN-gateway](vpn-gateway-verify-connection-resource-manager.md)
 ## [Återställ en VPN-gateway](vpn-gateway-resetgw-classic.md)
-## [Ta bort en VPN-gateway](vpn-gateway-delete-vnet-gateway-powershell.md)
+## Ta bort en VPN-gateway
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (klassisk)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Skapa självsignerade rotcertifikat för P2S-anslutningar](vpn-gateway-certificates-point-to-site.md)
 ## [Konfigurera en VPN-gateway (klassisk)](vpn-gateway-configure-vpn-gateway-mp.md)
 

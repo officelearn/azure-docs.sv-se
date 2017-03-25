@@ -82,7 +82,6 @@
 
 ### [Migrera från IIS](web-sites-migration-from-iis-server.md)
 ### [Testa i produktion](app-service-web-test-in-production-get-start.md)
-### [Köra prestandatester](app-service-web-app-performance-test.md) 
 
 ## Ansluta till DB/resurser        
 

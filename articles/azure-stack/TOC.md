@@ -32,6 +32,7 @@
 ### [Övervaka hälsotillstånd och aviseringar](azure-stack-monitor-health.md)
 ### [Hantera nätverksresurser](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [Hantera lagringsresurser](azure-stack-manage-storage-accounts.md)
+### [Hantera virtuella Windows Azure Pack-datorer](azure-stack-manage-windows-azure-pack.md)
 
 # Säkerhet och efterlevnad
 ## Gör så här för att
@@ -86,7 +87,6 @@
 #### [Hantera med portal](azure-stack-kv-manage-portal.md)
 #### [Hantera med PowerShell](azure-stack-kv-manage-powershell.md)
 ### Gör så här för att
-#### [Distribuera en virtuell dator med ett lösenord](azure-stack-kv-deploy-vm-with-secret.md)
 #### [Skapa en virtuell dator med ett certifikat](azure-stack-kv-push-secret-into-vm.md)
 #### [Key Vault-exempelapp](azure-stack-kv-sample-app.md)
 

@@ -26,6 +26,7 @@
 ### [Hantera artefakter](devtest-lab-add-vm-with-artifacts.md)
 
 ## Hantera VM-databaser och mallar
+### [Skapa virtuell dator som kan hämtas](devtest-lab-add-claimable-vm.md)
 ### [Skapa miljöer med flera virtuella datorer med Azure Resource Manager-mallar](devtest-lab-create-environment-from-arm.md)
 ### [Konfigurera Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md)
 ### [Jämföra avbildningar med formler](devtest-lab-comparing-vm-base-image-types.md)

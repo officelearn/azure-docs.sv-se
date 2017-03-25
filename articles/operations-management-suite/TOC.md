@@ -1,7 +1,6 @@
 # Översikt
 ## [Vad är Operations Management Suite (OMS)?](operations-management-suite-overview.md)
 ## [OMS-arkitektur](operations-management-suite-architecture.md)
-## [Lösningar för hantering](operations-management-suite-solutions.md)
 
 # Kom igång
 ## Information och analyser
@@ -15,15 +14,18 @@
 ### [Datasäkerhet](oms-security-data-security.md)
 
 # Gör så här för att
+
 ## Analysera
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Övervaka produktjämförelse](operations-management-suite-monitoring-product-comparison.md)
 ### [Hantera aviseringar](operations-management-suite-monitoring-alerts.md)
 ## Automatisera
 ### [Översikt över Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 ## Backup
 ### [Översikt över Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Site Recovery-översikt](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 ## Skydda
 ### [Övervaka resurser](oms-security-monitoring-resources.md)
 ### [Åtgärda säkerhetsaviseringar](oms-security-responding-alerts.md)
@@ -31,17 +33,9 @@
 ### [Utvärdering av skadlig kod](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Systemuppdateringsbedömning](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Ansluta säkerhetsprodukter](oms-security-connect-products.md)
-## Skapa lösningar
-### [Lösningar för hantering](operations-management-suite-solutions-creating.md)
-### [Automation-resurser](operations-management-suite-solutions-resources-automation.md)
-### [Loggsökningar och aviseringar](operations-management-suite-solutions-resources-searches-alerts.md)
-### [Vyer](operations-management-suite-solutions-resources-views.md)
-## [Integrera med OMS](operations-management-suite-integration.md)
 
-
-# Referens
-## [SDK](operations-management-suite-sdk.md)
-## Lösningar
+## Använd lösningar
+### [Lösningar för hantering](operations-management-suite-solutions.md)
 ### Information och analyser
 #### [AD-bedömning](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD-replikeringsstatus](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -64,8 +58,15 @@
 ### Säkerhet och efterlevnad
 #### [Utvärdering av program mot skadlig kod](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
+## Skapa lösningar
+### [Utforma och skapa](operations-management-suite-solutions-creating.md)
+### [Lösningsfil](operations-management-suite-solutions-solution-file.md)
+### [Automation-resurser](operations-management-suite-solutions-resources-automation.md)
+### [Loggsökningar och aviseringar](operations-management-suite-solutions-resources-searches-alerts.md)
+### [Vyer](operations-management-suite-solutions-resources-views.md)
 
+## [Integrera med OMS](operations-management-suite-integration.md)
 
-<!--HONumber=Feb17_HO1-->
-
+# Referens
+## [SDK](operations-management-suite-sdk.md)
 

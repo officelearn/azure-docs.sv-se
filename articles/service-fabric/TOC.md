@@ -109,11 +109,11 @@
 #### [Nätverksmönster för kluster](service-fabric-patterns-networking.md)
 #### [Nodtyper och skalningsuppsättningar för virtuella datorer](service-fabric-cluster-nodetypes.md)
 #### [Skala ett kluster](service-fabric-cluster-scale-up-down.md)
+#### [Skala ett kluster programmässigt](service-fabric-cluster-programmatic-scaling.md)
 #### [Uppgradera ett kluster](service-fabric-cluster-upgrade.md)
 #### [Ta bort ett kluster](service-fabric-cluster-delete.md)
 #### [Åtkomstkontroll](service-fabric-cluster-security-roles.md)
 #### [Konfigurera ett kluster](service-fabric-cluster-fabric-settings.md)
-#### [Skydda ett kluster med certifikat](service-fabric-windows-cluster-x509-security.md)
 #### [Lägg till eller förnya klustercertifikat](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Testa ett Party-kluster utan kostnad](http://aka.ms/tryservicefabric)
 
@@ -131,7 +131,8 @@
 
 ## Hantera programlivscykel
 ### [Översikt](service-fabric-application-lifecycle.md)
-### [Konfigurera kontinuerlig integrering](service-fabric-set-up-continuous-integration.md)
+### [Konfigurera kontinuerlig integrering med VSTS](service-fabric-set-up-continuous-integration.md)
+### [Distribuera din Linux Java-app med hjälp av Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [Om inställningen ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Distribuera eller ta bort program
 #### [PowerShell](service-fabric-deploy-remove-applications.md)

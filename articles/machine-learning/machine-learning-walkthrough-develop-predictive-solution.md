@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2017
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: b652c0f817e5e56d4ff50701345b03db634f616c
 ms.openlocfilehash: 043c54094f53ae539c833eb8f167201781c677a6
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -58,9 +59,4 @@ Vi skapar lösningen för kreditriskbedömning genom att följa dessa steg:
 > Du hittar en fungerande kopia av experimentet som vi skapar i den här genomgången i [Cortana Intelligence-galleriet](https://gallery.cortanaintelligence.com). Gå till **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Genomgång –kreditriskbedömning) och klicka på **Öppna i Studio** för att ladda ned en kopia av experimentet till din Machine Learning Studio-arbetsyta.
 > 
 > Den här genomgången baseras på en förenklad version av exempelexperimentet [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Binär klassificering: kreditriskbedömning), som också finns i [galleriet](http://gallery.cortanaintelligence.com/).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

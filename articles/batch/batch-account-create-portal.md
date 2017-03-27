@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: bdd7f1410906a46c66c1fd33949b30cc669e5a6b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 09be891b5385871554f45bc1f824b4351ffd3bc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -60,7 +60,7 @@ När kontot har skapats kan du öppna bladet för **Batch-kontot** och komma åt
 
 ![Bladet för Batch-kontot på Azure Portal][account_blade]
 
-* **Batch-kontots URL**: När du utvecklar ett program med [Batch-API:er](batch-technical-overview.md#batch-development-apis), behöver du ett konto-URL till dina Batch-resurser. URL:en för ett Batch-konto har följande format:
+* **Batch-kontots URL**: När du utvecklar ett program med [Batch-API:er](batch-apis-tools.md#batch-development-apis), behöver du ett konto-URL till dina Batch-resurser. URL:en för ett Batch-konto har följande format:
   
     `https://<account_name>.<region>.batch.azure.com`
 
@@ -107,7 +107,7 @@ Vidare kan du öka många av dessa kvoter genom att bara skicka en kostnadsfri b
 Förutom att använda Azure Portal kan du också skapa och hantera Batch-konton med följande:
 
 * [PowerShell-cmdlets för Batch](batch-powershell-cmdlets-get-started.md)
-* [Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../cli-install-nodejs.md)
 * [Batch Management .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Nästa steg

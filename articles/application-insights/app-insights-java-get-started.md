@@ -4,18 +4,19 @@ description: "Övervakning av programprestanda för Java-webbappar med Applicati
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/02/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
-ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d2f94ead2e5c7e60037e601ce65a03e809b66dd3
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -95,7 +96,7 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
     }
 ```
 
-* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor? Prova att använda en specifik version, t.ex.: *`version:'1.0.n'`. *Du hittar den senaste versionen i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor? Prova att använda en specifik version, t.ex.:*`version:'1.0.n'`. *Du hittar den senaste versionen i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Så här uppdaterar du till ett nytt SDK*
   * Uppdatera ditt projekts beroenden.
 
@@ -375,6 +376,10 @@ Du kan visa diagram över svarstider, samt få e-postaviseringar om platsen kras
 ## <a name="questions-problems"></a>Frågor? Har du problem?
 [Felsöka Java](app-insights-java-troubleshoot.md)
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Nästa steg
 * [Övervaka beroende anrop](app-insights-java-agent.md)
 * [Övervaka Unix-prestandaräknare](app-insights-java-collectd.md)
@@ -394,9 +399,4 @@ Du kan visa diagram över svarstider, samt få e-postaviseringar om platsen kras
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

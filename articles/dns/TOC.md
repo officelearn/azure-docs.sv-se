@@ -4,13 +4,11 @@
 
 # Kom igång
 
-## [Skapa en DNS-zon](dns-getstarted-create-dnszone-portal.md)
-### [PowerShell](dns-getstarted-create-dnszone.md)
-### [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-
-## [Skapa DNS-poster](dns-getstarted-create-recordset-portal.md)
-### [PowerShell](dns-getstarted-create-recordset.md)
-### [Azure CLI](dns-getstarted-create-recordset-cli.md)
+## Skapa en DNS-zon och -post
+### [Portal](dns-getstarted-portal.md)
+### [PowerShell](dns-getstarted-powershell.md)
+### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
+### [Azure CLI 2.0](dns-getstarted-cli.md)
 
 ## [Delegera din domän till Azure DNS](dns-domain-delegation.md)
 ## [Skapa anpassade DNS-poster för en webbapp](dns-web-sites-custom-domain.md)

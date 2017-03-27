@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2016
+ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -26,7 +27,7 @@ Azure Security Center varnar dig om du har virtuella datorer som inte är krypte
 ![Rekommendation för kryptering av disk](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Informationen i det här dokumentet rör förhandsversionen av Azure Security Center.
+> Informationen i detta dokument gäller för kryptering av virtuella datorer utan att använda en krypteringsnyckel (som krävs för att säkerhetskopiera virtuella datorer med Azure Backup). Läs artikeln [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) (Azure Disk Encryption för Windows och virtuella Linux-datorer i Azure) om du vill ha information om hur man använder en krypteringsnyckel för att ge Azure Backup stöd för krypterade virtuella Azure-datorer.
 >
 >
 
@@ -178,9 +179,4 @@ I det här dokumentet beskrivs hur du krypterar en virtuell dator i Azure. I fö
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

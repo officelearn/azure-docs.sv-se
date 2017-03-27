@@ -1,108 +1,87 @@
 ---
-title: "Skapa en virtuell Linux-dator med hjälp av Azure Portal | Microsoft Docs"
-description: "Skapa en virtuell Linux-dator med hjälp av Azure Portal."
+title: "Azure snabbstart – skapa virtuell dator med Portal | Microsoft Docs"
+description: "Azure snabbstart – skapa virtuell dator med Portal"
 services: virtual-machines-linux
-documentationcenter: 
-author: iainfoulds
+documentationcenter: virtual-machines
+author: neilpeterson
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: cc5dc395-dc54-4402-8804-2bb15aba8ea2
+ms.assetid: 
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/17/2017
-ms.author: iainfou
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 03/21/2017
+ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: beff4fb41ed46b016088734054e7a7897fed1a30
-ms.openlocfilehash: 7287b87b1e50e28de06a5363a1f35bd7ac34d51c
-ms.lasthandoff: 02/15/2017
-
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: bcfd830a5e2f39f36460990cae7e84b04d9a5fbb
+ms.lasthandoff: 03/21/2017
 
 ---
-# <a name="create-a-linux-vm-on-azure-using-the-portal"></a>Skapa en virtuell Linux-dator i Azure med hjälp av portalen
-I den här artikeln lär du dig hur du använder [Azure-portalen](https://portal.azure.com/) för att skapa en virtuell Linux-dator.
 
-Kraven är:
+# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Skapa en virtuell Linux-dator med Azure Portal
 
-* [ett Azure-konto](https://azure.microsoft.com/pricing/free-trial/)
-* [offentliga och privata SSH-nyckelfiler](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Det går att skapa virtuella datorer via Azure Portal. Den här metoden ger ett webbläsarbaserat användargränssnitt för att skapa och konfigurera virtuella datorer och alla relaterade resurser. Den här snabbstarten beskriver hur man skapar en virtuell dator med Azure Portal. 
 
-## <a name="sign-in"></a>Logga in
-Logga in på Azure Portal med din Azure-kontoidentitet. Klicka på **+ Ny** i det övre vänstra hörnet:
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-![Skapa en Azure-resurs](./media/virtual-machines-linux-quick-create-portal/create_new_resource.png)
+## <a name="create-ssh-key-pair"></a>Skapa SSH-nyckelpar
 
-## <a name="choose-vm"></a>Välj virtuell dator
-Klicka på **Beräkna** under **Marketplace** och välj sedan **Ubuntu Server 16.04 LTS** i avbildningslistan **Aktuella appar**.  Kontrollera längst ned att distributionsmodellen är `Resource Manager` och klicka sedan på **Skapa**.
+Du behöver ett SSH-nyckelpar för att slutföra den här snabbstarten. Om du har ett befintligt SSH-nyckelpar kan du hoppa över det här steget. Om du använder en Windows-dator följer du instruktionerna [här](./virtual-machines-linux-ssh-from-windows.md). 
 
-![Välj en avbildning av en virtuell dator från Azure Marketplace](./media/virtual-machines-linux-quick-create-portal/create_new_vm.png)
+Kör det här kommandot från ett Bash-kommandogränssnitt och följ instruktionerna på skärmen. Kommandoutdata innehåller filnamnet för den offentliga nyckeln. Innehållet i den här filen behövs när du skapar den virtuella datorn.
 
-## <a name="enter-vm-options"></a>Ange alternativ för virtuell dator
-På sidan **Grundläggande inställningar** anger du:
-
-* ett namn för den virtuella datorn
-* typ av virtuell datordisk (SSD som standard, eller hårddisk)
-* ett användarnamn för administratören
-* ställ in **Autentiseringstyp** till **Offentlig SSH-nyckel**
-* din offentliga SSH-nyckel som en sträng (från `~/.ssh/`-katalogen)
-* ett resursgruppsnamn eller välj en befintlig resursgrupp
-
-och fortsätt genom att klicka på **OK**. Bladet bör se ut ungefär som på följande skärmbild:
-
-![Ange de grundläggande alternativen för virtuella Azure-datorer](./media/virtual-machines-linux-quick-create-portal/enter_basic_vm_details.png)
-
-## <a name="choose-vm-size"></a>Välj storlek på virtuell dator
-Välj storlek på den virtuella datorn. I följande exempel väljer du **DS1_V2 Standard**, vilket gör att Ubuntu installeras på en Premium SSD. **S**:et i storleksbeteckningen för den virtuella datorn visar att den har stöd för SSD. Klicka på **Välj** så kan du konfigurera inställningarna.
-
-![Välj storlek på en virtuell dator i Azure](./media/virtual-machines-linux-quick-create-portal/select_vm_size.png)
-
-## <a name="storage-and-network"></a>Lagring och nätverk
-På bladet **Inställningar** kan du välja att använda Azure Managed Disks för den virtuella datorn. Den aktuella standardinställningen är att använda ohanterade diskar. Azure Managed Disks hanteras av Azure-plattformen och kräver inte någon förberedelser eller plats för att lagra dem. Mer information om Azure Managed Disks finns i [Översikt över Azure Managed Disks](../storage/storage-managed-disks-overview.md). För ohanterade diskar behöver du skapa eller välja ett lagringskonto för virtuella hårddiskar:
-
-![Välj lagringskonto för icke-hanterade diskar](./media/virtual-machines-linux-quick-create-portal/configure_non_managed_disks.png)
-
-Om du väljer att använda Azure Managed Disks finns det inga ytterligare lagringsutrymmesalternativ att konfigurera, som följande exempel visar:
-
-![Välj alternativet för Azure Managed Disks i portalen](./media/virtual-machines-linux-quick-create-portal/select_managed_disks.png)
-
-Lämna resten av nätverksinställningarna på standardalternativen.
-
-## <a name="confirm-vm-settings-and-launch"></a>Bekräfta inställningarna för virtuell dator och starta
-Bekräfta inställningarna för din nya virtuella Ubuntu-dator och klicka på **OK**.
-
-![Granska inställningarna för den virtuella Azure-datorn och skapa den virtuella datorn](./media/virtual-machines-linux-quick-create-portal/review_final_vm_settings.png)
-
-## <a name="select-the-vm-resource"></a>Välj den virtuella datorresursen
-Öppna portalens startsida och välj **Resursgrupper** på menyn i det övre vänstra hörnet. Om det behövs klickar du på de tre staplarna längst upp på menyn för att expandera listan enligt följande:
-
-![Öppna listan över resursgrupper](./media/virtual-machines-linux-quick-create-portal/select_resource_group.png)
-
-Välj en resursgrupp och klicka på en ny virtuell dator:
-
-![Hitta nätverkskortsinställningarna för en virtuell Azure-dator](./media/virtual-machines-linux-quick-create-portal/select_vm_resource.png)
-
-## <a name="find-the-public-ip"></a>Hitta den offentliga IP-adressen
-Visa den **offentliga IP-adress** som har tilldelats den virtuella datorn:
-
-![Skaffa den offentliga IP-adressen till den virtuella Azure-datorn](./media/virtual-machines-linux-quick-create-portal/view_public_ip_address.png)
-
-## <a name="ssh-to-the-vm"></a>SSH till den virtuella datorn
-SSH till den offentliga IP-adressen med hjälp av den offentliga SSH-nyckeln.  Du kan SSH direkt från terminalen från en Mac- eller Linux-arbetsstation. Om du är på en Windows-arbetsstation måste du använda PuTTY, MobaXTerm eller Cygwin för att SSH till Linux.  Om du inte redan är redo, finns här ett dokument som gör din Windows-arbetsstation redo att SSH till Linux.
-
-[Så använder du SSH-nycklar med Windows på Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+```bash
+ssh-keygen -t rsa -b 2048
 ```
-ssh -i ~/.ssh/azure_id_rsa ops@40.112.255.214
+
+## <a name="log-in-to-azure"></a>Logga in på Azure 
+
+Logga in på Azure Portal på http://portal.azure.com.
+
+## <a name="create-virtual-machine"></a>Skapa en virtuell dator
+
+1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+
+2. Välj **Beräkna** på bladet **Nytt**, välj **Ubuntu Server 16.04 LTS** på bladet **Beräkna** och klicka sedan på knappen **Skapa**.
+
+3. Fyll i formuläret **Grundinställningar** för den virtuella datorn. Välj **SSH** för **Autentiseringstyp**. När du klistrar in den **offentliga SSH-nyckeln** ska du tänka på att ta bort eventuella inledande eller avslutande blanksteg. Skapa en ny för **Resursgrupp**. En resursgrupp är en logisk behållare där Azure-resurser skapas och hanteras gemensamt. När du är klar klickar du på **OK**.
+
+    ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/virtual-machine-quick-start/create-vm-portal-basic-blade.png)  
+
+4. Välj en storlek för den virtuella datorn och klicka på **Välj**. 
+
+    ![Välj en storlek för den virtuella datorn på portalbladet](./media/virtual-machine-quick-start/create-vm-portal-size-blade.png)
+
+5. På inställningsbladet väljer du **Ja** under **Use managed disks** (Använd hanterade diskar), låter standardinställningarna vara kvar för resten och klickar på **OK**.
+
+6. På sammanfattningssidan klickar du på **Ok** för att starta distributionen av den virtuella datorn.
+
+7. Klicka på den virtuella datorn om du vill övervaka distributionsstatus. Den virtuella datorn finns på instrumentpanelen för Azure Portal eller genom att välja **Virtuella datorer** på den vänstra menyn. När den virtuella datorn har skapats ändras statusen från till **Distribuerar** till **Körs**.
+
+## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
+
+När distributionen har slutförts kan du skapa en SSH-anslutning med den virtuella datorn.
+
+1. Klicka på knappen **Anslut** på bladet för den virtuella datorn. Anslutningsknappen visar en SSH-anslutningssträng som kan användas för att ansluta till den virtuella datorn.
+
+    ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
+
+2. Kör följande kommando för att skapa en SSH-session. Ersätt anslutningssträngen med den som du kopierade från Azure Portal.
+
+```bash 
+ssh <replace with IP address>
 ```
+## <a name="delete-virtual-machine"></a>Ta bort en virtuell dator
+
+Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra det väljer du resursgruppen på bladet för den virtuella datorn och klickar på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu har du snabbt skapat en virtuell Linux-dator för testnings- eller demonstrationsändamål. Om du vill skapa en virtuell Linux-dator som är anpassad efter din infrastruktur kan du följa vilken som helst av dessa artiklar.
 
-* [Skapa en virtuell Linux-dator i Azure med hjälp av mallar](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Skapa en SSH-skyddad virtuell Linux-dator i Azure med hjälp av mallar](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Skapa en virtuell Linux-dator med hjälp av Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Självstudie: Skapa virtuella datorer med hög tillgänglighet](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
+[Utforska exempel på distribution av virtuella datorer med CLI](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

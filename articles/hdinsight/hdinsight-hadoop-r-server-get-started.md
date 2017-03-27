@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: HDInsight
+ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 0d15b6967b48f6d53cc169a87c25a2d9ee3936fe
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 383a325bfd2620f6c4fd25ce2f3a66522131efef
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ I HDInsight finns ett R Server-alternativ som ska integreras i HDInsight-klustre
 
 ## <a name="create-the-cluster"></a>Skapa klustret
 > [!NOTE]
-> I den här dokumentguiden får du stegvisa instruktioner om hur du skapar en R Server på HDInsight-kluster med information om grundkonfiguration. Mer information om andra inställningar för klusterkonfiguration (som att lägga till ytterligare Storage-konton, använda ett Azure Virtual Network eller skapa ett metaarkiv för Hive) finns i [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Skapa Linux-baserade HDInsight-kluster).
+> I den här dokumentguiden får du stegvisa instruktioner om hur du skapar en R Server på HDInsight-kluster med information om grundkonfiguration. Mer information om andra inställningar för klusterkonfiguration (som att lägga till ytterligare Storage-konton, använda ett Azure Virtual Network eller skapa ett metaarkiv för Hive) finns i [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Skapa Linux-baserade HDInsight-kluster). Om du vill skapa en R Server med en mall för Azure-resurshantering kan du läsa [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Distribuera ett R Server HDInsight-kluster).
 >
 > 
 

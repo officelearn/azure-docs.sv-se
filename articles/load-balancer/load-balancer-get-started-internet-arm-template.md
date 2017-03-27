@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 29d0fb3160b43d1733d843b4cf103ad821b46018
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3539d6f6d3741387174e80ecc132db782d7df9f0
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -57,7 +58,7 @@ Följ stegen nedan om du vill distribuera mallen som du hämtat med hjälp av Po
 
 Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
 
-1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../xplat-cli-install.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
+1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../cli-install-nodejs.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
 2. Kör kommandot **azure config mode** för att växla till Resource Manager-läge, som det visas nedan.
 
     ```azurecli
@@ -82,9 +83,4 @@ Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
 [Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
 
 [Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

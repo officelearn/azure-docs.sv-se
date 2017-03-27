@@ -25,9 +25,9 @@
 #### [Uppgradera från PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Hantera användare
-### [Tilldela licenser](multi-factor-authentication-get-started-assign-licenses.md)
 ### [Aktivera eller inaktivera MFA](multi-factor-authentication-get-started-user-states.md)
 ### [Användar- och enhetsinställningar](multi-factor-authentication-manage-users-and-devices.md)
+### [Användarhandbok för MFA](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integrera
 ### [Federation Services](multi-factor-authentication-get-started-adfs.md)

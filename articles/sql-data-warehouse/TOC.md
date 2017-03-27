@@ -102,7 +102,7 @@
 ### [Migrera data](sql-data-warehouse-migrate-data.md)
 ### [Migrera till Premium Storage](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Pausa och skala
+## Hantera beräkning
 
 ### [Översikt](sql-data-warehouse-manage-compute-overview.md)
 ### [Azure-portal](sql-data-warehouse-manage-compute-portal.md)

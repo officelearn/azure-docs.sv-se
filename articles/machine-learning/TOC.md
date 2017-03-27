@@ -159,6 +159,7 @@
 #### [Använda Excel](machine-learning-consuming-from-excel.md)
 #### [Använda Excel-tillägg](machine-learning-excel-add-in-for-web-services.md)
 #### [Använda en mall för webbappar](machine-learning-consume-web-service-with-web-app-template.md)
+#### [Använd Batch-pool](machine-learning-dedicated-capacity-for-bes-jobs.md)
 
 ## Exempel
 ### [Exempelexperiment](machine-learning-sample-experiments.md)
@@ -222,8 +223,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Få hjälp från live-chatt](machine-learning-live-chat.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

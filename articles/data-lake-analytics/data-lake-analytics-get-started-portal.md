@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 03/21/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 24b0a928967e6abf9f1eb4f085179a8cd6e82955
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7f23ae904461e754b3871b33ca40c2ff4fcb99f0
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Lär dig hur du använder Azure Portal för att skapa Azure Data Lake Analytics-konton, definiera Data Lake Analytics-jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md) och skicka jobb till Data Lake Analytics-tjänsten. Mer information om Data Lake Analytics finns i [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Lär dig hur du använder Azure Portal för att skapa Azure Data Lake Analytics-konton, definiera jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md) och skicka jobb till Data Lake Analytics-tjänsten. Mer information om Data Lake Analytics finns i [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 I de här självstudierna utvecklar du ett jobb som läser en fil med tabbavgränsade värden (TVS) och konverterar den till en fil med kommaavgränsade värden (CSV). Klicka på flikarna överst i det här avsnittet om du vill gå igenom samma självstudier med andra verktyg. När ditt första jobb lyckas, kan du börja skriva mer komplexa datatransformationer med U-SQL.
 
@@ -35,7 +36,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
 ## <a name="create-data-lake-analytics-account"></a>Skapa ett Data Lake Analytics-konto
 Du måste ha ett Data Lake Analytics-konto innan du kan köra några jobb.
 
-Varje Data Lake Analytics-konto har ett kontoberoende för [Azure Data Lake Store]().  Det här kontot kallas Data Lake Store-standardkonto.  Du kan skapa Data Lake Store-kontot i förväg eller när du skapar ditt Data Lake Analytics-konto. I de här självstudierna skapar du Data Lake Store-kontot med Data Lake Analytics-kontot.
+Varje Data Lake Analytics-konto har ett kontoberoende för Azure Data Lake Store.  Det här kontot kallas Data Lake Store-standardkonto.  Du kan skapa Data Lake Store-kontot i förväg eller när du skapar ditt Data Lake Analytics-konto. I de här självstudierna skapar du Data Lake Store-kontot med Data Lake Analytics-kontot.
 
 **Skapa ett Data Lake Analytics-konto**
 
@@ -45,19 +46,20 @@ Varje Data Lake Analytics-konto har ett kontoberoende för [Azure Data Lake Stor
 
     ![Azure Data Lake Analytics-portalblad](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
-   * **Namn:**: Namnge Data Lake Analytics-kontot.
+   * **Namn**: Ange ett namn på ditt Data Lake Analytics-konto (endast gemena bokstäver och siffror tillåts).
    * **Prenumeration**: Välj den Azure-prenumeration som används för Analytics-kontot.
    * **Resursgrupp**. Välj en befintlig Azure-resursgrupp eller skapa en ny. Med Azure Resource Manager kan du arbeta med resurserna i ditt program som en grupp. Mer information finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    * **Plats**. Välj ett Azure-datacenter för Data Lake Analytics-kontot.
-   * **Data Lake Store**: Varje Data Lake Analytics-konto har ett beroende Data Lake Store-konto. Data Lake Analytics-kontot och det beroende Data Lake Store-kontot måste finnas i samma Azure-datacenter. Följ anvisningarna för att skapa ett nytt Data Lake Store-konto eller välj ett befintligt.
-4. Klicka på **Skapa**. Det tar dig till hemskärmen i portalen. En ny panel har lagts till på Startsidan med etiketten "Distribuera Azure Data Lake Analytics". Det tar en stund att skapa ett Data Lake Analytics-konto. När kontot skapas öppnar portalen kontot på ett nytt blad.
+   * **Data Lake Store**: Klicka på *Konfigurera nödvändiga inställningar*. Följ anvisningarna för att skapa ett nytt Data Lake Store-konto eller välj ett befintligt. Varje Data Lake Analytics-konto har ett beroende Data Lake Store-konto. Data Lake Analytics-kontot och det beroende Data Lake Store-kontot måste finnas i samma Azure-datacenter.
+4. Välj din prisnivå  
+5. Klicka på **Skapa**. Du återvänder till portalens hemsida där en ny panel visas, ”Distribuera Azure Data Lake Analytics". Distributionsprocessen för att skapa ett Data Lake Analytics-konto tar flera minuter. När kontot skapas öppnar portalen kontot på ett nytt blad.
 
 När Data Lake Analytics-kontot har skapats kan du lägga till ytterligare Data Lake Store-konton och Azure Storage-konton. Instruktioner finns i [Hantera datakällor för Data lake Analytics-kontot](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 ## <a name="prepare-source-data"></a>Förbereda källdata
-I den här självstudien bearbetar du vissa sökloggar.  Sökloggen kan lagras i Data Lake Store eller Azure Blob-lagring.
+I självstudierna bearbetas sökloggar.  Sökloggen kan lagras i Data Lake Store eller Azure Blob-lagring.
 
-Azure Portal innehåller ett användargränssnitt för att kopiera vissa exempeldatafiler till Data Lake Store-standardkontot, bland annat en sökloggfil.
+Azure Portal innehåller ett användargränssnitt för att kopiera exempeldatafiler till Data Lake Store-standardkontot, bland annat en sökloggfil.
 
 **Kopiera exempeldatafiler**
 
@@ -138,9 +140,4 @@ När du har förberett källdata kan du börja utveckla ett U-SQL-skript.
 * Om du vill få en översikt över Data Lake Analytics, se [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
 * Klicka på flikväljarna överst på sidan om du vill se samma självstudier med andra verktyg.
 * Information om hur du loggar diagnostikinformation finns i [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

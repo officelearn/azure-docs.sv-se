@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -127,7 +127,7 @@ I det här steget kan skapa du ett användarkonto för att få åtkomst till dat
 
 - SQL Data Warehouse använder fördefinierade databasroller som kallas resursklasser för att allokera olika mängder minne, CPU-resurser och samtidighetsfack till användare. Varje användare kan höra till en liten, mellanstor eller extra stor resursklass. Användarens resursklass bestämmer de resurser som användaren måste köra frågor och läsa in åtgärder för.
 
-- För att optimera datakomprimering måste användaren vanligtvis läsa in med stora eller extra stora resursallokeringar. Läs mer om resursklasser [här](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+- För att optimera datakomprimering kan användaren behöva läsa in med stora eller extra stora resursallokeringar. Läs mer om resursklasser [här](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
 ### <a name="create-an-account-that-can-control-a-database"></a>Skapa ett konto som kan styra en databas
 

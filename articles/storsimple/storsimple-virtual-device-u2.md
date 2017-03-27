@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 03/20/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8b07ac76ebf40cd9bcf428711c2c0f3f3d917388
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,34 +33,13 @@ Den virtuella enheten StorSimple finns i två modeller, en Standardmodell, 8010 
 | **Maximal kapacitet** |30 TB |64 TB |
 | **Virtuell Azure-dator** |Standard_A3 (4 kärnor, 7 GB minne) |Standard_DS3 (4 kärnor, 14 GB minne) |
 | **Versionskompatibilitet** |Versioner som körs före Uppdatering 2 eller senare |Versioner som körs med Uppdatering 2 eller senare |
-| **Regional tillgänglighet** |Alla Azure-regioner |Azure-regioner som har stöd för Premiumlagring<br></br>En lista över regioner finns i [regioner som stöds för 8020](#supported-regions-for-8020) |
+| **Regional tillgänglighet** |Alla Azure-regioner |Alla Azure-regioner som har stöd för Premium Storage<br></br>Du kan hitta Premium Storage-regioner i listan över [Azure-tjänster efter region](https://azure.microsoft.com/en-us/regions/services). Identifiera regioner där VM-serierna DS, DSV2, Fs och GS stöds. |
 | **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../storage/storage-premium-storage.md) |
 | **Riktlinjer för arbetsbelastning** |Hämtning av filer från säkerhetskopior på objektnivå |Scenarier för utveckling och test av molnet, låg latens, arbetsbelastningar med hög prestanda <br></br>Sekundär enhet för katastrofåterställning |
 
-<sup>1</sup> * Kallades tidigare 1100*.
+<sup>1</sup> *Kallades tidigare 1100*.
 
 <sup>2</sup> *Både 8010 och 8020 använder Azure Standardlagring för molnnivån. Skillnaden finns endast på den lokala nivån i enheten*.
-
-#### <a name="supported-regions-for-8020"></a>Regioner som stöds för 8020
-Premiumlagring för 8020 stöds för närvarande i regionerna som visas i tabellen nedan. Den här listan uppdateras kontinuerligt allteftersom Premiumlagring blir tillgänglig i flera områden.
-
-| S. nr | Stöds för närvarande i regionerna |
-| --- | --- |
-| 1 |Centrala USA |
-| 2 |Östra USA |
-| 3 |Östra USA 2 |
-| 4 |Västra USA |
-| 5 |Norra Europa |
-| 6 |Västra Europa |
-| 7 |Sydostasien |
-| 8 |Östra Japan |
-| 9 |Västra Japan |
-| 10 |Östra Australien |
-| 11 |Sydöstra* Australien |
-| 12 |Östasien* |
-| 13 |Södra centrala USA* |
-
-* Premiumlagring blev senast tillgängligt i dessa regioner.
 
 Den här artikeln beskriver stegvis processen för att distribuera en virtuell StorSimple-enhet i Azure. När du har läst den här artikeln, kommer du att:
 
@@ -89,7 +69,7 @@ I följande avsnitt beskrivs konfigurationskraven för din virtuella StorSimple-
 #### <a name="azure-requirements"></a>Krav för Azure
 Innan du etablerar den virtuella enheten måste du göra följande förberedelser i Azure-miljön:
 
-* [Konfigurera ett virtuellt nätverk på Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) för den virtuella enheten. Om du använder Premiumlagring, måste du skapa ett virtuellt nätverk i en Azure-region som har stöd för Premiumlagring. Mer information om [regioner som stöds för närvarande för 8020](#supported-regions-for-8020).
+* [Konfigurera ett virtuellt nätverk på Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) för den virtuella enheten. Om du använder Premiumlagring, måste du skapa ett virtuellt nätverk i en Azure-region som har stöd för Premiumlagring. Du kan hitta Premium Storage-regioner i listan över [Azure-tjänster efter region](https://azure.microsoft.com/en-us/regions/services). Identifiera regioner där VM-serierna DS, DSV2, Fs och GS stöds.
 * Du rekommenderas att använda standard-DNS-servern från Azure istället för att ange ett eget DNS-servernamn. Om DNS-servernamnet inte är giltigt eller om DNS-servern inte kan matcha IP-adresser korrekt går det inte att skapa den virtuella enheten.
 * Punkt-till-plats och plats-till-plats går att välja, men är inget krav. Om du vill kan du konfigurera dessa alternativ för mer avancerade scenarier.
 * Du kan skapa [virtuella datorer i Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (värdservrar) i det virtuella nätverket som kan använda de volymer som exponeras av den virtuella enheten. Servrarna måste uppfylla följande krav:                             
@@ -256,9 +236,4 @@ Om du inte har någon anslutning till Internet när du skapar en virtuell enhet 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig att [använda StorSimple Manager-tjänsten för att hantera en virtuell enhet](storsimple-manager-service-administration.md).
 * Förstå hur du [återställer en StorSimple-volym från en säkerhetskopia](storsimple-restore-from-backup-set.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

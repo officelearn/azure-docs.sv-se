@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 639328ca-d800-4fa9-97ed-5664477b88cd
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b1806950581e0adbeec52839f12c70599d28100d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -110,7 +112,7 @@ Detta skapar en inloggning för den angivna användaren och möjliggör antingen
 
 ### <a name="azure-command-line-interface-for-mac-linux-and-windows"></a>Azure-kommandoradsgränssnitt för Mac, Linux och Windows
 
-Du kan använda  [Azure CLI för Mac, Linux och Windows](../xplat-cli-install.md) för att skapa ett nytt kluster med hjälp av `azure hdinsight cluster create`-kommandot.
+Du kan använda  [Azure CLI för Mac, Linux och Windows](../cli-install-nodejs.md) för att skapa ett nytt kluster med hjälp av `azure hdinsight cluster create`-kommandot.
 
 Mer information om hur du använder det här kommandot finns i [Etablera Hadoop Linux-kluster i HDInsight med anpassade alternativ](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -221,7 +223,7 @@ Om du behöver lägga till fler konton i klustret utför du följande steg:
 
 6. Du bör nu kunna autentisera till servern med det nya användarkontot och den privata nyckeln.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH-tunnel
+## <a id="tunnel"></a>SSH-tunnel
 
 SSH kan användas för lokala tunnelbegäranden, till exempel webbegäranden, till HDInsight-klustret. Begäran kommer sedan att dirigeras till den begärda resursen som om den hade sitt ursprung i HDInsight-klustrets huvudnod.
 
@@ -239,9 +241,4 @@ Nu när du vet hur du autentiserar genom att använda en SSH-nyckel kan du lära
 * [Använda MapReduce-jobb med HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

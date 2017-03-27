@@ -11,6 +11,7 @@
 ## Utveckla
 ### [Programpaket](batch-application-packages.md)
 ### [Automatisk skalning för beräkningsnoder](batch-automatic-scaling.md)
+### [Azure AD-autentisering](batch-aad-auth.md)
 ### [Samtidiga nodaktiviteter](batch-parallel-node-tasks.md)
 ### [Effektiv lista: frågor](batch-efficient-list-queries.md)
 ### [Aktiviteter för jobbförberedelse och -slutförande](batch-job-prep-release.md)
@@ -47,4 +48,5 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C#-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Blogg](https://blogs.technet.microsoft.com/windowshpc/)
 

@@ -5,7 +5,7 @@
 Kontrollera att du har följande innan du påbörjar konfigurationen.
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-* Installera den senaste versionen av Azure CLI. Den finns tillgänglig för Windows, Linux och MAC. Mer information finns på [Installera Azure CLI](../articles/xplat-cli-install.md).
+* Installera den senaste versionen av Azure CLI. Den finns tillgänglig för Windows, Linux och MAC. Mer information finns på [Installera Azure CLI](../articles/cli-install-nodejs.md).
 
 ### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
@@ -54,9 +54,4 @@ Azure DNS-tjänsten hanteras av Microsoft.Network-resursprovidern. Din Azure-pre
 ```azurecli
 azure provider register --namespace Microsoft.Network
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

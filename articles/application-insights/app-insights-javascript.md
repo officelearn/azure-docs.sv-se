@@ -1,21 +1,22 @@
 ---
-title: "Application Insights för JavaScript-webbappar | Microsoft Docs"
+title: "Azure Application Insights för JavaScript-webbappar | Microsoft Docs"
 description: "Hämta sidvisnings- och sessionsantal, webbklientdata och spåra användningsmönster. Identifiera undantag och prestandaproblem på JavaScript-baserade webbsidor."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
-ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +98,7 @@ Exempel på [tillgängliga parametrar](https://github.com/Microsoft/ApplicationI
 
 
 
-## <a name="a-namerunarun-your-app"></a><a name="run"></a>Kör din app
+## <a name="run"></a>Kör din app
 Kör webbappen, använd den en stund för att generera telemetri och vänta några sekunder. Du kan antingen köra den genom att trycka på **F5** på utvecklingsdatorn, eller publicera den och låta användarna använda den.
 
 Om du vill kontrollera telemetrin som en webbapp skickar till Application Insights använder du webbläsarens felsökningsverktyg (**F12** i många webbläsare). Informationen skickas till dc.services.visualstudio.com.
@@ -107,7 +108,7 @@ Om du vill kontrollera telemetrin som en webbapp skickar till Application Insigh
 
 ![Öppna appens resurs på portal.azure.com och klicka på Inställningar, Webbläsare.](./media/app-insights-javascript/03.png)
 
-*Ser du inga data än? Klicka på **Uppdatera** längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).*
+*Ser du inga data än? Klicka på**Uppdatera**längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).*
 
 Bladet Webbläsare är ett [Metrics Explorer-blad](app-insights-metrics-explorer.md) med förinställda filter och diagraminställningar. Du kan redigera tidsintervallet, filtren och diagramkonfigurationen om du vill och spara resultatet som en favorit. Klicka på **Återställ standardvärden** för att återgå till det ursprungliga konfigurationsbladet.
 
@@ -167,6 +168,7 @@ Klicka på en rad om du vill visa specifik information.
 
 ![](./media/app-insights-javascript/37.png)
 
+
 Klicka på `...` om du vill visa fullständig telemetri om ett Ajax-anrop.
 
 ### <a name="no-ajax-calls-reported"></a>Rapporteras inga Ajax-anrop?
@@ -180,6 +182,7 @@ Bladet Webbläsare innehåller ett sammanfattningsdiagram över undantag och ett
 Om du inte ser webbläsarundantag kontrollerar du att kodfragmentet inte innehåller parametern `disableExceptionTracking`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
 
 ## <a name="inspect-individual-page-view-events"></a>Granska enskilda sidvisningshändelser
+
 Vanligtvis analyseras telemetri för sidvisningar av Application Insights och du ser endast kumulativa rapporter, som ett genomsnitt av alla användare. Men för felsökningsändamål kan du även titta på enskilda sidvisningshändelser.
 
 Ställ in Filter till Sidvy på bladet Diagnostiksökning.
@@ -217,19 +220,16 @@ Vill du veta vad användarna gör med din app?
 * [Lär dig mer om användningsspårning](app-insights-web-track-usage.md)
 * [Lär dig mer om API:er för mätvärden och anpassade händelser](app-insights-api-custom-events-metrics.md).
 
-#### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a>Video: Spåra användning
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
-> 
-> 
+## <a name="video"></a> Video
 
-## <a name="a-namenexta-next-steps"></a><a name="next"></a>Nästa steg
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+
+
+## <a name="next"></a>Nästa steg
 * [Spåra användning](app-insights-web-track-usage.md)
 * [Anpassade händelser och mätvärden](app-insights-api-custom-events-metrics.md)
 * [Skapa – mät – lär](app-insights-overview-usage.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

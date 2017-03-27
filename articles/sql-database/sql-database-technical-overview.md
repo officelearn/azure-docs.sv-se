@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/20/2016
+ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
-ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
+ms.lasthandoff: 03/17/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>Vad är SQL Database? Introduktion till SQL Database
 SQL Database är en relationsdatabastjänst i Microsoft Cloud som är baserad på den marknadsledande Microsoft SQL Server-motorn och som kan hantera verksamhetskritiska arbetsbelastningar. SQL Database levererar förutsägbar prestanda på flera tjänstenivåer, dynamisk skalbarhet utan avbrott, verksamhetskontinuitet och dataskydd – allt med nästan obefintlig administration. Dessa funktioner gör att du kan fokusera på snabb apputveckling och att accelerera din tid till marknaden, istället för att ägna värdefull tid och resurser åt att hantera virtuella datorer och infrastruktur. Eftersom SQL Database är baserad på [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx)-motorn stöder SQL Database befintliga SQL Server-verktyg, bibliotek och API:er. Därför är det enkelt att utveckla nya lösningar, att flytta dina befintliga SQL Server-lösningar och att utöka dina befintliga SQL Server-lösningar till Microsoft Cloud utan att lära dig nya färdigheter.
 
-Den här artikeln ger en introduktion till nyckelkoncept och funktioner för SQL Database som relaterar till prestanda, skalbarhet och hanterbarhet, med länkar till mer detaljerad information. Om du är redo att komma igång med praktiska självstudier så ka+n du gå till [skapa din första SQL-databas](sql-database-get-started.md) eller [skapa en elastisk pool](sql-database-elastic-pool-manage-portal.md). Se dem här videon för en kort demonstration.
+Den här artikeln ger en introduktion till nyckelkoncept och funktioner för SQL Database som relaterar till prestanda, skalbarhet och hanterbarhet, med länkar till mer detaljerad information. Läs följande snabbstarter innan du börjar:
+ - [Skapa en SQL-databas i Azure Portal](sql-database-get-started-portal.md)  
+ - [Skapa en SQL-databas med Azure CLI](sql-database-get-started-cli.md)
+ - [Skapa en SQL Database med PowerShell](sql-database-get-started-powershell.md)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
-> 
-> 
+En uppsättning Azure CLI- och PowerShell-exempel finns här:
+ - [Azure CLI-exempel för Azure SQL Database](sql-database-cli-samples.md)
+ - [Azure PowerShell-exempel för Azure SQL Database](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Justera prestanda och skalning utan avbrott
 SQL Database-tjänsten erbjuder tre tjänstnivåer: Basic, Standard och Premium. Varje tjänstnivå erbjuder [olika prestandanivåer och funktioner](sql-database-service-tiers.md) för att stödja lätta till tunga arbetsbelastningar för databaser. Du kan skapa din första app på en liten databas för några kronor i månaden och sedan [ändra dess tjänstnivå](sql-database-service-tiers.md) manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan göra detta utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.

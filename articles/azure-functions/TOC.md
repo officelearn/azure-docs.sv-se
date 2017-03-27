@@ -22,13 +22,15 @@
 #### [Mobile Apps-bindningar](functions-bindings-mobile-apps.md)
 #### [Notification Hub-utdatabindning](functions-bindings-notification-hubs.md)
 #### [Service Bus-utlösare och bindningar för köer och ämnen](functions-bindings-service-bus.md)
+#### [Sendgrid-bindningar](functions-bindings-sendgrid.md)
 #### Lagringsbindningar
 ##### [Blobbindningar](functions-bindings-storage-blob.md)
 ##### [Köbindningar](functions-bindings-storage-queue.md)
 ##### [Tabellbindningar](functions-bindings-storage-table.md)
+##### [SendGrid-bindningar](functions-bindings-sendgrid.md)
 #### [Timerutlösare](functions-bindings-timer.md)
 #### [Twilio-utdatabindning](functions-bindings-twilio.md)
-### [Skapa en funktion från Azure Portal](functions-create-first-azure-function-azure-portal.md) 
+### [Skapa en funktionsapp från Azure Portal](functions-create-function-app-portal.md) 
 ### [Testa Azure Functions](functions-test-a-function.md)
 ### [Utveckla och felsöka lokalt](functions-run-local.md)
 ### [Metodtips för Azure Functions](functions-best-practices.md)
@@ -50,8 +52,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 ## [Azure Functions GitHub-lagringsplats](https://github.com/Azure/Azure-Functions/) 
 ## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

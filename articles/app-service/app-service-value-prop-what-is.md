@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
-ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a773e43b28b144dd8341b276eee3fa504d4f1080
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,9 +37,9 @@ Följande 4-minuters videoklipp innehåller en kort beskrivning av hur Apptjäns
 Här följer några viktiga funktioner och funktioner i Apptjänst:
 
 * **Flera språk och ramverk** – Apptjänst har förstklassigt stöd för ASP.NET, Node.js, Java, PHP och Python. Du kan också köra [Windows PowerShell och andra skript och körbara filer](../app-service-web/web-sites-create-web-jobs.md) på Apptjänstens virtuella datorer.
-* **DevOps-optimering** – Konfigurera [kontinuerlig integrering och distribution](../app-service-web/app-service-continuous-deployment.md) med Visual Studio Team Services, GitHub eller BitBucket. Flytta upp uppdateringar via [test- och mellanlagringsmiljöer](../app-service-web/web-sites-staged-publishing.md). Utför [A/B-test](../app-service-web/app-service-web-test-in-production-get-start.md). Hantera dina appar i App Service med [Azure PowerShell](/powershell/azureps-cmdlets-docs) eller det [plattformsoberoende kommandoradsgränssnittet (CLI)](../xplat-cli-install.md).
+* **DevOps-optimering** – Konfigurera [kontinuerlig integrering och distribution](../app-service-web/app-service-continuous-deployment.md) med Visual Studio Team Services, GitHub eller BitBucket. Flytta upp uppdateringar via [test- och mellanlagringsmiljöer](../app-service-web/web-sites-staged-publishing.md). Utför [A/B-test](../app-service-web/app-service-web-test-in-production-get-start.md). Hantera dina appar i App Service med [Azure PowerShell](/powershell/azureps-cmdlets-docs) eller det [plattformsoberoende kommandoradsgränssnittet (CLI)](../cli-install-nodejs.md).
 * **Global skala med hög tillgänglighet** – skala [upp](../app-service-web/web-sites-scale.md) och [ned](../monitoring-and-diagnostics/insights-how-to-scale.md) manuellt och automatiskt. Hantera appar var som helst i Microsofts globala datacenterinfrastruktur med hög tillgänglighet tack vare [serviceavtalet](https://azure.microsoft.com/support/legal/sla/app-service/) för App Service.
-* **Anslutningar till SaaS-plattformar och lokala data ** – välj bland fler än 50 [anslutningsappar](../connectors/apis-list.md) för företagssystem (till exempel SAP, Siebel och Oracle), SaaS-tjänster (till exempel Salesforce och Office 365) och internettjänster (till exempel Facebook och Twitter). Åtkomst till lokala data via [hybridanslutningar ](../biztalk-services/integration-hybrid-connection-overview.md) och [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
+* **Anslutningar till SaaS-plattformar och lokala data** – välj bland fler än 50 [anslutningsappar](../connectors/apis-list.md) för företagssystem (till exempel SAP, Siebel och Oracle), SaaS-tjänster (till exempel Salesforce och Office 365) och internettjänster (till exempel Facebook och Twitter). Åtkomst till lokala data via [hybridanslutningar ](../biztalk-services/integration-hybrid-connection-overview.md) och [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
 * **Säkerhet och efterlevnad** – App Service [uppfyller ISO, SOC och PCI](https://www.microsoft.com/TrustCenter/).
 * **Programmallar** – Välj från en omfattande lista med mallar på [Azure Marketplace](https://azure.microsoft.com/marketplace/) där du kan använda en guide för att installera populära program med öppen källkod som WordPress, Joomla och Drupal.
 * **Visual Studio-integration** – dedikerade verktyg i Visual Studio effektiviserar arbetet med att skapa, distribuera och felsöka.
@@ -90,10 +91,5 @@ Eller öppna ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing
 * [Självstudier: Skapa en mobilapp](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Självstudier: Skapa en API-app](../app-service-api/app-service-api-dotnet-get-started.md)
 * [Självstudier: Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

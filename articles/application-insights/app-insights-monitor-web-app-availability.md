@@ -4,18 +4,19 @@ description: "Konfigurera webbtester i Application Insights. Få aviseringar om 
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ Det finns två typer av webbtester:
 
 Du kan skapa upp till tio webbtester per programresurs.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Skapa en resurs för dina testrapporter
+## <a name="create"></a>1. Skapa en resurs för dina testrapporter
 Hoppa över det här steget om du redan har [konfigurerat en Application Insights-resurs][start] för det här programmet och om du vill visa tillgänglighetsrapporter på samma plats.
 
 Registrera dig för [Microsoft Azure](http://azure.com), gå till [Azure-portalen](https://portal.azure.com) och skapa en Application Insights-resurs.
@@ -42,7 +43,7 @@ Registrera dig för [Microsoft Azure](http://azure.com), gå till [Azure-portale
 
 Klicka på **alla resurser** för att öppna översiktsbladet för den nya resursen.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Skapa ett URL-pingtest
+## <a name="setup"></a>2. Skapa ett URL-pingtest
 Leta upp panelen Tillgänglighet i Application Insights-resursen. Klicka på panalen för att öppna bladet Webbtest för ditt program, och lägg till ett webbtest.
 
 ![Fyll åtminstone i URL:en för din webbplats](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -66,7 +67,7 @@ Leta upp panelen Tillgänglighet i Application Insights-resursen. Klicka på pan
 ### <a name="test-more-urls"></a>Testa fler URL:er
 Lägg till fler test. Förutom att testa din hemsida kan du till exempel kontrollera att din databas körs genom att testa URL:en för en sökning.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Se webbtestresultaten
+## <a name="monitor"></a>3. Se webbtestresultaten
 Resultaten visas i bladet Webbtest efter 1 till 2 minuter.
 
 ![Sammanfattningsresultat på startbladet](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -75,7 +76,7 @@ Klicka på valfri stapel i sammanfattningsdiagrammet om du vill visa en mer deta
 
 Dessa diagram kombinerar resultaten för alla webbtester för det här programmet.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Om du ser fel
+## <a name="failures"></a>Om du ser fel
 Klicka på en röd punkt.
 
 ![Klicka på en röd punkt](./media/app-insights-monitor-web-app-availability/open-instance.png)
@@ -100,7 +101,7 @@ Du kan övervaka ett scenario med en serie URL:er. Om du till exempel övervakar
 > Det utgår en avgift för webbtester med flera steg. [Prisschema](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-Om du vill skapa ett test med flera steg spelar du in scenariot med hjälp av Visual Studio och laddar sedan upp inspelningen till Application Insights. Application Insights spelar upp scenariot i intervall och verifierar svaren.
+Om du vill skapa ett test med flera steg spelar du in scenariot med hjälp av Visual Studio Enterprise och laddar sedan upp inspelningen till Application Insights. Application Insights spelar upp scenariot i intervall och verifierar svaren.
 
 Observera att du inte kan använda kodade funktioner i tester: stegen i scenariot måste finnas som ett skript i filen .webtest.
 
@@ -109,7 +110,10 @@ Spela in en webbsession med Visual Studio Enterprise.
 
 1. Skapa ett testprojekt för webbprestanda.
 
-    ![Skapa ett projekt i Visual Studio från mallen Webbprestanda- och inläsningstest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Skapa ett projekt i Visual Studio Enterprise från mallen Webbprestanda- och inläsningstest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *Kan du inte se mallen Webbprestanda- och inläsningstest?* - Stäng Visual Studio Enterprise. Öppna **installationsprogrammet för Visual Studio** för att ändra Visual Studio Enterprise-installationen. Välj **Web Performance and load testing tools** (Verktyg för webbprestanda- och inläsningstest) under **Individual Components** (Enskilda komponenter).
+
 2. Öppna filen .webtest och börja inspelningen.
 
     ![Öppna filen .webtest och klicka på Spela in.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
@@ -207,7 +211,7 @@ Om testet måste logga in med OAuth är den allmänna riktlinjen att:
 * Parameterisera token genom att ange parametern när token returneras från autentiseraren och använda den i frågan till webbplatsen.
   (Visual Studio försöker parameterisera testet, men kan inte parameterisera token korrekt.)
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a>Redigera eller inaktivera ett test
+## <a name="edit"></a>Redigera eller inaktivera ett test
 Öppna ett enskilt test för att redigera eller inaktivera det.
 
 ![Redigera eller inaktivera ett webbtest](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -256,12 +260,12 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 
     Det stöds tyvärr inte.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Video
+## <a name="video"></a>Video
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Nästa steg
+## <a name="next"></a>Nästa steg
 [Sök i diagnostikloggar][diagnostic]
 
 [Felsökning][qna]
@@ -274,9 +278,4 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

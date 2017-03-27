@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/27/2017
+ms.date: 03/21/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
-ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 5e7520f8a023cd5feb8401483161e7296a413b02
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,7 +46,7 @@ Du får lära dig:
 För att kunna slutföra den här självstudien behöver du följande.
 
 * [Azure-konto](#azure-account)
-* [Visual Studio 2015 med Azure SDK för .NET](#visual-studio-2015-with-the-azure-sdk-for-net)
+* [Visual Studio 2017 med Azure SDK för .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
 
 ### <a name="azure-account"></a>Azure-konto
 Du behöver ett Azure-konto för att kunna slutföra den här självstudien. Du kan:
@@ -53,22 +54,23 @@ Du behöver ett Azure-konto för att kunna slutföra den här självstudien. Du 
 * [Öppna ett Azure-konto kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda kostnadsfria Azure-tjänster och -funktioner.
 * [Aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Din MSDN-prenumeration ger dig krediter varje månad som kan användas för Azure-betaltjänster.
 
-### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>Visual Studio 2015 med Azure SDK för .NET
-Självstudien gäller för Visual Studio 2015 med [Azure SDK för .NET](../dotnet-sdk.md) 2.8.2 eller senare. [Ladda ned den senaste Azure-SDK:n för Visual Studio 2015 här](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio installeras automatiskt med SDK:n om du inte redan har det.
+### <a name="visual-studio-2017-with-the-azure-sdk-for-net"></a>Visual Studio 2017 med Azure SDK för .NET
+Självstudien gäller för Visual Studio 2017 med [Azure SDK för .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). Azure SDK 2.9.5 medföljer installationsprogrammet för Visual Studio.
+
+Om du har Visual Studio 2015 kan du följa självstudien med [Azure SDK for .NET](../dotnet-sdk.md) 2.8.2 eller senare. [Ladda ned den senaste Azure-SDK:n för Visual Studio 2015 här](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio installeras automatiskt med SDK:n om du inte redan har det. Vissa av skärmarna kan se annorlunda ut än i självstudien.
 
 Om du har Visual Studio 2013 kan du [ladda ned den senaste Azure-SDK:n för Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Vissa av skärmarna kan se annorlunda ut än i självstudien.
-
-> [!NOTE]
-> Beroende på hur många av SDK-beroendena du redan har på datorn kan det ta lång tid att installera SDK:n, från några minuter till drygt en halvtimma.
-> 
-> 
 
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 1. Öppna Visual Studio och klicka på **Arkiv**, **Nytt**, **Projekt**.
 2. Expandera noden **Visual C#** i listan **Mallar**, välj **Moln** och klicka på **ASP.NET-webbapp**. Kontrollera att **.NET Framework 4.5.2** eller senare har valts.  Skriv **ContosoTeamStats** i textrutan **Namn** och klicka på **OK**.
    
     ![Skapa projekt][cache-create-project]
-3. Välj **MVC** som projekttyp. Avmarkera kryssrutan **Värd i molnet**. Du kommer att [etablera Azure-resurserna](#provision-the-azure-resources) och [publicera programmet till Azure](#publish-the-application-to-azure) i efterföljande steg i självstudien. Ett exempel på att etablera en App Service-webbapp från Visual Studio genom att låta **Värd i molnet** vara markerad finns i [Kom igång med Web Apps i Azure App Service med ASP.NET och Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+3. Välj **MVC** som projekttyp. 
+
+    Kontrollera att **Ingen autentisering** är angivet i **autentiseringsinställningarna**. Beroende på din version av Visual Studio kan standard anges till något annat. För att ändra detta klickar du på **Ändra autentisering** och väljer **Ingen autentisering**.
+
+    Om du använder Visual Studio 2015 avmarkerar du kryssrutan **Värd i molnet**. Du kommer att [etablera Azure-resurserna](#provision-the-azure-resources) och [publicera programmet till Azure](#publish-the-application-to-azure) i efterföljande steg i självstudien. Ett exempel på att etablera en App Service-webbapp från Visual Studio genom att låta **Värd i molnet** vara markerad finns i [Kom igång med Web Apps i Azure App Service med ASP.NET och Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
    
     ![Välj projektmall][cache-select-template]
 4. Klicka på **OK** för att skapa projektet.
@@ -76,9 +78,21 @@ Om du har Visual Studio 2013 kan du [ladda ned den senaste Azure-SDK:n för Visu
 ## <a name="create-the-aspnet-mvc-application"></a>Skapa MVC-appen i ASP.NET
 I det här avsnittet av självstudierna ska du skapa det grundläggande program som läser och visar teamstatistik från en databas.
 
+* [Lägga till paketet Entity Framework NuGet](#add-the-entity-framework-nuget-package)
 * [Lägg till modellen](#add-the-model)
 * [Lägg till kontrollanten](#add-the-controller)
 * [Konfigurera vyerna](#configure-the-views)
+
+### <a name="add-the-entity-framework-nuget-package"></a>Lägga till paketet Entity Framework NuGet
+
+1. Klicka på **NuGet Package Manager**, **Package Manager-konsolen** på menyn **Verktyg**.
+2. Kör följande kommando från fönstret `Package Manager Console`.
+    
+    ```
+    Install-Package EntityFramework
+    ```
+
+Mer information om det här paketet finns i NuGet-paketet [EntityFramework](https://www.nuget.org/packages/EntityFramework/).
 
 ### <a name="add-the-model"></a>Lägg till modellen
 1. Högerklicka på **Modeller** i **Solution Explorer** och välj **Lägg till**, **Klass**. 
@@ -172,21 +186,27 @@ I det här avsnittet av självstudierna ska du skapa det grundläggande program 
 1. Gå till **Solution Explorer** och dubbelklicka på **web.config** för att öppna det.
    
     ![Web.config][cache-web-config]
-2. Lägg till följande anslutningssträng till `connectionStrings`-avsnittet. Namnet på anslutningssträngen måste matcha namnet på klassen för Entity Framework-databasens kontext som är `TeamContext`.
-
-    ```xml   
-    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
-    ```
-
-    När du lagt till detta ska `connectionStrings`-avsnittet se ut som i följande exempel.
+2. Lägg till följande avsnitt `connectionStrings`. Namnet på anslutningssträngen måste matcha namnet på klassen för Entity Framework-databasens kontext som är `TeamContext`.
 
     ```xml
     <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-            providerName="System.Data.SqlClient" />
         <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
+
+    Du kan lägga till det nya `connectionStrings` avsnittet så att det följer `configSections`, vilket visas i följande exempel.
+
+    ```xml
+    <configuration>
+      <configSections>
+        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      </configSections>
+      <connectionStrings>
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+      </connectionStrings>
+      ...
+      ```
 
 ### <a name="add-the-controller"></a>Lägg till kontrollanten
 1. Tryck på **F6** för att skapa projektet. 
@@ -261,14 +281,14 @@ I det här avsnittet av självstudierna konfigurerar du exempelprogrammet till a
 * [Uppdatera vyn Teamindex till att arbeta med cacheminnet](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>Konfigurera programmet till att använda StackExchange.Redis
-1. Om du vill konfigurera ett klientprogram i Visual Studio med hjälp av NuGet-paketet för StackExchange.Redis, högerklickar du på projektet i **Solution Explorer** och väljer **Hantera NuGet-paket**. 
+1. Om du vill konfigurera ett klientprogram i Visual Studio med hjälp av NuGet-paketet för StackExchange.Redis klickar du på projektet i **NuGet Package Manager** och väljer **Package Manager-konsolen** på menyn **Verktyg**.
+2. Kör följande kommando från fönstret `Package Manager Console`.
+    
+    ```
+    Install-Package StackExchange.Redis
+    ```
    
-    ![Hantera NuGet-paket][redis-cache-manage-nuget-menu]
-2. Skriv **StackExchange.Redis** i sökrutan, markera den önskade versionen i resultaten och klicka på **Installera**.
-   
-    ![NuGet-paket för StackExchange.Redis][redis-cache-stack-exchange-nuget]
-   
-    NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferenserna för klientprogrammet för att få åtkomst till Azure Redis Cache med cacheklienten StackExchange.Redis. Om du vill använda en starkt krypterad version av klientbiblioteket **StackExchange.Redis** väljer du **StackExchange.Redis.StrongName**, annars väljer du **StackExchange.Redis**.
+    NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferenserna för klientprogrammet för att få åtkomst till Azure Redis Cache med cacheklienten StackExchange.Redis. Om du vill använda en starkt krypterad version av `StackExchange.Redis` klientbiblioteket ska du installera paketet `StackExchange.Redis.StrongName`.
 3. I **Solution Explorer** expanderar du mappen **Kontrollanter** och sedan dubbelklickar du på filen **TeamController.cs** för att öppna den.
    
     ![Teamkontrollant][cache-teamscontroller]
@@ -670,7 +690,7 @@ Den autogenererade kod som skapats som en del av det här exemplet innehåller m
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
    
-    Den här raden visar värdet för `ViewBag.Msg` som innehåller en statusrapport om den aktuella åtgärd som anges när du klickar på någon av åtgärdslänkarna i föregående steg.   
+    Den här raden visar värdet för `ViewBag.Msg` som innehåller en statusrapport om den aktuella åtgärden. `ViewBag.Msg` ställs in när du klickar på någon av åtgärdslänkarna i föregående steg.   
    
     ![Statusmeddelande][cache-status-message]
 2. Tryck på **F6** för att skapa projektet.
@@ -698,7 +718,7 @@ När du klickar på knappen **Distribuera till Azure** går du till Azure Portal
 ![Distribuera till Azure][cache-deploy-to-azure-step-1]
 
 1. I avsnittet **Grundläggande** väljer du vilken Azure-prenumerationen som ska användas. Välj också en befintlig resursgrupp eller skapa en ny och ange plats för resursgruppen.
-2. I avsnittet **Inställningar** anger du ett administratörkontonamn (**ADMINISTRATORLOGIN** – använd inte **admin**), ett administratörslösenord för inloggning (**ADMINISTRATORLOGINPASSWORD**) och databasnamnet (**DATABASENAME**). Andra parametrar har konfigurerats för en kostnadsfri apptjänst som är värd för planen och lägre kostnadsalternativ för SQL Database och Azure Redis Cache, vilka saknar en kostnadsfri nivå.
+2. I avsnittet **Inställningar** anger du **inloggningsuppgifter för administratörer** (använd inte **admin**), **ett lösenord för administratörer** och ett **databasnamn**. De andra parametrarna har konfigurerats för en kostnadsfri App Service-värdplan och lägre kostnadsalternativ för SQL Database och Azure Redis Cache, vilka saknar en kostnadsfri nivå.
 
     ![Distribuera till Azure][cache-deploy-to-azure-step-2]
 
@@ -726,17 +746,13 @@ I det här steget i självstudien publicerar du programmet till Azure och kör d
 1. Högerklicka på projektet **ContosoTeamStats** i Visual Studio och välj **Publicera**.
    
     ![Publicera][cache-publish-app]
-2. Klicka på **Microsoft Azure App Service**.
+2. Klicka på **Microsoft Azure App Service**, välj **Välj befintlig** och klicka på **Publicera**.
    
     ![Publicera][cache-publish-to-app-service]
-3. Välj den prenumeration som användes när du skapade Azure-resurserna och expandera resursgruppen som innehåller resurserna. Välj önskad webbapp och klicka på **OK**. Om du använde knappen **Distribuera till Azure** börjar webbappnamnet med **webSite** följt av vissa ytterligare tecken.
+3. Välj den prenumeration som användes när du skapade Azure-resurserna och expandera resursgruppen som innehåller resurserna. Välj önskad webbapp. Om du använde knappen **Distribuera till Azure** börjar webbappnamnet med **webSite** följt av vissa ytterligare tecken.
    
     ![Välj webbapp][cache-select-web-app]
-4. Klicka på **Validera anslutningen** för att kontrollera inställningarna och sedan på **Publicera**.
-   
-    ![Publicera][cache-publish]
-   
-    Efter en liten stund slutförs publiceringsprocessen och en webbläsare startas med det exempelprogram som körs. Om du får ett DNS-fel vid validering eller publicering och etableringen för Azure-resurser för programmet nyligen har slutförts, väntar du en stund och försöker igen.
+4. Klicka på **OK** för att påbörja publiceringsprocessen. Efter en liten stund slutförs publiceringsprocessen och en webbläsare startas med det exempelprogram som körs. Om du får ett DNS-fel vid validering eller publicering och etableringen för Azure-resurser för programmet nyligen har slutförts, väntar du en stund och försöker igen.
    
     ![Cachen har lagts till][cache-added-to-application]
 
@@ -848,10 +864,5 @@ När du har valt eller skapat cacheminnet du ska använda, bläddrar du till cac
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

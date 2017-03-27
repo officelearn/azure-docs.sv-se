@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,14 +29,16 @@ I den här artikeln beskrivs hur du kommer igång med Azure Multi-Factor Authent
 
 ![MFA i molnet](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## <a name="prerequisites"></a>Krav
-Följande krav måste vara uppfyllda innan du kan aktivera Azure Multi-Factor Authentication för användarna.
+## <a name="prerequisite"></a>Krav
+[Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/) – Om du inte redan har en Azure-prenumeration måste du registrera dig för en. Om du precis börjat använda Azure MFA kan du använda en utvärderingsprenumeration.
 
-1. [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/) – Om du inte redan har en Azure-prenumeration måste du registrera dig för en. Om du precis börjat använda Azure MFA kan du använda en utvärderingsprenumeration.
-2. [Skapa en Multi-Factor Auth-provider](multi-factor-authentication-get-started-auth-provider.md) och tilldela den till din katalog eller [tilldela licenser till användare](multi-factor-authentication-get-started-assign-licenses.md)
+## <a name="enable-azure-multi-factor-authentication"></a>Aktivera Azure Multi-Factor Authentication
+Så länge användarna har licenser som inkluderar Azure Multi-Factor Authentication behöver du inte göra något för att aktivera Azure MFA. Du kan börja med att kräva tvåstegsverifiering för enskilda användare. Följande licenser aktiverar Azure MFA:
+- Azure Multi-Factor Authentication
+- Azure Active Directory Premium
+- Enterprise Mobility + Security
 
-> [!NOTE]
-> Licenser är tillgängliga för användare som har Azure MFA, Azure AD Premium eller Enterprise Mobility Suite (EMS).  MFA ingår i Azure AD Premium och EMS. Om du har tillräckligt med licenser behöver du inte skapa en autentiseringsprovider.
+Om du saknar någon av dessa tre licenser, eller om du inte har tillräckligt med licenser för alla användare, är det också ok. Du behöver bara utföra ett extra steg och [Skapa en Multi-Factor Authentication-provider](multi-factor-authentication-get-started-auth-provider.md) i din katalog.
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Aktivera tvåstegsverifiering för användare
 För att börja kräva tvåstegsverifiering för en användare ändrar du användarens tillstånd från inaktiverat aktiverat.  Mer information om användarstatus finns i [Användarstatus i Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
@@ -97,10 +100,5 @@ Mer information finns i [Användarstatus i Azure Multi-Factor Authentication](mu
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har konfigurerat Multi-Factor Authentication i molnet kan du konfigurera din distribution. Se [Konfigurera Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md) för mer information.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

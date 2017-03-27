@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: ef1e790edc4cd329245331bf1178ed1f610e914c
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,6 +32,7 @@ Den här artikeln beskriver hur du skapar ett Kubernetes-kluster i Azure Contain
 
 > [!NOTE]
 > Stöd för Windows-behållare med Kubernetes i Azure Container Service är tillgängligt som en förhandsversion. Använd Azure-portalen eller en Resource Manager-mall om du vill skapa ett Kubernetes-kluster med Windows-noder. För närvarande stöds inte den här funktionen med Azure CLI 2.0.
+>
 
 
 
@@ -81,13 +82,13 @@ När klustret har skapats och anslutits till `kubectl` kan du prova att starta e
 
 1. Om du vill visa en lista över noderna skriver du `kubectl get nodes`. Om du vill visa fullständig information om noderna skriver du:  
 
-  ```
-  kubectl get nodes -o yaml
-  ```
+    ```
+    kubectl get nodes -o yaml
+    ```
 
 2. Skapa en fil med namnet `simpleweb.yaml` och kopiera följande. Den här filen konfigurerar en webbapp med hjälp av den Windows Server 2016 Server Core-baserade OS-avbildningen från [Docker Hub](https://hub.docker.com/r/microsoft/windowsservercore/).  
 
-  ```yaml
+```yaml
   apiVersion: v1
   kind: Service
   metadata:
@@ -123,40 +124,44 @@ När klustret har skapats och anslutits till `kubectl` kan du prova att starta e
           command:
           - powershell.exe
           - -command
-          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$ip = (Get-NetIPAddress | where {$$_.IPAddress -Like '*.*.*.*'})[0].IPAddress ; $$url = 'http://'+$$ip+':80/' ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add($$url) ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at {0}...' -f $$url) ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
+          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add('http://*:80/') ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at http://*:80/') ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
         nodeSelector:
           beta.kubernetes.io/os: windows
   ```
 
-3. Om du vill starta programmet skriver du:
+      
+> [!NOTE] 
+> Konfigurationen innehåller `type: LoadBalancer`. Den här inställningen gör att tjänsten exponeras för Internet via en Azure-belastningsutjämnare. Mer information finns i [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md) (Belastningsutjämna behållare i ett Kubernetes-kluster i Azure Container Service).
+>
 
-  ```
-  kubectl apply -f simpleweb.yaml
-  ```
+## <a name="start-the-application"></a>Starta programmet
+
+1. Om du vill starta programmet skriver du:  
+
+    ```
+    kubectl apply -f simpleweb.yaml
+    ```  
   
-  > [!NOTE] 
-  > Konfigurationen innehåller `type: LoadBalancer`. Den här inställningen gör att tjänsten exponeras för Internet via en Azure-belastningsutjämnare. Mer information finns i [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md) (Belastningsutjämna behållare i ett Kubernetes-kluster i Azure Container Service).
   
-4. Om du vill verifiera distributionen av tjänsten (som tar ungefär 30 sekunder) skriver du:
+2. Om du vill verifiera distributionen av tjänsten (som tar ungefär 30 sekunder) skriver du:  
 
-  ```
-  kubectl get pods
-  ```
+    ```
+    kubectl get pods
+    ```
 
-5. När tjänsten körs skriver du följande om du vill visa tjänstens interna och externa IP-adresser:
+3. När tjänsten körs skriver du följande om du vill visa tjänstens interna och externa IP-adresser:
 
-  ```
-  kubectl get svc
-  ``` 
+    ```
+    kubectl get svc
+    ``` 
+  
+    ![IP-adresser för Windows-tjänst](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
 
-  ![IP-adresser för Windows-tjänst](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
+    Det tar flera minuter innan den externa IP-adressen läggs till. Innan belastningsutjämnaren konfigurerar den externa adressen visas den som `<pending>`.
 
-  Det tar flera minuter innan den externa IP-adressen läggs till. Innan belastningsutjämnaren konfigurerar den externa adressen visas den som `<pending>`.
+4. När den externa IP-adressen är tillgänglig kan du nå tjänsten i din webbläsare.
 
-
-6. När den externa IP-adressen är tillgänglig kan du nå tjänsten i din webbläsare.
-
-  ![Windows Server-app i webbläsare](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
+    ![Windows Server-app i webbläsare](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
 
 
 ## <a name="access-the-windows-nodes"></a>Komma åt Windows-noderna
@@ -170,37 +175,31 @@ Det finns flera olika sätt att skapa SSH-tunnlar i Windows. Det här avsnittet 
 
 3. Ange ett värdnamn som består av administratörsanvändarnamnet för klustret och det offentliga DNS-namnet på den första huvudservern i klustret. **Värdnamnet** liknar `adminuser@PublicDNSName`. Ange 22 som **Port**.
 
-    ![PuTTY-konfiguration 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
+  ![PuTTY-konfiguration 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
 
 4. Välj **SSH > Aut**. Lägg till en sökväg till filen för privat nyckel (PPK-format) för autentisering. Du kan använda ett verktyg som [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) för att skapa den här filen från SSH-nyckeln som används för att skapa klustret.
 
-    ![PuTTY-konfiguration 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
+  ![PuTTY-konfiguration 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
 
 5. Välj **SSH > Tunnlar** och konfigurera de vidarebefordrade portarna. Eftersom den lokala Windows-datorn redan använder port 3389 rekommenderar vi att du använder följande inställningar för att nå Windows-nod 0 och Windows-nod 1. (Fortsätta med samma mönster för ytterligare Windows-noder.)
 
-  **Windows-nod 0**
+    **Windows-nod 0**
 
-  * **Källport:** 3390
-  * **Mål:** 10.240.245.5:3389
+    * **Källport:** 3390
+    * **Mål:** 10.240.245.5:3389
 
-  **Windows-nod 1**
+    **Windows-nod 1**
 
-  * **Källport:** 3391
-  * **Mål:** 10.240.245.6:3389
+    * **Källport:** 3391
+    * **Mål:** 10.240.245.6:3389
 
-  ![Bild av Windows RDP-tunnlar](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
+    ![Bild av Windows RDP-tunnlar](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
 
 6. När du är klar klickar du på **Session > Spara** för att spara anslutningskonfigurationen.
 
 7. Anslut till PuTTY-sessionen genom att klicka på **Öppna**. Slutför anslutningen till huvudnoden.
 
 8. Starta Anslutning till fjärrskrivbord. Anslut den första Windows-noden genom att ange `localhost:3390` för **Dator** och klicka på **Anslut**. (För att ansluta till den andra anger du `localhost:3390` osv.) Slutför anslutningen genom att ange det lokala administratörslösenordet för Windows som du konfigurerade under distributionen.
-
-
-
-
-
-
 
 
 ## <a name="next-steps"></a>Nästa steg

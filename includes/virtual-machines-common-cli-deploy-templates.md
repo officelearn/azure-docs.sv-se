@@ -12,7 +12,7 @@
 * [Anslut en datadisk](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>Komma igång
-Innan du kan använda CLI Azure med Azure resursgrupper måste du har rätt Azure CLI-version och ett Azure-konto. Om du inte har Azure CLI [installerar du den](../articles/xplat-cli-install.md).
+Innan du kan använda CLI Azure med Azure resursgrupper måste du har rätt Azure CLI-version och ett Azure-konto. Om du inte har Azure CLI [installerar du den](../articles/cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-version-to-090-or-later"></a>Uppdatera din Azure CLI-version till 0.9.0 eller senare
 Skriv `azure --version` så kan du se om du redan har version 0.9.0 eller senare installerad.
@@ -80,7 +80,7 @@ Du kan sedan hantera hela livscykeln för gruppens resurser genom att använda A
 
 Du kan lära dig mycket mer om Azure-resursgrupper och vad de kan användas till i [översikten över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Om du är intresserad av att skapa mallar, se [Skapa Azure Resource Manager-mallar](../articles/resource-group-authoring-templates.md).
 
-## <a name="a-idquick-create-a-vm-in-azureatask-quick-create-a-vm-in-azure"></a><a id="quick-create-a-vm-in-azure"></a>Uppgift: Snabbt skapa en virtuell dator i Azure
+## <a id="quick-create-a-vm-in-azure"></a>Uppgift: Snabbt skapa en virtuell dator i Azure
 Du vet ibland vilken avbildning som du behöver och att du behöver en virtuell dator från avbildningen direkt, och du är inte särskilt intresserad av infrastrukturen – kanske behöver du testa någonting på en ren virtuell dator. Det är då du använder kommandot `azure vm quick-create` och överför de argument som krävs för att skapa en virtuell dator och dess infrastruktur.
 
 Skapa först en resursgrupp.
@@ -214,7 +214,7 @@ info:    vm quick-create command OK
 
 Och så fortsätter du med din nya virtuella datorn.
 
-## <a name="a-iddeploy-a-vm-in-azure-from-a-templateatask-deploy-a-vm-in-azure-from-a-template"></a><a id="deploy-a-vm-in-azure-from-a-template"></a>Uppgift: Distribuera en virtuell dator i Azure från en mall
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Uppgift: Distribuera en virtuell dator i Azure från en mall
 Följ instruktionerna i följande avsnitt för att distribuera en ny virtuell Azure-dator med hjälp av en mall med Azure CLI. Den här mallen skapar en enda virtuell dator i ett nytt virtuellt nätverk med ett enda undernät och till skillnad från `azure vm quick-create`, kan du beskriva exakt vad du vill ha och upprepa det utan fel. Mallen skapar följande:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
@@ -483,7 +483,7 @@ info:    group deployment create command OK
 ```
 
 
-## <a name="a-idcreate-a-custom-vm-imageatask-create-a-custom-vm-image"></a><a id="create-a-custom-vm-image"></a>Uppgift: Skapa en anpassad avbildning av en virtuell dator
+## <a id="create-a-custom-vm-image"></a>Uppgift: Skapa en anpassad avbildning av en virtuell dator
 Du har sett den grundläggande användningen av mallar ovan, så vi kan nu använda liknande instruktioner för att skapa en anpassad virtuell dator från en viss VHD-fil i Azure med hjälp av en mall via Azure CLI. Skillnaden här är att den här mallen skapar en virtuell dator från en angiven virtuell hårddisk (VHD).
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>Steg 1: Undersök JSON-filen för mallen
@@ -751,7 +751,7 @@ data:    nicName                        String        myNIC
 info:    group deployment create command OK
 ```
 
-## <a name="a-iddeploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balanceratask-deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a><a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Uppgift: Distribuera ett VM-multiprogram som använder ett virtuellt nätverk och en extern belastningsutjämnare
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Uppgift: Distribuera ett VM-multiprogram som använder ett virtuellt nätverk och en extern belastningsutjämnare
 Med den här mallen kan du skapa två virtuella datorer under en belastningsutjämnare och konfigurera en regel för belastningsutjämning för Port 80. Den här mallen distribuerar också ett lagringskonto, ett virtuellt nätverk, en offentlig IP-adress, en tillgänglighetsuppsättning och nätverksgränssnitt.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
@@ -1163,7 +1163,7 @@ info:    group deployment create command OK
 
 Observera att den här mallen distribuerar en Windows Server-avbildning. Den kan dock enkelt ersättas av en Linux-avbildning. Vill du skapa ett Docker-kluster med flera swarmhanterare? [Det kan du göra](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-## <a name="a-idremove-a-resource-groupatask-remove-a-resource-group"></a><a id="remove-a-resource-group"></a>Uppgift: Ta bort en resursgrupp
+## <a id="remove-a-resource-group"></a>Uppgift: Ta bort en resursgrupp
 Kom ihåg att du kan distribuera om till en resursgrupp, men om du är klar med en kan du ta bort den med hjälp av `azure group delete <group name>`.
 
 ```azurecli
@@ -1174,7 +1174,7 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>Uppgift: Visa loggen för en resursgruppsdistribution
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Uppgift: Visa loggen för en resursgruppsdistribution
 Det här är vanligt när man skapar eller använder mallar. Anropet för att visa distributionsloggarna för en grupp är `azure group log show <groupname>`, vilket visar ganska mycket information som är användbar för att förstå varför något har hänt – eller inte hänt. (Mer information om hur du felsöker dina distributioner, samt annan information om problem finns i avsnittet [Troubleshoot common Azure deployment errors with Azure Resource Manager (Felsöka vanliga Azure-distributionsfel med Azure Resource Manager)](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).)
 
 För att rikta in dig på specifika problem kan du till exempel använda verktyg som **jq** för att ställa mer specifika frågor, till exempel vilka enskilda fel som du behöver åtgärda. I följande exempel används **jq** för att parsa en distributionslogg för **lbgroup** för att leta efter fel.
@@ -1191,7 +1191,7 @@ Du kan snabbt identifiera vad som har gått fel, åtgärda felet och försöka i
 }
 ```
 
-## <a name="a-iddisplay-information-about-a-virtual-machineatask-display-information-about-a-virtual-machine"></a><a id="display-information-about-a-virtual-machine"></a>Uppgift: Visa information om en virtuell dator
+## <a id="display-information-about-a-virtual-machine"></a>Uppgift: Visa information om en virtuell dator
 Du kan se information om specifika virtuella datorer i en resursgrupp med hjälp av kommandot `azure vm show <groupname> <vmname>`. Om du har fler än en virtuell dator i din grupp måste du kanske först lista de virtuella datorerna i en grupp med hjälp av `azure vm list <groupname>`.
 
 ```azurecli
@@ -1259,14 +1259,14 @@ info:    vm show command OK
 ```
 
 > [!NOTE]
-> Om du vill lagra och manipulera resultatet av dina konsolkommandon programmässigt kan du vill använda ett JSON-parsningsverktyg som ** [jq](https://github.com/stedolan/jq) ** eller ** [jsawk](https://github.com/micha/jsawk)**, eller språkbibliotek som är till nytta för aktiviteten.
+> Om du vill lagra och manipulera resultatet av dina konsolkommandon programmässigt kan du vill använda ett JSON-parsningsverktyg som **[jq](https://github.com/stedolan/jq)** eller **[jsawk](https://github.com/micha/jsawk)**, eller språkbibliotek som är till nytta för aktiviteten.
 >
 >
 
-## <a name="a-idlog-on-to-a-linux-based-virtual-machineatask-log-on-to-a-linux-based-virtual-machine"></a><a id="log-on-to-a-linux-based-virtual-machine"></a>Uppgift: Logga in på en Linux-baserad virtuell dator
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Uppgift: Logga in på en Linux-baserad virtuell dator
 Vanligtvis är Linux-datorer anslutna via SSH. Mer information finns i [Så här använder du SSH med Linux på Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="a-idstop-a-virtual-machineatask-stop-a-vm"></a><a id="stop-a-virtual-machine"></a>Uppgift: Stoppa en virtuell dator
+## <a id="stop-a-virtual-machine"></a>Uppgift: Stoppa en virtuell dator
 Kör följande kommando:
 
 ```azurecli
@@ -1278,14 +1278,14 @@ azure vm stop <group name> <virtual machine name>
 >
 >
 
-## <a name="a-idstart-a-virtual-machineatask-start-a-vm"></a><a id="start-a-virtual-machine"></a>Uppgift: Starta en virtuell dator
+## <a id="start-a-virtual-machine"></a>Uppgift: Starta en virtuell dator
 Kör följande kommando:
 
 ```azurecli
 azure vm start <group name> <virtual machine name>
 ```
 
-## <a name="a-idattach-a-data-diskatask-attach-a-data-disk"></a><a id="attach-a-data-disk"></a>Uppgift: Anslut en datadisk
+## <a id="attach-a-data-disk"></a>Uppgift: Anslut en datadisk
 Du måste också bestämma om du vill koppla en ny disk eller en som innehåller data. Kommandot skapar VHD-filen för en ny disk och den bifogas i samma kommando.
 
 Om du vill koppla en ny disk, kör du följande kommando:
@@ -1306,8 +1306,3 @@ Sedan behöver du montera disken, som du normalt skulle göra i Linux.
 Ännu fler exempel på Azure CLI-användning i **arm**-läget finns i avsnittet [Använda Azure CLI för Mac, Linux och Windows med Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md). Läs mer om Azure-resurser och tillhörande begrepp i [översikten över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
 
 Fler mallar som du kan använda finns i [Azure Quickstart-mallar](https://azure.microsoft.com/documentation/templates/) och [Programramverk med hjälp av mallar](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-<!--HONumber=Jan17_HO4-->
-
-

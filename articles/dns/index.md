@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f415cc458e91085ce315ef7ee5755b96bbcfa170
-ms.openlocfilehash: b9608dc3bafeea5faec8e379c67810113b00ffd9
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 659e0989e3a1f7114796c2211606e5d629cf68fd
+ms.lasthandoff: 03/22/2017
 
 ---
 # <a name="dns-documentation"></a>DNS-dokumentation
@@ -41,7 +42,7 @@ Lär dig att hantera dina DNS-poster med hjälp av Azure Domain Name System, en 
         </a>
     </li>
     <li>
-        <a href="/azure/dns/dns-getstarted-create-dnszone-portal">
+        <a href="/azure/dns/dns-getstarted-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -59,7 +60,7 @@ Lär dig att hantera dina DNS-poster med hjälp av Azure Domain Name System, en 
         </a>
     </li>
     <li>
-        <a href="/azure/dns/dns-getstarted-create-dnszone">
+        <a href="/azure/dns/dns-getstarted-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -77,7 +78,7 @@ Lär dig att hantera dina DNS-poster med hjälp av Azure Domain Name System, en 
         </a>
     </li>
      <li>
-        <a href="/azure/dns/dns-getstarted-create-recordset">
+        <a href="/azure/dns/dns-getstarted-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -87,7 +88,7 @@ Lär dig att hantera dina DNS-poster med hjälp av Azure Domain Name System, en 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Kom igång med DNS-postuppsättningar med Azure PowerShell</h3>
+                        <h3>Kom igång med Azure DNS med hjälp av Azure CLI</h3>
                     </div>
                 </div>
             </div>
@@ -143,10 +144,5 @@ Lär dig att hantera dina DNS-poster med hjälp av Azure Domain Name System, en 
 </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

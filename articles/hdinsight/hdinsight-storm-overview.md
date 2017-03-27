@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 354292f51d07bff00e7a6811e4d1d7beb7844920
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -68,7 +68,7 @@ Information om hur du kommer igång med Storm finns i [Komma igång med Storm i 
 Du kan etablera ett nytt Storm på HDInsight-kluster på bara några minuter. Ange klusternamn, storlek, administratörskonto och lagringskonto. Azure skapar klustret, inklusive exempeltopologier och en instrumentpanel för webbhantering.
 
 > [!NOTE]
-> Du kan också etablera Storm-kluster med hjälp av [Azure CLI](../xplat-cli-install.md) eller [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> Du kan också etablera Storm-kluster med hjälp av [Azure CLI](../cli-install-nodejs.md) eller [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Inom 15 minuter från det att du har skickat förfrågan har du ett nytt Storm-kluster redo för din första pipeline för realtidsanalys.
 

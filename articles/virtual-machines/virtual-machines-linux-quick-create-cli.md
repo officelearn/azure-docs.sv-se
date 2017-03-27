@@ -1,202 +1,95 @@
 ---
-title: "Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0 | Microsoft Azure"
-description: "Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0."
+title: "Azure snabbstart – skapa virtuell dator med CLI | Microsoft Docs"
+description: "Lär dig att skapa en virtuell dator med Azure CLI."
 services: virtual-machines-linux
-documentationcenter: 
-author: squillace
+documentationcenter: virtual-machines
+author: neilpeterson
 manager: timlt
-editor: 
-ms.assetid: 82005a05-053d-4f52-b0c2-9ae2e51f7a7e
+editor: tysonn
+tags: azure-resource-manager
+ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/13/2017
-ms.author: rasquill
+ms.date: 03/10/2017
+ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 892e3c62a2ad4dc4fd0691874d46bb296e379524
-ms.openlocfilehash: cc51b04c31c02aabf25c9efb1e9cd975077811a4
-ms.lasthandoff: 02/27/2017
-
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c1d7cfe614ab4e677e7fff989e79eb09acb3feed
+ms.lasthandoff: 03/21/2017
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20"></a>Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0
-Den här artikeln beskriver hur du snabbt distribuerar en Linux-baserad virtuell dator på Azure med kommandot [az vm create](/cli/azure/vm#create) med hjälp av Azure CLI 2.0 genom att använda både hanterade diskar och diskar på egna lagringskonton. Du kan också utföra dessa steg med [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Skapa en virtuell Linux-dator med Azure CLI
 
-Om du vill skapa en virtuell dator behöver du följande: 
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur man använder Azure CLI för att distribuera en virtuell dator som kör Ubuntu 16.04 LTS.
 
-* ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/))
-* [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad
-* vara inloggad på ditt Azure-konto (skriv [az login](/cli/azure/#login))
+Kontrollera att Azure CLI har installerats innan du börjar. Mer information finns i [installationsguiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-(Du kan också distribuera en virtuell Linux-dator med hjälp av [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
+## <a name="log-in-to-azure"></a>Logga in på Azure 
 
-I följande exempel visas hur du distribuerar en virtuell Debian-dator och ansluter till den med hjälp av en SSH-nyckel (Secure Shell). Dina argument kan se annorlunda ut. Om du vill ha en annan avbildning kan du [söka efter en](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-## <a name="using-managed-disks"></a>Använda hanterade diskar
-
-För att kunna använda Azure-hanterade diskar måste du använda en region som har stöd för dem. Börja med att skriva [az group create](/cli/azure/group#create) för att skapa din resursgrupp som innehåller alla distribuerade resurser:
+Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/#login) och följ anvisningarna på skärmen.
 
 ```azurecli
- az group create -n myResourceGroup -l westus
+az login
 ```
 
-De utdata som returneras liknar dessa (du kan välja ett annat `--output`-alternativ om du vill se ett annat format):
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
-  "location": "westus",
-  "managedBy": null,
-  "name": "myResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
-### <a name="create-your-vm"></a>Skapa en virtuell dator 
-Nu kan du skapa din virtuella dator och dess miljö. Kom ihåg att ersätta `--public-ip-address-dns-name`-värdet med ett unikt värde; det nedan kan vara upptaget.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
+
+I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`.
 
 ```azurecli
-az vm create \
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub \
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
+az group create --name myResourceGroup --location westeurope
 ```
 
+## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-De utdata som returneras liknar följande. Notera antingen `publicIpAddress`- eller `fqdn`-värdet för **ssh** för den virtuella datorn.
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#create). 
 
+Följande exempel skapar en virtuell dator som heter `myVM`, och SSH-nycklar skapas om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
-```json
+```azurecli
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+```
+
+När den virtuella datorn har skapats visar Azure CLI information som ser ut ungefär som i följande exempel. Anteckna den offentliga IP-adressen. Den här adressen används för att få åtkomst till den virtuella datorn.
+
+```azurecli
 {
-  "fqdn": "manageddisks.westus.cloudapp.azure.com",
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "macAddress": "00-0D-3A-32-E9-41",
+  "fqdns": "",
+  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "westeurope",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "104.42.127.53",
+  "publicIpAddress": "52.174.34.95",
   "resourceGroup": "myResourceGroup"
 }
 ```
 
-Logga in på din virtuella dator genom att använda antingen den offentliga IP-adressen eller det fullständiga domännamnet (FQDN) som visas i utdata.
+## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 
-```bash
-ssh ops@manageddisks.westus.cloudapp.azure.com
+Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt IP-adressen med offentliga IP-adressen för den virtuella datorn.
+
+```bash 
+ssh <Public IP Address>
 ```
 
-Utdata liknande följande bör visas, beroende på vilken distribution du valde:
+## <a name="delete-virtual-machine"></a>Ta bort en virtuell dator
 
-```bash
-The authenticity of host 'manageddisks.westus.cloudapp.azure.com (134.42.127.53)' can't be established.
-RSA key fingerprint is c9:93:f5:21:9e:33:78:d0:15:5c:b2:1a:23:fa:85:ba.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'manageddisks.westus.cloudapp.azure.com' (RSA) to the list of known hosts.
-Enter passphrase for key '/home/ops/.ssh/id_rsa':
-
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-Last login: Fri Jan 13 14:44:21 2017 from net-37-117-240-123.cust.vodafonedsl.it
-ops@myVM:~$ 
-```
-
-Se [Nästa steg](#next-steps) för information om andra saker som du kan göra med en ny virtuell dator med hjälp av hanterade diskar.
-
-## <a name="using-unmanaged-disks"></a>Använda ohanterade diskar 
-
-Virtuella datorer som använder ohanterade lagringsdiskar har ohanterade lagringskonton. Börja med att skriva [az group create](/cli/azure/group#create) för att skapa en resursgrupp som innehåller alla distribuerade resurser:
+När den inte längre behövs kan följande kommando användas för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli
-az group create --name nativedisks --location westus
-```
-
-De utdata som returneras liknar följande (du kan välja ett annat `--output`-alternativ om du vill):
-
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/nativedisks",
-  "location": "westus",
-  "managedBy": null,
-  "name": "nativedisks",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
-
-### <a name="create-your-vm"></a>Skapa en virtuell dator 
-
-Nu kan du skapa din virtuella dator och dess miljö. Använd flaggan `--use-unmanaged-disk` för att skapa den virtuella datorn med ohanterade diskar. Ett ohanterat lagringskonto skapas också. Kom ihåg att ersätta `--public-ip-address-dns-name`-värdet med ett unikt värde; det nedan kan vara upptaget.
-
-```azurecli
-az vm create \
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub \
---public-ip-address-dns-name nativedisks \
---resource-group nativedisks \
---location westus \
---name myVM \
---use-unmanaged-disk
-```
-
-De utdata som returneras liknar följande. Notera antingen `publicIpAddress`- eller `fqdn`-värdet för **ssh** för den virtuella datorn.
-
-```json
-{
-  "fqdn": "nativedisks.westus.cloudapp.azure.com",
-  "id": "/subscriptions/<guid>/resourceGroups/nativedisks/providers/Microsoft.Compute/virtualMachines/myVM",
-  "macAddress": "00-0D-3A-33-24-3C",
-  "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "13.91.91.195",
-  "resourceGroup": "nativedisks"
-}
-```
-
-Logga in på den virtuella datorn med hjälp av den offentliga IP-adressen eller det fullständiga domännamnet (FQDN) som listas i utdata ovan.
-
-```bash
-ssh ops@nativedisks.westus.cloudapp.azure.com
-```
-
-Utdata liknande följande bör visas, beroende på vilken distribution du valde:
-
-```
-The authenticity of host 'nativedisks.westus.cloudapp.azure.com (13.91.93.195)' can't be established.
-RSA key fingerprint is 3f:65:22:b9:07:c9:ef:7f:8c:1b:be:65:1e:86:94:a2.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'nativedisks.westus.cloudapp.azure.com,13.91.93.195' (RSA) to the list of known hosts.
-Enter passphrase for key '/home/ops/.ssh/id_rsa':
-
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-ops@myVM:~$ ls /
-bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var  vmlinuz
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-`az vm create`-kommandot är ett sätt att snabbt distribuera en virtuell dator så att du kan logga in i ett bash-gränssnitt och komma igång med ditt arbete. Men att använda `az vm create` ger dig inte omfattande kontroll eller gör det möjligt för dig att skapa en mer komplex miljö.  Om du vill distribuera en virtuell Linux-dator som är anpassad efter din infrastruktur kan du följa vilken som helst av dessa artiklar:
 
-* [Skapa en specifik distribution med hjälp av en Azure Resource Manager-mall](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Skapa en egen anpassad miljö för en virtuell Linux-dator med hjälp av Azure CLI-kommandon](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Skapa en SSH-skyddad virtuell Linux-dator i Azure med hjälp av mallar](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Självstudie: Skapa virtuella datorer med hög tillgänglighet](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Du kan också [använda Azure-drivrutinen `docker-machine` med olika kommandon för att snabbt skapa en virtuell Linux-dator som en Docker-värd ](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), och om du använder Java kan du prova metoden [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine).
-
+[Utforska exempel på distribution av virtuella datorer med CLI](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

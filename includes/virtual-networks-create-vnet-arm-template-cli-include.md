@@ -1,7 +1,7 @@
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Distribuera ARM-mallen med Azure CLI
 Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI.
 
-1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../articles/xplat-cli-install.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
+1. Om du aldrig har använt Azure CLI, se [installera och konfigurera Azure CLI](../articles/cli-install-nodejs.md) och följ instruktionerna upp till den punkt där du väljer Azure-konto och prenumeration.
 2. Kör kommandot **`azure config mode`** för att byta till Resource Manager-läge enligt nedan.
    
         azure config mode arm
@@ -84,9 +84,4 @@ Följ stegen nedan för att distribuera ARM-mallen som du hämtade med Azure CLI
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

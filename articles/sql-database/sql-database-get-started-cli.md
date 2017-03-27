@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI: Skapa och skicka fråga till en enskild SQL-databas | Microsoft Docs"
+title: 'Azure CLI: Skapa en SQL-databas | Microsoft Docs'
 description: "Lär dig hur du skapar en logisk SQL Database-server, brandväggsregel på servernivå och databaser med hjälp av Azure CLI."
 keywords: "sql database-självstudier, skapa en sql-databas"
 services: sql-database
@@ -17,15 +17,15 @@ ms.topic: hero-article
 ms.date: 03/13/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8322e46f462b6c940f9808411d99aa1cee0beea5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f1e07d232328c35a43497c5a0ed6661a4277423d
+ms.lasthandoff: 03/17/2017
 
 ---
 
-# <a name="create-and-query-a-single-azure-sql-database-with-the-azure-cli"></a>Skapa och skicka fråga till en enskild Azure SQL-databas med Azure CLI
+# <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Skapa en enskild Azure SQL-databas med Azure CLI
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur man använder Azure CLI för att distribuera en Azure SQL-databas.
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. I den här handboken får du information om hur du använder Azure CLI för att distribuera en Azure SQL-databas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en [logisk Azure SQL Database-server](sql-database-features.md).
 
 Kontrollera att Azure CLI har installerats innan du börjar. Mer information finns i [installationsguiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -39,14 +39,14 @@ az login
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`.
+Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med kommandot [az group create](/cli/azure/group#create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 ## <a name="create-a-logical-server"></a>Skapa en logisk server
 
-Skapa en logisk server med kommandot [az sql server create](/cli/azure/sql/server#create). I följande exempel skapas en server med ett slumpmässigt namn i resursgruppen med en administratörsinloggning med namnet `ServerAdmin` och lösenordet `ChangeYourAdminPassword1`. Ersätt dessa fördefinierade värden efter behov.
+Skapa en [logisk Azure SQL Database-server](sql-database-features.md) med kommandot [az sql server create](/cli/azure/sql/server#create). En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en server med ett slumpmässigt namn i resursgruppen med en administratörsinloggning med namnet `ServerAdmin` och lösenordet `ChangeYourAdminPassword1`. Ersätt dessa fördefinierade värden efter behov.
 
 ```azurecli
 servername=server-$RANDOM
@@ -56,7 +56,7 @@ az sql server create --name $servername --resource-group myResourceGroup --locat
 
 ## <a name="configure-a-server-firewall-rule"></a>Konfigurera en serverbrandväggsregel
 
-Skapa en brandväggsregel på servernivå med kommandot [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create). En brandväggsregel på servernivå tillåter att ett externt program, t.ex. SQL Server Management Studio eller SQLCMD-verktyget, ansluter till en SQL-databas visa SQL Database-tjänstens brandvägg. I följande exempel skapas en brandväggsregel för ett fördefinierat adressintervall som, i det här exemplet, är hela det möjliga intervallet med IP-adresser. Ersätt dessa fördefinierade värden med värden för den externa IP-adressen eller IP-adressintervallet. 
+Skapa en [Azure SQL Database-brandväggsregel på servernivå](sql-database-firewall-configure.md) med kommandot [az sql server firewall create](/cli/azure/sql/server/firewall#create). En brandväggsregel på servernivå tillåter att ett externt program, t.ex. SQL Server Management Studio eller SQLCMD-verktyget, ansluter till en SQL-databas visa SQL Database-tjänstens brandvägg. I följande exempel skapas en brandväggsregel för ett fördefinierat adressintervall som, i det här exemplet, är hela det möjliga intervallet med IP-adresser. Ersätt dessa fördefinierade värden med värden för den externa IP-adressen eller IP-adressintervallet. 
 
 ```azurecli
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
@@ -65,7 +65,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ## <a name="create-a-database-in-the-server"></a>Skapa en databas på servern
 
-Skapa en databas på servern med kommandot [az sql db create](/cli/azure/sql/db#create). I följande exempel skapas en tom databas som heter `mySampleDatabase`. Ersätt detta fördefinierade värde som du vill.
+Skapa en databas med en [S0-prestandanivå](sql-database-service-tiers.md) på servern med kommandot [az sql db create](/cli/azure/sql/db#create). I följande exempel skapas en tom databas som heter `mySampleDatabase`. Ersätt detta fördefinierade värde som du vill.
 
 ```azurecli
 az sql db create --resource-group myResourceGroup --server $servername \
@@ -74,7 +74,7 @@ az sql db create --resource-group myResourceGroup --server $servername \
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Kör följande kommando om du vill ta bort alla resurser som skapas av denna snabbstart:
+Snabbstarterna **Anslut med** i den här samlingen och självstudierna i självstudiesamlingen bygger på denna snabbstart. Om du planerar att fortsätta att arbeta med efterföljande snabbstarter eller med självstudierna ska du inte rensa resurserna som skapas i denna snabbstart. Om du inte planerar att fortsätta kan du använda kommandona nedan för att ta bort alla resurser som har skapats i den här snabbstarten.
 
 ```azurecli
 az group delete --name myResourceGroup

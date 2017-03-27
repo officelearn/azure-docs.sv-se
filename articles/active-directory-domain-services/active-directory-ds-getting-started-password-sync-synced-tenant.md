@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 03/17/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c43a831768684c6458d5f62557c8a06b2c5ca6b
-ms.lasthandoff: 12/07/2016
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4969b43831a3813a4e76c6447c252a9c458f371a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -37,7 +37,14 @@ Stegen skiljer sig beroende på om din organisation har en helt molnbaserad Azur
 <br>
 
 ## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-synced-azure-ad-tenant"></a>Uppgift 5: Aktivera lösenordssynkronisering till AAD Domain Services för en synkroniserad Azure AD-klient
-En synkroniserad Azure AD-klient konfigureras att synkronisera med din organisations lokal katalog med hjälp av Azure AD Connect. Azure AD Connect synkroniserar inte som standard NTLM- och Kerberos-autentiseringshasher till Azure AD. Om du vill använda Azure AD Domain Services måste du konfigurera Azure AD Connect att synkronisera autentiseringshasher som krävs för NTLM- och Kerberos-autentisering. Följande steg aktiverar synkronisering av nödvändiga autentiseringshasher till din Azure AD-klient.
+En synkroniserad Azure AD-klient konfigureras att synkronisera med din organisations lokal katalog med hjälp av Azure AD Connect. Azure AD Connect synkroniserar inte som standard NTLM- och Kerberos-autentiseringshasher till Azure AD. Om du vill använda Azure AD Domain Services måste du konfigurera Azure AD Connect att synkronisera autentiseringshasher som krävs för NTLM- och Kerberos-autentisering. 
+
+> [!WARNING]
+> Du måste aktivera lösenordssynkronisering till AAD Domain Services varje gång du aktiverar Azure AD Domain Services. Du kanske tidigare har aktiverat Azure AD Domain Services för din Azure AD-katalog och stängt av det. Du måste ändå aktivera lösenordssynkronisering nästa gång du aktiverar Azure AD Domain Services för katalogen.
+>
+>
+
+Följande steg aktiverar synkronisering av nödvändiga autentiseringshasher till din Azure AD-klient.
 
 ### <a name="install-or-update-azure-ad-connect"></a>Installera eller uppdatera Azure AD Connect
 Installera den senaste rekommenderade versionen av Azure AD Connect på en domänansluten dator. Om du har en befintlig instans av installationsprogrammet för Azure AD Connect måste du uppdatera den så att den använder den senaste versionen av Azure AD Connect. Kontrollera att du använder den senaste versionen av Azure AD Connect för att undvika kända problem/buggar som kanske redan har åtgärdats.

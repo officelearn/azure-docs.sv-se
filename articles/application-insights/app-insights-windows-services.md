@@ -1,5 +1,5 @@
 ---
-title: "Application Insights för Windows-tjänster och arbetsroller | Microsoft Docs"
+title: "Azure Application Insights för Windows-tjänster och arbetsroller | Microsoft Docs"
 description: "Lägg till Application Insights SDK till ditt ASP.NET-program manuellt för att analysera användning, tillgänglighet och prestanda."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -30,7 +31,7 @@ Du behöver:
 * En prenumeration på [Microsoft Azure](http://azure.com). Om ditt team eller din organisation har en Azure-prenumeration kan ägaren lägga till dig med hjälp av ditt [Microsoft-konto](http://live.com).
 * Visual Studio 2013 eller senare.
 
-## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Skapa en Application Insights-resurs
+## <a name="add"></a>1. Skapa en Application Insights-resurs
 Logga in på [Azure-portalen](https://portal.azure.com/) och skapa en ny Application Insights-resurs. Välj ASP.NET som programtypen.
 
 ![Klicka på Nytt, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,7 +47,7 @@ Nyckeln identifierar resursen och du ska snart installera den i SDK för att dir
 
 De steg som du precis har utfört för att skapa en ny resurs är ett bra sätt att börja övervaka program. Nu kan du börja skicka data till den.
 
-## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. Installera SDK i ditt program
+## <a name="sdk"></a>2. Installera SDK i ditt program
 Hur du installerar och konfigurerar Application Insights SDK varierar beroende på vilken plattform du arbetar på. Det är enkelt för ASP.NET-appar.
 
 1. Redigera NuGet-paketet för ditt webbapprojekt i Visual Studio.
@@ -84,14 +85,14 @@ Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av 
 
 Det är bra att ange instrumenteringsnyckeln i kod om du vill [byta nyckel för olika versionskonfigurationer](app-insights-separate-resources.md). Om du anger nyckeln i koden behöver du inte ange den i `.config`-filen.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Köra projektet
+## <a name="run"></a> Köra projektet
 Använd **F5** när du vill köra programmet och testa det: öppna olika sidor för att generera telemetri.
 
 I Visual Studio ser du antalet händelser som har skickats.
 
 ![Antal händelser i Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Visa telemetrin
+## <a name="monitor"></a> Visa telemetrin
 Gå tillbaka till [Azure-portalen](https://portal.azure.com/) och bläddra till Application Insights-resursen.
 
 Titta efter data i översiktsdiagrammet. Först ser du bara en eller två punkter. Till exempel:
@@ -128,12 +129,11 @@ Mer information finns i [det här felsökningsavsnittet](app-insights-asp-net-tr
 > 
 > 
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Nästa steg
 * [Lägg till mer telemetri](app-insights-asp-net-more.md)för att få en heltäckande bild av ditt program.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

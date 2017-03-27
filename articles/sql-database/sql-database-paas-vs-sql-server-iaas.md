@@ -17,8 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: bdcf28703f007d32144278c7f0956fe4c27c3b27
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: ed725a12c04646a62cb0737266e24b6035522f20
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -123,7 +124,7 @@ För **SQL Database**-servicenivåerna Basic, Standard och Premium ger Microsoft
 
 För **SQL Server som kör på virtuella Azure-datorer** erbjuder Microsoft en tillgänglighets-SLA på 99,95 %, vilket bara täcker den virtuella datorn. Det här SLA:t omfattar inte de processer som körs på den virtuella datorn (till exempel SQL Server) som kräver att du är värd för minst två VM-instanser i en tillgänglighetsuppsättning. Den senaste informationen finns på [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). För hög tillgänglighet (HA) för databaser inom VM:ar, bör du konfigurera en av de alternativ för hög tillgänglighet som stöds i SQL Server, som [AlwaysOn-tillgänglighetsgrupper](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Användningen av ett alternativ för hög tillgänglighet som stöds medför inget nytt SLA, men ger >&99;,99 % databastillgänglighet.
 
-### <a name="a-namemarketatime-to-market"></a><a name="market"></a>Tid till marknad
+### <a name="market"></a>Tid till marknad
 **SQL Database** är den rätta lösningen för molnutformade program där utvecklarproduktivitet och en snabb tid till marknad är avgörande. Med sin programmässiga DBA-lika funktionalitet, är det perfekt för molnarkitekter och utveckare, eftersom det sänker behovet av att hantera det underliggande operativsystemet och databasen. Du kan till exempel använda [REST-API:n](http://msdn.microsoft.com/library/azure/dn505719.aspx) och [PowerShell-Cmdletar](http://msdn.microsoft.com/library/mt740629.aspx) för att automatisera och hantera administrativa åtgärder för tusentals databaser. Funktioner som [elastiska pooler](sql-database-elastic-pool.md) låter dig fokusera på programlagret och leverera din lösning till marknaden snabbare.
 
 **SQL Server som körs på Azure Virtual Machines** är perfekt om dina befintliga eller nya program kräver stora databaser, relaterade databaser eller åtkomst till alla funktioner i SQL Server eller Windows. Det kan också passa om du vill migrera befintliga lokala program och databaser till Azure som de är. Eftersom du inte behöver ändra presentationen, programmet eller datalagren, kan du spara in tid och budget på att omstrukturera din befintliga lösning. Istället kan du fokusera på att migrera alla dina lösningar till Azure och på att genomföra prestandaoptimeringar som kan krävas av Azure-plattformen. Mer information finns i [Bästa praxis för prestanda i SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
@@ -145,10 +146,5 @@ Välj **SQL Server på virtuella Azure-datorer** om:
 * Se [Din första Azure SQL Database](sql-database-get-started.md) för att komma igång med SQL Database.
 * Se [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Se [Etablera en virtuell SQL Server-dator i Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) för att komma igång med SQL Server på virtuella Azure-datorer.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

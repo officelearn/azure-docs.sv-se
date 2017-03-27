@@ -78,8 +78,8 @@
 ### [Användningsmätning](logic-apps-pricing.md)
 
 # Referens
-## [Definitionsspråk för arbetsflöde](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [Åtgärder och utlösare för arbetsflöde](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [Definitionsspråk för arbetsflöde](logic-apps-workflow-definition-language.md)
+## [Åtgärder och utlösare för arbetsflöde](logic-apps-workflow-actions-triggers.md)
 ## [REST-API](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Schemahistorik

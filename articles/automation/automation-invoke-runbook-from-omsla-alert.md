@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 4ce5ad30d79e92a11231313fe13dd42b94fc2aa4
-ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 8460ed6be3e922fb85f46982662d44eed21dda7c
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -35,7 +36,7 @@ Det finns två alternativ för att anropa en runbook när du konfigurerar aviser
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>Anropa en runbook med en webhook
 
-Med en webhook kan du starta en viss runbook i Azure Automation via en HTTP-begäran.  Innan du konfigurerar [Log Analytics-aviseringen](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule) så att den anropar en runbook med en webhook som en aviseringsåtgärd behöver du först skapa en webhook för den runbook som ska anropas med den här metoden.  Granska och följ stegen i artikeln [om att skapa en webhook](automation-webhooks.md#creating-a-webhook) och kom ihåg att registrera webhooksadressen så att du kan använda den när du konfigurerar aviseringsregeln.   
+Med en webhook kan du starta en viss runbook i Azure Automation via en HTTP-begäran.  Innan du konfigurerar [Log Analytics-aviseringen](../log-analytics/log-analytics-alerts.md#creating-alert-rules) så att den anropar en runbook med en webhook som en aviseringsåtgärd behöver du först skapa en webhook för den runbook som ska anropas med den här metoden.  Granska och följ stegen i artikeln [om att skapa en webhook](automation-webhooks.md#creating-a-webhook) och kom ihåg att registrera webhooksadressen så att du kan använda den när du konfigurerar aviseringsregeln.   
 
 ## <a name="calling-a-runbook-directly"></a>Anropa en runbook direkt
 
@@ -52,14 +53,14 @@ De båda metoderna för att anropa runbooken från Log Analytics-aviseringen har
           [Parameter (Mandatory=$true)]  
           [object] $WebhookData  
          )
-  
+
 *  Du måste ha koden för att konvertera WebhookData till ett PowerShell-objekt.
 
     `$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
 
     *$SearchResults* kommer att vara en matris med objekt, och varje objekt innehåller fälten med värden från ett sökresultat
 
-### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>WebhookData-inkonsekvenser mellan webhook-alternativet och runbook-alternativet 
+### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>WebhookData-inkonsekvenser mellan webhook-alternativet och runbook-alternativet
 
 * När du konfigurerar en avisering om att anropa en Webhook ska du ange webhooksadressen som du skapade för en runbook och klicka på knappen **Test Webhook** (Testa Webhook).  Resulterande WebhookData som skickas till runbooken innehåller varken *.SearchResult* eller *.SearchResults*.
 
@@ -68,7 +69,7 @@ De båda metoderna för att anropa runbooken från Log Analytics-aviseringen har
 
 Därför måste du i ovanstående kodexempel hämta *.SearchResult* om aviseringen anropar en webhook, och du måste hämta *.SearchResults* om aviseringen anropar en runbook direkt.
 
-## <a name="example-walkthrough"></a>Exempelgenomgång 
+## <a name="example-walkthrough"></a>Exempelgenomgång
 
 Vi visar hur det fungerar med hjälp av följande exempel på en grafisk runbook, som startar en Windows-tjänst.<br><br> ![Starta Windows-tjänsten grafisk Runbook](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
 
@@ -90,9 +91,4 @@ Om ditt Automation-konto inte är länkat till OMS-arbetsytan kan du konfigurera
 * Läs mer om aviseringar i Log Analytics och hur du skapar en i [Aviseringar i Log Analytics](../log-analytics/log-analytics-alerts.md).
 
 * Information om hur du utlöser runbooks med en webhook finns [Azure Automation webhooks](automation-webhooks.md) (Azure Automation-webhookar).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

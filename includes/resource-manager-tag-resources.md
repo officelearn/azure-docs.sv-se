@@ -1,29 +1,24 @@
-1. Om du vill visa taggar för en resurs eller en resursgrupp väljer du ikonen **Taggar**. 
+1. To view the tags for a resource or resource group, select the **Tags** icon. 
    
-     ![Välja taggar för resursen och resursgruppbladen](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. Du kan se befintliga taggar för resursen. Om du inte tidigare har tillämpar taggar är listan tom. 
+     ![Select tags on resource and resource group blades](./media/resource-manager-tag-resources/select-tag-icon.png)
+2. You see the existing tags for the resource. If you have not previously applied tags, the list is empty. 
 
-     ![Visa befintliga taggar på resurs- och resursgruppblad](./media/resource-manager-tag-resources/existing-tags.png)
-3. Du kan ange en tagg genom att skriva en nyckel och ett värde, eller välja ett befintligt från den nedrullningsbara menyn. Välj **Spara**.
+     ![Show existing tags on resource and resource group blades](./media/resource-manager-tag-resources/existing-tags.png)
+3. To add a tag, type a key and value, or select an existing one from the dropdown menu. Select **Save**.
 
-     ![Lägg till ny tagg](./media/resource-manager-tag-resources/tag-resources.png)
-3. Om du vill visa alla resurser med ett taggvärde väljer du **>** (fler tjänster) och filtrerar efter **Taggar**. Välj **Taggar** från de tillgängliga alternativen.
+     ![Add new tag](./media/resource-manager-tag-resources/tag-resources.png)
+3. To view all the resources with a tag value, select **>** (More services), and enter the word **Tags** into the filter text box. Select **Tags** from the available options.
    
-     ![Hitta taggar via Bläddringsnavet](./media/resource-manager-tag-resources/browse-tags.png)
-4. Du kan se en översikt över taggarna i dina prenumerationer.
+     ![Find tags via the Browse hub](./media/resource-manager-tag-resources/browse-tags.png)
+4. You see a summary of the tags in your subscriptions.
    
-     ![Visa alla taggar](./media/resource-manager-tag-resources/tag-taxonomy.png)
-5. Välj någon av taggarna så visas resurser och resursgrupper för taggen i fråga.
+     ![Show all tags](./media/resource-manager-tag-resources/tag-taxonomy.png)
+5. Select any of the tags to display the resources and resource groups with that tag.
    
-     ![Visa taggade resurser](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Välj **Fäst bladet på instrumentpanelen** för snabbåtkomst.
+     ![Show tagged resources](./media/resource-manager-tag-resources/show-tagged-resources.png)
+6. Select **Pin blade to dashboard** for quick access.
    
-     ![Fästa taggar på instrumentpanelen](./media/resource-manager-tag-resources/pin-tag.png)
-7. Du kan välja den fästa taggen från instrumentpanelen för att visa resurserna med taggen.
+     ![Pin tags to the Dashboard](./media/resource-manager-tag-resources/pin-tag.png)
+7. You can select the pinned tag from the dashboard to see the resources with that tag.
 
-     ![Fästa taggar på instrumentpanelen](./media/resource-manager-tag-resources/show-pinned-tag.png)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+     ![Pin tags to the Dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)

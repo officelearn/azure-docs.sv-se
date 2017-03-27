@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4b8eb863a1fcb65c307870619ea9d8942c57a906
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 335c6fc1bab097367f2d380466d19ea70c7660c2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -187,7 +187,7 @@ Med Node.js får du tillgång till ett omfattande utbud moduler som kan använda
 
 Om du får problem med programmet när det har distribuerats till Azure kan du läsa [Felsöka ett Node.js-program i Azure App Service](web-sites-nodejs-debug.md) där du hittar information om hur du felsöker problemet.
 
-I den här artikeln används Azure Portal till att skapa en webbapp. Du kan också använda [Azure-kommandoradsgränssnittet](../xplat-cli-install.md) eller [Azure PowerShell](/powershell/azureps-cmdlets-docs) till att utföra samma åtgärder.
+I den här artikeln används Azure Portal till att skapa en webbapp. Du kan också använda [Azure-kommandoradsgränssnittet](../cli-install-nodejs.md) eller [Azure PowerShell](/powershell/azureps-cmdlets-docs) till att utföra samma åtgärder.
 
 Mer information om hur du utvecklar Node.js-program i Azure finns i [Node.js Developer Center](/develop/nodejs/).
 

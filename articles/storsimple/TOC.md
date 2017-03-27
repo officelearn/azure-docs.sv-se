@@ -161,6 +161,7 @@
 
 ### Felsöka
 #### [Distributionsproblem](storsimple-troubleshoot-deployment.md)
+#### [Använda diagnostikverktyg](storsimple-8000-diagnostics.md)
 #### [Driftsproblem](storsimple-troubleshoot-operational-device.md)
 #### [Maskinvaruersättning](storsimple-hardware-component-replacement.md)
 ##### [Ersätt enhetskontrollanten](storsimple-controller-replacement.md)
@@ -208,7 +209,9 @@
 ### [Använda StorSimple Data Manager](storsimple-data-manager-ui.md)
 
 ## Gör så här för att
-### [Använd .NET för att omvandla data](storsimple-data-manager-dotnet-jobs.md)
+### [Använda .NET för att starta jobb](storsimple-data-manager-dotnet-jobs.md)
+### [Använda Automation för att starta jobb](storsimple-data-manager-job-using-automation.md)
+### [Ändra standardsökvägen för blob](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple för partner
 ## Översikt
@@ -235,10 +238,5 @@
 ## [Supportblogg](http://blogs.msdn.com/b/storsimple/)
 ## [Meddelanden från tredje part](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

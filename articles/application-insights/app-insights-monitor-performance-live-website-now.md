@@ -14,15 +14,16 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
-ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentera webbappar vid körning med Application Insights
 
 
-Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Om dina appar finns på en lokal IIS-server installerar du Statusövervakare. Om apparna är Azure-webbappar eller körs i en virtuell Azure-dator kan du installera Application Insights-tillägget. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).) Du behöver en [Microsoft Azure](http://azure.com)-prenumeration.
+Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Om dina appar hanteras av en lokal IIS-server installerar du	Statusövervakare. Om de är Azure-webbappar eller körs i en virtuell Azure-dator kan du aktivera Application Insights-övervakning från Azures kontrollpanel. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).) Du behöver en [Microsoft Azure](http://azure.com)-prenumeration.
 
 ![exempeldiagram](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -38,7 +39,7 @@ Här är en sammanfattning av vad du får med respektive väg:
 | --- | --- | --- |
 | Förfrågningar och undantag |Ja |Ja |
 | [Mer detaljerade undantag](app-insights-asp-net-exceptions.md) | |Ja |
-| [Beroendediagnostik](app-insights-asp-net-dependencies.md) |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP Verb|
+| [Beroendediagnostik](app-insights-asp-net-dependencies.md) |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
 | [Systemprestandaräknare](app-insights-performance-counters.md) |Ja |Ja |
 | [API för anpassad telemetri][api] |Ja | |
 | [Spårningsloggsintegrering](app-insights-asp-net-trace-logs.md) |Ja | |
@@ -64,7 +65,7 @@ Om programmet körs som en Azure-webbtjänst kan du aktivera övervakning på f�
 Om din app finns på en IIS-server aktiverar du Application Insights med hjälp av Statusövervakaren.
 
 1. Logga in med administratörsbehörighet på IIS-webbservern.
-2. Om Application Insights Status Monitor inte redan är installerat laddar du ned och kör [installationsprogrammet för Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+2. Om Application Insights Status Monitor inte redan är installerat laddar du ned och kör [installationsprogrammet för Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) (eller kör [installationsprogrammet för webbplattform](https://www.microsoft.com/web/downloads/platform.aspx) och söker efter det i for Application Insights Status Monitor).
 3. I statusövervakaren väljer du den installerade webbappen eller en webbplats som du vill övervaka. Logga in med dina Azure autentiseringsuppgifter.
 
     Konfigurera den resurs där du vill visa resultatet i Application Insights-portalen. (Normalt är det bäst att skapa en ny resurs. Välj en befintlig resurs om du redan har [webbtester][availability] eller [klientövervakning][client] för den här appen.) 
@@ -97,7 +98,7 @@ Om du vill publicera på nytt utan att lägga till Application Insights i koden,
 
 ### <a name="cant-connect-no-telemetry"></a>Går det inte att ansluta? Ser du ingen telemetri?
 
-* Du måste öppna [vissa utgående portar](app-insights-ip-addresses.md#outgoing-ports) i serverns brandvägg för att Statusövervakare ska fungera.
+* Öppna [de nödvändiga utgående portarna](app-insights-ip-addresses.md#outgoing-ports) i serverns brandvägg för att Statusövervakare ska fungera.
 
 * Öppna Status Monitor och välj ditt program i den vänstra rutan. Kontrollera om det finns några diagnostikmeddelanden för det här programmet i avsnittet ”Konfigurationsmeddelanden”:
 
@@ -105,7 +106,7 @@ Om du vill publicera på nytt utan att lägga till Application Insights i koden,
 * Om du ser ett meddelande om ”otillräcklig behörighet” på servern provar du följande:
   * I IIS-hanteraren väljer du programpoolen, öppnar **Avancerade inställningar** och noterar identiteten under **Processmodell**.
   * På kontrollpanelen för Datorhantering lägger du till den här identiteten i gruppen Användare av prestandaövervakning.
-* Om du MMA/SCOM är installerat på servern kan vissa versioner vara i konflikt med varandra. Avinstallera både SCOM och Status Monitor och installera om de senaste versionerna.
+* Om du har MMA/SCOM (Systems Center Operations Manager) installerat på servern kan vissa versioner vara i konflikt med varandra. Avinstallera både SCOM och Status Monitor och installera om de senaste versionerna.
 * Mer information finns i [Felsökning][qna].
 
 ## <a name="system-requirements"></a>Systemkrav
@@ -150,7 +151,7 @@ Ta reda på vilka appar som övervakas:
 * `-InstrumentationKey` Application Insights-resursens ikey (instrumenteringsnyckel) där du vill att resultatet ska visas.
 * Den här cmdleten påverkar endast appar som inte redan har instrumenterats, dvs. SdkState==NotInstrumented.
 
-    Cmdleten påverkar inte en app som redan instrumenterats, antingen under utvecklingen genom att SDK lades till i koden, eller under körningen av en tidigare användning av den här cmdleten.
+    Cmdleten påverkar inte en app som redan är instrumenterad. Det spelar ingen roll om appen hade instrumenterats vid byggtiden genom att SDK lades till i koden, eller under körningen av en tidigare användning av den här cmdleten.
 
     Den SDK-version som används för att instrumentera appen är den version som senast laddades ned till servern.
 
@@ -183,7 +184,11 @@ Ta reda på vilka appar som övervakas:
 
 * Laddar ned senaste Application Insights SDK till servern.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Nästa steg
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="next"></a>Nästa steg
 
 Visa telemetrin:
 
@@ -208,9 +213,4 @@ Lägg till mer telemetri:
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

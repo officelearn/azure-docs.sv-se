@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: e48e03e86a325b8f39809a49cdd19820dfa78bdc
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: ab9b49cd86f37499ebf8fd8162779be305019f36
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -26,48 +26,52 @@ ms.lasthandoff: 03/10/2017
 
 Den här snabbstarten hjälper dig att distribuera din första Java-webbapp via [Azure App Service](../app-service/app-service-value-prop-what-is.md) på bara några minuter.
 
-Innan du startar den här snabbstarten ser du till att [Azure CLI är installerat](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) på datorn.
+Kontrollera att Azure CLI har installerats innan du börjar. Mer information finns i [installationsguiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="create-a-java-web-app-in-azure"></a>Skapa en Java-webbapp i Azure
-2. Logga in på Azure genom att köra `az login` och följ anvisningarna på skärmen.
+## <a name="log-in-to-azure"></a>Logga in på Azure
+Logga in på Azure genom att köra `az login` och följ anvisningarna på skärmen.
    
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
    
-3. Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md). Här placerar du alla Azure-resurser som du vill hantera tillsammans, t.ex. webbappen och dess serverdel för SQL Database.
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp   
+Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md). Här placerar du alla Azure-resurser som du vill hantera tillsammans, t.ex. webbappen och dess serverdel för SQL Database.
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-    Om du vill se vilka värden som kan användas för `---location` använder du Azure CLI-kommandot `az appservice list-locations`.
+Om du vill se vilka värden som kan användas för `---location` använder du Azure CLI-kommandot `az appservice list-locations`.
 
-3. Skapa en ”kostnadsfri” [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+## <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
+Skapa en ”kostnadsfri” [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-    ```
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
+```
 
-4. Skapa en ny webbapp med ett unikt namn i `<app_name>`.
+## <a name="create-a-web-app"></a>Skapa en webbapp
+Skapa en webbapp med ett unikt namn i `<app_name>`.
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-4. Distribuera en Java-exempelapp från GitHub.
+## <a name="deploy-sample-application"></a>Distribuera exempelprogram
+Distribuera en Java-exempelapp från GitHub.
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/azure-appservice-samples/JavaCoffeeShopTemplate.git" --branch master --manual-integration 
-    ```
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/azure-appservice-samples/JavaCoffeeShopTemplate.git" --branch master --manual-integration 
+```
 
+## <a name="browse-to-web-app"></a>Bläddra till webbappen
+Kör det här kommandot om du vill köra din app live i Azure.
 
-5. Kör det här kommandot om du vill se din app köras live i Azure.
-
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Grattis! Din första Java-webbapp körs live i Azure App Service.
 

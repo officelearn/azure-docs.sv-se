@@ -7,9 +7,6 @@
 ## IP-adress
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Klassisk](virtual-network-ip-addresses-overview-classic.md)
-## Virtuella datorer
-### [Nätverksgränssnitt](virtual-network-network-interface-overview.md)
-### [Namnmatchning](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Kom igång
 ## [Skapa ditt första virtuella nätverk](virtual-network-get-started-vnet-subnet.md)
@@ -107,6 +104,7 @@
 ### Listor för åtkomstkontroll
 #### [Klassisk portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [Namnmatchning för virtuella datorer och molntjänster](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Hantera
 ### Nätverkssäkerhetsgrupper

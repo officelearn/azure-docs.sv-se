@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 071ef9c0784bdb24c7d29f49c36aee2271f4b524
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -160,7 +160,7 @@ Så här skapar du den virtuella databasserverdatorn:
 
     ![Innehåll i resursgruppen](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Mer information om virtuella datorer, diskar och lagringskonton finns i översiktsartiklarna [Virtuell dator](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Lagringskonto](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Du ser de två nätverkssäkerhetsgrupper som portalen skapade som standard. Du kan också se att portalen har skapat två nätverksgränssnitt (NIC). Ett nätverkskort gör att en virtuell dator kan ansluta till andra resurser i ditt VNet. Mer information om nätverkskort finns i artikeln [Nätverkskort](virtual-network-network-interface-overview.md). Dessutom skapas en offentlig IP-adressresurs i portalen. Offentliga IP-adresser är en inställning för en offentlig IP-adressresurs. Mer information om offentliga IP-adresser finns i artikeln om [IP-adresser](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Mer information om virtuella datorer, diskar och lagringskonton finns i översiktsartiklarna [Virtuell dator](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Lagringskonto](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Du ser de två nätverkssäkerhetsgrupper som portalen skapade som standard. Du kan också se att portalen har skapat två nätverksgränssnitt (NIC). Ett nätverkskort gör att en virtuell dator kan ansluta till andra resurser i ditt VNet. Mer information om nätverkskort finns i artikeln [Nätverkskort](virtual-network-network-interface.md). Dessutom skapas en offentlig IP-adressresurs i portalen. Offentliga IP-adresser är en inställning för en offentlig IP-adressresurs. Mer information om offentliga IP-adresser finns i artikeln om [IP-adresser](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Anslut till de virtuella datorerna
 
@@ -250,7 +250,7 @@ I den här övningen har du skapat ett VNet och två virtuella datorer. Du angav
 
 - [Virtuella nätverk](virtual-networks-overview.md)
 - [Offentliga IP-adresser](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Nätverksgränssnitt](virtual-network-network-interface-overview.md)
+- [Nätverksgränssnitt](virtual-network-network-interface.md)
 - [Nätverkssäkerhetsgrupper](virtual-networks-nsg.md)
 - [Virtuella datorer](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

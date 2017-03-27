@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/08/2016
-ms.author: edmaca
+ms.date: 03/17/2017
+ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -197,71 +197,11 @@ Via Jobbuppspelning kan du se förloppet för jobbkörningen och identifiera vis
 Data Lake-verktyg för Visual Studio innehåller för användaren valbara färgöverlägg för jobbet för att indikera förlopp, data-i/o, körningstid, i/o-genomflöde i varje fas. Användare kan via detta räkna ut potentiella problem och distribution av jobbegenskaper direkt och intuitivt. Du kan välja en datakälla som ska visas i listrutan.  
 
 ## <a name="run-u-sql-locally"></a>Kör U-SQL lokalt
-Med hjälp av lokal U-SQL-körning i Visual Studio kan du:
 
-* Köra U-SQL-skript lokalt, tillsammans med C#-sammansättningar.
-* Felsöka C#-sammansättningar lokalt.
-* Skapa/ta bort/visa lokala databaser, sammansättningar, scheman och tabeller i Server Explorer precis som du kan göra för Azure Data Lake Analytics-tjänsten.
+Du kan använda Azure Data Lake Tools för Visual Studio och Azure Data Lake U-SQL SDK för att köra U-SQL-jobb på din arbetsstation, som i Azure Data Lake-tjänsten. Med de här två funktionerna som körs lokalt kan du spara tid när du testar och felsöker dina U-SQL-jobb. 
 
-Du ser ett *Lokalt* konto i Visual Studio och installationsprogrammet skapar en *DataRoot*-mapp *C:\LocalRunRoot*. Mappen DataRoot kommer att användas:
+* [Testa och felsöka U-SQL-jobb med lokal körning och Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
-* Lagra metadata, inklusive tabeller, databaser, tabellvärdesfunktioner osv.
-* För vissa skript: om en relativ sökväg refereras till i/o-sökvägar, kommer vi att leta upp DataRoot (samt skriptets sökväg)
-* Mappen DataRoot kommer INTE att refereras till om du försöker registrera en sammansättning och använder en relativ sökväg (du hittar mer information i "Använd sammansättningar vid lokal körning")
-
-Följande videoklipp visar funktioner för lokal U-SQL-körning:
-
-> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/USQL-LocalRun/player]
->
->
-
-### <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
-* Det går inte att skapa tabell/DB o.s.v. i Server Explorer för det lokala kontot.
-* När en relativ sökväg refereras:
-
-  * I skriptdata (EXTRAHERA * FRÅN "/sökväg/abc") - söks både DataRoot-sökvägen och skriptsökvägen igenom.
-  * I skriptutada (UTDATA TILL "sökväg/abc"): kommer DataRoot-sökvägen att användas som utdatamapp.
-  * I sammansättningsregistreringen (SKAPA SAMMANSÄTTNING xyz FRÅN "/sökväg/abc"): söks skriptsökvägen igenom, men inte DataRoot.
-  * I registrerad tabellvärdesfunktion/vy eller andra metadataentiteter söks DataRoot-sökvägen igenom, men inte skriptets sökväg.
-
-    För skript som kördes på Data Lake-tjänsten används standardkontot för lagring som rotmapp och genomsöks därmed.
-
-### <a name="test-u-sql-scripts-locally"></a>Testa U-SQL-skript lokalt
-Instruktioner om hur du utvecklar U-SQL-skript finns i [Utveckla U-SQL-skript](#develop-and-test-u-sql-scripts). Om du vill skapa och köra U-SQL-skript lokalt väljer du **(Lokalt)** i klusterlistrutan och klickar sedan på **Skicka**. Kontrollera att du refererar till korrekta data – referera antingen till den absoluta sökvägen eller placera data under mappen DataRoot.
-
-![Skicka U-SQL Visual Studio-projekt lokalt](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
-
-Du kan också högerklicka på ett skript och sedan klicka på **Kör lokal plan** i snabbmenyn eller trycka på **CTRL + F5** för att utlösa lokal körning.
-
-### <a name="use-assemblies-in-local-run"></a>Använda sammansättningar i lokal körning
-Det finns två sätt att köra anpassade C#-filer:
-
-* Skrivsammansättningar i koden bakom filen och sammansättningarna kommer automatiskt att registreras och tas bort när skriptet är klar.
-* Skapa ett C#-sammansättningsprojekt och registrera DLL-filen för utdata till det lokala kontot via ett skript som nedan. Observera att sökvägen är i förhållande till skriptet i stället för mappen DataRoot.
-
-![Använd sammansättningar i lokal U-SQL-körning](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
-
-### <a name="debug-scripts-and-c-assemblies-locally"></a>Felsök skript och C#-sammansättningar lokalt
-Du kan felsöka C#-sammansättningar utan att skicka och registrera dem till Azure Data Lake Analytics-tjänsten. Du kan ange brytpunkter i både koden bakom filen och ett refererat C#-projekt.
-
-**Felsöka lokal kod i koden bakom filen**
-
-1. Ange brytpunkter i koden bakom filen.
-2. Tryck på **F5** om du vill felsöka skript lokalt.
-
-Följande procedur fungerar bara i Visual Studio 2015. Du kan behöva lägga till PDB-filer manuellt i äldre Visual Studio.
-
-**Felsöka lokal kod i ett refererat C#-projekt**
-
-1. Skapa ett C#-sammansättningsprojekt och skapa det för att generera DLL-filen för utdata.
-2. Registrera DLL-filen med hjälp av ett U-SQL-uttryck:
-
-    ```
-    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-    ```
-    
-3. Ange brytpunkter i C#-koden.
-4. Tryck på **F5** om du vill felsöka skriptet med referens till C#-DLL-filen lokalt.  
 
 ## <a name="see-also"></a>Se även
 Om du vill komma igång med Data Lake Analytics med hjälp av olika verktyg, se:

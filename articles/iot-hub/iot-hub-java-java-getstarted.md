@@ -65,7 +65,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som skapar en enhetsidentite
     </dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.1.15</version>
+      <version>1.2.16</version>
     </dependency>
     ```
     
@@ -289,7 +289,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.0.21</version>
+      <version>1.1.22</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>

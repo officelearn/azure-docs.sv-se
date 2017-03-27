@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: ee46da891ab50a64c649b0370cb9231dd3448ea1
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -33,7 +33,7 @@ Konfigurera systemet i några få enkla steg så att användarna kan hantera sin
 * [**Bra tips från våra kunder att läsa innan du börjar**](#top-tips-from-our-customers-to-read-before-you-begin)
  * [**TOPPTIPS: DOKUMENTATIONSNAVIGERING** – Använd vår innehållsförteckning och webbläsarens sökfunktion för att hitta svar](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
  * [**Tips 1: LICENSIERING** – Kontrollera att du förstår licenskraven](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
- * [**Tips 2: TESTA** – Testa med en slutanvändare, inte en administratör, och kör en pilotversion med en liten uppsättning användare](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Tips 2: TESTA** – Testa med en slutanvändare, inte en administratör, och kör en pilotversion med en liten uppsättning användare](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
  * [**Tips 3: DISTRIBUTION** – Fyll i data i förväg för dina användare så att de inte behöver registrera sig](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
  * [**Tips 4: DISTRIBUTION** – Använd lösenordsåterställning så behöver du inte kommunicera tillfälliga lösenord](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
  * [**Tips 5: TILLBAKASKRIVNING** – Titta på programmets händelselogg på AAD Connect-datorn om du vill felsöka tillbakaskrivning av lösenord](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -59,7 +59,7 @@ Här är några av de bästa tipsen som vi har sett är användbara för kunder 
 
 * [**TOPPTIPS: DOKUMENTATIONSNAVIGERING** – Använd vår innehållsförteckning och webbläsarens sökfunktion för att hitta svar](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
 * [**Tips 1: LICENSIERING** – Kontrollera att du förstår licenskraven](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
-* [**Tips 2: TESTA** – Testa med en slutanvändare, inte en administratör, och kör en pilotversion med en liten uppsättning användare](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Tips 2: TESTA** – Testa med en slutanvändare, inte en administratör, och kör en pilotversion med en liten uppsättning användare](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
 * [**Tips 3: DISTRIBUTION** – Fyll i data i förväg för dina användare så att de inte behöver registrera sig](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
 * [**Tips 4: DISTRIBUTION** – Använd lösenordsåterställning så behöver du inte kommunicera tillfälliga lösenord](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
 * [**Tips 5: TILLBAKASKRIVNING** – Titta på programmets händelselogg på AAD Connect-datorn om du vill felsöka tillbakaskrivning av lösenord](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -78,9 +78,9 @@ Titta på innehållsförteckningen nedan:
 För att återställning av lösenordet till Azure AD ska fungera måste du ha minst en engångslicens tilldelad inom organisationen. Vi kräver inte licensiering per användare för själva lösenordsåterställningen, men om du använder funktionen utan att en licens har tilldelats en användare kan det betraktas som att du inte följer Microsofts licensavtal, och du måste i så fall tilldela dessa användare licenser.
 
 Här följer några dokument som kan hjälpa dig att förstå vilka licenser som krävs för återställning av lösenord.
-* [Allmän licensinformation för lösenordsåterställning]()
-* [Per-funktion-licensinformation för lösenordsåterställning]()
-* [Scenarier som stöds för tillbakaskrivning av lösenord]()
+* [Allmän licensinformation för lösenordsåterställning](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize#what-customization-options-are-available)
+* [Per-funktion-licensinformation för lösenordsåterställning](https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability)
+* [Scenarier som stöds för tillbakaskrivning av lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#scenarios-supported-for-password-writeback)
 
 ### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Tips 2: TESTA – Testa med en slutanvändare, inte en administratör, och kör en pilotversion med en liten uppsättning användare
 När du testar med en administratör tvingar vi principen för återställning av administratörslösenord, som definieras nedan.  Det innebär att du INTE ser de förväntade resultaten av den princip som du har konfigurerat för dina slutanvändare.
@@ -310,6 +310,7 @@ Det här avsnittet beskriver hur du konfigurerar lösenordsåterställning för 
 Innan du kan aktivera och använda tillbakaskrivning av lösenord måste du kontrollera att du uppfyller följande krav:
 
 * Du har en Azure AD-klient med Azure AD Premium aktiverat.  Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
+* Du måste ansluta Azure AD Connect till den primära domänkontrollantemulatorn för att tillbakaskrivningen av lösenord ska fungera.  Om du behöver kan du konfigurera Azure AD Connect för användning av den primära domänkontrollanten genom att högerklicka på **egenskaperna** för Active Directory-anslutningsappen för synkronisering och sedan välja **konfigurera katalogpartitioner**. Därifrån kan du söka efter avsnittet med **anslutningsinställningarna för domänkontrollanten** och markera rutan för att **endast använda prioriterade domänkontrollanter**.  Obs! Azure AD Connect kontaktar PDC för tillbakaskrivning av lösenord, även om den prioriterade domänkontrollanten inte är en PDC-emulator.
 * Återställning av lösenord har konfigurerats och aktiverats i din klient.  Mer information finns i [Konfigurera systemet så att användarna kan återställa sina Azure AD-lösenord](#enable-users-to-reset-their-azure-ad-passwords)
 * Du har minst ett administratörskonto och ett testanvändarkonto med en Azure AD Premium-licens som du kan använda för att testa den här funktionen.  Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
 

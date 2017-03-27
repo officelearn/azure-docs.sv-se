@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
-ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -92,7 +92,7 @@ I följande tabell visas de Azure Backup-komponenter som har stöd för Linux.
 | Azure Backup-agent (MARS) |Nej (endast Windows-baserad agent) |
 | System Center DPM |Filkonsekvent säkerhetskopiering eller endast Hyper-V<br/> (inte tillgängligt för virtuella Azure-datorer) |
 | Azure Backup Server |Filkonsekvent säkerhetskopiering eller endast Hyper-V<br/> (inte tillgängligt för virtuella Azure-datorer) |
-| Säkerhetskopiering av virtuella IaaS-datorer i Azure |Ja |
+| Säkerhetskopiering av virtuella IaaS-datorer i Azure |Ja (programkonsekvent säkerhetskopiering med [ramverk för förskript och efterskript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Använd virtuella Premium Storage-datorer med Azure Backup
 Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium-lagring finns i artikeln [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../storage/storage-premium-storage.md).

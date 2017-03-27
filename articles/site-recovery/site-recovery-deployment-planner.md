@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery Deployment Planner för VMware till Azure| Microsoft Docs"
-description: "Det här är användarhandboken för Azure Site Recovery Deployment Planner."
+title: "Azure Site Recovery-kapacitetsplaneraren för VMware till Azure| Microsoft Docs"
+description: "Det här är användarhandboken för Azure Site Recovery-kapacitetsplaneraren."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -15,495 +15,554 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 2575621d72b7db2b090ba923324697b7fa7b8308
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 33f1be6911178315752ce9c39aa1428b70db835c
 ms.lasthandoff: 03/15/2017
 
 
 ---
-#<a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
-Det här är användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
+# <a name="azure-site-recovery-deployment-planner"></a>Kapacitetsplaneraren i Azure Site Recovery
+Det här artikeln är användarhandboken för Azure Site Recovery för produktionsdistributioner av VMware till Azure.
 
+## <a name="overview"></a>Översikt
 
-##<a name="overview"></a>Översikt
+Innan du börjar skyddar virtuella VMware-datorer med hjälp av Site Recovery måste du allokera tillräckligt mycket bandbredd sett till din dagliga dataändringshastighet så att du når önskat mål för återställningspunkt. Du måste distribuera tillräckligt många konfigurationsservrar och processervrar lokalt.
 
-Innan du börjar skyddar virtuella VMware-datorer med hjälp av Azure Site Recovery måste du allokera tillräckligt mycket bandbredd sett till din dagliga dataändringshastighet så att du når önskat RPO-mål. Du måste distribuera tillräckligt många konfigurationsservrar och processervrar lokalt. Du måste också skapa tillräckligt många Azure Storage-konton av rätt typ, antingen standard eller premium, och ta hänsyn till tillväxten på dina källproduktionsservrar eftersom användningen tenderar att öka med tiden. Lagringstypen avgörs för varje virtuell dator baserat på typen av arbetsbelastning (IOPS, dataomsättning) och gränser i Azure Site Recovery.  
+Du måste också skapa rätt typ och antal Azure-mållagringskonton. Du skapar antingen Standard Storage- eller Premium Storage-konton, och väger in tillväxt på källproduktionsservrarna på grund av ökad användning under en viss tid. Du väljer lagringstyp per virtuell dator baserat på arbetsbelastningens egenskaper (exempelvis läs- och skrivbehörighet, i/o-åtgärder per sekund [IOPS] eller dataomsättningen) och Site Recovery-begränsningarna.
 
-Azure Site Recovery Deployment Planner Public Preview är ett kommandoradsverktyg som för närvarande bara är tillgängligt för scenariot med VMware till Azure. Du kan profilera dina virtuella VMware-datorer via fjärranslutning med det här verktyget (utan att produktionen påverkas alls) så att du får en uppfattning om vilken bandbredd och vilket lagringsutrymme som kommer att behövas för replikering och redundansväxling.  Du kan köra verktyget utan att installera några Azure Site Recovery-komponenter lokalt, men du får bättre dataflödesresultat om du kör planeringsverktyget på en Windows-server som uppfyller minimikraven för den konfigurationsserver för Azure Site Recovery som du kommer att ta i drift som ett av de första stegen i produktionsdistributionen.
+Site Recovery Deployment Planner Public Preview är ett kommandoradsverktyg som för närvarande bara är tillgängligt för scenariot med VMware till Azure. Du kan profilera dina virtuella VMware-datorer via fjärranslutning med det här verktyget (utan att produktionen påverkas alls) så att du får en uppfattning om vilken bandbredd och hur stort Azure Storage-lagringsutrymme som kommer att behövas för replikering och redundansväxling. Du kan köra verktyget utan att installera alla Site Recovery-komponenter lokalt. Du får dock bättre dataflödesresultat om du kör planeringsverktyget på en Windows-server som uppfyller minimikraven för den konfigurationsserver för Site Recovery som du kommer att ta i drift som ett av de första stegen i produktionsdistributionen.
 
 Du kan se följande information i verktyget:
 
-**Utvärdering av kompatibilitet**<br>
+**Utvärdering av kompatibilitet**
+
 * En utvärdering av om den virtuella datorn stöds som baseras på antalet diskar, diskstorleken, IOPS och dataomsättningen
+* Beräknad nätverksbandbredd som krävs för deltareplikering
 
-**Behovet av bandbredd i nätverket kontra RPO-bedömning**<br>
-* Beräknad nätverksbandbredd som krävs för deltareplikering<br>
-* Genomströmning som Azure Site Recovery kan få från lokala datorer till Azure<br>
-* Antalet virtuella datorer att bearbeta per batch sett till den uppskattade bandbredd som krävs för att slutföra replikeringen på en viss tid<br>
+**Nätverkets bandbreddsbehov kontra utvärdering av återställningspunktmål**
 
-**Krav på infrastruktur för Microsoft Azure**<br>
-* Lagringsutrymme och typ (standard- eller premium-lagring) som krävs för varje virtuell dator<br>
-* Totalt antal konton för standard- och premium-lagring som ska etableras för replikering<br>
-* Namnförslag för lagringskonton baserade på riktlinjer i Azure Storage<br>
-* Lagringskontots placering för varje virtuell dator<br>
-* Antalet Microsoft Azure-kärnor som ska etableras innan redundanstest/redundansväxling för prenumerationen<br>
-* Rekommenderad storlek för virtuell Microsoft Azure-dator för varje lokal virtuell dator<br>
+* Beräknad nätverksbandbredd som krävs för deltareplikering
+* Dataflödet som Site Recovery kan få från lokala datorer till Azure
+* Antalet virtuella datorer att bearbeta per batch sett till den uppskattade bandbredd som krävs för att slutföra den inledande replikeringen inom viss tid
 
-**Krav på lokal infrastruktur**<br>
-* Antalet konfigurationsservrar och processervrar som måste distribueras lokalt<br>
+**Krav på infrastruktur för Azure**
+
+* Typ av lagringsutrymme (Standard Storage- eller Premium Storage-konto) som krävs för varje virtuell dator
+* Totalt antal Standard Storage- och Premium Storage-konton som ska konfigureras för replikering
+* Namnförslag för lagringskonton baserade på riktlinjer för Azure Storage
+* Lagringskontots placering för alla virtuella datorer
+* Antalet Azure-kärnor som ska etableras innan redundanstest/redundansväxling för prenumerationen
+* Den rekommenderade storleken på den virtuella Azure-datorn för varje lokal virtuell dator
+
+**Krav på lokal infrastruktur**
+* Antalet konfigurationsservrar och processervrar som måste distribueras lokalt
 
 >[!IMPORTANT]
 >
->Dessa beräkningar i verktyget görs med antagandet att arbetsbelastningens tillväxtfaktor är 30 % eftersom användningen kan öka med tiden, och med 95:e percentilen för alla profileringsmått (IOPS, dataomsättning osv.) Båda parametrarna, tillväxtfaktorn och percentilen, kan konfigureras. Läs mer om [tillväxtfaktorn](site-recovery-deployment-planner.md#growth-factor) och [percentilvärdet som används för beräkning](site-recovery-deployment-planner.md#percentile-value-used-for-the-calculation).
+>Eftersom användningen troligtvis ökar med tiden utförs alla föregående verktygsberäkningar med förutsättningen att en 30-procentig tillväxtfaktor för arbetsbelastningen egenskaper och ett 95-procentigt percentilvärde används för alla profileringsmått (skrivbar IOPS, omsättning och så vidare). Båda parametrarna (tillväxtfaktorn och percentilberäkningen) kan konfigureras. Om du vill veta mer om tillväxtfaktor, se avsnittet ”Överväganden för tillväxtfaktorer”. Mer information om percentilvärdet finns i avsnittet ”Percentilvärdet som används för beräkningen”.
 >
 
-
 ## <a name="requirements"></a>Krav
-Verktyget har två huvudfaser – profilering och rapportgenerering. Det finns också ett tredje alternativ som endast beräknar dataflödet. Nedan visas kraven för servern där profileringen/mätning av dataflödet initieras.
+Verktyget har två huvudfaser: profilering och rapportgenerering. Det finns också ett tredje alternativ som endast beräknar dataflödet. Kraven för servern som profilering och dataflödesmätning initieras från visas i följande tabell:
 
-| Krav | Beskrivning|
+| Serverkrav | Beskrivning|
 |---|---|
-|Profilering och mätning av dataflöde| <br>Operativsystem: Microsoft Windows Server 2012 R2 <br>Ska helst matcha minst följande [storlek](https://aka.ms/asr-v2a-on-prem-components) på konfigurationsservern<br>Serverkonfiguration: 8 virtuella processorer, 16 GB RAM, 300 GB Hårddisk<br [Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)<br>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)<br>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)<br> Internetåtkomst till Microsoft Azure från den här servern<br> Lagringskonto för Microsoft Azure<Br>Administratörsbehörighet till servern<br>Minst 100 GB ledigt diskutrymme (gäller för 1 000 virtuella datorer med i genomsnitt 3 diskar var som profileras under 30 dagar)|
-| Rapportgenerering| Valfri Windows PC/Windows Server med Microsoft Excel 2013 eller senare |
-| Användarbehörigheter | Läsbehörighet för det användarkonto som ska användas för åtkomst till VMware vCenter-/vSphere-servern under profilering|
-
+|Profilering och mätning av dataflöde| <ul><li>Operativsystem: Microsoft Windows Server 2012 R2<br>(matchar helst åtminstone [storleksrekommendationerna för konfigurationsservern](https://aka.ms/asr-v2a-on-prem-components))</li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM-minne, 300 GB hårddisk</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetåtkomst till Azure från den här servern</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsatt 1 000 virtuella datorer med ett medeltal av de tre diskar vardera, profilerade under 30 dagar)</li></ul> |
+| Rapportgenerering | En Windows-dator eller Windows Server med Microsoft Excel 2013 eller senare |
+| Användarbehörigheter | Läsbehörighet för det användarkonto som ska användas för åtkomst till VMware vCenter-servern/VMware vSphere ESXi-värden under profilering |
 
 > [!NOTE]
 >
-> Verktyget kan bara profilera virtuella datorer med VMDK- och RDM-diskar. Du kan inte profilera virtuella datorer med iSCSI- eller NFS-diskar. Även om Azure Site Recovery har stöd för iSCSI och NFS-diskar för VMware-servrar så kan inte verktyget se dessa eftersom planeringsverktyget inte körs i gästen och profileringen bara utförs med prestandaräknare för vCenter.
+> Verktyget kan enbart profilera virtuella datorer med VMDK- och RDM-diskar. Den kan inte profilera virtuella datorer med iSCSI- eller NFS-diskar. Även om Site Recovery har stöd för iSCSI- och NFS-diskar för VMware-servrar kan inte verktyget se dessa disktyper eftersom kapacitetsplaneraren inte körs i gästen och profileringen bara utförs med prestandaräknare för vCenter.
 >
 
+## <a name="download-and-extract-the-public-preview"></a>Hämta och extrahera den offentliga förhandsutgåvan
+1. Ladda ned den senaste versionen av [Site Recovery Deployment Planner Public Preview](https://aka.ms/asr-deployment-planner).  
+Verktyget är paketerat i en komprimerad mapp. Den aktuella versionen av verktyget har endast stöd för scenariot med VMware till Azure.
 
-##<a name="download"></a>Ladda ned
-[Ladda ned](https://aka.ms/asr-deployment-planner) den senaste versionen av Azure Site Recovery Deployment Planner Public Preview.  Verktyget är paketerat i zip-format.  Den aktuella versionen av verktyget har endast stöd för scenariot med VMware till Azure.
+2. Kopiera den komprimerade mappen till den Windows Server som du vill köra verktyget från.  
+Du kan köra verktyget från Windows Server 2012 R2 om servern har nätverksåtkomst för att ansluta till vCenter-servern/vSphere ESXi-värden som innehåller de virtuella datorer som ska profileras. Vi rekommenderar dock att du kör verktyget på en server vars maskinvarukonfiguration uppfyller [riktlinjen för förändring av storleken på konfigurationsservrar](https://aka.ms/asr-v2a-on-prem-components). Om du redan har distribuerat Site Recovery-komponenter lokalt bör du köra verktyget från konfigurationsservern.
 
-Kopiera zip-filen till den Windows Server du vill köra verktyget från. Även om du kan köra verktyget från valfri Windows Server 2012 R2 med nätverksåtkomst för anslutning till VMware vCenter-servern eller VMware vSphere ESXi-värden som innehåller de virtuella datorer som ska profileras så bör du köra verktyget på en server vars maskinvarukonfiguration uppfyller [riktlinjerna för konfigurationsserverns storlek](https://aka.ms/asr-v2a-on-prem-components).  Om du redan har distribuerat Azure Site Recovery-komponenter lokalt bör du köra verktyget från konfigurationsservern. Du bör ha samma maskinvarukonfiguration som för konfigurationsservern (som har en inbyggd processerver) på den server där du kör verktyget, så att det dataflöde som verktyget rapporterar matchar det faktiska dataflöde som Azure Site Recovery kan uppnå vid replikeringen – beräkningen av dataflödet beror på serverns tillgängliga nätverksbandbredd samt på serverns maskinvarukonfiguration (processor, lagring osv.). Om du kör verktyget från en annan server kommer dataflödet att beräknas för den servern till Microsoft Azure, och dessutom kan serverns maskinvarukonfiguration vara en annan än för konfigurationsservern, så att det uppnådda dataflödet som verktyget rapporterar inte stämmer.
+ Vi rekommenderar att du har samma maskinvarukonfiguration som konfigurationsservern (som har en inbyggd processerver) på den server där du kör verktyget. En sådan konfiguration garanterar att det uppnådda genomflödet som verktyget rapporterar matchar det faktiska dataflöde som Site Recovery kan uppnå under replikeringen. Dataflödesberäkningen är beroende av den tillgängliga nätverksbandbredden och maskinvarukonfigurationen (processor, lagringsutrymme och så vidare) på servern. Om du kör verktyget från andra servrar beräknas dataflödet från den här servern till Microsoft Azure. Också eftersom maskinvarukonfigurationen på servern kan skilja sig från konfigurationsservern kan det dataflöde som verktyget rapporterar vara felaktigt.
 
-Extrahera zip-filen. Den innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
+3. Extrahera .zip-filen.  
+Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
-Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den.
-E:\ASR Deployment Planner-Preview_v1.1.zip
+    Exempel:  
+    Kopiera .zip-filen till enhet E:\ och packa upp den.
+   E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
-##<a name="capabilities"></a>Funktioner
+## <a name="capabilities"></a>Funktioner
 Du kan köra kommandoradsverktyget (ASRDeploymentPlanner.exe) i någon av följande tre lägen:
 
-1.    Profilering  
-2.    Rapportgenerering
-3.    Beräkna dataflöde
+1. Profilering  
+2. Rapportgenerering
+3. Beräkna dataflöde
 
-Du måste först köra verktyget i profileringsläget så att du samlar in information om dataomsättning och IOPS för de virtuella datorerna.  Kör sedan en rapportgenerering när du ska avgöra kraven på nätverksbandbredd och lagring.
+Först kör du verktyget i profileringsläge för att samla in uppgifter om den virtuella datorns dataomsättning och IOPS. Kör sedan verktyget för att generera rapporten för att bedöma kraven på nätverksbandbredd och lagring.
 
-##<a name="profiling"></a>Profilering
-I profileringsläge ansluter planeringsverktyget till vCenter-servern eller vSphere ESXi-värden och samlar in prestandadata om den virtuella datorn.
+## <a name="profiling"></a>Profilering
+I profileringsläge ansluter distributionskapacitetsplaneraren till vCenter-servern/vSphere ESXi-värden och samlar in prestandadata om den virtuella datorn.
 
-* Profileringen påverkar inte prestanda för de virtuella produktionsdatorerna eftersom det inte upprättas någon anslutning till produktionsmiljön. Alla prestandadata samlas in från vCenter-servern/vSphere ESXi-värden.
-* Det skickas frågor till VCenter-servern/vSphere EXSi-värden var 15:e minut, så att servern ska påverkas minimalt av profileringen. Detta äventyrar dock inte profileringens noggrannhet eftersom verktyget lagrar prestandaräknardata varje minut.
+* Profilering påverkar inte prestanda hos de virtuella produktionsdatorerna eftersom ingen direktanslutning upprättas till dem. Alla prestandadata samlas in från vCenter-servern/vSphere ESXi-värden.
+* Verktyget skickar frågor till vCenter-servern/vSphere EXSi-värden var 15:e minut, så att servern ska påverkas minimalt av profileringen. Frågeintervallet äventyrar dock inte profileringens noggrannhet eftersom verktyget lagrar prestandaräknardata varje minut.
 
-####<a name="create-a-list-of-virtual-machines-to-profile"></a>Skapa en lista med virtuella datorer att profilera
-Först måste du ha en lista med virtuella datorer som ska profileras. Du kan hämta namnen på alla virtuella datorer på en VMware vCenter-server eller VMware vSphere ESXi-värd med hjälp av följande VMware vSphere PowerCLI-kommandon. Du kan också ange namn och IP-adresser för de virtuella datorer du vill profilera manuellt i en fil.
+### <a name="create-a-list-of-vms-to-profile"></a>Skapa en lista över virtuella datorer att profilera
+Du behöver först en lista över de virtuella datorer som ska profileras. Du kan hämta namnen på alla virtuella datorer på en vCenter-server/vSphere ESXi-värd med hjälp av VMware vSphere PowerCLI-kommandon i följande procedur. Alternativt kan du lista de egna namnen eller IP-adresserna till de virtuella datorer som du vill profilera manuellt i en fil.
 
-1.    Logga in på den virtuella dator där VMware vSphere PowerCLI är installerat
-2.    Öppna VMware vSphere PowerCLI-konsolen
-3.    Se till att körningsprincipen inte är inaktiverad för skriptet. Om den är inaktiverad så startar du VMware vSphere PowerCLI-konsolen i administratörsläge och aktiverar den med följande kommando:
+1. Logga in till den virtuella dator som VMware vSphere PowerCLI är installerad på.
+2. Öppna VMware vSphere PowerCLI-konsolen.
+3. Se till att körningsprincipen är aktiverad för skriptet. Om den är inaktiverad startar du VMware vSphere PowerCLI-konsolen i administratörsläge och aktiverar den med följande kommando:
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4.    Du kan hämta namnen på alla virtuella datorer på en VMware vCenter-server eller VMware vSphere ESXi-värd och lagra dem i en .txt-fil med följande två kommandon.
+4. Kör de två kommandona i listan här för att hämta alla namnen på virtuella datorer på en vCenter-server/sShere ESXi-värd och spara den i en txt-fil.
 Ersätt &lsaquo;servernamn&rsaquo;, &lsaquo;användarnamn&rsaquo;, &lsaquo;lösenord&rsaquo; och &lsaquo;utdatafil.txt&rsaquo; med egna värden.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
+5. Öppna utdatafilen i Anteckningar och kopiera sedan namnen på alla virtuella datorer som du vill profilera till en annan fil (till exempel ProfileVMList.txt), med ett namn på en virtuell dator per rad. Den här filen används som indata för parametern *-VMListFile* i kommandoradsverktyget.
 
-5.    Öppna utdatafilen i Anteckningar. Kopiera namnen på alla virtuella datorer du vill profilera till en annan fil (till exempel ProfileVMList.txt) och ange ett namn per rad. Den här filen används som indata för parametern -VMListFile i kommandoradsverktyget.
+    ![Lista med namn på virtuella datorer i kapacitetsplaneraren](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
-    ![Deployment Planner](./media/site-recovery-deployment-planner/profile-vm-list.png)
-
-
-####<a name="start-profiling"></a>Starta profilering
-När du har skapat listan med virtuella datorer att profilera kan du köra verktyget i profileringsläge. Här är listan med obligatoriska och valfria parametrar när du ska köra verktyget i profileringsläge. Parametrar omslutna med [] är valfria.
+### <a name="start-profiling"></a>Starta profilering
+När du har skapat listan med virtuella datorer att profilera kan du köra verktyget i profileringsläge. Här är listan med obligatoriska och valfria parametrar när du ska köra verktyget i profileringsläge.
 
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 
 | Parameternamn | Beskrivning |
 |---|---|
-| -Operation |      StartProfiling |
-| -Server | Fullständigt domännamn eller IP-adress för den vCenter-server/ESXi-värd vars virtuella datorer ska profileras.|
-| -User | Användarnamn för anslutning till vCenter-servern/ESXi-värden. Användaren måste minst ha skrivbehörighet.|
-| -VMListFile |    Filen som innehåller listan med virtuella datorer som ska profileras. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett datornamn/en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara samma som VM-namnen på vCenter-servern eller ESXi-värden. <br> Exempel: filen VMList.txt innehåller följande virtuella datorer:<br>virtuell_dator_A <br>10.150.29.110<br>virtuell_dator_B |
-| -NoOfDaysToProfile | Antal dagar som profileringen ska köras. Du bör köra profileringen i minst 15 dagar så att du fångar upp mönster för arbetsbelastningen i din miljö och kan generera korrekta rekommendationer. |
-| [-Directory] |    UNC eller lokal sökväg för lagring av de profildata som genereras under profileringen. Om du inte anger något värde används katalogen ProfiledData under den aktuella sökvägen som standardkatalog. |
-| [-Password ] | Lösenord för anslutning till vCenter-servern/ESXi-värden. Om du inte anger något värde för parametern uppmanas du att ange lösenordet när kommandot körs.|
-|  [-StorageAccountName]  | Namnet på det Azure Storage-konto som används för beräkning av dataflödet som kan uppnås för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när dataflödet ska beräknas.|
-| [-StorageAccountKey] | Den kontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > [lagringskontots namn] > Inställningar > Åtkomstnycklar > Key1 (eller Primär åtkomstnyckel för klassiska lagringskonton). |
+| -Operation | StartProfiling |
+| -Server | Fullständigt domännamn eller IP-adress för den vCenter-server/vSphere ESXi-värd vars virtuella datorer ska profileras.|
+| -User | Användarnamn för anslutning till vCenter-servern/vSphere ESXi-värden. Användaren måste minst ha läsbehörighet.|
+| -VMListFile |    En fil som innehåller en lista över virtuella datorer som ska profileras. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett virtuellt datornamn/en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara detsamma som namnen på de virtuella datorerna på vCenter-servern/vSphere ESXi-värden.<br>Filen VMList.txt innehåller exempelvis följande virtuella datorer:<ul><li>virtuell_dator_A</li><li>10.150.29.110</li><li>virtuell_dator_B</li><ul> |
+| -NoOfDaysToProfile | Antal dagar som profileringen ska köras. Du bör köra profileringen i minst 15 dagar så att du fångar upp mönster för arbetsbelastningen i din miljö under den angivna perioden och kan generera en korrekt rekommendation. |
+| -Directory | (Valfritt) UNC (Universal Naming Convention) eller lokal katalogsökväg för lagring av de profildata som genereras under profileringen. Om inget katalognamn anges används katalogen ”ProfiledData” under den aktuella sökvägen som standardkatalog. |
+| -Password | (Valfritt) Lösenord för att ansluta till vCenter-servern/vSphere ESXi-värden. Om du inte anger något värde nu uppmanas du att ange det när kommandot körs.|
+| -StorageAccountName | (Valfritt) Namnet på det lagringskonto som används för beräkning av dataflödet som kan uppnås för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när dataflödet ska beräknas.|
+| -StorageAccountKey | (Valfritt) Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> > Inställningar > Åtkomstnycklar > Key1 (eller primär åtkomstnyckel för det klassiska lagringskontot). |
 
-Du bör profilera dina virtuella datorer i minst 15 till 30 dagar. ASRDeploymentPlanner.exe körs under hela profileringsperioden. Profileringstiden anges i dagar i verktyget. Om du vill profilera i några timmar eller minuter för att snabbtesta verktyget måste du omvandla tiden till motsvarande antal dagar i Public Preview.  Om du till exempel vill profilera i 30 minuter ska du ange 30/(60*24) = 0,021 dagar.  Minsta tillåtna profileringstid är 30 minuter.
+Vi rekommenderar att du profilerar dina virtuella datorer under minst 15 till 30 dagar. ASRDeploymentPlanner.exe körs under hela profileringsperioden. Profileringstiden anges i dagar i verktyget. Om du vill profilera i några timmar eller minuter för att snabbtesta verktyget måste du omvandla tiden till motsvarande antal dagar i den offentliga förhandsutgåvan. Om du till exempel vill profilera i 30 minuter ska du ange 30/(60 * 24) = 0,021 dagar. Minsta tillåtna profileringstid är 30 minuter.
 
-Under profileringen kan du skicka namn och nyckel för ett Azure Storage-konto om du vill se vilket dataflöde som Azure Site Recovery kan uppnå för replikeringen från konfigurationsservern/processervern till Azure. Om du inte skickar namn och nyckel för ett Azure Storage-konto under profileringen beräknas inte potentiellt dataflöde.
+Under profileringen kan du välja att skicka namn och nyckel för ett lagringskonto om du vill se vilket dataflöde som Site Recovery kan uppnå för replikeringen från konfigurationsservern/processervern till Azure. Om du inte skickar namn och nyckel för ett lagringskonto under profileringen beräknar inte verktyget det dataflöde som kan uppnås.
 
+#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Exempel 1: Profilera virtuella datorer i 30 dagar och beräkna dataflödet från lokala datorer till Azure
+```
+ASRDeploymentPlanner.exe **-Operation** StartProfiling -Directory “E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  30  **-User** vCenterUser1 **-StorageAccountName**  asrspfarm1 **-StorageAccountKey** Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+```
 
-Du kan köra flera instanser av verktyget för olika uppsättningar av virtuella datorer. Se till att det inte finns dubbletter av namn på virtuella datorer i profileringsuppsättningarna. Som exempel kanske du har profilerat tio virtuella datorer (VM1–VM10). Efter några dagar vill du profilera ytterligare fem virtuella datorer (VM11–VM15), och då kan du köra verktyget från en annan kommandoradskonsol för den andra uppsättningen av virtuella datorer (VM11–VM15). Du måste däremot se till att den andra uppsättningen av virtuella datorer inte innehåller något av datornamnen från den första profileringsinstansen, eller att du använder en annan utdatakatalog för den andra körningen. Om två instanser av verktyget används för profilering av samma virtuella datorer och samma utdatakatalog används kommer den genererade rapporten att vara felaktig.
+#### <a name="example-2-profile-vms-for-15-days"></a>Exempel 2: Profilera virtuella datorer i 15 dagar
+Du kan köra flera instanser av verktyget för olika uppsättningar av virtuella datorer. Se till att det inte finns dubbletter av namn på virtuella datorer i profileringsuppsättningarna. Till exempel kanske du har profilerat tio virtuella datorer (VM1–VM10). Efter några dagar vill du profilera ytterligare fem virtuella datorer (VM11–VM15), och då kan du köra verktyget från en annan kommandotolk för den andra uppsättningen av virtuella datorer (VM11–VM15). Se till att den andra uppsättningen av virtuella datorer inte innehåller något av namnen på de virtuella datorerna från den första profileringsinstansen, eller använd en annan utdatakatalog för den andra körningen. Om två instanser av verktyget används för profilering av samma virtuella datorer och samma utdatakatalog används kommer den genererade rapporten att vara felaktig.
 
-Den virtuella datorns konfiguration inhämtas en gång i början av profileringen och lagras i en fil med namnet VMDetailList.xml. Den här informationen används när rapporten ska genereras. Ändringar i VM-konfiguration (till exempel fler kärnor, diskar, nätverkskort osv.) efter det att profileringen startades kommer inte att registreras. Om konfigurationen för en profilerad virtuell dator ändrats under profileringen finns det en lösning i Public Preview för att hämta den senaste datorinformationen när rapporten ska genereras.   
+Den virtuella datorns konfiguration inhämtas en gång i början av profileringsåtgärden och lagras i en fil med namnet VMDetailList.xml. Den här informationen används när rapporten genereras. Ändringar i den virtuella datorkonfigurationen (till exempel ett ökat antal kärnor, diskar och nätverkskort) från början till slutet av profileringen registreras inte. Om konfigurationen för en profilerad virtuell dator ändrats under profileringen finns det en lösning i den offentliga förhandsutgåvan för att hämta den senaste virtuella datorinformationen när rapporten ska genereras:
 
 * Säkerhetskopiera filen VMdetailList.xml och ta bort den från dess nuvarande plats.
 * Skicka argumenten -User och -Password när rapporten ska genereras.
 
-Med profileringskommandot skapas flera filer i profileringskatalogen. Ta inte bort någon av dem eftersom det kan påverka genereringen av rapporten.
+Profileringskommandot genererar flera filer i profileringskatalogen. Ta inte bort några filer, eftersom detta påverkar rapportgenereringen.
 
-#####<a name="example-1-to-profile-virtual-machines-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Exempel 1: profilering av virtuella datorer i 30 dagar beräkning av dataflödet från lokala datorer till Azure
-ASRDeploymentPlanner.exe **-Operation** StartProfiling -Directory ”E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** ”E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  30  **-User** vCenterUser1 **-StorageAccountName**  asrspfarm1 **-StorageAccountKey** Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+```
+ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** “E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  15  -User vCenterUser1
+```
 
-#####<a name="example-2-to-profile-virtual-machines-for-15-days"></a>Exempel 2: profilering av virtuella datorer i 15 dagar
-ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** ”E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** ”E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  15  -User vCenterUser1
-
-#####<a name="example-3-to-profile-virtual-machines-for-1-hour-for-a-quick-test-of-the-tool"></a>Example 3: profilering av virtuella datorer under 1 timmes snabbtest av verktyget
-ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** ”E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** ”E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  0.04  **-User** vCenterUser1
-
+#### <a name="example-3-profile-vms-for-1-hour-for-a-quick-test-of-the-tool"></a>Exempel 3: Profilera virtuella datorer under 1 timme för ett snabbtest av verktyget
+```
+ASRDeploymentPlanner.exe **-Operation** StartProfiling **-Directory** “E:\vCenter1_ProfiledData” **-Server** vCenter1.contoso.com **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-NoOfDaysToProfile**  0.04  **-User** vCenterUser1
+```
 
 >[!NOTE]
 >
-> * Om servern där verktyget körs startas om eller kraschar, eller om du avslutar verktyget med Ctrl + C, så bevaras profileringsdata. Du riskerar däremot att förlora de senaste 15 minuternas profileringsdata. Du måste köra verktyget i profileringsläge när servern startas igen.
->
-> * När du skickar namn och nyckel för ett Azure Storage-konto mäter verktyget dataflödet vid profileringens sista steg. Om verktyget avslutas innan profileringen slutförts normalt så beräknas inte dataflödet. Du kan köra åtgärden GetThroughput från kommandoraden om du vill se dataflödet innan du genererar rapporten, annars innehåller inte rapporten information om uppnått dataflöde.
->
+>* Om servern där verktyget körs startas om eller kraschar, eller om du avslutar verktyget med Ctrl + C, bevaras profileringsdata. Du riskerar dock att förlora de senaste 15 minuternas profileringsdata. I en sådan instans måste du köra om verktyget i profileringsläge när servern startas igen.
+>* När du skickar namn och nyckel för ett lagringskonto mäter verktyget dataflödet vid profileringens sista steg. Om verktyget avslutas innan profileringen har slutförts normalt beräknas inte dataflödet. Du kan hitta dataflödet innan du genererar rapporten genom att köra åtgärden GetThroughput från kommandotolken. Annars innehåller inte den genererade rapporten dataflödesinformationen.
+>* Du kan köra flera instanser av verktyget för olika uppsättningar av virtuella datorer. Se till att det inte finns dubbletter av namn på virtuella datorer i profileringsuppsättningarna. Till exempel kanske du har profilerat tio virtuella datorer (VM1–VM10). Efter några dagar vill du profilera ytterligare fem virtuella datorer (VM11–VM15), och då kan du köra verktyget från en annan kommandotolk för den andra uppsättningen virtuella datorer (VM11–VM15). Se till att den andra uppsättningen av virtuella datorer inte innehåller något av datornamnen från den första profileringsinstansen, eller använd en annan utdatakatalog för den andra körningen. Om två instanser av verktyget används för profilering av samma virtuella datorer och samma utdatakatalog används kommer den genererade rapporten att vara felaktig.
+>* Den virtuella datorns konfiguration inhämtas en gång i början av profileringen och lagras i en fil med namnet VMDetailList.xml. Den här informationen används när rapporten genereras. Ändringar i konfigurationen av den virtuella datorn (till exempel ett ökat antal kärnor, diskar och nätverkskort) från början till slutet av profileringen registreras. Om en profilerad virtuell datorkonfiguration har ändrats i den offentliga förhandsutgåvan hämtar du den senaste informationen om den virtuella datorn genom följande lösning:  
+>  * Säkerhetskopiera filen VMdetailList.xml och ta bort den från dess nuvarande plats.  
+>  * Skicka argumenten -User och -Password när rapporten ska genereras.  
+>  
+>* Profileringskommandot genererar flera filer i profileringskatalogen. Ta inte bort några filer, eftersom detta påverkar rapportgenereringen.
 
-##<a name="generate-report"></a>Generera en rapport
-Verktyget genererar en XLSM-fil (en Microsoft Excel-fil med makrofunktioner) som rapportutdata och där ges en sammanfattning av alla rekommendationer för distributionen. Rapporten har namnet DeploymentPlannerReport_<Unique Numeric Identifier>.xlsm och placeras i den angivna katalogen.
+## <a name="generate-a-report"></a>Generera en rapport
+Verktyget genererar en makroaktiverad Microsoft Excel-fil (XLSM) som rapportutdata med en sammanfattning av alla distributionsrekommendationer. Rapporten har namnet DeploymentPlannerReport_<*unik numerisk identifierare*>.xlsm och placeras i den angivna katalogen.
 
-När profileringen är färdig kan köra du verktyget i läget för rapportgenerering. Här är listan med obligatoriska och valfria parametrar när du ska köra verktyget i läget för rapportgenerering. Parametrar omslutna med [] är valfria.
+När profileringen är färdig kan köra du verktyget i läget för rapportgenerering. Följande tabell innehåller en lista med obligatoriska och valfria verktygsparametrar som ska köras i läget för rapportgenerering.
 
-ASRDeploymentPlanner.exe -Operation GenerateReport /?
+`ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
 |Parameternamn | Beskrivning |
 |-|-|
 | -Operation | GenerateReport |
-| -Server |  Fullständigt domännamn eller IP-adress för vCenter-/vSphere-servern (använd exakt samma namn eller IP-adress som vid profileringen) där de profilerade virtuella datorer som rapporten ska gälla finns. Om du använde en vCenter-server vid profileringen kan du inte använda en vSphere-server till rapportgenerering och tvärtom.|
-| -VMListFile | Filen som innehåller listan med profilerade virtuella datorer som rapporten ska genereras för. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett datornamn/en IP-adress per rad. Namnen på virtuella datorer i filen ska vara samma som namnen på de virtuella datorerna på vCenter-servern eller ESXi-värden, och vara samma som vid profileringen.|
-| [-Directory] | UNC eller lokal sökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om du inte anger något värde så används katalogen ProfiledData. |
-| [-GoalToCompleteIR] |    Antal timmar som den initiala replikeringen av de profilerade virtuella datorerna måste slutföras på. I den genererade rapporten anges för hur många virtuella datorer som den initiala replikeringen kan slutföras inom den angivna tiden. Standardvärdet är 72 timmar. |
-| [-User] | Användarnamn för anslutning till vCenter-/vSphere-servern. Det här används till att hämta den senaste konfigurationsinformationen för de virtuella datorerna som ska användas i rapporten, som antal diskar, antal kärnor och antal nätverkskort. Om du inte anger något värde så används den konfigurationsinformation som samlades in i början av profileringen. |
-| [-Password] | Lösenord för anslutning till vCenter-servern/ESXi-värden. Om du inte anger något värde för parametern uppmanas du att ange lösenordet senare när kommandot körs. |
-| [-DesiredRPO] | Önskat mål för återställningspunkt (RPO) i minuter. Standardvärdet är 15 minuter.|
-| [-Bandwidth] | Bandbredd i Mbit/s. Det här värdet används till att beräkna det RPO som kan uppnås för den angivna bandbredden. |
-| [-StartDate]  | Startdatum och tidpunkt på formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). StartDate måste anges tillsammans med EndDate. När du anger de här parametrarna genereras rapporten för profileringsdata som samlats in mellan StartDate och EndDate. |
-| [-EndDate] | Slutdatum och tidpunkt på formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). EndDate måste anges tillsammans med StartDate. När du anger de här parametrarna genereras rapporten för profileringsdata som samlats in mellan StartDate och EndDate. |
-| [-GrowthFactor] |Tillväxtfaktor i procent. Standardvärdet är 30 %.  |
+| -Server |  Fullständigt domännamn eller IP-adress för vCenter-/vSphere-servern (använd samma namn eller IP-adress som du använde vid profileringen) där de profilerade virtuella datorer som rapporten ska gälla finns. Tänk på att om du har använt en vCenter-server vid profileringen kan du inte använda en vSphere-server till rapportgenerering och tvärtom.|
+| -VMListFile | Den fil som innehåller listan över profilerade virtuella datorer som rapporten ska genereras för. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett virtuellt datornamn eller en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara identiska med namnen på de virtuella datorerna på vCenter-servern/vSphere ESXi-värden, och vara desamma som vid profileringen.|
+| -Directory | (Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om du inte anger något namn används katalogen ProfiledData. |
+| -GoalToCompleteIR | (Valfritt) Antalet timmar som den inledande replikeringen av de profilerade virtuella datorerna måste slutföras på. I den genererade rapporten anges det hur många virtuella datorer som den inledande replikeringen kan slutföras på inom den angivna tiden. Standardvärdet är 72 timmar. |
+| -User | (Valfritt) Användarnamn som ska användas för anslutning till vCenter-/vSphere-servern. Namnet används för att hämta den senaste konfigurationsinformationen för de virtuella datorerna, exempelvis antal diskar, antal kärnor och antal nätverkskort som ska användas i rapporten. Om du inte anger något namn används den konfigurationsinformation som samlades in i början av profileringen. |
+| -Password | (Valfritt) Lösenord för att ansluta till vCenter-servern/vSphere ESXi-värden. Om inget lösenord anges som parameter uppmanas du att ange lösenordet senare när kommandot körs. |
+| -DesiredRPO | (Valfritt) Önskat mål för återställningspunkt (RPO) i minuter. Standardvärdet är 15 minuter.|
+| -Bandwidth | Bandbredd i Mbit/s. Det här värdet används till att beräkna det RPO som kan uppnås för den angivna bandbredden. |
+| -StartDate | (Valfritt) Startdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *StartDate* måste anges tillsammans med *EndDate*. När StartDate anges genereras rapporten för de profileringsdata som samlats in mellan StartDate och EndDate. |
+| -EndDate | (Valfritt) Slutdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *EndDate* måste anges tillsammans med *StartDate*. När du anger EndDate genereras rapporten för profileringsdata som samlats in mellan StartDate och EndDate. |
+| -GrowthFactor | (Valfritt) Tillväxtfaktor, uttryckt i procent. Standardvärdet är 30 procent. |
 
+### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exempel 1: Generera en rapport med standardvärden när profileringsdata ligger på den lokala enheten
+```
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+```
 
-##### <a name="example-1-to-generate-report-with-default-values-when-profiled-data-is-on-the-local-drive"></a>Exempel 1: generera en rapport med standardvärden när profileringsdata ligger på den lokala enheten
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** ”E:\vCenter1_ProfiledData” **-VMListFile** ”E:\vCenter1_ProfiledData\ProfileVMList1.txt”
+### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Exempel 2: Generera en rapport när profileringsdata ligger på en fjärrserver
+Användaren ska ha läs-/skrivbehörighet för fjärrkatalogen.
+```
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+```
 
+### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exempel 3: Generera en rapport med specifik bandbredd och specifikt mål för att slutföra IR inom angiven tid
+```
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
+```
 
-##### <a name="example-2-to-generate-report-when-profiled-data-is-on-a-remote-server-user-should-have-readwrite-access-on-the-remote-directory"></a>Example 2: generera en rapport när profileringsdata ligger på en fjärrserver. Användaren ska ha läs-/skrivbehörighet för fjärrkatalogen.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Exempel 4: Generera en rapport med 5 procents tillväxtfaktor i stället för standardvärdet 30 procent
+```
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-GrowthFactor** 5
+```
 
-##### <a name="example-3-generate-report-with-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exempel 3: generera en rapport med specifik bandbredd och mål för att slutföra IR inom angiven tid
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** ”E:\vCenter1_ProfiledData” **-VMListFile** ”E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
+### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Exempel 5: Generera en rapport med en delmängd av profileringsdata
+Anta exempelvis att du har profileringsdata för 30 dagar och bara vill generera rapporten för 20 dagar.
+```
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-StartDate**  01-10-2017:12:30 -**EndDate** 01-19-2017:12:30
+```
 
-##### <a name="example-4-generate-report-with-5-growth-factor-instead-of-the-default-30"></a>Exempel 4: generera en rapport med 5 % tillväxtfaktor i stället för standardvärdet 30 %
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** ”E:\vCenter1_ProfiledData” **-VMListFile** ”E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-GrowthFactor** 5
+### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>Exempel 6: Generera en rapport för ett återställningspunktmål på 5 minuter
+```
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-DesiredRPO** 5
+```
 
-##### <a name="example-5-generate-report-with-a-subset-of-profiled-data-say-you-have-30-days-of-profiled-data-and-want-to-generate-the-report-for-only-20-days"></a>Exempel 5: generera en rapport med en delmängd av profileringsdata. Anta att du har profileringsdata för 30 dagar och bara vill generera rapporten för 20 dagar.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** ”E:\vCenter1_ProfiledData” **-VMListFile** ”E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-StartDate**  01-10-2017:12:30 -**EndDate** 01-19-2017:12:30
+## <a name="percentile-value-used-for-the-calculation"></a>Percentilvärdet som används för beräkningen
+**Vilket standardvärde för percentilen för resultatmåtten som samlas in under profileringen använder verktyget när en rapport genereras?**
 
-##### <a name="example-6-generate-report-for-5-minutes-rpo"></a>Exempel 6: generera en rapport för en RPO på 5 minuter.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** ”E:\vCenter1_ProfiledData” **-VMListFile** ”E:\vCenter1_ProfiledData\ProfileVMList1.txt”  **-DesiredRPO** 5
+Standardvärdet i verktyget är den 95:e percentilen för läs/skriv-IOPS och dataomsättningar som samlas in när alla de virtuella datorerna profileras. Det här måttet garanterar att den topp vid den 100:e percentilen som de virtuella datorerna kan nå eftersom de tillfälliga händelserna inte används för att fastställa mållagringskontot och kraven på källbandbredd. Till exempel kan en tillfällig händelse vara ett säkerhetskopieringsjobb som körs en gång om dagen, periodisk databasindexering eller en analysrapportgenereringsaktivitet eller andra liknande kortvariga händelser vid vissa tidpunkter.
 
-### <a name="percentile-value-used-for-the-calculation"></a>Percentilvärdet som används för beräkningen
-**Vilket standardvärde för percentilen för resultatmåtten som samlas in under profileringen används när rapporten genereras?**
+Med värden från den 95:e percentilen får du en korrekt bild av den faktiska arbetsbelastningen, och då får du bästa möjliga prestanda när dessa arbetsbelastningar sedan körs på Azure. Vi tror inte att du kommer att behöva ändra det här antalet. Om du inte ändrar det här värdet (till 90:e percentilen exempelvis) kan du uppdatera konfigurationsfilen *ASRDeploymentPlanner.exe.config*i standardmappen, spara den och generera en ny rapport för befintliga profileringsdata.
+```
+&lsaquo;add key="WriteIOPSPercentile" value="95" /&rsaquo;>      
+&lsaquo;add key="ReadWriteIOPSPercentile" value="95" /&rsaquo;>      
+&lsaquo;add key="DataChurnPercentile" value="95" /&rsaquo;
+```
 
-Standardvärdet i verktyget är den 95:e percentilen för IOPS och dataomsättningar som samlas in när de virtuella datorerna profileras. Det innebär att de tillfälliga värdetopparna i den 100:e percentilen inte används till att beräkna krav för Azure Storage och bandbredd. Sådana värdetoppar kan handla om säkerhetskopieringar som körs en gång om dagen, regelbunden databasindexering, generering av analysrapporter eller någon annan kortare händelse under profileringsperioden. Med värden från den 95:e percentilen får du en korrekt bild av den faktiska arbetsbelastningen, och då får du bästa möjliga prestanda när dessa arbetsbelastningar sedan körs på Microsoft Azure. Du kommer förmodligen inte ändra det här värdet särskilt ofta, men om du bestämmer dig för ett ännu lägre värde, som den 90:e percentilen, så kan du uppdatera konfigurationsfilen ASRDeploymentPlanner.exe.config i standardmappen, spara den och generera en ny rapport för befintliga profileringsdata.
+## <a name="growth-factor-considerations"></a>Överväganden för tillväxtfaktorer
+**Varför bör jag överväga för tillväxtfaktor när jag planerar distributioner?**
 
-        &lsaquo;add key="WriteIOPSPercentile" value="95" /&rsaquo;>      
-        &lsaquo;add key="ReadWriteIOPSPercentile" value="95" /&rsaquo;>      
-        &lsaquo;add key="DataChurnPercentile" value="95" /&rsaquo;
+Det är viktigt att ge utrymme för ökande arbetsbelastning eftersom dataanvändningen tenderar att öka med tiden. När du väl har skyddat dina data kan du inte byta till ett annat lagringskonto för skydd om arbetsbelastningen skulle förändras utan att inaktivera och sedan återaktivera skyddet.
 
-### <a name="growth-factor"></a>Tillväxtfaktor
-**Varför ska jag ta hänsyn till en tillväxtfaktor när jag planerar min distribution?**
+Anta exempelvis att din virtuella dator i dag passar på ett standardlagringskonto för replikering. Under de kommande tre månaderna kan flera ändringar förekomma:
 
-Det är viktigt att ge utrymme för arbetsbelastningen att öka eftersom dataanvändningen tenderar att öka med tiden. När du väl har skyddat dina data och arbetsbelastningen skulle förändras finns det nämligen för närvarande inget sätt att byta till ett annat Azure Storage-konto utan att inaktivera och sedan återaktivera skyddet. T.ex. kan du tänka dig en virtuell dator som idag får plats i ett standardkonto för replikeringslagring. Om tre månader kan det ha tillkommit fler användare i det program som körs på den virtuella datorn och dataomsättningen kan ha ökat, så nu behövs ett premiumkonto för lagring så att replikeringen i Azure Site Recovery kan hålla jämna steg. Då måste du inaktivera skyddet och uppgradera till ett premiumlagringskonto. Du bör alltså planera för tillväxt inför distribueringen, och standardvärdet är 30 %. Det är du som känner till användningsmönster och tillväxtprognoser i dina program, och du kan ändra det här värdet när du genererar rapporter. Du kan i själva verket skapa flera rapporter med olika tillväxtfaktorer för samma profileringsdata och se vilka rekommendationer för mållagring i Azure Storage och källbandbredd som fungerar bäst för dig.
+* Antalet användare av program som körs på den virtuella datorn kommer att öka.
+* Den resulterande ökade omsättning på den virtuella datorn kräver att den virtuella datorn ska gå över till Premium Storage så att Site Recovery-replikering kan hålla jämna steg.
+* Därför måste du inaktivera och återaktivera skyddet för ett Premium Storage-konto.
 
-Den genererade Microsoft Excel-rapporten innehåller följande blad:
+Vi rekommenderar starkt att du planerar för tillväxt vid distributionsplanering och medan standardvärdet är 30 procent. Det är du som är expert på användningsmönster och tillväxtprognoser i dina program, och du kan ändra det här värdet när du genererar rapporter. Du kan i själva verket skapa flera rapporter med olika tillväxtfaktorer för samma profileringsdata och se vilka rekommendationer för mållagring och källbandbredd som fungerar bäst för dig.
+
+Den genererade rapporten i Microsoft Excel innehåller följande information:
 
 * [Indata](site-recovery-deployment-planner.md#input)
 * [Rekommendationer](site-recovery-deployment-planner.md#recommendations-with-desired-rpo-as-input)
-* [Recommedations-Bandwidth Input](site-recovery-deployment-planner.md#recommendations-with-available-bandwidth-as-input) (Rekommendationer - bandbredd som indata)
+* [Rekommendationer för bandbreddsindata](site-recovery-deployment-planner.md#recommendations-with-available-bandwidth-as-input)
 * [VM<->Storage Placement](site-recovery-deployment-planner.md#vm-storage-placement) (VM<->lagringsplacering)
 * [Compatible VMs](site-recovery-deployment-planner.md#compatible-vms) (Kompatibla virtuella datorer)
 * [Incompatible VMs](site-recovery-deployment-planner.md#incompatible-vms) (Inkompatibla virtuella datorer)
 
-![Deployment Planner](./media/site-recovery-deployment-planner/dp-report.png)
+![Kapacitetsplaneraren](./media/site-recovery-deployment-planner/dp-report.png)
 
+## <a name="get-throughput"></a>Beräkna dataflöde
 
-##<a name="get-throughput"></a>Beräkna dataflöde
-Om du vill få en uppskattning av vilket dataflöde som Azure Site Recovery kan uppnå från de lokala datorerna under replikeringen ska du köra verktyget i dataflödesläget. Verktyget beräknar dataflödet från servern där verktyget körs (helst en server som matchar riktlinjerna för konfigurationsservern).  Om du redan har distribuerat infrastrukturkomponenter för Azure Site Recovery lokalt ska du köra verktyget på konfigurationsservern.
+Om du vill få en uppskattning av vilket dataflöde som Site Recovery kan uppnå från de lokala datorerna till Azure under replikeringen ska du köra verktyget i GetThroughput-läget. Verktyget beräknar dataflödet från den server som verktyget körs på. Den här servern ska helst vara baserad på guiden för storleksändring av konfigurationsservern. Om du redan har distribuerat infrastrukturkomponenter för Site Recovery lokalt kör du verktyget på konfigurationsservern.
 
-Öppna en kommandorad och gå till mappen för planeringsverktyget för ASR.  Kör ASRDeploymentPlanner.exe med följande parametrar. Parametrar omslutna med [] är valfria.
+Öppna en kommandotolk och gå till mappen för planeringsverktyget för Site Recovery. Kör ASRDeploymentPlanner.exe med följande parametrar.
 
-ASRDeploymentPlanner.exe -Operation GetThroughput /?
+`ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
 |Parameternamn | Beskrivning |
 |-|-|
 | -operation | GetThroughput |
-| [-Directory] | UNC eller lokal sökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om du inte anger något värde så används katalogen ProfiledData.  |
-| -StorageAccountName | Namnet på det Azure Storage-konto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. |
-| -StorageAccountKey | Den kontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > [lagringskontots namn] > Inställningar > Åtkomstnycklar > Key1 (eller Primär åtkomstnyckel för klassiska lagringskonton). |
-| -VMListFile | En fil som innehåller listan med virtuella datorer som ska profileras när bandbredden ska beräknas. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett datornamn/en IP-adress per rad. Namnen på virtuella datorer i filen ska vara samma som namnen på de virtuella datorerna på vCenter-servern eller ESXi-värden.<br>T.ex. så innehåller filen VMList.txt följande virtuella datorer:<br>virtuell_dator_A <br>10.150.29.110<br>virtuell_dator_B|
+| -Directory | (Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om namnet på en katalog inte anges används katalogen ProfiledData. |
+| -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. |
+| -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> Inställningar > Åtkomstnycklar > Key1 (eller en primär åtkomstnyckel för ett klassiskt lagringskonto). |
+| -VMListFile | En fil som innehåller listan med virtuella datorer som ska profileras när den förbrukade bandbredden ska beräknas. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett virtuellt datornamn/en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara samma som namnen på de virtuella datorerna på vCenter-servern/vSphere ESXi-värden.<br>Filen VMList.txt innehåller exempelvis följande virtuella datorer:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 
-Verktyget skapar flera 64 MB stora filer med namnet asrvhdfile<#>.vhd (där # är ett tal) i den angivna katalogen.  Dessa filer överförs till Azure Storage-kontot när dataflödet ska beräknas. När dataflödet har beräknats så tas dessa filer bort både från Azure Storage-kontot och från den lokala servern. Om verktyget av någon anledning skulle avslutas i förtid under beräkningen så kommer de här filerna inte tas bort från Azure Storage eller från den lokala servern, och då måste du ta bort dem manuellt.
+Verktyget skapar flera 64 MB stora filer med namnet asrvhdfile<#>.vhd (där # är antalet filer) i den angivna katalogen. Verktyget överför filerna till lagringskontot när dataflödet ska beräknas. När dataflödet har beräknats tar verktyget bort alla filer både från lagringskontot och från den lokala servern. Om verktyget avslutas av någon anledning medan det beräknar dataflödet tar det inte bort filerna från lagringsutrymmet eller från den lokala servern. Du måste ta bort dem manuellt.
 
-Dataflödet beräknas för en viss tidpunkt och är största möjliga dataflöde som Azure Site Recovery kan uppnå under replikeringen givet att alla andra faktorer är oförändrade. Om ett annat program till exempel börjar förbruka mer bandbredd i samma nätverk kommer det faktiska dataflödet att variera under replikeringen. Om du kör kommandot GetThroughput från en konfigureringsserver så kommer verktyget inte att ha någon information om skyddade virtuella datorer eller pågående replikering. Resultatet av mätningen kommer att variera mellan tidpunkter när skyddade virtuella datorer har hög dataomsättning och tidpunkter när omsättningen är låg.  Du bör därför köra verktyget flera gånger under profileringen så att du får förståelse för vilket dataflöde som kan uppnås vid olika tidpunkter. I rapporten visas det senaste uppmätta dataflödet.
+Dataflödet beräknas för en viss tidpunkt och är största möjliga dataflöde som Site Recovery kan uppnå under replikeringen givet att alla andra faktorer är oförändrade. Om ett annat program till exempel börjar förbruka mer bandbredd i samma nätverk kommer det faktiska dataflödet att variera under replikeringen. Om du kör kommandot GetThroughput från en konfigureringsserver så kommer verktyget inte att ha någon information om skyddade virtuella datorer eller pågående replikering. Resultatet av det uppmätta dataflödet ser annorlunda ut om GetThroughput-åtgärden körs när de skyddade virtuella datorerna har hög dataomsättning. Du bör därför köra verktyget flera gånger under profileringen så att du får förståelse för vilka dataflödesnivåer som kan uppnås vid olika tidpunkter. I rapporten visas det senaste uppmätta dataflödet.
 
-
-##### <a name="example"></a>Exempel
+### <a name="example"></a>Exempel
+```
 ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter1_ProfiledData **-VMListFile** E:\vCenter1_ProfiledData\ProfileVMList1.txt  **-StorageAccountName**  asrspfarm1 **-StorageAccountKey** by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+```
 
 >[!NOTE]
 >
-> * Kör verktyget på en server som har samma lagringsutrymme och processorer som konfigurationsservern
+> Kör verktyget på en server som har samma lagringsutrymme och processoregenskaper som konfigurationsservern.
 >
-> * När det gäller replikering ska du tilldela den bandbredd som rekommenderas för att uppfylla RPO-målet 100 % av gångerna. Om inte verktyget rapporterar ökade dataflöden även när du har tilldelat rätt mängd bandbredd kan du kontrollera följande:
+> Ange den rekommenderade bandbredden för att uppfylla återställningspunktmålet 100 procent av tiden för replikering. Om verktyget inte rapporterar en ökning av uppnådda dataflöden trots att du har konfigurerat rätt mängd bandbredd kan du göra följande:
 >
-> a. Kontrollera om det finns någon tjänstkvalitet (QoS) för nätverket som begränsar dataflödet för Azure Site Recovery
+>  1. Kontrollera om det finns någon tjänstkvalitet (QoS) för nätverket som begränsar dataflödet för Site Recovery.
 >
-> b. Kontrollera om valvet för Azure Site Recovery ligger i den närmaste fysiska Microsoft Azure-regionen som stöds, så att du minimerar svarstiden i nätverket
+>  2. Kontrollera om valvet för Site Recovery ligger i den närmaste fysiska Microsoft Azure-region som stöds, så att svarstiden i nätverket minimeras.
 >
-> c. Kontrollera den lokala lagringen och försök uppgradera maskinvaran (till exempel vanlig hårddisk till SSD osv.)
+>  3. Kontrollera de lokala lagringsegenskaperna för att avgöra om du kan förbättra maskinvaran (till exempel hårddisk till SSD).
 >
-> d. Ändra inställningarna på processervern för Azure Site Recovery och [öka mängden bandbredd i nätverket som används till replikering](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
->
+>  4. Ändra inställningarna på processervern för Site Recovery och [öka mängden bandbredd i nätverket som används till replikering](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
-##<a name="recommendations-with-desired-rpo-as-input"></a>Rekommendationer med önskat RPO-mål som indata
+## <a name="recommendations-with-desired-rpo-as-input"></a>Rekommendationer med önskat RPO-mål som indata
 
-###<a name="profiled-data"></a>Profileringsdata
+### <a name="profiled-data"></a>Profileringsdata
 
-![Deployment Planner](./media/site-recovery-deployment-planner/profiled-data-period.png)
+![Den profilerade datavyn i kapacitetsplaneraren](./media/site-recovery-deployment-planner/profiled-data-period.png)
 
-**Profiled data period** (Profileringsdataperiod) är den period som profileringen kördes under. Som standard används alla profileringsdata till beräkningen i verktyget, om inte rapporten genereras för en viss tidsperiod med hjälp av parametrarna StartDate och EndDate.
+**Profiled data period** (Profileringsdataperiod): Den period då profileringen kördes. Som standard innehåller verktyget alla profileringsdata i beräkningen, om inte rapporten genereras för en viss tidsperiod med hjälp av parametrarna StartDate och EndDate.
 
-**Servernamn** är namnet eller IP-adressen för VMware vCenter-servern eller ESXi-värden vars virtuella datorer rapporten genereras för.
+**Server Name** (Servernamn): Är namnet eller IP-adressen för den VMware vCenter-server eller ESXi-värd vars virtuella datorer rapporten genereras för.
 
-**Desired RPO** (Önskat RPO-mål) är RPO-målet för din distribution. Som standard beräknas vilken nätverksbandbredd som krävs för RPO-värden på 15, 30 och 60 minuter. Värdena på bladet uppdateras baserat på vad du väljer. Om du använde parametern DesiredRPOinMin när du genererade rapporten så visas det här värdet i listrutan Desired RPO (Önskat RPO-mål).
+**Desired RPO** (Önskat återställningspunktmål): Återställningspunktmålet för din distribution. Som standard beräknas vilken nätverksbandbredd som krävs för RPO-värden på 15, 30 respektive 60 minuter. De aktuella värdena på bladet uppdateras baserat på vad du väljer. Om du använde parametern *DesiredRPOinMin* när du genererade rapporten så visas det här värdet i resultatet Desired RPO (Önskat RPO-mål).
 
-###<a name="profiling-overview"></a>Profileringsöversikt
+### <a name="profiling-overview"></a>Profileringsöversikt
 
-![Deployment Planner](./media/site-recovery-deployment-planner/profiling-overview.png)
+![Profilering av resultat i kapacitetsplaneraren](./media/site-recovery-deployment-planner/profiling-overview.png)
 
-**Total Profiled Virtual Machines** (Totalt antal profilerade virtuella datorer) är det totala antalet virtuella datorer som det finns profileringsdata för. Om VMListFile innehåller namn på virtuella datorer som inte har profilerats så beaktas inte dessa virtuella datorer i rapporten och de ingår inte i värdet för antalet virtuella datorer som profilerats.
+**Total Profiled Virtual Machines** (Totalt antal profilerade virtuella datorer): Det totala antalet virtuella datorer som det finns profileringsdata för. Om VMListFile innehåller namn på virtuella datorer som inte har profilerats så beaktas inte dessa virtuella datorer i rapporten och de ingår inte i värdet för antalet virtuella datorer som har profilerats.
 
-**Compatible Virtual Machines** (Kompatibla virtuella datorer) är antalet virtuella datorer som kan skyddas med Azure Site Recovery. Det här är det totala antalet kompatibla virtuella datorer som nödvändig nätverksbandbredd, antal Azure Storage-konton, antal Microsoft Azure-kärnor samt antal konfigurationsservrar och ytterligare processervrar beräknas för. På bladet Compatible VMs (Kompatibla virtuella datorer) i rapporten finns information om de enskilda kompatibla virtuella datorerna.
+**Compatible Virtual Machines** (Kompatibla virtuella datorer): Det antal virtuella datorer som kan skyddas i Azure med Site Recovery. Det här är det totala antalet kompatibla virtuella datorer som nödvändig nätverksbandbredd, antal lagringskonton, antal Azure-kärnor samt antal konfigurationsservrar och ytterligare processervrar beräknas för. Information om varje kompatibel virtuell dator finns i avsnittet ”Kompatibla virtuella datorer”.
 
-**Incompatible Virtual Machines** (Inkompatibla virtuella datorer) är antalet profilerade virtuella datorer som inte kan skyddas med Azure Site Recovery. Orsaken till inkompatibiliteten beskrivs i avsnittet Inkompatibla virtuella datorer nedan. Om VMListFile innehåller namn på virtuella datorer som inte har profilerats så ingår inte dessa virtuella datorer i antalet inkompatibla virtuella datorer. Dessa virtuella datorer visas under Data not found (Inga data hittades) i slutet av bladet Incompatible VMs (Inkompatibla virtuella datorer).
+**Incompatible Virtual Machines** (Inkompatibla virtuella datorer): Antalet profilerade virtuella datorer som inte kan skyddas med Site Recovery. Orsaken till inkompatibiliteten beskrivs i avsnittet Inkompatibla virtuella datorer. Om VMListFile innehåller namnen på virtuella datorer som inte har profilerats undantas dessa virtuella datorer från antalet inkompatibla virtuella datorer. Dessa virtuella datorer visas under Data not found (Inga data hittades) i slutet av avsnittet Incompatible VMs (Inkompatibla virtuella datorer).
 
-**Desired RPO** (Önskat RPO-mål) är ditt önskade RPO-mål i minuter. Rapporten genereras för tre RPO-värden – 15, 30 och 60 minuter, där 15 minuter är standardvärdet. Rekommendationen angående bandbredd i rapporten ändras baserat på vilket alternativ du väljer i listrutan Desired RPO (Önskat RPO-mål) uppe till höger på bladet. Om du har genererat rapporten med ett anpassat värde för parametern "-DesiredRPO" visas det som standardvärde i listrutan Desired RPO (Önskat RPO-mål).
+**Desired RPO** (Önskat återställningspunktmål): Önskat mål för återställningspunkten (RPO) i minuter. Rapporten genereras för tre värden för återställningspunktmål: 15 (standard), 30 respektive 60 minuter. Rekommendationen angående bandbredd i rapporten förändras baserat på vilket alternativ du väljer i listrutan Desired RPO (Önskat RPO-mål) uppe till höger på bladet. Om du har genererat rapporten med ett anpassat värde för parametern *-DesiredRPO* visas det här anpassade värdet som standardvärde i listrutan Desired RPO (Önskat återställningspunktmål).
 
-###<a name="required-network-bandwidth-mbps"></a>Required Network Bandwidth (Mbps) (Nödvändig nätverksbandbredd (Mbit/s))
+### <a name="required-network-bandwidth-mbps"></a>Required Network Bandwidth (Mbps) (Nödvändig nätverksbandbredd (Mbit/s))
 
-![Deployment Planner](./media/site-recovery-deployment-planner/required-network-bandwidth.png)
+![Nödvändig nätverksbandbredd i kapacitetsplaneraren](./media/site-recovery-deployment-planner/required-network-bandwidth.png)
 
-**To meet RPO 100% of the time:** (För att nå RPO-målet 100 % av gångerna) det här är den bandbredd i Mbit/s du bör allokera om du alltid ska nå ditt RPO-mål. Den här mängden bandbredd måste vara reserverad för stabil deltareplikering av samtliga kompatibla virtuella datorer om du helt ska undvika överträdelser av RPO-målet.
+**To meet RPO 100 percent of the time** (För att nå RPO-målet 100 procent av gångerna): Det här är den rekommenderade bandbredd i mbit/s som du bör allokera om RPO-målet ska nås 100 procent av tiden. Den här mängden bandbredd måste vara reserverad för stabil deltareplikering av samtliga kompatibla virtuella datorer om du helt ska undvika överträdelser av RPO-målet.
 
-**To meet RPO 90% of the time**: (För att nå RPO-målet 90 % av gångerna) om bandbreddspriserna är för höga eller om du av någon annan anledning inte kan tilldela den bandbredd som krävs för att uppnå RPO-målet 100 % av gångerna så kan du välja att tilldela en bandbredd som gör att du uppnår önskat RPO 90 % av gångerna. I rapporten ges även en ”tänk om”-analys av hur många RPO-överträdelser du kan förvänta dig och deras varaktighet, så att du bättre ska förstå vad som kan hända om du tilldelar den här lägre bandbredden.
+**To meet RPO 90 percent of the time** (För att nå RPO-målet 90 procent av gångerna): Om bandbreddspriserna är för höga eller om du av någon annan anledning inte kan tilldela den bandbredd som krävs för att uppnå RPO-målet 100 procent av tiden kan du välja en lägre bandbreddsinställning som gör att du uppnår önskat RPO 90 procent av tiden. I rapporten ges även en ”tänk om”-analys av hur många RPO-överträdelser du kan förvänta dig och deras varaktighet, så att du bättre ska förstå vad som kan hända om du tilldelar den här lägre bandbredden.
 
-**Achieved Throughput:** (Uppnått dataflöde) är dataflödet från servern där du körde kommandot GetThroughput till den Microsoft Azure-region där Azure Storage-kontot är beläget. Värdet är en uppskattning av det dataflöde du kan uppnå när du skyddar de kompatibla virtuella datorerna med Azure Site Recovery, förutsatt att egenskaperna för konfigurationsservern/processervern, lagringen och nätverket är samma som för servern där du körde verktyget.    
+**Achieved Throughput** (Uppnått dataflöde): Dataflödet från servern där du körde kommandot GetThroughput till den Microsoft Azure-region där lagringskontot finns. Dataflödesvärdet är en uppskattning av den nivå du kan uppnå när du skyddar de kompatibla virtuella datorerna med Site Recovery, förutsatt att lagrings- och nätverksegenskaperna för konfigurationsservern/processervern förblir desamma som för den server där du körde verktyget.
 
-När det gäller replikering ska du tilldela den bandbredd som rekommenderas för att uppfylla RPO-målet 100 % av gångerna. Om inte verktyget rapporterar ökade dataflöden även när du har tilldelat rätt mängd bandbredd kan du kontrollera följande:
+Du bör ange den rekommenderade bandbredden för att uppfylla återställningspunktmålet 100 procent av tiden för replikering. Om inte verktyget rapporterar ökade dataflöden trots att du har ställt in bandbredden gör du följande:
 
-a.    Kontrollera om det finns någon tjänstkvalitet (QoS) för nätverket som begränsar dataflödet för Azure Site Recovery
+1. Kontrollera om det finns någon tjänstkvalitet (QoS) för nätverket som begränsar dataflödet för Site Recovery.
 
-b.    Kontrollera om valvet för Azure Site Recovery ligger i den närmaste fysiska Microsoft Azure-regionen som stöds, så att du minimerar svarstiden i nätverket
+2. Kontrollera om valvet för Site Recovery ligger i den närmaste Microsoft Azure-region som stöds fysiskt, så att du minimerar svarstiden i nätverket.
 
-c.    Kontrollera den lokala lagringen och försök uppgradera maskinvaran (till exempel vanlig hårddisk till SSD osv.)
+3. Kontrollera de lokala lagringsegenskaperna för att avgöra om du kan förbättra maskinvaran (till exempel hårddisk till SSD).
 
-d. Ändra inställningarna på processervern för Azure Site Recovery och [öka mängden bandbredd i nätverket som används till replikering](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+4. Ändra inställningarna för Site Recovery på processervern och [öka den mängd bandbredd i nätverket som används till replikering](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
-Om du kör verktyget på en konfigurationsserver/processerver som redan innehåller skyddade virtuella datorer så ska du köra verktyget några gånger, eftersom värdet för uppnått dataflöde ändras beroende på hur mycket data som omsätts vid varje given tidpunkt.
+Om du kör verktyget på en konfigurations- eller processerver som redan har skyddade virtuella datorer bör du köra verktyget några gånger. Det uppnådda antalet dataflödesändringar beror på mängden omsättningsuppdateringar som bearbetas vid den aktuella tidpunkten.
 
-För alla företagsdistributioner av Azure Site Recovery bör du använda [ExpressRoute](https://aka.ms/expressroute).
+För alla företagsdistributioner av Site Recovery bör du använda [ExpressRoute](https://aka.ms/expressroute).
 
-###<a name="required-azure-storage-accounts"></a>Required Azure Storage Accounts (Nödvändiga Azure Storage-konton)
-I det här diagrammet visas hur många Azure Storage-konton (standard och premium) som behövs till att skydda alla kompatibla virtuella datorer.  Klicka på [Recommended VM placement plan](site-recovery-deployment-planner.md#vm-storage-placement) (Rekommenderad plan för VM-placering) om du vill se vilket lagringskonto som bör användas för de olika virtuell datorerna.  
+### <a name="required-storage-accounts"></a>Nödvändiga lagringskonton
+I följande diagram visas hur många lagringskonton (standard och premium) som behövs för att skydda alla kompatibla virtuella datorer. Om du vill veta vilket lagringskonto som ska användas för varje virtuell dator kan du läsa avsnittet ”Placering av VM-lagring”.
 
-![Deployment Planner](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
+![Nödvändiga lagringskonton i kapacitetsplaneraren](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
 
-###<a name="required-number-of-azure-cores"></a>Required Number of Azure Cores (Nödvändigt antal Azure-kärnor)
-Det här är det totala antalet kärnor som ska etableras innan redundansväxling eller redundanstest av alla kompatibla virtuella datorer. Om det inte finns tillräckligt många kärnor tillgängliga i prenumerationen så kan inte Azure Site Recovery skapa virtuella datorer vid redundanstestet eller redundansväxlingen.
+### <a name="required-number-of-azure-cores"></a>Nödvändigt antal Azure-kärnor
+Resultatet är det totala antalet kärnor som ska konfigureras före redundansväxling eller redundanstest av alla kompatibla virtuella datorer. Om det inte finns tillräckligt många kärnor tillgängliga i prenumerationen kan inte Site Recovery skapa virtuella datorer vid redundanstestet eller redundansväxlingen.
 
-![Deployment Planner](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
+![Nödvändigt antal Azure-kärnor i kapacitetsplaneraren](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
 
-###<a name="required-on-premises-infrastructure"></a>Required On-premises Infrastructure (Krav på lokal infrastruktur)
-Det här är det totala antalet konfigurationsservrar och ytterligare processervrar som måste konfigureras för att skydda alla kompatibla virtuella datorer. Baserat på angivna [gränser](https://aka.ms/asr-v2a-on-prem-components) för den största konfigurationen, antingen i dataomsättning per dag eller största antal skyddade virtuella datorer (förutsatt i genomsnitt tre diskar per virtuell dator), så rekommenderar verktyget ytterligare servrar beroende på vilken gräns som uppnås först på konfigurationsservern eller processervern. Du hittar detaljerad information om den totala dataomsättningen per dag och det totala antalet skyddade diskar på bladet [Indata](site-recovery-deployment-planner.md#input).
+### <a name="required-on-premises-infrastructure"></a>Krav på lokal infrastruktur
+Det här är det totala antalet konfigurationsservrar och ytterligare processervrar som måste konfigureras för att skydda alla kompatibla virtuella datorer. Beroende på vilka [storleksrekommendationer för konfigurationsservern som stöds](https://aka.ms/asr-v2a-on-prem-components), kan verktyget rekommendera ytterligare servrar. Rekommendationen bygger på det största värdet för antingen dataomsättning per dag eller det största antal skyddade virtuella datorer (förutsatt i genomsnitt tre diskar per virtuell dator), beroende på vilken gräns som uppnås först på konfigurationsservern eller den kompletterande processervern. Du hittar detaljerad information om den totala dataomsättningen per dag och det totala antalet skyddade diskar i avsnittet Input (Indata).
 
-![Deployment Planner](./media/site-recovery-deployment-planner/required-on-premises-infrastructure.png)
+![Lokal infrastruktur som krävs för kapacitetsplaneraren](./media/site-recovery-deployment-planner/required-on-premises-infrastructure.png)
 
-###<a name="what-if-analysis"></a>Tänk om-analys
-I den här analysen beskrivs hur många överträdelser som kan inträffa under profileringsperioden när du tilldelar en lägre bandbredd för att önskat RPO-mål ska uppfyllas 90 % av gångerna. En eller flera RPO-överträdelser kan inträffa en viss dag. I diagrammet visas dagens största RPO-överträdelse.
-Utifrån den här analysen kan du avgöra om du kan godta antalet RPO-överträdelser och dagens största RPO-överträdelse sett till den lägre bandbredden. Om värdena är godtagbara kan du allokera den lägre bandbredden för replikering. Annars tilldelar du den bandbredd som rekommenderas för att du ska uppnå önskat RPO-mål 100 % av gångerna.
+### <a name="what-if-analysis"></a>Konsekvensanalys
+I den här analysen beskrivs hur många överträdelser som kan inträffa under profileringsperioden när du tilldelar en lägre bandbredd för att önskat RPO-mål ska uppfyllas 90 procent av gångerna. En eller flera överträdelser av återställningspunktmålen kan inträffa på en viss dag. Grafen visar toppåterställningspunktmålet för dagen.
+Utifrån den här analysen kan du avgöra om du kan godta antalet RPO-överträdelser och dagens största RPO-överträdelse sett till den lägre bandbredden. Om värdena är godtagbara kan du allokera den lägre bandbredden för replikering. Annars allokerar du den högre bandbredd som rekommenderas för att du ska uppnå önskat RPO-mål 100 % av gångerna.
 
-![Deployment Planner](./media/site-recovery-deployment-planner/what-if-analysis.png)
+![Konsekvensanalys i kapacitetsplaneraren](./media/site-recovery-deployment-planner/what-if-analysis.png)
 
-###<a name="recommended-vm-batch-size-for-initial-replication"></a>Recommended VM batch size for initial replication (Rekommenderad VM-batchstorlek för den initiala replikeringen)
-I det här avsnittet ges en rekommendation för hur många virtuella datorer som kan skyddas parallellt så att den initiala replikeringen kan slutföras inom 72 timmar (det här värdet kan konfigureras, du ändrar det med parametern GoalToCompleteIR när du genererar rapporten) med den föreslagna bandbredden för att uppnå önskat RPO-mål 100 % av gångerna.  I diagrammet visas olika bandbreddsvärden och beräknad batchstorlek för virtuella datorer där den initiala replikeringen kan slutföras inom 72 timmar baserat på den genomsnittliga storleken för de virtuella datorerna bland alla kompatibla virtuella datorer.  
+### <a name="recommended-vm-batch-size-for-initial-replication"></a>Recommended VM batch size for initial replication (Rekommenderad VM-batchstorlek för den initiala replikeringen)
+I det här avsnittet rekommenderar vi det antal virtuella datorer som kan skyddas parallellt för att slutföra den inledande replikeringen inom 72 timmar med den föreslagna bandbredden för att uppfylla önskade återställningspunktmål 100 procent av den tid som anges. Det här värdet är ett konfigurerbart värde. Du kan ändra värdet då rapporten skapas med parametern *GoalToCompleteIR*.
 
-I Public Preview anger inte rapporten vilka virtuella datorer som ska ingå i en batch. Du kan använda diskstorleken som visas på bladet Compatible VMs (Kompatibla virtuella datorer) till att se de virtuella datorernas storlek och välja virtuella datorer till en batch, eller så kan du välja datorer sett till kända arbetsbelastningar.  Tidsåtgången för den inledande replikeringen ändras proportionellt med avseende på diskstorlek, förbrukat diskutrymme och tillgängligt dataflöde i nätverket.
+I diagrammet här visas olika bandbreddsvärden och beräknad batchstorlek för virtuella datorer där den initiala replikeringen kan slutföras inom 72 timmar baserat på den genomsnittliga identifierade storleken för de virtuella datorerna bland alla kompatibla virtuella datorer.
 
-![Deployment Planner](./media/site-recovery-deployment-planner/recommended-vm-batch-size.png)
+I den offentliga förhandsutgåvan anger inte rapporten vilka virtuella datorer som ska ingå i en batch. Du kan använda diskstorleken som visas i avsnittet Compatible VMs (Kompatibla virtuella datorer) för att se de virtuella datorernas storlek och välja virtuella datorer till en batch, eller så kan du välja virtuella datorer sett till kända arbetsbelastningsegenskaper. Tidsåtgången för den inledande replikeringen förändras proportionellt med avseende på faktisk diskstorlek på den virtuella datorn, förbrukat diskutrymme och tillgängligt dataflöde i nätverket.
 
-###<a name="growth-factor-and-percentile-values-used"></a>Tillväxtfaktor och percentilvärde som används
-I det här avsnittet längst ned på bladet visas vilket percentilvärde som använts för prestandaräknarna för de profilerade virtuella datorerna (standardvärdet är den 95:e percentilen) och vilken tillväxtfaktor i % som använts i alla beräkningar (standardvärdet är 30 %).
+![Rekommenderad batchstorlek för virtuella datorer](./media/site-recovery-deployment-planner/recommended-vm-batch-size.png)
 
-![Deployment Planner](./media/site-recovery-deployment-planner/max-iops-and-data-churn-setting.png)
+### <a name="growth-factor-and-percentile-values-used"></a>Tillväxtfaktor och percentilvärde som används
+I det här avsnittet längst ned på bladet visas vilket percentilvärde som använts för prestandaräknarna för de profilerade virtuella datorerna (standardvärdet är den 95:e percentilen) och vilken tillväxtfaktor som använts i alla beräkningar (standardvärdet är 30 procent).
 
-##<a name="recommendations-with-available-bandwidth-as-input"></a>Rekommendationer med tillgänglig bandbredd som indata
+![Tillväxtfaktor och percentilvärde som används](./media/site-recovery-deployment-planner/max-iops-and-data-churn-setting.png)
 
-![Deployment Planner](./media/site-recovery-deployment-planner/profiling-overview-bandwidth-input.png)
+## <a name="recommendations-with-available-bandwidth-as-input"></a>Rekommendationer med tillgänglig bandbredd som indata
 
-Det kan vara så att du vet att du inte kan tilldela mer än x Mbit/s bandbredd för Azure Site Recovery-replikeringen. Du kan välja att ange tillgänglig bandbredd i verktyget (med parametern -Bandwidth när du genererar rapporten) och då få se vilket RPO-mål i minuter du kan uppnå. Utifrån det här möjliga RPO-målet kan du avgöra om du måste tilldela ytterligare bandbredd eller om du nöjer dig med en lösning för haveriberedskap med det aktuella RPO-målet.
+![Rekommendationer med tillgänglig bandbredd som indata](./media/site-recovery-deployment-planner/profiling-overview-bandwidth-input.png)
 
-![Deployment Planner](./media/site-recovery-deployment-planner/achievable-rpos.png)
+Du kan ha en situation där du vet att du inte kan ange en bandbredd på mer än x Mbit/s för Site Recovery-replikering. Du kan välja att ange tillgänglig bandbredd i verktyget (med parametern -Bandwidth när du genererar rapporten) och då få se vilket RPO-mål i minuter du kan uppnå. Utifrån det här möjliga RPO-värdet kan du avgöra om du måste konfigurera ytterligare bandbredd eller om du nöjer dig med en lösning för haveriberedskap med det aktuella RPO-värdet.
 
-##<a name="input"></a>Indata
-På sidan indata ges en översikt över den profilerade VMware-miljön.
+![Möjligt återställningspunktmål för 500 Mbit/s bandbredd](./media/site-recovery-deployment-planner/achievable-rpos.png)
 
-![Deployment Planner](./media/site-recovery-deployment-planner/Input.png)
+## <a name="input"></a>Indata
+På sidan Input (Indata) visas en översikt över den profilerade VMware-miljön.
 
-**Startdatum och Slutdatum** är start- och slutdatum för de profileringsdata som ingår i rapportgenereringen. Som standard är startdatumet det datum då profileringen startades och slutdatumet är det datum när profileringen avslutades.  Om du angav parametrarna -StartDate och -EndDate när du genererade rapporten visas dessa värden. Startdatum och Slutdatum: det här är start- och slutdatum för de profileringsdata som ingår i rapportgenereringen. Som standard är startdatumet det datum då profileringen startades och slutdatumet är det datum när profileringen avslutades.  Om du angav parametrarna -StartDate och -EndDate när du genererade rapporten visas dessa värden.
+![Översikt över den profilerade VMware-miljön](./media/site-recovery-deployment-planner/Input.png)
 
-**Total number of profiling days** (Totalt antal dagar för profilering) är det totala antalet dagar mellan start- och slutdatumen som rapporten genererats för. Total number of profiling days (Totalt antal dagar för profilering) är det totala antalet dagar mellan start- och slutdatumen som rapporten genererats för.
+**Startdatum** och **Slutdatum**: Start- och slutdatum för de profileringsdata som ingår i rapportgenereringen. Som standard är startdatumet det datum då profileringen startades och slutdatumet är det datum när profileringen avslutades. Om du angav parametrarna -StartDate och -EndDate när du genererade rapporten visas dessa värden.
 
-**Number of compatible virtual machines** (Antal kompatibla virtuella datorer) är det totala antalet kompatibla virtuella datorer som nödvändig nätverksbandbredd, antal Azure Storage-konton, antal Microsoft Azure-kärnor samt antal konfigurationsservrar och ytterligare processervrar beräknas för.
-Total number of disks across all compatible virtual machines (Totalt antal diskar för samtliga kompatibla virtuella datorer) är det totala antalet diskar för samtliga kompatibla virtuella datorer. Det här värdet används som indata i rekommendationen för antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
+**Total number of profiling days** (Totalt antal dagar för profilering): Det totala antalet profileringsdagar mellan start- och slutdatumen som rapporten genererats för.
 
-**Average number of disks per compatible virtual machine** (Genomsnittligt antal diskar per kompatibel virtuell dator) är det genomsnittliga antalet diskar för samtliga kompatibla virtuella datorer.
+**Number of compatible virtual machines** (Antal kompatibla virtuella datorer): Det totala antalet kompatibla virtuella datorer som nödvändig nätverksbandbredd, nödvändigt antal lagringskonton, antal Microsoft Azure-kärnor, konfigurationsservrar och ytterligare processervrar beräknas för.
 
-**Average disk size (GB)** (Genomsnittlig diskstorlek (GB)) är den genomsnittliga diskstorleken för samtliga kompatibla virtuella datorer.
+**Total number of disks across all compatible virtual machines** (Totalt antal diskar för alla kompatibla virtuella datorer): Det här värdet används som en av indatauppgifterna för att bestämma antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
 
-**Desired RPO (minutes)** (Önskat RPO-mål (minuter)) är antingen standardvärdet för RPO-mål eller det värde som angavs för parametern -DesiredRPO när rapporten genererades för att uppskatta nödvändig bandbredd.
+**Average number of disks per compatible virtual machine** (Genomsnittligt antal diskar per kompatibel virtuell dator): Det genomsnittliga antalet diskar beräknat för samtliga kompatibla virtuella datorer.
 
-**Desired bandwidth (Mbps)** (Önskad bandbredd (Mbit/s)) är det värde du angav för parametern -Bandwidth när du genererade rapporten för att uppskatta vilket RPO-mål som kan uppnås.
+**Average disk size (GB)** (Genomsnittlig diskstorlek (GB)): Den genomsnittliga diskstorleken beräknad för samtliga kompatibla virtuella datorer.
 
-**Observed typical data churn per day (GB)** (Observerad normal dataomsättning per dag (GB)) är den genomsnittliga dataomsättning som observerats under profileringen. Det här värdet används som indata i rekommendationen för antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
+**Desired RPO (minutes)** (Önskat RPO-mål (minuter)): Antingen standardvärdet för RPO-mål eller det värde som angavs för parametern ”DesiredRPO” när rapporten genererades för att uppskatta nödvändig bandbredd.
+
+**Desired bandwidth (Mbps)** (Önskad bandbredd (Mbit/s)): Det värde du angav för parametern ”Bandwidth” när du genererade rapporten för att uppskatta vilket RPO-mål som kan uppnås.
+
+**Observed typical data churn per day (GB)** (Observerad normal dataomsättning per dag (GB)) är den genomsnittliga dataomsättning som observerats under alla profileringsdagar. Det här värdet används som ett av invärdena i rekommendationen för att fastställa antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
 
 
-##<a name="vm-storage-placement"></a>Placering av VM-lagring
+## <a name="vm-storage-placement"></a>Placering av VM-lagring
 
-![Deployment Planner](./media/site-recovery-deployment-planner/vm-storage-placement.png)
+![Placering av VM-lagring](./media/site-recovery-deployment-planner/vm-storage-placement.png)
 
-**Disk Storage Type** (Typ av disklagring) är antingen Standard eller Premium och avser det Azure Storage-konto som ska användas för replikering av motsvarande virtuella datorer i kolumnen VMs to Place (Virtuella datorer att placera ut).
+**Disk Storage Type** (Typ av disklagring): Är antingen Standard eller Premium och avser det lagringskonto som ska användas för replikering av motsvarande virtuella datorer i kolumnen **VMs to Place** (Virtuella datorer att placera ut).
 
-**Suggested Prefix** (Föreslaget prefix) är ett prefix på tre tecken som du kan använda till att namnge Azure Storage-kontot. Du kan alltid använda ett eget prefix, men förslaget i verktyget följer [riktlinjerna för namngivning av partitioner i Azure Storage-konton](https://aka.ms/storage-performance-checklist).
+**Suggested Prefix** (Föreslaget prefix): Det föreslagna prefixet på tre tecken som du kan använda för att namnge lagringskontot. Du kan använda ditt eget prefix, men verktygets förslag följer [namngivningskonventionen för partitioner av lagringskonton](https://aka.ms/storage-performance-checklist).
 
-**Suggested Account Name** (Föreslaget kontonamn) anger hur namnet på Azure Storage-kontot skulle se ut med det föreslagna prefixet. Ersätt namnet inom < > med egna indata.
+**Suggested Account Name** (Föreslaget kontonamn): Namnet på lagringskontot när du inkluderar det föreslagna prefixet. Ersätt namnet inom hakparenteser (< och >) med egna indata.
 
-**Log Storage Account:** (Lagringskonto för loggar:) alla replikeringsloggar lagras i ett Azure Storage-konto av standardtyp. För virtuella datorer som replikeras till ett Azure Storage-konto av premiumtyp måste du etablera ytterligare ett Azure Storage-konto av standardtyp som ska innehålla loggarna. Flera konton för premiumreplikering kan använda samma standardkonto för logglagring. Virtuella datorer som replikeras till lagringskonton av standardtyp använder samma konto för loggarna.
+**Log Storage Account** (Lagringskonto för loggar): alla replikeringsloggar lagras på ett lagringskonto av standardtyp. För virtuella datorer som replikerar till ett Premium Storage-konto konfigurerar du ytterligare ett Standard Storage-konto för logglagringsutrymme. Flera lagringskonton för premiumreplikering kan använda samma standardkonto för logglagring. Virtuella datorer som replikeras till lagringskonton av standardtyp använder samma lagringskonto för loggarna.
 
-**Suggested Log Account Name** (Föreslaget namn på loggkonto) anger hur namnet på Azure Storage-kontot för loggar skulle se ut med det föreslagna prefixet. Ersätt namnet inom < > med egna indata.
+**Suggested Log Account Name** (Föreslaget loggkontonamn): Namnet på lagringsloggkontot när du inkluderar det föreslagna prefixet. Ersätt namnet inom hakparenteser (< och >) med egna indata.
 
-**Placement Summary** (Placeringsöversikt) innehåller en översikt över den totala VM-belastningen på Azure Storage-kontot vid replikeringen samt vid redundanstest/redundansväxling. I översikten ingår det totala antalet virtuella datorer som har mappats till Azure Storage-kontot, totalt antal IOPS för de virtuella datorer som placerats i Azure Storage-kontot, totalt antal skrivoperationer (replikering), totalt etablerad storlek sett till alla diskar och det totala antalet diskar.
+**Placement Summary** (Placeringsöversikt): En översikt över den totala virtuella datorbelastningen på lagringskontot vid replikeringen samt vid redundanstest/redundansväxling. I översikten ingår det totala antalet virtuella datorer som har mappats till lagringskontot, totalt antal läs- och skrivåtgärder (IOPS) för de virtuella datorer som placerats på lagringskontot, totalt antal skrivoperationer (replikering), total etablerad storlek sett till alla diskar och det totala antalet diskar.
 
-**Virtual Machines to Place** (Virtuella datorer att placera ut) innehåller de virtuella datorer som ska placeras i det angivna Azure Storage-kontot för att prestanda och användningsgrad ska vara optimala.
+**Virtual Machines to Place** (Virtuella datorer att placera ut): En lista över de virtuella datorer som ska placeras på det angivna lagringskontot för att prestanda och användningsgrad ska vara optimala.
 
 ## <a name="compatible-vms"></a>Compatible VMs (Kompatibla virtuella datorer)
-![Deployment Planner](./media/site-recovery-deployment-planner/compatible-vms.png)
+![Excel-kalkylblad med kompatibla virtuella datorer](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM Name** (Namn på virtuell dator) är namnet eller IP-adressen för den virtuella datorn i filen VMListFile när rapporten genererades. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. Virtuella datorer på en vCenter med dubbla namn eller IP-adresser anges med ESXi-värdnamn för att skilja mellan varje virtuell dator. ESXi-värden i listan är den värd där den virtuella datorn placerades när verktyget identifierade den för första gången under profileringsperioden.
+**VM Name** (Namn på virtuell dator): Den virtuella datorns namn eller den IP-adress som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. För att skilja virtuella vCenter-datorer med samma namn eller IP-adresser åt innefattar namnen ESXi-värdnamnet. Den angivna ESXi-värden är den värd där den virtuella datorn har placerats när verktyget identifierades under profileringsperioden.
 
-**VM Compatibility** (VM-kompatibilitet) har två värden – Ja/Ja*. Ja* är till för de fall där den virtuella datorn passar för [premiumlagring i Azure Storage](https://aka.ms/premium-storage-workload) eftersom diskens omsättning/IOPS hamnar i kategorin P20 eller P30, men där diskens storlek gör att den hamnar i P10 eller P20. Azure Storage avgör vilken typ av premiumlagring en disk ska mappas till baserat på storleken: < 128 GB är en P10, 128 till 512 GB är en P20 och 512 GB till 1 023 GB är en P30. Så om arbetsbelastningens egenskaper för en disk gör den lämplig för P20 eller P30, men storleken mappas till en lägre premiumlagringstyp, markeras den virtuella datorn med Ja* i verktyget. Du rekommenderas då att antingen ändra källdiskens storlek så att den passar den rekommenderade premiumlagringen eller att ändra måldisktypen efter redundansväxling.
-Lagringstyp är antingen standard eller premium.
+**VM-kompatibilitet**: Värdena är **Ja** och **Ja**\*. **Ja**\* för instanser där den virtuella datorn är en anpassning för [Azure Premium Storage](https://aka.ms/premium-storage-workload). Här passar den profilerade högomsättnings- eller IOPS-disken i kategorin P20 eller P30, men storleken på disken gör att den mappas ned till en P10 eller P20. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek. Exempel:
+* <&128; GB är en P10.
+* 128 till 512 GB är en P20.
+* 512 till 1 023 GB är en P30.
 
-**Suggested Prefix** (Föreslaget prefix) är ett prefix på tre tecken för Azure Storage-kontot
+Om arbetsbelastningsegenskaperna för en disk placerar den i kategorin P20 eller P30, men storleken mappar den till en lägre Premium Storage-disktyp, markerar verktyget den här virtuella datorn som **Ja**\*. Verktyget rekommenderar också att du antingen ändrar källdiskens storlek så att den passar den rekommenderade Premium Storage-disktypen eller ändrar måldisktypen efter redundansväxling.
 
-**Lagringskonto** är namnet med det föreslagna prefixet
+**Lagringstyp**: Standard eller premium.
 
-**R/W IOPS (with Growth Factor)** (IOPS (med tillväxtfaktor)) är den högsta IOPS-arbetsbelastningen på disken (standardvärdet är den 95:e percentilen), inklusive faktorn för framtida tillväxt (standardvärdet är 30 %). Observera att det totala antalet IOPS för den virtuella datorn inte alltid är summan av de enskilda diskarnas IOPS, eftersom den virtuella datorns högsta IOPS är den högsta summan av de enskilda diskarnas IOPS under varje minut av profileringsperioden.
+**Suggested Prefix** (Föreslaget prefix): Ett prefix på tre tecken för lagringskontot.
 
-**Data Churn in Mbps (with Growth Factor)** (Dataomsättning i Mbit/s (med tillväxtfaktor)) är den högsta kundomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 %). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
+**Lagringskontot**: Namnet med prefixet till det föreslagna lagringskontot.
 
-**Azure VM Size** (Storlek för virtuell Azure-dator) är lämplig storlek för den virtuella Azure Compute-datorn för den här lokala virtuella datorn. Den här mappningen görs baserat på den lokala virtuella datorns minne, antal diskar/kärnor/nätverkskort och IOPS. Rekommendationen är alltid den minsta virtuella Azure-dator som matchar alla egenskaper hos den lokala virtuella datorn.
+**R/W IOPS (with Growth Factor)** (R/W IOPS (med tillväxtfaktor)): Den högsta IOPS-arbetsbelastningen för läsning/skrivning på disken (standardvärdet är den 95:e percentilen), inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för en virtuell dator inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
-**Antal diskar** är det totala antalet diskar (VMDK:er) i den virtuella datorn.
+**Data Churn in Mbps (with Growth Factor)** (Dataomsättning i Mbit/s (med tillväxtfaktor)): Den högsta dataomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
-**Diskstorlek (GB)** är den totala etablerade storleken för alla diskar i den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+**Azure VM Size** (Storlek för virtuell Azure-dator): Lämplig mappad storlek på den virtuella Azure Cloud Services-datorn för den här lokala virtuella datorn. Mappningen baseras på det lokala virtuella datorminnet, antalet diskar/kärnor/nätverkskort och läs- och skrivåtgärder, IOPS. Rekommendationen är alltid den lägsta virtuella Azure-datorstorlek som matchar alla lokala virtuella datoregenskaper.
 
-**Kärnor** är antalet processorkärnor i den virtuella datorn.
+**Number of Disks** (Antal diskar): Det totala antalet virtuella datordiskar (VMDK:er) på den virtuella datorn.
 
-**Minne (MB)** är mängden RAM-minne i den virtuella datorn.
+**Disk size (GB)** (Diskstorlek (GB)): Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
 
-**Nätverkskort** är antalet nätverkskort i den virtuella datorn.
+**Kärnor**: Antalet processorkärnor i den virtuella datorn.
 
-##<a name="incompatible-vms"></a>Incompatible VMs (Inkompatibla virtuella datorer)
+**Minne (MB)**: Den virtuella datorns RAM-minne.
 
-![Deployment Planner](./media/site-recovery-deployment-planner/incompatible-vms.png)
+**Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
-**VM Name** (Namn på virtuell dator) är namnet eller IP-adressen för den virtuella datorn i filen VMListFile när rapporten genererades. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. Virtuella datorer på en vCenter med dubbla namn eller IP-adresser anges med ESXi-värdnamn för att skilja mellan varje virtuell dator. ESXi-värden i listan är den värd där den virtuella datorn placerades när verktyget identifierade den för första gången under profileringsperioden.
+## <a name="incompatible-vms"></a>Incompatible VMs (Inkompatibla virtuella datorer)
 
-**VM Compatibility** (VM-kompatibilitet) anger varför den här virtuella datorn inte kan skyddas med Azure Site Recovery. Orsakerna beskrivs per inkompatibel disk i den virtuella datorn och kan vara något av följande, baserat på de angivna [gränserna](https://aka.ms/azure-storage-scalbility-performance) för Azure Storage.
+![Excel-ark med inkompatibla virtuella datorer](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-* Diskstorlek > 1 023 GB – Azure Storage har för närvarande inte stöd för diskar som är större än 1 TB
-* Den totala VM-storleken (replikering + redundanstest) överskrider storleksgränsen för Azure Storage-konton (35 TB) – detta inträffar vanligtvis när en av diskarna i den virtuella datorn har prestandaegenskaper som överskrider de maxvärden som stöds i Microsoft Azure/Azure Site Recovery gällande standardlagring, vilket gör att den virtuella datorn hamnar i segmentet för premiumlagring. Maxgränsen för ett Azure Storage-konto av premiumtyp är däremot 35 TB, och det går inte att skydda en enda virtuell dator över flera lagringskonton. När du kör ett redundanstest för en skyddad virtuell dator ska du också tänka på att det körs i samma lagringskonto som replikeringen, så det behövs ett utrymme som är dubbelt så stort som disken om replikeringen och redundanstestet ska kunna köras parallellt.
-* Käll-IOPS överskrider IOPS-gränsen för Azure Storage på 5 000 per disk
-* Käll-IOPS överskrider IOPS-gränsen för Azure Storage på 80 000 per virtuell dator
-* Den genomsnittliga dataomsättningen för disken överskrider gränsen i Azure Site Recovery på 10 Mbit/s för den genomsnittliga I/O-storleken per disk
-* Den totala dataomsättningen för alla diskar i den virtuella datorn överskrider gränsen i Azure Site Recovery på 54 Mbit/s per virtuell dator
-* Genomsnittligt antal effektiva skrivåtgärder (IOPS) överskrider gränsen i Azure Site Recovery på 840 per disk
-* Beräknat lagringsutrymme för ögonblicksbilder överskrider gränsen på 10 TB
+**VM Name** (Namn på virtuell dator): Den virtuella datorns namn eller den IP-adress som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. För att skilja virtuella vCenter-datorer med samma namn eller IP-adresser åt innefattar namnen ESXi-värdnamnet. Den angivna ESXi-värden är den värd där den virtuella datorn har placerats när verktyget identifierades under profileringsperioden.
 
-**R/W IOPS (with Growth Factor)** (IOPS (med tillväxtfaktor)) är den högsta IOPS-arbetsbelastningen på disken (standardvärdet är den 95:e percentilen), inklusive faktorn för framtida tillväxt (standardvärdet är 30 %). Observera att det totala antalet IOPS för den virtuella datorn inte alltid är summan av de enskilda diskarnas IOPS, eftersom den virtuella datorns högsta IOPS är den högsta summan av de enskilda diskarnas IOPS under varje minut av profileringsperioden.
+**VM Compatibility** (VM-kompatibilitet): Anger varför den här virtuella datorn inte kan skyddas med Site Recovery. Anledningarna beskrivs för varje inkompatibel disk av den virtuella datorn och kan, baserat på publicerade [lagringsgränser](https://aka.ms/azure-storage-scalbility-performance), vara något av följande:
 
-**Data Churn in Mbps (with Growth Factor)** (Dataomsättning i Mbit/s (med tillväxtfaktor)) är den högsta kundomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 %). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
+* Diskstorleken är >&1;&023; GB. Azure Storage har för närvarande inte stöd för diskar som är större än 1 TB.
 
-**Antal diskar** är det totala antalet diskar (VMDK:er) i den virtuella datorn.
+* Total storlek för den virtuella datorn (replikering + TFO) överskrider den gräns för lagringskontostorlek som stöds (35 TB). Den här inkompatibiliteten uppstår vanligen när en enskild disk i den virtuella datorn har en prestandaegenskap som överskrider den maxgräns som stöds av Azure- eller Site Recovery-gränserna för standardlagring. Denna instans skickar den virtuella datorn till Premium Storage-zonen. Maxgränsen för ett lagringskonto av premiumtyp är däremot 35 TB, och det går inte att skydda en enda virtuell dator över flera lagringskonton. Tänk också på att när ett redundanstest körs på en skyddad virtuell dator körs det på samma lagringskonto där replikeringen körs. I den här instansen ställer du in 2 ggr storleken på disken för att replikeringen ska fortskrida samtidigt som redundanstestningen genomförs.
+* Käll-IOPS överskrider IOPS-gränsen för lagring på 5 000 per disk.
+* Käll-IOPS överskrider IOPS-gränsen för lagring på 80 000 per virtuell dator.
+* Den genomsnittliga dataomsättningen överskrider den dataomsättningsgräns som stöds av Site Recovery på 10 Mbit/s för den genomsnittliga I/O-storleken för disken.
+* Den totala dataomsättningen för alla diskar i den virtuella datorn överskrider högsta gränsen i Site Recovery på 54 Mbit/s per virtuell dator.
+* Genomsnittligt antal effektiva skrivåtgärder (IOPS) överskrider gränsen i Site Recovery på 840 per disk.
+* Beräknat lagringsutrymme för ögonblicksbilder överskrider gränsen på 10 TB.
 
-**Diskstorlek (GB)** är den totala etablerade storleken för alla diskar i den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+**R/W IOPS (with Growth Factor)** (R/W IOPS (med tillväxtfaktor)): Den högsta IOPS-arbetsbelastningen på disken (standardvärdet är den 95:e percentilen), inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för den virtuella datorn inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
-**Kärnor** är antalet processorkärnor i den virtuella datorn.
+**Data Churn in Mbps (with Growth Factor)** (Dataomsättning i Mbit/s (med tillväxtfaktor)) Den högsta dataomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
-**Minne (MB)** är mängden RAM-minne i den virtuella datorn.
+**Number of Disks** (Antal diskar): Det totala antalet VMDK:er på den virtuella datorn.
 
-**Nätverkskort** är antalet nätverkskort i den virtuella datorn.
+**Disk size (GB)** (Diskstorlek (GB)): Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+
+**Kärnor**: Antalet processorkärnor i den virtuella datorn.
+
+**Minne (MB)**: Mängden RAM-minne på den virtuella datorn.
+
+**Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
 
-##<a name="azure-site-recovery-limits"></a>Gränser för Azure Site Recovery
+## <a name="site-recovery-limits"></a>Gränser för Site Recovery
 
 **Replication Storage Target** (Lagringsmål för replikering) | **Average Source Disk I/O Size** (Genomsnittlig I/O-storlek för källdisk) |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total Source Disk Data Churn Per Day** (Total dataomsättning per dag för källdisk)
 ---|---|---|---
-Standard Storage | 8 kB    | 2 MB/s | 168 GB per disk
-Premium P10-disk | 8 kB    | 2 MB/s | 168 GB per disk
-Premium P10-disk | 16 kB | 4 MB/s |    336 GB per disk
-Premium P10-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
-Premium P20-/P30-disk | 8 kB    | 5 MB/s | 421 GB per disk
-Premium P20-/P30-disk | 16 kB eller mer |10 MB/s    | 842 GB per disk
+Standard Storage | 8 kB    | 2 Mbit/s | 168 GB per disk
+Premium P10-disk | 8 kB    | 2 Mbit/s | 168 GB per disk
+Premium P10-disk | 16 kB | 4 Mbit/s |    336 GB per disk
+Premium P10-disk | 32 kB eller mer | 8 Mbit/s | 672 GB per disk
+P20- eller P30-premiumdisk | 8 kB    | 5 Mbit/s | 421 GB per disk
+P20- eller P30-premiumdisk | minst&16; kB |10 Mbit/s | 842 GB per disk
+
+Det här är genomsnittliga värden baserade på en I/O-överlappning på 30 procent. Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Föregående antal antar en typisk eftersläpning på cirka fem minuter. Det vill säga, när data har överförts bearbetas de och en återställningspunkt skapas inom fem minuter.
+
+Dessa gränser är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. För bästa resultat även efter distributionsplaneringen rekommenderar vi alltid att du kör omfattande programtester med redundanstest för att få en bild av verklig prestanda.
+
+## <a name="updating-the-deployment-planner"></a>Uppdatera kapacitetsplaneraren
+Så här gör du om du vill uppdatera kapacitetsplaneraren:
+
+1. Ladda ned den senaste versionen av [Azure Site Recovery-kapacitetsplaneraren](https://aka.ms/asr-deployment-planner).
+
+2. Kopiera .zip-mappen till en server som du vill köra den på.
+
+3. Extrahera .zip-filen.
+
+4. Gör något av följande:
+ * Om den senaste versionen innehåller inte en profileringskorrigering och profileringen pågår redan på den aktuella versionen av planeringsverktyget fortsätter du profileringen.
+ * Om den senaste versionen innehåller en profileringskorrigering rekommenderar vi att du stoppar profileringen av din aktuella version och startar om profileringen med den nya versionen.
+
+  >[!NOTE]
+  >När du startar profilering med den nya versionen skickar du samma sökväg för utdatakatalogen så att verktyget lägger till profildata i de befintliga filerna. En fullständig uppsättning profilerade data används för att generera rapporten. Om du skickar en annan utdatakatalog kommer nya filer att skapas och gamla profildata använda inte för att skapa rapporten.
+  >
+  >Varje ny kapacitetsplanerare är en ackumulerad uppdatering av .zip-filen. Du behöver inte kopiera de senaste filerna till föregående mapp. Du kan skapa och använda en ny mapp.
 
 
-Det här är genomsnittliga värden baserade på en I/O-överlappning på 30 %. Azure Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Värdena ovan förutsätter en typisk eftersläpning på ~ 5 minuter, d.v.s. att överförda data kommer att bearbetas och en återställningspunkt skapas inom 5 minuter.
-
-De gränser som anges ovan är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska värdena varierar beroende på blandningen av I/O i ditt program. Du får bästa resultat och en bättre prestandabild om du fortsätter att köra omfattande programtester med redundanstester även efter distributionsplaneringen.
-
-## <a name="how-to-update-the-deployment-planner"></a>Hur uppdaterar man Deployment Planner?
-[Ladda ned](site-recovery-deployment-planner.md#download) den senaste versionen av Azure Site Recovery Deployment Planner. Kopiera zip-filen till en server där du vill köra. Extrahera zip-filen.
-Om du redan har en tidigare version av Deployment Planner och profilering pågår behöver du inte stoppa profileringen, om det inte är så att den nya versionen har en profileringskorrigering. Om versionen innehåller korrigeringar i profileringskomponenten rekommenderar vi att du stoppar profilering med den äldre versionen och startar profileringen igen med den nya versionen. Tänk på att när du startar profilering med den nya versionen måste du skicka samma katalogsökväg för utdata så att verktyget bifogar profildata på befintliga filer och så att en fullständig uppsättning profilerade data används när rapporter skapas. Om du skickar en annan utdatakatalog kommer nya filer att skapas och gamla profilerade data kan inte användas för att skapa rapporter.<br> Alla uppdateringar är kumulativa uppdateringar med en zip-fil. Du behöver inte kopiera de nya versionsfilerna till mappen med den tidigare versionen för att använda den. Du kan använda en ny mapp för den.
-
-
-##<a name="version-history"></a>Versionshistorik
+## <a name="version-history"></a>Versionshistorik
 ### <a name="11"></a>1.1
-Uppdaterat den: 09-mar-2017 <br>
+Uppdaterad: 9 mars 2017
 
-Åtgärdat följande problem<br>
+Åtgärdat följande problem:
 
-* Kan inte profilera virtuella datorer om vCenter har två eller fler virtuella datorer med samma namn/IP-adress hos olika ESXi-värdar.<br>
-* Kopiering och sökning har inaktiverats för blad för kompatibla virtuella datorer och inkompatibla virtuella datorer.
+* Verktyget kan inte profilera virtuella datorer om vCenter har två eller fler virtuella datorer med samma namn eller IP-adress hos olika ESXi-värdar.
+* Kopiering och sökning har inaktiverats för arbetsblad för kompatibla virtuella datorer och inkompatibla virtuella datorer.
 
+### <a name="10"></a>1.0
+Uppdaterat: 23 februari 2017
 
-### <a name="10"></a>1.0 
-Uppdaterat den: 23-feb-2017 
-
-Azure Site Recovery Deployment Planner Public Preview 1.0 har följande kända problem som kommer att åtgärdas i senare uppdateringar.
+Azure Site Recovery Deployment Planner Public Preview 1.0 har följande kända problem (kommer att åtgärdas i senare uppdateringar):
 
 * Verktyget fungerar bara för scenariot VMware till Azure, inte för distributioner med Hyper-V till Azure. För scenarier av typen Hyper-V till Azure ska du använda [kapacitetsplaneringsverktyget för Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * Åtgärden GetThroughput stöds inte i Microsoft Azure-regionerna US Government och Kina.
-* Verktyget kan inte profilera virtuella datorer om vCenter har två eller fler virtuella datorer med samma namn/IP-adress hos olika ESXi-värdar. I den här versionen profileras inte virtuella datorer med dubbletter av namn/IP-adress i VMListFile. Lösningen är att profilera virtuella datorer med en ESXi-värd i stället för med vCenter-servern. Du måste köra en instans för varje ESXi-värd.
+* Verktyget kan inte profilera virtuella datorer om vCenter-servern har två eller flera virtuella datorer med samma namn eller IP-adress i olika ESXi-värdar. I den här versionen hoppar verktyget över profilering för dubbletter av namn på virtuella datorer eller IP-adresser i VMListFile. Lösningen är att profilera de virtuella datorerna med hjälp av en ESXi-värd i stället för vCenter-servern. Du måste köra en instans för varje ESXi-värd.
 

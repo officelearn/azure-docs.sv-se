@@ -1,5 +1,5 @@
 ---
-title: "Rollbaserad åtkomstkontroll i den klassiska Azure-portalen | Microsoft Docs"
+title: "Rollbaserad åtkomstkontroll i Azure Portal | Microsoft Docs"
 description: "Kom igång med åtkomsthantering med rollbaserad åtkomstkontroll på Azure Portal. Använd rolltilldelningar för att tilldela behörigheter i dina resurser."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
-ms.openlocfilehash: 05da6cd034a387b54eff0790996662223e4b8bab
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c3e3e407eb6a05b208863443bb8ccf3cba701b23
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -76,10 +77,5 @@ Du kan tilldela roller och hantera åtkomst med Azure RBAC-kommandon i andra ver
 * [Skapa en rapport över åtkomständringshistorik](role-based-access-control-access-change-history-report.md)
 * Gå till [Inbyggda RBAC-roller](role-based-access-built-in-roles.md)
 * Definiera egna [anpassade roller i Azure RBAC](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

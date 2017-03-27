@@ -13,22 +13,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 03/15/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 15cbf897f3f67b9d1bee0845b4d287fdabe63ba8
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 6f2a3880c6cd307282020a689ddd4e22a95c17b0
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-run-as-account"></a>Autentisera runbooks med ett ”Kör som”-konto i Azure
 Det här avsnittet beskriver hur du konfigurerar ett Automation-konto från Azure Portal med funktionen Kör som-konto för att autentisera runbooks som hanterar resurser i Azure Resource Manager eller Azure Service Management.
 
-När du skapar ett Automation-konto på Azure Portal skapas följande automatiskt:
+När du skapar ett nytt Automation-konto på Azure-portalen skapas automatiskt:
 
-* Kör som-kontot, som skapar ett namn för tjänstobjektet i Azure Active Directory och ett certifikat samt tilldelar rollen som deltagare med rollbaserad åtkomstkontroll (RBAC), som används för att hantera Resource Manager-resurser med hjälp av runbooks.   
-* Ett klassiskt Kör som-konto genom att överföra ett hanteringscertifikat, som används för att hantera Azure Service Management eller klassiska resurser med hjälp av runbooks.  
+* Kör som-kontot. Det här kontot skapar ett nytt namn för tjänstobjektet i Azure Active Directory, ett certifikat, och tilldelar rollbaserad åtkomstkontroll (RBAC) för rollen Deltagare. Rollbaserad åtkomstkontroll används för att hantera Resource Manager-resurser med hjälp av runbooks.   
+* Ett klassiskt Kör som-konto. Det här kontot skapas genom uppladdningen av ett hanteringscertifikat, som används för att hantera Azure Service Management eller klassiska resurser med hjälp av runbooks.  
 
 Detta gör processen enklare för dig och hjälper dig att snabbt börja skapa och distribuera runbooks för dina automatiseringsbehov.      
 
@@ -47,11 +47,9 @@ Innan vi gör det finns det dock några saker som det är viktigt att du först�
 
 1. Detta påverkar inte befintliga Automation-konton som redan har skapats i den klassiska distributionsmodellen eller Resource Manager-distributionsmodellen.  
 2. Detta fungerar endast för Automation-konton som skapats via Azure-portalen.  Om du försöker skapa ett konto från den klassiska portalen så replikeras inte Kör som-kontokonfigurationen.
-3. Om du för närvarande har runbooks och tillgångar (t.ex. scheman och variabler) som tidigare har skapats för att hantera klassiska resurser och du vill använda dessa runbooks för att autentisera med det nya klassiska Kör som-kontot, måste du skapa ett klassiskt Kör som-konto med Managing an Run As Account (Hantera ett Kör som-konto) eller uppdatera ditt befintliga konto med hjälp av PowerShell-skriptet nedan.  
-4. För att autentisera med det nya Kör som-kontot och det klassiska Kör som-kontot för Automation måste du ändra dina befintliga runbooks med hjälp av exempelkoden i avsnittet [Exempel på autentiseringskod](#authentication-code-examples).  
-   
-    >[!NOTE] 
-    >Kör som-kontot är avsett för verifiering mot Resource Manager-resurser med hjälp av det certifikatbaserade tjänstobjektnamnet, medan det klassiska Kör som-kontot används för att autentisera mot Service Management-resurser med ett hanteringscertifikatet.     
+3. Om du för närvarande har runbooks och tillgångar (t.ex. scheman och variabler) som tidigare har skapats för att hantera klassiska resurser och du vill använda dessa runbooks för att autentisera med det nya klassiska Kör som-kontot, måste du skapa ett klassiskt Kör som-konto med Managing an Run As Account 
+(Hantera ett Kör som-konto) eller uppdatera ditt befintliga konto med hjälp av PowerShell-skriptet nedan.  
+4. För att autentisera med det nya Kör som-kontot och det klassiska Kör som-kontot för Automation måste du ändra dina befintliga runbooks med hjälp av exempelkoden nedan.  **Observera** att Kör som-kontot är avsett för verifiering mot Resource Manager-resurser med hjälp av det certifikatbaserade tjänstobjektnamnet, medan det klassiska Kör som-kontot används för att autentisera mot Service Management-resurser med hanteringscertifikatet.     
 
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Skapa ett nytt Automation-konto från Azure Portal
 I det här avsnittet ska du utföra följande steg för att skapa ett nytt Azure Automation-konto från Azure-portalen.  När du följer stegen skapas både Kör som-kontot och det klassiska Kör som-kontot.  
@@ -88,7 +86,7 @@ När Automation-kontot har skapats skapas flera resurser automatiskt.  I följan
 | --- | --- |
 | AzureAutomationTutorial-runbook |Ett exempel på en grafisk runbook som visar hur du autentiserar med hjälp av Kör som-kontot och hur du hämtar alla Resource Manager-resurser. |
 | AzureAutomationTutorialScript-runbook |Ett exempel på en PowerShell-runbook som visar hur du autentiserar med hjälp av Kör som-kontot och hur du hämtar alla Resource Manager-resurser. |
-| AzureRunAsCertificate |Certifikattillgång som skapas automatiskt när Automation-kontot skapas eller med hjälp av följande PowerShell-skript nedan för ett befintligt konto.  Den gör att du kan autentisera med Azure så att du kan hantera Azure Resource Manager-resurser från runbooks.  Det här certifikatet har en livslängd på ett år. |
+| AzureRunAsCertificate |Certifikattillgång som skapas automatiskt när Automation-kontot genereras eller med hjälp av PowerShell-skriptet nedan för ett befintligt konto.  Den gör att du kan autentisera med Azure så att du kan hantera Azure Resource Manager-resurser från runbooks.  Det här certifikatet har en livslängd på ett år. |
 | AzureRunAsConnection |Anslutningstillgång som skapas automatiskt när Automation-kontot genereras eller med hjälp av PowerShell-skriptet nedan för ett befintligt konto. |
 
 I följande tabell sammanfattas resurserna för det klassiska Kör som-kontot.<br>
@@ -148,10 +146,10 @@ I följande steg beskrivs hur du tar bort och återskapar ditt Azure Kör som- e
 1. Öppna ditt Automation-konto på Azure Portal.  
 2. I rutan för kontoegenskaper på Automation-kontobladet väljer du **Kör som-konton** under avsnittet **Kontoinställningar**.
 3. På egenskapsbladet **Kör som-konton** väljer du antingen det Kör som-konto eller det klassiska Kör som-konto som du vill ta bort, och på egenskapsbladet för det valda kontot klickar du på **Ta bort**.<br><br> ![Ta bort Kör som-konto](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)<br><br>  Ett meddelande visas där du bekräftar att du vill fortsätta.
-4. Medan kontot tas bort kan du följa förloppet under **Meddelanden** på menyn.  När borttagningen är slutförd kan du återskapa den från egenskapsbladet **Kör som-konton** och välja skapandealternativet **Kör som-konto i Azure**.<br><br> ![Återskapa Automation Kör som-konto](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
+4. Medan kontot tas bort kan du följa förloppet under **Meddelanden** på menyn.  När borttagningen är slutförd kan du återskapa det från egenskapsbladet **Kör som-konton** och välja skapandealternativet **Kör som-konto i Azure**.<br><br> ![Återskapa Automation Kör som-konto](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
 
 ### <a name="misconfiguration"></a>Felaktig konfiguration
-Om några av de konfigurationsobjekt som behövs för att Kör som-kontot eller det klassiska Kör som-kontot ska fungera ordentligt tas bort eller inte skapades på rätt sätt under den första konfigurationen, exempelvis:
+Om några av konfigurationsobjekten som behövs för att Kör som-kontot eller det klassiska Kör som-kontot ska fungera ordentligt tas bort eller inte skapades på rätt sätt under den första konfigurationen, som:
 
 * Certifikattillgång 
 * Anslutningstillgång 
@@ -392,15 +390,9 @@ Om du väljer alternativet för att skapa ett klassiskt kör som-konto måste du
     > 
     > 
 
-När skriptet har slutförts, om du har skapat en klassiskt kör som-konto, följer du stegen för att [överföra hanteringscertifikat-API](../azure-api-management-certs.md) till den klassiska Azure-portalen.  Om du har skapat ett klassiskt Kör som-konto med självsignerat offentligt certifikat (.cer-formatet) kan du hitta en kopia av certifikatet som skapats i mappen med tillfälliga filer på datorn under den användarprofil som användes för att köra PowerShell-sessionen – *%USERPROFILE%\AppData\Local\Temp*.  Annars, om du har konfigurerat klassiska Kör som-kontot för att använda ett certifikat som genereras av företagscertifikatutfärdaren (.cer-formatet), måste du använda det här certifikatet.  När certifikatet har överförts, se [exempelkoden](#sample-code-to-authenticate-with-service-management-resources) för att validera konfigureringen av autentiseringsuppgifter med Service Management-resurser.  
+När skriptet har slutförts: om du skapade ett klassiskt kör som-konto med ett självsignerat offentligt certifikat (.cer-format) skapar och sparar skriptet det i mappen för temporära filer på din dator under den användarprofil som användes för att köra PowerShell session - *%USERPROFILE%\AppData\Local\Temp* eller om du skapade ett klassiskt kör som-konto med ett offentligt certifikat för företaget (.cer-format) måste du använda det här certifikatet.  Följ anvisningarna för att [ladda upp ett API-hanteringscertifikat](../azure-api-management-certs.md) till den klassiska Azure-portalen och gå sedan till [exempelkoden](#sample-code-to-authenticate-with-service-management-resources) för att validera konfigurationen av autentiseringsuppgifterna med Service Management-resurser.  Om du inte har skapat ett klassiskt Kör som-konto, se [exempelkoden](#sample-code-to-authenticate-with-resource-manager-resources) nedan för att autentisera med Resource Manager-resurser och validera konfigurationen av autentiseringsuppgifterna.
 
-Om du inte har skapat ett klassiskt Kör som-konto, se [exempelkoden](#sample-code-to-authenticate-with-resource-manager-resources) nedan för att autentisera med Resource Manager-resurser och validera konfigurationen av autentiseringsuppgifterna.   
-
-##  <a name="authentication-code-examples"></a>Exempel på autentiseringskod
-
-I följande exempel visas hur du autentiserar runbooks mot Resource Manager eller klassiska resurser med hjälp av ett Kör som-konto.
-
-### <a name="authenticate-with-resource-manager-resources"></a>Autentisera med Resource Manager-resurser
+## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Exempelkod för att autentisera med Resource Manager-resurser
 Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-runbooken **AzureAutomationTutorialScript**, och autentisera med ”Kör som”-kontot för att hantera Resource Manager-resurser med dina runbooks.   
 
     $connectionName = "AzureRunAsConnection"
@@ -435,7 +427,7 @@ Skriptet innehåller två ytterligare rader med kod som gör det möjligt att re
 
 Observera cmdleten som används för autentisering i runbooken – **Add-AzureRmAccount** använder *ServicePrincipalCertificate*-parameteruppsättningen.  Den autentiserar med hjälp av tjänstobjektets certifikat, inte autentiseringsuppgifter.  
 
-### <a name="authenticate-with-service-management-resources"></a>Autentisera med Service Management-resurser
+## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Exempelkod för att autentisera med Service Management-resurser
 Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-runbooken **AzureClassicAutomationTutorialScript**, om du vill autentisera med det klassiska Kör som-kontot för att hantera klassiska resurser med dina runbooks.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"

@@ -18,9 +18,9 @@ ms.date: 03/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -105,7 +105,7 @@ Du hittar anslutningssträngen i Azure Portal eller med hjälp av Azure-kommando
 
 3. På bladet **Distributionshistorik** klickar du på den distribution som har ett namn som börjar med **microsoft-acs** följt av ett distributionsdatum. Till exempel: microsoft-acs-201701310000.  
 
-4. Det finns flera klusterlänkar <provided></provided> under **Utdata** på sidan **Sammanfattning**. **SSHMaster0** ger en SSH-anslutningssträng till den första huvudserver i klustret. 
+4. Det finns flera klusterlänkar under **Utdata** på sidan **Sammanfattning**. **SSHMaster0** ger en SSH-anslutningssträng till den första huvudserver i klustret. 
 
 Som vi nämnde tidigare kan du också använda Azure-verktyg för att hitta det fullständiga domännamnet för huvudservern. Skapa en SSH-anslutning till huvudservern med det fullständiga domännamnet för huvudservern och det användarnamn som du angav när klustret skapades. Exempel:
 
@@ -122,3 +122,4 @@ Mer information finns i [Ansluta till ett Azure Container Service-kluster](conta
 
 * [Läs mer](container-service-intro.md) om Azure Container Service.
 * Distribuera ett behållartjänstkluster med hjälp av [portalen](container-service-deployment.md) eller [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).
+

@@ -1,15 +1,9 @@
-| Mobilappar och inbyggda appar | Webbappar och webb-API:er | Integrera direkt med protokoll |
+| Mobile & Native Apps | Web Apps & Web APIs | Integrate Directly with Protocols |
 | --- | --- | --- |
-| [Lägg till inloggning till en iOS-app](../articles/active-directory/develop/active-directory-v2-devquickstarts-ios.md) |[Lägg till inloggning till en AngularJS SPA (NodeJS)](../articles/active-directory/develop/active-directory-v2-devquickstarts-angular-node.md) |[Registrera ett program](../articles/active-directory/develop/active-directory-v2-app-registration.md) |
-| [Lägg till inloggning till en Android-app](../articles/active-directory/develop/active-directory-v2-devquickstarts-android.md) |[Lägg till inloggning till en AngularJS SPA (-NET)](../articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md) |[Mobile Apps med OAuth 2.0](../articles/active-directory/develop/active-directory-v2-protocols-oauth-code.md) |
-| [Lägg till inloggning till en Windows-skrivbordsapp](../articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md) |[Lägg till inloggning till en .NET MVC-app](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md) |[Webbappar med OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-oidc.md) |
-| [Anropa Office 365 Rest API:er från en app](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |[Lägg till inloggning till en Node JS-webbapp](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md) |[Ensidesappar med OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-implicit.md) |
-| [Skydda ett .NET-webb-API](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-api.md) |[Daemon-appar med flöde för klientautentiseringsuppgifter](../articles/active-directory/develop/active-directory-v2-protocols-oauth-client-creds.md) | |
-| [Skydda ett NodeJS Webb-API](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-api.md) | | |
-| [Anropa Office 365 REST API:er från webben](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | | |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+| [Add Sign-In to an iOS App](../articles/active-directory/develop/active-directory-v2-devquickstarts-ios.md) |[Add Sign-In to an JS SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |[Register an Application](../articles/active-directory/develop/active-directory-v2-app-registration.md) |
+| [Add Sign-In to an Android App](../articles/active-directory/develop/active-directory-v2-devquickstarts-android.md) |[Add Sign-In to a .NET MVC App](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md) |[Mobile Apps with OAuth 2.0](../articles/active-directory/develop/active-directory-v2-protocols-oauth-code.md) |
+| [Add Sign-In to a Windows Desktop App](../articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md) |[Add Sign-In to a Node JS Web App](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md) |[Web Apps with OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-oidc.md) |
+| [Call Office 365 Rest APIs from an app](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |[Daemon apps with the Client Credentials Flow](../articles/active-directory/develop/active-directory-v2-protocols-oauth-client-creds.md) |[Single Page Apps with OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-implicit.md) |
+| [Secure a .NET Web API](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-api.md) | | |
+| [Secure a NodeJS Web API](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-api.md) | | |
+| [Call Office 365 REST APIs from the web](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | | |

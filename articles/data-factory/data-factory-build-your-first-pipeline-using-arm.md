@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 1820b25f1cf426d0a81588a00dc5f26073ebb9f8
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 38e8320c09c5aa870018081a29911611f09a3e3a
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -438,7 +439,7 @@ Observera följande punkter:
 Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
 
 #### <a name="azure-blob-input-dataset"></a>Indatauppsättning för Azure-blobb
-Du anger namnen på en blobbehållare, mapp och fil som innehåller dina indata. Se [Egenskaper för Azure-blobbdatauppsättning](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning. 
+Du anger namnen på en blobbehållare, mapp och fil som innehåller dina indata. Se [Egenskaper för Azure-blobbdatauppsättning](data-factory-azure-blob-connector.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning. 
 
 ```json
 {
@@ -471,7 +472,7 @@ Du anger namnen på en blobbehållare, mapp och fil som innehåller dina indata.
 Den här definitionen använder följande parametrar som definierats i parameter-mallen: blobContainer, inputBlobFolder och inputBlobName. 
 
 #### <a name="azure-blob-output-dataset"></a>Utdatauppsättning för Azure-blobb
-Du kan ange namnen på blobbehållaren och mappen som innehåller utdata. Se [Egenskaper för Azure-blobbdatauppsättning](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning.  
+Du kan ange namnen på blobbehållaren och mappen som innehåller utdata. Se [Egenskaper för Azure-blobbdatauppsättning](data-factory-azure-blob-connector.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning.  
 
 ```json
 {
@@ -619,10 +620,5 @@ Den här mallen skapar en datafabrik som heter GatewayUsingArmDF med en gateway 
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

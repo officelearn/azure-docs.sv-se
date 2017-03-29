@@ -41,4 +41,4 @@ Den virtuella datoragenten aktiveras i följande situationer:
 >
 
 ## <a name="find-add-update-and-remove-vm-extensions"></a>Hitta, lägga till, uppdatera och ta bort tillägg för virtuell dator
-Mer information om dessa uppgifter finns i [Lägg till, hitta, uppdatera och ta bort Azure VM-tillägg](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Mer information om dessa uppgifter finns i [Lägg till, hitta, uppdatera och ta bort Azure VM-tillägg](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 0aa2a7075f64b353f6b052ab6b973a06622a9339
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -42,7 +43,7 @@ Apache Storm i HDInsight har följande två viktiga fördelar:
 * Enkel anpassning genom skriptkörning mot klustret när det skapas eller i efterhand. Mer information finns i [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md) (Anpassa HDInsight-kluster med skriptåtgärder).
 
 * Använd det språk du önskar: Storm-komponenter kan skrivas på flera olika språk, t.ex. **Java**, **C#** och **Python**.
-  
+
   * Visual Studio-integration med HDInsight för utveckling, hantering och övervakning av C#-topologier. Mer information finns i [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md) (Utveckla Storm-topologier i C# med HDInsight Tools för Visual Studio).
 
   * Stöder Java-gränssnittet **Trident**. Med det här gränssnittet kan du skapa Storm-topologier som stöder ”engångsbearbetning” av meddelanden, ”transaktionell” datastore-beständighet och en uppsättning vanliga Stream Analytics-åtgärder.
@@ -50,13 +51,13 @@ Apache Storm i HDInsight har följande två viktiga fördelar:
 * Skala enkelt upp och ned klustret: Lägg till eller ta bort arbetarnoder utan att påverka Storm-topologier som körs.
 
 * Integrera med följande Azure-tjänster:
-  
+
     * Händelsehubbar
     * Virtual Network
     * SQL Database
     * Azure Storage
     * DocumentDB.
-  
+
   * Kombinera säkert funktionerna i flera HDInsight-kluster med hjälp av Azure Virtual Network: skapa analytiska pipelines som använder HDInsight, HBase eller Hadoop-kluster.
 
 En lista över företag som använder Apache Storm för sina lösningar för analys i realtid finns i [Företag som använder Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
@@ -80,7 +81,7 @@ Inom 15 minuter från det att du har skickat förfrågan har du ett nytt Storm-k
 
 * __Webbanslutningar__: HDInsight-kluster ger åtkomst till Ambari-webbgränssnittet. Med Ambari-webbgränssnittet kan du enkelt övervaka, konfigurera och hantera tjänster för klustret. Storm för HDInsight tillhandahåller även Storm-användargränssnittet, där du kan övervaka och hantera Storm-topologier som körs från din webbläsare.
 
-  Mer information finns i [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Hantera HDInsight med hjälp av Ambari-webbanvändargränssnittet) och [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-using-the-storm-ui) (Övervaka och hantera med hjälp av Storm-användargränssnittet).
+  Mer information finns i [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Hantera HDInsight med hjälp av Ambari-webbanvändargränssnittet) och [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) (Övervaka och hantera med hjälp av Storm-användargränssnittet).
 
 * __Azure PowerShell och CLI__: Både Azure PowerShell och Azure CLI tillhandahåller kommandoradsverktyg som du kan använda från ditt klientsystem för att arbeta med HDInsight och andra Azure-tjänster.
 
@@ -152,7 +153,7 @@ Apache Storm kör **topologier** i stället för de MapReduce-jobb som du kanske
 * **Ström**: en obunden samling av **tupplar**. Strömmar produceras av **kanaler** och **bultar** och de förbrukas av **bultar**.
 * **Tuppel**: en namngiven lista över dynamiskt skrivna värden.
 * **Kanal**: använder data från en datakälla och genererar en eller flera **strömmar**.
-  
+
   > [!NOTE]
   > Data läses ofta från en kö, till exempel Kafka eller Azure Event-hubbar. Kön garanterar att data sparas om det uppstår ett avbrott.
 

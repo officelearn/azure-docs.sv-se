@@ -26,11 +26,11 @@
 ## Anslut
 
 ### [Översikt](sql-data-warehouse-connect-overview.md)
-### [Anslutningssträngar](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Installera Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [Anslutningssträngar](sql-data-warehouse-connection-strings.md)
 
 ## Skapa
 ### [Azure Portal](sql-data-warehouse-get-started-provision.md)

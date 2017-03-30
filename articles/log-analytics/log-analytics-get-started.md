@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
-ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ Du kan snabbt komma igång med Azure Log Analytics som hjälper dig att utvärde
 Den här artikeln fungerar som en introduktion till Log Analytics med en kort självstudie som leder dig igenom en minimal distribution i Azure och hjälper dig att komma igång med att använda tjänsten. Den logiska behållaren där dina hanteringsdata i Azure lagras kallas för en arbetsyta. När du har granskat den här informationen och slutfört din egna utvärdering kan du ta bort utvärderingsarbetsytan. Eftersom den här artikeln är en självstudie tar den inte upp vägledning för affärsbehov, planering och arkitektur.
 
 >[!NOTE]
->Om du använder Microsoft Azure Government-molnet bör du istället använda [Azure Government-övervakning + Management-dokumentation](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
+>Om du använder Microsoft Azure Government-molnet bör du istället använda [Azure Government-övervakning + Management-dokumentation](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
 
 Här är en snabb översikt över processen som används för att komma igång:
 

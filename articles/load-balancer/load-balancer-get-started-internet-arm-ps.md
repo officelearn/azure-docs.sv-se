@@ -17,10 +17,11 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 5abd8365ed883831d4c85ebd14de31dbe45d815d
+ms.lasthandoff: 01/24/2017
 
 ---
 
-# <a name="a-nameget-startedacreating-an-internet-facing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>Skapa en Internetuppkopplad belastningsutjämnare i Resource Manager med hjälp av PowerShell
+# <a name="get-started"></a>Skapa en Internetuppkopplad belastningsutjämnare i Resource Manager med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -254,7 +255,7 @@ Vägledning om hur du skapar en virtuell dator och tilldelar ett nätverkskort f
 2. Läs in backend-konfigurationen i en variabel.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. Läs in nätverksgränssnittet som du redan skapat i en variabel. Variabelnamnet är **$nic**. Nätverksgränssnittets namn är samma som i det förra exemplet.
@@ -282,7 +283,7 @@ Vägledning om hur du skapar en virtuell dator och tilldelar ett nätverkskort f
 1. Använd belastningsutjämnaren från det föregående exemplet och tilldela ett belastningsutjämningsobjekt till variabeln **$slb** med hjälp av `Get-AzureLoadBalancer`.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. I följande exempel lägger du till en NAT-regel för inkommande trafik i en befintlig belastningsutjämnare. Använd port 81 i poolen på klientsidan och port 8181 för backend-poolen.
@@ -302,7 +303,7 @@ Vägledning om hur du skapar en virtuell dator och tilldelar ett nätverkskort f
 Använd kommandot `Remove-AzureLoadBalancer` om du vill ta bort en tidigare skapad belastningsutjämnare med namnet **NRP LB** i resursgruppen **NRP-RG**.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
@@ -315,9 +316,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
 
 [Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

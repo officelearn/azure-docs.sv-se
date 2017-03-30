@@ -1,6 +1,7 @@
 # Översikt
 ## [Vad är Service Bus-meddelanden?](service-bus-messaging-overview.md)
 ## [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
+## [Service Bus-arkitektur](service-bus-architecture.md)
 ## [Vanliga frågor och svar](service-bus-faq.md)
 
 # Kom igång

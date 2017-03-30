@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: a4658f1eee3cdd24b3da47b4c7319c61ea39cb34
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -125,7 +126,7 @@ I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService
 4. Bekräfta att du ser **AzureSqlLinkedService** i trädvyn. 
 
 > [!NOTE]
-> Se [Move data from/to Azure SQL Database (Flytta data från/till Azure SQL Database)](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) för mer information om JSON-egenskaper.
+> Se [Move data from/to Azure SQL Database (Flytta data från/till Azure SQL Database)](data-factory-azure-sql-connector.md#linked-service-properties) för mer information om JSON-egenskaper.
 > 
 > 
 
@@ -201,7 +202,7 @@ I det här steget skapar du en datauppsättning med namnet **InputDataset** som 
 3. Klicka på **Distribuera** i verktygsfältet för att distribuera **InputDataset**. Kontrollera att du ser **InputDataset** i trädvyn.
 
 > [!NOTE]
-> I [Move data from/to Azure Blob (Flytta data från/till Azure Blob)](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) finns mer information om JSON-egenskaper.
+> I [Move data from/to Azure Blob (Flytta data från/till Azure Blob)](data-factory-azure-blob-connector.md#dataset-properties) finns mer information om JSON-egenskaper.
 > 
 > 
 
@@ -247,7 +248,7 @@ I den här delen av steget ska du skapa en utdatauppsättning med namnet **Outpu
 3. Klicka på **Distribuera** i verktygsfältet för att distribuera **OutputDataset**. Kontrollera att du ser **OutputDataset** i trädvyn. 
 
 > [!NOTE]
-> Se [Move data from/to Azure SQL Database (Flytta data från/till Azure SQL Database)](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) för mer information om JSON-egenskaper.
+> Se [Move data from/to Azure SQL Database (Flytta data från/till Azure SQL Database)](data-factory-azure-sql-connector.md#linked-service-properties) för mer information om JSON-egenskaper.
 > 
 > 
 
@@ -412,9 +413,4 @@ I den här självstudien har du skapat en Azure-datafabrik som kopierar data fr�
 | [Pipelines](data-factory-create-pipelines.md) |Den här artikeln beskriver pipelines och aktiviteter i Azure Data Factory. |
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

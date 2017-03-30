@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: cc25d521b4de64643c8920d45ec9aa6c07b94302
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 977fcf74c86e2ab312d99b3f1821cfb7efbe9745
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -313,7 +314,7 @@ Skapa en JSON-fil med namnet **ADFCopyTutorialARM-Parameters.json** som innehål
 1. Starta **Azure PowerShell** och kör följande kommando:
    * Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
     ```PowerShell
-    Login-AzureRmAccount    
+    Login-AzureRmAccount       
     ```  
    * Kör följande kommando för att visa alla prenumerationer för det här kontot.
     ```PowerShell
@@ -408,7 +409,7 @@ Du anger namnet och nyckeln för Azure Storage-kontot i det här avsnittet. Se [
 connectionString använder parametrarna storageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variabler: azureStorageLinkedService och dataFactoryName definieras i mallen. 
 
 #### <a name="azure-sql-database-linked-service"></a>Länkad Azure SQL Database-tjänst
-Du anger Azure SQL-servernamnet, databasnamnet, användarnamnet och lösenordet i det här avsnittet. Se [Länkad Azure SQL-tjänst](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure SQL-tjänst.  
+Du anger Azure SQL-servernamnet, databasnamnet, användarnamnet och lösenordet i det här avsnittet. Se [Länkad Azure SQL-tjänst](data-factory-azure-sql-connector.md#linked-service-properties) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure SQL-tjänst.  
 
 ```json
 {
@@ -431,7 +432,7 @@ Du anger Azure SQL-servernamnet, databasnamnet, användarnamnet och lösenordet 
 connectionString använder parametrarna sqlservernamn, databaseName, sqlServerUserName och sqlServerPassword som skickas med hjälp av en konfigurationsfil. Definitionen använder också följande variabler från mallen: azureSqlLinkedServiceName, dataFactoryName.
 
 #### <a name="azure-blob-dataset"></a>Azure-blobdatauppsättning
-Du anger namnen på blob-behållare, mappar och filer som innehåller indatan. Se [Egenskaper för Azure-blobdatauppsättning](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobdatauppsättning. 
+Du anger namnen på blob-behållare, mappar och filer som innehåller indatan. Se [Egenskaper för Azure-blobdatauppsättning](data-factory-azure-blob-connector.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobdatauppsättning. 
 
 ```json
 {
@@ -473,7 +474,7 @@ Du anger namnen på blob-behållare, mappar och filer som innehåller indatan. S
 ```
 
 #### <a name="azure-sql-dataset"></a>Azure SQL-datauppsättning
-Du anger namnet på tabellen i Azure SQL-databasen som innehåller kopierade data från Azure Blob Storage. Se [Egenskaper för Azure SQL-datauppsättning](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure SQL-datauppsättning. 
+Du anger namnet på tabellen i Azure SQL-databasen som innehåller kopierade data från Azure Blob Storage. Se [Egenskaper för Azure SQL-datauppsättning](data-factory-azure-sql-connector.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure SQL-datauppsättning. 
 
 ```json
 {
@@ -591,8 +592,3 @@ Du kan även återanvända mallen för att utföra upprepade uppgifter. Du behö
 | [Pipelines](data-factory-create-pipelines.md) |Den här artikeln beskriver pipelines och aktiviteter i Azure Data Factory. |
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

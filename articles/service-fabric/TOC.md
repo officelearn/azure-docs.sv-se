@@ -1,3 +1,4 @@
+
 # Översikt
 ## [Vad är Service Fabric?](service-fabric-overview.md)
 ## [Förstå mikrotjänster](service-fabric-overview-microservices.md)
@@ -22,11 +23,13 @@
 ### [Mönster och scenarier](service-fabric-patterns-and-scenarios.md)
 ### Grundläggande inställningar
 #### [Programmodell](service-fabric-application-model.md)
+#### [Paketera ett program](service-fabric-package-apps.md)
 #### [Programmeringsmodell som stöds](service-fabric-choose-framework.md)
 #### [Tjänsttillstånd](service-fabric-concepts-state.md)
 #### [Tjänstkommunikation](service-fabric-connect-and-communicate-with-services.md)
 #### [Lägga till en frontwebb](service-fabric-add-a-web-frontend.md)
 #### [Tjänstmanifestresurser](service-fabric-service-manifest-resources.md)
+#### [Komma igång med Eclipse-plugin för utveckling med Java](service-fabric-get-started-eclipse.md)
 #### [Hantera appar i Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Konfigurera säkra anslutningar i Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Felsökning
@@ -62,7 +65,7 @@
 #### [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
 #### [Kommunicera med Reliable Services](service-fabric-reliable-services-communication.md)
 #### [Säker kommunikation med Reliable Services](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Fjärrtjänst](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Omvänd proxy](service-fabric-reverseproxy.md)
@@ -88,6 +91,7 @@
 ## Migrera från Cloud Services
 ### [Jämför Cloud Services med Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrera till Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Rekommenderade metoder](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Skapa och hantera kluster
 

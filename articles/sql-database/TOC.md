@@ -5,20 +5,17 @@
 ## [Skapa DB – Portal](sql-database-get-started-portal.md)
 ## [Skapa DB – Azure CLI](sql-database-get-started-cli.md)
 ## [Skapa DB – PowerShell](sql-database-get-started-powershell.md)
-## Anslut
+## Hantera
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS-kod](sql-database-connect-query-vscode.md)
+## Anslut
 ### [C#](sql-database-connect-query-dotnet.md)
 # Exempel
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Självstudier
-## Åtkomst
-### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Återställning
-### [Portal](sql-database-get-started-backup-recovery-portal.md)
-### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+## [Utforma en databas](sql-database-design-first-database.md)
+
 # Koncept
 ## Databaser och servrar
 ### [Databaser](sql-database-overview.md)
@@ -110,6 +107,9 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
+## DB-åtkomst 
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Skydda data
 ### [Azure AD-autentisering](sql-database-aad-authentication-configure.md)
 ### [Granskning](sql-database-auditing-portal.md)
@@ -117,11 +117,13 @@
 ### [Kryptera – certifikatarkiv](sql-database-always-encrypted.md)
 ### [Kryptera – nyckelvalv](sql-database-always-encrypted-azure-key-vault.md)
 ### [Konfigurera maskning](sql-database-dynamic-data-masking-get-started-portal.md)
-## Säkerhetskopiera och återställa
-### [Återställ – Portal](sql-database-restore-database-portal.md)
+## Återställning
+### [Portal](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+### [Enkel tabell](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Kvarhållning
 ### [Kvarhållning – Portal](sql-database-manage-long-term-backup-retention-portal.md)
 ### [Kvarhållning – PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### [Återställ enskild tabell](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Geo-replikera data
 ### [Portal](sql-database-geo-replication-portal.md)
 ### [T-SQL – Konfigurera](sql-database-geo-replication-transact-sql.md)

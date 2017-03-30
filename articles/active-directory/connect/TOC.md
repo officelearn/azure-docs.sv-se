@@ -62,6 +62,7 @@
 ### [Fel under synkronisering](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Objektet har inte synkroniserats](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Lösenordssynkronisering](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Så här återställer du från LocalDB med en gräns på 10 GB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Referens
 ## [Identitetssynkronisering och duplicerad attributåterhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

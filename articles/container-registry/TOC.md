@@ -6,6 +6,7 @@
 ## [Skapa ett register i portalen](container-registry-get-started-portal.md)
 ## [Skapa ett register med Azure CLI 2.0](container-registry-get-started-azure-cli.md)
 ## [Push och pull en avbildning](container-registry-get-started-docker-cli.md)
+## [Visa lagringsplatser](container-registry-repositories.md)
 
 # Gör så här för att
 

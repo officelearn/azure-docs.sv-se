@@ -28,6 +28,7 @@
 ### [Konfigurera ett huvudnamn för tjänsten](container-service-kubernetes-service-principal.md)
 ### [Hantering av behållare – användargränssnitt för Kubernetes](container-service-kubernetes-ui.md)
 ### [Kubernetes-behållare för belastningsutjämning](container-service-kubernetes-load-balancing.md)
+### [Jenkins-integrering med ACS Kubernetes](container-service-kubernetes-jenkins.md)
 ### Övervaka Kubernetes
 #### [Övervaka med OMS](container-service-kubernetes-oms.md)
 #### [Övervaka med Datadog](container-service-kubernetes-datadog.md)

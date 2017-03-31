@@ -4,30 +4,29 @@
 
 # Kom igång
 ## [Skapa ett namnområde](relay-create-namespace-portal.md)
-## [Kom igång med hybridanslutningar](relay-hybrid-connections-dotnet-get-started.md)
-## [Kom igång med WCF-relä](service-bus-dotnet-how-to-use-relay.md)
-## [Signaturer för delad åtkomst](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Självstudier för WCF-relä hybrid](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Självstudier för WCF-relä .NET](service-bus-relay-tutorial.md)
-## [Självstudier för WCF-relä REST](service-bus-relay-rest-tutorial.md)
+## Hybridanslutningar
+### [NET](relay-hybrid-connections-dotnet-get-started.md)
+### [Node](relay-hybrid-connections-node-get-started.md)
+## [WCF-relä](relay-wcf-dotnet-get-started.md)
 
 # Gör så här för att
-## [Autentisera och auktorisera](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Planera för avbrott och katastrofer](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Hybridanslutningsprotokoll](relay-hybrid-connections-protocol.md)
-## [Vanliga undantag](relay-exceptions.md)
+## Planera och designa
+### [Autentisering och säkerhet](relay-authentication-and-authorization.md)
+### [Hybridanslutningsprotokoll](relay-hybrid-connections-protocol.md)
+## Utveckla
+### [Tillgängliga API:er](relay-api-overview.md)
+#### [NET](relay-hybrid-connections-dotnet-api-overview.md)
+#### [Node](relay-hybrid-connections-node-ws-api-overview.md)
 
 # Referens
-## [Exempel](service-bus-relay-samples.md)
-## [.NET API för hybridanslutningar](/dotnet/api/microsoft.servicebus)
-## [WCF-relä .NET API](/dotnet/api/microsoft.servicebus)
-## [Portinställningar](service-bus-relay-port-settings.md)
+## .NET
+### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
+### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)
+## [Undantag](relay-exceptions.md)
+## [Portinställningar](relay-port-settings.md)
 
 # Resurser
-## [Blogg](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
-## [MSDN-forum](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Exempel](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
-## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=service-bus)
-## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
+## [Blogg](https://blogs.msdn.microsoft.com/servicebus/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

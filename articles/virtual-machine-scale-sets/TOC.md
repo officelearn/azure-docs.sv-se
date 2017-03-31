@@ -3,22 +3,21 @@
 
 # Kom igång
 ## [Distribuera en skalningsuppsättning på portalen](virtual-machine-scale-sets-portal-create.md)
-## [Distribuera en skalningsuppsättning med Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
-## [Distribuera en enkel skalningsuppsättning med en Resource Manager-mall](virtual-machine-scale-sets-mvss-start.md)
+## [Distribuera en skalningsuppsättning med PowerShell eller Azure CLI](virtual-machine-scale-sets-create.md)
 
 # Gör så här för att
 ## Planera och designa
 ### [Designöverväganden](virtual-machine-scale-sets-design-overview.md)
-## Skriva skalningsuppsättningsmallar till
-### [Distribuera en enkel skalningsuppsättning](virtual-machine-scale-sets-mvss-start.md)
-### [Distribuera en skalningsuppsättning till ett befintligt virtuellt nätverk](virtual-machine-scale-sets-mvss-existing-vnet.md)
+
+## Skapa en mall
+### [Läs mer om skalningsuppsättningsmallar](virtual-machine-scale-sets-mvss-start.md)
+### [Lägg till ett virtuellt nätverk](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Distribuera
-### [Skalningsuppsättning med portalen](virtual-machine-scale-sets-portal-create.md)
+### [Skapa med portalen](virtual-machine-scale-sets-portal-create.md)
+### [Skapa med Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Skapa med PowerShell eller Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Skalningsuppsättning med hanterade diskar](virtual-machine-scale-sets-managed-disks.md)
-### [Skalningsuppsättning med Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Skalningsuppsättning med PowerShell](virtual-machine-scale-sets-windows-create.md)
-### [Skalningsuppsättning med Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Linux-skalningsuppsättning med automatisk skalning](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows-skalningsuppsättning med automatisk skalning](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Program i skalningsuppsättningar](virtual-machine-scale-sets-deploy-app.md)

@@ -36,8 +36,9 @@
 
 # Säkerhet och efterlevnad
 ## Gör så här för att
-### [Hantera användarbehörigheter](azure-stack-manage-permissions.md)
+### [Hantera RBAC](azure-stack-manage-permissions.md)
 ### [Lägga till användare för AD FS](azure-stack-add-users-adfs.md)
+### [Skapa tjänsthuvudnamn](Azure-stack-create-service-principals.md)
 
 # Erbjuda tjänster
 ## Kom igång
@@ -113,6 +114,9 @@
 # Felsöka
 ## [Kända problem](azure-stack-troubleshooting.md)
 ## [Diagnostik i Azure Stack](azure-stack-diagnostics.md)
+
+# Referens
+## [Hantera API-versionsprofiler](azure-stack-version-profiles.md)
 
 # Resurser
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

@@ -1,46 +1,46 @@
 
-* [Snabbskapa en virtuell dator i Azure](#quick-create-a-vm-in-azure)
-* [Distribuera en virtuell dator i Azure från en mall](#deploy-a-vm-in-azure-from-a-template)
-* [Skapa en virtuell dator från en anpassad avbildning](#create-a-custom-vm-image)
-* [Distribuera en virtuell dator som använder ett virtuellt nätverk och en belastningsutjämnare](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
-* [Ta bort en resursgrupp](#remove-a-resource-group)
-* [Vissa loggen för en resursgruppsdistribution](#show-the-log-for-a-resource-group-deployment)
-* [Visa information om en virtuell dator](#display-information-about-a-virtual-machine)
-* [Anslut till en Linux-baserad virtuell dator](#log-on-to-a-linux-based-virtual-machine)
-* [Stoppa en virtuell dator](#stop-a-virtual-machine)
-* [Starta en virtuell dator](#start-a-virtual-machine)
-* [Anslut en datadisk](#attach-a-data-disk)
+* [Quick-create a virtual machine in Azure](#quick-create-a-vm-in-azure)
+* [Deploy a virtual machine in Azure from a template](#deploy-a-vm-in-azure-from-a-template)
+* [Create a virtual machine from a custom image](#create-a-custom-vm-image)
+* [Deploy a virtual machine that uses a virtual network and a load balancer](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+* [Remove a resource group](#remove-a-resource-group)
+* [Show the log for a resource group deployment](#show-the-log-for-a-resource-group-deployment)
+* [Display information about a virtual machine](#display-information-about-a-virtual-machine)
+* [Connect to a Linux-based virtual machine](#log-on-to-a-linux-based-virtual-machine)
+* [Stop a virtual machine](#stop-a-virtual-machine)
+* [Start a virtual machine](#start-a-virtual-machine)
+* [Attach a data disk](#attach-a-data-disk)
 
-## <a name="getting-ready"></a>Komma igång
-Innan du kan använda CLI Azure med Azure resursgrupper måste du har rätt Azure CLI-version och ett Azure-konto. Om du inte har Azure CLI [installerar du den](../articles/cli-install-nodejs.md).
+## <a name="getting-ready"></a>Getting ready
+Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and an Azure account. If you don't have the Azure CLI, [install it](../articles/cli-install-nodejs.md).
 
-### <a name="update-your-azure-cli-version-to-090-or-later"></a>Uppdatera din Azure CLI-version till 0.9.0 eller senare
-Skriv `azure --version` så kan du se om du redan har version 0.9.0 eller senare installerad.
+### <a name="update-your-azure-cli-version-to-090-or-later"></a>Update your Azure CLI version to 0.9.0 or later
+Type `azure --version` to see whether you have already installed version 0.9.0 or later.
 
 ```azurecli
 azure --version
 0.9.0 (node: 0.10.25)
 ```
 
-Om versionen inte är 0.9.0 eller senare måste du uppdatera den med hjälp av någon av de interna installationsprogrammen eller via **npm** genom att skriva `npm update -g azure-cli`.
+If your version is not 0.9.0 or later, you need to update it by using one of the native installers or through **npm** by typing `npm update -g azure-cli`.
 
-Du kan också köra Azure CLI som en behållare för Docker med hjälp av följande [Docker-avbildning](https://registry.hub.docker.com/u/microsoft/azure-cli/). Kör följande kommando från en Docker-värd:
+You can also run Azure CLI as a Docker container by using the following [Docker image](https://registry.hub.docker.com/u/microsoft/azure-cli/). From a Docker host, run the following command:
 
 ```bash
 docker run -it microsoft/azure-cli
 ```
 
-### <a name="set-your-azure-account-and-subscription"></a>Konfigurera Azure-kontot och Azure-prenumerationen
-Om du inte har någon Azure-prenumeration men en MSDN-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Du kan även anmäla dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
+### <a name="set-your-azure-account-and-subscription"></a>Set your Azure account and subscription
+If you don't already have an Azure subscription but you do have an MSDN subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-[Logga nu in på Azure-kontot interaktivt](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) genom att skriva `azure login` och följa anvisningarna för en interaktiv inloggningsupplevelse till Azure-kontot. 
+Now [log in to your Azure account interactively](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) by typing `azure login` and following the prompts for an interactive login experience to your Azure account. 
 
 > [!NOTE]
-> Om du har ett arbets- eller skolkonto-ID och du vet att du inte har tvåfaktorautentisering aktiverat kan du **också** använda `azure login -u` tillsammans med ID:t för arbets- eller skolkontot för att logga in *utan* en interaktiv session. Om du inte har ett arbets- eller skolkonto-ID kan du [skapa ett arbets- eller skolkonto-ID från ditt personliga Microsoft-konto](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och logga in på samma sätt.
+> If you have a work or school ID and you know you do not have two-factor authentication enabled, you can **also** use `azure login -u` along with the work or school ID to log in *without* an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to log in the same way.
 >
 >
 
-Ditt konto kan innehålla fler än en prenumeration. Du kan visa prenumerationerna genom att skriva `azure account list`, som kan se ut ungefär så här:
+Your account may have more than one subscription. You can list your subscriptions by typing `azure account list`, which might look something like this:
 
 ```azurecli
 azure account list
@@ -53,37 +53,37 @@ data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
 data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 ```
 
-Du kan ställa in den aktuella Azure-prenumerationen genom att skriva följande. Använd namnet på den prenumeration eller det ID som innehåller de resurser som du vill hantera.
+You can set the current Azure subscription by typing the following. Use the subscription name or the ID that has the resources you want to manage.
 
 ```azurecli
 azure account set <subscription name or ID> true
 ```
 
-### <a name="switch-to-the-azure-cli-resource-group-mode"></a>Växla till Azure CLI-resursgruppsläge
-Som standard startar Azure CLI i servicehanteringsläge (**asm**-läge). Skriv följande för att växla till resursgrupperingsläge.
+### <a name="switch-to-the-azure-cli-resource-group-mode"></a>Switch to the Azure CLI resource group mode
+By default, the Azure CLI starts in the service management mode (**asm** mode). Type the following to switch to resource group mode.
 
 ```azurecli
 azure config mode arm
 ```
 
-## <a name="understanding-azure-resource-templates-and-resource-groups"></a>Förstå Azure-resursmallar och -resursgrupper
-De flesta program skapas med en kombination av olika resurstyper (t.ex. en eller flera virtuella datorer och lagringskonton, en SQL-databas, ett virtuellt nätverk eller ett innehållsleveransnätverk). Det standardmässiga Azure Service Management-API:t och den klassiska Azure-portalen representerar de här objekten genom att använda en metod tjänst-för-tjänst. Den här metoden kräver att du distribuerar och hanterar enskilda tjänster individuellt (eller hittar andra verktyg som gör det), och inte som en enda logisk enhet för distribution.
+## <a name="understanding-azure-resource-templates-and-resource-groups"></a>Understanding Azure resource templates and resource groups
+Most applications are built from a combination of different resource types (such as one or more VMs and storage accounts, a SQL database, a virtual network, or a content delivery network). The default Azure service management API and the Azure classic portal represented these items by using a service-by-service approach. This approach requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.
 
-*Azure Resource Manager-mallar* gör det dock möjligt för dig att distribuera och hantera dessa olika resurser som en logisk distributionsenhet på ett deklarativt sätt. I stället för att imperativt ge Azure kommandon om vad som ska distribueras ett kommando i taget beskriver du hela distributionen i en JSON-fil – alla resurser och tillhörande konfigurations- och distributionsparametrar – och säger åt Azure att distribuera de här resurserna som en grupp.
+*Azure Resource Manager templates*, however, make it possible for you to deploy and manage these different resources as one logical deployment unit in a declarative fashion. Instead of imperatively telling Azure what to deploy one command after another, you describe your entire deployment in a JSON file -- all of the resources and associated configuration and deployment parameters -- and tell Azure to deploy those resources as one group.
 
-Du kan sedan hantera hela livscykeln för gruppens resurser genom att använda Azure CLI-resurshanteringskommandon för att göra följande:
+You can then manage the overall life cycle of the group's resources by using Azure CLI resource management commands to:
 
-* Stoppa, starta eller ta bort alla resurser i gruppen samtidigt.
-* Tillämpa regler för rollbaserad åtkomstkontroll (RBAC) för att låsa säkerhetsbehörigheterna för dem.
-* Granskningsåtgärder.
-* Tagga resurser med ytterligare metadata för bättre spårning.
+* Stop, start, or delete all of the resources within the group at once.
+* Apply Role-Based Access Control (RBAC) rules to lock down security permissions on them.
+* Audit operations.
+* Tag resources with additional metadata for better tracking.
 
-Du kan lära dig mycket mer om Azure-resursgrupper och vad de kan användas till i [översikten över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Om du är intresserad av att skapa mallar, se [Skapa Azure Resource Manager-mallar](../articles/resource-group-authoring-templates.md).
+You can learn lots more about Azure resource groups and what they can do for you in the [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager templates](../articles/resource-group-authoring-templates.md).
 
-## <a id="quick-create-a-vm-in-azure"></a>Uppgift: Snabbt skapa en virtuell dator i Azure
-Du vet ibland vilken avbildning som du behöver och att du behöver en virtuell dator från avbildningen direkt, och du är inte särskilt intresserad av infrastrukturen – kanske behöver du testa någonting på en ren virtuell dator. Det är då du använder kommandot `azure vm quick-create` och överför de argument som krävs för att skapa en virtuell dator och dess infrastruktur.
+## <a id="quick-create-a-vm-in-azure"></a>Task: Quick-create a VM in Azure
+Sometimes you know what image you need, and you need a VM from that image right now and you don't care too much about the infrastructure -- maybe you have to test something on a clean VM. That's when you want to use the `azure vm quick-create` command, and pass the arguments necessary to create a VM and its infrastructure.
 
-Skapa först en resursgrupp.
+First, create your resource group.
 
 ```azurecli
 azure group create coreos-quick westus
@@ -100,14 +100,14 @@ data:
 info:    group create command OK
 ```
 
-Sedan behöver du en avbildning. Information om hur du hittar en avbildning med Azure CLI finns i [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI (Navigera och välja en virtuell datoravbildning i Azure med PowerShell och Azure CLI)](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Men här är en kort lista med populära avbildningar för den här artikeln. Vi använder CoreOS stabila avbildning för den här snabbövningen.
+Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). But for this article, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
 
 > [!NOTE]
-> För ComputeImageVersion kan du även bara ange ”senaste” som parameter i både mallspråket och Azure CLI. Det här gör att du alltid kan använda den senaste och mest uppdaterade versionen av avbildningen utan att behöva ändra skript och mallar. Detta visas nedan.
+> For ComputeImageVersion, you can also simply supply 'latest' as the parameter in both the template language and in the Azure CLI. This will allow you to always use the latest and patched version of the image without having to modify your scripts or templates. This is shown below.
 >
 >
 
-| PublisherName | Erbjudande | Sku | Version |
+| PublisherName | Offer | Sku | Version |
 |:--- |:--- |:--- |:--- |
 | OpenLogic |CentOS |7 |7.0.201503 |
 | OpenLogic |CentOS |7.1 |7.1.201504 |
@@ -127,7 +127,7 @@ Sedan behöver du en avbildning. Information om hur du hittar en avbildning med 
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |1.0.141204 |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |4.3.4665 |
 
-Skapa bara den virtuella datorn genom att ange kommandot `azure vm quick-create` och var redo att svara på frågorna. Det bör se ut ungefär så här:
+Just create your VM by entering the `azure vm quick-create` command and being ready for the prompts. It should look something like this:
 
 ```azurecli
 azure vm quick-create
@@ -212,29 +212,29 @@ data:            FQDN                    :coreo-westu-1430261891570-pip.westus.c
 info:    vm quick-create command OK
 ```
 
-Och så fortsätter du med din nya virtuella datorn.
+And away you go with your new VM.
 
-## <a id="deploy-a-vm-in-azure-from-a-template"></a>Uppgift: Distribuera en virtuell dator i Azure från en mall
-Följ instruktionerna i följande avsnitt för att distribuera en ny virtuell Azure-dator med hjälp av en mall med Azure CLI. Den här mallen skapar en enda virtuell dator i ett nytt virtuellt nätverk med ett enda undernät och till skillnad från `azure vm quick-create`, kan du beskriva exakt vad du vill ha och upprepa det utan fel. Mallen skapar följande:
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Task: Deploy a VM in Azure from a template
+Use the instructions in these sections to deploy a new Azure VM by using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet, and unlike `azure vm quick-create`, enables you to describe what you want precisely and repeat it without errors. Here's what this template creates:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
 
-### <a name="step-1-examine-the-json-file-for-the-template-parameters"></a>Steg 1: Undersök JSON-filen för mallparametrarna
-Här följer innehållet i JSON-filen för mallen. (Mallen finns även i [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).)
+### <a name="step-1-examine-the-json-file-for-the-template-parameters"></a>Step 1: Examine the JSON file for the template parameters
+Here are the contents of the JSON file for the template. (The template is also located in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).)
 
-Mallarna är flexibla, så designern kan ha valt att ge dig massor av parametrar eller valt att erbjuda bara några genom att skapa en mall som är mer fast. Öppna mallfilen (det här avsnittet har en mall infogad nedan) för att samla in information som du behöver för att skicka mallen som parametrar, och undersök värdena för **parameter**.
+Templates are flexible, so the designer may have chosen to give you lots of parameters or chosen to offer only a few by creating a template that is more fixed. In order to collect the information you need to pass the template as parameters, open the template file (this topic has a template inline, below) and examine the **parameters** values.
 
-I det här fallet frågar mallen nedan efter:
+In this case, the template below will ask for:
 
-* Ett unikt namn på lagringskontot.
-* Ett administratörsanvändarnamn för den virtuella datorn.
-* Ett lösenord.
-* Ett domännamn som omvärlden kan använda.
-* Ett versionsnummer till Ubuntu Server – men den accepterar endast en i en lista.
+* A unique storage account name.
+* An admin user name for the VM.
+* A password.
+* A domain name for the outside world to use.
+* An Ubuntu Server version number -- but it will accept only one of a list.
 
-Läs mer om [krav för användarnamn och lösenord](../articles/virtual-machines/virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+See more about [username and password requirements](../articles/virtual-machines/virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
-När du bestämmer dig för dessa värden är du redo att skapa en grupp för och distribuera den här mallen till din Azure-prenumeration.
+Once you decide on these values, you're ready to create a group for and deploy this template into your Azure subscription.
 
 ```json
 {
@@ -413,10 +413,10 @@ När du bestämmer dig för dessa värden är du redo att skapa en grupp för oc
 }
 ```
 
-### <a name="step-2-create-the-virtual-machine-by-using-the-template"></a>Steg 2: Skapa den virtuella datorn med hjälp av mallen
-Du behöver ha parametervärdena redo och sedan skapa en resursgrupp för malldistributionen och därefter distribuera mallen.
+### <a name="step-2-create-the-virtual-machine-by-using-the-template"></a>Step 2: Create the virtual machine by using the template
+Once you have your parameter values ready, you must create a resource group for your template deployment and then deploy the template.
 
-Om du vill skapa resursgruppen skriver du `azure group create <group name> <location>` med namnet på den grupp du vill ha och den datacenterplats som du vill distribuera till. Detta händer snabbt:
+To create the resource group, type `azure group create <group name> <location>` with the name of the group you want and the datacenter location into which you want to deploy. This happens quickly:
 
 ```azurecli
 azure group create myResourceGroup westus
@@ -433,16 +433,16 @@ data:
 info:    group create command OK
 ```
 
-Nu anropar du `azure group deployment create` för att skapa distributionen och skickar:
+Now to create the deployment, call `azure group deployment create` and pass:
 
-* Mallfilen (om du har sparat ovanstående JSON-mall till en lokal fil).
-* En mall-URI (om du vill hänvisa till filen i GitHub eller med någon annan webbadress).
-* Den resursgrupp som du vill distribuera till.
-* Ett valfritt distributionsnamn.
+* The template file (if you saved the above JSON template to a local file).
+* A template URI (if you want to point at the file in GitHub or some other web address).
+* The resource group into which you want to deploy.
+* An optional deployment name.
 
-Du uppmanas att ange värdena för parametrarna i avsnittet ”parametrar” i JSON-filen. När du har angett alla parametervärden börjar distributionen.
+You will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, your deployment will begin.
 
-Här är ett exempel:
+Here is an example:
 
 ```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json myResourceGroup firstDeployment
@@ -454,7 +454,7 @@ adminPassword: password
 dnsNameForPublicIP: newdomainname
 ```
 
-Du får följande typ av information:
+You will receive the following type of information:
 
 ```azurecli
 + Initializing template configurations and parameters
@@ -483,13 +483,13 @@ info:    group deployment create command OK
 ```
 
 
-## <a id="create-a-custom-vm-image"></a>Uppgift: Skapa en anpassad avbildning av en virtuell dator
-Du har sett den grundläggande användningen av mallar ovan, så vi kan nu använda liknande instruktioner för att skapa en anpassad virtuell dator från en viss VHD-fil i Azure med hjälp av en mall via Azure CLI. Skillnaden här är att den här mallen skapar en virtuell dator från en angiven virtuell hårddisk (VHD).
+## <a id="create-a-custom-vm-image"></a>Task: Create a custom VM image
+You've seen the basic usage of templates above, so now we can use similar instructions to create a custom VM from a specific .vhd file in Azure by using a template via the Azure CLI. The difference here is that this template creates a single virtual machine from a specified virtual hard disk (VHD).
 
-### <a name="step-1-examine-the-json-file-for-the-template"></a>Steg 1: Undersök JSON-filen för mallen
-Här följer innehållet i JSON-filen för den mall som används som exempel i det här avsnittet. (Mallen finns även i [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).)
+### <a name="step-1-examine-the-json-file-for-the-template"></a>Step 1: Examine the JSON file for the template
+Here are the contents of the JSON file for the template that this section uses as an example. (The template is also located in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).)
 
-Återigen behöver du hitta de värden som du vill ange för de parametrar som inte har standardvärden. När du kör kommandot `azure group deployment create` uppmanas du av Azure CLI att ange dessa värden.
+Again, you will need to find the values you want to enter for the parameters that do not have default values. When you run the `azure group deployment create` command, the Azure CLI will prompt you to enter those values.
 
 ```json
 {
@@ -674,15 +674,15 @@ Här följer innehållet i JSON-filen för den mall som används som exempel i d
 }
 ```
 
-### <a name="step-2-obtain-the-vhd"></a>Steg 2: Hämta den virtuella hårddisken
-Du behöver givetvis ha en VHD-fil för detta. Du kan använda en som du redan har i Azure eller också kan du ladda upp en.
+### <a name="step-2-obtain-the-vhd"></a>Step 2: Obtain the VHD
+Obviously, you'll need a .vhd for this. You can use one you already have in Azure, or you can upload one.
 
-Information om en Windows-baserad virtuell dator finns i [Skapa och ladda upp en virtuell Windows Server-hårddisk till Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-För Linux-baserade virtuella datorer, se avsnittet [Skapa och ladda upp en virtuell hårddisk som innehåller operativsystemet Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+For a Linux-based virtual machine, see [Creating and uploading a virtual hard disk that contains the Linux operating system](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Steg 3: Skapa den virtuella datorn med hjälp av mallen
-Nu är du redo att skapa en ny virtuell dator baserat på VHD-filen. Skapa en grupp som du distribuerar till, med hjälp av `azure group create <location>`:
+### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Step 3: Create the virtual machine by using the template
+Now you're ready to create a new virtual machine based on the .vhd. Create a group to deploy into, by using `azure group create <location>`:
 
 ```azurecli
 azure group create myResourceGroupUser eastus
@@ -699,7 +699,7 @@ data:
 info:    group create command OK
 ```
 
-Skapa sedan distributionen med hjälp av alternativet `--template-uri` för att anropa direkt i mallen (eller också kan du använda alternativet `--template-file` för att använda en fil som du har sparat lokalt). Observera att eftersom mallen har standardvärden angivna får du enbart frågor om några saker. Om du distribuerar mallen till olika platser kanske du upptäcker att vissa namngivningskollisioner inträffar med standardvärdena (särskilt DNS-namn som du skapar).
+Then create the deployment by using the `--template-uri` option to call in the template directly (or you can use the `--template-file` option to use a file that you have saved locally). Note that because the template has defaults specified, you are prompted for only a few things. If you deploy the template in different places, you may find that some naming collisions occur with the default values (particularly the DNS name you create).
 
 ```azurecli
 azure group deployment create \
@@ -714,7 +714,7 @@ osType: linux
 subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-De utdata som returneras ser ut ungefär så här:
+Output looks something like the following:
 
 ```azurecli
 + Initializing template configurations and parameters
@@ -751,15 +751,15 @@ data:    nicName                        String        myNIC
 info:    group deployment create command OK
 ```
 
-## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Uppgift: Distribuera ett VM-multiprogram som använder ett virtuellt nätverk och en extern belastningsutjämnare
-Med den här mallen kan du skapa två virtuella datorer under en belastningsutjämnare och konfigurera en regel för belastningsutjämning för Port 80. Den här mallen distribuerar också ett lagringskonto, ett virtuellt nätverk, en offentlig IP-adress, en tillgänglighetsuppsättning och nätverksgränssnitt.
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Task: Deploy a multi-VM application that uses a virtual network and an external load balancer
+This template allows you to create two virtual machines under a load balancer and configure a load-balancing rule on Port 80. This template also deploys a storage account, virtual network, public IP address, availability set, and network interfaces.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
 
-Följ dessa steg om du vill distribuera ett program för flera virtuella datorer som använder ett virtuellt nätverk och en belastningsutjämnare genom att använda en Resource Manager-mall för filserverresurser i GitHub-mallagret via Azure PowerShell-kommandon.
+Follow these steps to deploy a multi-VM application that uses a virtual network and a load balancer by using a Resource Manager template in the GitHub template repository via Azure PowerShell commands.
 
-### <a name="step-1-examine-the-json-file-for-the-template"></a>Steg 1: Undersök JSON-filen för mallen
-Här följer innehållet i JSON-filen för mallen. Om du vill använda den senaste versionen finns den [på Github-lagringsplatsen för mallar](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). I det här avsnittet används `--template-uri`-växeln för att anropa mallen, men du kan också använda `--template-file`-växeln för att skicka en lokal version.
+### <a name="step-1-examine-the-json-file-for-the-template"></a>Step 1: Examine the JSON file for the template
+Here are the contents of the JSON file for the template. If you want the most recent version, it's located [at the GitHub repository for templates](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). This topic uses the `--template-uri` switch to call in the template, but you can also use the `--template-file` switch to pass a local version.
 
 ```json
 {
@@ -1094,8 +1094,8 @@ Här följer innehållet i JSON-filen för mallen. Om du vill använda den senas
 }
 ```
 
-### <a name="step-2-create-the-deployment-by-using-the-template"></a>Steg 2: Skapa distributionen med hjälp av mallen
-Skapa en resursgrupp för mallen med hjälp av `azure group create <location>`. Skapa sedan en distribution i resursgruppen med hjälp av `azure group deployment create` och skicka resursgruppen, skicka ett distributionsnamn och besvara frågorna för de parametrar i mallen som inte har standardvärden.
+### <a name="step-2-create-the-deployment-by-using-the-template"></a>Step 2: Create the deployment by using the template
+Create a resource group for the template by using `azure group create <location>`. Then, create a deployment into that resource group by using `azure group deployment create` and passing the resource group, passing a deployment name, and answering the prompts for parameters in the template that did not have default values.
 
 ```azurecli
 azure group create lbgroup westus
@@ -1112,7 +1112,7 @@ data:
 info:    group create command OK
 ```
 
-Nu använda kommandot `azure group deployment create` och alternativet `--template-uri` för att distribuera mallen. Vara beredd med dina parametervärden när du uppmanas till det, enligt nedan.
+Now use the `azure group deployment create` command and the `--template-uri` option to deploy the template. Be ready with your parameter values when it prompts you, as shown below.
 
 ```azurecli
 azure group deployment create \
@@ -1161,10 +1161,10 @@ data:    vmSize                 String        Standard_A1
 info:    group deployment create command OK
 ```
 
-Observera att den här mallen distribuerar en Windows Server-avbildning. Den kan dock enkelt ersättas av en Linux-avbildning. Vill du skapa ett Docker-kluster med flera swarmhanterare? [Det kan du göra](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+Note that this template deploys a Windows Server image; however, it could easily be replaced by any Linux image. Want to create a Docker cluster with multiple swarm managers? [You can do it](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-## <a id="remove-a-resource-group"></a>Uppgift: Ta bort en resursgrupp
-Kom ihåg att du kan distribuera om till en resursgrupp, men om du är klar med en kan du ta bort den med hjälp av `azure group delete <group name>`.
+## <a id="remove-a-resource-group"></a>Task: Remove a resource group
+Remember that you can redeploy to a resource group, but if you are done with one, you can delete it by using `azure group delete <group name>`.
 
 ```azurecli
 azure group delete myResourceGroup
@@ -1174,15 +1174,15 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a id="show-the-log-for-a-resource-group-deployment"></a>Uppgift: Visa loggen för en resursgruppsdistribution
-Det här är vanligt när man skapar eller använder mallar. Anropet för att visa distributionsloggarna för en grupp är `azure group log show <groupname>`, vilket visar ganska mycket information som är användbar för att förstå varför något har hänt – eller inte hänt. (Mer information om hur du felsöker dina distributioner, samt annan information om problem finns i avsnittet [Troubleshoot common Azure deployment errors with Azure Resource Manager (Felsöka vanliga Azure-distributionsfel med Azure Resource Manager)](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).)
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Task: Show the log for a resource group deployment
+This one is common while you're creating or using templates. The call to display the deployment logs for a group is `azure group log show <groupname>`, which displays quite a bit of information that's useful for understanding why something happened -- or didn't. (For more information on troubleshooting your deployments, as well as other information about issues, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).)
 
-För att rikta in dig på specifika problem kan du till exempel använda verktyg som **jq** för att ställa mer specifika frågor, till exempel vilka enskilda fel som du behöver åtgärda. I följande exempel används **jq** för att parsa en distributionslogg för **lbgroup** för att leta efter fel.
+To target specific failures, for example, you might use tools like **jq** to query things a bit more precisely, such as which individual failures you need to correct. The following example uses **jq** to parse a deployment log for **lbgroup**, looking for failures.
 
 ```azurecli
 azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 ```
-Du kan snabbt identifiera vad som har gått fel, åtgärda felet och försöka igen. I följande fall har mallen skapat två virtuella datorer på samma gång, vilket skapade ett lås för VHD-filen. (När vi ändrade mallen lyckades distributionen snabbt.)
+You can discover very quickly what went wrong, fix, and retry. In the following case, the template had been creating two VMs at the same time, which created a lock on the .vhd. (After we modified the template, the deployment succeeded quickly.)
 
 ```json
 {
@@ -1191,8 +1191,8 @@ Du kan snabbt identifiera vad som har gått fel, åtgärda felet och försöka i
 }
 ```
 
-## <a id="display-information-about-a-virtual-machine"></a>Uppgift: Visa information om en virtuell dator
-Du kan se information om specifika virtuella datorer i en resursgrupp med hjälp av kommandot `azure vm show <groupname> <vmname>`. Om du har fler än en virtuell dator i din grupp måste du kanske först lista de virtuella datorerna i en grupp med hjälp av `azure vm list <groupname>`.
+## <a id="display-information-about-a-virtual-machine"></a>Task: Display information about a virtual machine
+You can see information about specific VMs in your resource group by using the `azure vm show <groupname> <vmname>` command. If you have more than one VM in your group, you might first need to list the VMs in a group by using `azure vm list <groupname>`.
 
 ```azurecli
 azure vm list zoo
@@ -1204,7 +1204,7 @@ data:    myVM0  Succeeded          westus    Standard_A1
 data:    myVM1  Failed             westus    Standard_A1
 ```
 
-Och sedan söka efter myVM1:
+And then, looking up myVM1:
 
 ```azurecli
 azure vm show zoo myVM1
@@ -1259,50 +1259,50 @@ info:    vm show command OK
 ```
 
 > [!NOTE]
-> Om du vill lagra och manipulera resultatet av dina konsolkommandon programmässigt kan du vill använda ett JSON-parsningsverktyg som **[jq](https://github.com/stedolan/jq)** eller **[jsawk](https://github.com/micha/jsawk)**, eller språkbibliotek som är till nytta för aktiviteten.
+> If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as **[jq](https://github.com/stedolan/jq)** or **[jsawk](https://github.com/micha/jsawk)**, or language libraries that are good for the task.
 >
 >
 
-## <a id="log-on-to-a-linux-based-virtual-machine"></a>Uppgift: Logga in på en Linux-baserad virtuell dator
-Vanligtvis är Linux-datorer anslutna via SSH. Mer information finns i [Så här använder du SSH med Linux på Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Task: Log on to a Linux-based virtual machine
+Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a id="stop-a-virtual-machine"></a>Uppgift: Stoppa en virtuell dator
-Kör följande kommando:
+## <a id="stop-a-virtual-machine"></a>Task: Stop a VM
+Run this command:
 
 ```azurecli
 azure vm stop <group name> <virtual machine name>
 ```
 
 > [!IMPORTANT]
-> Använd den här parametern för att lagra den virtuella IP-adressen (VIP) för det virtuella nätet om det är den sista virtuella datorn i det här virtuella nätet. <br><br> Om du använder parametern `StayProvisioned` kommer du fortfarande att faktureras för den virtuella datorn.
+> Use this parameter to keep the virtual IP (VIP) of the vnet in case it's the last VM in that vnet. <br><br> If you use the `StayProvisioned` parameter, you'll still be billed for the VM.
 >
 >
 
-## <a id="start-a-virtual-machine"></a>Uppgift: Starta en virtuell dator
-Kör följande kommando:
+## <a id="start-a-virtual-machine"></a>Task: Start a VM
+Run this command:
 
 ```azurecli
 azure vm start <group name> <virtual machine name>
 ```
 
-## <a id="attach-a-data-disk"></a>Uppgift: Anslut en datadisk
-Du måste också bestämma om du vill koppla en ny disk eller en som innehåller data. Kommandot skapar VHD-filen för en ny disk och den bifogas i samma kommando.
+## <a id="attach-a-data-disk"></a>Task: Attach a data disk
+You'll also need to decide whether to attach a new disk or one that contains data. For a new disk, the command creates the .vhd file and attaches it in the same command.
 
-Om du vill koppla en ny disk, kör du följande kommando:
+To attach a new disk, run this command:
 
 ```azurecli
     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 ```
 
-Om du vill koppla en befintlig disk kör du följande kommando:
+To attach an existing data disk, run this command:
 
 ```azurecli
 azure vm disk attach <resource-group> <vm-name> [vhd-url]
 ```
 
-Sedan behöver du montera disken, som du normalt skulle göra i Linux.
+Then you'll need to mount the disk, as you normally would in Linux.
 
-## <a name="next-steps"></a>Nästa steg
-Ännu fler exempel på Azure CLI-användning i **arm**-läget finns i avsnittet [Använda Azure CLI för Mac, Linux och Windows med Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md). Läs mer om Azure-resurser och tillhörande begrepp i [översikten över Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+## <a name="next-steps"></a>Next steps
+For far more examples of Azure CLI usage with the **arm** mode, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md).
 
-Fler mallar som du kan använda finns i [Azure Quickstart-mallar](https://azure.microsoft.com/documentation/templates/) och [Programramverk med hjälp av mallar](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

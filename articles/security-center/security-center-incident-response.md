@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
 ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -100,9 +101,4 @@ Incidentteamet kan också använda funktionen [Security Center Power BI](securit
 
 ## <a name="conclusion"></a>Slutsats
 Att sätta samman ett team innan en incident inträffar är mycket viktigt för organisationen och kommer att påverka hanteringen av incidenter på ett positivt sätt. Om teamet har rätt verktyg för att övervaka resurserna kan de vidta rätt steg för att åtgärda en säkerhetsincident. [Identifieringsfunktioner](security-center-detection-capabilities.md) i Security Center hjälper IT-avdelningen att snabbt agera på säkerhetsincidenter samt åtgärda säkerhetsproblem.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

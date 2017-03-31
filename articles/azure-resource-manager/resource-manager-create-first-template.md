@@ -31,9 +31,9 @@ Du behöver en JSON-redigerare för att skapa och ändra mallar. [Visual Studio 
 
 2. Installera tillägget [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) via snabböppning (Ctrl+P) och kör: 
 
-  ```
-  ext install msazurermtools.azurerm-vscode-tools
-  ```
+   ```
+   ext install msazurermtools.azurerm-vscode-tools
+   ```
 
 3. Starta om VS Code när du uppmanas att aktivera tillägget.
 
@@ -45,15 +45,15 @@ Låt oss börja med en tom mall som endast innehåller de grundläggande delarna
 
 2. Kopiera och klistra in följande JSON-syntax i filen:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [  ],
-    "outputs": {  }
-  }
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [  ],
+     "outputs": {  }
+   }
    ```
 
 3. Spara filen som **azuredeploy.json**. 
@@ -63,43 +63,43 @@ Låt oss börja med en tom mall som endast innehåller de grundläggande delarna
 
 3. Klistra in JSON i avsnittet **resurser** i din mall enligt följande exempel: 
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [
-      {
-        "name": "string",
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2016-05-01",
-        "sku": {
-          "name": "string"
-        },
-        "kind": "string",
-        "location": "string",
-        "tags": {},
-        "properties": {
-          "customDomain": {
-            "name": "string",
-            "useSubDomain": boolean
-          },
-          "encryption": {
-            "services": {
-              "blob": {
-                "enabled": boolean
-              }
-            },
-            "keySource": "Microsoft.Storage"
-          },
-          "accessTier": "string"
-        }
-      }
-    ],
-    "outputs": {  }
-  }
-  ```
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [
+       {
+         "name": "string",
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2016-05-01",
+         "sku": {
+           "name": "string"
+         },
+         "kind": "string",
+         "location": "string",
+         "tags": {},
+         "properties": {
+           "customDomain": {
+             "name": "string",
+             "useSubDomain": boolean
+           },
+           "encryption": {
+             "services": {
+               "blob": {
+                 "enabled": boolean
+               }
+             },
+             "keySource": "Microsoft.Storage"
+           },
+           "accessTier": "string"
+         }
+       }
+     ],
+     "outputs": {  }
+   }
+   ```
 
   Föregående exempel innehåller många platshållarvärden och vissa egenskaper som kanske inte behövs i ditt lagringskonto.
 
@@ -111,37 +111,37 @@ Nu är du redo att ange värden för ditt lagringskonto.
 
 2. Observera att **customDomain**, **encryption** och **accessTier** i elementet **properties** visas som valfria värden. Dessa värden kan vara viktiga beroende på dina behov, men för enkelhetens skull tar vi bort dem i det här exemplet.
 
-  ```json
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "string",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  ```
+   ```json
+   "resources": [
+     {
+       "name": "string",
+       "type": "Microsoft.Storage/storageAccounts",
+       "apiVersion": "2016-05-01",
+       "sku": {
+         "name": "string"
+       },
+       "kind": "string",
+       "location": "string",
+       "tags": {},
+       "properties": {
+       }
+     }
+   ],
+   ```
 
 3. Elementet **kind** har ett platshållarvärde ("string"). I VS Code finns flera funktioner som hjälper dig att förstå de värden som används i mallen. Observera att VS Code indikerar att det här värdet inte är giltigt. Om du hovrar över ”string” anger VS Code att giltiga värden för **kind** är `Storage` eller `BlobStorage`. 
 
-  ![visa föreslagna värden i VS Code](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ![visa föreslagna värden i VS Code](./media/resource-manager-create-first-template/vs-code-show-values.png)
 
-  Om du vill se tillgängliga värden tar du bort tecknen innanför citattecknen och väljer **Ctrl+Blanksteg**. Välj **Storage** bland de tillgängliga alternativen.
+   Om du vill se tillgängliga värden tar du bort tecknen innanför citattecknen och väljer **Ctrl+Blanksteg**. Välj **Storage** bland de tillgängliga alternativen.
   
-  ![visa IntelliSense](./media/resource-manager-create-first-template/intellisense.png)
+   ![visa IntelliSense](./media/resource-manager-create-first-template/intellisense.png)
 
-  Om du inte använder VS Code kan du titta på mallreferenssidan för lagringskonton. Observera att beskrivningen innehåller samma giltiga värden. Ange **Storage** för elementet.
+   Om du inte använder VS Code kan du titta på mallreferenssidan för lagringskonton. Observera att beskrivningen innehåller samma giltiga värden. Ange **Storage** för elementet.
 
-  ```json
-  "kind": "Storage",
-  ```
+   ```json
+   "kind": "Storage",
+   ```
 
 Nu ser din mall ut så här:
 
@@ -186,8 +186,6 @@ Om du vill att lagringskontot ska distribueras till samma plats som resursgruppe
 
 Observera att funktionen omges av hakparenteser. Funktionen [resourceGroup](resource-group-template-functions.md#resourcegroup) returnerar ett objekt med egenskapen `location`. Resursgruppen innehåller alla relaterade resurser för din lösning. Du skulle kunna hårdkoda platsegenskapen (”location”) till ett värde som ”USA, centrala”, men i så fall skulle du behöva ändra mallen manuellt för att distribuera om den till en annan plats. Med funktionen `resourceGroup` är det enkelt att distribuera om mallen till en annan resursgrupp på en annan plats.
 
-
-
 Nu ser din mall ut så här:
 
 ```json
@@ -222,71 +220,71 @@ Lagringskontonamn har flera begränsningar som gör att de är svåra att ange. 
 
 1. Om du vill skicka ett prefix för namnet som matchar dina namngivningskonventioner går du till avsnittet för **parametrar** för din mall. Lägg till en parameter i mallen som godtar ett prefix i lagringskontonamnet:
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     }
+   },
+   ```
 
   Prefixet får högst innehålla 11 tecken eftersom `uniqueString` returnerar 13 tecken (hela namnet får inte överskrida 24 tecken). Om du inte skickar något värde för parametern under distributionen används standardvärdet.
 
 2. Gå till avsnittet för **variabler** i mallen. Lägg till följande variabel för att bygga namnet med prefixet och den unika strängen:
 
-  ```json
-  "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 3. I avsnittet för **resurser** anger du lagringskontonamnet till den variabeln.
 
-  ```json
-  "name": "[variables('storageName')]",
-  ```
+   ```json
+   "name": "[variables('storageName')]",
+   ```
 
 3. Om du vill skicka andra SKU:er för lagringskontot går du till avsnittet för **parametrar**. Efter parametern för lagringsnamnsprefixet lägger du till en parameter som anger tillåtna SKU-värden och ett standardvärde. Tillåtna värden finns på mallreferenssidan eller i VS Code. I följande exempel tar du med alla giltiga värden för SKU. Du kan dock begränsa de tillåtna värdena till endast de typer av SKU:er som du vill distribuera via den här mallen.
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
-    "storageSKU": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ],
-      "defaultValue": "Standard_LRS",
-      "metadata": {
-        "description": "The type of replication to use for the storage account."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     },
+     "storageSKU": {
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ],
+       "defaultValue": "Standard_LRS",
+       "metadata": {
+         "description": "The type of replication to use for the storage account."
+       }
+     }
+   },
+   ```
 
 3. Ändra SKU-egenskapen för att använda värdet från parametern:
 
-  ```json
-  "sku": {
-    "name": "[parameters('storageSKU')]"
-  },
-  ```    
+   ```json
+   "sku": {
+     "name": "[parameters('storageSKU')]"
+   },
+   ```    
 
 4. Spara filen.
 

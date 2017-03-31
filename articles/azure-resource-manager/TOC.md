@@ -14,11 +14,11 @@
 ## Skapa mallar
 ### [Metodtips för mallar](resource-manager-template-best-practices.md)
 ### [Mall-avsnitt](resource-group-authoring-templates.md)
-### [Mallfunktioner](resource-group-template-functions.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
+### [Ange en plats](resource-manager-template-location.md)
+### [Tilldela taggar](resource-manager-template-tags.md)
 ### [Ange underordnat resursnamn och typ](resource-manager-template-child-resource.md)
 ### [Skapa flera instanser av en resurstyp](resource-group-create-multiple.md)
-### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)
 ### [Länk till andra mallar](resource-group-linked-templates.md)
 ### [Dela tillstånd mellan länkade mallar](best-practices-resource-manager-state.md)
 ### [Mönster för att utforma mallar](best-practices-resource-manager-design-templates.md)
@@ -28,6 +28,7 @@
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)
 ## Hantera
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -56,6 +57,7 @@
 ### [Visa distributionsåtgärder](resource-manager-deployment-operations.md)
 
 # Referens
+## [Mallfunktioner](resource-group-template-functions.md)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [NET](/dotnet/api/microsoft.azure.management.resourcemanager)

@@ -2,27 +2,25 @@
 ## [Vad är ExpressRoute?](expressroute-introduction.md)
 ## [Vanliga frågor och svar för ExpressRoute](expressroute-faqs.md)
 ## [Anslutningsmodeller](expressroute-connectivity-models.md)
+## [Kretsar och routningsdomäner](expressroute-circuit-peerings.md)
 ## [Platser och partners](expressroute-locations.md)
 ### [Leverantörer efter plats](expressroute-locations-providers.md)
 ### [Platser efter leverantör](expressroute-locations.md)
+## [Virtuella nätverksgatewayer för ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Kom igång
+## [Förutsättningar](expressroute-prerequisites.md)
 ## [Arbetsflöden](expressroute-workflows.md)
-## [Krav](expressroute-prerequisites.md)
-## [Kretsar och routningsdomäner](expressroute-circuit-peerings.md)
 ## [Routningskrav](expressroute-routing.md)
-## [Optimera routning](expressroute-optimize-routing.md)
 ## [NAT-krav](expressroute-nat.md)
 ## [QoS-krav](expressroute-qos.md)
 ## [Flytta kretsar från klassisk till Resource Manager](expressroute-move.md)
-## [Virtuella nätverksgatewayer för ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Gör så här för att
 ## Skapa och ändra en krets
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
-## Skapa och ändra routningskonfiguration
+## Skapa och ändra peering-konfiguration
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (klassisk)](expressroute-howto-routing-classic.md)
@@ -38,11 +36,12 @@
 ### [PowerShell (klassisk)](expressroute-howto-coexist-classic.md)
 ## [Flytta en krets från klassisk till Resource Manager](expressroute-howto-move-arm.md)
 ## Konfigurera en router för ExpressRoute
-### [Exempel på routerkonfigurationer](expressroute-config-samples-routing.md)
+### [Konfigurera en router](expressroute-config-samples-routing.md)
 ### [Exempel på routerkonfigurationer för NAT](expressroute-config-samples-nat.md)
 
 ## Metodtips
 ### [Bästa metoder för nätverkssäkerhet och molntjänster](../best-practices-network-security.md)
+## [Optimera routning](expressroute-optimize-routing.md)
 ### [Asymmetrisk routning](expressroute-asymmetric-routing.md)
 
 ## Felsöka

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
 ms.openlocfilehash: 99c5ea06a0970c360eb711a8b10894d416146693
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -75,9 +76,4 @@ I det här dokumentet har vi tittat på hur hotinformationsrapporterna i Azure S
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md). Lär dig att hantera och åtgärda säkerhetsaviseringar.
 * [Hantera säkerhetsincidenter i Azure Security Center](security-center-incident.md)
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

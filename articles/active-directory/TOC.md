@@ -160,6 +160,8 @@
 #### Publicera appar
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [Klassisk portal](active-directory-application-proxy-publish.md)
+
+#### [PingAccess för Azure AD](application-proxy-ping-access.md)
 #### [Säkerhet](application-proxy-security-considerations.md)
 #### [Nätverk](application-proxy-network-topology-considerations.md)
 #### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)

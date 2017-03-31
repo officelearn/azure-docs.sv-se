@@ -98,6 +98,11 @@
 ## Använda Arduino
 
 ### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [Spara meddelanden från IoT Hub i datalagring för Azure](iot-hub-store-data-in-azure-table-storage.md)
+### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [Spara meddelanden från IoT Hub i datalagring för Azure](iot-hub-store-data-in-azure-table-storage.md)
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lektion 1: Konfigurera din enhet
@@ -233,7 +238,9 @@
 #### [Använda REST-API](iot-hub-rm-rest.md)
 #### [Använda en mall från PowerShell](iot-hub-rm-template-powershell.md)
 #### [Använda en mall från .NET](iot-hub-rm-template.md)
-### [Konfigurera filuppladdning](iot-hub-configure-file-upload.md)
+### Konfigurera filuppladdning
+#### [Använda portalen](iot-hub-configure-file-upload.md)
+#### [Använda PowerShell](iot-hub-configure-file-upload-powershell.md)
 ### [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
 ### [Användningsstatistik](iot-hub-metrics.md)
 ### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)

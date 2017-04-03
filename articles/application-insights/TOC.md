@@ -111,7 +111,7 @@
 ### [Hantera priser och kvot](app-insights-pricing.md)
 ### [Prestandaövervakning av program med Application Insights för SCOM](app-insights-scom.md)
 
-##Exportera
+## Exportera
 ### [Löpande export](app-insights-export-telemetry.md)
 ### [Exportera datamodell](app-insights-export-data-model.md)
 ### [Exportera till Power BI](app-insights-export-power-bi.md)
@@ -159,10 +159,5 @@
 ### [Support](app-insights-get-dev-support.md)
 
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -14,7 +14,7 @@ Blob Service innehåller följande komponenter:
 
 ![Blobb-arkitektur](./media/storage-blob-concepts-include/blob1.png)
 
-* **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Lagringskontot kan vara ett **allmänt lagringskonto** eller ett **Blob Storage-konto** som är specialiserat för lagring av objekt/blobbar. Mer information om lagringskonton finns i [Azure Storage-konton](../articles/storage/storage-create-storage-account.md).
+* **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Lagringskontot kan vara ett **allmänt lagringskonto** eller ett **Blob Storage-konto** som är specialiserat för lagring av objekt/blobbar. Mer information finns i [Om Azure Storage-konton](../articles/storage/storage-create-storage-account.md).
 * **Behållare:** En behållare grupperar en uppsättning blobbar. Alla blobbar måste vara i en behållare. Ett konto kan innehålla ett obegränsat antal behållare. En behållare kan lagra ett obegränsat antal blobbar. Observera att behållarens namn får innehålla endast gemener.
 * **Blob:** en fil av valfri typ och storlek. Azure Storage erbjuder tre typer av blobbar: blockblobbar, sidblobbar och tilläggsblobbar.
   
@@ -22,10 +22,5 @@ Blob Service innehåller följande komponenter:
   
     *Sidblobbar* kan vara upp till 1 TB stora och är bäst för frekventa läs-/skrivåtgärder. Azure Virtual Machines använder sig av sidblobbar som operativsystem- och datadiskar.
   
-    Mer information om namngivning av behållare och blobbar finns i [Namngivning och referens av behållare, blobbar och metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+    Mer information om namngivning av behållare och blobbar finns i [Namngivning och referens av behållare, blobbar och metadata](/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 

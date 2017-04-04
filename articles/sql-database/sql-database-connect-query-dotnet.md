@@ -13,12 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/16/2017
+ms.date: 03/24/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c54ccef3098502c9fbaad13c5fe35ed15bf93f29
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 61cc9cf7bdb552932a4659103a4d7ba479471948
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -30,59 +30,80 @@ Den här snabbstarten använder resurser som har skapats i någon av dessa snabb
 
 - [Skapa DB – Portal](sql-database-get-started-portal.md)
 - [Skapa DB – CLI](sql-database-get-started-cli.md)
-- [Skapa DB – PowerShell](sql-database-get-started-powershell.md) 
 
 Innan du börjar bör du kontrollera att du har konfigurerat utvecklingsmiljön för C#. Se [Installera Visual Studio Community kostnadsfritt](https://www.visualstudio.com/) eller installera [ADO.NET-drivrutinen för SQL Server](https://www.microsoft.com/net/download).
 
-## <a name="connect-to-database-and-query-data"></a>Ansluta till databasen och skicka frågor till data
+## <a name="get-connection-information"></a>Hämta anslutningsinformation
 
 Hämta anslutningssträngen i Azure Portal. Du kan använda anslutningssträngen för att ansluta till Azure SQL Database.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
-3. I rutan **Essentials** för databasen letar du reda på och klickar på **Visa databasanslutningssträngar**.
-4. Exempel på **ADO.NET**-anslutningssträng.
+3. Kontrollera det fullständigt kvalificerade servernamnet i fönstret **Grundläggande** för databasen. 
 
     <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
 
-5. Öppna Visual Studio och skapa ett konsolprogram.
-6. Lägg till ```using System.Data.SqlClient``` i kodfilen ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
+4. Klicka på **Visa databasanslutningssträngar**.
 
-7. Använd [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) med ett [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-uttryck för att skicka frågor till data i Azure SQL Database.
+5. Kontrollera den fullständiga **ADO.NET**-anslutningssträngen.
+
+    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
+
+## <a name="select-data"></a>Välj data
+
+1. Öppna en tom kodfil i din utvecklingsmiljö.
+2. Lägg till ```using System.Data.SqlClient``` i kodfilen ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
+
+3. Använd [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) med ett [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-uttryck för att skicka frågor till data i Azure SQL Database. Lägg till lämpliga värden för din server
 
     ```csharp
-    string strConn = "<connection string>";
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+    
     using (var connection = new SqlConnection(strConn))
     {
-   connection.Open();
+       connection.Open();
 
-    SqlCommand selectCommand = new SqlCommand("", connection);
-    selectCommand.CommandType = CommandType.Text;
+       SqlCommand selectCommand = new SqlCommand("", connection);
+       selectCommand.CommandType = CommandType.Text;
 
-    selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+       selectCommand.CommandText = @"SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
         FROM [SalesLT].[ProductCategory] pc
         JOIN [SalesLT].[Product] p
         ON pc.productcategoryid = p.productcategoryid";
 
-    SqlDataReader reader = selectCommand.ExecuteReader();
+       SqlDataReader reader = selectCommand.ExecuteReader();
 
-    while (reader.Read())
-    {
-        // show data
-        Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
-    }
-    reader.Close();
+       while (reader.Read())
+       {
+          // show data
+          Console.WriteLine($"{reader.GetString(0)}\t{reader.GetString(1)}");
+       }
+       reader.Close();
     }
     ```
 
 ## <a name="insert-data"></a>Infoga data
 
-Använd [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) med ett [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transcat-SQL-uttryck för att infoga data i Azure SQL Database.
+Använd [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) med ett [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-uttryck för att infoga data i Azure SQL Database.
 
 ```csharp
-SqlCommand insertCommand = new SqlCommand("", connection);
-insertCommand.CommandType = CommandType.Text;
-insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
+    SqlCommand insertCommand = new SqlCommand("", connection);
+    insertCommand.CommandType = CommandType.Text;
+    insertCommand.CommandText = @"INSERT INTO[SalesLT].[Product]
             ( [Name]
             , [ProductNumber]
             , [Color]
@@ -115,14 +136,23 @@ Console.WriteLine($"Inserted {newrows.ToString()} row(s).");
 Använd [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) med ett [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-uttryck för att uppdatera data i Azure SQL Database.
 
 ```csharp
-SqlCommand updateCommand = new SqlCommand("", connection);
-updateCommand.CommandType = CommandType.Text;
-updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
-updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
-updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
 
-int updatedrows = updateCommand.ExecuteNonQuery();
-Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
+    SqlCommand updateCommand = new SqlCommand("", connection);
+    updateCommand.CommandType = CommandType.Text;
+    updateCommand.CommandText = @"UPDATE SalesLT.Product SET ListPrice = @ListPrice WHERE Name = @Name";
+    updateCommand.Parameters.AddWithValue("@Name", "BrandNewProduct");
+    updateCommand.Parameters.AddWithValue("@ListPrice", 500);
+
+    int updatedrows = updateCommand.ExecuteNonQuery();
+    Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
 ```
 
 ## <a name="delete-data"></a>Ta bort data
@@ -130,6 +160,15 @@ Console.WriteLine($"Updated {updatedrows.ToString()} row(s).");
 Använd [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) med ett [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-uttryck för att ta bort data i Azure SQL Database.
 
 ```csharp
+    string hostName = 'yourserver.database.windows.net';
+    string dbName = 'yourdatabase';
+    string user = 'yourusername';
+    string password = 'yourpassword';
+
+    string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+    using (var connection = new SqlConnection(strConn))
+
 SqlCommand deleteCommand = new SqlCommand("", connection);
 deleteCommand.CommandType = CommandType.Text;
 deleteCommand.CommandText = @"DELETE FROM SalesLT.Product WHERE Name = @Name";
@@ -154,10 +193,15 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+             string hostName = 'yourserver.database.windows.net';
+             string dbName = 'yourdatabase';
+             string user = 'yourusername';
+             string password = 'yourpassword';
 
-            string strConn = "<connection string>";
+             string strConn = $"server=tcp:+hostName+,1433;Initial Catalog=+dbName+;Persist Security Info=False;User ID=+user+;Password=+password+;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-            using (var connection = new SqlConnection(strConn))
+             using (var connection = new SqlConnection(strConn))
+
             {
                 connection.Open();
 

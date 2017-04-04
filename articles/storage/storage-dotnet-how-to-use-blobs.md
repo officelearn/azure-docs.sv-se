@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
-ms.openlocfilehash: 24b23c412ae4e092427b4e68b16df0369f9e9f0e
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 29d8693dd1d6d1ef26ccb21e3a5b29cf1adbfcc5
+ms.lasthandoff: 03/28/2017
 
 ---
-
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Komma igång med Azure Blob Storage med hjälp av .NET
+
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>Översikt
 Azure Blob Storage är en tjänst som lagrar ostrukturerade data i molnet som objekt/blobbar. Blob Storage kan lagra alla slags textdata eller binära data, till exempel ett dokument, en mediefil eller ett installationsprogram. Blob Storage kallas även för objektlagring.
 
 ### <a name="about-this-tutorial"></a>Om den här självstudiekursen
@@ -33,7 +33,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 **Krav:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/)
 * [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * Ett [Azure Storage-konto](storage-create-storage-account.md#create-a-storage-account)
@@ -49,8 +49,8 @@ Ytterligare exempel med Blob Storage finns i [Komma igång med Azure Blob Storag
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### <a name="add-namespace-declarations"></a>Lägga till namnrymdsdeklarationer
-Lägg till följande **using**-uttryck längst upp i filen `program.cs`:
+### <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
+Lägg till följande **using**-direktiv längst upp i filen `Program.cs`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -96,12 +96,12 @@ container.SetPermissions(
     new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 ```
 
-Alla på Internet kan se blobbar i en offentlig behållare, men du kan bara ändra eller ta bort dem om du har rätt  åtkomstnyckel för kontot eller en signatur för delad åtkomst.
+Alla på Internet kan se blobbar i en offentlig behållare. Du kan dock bara ändra eller ta bort dem om du har rätt kontoåtkomstnyckel eller signatur för delad åtkomst.
 
 ## <a name="upload-a-blob-into-a-container"></a>Ladda upp en blobb till en behållare
-Azure Blob Storage stöder blockblobbar och sidblobbar.  I de flesta fall är blockblobbar den rekommenderade typen.
+Azure Blob Storage stöder blockblobbar och sidblobbar.  I de flesta fall är blockblob den rekommenderade typen.
 
-Om du vill ladda upp en fil till en blockblobb hämtar du en referens för behållaren och använder den för att hämta en referens för blockblobben. När du har en blobbreferens kan du ladda upp en dataström till den genom att anropa metoden **UploadFromStream**. Med den här åtgärden skapas blobben om den inte fanns tidigare, eller skrivs över om den redan fanns.
+Om du vill ladda upp en fil till en blockblobb hämtar du en referens för behållaren och använder den för att hämta en referens för blockblobben. När du har en blobbreferens kan du ladda upp en dataström till den genom att anropa metoden **UploadFromStream**. Den här åtgärden skapar blobben om den inte redan fanns, eller skriver över den om den finns.
 
 Följande exempel visar hur du laddar upp en blobb till en behållare och förutsätter att behållaren redan hade skapats.
 
@@ -127,7 +127,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 ```
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
-Om du vill visa blobbar i en behållare börjar du med att hämta en referens för behållaren. Sedan kan du använda behållarens **ListBlobs**-metod för att hämta blobbarna och/eller katalogerna i den. För att komma åt den omfattande uppsättningen med egenskaper och metoder för en returnerad **IListBlobItem**-metod måste du skicka den till ett **CloudBlockBlob**-, **CloudPageBlob**- eller **CloudBlobDirectory**-objekt.  Om typen är okänd kan du använda en typkontroll för att avgöra till vilket objekt den ska skickas.  Följande kod visar hur du hämtar och returnerar URI:n för varje objekt i _photos_-behållaren:
+Om du vill visa blobbar i en behållare börjar du med att hämta en referens för behållaren. Sedan kan du använda behållarens **ListBlobs**-metod för att hämta blobbarna och/eller katalogerna i den. För att komma åt den omfattande uppsättningen med egenskaper och metoder för en returnerad **IListBlobItem**-metod måste du skicka den till ett **CloudBlockBlob**-, **CloudPageBlob**- eller **CloudBlobDirectory**-objekt. Om typen är okänd kan du använda en typkontroll för att avgöra till vilket objekt den ska skickas. Följande kod visar hur du hämtar och returnerar URI:n för varje objekt i _photos_-behållaren:
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -166,24 +166,28 @@ foreach (IListBlobItem item in container.ListBlobs(null, false))
 }
 ```
 
-Som du ser ovan kan du namnge blobbar med sökvägsinformation i deras namn. På så sätt skapar du en virtuell katalogstruktur som du kan organisera och bläddra i precis som i ett traditionellt filsystem. Observera att katalogstrukturen bara är virtuell – de enda tillgängliga resurserna i Blob Storage är behållare och blobbar. Klientbiblioteket tillhandahåller dock ett **CloudBlobDirectory**-objekt för att referera till en virtuell katalog och förenkla arbetet med blobbar som är ordnade på det här sättet.
+Genom att ta med information om sökvägen i blobbnamnen kan du skapa en virtuell katalogstruktur som du kan ordna och bläddra i på samma sätt som ett traditionellt filsystem. Katalogstrukturen är bara virtuell – de enda tillgängliga resurserna i Blob Storage är behållare och blobbar. Klientbiblioteket tillhandahåller dock ett **CloudBlobDirectory**-objekt för att referera till en virtuell katalog och förenkla arbetet med blobbar som är ordnade på det här sättet.
 
-Titta exempelvis på följande uppsättning blockblobbar i en behållare med namnet _photos_:
+Titta exempelvis på följande uppsättning blockblobbar i en behållare med namnet *photos*:
 
-    photo1.jpg
-    2010/architecture/description.txt
-    2010/architecture/photo3.jpg
-    2010/architecture/photo4.jpg
-    2011/architecture/photo5.jpg
-    2011/architecture/photo6.jpg
-    2011/architecture/description.txt
-    2011/photo7.jpg
+```
+photo1.jpg
+2010/architecture/description.txt
+2010/architecture/photo3.jpg
+2010/architecture/photo4.jpg
+2011/architecture/photo5.jpg
+2011/architecture/photo6.jpg
+2011/architecture/description.txt
+2011/photo7.jpg
+```
 
-När du anropar **ListBlobs** i behållaren _photos_ (som i exemplet ovan), returneras en hierarkiskt ordnad lista. Den innehåller både **CloudBlobDirectory**  och **CloudBlockBlob**objekt, som representerar kataloger respektive blobbar i behållaren. Resultatet ser ut så här:
+När du anropar **ListBlobs** i *photos*-behållaren (som i föregående kodfragment) returneras en hierarkisk lista. Den innehåller både **CloudBlobDirectory**  och **CloudBlockBlob**objekt, som representerar kataloger respektive blobbar i behållaren. Resultatet ser ut så här:
 
-    Directory: https://<accountname>.blob.core.windows.net/photos/2010/
-    Directory: https://<accountname>.blob.core.windows.net/photos/2011/
-    Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+```
+Directory: https://<accountname>.blob.core.windows.net/photos/2010/
+Directory: https://<accountname>.blob.core.windows.net/photos/2011/
+Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+```
 
 Om du vill kan du ange parametern **UseFlatBlobListing** för **ListBlobs**-metoden till **True**. I detta fall returneras varje blobb i behållaren som ett **CloudBlockBlob**-objekt. Anropet till **ListBlobs** för att returnera en platt lista ser ut så här:
 
@@ -197,15 +201,16 @@ foreach (IListBlobItem item in container.ListBlobs(null, true))
 
 och resultatet ser ut så här:
 
-    Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
-    Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
-    Block blob of length 522713: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
-    Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2011/architecture/description.txt
-    Block blob of length 419048: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo5.jpg
-    Block blob of length 506388: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo6.jpg
-    Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
-    Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
-
+```
+Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
+Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
+Block blob of length 522713: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
+Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2011/architecture/description.txt
+Block blob of length 419048: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo5.jpg
+Block blob of length 506388: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo6.jpg
+Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
+Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+```
 
 ## <a name="download-blobs"></a>Ladda ned blobbar
 Om du vill ladda ned blobbar börjar du med att hämta en blobbreferens och anropar sedan **DownloadToStream**-metoden. I följande exempel används metoden **DownloadToStream** för att överföra blobbinnehållet till ett dataströmsobjekt som du sedan kan spara till en lokal fil.
@@ -315,7 +320,7 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
 ```
 
 ## <a name="writing-to-an-append-blob"></a>Skriva till en tilläggsblobb
-En tilläggsblobb är en ny typ av blobb som introducerades i version 5.x av Azure Storage-klientbiblioteket för .NET. En tilläggsblobb är optimerad för tilläggsåtgärder, t.ex loggning. Precis som en blockblobb består en tilläggsblobb av block, men när du lägger till ett nytt block till en tilläggsblobb läggs det alltid till sist i blobben. Du kan inte uppdatera eller ta bort ett befintligt block i en tilläggsblobb. En tilläggsblobbs block-ID:n exponeras inte som de gör för en blockblobb.
+En tilläggsblobb är optimerad för tilläggsåtgärder, t.ex loggning. Precis som en blockblobb består en tilläggsblobb av block, men när du lägger till ett nytt block till en tilläggsblobb läggs det alltid till sist i blobben. Du kan inte uppdatera eller ta bort ett befintligt block i en tilläggsblobb. En tilläggsblobbs block-ID:n exponeras inte som de gör för en blockblobb.
 
 Blocken i en tilläggsblobb kan ha olika storlek, upp till högst 4 MB, och en tilläggsblobb kan innehålla högst 50 000 block. Den största storleken på en tilläggsblobb är alltså strax över 195 GB (4 MB × 50 000 block).
 
@@ -360,7 +365,7 @@ for (int i = 0; i < numBlocks; i++)
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-Mer information om skillnaderna mellan de tre typerna av blobbar finns i [Förstå blockblobbar, sidblobbar och tilläggsblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+Mer information om skillnaderna mellan de tre typerna av blobbar finns i [Förstå blockblobbar, sidblobbar och tilläggsblobbar](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ## <a name="managing-security-for-blobs"></a>Hantera säkerheten för blobbar
 Som standard skyddar Azure Storage dina data genom att begränsa åtkomsten till endast kontoägaren, som har tillgång till åtkomstnycklarna för kontot. När du behöver dela blobbdata i ditt lagringskonto är det viktigt att du gör det utan att äventyra åtkomstnycklarnas säkerhet. Du kan också kryptera blobbdata så att de är skyddade under kabelöverföringar och i Azure Storage.
@@ -383,33 +388,17 @@ Azure Storage har stöd för kryptering av blobbdata både på klienten och på 
 Nu när du har lärt dig grunderna om Blob Storage kan du följa dessa länkar om du vill veta mer.
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
-* [Microsoft Azure Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, OS X och Linux.
+* [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, Mac OS och Linux.
 
 ### <a name="blob-storage-samples"></a>Exempel på Blob Storage (förhandsversion)
 * [Komma igång med Azure Blob Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### <a name="blob-storage-reference"></a>Referens för Blob Storage
-* [Storage-klientbibliotek för .NET-referens](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-* [REST API-referens](http://msdn.microsoft.com/library/azure/dd179355)
+* [Storage-klientbibliotek för .NET-referens](https://msdn.microsoft.com/library/azure/mt347887.aspx)
+* [REST API-referens](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 
 ### <a name="conceptual-guides"></a>Begreppsorienterade guider
 * [Överföra data med kommandoradsverktyget AzCopy](storage-use-azcopy.md)
 * [Komma igång med File Storage för .NET](storage-dotnet-how-to-use-files.md)
 * [Använda Azure Blob Storage med WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-
-[Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
-[Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
-[Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
-[Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
-[Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
-
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-[.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

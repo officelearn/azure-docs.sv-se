@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 03/22/2017
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: cf48dc816661fa3d61f831fb176aba048a6f5b58
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 91049ee124999269a326106cbd6fc211cc027d26
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -42,7 +42,7 @@ Följande operativsystemversioner stöds för utveckling:
 * Windows 10
 
 > [!NOTE]
-> Windows 7 innehåller bara Windows PowerShell 2.0 som standard. Service Fabric PowerShell-cmdletar kräver PowerShell 3.0 eller senare. Du kan [ladda ned Windows PowerShell 5.0] [ powershell5-download] från Microsoft Download Center.
+> Windows 7 innehåller bara Windows PowerShell 2.0 som standard. Service Fabric PowerShell-cmdletar kräver PowerShell 3.0 eller senare. Du kan [ladda ned Windows PowerShell 5.0][powershell5-download] från Microsoft Download Center.
 > 
 > 
 
@@ -70,9 +70,9 @@ Om du bara behöver SDK kan du installera det här paketet:
 > Vi ber om ursäkt för besväret. 
 
 De aktuella versionerna är:
-* Service Fabric SDK 2.4.164
-* Service Fabric runtime 5.4.164
-* Visual Studio 2015 tools 1.4.50124
+* Service Fabric SDK 2.5.216
+* Service Fabric Runtime 5.5.216
+* Visual Studio 2015 Tools 1.5.50311.1
 
 En lista över versioner som stöds finns i [Service Fabric-stöd](service-fabric-support.md)
 

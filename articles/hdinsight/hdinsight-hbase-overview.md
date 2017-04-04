@@ -10,16 +10,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 03/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 8b1d057ab533e5665513b5b5969b48e18a3ae40c
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 45fb85f83570ed7d79e70dc6fb8f0fdabb7ea191
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -35,6 +36,11 @@ HDInsight-implementeringen utnyttjar HBase skalbara arkitektur för att tillhand
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>Hur hanteras data i HDInsight HBase?
 Data kan hanteras i HBase med hjälp av kommandona `create`, `get`, `put` och `scan` i HBase-gränssnittet. Data skrivs till databasen med hjälp av `put` och läses med hjälp av `get`. Kommandot `scan` används till att hämta data från flera rader i en tabell. Data kan också hanteras med HBase C#-API. Det ger ett klientbibliotek utöver HBase REST-API. En HBase-databas kan också efterfrågas med hjälp av Hive. En introduktion till dessa programmeringsmodeller finns i [Komma igång med Hadoop i HDInsight HBase][hbase-get-started]. Det finns också coprocessorer för databehandling i de noder som är värdar för databasen.
+
+>
+> [!NOTE]
+> Thrift stöds inte av HBase i HDInsight.
+>
 
 ## <a name="scenarios-use-cases-for-hbase"></a>Scenarier: Användningsfall för HBase
 BigTable (och HBase via tillägg) skapades framförallt för webbsökning. Sökmotorer skapar index som mappar termer till de webbsidor som innehåller dem. Men HBase passar också för många andra användningsområden och du hittar många av dem i det här avsnittet.

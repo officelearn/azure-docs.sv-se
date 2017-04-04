@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera ett ”Kör som”-konto i Azure | Microsoft Docs"
-description: "Självstudie som steg för steg beskriver hur du skapar, testar och använder autentisering med säkerhetsobjekt i Azure Automation."
+title: "Konfigurera ett Kör som-konto i Azure | Microsoft Docs"
+description: "Den här självstudien beskriver steg för steg hur du skapar, testar och använder autentisering med säkerhetsobjekt i Azure Automation."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -16,189 +16,272 @@ ms.topic: get-started-article
 ms.date: 03/27/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 6f2a3880c6cd307282020a689ddd4e22a95c17b0
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
+ms.lasthandoff: 03/28/2017
 
 
 ---
-# <a name="authenticate-runbooks-with-azure-run-as-account"></a>Autentisera runbooks med ett ”Kör som”-konto i Azure
-Det här avsnittet beskriver hur du konfigurerar ett Automation-konto från Azure Portal med funktionen Kör som-konto för att autentisera runbooks som hanterar resurser i Azure Resource Manager eller Azure Service Management.
 
-När du skapar ett nytt Automation-konto på Azure-portalen skapas automatiskt:
+# <a name="authenticate-runbooks-with-an-azure-run-as-account"></a>Autentisera runbookflöden med ett Kör som-konto i Azure
+Den här artikeln beskriver hur du konfigurerar ett Azure Automation-konto på Azure Portal. Du gör detta genom att använda funktionen Kör som-konto för att autentisera runbookflöden som hanterar resurser i Azure Resource Manager eller Azure Service Management.
 
-* Kör som-kontot. Det här kontot skapar ett nytt namn för tjänstobjektet i Azure Active Directory, ett certifikat, och tilldelar rollbaserad åtkomstkontroll (RBAC) för rollen Deltagare. Rollbaserad åtkomstkontroll används för att hantera Resource Manager-resurser med hjälp av runbooks.   
-* Ett klassiskt Kör som-konto. Det här kontot skapas genom uppladdningen av ett hanteringscertifikat, som används för att hantera Azure Service Management eller klassiska resurser med hjälp av runbooks.  
+När du skapar ett Automation-konto på Azure Portal skapar du automatiskt två konton:
 
-Detta gör processen enklare för dig och hjälper dig att snabbt börja skapa och distribuera runbooks för dina automatiseringsbehov.      
+* Ett Kör som-konto. Det här kontot skapar ett tjänstobjekt i Azure Active Directory (AD Azure) och ett certifikat. Det tilldelar också den rollbaserade åtkomstkontrollen (RBAC) för deltagare, som hanterar Resource Manager-resurser med hjälp av runbookflöden.
+* Ett klassiskt Kör som-konto. Det här kontot överför ett hanteringscertifikat som används för att hantera Service Management-resurser eller klassiska resurser med hjälp av runbookflöden.
 
-Med ett Kör som-konto eller ett klassiskt Kör som-konto kan du:
+Genom att skapa ett Automation-konto kan du underlätta processen och snabbt börja skapa och distribuera runbookflöden för dina automatiseringsbehov.
 
-* Tillhandahålla en standardiserad metod för att autentisera med Azure när du hanterar Azure Resource Manager- eller Azure Service Management-resurser från runbooks på Azure-portalen.  
-* Automatisera användningen av globala runbooks som konfigurerats i Azure Alerts.
+Med Kör som-konton och klassiska Kör som-konton kan du:
+
+* Tillhandahålla en standardiserad metod för att autentisera med Azure när du hanterar Resource Manager- eller Service Management-resurser från runbookflöden på Azure Portal.
+* Automatisera användningen av globala runbook som du kan konfigurera i Azure Alerts.
 
 > [!NOTE]
-> [Azure Alerts-integreringsfunktionen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) med Automation Global Runbooks kräver ett Automation-konto som konfigurerats med ett Kör som-konto och ett klassiskt Kör som-konto. Du kan välja ett Automation-konto som redan har ett definierat Kör som-konto och klassiskt Kör som-konto, eller så kan du välja att skapa ett nytt.
+> För [integreringsfunktionen för Azure-aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) med globala Automation-runbookflöden krävs ett Automation-konto som konfigurerats med ett Kör som-konto och ett klassiskt Kör som-konto. Du kan välja ett Automation-konto som redan har definierade Kör som-konton och klassiska Kör som-konton eller välja att skapa ett nytt Automation-konto.
 >  
 
-Vi visar hur du skapar Automation-kontot från Azure Portal, hur du uppdaterar ett Automation-konto med hjälp av PowerShell, hur du hanterar kontokonfigurationen och hur du autentiserar i dina runbooks.
+Den här artikeln beskriver hur du skapar ett Automation-konto från Azure Portal, hur du uppdaterar ett Automation-konto med hjälp av Azure PowerShell, hur hanterar kontokonfigurationen samt hur du autentiserar i dina runbookflöden.
 
-Innan vi gör det finns det dock några saker som det är viktigt att du förstår och tänker på.
+Innan du skapar ett Automation-konto är det viktigt att du förstår och tänker på följande:
 
-1. Detta påverkar inte befintliga Automation-konton som redan har skapats i den klassiska distributionsmodellen eller Resource Manager-distributionsmodellen.  
-2. Detta fungerar endast för Automation-konton som skapats via Azure-portalen.  Om du försöker skapa ett konto från den klassiska portalen så replikeras inte Kör som-kontokonfigurationen.
-3. Om du för närvarande har runbooks och tillgångar (t.ex. scheman och variabler) som tidigare har skapats för att hantera klassiska resurser och du vill använda dessa runbooks för att autentisera med det nya klassiska Kör som-kontot, måste du skapa ett klassiskt Kör som-konto med Managing an Run As Account 
-(Hantera ett Kör som-konto) eller uppdatera ditt befintliga konto med hjälp av PowerShell-skriptet nedan.  
-4. För att autentisera med det nya Kör som-kontot och det klassiska Kör som-kontot för Automation måste du ändra dina befintliga runbooks med hjälp av exempelkoden nedan.  **Observera** att Kör som-kontot är avsett för verifiering mot Resource Manager-resurser med hjälp av det certifikatbaserade tjänstobjektnamnet, medan det klassiska Kör som-kontot används för att autentisera mot Service Management-resurser med hanteringscertifikatet.     
+* Nya Automation-konton som du skapar påverkar inte Automation-konton som du redan har skapat i den klassiska distributionsmodellen eller i Resource Manager-distributionsmodellen.
+* Processen fungerar endast för Automation-konton som du skapar på Azure Portal. Om du försöker skapa ett konto från den klassiska Azure-portalen så replikeras inte Kör som-kontokonfigurationen.
+* Om du redan har runbookflöden och tillgångar (till exempel scheman eller variabler) för att hantera klassiska resurser och du vill att dina runbookflöden ska autentisera med det nya klassiska Kör som-kontot, gör du något av följande:
 
-## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Skapa ett nytt Automation-konto från Azure Portal
-I det här avsnittet ska du utföra följande steg för att skapa ett nytt Azure Automation-konto från Azure-portalen.  När du följer stegen skapas både Kör som-kontot och det klassiska Kör som-kontot.  
+  * Om du vill skapa ett klassiskt Kör som-konto följer du anvisningarna i avsnittet ”Hantera ett Kör som-konto”. 
+  * Om du vill uppdatera ett befintligt konto använder du PowerShell-skriptet i avsnittet ”Uppdatera ett Automation-konto med hjälp av PowerShell”.
+* För att autentisera med det nya Kör som-kontot och det klassiska Kör som-kontot för Automation måste du ändra dina befintliga runbookflöden med hjälp av exempelkoden i avsnittet [Exempel på autentiseringskod](#authentication-code-examples).
 
-> [!NOTE]
-> Användaren som utför de här stegen måste vara medlem i rollen Tjänstadministratörer eller medadministratör för prenumerationen som beviljar åtkomst till prenumerationen för användaren. Användaren måste också läggas till som en användare i prenumerationens förvalda Active Directory. Kontot behöver inte tilldelas till en privilegierad roll. Användare som inte är medlemmar i prenumerationens Active Directory innan de läggs till i rollen Medadministratör för prenumerationen, läggs till i Active Directory som gäst och ser "Du har inte behörighet att skapa..." varningen i **Lägg till Automation-konto**-bladet. Användare som har lagts till i rollen medadministratör först, kan tas bort från prenumerationens Active Directory och läggas till igen för att göra dem till fullständiga användare i Active Directory. Den här situationen kan verifieras från rutan **Azure Active Directory** i Azure-portalen genom att välja **Användare och grupper**, välja **Alla användare** och när du har valt den specifika användaren, väljer du **Profilen**.  Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.  
-> 
+    >[!NOTE]
+    >Kör som-kontot används för autentisering mot Resource Manager-resurser med hjälp av det certifikatbaserade tjänstobjektet. Det klassisk Kör som-kontot används för att autentisera mot Service Management-resurser med ett hanteringscertifikat.
 
-1. Logga in på Azure Portal med ett konto som är medlem i rollen Prenumerationsadministratörer och som är medadministratör för prenumerationen.
+## <a name="create-an-automation-account-from-the-azure-portal"></a>Skapa ett Automation-konto från Azure Portal
+I det här avsnittet skapar du ett Azure Automation-konto från Azure Portal, vilket i sin tur skapar både ett Kör som-konto och ett klassiskt Kör som-konto.
+
+>[!NOTE]
+>För att kunna skapa ett Automation-konto måste du vara medlem i rollen Tjänstadministratörer eller vara medadministratör för den prenumeration som ger åtkomst till prenumerationen. Du måste också läggas till som användare i prenumerationens Active Directory-standardinstans. Kontot behöver inte tilldelas en privilegierad roll.
+>
+>Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till i rollen som medadministratör för prenumerationen, läggs du till i Active Directory som gäst. I detta fall visas varningen ”Du har inte behörighet att skapa ...” på bladet **Lägg till Automation-konto**.
+>
+>Användare som har lagts till i rollen som medadministratör kan först tas bort från prenumerationens Active Directory-instans och sedan läggas till igen så att de blir fullständiga användare i Active Directory. Du kan kontrollera detta i rutan **Azure Active Directory** på Azure Portal genom att välja **Användare och grupper**, välja **Alla användare**, välja den specifika användaren och sedan välja **Profil**. Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.
+>
+
+1. Logga in på Azure Portal med ett konto som är medlem i rollen för prenumerationsadministratörer och som är medadministratör för prenumerationen.
+
 2. Välj **Automation-konton**.
-3. Klicka på **Lägg till** på bladet Automation-konton.<br>![Lägga till ett Automation-konto](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
-   
+
+3. Klicka på **Lägg till** på bladet **Automation-konton**.
+Bladet **Lägg till Automation-konto** öppnas.
+
+ ![Bladet ”Lägg till Automation-konto”](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
+
    > [!NOTE]
-   > Om du ser i följande varning i bladet **Lägga till ett Automation-konto** beror det på att ditt konto inte är medlem i rollerna administratör eller medadministratör för prenumerationen.<br>![Varningsmeddelande för Lägga till ett Automation-konto](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
-   > 
-   > 
+   > Om ditt konto inte är medlem i rollen för prenumerationsadministratörer och medadministratör för prenumerationen visas följande varning på bladet **Lägg till Automation-konto**:
+   >
+   >![Varningsmeddelande för Lägg till Automation-konto](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
+   >
+   >
+
 4. På bladet **Lägg till Automation-konto** skriver du namnet på det nya Automation-kontot i rutan **Namn**.
-5. Om du har mer än en prenumeration anger du den prenumeration som du vill använda för det nya kontot, samt en ny eller befintlig **resursgrupp** och en **plats** för Azure-datacentret.
-6. Kontrollera att värdet **Ja** har valts för **Skapa Kör som-konto i Azure** och klicka på knappen **Skapa**.  
-   
+
+5. Om du har mer än en prenumeration gör du följande:
+
+    a. Under **Prenumeration** anger du en prenumeration för det nya kontot.
+
+    b. Under **Resursgrupp** klickar du på **Skapa ny** eller på **Använd befintlig**.
+
+    c. Under **Plats** anger du ett Azure-datacenter.
+
+6. Under **Skapa Kör som-konto i Azure** väljer du **Ja** och klickar sedan på **Skapa**.
+
    > [!NOTE]
-   > Om du väljer att inte skapa ”Kör som”-kontot genom att välja alternativet **Nej** visas ett varningsmeddelande på bladet **Lägg till Automation-konto**.  Kontot skapas på Azure-portalen, men har inte motsvarande autentiseringsidentitet i den klassiska prenumerationskatalogtjänsten eller Resource Manager-prenumerationskatalogtjänsten och har därför inte åtkomst till resurser i din prenumeration.  Det innebär att runbooks som refererar till det här kontot inte kan autentisera och utföra åtgärder mot resurser i dessa distributionsmodeller.
-   > 
-   > ![Varningsmeddelande för Lägga till ett Automation-konto](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)<br>
-   > Om tjänstobjektnamnet inte skapas tilldelas inte rollen Deltagare.
-   > 
+   > Om du väljer att inte skapa Kör som-kontot genom att välja **Nej** visas ett varningsmeddelande på bladet **Lägg till Automation-konto**. Även om kontot skapas på Azure Portal har det ingen motsvarande autentiseringsidentitet i katalogtjänsten för din klassiska prenumeration eller Resource Manager-prenumeration. Kontot har därför inte åtkomst till resurser i din prenumeration. Det här scenariot förhindrar att runbookflöden som refererar till det här kontot autentiseras och utför åtgärder mot resurser i dessa distributionsmodeller.
+   >
+   > ![Varningsmeddelande på bladet ”Lägg till Automation-konto”](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)
+   >
+   > Dessutom, eftersom tjänstobjektet inte skapas, så tilldelas inte rollen Deltagare.
+   >
 
 7. Medan Azure skapar Automation-kontot kan du följa förloppet under **Meddelanden** på menyn.
 
-### <a name="resources-included"></a>Resurser som ingår
-När Automation-kontot har skapats skapas flera resurser automatiskt.  I följande tabell sammanfattas resurserna för Kör som-kontot.<br>
+### <a name="resources"></a>Resurser
+När Automation-kontot har skapats skapas flera resurser automatiskt. Resurserna sammanfattas i följande två tabeller:
+
+#### <a name="run-as-account-resources"></a>Resurser för Kör som-konton
 
 | Resurs | Beskrivning |
 | --- | --- |
-| AzureAutomationTutorial-runbook |Ett exempel på en grafisk runbook som visar hur du autentiserar med hjälp av Kör som-kontot och hur du hämtar alla Resource Manager-resurser. |
-| AzureAutomationTutorialScript-runbook |Ett exempel på en PowerShell-runbook som visar hur du autentiserar med hjälp av Kör som-kontot och hur du hämtar alla Resource Manager-resurser. |
-| AzureRunAsCertificate |Certifikattillgång som skapas automatiskt när Automation-kontot genereras eller med hjälp av PowerShell-skriptet nedan för ett befintligt konto.  Den gör att du kan autentisera med Azure så att du kan hantera Azure Resource Manager-resurser från runbooks.  Det här certifikatet har en livslängd på ett år. |
-| AzureRunAsConnection |Anslutningstillgång som skapas automatiskt när Automation-kontot genereras eller med hjälp av PowerShell-skriptet nedan för ett befintligt konto. |
+| AzureAutomationTutorial-runbook | Ett exempel på en grafisk runbook som visar hur du autentiserar med hjälp av Kör som-kontot och hur du hämtar alla Resource Manager-resurser. |
+| AzureAutomationTutorialScript-runbook | Ett exempel på en PowerShell-runbook som visar hur du autentiserar med hjälp av Kör som-kontot och hur du hämtar alla Resource Manager-resurser. |
+| AzureRunAsCertificate | Certifikattillgången som skapas automatiskt när du skapar ett Automation-konto eller använder följande PowerShell-skript för ett befintligt konto. Certifikatet gör att du kan autentisera med Azure så att du kan hantera Azure Resource Manager-resurser från runbookflöden. Certifikatet har en livslängd på ett år. |
+| AzureRunAsConnection | Anslutningstillgången som skapas automatiskt när du skapar ett Automation-konto eller använder PowerShell-skriptet för ett befintligt konto. |
 
-I följande tabell sammanfattas resurserna för det klassiska Kör som-kontot.<br>
+#### <a name="classic-run-as-account-resources"></a>Resurser för klassiska Kör som-konton
 
 | Resurs | Beskrivning |
 | --- | --- |
-| AzureClassicAutomationTutorial-runbook |Ett exempel på en grafisk runbook som hämtar alla klassiska virtuella datorer i en prenumeration med hjälp av det klassiska Kör som-kontot (certifikat) och som sedan returnerar den virtuella datorns namn och status. |
-| AzureClassicAutomationTutorial Script-runbook |Ett exempel på en PowerShell-runbook som hämtar alla klassiska virtuella datorer i en prenumeration med hjälp av det klassiska Kör som-kontot (certifikat) och som sedan returnerar den virtuella datorns namn och status. |
-| AzureClassicRunAsCertificate |Certifikattillgång som skapas automatiskt och som används för att autentisera med Azure så att du kan hantera klassiska Azure-resurser från runbooks.  Det här certifikatet har en livslängd på ett år. |
-| AzureClassicRunAsConnection |Anslutningstillgång som skapas automatiskt och som används för att autentisera med Azure så att du kan hantera klassiska Azure-resurser från runbooks. |
+| AzureClassicAutomationTutorial-runbook | Ett exempel på en grafisk runbook som hämtar alla virtuella datorer som skapas med den klassiska distributionsmodellen i en prenumeration med hjälp av det klassiska Kör som-kontot (certifikat) och som sedan skriver namnet och statusen för de virtuella datorerna. |
+| AzureClassicAutomationTutorial Script-runbook | Ett exempel på en PowerShell-runbook som hämtar alla klassiska virtuella datorer i en prenumeration med hjälp av det klassiska Kör som-kontot (certifikat) och som sedan skriver namnet och statusen för de virtuella datorerna. |
+| AzureClassicRunAsCertificate | Certifikattillgången som skapas automatiskt och som du använder för att autentisera med Azure så att du kan hantera klassiska Azure-resurser från runbookflöden. Certifikatet har en livslängd på ett år. |
+| AzureClassicRunAsConnection | Anslutningstillgången som skapas automatiskt och som du använder för att autentisera med Azure så att du kan hantera klassiska Azure-resurser från runbookflöden. |
 
 ## <a name="verify-run-as-authentication"></a>Verifiera Kör som-autentisering
-Nu ska vi köra ett litet test för att bekräfta att du kan autentisera med det nya Kör som-kontot.     
+Utför ett litet test för att bekräfta att du kan autentisera med hjälp av det nya Kör som-kontot.
 
-1. Öppna Automation-kontot som du skapade tidigare på Azure Portal.  
-2. Öppna listan med runbooks genom att klicka på panelen **Runbooks**.
-3. Välj **AzureAutomationTutorialScript**-runbooken och klicka sedan på **Starta** för att starta runbooken.  Ett meddelande visas där du bekräftar att du vill starta runbooken.
-4. Ett [runbook-jobb](automation-runbook-execution.md) skapas, bladet för jobbet öppnas och jobbstatusen visas på panelen **Jobbsammanfattning**.  
-5. Jobbets första status är *I kö* vilket betyder att det väntar på att en Runbook Worker i molnet ska bli tillgänglig. Därefter ändras statusen till *Startar* när en Runbook Worker gör anspråk på jobbet, och sedan till *Körs* när runbook-jobbet börjar köras.  
-6. När runbook-jobbet har slutförts bör du se statusen **Slutfört**.<br> ![Runbook-test för säkerhetsobjekt](media/automation-sec-configure-azure-runas-account/job-summary-automationtutorialscript.png)<br>
-7. Om du vill visa ett detaljerat resultat av runbook-jobbet klickar du på panelen **Utdata**.
-8. På bladet **Utdata** bör du se att autentiseringen har lyckats samt en lista över alla tillgängliga resurser i resursgruppen.
-9. Stäng bladet **Utdata** och gå tillbaka till bladet **Jobbsammanfattning**.
-10. Stäng bladet **Jobbsammanfattning** och motsvarande blad för **AzureAutomationTutorialScript**-runbooken.
+1. Öppna Automation-kontot som du skapade tidigare på Azure Portal.
+
+2. Öppna listan med runbookflöden genom att klicka på panelen med **runbookflöden**.
+
+3. Välj **AzureAutomationTutorialScript**-runbooken och klicka sedan på **Starta** för att starta runbooken. Följande sker:
+ * Ett [runbook-jobb](automation-runbook-execution.md) skapas, bladet **Jobb** visas och jobbstatusen visas på panelen **Jobbsammanfattning**.
+ * Jobbets första status är **I kö** vilket betyder att det väntar på att en runbook-arbetsroll i molnet ska bli tillgänglig.
+ * Statusen ändras till **Startar** när ett arbetsobjekt begär jobbet.
+ * Statusen ändras till **Körs** när runbooken börjar köras.
+ * När runbook-jobbet har körts bör statusen vara **Slutfört**.
+
+       ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationtutorialscript.png)
+4. Om du vill visa ett detaljerat resultat av runbook-jobbet klickar du på panelen **Utdata**.  
+Bladet **Utdata** visas och anger att runbooken har autentiserats och returnerat en lista över alla tillgängliga resurser i resursgruppen.
+
+5. Stäng bladet **Utdata** och gå tillbaka till bladet **Jobbsammanfattning**.
+
+6. Stäng bladet **Jobbsammanfattning** och motsvarande blad för **AzureAutomationTutorialScript**-runbooken.
 
 ## <a name="verify-classic-run-as-authentication"></a>Verifiera klassisk Kör som-autentisering
-Nu ska vi köra ett litet test för att bekräfta att du kan autentisera med det nya klassiska Kör som-kontot.     
+Utför ett liknande litet test för att bekräfta att du kan autentisera med hjälp av det nya klassiska Kör som-kontot.
 
-1. Öppna Automation-kontot som du skapade tidigare på Azure Portal.  
-2. Öppna listan med runbooks genom att klicka på panelen **Runbooks**.
-3. Välj **AzureAutomationTutorialScript**-runbooken och klicka på **Starta** för att starta runbooken.  Ett meddelande visas där du bekräftar att du vill starta runbooken.
-4. Ett [runbook-jobb](automation-runbook-execution.md) skapas, bladet för jobbet öppnas och jobbstatusen visas på panelen **Jobbsammanfattning**.  
-5. Jobbets första status är *I kö* vilket betyder att det väntar på att en Runbook Worker i molnet ska bli tillgänglig. Därefter ändras statusen till *Startar* när en Runbook Worker gör anspråk på jobbet, och sedan till *Körs* när runbook-jobbet börjar köras.  
-6. När runbook-jobbet har slutförts bör du se statusen **Slutfört**.<br> ![Runbook-test för säkerhetsobjekt](media/automation-sec-configure-azure-runas-account/job-summary-automationclassictutorialscript.png)<br>
-7. Om du vill visa ett detaljerat resultat av runbook-jobbet klickar du på panelen **Utdata**.
-8. På bladet **Utdata** bör du se att autentiseringen har lyckats samt en lista över alla klassiska virtuella datorer i prenumerationen.
-9. Stäng bladet **Utdata** och gå tillbaka till bladet **Jobbsammanfattning**.
-10. Stäng bladet **Jobbsammanfattning** och motsvarande blad för **AzureClassicAutomationTutorialScript**-runbooken.
+1. Öppna Automation-kontot som du skapade tidigare på Azure Portal.
 
-## <a name="managing-azure-run-as-account"></a>Hantera Kör som-konto i Azure
-Under ditt Automation-kontos livslängd måste du förnya certifikatet innan det går ut. Om du tror att kontot har komprometterats kan du ta bort Kör som-kontot och återskapa det.  I det här avsnittet får du anvisningar om hur du utför sådana åtgärder.  
+2. Öppna listan med runbookflöden genom att klicka på panelen med **runbookflöden**.
+
+3. Välj **AzureAutomationTutorialScript**-runbooken och klicka på **Starta** för att starta runbooken. Följande sker:
+
+ * Ett [runbook-jobb](automation-runbook-execution.md) skapas, bladet **Jobb** visas och jobbstatusen visas på panelen **Jobbsammanfattning**.
+ * Jobbets första status är **I kö** vilket betyder att det väntar på att en runbook-arbetsroll i molnet ska bli tillgänglig.
+ * Statusen ändras till **Startar** när ett arbetsobjekt begär jobbet.
+ * Statusen ändras till **Körs** när runbooken börjar köras.
+ * När runbook-jobbet har körts bör statusen vara **Slutfört**.
+
+    ![Runbook-test för säkerhetsobjekt](media/automation-sec-configure-azure-runas-account/job-summary-automationclassictutorialscript.png)<br>
+4. Om du vill visa ett detaljerat resultat av runbook-jobbet klickar du på panelen **Utdata**.  
+Bladet **Utdata** visas och anger att runbooken har autentiserats och returnerat en lista över alla klassiska virtuella datorer i prenumerationen.
+
+5. Stäng bladet **Utdata** och gå tillbaka till bladet **Jobbsammanfattning**.
+
+6. Stäng bladet **Jobbsammanfattning** och motsvarande blad för **AzureAutomationTutorialScript**-runbooken.
+
+## <a name="managing-your-run-as-account"></a>Hantera ett Kör som-konto
+Någon gång innan Automation-kontot går ut måste du förnya certifikatet. Om du tror att ditt Kör som-konto har komprometterats kan du ta bort och återskapa det. Det här avsnittet beskriver hur du utför dessa åtgärder.
 
 ### <a name="self-signed-certificate-renewal"></a>Förnya självsignerade certifikat
-Det självsignerade certifikat som skapades för Kör som-kontot i Azure kan förnyas när som helst tills det upphör att gälla, vilket sker ett år från skapandedatum.  När du förnyar det behålls det gamla giltiga certifikatet för att se till att alla runbooks som köar eller körs aktivt, som autentiseras med Kör som-kontot, inte påverkas.  Det här certifikatet fortsätter att existera tills det upphör att gälla.    
+Det självsignerade certifikatet som du skapade för Kör som-kontot går ut ett år efter det datum då det skapades. Du kan förnya det när som helst innan det upphör att gälla. När du förnyar det behålls det aktuella giltiga certifikatet för att säkerställa att alla runbookflöden som placerats i kö eller som körs aktivt, och som autentiserar med Kör som-kontot, inte påverkas negativt. Certifikatet förblir giltigt fram till dess förfallodatum.
 
 > [!NOTE]
-> Om du har konfigurerat ditt Automation kör som-konto att använda ett certifikat utfärdat av din företagscertifikatutfärdare och du använder det här alternativet ersätts certifikatet av ett självsignerat certifikat.  
+> Om du har konfigurerat ditt Kör som-konto för Automation att använda ett certifikat som utfärdats av din företagscertifikatutfärdare och du använder det här alternativet, så ersätts företagscertifikatet av ett självsignerat certifikat.
 
-1. Öppna ditt Automation-konto på Azure Portal.  
-2. I rutan för kontoegenskaper på Automation-kontobladet väljer du **Kör som-konton** under avsnittet **Kontoinställningar**.<br><br> ![Rutan Egenskaper för Automation-konto](media/automation-sec-configure-azure-runas-account/automation-account-properties-pane.png)<br><br>
-3. På egenskapsbladet **Kör som-konton** väljer du antingen det Kör som-konto eller klassiska Kör som-konto som du vill förnya certifikatet för, och på egenskapsbladet för det valda kontot klickar du på **Förnya certifikat**.<br><br> ![Förnya certifikat för Kör som-konto](media/automation-sec-configure-azure-runas-account/automation-account-renew-runas-certificate.png)<br><br> Ett meddelande visas där du bekräftar att du vill fortsätta.  
-4. Medan certifikatet förnyas kan du följa förloppet under **Meddelanden** på menyn.
+Du förnyar certifikatet genom att göra följande:
 
-### <a name="delete-run-as-account"></a>Ta bort Kör som-konto
-I följande steg beskrivs hur du tar bort och återskapar ditt Azure Kör som- eller klassiska Kör som-konto.  När du utför den här åtgärden behålls Automation-kontot.  När du h ar tagit bort Kör som- eller det klassiska Kör som-kontot kan du skapa det i portalen.  
+1. Öppna ditt Automation-konto på Azure Portal.
 
-1. Öppna ditt Automation-konto på Azure Portal.  
-2. I rutan för kontoegenskaper på Automation-kontobladet väljer du **Kör som-konton** under avsnittet **Kontoinställningar**.
-3. På egenskapsbladet **Kör som-konton** väljer du antingen det Kör som-konto eller det klassiska Kör som-konto som du vill ta bort, och på egenskapsbladet för det valda kontot klickar du på **Ta bort**.<br><br> ![Ta bort Kör som-konto](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)<br><br>  Ett meddelande visas där du bekräftar att du vill fortsätta.
-4. Medan kontot tas bort kan du följa förloppet under **Meddelanden** på menyn.  När borttagningen är slutförd kan du återskapa det från egenskapsbladet **Kör som-konton** och välja skapandealternativet **Kör som-konto i Azure**.<br><br> ![Återskapa Automation Kör som-konto](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
+2. På bladet **Automation-konto** väljer du **Kör som-konton** under **Kontoinställningar** i rutan **Kontoegenskaper**.
+
+    ![Egenskapsrutan för Automation-konto](media/automation-sec-configure-azure-runas-account/automation-account-properties-pane.png)
+3. På egenskapsbladet för **Kör som-konton** väljer du antingen Kör som-kontot eller det klassiska Kör som-kontot som du vill förnya certifikatet för.
+
+4. På bladet **Egenskaper** för det valda kontot klickar du på **Förnya certifikat**.
+
+    ![Förnya certifikat för Kör som-konto](media/automation-sec-configure-azure-runas-account/automation-account-renew-runas-certificate.png)
+
+5. Medan certifikatet förnyas kan du följa förloppet under **Meddelanden** på menyn.
+
+### <a name="delete-a-run-as-or-classic-run-as-account"></a>Ta bort ett Kör som-konto eller ett klassiskt Kör som-konto
+Det här avsnittet beskriver hur du tar bort och sedan återskapar ett Kör som-konto eller ett klassiskt Kör som-konto. När du utför den här åtgärden behålls Automation-kontot. När du har tagit bort ett Kör som-konto eller ett klassiskt Kör som-konto kan du återskapa det på Azure Portal.
+
+1. Öppna ditt Automation-konto på Azure Portal.
+
+2. På bladet **Automation-konto** väljer du **Kör som-konton** i rutan för kontoegenskaper.
+
+3. På egenskapsbladet för **Kör som-konton** väljer du antingen Kör som-kontot eller det klassiska Kör som-kontot som du vill ta bort. Klicka på **Ta bort** på bladet **Egenskaper** för det valda kontot.
+
+ ![Ta bort Kör som-konto](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)
+
+4. Medan kontot tas bort kan du följa förloppet under **Meddelanden** på menyn.
+
+5. När kontot har tagits bort måste du återskapa det på egenskapsbladet för **Kör som-konton** genom att välja alternativet Skapa för **Kör som-konto i Azure**.
+
+ ![Återskapa Kör som-kontot för Automation](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)
 
 ### <a name="misconfiguration"></a>Felaktig konfiguration
-Om några av konfigurationsobjekten som behövs för att Kör som-kontot eller det klassiska Kör som-kontot ska fungera ordentligt tas bort eller inte skapades på rätt sätt under den första konfigurationen, som:
+Vissa konfigurationsobjekt som krävs för att Kör som-kontot eller det klassiska Kör som-kontot ska fungera kanske har tagits bort eller kanske inte skapades korrekt under den ursprungliga konfigurationen. Exempel på dessa objekt är:
 
-* Certifikattillgång 
-* Anslutningstillgång 
+* Certifikattillgång
+* Anslutningstillgång
 * Kör som-konto har tagits bort från deltagarrollen
 * Huvudnamn för tjänsten eller program i Azure AD
 
-Automation identifierar ändringarna och meddelar dig med statusen **Ofullständig** i egenskapsbladet **Kör som-konton** för kontot.<br><br> ![Statusmeddelande om ofullständig kör som-konfiguration](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config.png)<br><br>När du väljer Kör som-kontot visas följande felmeddelande i kontots egenskapspanel:<br><br> ![Varningsmeddelande om ofullständig kör som-konfiguration](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config-msg.png).<br>  
-Om kör som-kontot är felkonfigurerat kan du snabbt lösa detta genom att ta bort och återskapa kör som-kontot.   
+I den föregående instansen och andra instanser av felaktiga konfigurationer identifierar Automation-kontot ändringarna och visar statusen *Ofullständig* på egenskapsbladet för **Kör som-konton** för kontot.
 
-## <a name="update-an-automation-account-using-powershell"></a>Uppdatera ett Automation-konto med hjälp av PowerShell
-Här har du möjlighet att använda PowerShell för att uppdatera ett befintligt Automation-konto om:
+![Konfigurationsstatusen Ofullständig för Kör som-konto](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config.png)
 
-1. Du har skapat ett Automation-konto, men avböjde att skapa Kör som-kontot. 
-2. Du redan har ett Automation-konto för att hantera Resource Manager-resurser och du vill uppdatera det med ett Kör som-konto för runbook-autentisering.
-4. Du redan har ett Automation-konto för att hantera klassiska resurser och du vill uppdatera det för att använda det klassiska Kör som-kontot i stället för att skapa ett nytt konto och migrera dina runbooks och resurser till det.   
-5. Du vill skapa ett Azure kör som-konto och klassiskt kör som-konto med ett certifikat utfärdat av företagscertifikatutfärdaren
+När du väljer Kör som-kontot visas följande felmeddelande i rutan **Egenskaper** för kontot:
 
-Det här skriptet har följande förutsättningar:
+![Varningsmeddelande om ofullständig konfiguration av Kör som-konto](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config-msg.png).
 
-1. Skriptet stöder endast körning på Windows 10 och Windows Server 2016 med Azure Resource Manager-modul 2.01 och högre installerad.  Det stöds inte i tidigare versioner av Windows.  
-2. Azure PowerShell 1.0 och högre. Information om den här versionen och hur du installerar den finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
-3. Du har skapat ett Automation-konto.  Skriptet nedan refererar till det här kontot som värdet för parametrarna -AutomationAccountName och -ApplicationDisplayName.
+Du kan snabbt lösa dessa problem med Kör som-kontot genom att ta bort och återskapa kontot.
 
-Hämta värdena för *SubscriptionID*, *ResourceGroup* och *AutomationAccountName*, som är obligatoriska parametrar för skripten, genom att först välja ditt Automation-konto på Azure-portalen från bladet **Automation-konto** och sedan välja **Alla inställningar**.  Från bladet **Alla inställningar** väljer du **Egenskaper** under **Kontoinställningar**.  Notera dessa värden i bladet **Egenskaper**.<br><br> ![Egenskaper för Automation-konto](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+## <a name="update-your-automation-account-by-using-powershell"></a>Uppdatera Automation-kontot med hjälp av PowerShell
+Du kan använda PowerShell för att uppdatera ett befintligt Automation-konto om:
 
-### <a name="create-run-as-account-powershell-script"></a>Skapa PowerShell-skript för ett Kör som-konto
-Det här PowerShell-skriptet har stöd för följande konfigurationer: 
+* Du skapar ett Automation-konto men väljer att inte skapa Kör som-kontot.
+* Du redan har ett Automation-konto för att hantera Resource Manager-resurser och du vill uppdatera det med ett Kör som-konto för runbook-autentisering.
+* Du redan hanterar klassiska resurser med hjälp av ett Automation-konto och du vill uppdatera det och använda det klassiska Kör som-kontot i stället för att skapa ett nytt konto och migrera dina runbookflöden och tillgångar till det.   
+* Du vill skapa ett Kör som-konto och ett klassiskt Kör som-konto genom att använda ett certifikat utfärdat av en företagscertifikatutfärdare (CA).
 
-* Skapa Azure Kör som-konto med självsignerat certifikat
-* Skapa Azure Kör som-konto och Azure klassiskt kör som-konto med självsignerade certifikat
-* Skapa Azure kör som-konto och Azure klassiskt kör som-konto med hjälp av Enterprise-certifikat
-* Skapa Kör som-konto och klassiskt Kör som-konto i Azure med självsignerat certifikat i Azure Government-moln
+Skriptet har följande krav:
 
-Följande skapas beroende på vilka konfigurationsalternativ du väljer:
+* Skriptet kan endast köras i Windows 10 och Windows Server 2016 med Azure Resource Manager-moduler med version 2.01 och senare. Det stöds inte i tidigare versioner av Windows.
+* Azure PowerShell 1.0 och senare. Information om PowerShell 1.0-versionen finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Ett Automation-konto, som refereras som värdet för *-AutomationAccountName*- och *-ApplicationDisplayName*-parametrarna i följande PowerShell-skript.
 
-* Ett Azure AD-program som ska exporteras med den offentliga nyckeln för antingen det självsignerade certifikatet eller företagscertifikatet skapar ett tjänsthuvudnamnskonto för programmet i Azure AD och tilldelar rollen Deltagare (du kan ändra rollen till Ägare eller en annan roll) för kontot i din aktuella prenumeration.  Mer information finns i artikeln [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).
-* En Automation-certifikattillgång på det angivna Automation-kontot med namnet **AzureRunAsCertificate**, som innehåller den privata certifikatnyckel som används av Azure AD-programmet.
-* En Automation-anslutningstillgång i det angivna Automation-kontot med namnet **AzureRunAsConnection**, där applicationId, tenantId, subscriptionId och tumavtryck för certifikat lagras.    
+Du hämtar värdena för *SubscriptionID*, *ResourceGroup* och *AutomationAccountName*, som är obligatoriska parametrar för skripten, genom att göra följande:
+1. På Azure Portal väljer du ditt Automation-konto på bladet **Automation-konto** och väljer sedan **Alla inställningar**. 
+2. På bladet **Alla inställningar** väljer du **Egenskaper** under **Kontoinställningar**. 
+3. Notera värdena på bladet **Egenskaper**.
 
-För klassiskt Kör som-konto:
+ ![Bladet Egenskaper för Automation-kontot](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
-* En Automation-certifikatstillgång på det angivna Automation-kontot med namnet **AzureClassicRunAsCertificate**, som innehåller den privata nyckeln till det certifikat som används av hanteringscertifikatet.  
-* En Automation-anslutningstillgång i det angivna Automation-kontot med namnet **AzureClassicRunAsConnection**, som innehåller prenumerationens namn, prenumerations-ID:t och certifikattillgångens namn.
+### <a name="create-a-run-as-account-powershell-script"></a>Skapa ett PowerShell-skript för ett Kör som-konto
+Det här PowerShell-skriptet har stöd för följande konfigurationer:
 
-Om du väljer alternativet för att skapa ett klassiskt kör som-konto måste du efter skriptexekveringen överföra det offentliga certifikatet (.cer-format) till hanteringsarkivet för den prenumeration som Automation-kontot skapades i. Stegen nedan beskriver hur du kör skriptet och laddar upp certifikatet.    
+* Skapa ett Kör som-konto med hjälp av ett självsignerat certifikat.
+* Skapa ett Kör som-konto och ett klassiska Kör som-konto med hjälp av ett självsignerat certifikat.
+* Skapa ett Kör som-konto och ett klassiskt Kör som-konto med hjälp av ett företagscertifikat.
+* Skapa ett Kör som-konto och ett klassiskt Kör som-konto med hjälp av ett självsignerat certifikat i Azure Government-molnet.
 
-1. Spara följande skript på datorn.  I det här exemplet sparar du det med filnamnet **New-RunAsAccount.ps1**.  
-   
-         #Requires -RunAsAdministrator
+Skriptet skapar följande objekt, beroende på de konfigurationsalternativ som du väljer.
+
+**För Kör som-konton:**
+
+* Skapar ett Azure AD-program som ska exporteras med det självsignerade certifikatets eller företagscertifikatets offentliga nyckel, skapar ett tjänstobjektskonto för programmet i Azure AD och tilldelar rollen Deltagare för kontot i din aktuella prenumeration. Du kan ändra den här inställningen till Ägare eller en annan roll. Mer information finns i [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).
+* Skapar en Automation-certifikattillgång med namnet *AzureRunAsCertificate* i det angivna Automation-kontot. Certifikattillgången innehåller certifikatets privata nyckel som används av Azure AD-programmet.
+* Skapar en Automation-anslutningstillgång med namnet *AzureRunAsConnection* i det angivna Automation-kontot. Anslutningstillgången innehåller applicationId, tenantId, subscriptionId och certifikatets tumavtryck.
+
+**För klassiska Kör som-konton:**
+
+* Skapar en Automation-certifikattillgång med namnet *AzureClassicRunAsCertificate* i det angivna Automation-kontot. Certifikattillgången innehåller den privata nyckelns certifikat som används av hanteringscertifikatet.
+* Skapar en Automation-anslutningstillgång med namnet *AzureClassicRunAsConnection* i det angivna Automation-kontot. Anslutningstillgången innehåller prenumerationsnamnet, subscriptionId och certifikattillgångens namn.
+
+>[!NOTE]
+> Om du väljer något av alternativen för att skapa ett klassiskt Kör som-konto laddar du upp det offentliga certifikatet (filnamnstillägget .cer) när skriptet har körts till hanteringsarkivet för den prenumeration som Automation-kontot skapades i.
+> 
+
+Så här kör du skriptet och laddar upp certifikatet:
+
+1. Spara följande skript på datorn. I det här exemplet sparar du det med filnamnet *New-RunAsAccount.ps1*.
+
+        #Requires -RunAsAdministrator
          Param (
         [Parameter(Mandatory=$true)]
         [String] $ResourceGroup,
@@ -217,7 +300,7 @@ Om du väljer alternativet för att skapa ett klassiskt kör som-konto måste du
 
         [Parameter(Mandatory=$true)]
         [String] $SelfSignedCertPlainPassword,
- 
+
         [Parameter(Mandatory=$false)]
         [String] $EnterpriseCertPathForRunAsAccount,
 
@@ -238,7 +321,7 @@ Om du väljer alternativet för att skapa ett klassiskt kör som-konto måste du
         [int] $SelfSignedCertNoOfMonthsUntilExpired = 12
         )
 
-        function CreateSelfSignedCertificate([string] $keyVaultName, [string] $certificateName, [string] $selfSignedCertPlainPassword, 
+        function CreateSelfSignedCertificate([string] $keyVaultName, [string] $certificateName, [string] $selfSignedCertPlainPassword,
                                       [string] $certPath, [string] $certPathCer, [string] $selfSignedCertNoOfMonthsUntilExpired ) {
         $Cert = New-SelfSignedCertificate -DnsName $certificateName -CertStoreLocation cert:\LocalMachine\My `
            -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
@@ -246,13 +329,13 @@ Om du väljer alternativet för att skapa ett klassiskt kör som-konto måste du
 
         $CertPassword = ConvertTo-SecureString $selfSignedCertPlainPassword -AsPlainText -Force
         Export-PfxCertificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPath -Password $CertPassword -Force | Write-Verbose
-        Export-Certificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPathCer -Type CERT | Write-Verbose 
+        Export-Certificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $certPathCer -Type CERT | Write-Verbose
         }
 
         function CreateServicePrincipal([System.Security.Cryptography.X509Certificates.X509Certificate2] $PfxCert, [string] $applicationDisplayName) {  
         $CurrentDate = Get-Date
         $keyValue = [System.Convert]::ToBase64String($PfxCert.GetRawCertData())
-        $KeyId = (New-Guid).Guid 
+        $KeyId = (New-Guid).Guid
 
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
@@ -260,12 +343,12 @@ Om du väljer alternativet för att skapa ett klassiskt kör som-konto måste du
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
 
-        # Use Key credentials and create AAD Application
+        # Use key credentials and create an Azure AD application
         $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $applicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $KeyCredential
-        $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+        $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId
         $GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
-   
-        # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+
+        # Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)
         Sleep -s 15
         $NewRole = New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
         $Retries = 0;
@@ -287,7 +370,7 @@ Om du väljer alternativet för att skapa ett klassiskt kör som-konto måste du
 
         function CreateAutomationConnectionAsset ([string] $resourceGroup, [string] $automationAccountName, [string] $connectionAssetName, [string] $connectionTypeName, [System.Collections.Hashtable] $connectionFieldValues ) {
         Remove-AzureRmAutomationConnection -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName -Name $connectionAssetName -Force -ErrorAction SilentlyContinue
-        New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $automationAccountName -Name $connectionAssetName -ConnectionTypeName $connectionTypeName -ConnectionFieldValues $connectionFieldValues 
+        New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $automationAccountName -Name $connectionAssetName -ConnectionTypeName $connectionTypeName -ConnectionFieldValues $connectionFieldValues
         }
 
         Import-Module AzureRM.Profile
@@ -299,15 +382,15 @@ Om du väljer alternativet för att skapa ett klassiskt kör som-konto måste du
            Write-Error -Message "Please install the latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
            return
         }
- 
+
         Login-AzureRmAccount -EnvironmentName $EnvironmentName
         $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
-        # Create Run As Account using Service Principal
+        # Create a Run As account by using a service principal
         $CertifcateAssetName = "AzureRunAsCertificate"
         $ConnectionAssetName = "AzureRunAsConnection"
         $ConnectionTypeName = "AzureServicePrincipal"
- 
+
         if ($EnterpriseCertPathForRunAsAccount -and $EnterpriseCertPlainPasswordForRunAsAccount) {
         $PfxCertPathForRunAsAccount = $EnterpriseCertPathForRunAsAccount
         $PfxCertPlainPasswordForRunAsAccount = $EnterpriseCertPlainPasswordForRunAsAccount
@@ -316,34 +399,35 @@ Om du väljer alternativet för att skapa ett klassiskt kör som-konto måste du
           $PfxCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".pfx")
           $PfxCertPlainPasswordForRunAsAccount = $SelfSignedCertPlainPassword
           $CerCertPathForRunAsAccount = Join-Path $env:TEMP ($CertificateName + ".cer")
-          CreateSelfSignedCertificate $KeyVaultName $CertificateName $PfxCertPlainPasswordForRunAsAccount $PfxCertPathForRunAsAccount $CerCertPathForRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired 
+          CreateSelfSignedCertificate $KeyVaultName $CertificateName $PfxCertPlainPasswordForRunAsAccount $PfxCertPathForRunAsAccount $CerCertPathForRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
         }
 
-        # Create Service Principal
+        # Create a service principal
         $PfxCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($PfxCertPathForRunAsAccount, $PfxCertPlainPasswordForRunAsAccount)
         $ApplicationId=CreateServicePrincipal $PfxCert $ApplicationDisplayName
 
-        # Create the automation certificate asset
+        # Create the Automation certificate asset
         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $CertifcateAssetName $PfxCertPathForRunAsAccount $PfxCertPlainPasswordForRunAsAccount $true
 
         # Populate the ConnectionFieldValues
         $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
-        $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId} 
+        $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
 
-        # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues  
 
-        if ($CreateClassicRunAsAccount) {  
-            # Create Run As Account using Service Principal
+        # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
+        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
+
+        if ($CreateClassicRunAsAccount) {
+            # Create a Run As account by using a service principal
             $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
             $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
             $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
             $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
                     "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
-                    "Then click Upload and upload the .cer format of #CERT#" 
- 
+                    "Then click Upload and upload the .cer format of #CERT#"
+
              if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
              $PfxCertPathForClassicRunAsAccount = $EnterpriseCertPathForClassicRunAsAccount
              $PfxCertPlainPasswordForClassicRunAsAccount = $EnterpriseCertPlainPasswordForClassicRunAsAccount
@@ -354,46 +438,52 @@ Om du väljer alternativet för att skapa ett klassiskt kör som-konto måste du
              $PfxCertPlainPasswordForClassicRunAsAccount = $SelfSignedCertPlainPassword
              $CerCertPathForClassicRunAsAccount = Join-Path $env:TEMP ($ClassicRunAsAccountCertificateName + ".cer")
              $UploadMessage = $UploadMessage.Replace("#CERT#", $CerCertPathForClassicRunAsAccount)
-             CreateSelfSignedCertificate $KeyVaultName $ClassicRunAsAccountCertificateName $PfxCertPlainPasswordForClassicRunAsAccount $PfxCertPathForClassicRunAsAccount $CerCertPathForClassicRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired 
+             CreateSelfSignedCertificate $KeyVaultName $ClassicRunAsAccountCertificateName $PfxCertPlainPasswordForClassicRunAsAccount $PfxCertPathForClassicRunAsAccount $CerCertPathForClassicRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
         }
 
-        # Create the automation certificate asset
+        # Create the Automation certificate asset
         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
 
         # Populate the ConnectionFieldValues
         $SubscriptionName = $subscription.Subscription.SubscriptionName
         $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
 
-        # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
+        # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountConnectionAssetName $ClassicRunAsAccountConnectionTypeName $ClassicRunAsAccountConnectionFieldValues
 
         Write-Host -ForegroundColor red $UploadMessage
         }
 
-2. Starta **Windows PowerShell** från **startskärmen** med utökade användarrättigheter.
-3. Från det upphöjda PowerShell-kommandoradsgränssnittet navigerar du till mappen som innehåller skriptet som du skapade i steg 1 och kör skriptinställningen med de obligatoriska parametervärdena baserat på konfigurationen som du behöver.  
+2. Klicka på **Start** på datorn och starta sedan **Windows PowerShell** med utökade användarrättigheter.
 
-    **Skapa Kör som-konto för Azure med ett självsignerat certifikat**  
-    `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false` 
+3. Från det upphöjda PowerShell-kommandoradsgränssnittet går du till mappen som innehåller skriptet som du skapade i steg 1.
 
-    **Skapa Azures kör som-konto och Azures klassiska kör som-konto med självsignerade certifikat**  
+4. Kör skriptet genom att använda de parametervärden för konfigurationen som du behöver.
+
+    **Skapa ett Kör som-konto med hjälp av ett självsignerat certifikat**  
+    `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false`
+
+    **Skapa ett Kör som-konto och ett klassiska Kör som-konto med hjälp av ett självsignerat certifikat**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true`
 
-    **Skapa Azures kör som-konto och Azure klassiska kör som-konto med hjälp av företagscertifikat**  
+    **Skapa ett Kör som-konto och ett klassiskt Kör som-konto med hjälp av ett företagscertifikat**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>`
 
-    **Skapa Azures kör som-konto och klassiskt Azure kör som-konto med självsignerade certifikat i Azure Government-moln**  
+    **Skapa ett Kör som-konto och ett klassiskt Kör som-konto med hjälp av ett självsignerat certifikat i Azure Government-molnet**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment`
- 
-    > [!NOTE]
-    > Du uppmanas att autentisera med Azure när du kör skriptet. Du måste logga in med ett konto som är medlem i rollen Prenumerationsadministratörer och som är medadministratör för prenumerationen.
-    > 
-    > 
 
-När skriptet har slutförts: om du skapade ett klassiskt kör som-konto med ett självsignerat offentligt certifikat (.cer-format) skapar och sparar skriptet det i mappen för temporära filer på din dator under den användarprofil som användes för att köra PowerShell session - *%USERPROFILE%\AppData\Local\Temp* eller om du skapade ett klassiskt kör som-konto med ett offentligt certifikat för företaget (.cer-format) måste du använda det här certifikatet.  Följ anvisningarna för att [ladda upp ett API-hanteringscertifikat](../azure-api-management-certs.md) till den klassiska Azure-portalen och gå sedan till [exempelkoden](#sample-code-to-authenticate-with-service-management-resources) för att validera konfigurationen av autentiseringsuppgifterna med Service Management-resurser.  Om du inte har skapat ett klassiskt Kör som-konto, se [exempelkoden](#sample-code-to-authenticate-with-resource-manager-resources) nedan för att autentisera med Resource Manager-resurser och validera konfigurationen av autentiseringsuppgifterna.
+    > [!NOTE]
+    > När skriptet har körts uppmanas du att autentisera med Azure. Logga in med ett konto som är medlem i rollen för prenumerationsadministratörer och som är medadministratör för prenumerationen.
+    >
+    >
+
+Notera följande när skriptet har körts:
+* Om du skapade ett klassiskt Kör som-konto med ett självsignerat offentligt certifikat (CER-fil) skapas och sparas det av skriptet i mappen för tillfälliga filer på datorn under användarprofilen *%USERPROFILE%\AppData\Local\Temp*, som du använde för att köra PowerShell-sessionen.
+* Om du skapade ett klassiskt Kör som-konto med ett offentligt företagscertifikat (CER-fil) använder du det här certifikatet. Följ anvisningarna för hur du [laddar upp ett hanterings-API-certifikat till den klassiska Azure-portalen](../azure-api-management-certs.md) och verifiera sedan konfigurationen av autentiseringsuppgifterna med Service Management-resurser med hjälp av [exempelkoden för autentisering med Service Management-resurser](#sample-code-to-authenticate-with-service-management-resources). 
+* Om du *inte* skapade ett klassiskt Kör som-konto autentiserar du med Resource Manager-resurser och verifierar konfigurationen av autentiseringsuppgifterna med hjälp av [exempelkoden för autentisering med Service Management-resurser](#sample-code-to-authenticate-with-resource-manager-resources).
 
 ## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Exempelkod för att autentisera med Resource Manager-resurser
-Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-runbooken **AzureAutomationTutorialScript**, och autentisera med ”Kör som”-kontot för att hantera Resource Manager-resurser med dina runbooks.   
+Du kan använda följande uppdaterade exempelkod, som kommer från exempel-runbooken *AzureAutomationTutorialScript*, om du vill autentisera med hjälp av Kör som-kontot för att hantera Resource Manager-resurser med dina runbookflöden.
 
     $connectionName = "AzureRunAsConnection"
     $SubId = Get-AutomationVariable -Name 'SubscriptionId'
@@ -422,13 +512,12 @@ Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-run
          }
     }
 
+Skriptet innehåller två ytterligare rader med kod som gör det möjligt att referera till en prenumerationskontext så att du enkelt kan arbeta med flera prenumerationer. En variabeltillgång med namnet *SubscriptionId* innehåller ID:t för prenumerationen. Efter cmdlet-instruktionen `Add-AzureRmAccount` används cmdleten [ `Set-AzureRmContext` ](https://msdn.microsoft.com/library/mt619263.aspx) med parameteruppsättningen *-SubscriptionId*. Om variabelnamnet är för allmänt kan du ändra det och lägga till ett prefix eller använda en annan namngivningskonvention så att det blir lättare att identifiera. Du kan också använda parameteruppsättningen *-SubscriptionName* i stället för *-SubscriptionId* med en tillhörande variabeltillgång.
 
-Skriptet innehåller två ytterligare rader med kod som gör det möjligt att referera till en prenumerationskontext så att du enkelt kan arbeta mellan flera prenumerationer. En variabeltillgång med namnet SubscriptionId innehåller ID:t för prenumerationen och, efter Add-AzureRmAccount-cmdleten, definieras [cmdleten Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) med parameteruppsättningen *-SubscriptionId*. Om variabelnamnet är för generellt kan du ändra namnet på variabeln och ta med ett prefix eller en annan namnkonvention som gör det lättare att identifiera den. Du kan också använda parameteruppsättningen -SubscriptionName i stället för -SubscriptionId med en tillhörande variabeltillgång.    
-
-Observera cmdleten som används för autentisering i runbooken – **Add-AzureRmAccount** använder *ServicePrincipalCertificate*-parameteruppsättningen.  Den autentiserar med hjälp av tjänstobjektets certifikat, inte autentiseringsuppgifter.  
+Den cmdlet som du använder för autentisering i runbooken, `Add-AzureRmAccount`, använder parameteruppsättningen *ServicePrincipalCertificate*. Den autentiserar med hjälp av tjänstobjektscertifikatet, inte användarautentiseringsuppgifterna.
 
 ## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Exempelkod för att autentisera med Service Management-resurser
-Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-runbooken **AzureClassicAutomationTutorialScript**, om du vill autentisera med det klassiska Kör som-kontot för att hantera klassiska resurser med dina runbooks.
+Du kan använda följande uppdaterade exempelkod, som kommer från exempel-runbooken *AzureClassicAutomationTutorialScript*, om du vill autentisera med hjälp av det klassiska Kör som-kontot för att hantera klassiska resurser med dina runbookflöden.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"
     # Get the connection
@@ -455,8 +544,7 @@ Du kan använda den uppdaterade exempelkoden nedan, som kommer från exempel-run
     Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om tjänstobjekt finns i [Programobjekt och tjänstobjekt](../active-directory/active-directory-application-objects.md).
-* Mer information om rollbaserad åtkomstkontroll i Azure Automation finns i [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).
-* Mer information om certifikat och Azure-tjänster finns i [Översikt över certifikat för Azure Cloud Services](../cloud-services/cloud-services-certs-create.md)
-
+* [Program och tjänstobjekt i Azure AD](../active-directory/active-directory-application-objects.md)
+* [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md)
+* [Certifikatöversikt för Azure Cloud Services](../cloud-services/cloud-services-certs-create.md)
 

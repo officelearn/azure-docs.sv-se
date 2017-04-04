@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -62,10 +63,10 @@ Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/ap
 9. Klicka på OK när du har valt projekt och gren. Nu bör du se meddelanden om en distribution.
    
    ![image9][image9]
-10. Gå tillbaka till Github för att se webhooken som skapades för att integrera källkontrollagret med Azure. Med några få enkla steg kan du integrera Azure Portal med Github.
+10. Gå tillbaka till GitHub för att se webhooken som skapades för att integrera källkontrolldatabasen med Azure. Med några få enkla steg kan du integrera Azure Portal med GitHub.
     
     ![image10][image10]
-11. Om du vill se den kontinuerliga distributionen kan du snabbt lägga till lite innehåll i datalagret. Som ett enkelt exempel kan du lägga till en textfil i ett Github-lager. Du kan använda .NET, Ruby, Python eller någon annan typ av program med App Service. Lägg till en textfil eller ett ASP.NET MVC-, Java- eller Ruby-program i valfritt datalager.
+11. Om du vill se den kontinuerliga distributionen kan du snabbt lägga till lite innehåll i datalagret. Som ett enkelt exempel kan du lägga till en textfil i en GitHub-databas. Du kan använda .NET, Ruby, Python eller någon annan typ av program med App Service. Lägg till en textfil eller ett ASP.NET MVC-, Java- eller Ruby-program i valfritt datalager.
     
     ![image11][image11]
 12. När du har bekräftat lagerändringarna kan du se att en ny distribution har initierats i portalens meddelandefält. Klicka på Synkronisera om du inte ser ändringarna när du har sparat dem i lagret.
@@ -334,9 +335,4 @@ I den här självstudiekursen demonstrerade vi en del av kraften i Azure-plattfo
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

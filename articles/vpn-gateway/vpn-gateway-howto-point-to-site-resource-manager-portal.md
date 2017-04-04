@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: aafcfb9800a0d3ca9cf259617645da5ab6539c5b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c3fd647fdd21f6978e4d631ca9b10429e963cd05
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -81,6 +81,9 @@ Skärmbilderna i det här avsnittet är avsedda som referensexempel. Se till att
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## <a name="dns"></a>Del 4 – Ange en DNS-server (valfritt)
+
+DNS krävs inte för en punkt-till-plats-anslutning. Om du vill använda namnmatchning för resurser som distribueras till ditt virtuella nätverk bör du dock ange en DNS-server. Med den här inställningen kan du ange vilken DNS-server du vill använda för namnmatchning för det här virtuella nätverket. Den skapar inte någon DNS-server.
+
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="creategw"></a>Del 5 – Skapa en virtuell nätverksgateway
@@ -120,7 +123,7 @@ Punkt-till-plats-anslutningar kräver att den offentliga nyckeln (.cer) överfö
 
 1. Om du vill hämta en .cer-fil från certifikatet kan du öppna **certmgr.msc**. Leta upp det självsignerade rotcertifikatet, som vanligtvis finns under ”Certifikat – aktuell användare\Personligt\Certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera**. **Guiden Exportera certifikat** öppnas.
 2. Klicka på **Nästa** i guiden. Välj **Nej, exportera inte den privata nyckeln** och klicka sedan på **Nästa**.
-3. På sidan **Filformat för export** väljer du **Base&64;-kodad X.509 (. CER).** och klickar sedan på **Nästa**. 
+3. På sidan **Filformat för export** väljer du **Base 64-kodad X.509 (. CER).** och klickar sedan på **Nästa**. 
 4. På sidan **Fil som ska exporteras** **bläddrar** du till den plats som du vill exportera certifikatet till. För **Filnamn** anger du ett namn för certifikatfilen. Klicka sedan på **Nästa**.
 5. Klicka på **Slutför** för att exportera certifikatet. Meddelandet **Exporten lyckades**. Stäng guiden genom att klicka på **OK**.
 

@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 03/19/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 639eb424c31abea4106cf37b14fee99a8fd9d307
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 648aa01beaffccf69250f1028e27bc13ed70837c
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -529,7 +529,7 @@ Du bör nu se utdata från din kom-igång-app. Dessa utdata visar resultaten fö
 Grattis! Du har slutfört den här självstudiekursen om NoSQL och har en fungerande C#-konsolapp!
 
 ## <a id="GetSolution"></a>Hämta den fullständiga lösningen till NoSQL-självstudiekursen
-Om du inte har tid att slutföra stegen i den här självstudien eller bara vill hämta kodexemplen kan du hämta dem från [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
+Om du inte har tid att slutföra stegen i den här självstudien eller bara vill ladda ned kodexemplen kan du hämta den från [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 För att bygga GetStarted-lösningen behöver du följande:
 

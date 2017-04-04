@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 061226c76128122b61d2fe135fdfae0bfd7490d7
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 619ea430b13c16e8e4338413613d5798f36458ba
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa ett VNet med en anslutning från plats till plats med Azure Portal (klassisk)
+# <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa en plats-till-plats-anslutning med hjälp av Azure-portalen (klassisk)
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,11 +31,12 @@ ms.lasthandoff: 03/17/2017
 >
 >
 
+
+En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en VPN-tunnel med IPsec/IKE (IKEv1 eller IKEv2). Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats en offentlig IP-adress och som inte finns bakom en NAT. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
+
 Den här artikeln visar hur du skapar ett virtuellt nätverk och en VPN-gateway från plats till plats till ditt lokala nätverk med hjälp av den klassiska distributionsmodellen och Azure Portal. 
 
-En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en VPN-tunnel med IPsec/IKE (IKEv1 eller IKEv2). Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats en offentlig IP-adress och som inte finns bakom en NAT. S2S-anslutningar kan användas för plats-till-plats-konfigurationer och hybridkonfigurationer eller för att ansluta virtuella nätverk som finns i olika distributionsmodeller.
-
-![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
+![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Distributionsmodeller och metoder för plats-till-plats-anslutningar
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]

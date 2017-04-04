@@ -9,16 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 03/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: bdc00541e55ea68f0b18456f8fa1a1ac51116d69
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 21d8dff230e045607b70013f4eabf1bfe8ec3993
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -64,7 +65,7 @@ Följande procedur använder en Azure Resource Manager-mall för att skapa ett v
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Skapa tabeller och infoga data
-Du kan använda SSH för att ansluta till HBase-kluster och sedan använda HBase Shell för att skapa HBase-tabeller, infoga data och ställa frågor till data. För information om hur man använder SSH, kan du se [Använd SSH med Linux-baserad Hadoop på HDInsight från Linux, Unix eller OSX](hdinsight-hadoop-linux-use-ssh-unix.md) och [Använd SSH med Linux-baserad Hadoop i HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+Du kan använda SSH för att ansluta till HBase-kluster och sedan använda HBase Shell för att skapa HBase-tabeller, infoga data och ställa frågor till data. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 För de flesta visas data i tabellformat:
 
@@ -223,6 +224,11 @@ Du kan fråga efter data i HBase-tabeller med hjälp av Hive. I det här avsnitt
         -v
 
 Mer information om HBase Rest finns i [Referensguiden för Apache HBase](https://hbase.apache.org/book.html#_rest).
+
+>
+> [!NOTE]
+> Thrift stöds inte av HBase i HDInsight.
+>
 
 ## <a name="check-cluster-status"></a>Kontrollera klusterstatus
 HBase i HDInsight levereras med ett webbgränssnitt för övervakning av kluster. Du kan använda webbgränssnittet för att begära statistik eller information om regioner.

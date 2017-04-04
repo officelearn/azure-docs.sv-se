@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/21/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 5e7520f8a023cd5feb8401483161e7296a413b02
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/22/2017
 > 
 > 
 
-I den här självstudien får du veta hur du skapar och distribuerar en ASP.NET-webbapp till en webbapp i Azure App Service med hjälp av Visual Studio 2015. Exempelprogrammet som visar en lista med teamstatistik från en databas och olika sätt att använda Azure Redis Cache för att lagra och hämta data från cacheminnet. När du slutför självstudien har du en webbapp som läser och skriver till en databas, samt som är optimerad med Azure Redis Cache och värdbaserad i Azure.
+I den här självstudien får du veta hur du skapar och distribuerar en ASP.NET-webbapp till en webbapp i Azure App Service med hjälp av Visual Studio 2017. Exempelprogrammet som visar en lista med teamstatistik från en databas och olika sätt att använda Azure Redis Cache för att lagra och hämta data från cacheminnet. När du slutför självstudien har du en webbapp som läser och skriver till en databas, samt som är optimerad med Azure Redis Cache och värdbaserad i Azure.
 
 Du får lära dig:
 
@@ -248,7 +248,7 @@ Mer information om det här paketet finns i NuGet-paketet [EntityFramework](http
         url: "{controller}/{action}/{id}",
         defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
     );
-```
+    ```
 
 
 ### <a name="configure-the-views"></a>Konfigurera vyerna

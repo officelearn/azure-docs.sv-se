@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 03/23/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: eed360b6c996d1901b40f3d1fcf4b8ff859da573
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 295203755487ace6193d97737be635d4a61fe337
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -79,7 +79,7 @@ Det finns några viktiga faktorer att tänka på när du definierar en resursgru
 När du skapar en resursgrupp måste du ange en plats för denna resursgrupp. Du kanske undrar, "varför behöver en resursgrupp en plats? Och om resurserna kan ha andra platser än resursgruppen, varför spelar platsen för gruppresursen alls någon roll?" Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du därför var metadatan ska lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att din data lagras inom en viss region.
 
 ## <a name="resource-providers"></a>Resursproviders
-Varje resursprovider tillhandahåller en uppsättning resurser och åtgärder för arbete i en Azure-tjänst. Om du till exempel vill lagra nycklar och hemligheter arbetar du med resursprovidern **Microsoft.KeyVault**. Den här resursprovidern erbjuder resurstypen **valv** som används för att skapa nyckelvalvet, och resurstypen **valv/hemligheter** som används för att skapa en hemlighet i nyckelvalvet. 
+Varje resursprovider tillhandahåller en uppsättning resurser och åtgärder för arbete i en Azure-tjänst. Om du till exempel vill lagra nycklar och hemligheter arbetar du med resursprovidern **Microsoft.KeyVault**. Den här resursprovidern erbjuder en resurstyp som heter **vaults** (valv) för att skapa nyckelvalvet. 
 
 Innan du börjar distribuera dina resurser bör du ha en bra uppfattning om vilka resursprovidrar som finns. Att känna till namnen på resursprovidrar och resurser gör det lättare för dig att definiera resurser som du vill distribuera till Azure.
 
@@ -118,7 +118,7 @@ Mer information finns i [Providrar, regioner, API-versioner och scheman för Res
 ## <a name="template-deployment"></a>Malldistribution
 Med Resource Manager kan du skapa en mall (i JSON-format) som definierar Azure-lösningens infrastruktur och konfiguration. Genom att använda en mall kan du distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras konsekvent. När du skapar en lösning från portalen innehåller den automatiskt en distributionsmall. Du behöver inte skapa mallen från scratch. I stället kan du börja med mallen för din lösning och anpassa den efter dina specifika behov. Du kan hämta en mall för en befintlig resursgrupp antingen genom att antingen exportera resursgruppens aktuella tillstånd eller genom att visa mallen som används för en viss distribution. Att granska den [exporterade mallen](resource-manager-export-template.md) är ett bra sätt att lära sig mer om mallsyntaxen.
 
-Mer information om mallformatet och hur du konstruerar mallar finns i [Skapa Azure Resource Manager-mallar](resource-group-authoring-templates.md) och [Genomgång av en Resource Manager-mall](resource-manager-template-walkthrough.md).
+Information om mallformatet och hur du skapar det finns i [Skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md). JSON-syntaxen för resurstyper finns i [Define resources in Azure Resource Manager templates](/azure/templates/) (Definiera resurser i Azure Resource Manager-mallar).
 
 Resource Manager bearbetar mallen som vilken annan begäran som helst (se bilden för [Konsekvent hanteringslager](#consistent-management-layer)). Den tolkar mallen och konverterar dess syntax till REST API-åtgärder för lämpliga resursleverantörer. Till exempel när Resource Manager tar emot en mall med följande resursdefinition:
 
@@ -333,10 +333,9 @@ Förutom dessa exempel kan du söka igenom galleriexemplen.
 
 ## <a name="next-steps"></a>Nästa steg
 * En enkel introduktion till mallar finns i [Exportera en Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
-* En mer omfattande genomgång över hur du skapar en mall finns i [Genomgång av Resource Manager-mallar](resource-manager-template-walkthrough.md).
+* Mer omfattande anvisningar om hur du skapar en mall finns i [Skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md).
 * Information om de funktioner som du kan använda i en mall finns i [Mallfunktioner](resource-group-template-functions.md)
 * Information om hur du använder Visual Studio med Resource Manager finns i [Skapa och distribuera Azure-resursgrupper via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-* Information om hur du använder VS Code med Resource Manager finns i [Arbeta med Azure Resource Manager-mallar i Visual Studio Code](resource-manager-vs-code.md).
 
 Här är en videodemonstration av den här översikten:
 

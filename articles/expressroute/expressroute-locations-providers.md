@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 03/22/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9e89f7d362a61f39af2a6e2a94241f99b95806a4
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: ccb33119c7fb87cf3d56c02d2a9ac727c347fed6
+ms.lasthandoff: 03/22/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
@@ -74,10 +74,10 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Busan** |LG CNS+ |
 | **Chennai** |Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
-| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon |
+| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
 | **Dublin** |Colt, TeleCity Group |
 | **Hong Kong** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **London** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone |
+| **London** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Las Vegas** |Level 3 Communications+, Megaport |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
@@ -109,6 +109,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Dallas** |Equinix, Megaport, Verizon |
 | **New York** |Equinix, Level 3 Communications+, Verizon |
 | **Silicon Valley** | Equinix |
+| **Seattle** | Equinix+ |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>Kina
@@ -125,7 +126,7 @@ Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expres
 | **Berlin** |Colt+, e-shelter, Megaport+ |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
-## <a name="nonpartners"></a>Anslutning för leverantörer som inte listas
+## <a name="c1partners"></a>Anslutning för leverantörer som inte listas
 Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fortfarande skapa en anslutning.
 
 * Fråga anslutningsleverantören om de är anslutna till något av utbytena i tabellen ovan. Du kan använda följande länkar för att samla in mer information om tjänster som erbjuds av utbytesleverantörer. Flera anslutningsleverantörer är redan ansluten till Ethernet-utbyten.
@@ -144,11 +145,12 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **Plats** | **Exchange** | **Anslutningsproviders** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix | Eurofiber |
-| **London** | Equinix | Exponential E, HSO |
+| **Dallas** | Equinix, Megaport | C3ntro, Data Foundry |
+| **London** | Equinix | Exponential E, HSO, NexGen Networks |
 | **New York** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Silicon Valley** |Equinix |XO Communications |
-| **Singapore** |Equinix |1CLOUDSTAR |
+| **Singapore** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |
 | **Sydney** | Megaport | Macquarie Telecom Group|
 | **Tokyo** | Equinix | ARTERIA Networks Corporation |
 | **Washington DC** |Equinix | Lightower, Masergy |
@@ -160,7 +162,7 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 | --- | --- |
 | **Asien** |Avanade Inc., OneAs1a |
 | **Australien** | IT Consultancy |
-| **Europa** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
+| **Europa** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite, sol-tec |
 | **Nordamerika** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
 | **Sydamerika** |Avanade Inc. |
 ## <a name="next-steps"></a>Nästa steg

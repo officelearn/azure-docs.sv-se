@@ -1,5 +1,5 @@
 ---
-title: "Konfigurera ExpressRoute och VPN-anslutningar för plats till plats som kan samexistera för distributionsmodellen i Resource Manager | Microsoft Docs"
+title: "Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan samexistera: Azure (Resource Manager) | Microsoft Docs"
 description: "Den här artikeln visar hur du konfigurerar ExpressRoute och en VPN-anslutning för plats till plats som kan samexistera för Resource Manager-modellen."
 documentationcenter: na
 services: expressroute
@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 68ad5679a2a6fcb7cfca25410af3f2f113490bdc
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 17f179d9bd614b5ea05bef8c4ca4173eecc6b9be
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-resource-manager-deployment-model"></a>Konfigurera ExpressRoute och samexisterande plats-till-plats-anslutningar för distributionsmodellen i Resource Manager
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan samexistera
 > [!div class="op_single_selector"]
 > * [PowerShell – Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell – Klassisk](expressroute-howto-coexist-classic.md)
@@ -79,7 +80,7 @@ Det finns två uppsättningar procedurer att välja mellan för att konfigurera 
   
     I den här proceduren skapar du anslutningar som kan samexistera, vilket kräver att du tar bort din gateway och sedan konfigurerar nya gateways. Detta innebär att du har stilleståndstid för anslutningar på flera platser när du tar bort och återskapar din gateway och dina anslutningar, men du behöver inte migrera några virtuella datorer eller tjänster till ett nytt virtuellt nätverk. Dina virtuella datorer och tjänster kommer fortfarande att kunna kommunicera ut via belastningsutjämnaren när du konfigurerar din gateway, om de är konfigurerade för att göra det.
 
-## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar
+## <a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar
 Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats- och ExpressRoute-anslutningar som ska finnas samtidigt.
 
 1. Du måste installera den senaste versionen av Azure PowerShell-cmdletarna. Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs). Observera att de cmdletar som du använder för den här konfigurationen kan se annorlunda ut än de du tidigare använt. Var noga med att använda de cmdletar som anges i instruktionerna.
@@ -150,7 +151,7 @@ Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats
         $azureVpn = Get-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
         New-AzureRmVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
 
-## <a name="a-nameaddato-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Så här konfigurerar du samexisterande anslutningar för ett befintligt VNet
+## <a name="add"></a>Så här konfigurerar du samexisterande anslutningar för ett befintligt VNet
 Om du har ett befintligt virtuellt nätverk, kontrollerar du storleken på gateway-undernätet. Om gateway-undernätet är /28 eller /29, måste du först ta bort den virtuella nätverksgatewayen och öka storleken för gateway-undernätet. Stegen i det här avsnittet visar hur du gör.
 
 Om gateway-undernätet är /27 eller större och det virtuella nätverket är anslutet via ExpressRoute, kan du hoppa över stegen nedan och gå vidare till [”Steg 6 – Skapa en VPN-gateway för plats till plats”](#vpngw) i föregående avsnitt.  
@@ -208,10 +209,5 @@ Mer information om punkt-till-plats-VPN finns i [Konfigurera en punkt-till-plats
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

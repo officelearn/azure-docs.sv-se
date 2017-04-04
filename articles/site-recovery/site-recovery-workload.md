@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c56a74e43b989a32b10a878cec16cce0f972a9f
-ms.openlocfilehash: 63c0397b6e737038fb7758d2749ae82d1485d45d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -130,6 +130,19 @@ Använd Site Recovery för att skydda din SAP-distribution på följande sätt:
 * Förenkla SAP-utveckling och -testning genom att skapa en produktionslik kopia på begäran för testning och felsökning av program.
 
 [Lär dig mer](http://aka.ms/asr-sap) om hur du kan skydda SAP.
+
+## <a name="protect-iis"></a>Skydda IIS
+Använd Site Recovery för att skydda din IIS-distribution på följande sätt:
+
+Azure Site Recovery erbjuder haveriberedskap genom att replikera viktiga komponenter i din miljö till en fjärrplats eller ett offentligt moln, till exempel Microsoft Azure. Eftersom den virtuella datorn med webbservern och databasen replikeras till återställningsplatsen finns inget behov av separat säkerhetskopiering av konfigurationsfiler eller certifikat. Programmappningar och bindningar som är beroende av miljövariabler som ändras efter redundans kan uppdateras via skript som är integrerade i haveriberedskapsplanerna. Virtuella datorer finns endast på återställningsplatsen i händelse av redundans. Azure Site Recovery hjälper dig även att dirigera redundans från slutpunkt till slutpunkt genom att erbjuda följande funktioner:
+
+-    Användning av ordningsföljd för avstängning och start av virtuella datorer i olika nivåer.
+-    Tillägg av skript för att tillåta uppdatering av programberoenden och bindningar på de virtuella datorerna efter att de startats. Skripten kan också användas för att uppdatera DNS-servern så att den pekar på återställningsplatsen.
+-    Allokering av IP-adresser till virtuella datorer före redundans genom mappning av det primära nätverket och återställningsnätverket. På så sätt används skript som inte behöver uppdateras efter redundans.
+-    Möjlighet för redundans med ett klick för flera webbprogram på webbservrarna, vilket minskar risken för förväxling i händelse av ett haveri.
+-    Möjlighet att testa återställningsplaner i en isolerad miljö för DR-test.
+
+[Läs mer](https://aka.ms/asr-iis) om hur du skyddar en IIS-webbservergrupp.
 
 ## <a name="next-steps"></a>Nästa steg
 [Kontrollera krav](site-recovery-prereq.md) 

@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 98307e924927655c8a7de0e8fc6a7c0c2b57af00
-ms.lasthandoff: 12/09/2016
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 7a9a28ce8be7587c84a1188d643c990cc4fb7355
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -36,7 +36,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 **Förutsättningar:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * Ett [Azure Storage-konto](storage-create-storage-account.md#create-a-storage-account)
@@ -52,8 +52,8 @@ Ytterligare exempel med Table Storage finns i [Komma igång med Azure Table Stor
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### <a name="add-namespace-declarations"></a>Lägga till namnrymdsdeklarationer
-Lägg till följande **using**-uttryck längst upp i filen `program.cs`:
+### <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
+Lägg till följande **using**-direktiv längst upp i filen `Program.cs`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager

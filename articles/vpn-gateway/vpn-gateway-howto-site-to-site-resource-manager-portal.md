@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 37311ea17004d8c5cfe9bfc9360c3972e39fb7f5
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 80939bb48c29ba39e2d347cb80d6169d79329cfc
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-portal"></a>Skapa ett VNet med en anslutning från plats till plats med Azure Portal
+# <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Skapa en plats-till-plats-anslutning på Azure Portal
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,7 +31,10 @@ ms.lasthandoff: 03/17/2017
 >
 >
 
-Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-gateway från plats till plats till ditt lokala nätverk, med hjälp av Azure Resource Manager-distributionsmodellen och Azure-portalen. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
+
+En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en VPN-tunnel med IPsec/IKE (IKEv1 eller IKEv2). Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats en offentlig IP-adress och som inte finns bakom en NAT. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
+
+Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-gateway från plats till plats till ditt lokala nätverk, med hjälp av Azure Resource Manager-distributionsmodellen och Azure-portalen. 
 
 ![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
@@ -48,23 +51,26 @@ Om du vill koppla ihop VNets, men inte skapar någon anslutning till en lokal pl
 ## <a name="before-you-begin"></a>Innan du börjar
 Kontrollera att du har följande innan du påbörjar konfigurationen:
 
-* En kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md). Om du inte vet hur man konfigurerar VPN-enheten eller inte känner till IP-adressintervallen i din lokala nätverkskonfiguration måste du vända dig till någon som kan ge den informationen till dig.
+* En kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md).
+* Om du inte vet vilka IP-adressutrymmen som används i ditt lokala nätverk kontaktar du relevant person som kan ge dig den här informationen. Plats-till-plats-anslutningar kan inte ha överlappande adressutrymmen.
 * En extern offentlig IP-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt konto](http://azure.microsoft.com/pricing/free-trial).
 
-### <a name="values"></a>Exempel på konfigurationsvärden för övningen
-När du använder stegen som en övning kan du använda följande exempel på konfigurationsvärden:
+### <a name="values"></a>Exempelvärden
+När du följer dessa steg som en övning kan du använda följande exempelvärden:
 
 * **VNet-namn:** TestVNet1
-* **Adressutrymme:** 10.11.0.0/16 och 10.12.0.0/16
+* **Adressutrymme:** 
+    * 10.11.0.0/16
+    * 10.12.0.0/16 (valfritt för den här övningen)
 * **Undernät:**
   * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24
-  * GatewaySubnet: 10.12.255.0/27
+  * BackEnd: 10.12.0.0/24 (valfritt för den här övningen)
+  * GatewaySubnet: 10.11.255.0/27
 * **Resursgrupp:** TestRG1
 * **Plats:** Östra USA
-* **DNS-server:** 8.8.8.8
-* **Gateway-namn:** VNet1GW
+* **DNS-server:** IP-adressen för din DNS-server
+* **Namn på virtuell nätverksgateway:** VNet1GW
 * **Offentlig IP:** VNet1GWIP
 * **VPN-typ:** Routningsbaserad
 * **Anslutningstyp:** Plats-till-plats (IPsec)
@@ -73,57 +79,40 @@ När du använder stegen som en övning kan du använda följande exempel på ko
 * **Anslutningsnamn:** VNet1toSite2
 
 ## <a name="CreatVNet"></a>1. Skapa ett virtuellt nätverk
-Om du redan har ett VNet, kontrollerar du att inställningarna är kompatibla med din VPN-gatewaydesign. Var särskilt noga med alla undernät som överlappar med andra nätverk. Om du har överlappande undernät fungerar inte anslutningen ordentligt. Om ditt VNet är konfigurerat med de korrekta inställningarna, kan du börja med stegen i avsnittet [Ange en DNS-server](#dns).
 
-### <a name="to-create-a-virtual-network"></a>Så här skapar du ett virtuellt nätverk
-[!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
+[!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-s2s-rm-portal-include.md)]
 
-## <a name="subnets"></a>2. Lägg till ytterligare adressutrymmen och undernät
-Du kan lägga till ytterligare adressutrymme och undernät till ditt VNet när det har skapats.
+## <a name="dns"></a>2. Ange en DNS-server
+DNS krävs inte för plats-till-plats-anslutningar. Om du vill använda namnmatchning för resurser som distribueras till ditt virtuella nätverk bör du dock ange en DNS-server. Med den här inställningen kan du ange vilken DNS-server du vill använda för namnmatchning för det här virtuella nätverket. Den skapar inte någon DNS-server.
 
-[!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
-
-## <a name="dns"></a>3. Ange en DNS-server
-### <a name="to-specify-a-dns-server"></a>Så här anger du en DNS-server
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="gatewaysubnet"></a>4. Skapa ett gateway-undernät
-Innan du ansluter det virtuella nätverket till en gateway, måste du skapa gateway-undernätet för det virtuella nätverk som du vill ansluta till. Om möjligt är det bäst att skapa ett gateway-undernät med CIDR-block av /28 eller /27 för att tillhandahålla tillräckligt med IP-adresser för att hantera ytterligare framtida konfigurationskrav.
+## <a name="gatewaysubnet"></a>3. Skapa ett gateway-undernät
+Du måste skapa ett gatewayundernät för din VPN-gateway. Gatewayundernätet innehåller de IP-adresser som VPN-gatewaytjänsterna använder. Om möjligt skapar du ett gatewayundernät med hjälp av CIDR-block /28 eller /27. På så sätt kan du vara säker på att du har tillräckligt med IP-adresser för framtida gatewaykonfigurationsbehov.
 
-Om du skapar den här konfigurationen som en övning, ser du följande [värden](#values) när du skapar gateway-undernätet.
+[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
-### <a name="to-create-a-gateway-subnet"></a>Så här skapar du ett gateway-undernät
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
+## <a name="VNetGateway"></a>4. Skapa en virtuell nätverksgateway
 
-## <a name="VNetGateway"></a>5. Skapa en virtuell nätverksgateway
-Om du skapar den här konfigurationen som en övning, ser du följande [exempelvärden för konfiguration](#values).
+[!INCLUDE [vpn-gateway-add-gw-s2s-rm-portal](../../includes/vpn-gateway-add-gw-s2s-rm-portal-include.md)]
 
-### <a name="to-create-a-virtual-network-gateway"></a>Så här skapar du en virtuell nätverksgateway
-[!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+## <a name="LocalNetworkGateway"></a>5. Skapa en lokal nätverksgateway
+Den lokala nätverksgatewayen syftar på din lokala plats. Inställningarna som du anger för den lokala nätverksgatewayen avgör vilka adressutrymmen som dirigeras till din lokala VPN-enhet.
 
-## <a name="LocalNetworkGateway"></a>6. Skapa en lokal nätverksgateway
-Den ”lokala nätverksgatewayen” avser vanligtvis din lokala plats. Ge den lokala nätverksgatewayen ett namn som Azure kan referera till. 
+[!INCLUDE [vpn-gateway-add-lng-s2s-rm-portal](../../includes/vpn-gateway-add-lng-s2s-rm-portal-include.md)]
 
-Om du skapar den här konfigurationen som en övning, ser du följande [exempelvärden för konfiguration](#values).
-
-### <a name="to-create-a-local-network-gateway"></a>Så här skapar du en lokal nätverksgateway
-[!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
-
-## <a name="VPNDevice"></a>7. Konfigurera din VPN-enhet
+## <a name="VPNDevice"></a>6. Konfigurera din VPN-enhet
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="CreateConnection"></a>8. Skapa en VPN-anslutning från plats till plats
-Skapa VPN-anslutningen från plats till plats mellan din virtuella nätverksgateway och din VPN-enhet. Glöm inte att byta ut värdena mot dina egna. Den delade nyckeln måste överensstämma med värdet som du använde vid din konfiguration av VPN-enheten. 
+## <a name="CreateConnection"></a>7. Skapa en VPN-anslutning från plats till plats
 
-Kontrollera att din virtuella nätverksgateway och lokala nätverksgateway har skapats innan du påbörjar det här avsnittet. Om du skapar den här konfigurationen som en övning, ser du följande [värden](#values) när du skapar anslutningen.
+I det här steget ska du skapa VPN-anslutningen för plats-till-plats mellan din virtuella nätverksgateway och din lokala VPN-enhet. Kontrollera att din virtuella nätverksgateway och lokala nätverksgateway har skapats innan du påbörjar det här avsnittet.
 
-### <a name="to-create-the-vpn-connection"></a>Så här skapar du VPN-anslutningen
-[!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
+[!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include.md)]
 
-## <a name="VerifyConnection"></a>9. Verifiera VPN-anslutningen
-Du kan verifiera VPN-anslutningen i portalen eller med hjälp av PowerShell.
+## <a name="VerifyConnection"></a>8. Verifiera VPN-anslutningen
 
-[!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
+[!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 *  När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).

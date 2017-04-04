@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -240,9 +240,9 @@ Den utgående anslutningen till internet tillåts eftersom all utgående trafik 
 
 Så här tar du bort alla resurser som skapats i den här artikeln:
 
-1. Visa resursgruppen MyRG genom att följa steg 1–3 i avsnittet [Granska resurser](#review) i den här artikeln. Granska på nytt resurserna i resursgruppen. Om du skapade resursgruppen MyRG enligt föregående steg så ser du de 12 resurserna som visas på bilden i steg 3.
+1. Visa resursgruppen MyRG genom att följa steg 1–3 i avsnittet [Granska resurser](#review) i den här artikeln. Granska på nytt resurserna i resursgruppen. Om du skapade resursgruppen MyRG enligt föregående steg så ser du de 12 resurserna som visas på bilden i steg 4.
 2. Klicka på knappen **Ta bort** i bladet MyRG.
-3. Du måste ange namnet på resursgruppen i portalen som bekräftelse på att du vill ta bort den. Om du ser andra resurser än de som visas i steg 3 i avsnittet [Granska resurser](#review) i den här artikeln klickar du på **Avbryt**. Om du bara ser de 12 resurser som skapats i den här artikeln anger du *MyRG* som namn på resursgruppen och klickar på **Ta bort**. När du tar bort en resursgrupp så tas alla resurser i resursgruppen bort, så du måste alltid kontrollera innehållet i en resursgrupp innan du tar bort den. Portalen tar bort alla resurser som finns i resursgruppen och sedan tas själva resursgruppen bort. Den här processen tar flera minuter.
+3. Du måste ange namnet på resursgruppen i portalen som bekräftelse på att du vill ta bort den. Om du ser andra resurser än de som visas i steg 4 i avsnittet [Granska resurser](#review) i den här artikeln klickar du på **Avbryt**. Om du bara ser de 12 resurser som skapats i den här artikeln anger du *MyRG* som namn på resursgruppen och klickar på **Ta bort**. När du tar bort en resursgrupp så tas alla resurser i resursgruppen bort, så du måste alltid kontrollera innehållet i en resursgrupp innan du tar bort den. Portalen tar bort alla resurser som finns i resursgruppen och sedan tas själva resursgruppen bort. Den här processen tar flera minuter.
 
 ## <a name="next-steps"></a>Nästa steg
 

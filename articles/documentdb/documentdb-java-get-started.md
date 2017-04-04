@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 74af5fda495adc726bfa85ad48a407fd61d4dd88
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: da7907ffc515ea2e3040075c93bcd53840cf3ff5
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -60,12 +60,12 @@ Se till att du har följande:
 * [Maven](http://maven.apache.org/download.cgi).
 
 ## <a name="step-1-create-a-documentdb-account"></a>Steg 1: Skapa ett DocumentDB-konto
-Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill använda, kan du gå vidare till [Klona Github-projektet](#GitClone). Om du använder DocumentDB-emulatorn följer du stegen i [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för att konfigurera emulatorn och gå vidare till [Klona Github-projektet](#GitClone).
+Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [Klona GitHub-projektet](#GitClone). Om du använder DocumentDB-emulatorn följer du stegen i [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för att konfigurera emulatorn och gå vidare till [Klona GitHub-projektet](#GitClone).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Steg 2: Klona Github-projekt
-Kom igång genom att klona Github-lagringsplatsen för [Kom igång med DocumentDB och Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Från en lokal katalog kör du till exempel följande för att hämta exempelprojektet lokalt.
+## <a id="GitClone"></a>Steg 2: Klona GitHub-projekt
+Kom igång genom att klona GitHub-lagringsplatsen. Gå till [Komma igång med DocumentDB och Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Från en lokal katalog kör du till exempel följande för att hämta exempelprojektet lokalt.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
 

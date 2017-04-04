@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
-ms.openlocfilehash: d55b72ac50072a36ecf4547a478ed092ea7aa68a
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 5876a22651a5ebee2d60992cf08aeae54256fb7d
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -48,8 +49,8 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### <a name="add-namespace-declarations"></a>Lägga till namnrymdsdeklarationer
-Lägg till följande `using`-instruktioner överst i `program.cs`-filen:
+### <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
+Lägg till följande `using`-direktiv längst upp i filen `Program.cs`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -287,9 +288,4 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar f
 [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

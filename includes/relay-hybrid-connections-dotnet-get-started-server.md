@@ -15,10 +15,10 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Lägg till konstanter till `Program`-klassen för Hybridanslutningens anslutningsinformation. Ersätt platshållare inom hakparentes med rätt värden som erhölls när du skapade Hybridanslutningen.
+2. Lägg till konstanter till `Program`-klassen för Hybridanslutningens anslutningsinformation. Ersätt platshållare inom hakparentes med rätt värden som erhölls när du skapade Hybridanslutningen. Se till att du använder det fullständiga namnområdesnamnet:
    
     ```csharp
-    private const string RelayNamespace = "{RelayNamespace}";
+    private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
@@ -138,7 +138,7 @@
    
         public class Program
         {
-            private const string RelayNamespace = "{RelayNamespace}";
+            private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
             private const string ConnectionName = "{HybridConnectionName}";
             private const string KeyName = "{SASKeyName}";
             private const string Key = "{SASKey}";
@@ -239,9 +239,4 @@
         }
     }
     ```
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

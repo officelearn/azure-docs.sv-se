@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: ee46da891ab50a64c649b0370cb9231dd3448ea1
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Komma igång med lösenordshantering
 > [!IMPORTANT]
-> **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -375,7 +375,7 @@ Nu när du har laddat ned verktyget Azure AD Connect kan du aktivera tillbakaskr
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Så här aktiverar du tillbakaskrivning av lösenord med Windows PowerShell
 1. Öppna ett nytt **upphöjt Windows PowerShell-fönster** på **datorn för katalogsynkronisering**.
 2. Om modulen inte redan har lästs in skriver du `import-module ADSync`-kommandot för att läsa in modulen med Azure AD Connect-cmdlets i den aktuella sessionen.
-3. Hämta listan med Azure AD-anslutningsappar i systemet genom att köra `Get-ADSyncConnector`-cmdleten och spara resultaten i `$aadConnectorName`, som `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Hämta listan med Azure AD-anslutningsappar i systemet genom att köra `Get-ADSyncConnector`-cmdleten och spara resultaten i `$aadConnectorName`, som `$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`
 4. Hämta tillbakaskrivningsstatusen för den aktuella anslutningen genom att köra följande cmdlet:`Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Aktivera tillbakaskrivning av lösenord genom att köra cmdleten:`Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -399,9 +399,9 @@ När du har aktiverat tillbakaskrivning av lösenord måste du kontrollera att d
 
 #### <a name="why-do-i-need-to-do-this"></a>Varför måste jag göra detta?
 
-För att tillbakaskrivning av lösenord ska fungera korrekt måste datorn som kör Azure AD Connect kunna upprätta utgående HTTPS-anslutningar till **. servicebus.windows.net* och en specifik IP-adress som används av Azure, enligt definitionen i [IP-intervallslistan för Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
+För att tillbakaskrivning av lösenord ska fungera korrekt måste datorn som kör Azure AD Connect kunna kommunicera med tjänsten för återställning av lösenord och med Azure Service Bus.
 
-För version **1.1.443.0** (senaste) och senare av verktyget Azure AD Connect:
+För Azure AD Connect **1.1.443.0** och senare:
 
 - Den senaste versionen av verktyget Azure AD Connect behöver åtkomst till **utgående HTTPS** till:
     - *passwordreset.microsoftonline.com*
@@ -421,7 +421,7 @@ För versionerna **1.0.8667.0** till **1.1.380.0** av verktyget Azure AD Connect
         - Om du vill att tillbakaskrivning av lösenord ska fortsätta att fungera i den här konfigurationen, måste du se till att dina nätverksresurser hålls uppdaterade varje vecka med de senaste IP-adresserna från listan över IP-intervall i Microsoft Azure Datacenter. Dessa IP-intervall som är tillgängliga som en XML-fil som uppdateras varje onsdag (Stillahavstid) och träder i kraft följande måndag (Stillahavstid).
     - Nödvändiga steg:
         - Tillåt alla utgående HTTPS-anslutningar till *. servicebus.windows.net
-        - Tillåt alla utgående HTTPS-anslutningar till alla IP-adresser i listan över IP-intervall i Microsoft Azure Datacenter och håll den här konfigurationen uppdaterad varje vecka.
+        - Tillåt alla utgående HTTPS-anslutningar till alla IP-adresser i listan över IP-intervall i Microsoft Azure Datacenter och håll den här konfigurationen uppdaterad varje vecka. Du kan ladda ned listan [här](https://www.microsoft.com/download/details.aspx?id=41653).
 
 > [!NOTE]
 > Om du har konfigurerat tillbakaskrivning av lösenord genom att följa anvisningarna ovan och inte ser några fel i händelseloggen för Azure AD Connect, men får anslutningsfel när du testar, så kan det t.ex. bero på att någon nätverksutrustning i din miljö blockerar HTTPS-anslutningar till IP-adresser. Samtidigt som t.ex. en anslutning till *https://*. servicebus.windows.net* tillåts, så kan en anslutning till en specifik IP-adress inom intervallet blockeras. Om du ska kunna lösa det här problemet måste du antingen konfigurera din nätverksmiljö så att den tillåter alla utgående HTTPS-anslutningar via port 443 till alla URL-eller IP-adresser (alternativ 1 ovan) eller så måste du arbeta med ditt nätverksteam och explicit tillåta HTTPS-anslutningar till vissa specifika IP-adresser (alternativ 2 ovan).
@@ -495,7 +495,7 @@ Nu när tillbakaskrivning av lösenord har aktiverats kan du testa att det funge
 ## <a name="next-steps"></a>Nästa steg
 Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställning i Azure AD:
 
-* **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Så här fungerar det**](active-directory-passwords-how-it-works.md) – lär dig om de sex olika komponenterna i tjänsten och vad de gör
 * [**Anpassa**](active-directory-passwords-customize.md) – lär dig hur du anpassar tjänstens utseende, känsla och beteende efter din organisations behov
 * [**Metodtips**](active-directory-passwords-best-practices.md) – lär dig hur du snabbt distribuerar och effektivt hanterar lösenord i din organisation

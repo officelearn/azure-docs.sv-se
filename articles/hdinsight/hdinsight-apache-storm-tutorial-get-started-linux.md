@@ -17,9 +17,9 @@ ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
-ms.openlocfilehash: 4950dbe528290c7d839c97cc8770db4ae0ec08c6
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 5d74f2c130eeddb1022acf9673c6a2006af2db58
+ms.lasthandoff: 03/25/2017
 
 ---
 #<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Kom igång med Storm Starter-exempel för analys av stordata i Linux-baserade HDInsight
@@ -35,11 +35,7 @@ Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkni
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **kunskap om SSH och SCP**. Mer information om hur du använder SSH och SCP med HDInsight finns i följande dokument:
-  
-    * [Använda SSH med Linux-baserat Hadoop i HDInsight från Brash på Windows 10,Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * [Använda SSH (PuTTY) med Linux-baserat Hadoop i HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **kunskap om SSH och SCP**. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 ### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
 
@@ -99,11 +95,7 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
    
     Om du skyddat SSH-användarkontot med lösenord uppmanas du att ange det. Om du använde en offentlig nyckel kan du behöva använda `-i`-parametern för att ange motsvarande privata nyckel. Till exempel `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
    
-    Mer information om hur du använder SSH med Linux-baserat HDInsight finns i följande artiklar:
-   
-    * [Använda SSH med Linux-baserat Hadoop i HDInsight från Brash på Windows 10,Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Använda SSH (PuTTY) med Linux-baserat Hadoop i HDInsight från Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 2. Använd följande kommando för att starta en exempeltopologi:
    
@@ -153,7 +145,7 @@ Genomför följande för att övervaka topologin med hjälp av Storm-användargr
    
     * **Activate** (Aktivera) – återupptar bearbetningen av en inaktiverad topologi.
     
-    * **Deactivate ** (Inaktivera) – pausar en topologi som körs.
+    * **Deactivate** (Inaktivera) – pausar en topologi som körs.
     
     * **Rebalance** (Balansera) – justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [Förstå parallellitet i en Storm-topologi](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
     

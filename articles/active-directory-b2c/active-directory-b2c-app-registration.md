@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: 
 author: parakhj
 manager: krassk
-editor: bryanla
+editor: parakhj
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -15,9 +15,10 @@ ms.topic: get-started-article
 ms.date: 3/13/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 541849501335fb25d96cffa81b8119adc158cdd7
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: e04fbd97dd4d5ecaf12edf47d80572b32d29ed00
+ms.lasthandoff: 03/23/2017
+
 
 
 ---
@@ -48,18 +49,26 @@ Du kan också öppna bladet genom att klicka på **Fler tjänster** och sedan s�
 2. Klicka på **+Lägg till** överst på bladet.
 3. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso B2C-app”.
 4. Ändra **Include web app/web API** (Ta med webbapp/webb-API) till **Ja**. **Svars-URL:erna** är slutpunkter där Azure AD B2C returnerar de token som ditt program begär. Ange till exempel `https://localhost:44316/`.
-5. Klicka på **Spara** för att registrera programmet.
-6. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
+5. Klicka på **Skapa** för att registrera ditt program.
+6. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden. 
+7. Om din webbapp även ska anropa ett webb-API som skyddas av Azure AD B2C bör du skapa en **programhemlighet** genom att gå till bladet **Nycklar** och klicka på knappen **Generera nyckel**.
 
+> [!NOTE]
+> En **programhemlighet** är en viktig autentiseringsuppgift och bör skyddas på lämpligt sätt.
+> 
+   
 
 ## <a name="register-a-web-api"></a>Registrera en webb-API
 1. Klicka på **Program** på B2C-funktionsbladet på Azure-portalen.
 2. Klicka på **+Lägg till** överst på bladet.
 3. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso B2C-api”.
 4. Ändra **Include web app/web API** (Ta med webbapp/webb-API) till **Ja**. **Svars-URL:erna** är slutpunkter där Azure AD B2C returnerar de token som ditt program begär. Ange till exempel `https://localhost:44316/`.
-5. Klicka på **Spara** för att registrera programmet.
-6. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
-
+5. Ange en **App-ID-URI**. Det här är identifieraren som används för ditt webb-API. Ange till exempel ”information”. Den genererar den fullständiga identifierar-URI:n nedanför. 
+6. Klicka på **Skapa** för att registrera ditt program.
+7. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
+8. Klicka på alternativet för **publicerade omfång**. Här definierar du behörigheterna (omfång) som kan beviljas till andra program.
+9. Lägg till fler omfång efter behov. Som standard definieras omfånget ”user_impersonation”. Detta ger andra program möjlighet att komma åt det här API:et för den inloggade användarens räkning. Du kan ta bort det om du vill. 
+10. Klicka på **Spara**.
 
 ## <a name="register-a-mobilenative-application"></a>Registrera ett mobilt/internt program
 1. Klicka på **Program** på B2C-funktionsbladet på Azure-portalen.
@@ -69,6 +78,11 @@ Du kan också öppna bladet genom att klicka på **Fler tjänster** och sedan s�
 5. Ange en **Omdirigerings-URI** med ett eget schema. Till exempel com.onmicrosoft.contoso.appname://redirect/path. Tänk på att välja en [bra omdirigerings-URI](#choosing-a-redirect-uri).
 6. Klicka på **Spara** för att registrera programmet.
 7. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
+8. Om ditt interna program även ska anropa ett webb-API som skyddas av Azure AD B2C bör du skapa en **programhemlighet** genom att gå till bladet **Nycklar** och klicka på knappen **Generera nyckel**.
+
+> [!NOTE]
+> En **programhemlighet** är en viktig autentiseringsuppgift och bör skyddas på lämpligt sätt.
+> 
 
 ### <a name="choosing-a-redirect-uri"></a>Välja en omdirigerings-URI
 Det finns två viktiga överväganden när du väljer en omdirigerings-URI för mobila/interna program: 

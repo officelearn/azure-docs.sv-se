@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-/ms.date: 3/8/2017
+ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
-ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -46,7 +46,7 @@ Här är en video som visar hur du skapar och använder Azure-filresurser i Wind
 ## <a name="about-this-tutorial"></a>Om den här självstudiekursen
 Den här komma igång-kursen beskriver grunderna i Microsoft Azure File Storage. I den här självstudiekursen ska du:
 
-* Använda Azure Portal och PowerShell för att skapa en ny Azure-filresurs, lägga till en katalog, ladda upp en lokal fil till resursen och visa en lista med filerna i katalogen.
+* Använd Azure Portal och PowerShell för att skapa en ny Azure-filresurs, lägga till en katalog, ladda upp en lokal fil till resursen och visa en lista med filerna i katalogen.
 * Montera filresursen, på samma sätt som du monterar en SMB-resurs.
 * Använda Azure Storage-klientbiblioteket för .NET för att komma åt filresursen från ett lokalt program. Skapa ett konsolprogram och utföra följande åtgärder med filresursen:
   * Skriva innehållet i en fil i resursen till konsolfönstret.
@@ -58,7 +58,7 @@ Den här komma igång-kursen beskriver grunderna i Microsoft Azure File Storage.
 
 Nu stöds fillagring för alla lagringskonton, så du kan antingen använda ett befintligt lagringskonto eller skapa ett nytt. Information om hur du skapar ett lagringskonto finns i [Skapa ett lagringskonto](storage-create-storage-account.md#create-a-storage-account).
 
-## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Hantera en filresurs på Azure Portal
+## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Använda Azure Portal för att hantera en filresurs
 [Azure Portal](https://portal.azure.com) tillhandahåller ett användargränssnitt för kunder som hjälper dem att hantera filresurser. Från portalen kan du:
 
 * Skapa filresursen
@@ -264,17 +264,29 @@ Innan du monterar filresursen från en lokal klient måste du göra följande:
 Om du vill skriva kod som anropar File Storage kan du använda lagringsklientbiblioteken för .NET och Java eller REST-API:et för Azure Storage. Exemplet i det här avsnittet visar hur du arbetar med en filresurs med hjälp av [Azure Storage-klientbiblioteket för .NET](https://msdn.microsoft.com/library/mt347887.aspx) från ett enkelt konsolprogram som körs på skrivbordet.
 
 ### <a name="create-the-console-application-and-obtain-the-assembly"></a>Skapa konsolprogrammet och hämta monteringen
-Så här skapar du ett nytt konsolprogram i Visual Studio och installerar NuGet-paketet som innehåller klientbiblioteket för Azure Storage:
+Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg beskriver hur du skapar ett konsolprogram i Visual Studio 2017, men stegen är liknande i andra versioner av Visual Studio.
 
-1. I Visual Studio väljer du **Arkiv > Nytt projekt** och sedan **Windows > Konsolprogram** i listan över Visual C#-mallar.
-2. Ange ett namn för konsolprogrammet och klicka på **OK**.
-3. När projektet har skapats högerklickar du på projekt i Solution Explorer och väljer **Hantera NuGet-paket**. Sök online efter ”WindowsAzure.Storage” och klicka på **Installera** för att installera Azure Storage-klientbiblioteket för .NET-paket och .NET-beroenden.
+1. Välj **Arkiv** > **Nytt** > **Projekt**
+2. Välj **Installerat** > **Mallar** > **Visual C#** > **Windows Classic Desktop**
+3. Välj **Konsolprogram (.NET Framework)**
+4. Ange ett namn för ditt program i fältet **Namn**
+5. Välj **OK**
 
-I kodexemplen i den här artikeln används även [Microsoft Azure Configuration Manager-biblioteket](https://msdn.microsoft.com/library/azure/mt634646.aspx) för att hämta lagringsanslutningssträngen från en app.config-fil i konsolprogrammet. Med Azure Configuration Manager kan du hämta anslutningssträngen vid körningstillfället oavsett om programmet körs i Microsoft Azure eller från ett skrivbords-, mobil- eller webbprogram.
+Alla kodexempel i den här självstudiekursen kan läggas till i `Main()`-metoden i konsolprogrammets `Program.cs`-fil.
 
-Du installerar Azure Configuration Manager-paketet genom att högerklicka på projektet i Solution Explorer och välja **Hantera NuGet-paket**. Sök online efter ”ConfigurationManager” och klicka på **Installera** för att installera paketet.
+Du kan använda Azure Storage-klientbiblioteket i alla typer av .NET-program, t.ex. en Azure-molntjänst eller webbapp, eller i dator- och mobilprogram. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
-Du måste inte använda Azure Configuration Manager. Du kan också använda ett API som .NET Frameworks [ConfigurationManager-klass](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
+### <a name="use-nuget-to-install-the-required-packages"></a>Använd NuGet för att installera de paket som behövs
+Det finns två paket som du måste referera till i ditt projekt för att slutföra den här kursen:
+
+* [Microsoft Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): det här paketet ger programmatisk åtkomst till dataresurser i ditt lagringskonto.
+* [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
+
+Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
+
+1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket**.
+2. Sök online efter ”WindowsAzure.Storage” och klicka på **Installera** för att installera Storage-klientbiblioteket och alla dess beroenden.
+3. Sök online efter ”WindowsAzure.ConfigurationManager” och klicka på **Installera** för att installera Azure Configuration Manager.
 
 ### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Spara autentiseringsuppgifterna för ditt lagringskonto i app.config-filen
 Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redigera app.config-filen så att den ser ut som i följande exempel. Ersätt `myaccount` med namnet på ditt lagringskonto och `mykey` med din åtkomstnyckel för lagring.
@@ -296,8 +308,8 @@ Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redige
 > 
 > 
 
-### <a name="add-namespace-declarations"></a>Lägga till namnrymdsdeklarationer
-Öppna filen `program.cs` från Solution Explorer och lägg till följande namnrymdsdeklarationer överst i filen.
+### <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
+Öppna filen `Program.cs` från Solution Explorer och lägg till följande med hjälp av direktiv överst i filen.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -546,7 +558,7 @@ Du kan aktivera mätvärden för File Storage från [Azure Portal](https://porta
 
 Följande exempel visar hur du använder klientbiblioteket för Azure Storage för .NET för att aktivera mätvärden för File Storage.
 
-Lägg först till följande `using`-instruktioner i filen program.cs, förutom de som du lade till ovan:
+Lägg först till följande `using`-direktiv i `Program.cs`-filen, förutom de som du lade till ovan:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;
@@ -645,7 +657,7 @@ Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoo
     Om du vill överföra ett stort antal filer till File Storage rekommenderar vi att du använder AzCopy, Azure PowerShell (Windows) eller Azure CLI (Linux/Unix) eftersom dessa verktyg har optimerats för nätverksöverföring.
 15. **En snabbkorrigering släpptes för att fixa problemet med långsam prestanda med Azure Files**
     
-    Windows-teamet släppte nyligen en korrigering som löser problemet med långsamma prestanda när kunden ansluter till Azure Storage från Windows 8.1 eller Windows Server 2012 R2. Mer information finns i KB-artikeln [Låga prestanda när du ansluter till Azure File Storage från Windows 8.1 eller Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
+    Windows-teamet släppte nyligen en korrigering som löser problemet med långsamma prestanda när kunden ansluter till Azure Storage från Windows 8.1 eller Windows Server 2012 R2. Mer information finns i KB-artikeln [Låga prestanda när du ansluter till Azure File Storage från Windows 8.1 eller Server 2012 R2](https://support.microsoft.com/kb/3114025).
 16. **Använd Azure File Storage med IBM MQ**
     
     IBM har publicerat ett dokument som hjälper IBM MQ-kunder att konfigurera Azure File Storage med deras tjänst. Mer information finns i [Konfigurera IBM MQ MIQM (Multi Instance Queue Manager) med Microsoft Azures filtjänst](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
@@ -655,9 +667,10 @@ Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoo
 
 18. **Hur kan jag aktivera kryptering på serversidan för Azure Files?**
 
-    [Kryptering på serversidan](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) finns för närvarande i förhandsversionen. I förhandsversionen kan funktionen bara aktiveras för nyligen skapade lagringskonton för Azure Resource Manager (ARM).
-    Du kan aktivera den här funktionen på lagringskonton för Azure Resource Manager med Azure Portal. Vi planerar att ha [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) eller [API:t för Microsoft Azure Storage Resource Provider](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) för att aktivera kryptering för fillagring vid slutet av februari. Inga extra kostnader tillkommer för att aktivera den här funktionen. När du aktiverar Storage Service Encryption för Azure File Storage krypteras data automatiskt åt dig. 
-    Lär dig mer om Storage Service Encryption. Du kan även kontakta ssediscussions@microsoft.com för ytterligare frågor om förhandsversionen.
+    [Kryptering på serversidan](storage-service-encryption.md) för Azure Files är för närvarande tillgängligt som en förhandsversion. I förhandsversionen kan du bara aktivera den här funktionen för nya Azure Resource Manager-lagringskonton som skapats med hjälp av [Azure Portal](https://portal.azure.com). Inga extra kostnader tillkommer för att aktivera den här funktionen. När du aktiverar Kryptering av lagringstjänst för Azure File Storage krypteras dina data automatiskt åt dig. 
+    
+    Vi planerar att lägga till stöd så att Kryptering av lagringstjänst kan aktiveras via [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md) och [Azure Storage Resource Provider REST-API:et](/rest/api/storagerp/storageaccounts). 
+    Mer information om kryptering i vila i Azure Storage finns i avsnittet om [Kryptering av lagringstjänst](storage-service-encryption.md). Du kan också kontakta ssediscussions@microsoft.com om du har frågor under förhandsgranskningen.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure File Storage finns på följande länkar.
@@ -670,7 +683,7 @@ Mer information om Azure File Storage finns på följande länkar.
 * [Använd Azure PowerShell med Azure Storage](storage-powershell-guide-full.md)
 * [Använd AzCopy med Microsoft Azure Storage](storage-use-azcopy.md)
 * [Använd Azure CLI:et med Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
-* [Felsökning av problem i Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Felsökning av problem i Azure File Storage](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referens
 * [Storage-klientbibliotek för .NET-referens](https://msdn.microsoft.com/library/azure/dn261237.aspx)

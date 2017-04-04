@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -58,7 +58,7 @@ Se till att du har följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
     * Du kan också använda [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för den här självstudien.
-* [Node.js](https://nodejs.org/) version&0;.10.29 eller högre.
+* [Node.js](https://nodejs.org/) version 0.10.29 eller högre.
 
 ## <a name="step-1-create-a-documentdb-account"></a>Steg 1: Skapa ett DocumentDB-konto
 Börja med att skapa ett DocumentDB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [Konfigurera Node.js-programmet](#SetupNode). Om du använder DocumentDB-emulatorn följer du stegen i artikeln om [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) för att konfigurera emulatorn och gå vidare med att [konfigurera Node.js-programmet](#SetupNode).
@@ -604,7 +604,7 @@ Du bör nu se utdata från din kom-igång-app. Dina utdata bör motsvara exempel
 Grattis! Du har slutfört självstudien om Node.js och skapat ditt första DocumentDB-konsolprogram!
 
 ## <a id="GetSolution"></a>Hämta den fullständiga lösningen till Node.js-självstudien
-Om du inte har tid att slutföra stegen i den här självstudien eller bara vill hämta koden kan du hämta dem från [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+Om du inte har tid att slutföra stegen i den här självstudien eller bara vill ladda ned koden kan du hämta den från [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 För att köra GetStarted-lösningen med alla exempel i den här artikeln behöver du följande:
 

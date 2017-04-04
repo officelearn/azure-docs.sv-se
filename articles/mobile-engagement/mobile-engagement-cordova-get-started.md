@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 2fc534e90431d7c44dc05327fd3d32a2e6ab1c8b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -42,14 +42,14 @@ För den här kursen behöver du följande:
 * [Cordova-pluginprogrammet för Mobile Engagement](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-engagement)
 
 > [!NOTE]
-> Du hittar källkoden och filen ReadMe (Viktigt) för Cordova-pluginprogrammet på [Github](https://github.com/Azure/azure-mobile-engagement-cordova)
+> Du hittar källkoden och filen ReadMe (Viktigt) för Cordova-plugin-programmet på [GitHub](https://github.com/Azure/azure-mobile-engagement-cordova)
 > 
 > 
 
-## <a name="a-idsetup-azmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Konfigurera Mobile Engagement för din Cordova-app
+## <a id="setup-azme"></a>Konfigurera Mobile Engagement för din Cordova-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
+## <a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 I den här kursen behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. 
 
 Vi skapar en grundläggande app i Cordova för att demonstrera integrationen:
@@ -90,7 +90,7 @@ Vi skapar en grundläggande app i Cordova för att demonstrera integrationen:
 
 *Reach-ikon för iOS*: Måste utgöras av namnet på resursen med filtillägg (exempel: mynotificationicon.png). Ikonfilen måste läggas till i ditt iOS-projekt med XCode (använd menyn Add Files [Lägg till filer]).
 
-## <a name="a-idmonitoraenabling-real-time-monitoring"></a><a id="monitor"></a>Aktivera realtidsövervakning
+## <a id="monitor"></a>Aktivera realtidsövervakning
 1. Redigera **www/js/index.js** i Cordova-projektet och lägg till ett anrop till Mobile Engagement som deklarerar en ny aktivitet efter att händelsen *deviceReady* har tagits emot.
    
          onDeviceReady: function() {
@@ -117,10 +117,10 @@ Vi skapar en grundläggande app i Cordova för att demonstrera integrationen:
         [Engagement] Connection: Sent: startSession
         [Engagement] Connection: Sent: activity name='myPage'
 
-## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegrate-pushaenabling-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används till detta heter REACH i Mobile Engagement-portalen.
 I följande avsnitt konfigurerar du appen för att ta emot dem.
 
@@ -172,7 +172,7 @@ Du behöver bara använda emulatorn för att köra Android-appen eftersom GCM-me
 
     cordova run android
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Skicka ett meddelande till din app
+## <a id="send"></a>Skicka ett meddelande till din app
 Nu skapar vi en enkel kampanj med push-meddelanden till den app som körs på enheten:
 
 1. Gå till fliken **Räckvidd** i Mobile Engagement-portalen
@@ -206,7 +206,7 @@ Nu skapar vi en enkel kampanj med push-meddelanden till den app som körs på en
     ![][10]
 9. Du bör nu se ett push-meddelande på enheten eller i emulatorn som en del av den här kampanjen. 
 
-## <a name="a-idnext-stepsanext-steps"></a><a id="next-steps"></a>Nästa steg
+## <a id="next-steps"></a>Nästa steg
 [Översikt över alla metoder som är tillgängliga med Cordova Mobile Engagement SDK](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 <!-- Images. -->

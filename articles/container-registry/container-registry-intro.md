@@ -18,48 +18,51 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
-ms.openlocfilehash: 69d1750f13b5507268229b29a392c38662c0f5f0
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: dd504c95e22d322707c55818815b09d8a36c7ca4
+ms.lasthandoff: 03/24/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introduktion till privata Docker-behållarregister
-> [!NOTE]
-> Container Registry finns för närvarande endast som förhandsversion.
 
 
-Azure Container Registry är en hanterad [Docker-registertjänst](https://docs.docker.com/registry/) som baseras på Docker Registry v2 (öppen källkod). Skapa och underhåll Azure-behållarregister för att lagra och hantera dina privata avbildningar av [Docker-behållare](https://www.docker.com/what-docker). Använd behållarregister i Azure med dina befintliga behållarutvecklings- och distributionspipelines och dra nytta av andras kunskaper i Docker-communityn.
+Azure Container Registry är en hanterad [Docker-registertjänst](https://docs.docker.com/registry/) som baseras på Docker Registry 2.0 (öppen källkod). Skapa och underhåll Azure-behållarregister för att lagra och hantera dina privata avbildningar av [Docker-behållare](https://www.docker.com/what-docker). Använd behållarregister i Azure med dina befintliga behållarutvecklings- och distributionspipelines och dra nytta av andras kunskaper i Docker-communityn.
 
 Bakgrundsinformation om Docker och behållare finns här:
 
 * [Användarhandbok för Docker](https://docs.docker.com/engine/userguide/)
-* [Tillkännagivande om förhandsversionen av Azure Container Registry](https://azure.microsoft.com/blog/azure-container-registry-preview/) 
 
-## <a name="key-concepts"></a>Viktiga begrepp
-* **Register** – Skapa en eller flera behållarregister i din Azure-prenumeration. Varje register backas upp av ett [Azure-standardlagringskonto](../storage/storage-introduction.md) på samma plats. Skapa ett register på samma Azure-plats som dina distributioner och dra nytta av lokal, nätverksnära lagring av dina behållaravbildningar. 
 
-  Register namnges i en rotdomän baserat på prenumerationens [Azure Active Directory-klient](../active-directory/active-directory-howto-tenant.md). Om du till exempel har ett organisationskonto i Contoso-domänen har ditt fullständigt kvalificerade registernamn formatet `myregistry-contoso.azurecr.io`. 
-  
-  Du [styr åtkomsten](container-registry-authentication.md) till en behållare med hjälp av ett Azure Active Directory-kopplat [tjänstobjekt](../active-directory/active-directory-application-objects.md) eller ett angivet administratörskonto. Kör `docker login`-standardkommandot för att autentisera med ett register. 
 
-* **Lagringsplats** – Ett register innehåller en eller flera databaser, som är grupper med behållaravbildningar. Azure Container Registry har stöd för namnområden för lagringsplatser på flera nivåer. Den här funktionen gör att du kan gruppera samlingar med avbildningar relaterade till en viss app, eller en samling appar för specifika utvecklingsgrupper eller operativa team. Exempel:
-  
-  * `myregistry-contoso.azurecr.io/aspnetcore:1.0.1` representerar en företagsomfattande avbildning
-  * `myregistry-contoso.azurecr.io/warrantydept/dotnet-build` representerar en avbildning som används för att skapa .NET-appar, som delas på garantiavdelningen.
-  * `myregistry-contoso.azrecr.io/warrantydept/customersubmissions/web` representerar en webbavbildning, grupperad i constomersubmissions-appen, som ägs av garantiavdelningen.
-
-* **Avbildning** – Lagras på en lagringsplats. Varje avbildning är en skrivskyddad ögonblicksbild av en Docker-behållare. Azure-behållarregister kan innehålla både Windows- och Linux-avbildningar. Du styr avbildningsnamnen för alla behållardistributioner. Använd [Docker-standardkommandon](https://docs.docker.com/engine/reference/commandline/) för att skicka avbildningar till en lagringsplats, eller för att hämta en avbildning från en lagringsplats. 
-
-* **Behållare** – Behållare definierar programvara och dess beroenden och är inneslutna i ett komplett filsystem, inklusive kod, runtime, systemverktyg och bibliotek. Kör Docker-behållare baserat på Windows- eller Linux-avbildningar som du hämtar från ett behållarregister. Behållare som körs på en enskild dator delar operativsystemets kernel. Docker-behållare är helt portabla till alla större Linux-distributioner, Mac och Windows.
 
 ## <a name="use-cases"></a>Användningsfall
 Hämta avbildningar från ett Azure-behållarregister till olika distributionsmål:
 
 * **Skalbart dirigeringssystem** som hanterar program i behållare över kluster med värdar, inklusive [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) och [Kubernetes](http://kubernetes.io/docs/).
-* **Azure-tjänster** som stöder utveckling och körning av program i hög skala, inklusive [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) och [Service Fabric](../service-fabric/index.md). 
+* **Azure-tjänster** som stöder utveckling och körning av program i hög skala, inklusive [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) och [Service Fabric](../service-fabric/index.md).
 
 Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsflöde för utveckling av behållare. Du kan till exempel arbeta mot ett behållarregister från ett verktyg för löpande integrering och distribution som [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) eller [Jenkins](https://jenkins.io/).
 
+
+
+
+
+## <a name="key-concepts"></a>Viktiga begrepp
+* **Register** – Skapa en eller flera behållarregister i din Azure-prenumeration. Varje register backas upp av ett [Azure-standardlagringskonto](../storage/storage-introduction.md) på samma plats. Dra nytta av lokal, nätverksnära lagring av dina behållaravbildningar genom att skapa ett register på samma Azure-plats som dina distributioner.
+
+  Register namnges i en rotdomän baserat på prenumerationens [Azure Active Directory-klient](../active-directory/active-directory-howto-tenant.md). Om du till exempel har ett organisationskonto i Contoso-domänen har ditt fullständigt kvalificerade registernamn formatet `myregistry-contoso.azurecr.io`.
+
+  Du [styr åtkomsten](container-registry-authentication.md) till en behållare med hjälp av ett Azure Active Directory-kopplat [tjänstobjekt](../active-directory/active-directory-application-objects.md) eller ett angivet administratörskonto. Kör `docker login`-standardkommandot för att autentisera med ett register.
+
+* **Lagringsplats** – Ett register innehåller en eller flera databaser, som är grupper med behållaravbildningar. Azure Container Registry har stöd för namnområden för lagringsplatser på flera nivåer. Den här funktionen gör att du kan gruppera samlingar med avbildningar relaterade till en viss app, eller en samling appar för specifika utvecklingsgrupper eller operativa team. Exempel:
+
+  * `myregistry.azurecr.io/aspnetcore:1.0.1` representerar en företagsomfattande avbildning
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` representerar en avbildning som används för att skapa .NET-appar, som delas på garantiavdelningen.
+  * `myregistry.azrecr.io/warrantydept/customersubmissions/web` representerar en webbavbildning, grupperad i appen för kundöverföringar, som ägs av garantiavdelningen.
+
+* **Avbildning** – Lagras på en lagringsplats. Varje avbildning är en skrivskyddad ögonblicksbild av en Docker-behållare. Azure-behållarregister kan innehålla både Windows- och Linux-avbildningar. Du styr avbildningsnamnen för alla behållardistributioner. Använd [Docker-standardkommandon](https://docs.docker.com/engine/reference/commandline/) för att skicka avbildningar till en lagringsplats, eller för att hämta en avbildning från en lagringsplats.
+
+* **Behållare** – Behållare definierar programvara och dess beroenden och är inneslutna i ett komplett filsystem, inklusive kod, runtime, systemverktyg och bibliotek. Kör Docker-behållare baserat på Windows- eller Linux-avbildningar som du hämtar från ett behållarregister. Behållare som körs på en enskild dator delar operativsystemets kernel. Docker-behållare är helt portabla till alla större Linux-distributioner, Mac och Windows.
 
 
 

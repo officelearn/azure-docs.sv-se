@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: db84d2b03ad1542a898c2c452e62a3f7ef7e6af8
-ms.openlocfilehash: 4824a8a24a7e43bc8e8112303f20d916e67b6aff
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -40,7 +41,7 @@ az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-Alternativt kan du titta i [Github-lagringsplatsen för Azure-snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates) för mappar som innehåller `vmss` för att se fördefinierade exempel på mallar som distribuerar skalningsuppsättningar. Om du vill se vilka mallar som redan använder hanterade diskar kan du referera till [den här listan](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
+Alternativt kan du titta i [GitHub-databasen för Azure-snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates) och leta efter mappar som innehåller `vmss` för att se fördefinierade exempel på mallar som distribuerar skalningsuppsättningar. Om du vill se vilka mallar som redan använder hanterade diskar kan du referera till [den här listan](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
 ## <a name="api-versions"></a>API-versioner
 
@@ -56,10 +57,5 @@ Mer information om hur du använder hanterade datadiskar med skalningsuppsättni
 
 Referera till [den här artikeln](./virtual-machine-scale-sets-placement-groups.md) för att börja arbeta med stora skalningsuppsättningar.
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

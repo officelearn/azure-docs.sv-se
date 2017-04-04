@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
-ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 0539e9d04c61d35de56a29d350c07654c095c576
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -159,7 +160,10 @@ Först lägger vi till en modul som tar bort kolumnen **normalized-losses** helt
     ***Egenskapsrutan visar att kolumnen "normalized-losses" är utelämnad***
 
     > [!TIP]
-    > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I vårt exempel dubbelklickar du på modulen [Välj kolumner i datauppsättning][select-columns] och skriver kommentaren ”Exkludera normaliserade förluster”.
+    Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I vårt exempel dubbelklickar du på modulen [Välj kolumner i datauppsättning][select-columns] och skriver kommentaren ”Exkludera normaliserade förluster”.
+    >
+    >
+
 
     ![Lägg till en kommentar genom att dubbelklicka på en modul][add-comment]
     <br/>
@@ -305,7 +309,7 @@ Du visar utdata från modulen [Utvärdera modell][evaluate-model] genom att klic
 För vår modell visas följande statistik:
 
 - **Medelabsolutfel** (MAE): Medelvärdet av absoluta fel (ett *fel* är skillnaden mellan det förväntade och faktiska värdet).
-- **Medelkvadratfel ** (RMSE): Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
+- **Medelkvadratfel** (RMSE): Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
 - **Relativa absoluta fel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 - **Relativa kvadratfel**: Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
 - **Bestämningskoefficient**: Kallas också för **R-kvadratvärdet** och är ett statistiskt mått som anger hur väl en modell passar data.
@@ -377,9 +381,4 @@ Vill du veta mer? En mer omfattande och detaljerad genomgång av processen för 
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

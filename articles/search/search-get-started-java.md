@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -60,7 +61,7 @@ Följande lista beskriver de filer som är relevanta för det här exemplet.
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Leta upp tjänstnamnet och API-nyckeln för Azure Search-tjänsten
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Leta upp tjänstnamnet och API-nyckeln för Azure Search-tjänsten
 Alla REST API-anrop till Azure Search kräver att du anger tjänstens URL och en API-nyckel. 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -72,7 +73,7 @@ Alla REST API-anrop till Azure Search kräver att du anger tjänstens URL och en
 5. Kopiera tjänstens URL och en administratörsnyckel. Du behöver dem senare när du lägger till dem i filen **config.properties**.
 
 ## <a name="download-the-sample-files"></a>Ladda ned exempelfilerna
-1. Gå till [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) på Github.
+1. Gå till [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) på GitHub.
 2. Klicka på **Ladda ned ZIP**, spara ZIP-filen på disk och extrahera sedan alla filer som den innehåller. Om du vill kan du extrahera filerna till Java-arbetsytan så att det blir lättare att hitta projektet senare.
 3. Exempelfilerna är skrivskyddade. Högerklicka på Mappegenskaper och ta bort skrivskyddet.
 
@@ -88,7 +89,7 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 3. Klicka på **Finish**.
 4. Använd **Project Explorer** för att visa och redigera filerna. Om den inte redan är öppen klickar du på **Window** > **Show view** > **Project Explorer** eller använder genvägen för att öppna den.
 
-## <a name="configure-the-service-url-and-apikey"></a>Konfigurera tjänstens URL och API-nyckel
+## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och API-nyckel
 1. I **Project Explorer** dubbelklickar du på **config.properties** för att redigera konfigurationsinställningarna som innehåller servernamnet och API-nyckeln.
 2. Följ stegen ovan i den här artikeln, där du letade upp tjänstens URL och API-nyckeln på [Azure Portal](https://portal.azure.com), för att hämta de värden som du nu ska ange i **config.properties**.
 3. I **config.properties** ersätter du ”Api Key” med API-nyckeln för tjänsten. Därefter ska tjänstnamnet (den första delen av URL:en http://servicename.search.windows.net) ersätta ”service name” i samma fil.
@@ -101,7 +102,7 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
    
     ![][6]
 3. Klicka på **Apply**.
-4. Välj **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add.**.
+4. Välj **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add**.
 5. Expandera Apache och välj den version av Apache Tomcat-servern som du installerade tidigare. I vårt system installerade vi version 8.
    
     ![][7]
@@ -179,9 +180,4 @@ Har du inte provat Azure Search än? Vi rekommenderar att du går andra självst
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

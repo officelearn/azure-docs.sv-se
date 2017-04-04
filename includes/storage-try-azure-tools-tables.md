@@ -2,12 +2,7 @@
 > 
 > **Prova Microsoft Azure Lagringsutforskaren**
 > 
-> [Microsoft Azure Lagringsutforskaren](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, OS X och Linux.
+> [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 > 
 > 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

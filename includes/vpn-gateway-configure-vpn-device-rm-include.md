@@ -1,14 +1,16 @@
+Plats-till-plats-anslutningar till ett lokalt nätverk kräver en VPN-enhet. Det finns många olika VPN-enheter som fungerar med Azure. Mer information om VPN-enheter och konfigurationsinställningar finns i avsnittet om [VPN-enheter](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md). Innan du konfigurerar VPN-enheten kontrollerar du om det finns några [kända kompatibilitetsproblem](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) med den VPN-enhet som du vill använda. Kontakta enhetstillverkaren för specifik konfigurationsinformation för VPN-enheten.
 
-För att konfigurera din VPN-enhet, kommer du att behöva den offentliga IP-adressen för den virtuella nätverksgatewayen för att konfigurera din lokala VPN-enhet. Jobba med din enhetstillverkare för att få specifik konfigurationsinformation och konfigurera din enhet. Referera till [VPN-enheter](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) för mer information om VPN-enheter som fungerar bra tillsammans med Azure.
+När du konfigurerar VPN-enheten behöver du följande objekt:
 
-Använd följande exempel för att hitta den offentliga IP-adressen för din virtuella nätverksgateway med hjälp av PowerShell:
+- **Den offentliga IP-adressen** för din virtuella nätverksgateway.
 
-    Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+    -  Om du använder Azure Portal hittar du den offentliga IP-adressen genom att gå till **Virtuella nätverksgatewayer** och klicka på namnet på din gateway. 
 
-Du kan också se den offentliga IP-adressen för din virtuella nätverksgateway med hjälp av Azure-portalen. Gå till **Virtuella nätverksgatewayer** och klicka på namnet för din gateway.
+    - Om du använder PowerShell hittar du den offentliga IP-adressen för din virtuella nätverksgateway genom att ersätta värdena med dina egna värden i följande exempel.
+
+            Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+- **En delad nyckel**. Det här är samma delade nyckel som du anger när du skapar VPN-anslutningen för plats-till-plats. I vårt exempel använder vi en enkel delad nyckel. Du bör skapa och använda en mer komplex nyckel.
 
 
-
-<!--HONumber=Nov16_HO2-->
 
 

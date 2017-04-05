@@ -16,7 +16,7 @@ På bladet Grundläggande inställningar anger du administrativ information för
 
 2. Ange ett **användarnamn** och ett starkt **lösenord** som ska användas för att skapa ett lokalt konto på den virtuella datorn. Det lokala kontot används för att logga in på och hantera den virtuella datorn. I exemplet är _azureuser_ användarnamnet.
 
- Lösenordet måste innehålla mellan 8 och 123 tecken och uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Läs mer om [krav för användarnamn och lösenord](../articles/virtual-machines/virtual-machines-windows-faq.md).
+ Lösenordet måste innehålla mellan 8 och 123 tecken och uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Läs mer om [krav för användarnamn och lösenord](../articles/virtual-machines/windows/faq.md).
 
 3. **Prenumeration** är valfritt. En vanlig inställning är ”Betala per användning”.
 

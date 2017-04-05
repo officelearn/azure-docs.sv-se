@@ -1,13 +1,14 @@
 # Översikt
 ## [Vad är Application Gateway](application-gateway-introduction.md)
 ## [Vanliga frågor och svar om Application Gateway](application-gateway-faq.md)
-## [Brandvägg för webbappar](application-gateway-webapplicationfirewall-overview.md)
+## [Brandvägg för webbappar](application-gateway-web-application-firewall-overview.md)
+### [Kärnregeluppsättningar och regler](application-gateway-crs-rulegroups-rules.md)
 ## [Hälsoövervakning](application-gateway-probe-overview.md)
 ## [URL-routning](application-gateway-url-route-overview.md)
 ## [Flera platser](application-gateway-multi-site-overview.md)
 ## [Slutpunkt till slutpunkt för SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Tjänstbegränsningar](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Kom igång
 ## Skapa en Application Gateway
 ### Offentlig
@@ -23,6 +24,8 @@
 ## Konfigurera brandväggen för webbprogram
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+## Anpassa regler för brandväggen för webbaserade program
+### [Portal](application-gateway-customize-waf-rules-portal.md)
 ## Konfigurera för SSL-avlastning
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)

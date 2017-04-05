@@ -3,7 +3,7 @@ title: Distribuera en ASP.NET-app till Azure med Visual Studio | Microsoft Docs
 description: "Ta reda på hur du distribuerar ett ASP.NET-webbprojekt till en ny webbapp i Azure App Service med hjälp av Visual Studio."
 services: app-service\web
 documentationcenter: .net
-author: tdykstra
+author: cephalin
 manager: erikre
 editor: 
 ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 12/16/2016
-ms.author: rachelap
+ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
-ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 93107d19e1814b30d69fc12c92b544d9760bda6a
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -50,7 +50,7 @@ Förutom den tid det tar att installera Azure SDK för .NET tar det cirka 10–1
   
     Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du skapa en tillfällig startapp i App Service – inget kreditkort behövs och du gör inga åtaganden.
 
-## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Konfigurera utvecklingsmiljön
+## <a name="setupdevenv"></a>Konfigurera utvecklingsmiljön
 Kursen gäller för Visual Studio 2015 med [Azure SDK för .NET](../dotnet-sdk.md) 2.9 eller senare. 
 
 * [Ladda ned den senaste Azure SDK:n för Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). SDK:n installerar Visual Studio 2015 om du inte redan har det.
@@ -167,7 +167,7 @@ I det här avsnittet distribuerar du webbprojektet till webbappresursen som du s
    ![Fliken Inställningar i guiden Publicera webbplats](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
    
    Härnäst följer fliken **Förhandsgranska**. Här kan du se vilka filer som ska kopieras från projektet till API-appen. När du distribuerar ett projekt till en API-app som du redan har distribuerat till tidigare, kopieras bara ändrade filer. Du kan visa en lista med det som ska kopieras genom att klicka på knappen **Starta förhandsgranskning**.
-4. På fliken **Förhandsgranska ** klickar du på **Publicera**.
+4. På fliken **Förhandsgranska** klickar du på **Publicera**.
    
    ![Fliken Förhandsgranska i guiden Publicera webbplats](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
    
@@ -189,8 +189,6 @@ I det här avsnittet distribuerar du webbprojektet till webbappresursen som du s
 
 ## <a name="troubleshooting"></a>Felsökning
 Om du får problem när du går igenom den här kursen kontrollerar du att du använder den senaste versionen av Azure SDK för .NET. Det enklaste sättet att göra det på är att [ladda ner Azure SDK för Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Om du har den senaste versionen får du ett meddelande från installationsprogrammet för webbplattform om att det inte krävs någon installation.
-
-Om du befinner dig i ett företagsnätverk och försöker att distribuera till Azure App Service via en brandvägg ska du kontrollera att portarna 443 och 8172 är öppna för webbdistribution. Om du inte kan öppna portarna hittar du andra distributionsalternativ i avsnittet Nästa steg nedan.
 
 När din ASP.NET-webbapp körs i Azure App Service kanske du vill veta mer om Visual Studio-funktioner som förenklar felsökningen. Information om bland annat loggning och fjärrfelsökning finns i [Felsöka Azure Web Apps i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 

@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0bab12648a31b416bd7ceca75f0f83f5da226bad
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -90,10 +90,10 @@ Här finns mer information om beräkningar, data, nätverk och relaterade tjäns
 > 
 
 ### <a name="compute-services"></a>Beräkningstjänster
-Azures beräkningstjänster är kärnan i en Big Compute-lösning och olika beräkningstjänster har olika fördelar för olika scenarier. På en grundläggande nivå erbjuder dessa tjänster olika lägen som program kan köras i på VM-baserade beräkningsinstanser som Azure tillhandahåller med hjälp av Windows Server Hyper-V-teknik. Dessa instanser kan köra standardiserade eller anpassade Linux- och Windows-baserade operativsystem och verktyg. Azure ger dig möjlighet att välja [instansstorlekar](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) med olika konfigurationer av CPU-kärnor, minne, diskutrymme och andra egenskaper. Beroende på dina behov kan du skala instanser till flera tusen kärnor och sedan skala ned när du behöver färre resurser.
+Azures beräkningstjänster är kärnan i en Big Compute-lösning och olika beräkningstjänster har olika fördelar för olika scenarier. På en grundläggande nivå erbjuder dessa tjänster olika lägen som program kan köras i på VM-baserade beräkningsinstanser som Azure tillhandahåller med hjälp av Windows Server Hyper-V-teknik. Dessa instanser kan köra standardiserade eller anpassade Linux- och Windows-baserade operativsystem och verktyg. Azure ger dig möjlighet att välja [instansstorlekar](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) med olika konfigurationer av CPU-kärnor, minne, diskutrymme och andra egenskaper. Beroende på dina behov kan du skala instanser till flera tusen kärnor och sedan skala ned när du behöver färre resurser.
 
 > [!NOTE]
-> Dra nytta av Azures [beräkningsintensiva instanser, till exempel H-serien](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att förbättra prestanda och skalbarhet för HPC-arbetsbelastningar. Dessa instanser stöder även parallella MPI-program som kräver ett nätverk med låg latens och hög genomströmning. Även virtuella datorer med NVIDIA-grafikprocessorer i [N-serien](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) är tillgängliga för att utöka utbudet av databehandlings- och visualiseringsscenarier i Azure.  
+> Dra nytta av Azures [beräkningsintensiva instanser, till exempel H-serien](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att förbättra prestanda och skalbarhet för HPC-arbetsbelastningar. Dessa instanser stöder även parallella MPI-program som kräver ett nätverk med låg latens och hög genomströmning. Även virtuella datorer med NVIDIA-grafikprocessorer i [N-serien](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) är tillgängliga för att utöka utbudet av databehandlings- och visualiseringsscenarier i Azure.  
 > 
 > 
 

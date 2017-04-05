@@ -48,6 +48,7 @@
 ### [Använd med Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Använd med Power BI](data-lake-store-power-bi.md)
 ### [Använd med Data Catalog](data-lake-store-with-data-catalog.md)
+### [Använd med PolyBase i SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [Fler Azure-integreringsalternativ](data-lake-store-integrate-with-other-services.md)
 
 ## Hantera

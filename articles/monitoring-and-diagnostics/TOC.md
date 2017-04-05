@@ -4,6 +4,7 @@
 ## [Aviseringar](monitoring-overview-alerts.md)
 ## [Automatisk skalning](monitoring-overview-autoscale.md)
 ## [Aktivitetslogg](monitoring-overview-activity-logs.md)
+## [Åtgärdsgrupper](monitoring-action-groups.md)
 ## [Diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)
 ## [Partnerintegrering](monitoring-partners.md)
 ## [Azure Diagnostics](azure-diagnostics.md)
@@ -28,10 +29,19 @@
 ### [Konfigurera webhooks och e-postaviseringar med autoskalning](insights-autoscale-to-webhook-email.md)
 ## Använd aktivitetsloggen
 ### [Visa händelser i aktivitetsloggen](insights-debugging-with-events.md)
-### [Konfigurera webhook i en aktivitetsloggvarning](insights-auditlog-to-webhook-email.md)
+### [Konfigurera aviseringar i en händelse i aktivitetsloggen](monitoring-activity-log-alerts.md)
 ### [Arkivera aktivitetsloggen](monitoring-archive-activity-log.md)
 ### [Strömma aktivitetsloggen till Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Granska driften med Resource Manager](../azure-resource-manager/resource-group-audit.md)
+### [Skapa aviseringar för aktivitetsloggen med Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+## Tjänstmeddelanden
+### [Visa tjänstmeddelanden](monitoring-service-notifications.md)
+### [Konfigurera aviseringar för tjänstmeddelanden](monitoring-activity-log-alerts-on-service-notifications.md)
+## Åtgärdsgrupper
+### [Lär dig mer om webhook-scheman](monitoring-activity-log-alerts-webhook.md)
+### [Beteende för SMS-aviseringar](monitoring-sms-alert-behavior.md)
+### [Begränsningar för aviseringsfrekvensen](monitoring-alerts-rate-limiting.md)
+### [Skapa åtgärdsgrupper med Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
 ## Hantera diagnostikloggar
 ### [Arkiv](monitoring-archive-diagnostic-logs.md)
 ### [Strömma till Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)

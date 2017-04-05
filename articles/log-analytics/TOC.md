@@ -52,7 +52,7 @@
 ### [AD-replikeringsstatus](log-analytics-ad-replication-status.md)
 ### [Varningshantering](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
-### [Kapacitetshantering](log-analytics-capacity.md)
+### [Kapacitet och prestanda](log-analytics-capacity.md)
 ### [Spårning av ändringar](log-analytics-change-tracking.md)
 ### [Behållare](log-analytics-containers.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)

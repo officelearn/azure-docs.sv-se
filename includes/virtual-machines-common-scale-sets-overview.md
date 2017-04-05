@@ -23,7 +23,7 @@ Om du vill öka eller minska antalet virtuella datorer i en VM-skaluppsättning 
 
 Om du omdistribuerar en mall för att ändra kapaciteten kan du definiera en mycket mindre mall som bara innehåller SKU:n och den uppdaterade kapaciteten. Ett exempel på detta visas här: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Om du vill gå igenom de steg som kan skapa en skaluppsättning som skalas automatiskt kan du läsa [Skala automatiskt datorer i en skalningsuppsättning för virtuella datorer](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Om du vill gå igenom de steg som kan skapa en skaluppsättning som skalas automatiskt kan du läsa [Skala automatiskt datorer i en skalningsuppsättning för virtuella datorer](../articles/virtual-machines/windows/vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="monitoring-your-vm-scale-set"></a>Övervaka din VM-skaluppsättning
 Om du vill visa VM-skalningsuppsättningar rekommenderas att du använder [resursutforskaren i Azure](https://resources.azure.com). VM-skaluppsättningar är en resurs under Microsoft.Compute, så på den webbplatsen kan du se dem om du expanderar följande länkar:
@@ -115,9 +115,4 @@ Det här avsnittet innehåller några vanliga scenarier för VM-skaluppsättning
 **F.** Fungerar VM-skaluppsättningar med Azures tillgänglighetsuppsättningar?
 
 **S.** Ja. En VM-skalningsuppsättning är en implicit tillgänglighetsuppsättning med 3 FD och 5 UD. Du behöver inte konfigurera något under virtualMachineProfile. I framtida versioner kommer VM-skaluppsättningar sannolikt att sträcka sig över flera klienter, men för närvarande är en skaluppsättning en enda tillgänglighetsuppsättning.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -1,13 +1,3 @@
-### <a name="disk-persistence"></a>Diskpersistens 
-
-I följande tabell visas de olika tillstånden för diskarna i en virtuell Azure-dator och om data bevaras eller inte i varje tillstånd.
-
-| Disk | Start | Stopp/<br>Frigöra | Pausa | Om<br>start | Stäng<br>av | Ta bort | Fel | Ändra storlek | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| OS-disk | Ja | Ja  | Ja | Ja | Ja  | Nej | Nej  | Ja | 
-| RAM  | Ja | Ja | Ja | Ja | Nej   | Nej | Nej | Nej | 
-| Lokal temporär disk | Ja | Nej | Ja | Nej | Nej  | Nej | Nej | Nej | 
-| Ansluten datadisk | Ja | Ja | Ja | Ja | Ja  | Ja | Ja | Ja | 
 
 ## <a name="about-vhds"></a>Om virtuella hårddiskar
 
@@ -41,7 +31,7 @@ Premium Storage stöds av solid state-hårddiskar och levererar högpresterande 
 
 ### <a name="unmanaged-disks"></a>Ohanterade diskar
 
-Ohanterade diskar är den traditionella typen av diskar som används av virtuella datorer. Med dem kan du skapa ett eget lagringskonto och ange det lagringskontot när du skapar disken. Du måste se till att du inte lägger till för många diskar i samma lagringskonto eftersom du kan överskrida lagringskontots [skalbarhetsmål](../articles/storage/storage-scalability-targets.md) (20&000; IOPS, till exempel), vilket resulterar i att de virtuella datorerna begränsas. Du måste lista ut hur du optimerar användningen av en eller flera lagringskonton för att få ut den bästa prestandan av dina virtuella datorer med ohanterade diskar.
+Ohanterade diskar är den traditionella typen av diskar som används av virtuella datorer. Med dem kan du skapa ett eget lagringskonto och ange det lagringskontot när du skapar disken. Du måste se till att du inte lägger till för många diskar i samma lagringskonto eftersom du kan överskrida lagringskontots [skalbarhetsmål](../articles/storage/storage-scalability-targets.md) (20 000 IOPS, till exempel), vilket resulterar i att de virtuella datorerna begränsas. Du måste lista ut hur du optimerar användningen av en eller flera lagringskonton för att få ut den bästa prestandan av dina virtuella datorer med ohanterade diskar.
 
 ### <a name="managed-disks"></a>Hanterade diskar 
 
@@ -63,7 +53,3 @@ Följande tabell innehåller en jämförelse av Premium och Standard för både 
 | Diskstorlek | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Ohanterade diskar: 1 GB-1 TB <br><br>Hanterade diskar:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
 | Maxdataflöde per disk | 200 MB/s | 60 MB/s |
 | Max-IOPS per disk | 5000 IOPS | 500 IOPS |
-
-<!--HONumber=Feb17_HO3-->
-
-

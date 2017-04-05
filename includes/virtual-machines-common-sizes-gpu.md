@@ -17,7 +17,7 @@ NC-instanserna drivs av NVIDIA:s Tesla K80-kort. Nu kan användarna bearbeta dat
 
 **Operativsystem som stöds**
 
-* Windows Server 2016, Windows Server 2012 R2 – läs avsnittet om [drivrutinsinstallationer för N-serien för Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
+* Windows Server 2016, Windows Server 2012 R2 – läs avsnittet om [drivrutinsinstallationer för N-serien för Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
 
 ## <a name="nc-instances"></a>NC-instanser
 
@@ -34,8 +34,8 @@ NC-instanserna drivs av NVIDIA:s Tesla K80-kort. Nu kan användarna bearbeta dat
 
 **Operativsystem som stöds**
 
-* Windows Server 2016, Windows Server 2012 R2 – läs avsnittet om [drivrutinsinstallationer för N-serien för Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
-* Ubuntu 16.04 LTS – läs avsnittet om [drivrutinsinstallationer för N-serien för Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
+* Windows Server 2016, Windows Server 2012 R2 – läs avsnittet om [drivrutinsinstallationer för N-serien för Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
+* Ubuntu 16.04 LTS – läs avsnittet om [drivrutinsinstallationer för N-serien för Linux](../articles/virtual-machines/linux/n-series-driver-setup.md)
 
 <br>
 

@@ -60,7 +60,7 @@ Lär dig hur du använder Batch för att effektivt köra storskaliga, parallella
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
+        <a href="/azure/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

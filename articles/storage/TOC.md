@@ -45,11 +45,11 @@
 
 ## Disklagring 
 ### [Skapa en virtuell dator med Resource Manager och PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-### [Koppla en hanterad disk på en virtuell Windows-dator med hjälp av PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
-### [Lägga till en hanterad disk till en virtuell Linux-dator](../virtual-machines/virtual-machines-linux-add-disk.md)
-### [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-### [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+### [Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
+### [Koppla en hanterad disk på en virtuell Windows-dator med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md)
+### [Lägga till en hanterad disk till en virtuell Linux-dator](../virtual-machines/linux/add-disk.md)
+### [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+### [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 # Gör så här för att
 ## [Skapa ett lagringskonto](storage-create-storage-account.md)
@@ -74,8 +74,8 @@
 ### [Diskar och virtuella hårddiskar för virtuella Windows-datorer](storage-about-disks-and-vhds-windows.md)
 ### [Diskar och virtuella hårddiskar för virtuella Linux-datorer](storage-about-disks-and-vhds-linux.md)
 ### [Översikt över Azure Managed Disks](storage-managed-disks-overview.md)
-### [Migrera virtuella Azure-datorer till Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-### [Migrera från AWS och andra plattformar till Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Migrera virtuella Azure-datorer till Azure Managed Disks](../virtual-machines/windows/migrate-to-managed-disks.md)
+### [Migrera från AWS och andra plattformar till Managed Disks](../virtual-machines/windows/on-prem-to-azure.md)
 ### [Vanliga frågor om virtuella IaaS-datordiskar i Azure](storage-faq-for-disks.md)
 ### Premium Storage
 #### [Premium Storage med höga prestanda för virtuella datordiskar](storage-premium-storage.md)
@@ -127,9 +127,9 @@
 ## Överföra data
 ### [Flytta data till och från Storage](storage-moving-data.md)
 ### [Kommandoradsverktyget AzCopy](storage-use-azcopy.md)
-### [Använda Import-Export-tjänsten](storage-import-export-service.md)
-### [Använda Import-Export-verktyget](storage-import-export-tool-how-to.md)
-#### [Konfigurera Import-Export-verktyget](storage-import-export-tool-setup.md)
+### [Använd Import/Export-tjänsten](storage-import-export-service.md)
+### [Använd Import/Export-verktyget](storage-import-export-tool-how-to.md)
+#### [Konfigurera Import/Export-verktyget](storage-import-export-tool-setup.md)
 #### [Förbereda hårddiskar för ett importjobb](storage-import-export-tool-preparing-hard-drives-import.md)
 ##### [Konfigurera egenskaper och metadata under importeringsprocessen](storage-import-export-tool-setting-properties-metadata-import.md)
 ##### [Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
@@ -138,12 +138,12 @@
 #### [Granska jobbstatus med kopiera loggfiler](storage-import-export-tool-reviewing-job-status-v1.md)
 #### [Reparera ett importjobb](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [Reparera ett exportjobb](storage-import-export-tool-repairing-an-export-job-v1.md)
-#### [Felsökning av Import-Export-verktyget](storage-import-export-tool-troubleshooting-v1.md)
-#### [Import-Export-tjänstens manifestfilformat](storage-import-export-file-format-manifest.md)
-#### [Import-Export-tjänstens metadata och egenskapers filformat](storage-import-export-file-format-metadata-and-properties.md)
-#### [Import-Export-tjänstens loggfilformat](storage-import-export-file-format-log.md)
-### [Använda Import-Export-verktyget (v1)](storage-import-export-tool-how-to-v1.md)
-#### [Konfigurera Import-Export-verktyget](storage-import-export-tool-setup-v1.md)
+#### [Felsökning av Import/Export-verktyget](storage-import-export-tool-troubleshooting-v1.md)
+#### [Manifestfilformat för Import/Export-tjänsten](storage-import-export-file-format-manifest.md)
+#### [Import/Export-tjänstens metadata och egenskapers filformat](storage-import-export-file-format-metadata-and-properties.md)
+#### [Loggfilformat för Import/Export-tjänsten](storage-import-export-file-format-log.md)
+### [Använda Import/Export-verktyget (v1)](storage-import-export-tool-how-to-v1.md)
+#### [Konfigurera Import/Export-verktyget](storage-import-export-tool-setup-v1.md)
 #### [Förbereda hårddiskar för ett importjobb](storage-import-export-tool-preparing-hard-drives-import-v1.md)
 ##### [Konfigurera egenskaper och metadata under importeringsprocessen](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 ##### [Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
@@ -152,18 +152,18 @@
 #### [Granska jobbstatus med kopiera loggfiler](storage-import-export-tool-reviewing-job-status-v1.md)
 #### [Reparera ett importjobb](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [Reparera ett exportjobb](storage-import-export-tool-repairing-an-export-job-v1.md)
-#### [Felsökning av Import-Export-verktyget](storage-import-export-tool-troubleshooting-v1.md)
-#### [Import-Export-tjänstens manifestfilformat](storage-import-export-file-format-manifest.md)
-#### [Import-Export-tjänstens metadata och egenskapers filformat](storage-import-export-file-format-metadata-and-properties.md)
-#### [Import-Export-tjänstens loggfilformat](storage-import-export-file-format-log.md)
-### [Använda Azure Import-Export-tjänstens REST-API](storage-import-export-using-the-rest-api.md)
+#### [Felsökning av Import/Export-verktyget](storage-import-export-tool-troubleshooting-v1.md)
+#### [Manifestfilformat för Import/Export-tjänsten](storage-import-export-file-format-manifest.md)
+#### [Import/Export-tjänstens metadata och egenskapers filformat](storage-import-export-file-format-metadata-and-properties.md)
+#### [Loggfilformat för Import/Export-tjänsten](storage-import-export-file-format-log.md)
+### [Använda REST-API för Azure Import/Export-tjänsten](storage-import-export-using-the-rest-api.md)
 #### [Skapa ett importjobb](storage-import-export-creating-an-import-job.md)
 #### [Skapa ett exportjobb](storage-import-export-creating-an-export-job.md)
 #### [Hämta statusinformation för ett jobb](storage-import-export-retrieving-state-info-for-a-job.md)
 #### [Räkna upp jobb](storage-import-export-enumerating-jobs.md)
 #### [Avbryta och ta bort jobb](storage-import-export-cancelling-and-deleting-jobs.md)
 #### [Säkerhetskopiera enhetsmanifest](storage-import-export-backing-up-drive-manifests.md)
-#### [Diagnostik och felåterställning av Import Export-jobb](storage-import-export-diagnostics-and-error-recovery.md)
+#### [Diagnostik och felåterställning av Import/Export-jobb](storage-import-export-diagnostics-and-error-recovery.md)
 # Referens
 ## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
@@ -181,7 +181,7 @@
 ## REST
 ### [Blobar, köer, tabeller och filer](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Resursprovider](/rest/api/storagerp)
-### [Import/export](/rest/api/storageimportexport)
+### [Import/Export](/rest/api/storageimportexport)
 
 # Relaterat
 ## Klassisk portal
@@ -201,6 +201,7 @@
 ## Azure Lagringsutforskaren
 ### [Lagringsutforskaren (förhandsversion)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Hantera blobar med Lagringsutforskaren (förhandsversion)](../vs-azure-tools-storage-explorer-blobs.md)
+### [Använd Storage Explorer (förhandsversion) med Azure File Storage](../vs-azure-tools-storage-explorer-files.md)
 
 ## NuGet-paket
 ### [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

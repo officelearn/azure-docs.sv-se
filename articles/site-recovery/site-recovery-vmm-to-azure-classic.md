@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e2e09cdabd323575c0da6797c9eb2564572629f1
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -274,7 +274,7 @@ När du har konfigurerar servrar, moln och nätverk kan du aktivera skydd för v
     ![Verifiera virtuella datorer](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Du kan ändra följande nätverksegenskaper på fliken **Konfigurera** i egenskaperna för virtuella datorer.
 
-* **Antal nätverkskort på den virtuella måldatorn** – Antalet nätverkskort beror på storleken som du anger för den virtuella måldatorn. Kontrollera [storleksspecifikationerna för virtuella datorer](../virtual-machines/virtual-machines-linux-sizes.md) och se hur många nätverkskort som stöds med storleken på den virtuella datorn. När du ändrar storleken för en virtuell dator och sparar inställningarna ändras antalet nätverkskort nästa gång du öppnar sidan **Konfigurera**. Antalet nätverkskort för virtuella måldatorer är det minsta antalet nätverkskort på den virtuella källdatorn och det högsta antalet nätverkskort som stöds av storleken för den valda virtuella datorn enligt följande:
+* **Antal nätverkskort på den virtuella måldatorn** – Antalet nätverkskort beror på storleken som du anger för den virtuella måldatorn. Kontrollera [storleksspecifikationerna för virtuella datorer](../virtual-machines/linux/sizes.md) och se hur många nätverkskort som stöds med storleken på den virtuella datorn. När du ändrar storleken för en virtuell dator och sparar inställningarna ändras antalet nätverkskort nästa gång du öppnar sidan **Konfigurera**. Antalet nätverkskort för virtuella måldatorer är det minsta antalet nätverkskort på den virtuella källdatorn och det högsta antalet nätverkskort som stöds av storleken för den valda virtuella datorn enligt följande:
 
   * Om antalet nätverkskort på källdatorn är mindre än eller lika med antalet nätverkskort som tillåts för måldatorns storlek så kommer målet att ha samma antal kort som källan.
   * Om antalet nätverkskort för den virtuella källdatorn överskrider det tillåtna antalet för målstorleken så används den högsta målstorleken.

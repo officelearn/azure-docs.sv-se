@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 463e2a8af1fd319b396c6a769896344cac5f9f32
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -213,7 +213,7 @@ Azure Backup stöder följande lista över operativsystem för säkerhetskopieri
 
 **Säkerhetskopiering av virtuell Azure-dator:**
 
-* **Linux**: Azure Backup stöder [en lista över distributioner som godkänts av Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) med undantag för Core OS Linux.  Andra Bring-Your-Own-Linux-distributioner kan också fungera så länge som den virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns.
+* **Linux**: Azure Backup stöder [en lista över distributioner som godkänts av Azure](../virtual-machines/linux/endorsed-distros.md) med undantag för Core OS Linux.  Andra Bring-Your-Own-Linux-distributioner kan också fungera så länge som den virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns.
 * **Windows Server**: versioner som är äldre än Windows Server 2008 R2 stöds inte.
 
 

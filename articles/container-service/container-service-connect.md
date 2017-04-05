@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 25a35912b72f7f44b83ccd49f298b44665318418
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3dfa2c56dd6d3e0fe7757995d284cebe172eabc4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +35,7 @@ För DC/OS och Docker Swarm måste du skapa en SSH-tunnel (Secure Shell) till et
 ## <a name="prerequisites"></a>Krav
 
 * Ett Kubernetes-, DC/OS- eller Swarm-kluster [som distribuerats i Azure Container Service](container-service-deployment.md).
-* En SSH RSA-fil för privat nyckel som motsvarar den offentliga nyckel som lades till i klustret under distributionen. Dessa kommandon förutsätter att den privata SSH-nyckeln finns i `$HOME/.ssh/id_rsa` på din dator. Mer information finns i dessa anvisningar för [OS X och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) eller [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). Om SSH-anslutningen inte fungerar kan du behöva [återställa dina SSH-nycklar](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* En SSH RSA-fil för privat nyckel som motsvarar den offentliga nyckel som lades till i klustret under distributionen. Dessa kommandon förutsätter att den privata SSH-nyckeln finns i `$HOME/.ssh/id_rsa` på din dator. Mer information finns i dessa anvisningar för [OS X och Linux](../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../virtual-machines/linux/ssh-from-windows.md). Om SSH-anslutningen inte fungerar kan du behöva [återställa dina SSH-nycklar](../virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Ansluta till ett Kubernetes-kluster
 

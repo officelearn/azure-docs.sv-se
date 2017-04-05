@@ -14,7 +14,7 @@ Det finns två typer av virtuella datorkonfigurationer: multi-instans och en ins
 
 Multi-instanskonfigurationen ger redundans för fysiska datorer, kraft och nätverk, och vi rekommenderar att du kontrollerar programmets tillgänglighet. Alla virtuella datorer i tillgänglighetsuppsättningen ska ha samma syfte för programmet.
 
-Mer information om hur du konfigurerar dina virtuella datorer för hög tillgänglighet finns i [Manage the availability of your Windows virtual machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Hantera tillgängligheten för dina virtuella Windows-datorer) eller [Manage the availability of your Linux virtual machines](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Hantera tillgängligheten för dina virtuella Linux-datorer).
+Mer information om hur du konfigurerar dina virtuella datorer för hög tillgänglighet finns i [Manage the availability of your Windows virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Hantera tillgängligheten för dina virtuella Windows-datorer) eller [Manage the availability of your Linux virtual machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Hantera tillgängligheten för dina virtuella Linux-datorer).
 
 En konfiguration med en instans används däremot för fristående virtuella datorer som inte är placerade i en tillgänglighetsuppsättning. Sådana virtuella datorer uppfyller inte kraven för serviceavtalet (SLA) som kräver distribution av två eller flera virtuella datorer i samma tillgänglighetsuppsättning.
 
@@ -28,7 +28,7 @@ En uppdatering av en multi-instanskonfiguration förutsätter att varje virtuell
 Varje virtuell dator i en tillgänglighetsuppsättning tilldelas en uppdateringsdomän och en feldomän av den underliggande Azure-plattformen. Varje uppdateringsdomän är en grupp med virtuella datorer som startas om i samma tidsfönster. Varje feldomän är en grupp av virtuella datorer som delar samma strömkälla och nätverksswitch.
 
 
-Mer information om uppdateringsdomäner och feldomäner finns i [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Mer information om uppdateringsdomäner och feldomäner finns i [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 Om du vill upprätthålla tillgänglighet via en uppdatering utför Azure underhåll av uppdateringsdomänen och uppdaterar en domän i taget. Underhållet i en uppdateringsdomän består av nedstängning av alla virtuella datorer i domänen, tillämpning av uppdateringen till värddatorerna och sedan omstart av de virtuella datorerna. När underhållet i domänen är klart upprepar Azure processen med nästa uppdateringsdomän och fortsätter med varje domän tills alla är uppdaterade.
 
@@ -101,4 +101,4 @@ Se följande tabell för aktuella regionspar:
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/

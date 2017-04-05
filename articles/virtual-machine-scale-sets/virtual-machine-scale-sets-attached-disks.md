@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/6/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 2939de432fcb5dbf4a7316343c3c6ae102b579e8
-ms.openlocfilehash: 5b34969f9c854775587d402acbedee12f236ab7a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -62,7 +63,7 @@ Du kan lägga till en datadisk till en skalningsuppsättning för virtuella dato
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 > [!NOTE]
-> Olika VM-storlekar har olika begränsningar för antalet anslutna enheter de har stöd för. Kontrollera [storleksegenskaper för virtuella datorer](../virtual-machines/virtual-machines-windows-sizes.md) innan du lägger till en ny disk.
+> Olika VM-storlekar har olika begränsningar för antalet anslutna enheter de har stöd för. Kontrollera [storleksegenskaper för virtuella datorer](../virtual-machines/windows/sizes.md) innan du lägger till en ny disk.
 
 Du kan även lägga till en disk genom att lägga till en ny post för egenskapen _dataDisks_ i _storageProfile_ för en skalningsuppsättning och tillämpa ändringen. För att testa detta kan du ta en befintlig skalningsuppsättning i [resursutforskaren i Azure](https://resources.azure.com/). Välj _Redigera_ och lägg till en ny disk i listan över datadiskar. T.ex. med exemplet ovan:
 ```json
@@ -100,16 +101,11 @@ az vmss disk detach -g dsktest -n dskvmss --lun 2
 På ett liknande sätt kan du även ta bort en disk från en skalningsuppsättning genom att ta bort en post från egenskapen _dataDisks_ i _storageProfile_ och tillämpa ändringen. 
 
 ## <a name="additional-notes"></a>Ytterligare information
-Stöd för Azure Managed Disks och anslutna datadiskar för skalningsuppsättningar lades till i [_förhandversionen&2016;-04-30-_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) av Microsoft.Compute-API:t. Du kan använda vilken SDK eller vilket kommandoradsverktyg som helst som skapats med den här versionen eller senare av API:et.
+Stöd för Azure Managed Disks och anslutna datadiskar för skalningsuppsättningar lades till i [_förhandversionen 2016-04-30-_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) av Microsoft.Compute-API:t. Du kan använda vilken SDK eller vilket kommandoradsverktyg som helst som skapats med den här versionen eller senare av API:et.
 
 I den första implementeringen av stöd för anslutna diskar för skalningsuppsättningar går det inte att ansluta eller koppla från datadiskar till/från enskilda virtuella datorer i en skalningsuppsättning.
 
 Azure Portal-stöd för anslutna datadiskar i skalningsuppsättningar är begränsat i början. Beroende på dina behov kan du använda Azure-mallar, CLI, PowerShell, SDK:er och REST API för att hantera anslutna diskar.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -2,7 +2,7 @@ Azure-molnlösningar bygger på virtuella datorer (emulering av fysisk datormask
 
 Azure erbjuder följande Docker-värden:
 
-* [Många](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [olika](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) sätt att skapa Docker-värdar för behållare så att de passar din situation
+* [Många](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [olika](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) sätt att skapa Docker-värdar för behållare så att de passar din situation
 * [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) skapar kluster av behållarvärdar med hjälp av dirigerare som **marathon** och **swarm**.
 * [Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) och [resursgruppsmallar](../articles/resource-group-authoring-templates.md) för att förenkla distribution och uppdatering av komplexa distribuerade program
 * integrering med en stor matris av verktyg för konfigurationshantering med både upphovsrättsskyddad och öppen källkod
@@ -92,19 +92,19 @@ Dessa funktioner migreras ofta sedan till verktyg som [Puppet](https://puppetlab
 Nyligen publicerade Azure [Azure Resource Management](../articles/resource-manager-deployment-model.md) REST API samt uppdaterade PowerShell- och Azure CLI-verktyg så att den går lätt att använda. Du kan distribuera, ändra eller distribuera om hela programtopologier med [Azure Resource Manager-mallar](../articles/resource-group-authoring-templates.md) med Azures resurshanterings-API med hjälp av:
 
 * tipset [Azure Portal med hjälp av mallar](https://github.com/Azure/azure-quickstart-templates)&mdash;, använd knappen "DeployToAzure"
-* [Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure PowerShell-modulerna](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure PowerShell-modulerna](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Distribution och hantering av hela grupper av virtuella datorer i Azure och behållare
 Det finns flera populära system som kan distribuera hela grupper av virtuella datorer och installera Docker (eller andra Linux-behållarvärdsystem) på dem som en automatiserbar grupp. Direktlänkar finns i avsnittet [behållare och verktyg](#containers-and-vm-technologies) nedan. Det finns flera system som gör detta i större eller mindre omfattning, och den här listan är inte komplett. Beroende på dina kunskaper och scenarier kan de vara mer eller mindre användbara.
 
-Docker har en egen uppsättning verktyg för att skapa virtuella datorer ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) och ett belastningsutjämnande, docker-behållare-klusterhanteringsverktyg ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Dessutom levereras [Azure Docker VM-tillägget](https://github.com/Azure/azure-docker-extension/blob/master/README.md) med standardstöd för [`docker-compose`](https://docs.docker.com/compose/), vilket gör att det blir möjligt att distribuera konfigurerade programbehållare över flera behållare.
+Docker har en egen uppsättning verktyg för att skapa virtuella datorer ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) och ett belastningsutjämnande, docker-behållare-klusterhanteringsverktyg ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Dessutom levereras [Azure Docker VM-tillägget](https://github.com/Azure/azure-docker-extension/blob/master/README.md) med standardstöd för [`docker-compose`](https://docs.docker.com/compose/), vilket gör att det blir möjligt att distribuera konfigurerade programbehållare över flera behållare.
 
 Dessutom kan du kan prova [Mesospheres DCOS (Data Center Operating System)](http://docs.mesosphere.com/install/azurecluster/). DCOS baseras på en distribuerad systemkernel, [mesos](http://mesos.apache.org/), med öppen källkod som gör att du kan hantera ditt datacenter som en adresserbar tjänst. DCOS har inbyggda paket för flera viktiga system som [Spark](http://spark.apache.org/) och [Kafka](http://kafka.apache.org/) (och andra) samt inbyggda tjänster, som [Marathon](https://mesosphere.github.io/marathon/) (ett system för behållarkontroll) och [Chronos](https://mesos.github.io/chronos/) (en distribuerad schemaläggare). Mesos har skapats utifrån erfarenheter från Twitter, AirBnb och andra företag med omfattande webbnärvaro. Du kan även använda **swarm** som dirigeringsmotor.
 
 [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) är ett system för hantering av virtuella datorer och behållargrupper med öppen källkod som bygger på erfarenheter på Google. Du kan även använda [kubernetes med väv för att tillhandahålla stöd för nätverk](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/) är en öppen PaaS-källkod (Platform-as-a-Service) som gör det enkelt att distribuera och hantera program på egna servrar. Deis bygger på Docker och CoreOS och tillhandahåller en enkel PaaS med ett Heroku-inspirerat arbetsflöde. Du kan enkelt[skapa en virtuell Azure-datorgrupp med tre noder och installera Deis](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) på Azure och sedan [installera ett Hello World Go-program](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) är en öppen PaaS-källkod (Platform-as-a-Service) som gör det enkelt att distribuera och hantera program på egna servrar. Deis bygger på Docker och CoreOS och tillhandahåller en enkel PaaS med ett Heroku-inspirerat arbetsflöde. Du kan enkelt[skapa en virtuell Azure-datorgrupp med tre noder och installera Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) på Azure och sedan [installera ett Hello World Go-program](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
 [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), en Linux-distribution med ett optimerat utrymmeskrav, stöd för Docker och ett eget behållarsystem som heter [rkt](https://github.com/coreos/rkt), har också ett hanteringsverktyg för behållargrupper som kallas för [fleet](https://coreos.com/using-coreos/clustering/).
 
@@ -144,13 +144,13 @@ Docker-verktyg:
 
 Docker på Microsoft Azure:
 
-* [Docker VM-tillägg för Linux på Azure](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Docker VM-tillägg för Linux på Azure](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Användarhandbok för Azure Docker VM-tillägg](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 * [Använda tillägget för virtuella datorer med Docker genom kommandoradsgränssnittet för Azure (Azure CLI)](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Använda tillägget för virtuella datorer med Docker från Azure Portal](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Så använder du en Docker-dator med Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Så använder du en Docker-dator med Azure](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Så här använder du Docker med Swarm på Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Kom igång med Docker och Compose på Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Kom igång med Docker och Compose på Azure](../articles/virtual-machines/linux/docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Med hjälp av en mall för Azure-resursgrupp för att snabbt skapa en Docker-värd på Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 * [Inbyggt stöd för `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) för befintliga program
 * [Implementera ett privat Docker-register på Azure](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -164,7 +164,7 @@ Konfiguration, klusterhantering och behållardirigering:
 * [Flotta på CoreOS](https://coreos.com/using-coreos/clustering/)
 * Deis
 
-  * [Skapa en virtuell Azure-datorgrupp med tre noder, installera Deis och starta ett Hello World Go-program](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  * [Skapa en virtuell Azure-datorgrupp med tre noder, installera Deis och starta ett Hello World Go-program](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Kubernetes
 
   * [Fullständig handbok för automatisk Kubernetes-klusterdistribution med CoreOS och Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)

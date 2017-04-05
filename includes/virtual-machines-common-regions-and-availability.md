@@ -81,14 +81,14 @@ I Azure skapas virtuella datorer från en avbildning. Avbildningar hämtas oftas
 
 När du skapar en virtuell dator från en avbildning i Azure Marketplace arbetar du i själva verket med mallar. Azure Resource Manager-mallar är deklarativa JSON-filer (JavaScript Object Notation) som kan användas för att skapa komplexa programmiljöer med virtuella datorer, lagring, virtuella nätverk m.m. Läs mer om hur du använder [Azure Resource Manager-mallar](../articles/azure-resource-manager/resource-group-overview.md) och hur du [skapar egna mallar](../articles/resource-group-authoring-templates.md).
 
-Du kan också skapa egna anpassade bilder och överföra dem med hjälp av [Azure CLI](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att snabbt skapa egna virtuella datorer anpassade till dina specifika krav.
+Du kan också skapa egna anpassade bilder och överföra dem med hjälp av [Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att snabbt skapa egna virtuella datorer anpassade till dina specifika krav.
 
 ## <a name="availability-sets"></a>Tillgänglighetsuppsättningar
 En tillgänglighetsuppsättning är en logisk gruppering av virtuella datorer som gör att Azure kan förstå hur ett program är utformat och kan tillhandahålla redundans och tillgänglighet. Vi rekommenderar att två eller fler virtuella datorer skapas i en tillgänglighetsuppsättning för att ge programmet hög tillgänglighet och uppfylla [99,95 procent drifttid enligt serviceavtalet för Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). När en enskild virtuell dator använder [Azure Premium Storage](../articles/storage/storage-premium-storage.md) gäller serviceavtalet för Azure för oplanerat underhåll. En tillgänglighetsuppsättning består av två ytterligare grupperingar som skyddar mot maskinvarufel och gör att uppdateringar kan utföras på ett säkert sätt: feldomäner och uppdateringsdomäner.
 
 ![Skiss på en konfiguration med uppdateringsdomäner och feldomäner](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-Läs mer om hur du hanterar tillgänglighet för [virtuella Linux-datorer](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [virtuella Windows-datorer](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Läs mer om hur du hanterar tillgänglighet för [virtuella Linux-datorer](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [virtuella Windows-datorer](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="fault-domains"></a>Feldomäner
 En feldomän är en logisk grupp av underliggande maskinvara som delar en gemensam strömkälla och nätverksswitch, ungefär som ett rack i ett lokalt datacenter. När du skapar virtuella datorer i en tillgänglighetsuppsättning distribuerar Azure-plattformen automatiskt dina virtuella datorer mellan dessa feldomäner. På så sätt begränsas påverkan av potentiella fel på fysisk maskinvara, nätverksavbrott och strömavbrott.
@@ -101,9 +101,4 @@ En uppdateringsdomän är en logisk grupp av underliggande maskinvara som kan un
 
 ## <a name="next-steps"></a>Nästa steg
 Nu kan du börja använda dessa tillgänglighets- och redundansfunktioner till att bygga din egen Azure-miljö. Metodtips hittar du i [Metodtips för Azure-tillgänglighet](../articles/best-practices-availability-checklist.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

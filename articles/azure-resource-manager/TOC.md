@@ -46,11 +46,12 @@
 ### [Säkerhetsöverväganden](best-practices-resource-manager-security.md)
 ## Ange resursprinciper
 ### [Vad är resursprinciper?](resource-manager-policy.md)
-### [Tilldela och hantera principer](resource-manager-policy-create-assign.md)
+### [Tilldelning av principer för portalen](resource-manager-policy-portal.md)
+### [Tilldelning av principer för skript](resource-manager-policy-create-assign.md)
 ### [Resursprinciper för taggar](resource-manager-policy-tags.md)
 ### [Lagringsprinciper](resource-manager-policy-storage.md)
-### [Principer för virtuella Linux-datorer](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Principer för virtuella Windows-datorer](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Principer för virtuella Linux-datorer](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Principer för virtuella Windows-datorer](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Granska och felsöka
 ### [Felsök vanliga distributionsfel](resource-manager-common-deployment-errors.md)
 ### [Visa aktivitetsloggar](resource-group-audit.md)

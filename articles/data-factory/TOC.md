@@ -25,10 +25,11 @@
 
 # Gör så här för att
 ## Flytta data
+### [Översikt över kopieringsaktivitet](data-factory-data-movement-activities.md)
 ### [Data Factory-kopieringsguide](data-factory-azure-copy-wizard.md)
 #### [Läs in 1 TB på 15 minuter](data-factory-load-sql-data-warehouse.md)
-### [Kopieringsaktivitet](data-factory-data-movement-activities.md)
-#### [Prestanda- och justeringsguide](data-factory-copy-activity-performance.md)
+### [Prestanda- och justeringsguide](data-factory-copy-activity-performance.md)
+### Anslutningar
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
@@ -52,16 +53,14 @@
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
-#### [SFTP](data-factory-sftp-connector.md)
 #### [SAP HANA](data-factory-sap-hana-connector.md)
+#### [SFTP](data-factory-sftp-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Webbtabell](data-factory-web-table-connector.md)
 ### [Gateway för datahantering](data-factory-data-management-gateway.md)
 ### [Flytta data mellan lokalt system och molnet](data-factory-move-data-between-onprem-and-cloud.md)
-### [Mappa inkommande och utgående kolumner för datauppsättningar](data-factory-map-columns.md)
-### [Fil- och komprimeringsformat som stöds](data-factory-supported-file-and-compression-formats.md)
 
 ## [Omvandla data](data-factory-data-transformation-activities.md)
 ### [HDInsight Hive-aktivitet](data-factory-hive-activity.md)
@@ -100,9 +99,9 @@
 ### [Produktrekommendationer](data-factory-product-reco-usecase.md)
 ### [Kundprofilering](data-factory-customer-profiling-usecase.md)
 ### [Bearbeta datauppsättningar i stor skala med Data Factory och Batch](data-factory-data-processing-using-batch.md)
-## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=data-factory)
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=data-factory)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)
-## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Begär en funktion](https://feedback.azure.com/forums/270578-azure-data-factory)

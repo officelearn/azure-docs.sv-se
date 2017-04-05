@@ -37,8 +37,8 @@
 
 # Relaterat
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+## [Databearbetning med Batch och Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch- och HPC-lösningar i Azure-molnet](batch-hpc-solutions.md)
-## [Big Compute i Azure: Tekniska resurser](big-compute-resources.md)
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/batch/)
@@ -48,5 +48,8 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C#-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [CLI-exempel](batch-cli-samples.md)
+## [Big Compute-resurser](big-compute-resources.md)
 ## [Blogg](https://blogs.technet.microsoft.com/windowshpc/)
+
 

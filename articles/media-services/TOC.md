@@ -41,6 +41,7 @@
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Överföra stora filer med Aspera](media-services-upload-files-with-aspera.md)
+### [Ladda upp filer med StorSimple](media-services-upload-files-from-storsimple.md)
 ### [Kopiera befintliga blobar](media-services-copying-existing-blob.md)
 
 ## [Koda innehåll](media-services-encode-asset.md)

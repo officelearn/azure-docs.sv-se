@@ -16,6 +16,7 @@
 ### [DC/OS-behållare för belastningsutjämning](container-service-load-balancing.md)
 ### [App-/användarspecifik initierare i DC/OS](container-service-application-specific-marathon.md)
 ### [Lägg till en filresurs](container-service-dcos-fileshare.md)
+### [Använd ett behållarregister för Azure](container-service-dcos-acr.md)
 ### Övervaka DC/OS
 #### [Övervaka med ELK](container-service-monitoring-elk.md)
 #### [Övervaka med OMS](container-service-monitoring-oms.md)
@@ -36,6 +37,7 @@
 ## Hantera med Docker Swarm
 ### [Docker och Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm kontinuerlig integrering](container-service-docker-swarm-setup-ci-cd.md)
+## [Säkra behållare](container-service-security.md)
 # Referens
 ## [Azure CLI 2.0](/cli/azure/acs)
 ## [REST](/rest/api/compute/containerservices)
@@ -43,3 +45,4 @@
 ## [Regional tillgänglighet](https://azure.microsoft.com/regions/services/)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-service)

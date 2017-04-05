@@ -114,7 +114,6 @@
 #### [Använda Hive-frågor](machine-learning-data-science-create-features-hive.md)
 #### [TDSP-funktionsval](machine-learning-data-science-select-features.md)
 ### Skapa och träna modeller
-#### [Omvandla till bedömning](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Livscykelhantering för experiment](machine-learning-version-control.md)
 #### [Hantera iterationer](machine-learning-manage-experiment-iterations.md)
 #### [Använda PowerShell för att skapa modeller](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -133,19 +132,20 @@
 ##### [Skapa anpassade R-moduler](machine-learning-custom-r-modules.md)
 ##### [Köra Python-skript](machine-learning-execute-python-scripts.md)
 
-## Distribuera och använd modeller
+## Operationalisera modeller
 ### [Översikt](machine-learning-deploy-consume-web-service-guide.md)
 ### Distribuera modeller
-#### [Hur det fungerar](machine-learning-model-progression-experiment-to-web-service.md)
 #### [Distribuera en webbtjänst](machine-learning-publish-a-machine-learning-web-service.md)
+#### [Hur det fungerar](machine-learning-model-progression-experiment-to-web-service.md)
+#### [Förbereda för distribution](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Använda externa data](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Distribuera i flera områden](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [Använda webbtjänstparametrar](machine-learning-web-service-parameters.md)
 #### [Aktivera loggning](machine-learning-web-services-logging.md)
 ### Hantera webbtjänster
-#### [Skapa slutpunkter](machine-learning-create-endpoint.md)
 #### [Använda Web Services-portalen](machine-learning-manage-new-webservice.md)
 #### [Hantera med API:er](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [Skapa slutpunkter](machine-learning-create-endpoint.md)
 #### [Skalning](machine-learning-scaling-webservice.md)
 ### Omtrimningsmodeller
 #### [Översikt](machine-learning-retrain-machine-learning-model.md)
@@ -198,12 +198,6 @@
 #### [Avvikelseidentifiering](machine-learning-apps-anomaly-detection-api.md)
 #### [Textanalys](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-#### Rekommendationer
-##### [Översikt](machine-learning-recommendation-api-sample-application.md)
-##### [Snabbstart](machine-learning-recommendation-api-quick-start-guide.md)
-##### [Referens](machine-learning-recommendation-api-documentation.md)
-##### [Använda JavaScript](machine-learning-recommendation-api-javascript-integration.md)
-##### [Vanliga frågor och svar](machine-learning-recommendation-api-faq.md)
 #### Förebyggande underhåll
 ##### [Översikt](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Arkitektur](cortana-analytics-architecture-predictive-maintenance.md)

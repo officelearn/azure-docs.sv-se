@@ -33,6 +33,8 @@
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Introduktion till loggintegrering med Azure](security-azure-log-integration-overview.md)
 #### [Komma igång med loggintegrering med Azure](security-azure-log-integration-get-started.md)
+#### [Integrera Azure Active Directory med granskningsloggar](security-azure-log-integration-ad.md)
+#### [Integrera aviseringar i Security Center](security-azure-log-integration-security-center.md)
 #### [Vanliga frågor och svar](security-azure-log-integration-faq.md)
 
 ## Identitetshantering
@@ -44,7 +46,7 @@
 #### [Skydda PaaS-program (webb- och mobilprogram) med Apptjänster](security-paas-applications-using-app-services.md)
 
 ## Internet of Things
-### [Skydda IoT-distributionen](../iot-suite/iot-suite-security-deployment.md)
+### [Skydda distributionen av IoT](../iot-suite/iot-suite-security-deployment.md)
 ### [Metodtips för IoT-säkerhet](../iot-suite/iot-security-best-practices.md)
 
 ## Säkerhetsarkitektur

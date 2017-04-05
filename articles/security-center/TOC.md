@@ -30,8 +30,8 @@
 #### [Dirigera trafiken endast via NGFW](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Rekommendationer för SQL-tjänster](security-center-sql-service-recommendations.md)
-#### [Aktivera granskning på SQL-databaser](security-center-enable-auditing-on-sql-databases.md)
-#### [Aktivera granskning på SQL-servrar](security-center-enable-auditing-on-sql-servers.md)
+#### [Aktivera granskning och hotidentifiering på SQL-databaser](security-center-enable-auditing-on-sql-databases.md)
+#### [Aktivera granskning och hotidentifiering på SQL-servrar](security-center-enable-auditing-on-sql-servers.md)
 #### [Aktivera transparent datakryptering](security-center-enable-transparent-data-encryption.md)
 
 ### [Rekommendationer för virtuella datorer](security-center-virtual-machine-recommendations.md)
@@ -74,8 +74,3 @@
 ## [Tjänstöversikt](https://azure.microsoft.com/services/security-center/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=security-center)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

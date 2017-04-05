@@ -65,6 +65,7 @@
 ### [Förutsäga resultatet av en livsmedelskontroll](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analysera webbplatsloggar](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [Använda Caffe för djupinlärning](hdinsight-deep-learning-caffe-spark.md)
+### [Använd med Microsoft Cognitive Toolkit](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [Använda Zeppelin-anteckningsböcker](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter Notebook-kärnor](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Använda externa paket med Jupyter med cellfunktioner](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -141,9 +142,8 @@
 #### [Installera appar med hjälp av REST](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [Publicera HDInsight-appar på Azure Marketplace](hdinsight-apps-publish-applications.md)
 ## Skydda
+### [Använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Använda SSH-tunnel](hdinsight-linux-ambari-ssh-tunnel.md)
-### [Använda SSH från Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-### [Använda SSH från Windows-OS](hdinsight-hadoop-linux-use-ssh-windows.md)
 ### [Begränsa åtkomst till data](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## Hantera
 ### [Skapa Linux-kluster](hdinsight-hadoop-provision-linux-clusters.md)
@@ -171,6 +171,8 @@
 ### [Kluster- och tjänstportar samt URI:er](hdinsight-hadoop-port-settings-for-services.md)
 ### [Migrera till Resource Managers utvecklingsverktyg](hdinsight-hadoop-development-using-azure-resource-manager.md)
 ### [Tillgänglighet och tillförlitlighet](hdinsight-high-availability-linux.md)
+### [Uppgradera HDInsight-kluster till nyare version](hdinsight-upgrade-cluster.md)
+### [OS-korrigering för HDInsight-kluster](hdinsight-os-patching.md)
 ## Felsöka
 ### [Tips för Linux](hdinsight-hadoop-linux-information.md)
 ### [Viktig information](hdinsight-release-notes.md)
@@ -195,16 +197,7 @@
 # Relaterat
 ## Windows-kluster
 ### [Migrera Windows-kluster till Linux-kluster](hdinsight-migrate-from-windows-to-linux.md)
-### [Börja med Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
-### [Börja med Storm](hdinsight-apache-storm-tutorial-get-started.md)
-### [Börja med HBase](hdinsight-hbase-tutorial-get-started.md)
 ### [Köra MapReduce-exempel i Hadoop](hdinsight-run-samples.md)
-### [Skapa Hadoop-kluster](hdinsight-provision-clusters.md)
-#### [Använda Azure Portal](hdinsight-hadoop-create-windows-clusters-portal.md)
-#### [Använda .NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Använda Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md)
-#### [Använda Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md)
-#### [Använda Resource Manager-mallar](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [Använda Solr i kluster](hdinsight-hadoop-solr-install-linux.md)
 ### [Använda Giraph för att bearbeta storskaliga diagram](hdinsight-hadoop-giraph-install.md)
 ### [Använda Oozie för arbetsflöden](hdinsight-use-oozie.md)
@@ -212,7 +205,6 @@
 ### [Använda Maven för att skapa Java-program](hdinsight-hbase-build-java-maven.md)
 ### [Använda Tez-användargränssnittet för att felsöka Tez-jobb](hdinsight-debug-tez-ui.md)
 ### [Anpassa med skriptåtgärd](hdinsight-hadoop-customize-cluster.md)
-### [Tillgänglighet och tillförlitlighet](hdinsight-high-availability.md)
 ### [Åtkomst till YARN-programloggar](hdinsight-hadoop-access-yarn-app-logs.md)
 ### [Använda Apache Phoenix och SQuirreL](hdinsight-hbase-phoenix-squirrel.md)
 ### [Skapa filmrekommendationer med Mahout](hdinsight-mahout.md)

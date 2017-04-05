@@ -46,6 +46,9 @@
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Katalogtillägg](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Ändra lösenordet för Azure AD Sync-tjänstkontot](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Aktivera AD-papperskorgen](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Åtgärder](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Anslutningsappar](active-directory-aadconnectsync-service-manager-ui-connectors.md)

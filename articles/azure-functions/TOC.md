@@ -21,13 +21,12 @@
 #### [HTTP- och webhook-bindningar](functions-bindings-http-webhook.md)
 #### [Mobile Apps-bindningar](functions-bindings-mobile-apps.md)
 #### [Notification Hub-utdatabindning](functions-bindings-notification-hubs.md)
-#### [Service Bus-utlösare och bindningar för köer och ämnen](functions-bindings-service-bus.md)
-#### [Sendgrid-bindningar](functions-bindings-sendgrid.md)
+#### [Service Bus-bindningar](functions-bindings-service-bus.md)
+#### [SendGrid-bindningar](functions-bindings-sendgrid.md)
 #### Lagringsbindningar
 ##### [Blobbindningar](functions-bindings-storage-blob.md)
 ##### [Köbindningar](functions-bindings-storage-queue.md)
 ##### [Tabellbindningar](functions-bindings-storage-table.md)
-##### [SendGrid-bindningar](functions-bindings-sendgrid.md)
 #### [Timerutlösare](functions-bindings-timer.md)
 #### [Twilio-utdatabindning](functions-bindings-twilio.md)
 ### [Skapa en funktionsapp från Azure Portal](functions-create-function-app-portal.md) 
@@ -35,6 +34,8 @@
 ### [Utveckla och felsöka lokalt](functions-run-local.md)
 ### [Metodtips för Azure Functions](functions-best-practices.md)
 ### [Använd Azure Functions för att utföra en schemalagd rensningsåtgärd](functions-scenario-database-table-cleanup.md)
+### [Skapa en definition för OpenAPI (förhandsgranskning)](functions-api-definition-getting-started.md)
+#### [Referens för OpenAPI 2.0 i Functions](functions-api-definition.md)
 
 ## Hantera
 ### [Konfigurera inställningar för en funktionsapp](functions-how-to-use-azure-function-app-settings.md)

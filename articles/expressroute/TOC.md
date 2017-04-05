@@ -23,17 +23,11 @@
 ## Skapa och ändra peering-konfiguration
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (klassisk)](expressroute-howto-routing-classic.md)
 ## Länka ett virtuellt nätverk till en ExpressRoute-krets
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (klassisk)](expressroute-howto-linkvnet-classic.md)
-## Konfigurera en virtuell nätverksgateway för ExpressRoute
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (klassisk)](expressroute-howto-add-gateway-classic.md)
-## Skapa samexisterande anslutningar för plats-till-plats-VPN-gateway och ExpressRoute
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (klassisk)](expressroute-howto-coexist-classic.md)
+## [Konfigurera en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## [Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan användas samtidigt](expressroute-howto-coexist-resource-manager.md)
 ## [Flytta en krets från klassisk till Resource Manager](expressroute-howto-move-arm.md)
 ## Konfigurera en router för ExpressRoute
 ### [Konfigurera en router](expressroute-config-samples-routing.md)

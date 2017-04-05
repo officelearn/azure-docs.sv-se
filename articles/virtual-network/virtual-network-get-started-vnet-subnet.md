@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -101,7 +101,7 @@ Så här skapar du den virtuella webbserverdatorn:
     |**Resursgrupp**|**Använd befintlig:** Välj *MyRG*|Även om vi använder samma resursgrupp som vi gjorde för VNet-förekomsten så måste inte resurserna ligga i samma resursgrupp.|
     |**Plats**|*USA, västra*|Platsen måste vara samma plats som du angav i steg 5 i avsnittet [Skapa ett virtuellt nätverk med två undernät](#create-vnet) i den här artikeln. Virtuella datorer och de VNet som de ansluter till måste finnas på samma plats.|
 
-4. Klicka på *DS1_V2 Standard* på bladet **Välj en storlek** och klicka på **Välj**. I artikeln om [storlekar på virtuella Windows-datorer](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) finns en lista med alla storlekar på virtuella Windows-datorer som kan användas i Azure.
+4. Klicka på *DS1_V2 Standard* på bladet **Välj en storlek** och klicka på **Välj**. I artikeln om [storlekar på virtuella Windows-datorer](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) finns en lista med alla storlekar på virtuella Windows-datorer som kan användas i Azure.
 5. Ange eller välj följande värden i bladet **Inställningar** och klicka på **OK**:
 
     |**Inställning**|**Värde**|**Detaljer**|
@@ -111,7 +111,7 @@ Så här skapar du den virtuella webbserverdatorn:
     |**Undernät**|Välj *Klient*|Du kan välja alla undernät som finns i ditt VNet.|
     |**Offentlig IP-adress**|Acceptera standardinställningarna|Med en offentlig IP-adress kan du ansluta till den virtuella datorn från internet. Mer information om offentliga IP-adresser finns i artikeln om [IP-adresser](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).|
     |**Nätverkssäkerhetsgrupp (brandvägg)**|Acceptera standardinställningarna|Klicka på standardnätverkssäkerhetsgruppen **(ny) MyWebServer-nsg** som portalen skapade så att inställningarna för den visas. Lägg märke till att det finns en regel för inkommande trafik i bladet **Skapa nätverkssäkerhetsgrupp**, som tillåter TCP/3389-trafik (RDP) trafik från alla IP-källadresser.|
-    |**Alla andra värden**|Acceptera standardvärdena|Mer information om återstående inställningar finns i artikeln [Om virtuella datorer](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+    |**Alla andra värden**|Acceptera standardvärdena|Mer information om återstående inställningar finns i artikeln [Om virtuella datorer](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 
     Med nätverkssäkerhetsgrupper (NSG) kan du skapa regler för inkommande/utgående trafik för den typ av nätverkstrafik som kan flöda till och från den virtuella datorn. Som standard nekas all inkommande trafik till den virtuella datorn. Du kan lägga till ytterligare regler för inkommande trafik för TCP/80 (HTTP) och TCP/443 (HTTPS) för en webbserver i produktionsmiljö. Det finns ingen regel för utgående trafik eftersom all utgående trafik tillåts som standard. Du kan lägga till/ta bort regler för trafiken enligt era principer. Mer information om nätverkssäkerhetsgrupper finns i artikeln [Nätverkssäkerhetsgrupper](virtual-networks-nsg.md).
 
@@ -160,7 +160,7 @@ Så här skapar du den virtuella databasserverdatorn:
 
     ![Innehåll i resursgruppen](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Mer information om virtuella datorer, diskar och lagringskonton finns i översiktsartiklarna [Virtuell dator](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Lagringskonto](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Du ser de två nätverkssäkerhetsgrupper som portalen skapade som standard. Du kan också se att portalen har skapat två nätverksgränssnitt (NIC). Ett nätverkskort gör att en virtuell dator kan ansluta till andra resurser i ditt VNet. Mer information om nätverkskort finns i artikeln [Nätverkskort](virtual-network-network-interface.md). Dessutom skapas en offentlig IP-adressresurs i portalen. Offentliga IP-adresser är en inställning för en offentlig IP-adressresurs. Mer information om offentliga IP-adresser finns i artikeln om [IP-adresser](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Mer information om virtuella datorer, diskar och lagringskonton finns i översiktsartiklarna [Virtuell dator](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Lagringskonto](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Du ser de två nätverkssäkerhetsgrupper som portalen skapade som standard. Du kan också se att portalen har skapat två nätverksgränssnitt (NIC). Ett nätverkskort gör att en virtuell dator kan ansluta till andra resurser i ditt VNet. Mer information om nätverkskort finns i artikeln [Nätverkskort](virtual-network-network-interface.md). Dessutom skapas en offentlig IP-adressresurs i portalen. Offentliga IP-adresser är en inställning för en offentlig IP-adressresurs. Mer information om offentliga IP-adresser finns i artikeln om [IP-adresser](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Anslut till de virtuella datorerna
 
@@ -252,5 +252,5 @@ I den här övningen har du skapat ett VNet och två virtuella datorer. Du angav
 - [Offentliga IP-adresser](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [Nätverksgränssnitt](virtual-network-network-interface.md)
 - [Nätverkssäkerhetsgrupper](virtual-networks-nsg.md)
-- [Virtuella datorer](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Virtuella datorer](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

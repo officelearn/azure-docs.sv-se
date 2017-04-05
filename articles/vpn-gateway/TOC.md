@@ -23,6 +23,7 @@
 ## Konfigurera en VNet-till-VNet-anslutning
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ### [Klassisk portal (klassisk)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Konfigurera en VNet-till-VNet-anslutning mellan distributionsmodeller
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -42,6 +43,7 @@
 ## [Verifiera en anslutning till VPN-gateway](vpn-gateway-verify-connection-resource-manager.md)
 ## [Återställ en VPN-gateway](vpn-gateway-resetgw-classic.md)
 ## Ta bort en VPN-gateway
+### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klassisk)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Skapa självsignerade rotcertifikat för P2S-anslutningar](vpn-gateway-certificates-point-to-site.md)

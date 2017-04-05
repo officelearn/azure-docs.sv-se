@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
-ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6fbcdcf77f46a3c643e8fedc1d112588cbd7befc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ Krav och viktiga aspekter relaterade till VNet-peering:
 * Virtuell nätverkspeering sker mellan två virtuella nätverk, men det finns ingen härledd transitiv relation mellan peerkopplingar. Om exempelvis VNetA peerkopplas till VNetB och VNetB peerkopplas till VNetC, är VNetA *inte* peerkopplat till VNetC.
 * Peerkoppling kan upprättas mellan virtuella nätverk i två olika prenumerationer under förutsättning att en privilegierad användare av båda prenumerationerna tillåter peerkopplingen, och prenumerationerna är kopplade till samma Active Directory-klient.
 * Virtuella nätverk kan peerkopplas om båda skapas via distributionsmodellen Resurshanteraren eller om det ena skapas via distributionsmodellen Resurshanteraren och det andra skapas via den klassiska distributionsmodellen. Två virtuella nätverk som har skapats via den klassiska distributionsmodellen kan dock inte peerkopplas till varandra. Om de peerkopplade virtuella nätverken har skapats via olika distributionsmodeller måste båda de virtuella nätverken finnas i *samma* prenumeration. Möjligheten att peerkoppla virtuella nätverk som har skapats via de olika distributionsmodeller som finns i *olika* prenumerationer finns i **förhandsgransknings**versionen. Läs artikeln [Create a virtual network peering using Powershell](virtual-networks-create-vnetpeering-arm-ps.md) (Skapa en virtuell nätverkspeering med Powershell) för mer information.
-* Även om kommunikationen mellan virtuella datorer i peerkopplade virtuella nätverk inte har ytterligare bandbreddsbegränsningar finns det en maximal nätverksbandbredd beroende på storleken på den virtuella datorn som fortfarande gäller. Om du vill veta mer om nätverkets maximala bandbredd för olika virtuella datorstorlekar läser du artiklarna om virtuella datorstorlekar i [Windows](../virtual-machines/virtual-machines-windows-sizes.md) eller [Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+* Även om kommunikationen mellan virtuella datorer i peerkopplade virtuella nätverk inte har ytterligare bandbreddsbegränsningar finns det en maximal nätverksbandbredd beroende på storleken på den virtuella datorn som fortfarande gäller. Om du vill veta mer om nätverkets maximala bandbredd för olika virtuella datorstorlekar läser du artiklarna om virtuella datorstorlekar i [Windows](../virtual-machines/windows/sizes.md) eller [Linux](../virtual-machines/linux/sizes.md).
 
 ![Grundläggande VNet-peering](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -84,15 +85,10 @@ Det finns begränsningar för antalet peering-sessioner som tillåts för ett en
 ## <a name="pricing"></a>Priser
 En nominell avgift tas ut för ingående och utgående trafik som använder virtuell nätverks-peering. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Lär dig att skapa en virtuell nätverkspeering med hjälp av:
 
 * [Azure Portal](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [En Azure Resource Manager-mall](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

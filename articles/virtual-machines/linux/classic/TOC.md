@@ -1,16 +1,16 @@
-# [Översikt](../../virtual-machines-linux-azure-overview.md)
+# [Översikt](../overview.md)
 ## [Avbildningar](about-images.md)
 ## [VM-tillägg](agents-and-extensions.md)
 ## [Tillgänglighet](configure-availability.md)
 ## [Vanliga frågor och svar](faq.md)
 
-# [Kom igång](../../virtual-machines-linux-opensource-links.md)
+# [Kom igång](../opensource-links.md)
 ## [Skapa en virtuell Linux-dator med portalen](createportal.md)
 ## [Installera Azure CLI](../../../cli-install-nodejs.md)
-## [Skapa SSH-nycklar](../../virtual-machines-linux-mac-create-ssh-keys.md)
+## [Skapa SSH-nycklar](../mac-create-ssh-keys.md)
 
 # Gör så här för att
-## [Compute](../../virtual-machines-linux-intro-on-azure.md)
+## [Compute](../intro-on-azure.md)
 ### [Skapa en anpassad virtuell dator](create-custom.md)
 ### [Avbilda en virtuell dator](capture-image.md)
 ### [Använda fjärrskrivbord med en virtuell Linux-dator](remote-desktop.md)

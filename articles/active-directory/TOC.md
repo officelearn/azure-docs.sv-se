@@ -128,7 +128,6 @@
 
 ## Hantera enheter
 ### [Registrera enheter](active-directory-device-registration-overview.md)
-#### [Hantera automatisk registrering](active-directory-device-registration.md)
 #### [Installation](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
 #### [Vanliga frågor och svar](active-directory-device-registration-faq.md)
@@ -161,7 +160,6 @@
 ##### [Azure Portal](application-proxy-publish-azure-portal.md)
 ##### [Klassisk portal](active-directory-application-proxy-publish.md)
 
-#### [PingAccess för Azure AD](application-proxy-ping-access.md)
 #### [Säkerhet](application-proxy-security-considerations.md)
 #### [Nätverk](application-proxy-network-topology-considerations.md)
 #### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
@@ -174,7 +172,8 @@
 #### [Anpassade domäner](active-directory-application-proxy-custom-domains.md)
 #### [Få åtkomst till appar](active-directory-appssoaccess-whatis.md)
 ##### [Azure Portal](application-proxy-sso-azure-portal.md)
-#### [Enkel inloggning](active-directory-application-proxy-sso-using-kcd.md)
+#### [Enkel inloggning med KCD](active-directory-application-proxy-sso-using-kcd.md)
+#### [Enkel inloggning med rubriker](application-proxy-ping-access.md)
 #### [Anspråksmedvetna appar](active-directory-application-proxy-claims-aware-apps.md)
 #### [Ursprungliga klientappar](active-directory-application-proxy-native-client.md)
 #### [Anpassad startsida](application-proxy-office365-app-launcher.md)

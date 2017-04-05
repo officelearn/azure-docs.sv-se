@@ -65,10 +65,11 @@
 #### [Skapa och publicera ett Marketplace-objekt](azure-stack-create-and-publish-marketplace-item.md)
 #### [Lägga till en anpassad avbildning av en virtuell dator](azure-stack-add-vm-image.md)
 #### [Distribuera virtuella Linux-datorer](azure-stack-linux.md)
-### Fakturering och betalningsmodell baserad på faktisk förbrukning
-#### [Fakturering och betalningsmodell baserad på faktisk förbrukning – översikt](azure-stack-billing-and-chargeback.md)
-#### [API för providerresursanvändning](azure-stack-provider-resource-api.md)
-#### [API för klientresursanvändning](azure-stack-tenant-resource-usage-api.md)
+### Användning och fakturering
+#### [Översikt](azure-stack-billing-and-chargeback.md)
+#### [Rapportering av användningsdata](azure-stack-usage-reporting.md)
+#### [API för provideranvändning](azure-stack-provider-resource-api.md)
+#### [API för klientanvändning](azure-stack-tenant-resource-usage-api.md)
 #### [Vanliga frågor och svar om användning](azure-stack-usage-related-faq.md)
 
 # Använda tjänster

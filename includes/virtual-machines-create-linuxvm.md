@@ -37,7 +37,7 @@
     ```
    
    > [!NOTE]
-   > För en virtuell Linux-dator måste du ange alternativet `-e` i `vm create`. Det går inte att aktivera SSH när den virtuella datorn har skapats. Mer information om SSH finns i [Så här använder du SSH med Linux på Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   > För en virtuell Linux-dator måste du ange alternativet `-e` i `vm create`. Det går inte att aktivera SSH när den virtuella datorn har skapats. Mer information om SSH finns i [Så här använder du SSH med Linux på Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 5. Du kan verifiera attribut för den virtuella datorn med hjälp av kommandot `azure vm show`. I följande exempel visas information för den virtuella datorn med namnet `myVM`:
 
@@ -53,9 +53,4 @@
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om alla dessa Azure CLI 1.0-kommandon för virtuella datorer finns i [Using the Azure CLI 1.0 with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Använda Azure CLI 1.0 med klassisk API-distribution).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

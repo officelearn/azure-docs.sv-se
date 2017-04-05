@@ -7,7 +7,7 @@ Den senaste uppsättningen Windows- och Linux-baserade avbildningar av virtuella
 Om du vill få en översikt över de inneboende begränsningarna hos Oracles programvara på Azures Windows-baserade virtuella datorer ska du läsa [Diverse saker att tänka på gällande Oracle-avbildningar av virtuella datorer](../articles/virtual-machines/windows/classic/oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="prepare-an-oracle-linux-virtual-machine"></a>Förbered en virtuell Oracle Linux-dator
-I avsnittet [Förbered en virtuell Oracle Linux-dator](../articles/virtual-machines/virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) hittar du systemkrav och en stegvis guide till hur du skapar en virtuell dator för Oracle Linux 6.4 + och Oracle Linux 7.0 +.
+I avsnittet [Förbered en virtuell Oracle Linux-dator](../articles/virtual-machines/linux/oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) hittar du systemkrav och en stegvis guide till hur du skapar en virtuell dator för Oracle Linux 6.4 + och Oracle Linux 7.0 +.
 
 ## <a name="oracle-data-guard"></a>Oracle Data Guard
 I avsnittet [Konfigurera Oracle Data Guard för Azure](../articles/virtual-machines/windows/classic/configure-oracle-data-guard.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) hittar du en stegvis guide till hur du konfigurerar standby-miljön och lyssnaren.

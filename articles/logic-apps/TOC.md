@@ -16,9 +16,9 @@
 ### [Lägga till anpassad kod med Azure Functions](logic-apps-azure-functions.md)
 ### [Loopar, omfattningar och datadebatching](logic-apps-loops-and-scopes.md)
 ### [Skapa Logic App-definitioner](logic-apps-author-definitions.md)
+### [Anropa, utlösa eller kapsla logikappar](logic-apps-http-endpoint.md)
 ### [Skapa anpassade API:er för logikappar](logic-apps-create-api-app.md)
 ### [Anropa anpassade API:er för Logic Apps](logic-apps-custom-hosted-api.md)
-### [Anropa Logic App-slutpunkter och -utlösare](logic-apps-http-endpoint.md)
 ### [Hantera fel och undantag](logic-apps-exception-handling.md)
 ### [Hantera innehållstyper](logic-apps-content-type.md)
 ### [Skydda dina Logic Apps](logic-apps-securing-a-logic-app.md)
@@ -47,6 +47,7 @@
 ### [X12 Enterprise-integration](logic-apps-enterprise-integration-x12.md)
 ### [X12-kodning](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12-avkodning](logic-apps-enterprise-integration-x12-decode.md)
+### [Haveriberedskap](logic-apps-enterprise-integration-b2b-business-continuity.md)
 
 ## Komma åt lokala data
 ### [Ansluta till lokala data](logic-apps-gateway-connection.md)
@@ -69,6 +70,7 @@
 
 ## Exempel, scenarier och genomgångar
 ### [Översikt](logic-apps-examples-and-scenarios.md)
+### [Skapa en social instrumentpanel utan server](logic-apps-scenario-social-serverless.md)
 ### [Anropa Logic Apps med Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Lägga till fel- och undantagshantering](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B-bearbetning](logic-apps-enterprise-integration-b2b.md)

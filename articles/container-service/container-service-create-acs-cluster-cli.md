@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
-ms.openlocfilehash: a0cbf24c2e2f1e6f3a1d2097e6146c09b4eee4fe
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1dad536939f179cd8231d0f8805c1ff4335850d5
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -76,7 +76,7 @@ Andra indata är inställda på standardvärdena (se skärmbilden nedan) om de i
 
 
 ### <a name="quick-acs-create-using-defaults"></a>Snabbt använda `acs create` med standardinställningarna
-Om du har en offentlig SSH RSA-nyckelfil `id_rsa.pub` på standardplatsen (eller om du har skapat en för [OS X- och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) eller [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)) så använder du ett kommando enligt följande:
+Om du har en offentlig SSH RSA-nyckelfil `id_rsa.pub` på standardplatsen (eller om du har skapat en för [OS X- och Linux](../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../virtual-machines/linux/ssh-from-windows.md)) så använder du ett kommando enligt följande:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789

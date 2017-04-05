@@ -85,6 +85,7 @@
 
 
 ## Integrera
+### [Anslut till Spark](documentdb-spark-connector.md)
 ### [Distribuera en webbplats med Azure App Service](documentdb-create-documentdb-website.md)
 ### [Programloggning med Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Binda till Azure Functions](../azure-functions/functions-bindings-documentdb.md)

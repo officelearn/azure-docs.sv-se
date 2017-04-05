@@ -4,6 +4,7 @@
 # Kom igång
 ## [Distribuera en skalningsuppsättning på portalen](virtual-machine-scale-sets-portal-create.md)
 ## [Distribuera en skalningsuppsättning med PowerShell eller Azure CLI](virtual-machine-scale-sets-create.md)
+## [Distribuera en app för automatisk skalning med en mall](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # Gör så här för att
 ## Planera och designa

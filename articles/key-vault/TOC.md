@@ -25,6 +25,7 @@
 ## Automatisera
 ### [Azure Automation](automation-manage-key-vault.md)
 ### [Skapa och hantera med CLI](key-vault-manage-with-cli.md)
+### [Skapa och hantera med CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)

@@ -57,16 +57,19 @@
 #### Kom igång
 ##### [C# i Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java i Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Reliable Services-livscykel](service-fabric-reliable-services-lifecycle.md)
+#### [Reliable Services-livscykel – C#](service-fabric-reliable-services-lifecycle.md)
+#### [Reliable Services-livscykel – Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
 #### [Använd Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Konfigurera](service-fabric-reliable-services-configuration.md)
 #### [Meddelanden](service-fabric-reliable-services-notifications.md)
 #### [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
 #### [Kommunicera med Reliable Services](service-fabric-reliable-services-communication.md)
-#### [Säker kommunikation med Reliable Services](service-fabric-reliable-services-secure-communication.md)
+#### [Säker kommunikation med Reliable Services – C#](service-fabric-reliable-services-secure-communication.md)
+#### [Säker kommunikation med Reliable Services – Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
-##### [Fjärrtjänst](service-fabric-reliable-services-communication-remoting.md)
+##### [Fjärrtjänst – C#](service-fabric-reliable-services-communication-remoting.md)
+##### [Fjärrtjänst – Java](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Omvänd proxy](service-fabric-reverseproxy.md)
 #### [Avancerad användning](service-fabric-reliable-services-advanced-usage.md)
@@ -104,6 +107,7 @@
 #### [Hantera ett kluster med Azure CLI](service-fabric-azure-cli.md) 
 #### [Säkra ett kluster](service-fabric-cluster-security.md)
 #### [Haveriberedskap](service-fabric-disaster-recovery.md)
+#### [Funktionsskillnader mellan Linux och Windows](service-fabric-linux-windows-differences.md)
 
 ### Kluster i Azure
 #### Skapa ett kluster på Azure

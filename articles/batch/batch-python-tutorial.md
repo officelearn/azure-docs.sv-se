@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 4dc9491f3645b071640262af3f1ffcb480cfabef
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d1c327e90ca3343703784c22aba93280d4599723
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -365,7 +365,7 @@ När du skapar en pool definierar du en [PoolAddParameter][py_pooladdparam] som 
 * **ID** för adresspoolen (*id* – krävs)<p/>Som med de flesta entiteter i Batch måste din nya pool ha ett unikt ID i Batch-kontot. Din kod refererar till den här poolen med dess ID och du använder också ID:t för att identifiera poolen på Azure-[portalen][azure_portal].
 * **Antal beräkningsnoder** (*target_dedicated* – krävs)<p/>Denna egenskap anger hur många virtuella datorer som ska distribueras i poolen. Det är viktigt att notera att alla Batch-konton har en **standardkvot** som begränsar antalet **kärnor** (och därför antalet beräkningsnoder) i ett Batch-konto. Du hittar standardkvoterna och instruktioner om hur du [ökar en kvot](batch-quota-limit.md#increase-a-quota) (t.ex det högsta antalet kärnor i Batch-kontot) i [Kvoter och gränser för Azure Batch-tjänsten](batch-quota-limit.md). Om du undrar varför din pool inte når mer än X noder kan orsaken vara kärnkvoten.
 * **Operativsystem** för noder (*virtual_machine_configuration* **eller** *cloud_service_configuration* – krävs)<p/>I *python_tutorial_client.py* skapar vi en pool med Linux-noder med en [VirtualMachineConfiguration][py_vm_config]. Funktionen `select_latest_verified_vm_image_with_node_agent_sku` i `common.helpers` gör det enklare att arbeta med avbildningar från [Azure Virtual Machines Marketplace][vm_marketplace]. Mer information om Marketplace-avbildningar finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md).
-* **Storlek på beräkningsnoder** (*vm_size* – krävs)<p/>Eftersom vi anger Linux-noder för vår [VirtualMachineConfiguration][py_vm_config] anger vi en VM-storlek (`STANDARD_A1` i det här exemplet) från [Storlekar för virtuella datorer i Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Mer information finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md).
+* **Storlek på beräkningsnoder** (*vm_size* – krävs)<p/>Eftersom vi anger Linux-noder för vår [VirtualMachineConfiguration][py_vm_config] anger vi en VM-storlek (`STANDARD_A1` i det här exemplet) från [Storlekar för virtuella datorer i Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Mer information finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md).
 * **Startaktivitet** (*start_task* – krävs inte)<p/>Tillsammans med ovanstående fysiska nodegenskaper kan du även ange en [StartTask][py_starttask] för poolen (det är inte obligatoriskt). StartTask körs på varje nod när noden ansluter till poolen och varje gång en nod startas om. StartTask är särskilt användbart för att förbereda beräkningsnoder för körningen av aktiviteter, till exempel installationen av de program som dina aktiviteter ska köra.<p/>I det här exempelprogrammet kopierar StartTask filerna som den hämtat från Storage (som anges med startaktivitetens **resource_files**-egenskap) från StartTask-*arbetskatalogen* till den *delade* katalogen som alla aktiviteter som körs på noden kan komma åt. Vad som sker är att `python_tutorial_task.py` kopieras till den delade katalogen på varje nod när noden läggs till i poolen, så att alla aktiviteter som körs på noden kan komma åt den.
 
 Du kanske noterar anropet till `wrap_commands_in_shell`-hjälpfunktionen. Den här funktionen använder en samling med separata kommandon och skapar en enda kommandorad för en aktivitets kommandoradsegenskap.

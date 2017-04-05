@@ -18,9 +18,9 @@ ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: eb3af43b8a13eaaebfa9147848383ff889119d97
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,7 +49,7 @@ Alla virtuella datorer finns i samma privata virtuella nätverk och kan nås av 
 ## <a name="prerequisites"></a>Krav
 
 
-* **Offentlig SSH RSA-nyckel**: Om du distribuerar med hjälp av portalen eller en av Azures snabbstartmallar måste du ange en offentlig SSH RSA-nyckel för autentisering mot virtuella datorer i Azure Container Service. Information om hur du skapar SSH (Secure Shell) RSA-nycklar finns i hjälpartiklarna för [OS X och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) eller [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Offentlig SSH RSA-nyckel**: Om du distribuerar med hjälp av portalen eller en av Azures snabbstartmallar måste du ange en offentlig SSH RSA-nyckel för autentisering mot virtuella datorer i Azure Container Service. Information om hur du skapar SSH (Secure Shell) RSA-nycklar finns i hjälpartiklarna för [OS X och Linux](../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 * **Klient-ID och hemlighet för tjänstobjekt**: Mer information och riktlinjer finns i [Om Azure Active Directory-tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md).
 

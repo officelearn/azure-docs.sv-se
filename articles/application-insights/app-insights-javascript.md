@@ -172,7 +172,7 @@ Klicka på en rad om du vill visa specifik information.
 Klicka på `...` om du vill visa fullständig telemetri om ett Ajax-anrop.
 
 ### <a name="no-ajax-calls-reported"></a>Rapporteras inga Ajax-anrop?
-AJAX-anrop omfattar alla HTTP/HTTPS-anrop som görs från skriptet på din webbsida. Om de inte har rapporterats kontrollerar du att kodfragmentet inte innehåller parametern `disableAjaxTracking` eller `maxAjaxCallsPerView`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+AJAX-anrop omfattar alla HTTP/HTTPS-anrop som görs från skriptet på din webbsida. Om de inte har rapporterats kontrollerar du att kodfragmentet inte innehåller [parametern](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` eller `maxAjaxCallsPerView` .
 
 ## <a name="browser-exceptions"></a>Webbläsarundantag
 Bladet Webbläsare innehåller ett sammanfattningsdiagram över undantag och ett rutnät med undantagstyper längre ned.

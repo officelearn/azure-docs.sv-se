@@ -250,7 +250,7 @@ Du hämtar värdena för *SubscriptionID*, *ResourceGroup* och *AutomationAccoun
 2. På bladet **Alla inställningar** väljer du **Egenskaper** under **Kontoinställningar**. 
 3. Notera värdena på bladet **Egenskaper**.
 
- ![Bladet Egenskaper för Automation-kontot](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+![Bladet Egenskaper för Automation-kontot](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-a-run-as-account-powershell-script"></a>Skapa ett PowerShell-skript för ett Kör som-konto
 Det här PowerShell-skriptet har stöd för följande konfigurationer:
@@ -415,7 +415,6 @@ Så här kör du skriptet och laddar upp certifikatet:
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
 
         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues

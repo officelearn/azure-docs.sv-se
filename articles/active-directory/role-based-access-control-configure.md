@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c3e3e407eb6a05b208863443bb8ccf3cba701b23
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 9bbacea92e54609818d69173fafcea2ee8f849d3
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -27,6 +27,8 @@ ms.lasthandoff: 03/22/2017
 > * [Hantera åtkomst enligt resurs](role-based-access-control-configure.md)
 
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du bevilja exakt den åtkomstnivå som användarna behöver för att kunna utföra sitt arbete. Den här artikeln hjälper dig att komma igång med RBAC på Azure-portalen. Mer information om hur RBAC kan hjälpa dig att hantera åtkomsten finns i [Vad är rollbaserad åtkomstkontroll?](role-based-access-control-what-is.md)
+
+Du kan bevilja upp till 2 000 rolltilldelningar inom varje prenumeration. 
 
 ## <a name="view-access"></a>Visa åtkomst
 Du kan se vem som har åtkomst till en resurs, resursgrupp eller prenumeration från dess huvudblad på [Azure-portalen](https://portal.azure.com). Vi vill till exempel se vem som har åtkomst till en av våra resursgrupper:

@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 300ee477a00cdd463a2abf87dd73550777fd9e05
-ms.openlocfilehash: 941cc40c3c1979609649eda42e4b39aa383c3fd2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a6d4fbdf0e552f50673092183e893841ec0c5aa4
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Använda Microsoft Outlook i Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> Azure RemoteApp upphör att gälla den 31 augusti 2017. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
 > 
 
@@ -36,10 +37,5 @@ Läs [steg för steg-instruktionerna om hur du aktiverar cachelagrat läge](http
 
 ## <a name="search"></a>Söka
 Sökningen i Outlook har begränsningar i Azure RemoteApp. Azure RemoteApp använder delade virtuella datorer för att hantera användarsessioner. Sökindexeringen beror på dator-ID:t, som skiljer sig mellan olika virtuella datorer. Det är möjligt att en användare dirigeras till en ny virtuell dator varje gång de loggar in på Azure RemoteApp. Det betyder att om vi aktiverar lokal sökning körs indexeraren varje gång dator-ID:t ändras (när användaren arbetar från en annan virtuell dator). Beroende på hur stor .OST-filen är kan det ta lång tid för indexeraren att slutföra, vilket betyder att den använder upp resurser som krävs för andra appar. Sökningen blir inte bara långsam, den kanske inte heller ger resultat. Det går att komma runt detta genom att använda kontoprofil med onlineläge, men den allmänna prestandan skulle bli sämre på grund av brist på lokalt cacheminne (mer information om skillnaden mellan cacheläge och onlineläge kommer du till via länken ovan). Tyvärr går det inte att inaktivera indexerad/lokal sökning, och onlinesökning kan inte aktiveras som standard i Outlook 2013.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

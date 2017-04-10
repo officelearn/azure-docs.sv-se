@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a70b82770a13231ee59ac768deb45b232f95687d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ För närvarande finns stöd för Linux-behållare med alla dirigeringsverktyg. 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Rekommenderar ni något specifikt dirigeringsverktyg i Azure Container Service? 
 Vanligtvis rekommenderar vi inte något specifikt dirigeringsverktyg. Om du har erfarenheter av något av de dirigeringsverktyg som stöds kan du använda dig av det i Azure Container Service. Man kan dock säga att DC/OS är produktionstestat för stordata och IoT-arbetsbelastningar, att Kubernetes passar för molnautentiska arbetsbelastningar och att Docker Swarm är känt för sin integrering med Docker-verktyg och korta inlärningskurva.
 
-Beroende på ditt scenario kan du också skapa och hantera anpassade behållarlösningar med andra Azure-tjänster. Till exempel med [Virtual Machines](../virtual-machines/virtual-machines-linux-azure-overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [Web Apps](../app-service-web/app-service-web-overview.md) och [Batch](../batch/batch-technical-overview.md).  
+Beroende på ditt scenario kan du också skapa och hantera anpassade behållarlösningar med andra Azure-tjänster. Till exempel med [Virtual Machines](../virtual-machines/linux/overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [Web Apps](../app-service-web/app-service-web-overview.md) och [Batch](../batch/batch-technical-overview.md).  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Vad är skillnaden mellan Azure Container Service och ACS Engine? 
 Azure Container Service är en SLA-reglerad Azure-tjänst med funktioner i Azure Portal, Azure kommandoradsverktyg och Azure API: er. Med tjänsten kan du snabbt implementera och hantera kluster som kör standardverktyg för behållardirigering med relativt få konfigurationsalternativ. 
@@ -55,7 +55,7 @@ Azure Container Service är en SLA-reglerad Azure-tjänst med funktioner i Azure
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Hur skapar jag SSH-nycklar för mitt kluster?
 
-Du kan använda standardverktygen i ditt operativsystem för att skapa en privat och en offentlig SSH-RSA-nyckel för autentisering mot virtuella Linux-datorer för ditt kluster. Anvisningar finns i guiden för [OS X och Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) eller [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+Du kan använda standardverktygen i ditt operativsystem för att skapa en privat och en offentlig SSH-RSA-nyckel för autentisering mot virtuella Linux-datorer för ditt kluster. Anvisningar finns i guiden för [OS X och Linux](../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 Om du använder [Azure CLI 2.0-kommandon](container-service-create-acs-cluster-cli.md) för att distribuera ett kluster för behållartjänsten kan SSH-nycklar genereras automatiskt för klustret.
 
@@ -66,6 +66,12 @@ Ett ID och lösenord krävs också för Azure Active Directory-tjänstens huvudn
 
 Om du använder [Azure CLI 2.0-kommandon](container-service-create-acs-cluster-cli.md) för att distribuera ett Kubernetes-kluster kan autentiseringsuppgifter för tjänstens huvudnamn genereras automatiskt för klustret.
 
+### <a name="how-large-a-cluster-can-i-create"></a>Hur stort kluster kan jag skapa?
+Du kan skapa ett kluster med 1, 3 eller 5 överordnade noder. Du kan välja upp till 100 agentnoder.
+
+> [!IMPORTANT]
+> För större kluster och beroende på storleken på den virtuella datorn du väljer för noderna kan du behöva öka kärnkvoten i prenumerationen. Om du vill begära en ökning av kvoten kan du öppna ett [kundsupportärende online](../azure-supportability/how-to-create-azure-support-request.md) utan kostnad. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
+> 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Hur ökar jag antalet huvudservrar efter att ett kluster har skapats? 
 När klustret har skapats går det inte att ändra antalet huvudservrar. När du skapar klustret bör du helst välja flera huvudservrar för att uppnå hög tillgänglighet.

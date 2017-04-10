@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -61,6 +61,7 @@ Site Recovery kan replikera alla appar som körs på en dator som stöds. Dessut
 | Dynamics CRM |Y |Kommer snart |Y |Kommer snart |
 | Oracle |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |
 | Windows-filserver |Y |Y |Y |Y |
+| Citrix XenApp och XenDesktop |Saknas |Y |Saknas |Y |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replikera Active Directory och DNS
 En Active Directory- och DNS-infrastruktur är fundamentalt för de flesta företagsappar. Vid haveriberedskap, behöver du skydda och återställa de här infrastrukturkomponenterna innan du återställer dina arbetsbelastningar och appar.
@@ -143,6 +144,17 @@ Azure Site Recovery erbjuder haveriberedskap genom att replikera viktiga kompone
 -    Möjlighet att testa återställningsplaner i en isolerad miljö för DR-test.
 
 [Läs mer](https://aka.ms/asr-iis) om hur du skyddar en IIS-webbservergrupp.
+
+## <a name="protect-citrix-xenapp-and-xendesktop"></a>Skydda Citrix XenApp och XenDesktop
+Använd Site Recovery för att skydda dina Citrix XenApp- och XenDesktop-distributioner på följande sätt:
+
+* Aktivera skyddet av Citrix XenApp- och XenDesktop-distributionen genom att replikera olika distributionslager inklusive (AD, DNS-server, SQL-databasserver, Citrix Delivery Controller, StoreFront-server, XenApp Master (VDA), Citrix XenApp-licensservern) till Azure.
+* Förenkla molnmigreringen genom att använda Site Recovery för att migrera din Citrix XenApp och XenDesktop SAP-distribution till Azure.
+* Förenkla Citrix XenApp-/XenDesktop-testningen genom att skapa en produktionslik kopia på begäran för testning och felsökning.
+* Den här lösningen gäller endast för Windows Server-operativsystemens virtuella skrivbord och inte för virtuella klientskrivbord eftersom virtuella klientskrivbord fortfarande inte har stöd för licensiering i Azure. 
+[Lär dig mer](https://azure.microsoft.com/en-us/pricing/licensing-faq/) om licensiering för klient/server-datorer i Azure.
+
+[Lär dig mer](https://aka.ms/citrix-xenapp-xendesktop-with-asr) om att skydda Citrix XenApp- och XenDesktop-distributioner.
 
 ## <a name="next-steps"></a>Nästa steg
 [Kontrollera krav](site-recovery-prereq.md) 

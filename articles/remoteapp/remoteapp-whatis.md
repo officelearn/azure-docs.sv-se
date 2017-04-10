@@ -15,14 +15,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: bf8f7763db5844a0706264d24ad7a035758ebbda
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: bc5de9daeb09339c9488de8699174cd280197525
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-azure-remoteapp"></a>Vad är Azure RemoteApp?
 > [!IMPORTANT]
-> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> Azure RemoteApp upphör att gälla den 31 augusti 2017. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
 > 
 
@@ -83,10 +84,5 @@ Sätt igång och prova! I de här artiklarna får du hjälp med att komma igång
 
 ### <a name="help-us-help-you"></a>Hjälp oss att hjälpa
 Visste du att du förutom att betygsätta den här artikeln och skriva kommentarer nedan även kan göra ändringar i själva artikeln? Saknar du något i artikeln? Är det något som är fel? Har jag skrivit något som helt enkelt bara är förvirrande? Då kan du gå tillbaka till början av sidan och klicka på **Edit on GitHub (Redigera på GitHub)** eller **Edit (Redigera)** och ändra i texten. Ändringarna skickas till oss och när vi har godkänt dem kan du se dina ändringar och förbättringar här.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

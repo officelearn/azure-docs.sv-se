@@ -9,17 +9,17 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 70cf89a5832aee2d0c303e0d40e104d84837b50c
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 90dc7e4a07f2a3c514c25b4031128f4df4e32aab
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -27,7 +27,9 @@ ms.lasthandoff: 03/25/2017
 
 PowerShell används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. I den här handboken får du information om hur du använder PowerShell för att distribuera en Azure SQL-databas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en [logisk Azure SQL Database-server](sql-database-features.md).
 
-Innan du börjar bör du kontrollera att den senaste versionen av PowerShell har installerats. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+Kontrollera att du har installerat den senaste [Azure PowerShell](/powershell/azureps-cmdlets-docs)-versionen för att kunna slutföra den här kursen. 
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 

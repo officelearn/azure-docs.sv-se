@@ -1,5 +1,5 @@
 ---
-title: "Felsökning för Azure Active Directory-åtkomstproblem | Microsoft Docs"
+title: "Felsökning kan inte ta dig dit härifrån på Azure Portal från en Windows-enhet | Microsoft-dokument"
 description: "Lär dig steg som du kan vidta för att lösa åtkomstproblem med din organisations onlineresurser."
 services: active-directory
 keywords: "enhetsbaserad villkorlig åtkomst, enhetsregistrering, aktivera enhetsregistrering, enhetsregistrering och MDM"
@@ -12,62 +12,95 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2017
+ms.date: 04/04/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
-ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
+ms.lasthandoff: 04/04/2017
 
 
 ---
-# <a name="troubleshooting-for-azure-active-directory-access-issues"></a>Felsökning för Azure Active Directory-åtkomstproblem
-Du försöker komma åt SharePoint Online-intranätet och får felmeddelandet "åtkomst nekad". Vad gör du?
+# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Felsökning om du kan inte ta dig dit härifrån på en Windows-enhet
+
+Vid ett försök att komma åt exempelvis organisationens SharePoint Online-intranät kan du stöta på en sida som anger att *du kan inte komma hit härifrån*. Du ser den här sidan eftersom administratören har konfigurerat en villkorlig åtkomstprincip som förhindrar åtkomst till organisationens resurser under vissa förhållanden. Det kan vara nödvändigt att kontakta supportavdelningen eller administratören för att lösa det här problemet, men det finns några saker som du kan prova själv först.
+
+Om du använder en **Windows**-enhet ska du kontrollera följande:
+
+- Använder du en webbläsare som stöds?
+
+- Kör du en version av Windows som stöds på enheten?
+
+- Är din enhet kompatibel?
 
 
-Den här artikeln innehåller steg som kan hjälpa dig att lösa åtkomstproblem med din organisations onlineresurser.
 
-För hjälp med att lösa Azure Active Directory (Azure AD)-åtkomstproblem, gå till avsnittet i artikeln som täcker din enhetsplattform:
 
-* Windows-enhet
-* iOS-enhet (kom tillbaka senare för hjälp med iPhones och iPads.)
-* Android-enhet (kom tillbaka senare för hjälp med Android-telefoner och surfplattor.)
 
-## <a name="access-from-a-windows-device"></a>Åtkomst från en Windows-enhet
-Om enheten kör någon av följande plattformar, titta i nästa avsnitt för felmeddelande som visas när du försöker komma åt ett program eller en tjänst:
 
-* Windows 10
-* Windows 8.1
-* Windows 8
-* Windows 7
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
+## <a name="supported-browser"></a>Webbläsare som stöds
 
-### <a name="device-is-not-registered"></a>Enheten har inte registrerats
-Om enheten inte är registrerad med Azure AD och programmet är skyddat med en enhetsbaserad princip kanske en sida med ett av följande felmeddelanden visas:
+Om administratören har konfigurerat en princip för villkorlig åtkomst kan du bara få åtkomst till organisationens resurser genom att använda en webbläsare som stöds. På en Windows-enhet stöds bara **Internet Explorer** och **Edge**.
 
+Du kan enkelt se om du inte åtkomst till en resurs på grund av en webbläsare som inte stöds genom att titta på informationsavsnittet på felsidan:
+
+![Meddelandet ”Du kan inte ta dig dit härifrån” för webbläsare som inte stöds](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
+
+Det enda du kan göra är att använda en webbläsare som stöds av programmet för din enhetsplattform. En fullständig lista över webbläsare som stöds finns i [webbläsare som stöds](active-directory-conditional-access-supported-apps.md#supported-browsers).  
+
+
+## <a name="supported-versions-of-windows"></a>Versioner av Windows som stöds
+
+Följande villkor måste vara uppfyllda för Windows-operativsystemet på din enhet: 
+
+- Om du kör ett Windows-operativsystem på din enhet måste det vara Windows 7 eller senare.
+- Om du kör ett Windows server-operativsystem på din enhet måste det måste vara Windows Server 2008 R2 eller senare. 
+
+
+## <a name="compliant-device"></a>Kompatibel enhet
+
+Administratören kan ha konfigurerat en villkorlig åtkomstprincip som tillåter åtkomst till organisationens resurser enbart från kompatibla enheter. För att vara kompatibel måste enheten antingen vara ansluten till din lokala Active Directory eller till din Azure Active Directory.
+
+Du kan enkelt se om du inte åtkomst till en resurs på grund av en enhet som inte är kompatibel genom att titta på informationsavsnittet på felsidan:
+ 
 ![Meddelandet ”Du kan inte ta dig dit härifrån” för enheter som inte har registrerats](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
 
-Om enheten är domänansluten till Active Directory i din organisation kan du prova följande:
+
+### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>Är enheten ansluten till en lokal Active Directory?
+
+**Om enheten är ansluten till en lokal Active Directory i din organisation:**
 
 1. Kontrollera att du har loggat in i Windows med ditt arbetskonto (ditt Active Directory-konto).
 2. Anslut till företagsnätverket via ett virtuellt privat nätverk (VPN) eller DirectAccess.
 3. När du är ansluten, trycker du på Windows-tangenten + L för att låsa Windows-sessionen.
-4. Ange autentiseringsuppgifterna för ditt arbetskonto för att låsa upp Windows-sessionen.
+4. Lås upp Windows-sessionen genom att ange autentiseringsuppgifterna för ditt arbetskonto.
 5. Vänta en stund och prova sedan att ansluta till programmet eller tjänsten igen.
 6. Om samma sida visas, klickar du på länken **Mer information** och kontaktar din administratör och anger informationen.
 
-Om enheten inte är domänansluten och kör Windows 10 kan du välja mellan två alternativ:
+
+### <a name="is-your-device-not-joined-to-an-on-premises-active-directory"></a>Är enheten inte ansluten till en lokal Active Directory?
+
+Om enheten inte är ansluten till en lokal Active Directory och kör Windows 10 har du två alternativ:
 
 * Kör Azure AD Join
 * Lägg till ditt arbets- eller skolkonto till Windows
 
-Information om hur de här alternativen skiljer sig åt finns i [Använda Windows 10-enheter i din arbetsplats](active-directory-azureadjoin-windows10-devices.md).
+Information om hur de här alternativen skiljer sig åt finns i [Använda Windows 10-enheter i din arbetsplats](active-directory-azureadjoin-windows10-devices.md).  
+Om enheten:
 
-För att köra Azure AD Join, utför du följande steg för plattformen som din enhet körs på. (Azure AD Join är inte tillgänglig på Windows Phone-enheter.)
+- Tillhör din organisation bör du köra Azure AD Join.
+- Är det en personlig enhet eller en Windows Phone bör du lägga till ditt arbets- eller skolkonto i Windows 
 
-**Windows 10 Anniversary Update**
+
+
+#### <a name="azure-ad-join-on-windows-10"></a>Azure AD Join i Windows 10
+
+Stegen för att ansluta din enhet till Azure AD beror på vilken version av Windows 10 som körs på den. Om du vill kontrollera vilken version av operativsystemet Windows 10 som körs, kör du kommandot **winver**: 
+
+![Windows-version](./media/active-directory-conditional-access-device-remediation/03.png )
+
+
+**Windows 10 Anniversary Update (version 1607):**
 
 1. Öppna appen **Inställningar**.
 2. Klicka på **Konton** > **Access work or school** (Åtkomst till arbete eller skola).
@@ -77,7 +110,7 @@ För att köra Azure AD Join, utför du följande steg för plattformen som din 
 6. Logga ut och logga sedan in igen med ditt arbetskonto.
 7. Prova att öppna programmet igen.
 
-**Windows 10 November 2015 Update**
+**Windows 10 November 2015 Update (version 1511):**
 
 1. Öppna appen **Inställningar**.
 2. Klicka på **System** > **Om**.
@@ -86,23 +119,8 @@ För att köra Azure AD Join, utför du följande steg för plattformen som din 
 5. Logga ut och logga sedan in igen med ditt arbetskonto (ditt Azure AD-konto).
 6. Prova att öppna programmet igen.
 
-Lägg till ditt arbets- eller skolkonto genom att göra följande steg:
 
-**Windows 10 Anniversary Update**
-
-1. Öppna appen **Inställningar**.
-2. Klicka på **Konton** > **Access work or school** (Åtkomst till arbete eller skola).
-3. Klicka på **Anslut**.
-4. Autentisera dig i din organisation, ange multifaktorautentisering vid uppmaning och följ sedan stegen som visas.
-5. Prova att öppna programmet igen.
-
-**Windows 10 November 2015 Update**
-
-1. Öppna appen **Inställningar**.
-2. Klicka på **Konton** > **Dina konton**.
-3. Klicka på **Arbets- eller skolkonto**.
-4. Autentisera dig i din organisation, ange multifaktorautentisering vid uppmaning och följ sedan stegen som visas.
-5. Prova att öppna programmet igen.
+#### <a name="workplace-join-on-windows-81"></a>Anslut till arbetsplats i Windows 8.1
 
 Om enheten inte är domänansluten och kör Windows 8.1 kan du, för att göra en Workplace Join och registrera enheten i Microsoft Intune göra följande steg:
 
@@ -113,24 +131,33 @@ Om enheten inte är domänansluten och kör Windows 8.1 kan du, för att göra e
 5. Klicka på **Aktivera**.
 6. Prova att öppna programmet igen.
 
-### <a name="browser-is-not-supported"></a>Webbläsaren stöds inte
-Du kan nekas åtkomst om du försöker komma åt ett program eller en tjänst genom att använda någon av följande webbläsare:
 
-* Chrome, Firefox eller en annan webbläsare som inte är Microsoft Edge eller Microsoft Internet Explorer i Windows 10 eller Windows Server 2016
-* Firefox i Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2
 
-Du ser en felsida som ser ut så här:
+#### <a name="add-your-work-or-school-account-to-windows"></a>Lägg till ditt arbets- eller skolkonto till Windows 
 
-![Meddelandet ”Du kan inte ta dig dit härifrån” för webbläsare som inte stöds](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
 
-Det enda du kan göra är att använda en webbläsare som stöds av programmet för din enhetsplattform.
+**Windows 10 Anniversary Update (version 1607):**
+
+1. Öppna appen **Inställningar**.
+2. Klicka på **Konton** > **Access work or school** (Åtkomst till arbete eller skola).
+3. Klicka på **Anslut**.
+4. Autentisera dig i din organisation, ange multifaktorautentisering vid uppmaning och följ sedan stegen som visas.
+5. Prova att öppna programmet igen.
+
+
+**Windows 10 November 2015 Update (version 1511):**
+
+1. Öppna appen **Inställningar**.
+2. Klicka på **Konton** > **Dina konton**.
+3. Klicka på **Arbets- eller skolkonto**.
+4. Autentisera dig i din organisation, ange multifaktorautentisering vid uppmaning och följ sedan stegen som visas.
+5. Prova att öppna programmet igen.
+
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 [Villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

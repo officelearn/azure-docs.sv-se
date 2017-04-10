@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
-ms.openlocfilehash: 71a56d0e99308d3f7f514283792a2155a05a7172
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 342f32596c91d2af7c0f33138a43d5c8925d5350
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,9 +37,9 @@ Använd Visual Studio för att ställa frågor till Azure SQL Data Warehouse på
 ## <a name="prerequisites"></a>Krav
 Du behöver följande för att använda de här självstudierna:
 
-* Ett befintligt SQL Data Warehouse. Information om att skapa ett finns i [Skapa ett SQL Data Warehouse][Skapa ett SQL Data Warehouse].
-* SSDT för Visual Studio. Om du har Visual Studio har du förmodligen redan det här. Installationsinstruktioner och alternativ finns i [Installera Visual Studio och SSDT][Installera Visual Studio och SSDT].
-* Det fullständigt kvalificerade servernamnet. Du hittar det här [Anslut till SQL Data Warehouse][Anslut till SQL Data Warehouse].
+* Ett befintligt SQL Data Warehouse. Se [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] för att se hur man skapar det.
+* SSDT för Visual Studio. Om du har Visual Studio har du förmodligen redan det här. Installationsinstruktioner och alternativ finns i [Installera Visual Studio och SSDT][Installing Visual Studio and SSDT].
+* Det fullständigt kvalificerade servernamnet. [Anslut till SQL Data Warehouse][Connect to SQL Data Warehouse] för att hitta detta.
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Anslut till din SQL Data Warehouse
 1. Öppna Visual Studio 2013 eller 2015.
@@ -79,19 +81,19 @@ När du nu etablerat en anslutning till din databas, är det dags att skriva en 
     ![Frågeresultat][7]
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du kan ansluta och fråga, prova att [visualisera data med PowerBI][visualisera data med PowerBI].
+Nu när du anslutit och frågat, kan du [visualisera dina data med PowerBI][visualizing the data with PowerBI].
 
-För att konfigurera din miljö för Azure Active Directory-autentisering, se [Autentisera till SQL Data Warehouse][Autentisera till SQL Data Warehouse].
+För att konfigurera din miljö för Azure Active Directory-autentisering, se [Autentisera till SQL Data Warehouse][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
-[Anslut till SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
-[Skapa ett SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Installera Visual Studio och SSDT]: sql-data-warehouse-install-visual-studio.md
-[Autentisera till SQL Data Warehouse]: sql-data-warehouse-authentication.md
-[visualisera data med PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
+[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
+[Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
+[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 
@@ -102,9 +104,4 @@ För att konfigurera din miljö för Azure Active Directory-autentisering, se [A
 [5]: media/sql-data-warehouse-query-visual-studio/new-query2.png
 [6]: media/sql-data-warehouse-query-visual-studio/run-query.png
 [7]: media/sql-data-warehouse-query-visual-studio/query-results.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

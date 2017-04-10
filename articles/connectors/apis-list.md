@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: e9eae9ea648fc0e657d32f3f91e6641046bfae79
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -26,30 +26,36 @@ ms.lasthandoff: 03/15/2017
 Markera en anslutningsapp för att lära dig hur du skapar arbetsflöden snabbt.
 
 ## <a name="standard-connectors"></a>Anslutningsappar av standardtyp
+
 | Anslutningar |  |  |  |
 | --- | --- | --- | --- |
-|[![API Icon][API/Web-Appicon]<br/> **API/Webbapp**][API/Web-Appdoc]|![API-ikon][appFiguresicon]<br/>**Appfigures**|![API-ikon][Asanaicon]<br/>**Asana**|![API-ikon][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|
-|![API-ikon][Azure-MLicon]<br/>**Azure ML**|[![API Icon][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![API-ikon][Basecamp-3icon]<br/>**Basecamp 3**|
-|![API-ikon][Bitlyicon]<br/>**Bitly**|![API-ikon][BizTalk-Servericon]<br/>**BizTalk Server**|![API-ikon][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Ruta**][boxDoc]|
-|![API-ikon][Campfireicon]<br/>**Campfire**|![API-ikon][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>-textanalys**|![API-ikon][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
-|[! [API ikonen] [Delayicon]<br/>**Fördröjning**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![API-ikon][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>för finans**|
-|![API-ikon][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>för åtgärder**|![API-ikon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**Filsystem**][FileSystemdoc]|
-|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![API-ikon][GitHubicon]<br/>**GitHub**|![API-ikon][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|
-|![API-ikon][Google-Sheetsicon]<br/>**Google-blad**|![API-ikon][Google-Tasksicon]<br/>**Google-uppgifter**|![API-ikon][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP-<br/>begäran**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP-<br/>svar**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
-|![API-ikon][Insightlyicon]<br/>**Insightly**|![API-ikon][Instagramicon]<br/>**Instagram**|![API-ikon][Instapapericon]<br/>**Instapaper**|![API-ikon][JIRAicon]<br/>**JIRA**|
-|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API-ikon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Kapslad<br/>logikapp**][Nested-Logic-Appdoc]|
-|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>-användare**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
-|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive för<br/>företag**][OneDrive-for-Businessdoc]|[![API Icon][Oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API-ikon][PagerDutyicon]<br/>**PagerDuty**|
-|![API-ikon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Fråga**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Upprepning**][Recurrencedoc]|
-|![API-ikon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
-|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
-|![API-ikon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API-ikon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
-|![API-ikon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
-|![API-ikon][Vimeoicon]<br/>**Vimeo**|![API-ikon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API-ikon][WordPressicon]<br/>**WordPress**|
-|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API-ikon][YouTubeicon]<br/>**YouTube**|
+|[![API Icon][API/Web-Appicon]<br/> **API/Webbapp**][API/Web-Appdoc]|![API-ikon][appFiguresicon]<br/>**appFigures**|![API-ikon][Asanaicon]<br/>**Asana**|![API-ikon][Azure-Automation-icon]<br/>**Azure Automation**|
+|[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![API-ikon][Azure-Data-Lake-icon]<br/>**Azure Data<br/>Lake**|![API-ikon][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|[![API Icon][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|
+|![API-ikon][Azure-MLicon]<br/>**Azure ML**|![API-ikon][Azure-Resource-Manager-icon]<br/>**Azure Resource<br/>Manager**|![API-ikon][Azure-Queues-icon]<br/>**Azure Queues**|![API-ikon][Basecamp-3icon]<br/>**Basecamp 3**|
+|![API-ikon][Bitbucket-icon]<br/>**Bitbucket**|![API-ikon][Bitlyicon]<br/>**Bitly**|![API-ikon][BizTalk-Servericon]<br/>**BizTalk Server**|![API-ikon][Bloggericon]<br/>**Blogger**|
+|[![API Icon][Boxicon]<br/>**Ruta**][boxDoc]|![API-ikon][Campfireicon]<br/>**Campfire**|![API-ikon][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>-textanalys**|![API-ikon][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|
+|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|[! [API ikonen] [Delayicon]<br/>**Fördröjning**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|
+|![API-ikon][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>för finans**|![API-ikon][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>för åtgärder**|![API-ikon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Event-hubs-icon]<br/>**Händelsehubbar**][event-hubs-doc]|
+|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**Filsystem**][FileSystemdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![API-ikon][GitHubicon]<br/>**GitHub**|
+|![API-ikon][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![API-ikon][Google-Sheetsicon]<br/>**Google-blad**|![API-ikon][Google-Tasksicon]<br/>**Google-uppgifter**|
+|![API-ikon][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP-<br/>begäran**][HTTP-Requestdoc]|
+|[![API Icon][HTTP-Responseicon]<br/>**HTTP-<br/>svar**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|![API-ikon][Insightlyicon]<br/>**Insightly**|![API-ikon][Instagramicon]<br/>**Instagram**|
+|![API-ikon][Instapapericon]<br/>**Instapaper**|![API-ikon][JIRAicon]<br/>**JIRA**|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API-ikon][Mandrillicon]<br/>**Mandrill**|
+|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Kapslad<br/>logikapp**][Nested-Logic-Appdoc]|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>-användare**|
+|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive för<br/>företag**][OneDrive-for-Businessdoc]|[![API Icon][Oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc]|
+|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API-ikon][PagerDutyicon]<br/>**PagerDuty**|![API-ikon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
+|[![API Icon][Queryicon]<br/>**Fråga**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Upprepning**][Recurrencedoc]|![API-ikon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
+|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
+|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![API-ikon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|
+|![API-ikon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![API-ikon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|
+|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|![API-ikon][Vimeoicon]<br/>**Vimeo**|![API-ikon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
+|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API-ikon][WordPressicon]<br/>**WordPress**|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
+|![API-ikon][YouTubeicon]<br/>**YouTube**|
 
-### <a name="integration-account-connectors"></a>Anslutningar för integrationskonton 
+> [!TIP]
+> Om du vill prova Azure Logic Apps innan du registrerar dig för ett Azure-konto går du till [Prova Logic Apps](https://tryappservice.azure.com/?appservice=logic). Du kan skapa en kortvarig startlogikapp omedelbart i Apptjänsten. Inget kreditkort krävs, och du gör inga åtaganden.
+
+## <a name="integration-account-connectors"></a>Anslutningar för integrationskonton 
 
 | Integrationskonto<br/>anslutningar |  |  |  |
 | --- | --- | --- | --- |
@@ -57,29 +63,37 @@ Markera en anslutningsapp för att lära dig hur du skapar arbetsflöden snabbt.
 | [![API Icon][as2icon]<br/>**AS2-</br>avkodning**][as2decode] |[![API Icon][as2icon]<br/>**AS2-</br>kodning**][as2encode] |[![API Icon][x12icon]<br/>**X12-</br>avkodning**][x12decode] |[![API Icon][x12icon]<br/>**X12-</br>kodning**][x12encode] |
 | [![API Icon][x12icon]<br/>**EDIFACT-</br>avkodning**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT-</br>kodning**][EDIFACTencode] | | |
 
-> [!NOTE]
-> Om du vill prova Azure Logic Apps innan du registrerar dig för ett Azure-konto går du till [Prova Logic Apps](https://tryappservice.azure.com/?appservice=logic). Du kan skapa en kortvarig startlogikapp omedelbart i Apptjänsten. Inget kreditkort krävs, och du gör inga åtaganden.
-
 ## <a name="enterprise-connectors"></a>Enterprise-anslutningsappar
-Använd företagsanslutningsapparna för att skapa logikappar för B2B-scenarier som omfattar EAI och EDI.  
+
+Inkludera dessa företagsanslutningsappar om du vill skapa logikappar för B2B-scenarier som omfattar EAI och EDI.
 
 | Enterprise<br/>anslutningar |  |
 | --- | --- |
 |![API-ikon][MQicon]<br/>**MQ**|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
 
+## <a name="connectors-as-triggers"></a>Anslutningsappar som utlösare
 
-
-<!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
-### <a name="connectors-can-be-triggers"></a>Anslutningar kan vara utlösare
-Flera anslutningar innehåller utlösare som kan meddela din app när specifika händelser äger rum. FTP-anslutningen innehåller till exempel utlösaren OnUpdatedFile . Du kan skapa en logikapp, en PowerApp eller ett flöde som lyssnar på utlösaren och utför en åtgärd när utlösaren aktiveras.
+Flera anslutningsappar innehåller utlösare som kan meddela din app när specifika händelser äger rum. FTP-anslutningsappen har till exempel utlösaren OnUpdatedFile som meddelar din app när en fil har uppdaterats. Du kan skapa en logikapp, en PowerApp eller ett flöde som lyssnar på utlösaren och utför en åtgärd när utlösaren aktiveras.
 
 Det finns två typer av utlösare:  
 
-* Sökningsutlösare: Dessa utlösare avsöker din tjänst med en frekvens som är angiven för att söka efter nya data. När det finns nya data körs en ny instans av din app med dessa data som indata. För att förhindra att samma data används flera gånger kan utlösaren rensa data som har lästs in och skickats till appen.
-* Push-utlösare: de här utlösarna lyssnar efter data på en slutpunkt eller efter att en händelse ska inträffa och utlöser därefter en ny instans av din app. Twitter-anslutningen är ett exempel på en sådan.
+* *Sökningsutlösare*: Dessa utlösare avsöker din tjänst med en angiven frekvens för att söka efter nya data. När det finns nya data körs en ny instans av din app med dessa data som indata. För att förhindra att samma data används flera gånger kan utlösaren rensa data som har lästs in och skickats till appen.
 
-### <a name="connectors-can-be-actions"></a>Anslutningar kan vara åtgärder
-Du kan också använda anslutningsappar som åtgärder i dina appar. Åtgärder är användbara för att leta upp data, som du sedan kan använda när du kör appen. Du kanske till exempel behöver leta upp kunddata från en SQL-databas när du arbetar med en order. Eller så kanske du behöver skriva, uppdatera eller ta bort data i en tabell med destinationer. Du kan utföra dessa uppgifter med de åtgärder som tillhandahålls av anslutningsapparna. Åtgärder mappar till åtgärder som har definierats i Swagger-metadata.
+* *Push-utlösare*: de här utlösarna lyssnar efter data på en slutpunkt eller efter att en händelse ska inträffa och utlöser därefter en ny instans av din app. Twitter-anslutningen är ett exempel på en sådan.
+
+## <a name="connectors-as-actions"></a>Anslutningsappar som åtgärder
+
+Anslutningsapparna tillhandahåller också åtgärder som du kan använda i appens arbetsflöde. Din app kan exempelvis söka efter data som du sedan kan använda när du kör din app. Du kan till exempel behöva söka efter kunddata från en SQL-databas vid bearbetningen av en order. Eller så kanske du behöver skriva, uppdatera eller ta bort data i en tabell med destinationer. Åtgärder mappar till åtgärder som har definierats i Swagger-metadata.
+
+## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Anpassade anslutningsappar och certifiering för Microsoft Azure
+
+Vill du skapa egna anslutningsappar eller hittar du inte den anslutningsapp som du vill ha? Du kan [utöka Logic Apps-plattformen](../logic-apps/logic-apps-create-api-app.md) och skapa API-appar som anropar API: er eller system som inte är tillgängliga som färdiga anslutningsappar. Du kan också skicka API-appar för Microsoft Azure-certifiering och sedan göra dem tillgängliga via Azure. Läs mer om hur du får dina lösningar [Microsoft Azure-certifierade](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+
+## <a name="get-help"></a>Få hjälp
+
+I [Azure Logic Apps-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) kan du ställa frågor, besvara frågor och sedan vad andra Azure Logic Apps-användare håller på med.
+
+På [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish) kan du hjälpa till med att förbättra Logic Apps och anslutningsapparna genom att rösta på förslag eller komma med egna förslag på förbättringar.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa din första logiska app](../logic-apps/logic-apps-create-a-logic-app.md)
@@ -95,6 +109,7 @@ Du kan också använda anslutningsappar som åtgärder i dina appar. Åtgärder 
 [delaydoc]: ./connectors-native-delay.md "Utföra fördröjda åtgärder"
 [dropboxdoc]: ./connectors-create-api-dropbox.md "Anslut till Dropbox. Överföra, hämta, ta bort, visa filer och mycket mer "
 [Dynamics-365doc]: ./connectors-create-api-crmonline.md "Ansluta till Dynamics CRM Online så att du kan arbeta med CRM Online-data"
+[event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Anslut till Azure Event Hubs. Ta emot och skicka händelser mellan logikappar och händelsehubbar"
 [facebookdoc]: ./connectors-create-api-facebook.md "Anslut till Facebook. Publicera på en tidslinje, hämta ett sidflöde och mycket mer"
 [filesystemdoc]: ../logic-apps/logic-apps-using-file-connector.md "Ansluta till ett lokalt filsystem"
 [ftpdoc]: ./connectors-create-api-ftp.md "Ansluta till en FTP-/FTPS-server för FTP-aktiviteter, till exempel överföring, hämtning och borttagning av filer och mycket mer"
@@ -118,7 +133,7 @@ Du kan också använda anslutningsappar som åtgärder i dina appar. Åtgärder 
 [office365-videodoc]: ./connectors-create-api-office365-video.md "Hämta videoinformation, videolistor, videokanaler och uppspelnings-URL:er för Office 365-videor"
 [onedrivedoc]: ./connectors-create-api-onedrive.md "Anslut till ditt personliga Microsoft OneDrive. Överföra, ta bort och lista filer med mera"
 [onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Anslut till företagets Microsoft OneDrive. Överföra, ta bort och lista filer och mycket mer"
-[oracle-db-doc]: https://powerapps.microsoft.com/blog/connecting-to-oracle-database-from-powerapps-flow-and-logic-apps "Ansluta till en Oracle-databas"
+[oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Anslut till en Oracle-databas för att lägga till, infoga och ta bort rader med mera"
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Anslut till din Outlook-postlåda. Hantera din e-post, dina kalender, dina kontakter och mycket mer"
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Anslut till Microsoft Project Online. Hantera projekt, uppgifter, resurser och mycket mer"
 [querydoc]: ./connectors-native-query.md "Välja och filtrera matriser med frågeåtgärden"
@@ -159,10 +174,15 @@ Du kan också använda anslutningsappar som åtgärder i dina appar. Åtgärder 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
 [Asanaicon]: ./media/apis-list/asana.png
+[Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
-[Azure-DocumentDBicon]: ./media/apis-list/documentdb.png
+[Azure-Data-Lake-icon]: ./media/apis-list/azure-data-lake.png
+[Azure-DocumentDBicon]: ./media/apis-list/azure-documentdb.png
 [Azure-MLicon]: ./media/apis-list/azureml.png
+[Azure-Resource-Manager-icon]: ./media/apis-list/azure-resource-manager.png
+[Azure-Queues-icon]: ./media/apis-list/azure-queues.png
 [Basecamp-3icon]: ./media/apis-list/basecamp.png
+[Bitbucket-icon]: ./media/apis-list/bitbucket.png
 [Bitlyicon]: ./media/apis-list/bitly.png
 [BizTalk-Servericon]: ./media/apis-list/biztalk.png
 [Bloggericon]: ./media/apis-list/blogger.png
@@ -175,6 +195,7 @@ Du kan också använda anslutningsappar som åtgärder i dina appar. Åtgärder 
 [Dynamics-365-for-Financialsicon]: ./media/apis-list/madeira.png
 [Dynamics-365-for-Operationsicon]: ./media/apis-list/dynamicsax.png
 [Easy-Redmineicon]: ./media/apis-list/easyredmine.png
+[Event-Hubs-icon]: ./media/apis-list/eventhubs.png
 [Facebookicon]: ./media/apis-list/facebook.png
 [FTPicon]: ./media/apis-list/ftp.png
 [GitHubicon]: ./media/apis-list/github.png

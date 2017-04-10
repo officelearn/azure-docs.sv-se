@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 55cc1559189a37741d866d86241426fb73f72e4f
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,7 +34,7 @@ Händelse- och telemetrihanteringsfunktionerna gör Event Hubs särskilt lämpli
 Andra funktioner i Event Hubs är till exempel beteendespårning i mobilappar, trafikinformation från webbservergrupper, inspelning av spelhändelser i konsolspel eller telemetri som samlats in från industriella datorer eller anslutna fordon.
 
 ## <a name="azure-event-hubs-overview"></a>Översikt av händelsehubbar i Azure
-I lösningsarkitekturer fungerar händelsehubbar ofta som ”dörren” för en händelsepipeline, ofta kallad en *händelseinmatare*. En händelseinmatare är en komponent eller tjänst som placeras mellan händelseutgivare och -konsumenter och frikopplar produktion av en händelseström från användningen av de händelserna.
+I lösningsarkitekturer fungerar händelsehubbar ofta som ”dörren” för en händelsepipeline, ofta kallad en *händelseinmatare*. En händelseinmatare är en komponent eller tjänst som placeras mellan händelseutgivare och -konsumenter och frikopplar produktion av en händelseström från användningen av de händelserna. Arkitekturen visas på följande bild:
 
 ![Händelsehubbar](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
@@ -46,7 +46,7 @@ En händelsehubb skapas på namnområdesnivå och använder AMQP och HTTP som de
 En entitet som skickar data till en händelsehubb är en *händelseutfärdare*. Händelseutfärdare kan utfärda händelser med hjälp av HTTPS eller AMQP 1.0. Händelseutfärdare använder en SAS-token (signatur för delad åtkomst) för att identifiera sig mot en händelsehubb och kan ha en unik identitet eller använda en gemensam SAS-token.
 
 ### <a name="publishing-an-event"></a>Publicera en händelse
-Du kan publicera en händelse via AMQP 1.0 eller HTTPS. Service Bus innehåller en [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient)-klass för att publicera händelser på en händelsehubb från .NET-klienter. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](http://qpid.apache.org/). Du kan publicera händelser individuellt eller i batchar. En enstaka publikation (en instans av händelsedata) har en begränsning på 256 KB, oavsett om det är en enskild händelse eller en batch. Att utfärda händelser som överstiger den gränsen resulterar i ett fel. Bästa metoden för en utfärdare är att vara ovetande om partitioner i händelsehubben och att bara ange en *partitionsnyckel* (presenteras i nästa avsnitt) eller sin identitet via sin SAS-token.
+Du kan publicera en händelse via AMQP 1.0 eller HTTPS. Service Bus innehåller en [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient)-klass för att publicera händelser på en händelsehubb från .NET-klienter. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](http://qpid.apache.org/). Du kan publicera händelser individuellt eller i batchar. En enstaka publikation (en instans av händelsedata ) har en begränsning på 256 KB, oavsett om det är en enskild händelse eller en batch. Att utfärda händelser som överstiger den gränsen resulterar i ett fel. Bästa metoden för en utfärdare är att vara ovetande om partitioner i händelsehubben och att bara ange en *partitionsnyckel* (presenteras i nästa avsnitt) eller sin identitet via sin SAS-token.
 
 Valet att använda AMQP eller HTTPS är specifikt för användningsscenariot. AMQP kräver en beständig dubbelriktad socket och dessutom säkerhet på transportnivå (TLS) eller SSL/TLS. AMQP har högre nätverkskostnader när sessionen initieras, men HTTPS kräver ytterligare SSL-kostnader för varje begäran. AMQP har högre prestanda för frekventa utfärdare.
 
@@ -104,6 +104,8 @@ Följande är exempel på URI-konventionen för konsumentgrupper:
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
 ```
+
+Följande bild visar strömhanteringsarkitekturen för händelsehubbar:
 
 ![Händelsehubbar](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 

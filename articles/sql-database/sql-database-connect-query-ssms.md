@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: Använd SQL Server Management Studio för att ansluta och skicka frågor till data
 
-Använd [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) för att skapa och hantera SQL Server-resurser från användargränssnittet eller i skript. Den här guiden beskriver hur man använder SSMS för att ansluta till en Azure SQL Database och sedan köra uttryck för fråga, infoga, uppdatera och ta bort.
+Använd [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) för att skapa och hantera SQL Server-resurser från användargränssnittet eller i skript. Den här snabbstarten beskriver hur du använder SSMS för att ansluta till en Azure SQL Database och sedan kör uttryck för fråga, infoga, uppdatera och ta bort.
 
 Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter som utgångspunkt:
 
@@ -45,11 +45,11 @@ Hämta det fullständigt kvalificerade servernamnet för Azure SQL Database-serv
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## <a name="connect-to-the-server"></a>Ansluta till servern
+## <a name="connect-to-the-server-and-your-new-database"></a>Ansluta till servern och den nya databasen
 
 Använd SQL Server Management Studio för att upprätta en anslutning till Azure SQL Database-servern.
 
-1. Skriv **SSMS** i sökrutan i Windows och klicka sedan på **Enter** för att öppna SSMS.
+1. Öppna SQL Server Management Studio.
 
 2. I dialogrutan **Anslut till server** anger du följande information:
    - **Servertyp**: Ange databasmotor

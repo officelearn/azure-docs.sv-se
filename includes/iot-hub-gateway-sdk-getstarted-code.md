@@ -1,7 +1,8 @@
 ## <a name="typical-output"></a>Vanliga utdata
-Nedan visas ett exempel på utdata som skrivits till loggfilen av Hello World-exemplet. Tecken för ny rad och flik har lagts till för anpassning:
 
-```
+Nedan visas ett exempel på utdata som skrivits till loggfilen av Hello World-exemplet. Utdata formateras för att de ska vara enkla att läsa:
+
+```json
 [{
     "time": "Mon Apr 11 13:48:07 2016",
     "content": "Log started"
@@ -30,14 +31,16 @@ Nedan visas ett exempel på utdata som skrivits till loggfilen av Hello World-ex
 ```
 
 ## <a name="code-snippets"></a>Kodfragment
-Det här avsnittet beskriver viktiga delar av koden i Hello World-exemplet.
+
+I det här avsnittet beskrivs viktiga delar av koden i Hello\_World-exemplet.
 
 ### <a name="gateway-creation"></a>Skapa en gateway
-Utvecklaren måste skriva *gateway-processen*. Det här programmet skapar den interna infrastrukturen (asynkron meddelandekö), läser in moduler och ställer in så att allt ska fungera korrekt. SDK innehåller funktionen **Gateway_Create_From_JSON** för att du ska kunna starta en gateway från en JSON-fil. För att använda funktionen **Gateway_Create_From_JSON** måste du ange sökvägen till en JSON-fil som anger vilka moduler som ska läsas in. 
 
-Du hittar koden för gateway-processen i Hello World-exemplet i filen [main.c][lnk-main-c]. För att göra det enklare, visas fragmentet nedan som en förkortad version av gateway-processkoden. Det här programmet skapar en gateway och väntar sedan på att användaren ska trycka på tangenten **RETUR** innan den monterar ned gatewayen. 
+Utvecklaren måste skriva *gateway-processen*. Det här programmet skapar den interna infrastrukturen (asynkron meddelandekö), läser in moduler och ställer in så att allt ska fungera korrekt. SDK innehåller funktionen **Gateway\_Create\_From\_JSON** för att du ska kunna starta en gateway från en JSON-fil. För att kunna använda funktionen **Gateway\_Create\_From\_JSON** måste du ange sökvägen till en JSON-fil som anger vilka moduler som ska läsas in.
 
-```
+Du hittar koden för gateway-processen i Hello World-exemplet i filen [main.c][lnk-main-c]. För att göra det enklare visas följande kodfragment som en förkortad version av gatewayprocesskoden. Det här exempelprogrammet skapar en gateway och väntar sedan på att användaren ska trycka på tangenten **RETUR** innan den monterar ned gatewayen.
+
+```c
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -53,22 +56,21 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-} 
+}
 ```
 
-JSON-inställningsfilen innehåller en lista med moduler för inläsning och länkar mellan modulerna.
-Varje modul måste ange:
+JSON-inställningsfilen innehåller en lista med moduler för inläsning samt länkarna mellan modulerna. Varje modul måste ange:
 
 * **module_name**: ett unikt namn för modulen.
-* **loader**: en inläsare som vet hur modulen ska läsas in.  Inläsare är en tilläggspunkt för inläsning av olika typer av moduler. Vi tillhandahåller inläsare för användning med moduler som skrivits i intern C, Node.js, Java och .NET. I Hello World-exemplet används bara den ”interna” inläsaren eftersom alla moduler i det här exemplet är dynamiska bibliotek skrivna i C. Mer information om hur du använder moduler skrivna i olika språk finns i [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/)-, [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample)- och [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample)-exemplen.
-    * **name**: namnet på inläsaren som används för att läsa in modulen.  
-    * **entrypoint**: sökvägen till biblioteket som innehåller modulen. För Linux är detta en SO-fil, i Windows är detta en DLL-fil. Observera att den här registreringspunkten är specifik för den typ av inläsare som används. Exempelvis är Node.js-inläsarens startpunkt en JS-fil, Java-inläsarens startpunkt är en klassökväg + ett klassnamn och .NET-inläsarens startpunkt är ett sammansättningsnamn + ett klassnamn.
+* **loader**: en inläsare som anger hur önskad modul ska läsas in. Inläsare är en tilläggspunkt för inläsning av olika typer av moduler. Vi tillhandahåller inläsare för användning med moduler som skrivits i intern C, Node.js, Java och .NET. I Hello World-exemplet används bara den interna C-inläsaren eftersom alla moduler i det här exemplet är dynamiska bibliotek skrivna i C. Mer information om hur du använder moduler skrivna med olika språk finns i [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/)-, [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/java_sample)- och [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/dotnet_binding_sample)-exemplen.
+    * **name**: namnet på inläsaren som används för att läsa in modulen.
+    * **entrypoint**: sökvägen till biblioteket som innehåller modulen. För Linux är det här biblioteket en SO-fil, i Windows är det en DLL-fil. Den här registreringspunkten är specifik för den typ av inläsare som används. Startpunkten för Node.js-inläsaren är en .js-fil. Registreringspunkten för Java-inläsaren är en klassökväg plus ett klassnamn. Registreringspunkten för .NET-inläsaren är ett sammansättningsnamn plus ett klassnamn.
 
 * **args**: all konfigurationsinformation modulen behöver.
 
-Följande kod visar den JSON som används för att deklarera alla modulerna för Hello World-exemplet för Linux. Huruvida en modul kräver argument eller inte beror på modulens design. I det här exemplet använder loggningsmodulen ett argument som är sökvägen till utdatafilen och Hello World-modulen använder inte några argument.
+Följande kod visar den JSON som används för att deklarera alla modulerna för Hello World-exemplet för Linux. Huruvida en modul kräver argument eller inte beror på modulens design. I det här exemplet använder loggningsmodulen ett argument som är sökvägen till utdatafilen och Hello\_World-modulen har inga argument.
 
-```
+```json
 "modules" :
 [
     {
@@ -94,17 +96,17 @@ Följande kod visar den JSON som används för att deklarera alla modulerna för
 ]
 ```
 
-JSON-filen innehåller också länkar mellan moduler som kommer att skickas till den asynkrona meddelandekön. En länk har två egenskaper:
+JSON-filen innehåller också länkarna mellan de moduler som skickas till den asynkrona meddelandekön. En länk har två egenskaper:
 
 * **källa**: ett modulnamn från avsnittet `modules` eller ”\*”.
 * **mottagare**: ett modulnamn från avsnittet `modules`.
 
-Varje länk definierar en meddelandeväg och -riktning. Meddelanden från modul `source` ska levereras till modul `sink`. `source` kan anges till ”\*”, som anger att meddelanden från alla moduler tas emot av `sink`.
+Varje länk definierar en meddelandeväg och -riktning. Meddelanden från modul `source` levereras till modul `sink`. `source` kan anges till ”\*”, vilket visar att meddelanden från alla moduler tas emot av `sink`.
 
-Följande kod visar den JSON som används för att konfigurera länkar mellan moduler som används i Hello World-exemplet för Linux. Alla meddelanden som genereras av modul `hello_world` används av modul `logger`.
+Följande kod visar den JSON som används för att konfigurera länkar mellan moduler som används i Hello\_World-exemplet för Linux. Alla meddelanden som genereras av modul `hello_world` används av modul `logger`.
 
-```
-"links": 
+```json
+"links":
 [
     {
         "source": "hello_world",
@@ -113,10 +115,11 @@ Följande kod visar den JSON som används för att konfigurera länkar mellan mo
 ]
 ```
 
-### <a name="hello-world-module-message-publishing"></a>Meddelandepublicering från Hello World-modulen
-Du kan hitta koden som används av modulen "hello world" för att publicera meddelanden i filen ['hello_world.c'][lnk-helloworld-c]. Fragmentet nedan visar en ändrad version med ytterligare kommentarer och viss felhanteringskod tas bort för att förenkla:
+### <a name="helloworld-module-message-publishing"></a>Meddelandepublicering från Hello\_World-modulen
 
-```
+Du kan hitta koden som används av modulen Hello\_World för att publicera meddelanden i filen [”hello_world.c”][lnk-helloworld-c]. Kodfragmentet nedan visar en ändrad version med ytterligare kommentarer tillagda och viss felhanteringskod tas bort för att förenkla:
+
+```c
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -162,10 +165,11 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="hello-world-module-message-processing"></a>Meddelandebearbetning från Hello World-modulen
-Modulen Hello World måste aldrig bearbeta några meddelanden som andra moduler publicerar till den asynkrona meddelandekön. Detta gör implementeringen av meddelandets återanrop i modulen Hello World till en icke-alternativ funktion.
+### <a name="helloworld-module-message-processing"></a>Meddelandebearbetning från Hello\_World-modulen
 
-```
+Modulen Hello\_World behandlar aldrig meddelanden som andra moduler publicerar till den asynkrona meddelandekön. Detta gör implementeringen av meddelandets återanrop i modulen Hello\_World till en icke-alternativ funktion.
+
+```c
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
@@ -173,11 +177,12 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### <a name="logger-module-message-publishing-and-processing"></a>Loggningsmodulens meddelandepublicering och bearbetning
+
 Loggningsmodulen tar emot meddelanden från den asynkrona meddelandekön och skriver dem till en fil. Den publicerar aldrig meddelanden. Därför anropar koden för loggningsmodulen aldrig funktionen **Broker_Publish**.
 
-Funktionen **Logger_Recieve** i filen [logger.c][lnk-logger-c] är det återanrop som den asynkrona meddelandekön anropar för att skicka meddelanden till loggningsmodulen. Fragmentet nedan visar en ändrad version med ytterligare kommentarer och viss felhanteringskod tas bort för att förenkla:
+Funktionen **Logger_Recieve** i filen [logger.c][lnk-logger-c] är det återanrop som den asynkrona meddelandekön anropar för att skicka meddelanden till loggningsmodulen. Kodfragmentet nedan visar en ändrad version med kommentarer tillagda och viss felhanteringskod tas bort för att förenkla:
 
-```
+```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -217,7 +222,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du använder IoT Gateway SDK finns i:
+
+Mer information om hur du använder IoT Gateway SDK finns i följande artiklar:
 
 * [IoT Gateway SDK – skicka enhet-till-moln-meddelanden med en simulerad enhet med Linux][lnk-gateway-simulated].
 * [Azure IoT Gateway SDK][lnk-gateway-sdk] på GitHub.
@@ -228,7 +234,3 @@ Mer information om hur du använder IoT Gateway SDK finns i:
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
-
-<!--HONumber=Dec16_HO1-->
-
-

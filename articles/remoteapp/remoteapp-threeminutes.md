@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 3373e37b8efb1bd7d9b7e6c4fb8d3db468c1ad02
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Testa Azure RemoteApp på din enhet i 3 minuter eller mindre
 > [!IMPORTANT]
-> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> Azure RemoteApp upphör att gälla den 31 augusti 2017. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
 > 
 
@@ -42,10 +43,5 @@ Din åsikt är viktig. I slutet av varje session visas en dialogruta för din fe
 > Vi har inte aktiverat extern Internetåtkomst från de publicerade demoprogrammen eftersom det här är en kontrollerad miljö för demonstration. Det gör att produkter som OneDrive inte är tillgängliga. Dessutom inaktiveras delning av Urklipp (kopiera och klistra in) och USB samt omdirigering av skrivare.  
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

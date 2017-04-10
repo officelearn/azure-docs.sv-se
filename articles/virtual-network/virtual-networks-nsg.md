@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
-ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,8 +66,8 @@ Ovanstående bild visar hur NSG-regler bearbetas.
 ### <a name="default-tags"></a>Standardtaggar
 Standardtaggar är systemdefinierade identifierare för en viss kategori av IP-adresser. Du kan använda standardtaggar i egenskaperna för **källadress-prefix** och **måladress-prefix** för alla regler. Det finns tre standardtaggar som du kan använda.
 
-* **VIRTUAL_NETWORK:** Den här standardtaggen omfattar hela ditt nätverksadressutrymme. Det inkluderar virtuellt nätverks-adressutrymme (CIDR-intervallen som definieras i Azure) samt alla anslutna lokala adressutrymmen och anslutna Azure-VNet (lokala nätverk).
-* **AZURE_LOADBALANCER:** Den här standardtaggen omfattar belastningsutjämnaren för Azures infrastruktur. Det innebär den Azure datacenter-IP-adress som Azures-hälsoavsökning kommer från.
+* **VIRTUAL_NETWORK** (**VirtualNetwork** om du använder Azure Resource Manager): Den här standardtaggen anger allt adressutrymme för nätverket. Det inkluderar virtuellt nätverks-adressutrymme (CIDR-intervallen som definieras i Azure) samt alla anslutna lokala adressutrymmen och anslutna Azure-VNet (lokala nätverk).
+* **AZURE_LOADBALANCER** (**AzureLoadBalancer** om du använder Azure Resource Manager): Den här standardtaggen anger belastningsutjämnaren i Azures infrastruktur. Det innebär den Azure datacenter-IP-adress som Azures-hälsoavsökning kommer från.
 * **INTERNET:** Den här standardtaggen omfattar IP-adressutrymmet som är utanför det virtuella nätverket och som nås via offentligt Internet. Det här intervallet inkluderar även [Azure-ägt offentligt IP-adressutrymme](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Standardregler
@@ -258,9 +259,4 @@ Eftersom vissa av de ovanstående NSG:erna måste kopplas till individuella nät
 * [Distribuera NSG:er i den klassiska distributionsmodellen](virtual-networks-create-nsg-classic-ps.md).
 * [Distribuera NSG:er i Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 * [Hantera NSG-loggar](virtual-network-nsg-manage-log.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

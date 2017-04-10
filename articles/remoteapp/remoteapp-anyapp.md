@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84aaff1f1e8a92583107295643e0ada81376fab0
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Köra en Windows-app på valfri enhet med Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> Azure RemoteApp upphör att gälla den 31 augusti 2017. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
 > 
 
@@ -121,10 +122,5 @@ Nu kan du använda Access på valfri enhet där en RemoteApp-klient finns instal
 Nu när du har lärt dig att skapa en samling kan du försöka skapa en [samling som använder Office 365](remoteapp-tutorial-o365anywhere.md). Du kan även skapa en [hybridsamling](remoteapp-create-hybrid-deployment.md) som kan komma åt ditt lokala nätverk.
 
 <!--Image references-->
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

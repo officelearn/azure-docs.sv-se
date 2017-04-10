@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: guscatal;elizapo
 translationtype: Human Translation
-ms.sourcegitcommit: 300ee477a00cdd463a2abf87dd73550777fd9e05
-ms.openlocfilehash: 13634bec8abbefdf941066dece8390f2fd064422
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 584c781c97097cda3c1455ade05cba8659f11073
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="get-the-same-office-365-experience-on-any-device-with-azure-remoteapp"></a>Få samma Office 365-upplevelse på alla enheter med Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> Azure RemoteApp upphör att gälla den 31 augusti 2017. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
 > 
 
@@ -71,10 +72,5 @@ När du klickar på någon av dessa bör programmet startas på den virtuella Az
 ![startar](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 
 ![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

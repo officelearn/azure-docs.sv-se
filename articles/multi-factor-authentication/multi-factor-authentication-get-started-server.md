@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 03/26/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c5a26a17ab50993f8b57c8868b02541251de1cb1
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b769f785f67c24b99156dcfc21a42f661cc9da27
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -70,7 +70,7 @@ Nu när du har laddat ned servern kan du installera och konfigurera den.  Se til
 
 | Krav för Azure Multi-Factor Authentication Server | Beskrivning |
 |:--- |:--- |
-| Maskinvara |<li>200 MB ledigt hårddiskutrymme</li><li>x32- eller x64-processor</li><li>Minst&1; GB RAM-minne</li> |
+| Maskinvara |<li>200 MB ledigt hårddiskutrymme</li><li>x32- eller x64-processor</li><li>Minst 1 GB RAM-minne</li> |
 | Programvara |<li>Windows Server 2008 eller senare om värden är ett serveroperativsystem</li><li>Windows 7 eller senare om värden är ett klientoperativsystem</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li> |
 
 ### <a name="azure-multi-factor-authentication-server-firewall-requirements"></a>Krav för Azure Multi-Factor Authentication Server-brandvägg
@@ -121,13 +121,13 @@ Nu när servern har installerats och konfigurerats kan du snabbt importera anvä
 ## <a name="send-users-an-email"></a>Skicka ett e-postmeddelande till användare
 Nu när du har importerat användarna till MFA-servern ska du skicka ett e-postmeddelande om att de har registrerats för tvåstegsverifiering.
 
-Innehållet i e-postmeddelandet som du skickar beror på hur du konfigurerade användarna för tvåstegsverifiering. Om du till exempel importerade telefonnummer från företagets katalog bör e-postmeddelandet innehålla de fördefinierade telefonnumren så att användarna vet vad de ska förvänta sig. Om du inte importerade användarnas telefonnummer, eller om användarna kommer att använda mobilappen, skickar du ett e-postmeddelande där de uppmanas att slutföra kontoregistreringen genom att klicka på en länk till användarportalen för Azure Multi-Factor Authentication.
+Innehållet i e-postmeddelandet som du skickar beror på hur du konfigurerade användarna för tvåstegsverifiering. Om du till exempel importerade telefonnummer från företagets katalog bör e-postmeddelandet innehålla de fördefinierade telefonnumren så att användarna vet vad de ska förvänta sig. Om du inte har importerat användarnas telefonnummer, eller om användarna kommer att använda mobilappen, skickar du ett e-postmeddelande där de uppmanas att slutföra kontoregistreringen. Inkludera en hyperlänk till användarportalen för Azure Multi-Factor Authentication i e-postmeddelandet.
 
 Innehållet i e-postmeddelandet varierar också beroende på vilken verifieringsmetod som har konfigurerats för användarna (telefonsamtal, SMS eller mobilapp).  Om användarna till exempel måste använda en PIN-kod när de autentiserar så meddelar e-postmeddelandet vilken deras ursprungliga PIN-kod är.  Användarna uppmanas att ändra sina PIN-koder under den första verifieringen.
 
 
 ### <a name="configure-email-and-email-templates"></a>Konfigurera e-post och e-postmallar
-Klicka på e-postikonen till vänster för att konfigurera inställningarna för e-postmeddelanden som du skickar. Här kan du ange SMTP-information för din e-postserver och skicka e-post genom att markera kryssrutan **Skicka e-post till användare**.
+Klicka på e-postikonen till vänster för att konfigurera inställningarna för e-postmeddelanden som du skickar. På den är sidan kan du ange SMTP-information för din e-postserver och skicka e-post genom att markera kryssrutan **Skicka e-post till användare**.
 
 ![E-postinställningar](./media/multi-factor-authentication-get-started-server/email1.png)
 
@@ -155,11 +155,7 @@ Förutom fälten ovan lagras även verifieringsresultatet (lyckades/avvisades) o
 
 - Skapa och konfigurera [användarportalen](multi-factor-authentication-get-started-portal.md) för självbetjäning.
 
-- Konfigurera [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md) i Azure Multi-Factor Authentication.
-
-- Konfigurera [RADIUS-autentisering](multi-factor-authentication-get-started-server-radius.md) på Azure MFA-servern. Genom att använda RADIUS kan du integrera olika tredjepartssystem med Azure MFA Server. 
-
-- Konfigurera [Windows-autentisering](multi-factor-authentication-get-started-server-windows.md) på Azure MFA-servern.
+- Installera och konfigurera Azure MFA Server med [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [RADIUS-autentisering](multi-factor-authentication-get-started-server-radius.md) eller [LDAP-autentisering](multi-factor-authentication-get-started-server-ldap.md).
 
 - Konfigurera [Remote Desktop Gateway och Azure Multi-Factor Authentication Server med hjälp av RADIUS](multi-factor-authentication-get-started-server-rdg.md). 
 

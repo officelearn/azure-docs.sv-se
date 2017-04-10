@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/03/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f8512229ee30fee6315d8ba167f1716e40f79b3e
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: cee4748a0b24e11cd8a8ee46471418680fcf7b33
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -53,7 +53,7 @@ Distributionen kan ta någon minut. När distributionen är klar innehåller din
 3. Bladet visar en sammanfattning av distributionen. Sammanfattningen innehåller statusen för distributionen och dess åtgärder samt de värden som du angav för parametrarna. Om du vill visa mallen som du använde för distributionen väljer du **Visa mall**.
    
      ![visa distributionssammanfattning](./media/resource-manager-export-template/deployment-summary.png)
-4. Resource Manager hämtar följande sex filer åt dig:
+4. Resource Manager hämtar följande sju filer åt dig:
    
    1. **Mall**– Mallen som definierar infrastrukturen för lösningen. När du skapade lagringskontot på portalen använde Resource Manager en mall för att distribuera det och sparade mallen för framtida bruk.
    2. **Parametrar** – En parameterfil som du kan använda för att skicka in värden under distributionen. Den innehåller de värden som du angav under den första distributionen, men du kan ändra dessa värden när du distribuerar om mallen.
@@ -148,28 +148,28 @@ Exportera en mall som visar en ögonblicksbild av resursgruppen för att hämta 
      Alla resurstyper stöder inte funktionen för mallexport. Om din resursgrupp bara innehåller lagringskontot och det virtuella nätverket som visas i den här artikeln ser du inget fel. Om du har skapat andra resurstyper kan du dock se ett fel som anger att det har uppstått problem med exporten. Du lär dig hur du hanterar dessa problem i avsnittet [Åtgärda exportproblem](#fix-export-issues).
 2. Återigen ser du de sex filer som du kan använda för att distribuera lösningen igen, men nu är mallen lite annorlunda. Den här mallen har bara två parametrar: en för lagringskontots namn och en för det virtuella nätverkets namn.
 
-  ```json
-  "parameters": {
-    "virtualNetworks_VNET_name": {
-      "defaultValue": "VNET",
-      "type": "String"
-    },
-    "storageAccounts_storagetf05092016_name": {
-      "defaultValue": "storagetf05092016",
-      "type": "String"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "virtualNetworks_VNET_name": {
+       "defaultValue": "VNET",
+       "type": "String"
+     },
+     "storageAccounts_storagetf05092016_name": {
+       "defaultValue": "storagetf05092016",
+       "type": "String"
+     }
+   },
+   ```
    
-     Resource Manager hämtade inte mallarna som du använde under distributionen. I stället skapades en ny mall som baseras på resursernas aktuella konfiguration. Exempelvis anger mallen lagringskontots plats och replikeringsvärdet till:
+   Resource Manager hämtade inte mallarna som du använde under distributionen. I stället skapades en ny mall som baseras på resursernas aktuella konfiguration. Exempelvis anger mallen lagringskontots plats och replikeringsvärdet till:
 
-  ```json 
-  "location": "northeurope",
-  "tags": {},
-  "properties": {
-    "accountType": "Standard_RAGRS"
-  },
-  ```
+   ```json 
+   "location": "northeurope",
+   "tags": {},
+   "properties": {
+     "accountType": "Standard_RAGRS"
+   },
+   ```
 3. Du har ett par alternativ för att fortsätta att arbeta med den här mallen. Du kan antingen hämta mallen och arbeta med den lokalt med en JSON-redigerare, eller så kan du spara mallen i biblioteket och arbeta med den via portalen.
    
      Om du är nöjd med en JSON-redigerare såsom [VS-kod](resource-manager-vs-code.md) eller [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), kanske du föredrar att hämta mallen lokalt och använda denna redigerare. Om du inte har en JSON-redigerare kanske du föredrar att redigera mallen via portalen. Resten av det här avsnittet förutsätter att du har sparat mallen i biblioteket i portalen. Du gör dock samma syntaxändringar för mallen oavsett om du arbetar lokalt med en JSON-redigerare eller via portalen.
@@ -205,88 +205,88 @@ I det här avsnittet ska du lägga till parametrar till den exporterade mallen s
      ![redigera mall](./media/resource-manager-export-template/edit-template.png)
 3. För att kunna skicka de värden som du eventuellt vill ange under distributionen ersätter du avsnittet **Parametrar** med nya parameterdefinitioner. Observera värdena för **allowedValues** för **storageAccount_accountType**. Om du råkar ange ett ogiltigt värde upptäcks felet innan distributionen startar. Observera också att du bara anger ett prefix för lagringskontonamnet och att prefixet är begränsat till 11 tecken. Genom att begränsa prefixet till 11 tecken kan du vara säker på att det fullständiga namnet inte överskrider det högsta antalet tillåtna tecken för ett lagringskonto. Prefixet gör att du kan använda en namngivningskonvention för dina lagringskonton. Du ser hur du skapar ett unikt namn i nästa steg.
 
-  ```json
-  "parameters": {
-    "storageAccount_prefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "storageAccount_accountType": {
-      "defaultValue": "Standard_RAGRS",
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ]
-    },
-    "virtualNetwork_name": {
-      "type": "string"
-    },
-    "addressPrefix": {
-      "defaultValue": "10.0.0.0/16",
-      "type": "string"
-    },
-    "subnetName": {
-      "defaultValue": "subnet-1",
-      "type": "string"
-    },
-    "subnetAddressPrefix": {
-      "defaultValue": "10.0.0.0/24",
-      "type": "string"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageAccount_prefix": {
+       "type": "string",
+       "maxLength": 11
+     },
+     "storageAccount_accountType": {
+       "defaultValue": "Standard_RAGRS",
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ]
+     },
+     "virtualNetwork_name": {
+       "type": "string"
+     },
+     "addressPrefix": {
+       "defaultValue": "10.0.0.0/16",
+       "type": "string"
+     },
+     "subnetName": {
+       "defaultValue": "subnet-1",
+       "type": "string"
+     },
+     "subnetAddressPrefix": {
+       "defaultValue": "10.0.0.0/24",
+       "type": "string"
+     }
+   },
+   ```
 
 4. Avsnittet **variables** i mallen är tomt för närvarande. I avsnittet **Variabler** kan du skapa värden som förenklar syntaxen för resten av mallen. Ersätt det här avsnittet med en ny variabeldefinition. Variabeln **storageAccount_name** sammanfogar prefixet från parametern till en unik sträng som genereras baserat på resursgruppens identifierare. Du behöver inte längre gissa ett unikt namn när du anger ett parametervärde.
 
-  ```json
-  "variables": {
-    "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 5. Om du vill använda parametrarna och variabeln i resursdefinitionerna ersätter du avsnittet **Resurser** med nya resursdefinitioner. Observera att det inte är mycket som har ändrats i resursdefinitionerna förutom värdet som tilldelats till resursegenskapen. Egenskaperna är samma som egenskaperna från den exporterade mallen. Du tilldelar bara parametervärden egenskaper i stället för hårdkodade värden. Platsen för resurserna är konfigurerad att använda samma plats som resursgruppen via uttrycket **resourceGroup().location**. **Variabeluttrycket** refererar till variabeln som du skapade för lagringskontonamnet.
 
-  ```json
-  "resources": [
-    {
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('virtualNetwork_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[parameters('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[parameters('subnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnetAddressPrefix')]"
-            }
-          }
-        ]
-      },
-      "dependsOn": []
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccount_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-        "accountType": "[parameters('storageAccount_accountType')]"
-      },
-      "dependsOn": []
-    }
-  ]
-  ```
+   ```json
+   "resources": [
+     {
+       "type": "Microsoft.Network/virtualNetworks",
+       "name": "[parameters('virtualNetwork_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "properties": {
+         "addressSpace": {
+           "addressPrefixes": [
+             "[parameters('addressPrefix')]"
+           ]
+         },
+         "subnets": [
+           {
+             "name": "[parameters('subnetName')]",
+             "properties": {
+               "addressPrefix": "[parameters('subnetAddressPrefix')]"
+             }
+           }
+         ]
+       },
+       "dependsOn": []
+     },
+     {
+       "type": "Microsoft.Storage/storageAccounts",
+       "name": "[variables('storageAccount_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "tags": {},
+       "properties": {
+         "accountType": "[parameters('storageAccount_accountType')]"
+       },
+       "dependsOn": []
+     }
+   ]
+   ```
 
 6. Välj **OK** när du har redigerat klart mallen.
 7. Välj **Spara** för att spara ändringarna i mallen.
@@ -393,7 +393,7 @@ I webbplatsresursen lägger du till en definition för koden för att installera
 ```
 
 ### <a name="virtual-machine-extension"></a>Tillägg för virtuell dator
-Exempel på tillägg för virtuella datorer finns i [Konfigurationsexempel med Windows VM-tillägget för Azure](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Exempel på tillägg för virtuella datorer finns i [Konfigurationsexempel med Windows VM-tillägget för Azure](../virtual-machines/windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="virtual-network-gateway"></a>Virtuell nätverksgateway
 Lägg till en resurstyp för virtuella nätverksgateways.

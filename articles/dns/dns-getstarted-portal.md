@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 656f2c7d00161d15ebb6f72db0dff33c709973c2
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 79f0c9297c4be70f705f325274f3d9241ea4bc3f
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -79,7 +79,7 @@ Följande exempel visar hur du skapar en ny "A"-post. Information om andra postt
 
 ## <a name="view-records"></a>Visa poster
 
-På den nedre delen av bladet DNS-zon visas posterna för DNS-zonen. Du bör se NS- och SOA-standardposterna (dessa skapas i varje zon) plus eventuella nya poster som du har skapat.
+På den nedre delen av bladet DNS-zon visas posterna för DNS-zonen. Du bör se DNS- och SOA-standardposterna (dessa skapas i varje zon) plus eventuella nya poster som du har skapat.
 
 ![zon](./media/dns-getstarted-portal/viewzone500.png)
 

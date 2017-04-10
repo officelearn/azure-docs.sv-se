@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 06/30/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
-ms.openlocfilehash: 5145418159aa457be6d1fc9ed5bb1a43a955791c
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 1a662d23c7b8eef68e0f182792699210d2b80bac
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -27,11 +28,11 @@ Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en
 
 ### <a name="domains-and-zones"></a>Domäner och zoner
 
-Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ”**.**”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa finns domänerna på den andra nivån, till exempel ”org.se” eller ”co.uk”.  Och så vidare. Domänerna i DNS-hierarkin använder separata DNS-zoner. Zonerna distribueras globalt och finns på DNS-namnservrar runtom i världen.
+Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ”**.**”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa toppnivådomäner finns domäner på den andra nivån, till exempel ”org.se” eller ”co.uk”.  Och så vidare. Domänerna i DNS-hierarkin använder separata DNS-zoner. Zonerna distribueras globalt och finns på DNS-namnservrar runtom i världen.
 
 **DNS-zon**
 
-En domän är ett unikt namn i Domain Name System, t.ex. ”contoso.com”. En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen ”contoso.com” kan till exempel innehålla flera DNS-poster, till exempel ”mail.contoso.com” (för en e-postserver) och ”www.contoso.com” (för en webbplats).
+En domän är ett unikt namn i Domain Name System, t.ex. ”contoso.com”. En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen contoso.com kan t.ex. innehålla flera DNS-poster, som mail.contoso.com (för en e-postserver) och www.contoso.com (för en webbplats).
 
 **Domänregistrator**
 
@@ -50,27 +51,28 @@ Det finns två typer av DNS-servrar:
 > [!NOTE]
 > Azure DNS tillhandahåller en auktoritativ DNS-tjänst.  Någon rekursiv DNS-tjänst tillhandahålls inte.
 >
-> Cloud Services och virtuella datorer i Azure konfigureras automatiskt för användning av rekursiva DNS-tjänster som tillhandahålls separat som en del av Azures infrastruktur.  Information om hur du ändrar dessa DNS-inställningar finns i [Namnmatchning i Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+> Cloud Services och virtuella datorer i Azure konfigureras automatiskt för användning av en rekursiv DNS-tjänst som tillhandahålls separat som en del av Azures infrastruktur.  Information om hur du ändrar dessa DNS-inställningar finns i [Namnmatchning i Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 DNS-klienter på datorer eller mobila enheter anropar vanligtvis en rekursiv DNS-server för att utföra DNS-frågor som klientprogrammen behöver.
 
-När en rekursiv DNS-server tar emot en fråga om en DNS-post, till exempel ”www.contoso.com”, måste den först hitta namnservern som är värd för zonen för ”contoso.com”-domänen. För att göra det startar den vid rotnamnservrarna och letar därifrån upp namnservrarna som är värdar för ”com”-zonen. Därefter beordrar den ”com”-namnservrarna att hitta namnservrarna som är värdar för zonen ”contoso.com”.  Slutligen kan den fråga dessa namnservrar efter ”www.contoso.com”.
+När en rekursiv DNS-server tar emot en fråga om en DNS-post, till exempel ”www.contoso.com”, måste den först hitta namnservern som är värd för zonen för ”contoso.com”-domänen. För att hitta namnservern startar den vid rotnamnservrarna och letar därifrån upp namnservrarna som är värdar för ”com”-zonen. Därefter beordrar den ”com”-namnservrarna att hitta namnservrarna som är värdar för zonen ”contoso.com”.  Slutligen kan den fråga dessa namnservrar efter ”www.contoso.com”.
 
-Detta kallas för att DNS-namnet matchas. Strikt sett omfattar DNS-matchningen ytterligare steg, till exempel att följa CNAME-poster, men detta är inte viktigt för att förstå hur DNS-delegering fungerar.
+Den här proceduren kallas att ”matcha” DNS-namnet. Strikt sett omfattar DNS-matchningen ytterligare steg, till exempel att följa CNAME-poster, men detta är inte viktigt för att förstå hur DNS-delegering fungerar.
 
 Hur ”pekar” en överordnad zon på namnservrarna för en underordnad zon? Detta sker med hjälp av en särskild typ av DNS-post kallad en NS-post (NS står för namnserver). Rotzonen innehåller exempelvis NS-poster för ”com” och visar namnservrar för ”com”-zonen. ”Com”-zonen innehåller i sin tur NS-poster för ”contoso.com”, som visar namnservrarna för zonen ”contoso.com”. Att konfigurera NS-posterna för en underordnad zon i en överordnad zon kallas för att delegera domänen.
 
 ![DNS-namnserver](./media/dns-domain-delegation/image1.png)
 
-Varje delegering har i själva verket två kopior av NS-posterna: en i den överordnade zonen som pekar på den underordnade zonen och en annan i den underordnade zonen. ”Contoso.com”-zonen innehåller NS-posterna för ”contoso.com” (förutom NS-posterna i ”com”). Dessa kallas för auktoritativa NS-poster och finns överst i den underordnade zonen.
+Varje delegering har i själva verket två kopior av NS-posterna: en i den överordnade zonen som pekar på den underordnade zonen och en annan i den underordnade zonen. ”Contoso.com”-zonen innehåller NS-posterna för ”contoso.com” (förutom NS-posterna i ”com”). Dessa poster kallas för auktoritativa NS-poster och finns överst i den underordnade zonen.
 
 ## <a name="delegating-a-domain-to-azure-dns"></a>Delegera en domän till Azure DNS
-När du skapar DNS-zonen i Azure DNS måste du ställa in NS-poster i den överordnade zonen så att Azure DNS blir den auktoritativa källan för namnmatchning för din zon. För domäner som köps från en registrator kan registratorn konfigurera dessa NS-poster.
+
+När du skapar DNS-zonen i Azure DNS måste du ställa in NS-poster i den överordnade zonen så att Azure DNS blir den auktoritativa källan för namnmatchning för din zon. Om domänerna köpts från en registrator kan registratorn konfigurera dessa NS-poster.
 
 > [!NOTE]
 > Du behöver inte äga en domän för att kunna skapa en DNS-zon med det domännamnet i Azure DNS. Du behöver äga domänen för att konfigurera delegeringen till Azure DNS med registratorn.
 
-Anta exempelvis att du köper domänen ”contoso.com” och skapar en zon med namnet ”contoso.com” i Azure DNS. Som ägare till domänen erbjuder sig registratorn att konfigurera namnserveradresserna (det vill säga NS-posterna) för din domän. Registratorn lagrar dessa NS-poster i den överordnade domänen, i detta fall ”.com”. Klienter över hela världen omdirigeras då till din domän i Azure DNS-zonen när du försöker matcha DNS-poster i ”contoso.com”.
+Anta exempelvis att du köper domänen ”contoso.com” och skapar en zon med namnet ”contoso.com” i Azure DNS. Som ägare till domänen erbjuder sig registratorn att konfigurera namnserveradresserna (det vill säga NS-posterna) för din domän. Registratorn lagrar dessa NS-poster i den överordnade domänen, i detta fall ”.com”. Klienter över hela världen kan sedan omdirigeras till din domän i Azure DNS-zonen när du försöker matcha DNS-poster i ”contoso.com”.
 
 ### <a name="finding-the-name-server-names"></a>Hitta namnservernamnen
 Innan du kan delegera din DNS-zon till Azure DNS måste du känna till namnservernamnen för din zon. Azure DNS allokerar namnservrar från en pool varje gång en zon skapas.
@@ -81,7 +83,7 @@ Det enklaste sättet att se namnservrarna som tilldelats din zon är via Azure-p
 
 Azure DNS skapar automatiskt auktoritativa NS-poster i din zon som innehåller de tilldelade namnservrarna.  Om du vill se namnservernamnen via Azure PowerShell eller Azure CLI behöver du bara hämta dessa poster.
 
-Med Azure PowerShell kan auktoritativa NS-poster hämtas på följande sätt. Observera att postnamnet "@" används för att referera till poster överst i zonen.
+Med Azure PowerShell kan auktoritativa NS-poster hämtas på följande sätt. Postnamnet ”@” används för att referera till poster överst i zonen.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName MyResourceGroup
@@ -131,7 +133,7 @@ info:    network dns record-set show command OK
 
 Varje registrator har sina egna DNS-hanteringsverktyg för att ändra namnserverposterna för en domän. På registratorns DNS-hanteringssida redigerar du NS-posterna och ersätter NS-posterna med dem som Azure DNS skapat.
 
-När du delegerar en domän till Azure DNS måste du använda namnservernamnen som tillhandahålls av Azure DNS.  Du bör alltid använda alla fyra namnservernamn, oavsett vilket namn din domän har.  Domändelegering kräver inte att namnservernamnet använder samma toppnivådomän som din domän.
+När du delegerar en domän till Azure DNS måste du använda namnservernamnen som tillhandahålls av Azure DNS. Vi rekommenderar att du använder alla fyra namnservernamn, oavsett vilket namn din domän har.  Domändelegering kräver inte att namnservernamnet använder samma toppnivådomän som din domän.
 
 Använd inte ”fästposter” för att peka på IP-adresser för Azure DNS-namnservrar eftersom dessa IP-adresser kan komma att ändras i framtida. Delegering med hjälp av namnservernamn i din egen zon, även kallat ”vanity name servers”, stöds inte i Azure DNS.
 
@@ -139,7 +141,7 @@ Använd inte ”fästposter” för att peka på IP-adresser för Azure DNS-namn
 
 När du har slutfört delegeringen kan du kontrollera att namnmatchningen fungerar med hjälp av ett verktyg som till exempel ”nslookup” för att fråga efter SOA-posten för din zon (som skapas automatiskt när zonen skapas).
 
-Observera att du inte behöver ange Azure DNS-namnservrarna eftersom den normala DNS-matchningsprocessen hittar namnservrarna automatiskt om delegeringen har konfigurerats korrekt.
+Du behöver inte ange Azure DNS-namnservrarna om delegeringen har konfigurerats korrekt. Den normala DNS-matchningsprocessen hittar namnservrarna automatiskt.
 
 ```
 nslookup -type=SOA contoso.com
@@ -169,7 +171,7 @@ Konfigurationen av en underdomän följer i princip samma process som en normal 
 
 ### <a name="to-delegate-a-sub-domain"></a>Så här delegerar du en underordnad domän
 
-Följande PowerShell-exempel demonstrerar hur det fungerar. Du kan köra samma steg från Azure-portalen, eller via plattformsoberoende Azure CLI.
+Följande PowerShell-exempel demonstrerar hur det fungerar. Du kan utföra samma steg från Azure Portal, eller via plattformsoberoende Azure CLI.
 
 #### <a name="step-1-create-the-parent-and-child-zones"></a>Steg 1. Skapa överordnade och underordnade zoner
 Först ska vi skapa de överordnade och underordnade zonerna. Dessa kan finnas i samma resursgrupp eller i olika resursgrupper.
@@ -189,7 +191,7 @@ $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType
 
 #### <a name="step-3-delegate-the-child-zone"></a>Steg 3. Delegera den underordnade zonen
 
-Skapa motsvarande NS-poster i den överordnade zonen för att slutföra delegeringen. Observera att namnet på postuppsättningen i den överordnade zonen matchar namnet på den underordnade zonen, i detta fall ”partners”.
+Skapa motsvarande NS-poster i den överordnade zonen för att slutföra delegeringen. Namnet på postuppsättningen i den överordnade zonen matchar namnet på den underordnade zonen, i detta fall ”partners”.
 
 ```powershell
 $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
@@ -222,10 +224,5 @@ partners.contoso.com
 [Hantera DNS-zoner](dns-operations-dnszones.md)
 
 [Hantera DNS-poster](dns-operations-recordsets.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

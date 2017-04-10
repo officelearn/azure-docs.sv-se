@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: dd504c95e22d322707c55818815b09d8a36c7ca4
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
+ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introduktion till privata Docker-behållarregister
@@ -48,9 +48,7 @@ Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsf
 
 
 ## <a name="key-concepts"></a>Viktiga begrepp
-* **Register** – Skapa en eller flera behållarregister i din Azure-prenumeration. Varje register backas upp av ett [Azure-standardlagringskonto](../storage/storage-introduction.md) på samma plats. Dra nytta av lokal, nätverksnära lagring av dina behållaravbildningar genom att skapa ett register på samma Azure-plats som dina distributioner.
-
-  Register namnges i en rotdomän baserat på prenumerationens [Azure Active Directory-klient](../active-directory/active-directory-howto-tenant.md). Om du till exempel har ett organisationskonto i Contoso-domänen har ditt fullständigt kvalificerade registernamn formatet `myregistry-contoso.azurecr.io`.
+* **Register** – Skapa en eller flera behållarregister i din Azure-prenumeration. Varje register backas upp av ett [Azure-standardlagringskonto](../storage/storage-introduction.md) på samma plats. Dra nytta av lokal, nätverksnära lagring av dina behållaravbildningar genom att skapa ett register på samma Azure-plats som dina distributioner. Ett fullständigt kvalificerat registernamn har formatet `myregistry.azurecr.io`.
 
   Du [styr åtkomsten](container-registry-authentication.md) till en behållare med hjälp av ett Azure Active Directory-kopplat [tjänstobjekt](../active-directory/active-directory-application-objects.md) eller ett angivet administratörskonto. Kör `docker login`-standardkommandot för att autentisera med ett register.
 

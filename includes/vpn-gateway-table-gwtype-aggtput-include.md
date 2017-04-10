@@ -4,7 +4,7 @@ Observera att UltraPerformance gateway-SKU inte visas i den här tabellen. Infor
 
 |  | **VPN Gateway-genomflöde (1)** | **VPN Gateway, max. IPsec-tunnlar (2)** | **ExpressRoute-gateway, genomflöde** | **VPN-gateway och ExpressRoute samexisterar** |
 | --- | --- | --- | --- | --- |
-| **Basic SKU (3)(5)** |100 Mbit/s |10 |500 Mbps |Nej |
+| **Basic SKU (3)(5)(6)** |100 Mbit/s |10 |500 Mbit/s (6) |Nej |
 | **Standard SKU (4)(5)** |100 Mbit/s |10 |1000 Mbps |Ja |
 | **High Performance SKU (4)** |200 Mbit/s |30 |2000 Mbps |Ja |
 
@@ -13,9 +13,4 @@ Observera att UltraPerformance gateway-SKU inte visas i den här tabellen. Infor
 * (3) BGP stöds inte för Basic-SKU:n.
 * (4) Principbaserade VPN:er stöds inte för den här SKU:n. De stöds bara för Basic-SKU:n.
 * (5) S2S VPN-Gateway-anslutningar av typen aktiv-aktiv stöds inte för denna SKU. Aktiv-aktiv stöds enbart på HighPerformance SKU.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+* (6) Basic SKU kan inte längre användas med Expressroute.

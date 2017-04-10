@@ -14,14 +14,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: 21ae6458d1d65698c0c8fc7081696cb7406a918c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 348306795fd3c8275b21e4ec6dceae408916bf72
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-in-the-azure-remoteapp-template-images"></a>Vad finns i Azure RemoteApp-mallavbildningarna?
 > [!IMPORTANT]
-> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> Azure RemoteApp upphör att gälla den 31 augusti 2017. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
 > 
 
@@ -111,10 +112,5 @@ Den här avbildningen är en utökning av den vanliga avbildningen, och innehål
 > **Juridisk information:** Den här avbildningen innehåller inte en licens för Microsoft Office och *kan inte användas för produktion*. Office 2013 Professional Plus-avbildningen är endast avsedd för utvärderingsanvändning. Om du vill använda Office-apparna i Azure RemoteApp för produktion, måste du använda Office 365 ProPlus-avbildningen. Mer info om Office-licensiering finns i artikeln om att [använda Office 365 med Azure RemoteApp](remoteapp-o365.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

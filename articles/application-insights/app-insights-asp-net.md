@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bcd8b3b7fb44a28d7184d14969eb998ce07c8e53
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -83,9 +83,10 @@ Du kan även se telemetrin **i Application Insights-webbportalen** såvida du in
 ![Skärmbild av Visual Studio som visar hur du öppnar Application Insights-portalen](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 > [!NOTE]
-> Om det visas ett åtkomstfel kan du har fler än en uppsättning Microsoft-autentiseringsuppgifter och du kan du vara inloggad med fel uppsättning. Logga ut och logga in igen i portalen.
+> Om ett åtkomstfel visas kan det bero på att du har fler än en uppsättning Microsoft-autentiseringsuppgifter och att du kanske är inloggad med fel uppsättning. Logga ut och logga in igen i portalen.
 
 Portalen öppnas i en vy över telemetrin från appen.
+
 ![Skärmbild av Application Insights-översiktssidan](./media/app-insights-asp-net/66.png)
 
 Klicka på en panel eller ett diagram för att se mer information.

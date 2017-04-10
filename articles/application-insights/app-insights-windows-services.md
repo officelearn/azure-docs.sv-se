@@ -1,5 +1,5 @@
 ---
-title: "Azure Application Insights för Windows-tjänster och arbetsroller | Microsoft Docs"
+title: "Azure Application Insights för Windows Server och arbetsroller | Microsoft Docs"
 description: "Lägg till Application Insights SDK till ditt ASP.NET-program manuellt för att analysera användning, tillgänglighet och prestanda."
 services: application-insights
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="manually-configure-application-insights-for-aspnet-4-applications"></a>Konfigurera Application Insights för ASP.NET 4-program manuellt
-[Application Insights](app-insights-overview.md) är ett utökningsbart verktyg för webbutvecklare som övervakar prestandan och användningen av ditt liveprogram. Du kan konfigurera det manuellt för att övervaka Windows-tjänster, arbetsroller och andra ASP.NET-program. För webbappar är manuell konfigurering ett alternativ till [automatisk installation](app-insights-asp-net.md) som Visual Studio erbjuder.
+# <a name="manually-configure-application-insights-for-aspnet-applications"></a>Konfigurera Application Insights för ASP.NET manuellt
+[Application Insights](app-insights-overview.md) är ett utökningsbart verktyg för webbutvecklare som övervakar prestandan och användningen av ditt liveprogram. Du kan konfigurera det manuellt för att övervaka Windows Server, arbetsroller och andra ASP.NET-program. För webbappar är manuell konfigurering ett alternativ till [automatisk installation](app-insights-asp-net.md) som Visual Studio erbjuder.
 
 ![Exempel på prestandaövervakningsdiagram](./media/app-insights-windows-services/10-perf.png)
 
@@ -47,13 +47,13 @@ Nyckeln identifierar resursen och du ska snart installera den i SDK för att dir
 
 De steg som du precis har utfört för att skapa en ny resurs är ett bra sätt att börja övervaka program. Nu kan du börja skicka data till den.
 
-## <a name="sdk"></a>2. Installera SDK i ditt program
-Hur du installerar och konfigurerar Application Insights SDK varierar beroende på vilken plattform du arbetar på. Det är enkelt för ASP.NET-appar.
+## <a name="sdk"></a>2. Installera Application Insights-paketet i ditt program
+Hur du installerar och konfigurerar Application Insights-paketet varierar beroende på vilken plattform du arbetar på. Det är enkelt för ASP.NET-appar.
 
 1. Redigera NuGet-paketet för ditt webbapprojekt i Visual Studio.
    
     ![Högerklicka på projektet och välj Hantera Nuget-paket.](./media/app-insights-windows-services/03-nuget.png)
-2. Installera Application Insights SDK för Web Apps.
+2. Installera Application Insights-paketet för Windows Server-appar.
    
     ![Sök efter ”Application Insights”](./media/app-insights-windows-services/04-ai-nuget.png)
    
@@ -61,10 +61,10 @@ Hur du installerar och konfigurerar Application Insights SDK varierar beroende p
    
     Ja. Välj Core API (Microsoft.ApplicationInsights) om du vill använda API:et för att skicka din egen telemetri. Windows Server-paketet inkluderar Core API automatiskt plus ett antal andra paket som till exempel en samling med prestandaräknare och beroendeövervakning. 
 
-#### <a name="to-upgrade-to-future-sdk-versions"></a>Så här uppgraderar du till framtida SDK-versioner
+#### <a name="to-upgrade-to-future-package-versions"></a>Så här uppgraderar du till framtida paketversioner
 Då och då ger vi ut en ny version av SDK.
 
-Om du vill uppgradera till en [ny SDK-version](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/) öppnar du NuGet-pakethanteraren igen och filtrerar på installerade paket. Markera **Microsoft.ApplicationInsights.Web** och välj **Uppgradera**.
+Om du vill uppgradera till en [ny paketversion](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/) öppnar du NuGet-pakethanteraren igen och filtrerar på installerade paket. Markera **Microsoft.ApplicationInsights.WindowsServer** och välj **Uppgradera**.
 
 Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av filen innan du uppgraderar och sammanfogar sedan dina ändringar i den nya versionen.
 

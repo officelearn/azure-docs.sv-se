@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,12 +29,12 @@ Du kan också kombinera Security Centers rekommendationer och säkerhetsaviserin
 ## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Öppna Power BI från Azure Security Centers instrumentpanel
 Du kan även öppna Power BI-rapporter från instrumentpanelen i Azure Security Center. Följ stegen:
 
-1. Klicka på knappen **Utforska i Power BI** på instrumentpanelen i **Azure Security Center**.
+1. Klicka på knappen **Power BI** på instrumentpanelen i **Azure Security Center**.
 
-    ![Ansluta till Azure Security Center med Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. Bladet **Utforska i Power BI** öppnas på höger sida som på bilden nedan:
+    ![Ansluta till Azure Security Center med Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10-2017.png)
+2. Bladet **Power BI** öppnas på höger sida som på bilden nedan:
 
-    ![Ansluta till Azure Security Center med Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+    ![Ansluta till Azure Security Center med Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
 3. Om det är första gången du skapar Power BI-instrumentpanelen kan du välja ett av följande alternativ i **Utforska i Power BI**-bladet:
 
    * **Security insights dashboard (Instrumentpanel för säkerhetsinformation)**: Välj det här alternativet om du vill skapa en instrumentpanel med säkerhetsstatus, trådar och identifieringar. Det här alternativet väljs ofta av utvecklare som har ansvar för analys av skyddsstatus och hittade varningar inom prenumerationerna.
@@ -119,9 +120,4 @@ I det här avsnittet har du fått lära dig hur du använder Power BI i Azure Se
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här finns vanliga frågor om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

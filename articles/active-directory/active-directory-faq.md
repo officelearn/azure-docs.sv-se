@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 23c49393a115d9cd0ac3a1b0f146e9dcc780347e
-ms.openlocfilehash: 42be5d71d8f22a2eb06f7ca0ebd4c33fb3d8bebe
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 025e8c9e575123a3ad9863a35061ebd0af212486
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -137,6 +138,16 @@ För Azure AD-konton kan administratörer återställa lösenord med någon av f
 
 
 - - -
+## <a name="security"></a>Säkerhet
+**Fråga: Låses konton efter ett visst antal misslyckade försök eller finns det en mer avancerad strategi?**</br>
+Vi använder en mer avancerad strategi för att låsa konton.  Den är baserad på IP-adressen för begäran och det lösenord som anges. Låsningens varaktighet ökar också beroende på sannolikheten för att det rör sig om ett angrepp.  
+
+**Fråga: Vissa (vanliga) lösenord avvisas med meddelandet ”lösenordet har använts för många gånger”. Gäller detta lösenord som används i aktuell Active Directory?**</br>
+Det här gäller lösenord som är allmänt vanliga, till exempel varianter av "Lösenord" och "123456".
+
+**Fråga: Blockeras inloggningsbegäranden från misstänkta källor (botnät, Tor-slutpunkt) på en B2C-klient eller kräver detta att klienten har en Basic- eller Premium-utgåva?**</br>
+Vi har en gateway som filtrerar begäranden och som ger ett visst skydd mot botnät. Den används för alla B2C-klienter. 
+
 ## <a name="application-access"></a>Programåtkomst
 **F: Var kan jag hitta en lista över program som redan är integrerade i Azure AD och deras funktioner?**
 
@@ -202,9 +213,4 @@ Mer information finns i [Automatisera användaretablering och avetablering för 
 **F: Kan jag skapa en säker LDAP-anslutning med Azure AD?**
 
 **S:** Nej.  Azure AD stöder inte LDAP-protokollet.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

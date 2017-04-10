@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 20f9e9b31498f20c2a27f0d82d434abad73d2454
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Publicera program till enskilda användare i en Azure RemoteApp-samling (förhandsgranskning)
 > [!IMPORTANT]
-> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> Azure RemoteApp upphör att gälla den 31 augusti 2017. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
 > 
 
@@ -102,10 +103,5 @@ Vi uppskattar din feedback och dina förslag om den här funktionen för förhan
 
 ## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Har inte haft möjlighet att prova förhandsgranskningen?
 Om du ännu inte har deltagit i förhandsgranskningen använder du denna [undersökning](http://www.instant.ly/s/AY83p) om du vill begära åtkomst.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

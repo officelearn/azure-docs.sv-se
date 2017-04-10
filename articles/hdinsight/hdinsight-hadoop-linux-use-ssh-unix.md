@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/16/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 89d44476e9de8ac32195efaf66535cdd9fb4260e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 248e820ccd2c68a8500aab3233c5beea3c8cc868
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Ansluta till HDInsight (Hadoop) med hjälp av SSH
@@ -30,16 +30,19 @@ Följande tabell innehåller adress- och portinformationen som behövs för att 
 
 | Adress | Port | Ansluter till ... |
 | ----- | ----- | ----- |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Kantnoden (om en sådan finns) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Kantnod (R Server på HDInsight) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Kantnod (alla andra klustertyper, om det finns en kantnod) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Den primära huvudnoden |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Den sekundära huvudnoden |
 
 > [!NOTE]
-> Ersätt `<edgenodename>` med namnet på kantnoden. Mer information om hur du använder kantnoder finns i [Använda kantnoder i HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+> Ersätt `<edgenodename>` med namnet på kantnoden.
 >
 > Ersätt `<clustername>` med namnet på HDInsight-klustret.
 >
 > Vi rekommenderar att du __alltid ansluter till kantnoden__ om du har en. Värdtjänster för huvudnoder är viktiga för klustrets hälsotillstånd. Kantnoden kör bara det som du placerar på den.
+>
+> Mer information om hur du använder kantnoder finns i [Använda kantnoder i HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
 ## <a name="ssh-clients"></a>SSH-klienter
 

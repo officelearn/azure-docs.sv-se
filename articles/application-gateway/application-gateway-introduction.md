@@ -1,5 +1,5 @@
 ---
-title: Introduktion till Application Gateway | Microsoft Docs
+title: Introduktion till Azure Application Gateway | Microsoft Docs
 description: "Den här sidan ger en översikt över Application Gateway-tjänsten layer 7 belastningsutjämning, inklusive gatewaystorlekar, HTTP-belastningsutjämning, cookie-baserad sessionstillhörighet och SSL-avlastning."
 documentationcenter: na
 services: application-gateway
@@ -13,31 +13,41 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 15db7dad6b83f6df3891aea60b308f2cf6008dd9
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: d23b400d8e6db66bc596731770a98e2833302543
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="overview-of-application-gateway"></a>Översikt över Application Gateway
 
-## <a name="what-is-application-gateway"></a>Vad är Application Gateway
+Microsoft Azure Application Gateway är en dedikerad virtuell installation som erbjuder ADC (Application Delivery Controller) som en tjänst, vilket ger flera layer 7-belastningsutjämningsfunktioner för ditt program. För att uppnå skalbarhet och hög tillgänglighet ingår flera arbetsinstanser. Detta gör det möjligt för kunder att optimera webbservergruppens produktivitet genom att avlasta CPU-intensiv SSL-avslutning till Application Gateway. Här finns även andra layer 7-routningsfunktioner, till exempel resursallokeringsdistribution av inkommande trafik, cookiebaserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. Application Gateway kan konfigureras som internetuppkopplad gateway, endast intern gateway eller en kombination av båda. Application Gateway är helt Azure-hanterat, skalbart och med hög tillgänglighet. För att få en bättre hantering ingår en omfattande uppsättning diagnostik- och loggningsfunktioner. När du skapar en programgateway, kopplas en slutpunkt (offentlig VIP eller intern ILB IP) och används för inkommande nätverkstrafik. Denna VIP eller ILB IP tillhandahålls av Azure Load Balancer som arbetar på transportnivån (TCP/UDP) och gör att all inkommande nätverkstrafik belastningsutjämnas till Application Gateway-arbetsinstanser. Application Gateway dirigerar sedan HTTP-/HTTPS-trafik baserat på konfigurationen, oavsett om det är en virtuell dator, molntjänst eller en intern eller extern IP-adress.
 
-Microsoft Azure Application Gateway erbjuder ADC (Application Delivery Controller) som en tjänst, vilket ger flera layer 7-belastningsutjämningsfunktioner för ditt program. Detta gör det möjligt för kunder att optimera webbservergruppens produktivitet genom att avlasta CPU-intensiv SSL-avslutning till Application Gateway. Här finns även andra layer 7-routningsfunktioner inklusive resursallokeringsdistribution av inkommande trafik, cookiebaserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. Application Gateway har även en brandvägg för webbaserade program (WAF) som skyddar ditt program mot de flesta av OWASP topp 10 vanligaste webbsårbarheterna. Application Gateway kan konfigureras som internetuppkopplad gateway, endast intern gateway eller en kombination av båda. Application Gateway är helt Azure-hanterat, skalbart och med hög tillgänglighet. Det innehåller en omfattande uppsättning diagnostik- och loggningsfunktioner för bättre hanterbarhet. Application Gateway fungerar med virtuella datorer, molntjänster och interna eller externa internetuppkopplade webbappar.
+En brandvägg för webbaserade program (WAF) ingår också i Application Gateway WAF-SKU:n. Den skyddar webbprogram mot vanliga säkerhetsproblem och hot på Internet. Detta sker baserat på regler från [OWASP Core Rule Sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 eller 2.2.9.
 
-Application Gateway är en särskild virtuell tillämpning för ditt program som består av flera arbetsinstanser för skalbarhet och hög tillgänglighet. När du skapar en programgateway, kopplas en slutpunkt (offentlig VIP eller intern ILB IP) och används för inkommande nätverkstrafik. Denna VIP eller ILB IP tillhandahålls av Azure Load Balancer som arbetar på transportnivån (TCP/UDP) och gör att all inkommande nätverkstrafik belastningsutjämnas till Application Gateway-arbetsinstanser. Application Gateway dirigerar sedan HTTP-/HTTPS-trafik baserat på konfigurationen, oavsett om det är en virtuell dator, molntjänst, intern eller en extern IP-adress. För SLA och prissättning, kan du referera till sidorna [SLA](https://azure.microsoft.com/support/legal/sla/) och [prissättning](https://azure.microsoft.com/pricing/details/application-gateway/).
+## <a name="differences-between-application-gateway-skus"></a>Skillnader mellan Application Gateway SKU: er
+
+Det finns två SKU:er för Application Gateway. En standard-SKU och en WAF SKU.
+
+### <a name="standard"></a>Standard
+
+Standard-SKU:n erbjuder SSL-avslutning, cookie-baserad sessionstillhörighet, fördelning av resursallokeringsbelastning, innehållsbaserad routning, möjlighet att vara värd för flera webbplatser och säkerhetsförbättringar. Säkerhetsförbättringarna som erbjuds av Application Gateway inkluderar SSL-principhantering, SSL-support för slutpunkt till slutpunkt och SSL-avslutning.
+
+### <a name="web-application-firewall-waf"></a>Brandvägg för webbaserade program (WAF)
+
+WAF SKU:n innehåller alla funktioner som standard-SKU:n tillhandahåller plus [brandväggen för webbaserade program](application-gateway-web-application-firewall-overview.md). Detta innefattar regler för identifiering av angrepp som skyddar dina webbprogram mot vanliga säkerhetsproblem och hot på Internet.
 
 ## <a name="features"></a>Funktioner
 
 Application Gateway stöder för närvarande programleverans med layer 7 med följande funktioner:
 
-* **[Webbprogrambrandvägg (förhandsvisning)](application-gateway-webapplicationfirewall-overview.md)** – webbprogrambrandväggen (WAF) i Azure Application Gateway skyddar webbprogram från vanliga webbaserade attacker som SQL-injection, cross-site skriptattacker och övertagningar av sessioner.
+* **[Brandvägg för webbaserade program](application-gateway-webapplicationfirewall-overview.md)** – Brandväggen för webbaserade program (WAF) i Azure Application Gateway skyddar webbprogram från vanliga webbaserade attacker som SQL-inmatning, skriptkörning över flera webbplatser och övertagningar av sessioner.
 * **HTTP-belastningsutjämning** –Application Gateway erbjuder belastningsutjämning med resursallokering. Belastningsutjämning görs Layer 7 och används enbart för HTTP(S)-trafik.
 * **Cookie-baserad sessionstillhörighet** – Den här funktionen är användbar när du vill behålla en användarsession på samma serverdel. Genom att använda gatewayhanterade cookies, kan Application Gateway dirigera efterföljande trafik från en användarsession till samma serverdel för bearbetning. Den här funktionen är viktig i de fall där sessionstillstånd har sparats lokalt på serverdels-servern för en användarsession.
-* **[Secure Sockets Layer (SSL) avlastning](application-gateway-ssl-arm.md)** – Funktionen sköter den kostsamma uppgiften att dekryptera HTTPS-trafik åt dina webbservrar. Genom att terminera SSL-anslutningen vid Application Gateway och vidarebefordra begäran till servern okrypterad så behöver inte webbservern sköta avkrypteringen.  Application Gateway återkrypterar svaret innan det skickas tillbaka till klienten. Den här funktionen är användbar i scenarier där serverdelen befinner sig på samma säkrade virtuella nätverk som Application Gateway i Azure.
+* **[Secure Sockets Layer (SSL) avlastning](application-gateway-ssl-arm.md)** – Funktionen sköter den kostsamma uppgiften att dekryptera HTTPS-trafik åt dina webbservrar. Genom att avsluta SSL-anslutningen vid Application Gateway och vidarebefordra begäran till servern okrypterad så behöver inte webbservern sköta dekrypteringen.  Application Gateway återkrypterar svaret innan det skickas tillbaka till klienten. Den här funktionen är användbar i scenarier där serverdelen befinner sig på samma säkrade virtuella nätverk som Application Gateway i Azure.
 * **[Slutpunkt-till-slutpunkt SSL](application-gateway-backend-ssl.md)** –Application Gateway stöder kryptering av trafik från slutpunkt-till-slutpunkt. Application Gateway gör det genom att terminera SSL-anslutningen vid application gateway. Gatewayen implementerar därefter routningsreglerna för trafiken, återkrypterar paketet och vidarebefordrar det till den korrekta serverdelen baserat på de routningsregler som definierats. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren.
 * **[URL-baserad innehållsroutning](application-gateway-url-route-overview.md)** – Den här funktionen ger möjlighet att använda olika serverdels-servrar för olika trafik. Trafik för en mapp på webbservern eller en CDN kan dirigeras till olika serverdelar, vilket minskar onödig belastning på serverdelarna som inte servar specifikt innehåll.
 * **[Routing till flera platser](application-gateway-multi-site-overview.md)** –Application gateway låter dig konsolidera upp till 20 webbplatser på en enda Application Gateway.
@@ -49,8 +59,8 @@ Application Gateway stöder för närvarande programleverans med layer 7 med fö
 
 Application Gateway är användbar för:
 
-* Program som kräver begäranden från samma användare-/klientsession för att nå samma virtuella serverdelsdator. Exempel på sådana program kan vara appar med shoppingvagnar och e-postwebbservrar.
-* Program som vill frigöra server webbgrupper från SSL-anslutningsarbetet.
+* Program som kräver begäranden från samma användare-/klientsession för att nå samma virtuella serverdelsdator. Exempel på sådana applikationer kan vara shoppingvagnsprogram och e-postwebbservrar.
+* Tar bort omkostnader för SSL-avslutning för webbservergrupper.
 * Program, till exempel ett nätverk för innehållsleverans, som kräver flera HTTP-begäranden för att samma tidskrävande TCP-anslutningen ska routas eller belastningsutjämnad till olika serverdels-servrar.
 * Program som stöder websocket-trafik
 * Skydda webbprogrammen från vanliga webbaserade attacker som SQL-injection, cross-site skriptattacker och sessionsövertaganden.
@@ -64,8 +74,6 @@ Application Gateway belastningsutjämning som en Azure-hanterad tjänst tillåte
 ## <a name="gateway-sizes-and-instances"></a>Gateway-storlekar och instanser
 
 Application Gateway finns för närvarande i tre storlekar: **liten**, **medel** och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
-
-Det finns för tillfället två SKU:er för Application Gateway: **WAF** och **Standard**.
 
 Du kan skapa upp till 50 Application Gateways per prenumeration och varje Application Gateway kan ha upp till 10 instanser styck. Varje Application Gateway kan bestå av 20 http-lyssnare. En fullständig lista över gränserna för programgateways finns i avsnittet om [gränser för Application Gateway-tjänsten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
@@ -85,9 +93,13 @@ Azure Application Gateway övervakar automatiskt hälsan för serverdels-instans
 
 ## <a name="configuring-and-managing"></a>Konfigurera och hantera
 
-Som slutpunkt kan Application Gateway ha en offentlig eller privat IP-Adress, eller bägge när det är konfigurerat. Application Gateway konfigureras inuti ett virtuellt nätverk i sitt eget undernät. Undernätet som skapas eller används för Application Gateway kan inte innehålla några andra typer av resurser. De enda resurserna som tillåts i undernätet är andra Application Gatewayer. För att skydda dina serverdelsresurser kan serverdels-servern vara innesluten inom ett annat undernät i samma virtuella nätverk som Application Gateway. Det här extra undernätet krävs inte för serverdelsprogrammen så länge Application Gateway kan nå IP-adresssen så kan den tillhandahålla ADC-funktioner för serverdels-servrarna.
+Som slutpunkt kan Application Gateway ha en offentlig eller privat IP-Adress, eller bägge när det är konfigurerat. Application Gateway konfigureras inuti ett virtuellt nätverk i sitt eget undernät. Undernätet som skapas eller används för Application Gateway kan inte innehålla några andra typer av resurser. De enda resurserna som tillåts i undernätet är andra Application Gatewayer. För att skydda dina serverdelsresurser kan serverdels-servern vara innesluten inom ett annat undernät i samma virtuella nätverk som Application Gateway. Det här extra undernätet krävs inte för serverdelsprogrammen så länge Application Gateway kan nå IP-adresssen så kan den tillhandahålla ADC-funktioner för serverdels-servrarna. 
 
-Du kan skapa och hantera en Application Gateway med hjälp av REST API:er, PowerShell-cmdletar, Azure CLI eller [Azure Portal](https://portal.azure.com/).
+Du kan skapa och hantera en Application Gateway med hjälp av REST API:er, PowerShell-cmdletar, Azure CLI eller [Azure Portal](https://portal.azure.com/). Om du vill veta mer om Application Gateway finns en lista med vanliga frågor och svar i [Vanliga frågor och svar om Application Gateway](application-gateway-faq.md).
+
+## <a name="pricing"></a>Prissättning
+
+Priserna är baserade på avgifter per gatewayinstans per timme och databearbetningsavgifter. Gatewaypriset per timme för WAF SKU skiljer sig från avgifterna för Standard-SKU (se [Priser för Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/)). Databearbetningsavgifterna är desamma.
 
 ## <a name="next-steps"></a>Nästa steg
 

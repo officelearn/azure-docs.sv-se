@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -97,14 +97,17 @@ Ange följande information i bladet **Grundläggande inställningar**:
     ![Grundläggande SQL-inställningar](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Välj den virtuella datorns storlek
-I steget **Storlek** väljer du en storlek för den virtuella dator i bladet **Välj en storlek**. På bladet visas initialt rekommenderade datorstorlekar baserat på den avbildning som du har valt. Du ser också den uppskattade månadskostnaden för att köra den virtuella datorn.
+I steget **Storlek** väljer du en storlek för den virtuella dator i bladet **Välj en storlek**. På bladet visas initialt rekommenderade datorstorlekar baserat på den avbildning som du har valt.
+
+> [!IMPORTANT]
+> Den uppskattade månadskostnaden som visas på bladet **Välj en storlek** innefattar inte SQL Server-licenskostnaden. Detta är endast kostnaden för den virtuella datorn. För SQL Server-utgåvorna Express och Developer är detta den totala uppskattade kostnaden. För andra utgåvor kan du se [sidan med priser för Windows Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and och välja din utgåva av SQL Server. 
 
 ![Storleksalternativ för en virtuell dator med SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
 För produktionsarbetsbelastningar rekommenderar vi att du väljer en storlek på den virtuella datorn som har stöd för [Premium Storage](../../../storage/storage-premium-storage.md). Om du inte behöver den prestandanivån använder du knappen **Visa alla**, som visar alla storleksalternativ för datorer. Du kan till exempel använda en mindre datorstorlek för en utvecklings- eller testmiljö.
 
 > [!NOTE]
-> Mer information om storlekar för virtuella datorer finns i [Storlekar för virtuella datorer](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Saker att tänka på när du väljer storlek för virtuella datorer med SQL Server finns i [Prestandarelaterade metodtips för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+> Mer information om storlekar för virtuella datorer finns i [Storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Saker att tänka på när du väljer storlek för virtuella datorer med SQL Server finns i [Prestandarelaterade metodtips för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 > 
 > 
 
@@ -123,7 +126,7 @@ I bladet **Inställningar** konfigurerar du lagring, nätverk och övervakning f
 * Under **Storage-konto**kan du acceptera det automatiskt etablerade lagringskontonamnet. Du kan också klicka på **Lagringskonto** och välja ett befintligt konto och konfigurera lagringskontotypen. Som standard skapar Azure ett nytt lagringskonto med lokalt redundant lagring. Mer information om lagringsalternativ finns i [Azure Storage-replikering](../../../storage/storage-redundancy.md).
 * Under **Nätverk** kan du acceptera de automatiskt ifyllda värdena. Du kan också klicka på varje funktion för att manuellt konfigurera det **virtuella nätverket**, **undernätet**, den **offentliga IP-adressen** och **nätverkssäkerhetsgruppen**. Behåll standardinställningarna i den här kursen.
 * Azure aktiverar **övervakning** som standard med samma lagringskonto som används för den virtuella datorn. Du kan ändra dessa inställningar här.
-* Ange en tillgänglighetsuppsättning under **Tillgänglighetsuppsättning**. I den här kursen kan du välja **Ingen**. Om du planerar att konfigurera SQL AlwaysOn-tillgänglighetsgrupper konfigurerar du tillgängligheten för att undvika att behöva återskapa den virtuella datorn.  Mer information finns i [Hantera tillgängligheten för Virtual Machines](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Ange en tillgänglighetsuppsättning under **Tillgänglighetsuppsättning**. I den här kursen kan du välja **Ingen**. Om du planerar att konfigurera SQL AlwaysOn-tillgänglighetsgrupper konfigurerar du tillgängligheten för att undvika att behöva återskapa den virtuella datorn.  Mer information finns i [Hantera tillgängligheten för Virtual Machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 När du har konfigurerat dessa inställningar klickar du på **OK**.
 

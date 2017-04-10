@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24d41c7eb6b5bd34c07d21318740ecf4c6db2d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sql-azure-with-azure-remoteapp"></a>SQL Azure med Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp upphör att gälla. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
+> Azure RemoteApp upphör att gälla den 31 augusti 2017. Läs [meddelandet](https://go.microsoft.com/fwlink/?linkid=821148) för mer information.
 > 
 > 
 
@@ -56,10 +57,5 @@ Det kan finnas flera skäl till att det verkar gå långsamt att använda ett kl
 * Nätverksfördröjningen från enheten till Azure är hög. Flytta till den bästa och snabbaste nätverksanslutningen du kan för bästa prestanda. Använd [azurespeed.com](http://azurespeed.com/) som ett allmänt verktyg för att testa enheternas fördröjning till Azure-datacenter.  
 * Klientappen som finns i Azure RemoteApp är överbelastad. Öka prestandan genom att välja en annan faktureringsplan, till exempel Premiumfakturering. Ett annat tips är att övervaka de resurser som programmet förbrukar: Utför tangentsekvensen ctrl + alt + end under en aktiv session. Då öppnas SAS-skärmen där du väljer Aktivitetshanteraren och kan se resursanvändningen för din app.
 * SQL-servern är överbelastad eller har inte optimerats. Följ SQL-riktlinjerna för felsökning. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

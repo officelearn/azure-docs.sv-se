@@ -9,23 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Skapa en Azure SQL-databas på Azure Portal
 
 Den här snabbstarten visar hur du skapar en SQL-databas i Azure.  Azure SQL Database är en databas som erbjuds en tjänst. Tjänsten innebär att du kan köra och skala SQL Server-databaser med hög tillgänglighet i molnet.  Snabbstarten visar hur du kommer igång genom att skapa en ny SQL-databas på Azure Portal.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -43,10 +45,10 @@ Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure W
 
     ![skapa databas-1](./media/sql-database-get-started/create-database-1.png)
 
-3. Fyll i följande information i SQL Database-formuläret (se föregående bild): 
-   - Databasnamn: Använd **mySampleDatabase**
-   - Resursgrupp: Använd **myResourceGroup**
-   - Källa: Välj **Exempel (AdventureWorksLT)**
+3. Fyll i följande information i SQL Database-formuläret (se föregående bild):     
+   - Databasnamn: **mySampleDatabase**
+   - Resursgrupp: **myResourceGroup**
+   - Källa: **Exempel (AdventureWorksLT)**
 
 4. Klicka på **Server** för att skapa och konfigurera en ny server för den nya databasen. Fyll i den **formuläret för ny server**. Ange ett globalt unikt servernamn, ett namn för inloggning för serveradministratör och ett lösenord. 
 
@@ -82,7 +84,7 @@ SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa 
 
 4. Klicka på **OK** och sedan på **X** för att stänga sidan **Brandväggsinställningar**.
 
-Nu kan du ansluta till databasen och dess server med SQL Server Management Studio eller något annat verktyg.
+Nu kan du ansluta till databasen och dess server med SQL Server Management Studio eller något annat verktyg från den här IP-adressen med det Server-administratörskonto som skapades tidigare.
 
 ## <a name="query-the-sql-database"></a>Söka i SQL-databasen
 
@@ -103,7 +105,7 @@ När vi skapade SQL-databasen fyllde vi den med **AdventureWorksLT**-exempeldata
 5. När du är autentiserad skriver du följande fråga i fönstret för frågeredigeraren.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;

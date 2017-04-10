@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
-ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -57,7 +57,7 @@ Paketen dirigeras över ett TCP/IP-nätverk som baseras på en routingtabell som
 | --- | --- | --- | --- |
 | Adressprefix |Mål-CIDR som vägen gäller för, till exempel 10.1.0.0/16. |Måste vara ett giltigt CIDR-intervall som representerar adresser på det offentliga Internet, Azure-virtuella nätverk eller lokala datacenter. |Kontrollera att **Adressprefix** inte innehåller adressen för **Nexthop-adress**, annars hamnar dina paket i en evig loop från källan till nexthop utan att någonsin nå målet. |
 | Nexthop-typ |Den typ av Azure-hop som paketet ska skickas till. |Måste vara ett av följande värden: <br/> **Virtuellt nätverk**. Representerar det lokala virtuella nätverket. Om du till exempel har två undernät, 10.1.0.0/16 och 10.2.0.0/16 i samma virtuella nätverk, kommer vägen för varje undernät i routingtabellen att ha nexthop-värdet *Virtuellt nätverk*. <br/> **Virtuell nätverksgateway**. Representerar en Azure S2S VPN-gateway. <br/> **Internet**. Representerar standard Internet-gatewayen från Azure-infrastrukturen. <br/> **Virtuell installation**. Representerar en virtuell installation som du lagt till i ditt Azure-virtuella nätverk. <br/> **Ingen**. Representerar ett svart hål. Paket som vidarebefordras till en svart hål, vidarebefordras inte alls. |Med **virtuella installationer** kan du dirigera trafik till en intern IP-adress för en VM eller Azure Load Balancer.  Med den här typen kan du ange en IP-adress på det sätt som beskrivs nedan. Du kan använda en **Ingen**-typ för att stoppa paket från att flöda till ett givet mål. |
-| Nexthop-adress |Nexthop-adressen innehåller IP-adressen som paket ska vidarebefordras till. Nexthop-värden tillåts bara i vägar där nexthop-typen är *virtuell installation*. |Måste vara en IP-adress som kan nås i det virtuella nätverket där den användardefinierad vägen används. |Om IP-adressen representerar en VM, bör du se till att aktivera [IP-vidarebefordring](#IP-forwarding) i Azure för den VM:n. Om IP-adressen representerar den interna IP-adressen för Azure Load Balancer måste du se till att du har en matchande regel för belastningsutjämning för varje port du vill utjämna.|
+| Nexthop-adress |Nexthop-adressen innehåller IP-adressen som paket ska vidarebefordras till. Nexthop-värden tillåts bara i vägar där nexthop-typen är *virtuell installation*. |Det måste vara en IP-adress som kan nås i det virtuella nätverk där den användardefinierade vägen används. Den får inte gå via en **virtuell nätverksgateway**. IP-adressen måste vara i samma virtuella nätverk som den används i, eller i ett peerkopplat virtuellt nätverk. |Om IP-adressen representerar en VM, bör du se till att aktivera [IP-vidarebefordring](#IP-forwarding) i Azure för den VM:n. Om IP-adressen representerar den interna IP-adressen för Azure Load Balancer måste du se till att du har en matchande regel för belastningsutjämning för varje port du vill utjämna.|
 
 I Azure PowerShell har vissa "NextHopType"-värden har olika namn:
 

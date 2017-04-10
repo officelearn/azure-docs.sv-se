@@ -1,0 +1,268 @@
+- name: "Dokumentation om Web Apps"
+  href: index.md
+- name: "Översikt"
+  items:
+  - name: "Om Web Apps"
+    href: app-service-web-overview.md
+  - name: "Jämför värdalternativ"
+    href: choose-web-site-cloud-service-vm.md
+- name: "Snabbstart"
+  expanded: true
+  items:
+  - name: "Skapa .NET-app"
+    href: app-service-web-get-started-dotnet.md
+  - name: "Skapa Node.js-app"
+    href: app-service-web-get-started-nodejs.md
+  - name: "Skapa PHP-app"
+    href: app-service-web-get-started-php.md
+  - name: "Skapa Java-app"
+    href: app-service-web-get-started-java.md
+  - name: "Skapa Python-app"
+    href: app-service-web-get-started-python.md
+  - name: "Skapa en statisk HTML-webbplats"
+    href: app-service-web-get-started-html.md
+- name: "Exempel"
+  items:
+  - name: "Azure CLI"
+    href: app-service-cli-samples.md
+  - name: "PowerShell"
+    href: app-service-powershell-samples.md
+- name: "Självstudier"
+  items:
+  - name: ".NET med SQL Database"
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: "Node.js med MongoDB"
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+- name: "Koncept"
+  items:
+  - name: "Så här fungerar App Service"
+    href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+  - name: "App Service-planer"
+    href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+  - name: "Apptjänstmiljöer"
+    href: app-service-app-service-environment-intro.md
+  - name: "Autentisering och auktorisering"
+    href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+  - name: "Autentisering med lokal AD"
+    href: web-sites-authentication-authorization.md
+- name: "Instruktionsguider"
+  items:
+  - name: "Utveckla din app"
+    items:
+    - name: "ASP.NET"
+      items:
+      - name: "ASP.NET-app med SQL Database"
+        href: web-sites-dotnet-get-started.md
+      - name: "Utveckla en ASP.NET Core-app med VS Code"
+        href: web-sites-create-web-app-using-vscode.md
+    - name: "PHP"
+      items:
+      - name: "Laravel-app med MySQL"
+        href: app-service-web-php-get-started.md
+      - name: "Konfigurera PHP-projekt"
+        href: web-sites-php-configure.md
+      - name: "Konfigurera WordPress Multisite"
+        href: web-sites-php-convert-wordpress-multisite.md
+    - name: "Node.js"
+      items:
+      - name: "Sails.js-app med NOSQL-DB"
+        href: app-service-web-nodejs-sails.md
+      - name: "Använd io.js"
+        href: web-sites-nodejs-iojs.md
+      - name: "Felsök Node.js-app"
+        href: web-sites-nodejs-debug.md
+    - name: "Java"
+      items:
+      - name: "Java-app med Eclipse"
+        href: app-service-web-eclipse-create-hello-world-web-app.md
+      - name: "Java-app med IntelliJ"
+        href: app-service-web-intellij-create-hello-world-web-app.md
+      - name: "Använd Azure SDK för Java"
+        href: java-create-azure-website-using-java-sdk.md
+      - name: "Ladda upp befintlig app"
+        href: web-sites-java-add-app.md
+      - name: "Fjärrfelsök Eclipse"
+        href: app-service-web-debug-java-web-app-in-eclipse.md
+      - name: "Fjärrfelsök IntelliJ"
+        href: app-service-web-debug-java-web-app-in-intellij.md
+    - name: "Python"
+      items:
+      - name: "Django-app med MySQL"
+        href: web-sites-python-ptvs-django-mysql.md
+    - name: "Skicka e-post med SendGrid"
+      href: sendgrid-dotnet-how-to-send-email.md
+    - name: "Konfigurera körning"
+      items:
+      - name: "PHP på Windows"
+        href: web-sites-php-configure.md
+      - name: "Java"
+        href: web-sites-java-add-app.md
+      - name: "Node.js på Linux"
+        href: app-service-linux-using-nodejs-pm2.md
+      - name: "Python"
+        href: web-sites-python-configure.md
+    - name: "Konfigurera program"
+      items:
+      - name: "Använda appinställningar"
+        href: web-sites-configure.md
+  - name: "Distribuera till Azure"
+    href: web-sites-deploy.md
+    items:
+    - name: "Distribuera via FTP"
+      href: app-service-deploy-content-sync.md
+    - name: "Distribuera via molnsynkronisering"
+      href: web-sites-deploy.md
+    - name: "Distribuera kontinuerligt"
+      href: app-service-continuous-deployment.md
+    - name: "Distribuera till mellanlagring"
+      href: web-sites-staged-publishing.md
+    - name: "Distribuera från lokal Git"
+      href: app-service-deploy-local-git.md
+    - name: "Distribuera med mall"
+      href: app-service-deploy-complex-application-predictably.md
+    - name: "Flexibel distribution"
+      href: app-service-agile-software-development.md
+    - name: "Betatestning"
+      href: app-service-web-test-in-production-controlled-test-flight.md
+    - name: "Ange autentiseringsuppgifter för distribution"
+      href: app-service-deployment-credentials.md
+    - name: "Mappa anpassad domän"
+      items:
+      - name: "Köpa domän"
+        href: custom-dns-web-site-buydomains-web-app.md
+      - name: "Mappa tredjepartsdomän"
+        href: web-sites-custom-domain-name.md
+      - name: "Mappa domäner med Traffic Manager"
+        href: web-sites-traffic-manager-custom-domain-name.md
+      - name: "Mappa GoDaddy-domäner"
+        href: web-sites-godaddy-custom-domain-name.md
+      - name: "Migrera en aktiv domän"
+        href: app-service-custom-domain-name-migrate.md
+    - name: "Migrera från IIS"
+      href: web-sites-migration-from-iis-server.md
+    - name: "Testa i produktion"
+      href: app-service-web-test-in-production-get-start.md
+    - name: "Lägg till funktioner till en webbapp"
+      href: app-service-web-get-started-2.md
+  - name: "Ansluta till DB/resurser"
+    items:
+    - name: "Ansluta till lokala data"
+      href: web-sites-hybrid-connection-get-started.md
+    - name: "Ansluta till Azure VNet"
+      href: web-sites-integrate-with-vnet.md
+    - name: "Ansluta till Azure VNet med PowerShell"
+      href: app-service-vnet-integration-powershell.md
+    - name: "Ansluta till MongoDB på Azure VM"
+      href: web-sites-dotnet-store-data-mongodb-vm.md
+  - name: "Skydda app"
+    items:
+    - name: "Autentisera användare"
+      items:
+      - name: "Autentisera med Azure AD"
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      - name: "Autentisera med Facebook"
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      - name: "Autentisera med Google"
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      - name: "Autentisera med Microsoft-konto"
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      - name: "Autentisera med Twitter"
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      - name: "Autentisera med lokal AD"
+        href: web-sites-authentication-authorization.md
+      - name: "App med en databas för flera innehavare"
+        href: web-sites-dotnet-entity-framework-row-level-security.md
+    - name: "Tilldela anpassad SSL"
+      items:
+      - name: "Köpa SSL-cert"
+        href: web-sites-purchase-ssl-web-site.md
+      - name: "Konfigurera SSL-cert från tredje part"
+        href: web-sites-configure-ssl-certificate.md
+    - name: "Använda HTTPS"
+      href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
+    - name: "Konfigurera ömsesidig TLS-autentisering"
+      href: app-service-web-configure-tls-mutual-auth.md
+  - name: "Skalningsapp"
+    items:
+    - name: "Skala upp"
+      href: web-sites-scale.md
+    - name: "Skala ut"
+      href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: "Belastningsutjämna med Traffic Manager"
+      href: web-sites-traffic-manager.md
+    - name: "Hög skalbarhet med App Service-miljöer"
+      href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: "Använda Azure CDN för global räckvidd"
+      href: cdn-websites-with-cdn.md
+    - name: "Ansluta till Redis Cache via Memcache"
+      href: web-sites-connect-to-redis-using-memcache-protocol.md
+    - name: "Skapa en Redis-cache"
+      href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: "Hantera sessionstillstånd med Azure Redis Cache"
+      href: web-sites-dotnet-session-state-caching.md
+  - name: "Övervaka"
+    items:
+    - name: "Övervaka appar"
+      href: web-sites-monitor.md
+    - name: "Aktivera loggar"
+      href: web-sites-enable-diagnostic-log.md
+    - name: "Strömningsloggar"
+      href: web-sites-streaming-logs-and-console.md
+  - name: "Säkerhetskopiera innehåll"
+    items:
+    - name: "Säkerhetskopiera din app"
+      href: web-sites-backup.md
+    - name: "Återställa din app från säkerhetskopia"
+      href: web-sites-restore.md
+    - name: "Säkerhetskopiera med REST API"
+      href: websites-csm-backup.md
+  - name: "Hantera appresurser"
+    items:
+    - name: "Klona app med PowerShell"
+      href: app-service-web-app-cloning.md
+    - name: "Klona app med portal"
+      href: app-service-web-app-cloning-portal.md
+    - name: "Flytta resurser"
+      href: app-service-move-resources.md
+    - name: "Använd Azure Resource Manager med PowerShell"
+      href: app-service-web-app-azure-resource-manager-powershell.md
+    - name: "Hantera appar med Azure Automation"
+      href: automation-manage-web-app.md
+- name: "Referens"
+  items:
+  - name: "CLI 2.0"
+    href: /cli/azure/appservice
+  - name: "PowerShell"
+    href: /powershell
+  - name: "REST API"
+    href: /rest/api/appservice/
+- name: "Resurser"
+  items:
+  - name: "Felsökning"
+    items:
+    - name: "Felsöka med Visual Studio"
+      href: web-sites-dotnet-troubleshoot-visual-studio.md
+    - name: "Felsöka Node.js-app"
+      href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
+    - name: "Felsöka HTTP 502 och 503"
+      href: app-service-web-troubleshoot-http-502-http-503.md
+    - name: "Felsöka prestandaproblem"
+      href: app-service-web-troubleshoot-performance-degradation.md
+  - name: "Prissättning"
+    href: https://azure.microsoft.com/pricing/details/app-service/
+  - name: "Kvotinformation"
+    href: ../azure-subscription-service-limits.md#app-service-limits
+  - name: "Tjänstuppdateringar och viktig information"
+    href: https://azure.microsoft.com/updates/?product=app-service
+  - name: "Bästa praxis"
+    href: app-service-best-practices.md
+  - name: "Exempel"
+    href: https://azure.microsoft.com/resources/samples/?service=app-service
+  - name: "Videoklipp"
+    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
+  - name: "Kokböcker"
+    items:
+    - name: "Referensarkitekturer"
+      href: ../guidance/guidance-ra-app-service.md
+    - name: "Distributionsskript"
+      href: https://azure.microsoft.com/documentation/scripts/

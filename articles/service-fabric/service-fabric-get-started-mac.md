@@ -3,8 +3,8 @@ title: "Konfigurera en utvecklingsmiljö i Mac OS X | Microsoft Docs"
 description: "Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program i Mac OS X."
 services: service-fabric
 documentationcenter: java
-author: saysa
-manager: raunakp
+author: sayantancs
+manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/27/2016
+ms.date: 04/06/2017
 ms.author: saysa
 translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
@@ -51,7 +51,7 @@ För att skapa den lokala virtuella datorn med ett 5-nods Service Fabric-kluster
     ```
     Det här steget hämtar filen `Vagrantfile` som innehåller VM-konfigurationen tillsammans med den plats som den virtuella datorn laddas ned från.
 
-   
+
 2. Navigera till den lokala repoklonen
 
     ```bash

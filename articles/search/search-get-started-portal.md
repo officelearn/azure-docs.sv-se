@@ -91,7 +91,7 @@ Som standard söker guiden igenom datakällan för att hitta unika identifierare
 Klicka på **OK** för att skapa indexet.
 
 #### <a name="step-3-define-the-indexer"></a>Steg 3: Definiera indexeraren
-Klicka på **Indexnamn** > **** i guiden **Importera data** och skriv in ett namn på indexeraren. 
+Klicka på **Indexnamn** > **Namn** i guiden **Importera data** och skriv in ett namn på indexeraren. 
 
 Det här objektet definierar en körbar process. Du kan lägga till det i ett återkommande schema, men för stunden ska du använda standardalternativet och köra indexeraren en gång direkt när du klickar på **OK**.  
 

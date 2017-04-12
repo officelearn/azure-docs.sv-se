@@ -179,7 +179,7 @@ Bladet Webbläsare innehåller ett sammanfattningsdiagram över undantag och ett
 
 ![](./media/app-insights-javascript/39.png)
 
-Om du inte ser webbläsarundantag kontrollerar du att kodfragmentet inte innehåller parametern `disableExceptionTracking`[](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+Om du inte ser webbläsarundantag kontrollerar du att kodfragmentet inte innehåller [parametern](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableExceptionTracking`.
 
 ## <a name="inspect-individual-page-view-events"></a>Granska enskilda sidvisningshändelser
 

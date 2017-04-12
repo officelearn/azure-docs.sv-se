@@ -3,7 +3,7 @@
 Om du vill referera till CloudConfigurationManager-paketet lägger du till följande `using`-direktiv:
 
 ```csharp
-using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+using Microsoft.Azure; //Namespace for CloudConfigurationManager
 ```
 
 Här följer ett exempel som visar hur du kan hämta en anslutningssträng från en konfigurationsfil:
@@ -15,9 +15,4 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 ```
 
 Du måste inte använda Azure Configuration Manager. Du kan också använda ett API som .NET Frameworks [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx)-klass.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

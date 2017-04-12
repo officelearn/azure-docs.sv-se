@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 1/24/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 66832a5d3f10f370ad486269c566fc948fd72234
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6e52a647e817b64e331937c0b0f1d44f9f6c11a0
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -66,7 +66,7 @@ Följ arbetsflödet i [Aktivera replikering](site-recovery-vmware-to-azure.md#en
 >
 
 ### <a name="hyper-v-to-azure"></a>Hyper-V till Azure
-Följ arbetsflödet i [Aktivera replikering](site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication) för att skydda en virtuell dator med hjälp av Azure Site Recovery-portalen. I det fjärde steget i arbetsflödet ska du använda kolumnen **DISK TO REPLICATE** (DISK ATT REPLIKERA) för att exkludera diskar från replikering. Som standard är alla diskar markerade för replikering. Avmarkera den disk som du vill undanta från replikeringen och följ stegen för att aktivera replikering.
+Följ arbetsflödet i [Aktivera replikering](site-recovery-hyper-v-site-to-azure.md#enable-replication) för att skydda en virtuell dator med hjälp av Azure Site Recovery-portalen. I det fjärde steget i arbetsflödet ska du använda kolumnen **DISK TO REPLICATE** (DISK ATT REPLIKERA) för att exkludera diskar från replikering. Som standard är alla diskar markerade för replikering. Avmarkera den disk som du vill undanta från replikeringen och följ stegen för att aktivera replikering.
 
 ![Exkludera diskar från replikering och aktivera replikering för Hyper-V till Azure-återställning efter fel](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -112,7 +112,7 @@ Disk1 |    E:\ | Temporär lagring</br /> </br />Azure lägger till den här dis
 Disk2 | D:\ | SQL-systemdatabas och användardatabas1
 Disk3 | G:\ | Användardatabas2
 
-Eftersom Disk2 och Disk&3; undantogs från den virtuella SalesDB-datorn är E: den första tillgängliga enhetsbeteckningen i listan. Azure tilldelar E: till den tillfälliga lagringsvolymen. Alla replikerade diskar har kvar samma enhetsbeteckning.
+Eftersom Disk2 och Disk 3 undantogs från den virtuella SalesDB-datorn är E: den första tillgängliga enhetsbeteckningen i listan. Azure tilldelar E: till den tillfälliga lagringsvolymen. Alla replikerade diskar har kvar samma enhetsbeteckning.
 
 Disk3, som var SQL tempdb-disken (tempdb-mappsökvägen F:\MSSQL\Data\), undantogs från replikering. Disken är inte tillgänglig på den redundansväxlade virtuella datorn. Därför är SQL-tjänsten i stoppat tillstånd och behöver sökvägen F:\MSSQL\Data.
 

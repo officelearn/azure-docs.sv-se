@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: efb9e68256765873eb2776637d1a9469af6e46d6
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,6 +29,7 @@ ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST-API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -86,7 +88,7 @@ Om du använder nycklar från ett Azure Key Vault för att konfigurera krypterin
    * Klicka på **Ge behörighet** på första alternativet för att konfigurera åtkomst. Det första alternativet är endast aktiverat när användaren som skapade kontot Data Lake Store också är administratör för Azure Key Vault.
    * Ett annat alternativ är att köra PowerShell-cmdleten som visas på bladet. Du måste vara ägare till Azure Key Vault eller ha möjlighet att bevilja behörighet för Azure Key Vault. När du har kört cmdlet:en, gå tillbaka till bladet och klickar på **Aktivera** att konfigurera åtkomst.
 
-## <a name="a-namecreatefolderacreate-folders-in-azure-data-lake-store-account"></a><a name="createfolder"></a>Skapa mappar i Azure Data Lake Store-konto
+## <a name="createfolder"></a>Skapa mappar i Azure Data Lake Store-konto
 Du kan skapa mappar under Data Lake Store-kontot för att hantera och lagra data.
 
 1. Öppna Data Lake Store-kontot som du nyss skapade. I den vänstra rutan klickar du på **Bläddra**, klicka på **Data Lake Store** och från Data Lake Store-bladet klicka på kontonamnet där du vill skapa mappar. Om du fäst kontot på startsidan klickar du på kontoikonen.
@@ -101,14 +103,14 @@ Du kan skapa mappar under Data Lake Store-kontot för att hantera och lagra data
    
     ![Skapa mappar i Data Lake-konto](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Skapa mappar i Data Lake-konto")
 
-## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Ladda upp data till Azure Data Lake Store-konto
+## <a name="uploaddata"></a>Ladda upp data till Azure Data Lake Store-konto
 Du kan ladda upp data till ett Azure Data Lake Store-konto direkt på rotnivå eller till en mapp som du har skapat i kontot. Följ stegen i skärmdumpen nedan för att ladda upp en fil till en undermapp från bladet **Data Explorer**. I den här skärmdumpen laddas filen upp till en undermapp som visas i länkarna (markerade med en röd ram).
 
 Om du behöver exempeldata att ladda upp, kan du hämta mappen **Ambulansdata** från [Azure Data Lake Git-lagringsplatsen](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ![Överföra data](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Överföra data")
 
-## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Egenskaper och åtgärder som är tillgängliga för lagrade data
+## <a name="properties"></a>Egenskaper och åtgärder som är tillgängliga för lagrade data
 Klicka på den nyligen tillagda filen för att öppna bladet **Egenskaper**. De egenskaper som är associerade med filen och de åtgärder du kan utföra i filen är tillgängliga i det här bladet. Du kan också kopiera den fullständiga sökvägen till filen i ditt Azure Data Lake Store-konto, markerat i den röda rutan i skärmdumpen nedan.
 
 ![Egenskaper för data](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Egenskaper för data")
@@ -133,10 +135,5 @@ Om du vill ta bort ett Azure Data Lake Store-konto från dina Data Lake Store-bl
 * [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Använd Azure HDInsight med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Åtkomst till diagnostikloggar för Data Lake Store](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -196,7 +196,6 @@
 ## Cortana Analytics
 ### API:er
 #### [Avvikelseidentifiering](machine-learning-apps-anomaly-detection-api.md)
-#### [Textanalys](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### Förebyggande underhåll
 ##### [Översikt](cortana-analytics-playbook-predictive-maintenance.md)

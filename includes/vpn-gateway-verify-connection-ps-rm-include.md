@@ -1,8 +1,10 @@
 Du kan kontrollera att anslutningen har utförts genom att använda `Get-AzureRmVirtualNetworkGatewayConnection`-cmdlet:en, med eller utan `-Debug`. 
 
 1. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Välj A om du uppmanas, för att köra Alla. Exemplet `-Name` refererar till namnet på den anslutning som du skapade och vill testa.
-   
-        Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+
+  ```powershell
+  Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+  ```
 2. Visa värdena när cmdlet:en har slutförts. I exemplet nedan visas anslutningsstatusen som Ansluten och du kan se ingående och utgående byte.
    
         Body:
@@ -30,9 +32,4 @@ Du kan kontrollera att anslutningen har utförts genom att använda `Get-AzureRm
             "ingressBytesTransferred": 33509044,
             "egressBytesTransferred": 4142431
           }
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

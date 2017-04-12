@@ -50,7 +50,7 @@
 ## Hantera
 ### [Service Bus-hanteringsbibliotek](service-bus-management-libraries.md)
 ### [Använda Azure Resource Manager-mallar](service-bus-resource-manager-overview.md)
-### [Etablera entiteter med PowerShell](service-bus-powershell-how-to-provision.md)
+### [Etablera entiteter med PowerShell](service-bus-manage-with-ps.md)
 
 # Referens
 ## .NET

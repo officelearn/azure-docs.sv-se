@@ -1,6 +1,6 @@
 ---
 title: "Felsökning: Saknade data i aktivitetsloggen för Azure Active Directory – förhandsutgåva | Microsoft Docs"
-description: "Ger en lösning och visar en lista med de olika tillgängliga rapporterna i Azure Active Directory-förhandsutgåvan"
+description: "Visar de olika tillgängliga rapporterna i Azure Active Directory-förhandsgranskning"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/09/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ebc92bc23201dbcd01f90e0cc3d5055fb85820be
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c372fe5f3a419a6a27ef00d755d5d46325b956c6
+ms.lasthandoff: 04/06/2017
 
 
 ---

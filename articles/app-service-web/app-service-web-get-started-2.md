@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
-ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Lägg in funktioner i din första webbapp
-I [Distribuera din första webbapp till Azure på fem minuter](app-service-web-get-started-cli-nodejs.md) distribuerade du en exempelwebbapp till [Azure App Service](../app-service/app-service-value-prop-what-is.md). I den här artikeln får du lära dig hur du lägger in några bra funktioner i din distribuerade webbapp. På några minuter gör du följande:
+I [Distribuera din första webbapp till Azure på fem minuter](app-service-web-get-started-dotnet.md) distribuerade du en exempelwebbapp till [Azure App Service](../app-service/app-service-value-prop-what-is.md). I den här artikeln får du lära dig hur du lägger in några bra funktioner i din distribuerade webbapp. På några minuter gör du följande:
 
 * ställer in användarautentisering
 * ställer in automatisk skalning av appen

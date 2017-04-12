@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2017
+ms.date: 03/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f7748dba30c6e0332c166feda25f4aaa93c06efa
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,19 +29,21 @@ ms.lasthandoff: 03/21/2017
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST-API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-> [!NOTE]
-> När du ska överföra och hämta stora mängder data (stora filer, ett stort antal filer eller både och) rekommenderar vi att du använder [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) eller [Azure PowerShell](data-lake-store-get-started-powershell.md). De alternativen har bättre prestanda eftersom de använder flera trådar för att parallellisera dataförflyttningen.
-> 
->  
-
 Lär dig mer om att använda Azure-kommandoradsgränssnitt för att skapa ett Azure Data Lake Store-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta datafiler, ta bort ditt konto, osv. Mer information om Data Lake Store finns i [Översikt över Data Lake Store](data-lake-store-overview.md).
 
 Azure CLI är implementerat i Node.js. Det kan användas på alla plattformar som har stöd för Node.js, inklusive Windows, Mac- och Linux. Azure CLI är öppen källkod. Källkoden hanteras i GitHub på <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Den här artikeln beskriver bara hur man använder Azure CLI med hjälp av Data Lake Store. En allmän guide som beskriver hur du använder Azure CLI finns i [How to use the Azure CLI][azure-command-line-tools] (Använda Azure CLI).
+
+
+> [!NOTE]
+> När du ska överföra och hämta stora mängder data (stora filer, ett stort antal filer eller både och) rekommenderar vi att du använder [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) eller [Azure PowerShell](data-lake-store-get-started-powershell.md). De alternativen har bättre prestanda eftersom de använder flera trådar för att parallellisera dataförflyttningen.
+> 
+>
 
 ## <a name="prerequisites"></a>Krav
 Innan du påbörjar den här artikeln måste du ha:
@@ -50,10 +52,13 @@ Innan du påbörjar den här artikeln måste du ha:
 * **Azure CLI** - Se [Installera och konfigurera Azure CLI](../cli-install-nodejs.md) för information om installation och konfiguration. Se till att datorn startas om när du har installerat CLI.
 
 ## <a name="authentication"></a>Autentisering
+
 Den här artikeln använder en enklare metod för autentisering med Data Lake Store där du loggar in som en användare av slutanvändaren. Åtkomstnivå till Data Lake Store-kontot och filsystemet styrs av åtkomstnivån för den inloggade användaren. Det finns dock olika sätt att autentisera med Data Lake Store: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Autentisera med Data Lake Store med Azure Active Directory (Authenticate with Data Lake Store using Azure Active Directory)](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="login-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
+
 1. Följ stegen i [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet (Azure CLI)](../xplat-cli-connect.md) och anslut till din prenumeration med hjälp av metoden `azure login`.
+
 2. Lista över prenumerationer som är kopplade till ditt konto med hjälp av kommandot `azure account list`.
    
         info:    Executing command account list

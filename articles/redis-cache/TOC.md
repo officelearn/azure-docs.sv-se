@@ -26,7 +26,7 @@
 ###[Distribuera din cache med klustring](cache-how-to-premium-clustering.md)
 ## Automatisera
 ###[Distribuera och hantera med Powershell](cache-howto-manage-redis-cache-powershell.md)
-###[Distribuera och hantera med Azure CLI](cache-manage-cli.md)
+###[Distribuera och hantera med Azure CLI](cli-samples.md)
 ###[Etablera en Redis Cache](cache-redis-cache-arm-provision.md)
 ###[Etablera en webbapp med Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
 ## Integrera med ASP.NET

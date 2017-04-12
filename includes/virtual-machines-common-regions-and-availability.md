@@ -9,8 +9,6 @@ Det finns några särskilda Azure-regioner för regelefterlevnad och juridiska k
 
 * **Virginia (USA-förvaltad region)** och **Iowa (USA-förvaltad region)**
   * En fysisk och logisk nätverksisolerad instans av Azure för amerikanska myndigheter och partner som drivs av säkerhetskontrollerad amerikansk personal. Innefattar ytterligare efterlevnadscertifieringar som [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) och [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Läs mer om [Azure Government](https://azure.microsoft.com/features/gov/).
-* **Centrala Indien**, **Södra Indien** och **Västra Indien**
-  * Dessa regioner är för närvarande endast tillgängliga för kunder med volymlicenser och partner med en lokal registrering i Indien. 2016 är dessa tillgängliga för användare som har köpt onlineprenumerationer.
 * **Östra Kina** och **Norra Kina**
   * Dessa regioner är tillgängliga via ett unikt partnerskap mellan Microsoft och 21Vianet, vilket innebär att Microsoft inte direkt underhåller dessa datacenter. Läs mer om [Microsoft Azure i Kina](http://www.windowsazure.cn/).
 * **Centrala Tyskland** och **Nordöstra Tyskland**

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,12 +62,12 @@ Förutom Web Apps i App Service erbjuder Azure andra tjänster som kan användas
 Kom igång med att distribuera exempelkod till en ny webbapp i App Service genom att följa en av självstudiekurserna i följande nedrullningsbara listruta. Du behöver ett kostnadsfritt Azure-konto.
 
 > [!div class="op_single_selector"]
-> * [Distribuera din första HTML-webbplats till Azure på fem minuter](app-service-web-get-started-html-cli-nodejs.md)
-> * [Distribuera din första ASP.NET-webbapp till Azure på fem minuter](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Distribuera din första PHP-webbapp till Azure på fem minuter](app-service-web-get-started-php-cli-nodejs.md)
-> * [Distribuera din första Node.js-webbapp till Azure på fem minuter](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Distribuera din första Python-webbapp till Azure på fem minuter](app-service-web-get-started-python-cli-nodejs.md)
+> * [Distribuera din första ASP.NET-webbapp till Azure på fem minuter](app-service-web-get-started-dotnet.md)
+> * [Distribuera din första PHP-webbapp till Azure på fem minuter](app-service-web-get-started-php.md)
+> * [Distribuera din första Node.js-webbapp till Azure på fem minuter](app-service-web-get-started-nodejs.md)
 > * [Distribuera din första Java-webbapp till Azure på fem minuter](app-service-web-get-started-java.md)
+> * [Distribuera din första Python-webbapp till Azure på fem minuter](app-service-web-get-started-python.md)
+> * [Distribuera din första HTML-webbplats till Azure på fem minuter](app-service-web-get-started-html.md)
 > 
 > 
 

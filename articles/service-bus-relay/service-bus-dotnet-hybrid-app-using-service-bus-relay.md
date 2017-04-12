@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -227,7 +227,7 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
 
    ![][19]
 8. Klicka på **OK**.
-9. Nu måste du konfigurera Azure-resurserna för en ny webbapp. Följ alla steg i [Skapa ett webbprogram](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) och [Skapa Azure-resurserna](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). Gå sedan tillbaka till den här självstudien och gå vidare till nästa steg.
+9. Nu måste du konfigurera Azure-resurserna för en ny webbapp. Följ alla steg i [Skapa ett webbprogram](../app-service-web/app-service-web-get-started-dotnet.md) och [Skapa Azure-resurserna](../app-service-web/app-service-web-get-started-dotnet.md). Gå sedan tillbaka till den här självstudien och gå vidare till nästa steg.
 10. I Solution Explorer högerklickar du på **Modeller**. Klicka sedan på **Lägg till** och på **Klass**. Ange namnet **Product.cs** i rutan **Namn**. Klicka sedan på **Lägg till**.
 
     ![][17]
@@ -395,7 +395,7 @@ Tryck på **Uppdatera** på sidan **ProductsPortal**. Varje gång du uppdaterar 
 Stäng båda programmen innan du fortsätter till nästa steg.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Distribuera ProductsPortal-projektet till en Azure-webbapp
-Nästa steg är att omvandla klientdelen för **ProductsPortal** till en Azure-webbapp. Först av allt ska du distribuera projektet **ProductsPortal**. Följ alla steg i avsnittet [Distribuera webbprojektet till Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure). När distributionen är klar går du tillbaka till den här självstudien och fortsätter med nästa steg.
+Nästa steg är att omvandla klientdelen för **ProductsPortal** till en Azure-webbapp. Först av allt ska du distribuera projektet **ProductsPortal**. Följ alla steg i avsnittet [Distribuera webbprojektet till Azure](../app-service-web/app-service-web-get-started-dotnet.md). När distributionen är klar går du tillbaka till den här självstudien och fortsätter med nästa steg.
 
 > [!NOTE]
 > Du kanske får upp ett felmeddelande i webbläsarfönstret när webbprojektet **ProductsPortal** startas automatiskt efter distributionen. Detta är normalt och beror på att **ProductsServer**-programmet ännu inte körs.

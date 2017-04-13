@@ -398,5 +398,5 @@ Du kan visa diagram över svarstider, samt få e-postaviseringar om platsen kras
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

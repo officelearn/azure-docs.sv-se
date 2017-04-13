@@ -103,6 +103,7 @@
 #### [Datavisualisering i Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Datavisualisering med Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Väderprognoser med hjälp av Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Enhetshantering med IoT Hub-utforskaren](iot-hub-device-management-iothub-explorer.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -110,6 +111,7 @@
 #### [Datavisualisering i Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Datavisualisering med Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Väderprognoser med hjälp av Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Enhetshantering med IoT Hub-utforskaren](iot-hub-device-management-iothub-explorer.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
@@ -138,54 +140,13 @@
 ### [Simulering i Linux](iot-hub-linux-gateway-sdk-get-started.md)
 ### [Simulering i Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 ## Använda IoT Gateway-startpaketet
-### [Simulerad enhet](iot-hub-gateway-kit-c-sim-get-started.md)
-#### Lektion 1: Konfigurera din NUC
-##### [Konfigurera Intel NUC som en IoT-gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+### Konfigurera IoT Gateway-startpaketet
+#### [Konfigurera Intel NUC som en IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+#### [Ansluta IoT-gateway till IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+#### [Använd IoT-gateway för datakonvertering](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-#### Lektion 2: Skapa din IoT-hubb
-##### [Hämta verktygen (Windows 7+)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
-##### [Hämta verktygen (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
-##### [Hämta verktygen (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
-##### [Skapa en IoT-hubb och registrera din enhet](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
-
-#### Lektion 3: Ta emot meddelanden från den simulerade enheten
-##### [Konfigurera och kör BLE-exempelappen](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
-##### [Läs meddelanden från din IoT-hubb](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
-
-#### Lektion 4: Spara meddelanden i Azure Table Storage
-##### [Skapa en Azure-funktionsapp och ett Azure Storage-konto](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
-##### [Läs meddelanden som sparas i Azure Table Storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
-
-#### [Lektion 5: Skapa din första Azure IoT Gateway-modul](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-#### [Felsökning](iot-hub-gateway-kit-c-sim-troubleshooting.md)
-
-### [SensorTag-enhet](iot-hub-gateway-kit-c-get-started.md)
-#### Lektion 1: Konfigurera din NUC
-##### [Konfigurera Intel NUC som en IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-
-#### Lektion 2: Skapa din IoT-hubb
-##### [Hämta verktygen (Windows 7+)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
-##### [Hämta verktygen (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
-##### [Hämta verktygen (macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
-##### [Skapa en IoT-hubb och registrera din enhet](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-#### Lektion 3: Ta emot meddelanden från den simulerade enheten
-##### [Konfigurera och kör BLE-exempelappen](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-##### [Läs meddelanden från din IoT-hubb](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-#### Lektion 4: Spara meddelanden i Azure Table Storage
-##### [Skapa en Azure-funktionsapp och ett Azure Storage-konto](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
-##### [Läs meddelanden som sparas i Azure Table Storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
-
-#### [Lektion 5: Skapa din första Azure IoT Gateway-modul](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-##### [Felsökning](iot-hub-gateway-kit-c-troubleshooting.md)
-
-## [Använd SDK för IoT-enhet för C](iot-hub-device-sdk-c-intro.md)
-### [Använda IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Använda serialiseraren](iot-hub-device-sdk-c-serializer.md)
 
 # Gör så här för att
 ## Planera
@@ -211,6 +172,9 @@
 #### [SDK:er för tjänst och enhet](iot-hub-devguide-sdks.md)
 #### [MQTT-support](iot-hub-mqtt-support.md)
 #### [Ordlista](iot-hub-devguide-glossary.md)
+### [Använd SDK för IoT-enhet för C](iot-hub-device-sdk-c-intro.md)
+#### [Använda IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+#### [Använda serialiseraren](iot-hub-device-sdk-c-serializer.md)
 ### Bearbeta meddelanden från enhet till moln
 #### [NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
@@ -268,8 +232,8 @@
 ## [Förhandsversion av Azure CLI 2.0](/cli/azure/iot)
 ## [.NET (tjänst)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (enheter)](/dotnet/api/microsoft.azure.devices.client)
-## [Java (tjänst)](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java (enheter)](/java/api/com.microsoft.azure.iothub)
+## [Java (tjänst)](/java/api/com.microsoft.azure.sdk.iot.service)
+## [Java (enheter)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [SDK:er för Azure IoT](http://azure.github.io/azure-iot-sdks/)
 ## [SDK för gateway](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST (resursprovider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

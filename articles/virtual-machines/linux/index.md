@@ -12,9 +12,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 5a8813e08d10bc2fa34a49b8b7dd01074da7426e
-ms.lasthandoff: 04/08/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 51c3caba1ca77c678dff316ef91e547b8190d632
+ms.lasthandoff: 04/12/2017
 
 ---
 <div class="content">
@@ -47,8 +47,9 @@ ms.lasthandoff: 04/08/2017
         <h2 style="margin-top: 36px">Självstudier</h2>
         <p>Skapa och distribuera virtuella Linux-datorer.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Skapa och hantera virtuella Linux-datorer</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Belastningsutjämna virtuella datorer med hög tillgänglighet</a></li>
+            <li><a href="/azure/virtual-machines/linux/tutorial-manage-vm">Skapa och hantera virtuella Windows-datorer</a></li>
+            <li><a href="/azure/virtual-machines/linux/tutorial-load-balance-nodejs">Belastningsutjämna virtuella datorer med hög tillgänglighet</a></li>
+            <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">Skapa en VM-skalningsuppsättning</a></li>
         </ul>
         <h2>Exempel</h2>
         <p>Distribuera din första app till Azure.</p>

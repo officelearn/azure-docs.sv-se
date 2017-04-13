@@ -47,6 +47,7 @@
 ### [Katalogtillägg](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Ändra lösenordet för Azure AD Sync-tjänstkontot](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Ändra AD DS-kontolösenordet](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [Aktivera AD-papperskorgen](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -58,6 +59,7 @@
 
 ## Hantera Federation Services
 ### [Hantera och anpassa](active-directory-aadconnect-federation-management.md)
+### [Federera flera instanser av Azure AD med en enda instans av AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## Felsöka

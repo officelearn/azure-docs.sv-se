@@ -30,7 +30,6 @@
 # Gör så här för att
 ## Planera och designa
 ### [Djup diagnostik för webbappar och tjänster](app-insights-devops.md)
-### [Utvecklaranalys med Application Insights och HockeyApp](app-insights-developer-analytics.md)
 ### [Övervaka prestanda i webbprogram](app-insights-web-monitor-performance.md)
 ### [Användningsanalys med Application Insights](app-insights-overview-usage.md)
 ### [Separera Application Insights-resurser](app-insights-separate-resources.md)
@@ -39,6 +38,7 @@
 
 ## Konfigurera
 ### Azure
+#### [Profiler](app-insights-profiler.md)
 #### [Diagnostik](app-insights-azure-diagnostics.md)
 
 ### ASP.NET
@@ -139,11 +139,6 @@
 
 ## [Prissättning](https://azure.microsoft.com/pricing/details/application-insights/)  
 
-## [Exempel och genomgångar](app-insights-code-samples.md)
-### [Genomgång: Aktivera telemetri för Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
-### [Genomgång: Exportera till SQL med Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
-### [Kodexempel: Parsa exporterade data](app-insights-code-sample-export-telemetry-sql-database.md)
-
 ## Nyheter
 
 ### [Blogg](https://azure.microsoft.com/blog/tag/application-insights/)
@@ -156,7 +151,7 @@
 ### [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
-### [Support](app-insights-get-dev-support.md)
+### [Support](https://azure.microsoft.com/support/)
 
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
 

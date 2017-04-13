@@ -8,6 +8,7 @@
 ## Kom igång
 ### [Förhandskrav för distribution](azure-stack-deploy.md)
 ### [Distribuera](azure-stack-run-powershell-script.md)
+### [Aktivera portaler](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Registrera](azure-stack-register.md)
 ## Gör så här för att
 ### [Ansluta till Azure Stack POC](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [Översikt över App Service i Azure Stack](azure-stack-app-service-overview.md)
 #### [Innan du börjar](azure-stack-app-service-before-you-get-started.md)
 #### [Distribuera App Service-resursprovider](azure-stack-app-service-deploy.md)
+#### [Distribuera App Service offline](azure-stack-app-service-deploy-offline.md)
 #### [Lägga till fler webbarbetsroller](azure-stack-app-service-add-worker-roles.md)
 #### [Konfigurera distributionskällor](azure-stack-app-service-configure-deployment-sources.md)
 #### [Aktivera FTP i App Service i Azure Stack](azure-stack-app-service-enable-ftp.md)
@@ -80,7 +82,7 @@
 ### [Översikt](azure-stack-storage-overview.md)
 ### [Skillnader och överväganden](azure-stack-acs-differences-tp2.md)
 ## Nätverk
-### [iDNS för Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [iDNS för Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS i Azure Stack](azure-stack-dns.md)
 ### [Förstå plats-till-plats-anslutningar via VPN](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Key Vault

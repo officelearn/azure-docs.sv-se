@@ -24,13 +24,10 @@
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-### [Klassisk portal (klassisk)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Konfigurera en VNet-till-VNet-anslutning mellan distributionsmodeller
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## Skapa anslutningar för samexistens mellan plats-till-plats och ExpressRoute
-### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-### [PowerShell (klassisk)](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## [Konfigurera anslutningar för samexistens mellan plats-till-plats och ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Konfigurera tvingad tunneltrafik
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (klassisk)](vpn-gateway-about-forced-tunneling.md)
@@ -50,8 +47,8 @@
 ## [Konfigurera en VPN-gateway (klassisk)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Referens
-## [PowerShell](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (klassisk)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
+## [PowerShell (klassisk)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (klassisk)](https://msdn.microsoft.com/library/jj154113)
 

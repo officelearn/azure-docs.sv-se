@@ -16,6 +16,11 @@
 ### [Felsök och övervaka](troubleshooting-monitoring.md)
 ### [Enkel instans av SAP HANA](hana-get-started.md)
 ### [Distributionsguide för S/4 HANA eller BW/4 HANA](cal-s4h.md)
+### Backup
+#### [Översikt](sap-hana-backup-guide.md)
+#### [Säkerhetskopiering på filnivå](sap-hana-backup-file-level.md)
+#### [Ögonblicksbilder för lagring](sap-hana-backup-storage-snapshots.md)
+
 ## SAP NetWeaver
 ### [Översikt och arkitektur](suse-quickstart.md)
 ### [Planera och implementera](planning-guide.md)

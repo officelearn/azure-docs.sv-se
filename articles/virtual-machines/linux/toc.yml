@@ -39,6 +39,8 @@
     href: azure-vm-network-overview.md
   - name: "Skalningsuppsättning för virtuella datorer"
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
+  - name: "Instans av metadatatjänst" 
+    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: "Behållare"
     href: containers.md
   - name: "Resource Manager"

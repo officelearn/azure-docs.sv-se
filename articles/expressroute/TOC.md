@@ -14,7 +14,7 @@
 ## [Routningskrav](expressroute-routing.md)
 ## [NAT-krav](expressroute-nat.md)
 ## [QoS-krav](expressroute-qos.md)
-## [Flytta kretsar från klassisk till Resource Manager](expressroute-move.md)
+## [Om att flytta kretsar från klassisk till Resource Manager](expressroute-move.md)
 
 # Gör så här för att
 ## Skapa och ändra en krets
@@ -29,6 +29,7 @@
 ## [Konfigurera en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan användas samtidigt](expressroute-howto-coexist-resource-manager.md)
 ## [Flytta en krets från klassisk till Resource Manager](expressroute-howto-move-arm.md)
+## [Migrera associerade virtuella nätverk från klassisk till Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurera en router för ExpressRoute
 ### [Konfigurera en router](expressroute-config-samples-routing.md)
 ### [Exempel på routerkonfigurationer för NAT](expressroute-config-samples-nat.md)

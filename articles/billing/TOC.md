@@ -1,6 +1,7 @@
 # Kom igång
 ## [Undvika oväntade kostnader](billing-getting-started.md)
 ## [Registrera dig med Office 365-konto](billing-use-existing-office-365-account-azure-subscription.md)
+## [Registrera dig för Office 365 med ett Azure-konto](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Begränsningar och kvoter](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # Gör så här för att
 ## Övervaka användning och kostnader
@@ -33,8 +34,3 @@
 
 # Resurser
 ## [Kontakta supporten](../azure-supportability/how-to-create-azure-support-request.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

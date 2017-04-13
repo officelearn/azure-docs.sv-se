@@ -81,6 +81,7 @@
 ### [Namngivna nätverk](active-directory-known-networks-azure-portal.md)
 ### [Rapportera migrering](active-directory-reporting-migration.md)
 ### [Kvarhållning](active-directory-reporting-retention.md)
+### [Svarstider](active-directory-reporting-latencies-azure-portal.md)
 ### [Vanliga frågor och svar](active-directory-reporting-faq.md)
 ### Felsöka
 #### [Granskningsdata som saknas](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -109,8 +110,9 @@
 ##### [Avvikande inloggningar](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Hantera lösenord](active-directory-manage-passwords.md)
-### [Uppdatera ditt eget lösenord](active-directory-passwords-update-your-own-password.md)
-### [Konfigurera återställning av lösenord för självbetjäning](active-directory-passwords.md)
+### [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
+### [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
+### [Administratörer aktiverar självbetjäning för återställning av lösenord](active-directory-passwords.md)
 ### [Förstå lösenordshantering](active-directory-passwords-how-it-works.md)
 ### [Förstå principer och begränsningar](active-directory-passwords-policy.md)
 ### Återställa lösenord
@@ -155,19 +157,12 @@
 ### [Ge fjärråtkomst till dina appar](active-directory-application-proxy-get-started.md)
 #### [Aktivera App Proxy](active-directory-application-proxy-enable.md)
 #### [Förstå anslutningar](application-proxy-understand-connectors.md)
-
-#### Publicera appar
-##### [Azure Portal](application-proxy-publish-azure-portal.md)
-##### [Klassisk portal](active-directory-application-proxy-publish.md)
-
+#### [Publicera appar](application-proxy-publish-azure-portal.md)
 #### [Säkerhet](application-proxy-security-considerations.md)
 #### [Nätverk](application-proxy-network-topology-considerations.md)
 #### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
 #### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-
-#### Publicera på separata nätverk
-##### [Azure-portal](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Klassisk portal](active-directory-application-proxy-connectors.md)
+#### [Publicera i separata nätverk](active-directory-application-proxy-connectors-azure-portal.md)
 #### [Proxyservrar](application-proxy-working-with-proxy-servers.md)
 #### [Anpassade domäner](active-directory-application-proxy-custom-domains.md)
 #### [Få åtkomst till appar](active-directory-appssoaccess-whatis.md)
@@ -181,6 +176,11 @@
 #### [Tyst installation](active-directory-application-proxy-silent-installation.md)
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Felsöka](active-directory-application-proxy-troubleshoot.md)
+#### Använd den klassiska portalen
+##### [Ladda ned anslutningsappar](application-proxy-enable-classic-portal.md)
+##### [Publicera appar](active-directory-application-proxy-publish.md)
+##### [Använd anslutningsappar](active-directory-application-proxy-connectors.md)
+
 
 ### Hantera företagets appar
 #### [Tilldela användare](active-directory-coreapps-assign-user-azure-portal.md)
@@ -200,8 +200,21 @@
 #### [Åtkomst med självbetjäning](active-directory-self-service-application-access.md)
 #### [Certifikat för enkel inloggning](active-directory-sso-certs.md)
 #### [Klientrestriktioner](active-directory-tenant-restrictions.md)
+#### [Använd SCIM-etablering av användare](active-directory-scim-provisioning.md)
 
-### [Använd SCIM-etablering av användare](active-directory-scim-provisioning.md)
+### [Felsöka](active-directory-application-troubleshoot-content-map.md)
+#### Apputveckling
+##### [Konfiguration och registrering](active-directory-application-dev-config-content-map.md)
+##### [Utveckling](active-directory-application-dev-development-content-map.md)
+#### Programhantering
+##### [Konfiguration](active-directory-application-config-content-map.md)
+##### [Inloggning](active-directory-application-sign-in-content-map.md)
+##### [Etablering](active-directory-application-provisioning-content-map.md)
+##### [Hantera åtkomst](active-directory-application-access-content-map.md)
+##### [Åtkomstpanel](active-directory-application-access-panel-content-map.md)
+##### [Programproxy](active-directory-application-proxy-content-map.md)
+##### [Villkorlig åtkomst](active-directory-application-conditional-access-content-map.md)
+
 ### [Dokumentbibliotek](active-directory-apps-index.md)
 
 ## Hantera din katalog
@@ -315,6 +328,12 @@
 ### [Ändra signaturens hashalgoritm](active-directory-federation-sha256-guidance.md)
 
 ## [Felsöka](active-directory-troubleshooting.md)
+
+## Distribuera Azure AD PoC (Proof of Concept)
+### [PoC-strategibok: Introduktion](active-directory-playbook-intro.md)
+### [PoC-strategibok: Ingredienser](active-directory-playbook-ingredients.md)
+### [PoC-strategibok: Implementering](active-directory-playbook-implementation.md)
+### [PoC-strategibok: Komponenter](active-directory-playbook-building-blocks.md)
 
 
 # Referens

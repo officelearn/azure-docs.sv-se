@@ -19,6 +19,7 @@
 ## Azure Backup Server
 ### [Förbereda Azure Backup Server-arbetsbelastningar i Azure Portal](backup-azure-microsoft-azure-backup.md)
 ### [Förbereda Azure Backup Server-arbetsbelastningar i den klassiska portalen](backup-azure-microsoft-azure-backup-classic.md)
+### [Säkerhetskopiera en VMware-server med hjälp av Azure Backup Server](backup-azure-backup-server-vmware.md)
 ### [Säkerhetskopiera Exchange med hjälp av Azure Backup Server](backup-azure-exchange-mabs.md)
 ### [Säkerhetskopiera en SharePoint-grupp med hjälp av Azure Backup Server](backup-azure-backup-sharepoint-mabs.md)
 ### [Säkerhetskopiera SQL med hjälp av Azure Backup Server](backup-azure-sql-mabs.md)

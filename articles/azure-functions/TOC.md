@@ -29,13 +29,13 @@
 ##### [Tabellbindningar](functions-bindings-storage-table.md)
 #### [Timerutlösare](functions-bindings-timer.md)
 #### [Twilio-utdatabindning](functions-bindings-twilio.md)
+### [Definiera Functions-proxy](functions-proxies.md)
 ### [Skapa en funktionsapp från Azure Portal](functions-create-function-app-portal.md) 
+### [Utför en schemalagd rensningsåtgärd](functions-scenario-database-table-cleanup.md)
 ### [Testa Azure Functions](functions-test-a-function.md)
 ### [Utveckla och felsöka lokalt](functions-run-local.md)
 ### [Metodtips för Azure Functions](functions-best-practices.md)
-### [Använd Azure Functions för att utföra en schemalagd rensningsåtgärd](functions-scenario-database-table-cleanup.md)
-### [Skapa en definition för OpenAPI (förhandsgranskning)](functions-api-definition-getting-started.md)
-#### [Referens för OpenAPI 2.0 i Functions](functions-api-definition.md)
+### [Skapa en definition för OpenAPI](functions-api-definition-getting-started.md)
 
 ## Hantera
 ### [Konfigurera inställningar för en funktionsapp](functions-how-to-use-azure-function-app-settings.md)

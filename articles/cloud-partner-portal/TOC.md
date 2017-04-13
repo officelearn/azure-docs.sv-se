@@ -9,6 +9,7 @@
 ## Hantera Virtual Machines
 ### [Skapa erbjudande för virtuell dator](./cloud-partner-portal-publish-virtual-machine.md)
 #### [Förutsättningar](./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
+#### [Registrering av Microsoft-utvecklarkonto](./cloud-partner-portal-dev-center-accounts-registration.md)
 #### [Skapa nytt erbjudande för virtuell dator](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer)
 #### [Inställningsformulär för erbjudande](./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form)
 #### [Formulär för SKU:er](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
@@ -21,6 +22,7 @@
 ### [Uppdatera befintligt erbjudande](./cloud-partner-portal-update-existing-offer.md)
 ### [Ta bort erbjudande/SKU för VM](./cloud-partner-portal-delete-an-offer.md)
 ### [Migrera till partnerportalen i molnet](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+## [Säljguide för Azure Marketplace](./cloud-partner-portal-seller-guide.md)
 
 ## [Marknadsföra lead-hantering](./cloud-partner-portal-marketing-lead-management.md)
 ### [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)

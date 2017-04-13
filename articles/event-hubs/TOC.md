@@ -18,10 +18,13 @@
 
 # Gör så här för att
 ## Planera och designa
+### [🔧Vanliga integreringsscenerier med Azure-tjänster](event-hubs-common-integrations.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Översikt över autentisering och säkerhetsmodell](event-hubs-authentication-and-security-model-overview.md)
 ### [Tillgänglighet och konsekvens](event-hubs-availability-and-consistency.md)
 ## Utveckla
+### [🔧Hantera fel och försök igen](event-hubs-handling-errors-retry.md)
+### [🔧Hantera prestanda och skalning](event-hubs-performance-scale.md)
 ### [Tillgängliga API:er](event-hubs-api-overview.md)
 #### [.NET-standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -34,6 +37,7 @@
 #### [Event Hubs-arkiv](event-hubs-archive-overview.md)
 #### [Aktivera Event Hubs-arkivet med en mall](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 #### [Använd Python för att aktivera Event Hubs-arkivet](event-hubs-archive-python.md)
+### [Etablera entiteter med PowerShell](event-hubs-manage-with-ps.md) 
 ### [Strömma Azure Diagnostics-data med Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Skapa och distribuera en händelsehubb med en Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub.md)
 
@@ -58,8 +62,3 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

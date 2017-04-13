@@ -1,16 +1,17 @@
 # Översikt
 ## [Vad är Azure Automation?](automation-intro.md)
 # Kom igång
-## [Skapa Runbook](automation-first-runbook-graphical.md)
-## [Skapa PowerShell-runbook](automation-first-runbook-textual-powershell.md)
-## [Skapa PowerShell Workflow-runbook](automation-first-runbook-textual.md)
-## [Hantera rollbaserad åtkomstkontroll](automation-role-based-access-control.md)
+## Självstudie för runbook
+### [Skapa grafisk runbook](automation-first-runbook-graphical.md)
+### [Skapa PowerShell-runbook](automation-first-runbook-textual-powershell.md)
+### [Skapa PowerShell Workflow-runbook](automation-first-runbook-textual.md)
 # Gör så här för att
-## Konfigurera autentisering
+## Autentisering och säkerhet
 ### [Autentisering i Azure Automation](automation-security-overview.md)
-### [Kör som-konto i Azure](automation-sec-configure-azure-runas-account.md)
-### [Azure Service Management och Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
+### [Konfigurera Kör som-konto i Azure](automation-sec-configure-azure-runas-account.md)
+### [Konfigurera användarkonto för Azure AD](automation-sec-configure-aduser-account.md)
+### [Konfigurera autentisering med AWS](automation-sec-configure-aws-account.md)
+### [Hantera rollbaserad åtkomstkontroll](automation-role-based-access-control.md)
 ## Skapa runbooks
 ### [Runbook-typer](automation-runbook-types.md)
 ### [Skapa och importera Runbooks](automation-creating-importing-runbook.md)

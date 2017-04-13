@@ -45,6 +45,7 @@
 ### [Hantera med hjälp av automatisering](automation-manage-api-management.md)
 ### [Konfigurera med Git](api-management-configuration-repository-git.md)
 ### [Övervaka med Azure Monitor](api-management-howto-use-azure-monitor.md)
+### [Använd rollbaserad åtkomstkontroll](api-management-role-based-access-control.md)
 # Referens
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST](/rest/api/apimanagement/)

@@ -17,6 +17,7 @@
 ### [Java i Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# i Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Distribuera appar i ett lokalt kluster](service-fabric-get-started-with-a-local-cluster.md)
+## [Skapa ett fristående kluster](service-fabric-get-started-standalone-cluster.md)
 
 # Gör så här för att
 ## Skapa ett program
@@ -145,6 +146,7 @@
 ### Distribuera eller ta bort program
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+#### [FabricClient-API:er](service-fabric-deploy-remove-applications-fabricclient.md)
 ### [Översikt över programuppgradering](service-fabric-application-upgrade.md)
 ### [Konfigurera programuppgradering](service-fabric-visualstudio-configure-upgrade.md)
 ### [Programuppgraderingsparametrar](service-fabric-application-upgrade-parameters.md)
@@ -208,9 +210,9 @@
 ### [Tjänstflöde](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # Referens
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [Java-API](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [PowerShell](/powershell/module/ServiceFabric/)
+## [Java-API](/java/api/)
+## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicefabric)
 
 # Resurser

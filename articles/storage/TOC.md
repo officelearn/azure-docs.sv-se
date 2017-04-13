@@ -79,6 +79,7 @@
 ### [Vanliga frågor om virtuella IaaS-datordiskar i Azure](storage-faq-for-disks.md)
 ### Premium Storage
 #### [Premium Storage med höga prestanda för virtuella datordiskar](storage-premium-storage.md)
+#### [Migrera till Premium Storage med Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
 #### [Designa för höga prestanda](storage-premium-storage-performance.md)
 ### Standardlagring
 #### [Standard Storage med kostnadseffektiv lagring och ohanterade och hanterade virtuella datordiskar](storage-standard-storage.md)

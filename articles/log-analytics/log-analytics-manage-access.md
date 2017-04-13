@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
@@ -78,7 +78,7 @@ Som standard blir det Microsoft-konto eller organisationskonto som använts för
 Det finns två behörighetsmodeller som kontrollerar åtkomst till en Log Analytics-arbetsyta:
 
 1. Äldre Log Analytics-användarroller
-2. [Rollbaserad åtkomst i Azure](../active-directory/role-based-access-control-configure.md) 
+2. [Rollbaserad åtkomst i Azure](../active-directory/role-based-access-control-configure.md)
 
 I följande tabell sammanfattas åtkomsten som kan ställas in med varje behörighetsmodell:
 
@@ -101,13 +101,14 @@ Följande aktiviteter i Log Analytics-portalen kräver även Azure-behörigheter
 | Lägga till och ta bort hanteringslösningar                        | Resursgrupp, skriva <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Ändra prisnivån                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Visa data i lösningspanelerna *säkerhetskopiering* och *Site Recovery* | Administratör/medadministratör | Åtkomst till resurser som distribueras med den klassiska distributionsmodellen |
- 
+
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Hantera åtkomst till Log Analytics med Azure-behörighet
 Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../active-directory/role-based-access-control-configure.md).
 
 Om du har minst Azure-läsbehörighet i Log Analytics-arbetsytan kan du öppna OMS-portalen genom att klicka på uppgiften **OMS-portal** när du visar Log Analytics-arbetsytan.
 
-När du öppnar Log Analytics-portalen växlar du till de äldre Log Analytics-användarrollerna. Om du inte har någon rolltilldelning i Log Analytics-portalen [kontrollerar tjänsten vilka Azure-behörigheter du har på arbetsytan](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). Din rolltilldelning i Log Analytics-portalen fastställs så här:
+När du öppnar Log Analytics-portalen växlar du till de äldre Log Analytics-användarrollerna. Om du inte har någon rolltilldelning i Log Analytics-portalen [kontrollerar tjänsten vilka Azure-behörigheter du har på arbetsytan](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+Din rolltilldelning i Log Analytics-portalen fastställs så här:
 
 | Villkor                                                   | Tilldelad Log Analytics-användarroll | Anteckningar |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -119,7 +120,7 @@ När du öppnar Log Analytics-portalen växlar du till de äldre Log Analytics-a
 | För CSP-hanterade (Cloud Solution Provider) prenumerationer <br> Kontot du är inloggad med är i Azure Active Directory, länkat till arbetsytan | Administratör | Vanligtvis en CSP-kund |
 | För CSP-hanterade (Cloud Solution Provider) prenumerationer <br> Kontot du är inloggad med är inte i Azure Active Directory, länkat till arbetsytan | Deltagare | Vanligtvis CSP |
 
-<sup>1</sup> Läs [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) (Azure-behörigheter) om du vill ha mer information om rolldefinitioner. När du utvärderar roller motsvarar åtgärden `*` inte `Microsoft.OperationalInsights/workspaces/*`. 
+<sup>1</sup> Läs [Azure permissions](../active-directory/role-based-access-control-custom-roles.md) (Azure-behörigheter) om du vill ha mer information om rolldefinitioner. När du utvärderar roller motsvarar åtgärden `*` inte `Microsoft.OperationalInsights/workspaces/*`.
 
 Vissa saker att tänka på vad gäller Azure-portalen:
 

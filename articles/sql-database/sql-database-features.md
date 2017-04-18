@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 7dc5210c073a3130bfc9ffdbc9ce33e19ca5bc1a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Mer information om Azure SQL-databaser finns i [SQL-databaser](sql-database-over
 
 Följande tabeller visar de viktigaste funktionerna i Azure SQL Database och SQL Server, anger dess support och innehåller en länk till mer information om funktionen på varje plattform. Du hittar Transact-SQL-funktioner om du följer länken i tabellen för funktionens kategori. Mer information om varför vissa funktioner inte stöds finns i avsnittet [Skillnader mellan Azure SQL Database och Transact-SQL](sql-database-transact-sql-information.md).
 
-Vi fortsätter att lägga till funktioner till V12. Så vi rekommenderar att du besöker vår webbsida för tjänstuppdateringar för Azure och dess filter:
+Vi fortsätter att lägga till funktioner till Azure SQL Database. Så vi rekommenderar att du besöker vår webbsida för tjänstuppdateringar för Azure och dess filter:
 
 * Filtrerade till [SQL Database-tjänsten](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtrerade till allmän tillgänglighet [meddelanden (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) för SQL Database-funktioner.

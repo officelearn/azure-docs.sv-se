@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,9 +49,16 @@ Du kan:
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Migrera lokala virtuella datorer och fysiska servrar
 
-För att migrera lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska servrar följer du i princip samma steg som vid vanlig replikering. Du ställer in ett Recovery Services-valv, konfigurerar de nödvändiga hanteringsservrarna (beroende på vad du vill migrera), lägger till dem i valvet och anger replikeringsinställningarna. Du aktiverar replikering för de datorer som du vill migrera och kör en snabb testredundans för att se till att allt fungerar som den ska.
+För att migrera lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska servrar följer du i princip samma steg som vid vanlig replikering.
 
-När du har kontrollerat att din replikeringsmiljö fungerar, använder du en planerad eller oplanerad redundans beroende på [vad som stöds](site-recovery-failover.md) för scenariot. För migrering behöver du inte utföra någon redundansväxling. Istället väljer du alternativet **Fullständig migrering** för varje dator som du vill migrera. Åtgärden **Fullständig migrering** slutför migreringsprocessen, tar bort replikering för datorn och stoppar Site Recovery-debitering för datorn.
+1. Skapa ett Recovery Services-valv
+2. Konfigurera de nödvändiga hanteringsservrarna (VMware, VMM, Hyper-V – beroende på vad du vill migrera), lägg till dem i valvet och specificera replikeringsinställningarna.
+3. Aktivera replikering för de datorer som du vill migrera
+4. Kör ett snabbt redundanstest efter den inledande migreringen för att se till att allt fungerar som det ska.
+5. När du har kontrollerat att din replikeringsmiljö fungerar, använder du en planerad eller oplanerad redundans beroende på [vad som stöds](site-recovery-failover.md) för scenariot. Vi rekommenderar att du använder en planerad redundans när så är möjligt.
+6. För migrering behöver du inte utföra en redundans eller ta bort den. Istället väljer du alternativet **Fullständig migrering** för varje dator som du vill migrera.
+     - I **Replikerade objekt** högerklickar du på den virtuella datorn och på **Slutför migrering**. Klicka på **OK** för att slutföra. Du kan följa förloppet i egenskaperna för virtuella datorer genom att övervaka det fullständiga migreringsjobbet i **Site Recovery-jobb**.
+     - Åtgärden **Fullständig migrering** slutför migreringsprocessen, tar bort replikering för datorn och stoppar Site Recovery-debitering för datorn.
 
 ![fullständig migrering](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 

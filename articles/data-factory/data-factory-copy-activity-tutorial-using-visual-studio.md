@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9716d18773fca8dd4612d681d1f9588106aacb14
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -148,10 +148,10 @@ I det här steget skapar du en datauppsättning med namnet **InputDataset** som 
    * **linkedServiceName** anges till **AzureStorageLinkedService**. Du skapade den här länkade tjänsten i steg 2.
    * **folderPath** anges till behållaren **adftutorial**. Du kan också ange namnet på en blobb i mappen med egenskapen **fileName**. Eftersom du inte anger namnet på någon blobb, anses data från alla blobbar i behållaren vara indata.  
    * formatet **typ** anges till **TextFormat**
-   * Det finns två fält i textfilen – **FirstName** och **LastName** – som avgränsas med ett kommatecken (**columnDelimiter**)    
-   * **availability** är inställt på **hourly** (**frequency** är inställt på **hour** och **interval** är inställt på **1**). Det betyder att Data Factory söker efter indata varje timme i rotmappen för den angivna blobbehållaren (**adftutorial**). 
+   * Det finns två fält i textfilen – **FirstName** och **LastName** – som avgränsas med ett kommatecken (columnDelimiter)    
+   * **availability** är inställt på **hourly** (frekvensen är inställd på timme och intervallet på 1). Det betyder att Data Factory söker efter indata varje timme i rotmappen för den angivna blobbehållaren (adftutorial). 
    
-   Om du inte anger något **fileName** för en **indatauppsättning** betraktas alla filer/blobbar från indatamappen (**folderPath**) som indata. Om du anger ett fileName i JSON, anses endast den angivna filen/blobben vara indata.
+   Om du inte anger något **fileName** för en **indatauppsättning** betraktas alla filer/blobbar från indatamappen (folderPath) som indata. Om du anger ett fileName i JSON, anses endast den angivna filen/blobben vara indata.
    
    Om du inte anger något **fileName** för en **utdatatabell** namnges filerna som genereras i **folderPath** med följande format: Data.&lt;Guid&gt;.txt (exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
@@ -180,7 +180,7 @@ I det här steget ska du skapa en utdatauppsättning med namnet **OutputDataset*
 2. I dialogrutan **Lägg till nytt objekt** väljer du **Azure SQL** och klickar på **Lägg till**. 
 3. Ersätt texten JSON med följande JSON och spara filen **AzureSqlTableLocation1.json**.
 
-    ```json
+  ```json
     {
      "name": "OutputDataset",
      "properties": {
@@ -213,7 +213,7 @@ I det här steget ska du skapa en utdatauppsättning med namnet **OutputDataset*
    * **linkedServiceName** har angetts till **AzureSqlLinkedService** (du skapade den här länkade tjänsten i steg 2).
    * **tablename** anges till **emp**.
    * Det finns tre kolumner – **ID**, **FirstName** och **LastName** – i emp-tabellen i databasen. ID är en identitetskolumn, så du anger bara **FirstName** och **LastName** här.
-   * **Tillgängligheten** anges till **varje timme** (**frekvens** inställd på **timme** och **intervall** inställd på **1**).  Data Factory-tjänsten genererar en utdatasektor varje timme i **emp**-tabellen i Azure SQL-databasen.
+   * **Tillgängligheten** anges till **varje timme** (frekvens inställd på timme och intervall inställd på 1).  Data Factory-tjänsten genererar en utdatasektor varje timme i **emp**-tabellen i Azure SQL-databasen.
 
 > [!NOTE]
 > Se [Move data from/to Azure SQL Database (Flytta data från/till Azure SQL Database)](data-factory-azure-sql-connector.md#linked-service-properties) för mer information om JSON-egenskaper.
@@ -227,7 +227,7 @@ Du har skapat länkade in-/utdatatjänster och tabeller hittills. Nu skapar du e
 2. Välj **Kopiera datapipeline** i dialogrutan **Lägg till nytt objekt** och klicka på **Lägg till**. 
 3. Ersätt JSON med följande JSON och spara filen **CopyActivity1.json**.
 
-    ```json   
+  ```json   
     {
      "name": "ADFTutorialPipeline",
      "properties": {
@@ -281,7 +281,7 @@ Du har skapat länkade in-/utdatatjänster och tabeller hittills. Nu skapar du e
    
    Både start- och slutdatum måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2016-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen. 
    
-   Om du inte anger värdet för **slut**egenskapen, beräknas det som ”**start + 48 timmar**”. Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen.
+   Om du inte anger värdet för **slut**egenskapen, beräknas det som **start + 48 timmar**. Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen.
    
    I det föregående exemplet finns det 24 datasektorer eftersom varje datasektor skapas varje timme.
 
@@ -325,7 +325,7 @@ I det här steget publicerar du Data Factory-enheter (länkade tjänster, dataup
 
 Observera följande punkter: 
 
-* Om du får felet: ”**Den här prenumerationen har inte registrerats för användning av namnområdet Microsoft.DataFactory**” gör du något av följande och försöker att publicera igen: 
+* Om du får felet: ”Den här prenumerationen har inte registrerats för användning av namnområdet Microsoft.DataFactory” gör du något av följande och försöker att publicera igen: 
   
   * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern. 
 

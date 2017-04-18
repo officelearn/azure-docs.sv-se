@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 53bb5d64e27458b4a88981bd20ea4236b31431ec
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -34,7 +34,7 @@ Markera en anslutningsapp för att lära dig hur du skapar arbetsflöden snabbt.
 |![API-ikon][Azure-MLicon]<br/>**Azure ML**|![API-ikon][Azure-Resource-Manager-icon]<br/>**Azure Resource<br/>Manager**|![API-ikon][Azure-Queues-icon]<br/>**Azure Queues**|![API-ikon][Basecamp-3icon]<br/>**Basecamp 3**|
 |![API-ikon][Bitbucket-icon]<br/>**Bitbucket**|![API-ikon][Bitlyicon]<br/>**Bitly**|![API-ikon][BizTalk-Servericon]<br/>**BizTalk Server**|![API-ikon][Bloggericon]<br/>**Blogger**|
 |[![API Icon][Boxicon]<br/>**Ruta**][boxDoc]|![API-ikon][Campfireicon]<br/>**Campfire**|![API-ikon][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>-textanalys**|![API-ikon][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|
-|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|[! [API ikonen] [Delayicon]<br/>**Fördröjning**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|
+|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|[![API ikonen][Delayicon]<br/>**Fördröjning**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|
 |![API-ikon][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>för finans**|![API-ikon][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>för åtgärder**|![API-ikon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Event-hubs-icon]<br/>**Händelsehubbar**][event-hubs-doc]|
 |[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**Filsystem**][FileSystemdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![API-ikon][GitHubicon]<br/>**GitHub**|
 |![API-ikon][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![API-ikon][Google-Sheetsicon]<br/>**Google-blad**|![API-ikon][Google-Tasksicon]<br/>**Google-uppgifter**|
@@ -87,7 +87,7 @@ Anslutningsapparna tillhandahåller också åtgärder som du kan använda i appe
 
 ## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Anpassade anslutningsappar och certifiering för Microsoft Azure
 
-Vill du skapa egna anslutningsappar eller hittar du inte den anslutningsapp som du vill ha? Du kan [utöka Logic Apps-plattformen](../logic-apps/logic-apps-create-api-app.md) och skapa API-appar som anropar API: er eller system som inte är tillgängliga som färdiga anslutningsappar. Du kan också skicka API-appar för Microsoft Azure-certifiering och sedan göra dem tillgängliga via Azure. Läs mer om hur du får dina lösningar [Microsoft Azure-certifierade](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+För att anropa API:er som kör anpassad kod eller som inte är tillgängliga som kopplingar kan du [utöka plattformen Logic Apps](../logic-apps/logic-apps-create-api-app.md) genom att skapa REST-baserade API Apps som anpassade kopplingar. Om du vill göra dina anpassade API Apps offentliga och använda dem i Azure ska du skicka dina nomineringar till [programmet Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
 ## <a name="get-help"></a>Få hjälp
 

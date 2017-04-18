@@ -13,22 +13,22 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 04/04/2017
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 5009b13cec57e6974f71610c84fdaad837085df0
-ms.openlocfilehash: 5f81d8146f8000e73a2eb578ff2371a62c8875e9
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
+ms.lasthandoff: 04/05/2017
 
 
 ---
 # <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Översikt över slutpunkt-till-slutpunkt-SSL och SSL-princip på Application Gateway
 
-Application Gateway stöder SSL-terminering vid gatewayen. Därefter flödar trafiken vanligtvis okrypterat fram till serverdels-servrarna. Den här funktionen bidrar till att befria webbservrarna från kostsam kryptering/dekryptering. För en del kunder är dock inte okrypterad kommunikation till serverdels-servrarna en acceptabel lösning. Denna dekrypterade kommunikation kan bero på säkerhets-/kompatibilitetskrav eller på att programmet bara accepterar säkra anslutningar. För den typen av program, stöder Application Gateway nu slutpunkt-till-slutpunkt SSL-kryptering.
+Application Gateway stöder SSL-terminering vid gatewayen. Därefter flödar trafiken vanligtvis okrypterat fram till serverdels-servrarna. Den här funktionen bidrar till att befria webbservrarna från kostsam kryptering och dekryptering. För en del kunder är dock inte okrypterad kommunikation till serverdels-servrarna en acceptabel lösning. Denna dekrypterade kommunikation kan bero på säkerhets och kompatibilitetskrav eller på att programmet bara accepterar säkra anslutningar. För den typen av program, stöder Application Gateway nu slutpunkt-till-slutpunkt SSL-kryptering.
 
 ## <a name="overview"></a>Översikt
 
-Slutpunkt-till-slutpunkt-SSL låter dig skicka krypterade känsliga data säkert till serverdelen samt dra nytta av de fördelar med Layer 7-belastningsutjämningsfunktioner som Application Gateway tillhandahåller. Vissa av dessa funktioner är cookie-tillhörighet, URL-baserad routning, stöd för routning baserat på platser eller möjligheten att injicera X-Forwarded-*-huvuden.
+Slutpunkt-till-slutpunkt-SSL låter dig skicka krypterade känsliga data säkert till serverdelen samt dra nytta av de fördelar med Layer 7-belastningsutjämningsfunktioner som Application Gateway tillhandahåller. Vissa av dessa funktioner är cookiebaserad-tillhörighet, URL-baserad routning, stöd för routning baserat på platser eller möjligheten att injicera X-Forwarded-*-huvuden.
 
 När den konfigurerats med slutpunkt-till-slutpunkt SSL-kommunikationsläge, terminerar Application Gateway användarens SSL-sessioner vid gatewayen och avkrypterar användartrafiken. Därefter appliceras de konfigurerade reglerna för att välja en lämplig serverdels-serverpoolinstans att dirigera trafiken till. Application Gateway startar sedan en ny SSL-anslutning till serverdels-servern och återkrypterar data med hjälp av serverdels-serverns offentliga nyckelcertifikat innan begäran skickas till serverdelen. Slutpunkt-till-slutpunkt SSL aktiveras genom att ställa in protokollinställningen i BackendHTTPSetting till HTTPS, som sedan appliceras till en serverdelspool. Varje serverdels-server i serverdels-poolen som har slutpunkt-till-slutpunkt SSL aktiverat måste konfigureras med ett certifikat för att tillåta säker kommunikation.
 
@@ -44,7 +44,7 @@ Application Gateway kommunicerar bara med kända serverdelsinstanser som har vit
 
 Application Gateway stöder användarkonfigurerbara SSL-förhandlingsprinciper som tillåter användare större kontroll över SSL-anslutningar på Application Gateway.
 
-1. SSL 2.0 och 3.0 inaktiveras som standard för alla Gateways i programmet. De kan inte konfigureras alls.
+1. SSL 2.0 och 3.0 inaktiveras som standard för alla Gateways i programmet. Dessa principer kan inte konfigureras alls.
 2. SSL-principdefinitioner ger dig möjlighet att inaktivera alla följande tre protokoll – **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
 3. Om ingen policy för SSL definieras aktiveras alla tre (TLSv1\_0, TLSv1\_1, TLSv1_2).
 

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
-ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
+ms.lasthandoff: 04/06/2017
 
 
 ---

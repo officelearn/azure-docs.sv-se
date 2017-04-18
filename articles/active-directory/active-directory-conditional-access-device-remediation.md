@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Felsökning om du kan inte ta dig dit härifrån på en Windows-enhet
+# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Du kan inte ta dig dit härifrån på en Windows-enhet
 
 Vid ett försök att komma åt exempelvis organisationens SharePoint Online-intranät kan du stöta på en sida som anger att *du kan inte komma hit härifrån*. Du ser den här sidan eftersom administratören har konfigurerat en villkorlig åtkomstprincip som förhindrar åtkomst till organisationens resurser under vissa förhållanden. Det kan vara nödvändigt att kontakta supportavdelningen eller administratören för att lösa det här problemet, men det finns några saker som du kan prova själv först.
 

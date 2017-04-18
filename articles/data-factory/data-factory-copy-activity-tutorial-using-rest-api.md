@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -51,12 +52,12 @@ Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabr
 * [Installera Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 * Starta **PowerShell** och kör följande kommando. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
   
-  1. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
+  1. Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in på Azure-portalen:
     
     ```PowerShell 
     Login-AzureRmAccount
     ```   
-  2. Kör följande kommando för att visa alla prenumerationer för det här kontot.
+  2. Kör följande kommando för att visa alla prenumerationer för det här kontot:
 
     ```PowerShell     
     Get-AzureRmSubscription
@@ -66,7 +67,7 @@ Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabr
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
-  4. Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando i PowerShell.  
+  4. Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando i PowerShell:  
 
     ```PowerShell     
       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -172,10 +173,10 @@ JSON-definitionen definierar en datauppsättning med namnet **AzureBlobInput**, 
 * **linkedServiceName** anges till **AzureStorageLinkedService**. 
 * **folderPath** är **adftutorial**-behållaren och **filename** är **emp.txt**.  
 * formatet **typ** anges till **TextFormat**
-* Det finns två fält i textfilen – **FirstName** och **LastName** – som avgränsas med ett kommatecken (**columnDelimiter**)    
-* **availability** är inställt på **hourly** (frekvensen är inställd på timme och intervallet på 1). Det betyder att Data Factory söker efter indata varje timme i rotmappen för den angivna blobbehållaren (**adftutorial**). 
+* Det finns två fält i textfilen – **FirstName** och **LastName** – som avgränsas med ett kommatecken (columnDelimiter)    
+* **availability** är inställt på **hourly** (frekvensen är inställd på timme och intervallet på 1). Det betyder att Data Factory söker efter indata varje timme i rotmappen för den angivna blobbehållaren (adftutorial). 
 
-Om du inte anger något **fileName** för en indatauppsättning betraktas alla filer/blobbar från indatamappen **folderPath** som indata. Om du anger ett fileName i JSON betraktas endast den angivna filen/blobben som indata.
+Om du inte anger något **fileName** för en indatauppsättning betraktas alla filer/blobbar från indatamappen (folderPath) som indata. Om du anger ett fileName i JSON betraktas endast den angivna filen/blobben som indata.
 
 Om du inte anger något **fileName** för en **utdatatabell** namnges filerna som genereras i **folderPath** med följande format: Data.&lt;Guid&gt;.txt (exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -230,7 +231,7 @@ Observera följande punkter:
 * **linkedServiceName** anges till **AzureSqlLinkedService**.
 * **tablename** anges till **emp**.
 * Det finns tre kolumner – **ID**, **FirstName** och **LastName** – i emp-tabellen i databasen. ID är en identitetskolumn, så du anger bara **FirstName** och **LastName** här.
-* **Tillgängligheten** anges till **varje timme** (**frekvens** inställd på **timme** och **intervall** inställd på **1**).  Data Factory-tjänsten genererar en utdatasektor varje timme i **emp**-tabellen i Azure SQL-databasen.
+* **Tillgängligheten** anges till **varje timme** (frekvens inställd på timme och intervall inställd på 1).  Data Factory-tjänsten genererar en utdatasektor varje timme i **emp**-tabellen i Azure SQL-databasen.
 
 ### <a name="pipelinejson"></a>pipeline.json
 
@@ -316,7 +317,7 @@ $adf = "ADFCopyTutorialDF"
 ```
 
 ## <a name="authenticate-with-aad"></a>Autentisera med AAD
-Kör följande kommando för att autentisera med Azure Active Directory (AAD). 
+Kör följande kommando för att autentisera med Azure Active Directory (AAD): 
 
 ```PowerShell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
@@ -360,7 +361,7 @@ Observera följande punkter:
 * Namnet på datafabriken kan registreras som ett DNS-namn i framtiden och blir då synligt offentligt.
 * Om du får felet: ”**Den här prenumerationen har inte registrerats för användning av namnområdet Microsoft.DataFactory**” gör du något av följande och försöker att publicera igen: 
   
-  * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern. 
+  * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern: 
 
     ```PowerShell    
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -428,7 +429,7 @@ Förbered Azure-blobblagringen och Azure SQL-databasen för den här självstudi
 * Skapa och ladda upp en textfil, **emp.txt**, som en blobb till behållaren **adftutorial**. 
 * Skapa en tabell med namnet **emp** i Azure SQL Database i Azure SQL-databasen som **AzureSqlLinkedService** pekar på.
 
-1. Starta Anteckningar, klistra in följande text och spara det som **emp.txt** i mappen **C:\ADFGetStartedPSH** på hårddisken. 
+1. Öppna Anteckningar. Kopiera följande text och spara det som **emp.txt** i mappen **C:\ADFGetStartedPSH** på hårddisken. 
 
     ```   
     John, Doe
@@ -456,7 +457,7 @@ Förbered Azure-blobblagringen och Azure SQL-databasen för den här självstudi
     Om klienten inte har åtkomst till Azure SQL-servern måste du konfigurera brandväggen för din Azure SQL-server och tillåta åtkomst från din dator (IP-adress). Anvisningar för hur du konfigurerar brandväggen för Azure SQL-servern finns i [den här artikeln](../sql-database/sql-database-configure-firewall-settings.md).
 
 ### <a name="create-input-dataset"></a>Skapa indatauppsättning
-I det här steget skapar du en datauppsättning med namnet **AzureBlobInput** som pekar på en blobbehållare i Azure Storage som representeras av den länkade tjänsten **AzureStorageLinkedService**. Den här blobbehållaren (**adftutorial**) innehåller indata i filen: **emp.txt**. 
+I det här steget skapar du en datauppsättning med namnet **AzureBlobInput** som pekar på en blobbehållare i Azure Storage som representeras av den länkade tjänsten **AzureStorageLinkedService**. Den här blobbehållaren (adftutorial) innehåller indata i filen: **emp.txt**. 
 
 1. Tilldela kommandot till variabeln med namnet **cmd**. 
 
@@ -475,7 +476,7 @@ I det här steget skapar du en datauppsättning med namnet **AzureBlobInput** so
     ```
 
 ### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
-I det här steget ska du skapa en tabell med namnet **AzureSqlOutput**. Den här datauppsättningen pekar på en SQL-tabell (**emp**) i Azure SQL-databasen som representeras av **AzureSqlLinkedService**. Pipelinen kopierar data från indatablobben till tabellen **emp**. 
+I det här steget ska du skapa en tabell med namnet **AzureSqlOutput**. Den här datauppsättningen pekar på en SQL-tabell (emp) i Azure SQL-databasen som representeras av **AzureSqlLinkedService**. Pipelinen kopierar data från indatablobben till tabellen **emp**. 
 
 1. Tilldela kommandot till variabeln med namnet **cmd**.
 
@@ -573,9 +574,4 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

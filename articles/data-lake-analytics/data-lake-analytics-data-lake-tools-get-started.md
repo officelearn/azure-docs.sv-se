@@ -12,30 +12,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="tutorial-develop-u-sql-scripts-using-data-lake-tools-for-visual-studio"></a>Självstudier: Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Lär dig hur du installerar Data Lake-verktyg för Visual Studio och använder Data Lake-verktyg för Visual Studio för att skriva och testa U-SQL-skript.
+Skriv och testa U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio.
 
 U-SQL är ett hyperskalbart, mycket utökningsbart språk för att förbereda, transformera och analysera alla data i Data Lake och andra lagringsplatser. Mer information finns i [Använd U-SQL-referens](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Krav
-* **Visual Studio 2015 uppdatering 3, Visual Studio 2013 uppdatering 4 eller Visual Studio 2012. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte. Visual Studio 2017 stöds inte för närvarande.**
+* **Visual Studio 2017 (under lagrings- och behandlingsarbetsbelastning), Visual Studio 2015 uppdatering 3, Visual Studio 2013 uppdatering 4 eller Visual Studio 2012. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte.**
 * **Microsoft Azure SDK för .NET version 2.7.1 eller senare**.  Installera den med hjälp av [installationsprogrammet för webbplattformen](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake-verktyg för Visual Studio](http://aka.ms/adltoolsvs)**.
 
     När Data Lake-verktyg för Visual Studio har installerats, visas noden "Data Lake Analytics" i Server Explorer under noden "Azure" (du kan öppna Server Explorer genom att trycka på Ctrl + Alt + S).
 
-* **Data Lake Analytics-konto och exempeldata** Data Lake Tools stöder inte skapandet av Data Lake Analytics-konton. Du kan skapa ett konto med hjälp av Azure Portal, Azure PowerShell, .NET SDK eller Azure CLI.
+* **Data Lake Analytics-konto och exempeldata** Data Lake Tools stöder inte skapandet av Data Lake Analytics-konton. Skapa ett konto med hjälp av Azure Portal, Azure PowerShell, .NET SDK eller Azure CLI.
 För att göra det enklare för dig finns det ett PowerShell-skript med vilket du kan skapa en Data Lake Analytics-tjänst och ladda upp källdatafilen i [Självstudieförberedande Appx-A PowerShell-exempel](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
     Du kan också välja att gå igenom följande två avsnitt i [Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md) om du vill skapa ditt konto och ladda upp data manuellt:
@@ -54,7 +54,7 @@ För att göra det enklare för dig finns det ett PowerShell-skript med vilket d
 ## <a name="upload-source-data-files"></a>Ladda upp källdatafiler
 Du har laddat upp vissa data i avsnittet **Förutsättning** tidigare i självstudierna.  
 
-Om du vill använda dina egna data följer du procedurerna för att ladda upp data från Data Lake-verktygen.
+Följ dessa steg för att hämta data från Data Lake Tools för att använda dina egna data.
 
 **Ladda upp filer till beroende Azure Data Lake-konto**
 
@@ -65,7 +65,7 @@ Om du vill använda dina egna data följer du procedurerna för att ladda upp da
 
     ![U-SQL Visual Studio-projekt U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**Ladda upp filer till ett länkat Azure Blob-lagringskonto**
+**Ladda upp filer till ett länkat Azure Blob Storage-konto**
 
 1. Från **Server Explorer**, expandera **Azure**, expandera **Data Lake Analytics**, expandera Data Lake Analytics-kontot, expandera **Lagringskonton**. Du bör se Data Lake-standardlagringskontot samt de länkade Data Lake-lagringskontona och länkade Azure Storage-kontona.
 2. Expandera Azure Storage-kontot.
@@ -128,9 +128,9 @@ Data Lake Analytics-jobb skrivs på U-SQL-språket. Läs mer om U-SQL i [Kom ig�
        Namn automatiskt slutfört och medlemmarna kommer att visas för raduppsättningen, klasser, databaser, scheman och användardefinierade objekt (UDO).
 
        IntelliSense för katalogentiteter (databaser, scheman, tabeller, användardefinierade objekt o.s.v.) är relaterat till ditt beräkningskonto. Du kan kontrollera aktuellt aktivt beräkningskonto, databas och schema i det översta verktygsfältet och aktivera dem i listrutorna.
-   * **Expandera* kolumner**
+   * **Expandera * kolumner**
 
-       Högerklicka på *, så ser du en blå understrykning under*. Håll musmarkören på den blå understrykningen och klicka sedan på nedpilen.
+       Klicka till höger om * så ser du en blå understrykning under *. Håll musmarkören på den blå understrykningen och klicka sedan på nedpilen.
        ![Data Lake Visual Studio-verktygen expanderar *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Klicka på **Expanderar kolumner**, verktyget ersätter * med kolumnnamn.

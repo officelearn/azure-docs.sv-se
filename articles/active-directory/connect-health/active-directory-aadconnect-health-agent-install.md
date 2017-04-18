@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/12/2017
+ms.date: 04/11/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 7c320a043322fefea1f58301492d4c5a0567320c
-ms.openlocfilehash: 9569a850c6fadd86c408f9e9d4ec6d7d519744e8
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 7aa1363c3d4164edb5199a21e75b2b08a3218bf5
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +35,7 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 | Utgående anslutning till Azure-tjänstens slutpunkter | Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om du har blockerat utgående anslutningar med Brandväggar kontrollerar du att följande slutpunkter finns med i listan över tillåtna anslutningar: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Utgående anslutningar baserat på IP-adresser | Information om IP-adressbaserad filtrering för brandväggar finns i [Azure IP-intervall](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
 | SSL-kontroll för utgående trafik filtreras eller inaktiveras | Agentregistreringsstegen eller dataöverföringsåtgärderna kan misslyckas om en SSL-inspektion utförs eller om den utgående trafiken på nätverksnivå avslutas. |
-| Brandväggsportar på servern som agenten körs på. |Följande brandväggsportar måste vara öppna för att agenten ska kunna kommunicera med Azure AD Health-tjänstens slutpunkter.</br></br><li>TCP/UDP-port 443</li><li>TCP/UDP-port 5671</li> |
+| Brandväggsportar på servern som agenten körs på. |Följande brandväggsportar måste vara öppna för att agenten ska kunna kommunicera med Azure AD Health-tjänstens slutpunkter.</br></br><li>TCP-port 443</li><li>TCP-port 5671</li> |
 | Tillåt följande webbplatser om Förbättrad säkerhet i Internet Explorer är aktiverat |Följande webbplatser måste tillåtas om Förbättrad säkerhet i Internet Explorer är aktiverat på servern som agenten ska installeras på.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Federationsservern för din organisation måste vara betrodd av Azure Active Directory. Exempel: https://sts.contoso.com</li> |
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Installera Azure AD Connect Health Agent för AD FS
@@ -167,7 +168,7 @@ Kommandot stöder följande parametrar:
 * AttributeFiltering: $true (standard) – Om Azure AD Connect inte synkroniserar standardattributen och har anpassats att använda en filtrerad attributuppsättning. Annars $false.
 * StagingMode: $false (standard) – Om Azure AD Connect-servern INTE är i mellanlagringsläge och $true om servern är konfigurerad att vara i mellanlagringsläge.
 
-När du uppmanas att autentisera använder du samma globala administratörskonto (till exempel admin@domain.onmicrosoft.com)) som användes för att konfigurera Azure AD Connect.
+När du uppmanas att autentisera använder du samma globala administratörskonto (till exempel admin@domain.onmicrosoft.com) som användes för att konfigurera Azure AD Connect.
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-ds"></a>Installera Azure AD Connect Health Agent för AD FS
 Starta agentinstallationen genom att dubbelklicka på EXE-filen som du laddade ned. Klicka på Installera på den första skärmen.
@@ -301,8 +302,4 @@ Du kan använda flaggan -ShowResults i kommandot om du vill visa detaljerade log
 * [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versionshistorik för Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

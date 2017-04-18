@@ -1,5 +1,8 @@
 Kopieringsaktiviteten i Data Factory kopierar data från källans datalager till mottagarens datalager. Data Factory har stöd för följande datalager. Data kan skrivas från valfri källa till valfri mottagare. Klicka på ett datalager om du vill veta hur du kopierar data till och från det datalagret.
 
+> [!NOTE] 
+> Om du behöver flytta data till/från ett datalager som Kopiera aktivitet inte stöder kan du använda en **anpassad aktivitet** i Data Factory med din egen logik för att kopiera/flytta data. Mer information om att skapa och använda en anpassad aktivitet finns i [Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)](../articles/data-factory/data-factory-use-custom-activities.md).
+
 | Kategori | Datalager | Stöds som en källa | Stöds som en mottagare |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/data-factory-azure-blob-connector.md) |✓ |✓ |

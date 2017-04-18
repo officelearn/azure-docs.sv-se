@@ -10,7 +10,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: development
+ms.custom: quick start manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: Använd SQL Server Management Studio för att ansluta och skicka frågor till data
 
-Använd [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) för att skapa och hantera SQL Server-resurser från användargränssnittet eller i skript. Den här snabbstarten beskriver hur du använder SSMS för att ansluta till en Azure SQL Database och sedan kör uttryck för fråga, infoga, uppdatera och ta bort.
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) är ett hanteringsverktyg som används för att skapa och hantera SQL Server-resurser från användargränssnittet eller i skript. Den här snabbstarten visar hur du använder SSMS för att ansluta till en Azure SQL-databas och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen. 
 
 Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter som utgångspunkt:
 
@@ -43,11 +43,16 @@ Hämta det fullständigt kvalificerade servernamnet för Azure SQL Database-serv
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
 3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![anslutningsinformation](./media/sql-database-connect-query-ssms/connection-information.png) 
+
 
 ## <a name="connect-to-the-server-and-your-new-database"></a>Ansluta till servern och den nya databasen
 
-Använd SQL Server Management Studio för att upprätta en anslutning till Azure SQL Database-servern.
+Använd SQL Server Management Studio för att upprätta en anslutning till Azure SQL Database-servern. 
+
+> [!IMPORTANT]
+> En logisk Azure SQL Database-server avlyssnar port 1433. Om du försöker ansluta till en logisk Azure SQL Database-server inifrån en företagsbrandvägg, måste den porten vara öppen i företagsbrandväggen för att du ska kunna ansluta.
+>
 
 1. Öppna SQL Server Management Studio.
 
@@ -57,12 +62,16 @@ Använd SQL Server Management Studio för att upprätta en anslutning till Azure
    - **Autentisering**: Ange SQL Server-autentisering
    - **Logga in**: Ange serveradministratörskontot
    - **Lösenord**: Ange lösenordet för serveradministratörskontot
- 
-    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
 
-3. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
+   ![Anslut till server](./media/sql-database-connect-query-ssms/connect.png)  
 
-    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 780px;" />
+3. Klicka på **Alternativ**. I avsnittet **Anslut till databas** anger du **mySampleDatabase** för att ansluta till den här databasen som du skapade tidigare.
+
+   ![ansluta till databas på server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+
+4. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
+
+   ![Ansluten till server](./media/sql-database-connect-query-ssms/connected.png)  
 
 4. I Object Explorer expanderar du **Databaser** och sedan **mySampleDatabase** för att visa objekten i exempeldatabasen.
 
@@ -71,7 +80,7 @@ Använd SQL Server Management Studio för att upprätta en anslutning till Azure
 Använd [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-uttrycket för att skicka frågor till data i Azure SQL Database.
 
 1. I Object Explorer högerklickar du på **mySampleDatabase** och klickar sedan på **Ny fråga**. Ett tomt frågefönster öppnas som är anslutet till databasen.
-2. I frågefönstret anger du följande fråga i frågefönstret:
+2. Skriv följande fråga i frågefönstret:
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -88,8 +97,7 @@ Använd [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-
 
 Använd [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-uttrycket för att infoga data i Azure SQL Database.
 
-1. Klicka på **Ny fråga** i verktygsfältet. Ett tomt frågefönster öppnas som är anslutet till databasen.
-2. I frågefönstret anger du följande fråga i frågefönstret:
+1. I frågefönstret ersätter du den föregående frågan med följande fråga:
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -111,7 +119,7 @@ Använd [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-
            ,GETDATE() );
    ```
 
-3. I verktygsfältet klickar du på **Execute** (Kör) för att infoga en ny rad i Product-tabellen.
+2. I verktygsfältet klickar du på **Execute** (Kör) för att infoga en ny rad i Product-tabellen.
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
@@ -119,8 +127,7 @@ Använd [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-
 
 Använd [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-uttrycket för att uppdatera data i Azure SQL Database.
 
-1. Klicka på **Ny fråga** i verktygsfältet. Ett tomt frågefönster öppnas som är anslutet till databasen.
-2. I frågefönstret anger du följande fråga i frågefönstret:
+1. I frågefönstret ersätter du den föregående frågan med följande fråga:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -128,7 +135,7 @@ Använd [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-
    WHERE Name = 'myNewProduct';
    ```
 
-3. I verktygsfältet trycker du på **Execute** (Kör) för att uppdatera angiven rad i Product-tabellen.
+2. I verktygsfältet trycker du på **Execute** (Kör) för att uppdatera angiven rad i Product-tabellen.
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
@@ -136,20 +143,25 @@ Använd [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-
 
 Använd [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-uttrycket för att ta bort data i Azure SQL Database.
 
-1. Klicka på **Ny fråga** i verktygsfältet. Ett tomt frågefönster öppnas som är anslutet till databasen.
-2. I frågefönstret anger du följande fråga i frågefönstret:
+1. I frågefönstret ersätter du den föregående frågan med följande fråga:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-3. I verktygsfältet trycker du på **Kör** för att ta bort angiven rad i Product-tabellen.
+2. I verktygsfältet trycker du på **Kör** för att ta bort angiven rad i Product-tabellen.
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om SSMS finns i [Använda SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-- Information om att skicka frågor till och redigera data med hjälp av använda Visual Studio Code finns [Visual Studio Code](https://code.visualstudio.com/docs)
+- Mer information om att ansluta och ställa frågor med Visual Studio Code finns i [Ansluta och fråga med Visual Studio Code](sql-database-connect-query-vscode.md).
+- Mer information om att ansluta och ställa frågor med .NET finns i [Ansluta och fråga med .NET](sql-database-connect-query-dotnet.md).
+- Mer information om att ansluta och ställa frågor med PHP finns i [Ansluta och fråga med PHP](sql-database-connect-query-php.md).
+- Mer information om att ansluta och ställa frågor med Node.js finns i [Ansluta och fråga med Node.js](sql-database-connect-query-nodejs.md).
+- Mer information om att ansluta och ställa frågor med Java finns i [Ansluta och fråga med Java](sql-database-connect-query-java.md).
+- Mer information om att ansluta och ställa frågor med Python finns i [Ansluta och fråga med Python](sql-database-connect-query-python.md).
+- Mer information om att ansluta och ställa frågor med Ruby finns i [Ansluta och fråga med Ruby](sql-database-connect-query-ruby.md).
 

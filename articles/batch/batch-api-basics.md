@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,7 +46,7 @@ Följande allmänna arbetsflöde är typiskt i praktiskt taget alla program och 
 I följande avsnitt beskrivs dessa och andra resurser i Batch som lägger grunden till ditt distribuerade beräkningsscenario.
 
 > [!NOTE]
-> Du behöver ett [Batch-konto](batch-account-create-portal.md) för att använda Batch-tjänsten. Dessutom använder nästan alla lösningar ett [Azure Storage][azure_storage]-konto för fillagring och filhämtning. Batch stöder för närvarande endast den **allmänna** lagringskontotypen, som beskrivs i steg 5 i [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
+> Du behöver ett [Batch-konto](#account) för att använda Batch-tjänsten. Dessutom använder nästan alla lösningar ett [Azure Storage][azure_storage]-konto för fillagring och filhämtning. Batch stöder för närvarande endast den **allmänna** lagringskontotypen, som beskrivs i steg 5 i [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -69,7 +69,16 @@ Några av följande resurser – konton, beräkningsnoder, pooler, jobb och akti
 * [Programpaket](#application-packages)
 
 ## <a name="account"></a>Konto
-Ett Batch-konto är en unikt identifierad entitet i Batch-tjänsten. All bearbetning är associerad med ett Batch-konto. När du utför åtgärder med Batch-tjänsten behöver du både kontonamnet och en av dess kontonycklar. Du kan [skapa ett Azure Batch-konto med hjälp av Azure-portalen](batch-account-create-portal.md).
+Ett Batch-konto är en unikt identifierad entitet i Batch-tjänsten. All bearbetning är associerad med ett Batch-konto.
+
+Du kan skapa ett Azure Batch-konto med [Azure Portal](batch-account-create-portal.md) eller programmässigt som med [Batch Management .NET-biblioteket](batch-management-dotnet.md). Du kan associera ett Azure Storage-konto när du skapar kontot.
+
+Batch har stöd för två kontokonfigurationer, baserat på egenskapen *poolallokeringsläge*. De två konfigurationerna ger dig olika alternativ för att autentisera med Batch-tjänsten och för etablering och hantering av Batch-[pooler](#pool) (mer information finns längre ned i den här artikeln). 
+
+
+* **Batch-tjänsten** (standard): Du kan få åtkomst till Batch-API:erna med antingen delad nyckelautentisering eller [Azure Active Directory-autentisering](batch-aad-auth.md). Batch-beräkningsresurser allokeras i bakgrunden i ett Azure-hanterat konto.   
+* **Användarprenumeration**: Du kan endast få åtkomst till Batch API:erna med [Azure Active Directory-autentisering](batch-aad-auth.md). Batch-beräkningsresurser allokeras direkt i din Azure-prenumeration. Det här läget ger dig mer flexibilitet för att konfigurera datornoderna och integrera med andra tjänster. Det här läget kräver att du ställer in ytterligare ett Azure-nyckelvalv för ditt Batch-konto.
+ 
 
 ## <a name="compute-node"></a>Beräkningsnod
 En beräkningsnod är en virtuell Azure-dator (VM) som är dedikerad för bearbetning av en del av ditt programs arbetsbelastning. Storleken på en nod avgör antalet CPU-kärnor, minneskapaciteten och storleken på det lokala filsystemet som allokeras till noden. Du kan skapa pooler för Windows- eller Linux-noder med antingen Azure Cloud Services eller Marketplace-avbildningar för Virtual Machines. Mer information om dessa alternativ finns i följande [poolavsnitt](#pool).
@@ -89,13 +98,16 @@ Azure Batch-pooler baseras på den grundläggande Azure-beräkningsplattformen. 
 
 Varje nod som läggs till i en pool tilldelas ett unikt namn och en IP-adress. När en nod tas bort från en pool försvinner alla ändringar som gjorts i operativsystemet eller filer, och dess namn och IP-adress frisläpps för framtida användning. När en nod lämnar poolen är dess livslängd över.
 
-När du skapar en pool kan du ange följande attribut:
+När du skapar en pool kan du ange nedanstående attribut. Vissa inställningar varierar beroende på poolallokeringsläget för Batch-[kontot](#account).
 
 * Beräkningsnodens **operativsystem** och **version**
 
-    Du har två alternativ när du väljer operativsystem för noderna i en pool: **konfiguration av virtuell dator (VM-konfiguration)** och **Cloud Services-konfiguration**.
+    > [!NOTE]
+    > I poolallokeringsläget för Batch-tjänster har du två alternativ när du väljer ett operativsystem för noderna i din pool: **Konfiguration av virtuell dator** och **Cloud Services-konfiguration**. Du kan endast använda den virtuella datorkonfigurationen i användarprenumerationsläget.
+    >
 
-    **Konfiguration av virtuell dator** ger tillgång till både Linux- och Windows-avbildningar för beräkningsnoder från [Azure Virtual Machines Marketplace][vm_marketplace].
+    **Konfiguration av virtuell dator** ger tillgång till både Linux- och Windows-avbildningar för beräkningsnoder från [Azure Virtual Machines Marketplace][vm_marketplace] och i användarprenumerationens allokeringsläge alternativet att använda anpassade VM-avbildningar.
+
     När du skapar en pool som innehåller noder med en konfiguration av en virtuell dator måste du inte bara ange storleken på noderna, utan även **referensen till avbildningen av den virtuella datorn** och Batch-**nodagentens SKU** som ska installeras på noderna. Mer information om hur du anger dessa poolegenskaper finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md).
 
     En **Cloud Services-konfiguration** tillhandahåller *endast*Windows-beräkningsnoder. Tillgängliga operativsystem för pooler med Cloud Services-konfiguration finns i [Kompatibilitetstabell för versioner av Azure-gästoperativsystem och SDK:er](../cloud-services/cloud-services-guestos-update-matrix.md). När du skapar en pool som innehåller Cloud Services-noder behöver du bara ange nodstorleken och dess *operativsystemsfamilj*. När du skapar pooler med Windows-beräkningsnoder använder du vanligtvis Cloud Services.
@@ -313,17 +325,27 @@ En kombinerad metod, som normalt används för att hantera en varierande men kon
 
 ## <a name="pool-network-configuration"></a>Nätverkskonfiguration för pooler
 
-När du skapar en pool med beräkningsnoder i Azure Batch kan du ange ID:t för ett [virtuellt nätverk (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) i Azure som poolens beräkningsnoder ska skapas i.
-
-* Endast **Cloud Services-konfigurationspooler** kan tilldelas ett virtuellt nätverk.
+När du skapar en pool med beräkningsnoder i Azure Batch, kan du använda API:er för att ange ID för ett [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) i Azure som poolens beräkningsnoder ska skapas i.
 
 * Det virtuella nätverket måste:
 
    * Finnas i samma Azure-**region** som Azure Batch-kontot.
    * Finnas i samma **prenumeration** som Azure Batch-kontot.
-   * Vara ett **klassiskt** virtuellt nätverk. Virtuella nätverk som skapas med Azure Resource Manager-distributionsmodellen stöds inte.
 
 * Det virtuella nätverket måste ha tillräckligt med lediga **IP-adresser** för poolens `targetDedicated`-egenskap. Om undernätet inte har tillräckligt med lediga IP-adresser blir Batch-tjänstens allokering av beräkningsnoder i poolen inte fullständig och ett storleksändringsfel returneras.
+
+* Det angivna undernätet måste tillåta kommunikation från Batch-tjänsten för att kunna schemalägga aktiviteter på beräkningsnoderna. Om kommunikation till beräkningsnoderna nekas av en **nätverkssäkerhetsgrupp (NSG)** som är associerad med din VNet, ändrar Batch-tjänsten beräkningsnodernas status till **Oanvändbar**. 
+
+* Om angivet VNet har några associerade NSG:er, måste porten för inkommande kommunikation aktiveras. Portarna 29876, 29877 och 22 måste aktiveras för en Linux-pool. Port 3389 måste aktiveras för en Windows-pool.
+
+Ytterligare inställningar för din VNet varierar beroende på Batch-kontots poolallokeringsläge.
+
+### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>VNet för pooler etablerade i Batch-tjänsten
+
+I allokeringsläget för Batch-tjänster kan bara **Cloud Services-konfigurationspooler** tilldelas en VNet. Dessutom måste angiven VNet vara en **klassisk** VNet. Virtuella nätverk som skapas med Azure Resource Manager-distributionsmodellen stöds inte.
+   
+
+
 * *MicrosoftAzureBatch*-tjänstobjektet måste ha RBAC-rollen (rollbaserad åtkomstkontroll) [Klassisk virtuell datordeltagare](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) för det angivna virtuella nätverket. På Azure Portal:
 
   * Välj det **virtuella nätverket** och sedan **Åtkomstkontroll (IAM)** > **Roller** > **Klassisk virtuell datordeltagare** > **Lägg till**
@@ -331,7 +353,13 @@ När du skapar en pool med beräkningsnoder i Azure Batch kan du ange ID:t för 
   * Markera kryssrutan **MicrosoftAzureBatch**
   * Välj knappen **Välj**
 
-* Om kommunikationen till beräkningsnoderna nekas av en **nätverkssäkerhetsgrupp (NSG)** som är associerad med det virtuella nätverket ändrar Batch-tjänsten beräkningsnodernas tillstånd till **Oanvändbar**. Undernätet måste tillåta kommunikation från Azure Batch-tjänsten för att kunna schemalägga aktiviteter på beräkningsnoderna.
+
+
+### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>VNet för pooler som tillhandahålls i en användarprenumeration
+
+I allokeringsläget för användarprenumeration stöds endast pooler för **konfiguration av virtuell dator** och bara dessa kan tilldelas en VNet. Dessutom måste angiven VNet vara en **Resource Manager**-baserad VNet. VNet som skapas med den klassiska distributionsmodellen stöds inte.
+
+
 
 ## <a name="scaling-compute-resources"></a>Skala beräkningsresurser
 Med [automatisk skalning](batch-automatic-scaling.md) kan Batch-tjänsten dynamiskt justera antalet beräkningsnoder i en pool baserat på den aktuella arbetsbelastningen och resursanvändningen i beräkningsscenariot. På så sätt kan du sänka den totala kostnaden för programkörning genom att endast använda de resurser som du behöver och frisläppa de som du inte behöver.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuera Active Directory Federation Services i Azure
@@ -119,8 +119,8 @@ Skapa följande tillgänglighetsuppsättningar
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4----deploy-virtual-machines"></a>4.    Distribuera virtuella datorer
-Nästa steg är att distribuera virtuella datorer som ska vara värdar för de olika rollerna i infrastrukturen. Minst två datorer rekommenderas i varje tillgänglighetsuppsättning. Skapa sex virtuella datorer för den grundläggande distributionen.
+### <a name="4-deploy-virtual-machines"></a>4. Distribuera virtuella datorer
+Nästa steg är att distribuera virtuella datorer som ska vara värdar för de olika rollerna i infrastrukturen. Minst två datorer rekommenderas i varje tillgänglighetsuppsättning. Skapa fyra virtuella datorer för den grundläggande distributionen.
 
 | Dator | Roll | Undernät | Tillgänglighetsuppsättning | Lagringskonto | IP-adress |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -146,8 +146,8 @@ Fönstret för din virtuella dator bör se ut så här när distributionen är k
 * Flytta upp de två servrarna som replikeringsdomänkontrollanter med DNS
 * Konfigurera AD FS-servrarna genom att installera AD FS-rollen med hjälp av Serverhanteraren.
 
-### <a name="6----deploying-internal-load-balancer-ilb"></a>6.    Distribuera en intern belastningsutjämnare (ILB)
-**6.1.    Skapa den interna belastningsutjämnaren**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Distribuera en intern belastningsutjämnare (ILB)
+**6.1. Skapa den interna belastningsutjämnaren**
 
 Om du vill distribuera en intern belastningsutjämnare väljer du Belastningsutjämning på Azure-portalen och klickar på Lägg till (+).
 
@@ -172,7 +172,7 @@ När du klickar på Skapa och när den interna belastningsutjämnaren har distri
 
 Nästa steg är att konfigurera serverdelspoolen och serverdelsavsökningen.
 
-**6.2.    Konfigurera serverdelspoolen för den interna belastningsutjämnaren**
+**6.2. Konfigurera serverdelspoolen för den interna belastningsutjämnaren**
 
 Välj den nya interna belastningsutjämnaren på panelen Belastningsutjämning. Nu öppnas inställningspanelen. 
 
@@ -183,7 +183,7 @@ Välj den nya interna belastningsutjämnaren på panelen Belastningsutjämning. 
 
 ![Konfigurera serverdelspoolen för den interna belastningsutjämnaren](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    Konfigurera avsökning**
+**6.3. Konfigurera avsökning**
 
 Välj Avsökningar på panelen för ILB-inställningar.
 
@@ -192,7 +192,7 @@ Välj Avsökningar på panelen för ILB-inställningar.
 
 ![Konfigurera ILB-avsökning](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    Skapa regler för belastningsutjämning**
+**6.4. Skapa regler för belastningsutjämning**
 
 För att effektivt belastningsutjämna trafiken bör belastningsutjämnaren konfigureras med belastningsutjämningsregler. Så här skapar du en belastningsutjämningsregel: 
 
@@ -202,23 +202,23 @@ För att effektivt belastningsutjämna trafiken bör belastningsutjämnaren konf
 
 ![Konfigurera ILB-belastningsutjämningsregler](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    Uppdatera DNS med ILB**
+**6.5. Uppdatera DNS med ILB**
 
 Gå till din DNS-server och skapa en CNAME-post för den interna belastningsutjämnaren. CNAME ska anges för federationstjänsten och IP-adressen ska peka på den interna belastningsutjämnarens IP-adress. Om den interna belastningsutjämnarens DIP till exempel är 10.3.0.8 och den installerade federationstjänsten är fs.contoso.com skapar du en CNAME-post för fs.contoso.com som pekar på 10.3.0.8.
 På så sätt säkerställer du att alla kommunikation relaterad till fs.contoso.com kommer till den interna belastningsutjämnaren och dirigeras korrekt.
 
-### <a name="7----configuring-the-web-application-proxy-server"></a>7.    Konfigurera WAP-servern (webbprogramproxyserver)
-**7.1.    Konfigurera WAP-servrarna så att de kan nå AD FS-servrar**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. Konfigurera WAP-servern (webbprogramproxyserver)
+**7.1. Konfigurera WAP-servrarna så att de kan nå AD FS-servrar**
 
 Säkerställ att WAP-servrarna kan nå AD FS-servarna bakom den interna belastningsutjämnaren genom att skapa en post i %systemroot%\system32\drivers\etc\hosts för den interna belastningsutjämnaren. Observera att det unika namnet (DN) ska vara federationstjänstnamnet, till exempel fs.contoso.com. Och IP-posten ska vara den för den interna belastningsutjämnarens IP-adress (10.3.0.8 som i exemplet).
 
-**7.2.    Installera WAP-rollen**
+**7.2. Installera WAP-rollen**
 
 När du har kontrollerat att WAP-servrarna kan nå AD FS-servarna bakom den interna belastningsutjämnaren kan du gå vidare och installera WAP-servrarna. WAP-servarna ska inte anslutas till domänen. Installera WAP-rollerna på två WAP-servrar genom att välja fjärråtkomstrollen. Serverhanteraren vägleder dig genom WAP-installationen.
 Mer information om hur du distribuerar WAP finns i [Installera och konfigurera WAP (webbprogramproxyserver)](https://technet.microsoft.com/library/dn383662.aspx).
 
-### <a name="8----deploying-the-internet-facing-public-load-balancer"></a>8.    Distribuera den Internetuppkopplade (offentliga) belastningsutjämnaren
-**8.1.    Skapa en Internetuppkopplad (offentlig) belastningsutjämnare**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Distribuera den Internetuppkopplade (offentliga) belastningsutjämnaren
+**8.1.  Skapa en Internetuppkopplad (offentlig) belastningsutjämnare**
 
 Välj Belastningsutjämning på Azure-portalen och klicka sedan på Lägg till. Ange följande information på panelen Skapa belastningsutjämnare:
 
@@ -232,7 +232,7 @@ Efter distributionen visas belastningsutjämnaren i listan över belastningsutj�
 
 ![Lista med belastningsutjämnare](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    Ange en DNS-etikett för den offentliga IP-adressen**
+**8.2. Ange en DNS-etikett för den offentliga IP-adressen**
 
 Öppna konfigurationspanelen genom att klicka på den nya posten för belastningsutjämnaren på panelen Belastningsutjämning. Konfigurera DNS-etiketten för den offentliga IP-adressen genom att följa stegen nedan:
 
@@ -244,26 +244,26 @@ Efter distributionen visas belastningsutjämnaren i listan över belastningsutj�
 
 ![Konfigurera en Internetuppkopplad belastningsutjämnare (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    Konfigurera serverdelspoolen för den Internetuppkopplade (offentliga) belastningsutjämnaren** 
+**8.3. Konfigurera serverdelspoolen för den Internetuppkopplade (offentliga) belastningsutjämnaren** 
 
 Följ samma steg som när du skapade den interna belastningsutjämnaren för att konfigurera serverdelspoolen för den Internetuppkopplade (offentliga) belastningsutjämnaren som tillgänglighetsuppsättningen för WAP-servrarna. Till exempel contosowapset.
 
 ![Konfigurera serverdelspoolen för den Internetuppkopplade belastningsutjämnaren](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    Konfigurera avsökning**
+**8.4. Konfigurera avsökning**
 
 Följ samma steg som när du konfigurerade den interna belastningsutjämnaren för att konfigurera avsökningen för serverdelspoolen för WAP-servrar.
 
 ![Konfigurera avsökningen för den Internetuppkopplade belastningsutjämnaren](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    Skapa belastningsutjämningsregler**
+**8.5. Skapa belastningsutjämningsregler**
 
 Följ samma steg som när du konfigurerade den interna belastningsutjämnaren för att konfigurera belastningsutjämningsregeln för TCP 443.
 
 ![Konfigurera belastningsutjämningsregler för den Internetuppkopplade belastningsutjämnaren](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9----securing-the-network"></a>9.    Skydda nätverket
-**9.1.    Skydda det interna undernätet**
+### <a name="9-securing-the-network"></a>9. Skydda nätverket
+**9.1. Skydda det interna undernätet**
 
 Du behöver följande regler för att effektivt skydda det interna undernätet (i den ordning som anges nedan)
 
@@ -276,7 +276,7 @@ Du behöver följande regler för att effektivt skydda det interna undernätet (
 
 [kommentar]: <> (![INT-åtkomstregler (inkommande)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [kommentar]: <> (![INT-åtkomstregler (utgående)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.    Skydda DMZ-undernätet**
+**9.2. Skydda DMZ-undernätet**
 
 | Regel | Beskrivning | Flöde |
 |:--- |:--- |:---:|
@@ -292,7 +292,7 @@ Du behöver följande regler för att effektivt skydda det interna undernätet (
 > 
 > 
 
-### <a name="10----test-the-ad-fs-sign-in"></a>10.    Testa AD FS-inloggningen
+### <a name="10-test-the-ad-fs-sign-in"></a>10. Testa AD FS-inloggningen
 Det enklaste sättet är att testa AD FS med hjälp av sidan IdpInitiatedSignon.aspx. För att kunna göra det måste IdpInitiatedSignOn vara aktiverat i AD FS-egenskaperna. Kontrollera din AD FS-konfiguration genom att följa stegen nedan.
 
 1. Kör cmdleten nedan på AD FS-servern med hjälp av PowerShell för att aktivera egenskapen.

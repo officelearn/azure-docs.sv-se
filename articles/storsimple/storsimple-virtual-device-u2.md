@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 04/07/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ Den virtuella enheten StorSimple finns i två modeller, en Standardmodell, 8010 
 | **Maximal kapacitet** |30 TB |64 TB |
 | **Virtuell Azure-dator** |Standard_A3 (4 kärnor, 7 GB minne) |Standard_DS3 (4 kärnor, 14 GB minne) |
 | **Versionskompatibilitet** |Versioner som körs före Uppdatering 2 eller senare |Versioner som körs med Uppdatering 2 eller senare |
-| **Regional tillgänglighet** |Alla Azure-regioner |Alla Azure-regioner som har stöd för Premium Storage<br></br> Premium Storage-regioner är regioner som motsvarar raden för *disklagring* i listan över [Azure-tjänster efter region](https://azure.microsoft.com/en-us/regions/services). |
+| **Regional tillgänglighet** |Alla Azure-regioner |Alla Azure-regioner som har stöd för Premium Storage och DS3 Azure VM<br></br> Använd [listan](https://azure.microsoft.com/en-us/regions/services) för att se om både *virtuella datorer > DS-serien* och *lagring > disklagring* är tillgängligt i din region. |
 | **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../storage/storage-premium-storage.md) |
 | **Riktlinjer för arbetsbelastning** |Hämtning av filer från säkerhetskopior på objektnivå |Scenarier för utveckling och test av molnet, låg latens, arbetsbelastningar med hög prestanda <br></br>Sekundär enhet för katastrofåterställning |
 

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
-ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 618d31e991d9405ece6533727d700e316ae85bec
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -268,6 +268,7 @@ För ett GRS- eller RA-GRS-lagringskonto kan kostnaden för dataöverföring med
 
 ### <a name="migrating-existing-data"></a>Migrera befintliga data
 Ett Blob Storage-konto är specialanpassat för lagring av endast block- och tilläggsblobar. Allmänna lagringskonton, där du kan lagra tabeller, köer, filer och diskar, och även blobbar, kan inte omvandlas till Blob Storage-konton. Om du vill använda lagringsnivåer måste du skapa Blob Storage-konton och migrera dina befintliga data till de nya kontona.
+
 Med följande metoder kan du migrera befintliga data till Blob Storage-konton från lokala lagringsenheter, från externa molnlagringsleverantörer eller från befintliga allmänna lagringskonton i Azure:
 
 #### <a name="azcopy"></a>AzCopy

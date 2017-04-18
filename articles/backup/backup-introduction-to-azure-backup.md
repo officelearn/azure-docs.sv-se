@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ I följande tabell visas de Azure Backup-komponenter som har stöd för Linux.
 | Komponent | Linux-stöd (Azure-godkänt) |
 | --- | --- |
 | Azure Backup-agent (MARS) |Nej (endast Windows-baserad agent) |
-| System Center DPM |Filkonsekvent säkerhetskopiering eller endast Hyper-V<br/> (inte tillgängligt för virtuella Azure-datorer) |
-| Azure Backup Server |Filkonsekvent säkerhetskopiering eller endast Hyper-V<br/> (inte tillgängligt för virtuella Azure-datorer) |
-| Säkerhetskopiering av virtuella IaaS-datorer i Azure |Ja (programkonsekvent säkerhetskopiering med [ramverk för förskript och efterskript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
+| System Center DPM |Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/> (inte tillgängligt för virtuella Azure-datorer)<br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare |
+| Azure Backup Server |Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/> (inte tillgängligt för virtuella Azure-datorer)<br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare |
+| Säkerhetskopiering av virtuella IaaS-datorer i Azure |Programkonsekvent säkerhetskopiering med [ramverk för förskript och efterskript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)<br/> [Detaljerad filåterställning](backup-azure-restore-files-from-vm.md)<br/> [Återställ alla diskar på virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [Återställning av virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Använd virtuella Premium Storage-datorer med Azure Backup
 Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium-lagring finns i artikeln [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../storage/storage-premium-storage.md).

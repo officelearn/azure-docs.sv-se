@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: xerners
 translationtype: Human Translation
 ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
 ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -760,9 +761,4 @@ Du har implementerat en REST API med Restify och OAuth! Du har nu tillräcklig k
 Du kan nu gå vidare  till mer avancerade ämnen, till exempel:
 
 [Ansluta till ett webb-API genom att använda iOS med B2C](active-directory-b2c-devquickstarts-ios.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -13,16 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 1d0addd4f04fb597e7962c21ccbcb61e165a6c1e
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4605ac9fe40f369d562dfcbf2abe7403f307d2a9
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Skapa ett VNet med en VPN-anslutning för plats-till-plats med hjälp av PowerShell
+
+En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en VPN-tunnel med IPsec/IKE (IKEv1 eller IKEv2). Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats en offentlig IP-adress och som inte finns bakom en NAT. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
+
+![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-connection-diagram.png)
+
+Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-gateway från plats till plats till ditt lokala nätverk via Azure Resource Manager-distributionsmodellen. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer. Du kan också skapa den här konfigurationen med hjälp av olika distributionsverktyg eller för den klassiska distributionsmodellen genom att välja ett annat alternativ i listan nedan:
+
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,22 +38,15 @@ ms.lasthandoff: 03/17/2017
 >
 >
 
-Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-gateway från plats till plats till ditt lokala nätverk via Azure Resource Manager-distributionsmodellen. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
-
-![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-connection-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Distributionsmodeller och metoder för plats-till-plats-anslutningar
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-Följande tabell visar de tillgängliga distributionsmodellerna och -metoderna för plats-till-plats-konfigurationer. När det finns en artikel med konfigurationssteg tillgänglig länkar vi till den direkt från tabellen.
-
-[!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
-
 #### <a name="additional-configurations"></a>Ytterligare konfigurationer
 Om du vill koppla ihop VNets, men inte skapar någon anslutning till en lokal plats, kan du läsa mer i [Konfigurera en VNet-till-VNet-anslutning](vpn-gateway-vnet-vnet-rm-ps.md). Information om att lägga till en plats-till-plats-anslutning till en VNet som redan har en anslutning finns i [Lägga till en S2S-anslutning till en VNet med en befintlig anslutning för VPN-gateway](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 
+
 ## <a name="before-you-begin"></a>Innan du börjar
-Kontrollera att du har följande innan du påbörjar konfigurationen.
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
+Kontrollera att du har följande innan du påbörjar konfigurationen:
 
 * En kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md). Om du inte vet hur man konfigurerar VPN-enheten eller inte känner till IP-adressintervallen i din lokala nätverkskonfiguration måste du vända dig till någon som kan ge den informationen till dig.
 * En extern offentlig IP-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
@@ -58,15 +58,21 @@ Se till att växla till PowerShell-läget för att kunna använda Resource Manag
 
 Öppna PowerShell-konsolen och anslut till ditt konto. Använd följande exempel för att ansluta:
 
-    Login-AzureRmAccount
+```powershell
+Login-AzureRmAccount
+```
 
 Kontrollera prenumerationerna för kontot.
 
-    Get-AzureRmSubscription
+```powershell
+Get-AzureRmSubscription
+```
 
 Ange den prenumeration som du vill använda.
 
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+```powershell
+Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+```
 
 ## <a name="VNet"></a>2. Skapa ett virtuellt nätverk och ett gateway-undernät.
 I exemplen används ett gateway-undernät på /28. Även om det är möjligt att skapa ett gateway-subnät som är så litet som /29 så rekommenderar vi att du skapar ett större subnät som inkluderar fler adresser genom att välja minst /28 eller /27. Det tillåter tillräckligt med adresser för att rymma möjliga övriga konfigurationer som du kan behöva i framtiden.
@@ -76,11 +82,13 @@ Om du redan har ett virtuellt nätverk med ett gateway-undernät som är /29 ell
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>Så här skapar du ett virtuellt nätverk och ett gateway-undernät
-Använd följande exempel för att skapa ett virtuellt nätverk och ett gateway-undernät. Byt ut värdena mot dina egna.
+Använd följande exempel för att skapa ett virtuellt nätverk och ett gateway-undernät:
 
 Skapa först en resursgrupp:
 
-    New-AzureRmResourceGroup -Name testrg -Location 'West US'
+```powershell
+New-AzureRmResourceGroup -Name testrg -Location 'West US'
+```
 
 Skapa därefter det virtuella nätverket. Kontrollera att de adressutrymmen du anger inte överlappar några adressutrymmen som du har i det lokala nätverket.
 
@@ -88,13 +96,17 @@ Följande exempel skapar ett virtuellt nätverk med namnet *testvnet* och två u
 
 Ange variablerna.
 
-    $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
-    $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
+```powershell
+$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
+$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
+```
 
 Skapa VNet.
 
-    New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg `
-    -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
+```powershell
+New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg `
+-Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
+```
 
 ### <a name="gatewaysubnet"></a>Så här lägger du till ett gateway-undernät i ett virtuellt nätverk som du redan har skapat
 Det här steget krävs bara om du behöver lägga till ett gateway-undernät i ett VNet som du skapat tidigare.
@@ -103,15 +115,21 @@ Du kan skapa gateway-undernätet med hjälp av följande exempel. Var noga med a
 
 Ange variablerna.
 
-    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+```powershell
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+```
 
-Skapa gateway-undernätet.
+Skapa gateway-undernätet.\
 
-    Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+```powershell
+Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+```
 
 Ange konfigurationen.
 
-    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+```powershell
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+```
 
 ## 3. <a name="localnet"></a>Lägg till din lokala nätverksgateway
 I ett virtuellt nätverk refererar den lokala gatewayen vanligtvis till den lokala platsen. Du ger platsen ett namn som Azure kan referera till och även ange adressutrymmets prefix för den lokala nätverksgatewayen.
@@ -125,13 +143,17 @@ Observera följande när du använder PowerShell-exempel:
 
 Så här lägger du till en lokal nätverksgateway med ett enda adressprefix:
 
-    New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
-    -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+```powershell
+New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+-Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+```
 
 Så här lägger du till en lokal nätverksgateway med flera adressprefix:
 
-    New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
-    -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+```powershell
+New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+-Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+```
 
 ### <a name="to-modify-ip-address-prefixes-for-your-local-network-gateway"></a>Så här ändrar du IP-adressprefixen för din lokala nätverksgateway
 Ibland ändras prefixen för din lokala nätverksgateway. Vilka steg du utför för att ändra IP-adressprefixen beror på om du har skapat en VPN Gateway-anslutning. Se artikelavsnittet [Ändra IP-adressprefix för en lokal nätverksgateway](#modify).
@@ -143,14 +165,18 @@ Azure VPN-gatewayen för Resource Manager-distributionsmodellen stöder för nä
 
 Använd följande PowerShell-exempel:
 
-    $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
+```powershell
+$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
+```
 
 ## <a name="GatewayIPConfig"></a>5. Skapa gatewayens konfiguration av IP-adressering
-Gateway-konfigurationen definierar undernätet och den offentliga IP-adress som ska användas. Använd följande exempel för att skapa din gateway-konfiguration.
+Gateway-konfigurationen definierar undernätet och den offentliga IP-adress som ska användas. Använd följande exempel för att skapa din gateway-konfiguration:
 
-    $vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
-    $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-    $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
+```powershell
+$vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
+```
 
 ## <a name="CreateGateway"></a>6. Skapa den virtuella nätverksgatewayen
 I det här steget skapar du den virtuella nätverksgatewayen. Det kan ta tid att skapa en gateway. Ofta 45 minuter eller mer.
@@ -159,32 +185,40 @@ Ange följande värden:
 
 * *-GatewayType* för en plats-till-plats-konfiguration är *Vpn*. Gateway-typen gäller alltid den konfiguration som du implementerar. Andra gateway-konfigurationer kan kräva -GatewayType ExpressRoute.
 * *-VpnType* kan vara *RouteBased* (kallas en dynamisk gateway i viss dokumentation) eller *PolicyBased* (kallas en statisk gateway i viss dokumentation). Mer information om VPN-gatewaytyper finns i [Om VPN-gateway](vpn-gateway-about-vpngateways.md).
-* *-GatewaySKU* kan vara *Basic*, *Standard* eller *HighPerformance*.     
+* *-GatewaySKU* kan vara *Basic*, *Standard* eller *HighPerformance*.
 
-        New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
-        -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
-        -VpnType RouteBased -GatewaySku Standard
+```powershell
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+-VpnType RouteBased -GatewaySku Standard
+```
 
 ## <a name="ConfigureVPNDevice"></a>7. Konfigurera din VPN-enhet
 I det här läget behöver du den offentliga IP-adressen för den virtuella nätverksgatewayen för att kunna konfigurera din lokala VPN-enhet. Be din enhetstillverkare om specifik konfigurationsinformation. Se [VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information.
 
 Använd följande exempel för att hitta den offentliga IP-adressen till din virtuella nätverksgateway:
 
-    Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
+```powershell
+Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
+```
 
 ## <a name="CreateConnection"></a>8. Skapa VPN-anslutningen
 Därefter skapar du VPN-anslutningen från plats till plats mellan din virtuella nätverksgateway och din VPN-enhet. Glöm inte att byta ut värdena mot dina egna. Den delade nyckeln måste överensstämma med värdet som du använde vid din konfiguration av VPN-enheten. Observera att `-ConnectionType` för plats-till-plats är *IPsec*.
 
 Ange variablerna.
 
-    $gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-    $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+```powershell
+$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+```
 
 Skapa anslutningen.
 
-    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
-    -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-    -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+```powershell
+New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+-ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+```
 
 Efter en kort stund har anslutningen upprättats.
 

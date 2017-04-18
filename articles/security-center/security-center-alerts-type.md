@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,11 +148,63 @@ Det här är ett exempel på den här typen av varning:
 ![Varning om misstänkt process](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### <a name="multiple-domain-accounts-queried"></a>Flera domänkonton efterfrågas
-Security Center kan identifiera flera försök att fråga efter domänkonton, vilket vanligtvis utförs av angripare under spaning i nätverket. Angripare kan använda den här metoden för att fråga domänen och identifiera användarna, identifiera domänadministratörskontona, identifiera datorerna som är domänkontrollanter och även potentiella domänförtroenderelationer med andra domäner.
+Security Center kan identifiera flera försök att fråga Active Directory-domänkonton, vilket vanligtvis utförs av angripare under spaning i nätverket. Angripare kan använda den här metoden för att fråga domänen och identifiera användarna, identifiera domänadministratörskontona, identifiera datorerna som är domänkontrollanter och även potentiella domänförtroenderelationer med andra domäner.
 
 Det här är ett exempel på den här typen av varning:
 
 ![Varning om flera domänkonton](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>Medlemmarna i gruppen lokala administratörer har räknats upp
+
+Security Center utlöser en avisering när säkerhetshändelsen 4798 utlöses i Windows Server 2016 och Windows 10. Detta händer när grupper med lokala administratörer räknas upp, något som vanligtvis utförs av angripare under spaning i nätverket. Angripare kan dra fördel av den här tekniken för att fråga om identiteten för användare med administratörsbehörighet.
+
+Det här är ett exempel på den här typen av varning:
+
+![Lokal administratör](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Avvikande blandning av versaler och gemener
+
+Security Center utlöser en avisering när den identifierar användning av en blandning av versaler och gemener på kommandoraden. Vissa angripare kan använda den här tekniken för att kringgå skiftlägeskänsliga eller hashbaserade datorregler.
+
+Det här är ett exempel på den här typen av varning:
+
+![Avvikande blandning](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Misstänkt attack av med gyllene Kerberos-biljett
+
+En komprometterad [krbtgt](https://technet.microsoft.com/library/dn745899.aspx)-nyckel kan användas av en angripare för att skapa ”gyllene Kerberos-biljetter” som gör det möjligt för angripare att utge sig för att vara vilken användare de vill. Security Center utlöser en avisering när det identifierar den här typen av aktivitet.
+
+> [!NOTE] 
+> Mer information om gyllene Kerberos-biljetter finns i [Åtgärder mot stöld av autentiseringsuppgifter i Windows 10](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
+
+Det här är ett exempel på den här typen av varning:
+
+![Gyllene biljett](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>Ett misstänkt konto har skapats
+
+Security Center utlöser en avisering när ett konto skapas som liknar ett befintligt konto med integrerade administratörsprivilegier. Den här tekniken kan användas av angripare för att skapa ett falskt konto för att undvika att upptäckas via mänsklig verifiering.
+ 
+Det här är ett exempel på den här typen av varning:
+
+![Misstänkt konto](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>Misstänkt brandväggsregel skapad
+
+Angripare kan försöka kringgå värdsäkerheten genom att skapa anpassade brandväggsregler för att tillåta skadliga program att kommunicera med kommando och kontroll eller starta attacker i nätverket via den komprometterade värden. Security Center utlöser en avisering när den upptäcker att en ny brandväggsregel har skapats från en körbar fil på en misstänkt plats.
+ 
+Det här är ett exempel på den här typen av varning:
+
+![Brandväggsregel](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>Misstänkt kombination av HTA och PowerShell
+
+Security Center utlöser en avisering när den identifierar att en Microsoft HTML-programvärd (HTA) startar PowerShell-kommandon. Det här är en teknik som används av angripare för att starta skadliga PowerShell-skript.
+ 
+Det här är ett exempel på den här typen av varning:
+
+![HTA och PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>Nätverksanalys
 Hotidentifieringen i nätverk av Security Center sker genom automatisk insamling av säkerhetsinformation från din Azure IPFIX-trafik (Internet Protocol Flow Information Export). Tjänsten analyserar den här informationen, och korrelerar ofta information från flera källor för att identifiera hot.

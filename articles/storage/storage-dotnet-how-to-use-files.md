@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -259,6 +259,16 @@ Innan du monterar filresursen från en lokal klient måste du göra följande:
 > Vissa Internetleverantörer kan blockera port 445. Hör efter med leverantören om det behövs.
 > 
 > 
+
+### <a name="unmount-the-file-share"></a>Demontera filresursen
+Du kan dementera filresursen med kommandot `net use` med alternativet `/delete`.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## <a name="develop-with-file-storage"></a>Utveckla med File Storage
 Om du vill skriva kod som anropar File Storage kan du använda lagringsklientbiblioteken för .NET och Java eller REST-API:et för Azure Storage. Exemplet i det här avsnittet visar hur du arbetar med en filresurs med hjälp av [Azure Storage-klientbiblioteket för .NET](https://msdn.microsoft.com/library/mt347887.aspx) från ett enkelt konsolprogram som körs på skrivbordet.
@@ -666,11 +676,13 @@ Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoo
     Du kan gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoot-file-connection-problems.md) för felsökningsinformation från slutpunkt till slutpunkt.               
 
 18. **Hur kan jag aktivera kryptering på serversidan för Azure Files?**
+> [!NOTE]
+> [Kryptering på serversidan](storage-service-encryption.md) för Azure Files är för närvarande tillgängligt som en förhandsversion. Du kan kontakta [SSEDiscussion](mailto:ssediscussions@microsoft.com) om du har frågor om förhandsversionen.
 
-    [Kryptering på serversidan](storage-service-encryption.md) för Azure Files är för närvarande tillgängligt som en förhandsversion. I förhandsversionen kan du bara aktivera den här funktionen för nya Azure Resource Manager-lagringskonton som skapats med hjälp av [Azure Portal](https://portal.azure.com). Inga extra kostnader tillkommer för att aktivera den här funktionen. När du aktiverar Kryptering av lagringstjänst för Azure File Storage krypteras dina data automatiskt åt dig. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
-    Vi planerar att lägga till stöd så att Kryptering av lagringstjänst kan aktiveras via [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md) och [Azure Storage Resource Provider REST-API:et](/rest/api/storagerp/storageaccounts). 
-    Mer information om kryptering i vila i Azure Storage finns i avsnittet om [Kryptering av lagringstjänst](storage-service-encryption.md). Du kan också kontakta ssediscussions@microsoft.com om du har frågor under förhandsgranskningen.
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure File Storage finns på följande länkar.

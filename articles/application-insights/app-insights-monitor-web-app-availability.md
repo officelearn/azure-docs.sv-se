@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
+ms.date: 04/06/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -241,7 +241,10 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
     Vi använder båda termerna synonymt.
 * *Jag vill använda tillgänglighetstester på vår interna server som körs bakom en brandvägg.*
 
-    Konfigurera din brandvägg att tillåta förfrågningar från [IP-adresserna för webbtestagenter](app-insights-ip-addresses.md).
+    Det finns två möjliga lösningar:
+    
+    * Konfigurera din brandvägg att tillåta inkommande förfrågningar från [IP-adresserna för webbtestagenter](app-insights-ip-addresses.md).
+    * Skriv koden för att regelbundet testa din interna server. Kör koden i bakgrunden på en testserver bakom brandväggen. Testprocessen kan skicka resultaten till Application Insights med [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API i core-SDK-paketet. Detta kräver att din testserver har utgående åtkomst till Application Insights slutpunkt för inmatning, men detta utgör en mycket mindre säkerhetsrisk än alternativet att tillåta inkommande förfrågningar. Resultatet visas inte i bladet webtillgänglighetstest, men visas som tillgänglighetsresultat i Analytics, Sök och Metric Explorer.
 * *Det går inte att överföra ett flerstegstest för webbplatser*
 
     Det finns en storleksgräns på 300 kB.
@@ -260,10 +263,6 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 
     Det stöds tyvärr inte.
 
-## <a name="video"></a>Video
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
->
->
 
 ## <a name="next"></a>Nästa steg
 [Sök i diagnostikloggar][diagnostic]

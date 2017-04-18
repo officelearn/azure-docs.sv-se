@@ -12,18 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 04/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
 ## <a name="introduction"></a>Introduktion
-Att utveckla för Microsoft Azure är enkelt tack vare Visual Studio och det kostnadsfria utvecklingsverktyget Azure SDK för .NET. Den här självstudiekursen vägleder dig igenom stegen för att skapa en app som använder flera Azure-resurser som körs i din lokala miljö. Anvisningarna förutsätter att du inte har några tidigare erfarenheter av att använda Azure.
+Att utveckla för Microsoft Azure är enkelt tack vare Visual Studio och det kostnadsfria utvecklingsverktyget Azure SDK för .NET. Den här självstudiekursen vägleder dig igenom stegen för att skapa en app som använder flera Azure-resurser som körs i din lokala miljö.
 
 Du kommer att få lära dig följande:
 
@@ -34,16 +34,16 @@ Du kommer att få lära dig följande:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-I den här självstudiekursen kommer du att skapa och köra flernivåappen i en molntjänst för Azure. Klientdelen är en ASP.NET MVC-webbroll och serverdelen en arbetsroll som använder en Service Bus-kö. Du kan skapa samma flernivåapp med klientdelen som ett webbprojekt som distribueras till en Azure-webbplats i stället för till en molntjänst. Mer information om vad som skiljer sig vid användningen av en klientdel för en Azure-webbplats finns i avsnittet [Nästa steg](#nextsteps). Du kan också prova att gå igenom självstudiekursen [.NET-hybridapp lokalt/i molnet](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+I den här självstudiekursen kommer du att skapa och köra flernivåappen i en molntjänst för Azure. Klientdelen är en ASP.NET MVC-webbroll och serverdelen en arbetsroll som använder en Service Bus-kö. Du kan skapa samma flernivåapp med klientdelen som ett webbprojekt som distribueras till en Azure-webbplats i stället för till en molntjänst. Du kan också prova att gå igenom självstudiekursen [.NET-hybridapp lokalt/i molnet](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 Följande skärmdump visar den färdiga appen.
 
 ![][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Scenarioöversikt: kommunikation mellan roller
-Om du vill skicka in en order för bearbetning måste klientdelens UI-komponent, som kör webbrollen, interagera med den mellannivålogik som kör arbetsrollen. I det här exemplet används en asynkron meddelandetjänst via Service Bus för kommunikation mellan nivåerna.
+Om du vill skicka in en order för bearbetning måste klientdelens UI-komponent, som kör webbrollen, interagera med den mellannivålogik som kör arbetsrollen. I det här exemplet används en meddelandetjänst via Service Bus för kommunikation mellan nivåerna.
 
-Genom att använda en asynkron meddelandetjänst mellan webben och mellannivåerna frikopplas de båda komponenterna. Till skillnad från direkt dataöverföring (d.v.s. TCP eller HTTP), ansluter webbnivån inte direkt till mellannivån. Istället skickar den arbetsenheter, som meddelanden, till Service Bus, som lagrar dem på ett tillförlitligt sätt tills mellannivån är klar att använda och bearbeta dem.
+Genom att använda en meddelandetjänst mellan webben och mellannivåerna frikopplas de båda komponenterna. Till skillnad från direkt dataöverföring (d.v.s. TCP eller HTTP), ansluter webbnivån inte direkt till mellannivån. Istället skickar den arbetsenheter, som meddelanden, till Service Bus, som lagrar dem på ett tillförlitligt sätt tills mellannivån är klar att använda och bearbeta dem.
 
 Service Bus innehåller två entiteter för att stödja den asynkrona meddelandetjänsten: köer och ämnen. När man använder köer förbrukas varje meddelande som skickas till kön av en enda mottagare. Ämnena stödjer det mönster för publicera/prenumerera där varje publicerat meddelande görs tillgängligt för en prenumeration som har registrerats med ämnet. Varje prenumeration underhåller logiskt nog sin egen meddelandekö. Prenumerationer kan också konfigureras med filterregler som begränsar den uppsättning av meddelanden som skickas vidare till prenumerationskön till dem som matchar filtret. I följande exempel används Service Bus-köer.
 
@@ -63,7 +63,7 @@ I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som krävs och ställa in din utvecklingsmiljö.
 
 1. Installera Azure SDK för .NET från [hämtningssidan](https://azure.microsoft.com/downloads/) för SDK.
-2. Klicka på den version av [Visual Studio](http://www.visualstudio.com) du använder i kolumnen **.NET**. Stegen i den här självstudiekursen använder Visual Studio 2015.
+2. Klicka på den version av [Visual Studio](http://www.visualstudio.com) du använder i kolumnen **.NET**. Stegen i den här handledningen använder Visual Studio 2015, men det går lika bra med Visual Studio 2017.
 3. När du uppmanas att köra eller spara installationsprogrammet, klickar du på **Kör**.
 4. I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
 5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt.
@@ -78,7 +78,7 @@ I det här avsnittet ska du skapa klientdelen för din app. Först skapar du de 
 Efter det lägger du till kod som skickar objekt till en Service Bus-kö och visar statusinformation om denna kö.
 
 ### <a name="create-the-project"></a>Skapa projektet
-1. Starta Microsoft Visual Studio med administratörsbehörighet. Du startar Visual Studio med administratörsbehörighet genom att högerklicka på programikonen för **Visual Studio** och sedan klicka på **Kör som administratör**. Azure Compute Emulator, som diskuteras senare i den här artikel, kräver att Visual Studio startas med administratörsbehörighet.
+1. Du startar Visual Studio med administratörsbehörighet genom att högerklicka på programikonen för **Visual Studio** och sedan klicka på **Kör som administratör**. Azure Compute Emulator, som diskuteras senare i den här artikel, kräver att Visual Studio startas med administratörsbehörighet.
    
    I Visual Studio klickar du på **Nytt** i menyn **Arkiv** och sedan på **Projekt**.
 2. Från **Installerade mallar**, under **Visual C#**, klickar du på **Moln** och sedan på **Azure Cloud Service**. Ge projektet följande namn: **MultiTierApp**. Klicka sedan på **OK**.
@@ -98,7 +98,7 @@ Efter det lägger du till kod som skickar objekt till en Service Bus-kö och vis
     ![][16]
 7. Väl tillbaka i dialogrutan **Nytt ASP.NET-projekt** klickar du på **OK** för att skapa projektet.
 8. I projektet **FrontendWebRole** i **Solution Explorer** högerklickar du på **Referenser** och sedan klickar du på **Hantera NuGet-paket**.
-9. Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus`. Klicka på **Installera** och godkänn användningsvillkoren.
+9. Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus`. Välj paketet **WindowsAzure.ServiceBus** genom att klicka på **Installera** och godkänn användarvillkoren.
    
    ![][13]
    
@@ -362,7 +362,7 @@ Du ska nu skapa den arbetsroll som behandlar orderöverföringen. I det här exe
 ## <a name="next-steps"></a>Nästa steg
 Om du vill lära dig mer om Service Bus kan du använda följande resurser:  
 
-* [Azure Service Bus][sbmsdn]  
+* [Dokumentation för Azure Service Bus][sbdocs]  
 * [Tjänstesida för Service Bus][sbacom]  
 * [Använda Service Bus-köer][sbacomqhowto]  
 
@@ -370,7 +370,7 @@ Mer information om flernivåscenarier finns i:
 
 * [.NET-flernivåapp med hjälp av lagringstabeller, köer och blob-objekt][mutitierstorage]  
 
-[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -381,8 +381,8 @@ Mer information om flernivåscenarier finns i:
 [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
 [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
 [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
-[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
+[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app2.png
 
 [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
 [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
@@ -391,7 +391,7 @@ Mer information om flernivåscenarier finns i:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
+[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

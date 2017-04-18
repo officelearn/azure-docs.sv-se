@@ -25,7 +25,7 @@ NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferense
 > 
 > 
 
-Du kan också installera StackExchange.Redis NuGet-paketet genom att klicka på **NuGet Package Manager**, klicka på **Package Manager Console** på **Tools**-menyn och köra följande kommando från `Package Manager Console`-fönstret.
+Du kan också installera StackExchange.Redis NuGet-paketet genom att klicka på **NuGet Package Manager**, klicka på **Package Manager Console** på **Tools**-menyn och köra följande kommando från fönstret **Package Manager-konsol**.
     
 ```
 Install-Package StackExchange.Redis

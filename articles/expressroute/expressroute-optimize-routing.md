@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/06/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f03099391600bc3b918eb3a8c866c16a02052b7a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,7 +67,7 @@ Med ExpressRoute kan du använda ”virtuellt nätverk till virtuellt nätverk�
 ![ExpressRoute fall 3 – Icke-optimal routning mellan virtuella nätverk](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### <a name="solution-assign-a-high-weight-to-local-connection"></a>Lösning: Tilldela en hög vikt till den lokala anslutningen
-Lösningen är enkel. Eftersom du vet var de virtuella nätverken och kretsarna är kan du berätta för oss vilken väg som varje virtuella nätverk ska prioritera. För just det här fallet tilldelar du en högre vikt till den lokala anslutningen än till fjärranslutningen. När ett virtuellt nätverk mottar prefixet för det andra virtuella nätverket och det finns flera anslutningar, prioriterar nätverket anslutningen med den högsta vikten när trafik som är avsett för det prefixet skickas.
+Lösningen är enkel. Eftersom du vet var de virtuella nätverken och kretsarna är kan du berätta för oss vilken väg som varje virtuella nätverk ska prioritera. För just det här fallet tilldelar du en högre vikt till den lokala anslutningen än till fjärranslutningen (du hittar konfigurationsexemplet [här](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection)). När ett virtuellt nätverk mottar prefixet för det andra virtuella nätverket och det finns flera anslutningar, prioriterar nätverket anslutningen med den högsta vikten när trafik som är avsett för det prefixet skickas.
 
 ![ExpressRoute fall 3 – Lösning: Tilldela en hög vikt till den lokala anslutningen](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 
@@ -75,3 +75,4 @@ Lösningen är enkel. Eftersom du vet var de virtuella nätverken och kretsarna 
 > Du kan också påverka routningen från det virtuella nätverket till ditt lokala nätverk om du har flera ExpressRoute-kretsar. Det gör du genom att konfigurera vikten för en anslutning i stället för att använda S PATH-prepending (en teknik som beskrivs i det andra scenariet ovan). För varje prefix tittar vi alltid på anslutningsvikten före AS Path-längden när vi avgör hur trafiken ska skickas.
 >
 >
+

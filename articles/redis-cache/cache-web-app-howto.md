@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 076a85b7b965f163255e919eb61700aef0d1fc18
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -70,7 +70,7 @@ Om du har Visual Studio 2013 kan du [ladda ned den senaste Azure-SDK:n för Visu
 
     Kontrollera att **Ingen autentisering** är angivet i **autentiseringsinställningarna**. Beroende på din version av Visual Studio kan standard anges till något annat. För att ändra detta klickar du på **Ändra autentisering** och väljer **Ingen autentisering**.
 
-    Om du använder Visual Studio 2015 avmarkerar du kryssrutan **Värd i molnet**. Du kommer att [etablera Azure-resurserna](#provision-the-azure-resources) och [publicera programmet till Azure](#publish-the-application-to-azure) i efterföljande steg i självstudien. Ett exempel på att etablera en App Service-webbapp från Visual Studio genom att låta **Värd i molnet** vara markerad finns i [Kom igång med Web Apps i Azure App Service med ASP.NET och Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+    Om du använder Visual Studio 2015 avmarkerar du kryssrutan **Värd i molnet**. Du kommer att [etablera Azure-resurserna](#provision-the-azure-resources) och [publicera programmet till Azure](#publish-the-application-to-azure) i efterföljande steg i självstudien. Ett exempel på att etablera en App Service-webbapp från Visual Studio genom att låta **Värd i molnet** vara markerad finns i [Kom igång med Web Apps i Azure App Service med ASP.NET och Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
    
     ![Välj projektmall][cache-select-template]
 4. Klicka på **OK** för att skapa projektet.
@@ -86,7 +86,7 @@ I det här avsnittet av självstudierna ska du skapa det grundläggande program 
 ### <a name="add-the-entity-framework-nuget-package"></a>Lägga till paketet Entity Framework NuGet
 
 1. Klicka på **NuGet Package Manager**, **Package Manager-konsolen** på menyn **Verktyg**.
-2. Kör följande kommando från fönstret `Package Manager Console`.
+2. Kör följande kommando i **Package Manager-konsol**-fönstret.
     
     ```
     Install-Package EntityFramework

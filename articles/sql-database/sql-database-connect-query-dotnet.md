@@ -1,6 +1,6 @@
 ---
 title: "Ansluta till Azure SQL Database med hjälp av .NET (C#) | Microsoft Docs"
-description: "Använd exempelkoden i den här snabbstarten för att skapa ett modernt program med C# som stöds av en kraftfull relationsdatabas i molnet med Azure SQL Database."
+description: "Anger ett .NET kodexempel som du kan använda för att ansluta till och fråga en Azure SQL-databas"
 services: sql-database
 documentationcenter: 
 author: ajlam
@@ -8,37 +8,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
+ms.date: 04/05/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: c6c0c218b8d0456d37a4514238675fd8e75faf9d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Azure SQL Database: Använd .NET (C#) för att ansluta och skicka frågor till data
 
-Använd [C# och ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) för att ansluta och skicka frågor till en Azure SQL Database. Den här guiden beskriver hur man använder C# för att ansluta till en Azure SQL Database och sedan köra uttryck för fråga, infoga, uppdatera och ta bort.
+Den här snabbstarten visar hur du använder [C# och ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) för att ansluta till en Azure SQL-databas och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen från Microsoft-, Mac OS- och Ubuntu Linux-plattformar.
 
 Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter som utgångspunkt:
 
 - [Skapa DB – Portal](sql-database-get-started-portal.md)
 - [Skapa DB – CLI](sql-database-get-started-cli.md)
 
-## <a name="configure-development-environment"></a>Konfigurera utvecklingsmiljön
+## <a name="install-net"></a>Installera .NET
 
-Följande avsnitt visar hur du konfigurerar en befintlig utvecklingsmiljö (Mac OS, Linux (Ubuntu) och Windows) för Azure SQL Database.
+### <a name="windows-net-framework-and-net-core"></a>**Windows .NET framework och .NET core**
+
+Visual Studio 2017 Community är en komplett, utbyggbar och kostnadsfri IDE som du kan använda för att skapa moderna program för Android, iOS, Windows, samt webb- och databasprogram och molntjänster. Du kan installera fullversionen av .NET framework eller endast .NET core. Kodsnuttarna i snabbstarten fungerar för båda. Om du redan har Visual Studio installerat på datorn kan du hoppa över några steg.
+
+1. Hämta [installationsprogrammet](https://go.microsoft.com/fwlink/?LinkId=691978). 
+2. Kör installationsprogrammet och följ anvisningarna för att slutföra installationen.
 
 ### <a name="mac-os"></a>**Mac OS**
 Öppna terminalen och navigera till den katalog där du vill skapa .NET Core-projektet. Ange följande kommandon för att installera **brew**, **OpenSSL** och **.NET Core**. 
 
-```C#
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install openssl
@@ -52,20 +57,12 @@ Installera .NET Core på macOS. Hämta det [officiella installationsprogrammet](
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Öppna terminalen och navigera till den katalog där du vill skapa .NET Core-projektet. Installera **.NET Core** genom att ange följande kommandon:
 
-```C#
+```bash
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
-
-### <a name="windows"></a>**Windows**
-Installera Visual Studio 2015 Community Edition och .NET Framework. Om du redan har Visual Studio installerat på datorn kan du hoppa över några steg.
-
-Visual Studio 2015 Community är en komplett, utbyggbar och kostnadsfri IDE som du kan använda för att skapa moderna program för Android, iOS, Windows, samt webb- och databasprogram och molntjänster.
-
-1. Hämta [installationsprogrammet](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Kör installationsprogrammet och följ anvisningarna för att slutföra installationen.
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 
@@ -309,5 +306,11 @@ namespace ConsoleApplication1
 ## <a name="next-steps"></a>Nästa steg
 
 - .NET-dokumentation finns [.NET-dokumentation](https://docs.microsoft.com/dotnet/).
-- Information om att skicka frågor till och redigera data med hjälp av Visual Studio Code finns [Visual Studio Code](https://code.visualstudio.com/docs).
+- Om du vill ansluta och fråga med SQL Server Management Studio kan du läsa [Anslut och fråga med SSMS](sql-database-connect-query-ssms.md)
+- Mer information om att ansluta och ställa frågor med Visual Studio finns i [Ansluta och fråga med Visual Studio Code](sql-database-connect-query-vscode.md).
+- Mer information om att ansluta och ställa frågor med PHP finns i [Ansluta och fråga med PHP](sql-database-connect-query-php.md).
+- Mer information om att ansluta och ställa frågor med Node.js finns i [Ansluta och fråga med Node.js](sql-database-connect-query-nodejs.md).
+- Mer information om att ansluta och ställa frågor med Java finns i [Ansluta och fråga med Java](sql-database-connect-query-java.md).
+- Mer information om att ansluta och ställa frågor med Python finns i [Ansluta och fråga med Python](sql-database-connect-query-python.md).
+- Mer information om att ansluta och ställa frågor med Ruby finns i [Ansluta och fråga med Ruby](sql-database-connect-query-ruby.md).
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2017
+ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ab0a0ecba9d9e930cbc0ec5d4b83e252d2e50f7b
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -33,7 +33,7 @@ En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Observera följande när du läser tabellerna:
 
-* Terminologin har ändrats för Azure VPN-gateways. Du kommer troligen stöta på båda termerna. Funktionen har inte ändrats, bara namnen.
+* Terminologin har ändrats för Azure VPN-gateways. Funktionen har inte ändrats, bara namnen.
   * Statisk routning = Principbaserad
   * Dynamisk routning = Routningsbaserad
 * Specifikationerna för en VPN-gateway med hög kapacitet och en routningsbaserad VPN-gateway är samma, om inget annat anges. Till exempel är verifierade VPN-enheter som är kompatibla med routningsbaserade VPN-gatewayer också kompatibla med Azure VPN-gatewayen med hög kapacitet.
@@ -45,7 +45,7 @@ En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats
 ## <a name="devicetable"></a>Verifierade VPN-enheter
 Vi har verifierat en uppsättning VPN-standardenheter tillsammans med våra enhetsleverantörer. Alla enheter i enhetsfamiljerna som finns i följande lista ska fungera med Azures VPN-gatewayer. I [Om VPN-gatewayer](vpn-gateway-about-vpngateways.md) kan du kontrollera vilken typ av gateway som du måste skapa för den lösning som du vill konfigurera.
 
-Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig enhetsfamilj. Kontakta enhetens tillverkare för att se vilka VPN-enheter som stöds.
+Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig enhetsfamilj.  Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Kontakta enhetens tillverkare för att se vilka VPN-enheter som stöds.
 
 |**Leverantör**          |**Enhetsfamilj**     |**Minsta operativsystemversion** |**Principbaserad** |**Routningsbaserad** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -59,7 +59,6 @@ Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig
 | Cisco |ASR |Principbaserad: IOS 15.1<br>Routningsbaserad: IOS 15.2 |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |Principbaserad: IOS 15.0<br>Routningsbaserad*: IOS 15.1 |[Konfigurationsexempel](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Konfigurationsexempel*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 och senare |[Konfigurationsguide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Inte kompatibel |
-| Dell SonicWALL |TZ-serie, NSA-serie<br>SuperMassive-serie<br>NSA-serie i E-klassen |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Konfigurationsguide för SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Konfigurationsguide för SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Konfigurationsguide för SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Konfigurationsguide för SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 |BIG-IP-serien |12.0 |[Konfigurationsguide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Konfigurationsguide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |[Konfigurationsguide](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Konfigurationsguide](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
 | Internet Initiative Japan (IIJ) |SEIL-serien |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Konfigurationsguide](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Inte kompatibel |
@@ -71,6 +70,7 @@ Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig
 | Open Systems AG |Mission Control Security Gateway |Saknas |[Konfigurationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Konfigurationsguide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Kommer snart) |Inte kompatibel |
 | Palo Alto Networks |Alla enheter som kör PAN-OS |PAN-OS<br>Principbaserad: 6.1.5 eller senare<br>Routningsbaserad: 7.1.4 |[Konfigurationsguide](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Konfigurationsguide](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| SonicWall |TZ-serie, NSA-serie<br>SuperMassive-serie<br>NSA-serie i E-klassen |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Konfigurationsguide för SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Konfigurationsguide för SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Konfigurationsguide för SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Konfigurationsguide för SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | WatchGuard |Alla |Fireware XTM<br> Principbaserad: v11.11.x<br>Routningsbaserad: v11.12.x |[Konfigurationsguide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Konfigurationsguide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) ISR 7200 serie routrar stöder endast principbaserade VPN.
@@ -100,11 +100,11 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 | &lt;SP_AzureGatewayIpAddress&gt; |Den här informationen är specifik för ditt virtuella nätverk och finns i hanteringsportalen som **IP-adress för gateway**. |
 | &lt;SP_PresharedKey&gt; |Den här informationen är specifik för ditt virtuella nätverk och finns i hanteringsportalen som Hantera nyckel. |
 
-## <a name="IPSec"></a>IPsec-/IKE-parametrar
+## <a name="ipsec"></a>IPsec-/IKE-parametrar
 > [!NOTE]
-> Även om de värden som anges i följande tabell stöds av Azure VPN Gateway går det för närvarande inte att ange eller välja en specifik kombination av algoritmer eller parametrar från Azure VPN-gatewayen. Du måste ange eventuella begränsningar från den lokala VPN-enheten.
+> Även om de värden som anges i följande tabell stöds av Azure VPN Gateway går det för närvarande inte att ange eller välja en specifik kombination av algoritmer eller parametrar från Azure VPN-gatewayen. Du måste ange eventuella begränsningar från den lokala VPN-enheten. Du måste dessutom foga ihop **MSS** vid **1350**.
 > 
-> Du måste dessutom foga ihop **MSS** vid **1350**.
+>
 
 I tabellerna nedan:
 
@@ -119,15 +119,15 @@ I tabellerna nedan:
 | Diffie-Hellman Group  |Grupp 2 (1 024 bitar) |Grupp 2 (1 024 bitar) |
 | Autentiseringsmetod |I förväg delad nyckel     |I förväg delad nyckel     |
 | Krypterings- och hash-algoritmer |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
-| SA-livstid           |28&800; sekunder     |28&800; sekunder     |
+| SA-livstid           |28 800 sekunder     |28 800 sekunder     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parametrar för IKE fas 2 (snabbläge)
 | **Egenskap**                  |**Principbaserad**| **Routningsbaserad**                              |
 | ---                           | ---           | ---                                         |
 | IKE-version                   |IKEv1          |IKEv2                                        |
 | Krypterings- och hash-algoritmer |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
-| SA-livstid (tid)            |3&600; sekunder  |27&000; sekunder                                |
-| SA-livstid (byte)           |102&400;&000; kB | -                                           |
+| SA-livstid (tid)            |3 600 sekunder  |27 000 sekunder                                |
+| SA-livstid (byte)           |102 400 000 kB | -                                           |
 | PFS (Perfect Forward Secrecy) |Nej             |[RouteBased QM SA-erbjudanden](#RouteBasedOffers) |
 | Utebliven peer-identifiering (DPD)     |Stöds inte  |Stöds                                    |
 
@@ -182,6 +182,8 @@ Följande tabell visar erbjudanden för IPsec SA (IKE-snabbläge). Erbjudandena 
 
 > [!IMPORTANT]
 > Det här är kända kompatibilitetsproblem mellan VPN-enheter från tredje part och Azure VPN-gateways. Azure-teamet arbetar aktivt med leverantörerna för att åtgärda de problem som beskrivs här. Den här sidan uppdateras med den senaste informationen när problemen har åtgärdats. Kom tillbaka regelbundet.
+>
+>
 
 ###<a name="feb-16-2017"></a>16 februari 2017
 
@@ -189,5 +191,5 @@ Följande tabell visar erbjudanden för IPsec SA (IKE-snabbläge). Erbjudandena 
 
 1. Kontrollera Palo Alto Networks-enhetens version av den inbyggda programvaran (firmware). Om din version av PAN-OS är äldre än 7.1.4 uppgraderar du till 7.1.4.
 2. På Palo Alto Networks-enheten ändrar du livslängden för Phase 2 SA (eller Quick Mode SA) till 28 800 sekunder (8 timmar) vid anslutning till Azure VPN-gatewayen.
-3. Om du fortfarande har anslutningsproblem skapar du en supportbegäran på Azure Portal.
+3. Om du fortfarande har anslutningsproblem skapar du en supportbegäran i Azure Portal.
 

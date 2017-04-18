@@ -12,7 +12,7 @@
     ```
 2. Lägg till följande Relay `constants` till `listener.js` för Hybridanslutningens anslutningsinformation. Ersätt platshållare inom hakparentes med rätt värden som erhölls när du skapade Hybridanslutningen.
    
-   1. `const ns` – Relay-namnområde
+   1. `const ns` – Relay-namnområdet (använd FQDN – t.ex. `{namespace}.servicebus.windows.net`)
    2. `const path` – Namnet på Hybridanslutningen
    3. `const keyrule` – Namnet på SAS-nyckeln
    4. `const key` – SAS-nyckelvärdet
@@ -71,9 +71,4 @@
         console.log('error' + err);
     });
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

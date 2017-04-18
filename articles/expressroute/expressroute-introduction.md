@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
-ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 2fc966e7c93e44007f15c3129fbe709beddb21af
+ms.lasthandoff: 04/05/2017
 
 
 ---
-# <a name="expressroute-technical-overview"></a>Teknisk översikt för ExpressRoute
+# <a name="expressroute-overview"></a>Översikt över ExpressRoute
 Med Microsoft Azure ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet via en dedikerad privat anslutning från en anslutningsleverantör. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och CRM Online. 
 
 Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning. ExpressRoute-anslutningar går inte via offentligt Internet. Det innebär att ExpressRoute-anslutningar är tillförlitligare, snabbare, har kortare svarstider och högre säkerhet än vanliga anslutningar över Internet. Mer information om hur du ansluter nätverket till Microsoft med ExpressRoute finns [ExpressRoute-anslutningsmodeller](expressroute-connectivity-models.md).
 
-![](./media/expressroute-introduction/expressroute-connection-overview-diagram.png)
+![](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
@@ -46,7 +46,7 @@ Mer information finns i [Vanliga frågor och svar om ExpressRoute](expressroute-
 Microsoft använder branschens standardprotokoll för dynamisk routning (BGP) för att utbyta routning mellan det lokala nätverket, dina instanser i Azure och Microsofts offentliga adresser.  Vi upprättar flera BGP-sessioner med ditt nätverk för olika trafikprofiler. Mer information finns i artikeln [ExpressRoute-krets och routningsdomäner](expressroute-circuit-peerings.md).
 
 ### <a name="redundancy"></a>Redundans
-Varje ExpressRoute-krets består av två anslutningar till två Microsoft Enterprise-gränsroutrar (MSEE) från anslutningsleverantören/din nätverksgräns. Microsoft kräver en dubbel BGP-anslutning från anslutningsleverantören/din sida – en för varje MSEE. Du kan välja att inte distribuera redundanta enheter/Ethernet-kretsar. Dock använder anslutningsleverantörer redundanta enheter för att dina projekt ska lämnas över till Microsoft på ett redundant sätt. En redundant Layer 3-anslutningskonfiguration är ett krav för att vår [SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltig. 
+Varje ExpressRoute-krets består av två anslutningar till två Microsoft Enterprise-gränsroutrar (MSEE) från anslutningsleverantören/din nätverksgräns. Microsoft kräver en dubbel BGP-anslutning från anslutningsleverantören/din sida – en för varje MSEE. Du kan välja att inte distribuera redundanta enheter/Ethernet-kretsar. Dock använder anslutningsleverantörer redundanta enheter för att dina projekt ska lämnas över till Microsoft på ett redundant sätt. En redundant Layer 3-anslutningskonfiguration är ett krav för att vår [SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltig.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Anslutning till Microsofts molntjänster
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -107,6 +107,6 @@ Du kan välja den faktureringsmodell som passar dig bäst. Välj mellan fakturer
 * Se kraven för [routning](expressroute-routing.md), [NAT](expressroute-nat.md) och [QoS](expressroute-qos.md).
 * Konfigurera ExpressRoute-anslutningen.
   * [Skapa en ExpressRoute-krets](expressroute-howto-circuit-portal-resource-manager.md)
-  * [Konfigurera routning](expressroute-howto-routing-portal-resource-manager.md)
-  * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-portal-resource-manager.md)
+  * [Konfigurera peering för en ExpressRoute-krets](expressroute-howto-routing-portal-resource-manager.md)
+  * [Koppla ett virtuellt nätverk till en ExpressRoute-krets](expressroute-howto-linkvnet-portal-resource-manager.md)
 

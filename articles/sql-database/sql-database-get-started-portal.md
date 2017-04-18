@@ -17,15 +17,15 @@ ms.topic: hero-article
 ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Skapa en Azure SQL-databas på Azure Portal
 
-Den här snabbstarten visar hur du skapar en SQL-databas i Azure.  Azure SQL Database är en databas som erbjuds en tjänst. Tjänsten innebär att du kan köra och skala SQL Server-databaser med hög tillgänglighet i molnet.  Snabbstarten visar hur du kommer igång genom att skapa en ny SQL-databas på Azure Portal.
+Den här snabbstarten visar hur du skapar en SQL-databas i Azure. Azure SQL Database är en ”databas som erbjuds som en tjänst”. Tjänsten innebär att du kan köra och skala SQL Server-databaser med hög tillgänglighet i molnet. Snabbstarten visar hur du kommer igång genom att skapa en SQL-databas med Azure Portal.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -43,21 +43,21 @@ Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure W
 
 2. Välj **Databaser** på bladet **Nytt** och välj **SQL Database** på sidan **Databaser**.
 
-    ![skapa databas-1](./media/sql-database-get-started/create-database-1.png)
+    ![skapa databas-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 3. Fyll i följande information i SQL Database-formuläret (se föregående bild):     
    - Databasnamn: **mySampleDatabase**
    - Resursgrupp: **myResourceGroup**
    - Källa: **Exempel (AdventureWorksLT)**
 
-4. Klicka på **Server** för att skapa och konfigurera en ny server för den nya databasen. Fyll i den **formuläret för ny server**. Ange ett globalt unikt servernamn, ett namn för inloggning för serveradministratör och ett lösenord. 
+4. Klicka på **Server** för att skapa och konfigurera servern för den nya databasen. Fyll i den **formuläret för ny server**. Ange ett globalt unikt servernamn, ett namn för inloggning för serveradministratör och ett lösenord. 
 
-    ![skapa databas-server](./media/sql-database-get-started/create-database-server.png)
+    ![skapa databas-server](./media/sql-database-get-started-portal/create-database-server.png)
 5. Klicka på **Välj**.
 
 6. Klicka på **Prisnivå** för att ange tjänstenivå och prestandanivå för den nya databasen. För den här snabbstarten väljer du **20 DTU:er** och **250** GB lagringsutrymme
 
-    ![skapa databas-s1](./media/sql-database-get-started/create-database-s1.png)
+    ![skapa databas-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
 7. Klicka på **Använd**.  
 
@@ -65,26 +65,30 @@ Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure W
 
 9. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
-    ![avisering](./media/sql-database-get-started/notification.png)
+    ![avisering](./media/sql-database-get-started-portal/notification.png)
 
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa program och verktyg från att ansluta till servern eller databaser på servern, såvida inte en brandväggsregel har konfigurerats som öppnar brandväggen för specifika IP-adresser. Följ de här stegen om du vill skapa en [brandväggsregel på SQL Database-servernivå](sql-database-firewall-configure.md) för din klients IP-adress och aktivera extern anslutning genom SQL Database-brandväggen endast för din IP-adress. 
+SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa program och verktyg från att ansluta till servern eller databaser på servern, såvida inte en brandväggsregel konfigureras som öppnar brandväggen för specifika IP-adresser. Följ de här stegen om du vill skapa en [brandväggsregel på SQL Database-servernivå](sql-database-firewall-configure.md) för din klients IP-adress och aktivera extern anslutning genom SQL Database-brandväggen endast för din IP-adress. 
 
-1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och på din nya databas, **mySampleDatabase** på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (som **mynewserver20170327.database.windows.net**) och alternativ för ytterligare konfiguration.
+1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar på din databas på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (som **mynewserver20170327.database.windows.net**) och alternativ för ytterligare konfiguration.
 
-      ![brandväggsregler för server](./media/sql-database-get-started/server-firewall-rule.png) 
+      ![brandväggsregler för server](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 2. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet (se föregående bild). Sidan **Brandväggsinställningar** för SQL Database-servern öppnas. 
 
 3. Klicka på **Lägg till klient-IP** i verktygsfältet och klicka på **Spara**. En brandväggsregel på servernivå skapas för din aktuella IP-adress.
 
-      ![ange brandväggsregel för server](./media/sql-database-get-started/server-firewall-rule-set.png) 
+      ![ange brandväggsregel för server](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
-4. Klicka på **OK** och sedan på **X** för att stänga sidan **Brandväggsinställningar**.
+4. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
-Nu kan du ansluta till databasen och dess server med SQL Server Management Studio eller något annat verktyg från den här IP-adressen med det Server-administratörskonto som skapades tidigare.
+Nu kan du ansluta till SQL Server Database-servern och dess databaser med SQL Server Management Studio eller något annat verktyg från den här IP-adressen med det Server-administratörskonto som skapades tidigare.
+
+> [!NOTE]
+> SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall kan du inte ansluta till din Azure SQL Database-server om din IT-avdelning inte öppnar port 1433.
+>
 
 ## <a name="query-the-sql-database"></a>Söka i SQL-databasen
 
@@ -92,13 +96,13 @@ När vi skapade SQL-databasen fyllde vi den med **AdventureWorksLT**-exempeldata
 
 1. På SQL Database-sidan för din databas klickar du på **Verktyg** i verktygsfältet. Sidan **Verktyg** öppnas.
 
-     ![verktygsmeny](./media/sql-database-get-started/tools-menu.png) 
+     ![verktygsmeny](./media/sql-database-get-started-portal/tools-menu.png) 
 
 2. Klicka på **Frågeredigerare (förhandsgranskning)**, klicka i kryssrutan **Villkor för förhandsgranskning** och sedan på **OK**. Sidan Frågeredigerare öppnas.
 
 3. Klicka på **Logga in** och markera sedan **SQL-serverautentisering** när du blir uppmanad. Ange sedan inloggning och lösenord för serveradministratör som du skapade tidigare.
 
-    ![inloggning](./media/sql-database-get-started/login.png) 
+    ![inloggning](./media/sql-database-get-started-portal/login.png) 
 
 4. Logga in genom att klicka på **OK**.
 
@@ -113,13 +117,13 @@ När vi skapade SQL-databasen fyllde vi den med **AdventureWorksLT**-exempeldata
 
 6. Klicka på **Kör** och granska frågeresultaten i fönstret **Resultat**.
 
-    ![resultat från frågeredigeraren](./media/sql-database-get-started/query-editor-results.png)
+    ![resultat från frågeredigeraren](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. Klicka på **X** för att stänga sidan **Frågeredigerare** och klicka på **X** igen för att stänga sidan **Verktyg**.
+7. Stäng sidan **Frågeredigerare** och sidan **Verktyg**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Andra snabbstarter i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabbstarter eller med självstudierna ska du inte rensa resurserna som skapas i denna snabbstart. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure Portal.
+Andra snabbstarter i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabbstarter, ska du inte rensa resurserna som skapades i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure Portal.
 
 1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**. 
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver **myResourceGroup** i textrutan och klickar sedan på **Ta bort**.
@@ -127,6 +131,11 @@ Andra snabbstarter i den här samlingen bygger på den här snabbstarten. Om du 
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill ansluta och fråga med SQL Server Management Studio kan du läsa [Anslut och fråga med SSMS](sql-database-connect-query-ssms.md)
-- Om du vill ansluta med Visual Studio kan du läsa [Ansluta och fråga med Visual Studio](sql-database-connect-query.md).
-- En teknisk översikt över SQL Database finns i [Om SQL Database-tjänsten](sql-database-technical-overview.md).
+- Mer information om att ansluta och ställa frågor med Visual Studio Code finns i [Ansluta och fråga med Visual Studio Code](sql-database-connect-query-vscode.md).
+- Mer information om att ansluta och ställa frågor med .NET finns i [Ansluta och fråga med .NET](sql-database-connect-query-dotnet.md).
+- Mer information om att ansluta och ställa frågor med PHP finns i [Ansluta och fråga med PHP](sql-database-connect-query-php.md).
+- Mer information om att ansluta och ställa frågor med Node.js finns i [Ansluta och fråga med Node.js](sql-database-connect-query-nodejs.md).
+- Mer information om att ansluta och ställa frågor med Java finns i [Ansluta och fråga med Java](sql-database-connect-query-java.md).
+- Mer information om att ansluta och ställa frågor med Python finns i [Ansluta och fråga med Python](sql-database-connect-query-python.md).
+- Mer information om att ansluta och ställa frågor med Ruby finns i [Ansluta och fråga med Ruby](sql-database-connect-query-ruby.md).
 

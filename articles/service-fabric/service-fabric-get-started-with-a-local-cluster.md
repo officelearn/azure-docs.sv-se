@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 04/07/2017
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: d1320daaf4b0bd8c1a7b7c8e37fa8b81c4a53e64
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c0c5ab8a9db60ff375b7d823e40f83cbc4d2b4c3
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,7 +90,7 @@ I den här självstudiekursen ska du använda ett befintligt exempelprogram (kal
    
     ![Distribuerat programgränssnitt][deployed-app-ui]
    
-    WordCount-programmet är enkelt. Det innehåller JavaScript-kod på klientsidan för att generera slumpmässiga ”ord” med fem tecken, som sedan vidarebefordras till programmet via ASP.NET Web API. En tillståndskänslig tjänst spårar antalet ord som räknats. De partitioneras baserat på det första tecknet i ordet. Du hittar källkoden för WordCount-appen bland [exemplen för att komma igång](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    WordCount-programmet är enkelt. Det innehåller JavaScript-kod på klientsidan för att generera slumpmässiga ”ord” med fem tecken, som sedan vidarebefordras till programmet via ASP.NET Web API. En tillståndskänslig tjänst spårar antalet ord som räknats. De partitioneras baserat på det första tecknet i ordet. Du hittar källkoden för WordCount-appen bland [de klassiska exemplen för att komma igång](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount).
    
     Programmet som vi distribuerade innehåller fyra partitioner. Så ord som börjar med A till och med G lagras i den första partitionen, ord som börjar med H till och med N lagras i den andra partitionen och så vidare.
 

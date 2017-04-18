@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0664888dbb14aaa353d5d126cdf799b62711d71f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -106,7 +106,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
     ```PowerShell
     $azureAdApplication    
     ```
-    Anteckna program-ID:t (**applicationID** från utdata).
+    Anteckna program-ID:t (applicationID) från utdata.
 
 Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
@@ -124,7 +124,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
    5. Ange **DataFactoryAPITestApp** som namn.
    6. Välj **C:\ADFGetStarted** som plats.
    7. Klicka på **OK** för att skapa projektet.
-2. Klicka på **Verktyg**, peka på **Nuget Package Manager** och klicka på **Package Manager Console**.
+2. Klicka på **Verktyg**, peka på **NuGet Package Manager** och klicka på **Package Manager Console**.
 3. I **Package Manager Console** gör du följande steg:
    1. Kör följande kommando för att installera Data Factory-paketet: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Kör följande kommando för att installera Azure Active Directory-paketet (du använder Active Directory-API i koden): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -184,7 +184,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
    > [!IMPORTANT]
    > Ersätt värdet för **resourceGroupName** med namnet på Azure-resursgruppen.
    >
-   > Uppdatera namnet på datafabriken (**dataFactoryName**) så att det är unikt. Namnet på datafabriken måste vara unikt globalt. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
+   > Uppdatera namnet på datafabriken (dataFactoryName) så att det är unikt. Namnet på datafabriken måste vara unikt globalt. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
 
 7. Lägg till följande kod som skapar en **datafabrik** till **Main**-metoden.
 
@@ -473,7 +473,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
     }
     ```
 
-15. Expandera projektet i Solution Explorer (**DataFactoryAPITestApp**), högerklicka på **Referenser** och klicka på **Lägg till referens**. Markera kryssrutan för ”**System.Configuration**”-sammansättningen och klicka på **OK**.
+15. Expandera projektet i Solution Explorer (DataFactoryAPITestApp), högerklicka på **Referenser** och klicka på **Lägg till referens**. Markera kryssrutan för **System.Configuration**-sammansättningen. och klicka på **OK**.
 16. Skapa konsolprogrammet. Klicka på **Skapa** på menyn och klicka sedan på **Build Solution** (Skapa lösning).
 17. Kontrollera att det finns minst en fil i **adftutorial**-behållaren i Azure-blobblagringen. Om inte skapar du **Emp.txt**-filen i Anteckningar med följande innehåll och laddar upp den till adftutorial-behållaren.
 
@@ -486,7 +486,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
    * Länkad tjänst: **LinkedService_AzureStorage**
    * Datauppsättning: **DatasetBlobSource** och **DatasetBlobDestination**.
    * Pipeline: **PipelineBlobSample**
-20. Kontrollera att de två medarbetarposterna skapas i den "**tomma**" tabellen i den angivna Azure SQL-databasen.
+20. Kontrollera att de två medarbetarposterna skapas i tabellen **emp** i den angivna Azure SQL-databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 | Avsnitt | Beskrivning |

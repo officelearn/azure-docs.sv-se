@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Distribuera en värdlösning med en Docker-behållare via Azure Portal
@@ -36,7 +36,11 @@ Bakgrundsinformation finns i [Introduktion till Azure Container Service](contain
 
 ## <a name="prerequisites"></a>Krav
 
-* **Azure-prenumeration**: Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
+* **Azure-prenumeration**: Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Överväg en prenumeration utan fast avgift eller andra alternativ för ett större kluster.
+
+    > [!NOTE]
+    > Din användning av din Azure-prenumeration och dina [resurskvoter](../azure-subscription-service-limits.md), till exempel kärnkvoter, kan begränsa storleken på det kluster som du distribuerar. Om du vill begära en ökning av kvoten kan du öppna ett [kundsupportärende online](../azure-supportability/how-to-create-azure-support-request.md) utan kostnad.
+    >
 
 * **Offentlig SSH RSA-nyckel**: När du distribuerar via portalen eller en av Azures snabbstartsmallar måste du ange den offentliga nyckeln för autentisering mot virtuella datorer i Azure Container Service. Information om hur du skapar SSH (Secure Shell) RSA-nycklar finns i hjälpartiklarna för [OS X och Linux](../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
@@ -109,7 +113,7 @@ Distributionen tar normalt flera minuter för att slutföras. Sedan kan Azure Co
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Skapa ett kluster med en snabbstartsmall
 Azure-snabbstartsmallar är tillgängliga för att distribuera ett kluster i Azure Container Service. De tillhandahållna snabbstartsmallarna kan ändras så att de inkluderar ytterligare eller avancerad Azure-konfiguration. Du måste ha en Azure-prenumeration för att kunna skapa ett Azure Container Service-kluster med en Azure-snabbstartsmall. Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Följ stegen nedan för att distribuera ett kluster med hjälp av en mall och Azure CLI 2.0 (se [installations- och konfigurationsanvisningarna](/cli/azure/install-az-cli2.md)).
+Följ stegen nedan för att distribuera ett kluster med hjälp av en mall och Azure CLI 2.0 (se [installations- och konfigurationsanvisningarna](/cli/azure/install-az-cli2)).
 
 > [!NOTE] 
 > Du kan använda liknande steg för att distribuera en mall med Azure PowerShell om du är på ett Windows-system. Se anvisningarna senare i det här avsnittet. Du kan även distribuera en mall genom [Portalen](../azure-resource-manager/resource-group-template-deploy-portal.md) eller genom andra metoder.

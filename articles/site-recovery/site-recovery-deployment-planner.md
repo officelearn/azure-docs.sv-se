@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploy
 
     Exempel:  
     Kopiera .zip-filen till enhet E:\ och packa upp den.
-   E:\ASR Deployment Planner-Preview_v1.1.zip
+   E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>Funktioner
 Du kan köra kommandoradsverktyget (ASRDeploymentPlanner.exe) i någon av följande tre lägen:
@@ -145,6 +145,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (Valfritt) Lösenord för att ansluta till vCenter-servern/vSphere ESXi-värden. Om du inte anger något värde nu uppmanas du att ange det när kommandot körs.|
 | -StorageAccountName | (Valfritt) Namnet på det lagringskonto som används för beräkning av dataflödet som kan uppnås för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när dataflödet ska beräknas.|
 | -StorageAccountKey | (Valfritt) Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> > Inställningar > Åtkomstnycklar > Key1 (eller primär åtkomstnyckel för det klassiska lagringskontot). |
+| -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-målregion är antingen Azure för amerikanska myndigheter eller Azure-moln för Kina. |
+
 
 Vi rekommenderar att du profilerar dina virtuella datorer under minst 15 till 30 dagar. ASRDeploymentPlanner.exe körs under hela profileringsperioden. Profileringstiden anges i dagar i verktyget. Om du vill profilera i några timmar eller minuter för att snabbtesta verktyget måste du omvandla tiden till motsvarande antal dagar i den offentliga förhandsutgåvan. Om du till exempel vill profilera i 30 minuter ska du ange 30/(60 * 24) = 0,021 dagar. Minsta tillåtna profileringstid är 30 minuter.
 
@@ -281,11 +283,12 @@ Om du vill få en uppskattning av vilket dataflöde som Site Recovery kan uppnå
 
 |Parameternamn | Beskrivning |
 |-|-|
-| -operation | GetThroughput |
+| -Operation | GetThroughput |
 | -Directory | (Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om namnet på en katalog inte anges används katalogen ProfiledData. |
 | -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. |
 | -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> Inställningar > Åtkomstnycklar > Key1 (eller en primär åtkomstnyckel för ett klassiskt lagringskonto). |
 | -VMListFile | En fil som innehåller listan med virtuella datorer som ska profileras när den förbrukade bandbredden ska beräknas. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett virtuellt datornamn/en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara samma som namnen på de virtuella datorerna på vCenter-servern/vSphere ESXi-värden.<br>Filen VMList.txt innehåller exempelvis följande virtuella datorer:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-målregion är antingen Azure för amerikanska myndigheter eller Azure-moln för Kina. |
 
 Verktyget skapar flera 64 MB stora filer med namnet asrvhdfile<#>.vhd (där # är antalet filer) i den angivna katalogen. Verktyget överför filerna till lagringskontot när dataflödet ska beräknas. När dataflödet har beräknats tar verktyget bort alla filer både från lagringskontot och från den lokala servern. Om verktyget avslutas av någon anledning medan det beräknar dataflödet tar det inte bort filerna från lagringsutrymmet eller från den lokala servern. Du måste ta bort dem manuellt.
 
@@ -477,6 +480,10 @@ Om arbetsbelastningsegenskaperna för en disk placerar den i kategorin P20 eller
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
+**Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI. Azure Site Recovery stöder för närvarande endast starttypen BIOS. Alla virtuella datorer för starttypen EFI visas i kalkylbladet över inkompatibla virtuella datorer. 
+
+**OS-typ**: Den virtuella datorns typ av operativsystem. Typen kan vara Windows, Linux eller någon annan typ.
+
 ## <a name="incompatible-vms"></a>Incompatible VMs (Inkompatibla virtuella datorer)
 
 ![Excel-ark med inkompatibla virtuella datorer](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -486,6 +493,7 @@ Om arbetsbelastningsegenskaperna för en disk placerar den i kategorin P20 eller
 **VM Compatibility** (VM-kompatibilitet): Anger varför den här virtuella datorn inte kan skyddas med Site Recovery. Anledningarna beskrivs för varje inkompatibel disk av den virtuella datorn och kan, baserat på publicerade [lagringsgränser](https://aka.ms/azure-storage-scalbility-performance), vara något av följande:
 
 * Diskstorleken är > 1 023 GB. Azure Storage har för närvarande inte stöd för diskar som är större än 1 TB.
+* Starttypen är EFI. Azure Site Recovery stöder för närvarande endast starttypen BIOS för virtuella datorer.
 
 * Total storlek för den virtuella datorn (replikering + TFO) överskrider den gräns för lagringskontostorlek som stöds (35 TB). Den här inkompatibiliteten uppstår vanligen när en enskild disk i den virtuella datorn har en prestandaegenskap som överskrider den maxgräns som stöds av Azure- eller Site Recovery-gränserna för standardlagring. Denna instans skickar den virtuella datorn till Premium Storage-zonen. Maxgränsen för ett lagringskonto av premiumtyp är däremot 35 TB, och det går inte att skydda en enda virtuell dator över flera lagringskonton. Tänk också på att när ett redundanstest körs på en skyddad virtuell dator körs det på samma lagringskonto där replikeringen körs. I den här instansen ställer du in 2 ggr storleken på disken för att replikeringen ska fortskrida samtidigt som redundanstestningen genomförs.
 * Käll-IOPS överskrider IOPS-gränsen för lagring på 5 000 per disk.
@@ -508,6 +516,10 @@ Om arbetsbelastningsegenskaperna för en disk placerar den i kategorin P20 eller
 **Minne (MB)**: Mängden RAM-minne på den virtuella datorn.
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
+
+**Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI. Azure Site Recovery stöder för närvarande endast starttypen BIOS. Alla virtuella datorer för starttypen EFI visas i kalkylbladet över inkompatibla virtuella datorer. 
+
+**OS-typ**: Den virtuella datorns typ av operativsystem. Typen kan vara Windows, Linux eller någon annan typ.
 
 
 ## <a name="site-recovery-limits"></a>Gränser för Site Recovery
@@ -546,6 +558,18 @@ Så här gör du om du vill uppdatera kapacitetsplaneraren:
 
 
 ## <a name="version-history"></a>Versionshistorik
+### <a name="12"></a>1.2
+Uppdaterat: 7 april 2017
+
+Lade till följande korrigeringar:
+
+* Lade till kontroll av starttyp (BIOS eller EFI) för varje virtuell dator för att avgöra om den virtuella datorn är kompatibel eller inkompatibel för skyddet.
+* Lade till information om typ av operativsystem för varje virtuell dator på kalkylbladen över kompatibla och inkompatibla virtuella datorer.
+* Åtgärden GetThroughput stöds nu i Microsoft Azure-regionerna US Government och Kina.
+* Lade till några fler nödvändiga kontroller för vCenter- och ESXi-Server.
+* Felaktig rapport genererades när nationella inställningar var angivna till annat värde än engelska.
+
+
 ### <a name="11"></a>1.1
 Uppdaterad: 9 mars 2017
 

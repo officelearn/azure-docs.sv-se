@@ -4,7 +4,7 @@ description: "Hur du skaffar en Azure Active Directory-klient för registrering 
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: terrylan
+manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ I så fall följer du dessa steg.  Alternativt kanske du vill skapa en ny klient
 3. Du borde automatiskt vara inloggade på ”Standardkatalogen”, annars kan du växla kataloger genom att klicka på ditt kontonamn i det övre högra hörnet.
 4. Från avsnittet **Snabbuppgifter**, väljer du **lägg till en användare**.
 5. I formuläret Lägg till en användare, anger du följande information:
-   
+
    * Namn: (välj ett lämpligt värde)
    * Användarnamn: (välj ett användarnamn för den här administratören)
    * Profil: (Fyll i lämpliga värden för förnamn, efternamn, jobbtitel och avdelning)
@@ -57,16 +58,10 @@ I så fall följer du dessa steg.  Alternativt kanske du vill skapa en ny klient
 8. För att ändra det tillfälliga lösenordet, loggar du in på [https://login.microsoftonline.com](https://login.microsoftonline.com) med det här nya användarkontot och ändrar lösenordet när du tillfrågas.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Använda en Azure-prenumeration för en organisation
-Om du redan har registrerat dig för en Azure-prenumeration med ditt organisationskonto har du redan en klient.  I [Azure Portal](https://portal.azure.com), borde du hitta en klientorganisation när du navigerar till "Fler tjänster" och "Azure Active Directory".  Du kan använda den här klienten om du vill. 
+Om du redan har registrerat dig för en Azure-prenumeration med ditt organisationskonto har du redan en klient.  I [Azure Portal](https://portal.azure.com), borde du hitta en klientorganisation när du navigerar till "Fler tjänster" och "Azure Active Directory".  Du kan använda den här klienten om du vill.
 
 ## <a name="start-from-scratch"></a>Börja från början
 Oroa dig inte om inget av alternativen ovan passar dig.  Gå bara till [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) och registrera dig för Azure med en ny organisation.  När du har slutfört processen har du din egen Azure AD-klient med det domännamn som du valde när du registrerade dig.  I [Azure Portal](https://portal.azure.com), hittar du din klientorganisation genom att navigera till ”Azure Active Directory” i det vänstra navigeringsfältet.
 
 Som en del av registreringen i Azure måste du ange kreditkortsinformation.  Oroa dig inte: du debiteras inte när du publicerar program i Azure AD eller skapar nya klienter.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

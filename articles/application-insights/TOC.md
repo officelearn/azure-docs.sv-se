@@ -31,7 +31,7 @@
 ## Planera och designa
 ### [Djup diagnostik för webbappar och tjänster](app-insights-devops.md)
 ### [Övervaka prestanda i webbprogram](app-insights-web-monitor-performance.md)
-### [Användningsanalys med Application Insights](app-insights-overview-usage.md)
+### [Användningsanalys med Application Insights](app-insights-web-track-usage.md)
 ### [Separera Application Insights-resurser](app-insights-separate-resources.md)
 ### [Hur kan jag ... i Application Insights?](app-insights-how-do-i.md)
 
@@ -49,7 +49,6 @@
 #### [Beroenden](app-insights-asp-net-dependencies.md)
 #### [Versionsanteckningar](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-#### [Vanliga frågor och svar](app-insights-troubleshoot-faq.md)
 
 
 ### J2EE
@@ -92,6 +91,7 @@
 #### [Guidad visning](app-insights-analytics-tour.md)
 #### [Använda](app-insights-analytics-using.md)
 #### [Importera](app-insights-analytics-import.md)
+#### [Diagnostik](app-insights-analytics-diagnostics.md)
 
 ## Automatisera
 
@@ -146,6 +146,7 @@
 ### [Viktig information för SDK](app-insights-release-notes.md)
 ### [Viktig information för Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
+## [Vanliga frågor och svar](app-insights-troubleshoot-faq.md)
 
 ## Hjälp
 ### [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  

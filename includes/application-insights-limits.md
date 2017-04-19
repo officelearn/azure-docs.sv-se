@@ -1,20 +1,18 @@
-Det finns vissa begränsningar för antalet mätvärden och händelser per program (det vill säga per instrumentationsnyckel). Gränserna beror på vilken [prisplan](https://azure.microsoft.com/pricing/details/application-insights/) du väljer.
+There are some limits on the number of metrics and events per application (that is, per instrumentation key). Limits depend on the [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) that you choose.
 
-| **Resurs** | **Standardgräns** | **Obs!**
+| **Resource** | **Default limit** | **Note**
 | --- | --- | --- |
-| Totala data per dag | 500 GB | Du kan minska datamängden genom att ange ett tak. Om du behöver mer skickar du ett e-postmeddelande till AIDataCap@microsoft.com.
-| Kostnadsfria data per månad<br/> (Basic-prisplan) | 1 GB | Ytterligare data debiteras per gigabyte.
-| Begränsning | 32 K händelser/sek | Gränser är mätt under en minut.
-| Datakvarhållning | 90 dagar | Den här resursen är för [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) och [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).
-| [Flerstegstest för tillgänglighet](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) (kvarhållning av detaljerade resultat) | 90 dagar | Den här resursen innehåller detaljerade resultat för varje steg.
-| Namnlängd för egenskaper och mätvärden | 150 |
-| Stränglängd för egenskapsvärde | 8&192; |
-| Längd för spårnings- och undantagsmeddelande | 10 k |
-| [Tillgänglighetstester](../articles/application-insights/app-insights-monitor-web-app-availability.md) (antal per app)  | 10 |
+| Total data per day | 500 GB | You can reduce data by setting a cap. If you need more, mail AIDataCap@microsoft.com.
+| Free data per month<br/> (Basic price plan) | 1 GB | Additional data is charged per gigabyte.
+| Throttling | 32 k events/second | The limit is measured over a minute.
+| Data retention | 90 days | This resource is for [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md), and [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).
+| [Availability multi-step test](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) detailed results retention | 90 days | This resource provides detailed results of each step.
+| Maximum event size | 64 K | 
+| Property and metric name length | 150 | see comment below for more informaiton
+| Property value string length | 8,192 | see comment below for more informaiton
+| Trace and exception message length | 10 k | see comment below for more informaiton
+| [Availability tests](../articles/application-insights/app-insights-monitor-web-app-availability.md) count per app  | 10 |
 
-Mer information finns i [Om priser och kvoter i Application Insights](../articles/application-insights/app-insights-pricing.md).
+For more information, see [About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md).
 
-
-<!--HONumber=Feb17_HO2-->
-
-
+For more informaiton on data fields limits see [per type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)

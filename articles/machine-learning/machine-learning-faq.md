@@ -18,7 +18,7 @@ ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
 ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
-ms.lasthandoff: 03/02/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -455,11 +455,11 @@ Tjänster som är kopplade till en utvecklings- och testnivå stoppas fram till 
 
 För en RRS-arbetsbelastning debiteras du för varje API-transaktionsanrop som du gör samt för beräkningstiden som associeras med dessa förfrågningar. Dina API-transaktionskostnader för RRS i produktionsnivån beräknas som det sammanlagda antalet API-anrop som du gör multiplicerat med priset per 1 000 transaktioner (proportionellt beräknat baserat på enskilda transaktioner). Dina kostnader för API-beräkningstimmar för RRS i produktionsmiljön beräknas som den mängd tid som krävs för att köra varje API-anrop multiplicerat med det totala antalet API-transaktioner multiplicerat med priset per API-beräkningstimme i produktionsmiljön.
 
-För överförbrukning på standardnivån S1 resulterar exempelvis 1 000 000 API-transaktioner som tar 0,72 sekunder vardera att köra (1 000 000 * 0,50 USD/1K API-transaktioner) i 500 USD i API-transaktionskostnader i produktionsmiljön och (1 000 000 * 0,72 sek * 2 USD/h) 400 USD i API-beräkningstimmar i produktionsmiljön, vilket ger en summa på 900 USD.
+För överförbrukning på standardnivån S1 resulterar exempelvis 1 000 000 API-transaktioner som tar 0,72 sekunder vardera att köra (1 000 000  0,50 USD/1K API-transaktioner) i 500 USD i API-transaktionskostnader i produktionsmiljön och (1 000 000  0,72 sek * 2 USD/h) 400 USD i API-beräkningstimmar i produktionsmiljön, vilket ger en summa på 900 USD.
 
 För en BES-arbetsbelastning debiteras du på samma sätt. Men API-transaktionskostnaderna representerar antalet batch-jobb som du skickar och beräkningskostnaderna representerar beräkningstiden som associeras med batch-jobben. Dina API-transaktionskostnader för BES i produktionsmiljön beräknas därför som det sammanlagda antalet jobb som skickats multiplicerat med priset per 1 000 transaktioner (proportionellt beräknat baserat på enskilda transaktioner). Dina kostnader för API-beräkningstimmar för BES i produktionsmiljön beräknas som den mängd tid som krävs för att köra varje rad i jobbet multiplicerat med det sammanlagda antalet rader i jobbet multiplicerat med det sammanlagda antalet jobb multiplicerat med priset per API-beräkningstimme i produktionsmiljön. När du använder Machine Learning-kalkylatorn representerar transaktionsmätaren antalet jobb som du planerar att skicka och fältet för tid per transaktion representerar den kombinerade tid som krävs för att köra alla rader i varje jobb.
 
-Anta att du har en överförbrukning på standardnivån S1. Du skickar 100 jobb per dag och varje jobb består av 500 rader som tar 0,72 sekunder vardera. Din månatliga överförbrukning skulle vara (100 jobb per dag = 3 100 jobb/månad * 0,50 USD/1 000 API-transaktioner) 1,55 USD i API-transaktionskostnader i produktionsmiljön och (500 rader * 0,72 sek * 3 100 jobb * 2 USD/tim) 620 USD i API-beräkningstimmar i produktionsmiljön, vilket ger en totalsumma på 621,55 USD.
+Anta att du har en överförbrukning på standardnivån S1. Du skickar 100 jobb per dag och varje jobb består av 500 rader som tar 0,72 sekunder vardera. Din månatliga överförbrukning skulle vara (100 jobb per dag = 3 100 jobb/månad  0,50 USD/1 000 API-transaktioner) 1,55 USD i API-transaktionskostnader i produktionsmiljön och (500 rader  0,72 sek  3 100 jobb  2 USD/tim) 620 USD i API-beräkningstimmar i produktionsmiljön, vilket ger en totalsumma på 621,55 USD.
 
 ### <a name="azure-machine-learning-classic-web-services"></a>Klassiska Azure Machine Learning-webbtjänster
 **Kan jag fortfarande betala per användning?**

@@ -19,7 +19,7 @@ ms.author: rachelap; glenga
 translationtype: Human Translation
 ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
 ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
-ms.lasthandoff: 03/06/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -122,7 +122,7 @@ Du kan skapa en annan funktion som läser från kön och skriver meddelanden per
  
 ## <a name="add-a-table-output-binding"></a>Lägga till en utdatabindningstabell
 
-1. I FunctionsBindingsDemo2 klickar du på **Integrera** > ** 	Nya utdata** > **Azure Table Storage** > **Välj**.
+1. I FunctionsBindingsDemo2 klickar du på **Integrera** > **	Nya utdata** > **Azure Table Storage** > **Välj**.
 
     ![Lägga till en bindning till en Azure Storage-tabell](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 

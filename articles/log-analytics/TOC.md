@@ -48,6 +48,7 @@
 ### [Lösning för aviseringshantering](log-analytics-solution-alert-management.md)
 ## Använd lösningar
 ### [Översikt över lösningar](log-analytics-add-solutions.md)
+### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD-bedömning](log-analytics-ad-assessment.md)
 ### [AD-replikeringsstatus](log-analytics-ad-replication-status.md)
 ### [Varningshantering](log-analytics-solution-alert-management.md)

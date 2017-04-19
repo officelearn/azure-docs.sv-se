@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d1094e1b350883c206a9180ff71bd8613156360a
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Komma igång med lösenordshantering
 > [!IMPORTANT]
-> **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -69,9 +69,9 @@ Här är några av de bästa tipsen som vi har sett är användbara för kunder 
 * [**Tips 9: FELSÖKNING** – Om du fortfarande behöver hjälp är det viktigt att du tar med tillräckligt med information så att vi kan hjälpa dig](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>TOPPTIPS: DOKUMENTATIONSNAVIGERING – Använd vår innehållsförteckning och webbläsarens sökfunktion för att hitta svar
-Om du använder någon av vår dokumentation har vi försökt att tillhandahålla snabblänkar till alla intressanta platser där administratörer kan få veta mer i innehållsförteckningen. 
+Om du använder någon av vår dokumentation har vi försökt att tillhandahålla snabblänkar till alla intressanta platser där administratörer kan få veta mer i innehållsförteckningen.
 
-Titta på innehållsförteckningen nedan: 
+Titta på innehållsförteckningen nedan:
 * [Återställning av lösenord för Azure AD: Innehållsförteckning för dokumentation](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Tips 1: LICENSIERING – Kontrollera att du förstår licenskraven
@@ -93,9 +93,9 @@ Principerna som konfigureras i det administrativa UX gäller ENBART för slutanv
  * ... under de första 30 dagarna efter att en utvärderingsversion har startats skapats **ELLER**
  * ... om en anpassad domän inte finns **OCH** identiteter inte synkroniseras med Azure AD Connect
  * **_Kräver_**: att **något av alternativen** e-postadress för autentisering, alternativ e-postadress, telefonnummer för autentisering, mobiltelefon eller arbetstelefon har ett värde
-* **Tvåportsprincipen gäller...** 
+* **Tvåportsprincipen gäller...**
  * ... när de första 30 dagarna av en utvärdering har passerat **ELLER**
- * ... när en anpassad domän finns **ELLER** 
+ * ... när en anpassad domän finns **ELLER**
  * ... du har aktiverat Azure AD Connect för att synkronisera identiteter från din lokala miljö
  * _**Kräver**_: att **två av alternativen** e-postadress för autentisering, alternativ e-postadress, telefon för autentisering, mobiltelefon eller arbetstelefon har ett värde
 
@@ -145,7 +145,7 @@ Se en fullständig lista över felsökningsvägledning och specifika riktlinjer 
 * [Distribution av tillbakaskrivning – Steg 3: Konfigurera brandväggen](#step-3-configure-your-firewall)
 * [Distribution av tillbakaskrivning – Steg 4: Konfigurera lämpliga behörigheter](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Tips 7: RAPPORTERING – Se vem som registrerar eller återställer lösenord med Azure AD SSPR-granskningsloggar 
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Tips 7: RAPPORTERING – Se vem som registrerar eller återställer lösenord med Azure AD SSPR-granskningsloggar
 När lösenordsåterställningen har distribuerats och fungerar är nästa logiska steg att se hur den fungerar och analysera vem som fortfarande behöver registreras, de vanligaste problem som användarna stöter på när de återställer och avkastningen på investeringen för funktionen.
 
 Med granskningsloggarna för Azure AD-lösenordsåterställning kan du göra detta och mycket mer från Azure Portal, PowerBI, Azure AD Reporting Event-API eller PowerShell.  Mer information om hur du använder dessa rapporteringsfunktioner finns i:
@@ -495,7 +495,7 @@ Nu när tillbakaskrivning av lösenord har aktiverats kan du testa att det funge
 ## <a name="next-steps"></a>Nästa steg
 Nedan finns länkar till alla sidor med dokumentation om lösenordsåterställning i Azure AD:
 
-* **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Så här fungerar det**](active-directory-passwords-how-it-works.md) – lär dig om de sex olika komponenterna i tjänsten och vad de gör
 * [**Anpassa**](active-directory-passwords-customize.md) – lär dig hur du anpassar tjänstens utseende, känsla och beteende efter din organisations behov
 * [**Metodtips**](active-directory-passwords-best-practices.md) – lär dig hur du snabbt distribuerar och effektivt hanterar lösenord i din organisation

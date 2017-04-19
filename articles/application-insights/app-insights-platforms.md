@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 22adefb1d506376e72bf27e295e009b1cf56d630
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 219ccaf9a97642fda99490423aa94883b0629fb5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -26,7 +26,7 @@ Dessa objekt är implementeringar av [Application Insights](app-insights-overvie
 ## <a name="languages"></a>Språk
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
-* [JavaScript-webbsidor](app-insights-web-track-usage.md)
+* [JavaScript-webbsidor](app-insights-javascript.md)
 * [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)

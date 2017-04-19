@@ -18,7 +18,7 @@ ms.author: syamk
 translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 03/08/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -559,7 +559,7 @@ Om du får felet ”Ett fel uppstod när begäran bearbetades” när du försö
     - Region: Väljer den region som är närmast dina appanvändare
     - Databasserver: Klicka på No database (Ingen databas) och sedan på **Skapa**. 
 
-4. På ”todo-net-app *-skärmen” klickar du på **Validate Connection** (Validera anslutning). När anslutningen har verifierats klickar du på **Publicera**. 
+4. På ”todo-net-app **-skärmen” klickar du på**Validate Connection (Validera anslutning). När anslutningen har verifierats klickar du på **Publicera***. 
     
     Appen visas i webbläsaren.
 

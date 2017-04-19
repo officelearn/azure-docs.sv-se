@@ -16,8 +16,8 @@
 | Program i körningstillstånd per kanal |3|
 | Strömmande slutpunkter i körningstillstånd per AMS-konto|2|
 | Strömningsenheter per slutpunkt för direktuppspelning |10 |
-| Lagringskonton | 1&000;<sup>(5)</sup> (fast) |
-| Principer | 1&000;&000;<sup>(6)</sup> |
+| Lagringskonton | 1 000<sup>(5)</sup> (fast) |
+| Principer | 1 000 000<sup>(6)</sup> |
 | Filstorlek| I vissa fall finns det en gräns för maximal filstorlek för bearbetning i Media Services. <sup>7</sup> |
   
 <sup>1</sup> S3 RU:er är inte tillgängliga i västra Indien.

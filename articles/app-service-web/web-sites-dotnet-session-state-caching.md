@@ -28,10 +28,10 @@ Om din ASP.NET-webbapp använder sessionstillstånd måste du konfigurera en ext
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-idcreatecacheacreate-the-cache"></a><a id="createcache"></a>Skapa cachen
+## <a id="createcache"></a>Skapa cachen
 Skapa cachen genom att följa [de här anvisningarna](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-cache).
 
-## <a name="a-idconfigureprojectaadd-the-redissessionstateprovider-nuget-package-to-your-web-app"></a><a id="configureproject"></a>Lägga till NuGet-paketet RedisSessionStateProvider till webbappen
+## <a id="configureproject"></a>Lägga till NuGet-paketet RedisSessionStateProvider till webbappen
 Installera NuGet-paketet `RedisSessionStateProvider`.  Installera från pakethanterarkonsolen med hjälp av följande kommando (**Tools** > **NuGet Package Manager** > **Package Manager Console**) (Verktyg, NuGet-pakethanteraren, Pakethanterarkonsol):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -40,11 +40,11 @@ Om du vill installera från **Tools** > **NuGet Package Manager** > **Manage Nug
 
 Mer information finns i [NuGet RedisSessionStateProvider-sidan](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) och [Konfigurera cacheklienten](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-## <a name="a-idconfigurewebconfigamodify-the-webconfig-file"></a><a id="configurewebconfig"></a>Ändra filen web.config
+## <a id="configurewebconfig"></a>Ändra filen web.config
 Med NuGet-paketet skapas inte bara sammansättningsreferenser för cachen, med det läggs också stub-poster till i filen *web.config*. 
 
 1. Öppna *web.config* och leta reda på elementet **sessionState**.
-2. Ange värden för `host`, `accessKey` och `port` (SSL-porten ska vara 6380), och ange `SSL` till `true`. Du kan hämta de här värdena från bladet för [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) för cacheinstansen. Mer information finns i [Ansluta till cacheminnet](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Mer information om hur du aktiverar icke-SSL-porten finns i avsnittet [Åtkomstportar](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) i artikeln [Konfigurera en cache i Azure Redis-cache](https://msdn.microsoft.com/library/azure/dn793612.aspx). Följande markering visar ändringarna i filen *web.config*, särskilt ändringarna av *port*, *värd*, åtkomstnyckel* och *ssl *.
+2. Ange värden för `host`, `accessKey` och `port` (SSL-porten ska vara 6380), och ange `SSL` till `true`. Du kan hämta de här värdena från bladet för [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) för cacheinstansen. Mer information finns i [Ansluta till cacheminnet](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Mer information om hur du aktiverar icke-SSL-porten finns i avsnittet [Åtkomstportar](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) i artikeln [Konfigurera en cache i Azure Redis-cache](https://msdn.microsoft.com/library/azure/dn793612.aspx). Följande markering visar ändringarna i filen *web.config* , särskilt ändringarna av *port*, *värd*, åtkomstnyckel*och*ssl*.
    
           <system.web>;
             <customErrors mode="Off" />;
@@ -74,7 +74,7 @@ Med NuGet-paketet skapas inte bara sammansättningsreferenser för cachen, med d
             </sessionState>;
           </system.web>;
 
-## <a name="a-idusesessionobjecta-use-the-session-object-in-code"></a><a id="usesessionobject"></a>Använda sessionsobjektet i kod
+## <a id="usesessionobject"></a>Använda sessionsobjektet i kod
 Det sista steget är att börja använda sessionsobjektet i ASP.NET-koden. Du lägger till objekt till sessionstillstånd med hjälp av metoden **Session.Add**. I den här metoden används nyckel/värde-par till att lagra objekt i sessionstillståndscachen.
 
     string strValue = "yourvalue";

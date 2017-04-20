@@ -51,7 +51,7 @@ Innan du kan ansluta till en lagringskö måste du skapa en funktion som läser 
 
 ## <a name="add-a-message-queue-output-binding"></a>Lägga till en meddelandekö utan utdatabindning
 
-1. På fliken **Integrera** väljer du **Nya utdata** > **Azure Queue Storage** > **Välj**.
+1. På fliken **Integrera** väljer du **Nya utdata**  >  **Azure Queue Storage**  >  **Välj** .
 
     ![Lägga till en utlösande timer-funktion](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
 

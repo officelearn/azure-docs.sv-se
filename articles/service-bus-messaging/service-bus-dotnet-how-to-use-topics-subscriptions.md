@@ -52,7 +52,7 @@ Service Bus använder en anslutningssträng för att lagra slutpunkter och auten
 I båda fallen kan du hämta din anslutningssträng genom att använda metoden `CloudConfigurationManager.GetSetting`, som visas lite längre fram i denna artikel.
 
 ### <a name="configure-your-connection-string"></a>Konfigurera anslutningssträngen
-Tjänstkonfigurationens mekanism låter dig dynamiskt ändra konfigurationsinställningarna från [Azure-portalen][Azure portal] utan att behöva distribuera ditt program en gång till. Du kan till exempel lägga till en `Setting`-etikett till tjänstdefinitionsfilen (***.csdef**), enligt nästa exempel.
+Tjänstkonfigurationens mekanism låter dig dynamiskt ändra konfigurationsinställningarna från [Azure-portalen][Azure portal] utan att behöva distribuera ditt program en gång till. Du kan till exempel lägga till en `Setting` -etikett till tjänstdefinitionsfilen (**.csdef**), enligt nästa exempel.
 
 ```xml
 <ServiceDefinition name="Azure1">

@@ -1,17 +1,20 @@
 # Översikt
 ## [Vad är Azure Automation?](automation-intro.md)
 # Kom igång
+## [Kom igång med Azure Automation](automation-offering-get-started.md)
 ## Självstudie för runbook
 ### [Skapa grafisk runbook](automation-first-runbook-graphical.md)
 ### [Skapa PowerShell-runbook](automation-first-runbook-textual-powershell.md)
 ### [Skapa PowerShell Workflow-runbook](automation-first-runbook-textual.md)
 # Gör så här för att
 ## Autentisering och säkerhet
-### [Autentisering i Azure Automation](automation-security-overview.md)
-### [Konfigurera Kör som-konto i Azure](automation-sec-configure-azure-runas-account.md)
-### [Konfigurera användarkonto för Azure AD](automation-sec-configure-aduser-account.md)
-### [Konfigurera autentisering med AWS](automation-sec-configure-aws-account.md)
+### [Skapa fristående Automation-konto](automation-create-standalone-account.md)
+### [Skapa Azure AD-användarkonto](automation-create-aduser-account.md)
+### [Konfigurera autentisering med AWS](automation-config-aws-account.md)
+### [Skapa Kör som-konto i Azure med PowerShell](automation-update-account-powershell.md)
+### [Validera Automation-kontokonfig](automation-verify-runas-authentication.md)
 ### [Hantera rollbaserad åtkomstkontroll](automation-role-based-access-control.md)
+### [Hantera Automation-konto](automation-manage-account.md)
 ## Skapa runbooks
 ### [Runbook-typer](automation-runbook-types.md)
 ### [Skapa och importera Runbooks](automation-creating-importing-runbook.md)
@@ -71,7 +74,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (klassisk)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST](/rest/api/automation)
 ## [REST (klassisk)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resurser
 ## [Viktig information](https://azure.microsoft.com/updates/?product=automation)

@@ -25,6 +25,16 @@
 ### [PowerShell-cmdletar för Batch](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
 ### [Batch-diagnostikloggar](batch-diagnostics.md)
+### [Batchanalys](batch-analytics.md)
+#### [Händelse för skapande av pool](batch-pool-create-event.md)
+#### [Starthändelse för borttagning av pool](batch-pool-delete-start-event.md)
+#### [Sluthändelse för borttagning av pool](batch-pool-delete-complete-event.md)
+#### [Starthändelse för storleksändring av pool](batch-pool-resize-start-event.md)
+#### [Sluthändelse för storleksändring av pool](batch-pool-resize-complete-event.md)
+#### [Starthändelse för uppgift](batch-task-start-event.md)
+#### [Sluthändelse för uppgift](batch-task-complete-event.md)
+#### [Händelse för misslyckad uppgift](batch-task-fail-event.md)
+### [Miljövariabler för Azure Batch-beräkningsnod](batch-compute-node-environment-variables.md)
 
 # Referens
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)

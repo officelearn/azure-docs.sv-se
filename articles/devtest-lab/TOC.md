@@ -19,6 +19,7 @@
 ### [Konfigurera kostnadshantering](devtest-lab-configure-cost-management.md)
 ### [Konfigurera virtuella nätverk](devtest-lab-configure-vnet.md)
 ### [Förstå delade IP-adresser](devtest-lab-shared-ip.md)
+### [Automatisera labbändring med mallar och PowerShell](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 ## Hantera artefakter
 ### [Lägga till artefaktlagringsplats](devtest-lab-add-artifact-repo.md)

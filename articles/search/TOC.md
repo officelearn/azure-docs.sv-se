@@ -17,7 +17,8 @@
 ### [REST](search-query-rest-api.md)
 ## [Hantera sökresultat](search-pagination-page-layout.md)
 ## Självstudier
-### [.NET](search-howto-dotnet-sdk.md)
+### [NET](search-howto-dotnet-sdk.md)
+### [Förhandsversion av .NET-synonymer](search-synonyms-tutorial-sdk.md)
 ### [Portal](search-get-started-portal.md)
 ### [NodeJS](search-get-started-nodejs.md)
 ### [Java](search-get-started-java.md)
@@ -48,7 +49,7 @@
 ### [Index JSON-blobar](search-howto-index-json-blobs.md)
 ### [Konfigurera indexerarens anslutningar till SQL Server på Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Fältmappningar i indexerare](search-indexer-field-mappings.md)
-##  Search 
+##  Search
 ### [Så här fungerar fulltextsökning](search-lucene-query-architecture.md)
 ### Frågekonstruktion
 #### [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
@@ -61,6 +62,7 @@
 ### [Resultat](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Förslag](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Aspektbaserad navigering](search-faceted-navigation.md)
+### [Förhandsversion av synonymer](search-synonyms.md)
 
 # Referens
 ## [.NET](/dotnet/api/microsoft.azure.search)

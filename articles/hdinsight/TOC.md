@@ -28,7 +28,6 @@
 ## Använda Hadoop för batchfrågor
 ### [Hive med Hadoop](hdinsight-use-hive.md)
 #### [Använda Hive-vyn](hdinsight-hadoop-use-hive-ambari-view.md)
-#### [Använda SSH](hdinsight-hadoop-use-hive-ssh.md)
 #### [Använda Beeline](hdinsight-hadoop-use-hive-beeline.md)
 #### [Använda cURL](hdinsight-hadoop-use-hive-curl.md)
 #### [Använda PowerShell](hdinsight-hadoop-use-hive-powershell.md)
@@ -109,6 +108,7 @@
 ### [Använd med Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Använd med Storm](hdinsight-apache-storm-with-kafka.md)
 ## Utveckla
+### [Utveckla strömmande C#-MapReduce-program](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Utveckla Java MapReduce-program](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Utveckla Scalding MapReduce-jobb](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Använda HDInsight-verktyg för att skapa Spark-appar](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -199,6 +199,7 @@
 # Relaterat
 ## Windows-kluster
 ### [Migrera Windows-kluster till Linux-kluster](hdinsight-migrate-from-windows-to-linux.md)
+### [Migrera .NET-lösningar till Linux-kluster](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 ### [Köra MapReduce-exempel i Hadoop](hdinsight-run-samples.md)
 ### [Använda Solr i kluster](hdinsight-hadoop-solr-install-linux.md)
 ### [Använda Giraph för att bearbeta storskaliga diagram](hdinsight-hadoop-giraph-install.md)

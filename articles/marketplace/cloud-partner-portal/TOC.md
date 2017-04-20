@@ -23,7 +23,7 @@
 ### [Ta bort erbjudande/SKU för VM](./cloud-partner-portal-delete-an-offer.md)
 ### [Migrera till partnerportalen i molnet](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 
-## [Marknadsföra lead-hantering](../../cloud-partner-portal/cloud-partner-portal-marketing-lead-management.md)
+## [Hämta kundleads](./cloud-partner-portal-get-customer-leads.md)
 ### [Azure Table](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-azure-table.md)
 ### [Dynamics CRM Online](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-dynamics.md)
 ### [Salesforce](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-salesforce.md)
@@ -31,5 +31,4 @@
 
 ## [Hantera utgivarprofil](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Hantera användare](./cloud-partner-portal-manage-users.md)
-## [Ge feedback](./cloud-partner-portal-give-feedback.md)
 ## [Få support](./cloud-partner-portal-support-for-cloud-partner-portal.md)

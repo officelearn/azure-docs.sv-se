@@ -287,8 +287,8 @@
 ### [Språk](Translator/languages.md)
 ### [Hubb](Translator/translator-hub-overview.md)
 ### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
-### [Översikt över API för talöversättning](Translator/speech-overview.md)
-### [Referens för API för talöversättning](http://docs.microsofttranslator.com/speech-translate.html)
+### [Översikt över Translator Speech API](Translator/speech-overview.md)
+### [Referens för Translator Speech API](http://docs.microsofttranslator.com/speech-translate.html)
 ### [Översikt över Translator Text API](Translator/text-overview.md)
 ### [Referens för Translator Text API](http://docs.microsofttranslator.com/text-translate.html)
 

@@ -34,10 +34,11 @@
 ## Konfigurera flera plats-till-plats-anslutningar
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (klassisk)](vpn-gateway-multi-site.md)
-## [Konfigurera BGP för Azure VPN-gatewayer med PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+## [Konfigurera BGP för en VPN-gateway](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Konfigurera aktiv-aktiv-anslutningar med hög tillgänglighet](vpn-gateway-activeactive-rm-powershell.md)
 ## [Ändra inställningar för lokal nätverksgateway med PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Verifiera en anslutning till VPN-gateway](vpn-gateway-verify-connection-resource-manager.md)
+## [Validera VPN-dataflöde till VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ## [Återställ en VPN-gateway](vpn-gateway-resetgw-classic.md)
 ## Ta bort en VPN-gateway
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)

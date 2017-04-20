@@ -5,7 +5,7 @@
 ## [Programscenarier](service-fabric-application-scenarios.md)
 ## [Arkitektur](service-fabric-architecture.md)
 ## [Terminologi](service-fabric-technical-overview.md)
-## [Innehållsöversikt](service-fabric-content-roadmap.md)
+## [Beskrivning](service-fabric-content-roadmap.md)
 
 # Kom igång
 ## Ställ in din utvecklingsmiljö
@@ -17,7 +17,8 @@
 ### [Java i Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# i Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Distribuera appar i ett lokalt kluster](service-fabric-get-started-with-a-local-cluster.md)
-## [Skapa ett fristående kluster](service-fabric-get-started-standalone-cluster.md)
+## [Skapa ditt första kluster på Azure](service-fabric-get-started-azure-cluster.md)
+## [Skapa ditt första fristående kluster](service-fabric-get-started-standalone-cluster.md)
 
 # Gör så här för att
 ## Skapa ett program
@@ -124,7 +125,6 @@
 #### [Åtkomstkontroll](service-fabric-cluster-security-roles.md)
 #### [Konfigurera ett kluster](service-fabric-cluster-fabric-settings.md)
 #### [Lägg till eller förnya klustercertifikat](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Testa ett Party-kluster utan kostnad](http://aka.ms/tryservicefabric)
 
 ### Fristående kluster
 #### [Planera och förbereda för distributionen](service-fabric-cluster-standalone-deployment-preparation.md)

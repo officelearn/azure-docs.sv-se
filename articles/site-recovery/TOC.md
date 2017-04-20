@@ -5,7 +5,7 @@
 ## [Vilka arbetsbelastningar kan du skydda?](site-recovery-workload.md)
 ## [Site Recovery-stödmatris](site-recovery-support-matrix-to-azure.md)
 ## [Vanliga frågor och svar](site-recovery-faq.md)
-## [Titta på en presentation](https://azure.microsoft.com/resources/videos/index/?services=recovery-manager)
+## [Titta på en presentation](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Kom igång
 ## [Replikera virtuella VMWare-datorer till Azure](site-recovery-vmware-to-azure.md)
@@ -21,7 +21,7 @@
 ### [Saker att tänka på gällande nätverksinfrastruktur](site-recovery-network-design.md)
 ### [Planera kapacitet och skala VMware-replikering till Azure](site-recovery-plan-capacity-vmware.md)
 ### [Distributionsplaneraren för VMware-replikering till Azure](site-recovery-deployment-planner.md)
-### [Site Recovery Capacity Planner för Hyper-V-replikering](site-recovery-capacity-planner.md)
+### [Capacity Planner för Hyper-V-replikering](site-recovery-capacity-planner.md)
 
 ## Konfigurera
 ### [Konfigurera källmiljön](site-recovery-set-up-vmware-to-azure.md)

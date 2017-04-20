@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
 ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -43,7 +44,7 @@ Den här artikeln förklarar hur du lägger till användare från andra kataloge
 > [!IMPORTANT]
 > Om din organisation använder mer än en domän bör du vara medveten om följande problem när du lägger till ett användarkonto:
 >
-> * Om du vill lägga till användarkonton med samma UPN (användarens huvudnamn) i olika domäner lägger du **först** till exempelvis geoffgrisso@contoso.onmicrosoft.com, ** följt av** geoffgrisso@contoso.com.
+> * Om du vill lägga till användarkonton med samma UPN (användarens huvudnamn) i olika domäner lägger du **först** till exempelvis geoffgrisso@contoso.onmicrosoft.com, **följt av** geoffgrisso@contoso.com.
 > * Lägg **inte** till geoffgrisso@contoso.com innan du lägger till geoffgrisso@contoso.onmicrosoft.com. Den här ordningen är viktig och kan vara krånglig att ångra.
 >
 >
@@ -86,9 +87,4 @@ Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt 
 * [Administrera Azure AD](active-directory-administer.md)
 * [Hantera lösenord i Azure AD](active-directory-manage-passwords.md)
 * [Hantera grupper i Azure AD](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

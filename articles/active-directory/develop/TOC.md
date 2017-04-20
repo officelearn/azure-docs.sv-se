@@ -1,4 +1,5 @@
-# [Översikt](active-directory-developers-guide.md)
+# Översikt
+## [Guide för utvecklare](active-directory-developers-guide.md)
 ## [Appar och Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Ordlista för utvecklare](active-directory-dev-glossary.md)
 ## [AAD Graph API](active-directory-graph-api.md)
@@ -39,14 +40,12 @@
 ## [Riktlinjer för anpassning](active-directory-branding-guidelines.md)
 ## Arbeta med SAML
 ### [Azure AD och SAML](active-directory-saml-protocol-reference.md)
-### [Visa SAML som returnerats av Access Control](active-directory-java-view-saml-returned-by-access-control.md)
 ### [Anpassa anspråk](active-directory-saml-claims-customization.md)
 ### [Felsöka SAML-baserad enkel inloggning](active-directory-saml-debugging.md)
 ### [SAML-protokoll för enkel inloggning](active-directory-single-sign-on-protocol-reference.md)
 ### [SAML-protokoll för enkel utloggning](active-directory-single-sign-out-protocol-reference.md)
 ## Arbeta med Visual Studio
 ### [Kom igång med Azure Active Directory- och Visual Studio-anslutna tjänster (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
-### [Vad hände med mitt MVC-projekt](Visual Studio Azure Active Directory connected service.md)?](vs-active-directory-dotnet-what-happened
 ### [Fel vid identifiering av autentisering](vs-active-directory-error.md)
 ### [Kom igång med WebApi](vs-active-directory-webapi-getting-started.md)
 ### [Vad hände med mitt projekt för webb-API?](vs-active-directory-webapi-what-happened.md)
@@ -59,7 +58,8 @@
 ### [Federationsmetadata](active-directory-federation-metadata.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-# [v2.0-slutpunkt](active-directory-appmodel-v2-overview.md)
+### [Tjänst-till-tjänst-anrop](active-directory-protocols-oauth-service-to-service.md)
+# v2.0-slutpunkt
 ## [Översikt](active-directory-appmodel-v2-overview.md)
 ### [Skillnader](active-directory-v2-compare.md)
 ### [Apptyper](active-directory-v2-flows.md)
@@ -82,12 +82,11 @@
 ## Referens
 ### [Referens för registrering av appar](active-directory-v2-registration-portal.md)
 ### [Autentiseringsbibliotek](active-directory-v2-libraries.md)
+### [v2.0 Autentiseringsprotokoll](active-directory-v2-protocols.md)
+#### [Tokenreferens](active-directory-v2-tokens.md)
+#### [OAuth2.0-auktoriseringskodflöde](active-directory-v2-protocols-oauth-code.md)
+#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
+#### [Implicit flöde](active-directory-v2-protocols-implicit.md)
+#### [Autentiseringsuppgifter för OAuth 2.0-klient](active-directory-v2-protocols-oauth-client-creds.md)
 ### [Scope](active-directory-v2-scopes.md)
-### [Tokenreferens](active-directory-v2-tokens.md)
-### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-### [Implicit flöde](active-directory-v2-protocols-implicit.md)
-### [OAuth2.0-auktoriseringskodflöde](active-directory-v2-protocols-oauth-code.md)
-### [Autentiseringsuppgifter för OAuth 2.0-klient](active-directory-v2-protocols-oauth-client-creds.md)
-### [Oauth 2.0 och OpenID](active-directory-v2-protocols.md)
-### [Tjänst-till-tjänst-anrop](active-directory-protocols-oauth-service-to-service.md)
 # [Exempel](active-directory-code-samples.md)

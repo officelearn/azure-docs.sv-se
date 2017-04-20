@@ -14,12 +14,15 @@
 ## Skapa mallar
 ### [Metodtips för mallar](resource-manager-template-best-practices.md)
 ### [Mall-avsnitt](resource-group-authoring-templates.md)
+### [Länk till andra mallar](resource-group-linked-templates.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
+### Kopiera loop för att skapa flera instanser
+#### [Grundläggande syntax](resource-group-create-multiple.md)
+#### [Sekventiell loop](resource-manager-sequential-loop.md)
+#### [Egenskapskopia](resource-manager-property-copy.md)
 ### [Ange en plats](resource-manager-template-location.md)
 ### [Tilldela taggar](resource-manager-template-tags.md)
 ### [Ange underordnat resursnamn och typ](resource-manager-template-child-resource.md)
-### [Skapa flera instanser av en resurstyp](resource-group-create-multiple.md)
-### [Länk till andra mallar](resource-group-linked-templates.md)
 ### [Dela tillstånd mellan länkade mallar](best-practices-resource-manager-state.md)
 ### [Mönster för att utforma mallar](best-practices-resource-manager-design-templates.md)
 ## Distribuera

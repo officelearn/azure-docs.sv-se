@@ -3,7 +3,7 @@
 ## [Vanliga frågor och svar](event-hubs-faq.md)
 
 # Kom igång
-## [Skapa en händelsehubb](event-hubs-create.md)
+## [Skapa en Event Hub](event-hubs-create.md)
 ## Skicka händelser
 ### [.NET-standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
@@ -39,18 +39,18 @@
 #### [Använd Python för att aktivera Event Hubs-arkivet](event-hubs-archive-python.md)
 ### [Etablera entiteter med PowerShell](event-hubs-manage-with-ps.md) 
 ### [Strömma Azure Diagnostics-data med Event Hubs](event-hubs-streaming-azure-diags-data.md)
-### [Skapa och distribuera en händelsehubb med en Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub.md)
+### [Skapa och distribuera en Event Hub med en Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Referens
+## Java
+### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## .NET
 ### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
 ### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+### [Microsoft.ServiceBus.Messaging.EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 ### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
-## Java
-### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
-### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## [REST](/rest/api/eventhub)
 ## [Undantag](event-hubs-messaging-exceptions.md)
 ## [Kvoter](event-hubs-quotas.md)

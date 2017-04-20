@@ -3,15 +3,9 @@
 ## [OMS-arkitektur](operations-management-suite-architecture.md)
 
 # Kom igång
-## Information och analyser
-### [Registrera dig för Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Automatisering och kontroll
-### [Min första Runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Skydd och återställning
-### [Introduktion till Azure Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Säkerhet och efterlevnad
-### [Säkerhet och granskning](oms-security-getting-started.md)
-### [Datasäkerhet](oms-security-data-security.md)
+## Genomgångar
+### [Tjänstkarta](operations-management-suite-walkthrough-servicemap.md)
+
 
 # Gör så här för att
 

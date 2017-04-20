@@ -1,7 +1,7 @@
 # Översikt
 ## [Översikt](active-directory-b2c-overview.md)
 ## [Typer av program](active-directory-b2c-apps.md)
-## [Produktionsskala vs förhandsgranska B2C-klienter](active-directory-b2c-reference-tenant-type.md)
+## [Tillgänglighet för regioner och dataplacering](active-directory-b2c-reference-tenant-type.md)
 
 # Kom igång
 ## [Skapa en Azure AD B2C-katalog](active-directory-b2c-get-started.md)

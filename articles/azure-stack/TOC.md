@@ -15,7 +15,6 @@
 ### [Lägg till standardavbildning](azure-stack-add-default-image.md)
 ### [Etablera en virtuell dator](azure-stack-provision-vm.md)
 ### [Skapa ett lagringskonto](azure-stack-provision-storage-account.md)
-### [Lägga till en Azure Stack-klientorganisation](azure-stack-add-new-user-aad.md)
 ### [Distribuera Azure Stack POC igen](azure-stack-redeploy.md)
 
 # Hantera
@@ -31,15 +30,17 @@
 ## Gör så här för att
 ### [Hantera uppdateringar](azure-stack-updates.md)
 ### [Övervaka hälsotillstånd och aviseringar](azure-stack-monitor-health.md)
-### [Hantera nätverksresurser](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Hantera nätverksresurser](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Hantera lagringsresurser](azure-stack-manage-storage-accounts.md)
 ### [Hantera virtuella Windows Azure Pack-datorer](azure-stack-manage-windows-azure-pack.md)
 
 # Säkerhet och efterlevnad
 ## Gör så här för att
 ### [Hantera RBAC](azure-stack-manage-permissions.md)
+### [Lägga till användare för Azure AD](azure-stack-add-new-user-aad.md)
 ### [Lägga till användare för AD FS](azure-stack-add-users-adfs.md)
 ### [Skapa tjänsthuvudnamn](Azure-stack-create-service-principals.md)
+### [Aktivera flera innehavare](azure-stack-enable-multitenancy.md)
 
 # Erbjuda tjänster
 ## Kom igång

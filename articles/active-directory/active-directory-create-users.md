@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
 ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -38,7 +39,7 @@ Lägg till användare i din katalog. Den här artikeln förklarar hur du lägger
 > [!IMPORTANT]
 > Om din organisation använder mer än en domän bör du vara medveten om följande problem när du lägger till ett användarkonto:
 >
-> * Om du vill lägga till användarkonton med samma UPN (användarens huvudnamn) i olika domäner lägger du **först** till exempelvis geoffgrisso@contoso.onmicrosoft.com, ** följt av** geoffgrisso@contoso.com.
+> * Om du vill lägga till användarkonton med samma UPN (användarens huvudnamn) i olika domäner lägger du **först** till exempelvis geoffgrisso@contoso.onmicrosoft.com, **följt av** geoffgrisso@contoso.com.
 > * Lägg **inte** till geoffgrisso@contoso.com innan du lägger till geoffgrisso@contoso.onmicrosoft.com. Den här ordningen är viktig och kan vara krånglig att ångra.
 >
 >
@@ -84,9 +85,4 @@ Sedan kan du redigera alternativen för att kontrollera gästanvändarnas åtkom
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

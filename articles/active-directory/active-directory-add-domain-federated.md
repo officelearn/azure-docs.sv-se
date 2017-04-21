@@ -17,6 +17,7 @@ ms.author: curtand;jeffsta
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 77d34a6ebce12465a15de158b9160a03db58c48e
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -29,7 +30,7 @@ Om du inte har och inte planerar att distribuera AD FS eller en annan federation
 1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com/) med ett användarkonto som är en global administratör i Azure AD-katalogen.
 2. I **Active Directory** öppnar du din katalog och väljer fliken **Domäner**.
 3. Välj **Lägg till** i kommandofältet och ange sedan namnet på din domän, till exempel ”contoso.com”. Glöm inte att ta med .com, .net eller ett annat tillägg för toppnivån.
-4. Markera kryssrutan **Jag planerar att konfigurera den här domänen för enkel inloggning med min lokala Active Directory **.
+4. Markera kryssrutan **Jag planerar att konfigurera den här domänen för enkel inloggning med min lokala Active Directory** .
 5. Välj **Lägg till**.
 
 Kör verktyget Azure AD Connect för att hämta DNS-posten som Azure AD ska använda för att verifiera domänen. DNS-posten visas i steget **Azure AD-domän** i guiden. Du kan se hur det steget i guiden ser ut [i dessa anvisningar](connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). Om du inte har verktyget Azure AD Connect kan du [ladda ned det här](http://go.microsoft.com/fwlink/?LinkId=615771).
@@ -64,10 +65,5 @@ Om din organisation använder flera anpassade domännamn, t.ex. contoso.com och 
 * [Lär dig mer om domänhanteringsbegrepp i Azure AD](active-directory-add-domain-concepts.md)
 * [Visa en företagsanpassad sida när användarna loggar in](active-directory-add-company-branding.md)
 * [Hantera domännamn i Azure AD med hjälp av PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

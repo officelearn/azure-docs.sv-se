@@ -5,9 +5,3 @@ Du kan visa anslutningsstatus för en Resource Manager VPN-gateway i Azure Porta
 3. Klicka på namnet på den anslutning du vill verifiera för att öppna **Essentials**. I Essentials, kan du visa mer information om din anslutning. **Statusen** är Lyckades och Ansluten, när du har skapat en lyckad anslutning.
    
     ![Verifiera VPN-gatewayanslutningen med Azure Portal](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-

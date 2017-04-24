@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -73,8 +73,7 @@ När du klickar på ett objekt i listvyn visas all tillgänglig information om d
 Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du filtrera granskningsdata med hjälp av följande fält:
 
 - Datumintervall
-- Initierad av
-- Kategori
+- Initierad av (aktör)
 - Kategori
 - Resurstyp för aktivitet
 - Aktivitet
@@ -311,7 +310,7 @@ Med programbaserade granskningsrapporter kan du få svar på frågor som:
 * Har namnen på program ändrats?
 * Vem gav tillstånd till ett program?
 
-Om du bara vill kontrollera granskningsdata relaterade till dina program finns det en filtrerad vy under **Granskningsloggar** i avsnittet **Aktivitet** på bladet **Företagsprogram**. I det här området är **Program** den förvalda **aktivitetsresurstypen**.
+Om du bara vill kontrollera granskningsdata relaterade till dina program finns det en filtrerad vy under **Granskningsloggar** i avsnittet **Aktivitet** på bladet **Företagsprogram**. I det här området är **Företagsprogram** den förvalda **aktivitetsresurstypen**.
 
 ![Granskningsloggar](./media/active-directory-reporting-activity-audit-logs/134.png "Granskningsloggar")
 

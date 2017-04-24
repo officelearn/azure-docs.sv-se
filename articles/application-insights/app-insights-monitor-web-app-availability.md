@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/12/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -34,23 +34,26 @@ Det finns två typer av webbtester:
 
 Du kan skapa upp till tio webbtester per programresurs.
 
-## <a name="create"></a>1. Skapa en resurs för dina testrapporter
-Hoppa över det här steget om du redan har [konfigurerat en Application Insights-resurs][start] för det här programmet och om du vill visa tillgänglighetsrapporter på samma plats.
+## <a name="create"></a>1. Öppna en resurs för dina webbtestrapporter
 
-Registrera dig för [Microsoft Azure](http://azure.com), gå till [Azure-portalen](https://portal.azure.com) och skapa en Application Insights-resurs.
+**Om du redan har konfigurerat Application Insights** för din webbapp öppnar du dess Application Insights-resurs i [Azure Portal](https://portal.azure.com).
+
+**Eller om du vill se dina rapporter i en ny resurs** registrerar du dig för [Microsoft Azure](http://azure.com), går till [Azure Portal](https://portal.azure.com) och skapar en Application Insights-resurs.
 
 ![Nytt > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
 Klicka på **alla resurser** för att öppna översiktsbladet för den nya resursen.
 
 ## <a name="setup"></a>2. Skapa ett URL-pingtest
-Leta upp panelen Tillgänglighet i Application Insights-resursen. Klicka på panalen för att öppna bladet Webbtest för ditt program, och lägg till ett webbtest.
+Öppna bladet Tillgänglighet och lägg till ett webbtest.
 
 ![Fyll åtminstone i URL:en för din webbplats](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **URL:en** måste vara synlig från det offentliga Internet. Den kan innehålla en frågesträng, vilket innebär att du kan arbeta med din databas om du vill. Om URL-adressen matchar en omdirigering följer vi den upp till tio omdirigeringar.
-* **Parsa beroendebegäranden**: Bilder, skript, filer och andra resurser för sidan har begärts som en del av testet och den angivna svarstiden innehåller dessa tider. Testet misslyckas om dessa resurser inte kan laddas ned inom tidsgränsen för hela testet.
-* **Aktivera återförsök**: Om testet misslyckas görs ett nytt försök efter en liten stund. Ett fel rapporteras endast om tre på varandra följande försök misslyckas. Efterföljande tester utförs sedan med den vanliga testfrekvensen. Återförsök pausas tillfälligt tills nästa lyckade test. Den här regeln tillämpas separat på varje testplats. (Vi rekommenderar den här inställningen. I genomsnitt försvinner ca 80 % av felen vid återförsök.)
+* **URL: en** kan vara en webbsida som du vill testa, men den måste vara synlig från Internet. URL:en kan innehålla en frågesträng, vilket innebär att du kan arbeta med din databas om du vill. Om URL-adressen matchar en omdirigering följer vi den upp till tio omdirigeringar.
+* **Parsa beroendebegäranden**: om det här alternativet är markerat begärs bilder, skript, filer och andra filer som ingår i webbsidan under testet. Den registrerade svarstiden innefattar den tid det tar att hämta dessa filer. Testet misslyckas om dessa resurser inte kan laddas ned inom tidsgränsen för hela testet. 
+
+    Om alternativet inte är markerat begärs endast filen på den URL som du har angett i testet.
+* **Aktivera återförsök**: Om det här alternativet är markerat och testet misslyckas görs ett nytt försök efter en liten stund. Ett fel rapporteras endast om tre på varandra följande försök misslyckas. Efterföljande tester utförs sedan med den vanliga testfrekvensen. Återförsök pausas tillfälligt tills nästa lyckade test. Den här regeln tillämpas separat på varje testplats. Vi rekommenderar det här alternativet. I genomsnitt försvinner ca 80 % av felen vid återförsök.
 * **Testfrekvens**: Anger hur ofta testet körs från varje testplats. Med en frekvens på fem minuter och fem testplatser testas din webbplats i genomsnitt varje minut.
 * **Testplatser** är de platser som våra servrar skickar webbförfrågningar till din URL från. Välj mer än en så att du kan skilja mellan problem på din webbplats och nätverksproblem. Du kan välja upp till 16 platser.
 * **Villkor för lyckad test**:
@@ -67,14 +70,23 @@ Leta upp panelen Tillgänglighet i Application Insights-resursen. Klicka på pan
 ### <a name="test-more-urls"></a>Testa fler URL:er
 Lägg till fler test. Förutom att testa din hemsida kan du till exempel kontrollera att din databas körs genom att testa URL:en för en sökning.
 
+
 ## <a name="monitor"></a>3. Se webbtestresultaten
-Resultaten visas i bladet Webbtest efter 1 till 2 minuter.
+
+Efter 5 minuter klickar du på **Uppdatera** för att visa testresultaten. 
 
 ![Sammanfattningsresultat på startbladet](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
 Klicka på valfri stapel i sammanfattningsdiagrammet om du vill visa en mer detaljerad vy av den aktuella tidsperioden.
 
-Dessa diagram kombinerar resultaten för alla webbtester för det här programmet.
+## <a name="edit"></a>Granska och redigera tester
+
+Välj ett specifikt test på sammanfattningssidan. Där du kan se specifika resultat för testet och redigera eller tillfälligt inaktivera det.
+
+![Redigera eller inaktivera ett webbtest](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+
+Du kanske vill inaktivera webbtesterna när du utför underhåll av tjänsten.
+
 
 ## <a name="failures"></a>Om du ser fel
 Klicka på en röd punkt.
@@ -103,7 +115,9 @@ Du kan övervaka ett scenario med en serie URL:er. Om du till exempel övervakar
 
 Om du vill skapa ett test med flera steg spelar du in scenariot med hjälp av Visual Studio Enterprise och laddar sedan upp inspelningen till Application Insights. Application Insights spelar upp scenariot i intervall och verifierar svaren.
 
-Observera att du inte kan använda kodade funktioner i tester: stegen i scenariot måste finnas som ett skript i filen .webtest.
+> [!NOTE]
+> Du kan inte använda kodade funktioner eller loopar i dina tester. Testet måste ingå i .webtest-skriptet. Du kan dock använda standardplugin-program.
+>
 
 #### <a name="1-record-a-scenario"></a>1. Spela in ett scenario
 Spela in en webbsession med Visual Studio Enterprise.
@@ -144,13 +158,19 @@ Spela in en webbsession med Visual Studio Enterprise.
 
     Ange testplatserna, frekvensen och aviseringsparametrarna på samma sätt som för pingtest.
 
-Visa testresultaten och eventuella fel på samma sätt som för tester av enstaka URL:er.
+#### <a name="3-see-the-results"></a>3. Visa resultaten
 
-En vanlig orsak till fel är att testet körs för länge. Det får inte köras längre än två minuter.
+Visa testresultat och eventuella fel på samma sätt som för tester med en enskild URL.
 
-Glöm inte att alla resurser på en sida måste läsas in korrekt för att testet ska lyckas, inklusive skript, formatmallar, bilder och så vidare.
+Dessutom kan du hämta testresultat och visa dem i Visual Studio.
 
-Observera att webbtestet måste finnas i filen .webtest: du kan inte använda kodade funktioner i testet.
+#### <a name="too-many-failures"></a>För många fel?
+
+* En vanlig orsak till fel är att testet körs för länge. Det får inte köras längre än två minuter.
+
+* Glöm inte att alla resurser på en sida måste läsas in korrekt för att testet ska lyckas, inklusive skript, formatmallar, bilder och så vidare.
+
+* Webbtestet måste finnas i .webtest-skriptet: du kan inte använda kodade funktioner i testet.
 
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Använda tid och slumptal i flerstegstest
 Anta att du testar ett verktyg som hämtar tidsberoende data, till exempel aktier från ett externt flöde. När du spelar in webbtestet måste du ange specifika tider, men du anger dem som parametrar för testet, StartTime och EndTime.
@@ -211,12 +231,6 @@ Om testet måste logga in med OAuth är den allmänna riktlinjen att:
 * Parameterisera token genom att ange parametern när token returneras från autentiseraren och använda den i frågan till webbplatsen.
   (Visual Studio försöker parameterisera testet, men kan inte parameterisera token korrekt.)
 
-## <a name="edit"></a>Redigera eller inaktivera ett test
-Öppna ett enskilt test för att redigera eller inaktivera det.
-
-![Redigera eller inaktivera ett webbtest](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
-
-Du kanske vill inaktivera webbtesterna när du utför underhåll av tjänsten.
 
 ## <a name="performance-tests"></a>Prestandatester
 Du kan köra ett inläsningstest på din webbplats. Som med tillgänglighetstestet kan du skicka antingen enkla begäranden eller begäranden med flera steg från våra platser runtom i världen. Till skillnad från ett tillgänglighetstest skickas många begäranden, som simulerar flera samtidiga användare.
@@ -229,7 +243,7 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 * [Konfigurera ett webbtest automatiskt med hjälp av PowerShell-skript](app-insights-powershell.md#add-an-availability-test).
 * Konfigurera en [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) som anropas när en avisering genereras.
 
-## <a name="questions-problems"></a>Har du några frågor? Har du problem?
+## <a name="qna"></a>Har du några frågor? Har du problem?
 * *Kan jag anropa kod från mitt webbtest?*
 
     Nej. Stegen i testet måste finnas i filen .webtest. Och du kan inte anropa andra webbtester eller använda loopar. Men det finns flera plugin-program som kan vara användbara.

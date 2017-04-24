@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 25ffd1c5bf289fa98a4b350eb916b386eee7f05c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Det går att skapa virtuella datorer via Azure Portal. Den här metoden ger ett webbläsarbaserat användargränssnitt för att skapa och konfigurera virtuella datorer och alla relaterade resurser. Den här snabbstarten beskriver hur man skapar en virtuell dator med Azure Portal.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-ssh-key-pair"></a>Skapa SSH-nyckelpar
 
@@ -52,9 +52,9 @@ Logga in på Azure Portal på http://portal.azure.com.
 
     ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. Välj en storlek för den virtuella datorn och klicka på **Välj**. 
+4. Välj en storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. 
 
-    ![Välj en storlek för den virtuella datorn på portalbladet](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. På inställningsbladet väljer du **Ja** under **Use managed disks** (Använd hanterade diskar), låter standardinställningarna vara kvar för resten och klickar på **OK**.
 
@@ -71,7 +71,7 @@ Som standard tillåts enbart SSH-anslutningar till virtuella Linux-datorer distr
 2. Gå till bladet för resursgruppen och klicka på **Nätverkssäkerhetsgrupp** i listan över resurser. NSG-namnet bör vara namnet på den virtuella datorn med ”- nsg” tillagt i slutet.
 3. Klicka på rubriken **Ingående säkerhetsregel** så öppnas listan med regler för inkommande trafik. Du bör se en regel för RDP i listan redan.
 4. Klicka på **+ Lägg till** så öppnas bladet **Lägg till ingående säkerhetsregel**.
-5. Under **Namn** skriver du **nginx** och ser till att **Portintervall** har angetts till 80 och **Åtgärd** till **Tillåt** och klickar sedan på **OK**.
+5. Skriv **nginx** i fältet **Namn**. Kontrollera att 80 har angetts för **Portintervall** och att **Tillåt** har angetts för **Åtgärd**. Klicka på **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
@@ -104,7 +104,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Visa NGIX-välkomstsidan
 
-Du kan använda en webbläsare som du väljer för att visa välkomstsidan till NGINX när NGINX är installerat och port 80 nu är öppen på en virtuell dator från Internet. Se till att använda den `publicIpAddress` som du har dokumenterat ovan för att besöka standardsidan. 
+Du kan använda en webbläsare som du väljer för att visa välkomstsidan till NGINX när NGINX är installerat och port 80 nu är öppen på en virtuell dator från Internet. Se till att använda den `publicIpAddress` som du har dokumenterat för att besöka standardsidan. 
 
 ![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Ta bort en virtuell dator

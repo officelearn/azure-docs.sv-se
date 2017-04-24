@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
-ms.custom: overview
+ms.custom: features
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,148 +16,121 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 7dc5210c073a3130bfc9ffdbc9ce33e19ca5bc1a
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a1ede93b5aacf0d8a5bcf83f208f72be328ee72f
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database-funktioner
-Det här ämnet innehåller en översikt över Azure SQL Database logiska servrar och databaser och innehåller en matris över funktionsstöds med länkar för varje listad funktion. 
 
-## <a name="what-is-an-azure-sql-database-logical-server"></a>Vad är en logisk Azure SQL Database-server?
-En logisk Azure SQL Database-server fungerar som en central administrativ plats för flera databaser. I SQL Database är en server en logisk konstruktion som skiljer sig från en SQL Server-instans, som du kanske är bekant med i den lokala miljön. Mer specifikt ger SQL Database-tjänsten inga garantier avseende platsen för databaserna i förhållande till deras logiska servrar och exponerar inga funktioner eller åtkomst på instansnivå. Mer information om logiska Azure SQL-servrar finns i avsnittet om [logiska servrar](sql-database-server-overview.md). 
-
-## <a name="what-is-an-azure-sql-database"></a>Vad är en Azure SQL Database?
-Varje databas i Azure SQL Database är associerad med en logisk server. Databasen kan vara:
-
-- En enkel databas med dess [uppsättning resurser](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU:er)
-- En del av en [pool med databaser](sql-database-elastic-pool.md) som [delar en uppsättning resurser](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU:er)
-- En del av en [utskalad uppsättning delade databaser](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), som kan vara enskilda databaser eller databaser i en pool
-- En del av en uppsättning databaser som ingår i ett [SaaS-designmönster för flera klienter](sql-database-design-patterns-multi-tenancy-saas-applications.md), vars databaser kan vara enskilda databaser eller databaser i en pool (eller båda) 
-
-Mer information om Azure SQL-databaser finns i [SQL-databaser](sql-database-overview.md).
-
-## <a name="what-features-are-supported"></a>Vilka funktioner stöds?
-
-Följande tabeller visar de viktigaste funktionerna i Azure SQL Database och SQL Server, anger dess support och innehåller en länk till mer information om funktionen på varje plattform. Du hittar Transact-SQL-funktioner om du följer länken i tabellen för funktionens kategori. Mer information om varför vissa funktioner inte stöds finns i avsnittet [Skillnader mellan Azure SQL Database och Transact-SQL](sql-database-transact-sql-information.md).
+I följande tabeller visas de viktigaste funktionerna i Azure SQL Database och motsvarande funktioner i SQL Server. Dessutom visas information om huruvida det finns stöd för de olika funktionerna och en länk till mer information om funktionen på respektive plattform. Om du vill veta vilka Transact-SQL-skillnader du ska ha i åtanke när du migrerar en befintlig databaslösning kan du läsa [Azure SQL Database Transact-SQL skillnader](sql-database-transact-sql-information.md).
 
 Vi fortsätter att lägga till funktioner till Azure SQL Database. Så vi rekommenderar att du besöker vår webbsida för tjänstuppdateringar för Azure och dess filter:
 
 * Filtrerade till [SQL Database-tjänsten](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtrerade till allmän tillgänglighet [meddelanden (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) för SQL Database-funktioner.
 
-> [!TIP]
-> Om du vill testa en befintlig databas för kompatibilitet med Azure SQL Database finns information i [Migrera en SQL Server-databas till Azure](sql-database-cloud-migrate.md).
->
-
 | **Funktion** | **SQL Server** | **Azure SQL Database** | 
 | --- | :---: | :---: | 
-| Aktiv geo-replikering | Finns inte stöd för – [AlwaysOn-Tillgänglighetsgrupper](https://msdn.microsoft.com/library/hh510230.aspx) | [Stöds](sql-database-geo-replication-overview.md)
-| Alltid krypterad | [Stöds](https://msdn.microsoft.com/library/mt163865.aspx) | [Stöds](sql-database-always-encrypted.md) |
-| AlwaysOn-tillgänglighetsgrupper | [Stöds](https://msdn.microsoft.com/library/hh510230.aspx) | Finns inte stöd för – [aktiv geo-replikering](sql-database-geo-replication-overview.md) |
-| Ansluta en databas | [Stöds](https://msdn.microsoft.com/library/ms190209.aspx) | Stöds inte |
-| Programroller | [Stöds](https://msdn.microsoft.com/library/ms190998.aspx) | [Stöds](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Autoskala | Stöds inte | [Stöds](sql-database-service-tiers.md) |
+| Aktiv geo-replikering | Stöds inte – se [AlwaysOn-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Stöds](sql-database-geo-replication-overview.md)
+| Alltid krypterad | [Stöds](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Stöds – se [Certifikatarkiv](sql-database-always-encrypted.md) och [Nyckelvalv](sql-database-always-encrypted-azure-key-vault.md)|
+| AlwaysOn-tillgänglighetsgrupper | [Stöds](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Finns inte stöd för – [aktiv geo-replikering](sql-database-geo-replication-overview.md) |
+| Ansluta en databas | [Stöds](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Stöds inte |
+| Programroller | [Stöds](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | [Stöds](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) |
+| Autoskala | Stöds inte | Stöds – se [Tjänstnivåer](sql-database-service-tiers.md) |
 | Azure Active Directory | Stöds inte | [Stöds](sql-database-aad-authentication.md) |
 | Azure Data Factory | [Stöds](../data-factory/data-factory-introduction.md) | [Stöds](../data-factory/data-factory-introduction.md) |
-| Granskning | [Stöds](https://msdn.microsoft.com/library/cc280386.aspx) | [Stöds](sql-database-auditing.md) |
-| BACPAC-fil (exportera) | [Stöds](https://msdn.microsoft.com/library/hh213241.aspx) | [Stöds](sql-database-export.md) |
-| BACPAC-fil (importera) | [Stöds](https://msdn.microsoft.com/library/hh710052.aspx) | [Stöds](sql-database-import-portal.md) |
-| Uttryck för SÄKERHETSKOPIERING och ÅTERSTÄLLNING  | [Stöds](https://msdn.microsoft.com/library/ff848768.aspx) | Stöds inte |
-| Inbyggda funktioner | [Stöds](https://msdn.microsoft.com/library/ms174318.aspx) | [De flesta](https://msdn.microsoft.com/library/ms174318.aspx) |
-| Registrering av ändringsdata | [Stöds](https://msdn.microsoft.com/library/cc645937.aspx) | Stöds inte |
-| Spårning av ändringar | [Stöds](https://msdn.microsoft.com/library/bb933875.aspx) | [Stöds](https://msdn.microsoft.com/library/bb933875.aspx) |
-| Sortering av uttryck | [Stöds](https://msdn.microsoft.com/library/ff848763.aspx) | [Stöds](https://msdn.microsoft.com/library/ff848763.aspx) |
-| Columnstore-index | [Stöds](https://msdn.microsoft.com/library/gg492088.aspx) | [Endast Premium edition](https://msdn.microsoft.com/library/gg492088.aspx) |
-| CLR (Common language runtime) | [Stöds](https://msdn.microsoft.com/library/ms131102.aspx) | Stöds inte |
-| Inneslutna databaser | [Stöds](https://msdn.microsoft.com/library/ff929071.aspx) | Inbyggd |
-| Inneslutna användare | [Stöds](https://msdn.microsoft.com/library/ff929188.aspx) | [Stöds](sql-database-manage-logins.md#non-administrator-users) |
-| Kontroll av nyckelord för flödesspråk | [Stöds](https://msdn.microsoft.com/library/ms174290.aspx) | [Stöds](https://msdn.microsoft.com/library/ms174290.aspx) |
-| Frågor över flera databaser | [Stöds](https://msdn.microsoft.com/library/dn584627.aspx) | [Elastiska frågor](sql-database-elastic-query-overview.md) |
-| Markörer | [Stöds](https://msdn.microsoft.com/library/ms181441.aspx) | [Stöds](https://msdn.microsoft.com/library/ms181441.aspx) | 
-| Datakomprimering | [Stöds](https://msdn.microsoft.com/library/cc280449.aspx) | [Stöds](https://msdn.microsoft.com/library/cc280449.aspx) |
-| Säkerhetskopior av databasen | [Visas för användare](https://msdn.microsoft.com/library/ms187048.aspx) | [Inbyggd](sql-database-automated-backups.md) |
-| Database-mail | [Stöds](https://msdn.microsoft.com/library/ms189635.aspx) | Stöds inte |
-| Databasspegling | [Stöds](https://msdn.microsoft.com/library/ms189852.aspx) | Stöds inte |
-| Konfigurationsalternativ för databasen | [Stöds](https://msdn.microsoft.com/library/mt629158.aspx) | [Stöds](https://msdn.microsoft.com/library/mt629158.aspx) |
-| Data Quality Services (DQS) | [Stöds](https://msdn.microsoft.com/library/ff877925.aspx) | Stöds inte |
-| Ögonblicksbilder av databas | [Stöds](https://msdn.microsoft.com/library/ms175158.aspx) | Stöds inte |
-| Datatyper | [Stöds](https://msdn.microsoft.com/library/ms187752.aspx) | [Stöds](https://msdn.microsoft.com/library/ms187752.aspx) |  
-| DBCC-uttryck | [Alla](https://msdn.microsoft.com/library/ms188796.aspx) | [Vissa](https://msdn.microsoft.com/library/ms188796.aspx) |
-| DDL-uttryck | [Stöds](https://msdn.microsoft.com/library/ff848799.aspx) | [De flesta](https://msdn.microsoft.com/library/ff848799.aspx)
-| DDL-utlösare | [Stöds](https://msdn.microsoft.com/library/ms175941.aspx) | [Endast databas](https://msdn.microsoft.com/library/ms175941.aspx) |
-| Distribuerade transaktioner | [MS DTC](https://msdn.microsoft.com/library/ms131665.aspx) | Begränsad endast intra-SQL Database-scenarier |
-| DML-uttryck | [Stöds](https://msdn.microsoft.com/library/ff848766.aspx) | [De flesta](https://msdn.microsoft.com/library/ff848766.aspx) |
-| DML-utlösare | [Stöds](https://msdn.microsoft.com/library/ms178110.aspx) | [Stöds](https://msdn.microsoft.com/library/ms178110.aspx) |
-| DMV | [Alla](https://msdn.microsoft.com/library/ms188754.aspx) | [Vissa](https://msdn.microsoft.com/library/ms188754.aspx) |
-| elastiska pooler | Stöds inte | [Stöds](sql-database-elastic-pool.md) |
-| Elastiska jobb | Finns inte stöd för – [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx) | [Stöds](sql-database-elastic-jobs-getting-started.md) | 
-| Elastiska frågor | Finns inte stöd för – [Frågor över flera databaser](https://msdn.microsoft.com/library/dn584627.aspx) | [Stöds](sql-database-elastic-query-overview.md) |
-| Händelseaviseringar | [Stöds](https://msdn.microsoft.com/library/ms186376.aspx) | [Stöds](sql-database-insights-alerts-portal.md) |
-| Uttryck | [Stöds](https://msdn.microsoft.com/library/ms190286.aspx) | [Stöds](https://msdn.microsoft.com/library/ms190286.aspx) |
-| Utökade händelser | [Stöds](https://msdn.microsoft.com/library/bb630282.aspx) | [Vissa](sql-database-xevent-db-diff-from-svr.md) |
-| Utökade lagrade procedurer | [Stöds](https://msdn.microsoft.com/library/ms164627.aspx) | Stöds inte |
-| Filgrupper | [Stöds](https://msdn.microsoft.com/library/ms189563.aspx#Anchor_2) | [Endast primär](https://msdn.microsoft.com/library/ms189563.aspx#Anchor_2) |
-| FileStream | [Stöds](https://msdn.microsoft.com/library/gg471497.aspx) | Stöds inte |
-| Fulltextsökning | [Stöds](https://msdn.microsoft.com/library/ms142571.aspx) | [Orddelare från tredje part som inte stöds](https://msdn.microsoft.com/library/ms142571.aspx) |
-| Funktioner | [Stöds](https://msdn.microsoft.com/library/ms174318.aspx) | [De flesta](https://msdn.microsoft.com/library/ms174318.aspx) |
-| Minnesintern optimering | [Stöds](https://msdn.microsoft.com/library/dn133186.aspx) | [Endast Premium edition](https://msdn.microsoft.com/library/dn133186.aspx) |
-| Jobb | [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx) | [Stöds](sql-database-elastic-jobs-getting-started.md) |
-| Stöd för JSON-data | [Stöds](https://msdn.microsoft.com/library/dn921897.aspx) | [Stöds](sql-database-json-features.md) |
-| Språkelement | [Stöds](https://msdn.microsoft.com/library/ff848807.aspx) | [De flesta](https://msdn.microsoft.com/library/ff848807.aspx) |  
-| Länkade servrar | [Stöds](https://msdn.microsoft.com/library/ms188279.aspx) | Finns inte stöd för – [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) |
-| Loggöverföring | [Stöds](https://msdn.microsoft.com/library/ms187103.aspx) | Finns inte stöd för – [aktiv geo-replikering](sql-database-geo-replication-overview.md) |
-| Kommandon för hantering | [Stöds](https://msdn.microsoft.com/library/ms190286.aspx)| [Stöds inte](https://msdn.microsoft.com/library/ms190286.aspx) |
-| Master Data Services (MDS) | [Stöds](https://msdn.microsoft.com/library/ff487003.aspx) | Stöds inte |
-| Minimal loggning i massimport | [Stöds](https://msdn.microsoft.com/library/ms190422.aspx) | Stöds inte |
-| Ändra systemdata | [Stöds](https://msdn.microsoft.com/library/ms178028.aspx) | Stöds inte |
-| Indexåtgärder online | [Stöds](https://msdn.microsoft.com/library/ms177442.aspx) | [Transaktionstorlek begränsas av tjänstnivå](https://msdn.microsoft.com/library/ms177442.aspx) |
-| Operatörer | [Stöds](https://msdn.microsoft.com/library/ms174986.aspx) | [De flesta](https://msdn.microsoft.com/library/ms174986.aspx) |
-| Återställning till tidpunkt av databas | [Stöds](https://msdn.microsoft.com/library/ms179451.aspx) | [Stöds](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| Polybase | [Stöds](https://msdn.microsoft.com/library/mt143171.aspx) | [Stöds inte]
-| Principbaserad hantering | [Stöds](https://msdn.microsoft.com/library/bb510667.aspx) | Stöds inte |
-| Predikat | [Stöds](https://msdn.microsoft.com/library/ms189523.aspx) | [De flesta](https://msdn.microsoft.com/library/ms189523.aspx)
-| R-tjänster | [Stöds](https://msdn.microsoft.com/library/mt604845.aspx)
-| Resursstyrning | [Stöds](https://msdn.microsoft.com/library/bb933866.aspx) | Stöds inte |
-| Återställ databasen från en säkerhetskopia | [Stöds](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [Från endast inbyggda säkerhetskopior](sql-database-recovery-using-backups.md) |
-| Säkerhet på radnivå | [Stöds](https://msdn.microsoft.com/library/dn765131.aspx) | [Stöds](https://msdn.microsoft.com/library/dn765131.aspx) |
-| Säkerhetsuttryck | [Stöds](https://msdn.microsoft.com/library/ff848791.aspx) | [Vissa](https://msdn.microsoft.com/library/ff848791.aspx) |
-| Semantisk sökning | [Stöds](https://msdn.microsoft.com/library/gg492075.aspx) | Stöds inte |
-| Sekvensnummer | [Stöds](https://msdn.microsoft.com/library/ff878058.aspx) | [Stöds](https://msdn.microsoft.com/library/ff878058.aspx) |
-| Service Broker | [Stöds](https://msdn.microsoft.com/library/bb522893.aspx) | Stöds inte |
-| Konfigurationsalternativ för server | [Stöds](https://msdn.microsoft.com/library/ms189631.aspx) | Finns inte stöd för – [Konfigurationsalternativ för databasen](https://msdn.microsoft.com/library/mt629158.aspx) |
-| Ange uttryck | [Stöds](https://msdn.microsoft.com/library/ms190356.aspx) | [De flesta](https://msdn.microsoft.com/library/ms190356.aspx) 
-| Spatial | [Stöds](https://msdn.microsoft.com/library/bb933790.aspx) | [Stöds](https://msdn.microsoft.com/library/bb933790.aspx) |
-| SQL Server Agent | [Stöds](https://msdn.microsoft.com/library/ms189237.aspx) | Finns inte stöd för – [elastiska jobb](sql-database-elastic-jobs-getting-started.md) |
-| SQL Server Analysis Services (SSAS) | [Stöds](https://msdn.microsoft.com/library/bb522607.aspx) | Finns inte stöd för – [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
-| SQL Server Integration Services (SSIS) | [Stöds](https://msdn.microsoft.com/library/ms141026.aspx) | Finns inte stöd för – [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
-| SQL Server PowerShell | [Stöds](https://msdn.microsoft.com/library/hh245198.aspx) | [Stöds](https://msdn.microsoft.com/library/hh245198.aspx) |
-| SQL Server-profiler | [Stöds](https://msdn.microsoft.com/library/ms181091.aspx) | Finns inte stöd för – [utökade händelser](https://msdn.microsoft.com/library/ms181091.aspx) |
-| SQL Server-replikering | [Stöds](https://msdn.microsoft.com/library/ms151198.aspx) | [Prenumerant för tansaktions-och ögonblicksbildsreplikering endast](sql-database-cloud-migrate.md) |
-| SQL Server Reporting Services (SSRS) | [Stöds](https://msdn.microsoft.com/library/ms159106.aspx) | Stöds inte |
-| Lagrade procedurer | [Stöds](https://msdn.microsoft.com/library/ms190782.aspx) | [Stöds](https://msdn.microsoft.com/library/ms190782.aspx) |
-| Systemlagrade funktioner | [Stöds](https://msdn.microsoft.com/library/ff848780.aspx) | [Vissa](https://msdn.microsoft.com/library/ff848780.aspx) |
-| Systemlagrade procedurer | [Stöds](https://msdn.microsoft.com/library/ms187961.aspx) | [Vissa](https://msdn.microsoft.com/library/ms187961.aspx) |
-| Systemtabeller | [Stöds](https://msdn.microsoft.com/library/ms179932.aspx) | [Vissa](https://msdn.microsoft.com/library/ms179932.aspx) |
-| Systemvyer | [Stöds](https://msdn.microsoft.com/library/ms177862.aspx) | [Vissa](https://msdn.microsoft.com/library/ms177862.aspx)
-| Tabellpartitionering | [Stöds](https://msdn.microsoft.com/library/ms190787.aspx) | [Endast primär filgrupp](https://msdn.microsoft.com/library/ms190787.aspx) |
-| Temporära tabeller | [Lokala och globala](https://msdn.microsoft.com/library/ms174979.aspx#Anchor_4) | [Endast lokala](https://msdn.microsoft.com/library/ms174979.aspx#Anchor_4) |
-| Temporala tabeller | [Stöds](https://msdn.microsoft.com/library/dn935015.aspx) | [Stöds](sql-database-temporal-tables.md) |
-| Transaktionsuttryck | [Stöds](https://msdn.microsoft.com/library/ms174377.aspx) | [Stöds](https://msdn.microsoft.com/library/ms174377.aspx) |
-| Variabler | [Stöds](https://msdn.microsoft.com/library/ff848809.aspx) | | [Stöds](https://msdn.microsoft.com/library/ff848809.aspx) | 
-| Transparent datakryptering (TDE)  | [Stöds](https://msdn.microsoft.com/library/bb934049.aspx) | [Stöds](https://msdn.microsoft.com/dn948096.aspx) |
-| Windows Server-redundansklustring | [Stöds](https://msdn.microsoft.com/library/hh270278.aspx) | Finns inte stöd för – [aktiv geo-replikering](sql-database-geo-replication-overview.md) |
-| XML-index | [Stöds](http://msdn.microsoft.com/library/bb934097.aspx) | [Stöds](http://msdn.microsoft.com/library/bb934097.aspx) |
-| XML-uttryck | [Stöds](https://msdn.microsoft.com/library/ff848798.aspx) | [Stöds](https://msdn.microsoft.com/library/ff848798.aspx) |
+| Granskning | [Stöds](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Stöds](sql-database-auditing.md) |
+| BACPAC-fil (exportera) | [Stöds](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | [Stöds](sql-database-export.md) |
+| BACPAC-fil (importera) | [Stöds](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | [Stöds](sql-database-import.md) |
+| SÄKERHETSKOPIERING | [Stöds](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Stöds inte |
+| Inbyggda funktioner | [Stöds](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta – se [enskilda funktioner] (https://docs.microsoft.com/sql/t-sql/functions/functions) |
+| Registrering av ändringsdata | [Stöds](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Stöds inte |
+| Spårning av ändringar | [Stöds](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | [Stöds](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) |
+| Sortering av uttryck | [Stöds](https://docs.microsoft.com/sql/t-sql/statements/collations) | [Stöds](https://docs.microsoft.com/sql/t-sql/statements/collations) |
+| Columnstore-index | [Stöds](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | [Endast Premium edition](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |
+| CLR (Common language runtime) | [Stöds](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Stöds inte |
+| Inneslutna databaser | [Stöds](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | [Stöds](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) |
+| Inneslutna användare | [Stöds](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | [Stöds](sql-database-manage-logins.md#non-administrator-users) |
+| Kontroll av nyckelord för flödesspråk | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) |
+| Frågor över flera databaser | [Stöds](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/cross-database-queries) | Delvis – se [Elastiska frågor](sql-database-elastic-query-overview.md) |
+| Markörer | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | 
+| Datakomprimering | [Stöds](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | [Stöds](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) |
+| Säkerhetskopior av databasen | [Hanteras av användare](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) | [Hanteras av SQL Database-tjänsten](sql-database-automated-backups.md) |
+| Database-mail | [Stöds](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Stöds inte |
+| Databasspegling | [Stöds](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | Stöds inte |
+| Inställningar för databaskonfiguration | [Stöds](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) | [Stöds](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) |
+| Data Quality Services (DQS) | [Stöds](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | Stöds inte |
+| Ögonblicksbilder av databas | [Stöds](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | Stöds inte |
+| Datatyper | [Stöds](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) | [Stöds](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) |  
+| DBCC-uttryck | [Stöds](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | De flesta – se [enskilda uttryck](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) |
+| DDL-uttryck | [Stöds](https://docs.microsoft.com/sql/t-sql/statements/statements) | De flesta – se [enskilda uttryck](https://docs.microsoft.com/sql/t-sql/statements/statements)
+| DDL-utlösare | [Stöds](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | [Endast databas](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) |
+| Distribuerade transaktioner | [MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Begränsad endast intra-SQL Database-scenarier |
+| DML-uttryck | [Stöds](https://docs.microsoft.com/sql/t-sql/queries/queries) | De flesta – se [enskilda uttryck] (https://docs.microsoft.com/sql/t-sql/queries/queries) |
+| DML-utlösare | [Stöds](https://docs.microsoft.com/sql/relational-databases/triggers/dml-triggers) | [Stöds](https://docs.microsoft.com/sql/relational-databases/triggers/dml-triggers) |
+| DMV | [Alla](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Vissa – se [enskilda DMV:er](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) |
+| Elastiska pooler | Stöds inte | [Stöds](sql-database-elastic-pool.md) |
+| Elastiska jobb | Finns inte stöd för – [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | [Stöds](sql-database-elastic-jobs-getting-started.md) | 
+| Elastiska frågor | Finns inte stöd för – [Frågor över flera databaser](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/cross-database-queries) | [Stöds](sql-database-elastic-query-overview.md) |
+| Händelseaviseringar | [Stöds](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | [Stöds](sql-database-insights-alerts-portal.md) |
+| Uttryck | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |
+| Utökade händelser | [Stöds](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Vissa – se [enskilda händelser](sql-database-xevent-db-diff-from-svr.md) |
+| Utökade lagrade procedurer | [Stöds](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Stöds inte |
+| Filer och filgrupper | [Stöds](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | [Endast primär](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) |
+| FileStream | [Stöds](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Stöds inte |
+| Fulltextsökning | [Stöds](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) | [Orddelare från tredje part stöds inte](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |
+| Funktioner | [Stöds](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta – se [enskilda funktioner](https://docs.microsoft.com/sql/t-sql/functions/functions) |
+| Minnesintern optimering | [Stöds](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | [Endast Premium edition](sql-database-in-memory.md) |
+| Jobb | Se [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Se [Elastiska jobb](sql-database-elastic-jobs-getting-started.md) |
+| Stöd för JSON-data | [Stöds](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Stöds](sql-database-json-features.md) |
+| Språkelement | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De flesta – se [enskilda element](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) |  
+| Länkade servrar | [Stöds](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Finns inte stöd för – [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) |
+| Loggöverföring | [Stöds](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Finns inte stöd för – [aktiv geo-replikering](sql-database-geo-replication-overview.md) |
+| Master Data Services (MDS) | [Stöds](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Stöds inte |
+| Minimal loggning i massimport | [Stöds](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Stöds inte |
+| Ändra systemdata | [Stöds](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Stöds inte |
+| Indexåtgärder online | [Stöds](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | [Stöds – storleksgräns för transaktioner per tjänstnivå](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) |
+| Operatorer | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | De flesta – se [enskilda operatorer](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) |
+| Återställning till tidpunkt av databas | [Stöds](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | [Stöds](sql-database-recovery-using-backups.md#point-in-time-restore) |
+| Polybase | [Stöds](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Stöds inte
+| Principbaserad hantering | [Stöds](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Stöds inte |
+| Predikat | [Stöds](https://docs.microsoft.com/sql/t-sql/queries/predicates) | De flesta – se [enskilda predikat](https://docs.microsoft.com/sql/t-sql/queries/predicates)
+| R-tjänster | [Stöds](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services)
+| Resursstyrning | [Stöds](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Stöds inte |
+| RESTORE-uttryck | [Stöds](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Stöds inte | 
+| Återställ databasen från en säkerhetskopia | [Stöds](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | [Från endast inbyggda säkerhetskopior](sql-database-recovery-using-backups.md) |
+| Säkerhet på radnivå | [Stöds](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | [Stöds](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) |
+| Semantisk sökning | [Stöds](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | Stöds inte |
+| Sekvensnummer | [Stöds](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers) | [Stöds](https://docs.microsoft.com/sql/relational-databases/sequence-numbers/sequence-numbers) |
+| Service Broker | [Stöds](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | Stöds inte |
+| Inställningar för serverkonfiguration | [Stöds](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | Finns inte stöd för – [Konfigurationsalternativ för databasen](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) |
+| Ange uttryck | [Stöds](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | De flesta – se [enskilda uttryck](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) 
+| Spatial | [Stöds](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | [Stöds](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) |
+| SQL Server Agent | [Stöds](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Finns inte stöd för – [elastiska jobb](sql-database-elastic-jobs-getting-started.md) |
+| SQL Server Analysis Services (SSAS) | [Stöds](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Finns inte stöd för – [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
+| SQL Server Integration Services (SSIS) | [Stöds](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Finns inte stöd för – [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
+| SQL Server PowerShell | [Stöds](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | [Stöds](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) |
+| SQL Server-profiler | [Stöds](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Finns inte stöd för – [utökade händelser](sql-database-xevent-db-diff-from-svr.md) |
+| SQL Server-replikering | [Stöds](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Prenumerant för transaktions-och ögonblicksbildsreplikering endast](sql-database-cloud-migrate.md) |
+| SQL Server Reporting Services (SSRS) | [Stöds](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Stöds inte |
+| Lagrade procedurer | [Stöds](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | [Stöds](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) |
+| Systemlagrade funktioner | [Stöds](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Vissa – se [enskilda funktioner](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) |
+| Systemlagrade procedurer | [Stöds](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Vissa – se [enskilda lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) |
+| Systemtabeller | [Stöds](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Vissa – se [enskilda tabeller](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) |
+| Systemkatalogvyer | [Stöds](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Vissa – se [enskilda vyer](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql)
+| Tabellpartitionering | [Stöds](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Stöds – [endast primär filgrupp](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) |
+| Temporära tabeller | [Lokala och globala](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#temporary-tables) | [Endast lokala](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#temporary-tables) |
+| Temporala tabeller | [Stöds](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Stöds](sql-database-temporal-tables.md) |
+| Transaktioner | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) |
+| Variabler | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | [Stöds](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 
+| Transparent datakryptering (TDE)  | [Stöds](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | [Stöds](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
+| Windows Server-redundansklustring | [Stöds](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Finns inte stöd för – [aktiv geo-replikering](sql-database-geo-replication-overview.md) |
+| XML-index | [Stöds](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | [Stöds](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) |
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om Azure SQL Database-tjänsten finns i [Vad är SQL Database?](sql-database-technical-overview.md)
-- En översikt över logiska Azure SQL-servrar finns i [SQL Database logical server overview](sql-database-server-overview.md) (Översikt över logiska SQL Database-servrar)
-- En översikt över Azure SQL-databaser finns i [Översikt över SQL Database](sql-database-overview.md)
-- Information om stöd för och skillnader i Transact-SQL finns i [Skillnader mellan Azure SQL Database och Transact-SQL](sql-database-transact-sql-information.md).
-- Information om specifika resurskvoter och begränsningar baserat på din **tjänstnivå**. En översikt över tjänstnivåer finns i avsnittet om [tjänstnivåer för SQL Database](sql-database-service-tiers.md).
-- En översikt över säkerhet finns i [Azure SQL Database-säkerhetsöversikt](sql-database-security-overview.md).
-- Mer information om tillgängliga drivrutiner och stöd för SQL Database finns i [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md) (Anslutningsbibliotek för SQL Database och SQL Server).
+- Mer information om stöd för och skillnader jämfört med Transact-SQL finns i [Azure SQL Database Transact-SQL skillnader](sql-database-transact-sql-information.md).
 

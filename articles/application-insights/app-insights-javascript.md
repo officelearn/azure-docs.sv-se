@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +108,7 @@ Om du vill kontrollera telemetrin som en webbapp skickar till Application Insigh
 
 ![Öppna appens resurs på portal.azure.com och klicka på Inställningar, Webbläsare.](./media/app-insights-javascript/03.png)
 
-*Ser du inga data än? Klicka på**Uppdatera**längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).*
+*Ser du inga data än? Klicka på **Uppdatera** längst upp på sidan. Ser du fortfarande ingenting? Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).*
 
 Bladet Webbläsare är ett [Metrics Explorer-blad](app-insights-metrics-explorer.md) med förinställda filter och diagraminställningar. Du kan redigera tidsintervallet, filtren och diagramkonfigurationen om du vill och spara resultatet som en favorit. Klicka på **Återställ standardvärden** för att återgå till det ursprungliga konfigurationsbladet.
 
@@ -172,7 +172,7 @@ Klicka på en rad om du vill visa specifik information.
 Klicka på `...` om du vill visa fullständig telemetri om ett Ajax-anrop.
 
 ### <a name="no-ajax-calls-reported"></a>Rapporteras inga Ajax-anrop?
-AJAX-anrop omfattar alla HTTP/HTTPS-anrop som görs från skriptet på din webbsida. Om de inte har rapporterats kontrollerar du att kodfragmentet inte innehåller [parametern](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` eller `maxAjaxCallsPerView` .
+AJAX-anrop omfattar alla HTTP/HTTPS-anrop som görs från skriptet på din webbsida. Om de inte har rapporterats kontrollerar du att kodfragmentet inte innehåller [parametern](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` eller `maxAjaxCallsPerView`.
 
 ## <a name="browser-exceptions"></a>Webbläsarundantag
 Bladet Webbläsare innehåller ett sammanfattningsdiagram över undantag och ett rutnät med undantagstyper längre ned.
@@ -230,6 +230,6 @@ Vill du veta vad användarna gör med din app?
 ## <a name="next"></a>Nästa steg
 * [Spåra användning](app-insights-web-track-usage.md)
 * [Anpassade händelser och mätvärden](app-insights-api-custom-events-metrics.md)
-* [Skapa – mät – lär](app-insights-overview-usage.md)
+* [Skapa – mät – lär](app-insights-web-track-usage.md)
 
 

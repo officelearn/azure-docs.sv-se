@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -60,7 +60,7 @@ Om du använder System Center Operations Manager kan varje hanteringsgrupp för 
 
 Du kan visa information om din arbetsyta på Azure Portal. Du kan också visa information på OMS-portalen.
 
-#### <a name="view-workspace-information-the-azure-portal"></a>Visa information om arbetsytan på Azure Portal
+#### <a name="view-workspace-information-in-the-azure-portal"></a>Visa information om arbetsytan på Azure Portal
 
 1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com) med din Azure-prenumeration.
 2. På **navmenyn** klickar du på **Fler tjänster** och skriver **Log Analytics** i listan med resurser. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Log Analytics**.  
@@ -177,7 +177,7 @@ Du kan ändra kontorollen för en användare som är associerad med OMS-kontot. 
 4. I bekräftelsedialogrutan klickar du **Ja**.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Ta bort en användare från en arbetsyta
-Följ stegen nedan om du vill ta bort en användare från en arbetsyta. Borttagning av användaren stänger inte arbetsytan. I stället tas associationen mellan användaren och arbetsytan bort. Om en användare är associerad med flera arbetsytor kommer denna användare fortfarande att kunna logga in på OMS och se sina andra arbetsytor.
+Följ stegen nedan om du vill ta bort en användare från en arbetsyta. Borttagning av användaren stänger inte arbetsytan. I stället tas associationen mellan användaren och arbetsytan bort. Om en användare är associerad med flera arbetsytor kan användaren fortfarande logga in på OMS och se sina andra arbetsytor.
 
 1. Klicka på panelen **Inställningar** på OMS-portalen.
 2. Klicka på fliken **Konton** och klicka sedan på fliken **Hantera användare**.
@@ -202,9 +202,6 @@ Alla arbetsytor som skapats efter den 26 september 2016 måste kopplas till en A
     > [!IMPORTANT]
     > För att länka en arbetsyta måste Azure-kontot redan ha åtkomst till arbetsytan som du vill länka.  Med andra ord måste kontot som du använder för att få åtkomst till Azure Portal vara **samma** som det konto som används för att komma åt arbetsytan. Om det inte är det hittar du mer information i [Lägga till en användare till en befintlig arbetsyta](#add-a-user-to-an-existing-workspace).
 
-
-
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Om du vill länka en arbetsyta till en Azure-prenumeration i Azure-portalen
 1. Logga in på [Azure-portalen](http://portal.azure.com).
 2. Bläddra efter **Log Analytics** och markera den.
@@ -225,7 +222,7 @@ Alla arbetsytor som skapats efter den 26 september 2016 måste kopplas till en A
 8. Klicka på **OK**. Arbetsytan är nu länkad till ditt Azure-konto.
 
 > [!NOTE]
-> Om du inte ser arbetsytan som du vill länka så har din Azure-prenumeration inte åtkomst till arbetsytan som du skapade via OMS-webbplatsen.  Läs [Lägga till en användare i en befintlig arbetsyta](#add-a-user-to-an-existing-workspace) om du vill bevilja åtkomst till kontot från OMS-portalen.
+> Om du inte ser den arbetsyta du vill länka så har inte Azure-prenumerationen åtkomst till den arbetsyta du skapade via OMS-portalen.  Läs [Lägga till en användare i en befintlig arbetsyta](#add-a-user-to-an-existing-workspace) om du vill bevilja åtkomst till kontot från OMS-portalen.
 >
 >
 
@@ -250,7 +247,7 @@ För att säkerställa att användningen av en arbetsyta tillämpas på dina rä
 OMS-prenumerationens rättigheter är inte synliga i Azure eller OMS-portalen. Du kan se rättigheter och användning i Enterprise Portal.  
 
 Om du behöver ändra Azure-prenumerationen som arbetsytan är länkad till kan du använda Azure PowerShell-cmdlet:en [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
-till
+
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Använda Azure-åtagande från ett Enterprise-avtal
 Om du inte har en OMS-prenumeration betalar du separat för varje komponent i OMS och användningen visas på din Azure-faktura.
 

@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e5ef305d926a57e32cdebd44f3dbe2185c735dd4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -39,11 +40,7 @@ Recovery Services-valv stöder båda modellerna.  Du kan säkerhetskopiera en vi
 Säkerhetskopior av klassiska virtuella datorer i säkerhetskopieringsvalvet migreras inte automatiskt till Recovery Services-valvet när du migrerar de virtuella datorerna från klassiskt till Resource Manager-läge. Följ dessa steg för att migrera säkerhetskopior för virtuella datorer:
 
 1. I säkerhetskopieringsvalvet går du till fliken **Skyddade objekt** och väljer den virtuella datorn. Klicka på [Stoppa skydd](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Lämna alternativet *Ta bort associerade säkerhetskopieringsdata* **avmarkerat**.
-2. Migrera den virtuella datorn från klassiskt läge till Resource Manager-läge. Kontrollera att lagring och nätverk för virtuell dator också migreras till Resource Manager-läge.
-3. Skapa ett Recovery Services-valv och konfigurera säkerhetskopiering på den migrerade virtuella datorn med åtgärden **Backup** på valvets instrumentpanel. Läs mer om hur du [aktiverar säkerhetskopiering i Recovery Services-valv](backup-azure-vms-first-look-arm.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+2. I [Azure Portal](https://portal.azure.com) går du till menyn **Tillägg** för den virtuella datorn och avinstallerar tillägget **VMSnapshot/VMSnapshotLinux**.
+3. Migrera den virtuella datorn från klassiskt läge till Resource Manager-läge. Kontrollera att lagring och nätverk för virtuell dator också migreras till Resource Manager-läge.
+4. Skapa ett Recovery Services-valv och konfigurera säkerhetskopiering på den migrerade virtuella datorn med åtgärden **Backup** på valvets instrumentpanel. Läs mer om hur du [aktiverar säkerhetskopiering i Recovery Services-valv](backup-azure-vms-first-look-arm.md).
 

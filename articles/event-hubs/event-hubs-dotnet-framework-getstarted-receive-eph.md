@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 38fe7818771f6a6965cb324631d0935959576541
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6c309a14e00324a9335bde61fe175ec3906c066d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/09/2017
 ## <a name="introduction"></a>Introduktion
 Händelsehubbar är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i händelsehubbar kan du lagra dem med ett lagringskluster eller omvandla dem med hjälp av en leverantör av realtidsanalys. Den här storskaliga händelseinsamlingen och bearbetningsfunktionen är en viktig komponent inom moderna programarkitekturer som t.ex. sakernas internet.
 
-I den här kursen får du lära dig att skriva ett .NET Framework-konsolprogram som tar emot meddelanden från en Event Hub med **[värden för händelsebearbetning][EventProcessorHost]**. För att skicka händelser med .NET Framework kan du läsa artikeln [Skicka händelser till Azure Event Hubs med .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) eller klicka på ditt avsändarspråk till vänster i innehållsförteckningen.
+I den här självstudien får du lära dig att skriva ett .NET Framework-konsolprogram som tar emot meddelanden från en Event Hub med **[värden för händelsebearbetning][EventProcessorHost]**. För att skicka händelser med .NET Framework kan du läsa artikeln [Skicka händelser till Azure Event Hubs med .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) eller klicka på ditt avsändarspråk till vänster i innehållsförteckningen.
 
-[EventProcessorHost][EventProcessorHost] är en .NET-klass som förenklar mottagandet av händelser från Event Hubs genom att hantera permanenta kontrollpunkter och parallella mottaganden från Event Hubs. Med hjälp av [EventProcessorHost][Event Processor Host] kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder [EventProcessorHost][EventProcessorHost] för en enda mottagare. Exemplet på att [skala ut händelsebearbetning][Scale out Event Processing with Event Hubs] visar hur man använder [EventProcessorHost][EventProcessorHost] med flera mottagare.
+[EventProcessorHost][EventProcessorHost] är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av [EventProcessorHost][Event Processor Host] kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder [EventProcessorHost][EventProcessorHost] för en enda mottagare. Exemplet på att [skala ut händelsebearbetning][Scale out Event Processing with Event Hubs] visar hur man använder [EventProcessorHost][EventProcessorHost] med flera mottagare.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,9 +37,9 @@ För att kunna genomföra den här kursen behöver du följande:
 * [Microsoft Visual Studio 2015 eller senare](http://visualstudio.com). För skärmdumparna i de här självstudierna används Visual Studio 2017.
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett Event Hubs-namnområde och en Event Hub
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
 
-Det första steget är att använda [Azure Portal](https://portal.azure.com) för att skapa ett namnområde av typen Event Hubs, och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med Event Hub. Om du vill skapa ett namnområde och en Event Hub följer du anvisningarna i [den här artikeln](event-hubs-create.md) och fortsätter sedan enligt följande steg.
+Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md) och fortsätter sedan enligt följande steg.
 
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
@@ -119,14 +119,14 @@ För att kunna använda [EventProcessorHost][EventProcessorHost] behöver du ett
      }
      ```
     
-     Den här klassen kommer att anropas av **EventProcessorHost** för att bearbeta händelser som tagits emot från Event Hub. Observera att `SimpleEventProcessor`-klassen använder sig av ett stoppur för att regelbundet anropa kontrollpunktsmetoden i **EventProcessorHost**-kontexten. Detta garanterar att högst fem minuters bearbetningsarbete försvinner om mottagaren startas om.
+     Den här klassen kommer att anropas av **EventProcessorHost** för att bearbeta händelser som tagits emot från händelsehubben. Observera att `SimpleEventProcessor`-klassen använder sig av ett stoppur för att regelbundet anropa kontrollpunktsmetoden i **EventProcessorHost**-kontexten. Detta garanterar att högst fem minuters bearbetningsarbete försvinner om mottagaren startas om.
 11. I **Program**-klassen lägger du till följande `using`-uttryck överst i filen:
     
      ```csharp
      using Microsoft.ServiceBus.Messaging;
      ```
     
-     Ersätt sedan `Main`-metoden i `Program`-klassen med följande kod, vilket ersätter det Event Hub-namn och anslutningssträngen för namnområdesnivån som du sparade tidigare, samt lagringskontot och nyckeln som du kopierade i föregående avsnitt. 
+     Ersätt sedan metoden `Main` i klassen `Program` med följande kod, och ersätt namnet på händelsehubben och anslutningssträngen på namnområdesnivå som du sparade tidigare, samt lagringskontot och nyckeln som du kopierade i föregående avsnitt. 
     
      ```csharp
      static void Main(string[] args)
@@ -152,7 +152,7 @@ För att kunna använda [EventProcessorHost][EventProcessorHost] behöver du ett
 
 12. Kör programmet och kontrollera att det inte finns några fel.
   
-Grattis! Du har nu fått meddelanden från en Event Hub med värden för händelsebearbetning.
+Grattis! Du har nu fått meddelanden från en händelsehubb med värden för händelsebearbetning.
 
 
 > [!NOTE]
@@ -168,7 +168,7 @@ Grattis! Du har nu fått meddelanden från en Event Hub med värden för händel
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skapat ett fungerande program som skapar en händelsehubb och skickar och tar emot data kan lära dig mer genom att besöka följande länkar:
+Nu när du har skapat ett fungerande program som skapar en händelsehubb och skickar och tar emot data kan du lära dig mer genom att besöka följande länkar:
 
 * [Värd för händelsebearbetning](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Översikt av händelsehubbar][Event Hubs overview]

@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 28a14cc68f44a278274e60cf46d5344c85dcc777
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="what-is-azure-event-hubs"></a>Vad är händelsehubbar i Azure?
-Event Hubs är en mycket skalbar dataströmningsplattform som klarar inmatning av flera miljoner händelser per sekund. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. Händelsehubbar har funktioner för att publicera och prenumerera med kort svarstid och i massiv skala och tjänar därmed som inkörsvägen för stordata.
+# <a name="what-is-event-hubs"></a>Vad är Event Hubs?
+Azure Event Hubs är en mycket skalbar dataströmningsplattform som klarar inmatning av flera miljoner händelser per sekund. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. Händelsehubbar har funktioner för att publicera och prenumerera med kort svarstid och i massiv skala och tjänar därmed som inkörsvägen för stordata.
 
 ## <a name="why-use-event-hubs"></a>Varför ska jag använda Event Hubs?
 Händelse- och telemetrihanteringsfunktionerna gör Event Hubs särskilt lämpligt för:
@@ -152,7 +152,7 @@ Genomflödesenheter debiteras per timme och köps i förväg. När de väl har k
 
 Om du vill köpa fler genomflödesenheter i block om 20 upp till 100 genomflödesenheter kontaktar du Azure-supporten. Utöver det kan du också köpa block med 100 genomflödesenheter.
 
-Vi rekommenderar att du balanserar enheter och partitioner för att uppnå optimal skala. En enstaka partition har en maximal skala på en genomflödesenhet. Antalet genomflödesenheter ska vara mindre än eller lika med antalet partitioner i en händelsehubb.
+Vi rekommenderar att du balanserar enheter och partitioner för att uppnå optimal skala. En enstaka partition har en maximal skala på en genomflödesenhet. Antalet dataflödesenheter ska vara mindre än eller lika med antalet partitioner i en händelsehubb.
 
 Utförlig prisinformation finns på [Priser för händelsehubbar](https://azure.microsoft.com/pricing/details/event-hubs/).
 

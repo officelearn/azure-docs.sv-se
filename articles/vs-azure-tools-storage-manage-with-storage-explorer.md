@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
-ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 07b62cd6f6deb0cf3ff1c806204ebc26c773a164
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -57,6 +58,67 @@ Med Storage Explorer (förhandsversion) kan du ansluta till lagringskonton på f
 4. I den vänstra rutan visas lagringskontona som är kopplade till de valda Azure-prenumerationerna.
 
     ![Valda Azure-prenumerationer][4]
+
+## <a name="connect-to-an-azure-stack-subscription"></a>Ansluta till en Azure Stack-prenumeration
+
+1. En VPN-anslutning krävs så att Lagringsutforskaren kan komma åt Azure Stack-prenumerationen via fjärranslutning. Mer information om hur du konfigurerar en VPN-anslutning till Azure Stack finns i [Connect to Azure Stack with VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn) (Anslut till Azure Stack via VPN).
+
+2. För Azure Stack POC måste du exportera rotcertifikatet för Azure Stack-behörighet. Öppna `mmc.exe` på MAS-CON01, värddatorn för Azure Stack eller en lokal dator med VPN-anslutning till Azure Stack. Under **Arkiv** väljer du **Lägg till/ta bort snapin-modul**. Lägg till **Certifikat** för hantering av **datorkontot** **Lokal dator**.
+
+   ![Läsa in rotcertifikatet för Azure Stack via mmc.exe][25]   
+
+   Leta rätt på **AzureStackCertificationAuthority** under **[konsolrot]\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. Högerklicka på objektet och välj **Alla uppgifter -> Exportera**. Följ sedan dialogrutorna och exportera certifikatet med **Base 64-kodad X.509 (.CER)**. Det exporterade certifikatet ska användas i nästa steg.   
+
+   ![Exportera rotcertifikatet för Azure Stack-behörighet][26]   
+
+3. I Lagringsutforskaren (förhandsversion) väljer du menyn **Redigera**. Välj sedan **SSL-certifikat** och **Importera certifikat**. Använd filväljaren till att leta rätt på och öppna certifikatet du exporterade i föregående steg. Efter importen uppmanas du att starta om Lagringsutforskaren.
+
+   ![Importera certifikatet till Lagringsutforskaren (förhandsversion)][27]
+
+4. När Lagringsutforskaren (förhandsversion) startats om väljer du menyn **Redigera** och ser till att **Target Azure Stack** (Använd Azure Stack som mål) är markerat. Om inte så markerar du alternativet och startar om Lagringsutforskaren så att ändringen börjar gälla. Denna konfiguration krävs för kompatibilitet med Azure Stack-miljön.
+
+   ![Se till att Target Azure Stack (Använd Azure Stack som mål) är markerat][28]
+
+5. Välj **Hantera konton** i den vänstra listen. Du ser alla Microsoft-konton som du har loggat in på i den vänstra rutan. Om du vill ansluta till Azure Stack-kontot väljer du **Lägg till ett konto**.
+
+   ![Lägga till ett Azure Stack-konto][29]
+
+6. Välj **Create Custom Environment** (Skapa anpassad miljö) under **Azure-miljö** i dialogrutan **Lägg till nytt konto** och klicka på **Nästa**.
+
+7. Ange all nödvändig information om den anpassade Azure Stack-miljön och klicka på **Logga in**.  Fyll i dialogrutan **Sign in to a Custom Cloud environment** (Logga in i en anpassad molnmiljö) och logga in med ett Azure Stack-konto som är associerat med minst en aktiv Stack Azure-prenumeration. Här är information om de olika fälten i dialogrutan:
+
+    * **Miljönamn** – fältet kan anpassas av användaren.
+    * **Myndighet** – värdet ska vara https://login.windows.net. Använd https://login.chinacloudapi.cn för Azure Kina (Mooncake).
+    * **Sign in resource id** (Id för inloggningsresurs) – hämta värdet genom att köra följande PowerShell:
+
+    Om du är administratör för molnet:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    Om du är en klient:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    * **Graph endpoint** (Graph-slutpunkt) – värdet ska vara https://graph.windows.net. Använd https://graph.chinacloudapi.cn för Azure Kina (Mooncake).
+    * **ARM resource id** (Id för ARM-resurs) – använd samma värde som id:t för inloggningsresursen.
+    * **ARM resurs endpoint** (Slutpunkt för ARM-resurs) – exempel på slutpunkter för ARM-resursen:
+
+    För molnadministratörer: https://adminmanagement.local.azurestack.external   
+    For klienter: https://management.local.azurestack.external
+ 
+    * **Tenant Ids** (Klient-id:n) – valfritt. Värdet anges bara när du måste ange katalogen.
+
+8. När du har loggat in med ett Azure Stack-konto fylls den vänstra rutan i med de Azure Stack-prenumerationer som är kopplade till kontot. Välj de Azure Stack-prenumerationer du vill arbeta med och välj sedan **Använd**. (Om du klickar på **Alla prenumerationer** växlar du mellan att välja alla eller inga av de Azure Stack-prenumerationer som visas.)
+
+   ![Välj Azure Stack-prenumerationer när du har fyllt i dialogrutan Custom Cloud Environment (Anpassad molnmiljö)][30]
+
+9. I den vänstra rutan visas de lagringskonton som är kopplade till de valda Azure Stack-prenumerationerna.
+
+   ![Lista med lagringskonton inklusive konton för Azure Stack-prenumerationer][31]
 
 ## <a name="work-with-local-development-storage"></a>Arbeta med lokal utvecklingslagring
 Med Lagringsutforskaren (förhandsversion) kan du arbeta mot lokal lagring med hjälp av Azure Storage-emulatorn. På så sätt kan du skriva kod mot och testa lagring utan att nödvändigtvis ha distribuerat ett lagringskonto i Azure (eftersom lagringskontot emuleras av Azure Storage-emulatorn).
@@ -207,9 +269,11 @@ Om du vill rensa sökningen väljer du knappen **x** i sökrutan.
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+[25]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-certificate-azure-stack.png
+[26]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/export-root-cert-azure-stack.png
+[27]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/import-azure-stack-cert-storage-explorer.png
+[28]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-target-azure-stack.png
+[29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
+[30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
+[31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
 

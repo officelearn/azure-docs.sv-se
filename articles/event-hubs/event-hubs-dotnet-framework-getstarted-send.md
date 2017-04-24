@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 5c326a025a4276ae9b1a777439ed6c728d3e7103
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 306c9c5cb06caa186bc0b7f431a5412dfe810722
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -33,12 +33,12 @@ För att kunna genomföra den här kursen behöver du följande:
 * [Microsoft Visual Studio 2015 eller senare](http://visualstudio.com). För skärmdumparna i de här självstudierna används Visual Studio 2017.
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett Event Hubs-namnområde och en Event Hub
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
 
-Det första steget är att använda [Azure Portal](https://portal.azure.com) för att skapa ett namnområde av typen Event Hubs, och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med Event Hub. Om du vill skapa ett namnområde och en Event Hub följer du anvisningarna i [den här artikeln](event-hubs-create.md) och fortsätter sedan enligt följande steg.
+Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md) och fortsätter sedan enligt följande steg.
 
 ## <a name="create-a-console-application"></a>Skapa ett konsolprogram
-I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till din Event Hub.
+I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till din händelsehubb.
 
 1. I Visual Studio skapar du ett nytt Visual C#-skrivbordsapprojekt med hjälp av projektmallen **Konsolprogram**. Namnge projektet **Avsändare**.
    
@@ -55,7 +55,7 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
-5. Lägg till följande fält till **Program**-klassen, där du ersätter platshållarvärdena med namnet på den Event Hub du skapat i föregående avsnitt och anslutningssträngen på namnområdesnivå som du sparat tidigare.
+5. Lägg till följande fält i klassen **Program**, och ersätt platshållarvärdena med namnet på den händelsehubb du skapade i föregående avsnitt samt anslutningssträngen på namnområdesnivå som du sparat tidigare.
    
     ```csharp
     static string eventHubName = "{Event Hub name}";
@@ -87,7 +87,7 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
     }
     ```
    
-    Den här metoden skickar kontinuerligt händelser till din Event Hub med en fördröjning på 200 ms.
+    Med den här metoden skickas kontinuerligt händelser till din händelsehubb med en fördröjning på 200 ms.
 7. Slutligen lägger du till följande rader till **Main**-metoden:
    
     ```csharp
@@ -98,7 +98,7 @@ I det här avsnittet skriver du en Windows-konsolapp som skickar händelser till
     ```
 8. Kör programmet och kontrollera att det inte finns några fel.
   
-Grattis! Du har nu skickat meddelanden till en Event Hub.
+Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har skapat ett fungerande program som skapar en händelsehubb och skickar data kan du gå vidare till följande scenarier:

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2017
+ms.date: 04/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 15ac382f72cab455246ffcc05f08c8aba5876c8f
-ms.openlocfilehash: c90bb4f41661aedec2bde53abe035fe9bcc80320
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 49aeb711de73bf967f330ec54385fb8bb36dd7ca
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -34,18 +35,18 @@ Du kan ansluta till flera platser med hjälp av Windows PowerShell och Azure RES
 ### <a name="what-are-my-cross-premises-connection-options"></a>Vilka alternativ finns det för min anslutning till flera platser?
 Följande anslutningar mellan flera platser stöds:
 
-* [Plats-till-plats](vpn-gateway-howto-site-to-site-resource-manager-portal.md) – VPN-anslutning via IPsec (IKE v1 och IKE v2). Den här typen av anslutning kräver en VPN-enhet eller RRAS.
-* [Punkt-till-plats](vpn-gateway-howto-point-to-site-resource-manager-portal.md) – VPN-anslutning över SSTP (Secure Socket Tunneling Protocol). Den här anslutningen kräver inte någon VPN-enhet.
-* [VNet-till-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) – Den här typen av anslutning är samma som en plats-till-plats-konfiguration. VNet-till-VNet är en VPN-anslutning via IPsec (IKE v1 och IKE v2). Den kräver inte någon VPN-enhet.
-* [Multisite](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) – Det här är en variant av en plats-till-plats-konfiguration som gör att du kan ansluta flera lokala platser till ett virtuellt nätverk.
-* [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute är en direkt anslutning till Azure från ditt WAN, i stället för över offentligt Internet. Mer information finns i [Teknisk översikt för ExpressRoute](../expressroute/expressroute-introduction.md) och [Vanliga frågor och svar om ExpressRoute](../expressroute/expressroute-faqs.md).
+* Plats-till-plats – VPN-anslutning via IPsec (IKE v1 och IKE v2). Den här typen av anslutning kräver en VPN-enhet eller RRAS. Mer information finns i [Plats-till-plats](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Punkt-till-plats – VPN-anslutning över SSTP (Secure Socket Tunneling Protocol). Den här anslutningen kräver inte någon VPN-enhet. Mer information finns i [Punkt-till-plats](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* VNet-till-VNet – Den här typen av anslutning är samma som en plats-till-plats-konfiguration. VNet-till-VNet är en VPN-anslutning via IPsec (IKE v1 och IKE v2). Den kräver inte någon VPN-enhet. Mer information finns i [VNet-till-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+* Flera platser – Det här är en variant av en plats-till-plats-konfiguration som gör att du kan ansluta flera lokala platser till ett virtuellt nätverk. Mer information finns i [Flera platser](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
+* ExpressRoute – ExpressRoute är en direkt anslutning till Azure från ditt WAN, inte en VPN-anslutning över internet. Mer information finns i [Teknisk översikt för ExpressRoute](../expressroute/expressroute-introduction.md) och [Vanliga frågor och svar om ExpressRoute](../expressroute/expressroute-faqs.md).
 
 Mer information om VPN-gatewayanslutningar finns i [Om VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Vad är skillnaden mellan en plats-till-plats-anslutning och en punkt-till-plats-anslutning?
-**Plats-till-plats**-konfigurationer sker mellan en lokal plats och Azure. Detta innebär att du kan ansluta mellan datorer i dina lokaler till valfri virtuell dator eller rollinstans i det virtuella nätverket, beroende på hur du väljer att konfigurera routningen. Det är ett bra alternativ för att få en anslutning mellan flera platser som alltid är tillgänglig och den passar bra för hybridkonfigurationer. Den här typen av anslutning bygger på en IPsec VPN-installation (maskinvaru- eller programinstallation), som måste distribueras i utkanten av nätverket.  För att skapa den här typen av anslutning måste du ha den maskinvara som krävs för VPN och en extern IPv4-adress.
+**Plats-till-plats**-konfigurationer (IPsec/IKE VPN-tunnel) sker mellan en lokal plats och Azure. Detta innebär att du kan ansluta mellan datorer i dina lokaler till valfri virtuell dator eller rollinstans i det virtuella nätverket, beroende på hur du väljer att konfigurera routning och behörigheter. Det är ett bra alternativ för att få en anslutning mellan flera platser som alltid är tillgänglig och den passar bra för hybridkonfigurationer. Den här typen av anslutning bygger på en IPsec VPN-installation (maskinvara eller programinstallation), som måste distribueras i utkanten av nätverket. När du ska skapa den här typen av anslutning måste du ha en extern IPv4-adress som inte ligger bakom en NAT.
 
-Med **punkt-till-plats**-konfigurationer kan du ansluta från en enda dator varifrån som helst till något som finns i ditt virtuella nätverk. Den använder Windows som ingår i VPN-klienten. Som en del av punkt-till-plats-konfigurationen kan du installera ett certifikat och ett VPN-klientkonfigurationspaket, som innehåller inställningar för att datorn ska kunna ansluta till en virtuell dator eller rollinstans i det virtuella nätverket. Detta är användbart om du vill ansluta till ett virtuellt nätverk som inte finns lokalt. Det är också ett bra alternativ om du inte har tillgång till VPN-maskinvara eller en extern IPv4-adress. Båda krävs för en plats-till-plats-anslutning.
+Med **punkt-till-plats**-konfigurationer (VPN över SSTP) kan du ansluta från en enda dator varifrån som helst till något som finns i ditt virtuella nätverk. Den använder Windows som ingår i VPN-klienten. Som en del av punkt-till-plats-konfigurationen kan du installera ett certifikat och ett VPN-klientkonfigurationspaket, som innehåller inställningar för att datorn ska kunna ansluta till en virtuell dator eller rollinstans i det virtuella nätverket. Detta är användbart om du vill ansluta till ett virtuellt nätverk som inte finns lokalt. Det är också ett bra alternativ om du inte har tillgång till VPN-maskinvara eller en extern IPv4-adress. Båda krävs för en plats-till-plats-anslutning.
 
 Du kan konfigurera ditt virtuella nätverk till att använda både plats-till-plats och punkt-till-plats samtidigt, förutsatt att du skapar din plats-till-plats-anslutning med en routningsbaserad VPN-typ för din gateway. Routningsbaserade VPN-typer kallas för dynamiska gateways i den klassiska distributionsmodellen.
 
@@ -63,7 +64,7 @@ Routningsbaserade gateways implementerar routningsbaserade VPN:er. Routningsbase
 ### <a name="do-i-need-a-gatewaysubnet"></a>Behöver jag ett gatewayundernät?
 Ja. Gatewayundernätet innehåller de IP-adresser som gatewaytjänsterna för virtuella nätverk använder. Om du vill konfigurera en virtuell nätverksgateway måste du först skapa ett gatewayundernät för det virtuella nätverket. Alla gatewayundernät måste ha namnet ”GatewaySubnet” för att fungera korrekt. Ge inte något annat namn till gateway-undernätet. Och distribuera inte virtuella datorer eller något annat till gateway-undernätet.
 
-När du skapar gatewayundernätet anger du det antal IP-adresser som undernätet innehåller. IP-adresserna i gatewayundernätet allokeras till gatewaytjänsten. Vissa konfigurationer kräver att fler IP-adresser allokeras till gatewaytjänsterna än andra. Du måste kontrollera att gatewayundernätet innehåller tillräckligt med IP-adresser för att hantera framtida tillväxt och eventuella ytterligare nya anslutningskonfigurationer. Även om det är möjligt att skapa ett gatewayundernät som är så litet som /29, rekommenderar vi således att du skapar ett gatewayundernät på /28 eller större (/28, /27, /26 osv.). Granska kraven för den konfiguration som du vill skapa och kontrollera att gatewayundernätet som du har kommer att uppfylla dessa krav.
+När du skapar gatewayundernätet anger du det antal IP-adresser som undernätet innehåller. IP-adresserna i gatewayundernätet allokeras till gatewaytjänsten. Vissa konfigurationer kräver att fler IP-adresser allokeras till gatewaytjänsterna än andra. Du måste kontrollera att gatewayundernätet innehåller tillräckligt med IP-adresser för att hantera framtida tillväxt och eventuella ytterligare nya anslutningskonfigurationer. Även om du kan skapa ett gatewayundernät som är så litet som /29, rekommenderar vi att du skapar ett gatewayundernät på /27 eller större (/27, /26, /25 osv.). Granska kraven för den konfiguration som du vill skapa och kontrollera att gatewayundernätet som du har kommer att uppfylla dessa krav.
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Kan jag distribuera virtuella datorer eller rollinstanser till mitt gateway-undernät?
 Nej.
@@ -95,7 +96,7 @@ Vi är begränsade till att använda PSK (I förväg delad nyckel) vid autentise
 Ja. Se [Konfigurera tvingad tunneltrafik](vpn-gateway-about-forced-tunneling.md).
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Kan jag installera min egen VPN-server i Azure och använda den för att ansluta till mitt lokala nätverk?
-Ja, du kan distribuera egna VPN-gatewayer eller servrar i Azure, antingen från Azure Marketplace eller genom att skapa egna VPN-routrar. Du måste konfigurera användardefinierade vägar i det virtuella nätverket, så att trafiken dirigeras korrekt mellan de lokala nätverken och de virtuella undernätverken.
+Ja, du kan distribuera egna VPN-gatewayer eller servrar i Azure, antingen från Azure Marketplace eller genom att skapa egna VPN-routrar. Du måste konfigurera användardefinierade vägar i det virtuella nätverket så att trafiken dirigeras korrekt mellan de lokala nätverken och de virtuella undernätverken.
 
 ### <a name="why-are-certain-ports-opened-on-my-vpn-gateway"></a>Varför är vissa portar öppna på min VPN-gateway?
 De krävs för Azures infrastrukturkommunikation. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer externa entiteter, inklusive kunderna till dessa gateways, inte kunna orsaka någon effekt på dessa slutpunkter.
@@ -106,11 +107,23 @@ En VPN-gateway är i grunden en multihomed-enhet med ett nätverkskort för kund
 Mer information finns i [Om konfigurationsinställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
 ## <a name="site-to-site-connections-and-vpn-devices"></a>Plats-till-plats-anslutningar och VPN-enheter
-### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Vad bör jag tänka på när jag väljer en VPN-enhet?
-Vi har verifierat en uppsättning VPN-standardenheter för plats-till-plats tillsammans med våra enhetsleverantörer. En lista med kända kompatibla VPN-enheter, deras konfigurationsanvisningar eller exempel, samt specifikationer för enheten finns [här](vpn-gateway-about-vpn-devices.md). Alla enheter i enhetsfamiljerna som är kompatibla bör fungera tillsammans med Virtual Network. Om du behöver hjälp med att konfigurera din VPN-enhet kan du se enhetens konfigurationsexempel eller den länk som leder till lämplig enhetsfamilj.
 
-### <a name="what-do-i-do-if-i-have-a-vpn-device-that-isnt-in-the-known-compatible-device-list"></a>Vad gör jag om jag har en VPN-enhet som inte finns med i listan över kända kompatibla enheter?
-Om inte din enhet anges som en känd kompatibel VPN-enhet och du vill använda den till VPN-anslutningen måste du kontrollera att den uppfyller IPsec/IKE-konfigurationsalternativen och parametrarna som visas [här](vpn-gateway-about-vpn-devices.md). Enheter som uppfyller minimikraven bör fungera med VPN-gatewayer. Kontakta enhetstillverkaren för ytterligare information om support och konfiguration.
+### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Vad bör jag tänka på när jag väljer en VPN-enhet?
+Vi har verifierat en uppsättning VPN-standardenheter för plats-till-plats tillsammans med våra enhetsleverantörer. En lista med kända kompatibla VPN-enheter, deras konfigurationsanvisningar eller exempel, samt specifikationer för enheten finns i artikeln [Om VPN-enheter](vpn-gateway-about-vpn-devices.md). Alla enheter i enhetsfamiljerna som är kompatibla bör fungera tillsammans med Virtual Network. Om du behöver hjälp med att konfigurera din VPN-enhet kan du se enhetens konfigurationsexempel eller den länk som leder till lämplig enhetsfamilj.
+
+### <a name="where-can-i-find-configuration-settings-for-vpn-devices"></a>Var hittar jag konfigurationsinställningar för VPN-enheter?
+
+Mer information om länkar till konfigurationsinställningar för enheter, finns i [Verifierade VPN-enheter](vpn-gateway-about-vpn-devices.md#devicetable). Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Det är alltid bäst att kontrollera med enhetstillverkaren för att få den senaste konfigurationsinformationen.
+
+Innan du konfigurerar VPN-enheten kontrollerar du om det finns några [kända kompatibilitetsproblem](vpn-gateway-about-vpn-devices.md#known) med den VPN-enhet som du vill använda.
+
+### <a name="how-do-i-edit-vpn-device-configuration-samples"></a>Hur redigerar jag konfigurationsexempel för VPN-enheter?
+
+Mer information om att redigera enhetens konfigurationsexempel finns i [Redigera exempel](vpn-gateway-about-vpn-devices.md#editing).
+
+### <a name="where-do-i-find-ipsec-and-ike-parameters"></a>Var hittar jag IPsec- och IKE-parametrar?
+
+Mer information om IPsec-/IKE-parametrar finns i [Parametrar](vpn-gateway-about-vpn-devices.md#ipsec).
 
 ### <a name="why-does-my-policy-based-vpn-tunnel-go-down-when-traffic-is-idle"></a>Varför stängs min principbaserade VPN-tunnel när trafiken är inaktiv?
 Detta är ett förväntat beteende för principbaserade VPN-gatewayer (även kallat statisk routning). När trafiken i tunneln varit inaktiv i mer än 5 minuter kommer tunneln att stängas. När trafik börjar flöda i båda riktningarna, upprättas tunneln på nytt omedelbart.
@@ -120,11 +133,11 @@ Vi har stöd för Routning och fjärråtkomst (RRAS) i Windows Server 2012 för 
 
 Andra VPN-programlösningar bör fungera med vår gateway så länge de uppfyller branschens standardimplementeringar för IPsec. Kontakta leverantören av programvaran för konfigurations- och supportinstruktioner.
 
-## <a name="a-namep2sapoint-to-site-connections"></a><a name="P2S"></a>Punkt-till-plats-anslutningar
+## <a name="P2S"></a>Punkt-till-plats-anslutningar
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## <a name="a-namev2vmultiavnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>Anslutning mellan virtuella nätverk och flera platser
+## <a name="V2VMulti"></a>Anslutning mellan virtuella nätverk och flera platser
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
@@ -151,7 +164,7 @@ Ja, VPN:er för punkt-till-plats (P2S) kan användas med VPN-gateways som anslut
 ### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>Kan jag ansluta ett virtuellt nätverk med IPsec-VPN:er till min ExpressRoute-krets?
 Ja, det stöds. Mer information finns i [Konfigurera ExpressRoute och VPN-anslutningar för plats till plats som kan samexistera](../expressroute/expressroute-howto-coexist-classic.md)
 
-## <a name="a-namebgpabgp"></a><a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 ## <a name="cross-premises-connectivity-and-vms"></a>Anslutning på flera platser och virtuella datorer 
@@ -170,8 +183,3 @@ Du kan se mer information om virtuella nätverk i [Vanliga frågor och svar om V
 
 * Mer information om VPN-gateway finns i [Om VPN-gateway](vpn-gateway-about-vpngateways.md).
 * Mer information om konfigurationsinställningar för VPN-gateway finns i [Om konfigurationsinställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

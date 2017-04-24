@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8194e669f943a6c47f02ae0d2a55e0e720420489
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Ansluta en webbapp till ett nätverk för innehållsleverans
@@ -28,7 +28,7 @@ I den här kursen får du skapa en Azure CDN-profil och en Azure CDN-slutpunkt f
 
 ## <a name="step-2---create-a-cdn-profile"></a>Steg 2 – Skapa en CDN-profil
 
-Klicka på `+ New` i det vänstra navigeringsfältet och klicka på **Webb + mobilt**. Välj **CDN** under kategorin Webb + mobilt.
+Klicka på knappen **+ Ny** i det vänstra navigeringsfältet och klicka på **Webb + mobilt**. Välj **CDN** under kategorin Webb + mobilt.
 
 Ange **namn**, **plats**, **resursgrupp**, **prisnivå** och klicka sedan på **Skapa**.
 
@@ -38,7 +38,7 @@ Ange **namn**, **plats**, **resursgrupp**, **prisnivå** och klicka sedan på **
 
 ## <a name="step-3---create-a-cdn-endpoint"></a>Steg 3 – Skapa en CDN-slutpunkt
 
-Klicka på `+ Endpoint` från kommandona bredvid sökrutan så att bladet för att skapa slutpunkten öppnas.
+Klicka på **+ Slutpunkt** bland kommandona bredvid sökrutan så att bladet för att skapa slutpunkten öppnas.
 
 Ange **namn**, **typ av ursprung**, **ursprungets värdnamn** och klicka sedan på **Lägg till**.
 

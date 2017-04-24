@@ -15,18 +15,18 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: Använd Visual Studio Code för att ansluta och skicka frågor till data
 
-[Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows som stöder tillägg, inklusive [mssql tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. Den här snabbstarten visar hur du använder Visual Studio Code för att ansluta till en Azure SQL-databas och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.
+[Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows som stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. Den här snabbstarten visar hur du använder Visual Studio Code för att ansluta till en Azure SQL-databas och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.
 
 Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter som utgångspunkt:
 
@@ -38,7 +38,7 @@ Innan du börjar bör du kontrollera att du har installerat den senaste versione
 ## <a name="configure-vs-code-mac-os-only"></a>Konfigurera VS Code (endast Mac OS)
 
 ### <a name="mac-os"></a>**Mac OS**
-För macOS måste du installera OpenSSL, vilket är ett förhandskrav för det DotNet Core som används av mssql-tillägget. Ange följande kommandon för att installera **brew** och **OpenSSL**. 
+För macOS måste du installera OpenSSL, som är ett förhandskrav för den DotNet Core som används i mssql-tillägget. Ange följande kommandon för att installera **brew** och **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -55,9 +55,11 @@ Hämta det fullständigt kvalificerade servernamnet för Azure SQL Database-serv
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
-3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet** som ska användas längre fram i denna snabbstart.
+3. Granska serverns fullständiga namn på sidan **Översikt** för databasen, se bilden nedan. Om du hovrar över servernamnet visas alternativet **Kopiera genom att klicka**.
 
-    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![anslutningsinformation](./media/sql-database-connect-query-ssms/connection-information.png) 
+
+4. Om du har glömt inloggningsinformationen för Azure SQL Database-server öppnar du serversidan i SQL Database. Där ser du administratörsnamnet för servern och kan återställa lösenordet vid behov. 
 
 ## <a name="set-language-mode-to-sql"></a>Ange språkläge till SQL
 
@@ -65,17 +67,22 @@ Ställ in språkläget på **SQL** i Visual Studio Code för att aktivera mssql-
 
 1. Öppna ett Visual Studio Code-fönster. 
 
-2. Tryck på **⌘ + K, M** eller **CTRL + K, M** (Mac respektive Windows), skriv in **SQL** och tryck på **RETUR** för att ange språkläge som SQL. 
+2. Klicka på **Oformaterad text** nere till höger i statusfältet.
+3. Listrutan **Select language mode** (Välj språkläge) öppnas. Skriv **SQL**, tryck på **ENTER** och ange språkläge för SQL. 
 
-<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
+   ![Språkläge för SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-the-server"></a>Ansluta till servern
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Ansluta till databasen på den logiska SQL Database-servern
 
 Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Database-servern.
 
+> [!IMPORTANT]
+> Kontrollera att du har din server, databas och inloggningsinformation redo innan du fortsätter. Om du ändrar fokus från Visual Studio-koden när du har börjat ange information om anslutningsprofilen måste du börja om med att skapa anslutningsprofilen.
+>
+
 1. I VS Code trycker du på **CTRL+SHIFT+P** (eller **F1**) för att öppna kommandopaletten.
 
-2. Typ av **sqlcon** och tryck på **RETUR** och ange ditt språk som **SQL**.
+2. Skriv in **sqlcon** och tryck på **RETUR**.
 
 3. Tryck på **RETUR** för att välja **Create Connection Profile** (Skapa anslutningsprofil). Detta skapar en anslutningsprofil för SQL Server-instansen.
 
@@ -97,7 +104,7 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
 
 6. Kontrollera anslutningen i statusfältet.
 
-   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
+   ![Anslutningsstatus](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
 ## <a name="query-data"></a>Frågedata
 
@@ -114,7 +121,7 @@ Använd [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-
 
 2. Tryck på **CTRL+SKIFT+E** att hämta data från Product- och ProductCategory-tabeller.
 
-    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
+    ![Fråga](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Infoga data
 

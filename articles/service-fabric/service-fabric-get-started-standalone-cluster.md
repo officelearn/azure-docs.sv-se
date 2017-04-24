@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6da8b21014966edd9f4cea0fd27f6973b2b820f0
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 5e32f1e534057b5e8e0ed6d5c0a4631f9fefbca5
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/12/2017
 Du kan skapa ett fristående Service Fabric-kluster på valfria virtuella datorer eller datorer som kör Windows Server 2012 R2 eller Windows Server 2016, lokalt eller i molnet. Den här snabbstarten beskriver hur du skapar ett fristående kluster för utveckling på bara några minuter.  När du är klar har du ett kluster med tre noder som körs på en enskild dator som du kan distribuera appar till.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Fabric Service tillhandahåller ett konfigurationspaket för att skapa fristående Service Fabric-kluster.  [Ladda ned konfigurationspaketet](http://go.microsoft.com/fwlink/?LinkId=730690).  Packa upp det till en mapp, till exempel *C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer*, på den dator eller virtuella dator där du ska skapa utvecklingsklustret.  Innehållet i konfigurationspaketet beskrivs i detalj [här](service-fabric-cluster-standalone-package-contents.md).
+Fabric Service tillhandahåller ett konfigurationspaket för att skapa fristående Service Fabric-kluster.  [Ladda ned konfigurationspaketet](http://go.microsoft.com/fwlink/?LinkId=730690).  Packa upp installationspaketet i en mapp på datorn eller den virtuella datorn där du installerar utvecklingsklustret.  Innehållet i konfigurationspaketet beskrivs i detalj [här](service-fabric-cluster-standalone-package-contents.md).
 
 Klusteradministratören som distribuerar och konfigurerar klustret måste ha administratörsbehörighet på datorn. Du kan inte installera Service Fabric på en domänkontrollant.
 
@@ -37,7 +37,9 @@ Skriptet *TestConfiguration.ps1* i det fristående paketet används för att ana
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
 ```
 ## <a name="create-the-cluster"></a>Skapa klustret
-Flera exempelkonfigurationsfiler för kluster installeras med konfigurationspaketet. *ClusterConfig.Unsecure.DevCluster.json* är den enklaste klusterkonfigurationen: ett oskyddat kluster med tre noder som körs på en enskild dator. Du behöver inte ändra någon av standardkonfigurationsinställningarna för den här självstudien.  Andra konfigurationsfiler beskriver kluster med en eller flera datorer som skyddas med X.509-certifikat eller Windows-säkerhet.  Mer information om klustersäkerheten med Service Fabric finns i avsnittet om hur du [skyddar ett kluster](service-fabric-cluster-security.md). 
+Flera exempelkonfigurationsfiler för kluster installeras med konfigurationspaketet. *ClusterConfig.Unsecure.DevCluster.json* är den enklaste klusterkonfigurationen: ett oskyddat kluster med tre noder som körs på en enskild dator.  Andra konfigurationsfiler beskriver kluster med en eller flera datorer som skyddas med X.509-certifikat eller Windows-säkerhet.  Du behöver inte ändra några av standardinställningarna i den här självstudien, men titta igenom konfigurationsfilen så att du bekantar dig med inställningarna.  I avsnittet **Noder** beskrivs de tre noderna i klustret: namn, IP-adress, [nodtyp, feldomän och uppgraderingsdomän](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  I avsnittet **Egenskaper** definieras [säkerhet, tillförlitlighetsnivå, diagnostiksamling och nodtyper](service-fabric-cluster-manifest.md#cluster-properties) för klustret.
+
+Det här klustret är inte säkert.  Vem som helst kan ansluta anonymt och utföra hanteringsåtgärder, så produktionskluster bör alltid skyddas med X.509-certifikat eller Windows-säkerhet.  Säkerhetsfunktioner konfigureras bara när kluster skapas, och du kan inte aktivera någon säkerhet i efterhand.  Mer information om klustersäkerheten med Service Fabric finns i avsnittet om hur du [skyddar ett kluster](service-fabric-cluster-security.md).  
 
 Skapa utvecklingsklustret med tre noder genom att köra skriptet *CreateServiceFabricCluster.ps1* från en PowerShell-administratörssession:
 
@@ -88,7 +90,7 @@ Om du vill ta bort Service Fabrics runtime från datorn kör du följande PowerS
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har konfigurerat ett fristående utvecklingskluster provar du följande:
+Nu när du har konfigurerat ett fristående utvecklingskluster kan du läsa följande artiklar:
 * [Konfigurera ett fristående kluster med flera datorer](service-fabric-cluster-creation-for-windows-server.md) och aktivera säkerhet.
 * [Distribuera appar med hjälp av PowerShell](service-fabric-deploy-remove-applications.md)
 

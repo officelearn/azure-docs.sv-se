@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 17fb538b33a4a4a2b333ff501e6e729f6000f623
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Det går att skapa virtuella datorer via Azure Portal. Den här metoden ger ett webbläsarbaserat användargränssnitt för att skapa och konfigurera virtuella datorer och alla relaterade resurser. Den här snabbstarten beskriver hur man skapar en virtuell dator med Azure Portal. När distributionen är klar kan vi ansluta till servern och installera IIS.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -42,7 +42,9 @@ Logga in på Azure Portal på http://portal.azure.com.
 
     ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
-5. Välj en storlek för den virtuella datorn och klicka på **Välj**.
+5. Välj en storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. 
+
+    ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
 6. På inställningsbladet väljer du **Ja** under **Use managed disks** (Använd hanterade diskar), låter standardinställningarna vara kvar för resten och klickar på **OK**.
 
@@ -58,7 +60,7 @@ Du måste öppna port 80 för webbtrafik om du vill tillåta trafik för IIS. De
 2. Gå till bladet för resursgruppen och klicka på **Nätverkssäkerhetsgrupp** i listan över resurser. NSG-namnet bör vara namnet på den virtuella datorn med ”- nsg” tillagt i slutet.
 3. Klicka på rubriken **Ingående säkerhetsregel** så öppnas listan med regler för inkommande trafik. Du bör se en regel för RDP i listan redan.
 4. Klicka på **+ Lägg till** så öppnas bladet **Lägg till ingående säkerhetsregel**.
-5. Under **Namn** skriver du **IIS**. Kontrollera att **Portintervall** har angetts till 80 och att **Åtgärd** har angetts till **Tillåt** och klicka sedan på **OK**.
+5. Skriv **IIS** i fältet **Namn**. Kontrollera att 80 har angetts för **Portintervall** och att **Tillåt** har angetts för **Åtgärd**. Klicka på **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
@@ -78,7 +80,7 @@ När distributionen har slutförts kan du skapa en fjärrskrivbordsanslutning ti
 
 ## <a name="install-iis-using-powershell"></a>Installera IIS med PowerShell
 
-Nu när du har loggat in till den virtuella Azure-datorn kan du använda en rad med PowerShell för att installera IIS och aktivera den lokala brandväggsregeln så att del tillåter webbtrafik.  Öppna en PowerShell-kommandotolk och kör följande kommando:
+Öppna en PowerShell-kommandotolk på den virtuella datorn och kör följande kommando för att installera IIS och aktivera regeln för att tillåta webbtrafik i den lokala brandväggen:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -90,13 +92,6 @@ Du kan använda en webbläsare som du själv väljer för att visa standardvälk
 
 ![Standardwebbplatsen i IIS](./media/quick-create-powershell/default-iis-website.png) 
 
-## <a name="delete-virtual-machine"></a>Ta bort en virtuell dator
-
-När den inte längre behövs kan följande kommando användas för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
-```
 ## <a name="delete-virtual-machine"></a>Ta bort en virtuell dator
 
 Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra det väljer du resursgruppen på bladet för den virtuella datorn och klickar på **Ta bort**.

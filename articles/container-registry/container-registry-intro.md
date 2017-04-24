@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
-ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introduktion till privata Docker-behållarregister
@@ -39,7 +39,7 @@ Bakgrundsinformation om Docker och behållare finns här:
 Hämta avbildningar från ett Azure-behållarregister till olika distributionsmål:
 
 * **Skalbart dirigeringssystem** som hanterar program i behållare över kluster med värdar, inklusive [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) och [Kubernetes](http://kubernetes.io/docs/).
-* **Azure-tjänster** som stöder utveckling och körning av program i hög skala, inklusive [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) och [Service Fabric](../service-fabric/index.md).
+* **Azure-tjänster** som stöder utveckling och körning av program i stor skala, bland annat [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) och [Service Fabric](../service-fabric/index.md).
 
 Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsflöde för utveckling av behållare. Du kan till exempel arbeta mot ett behållarregister från ett verktyg för löpande integrering och distribution som [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) eller [Jenkins](https://jenkins.io/).
 

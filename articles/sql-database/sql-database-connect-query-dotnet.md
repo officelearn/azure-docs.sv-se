@@ -13,12 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -70,16 +70,18 @@ Hämta anslutningssträngen i Azure Portal. Du kan använda anslutningssträngen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
-3. Kontrollera det fullständigt kvalificerade servernamnet i fönstret **Grundläggande** för databasen. 
+3. Granska serverns fullständiga namn på sidan **Översikt** för databasen, se bilden nedan. Om du hovrar över servernamnet visas alternativet **Kopiera genom att klicka**. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Klicka på **Visa databasanslutningssträngar**.
+4. Om du har glömt inloggningsinformationen för Azure SQL Database-server öppnar du serversidan i SQL Database. Där ser du administratörsnamnet för servern och kan återställa lösenordet vid behov.
 
-5. Kontrollera den fullständiga **ADO.NET**-anslutningssträngen.
+5. Klicka på **Visa databasanslutningssträngar**.
 
-    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
-    
+6. Kontrollera den fullständiga **ADO.NET**-anslutningssträngen.
+
+    ![ADO.NET-anslutningssträng](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+  
 ## <a name="add-systemdatasqlclient"></a>Lägga till System.Data.SqlClient
 När du använder .NET core lägger du till System.Data.SqlClient i projektets ***csproj***-fil som ett beroende.
 
@@ -94,8 +96,7 @@ När du använder .NET core lägger du till System.Data.SqlClient i projektets *
 1. Öppna en tom kodfil i din utvecklingsmiljö.
 2. Lägg till ```using System.Data.SqlClient``` i kodfilen ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Använd [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) med ett [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-uttryck för att skicka frågor till data i Azure SQL Database. Lägg till lämpliga värden för din server
-
+3. Använd [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) med ett [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-uttryck för att skicka frågor till data i Azure SQL Database. Lägg till lämpliga värden för din server.
 ```csharp
 using System;
 using System.Data;

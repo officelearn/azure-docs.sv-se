@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 3366348e6ea3ae296bc249090e75c16ebe9fc1fb
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -50,18 +50,26 @@ Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure W
    - Resursgrupp: **myResourceGroup**
    - Källa: **Exempel (AdventureWorksLT)**
 
-4. Klicka på **Server** för att skapa och konfigurera servern för den nya databasen. Fyll i den **formuläret för ny server**. Ange ett globalt unikt servernamn, ett namn för inloggning för serveradministratör och ett lösenord. 
+   > [!IMPORTANT]
+   > Du måste välja exempeldatabasen i det här formuläret eftersom den används i resten av snabbstarten.
+   > 
+
+4. Klicka på **Server** och fyll i **formuläret för den nya servern**. Ange ett globalt unikt servernamn, ett namn för inloggning för serveradministratör och ett lösenord. 
+
+   > [!IMPORTANT]
+   > Det användarnamn och lösenord för serveradministration du anger här krävs för inloggning på servern och databaserna senare i den här snabbstarten. Kom ihåg eller skriv ned den här informationen så att du kan använda den senare. 
+   >  
 
     ![skapa databas-server](./media/sql-database-get-started-portal/create-database-server.png)
-5. Klicka på **Välj**.
+5. När du har fyllt i formuläret klickar du på **Välj**.
 
-6. Klicka på **Prisnivå** för att ange tjänstenivå och prestandanivå för den nya databasen. För den här snabbstarten väljer du **20 DTU:er** och **250** GB lagringsutrymme
+6. Klicka på **Prisnivå** för att ange tjänstenivå och prestandanivå för den nya databasen. Använd reglaget och välj **20 DTU:er** och **250** GB lagring. Mer information om DTU:er finns i [Vad är en DTU?](sql-database-what-is-a-dtu.md)
 
     ![skapa databas-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. Klicka på **Använd**.  
+7. När du valt antal DTU:er klickar du på **Använd**.  
 
-8. Klicka på **Skapa** för att etablera databasen. Etableringen tar några minuter. 
+8. Nu när du har fyllt i SQL Database-formuläret klickar du på **Skapa** så att databasen etableras. Etableringen tar några minuter. 
 
 9. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
@@ -72,13 +80,26 @@ Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure W
 
 SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa program och verktyg från att ansluta till servern eller databaser på servern, såvida inte en brandväggsregel konfigureras som öppnar brandväggen för specifika IP-adresser. Följ de här stegen om du vill skapa en [brandväggsregel på SQL Database-servernivå](sql-database-firewall-configure.md) för din klients IP-adress och aktivera extern anslutning genom SQL Database-brandväggen endast för din IP-adress. 
 
-1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar på din databas på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (som **mynewserver20170327.database.windows.net**) och alternativ för ytterligare konfiguration.
+> [!NOTE]
+> SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall kan du inte ansluta till din Azure SQL Database-server om din IT-avdelning inte öppnar port 1433.
+>
 
-      ![brandväggsregler för server](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan SQL-databaser. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (som **mynewserver20170411.database.windows.net**) och alternativ för ytterligare konfiguration.
+
+   > [!IMPORTANT]
+   > Du behöver det här fullständiga servernamnet när du ska ansluta till servern och databaserna i efterföljande snabbstarter.
+   > 
+
+      ![servernamn](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet (se föregående bild). Sidan **Brandväggsinställningar** för SQL Database-servern öppnas. 
 
-3. Klicka på **Lägg till klient-IP** i verktygsfältet och klicka på **Spara**. En brandväggsregel på servernivå skapas för din aktuella IP-adress.
+      ![brandväggsregler för server](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+
+
+3. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
+
+4. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
 
       ![ange brandväggsregel för server](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
@@ -86,13 +107,12 @@ SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa 
 
 Nu kan du ansluta till SQL Server Database-servern och dess databaser med SQL Server Management Studio eller något annat verktyg från den här IP-adressen med det Server-administratörskonto som skapades tidigare.
 
-> [!NOTE]
-> SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall kan du inte ansluta till din Azure SQL Database-server om din IT-avdelning inte öppnar port 1433.
->
+> [!IMPORTANT]
+> Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
 
 ## <a name="query-the-sql-database"></a>Söka i SQL-databasen
 
-När vi skapade SQL-databasen fyllde vi den med **AdventureWorksLT**-exempeldatabasen (det här var ett av alternativen vi valde i användargränssnittet för att skapa tidigare i den här snabbstarten). Nu kan vi fråga efter data med hjälp av det inbyggda frågeverktyget på Azure Portal. 
+Nu när du har skapat en exempeldatabas i Azure kan vi använda det inbyggda frågeverktyget på Azure Portal till att bekräfta att du kan ansluta till databasen och fråga efter data. 
 
 1. På SQL Database-sidan för din databas klickar du på **Verktyg** i verktygsfältet. Sidan **Verktyg** öppnas.
 

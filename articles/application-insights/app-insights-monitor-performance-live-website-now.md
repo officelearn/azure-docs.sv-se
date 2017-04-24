@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -184,6 +184,54 @@ Ta reda på vilka appar som övervakas:
 
 * Laddar ned senaste Application Insights SDK till servern.
 
+## <a name="questions"></a>Frågor om Statusövervakaren
+
+### <a name="what-is-status-monitor"></a>Vad är Statusövervakaren?
+
+Ett program som du installerar på din IIS-webbserver. Det hjälper dig instrumentera och konfigurera webbappar. 
+
+### <a name="when-do-i-use-status-monitor"></a>När ska jag använda Statusövervakaren?
+
+* När du instrumenterar en webbapp som körs på IIS-servern, även om den redan har startats.
+* För att få ytterligare telemetri för webbappar som har [skapats med Application Insights SDK](app-insights-asp-net.md) vid kompilering. 
+
+### <a name="can-i-close-it-after-it-runs"></a>Kan jag stänga den när den körs?
+
+Ja. Du kan stänga den efter att den har instrumenterat de webbplatser som du har valt.
+
+Den samlar inte in telemetri på egen hand. Den bara konfigurerar webbappar och anger vissa behörigheter.
+
+### <a name="what-does-status-monitor-do"></a>Vad gör Statusövervakaren?
+
+När du har valt en webbapp som Statusövervakaren ska instrumentera gör den följande:
+
+* Laddar ned och placerar Application Insights-sammansättningar och .config-filen i webbappens binärfilsmapp.
+* Ändrar `web.config` för att lägga till Application Insights HTTP-spårningsmodulen.
+* Aktiverar CLR-profilering för att samla in beroendeanrop.
+
+### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Måste jag köra Statusövervakaren när jag uppdaterar appen?
+
+Inte om du distribuerar om inkrementellt. 
+
+Om du väljer alternativet Ta bort befintliga filer i publiceringen måste du köra om Statusövervakaren för att konfigurera Application Insights.
+
+### <a name="what-telemetry-is-collected"></a>Vilken telemetri samlas in?
+
+För program som du endast instrumenterar vid körning med Statusövervakaren:
+
+* HTTP-begäranden
+* Anrop till beroenden
+* Undantag
+* Prestandaräknare
+
+För program som redan har instrumenterats vid kompilering:
+
+ * Processräknare.
+ * Beroendeanrop (.NET 4.5;), returvärden i beroendeanrop (.NET 4.6).
+ * Undantag i stackspårningsvärden.
+
+[Läs mer](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
@@ -212,5 +260,5 @@ Lägg till mer telemetri:
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

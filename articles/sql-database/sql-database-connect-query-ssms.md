@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -41,12 +41,13 @@ Hämta det fullständigt kvalificerade servernamnet för Azure SQL Database-serv
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
-3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**.
+3. Granska serverns fullständiga namn på sidan **Översikt** för databasen, se bilden nedan. Om du hovrar över servernamnet visas alternativet **Kopiera genom att klicka**.
 
    ![anslutningsinformation](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. Om du har glömt inloggningsinformationen för Azure SQL Database-server öppnar du serversidan i SQL Database. Där ser du administratörsnamnet för servern och kan återställa lösenordet vid behov. 
 
-## <a name="connect-to-the-server-and-your-new-database"></a>Ansluta till servern och den nya databasen
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Ansluta till databasen på den logiska SQL Database-servern
 
 Använd SQL Server Management Studio för att upprätta en anslutning till Azure SQL Database-servern. 
 
@@ -65,7 +66,7 @@ Använd SQL Server Management Studio för att upprätta en anslutning till Azure
 
    ![Anslut till server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Klicka på **Alternativ**. I avsnittet **Anslut till databas** anger du **mySampleDatabase** för att ansluta till den här databasen som du skapade tidigare.
+3. Klicka på **Alternativ** i dialogrutan **Anslut till server**. I avsnittet **Anslut till databas** anger du **mySampleDatabase** så att du ansluter till den här databasen.
 
    ![ansluta till databas på server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -73,7 +74,7 @@ Använd SQL Server Management Studio för att upprätta en anslutning till Azure
 
    ![Ansluten till server](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. I Object Explorer expanderar du **Databaser** och sedan **mySampleDatabase** för att visa objekten i exempeldatabasen.
+5. I Object Explorer expanderar du **Databaser** och sedan **mySampleDatabase** för att visa objekten i exempeldatabasen.
 
 ## <a name="query-data"></a>Frågedata
 
@@ -91,7 +92,7 @@ Använd [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-
 
 3. Klicka på **Execute** (Kör) för att hämta data från Product- och ProductCategory-tabeller.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![DocumentDB](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>Infoga data
 

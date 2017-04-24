@@ -16,9 +16,9 @@ ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9b7735bbe8d3b2ffc78eba8f1489d70a02fe7342
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -31,7 +31,7 @@ Om de följande scenarierna gäller dig kan vi hjälpa dig
 * Du är osäker på hur du kommer åt ditt konto och kommer inte ihåg ditt lösenord
 * Inget lösenord har tilldelats och din administratör skickade dig hit
 
-## <a name="unlock-your-account"></a>Låsa upp mitt konto
+## <a name="unlock-my-account"></a>Lås upp mitt konto
 
 Om du ska låsa upp ditt konto följer du stegen nedan. När du ser **Välj ett nytt lösenord** i steg 6 nedan kan du låsa upp eller ändra ditt lösenord så att du får åtkomst till ditt konto.
 
@@ -43,6 +43,11 @@ Följ stegen nedan för att komma åt ditt konto igen.
     ![Can't access your account?][Login] (Kan du inte komma åt ditt konto?)
 
 2. Ange **användar-ID:t** för ditt arbete eller din skola och bevisa att du inte är en robot genom att skriva texten som visas för CAPTCHA-testet och klicka sedan på **Nästa**
+
+   > [!NOTE]
+   > Om administratören inte har aktiverat den här funktionen visas länken ”kontakta administratören”. Klicka på länken så kan administratören hjälpa dig via e-post eller en webbportal.
+   >
+
 3. Beroende på hur din administratör har konfigurerat inställningarna visas något eller flera av följande:
     * **Skicka e-post till min alternativa e-postadress** – Skickar ett e-postmeddelande med en 6-siffrig kod till din alternativa e-postadress eller till din e-postadress för autentisering (du väljer).
     * **Skicka ett SMS till min mobiltelefon** – Skickar ett SMS med en 6-siffrig kod till din mobiltelefon eller till din telefon för autentisering (du väljer).
@@ -61,10 +66,6 @@ Följ stegen nedan för att komma åt ditt konto igen.
 7. När du ser **Ditt lösenord har återställts** kan du logga in med ditt nya lösenord.
 
     ![Ditt lösenord har återställts][Complete]
-
-> [!NOTE]
-> Om administratören inte har aktiverat den här funktionen visas länken ”kontakta administratören”. Klicka på länken så kan administratören hjälpa dig via e-post eller en webbportal.
->
 
 När du har använt den här metoden för att låsa upp eller återställa ditt lösenord kanske du får ett e-postmeddelande som bekräftar att processen har slutförts. Meddelandet kommer från ett konto med ett namn som ”Microsoft för din organisations räkning”. Om du får ett e-postmeddelande som detta och inte använde lösenordsåterställning via självbetjäning för att få åtkomst till ditt konto kontaktar du administratören.
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: d7c4c5b118dade39bd47ae2c7836157589fcb45a
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -33,21 +33,21 @@ En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Observera följande när du läser tabellerna:
 
-* Terminologin har ändrats för Azure VPN-gateways. Funktionen har inte ändrats, bara namnen.
+* Terminologin har ändrats för Azure VPN-gateways. Funktionaliteten har inte ändrats. Endast namnen har ändrats.
   * Statisk routning = Principbaserad
   * Dynamisk routning = Routningsbaserad
 * Specifikationerna för en VPN-gateway med hög kapacitet och en routningsbaserad VPN-gateway är samma, om inget annat anges. Till exempel är verifierade VPN-enheter som är kompatibla med routningsbaserade VPN-gatewayer också kompatibla med Azure VPN-gatewayen med hög kapacitet.
 
 > [!NOTE]
-> När du konfigurerar en plats-till-plats-anslutning krävs en offentlig IPv4-adress för VPN-enheten.                                                                                                                                                                               
+> När du konfigurerar en plats-till-plats-anslutning krävs en offentlig IPv4-adress för VPN-enheten.
+>                
 
-
-## <a name="devicetable"></a>Verifierade VPN-enheter
+## <a name="devicetable"></a>Validerade VPN-enheter och guider för enhetskonfiguration
 Vi har verifierat en uppsättning VPN-standardenheter tillsammans med våra enhetsleverantörer. Alla enheter i enhetsfamiljerna som finns i följande lista ska fungera med Azures VPN-gatewayer. I [Om VPN-gatewayer](vpn-gateway-about-vpngateways.md) kan du kontrollera vilken typ av gateway som du måste skapa för den lösning som du vill konfigurera.
 
-Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig enhetsfamilj.  Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Kontakta enhetens tillverkare för att se vilka VPN-enheter som stöds.
+Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig enhetsfamilj. Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Kontakta enhetens tillverkare för att se vilka VPN-enheter som stöds.
 
-|**Leverantör**          |**Enhetsfamilj**     |**Minsta operativsystemversion** |**Principbaserad** |**Routningsbaserad** |
+|**Leverantör**          |**Enhetsfamilj**     |**Minsta operativsystemversion** |**Instruktioner för principbaserad konfiguration** |**Instruktioner för routningsbaserad konfiguration** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Inte kompatibel  |[Konfigurationsguide](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
 | Allied Telesis     |AR-serie VPN-routrar |2.9.2                  |Kommer snart     |Inte kompatibel  |
@@ -81,7 +81,7 @@ Om du inte hittar din enhet i tabellen med verifierade VPN-enheter kan enheten �
 ## <a name="editing"></a>Redigera enhetens konfigurationsexempel
 När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du byta ut vissa värden så att de motsvarar inställningarna för din miljö.
 
-###<a name="to-edit-a-sample"></a>Så här redigerar du ett exempel:
+### <a name="to-edit-a-sample"></a>Så här redigerar du ett exempel:
 
 1. Öppna exemplet med Anteckningar.
 2. Sök och ersätt alla <*text*>-strängar med de värden som gäller för din miljö. Var noga med att inkludera < och >. När ett namn anges måste det vara unikt. Om ett kommando inte fungerar kan du läsa mer i din enhetstillverkares dokumentation.
@@ -106,7 +106,7 @@ När du har hämtat den angivna VPN-enhetens konfigurationsexempel, måste du by
 > 
 >
 
-I tabellerna nedan:
+I följande tabeller:
 
 * SA = Security Association
 * IKE fas 1 kallas även "Huvudläge"
@@ -185,7 +185,7 @@ Följande tabell visar erbjudanden för IPsec SA (IKE-snabbläge). Erbjudandena 
 >
 >
 
-###<a name="feb-16-2017"></a>16 februari 2017
+### <a name="feb-16-2017"></a>16 februari 2017
 
 **Palo Alto Networks-enheter med tidigare versioner än 7.1.4** för Azure-vägbaserad VPN: Om du använder VPN-enheter från Palo Alto Networks med en PAN-OS-version äldre än 7.1.4 och har problem att ansluta till Azure-vägbaserade VPN-gateways ska du göra så här:
 

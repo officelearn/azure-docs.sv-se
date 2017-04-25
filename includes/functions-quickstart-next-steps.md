@@ -10,7 +10,3 @@ Den här snabbstarten visar en enkel körning av en grundläggande funktion som 
   Beskriver tillgängliga serviceplaner för Azure Functions, inklusive värdplanen för förbrukning, och hur du väljer rätt plan. 
 * [Vad är Azure App Service?](../articles/app-service/app-service-value-prop-what-is.md)  
   Azure Functions använder plattformen Azure App Service för grundläggande funktioner som distributioner, miljövariabler och diagnostik. 
-
-<!--HONumber=Feb17_HO1-->
-
-

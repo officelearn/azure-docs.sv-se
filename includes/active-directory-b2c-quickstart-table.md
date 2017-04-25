@@ -6,8 +6,3 @@
 | [Anropa ett webb-API från en .NET-webbapp](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md) | [Lägga till Registrera dig och logga in till ett Javascript SPA (NodeJS)](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)| |
 | [Lägg till registrering och inloggning i en ASP.NET-Core-app](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | | |
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

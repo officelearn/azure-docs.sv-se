@@ -11,7 +11,3 @@ Du kan visa anslutningsstatus i Azure Portal för en klassisk VNet VPN-gateway g
 5. Om du vill visa mer information om anslutningen klickar du på namnet på anslutningen för att öppna bladet **VPN-anslutningar för plats-till-plats**.
 
     ![Anslutningsstatus mer](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Anslutningsstatus mer info")
-
-<!--HONumber=Jan17_HO5-->
-
-

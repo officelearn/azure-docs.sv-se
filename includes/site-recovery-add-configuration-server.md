@@ -40,8 +40,3 @@
     ![Sammanfattning](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
 När registreringen är klar visas servern på bladet **Inställningar** > **Servrar** i valvet.
-
-
-<!--HONumber=Feb17_HO4-->
-
-

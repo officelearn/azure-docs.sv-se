@@ -67,7 +67,7 @@
 ### [Tabelldesignguide](storage-table-design-guide.md)
 ### [Exempel](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Använda filer
-### [Översikt](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [Översikt](/rest/api/storageservices/File-Service-Concepts)
 ### [Felsöka Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Exempel](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Använda diskar
@@ -180,7 +180,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobar, köer, tabeller och filer](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+### [Blobar, köer, tabeller och filer](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 ### [Resursprovider](/rest/api/storagerp)
 ### [Import/Export](/rest/api/storageimportexport)
 

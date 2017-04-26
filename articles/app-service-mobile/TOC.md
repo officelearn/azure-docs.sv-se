@@ -22,7 +22,7 @@
 
 ## Skapa webbappar
 ### [NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)    
+### [PHP](../app-service-web/app-service-web-get-started-php.md)
 ### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
 ### [Java](../app-service-web/app-service-web-get-started-java.md)
 ### [Python](../app-service-web/app-service-web-get-started-python.md)
@@ -68,7 +68,7 @@
 #### [Lägg till push-meddelanden](app-service-mobile-windows-store-dotnet-get-started-push.md)
 #### [Arbeta med klient-SDK:n](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-### Xamarin.Android 
+### Xamarin.Android
 #### [Aktivera offline-synkronisering](app-service-mobile-xamarin-android-get-started-offline-data.md)
 #### [Lägg till autentisering](app-service-mobile-xamarin-android-get-started-users.md)
 #### [Lägg till push-meddelanden](app-service-mobile-xamarin-android-get-started-push.md)
@@ -78,7 +78,6 @@
 #### [Aktivera offline-synkronisering](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [Lägg till autentisering](app-service-mobile-xamarin-forms-get-started-users.md)
 #### [Lägg till push-meddelanden](app-service-mobile-xamarin-forms-get-started-push.md)
-#### [Anslut till Azure Storage i din Xamarin.Forms-app](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [Arbeta med klient-SDK:n](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
@@ -194,7 +193,6 @@
 ### [Hantera appar med Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Integrera
-### [Anslut till Azure Storage i din Xamarin.Forms-app](app-service-mobile-xamarin-forms-blob-storage.md)
 ### [Få tillgång till lokala resurser med hjälp av hybridanslutningar](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Skicka e-post med hjälp av SendGrid med Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -219,10 +217,10 @@
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Resurser
-## [Prissättning](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
-## [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
-## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [Prissättning](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Exempel
 ### [Field Engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Strukturerad datasynkronisering](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)

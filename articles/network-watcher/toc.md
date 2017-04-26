@@ -7,6 +7,7 @@
 ## [Säkerhetsgruppvy](network-watcher-security-group-view-overview.md)
 ## [Nästa hopp](network-watcher-next-hop-overview.md)
 ## [Felsökning av VPN-anslutning](network-watcher-troubleshoot-overview.md)
+## [Tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Kom igång
 ## [Konfigurera Network Watcher](network-watcher-create.md)
 ## Hantera infångade paket

@@ -22,5 +22,5 @@ Blob Service innehåller följande komponenter:
   
     *Sidblobbar* kan vara upp till 1 TB stora och är bäst för frekventa läs-/skrivåtgärder. Azure Virtual Machines använder sig av sidblobbar som operativsystem- och datadiskar.
   
-    Mer information om namngivning av behållare och blobbar finns i [Namngivning och referens av behållare, blobbar och metadata](/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+    Mer information om namngivning av behållare och blobbar finns i [Namngivning och referens av behållare, blobbar och metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 

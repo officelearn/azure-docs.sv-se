@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1876b78186da3aa6c0ae9dc7de3b7ab7e46888bb
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -173,7 +173,7 @@ Den rekommenderade metoden för att integrera Automation är att välja erbjudan
    - Ange ett namn för den nya **OMS-arbetsytan**.
    - Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
    - Du kan skapa en **resursgrupp** eller välja en befintlig resursgrupp.  
-   - Välj en **Plats**.  För närvarande är endast regionerna **Australien, sydöstra**, **USA, östra**, **Sydostasien**, **USA, västra centrala** och **Europa, västra** tillgängliga.
+   - Välj en **Plats**.  För närvarande är endast regionerna **Australien, sydöstra**,  **USA, östra**, **Sydostasien**, **USA, västra centrala** och **Europa, västra** tillgängliga.
    - Välj en **Prisnivå**.  Lösningen erbjuds i två nivåer: Kostnadsfri eller Per nod (OMS).  Den kostnadsfria nivån har en gräns för mängden information som samlas in varje dag, kvarhållningsperioden och körtid för runbook-jobb.  Per nod (OMS) har ingen daglig gräns för insamlad data.  
    - Välj **Automation-konto**.  Om du skapar en ny OMS-arbetsyta måste du också skapa ett Automation-konto som ska associeras med den nya OMS-arbetsytan, inklusive din Azure-prenumeration, resursgrupp och region.  Du kan välja **Skapa ett Automation-konto** och ange följande på bladet **Automation-konto**: 
   - I fältet **namn** anger du namnet på Automation-kontot.
@@ -211,7 +211,7 @@ När Automation-kontot har skapats skapas flera resurser automatiskt. Resurserna
 | AzureClassicAutomationTutorial-runbook | Ett exempel på en grafisk runbook som hämtar alla virtuella datorer som skapas med den klassiska distributionsmodellen i en prenumeration med hjälp av det klassiska Kör som-kontot (certifikat) och som sedan skriver namnet och statusen för de virtuella datorerna. |
 | AzureClassicAutomationTutorial Script-runbook | Ett exempel på en PowerShell-runbook som hämtar alla klassiska virtuella datorer i en prenumeration med hjälp av det klassiska Kör som-kontot (certifikat) och som sedan skriver namnet och statusen för de virtuella datorerna. |
 | AzureClassicRunAsCertificate | Certifikattillgången som skapas automatiskt och som du använder för att autentisera med Azure så att du kan hantera klassiska Azure-resurser från runbookflöden. Certifikatet har en livslängd på ett år. |
-| AzureClassicRunAsConnection | Anslutningstillgången som skapas automatiskt och som du använder för att autentisera med Azure så att du kan hantera klassiska Azure-resurser från runbookflöden. |autentisera med Azure så att du kan hantera klassiska Azure-resurser från runbooks. |
+| AzureClassicRunAsConnection | Anslutningstillgången som skapas automatiskt och som du använder för att autentisera med Azure så att du kan hantera klassiska Azure-resurser från runbookflöden.|
 
 ## <a name="next-steps"></a>Nästa steg
 * Du kan bekräfta att det nya Automation-kontot kan autentisera mot Azure-resurser genom att granska [testa autentisering av Azure Automation Kör som-konto](automation-verify-runas-authentication.md).

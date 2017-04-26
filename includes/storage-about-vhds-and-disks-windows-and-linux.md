@@ -1,7 +1,7 @@
 
 ## <a name="about-vhds"></a>Om virtuella hårddiskar
 
-De virtuella hårddiskarna i Azure är .vhd-filer som lagras som sidblobar i standard- eller premium-lagringskonton i Azure. Mer information om sidblobar finns [Understanding block blobs and page blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/) (Förstå blockblobar och sidblobar). Mer information om premium-lagring finns i [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md) (Premium-lagring och virtuella Azure-datorer med hög prestanda).
+De virtuella hårddiskarna i Azure är .vhd-filer som lagras som sidblobar i standard- eller premium-lagringskonton i Azure. Mer information om sidblobar finns [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/) (Förstå blockblobar och sidblobar). Mer information om premium-lagring finns i [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md) (Premium-lagring och virtuella Azure-datorer med hög prestanda).
 
 Azure stöder det fasta formatet för virtuella hårddiskar (VHD). Det fasta format lägger ut den logiska disken linjärt i filen så att diskförskjutning X lagras vid blob-förskjutning X. En liten sidfot i slutet av bloben beskriver den virtuella hårddiskens egenskaper. Det fasta formatet slösar ofta med utrymme eftersom de flesta diskar har stora utrymmen som är oanvända. Men Azure lagrar .vhd-filer i ett begränsat format så att du kan dra nytta av fördelarna med både fasta och dynamiska diskar på samma gång. Mer information finns i [Komma igång med virtuella hårddiskar](https://technet.microsoft.com/library/dd979539.aspx).
 

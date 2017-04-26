@@ -4,6 +4,7 @@
 ## [Vad är DocumentDB: API för MongoDB?](documentdb-protocol-mongodb.md)
 ## [Huvudkoncept](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [Regionala redundanstestningar](documentdb-regional-failovers.md)
 ## [Säkerhet](documentdb-nosql-database-security.md)
 ## [TCO-analys för NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Scenarier
@@ -47,7 +48,6 @@
 ### [Forma dina data](documentdb-modeling-data.md)
 ### [Få data att förfalla automatiskt](documentdb-time-to-live.md)
 ### [Säkerhetskopiera och återställa](documentdb-online-backup-and-restore.md)
-### [Regionala redundanstestningar](documentdb-regional-failovers.md)
 ### Automation
 #### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 #### [Azure CLI 1.0: Skapa ett konto](documentdb-automation-resource-manager-cli-nodejs.md)

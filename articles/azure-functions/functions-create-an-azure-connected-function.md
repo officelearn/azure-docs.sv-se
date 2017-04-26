@@ -122,7 +122,7 @@ Du kan skapa en annan funktion som läser från kön och skriver meddelanden per
  
 ## <a name="add-a-table-output-binding"></a>Lägga till en utdatabindningstabell
 
-1. I FunctionsBindingsDemo2 klickar du på **Integrera** > **	Nya utdata** > **Azure Table Storage** > **Välj**.
+1. I FunctionsBindingsDemo2 klickar du på **Integrera** > **Nya utdata** > **Azure Table Storage** > **Välj**.
 
     ![Lägga till en bindning till en Azure Storage-tabell](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 

@@ -559,7 +559,7 @@ Om du får felet ”Ett fel uppstod när begäran bearbetades” när du försö
     - Region: Väljer den region som är närmast dina appanvändare
     - Databasserver: Klicka på No database (Ingen databas) och sedan på **Skapa**. 
 
-4. På ”todo-net-app **-skärmen” klickar du på**Validate Connection (Validera anslutning). När anslutningen har verifierats klickar du på **Publicera***. 
+4. På ”todo-net-app * skärmen” klickar du på **Validate Connection** (Validera anslutning). När anslutningen har verifierats klickar du på **Publicera**. 
     
     Appen visas i webbläsaren.
 

@@ -18,6 +18,7 @@ ms.author: dendeli
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -343,7 +344,7 @@ Nu ska vi registrera UWP-appen för push-meddelanden. I Visual Studio klickar du
 
 Kontrollera att du väljer en befintlig app, eller skapa en ny, och associera paketet med den när du loggar in på ditt utvecklarkonto. 
 
-Gå till Dev Center och öppna den app som du nyss skapade. Klicka på **Tjänster** > **Push-meddelanden** > **Webbplatsen för Live-tjänster **.
+Gå till Dev Center och öppna den app som du nyss skapade. Klicka på **Tjänster** > **Push-meddelanden** > **Webbplatsen för Live-tjänster**.
 
 ![](./media/notification-hubs-geofence/ms-live-services.png)
 
@@ -390,10 +391,5 @@ Och för det andra: När du jobbar med att säkerställa att leveransen görs ti
 Lösningen ovan beskriver ett scenario där du kan ha en stor mängd olika målplattformar. Därför begränsar vi inte denna geofencing till systemspecifika funktioner. Men det bör understrykas att UWP har inbyggda, [kraftfulla funktioner för att detektera geofence-områden](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 För mer information om funktioner i Notification Hubs, se vår [dokumentationsportal](https://azure.microsoft.com/documentation/services/notification-hubs/).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -10,6 +10,7 @@
 #### [NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
+#### [Python](iot-hub-python-getstarted.md)
 
 ### Använd en simulerad gateway 
 #### [Simulering i Linux](iot-hub-linux-gateway-sdk-get-started.md)
@@ -17,88 +18,10 @@
 
 ### Använd en fysisk enhet
 #### [Raspberry Pi med Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
-##### Lektion 1: Konfigurera din enhet
-###### [Konfigurera din enhet](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
-###### [Hämta verktygen (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-###### [Hämta verktygen (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-###### [Hämta verktygen (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
-###### [Skapa och distribuera blinkningsprogrammet](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-##### Lektion 2: Skapa din IoT-hubb
-###### [Hämta Azure-verktygen (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
-###### [Hämta Azure-verktygen (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
-###### [Hämta Azure-verktygen (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
-###### [Skapa din IoT-hubb och registrera Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-##### Lektion 3: Skicka meddelanden från enheten till molnet
-###### [Skapa en Azure-funktionsapp och ett lagringskonto](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
-###### [Kör exempelprogrammet för att skicka meddelanden](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
-###### [Lästa meddelanden sparas i minnet](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
-##### Lektion 4: Skicka meddelanden från molnet till enheten
-###### [Kör exempelprogrammet för att ta emot meddelanden](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
-###### [Valfritt: Ändra LED-beteende](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
-##### [Felsöka](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
-
 #### [Raspberry Pi med C](iot-hub-raspberry-pi-kit-c-get-started.md)
-##### Lektion 1: Konfigurera din enhet
-###### [Konfigurera din enhet](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
-###### [Hämta verktygen (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
-###### [Hämta verktygen (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
-###### [Hämta verktygen (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
-###### [Skapa och distribuera blinkningsprogrammet](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
-##### Lektion 2: Skapa din IoT-hubb
-###### [Hämta Azure-verktygen (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
-###### [Hämta Azure-verktygen (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
-###### [Hämta Azure-verktygen (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
-###### [Skapa din IoT-hubb och registrera Raspberry Pi](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
-##### Lektion 3: Skicka meddelanden från enheten till molnet
-###### [Skapa en Azure-funktionsapp och ett lagringskonto](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)
-###### [Kör exempelprogrammet för att skicka meddelanden](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
-###### [Lästa meddelanden sparas i minnet](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
-##### Lektion 4: Skicka meddelanden från molnet till enheten
-###### [Kör exempelprogrammet för att ta emot meddelanden](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
-###### [Valfritt: Ändra LED-beteende](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
-##### [Felsöka](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
 #### [Intel Edison med Node.js](iot-hub-intel-edison-kit-node-get-started.md)
-##### Lektion 1: Konfigurera din enhet
-###### [Konfigurera din enhet](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
-###### [Hämta verktygen (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
-###### [Hämta verktygen (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md)
-###### [Hämta verktygen (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md)
-###### [Skapa och distribuera blinkningsprogrammet](iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md)
-##### Lektion 2: Skapa din IoT-hubb
-###### [Hämta Azure-verktygen (Windows 7+)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md)
-###### [Hämta Azure-verktygen (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md)
-###### [Hämta Azure-verktygen (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
-###### [Skapa din IoT-hubb och registrera Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
-##### Lektion 3: Skicka meddelanden från enheten till molnet
-###### [Skapa en Azure-funktionsapp och ett lagringskonto](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
-###### [Kör exempelprogrammet för att skicka meddelanden](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
-###### [Lästa meddelanden sparas i minnet](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
-##### Lektion 4: Skicka meddelanden från molnet till enheten
-###### [Kör exempelprogrammet för att ta emot meddelanden](iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md)
-###### [Valfritt: Ändra LED-beteende](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
-##### [Felsöka](iot-hub-intel-edison-kit-node-troubleshooting.md)
-
 #### [Intel Edison med C](iot-hub-intel-edison-kit-c-get-started.md)
-##### Lektion 1: Konfigurera din enhet
-###### [Konfigurera din enhet](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
-###### [Hämta verktygen (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
-###### [Hämta verktygen (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md)
-###### [Hämta verktygen (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md)
-###### [Skapa och distribuera blinkningsprogrammet](iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md)
-##### Lektion 2: Skapa din IoT-hubb
-###### [Hämta Azure-verktygen (Windows 7+)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md)
-###### [Hämta Azure-verktygen (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md)
-###### [Hämta Azure-verktygen (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md)
-###### [Skapa din IoT-hubb och registrera Raspberry Pi](iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md)
-##### Lektion 3: Skicka meddelanden från enheten till molnet
-###### [Skapa en Azure-funktionsapp och ett lagringskonto](iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md)
-###### [Kör exempelprogrammet för att skicka meddelanden](iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md)
-###### [Lästa meddelanden sparas i minnet](iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md)
-##### Lektion 4: Skicka meddelanden från molnet till enheten
-###### [Kör exempelprogrammet för att ta emot meddelanden](iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md)
-###### [Valfritt: Ändra LED-beteende](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
-##### [Felsöka](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 #### [Adafruit Feather HUZZAH ESP8266 med Arduino IDE](iot-hub-arduino-huzzah-esp8266-get-started.md)
 #### [Sparkfun ESP8266 Thing Dev med Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)

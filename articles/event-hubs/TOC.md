@@ -29,7 +29,6 @@
 #### [.NET-standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Diagnostikloggar](event-hubs-diagnostic-logs.md)
-### [Autentisering och auktorisering](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0-protokollguide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Hantera
 ### [Event Hubs-hanteringsbibliotek](event-hubs-management-libraries.md)

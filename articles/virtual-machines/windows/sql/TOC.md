@@ -1,6 +1,6 @@
 # Översikt
 ## [Vad är SQL Server på virtuella Azure-datorer?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [Prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [Prissättning](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [Vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Kom igång
@@ -48,9 +48,4 @@
 ## [SQL Server-verktyg](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -2,7 +2,7 @@
 ## [Vad är Azure Functions?](functions-overview.md)
 # Kom igång
 ## [Skapa din första funktion](functions-create-first-azure-function.md)
-## [Skapa en webhook-funktion](functions-create-a-web-hook-or-api-function.md)
+## [Skapa en webhook-utlöst funktion](functions-create-github-webhook-triggered-function.md)
 ## [Skapa en Azure-ansluten funktion](functions-create-an-azure-connected-function.md)
 ## [Skapa en händelsebearbetande funktion](functions-create-an-event-processing-function.md)
 # Gör så här för att

@@ -105,6 +105,7 @@
 ### [Konfigurera Hive-principer](hdinsight-domain-joined-run-hive.md)
 ## Använda Kafka (förhandsgranskning)
 ### [Replikera Kafka-data](hdinsight-apache-kafka-mirroring.md)
+### [Använd med virtuella nätverk](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Använd med Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Använd med Storm](hdinsight-apache-storm-with-kafka.md)
 ## Utveckla

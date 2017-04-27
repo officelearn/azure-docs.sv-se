@@ -56,6 +56,7 @@
 ### [Kapacitet och prestanda](log-analytics-capacity.md)
 ### [Spårning av ändringar](log-analytics-change-tracking.md)
 ### [Behållare](log-analytics-containers.md)
+### [DNS-analys](log-analytics-dns.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B-meddelanden
 #### [Lösning för Logic Apps B2B-meddelanden](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)

@@ -8,6 +8,7 @@
 ## [Kom igång med förkonfigurerade lösningar](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Behörigheter på azureiotsuite.com](iot-suite-permissions.md)
 ## [Översikt över förebyggande underhållslösning](iot-suite-predictive-overview.md)
+## [Översikt över ansluten fabrikslösning](iot-suite-connected-factory-overview.md)
 ## [Genomgång av lösning för fjärrövervakning](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Genomgång av lösning för förebyggande underhåll](iot-suite-predictive-walkthrough.md)
 
@@ -21,6 +22,7 @@
 ## [Använd dynamisk telemetri med fjärrövervakningslösningen](iot-suite-dynamic-telemetry.md)
 ## [Skapa en anpassad regel i fjärrövervakningslösningen](iot-suite-custom-rule.md)
 ## [Enhetsinformation i fjärrövervakningslösningen](iot-suite-remote-monitoring-device-info.md)
+## [Distribuera en gateway för ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
 
 # Referens
 ## [Säkerhetsarkitektur](iot-security-architecture.md)

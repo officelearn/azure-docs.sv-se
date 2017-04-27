@@ -21,18 +21,22 @@
     href: app-service-web-get-started-python.md
   - name: "Skapa en statisk HTML-webbplats"
     href: app-service-web-get-started-html.md
+- name: "Självstudier"
+  items:
+  - name: "1 – .NET med SQL DB"
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: "1 – Node.js med MongoDB"
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: "2 – Mappa anpassad domän"
+    href: app-service-web-tutorial-custom-domain.md
+  - name: "3 – Bind SSL-certifikat"
+    href: app-service-web-tutorial-custom-ssl.md
 - name: "Exempel"
   items:
   - name: "Azure CLI"
     href: app-service-cli-samples.md
   - name: "PowerShell"
     href: app-service-powershell-samples.md
-- name: "Självstudier"
-  items:
-  - name: ".NET med SQL Database"
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: "Node.js med MongoDB"
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
 - name: "Koncept"
   items:
   - name: "Så här fungerar App Service"
@@ -174,8 +178,6 @@
         href: web-sites-dotnet-entity-framework-row-level-security.md
     - name: "Tilldela anpassad SSL"
       items:
-      - name: "Köpa SSL-cert"
-        href: web-sites-purchase-ssl-web-site.md
       - name: "Konfigurera SSL-cert från tredje part"
         href: web-sites-configure-ssl-certificate.md
     - name: "Använda HTTPS"

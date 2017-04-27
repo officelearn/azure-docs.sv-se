@@ -69,6 +69,7 @@
 #### [Identifiera och lös licensproblem för en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
+#### [PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 ### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
 ### [Felsöka](active-directory-accessmanagement-troubleshooting.md)
 

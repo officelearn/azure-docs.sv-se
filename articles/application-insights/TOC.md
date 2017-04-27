@@ -18,6 +18,7 @@
 ### [Webbappar – körning](app-insights-java-live.md)
 ### [Docker-appar](app-insights-docker.md)
 
+
 ## Övervaka webbsidor
 ### [JavaScript](app-insights-javascript.md)
 
@@ -75,6 +76,7 @@
 #### [Instrumentpaneler](app-insights-dashboards.md)
 #### [Sök](app-insights-diagnostic-search.md)
 #### [Mått](app-insights-metrics-explorer.md)
+#### [Direktsänd ström](app-insights-live-stream.md)
 
 #### [Programkarta](app-insights-app-map.md)
 #### [HockeyApp-data](app-insights-hockeyapp-bridge-app.md)
@@ -132,6 +134,14 @@
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [REST](https://dev.applicationinsights.io/)
+## [Datamodell](application-insights-data-model.md)
+### [Förfrågan](application-insights-data-model-request-telemetry.md)
+### [Beroende](application-insights-data-model-dependency-telemetry.md)
+### [Undantag](application-insights-data-model-exception-telemetry.md)
+### [Spårning](application-insights-data-model-trace-telemetry.md)
+### [Händelse](application-insights-data-model-event-telemetry.md)
+### [Mått](application-insights-data-model-metric-telemetry.md)
+## [Telemetrikorrelation](application-insights-correlation.md)
 
 # Resurser
 

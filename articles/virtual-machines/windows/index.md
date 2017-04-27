@@ -12,16 +12,30 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: d6358d1a44b85a475cdf2d489112244152f64395
-ms.lasthandoff: 04/08/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 631eb4c8aa3a41e03cf623fcc5610d3e84f18ec4
+ms.lasthandoff: 04/22/2017
 
 ---
 <div class="content">
     <h1>Dokumentation om virtuella Windows-datorer</h1>
-    <p style="padding-bottom: 0px; max-width: 1050px;">Virtuella Windows-datorer i Azure tillhandahåller en säker, virtualiserad infrastruktur på begäran och med hög skalbarhet med hjälp av Windows Server. Lär dig hur du skapar, konfigurerar, hanterar och skalar virtuella Windows-datorer med våra snabbstarter, självstudier och exempel.</p>
-<h2 style="margin-top: 36px; margin-bottom: 0px;">Snabbstarter</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Skapa en virtuell Windows-dator med:</p>
+    <div class="introHolder" style="justify-content: space-between;">
+        <div class="intro" style="min-width: 200px">
+            <p>Virtuella Windows-datorer i Azure tillhandahåller en säker, virtualiserad infrastruktur på begäran och med hög skalbarhet med hjälp av Windows Server. Lär dig hur du skapar, konfigurerar, hanterar och skalar virtuella Windows-datorer med våra snabbstarter, självstudier och exempel.</p>
+        </div>
+        <a href="https://azure.microsoft.com/en-us/resources/videos/create-windows-server-virtual-machine/">
+            <div class="calloutHolder" style="max-width: 250px">
+                <div>
+                    <img src="media/index/create-windows-server-virtual-machine.png" style="width: 250px" />
+                </div>
+                <div>
+                    <p style="margin-top: 0; color: #6e6e6e">Skapa en virtuell Windows Server-dator. (3:58)</p>
+                </div>
+            </div>
+        </a>
+    </div>
+<h2 style="margin-top: 0px; margin-bottom: 0px;">Snabbstarter på 5 minuter</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Lär dig hur du distribuerar en IIS-webbserver i en virtuell dator som kör Windows Server 2016:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
@@ -42,37 +56,82 @@ ms.lasthandoff: 04/08/2017
         </a>
     </div>
 </div>
-<div class="columnHolder">
-    <div class="column50">
-        <h2 style="margin-top: 36px">Självstudier</h2>
-        <p>Skapa och distribuera virtuella Windows-datorer.</p>
-        <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Skapa och hantera virtuella Windows-datorer</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Belastningsutjämna virtuella datorer med hög tillgänglighet</a></li>
-        </ul>
-        <h2>Exempel</h2>
-        <p>Distribuera din första app till Azure.</p>
-        <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a></li>
-        </ul>
-    </div>
-    <div class="column50" style="max-width: 400px">
-        <h2 style="margin-top: 36px">Kostnadsfri videoutbildning</h2>
-        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
-            <p style="margin-top: 0px">Kostnadsfri videoutbildning för Pluralsight – Hantera infrastruktur</a></p>
-            <p style="margin-top: 36px"></p>
-                <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-vms.png" width="400" alt="" />
-            <p style="margin-top: 0px">Kostnadsfri videoutbildning för Pluralsight – Kom igång med Virtual Machines</a></p>
-        <p style="margin-top: 36px"></p>
-        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
-            <p style="margin-top: 0px">Kostnadsfri videoutbildning för Pluralsight – Kom igång med IaaS-övervakning</a></p>
-    </div>
-</div>
-<hr />
+
+<h2 style="margin-top: 36px">Steg för steg-självstudier</h2>
+<p>Lär dig att distribuera, hantera och övervaka virtuella Windows-datorer på Azure</p>
+<ol>
+   <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Skapa och hantera virtuella Windows-datorer</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Skapa och hantera virtuella datordiskar</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automatisera konfiguration av virtuella datorer</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-load-balancer">Belastningsutjämna virtuella datorer</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Hantera VM-nätverk</a></li>
+</ol>
+
+<h2 style="margin-top: 36px">Kostnadsfri videoutbildning för PluralSight</h2>
+<ul class="panelContent cardsW">
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-infrastructure.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Hantera infrastruktur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-vms.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Komma igång med Virtual Machines</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-iaas-monitoring.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Komma igång med IaaS-övervakning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+
+<h2>Exempel</h2>
+<p>Distribuera din första app till Azure.</p>
+<ul class="spaced">
+    <li><a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a></li>
+    <li><a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a></li>
+</ul>
+
 <h2 style="margin-top: 36px">Referens</h2>
 <ul class="panelContent cardsW">
     <li>

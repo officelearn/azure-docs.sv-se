@@ -10,6 +10,12 @@
 ## [Skapa din första mall](resource-manager-create-first-template.md)
 ## [Visual Studio med Resurshanteraren](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Exempel
+## PowerShell
+### [Distribuera mall](resource-manager-samples-powershell-deploy.md)
+## Azure CLI
+### [Distribuera mall](resource-manager-samples-cli-deploy.md)
+
 # Gör så här för att
 ## Skapa mallar
 ### [Metodtips för mallar](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [Dela tillstånd mellan länkade mallar](best-practices-resource-manager-state.md)
 ### [Mönster för att utforma mallar](best-practices-resource-manager-design-templates.md)
 ## Distribuera
-### [PowerShell](resource-group-template-deploy.md)
-### [Azure CLI](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Distribuera mall](resource-group-template-deploy.md)
+#### [Distribuera privat mall med SAS-token](resource-manager-powershell-sas-token.md)
+### Azure CLI
+#### [Distribuera mall](resource-group-template-deploy-cli.md)
+#### [Distribuera privat mall med SAS-token](resource-manager-cli-sas-token.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

@@ -8,17 +8,18 @@
 ## [Titta på en presentation](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Kom igång
-## [Replikera virtuella VMWare-datorer till Azure](site-recovery-vmware-to-azure.md)
-## [Replikera virtuella VMware-datorer till Azure i en distribution för flera innehavare (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Replikera VMware-VM:ar till Azure](site-recovery-vmware-to-azure.md)
+## [Replikera fysiska servrar till Azure](site-recovery-physical-servers-to-azure.md) 
 ## [Replikera virtuella Hyper-V-datorer till Azure (med VMM)](site-recovery-vmm-to-azure.md)
 ## [Replikera Hyper-V-VM:ar till Azure](site-recovery-hyper-v-site-to-azure.md)
-## [Replikera virtuella VMware-datorer och fysiska servrar till en sekundär plats](site-recovery-vmware-to-vmware.md)
 ## [Replikera virtuella Hyper-V-datorer till en sekundär plats (med VMM)](site-recovery-vmm-to-vmm.md)
+## [Replikera virtuella VMware-datorer och fysiska servrar till en sekundär plats](site-recovery-vmware-to-vmware.md)
+## [Replikera virtuella VMware-datorer till Azure i en distribution för flera innehavare (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # Gör så här för att
 ## Planera
 ### [Förhandskrav för distribution](site-recovery-prereq.md)
-### [Saker att tänka på gällande nätverksinfrastruktur](site-recovery-network-design.md)
+### [Planera nätverksinfrastruktur](site-recovery-network-design.md)
 ### [Planera kapacitet och skala VMware-replikering till Azure](site-recovery-plan-capacity-vmware.md)
 ### [Distributionsplaneraren för VMware-replikering till Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner för Hyper-V-replikering](site-recovery-capacity-planner.md)
@@ -31,7 +32,7 @@
 #### [Distribuera mobilitetstjänsten med System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Distribuera mobilitetstjänsten med Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
 ### [Aktivera replikering](site-recovery-replicate-vmware-to-azure.md)
-## Redundans och återställning efter fel
+## Redundans och återställning
 ### [Redundansväxla skyddade datorer](site-recovery-failover.md)
 ### [Konfigurera återställningsplaner](site-recovery-create-recovery-plans.md)
 #### [Lägga till Azure-runbookflöden i återställningsplaner](site-recovery-runbook-automation.md)

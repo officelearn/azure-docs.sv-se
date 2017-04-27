@@ -33,18 +33,19 @@
       href: sql-database-connect-query-python.md
     - name: "Ruby"
       href: sql-database-connect-query-ruby.md
+- name: "Självstudier"
+  items:
+  - name: "1 – Skapa/utforma ny SQL-databas"
+    href: sql-database-design-first-database.md
+  - name: "2 – Migrera en befintlig SQL-server"
+    href: sql-database-migrate-your-sql-server-database.md 
 - name: "Exempel"
   items:
   - name: "Azure CLI"
     href: sql-database-cli-samples.md
   - name: "PowerShell"
     href: sql-database-powershell-samples.md
-- name: "Självstudier"
-  items:
-  - name: "Utforma en databas"
-    href: sql-database-design-first-database.md
-  - name: "Migrera en databas"
-    href: sql-database-migrate-your-sql-server-database.md  
+ 
 - name: "Koncept"
   items:
   - name: "Databaser och servrar"
@@ -55,8 +56,6 @@
       href: sql-database-server-overview.md
     - name: "Elastiska pooler"
       href: sql-database-elastic-pool.md
-    - name: "Använder du en elastisk pool?"
-      href: sql-database-elastic-pool-guidance.md
   - name: "Resurser"
     items:
     - name: "Tjänstnivåer"

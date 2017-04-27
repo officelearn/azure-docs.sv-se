@@ -1,10 +1,11 @@
 # Översikt
+## [Integrera med Azure AD](active-directory-how-to-integrate.md)
 ## [Guide för utvecklare](active-directory-developers-guide.md)
 ## [Appar och Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Ordlista för utvecklare](active-directory-dev-glossary.md)
-## [AAD Graph API](active-directory-graph-api.md)
+## [Azure AD Graph API](active-directory-graph-api.md)
 # Snabbstarter
-## [Så här hämtar du en AAD-klientorganisation](active-directory-howto-tenant.md)
+## [Så här hämtar du en Azure AD-klientorganisation](active-directory-howto-tenant.md)
 ## [Integrera appar med AAD](active-directory-integrating-applications.md)
 ## Appar för mobila enheter och dator
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -23,9 +24,9 @@
 ## Webb-API
 ### [Webb-API och .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [AAD Graph API](active-directory-graph-api-quickstart.md)
+## [Azure AD Graph API](active-directory-graph-api-quickstart.md)
 # Guider
-## [Autentiseringsmönster](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
+## [Autentiseringsmönster](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 ### [Inbyggda appar](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [Webbappar](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [Webb-API](active-directory-authentication-scenarios.md#web-application-to-web-api)
@@ -45,7 +46,7 @@
 ### [SAML-protokoll för enkel inloggning](active-directory-single-sign-on-protocol-reference.md)
 ### [SAML-protokoll för enkel utloggning](active-directory-single-sign-out-protocol-reference.md)
 ## Arbeta med Visual Studio
-### [Kom igång med Azure Active Directory- och Visual Studio-anslutna tjänster (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
+### [Kom igång med Visual Studio-anslutna tjänster (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
 ### [Fel vid identifiering av autentisering](vs-active-directory-error.md)
 ### [Kom igång med WebApi](vs-active-directory-webapi-getting-started.md)
 ### [Vad hände med mitt projekt för webb-API?](vs-active-directory-webapi-what-happened.md)

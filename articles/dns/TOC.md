@@ -1,6 +1,8 @@
 # Översikt
 ## [Vad är Azure DNS?](dns-overview.md)
 ## [DNS-zoner och -poster](dns-zones-records.md)
+## [DNS-delegering med Azure DNS](dns-domain-delegation.md)
+## [Vanliga frågor och svar om DNS](dns-faq.md)
 
 # Kom igång
 
@@ -10,7 +12,7 @@
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI 2.0](dns-getstarted-cli.md)
 
-## [Delegera din domän till Azure DNS](dns-domain-delegation.md)
+## [Delegera din domän till Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Skapa anpassade DNS-poster för en webbapp](dns-web-sites-custom-domain.md)
 
 # Gör så här för att

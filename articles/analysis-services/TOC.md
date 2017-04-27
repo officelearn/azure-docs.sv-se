@@ -12,7 +12,12 @@
 ##[Integrera lokal datagateway](analysis-services-gateway.md)
 ##[Anslut till Excel](analysis-services-connect-excel.md)
 ##[Anslut med Power BI](analysis-services-connect-pbi.md)
+##[Dataprovidrar](analysis-services-data-providers.md)
 ##[Säkerhetskopiering och återställning](analysis-services-backup.md)
+##[Hög tillgänglighet](analysis-services-bcdr.md)
+##[Anslutningar till datakälla](analysis-services-datasource.md)
+
+##[Skapa en ODC-fil](analysis-services-odc.md)
 
 # Referens
 ##[PowerShell](analysis-services-powershell.md)
@@ -21,6 +26,11 @@
 ##[Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
 # Resurser
-##[Anslutningar till datakälla](analysis-services-datasource.md)
-##[Dataprovidrar](analysis-services-data-providers.md)
-##[Skapa en ODC-fil](analysis-services-odc.md)
+##[Analysis Services-teamblogg](https://blogs.msdn.microsoft.com/analysisservices/)
+##[Azure Analysis Services-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
+##[Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
+##[StackOverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+##[Prissättning](https://azure.microsoft.com/pricing/details/analysis-services/)
+##[Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+##[Azure-status](https://azure.microsoft.com/status/)
+

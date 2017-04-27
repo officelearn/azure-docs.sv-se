@@ -1,10 +1,9 @@
 # Översikt
 ## [Introduktion till Azure Data Factory](data-factory-introduction.md)
 ## Koncept
-### [Datauppsättningar](data-factory-create-datasets.md)
 ### [Pipelines och aktiviteter](data-factory-create-pipelines.md)
+### [Datauppsättningar](data-factory-create-datasets.md)
 ### [Schemaläggning och körning](data-factory-scheduling-and-execution.md)
-### [Länkade tjänster för Compute](data-factory-compute-linked-services.md)
 
 # Kom igång
 ## [Självstudier: Skapa en pipeline för att kopiera data](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,6 +20,7 @@
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
 ### [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Självstudie: Flytta data mellan lokalt system och molnet](data-factory-move-data-between-onprem-and-cloud.md)
 ## [Vanliga frågor och svar](data-factory-faq.md)
 
 # Gör så här för att
@@ -60,7 +60,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Webbtabell](data-factory-web-table-connector.md)
 ### [Gateway för datahantering](data-factory-data-management-gateway.md)
-### [Flytta data mellan lokalt system och molnet](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Omvandla data](data-factory-data-transformation-activities.md)
 ### [HDInsight Hive-aktivitet](data-factory-hive-activity.md)
@@ -75,6 +75,7 @@
 ### [.NET-anpassad aktivitet](data-factory-use-custom-activities.md)
 ### [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ### [Bearbeta modeller på nytt i Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [Länkade tjänster för Compute](data-factory-compute-linked-services.md)
 
 ## Utveckla
 ### [Azure Resource Manager-mall](data-factory-how-to-use-resource-manager-templates.md)

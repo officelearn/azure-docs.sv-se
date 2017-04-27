@@ -8,8 +8,3 @@
 
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. Klicka på fliken **Cloud Messaging** i dina projektinställningar och kopiera värdet för **Servernyckel** och **Avsändar-ID**. Dessa värden använder du senare för att konfigurera åtkomstprincipen för meddelandehubbar och din meddelandehanterare i appen.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

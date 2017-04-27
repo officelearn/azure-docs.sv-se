@@ -12,7 +12,3 @@ När du skapar en DNS-zon i Azure DNS:
 > Du behöver inte äga ett domännamn för att kunna skapa en DNS-zon med det domännamnet i Azure DNS. Du måste dock äga domänen för att kunna konfigurera Azure DNS-namnservrarna som rätt namnservrar för domännamnet hos domännamnsregistratorn.
 > 
 > Mer information finns i [Delegera en domän till Azure DNS](../articles/dns/dns-domain-delegation.md).
-
-<!--HONumber=Jan17_HO1-->
-
-

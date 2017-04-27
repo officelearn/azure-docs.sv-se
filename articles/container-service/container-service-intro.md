@@ -74,6 +74,8 @@ Docker Swarm tillhandahåller interna kluster för Docker. Eftersom Docker Swarm
 
 ![Azure Container Service konfigurerat för Swarm.](media/acs-intro/acs-swarm2.png)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 Verktyg som stöds för att hantera behållare i ett Swarm-kluster omfattar, men är inte begränsat till, följande:
 
 * Dokku

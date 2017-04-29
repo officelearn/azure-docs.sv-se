@@ -21,8 +21,3 @@
    
     Du kommer att använda API-nyckelvärdet för att autentisera med GCM och skicka push-meddelanden för din app.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

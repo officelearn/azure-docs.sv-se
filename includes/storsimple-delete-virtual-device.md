@@ -4,8 +4,3 @@
 2. Klicka på **Virtual Machines** och välj sedan den virtuella enheten.
 3. Klicka på **Ta bort** och välj att ta bort alla virtuella diskar.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

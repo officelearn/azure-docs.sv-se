@@ -3,8 +3,3 @@
 2. Klicka på **Virtual Machines** och välj sedan den virtuella enheten.
 3. Klicka på **Stäng av**.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

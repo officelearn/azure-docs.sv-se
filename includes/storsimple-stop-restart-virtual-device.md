@@ -14,8 +14,3 @@ Du kan använda följande cmdletar för att starta om en virtuell enhet.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

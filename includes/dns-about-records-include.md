@@ -22,7 +22,3 @@ Azure DNS hanterar DNS-poster med hjälp av *postuppsättningar*. En postuppsät
 Anta till exempel att du redan har skapat en A-post "www" i zonen "contoso.com" som pekar på IP-adressen ”134.170.185.46” (första posten ovan).  För att skapa den andra posten skulle du lägga till posten i den befintliga postuppsättningen i stället för att skapa ytterligare en post.
 
 Postuppsättningarna SOA och CNAME är undantag. DNS-standarden tillåter inte flera poster med samma namn för dessa typer, därför kan dessa postuppsättningar endast innehålla en enda post.
-
-<!--HONumber=Jan17_HO1-->
-
-

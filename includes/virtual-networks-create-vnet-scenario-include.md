@@ -8,8 +8,3 @@ I det här scenariot skapar du ett VNet med namnet **TestVNet** med det reserver
 * **FrontEnd**, som använder **192.168.1.0/24** som sitt CIDR-block.
 * **BackEnd**, som använder **192.168.2.0/24** som sitt CIDR-block.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

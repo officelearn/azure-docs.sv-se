@@ -19,8 +19,3 @@
    
       ![Azure Portal – anslutningssträngar för Meddelandehubb](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

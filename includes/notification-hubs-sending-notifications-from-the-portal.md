@@ -11,8 +11,3 @@ Här är en lista med andra guider du kan läsa som handlar om att skicka meddel
 
 I nästa avsnitt av guiden kommer du att lära dig hur man använder [Notification Hub REST-gränssnittet](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) för att skicka meddelandet direkt i din app. Alla registrerade enheter tar emot meddelandet som skickas från vilken enhet som helst.  
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

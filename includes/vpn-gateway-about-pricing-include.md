@@ -8,8 +8,3 @@ Du betalar för två saker: beräkningskostnaderna per timme för den virtuella 
 * Om du skickar trafik mellan virtuella nätverk i olika regioner baseras priset på region.
 * Om du skickar trafik endast mellan virtuella nätverk i samma region tillkommer inga kostnader för data. Trafik mellan VNets i samma region är kostnadsfri.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -2,8 +2,3 @@ Om du vill aktivera porten utan SSL [bläddrar](../articles/redis-cache/cache-co
 
 ![Inställningar för Redis-cache](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

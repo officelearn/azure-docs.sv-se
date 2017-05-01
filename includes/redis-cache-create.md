@@ -34,8 +34,3 @@ När de nya cachealternativen har konfigurerats klickar du på **Skapa**. Det ka
 
 ![Cachen har skapats](media/redis-cache-create/redis-cache-cache-created.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

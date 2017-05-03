@@ -49,12 +49,11 @@ Bakgrund och koncept beskrivs i [översikten](container-registry-intro.md).
 
     d. **Administratörsanvändarnamn**: Om du vill ger du en administratörsanvändare åtkomst till registret. Du kan ändra den här inställningen när du har skapat registret.
 
-    > [!IMPORTANT]
-    > Förutom att ge åtkomst genom ett administratörsanvändarkonto stöder behållarregister autentisering med Azure Active Directory-tjänstobjekt. Mer information och saker att tänka på finns i [Authenticate with a container registry](container-registry-authentication.md) (Autentisera med ett behållarregister).
-
+      > [!IMPORTANT]
+      > Förutom att ge åtkomst genom ett administratörsanvändarkonto stöder behållarregister autentisering med Azure Active Directory-tjänstobjekt. Mer information och saker att tänka på finns i [Authenticate with a container registry](container-registry-authentication.md) (Autentisera med ett behållarregister).
+      >
 
     e. **Lagringskonto**: Använd standardinställningen för att skapa ett [lagringskonto](../storage/storage-introduction.md), eller välj ett befintligt lagringskonto på samma plats. Premium-lagring stöds inte för närvarande.
-
 
 ## <a name="manage-registry-settings"></a>Hantera registerinställningar
 När du har skapat registret kommer du åt registerinställningarna genom att först gå till bladet **Container Registries** (Behållarregister) på portalen. Du kan till exempel behöva inställningarna för att logga in i registret, eller så kanske du vill aktivera eller inaktivera administratörsanvändaren.

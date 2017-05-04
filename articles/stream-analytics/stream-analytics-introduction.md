@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 493a915fb4e3de4cb70324b22beeaae6720a3492
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -42,7 +42,7 @@ Stora mängder data flödar med hög hastighet via kabel i dag. Organisationer s
 * **Anslutningsbarhet:** Stream Analytics ansluter direkt till Azure Event Hubs och Azure IoT Hubs för inhämtning av dataströmmar och till tjänsten Azure Blob för att mata in historiska data. Resultatet kan skrivas från Stream Analytics till Azure Storage-blobbar eller Azure Storage-tabeller, Azure SQL DB, Azure Data Lake Stores, DocumentDB, Event Hubs, Azure Service Bus-ämnen eller Azure Service Bus-köer och Power BI, där det kan bearbetas ytterligare av arbetsflöden, användas i batchanalyser via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) eller bearbetas igen som en serie händelser. Om du använder Event Hubs kan du skapa flera Stream Analytics-jobb tillsammans med andra datakällor och bearbetningsmotorer utan att beräkningarnas strömmande egenskaper går förlorade.  
 
 ## <a name="get-help"></a>Få hjälp
-Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Nästa steg
 Du har fått en introduktion till Stream Analytics, en hanteringstjänst för analys av dataströmmar från Internet of Things. Mer information om den här tjänsten finns här:

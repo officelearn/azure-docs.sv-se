@@ -54,7 +54,7 @@
 ## [Utföra intrångsidentifiering med hjälp av verktyg för öppen källkod](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Analysera Application Gateway-loggar i Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Referens
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)
 # Relaterat

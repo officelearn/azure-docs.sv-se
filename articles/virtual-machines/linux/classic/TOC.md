@@ -66,7 +66,7 @@
 ### [Starta om eller ändra storlek på en virtuell dator](restart-resize-error-troubleshooting.md)
 
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Skapa Resource Manager-mallar](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

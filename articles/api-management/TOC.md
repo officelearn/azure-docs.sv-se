@@ -47,7 +47,7 @@
 ### [Övervaka med Azure Monitor](api-management-howto-use-azure-monitor.md)
 ### [Använd rollbaserad åtkomstkontroll](api-management-role-based-access-control.md)
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Principer](api-management-policies.md)

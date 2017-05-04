@@ -19,9 +19,9 @@ ROBOTS: NOINDEX
 redirect_url: /azure/automation/automation-offering-get-started
 redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 90570886b3a1ae0c48683691cb438b5a61195d76
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -245,7 +245,7 @@ Du kan använda PowerShell för att uppdatera ett befintligt Automation-konto om
 Skriptet har följande krav:
 
 * Skriptet kan endast köras i Windows 10 och Windows Server 2016 med Azure Resource Manager-moduler med version 2.01 och senare. Det stöds inte i tidigare versioner av Windows.
-* Azure PowerShell 1.0 och senare. Information om PowerShell 1.0-versionen finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell 1.0 och senare. Information om PowerShell 1.0-versionen finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 * Ett Automation-konto, som refereras som värdet för *-AutomationAccountName*- och *-ApplicationDisplayName*-parametrarna i följande PowerShell-skript.
 
 Du hämtar värdena för *SubscriptionID*, *ResourceGroup* och *AutomationAccountName*, som är obligatoriska parametrar för skripten, genom att göra följande:
@@ -515,7 +515,7 @@ Du kan använda följande uppdaterade exempelkod, som kommer från exempel-runbo
          }
     }
 
-Skriptet innehåller två ytterligare rader med kod som gör det möjligt att referera till en prenumerationskontext så att du enkelt kan arbeta med flera prenumerationer. En variabeltillgång med namnet *SubscriptionId* innehåller ID:t för prenumerationen. Efter cmdlet-instruktionen `Add-AzureRmAccount` används cmdleten [ `Set-AzureRmContext` ](https://msdn.microsoft.com/library/mt619263.aspx) med parameteruppsättningen *-SubscriptionId*. Om variabelnamnet är för allmänt kan du ändra det och lägga till ett prefix eller använda en annan namngivningskonvention så att det blir lättare att identifiera. Du kan också använda parameteruppsättningen *-SubscriptionName* i stället för *-SubscriptionId* med en tillhörande variabeltillgång.
+Skriptet innehåller två ytterligare rader med kod som gör det möjligt att referera till en prenumerationskontext så att du enkelt kan arbeta med flera prenumerationer. En variabeltillgång med namnet *SubscriptionId* innehåller ID:t för prenumerationen. Efter cmdlet-instruktionen `Add-AzureRmAccount` används cmdleten [ `Set-AzureRmContext` ](/powershell/module/azurerm.profile/set-azurermcontext) med parameteruppsättningen *-SubscriptionId*. Om variabelnamnet är för allmänt kan du ändra det och lägga till ett prefix eller använda en annan namngivningskonvention så att det blir lättare att identifiera. Du kan också använda parameteruppsättningen *-SubscriptionName* i stället för *-SubscriptionId* med en tillhörande variabeltillgång.
 
 Den cmdlet som du använder för autentisering i runbooken, `Add-AzureRmAccount`, använder parameteruppsättningen *ServicePrincipalCertificate*. Den autentiserar med hjälp av tjänstobjektscertifikatet, inte användarautentiseringsuppgifterna.
 

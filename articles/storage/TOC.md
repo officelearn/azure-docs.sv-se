@@ -4,7 +4,6 @@
 
 # Kom igång
 
-## [Snabbstartsguide](storage-getting-started-guide.md)
 ## [Skapa ett lagringskonto](storage-create-storage-account.md)
 
 ## Blob Storage
@@ -166,7 +165,7 @@
 #### [Säkerhetskopiera enhetsmanifest](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostik och felåterställning av Import/Export-jobb](storage-import-export-diagnostics-and-error-recovery.md)
 # Referens
-## [PowerShell](/powershell/storage)
+## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
@@ -180,7 +179,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobar, köer, tabeller och filer](/rest/api/storageservices/azure-storage-services-rest-api-reference)
+### [Blobar, köer, tabeller och filer](/rest/api/storageservices)
 ### [Resursprovider](/rest/api/storagerp)
 ### [Import/Export](/rest/api/storageimportexport)
 

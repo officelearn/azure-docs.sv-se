@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 78117fd3947be922e339931a0f8f31040ebf79fe
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 19fe97eb41be3222a846f86b2a390bf86157884f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -47,7 +47,7 @@ I den här artikeln använder du REST-API:et för Data Factory för att skapa di
   2. Hämta ett **klient-ID** och en **hemlig nyckel**.
   3. Hämta ett **klientorganisations-ID**.
   4. Tilldela **ADFGetStartedApp**-programmet rollen som **Data Factory-deltagare**.
-* [Installera Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* [Installera Azure PowerShell](/powershell/azure/overview).
 * Starta **PowerShell** och kör följande kommando. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
   1. Kör **Login-AzureRmAccount** och ange det användarnamn och lösenord som du använde för att logga in på Azure-portalen.
   2. Kör **Get-AzureRmSubscription** för att visa alla prenumerationer för det här kontot.

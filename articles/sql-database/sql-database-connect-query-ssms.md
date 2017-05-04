@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -37,7 +37,7 @@ Innan du börjar bör du kontrollera att du har installerat den senaste versione
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 
-Hämta det fullständigt kvalificerade servernamnet för Azure SQL Database-servern i Azure Portal. Du kan använda det fullständigt kvalificerade servernamnet för att ansluta till servern med hjälp av SQL Server Management Studio.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet, databasnamnet och inloggningsinformationen i nästa procedurer.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
@@ -78,7 +78,7 @@ Använd SQL Server Management Studio för att upprätta en anslutning till Azure
 
 ## <a name="query-data"></a>Frågedata
 
-Använd [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-uttrycket för att skicka frågor till data i Azure SQL Database.
+Använd följande kod för att söka efter de 20 främsta produkterna med Transact-SQL-instruktionen [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
 1. I Object Explorer högerklickar du på **mySampleDatabase** och klickar sedan på **Ny fråga**. Ett tomt frågefönster öppnas som är anslutet till databasen.
 2. Skriv följande fråga i frågefönstret:
@@ -96,7 +96,7 @@ Använd [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-
 
 ## <a name="insert-data"></a>Infoga data
 
-Använd [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-uttrycket för att infoga data i Azure SQL Database.
+Använd följande kod för att infoga en ny produkt i tabellen SalesLT.Product med Transact-SQL-instruktionen [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
 1. I frågefönstret ersätter du den föregående frågan med följande fråga:
 
@@ -126,7 +126,7 @@ Använd [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-
 
 ## <a name="update-data"></a>Uppdatera data
 
-Använd [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-uttrycket för att uppdatera data i Azure SQL Database.
+Med följande kod uppdaterar du den nya produkt du tidigare lade till med Transact-SQL-instruktionen [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
 1. I frågefönstret ersätter du den föregående frågan med följande fråga:
 
@@ -142,7 +142,7 @@ Använd [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-
 
 ## <a name="delete-data"></a>Ta bort data
 
-Använd [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-uttrycket för att ta bort data i Azure SQL Database.
+Med följande kod tar du bort den nya produkt du tidigare lade till med Transact-SQL-instruktionen [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
 1. I frågefönstret ersätter du den föregående frågan med följande fråga:
 

@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 04/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: ecae2cb9c0cdc78226c100cd287b840b6b2a6bb8
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 309a36b1aa5db95a287b7a6b21449f9d61880cf4
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="overview-of-azure-iot-suite"></a>Översikt över Azure IoT Suite
+
 Azures tjänster för Sakernas Internet (IoT, Internet of Things) tillhandahåller en rad intressanta funktioner. Med dessa tjänster i företagsklass kan du:
 
 * Samla in data från enheter
@@ -52,9 +53,11 @@ De förkonfigurerade lösningarna använder vanligtvis följande tjänster:
 En översikt över arkitekturen i en typisk IoT-lösning finns i [Microsoft Azure och Sakernas Internet (IoT)][iot-suite-what-is-azure-iot].
 
 ## <a name="preconfigured-solutions"></a>Förkonfigurerade lösningar
-IoT Suite erbjuder förkonfigurerade lösningar som hjälper dig att snabbt komma igång med och utforska vanliga IoT-scenarier som *Fjärrövervakning* och *Förebyggande underhåll*. Du kan distribuera lösningarna till din Azure-prenumeration och sedan köra ett komplett IoT-scenario från slutpunkt till slutpunkt.
+
+IoT Suite erbjuder förkonfigurerade lösningar som hjälper dig att snabbt komma igång med och utforska vanliga IoT-scenarier som *Fjärrövervakning* och *Förebyggande underhåll* och *Ansluten fabrik*. Du kan distribuera lösningarna till din Azure-prenumeration och sedan köra ett komplett IoT-scenario från slutpunkt till slutpunkt.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har en översikt över vad IoT Suite kan göra och dess huvudkomponenter kan du lära dig mer om de förinställda lösningarna i IoT Suite. Mer information finns i [Var är förkonfigurerade lösningar i Azure IoT?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -94,13 +94,15 @@ I följande tabell sammanfattas åtkomsten som kan ställas in med varje behöri
 
 De äldre Log Analytics-användarrollerna kontrollerar endast åtkomst till aktiviteter som utförs i [Log Analytics-portalen](https://mms.microsoft.com).
 
-Följande aktiviteter i Log Analytics-portalen kräver även Azure-behörigheter:
+Följande aktiviteter kräver även Azure-behörigheter:
 
 | Åtgärd                                                          | Azure-behörigheter krävs | Anteckningar |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Lägga till och ta bort hanteringslösningar                        | Resursgrupp, skriva <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Lägga till och ta bort hanteringslösningar                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Ändra prisnivån                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Visa data i lösningspanelerna *säkerhetskopiering* och *Site Recovery* | Administratör/medadministratör | Åtkomst till resurser som distribueras med den klassiska distributionsmodellen |
+| Skapa en arbetsyta i Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Hantera åtkomst till Log Analytics med Azure-behörighet
 Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../active-directory/role-based-access-control-configure.md).
@@ -177,7 +179,7 @@ Du kan ändra kontorollen för en användare som är associerad med OMS-kontot. 
 4. I bekräftelsedialogrutan klickar du **Ja**.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Ta bort en användare från en arbetsyta
-Följ stegen nedan om du vill ta bort en användare från en arbetsyta. Borttagning av användaren stänger inte arbetsytan. I stället tas associationen mellan användaren och arbetsytan bort. Om en användare är associerad med flera arbetsytor kan användaren fortfarande logga in på OMS och se sina andra arbetsytor.
+Följ stegen nedan om du vill ta bort en användare från en arbetsyta. Borttagning av användaren stänger inte arbetsytan. I stället tas associationen mellan användaren och arbetsytan bort. Om en användare är associerad med flera arbetsytor kommer denna användare fortfarande att kunna logga in på OMS och se sina andra arbetsytor.
 
 1. Klicka på panelen **Inställningar** på OMS-portalen.
 2. Klicka på fliken **Konton** och klicka sedan på fliken **Hantera användare**.

@@ -13,51 +13,46 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 81eca4b41b6a0726e5fcf851074bfb7dfca16fb8
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fd7c834e8e061ba51b116ade88769dde05abcf9a
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa en plats-till-plats-anslutning med hjälp av Azure-portalen (klassisk)
 
-En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en VPN-tunnel med IPsec/IKE (IKEv1 eller IKEv2). Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats en offentlig IP-adress och som inte finns bakom en NAT. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
-
-![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
-
-Den här artikeln visar hur du skapar ett virtuellt nätverk och en VPN-gateway från plats till plats till ditt lokala nätverk med hjälp av den klassiska distributionsmodellen och Azure Portal. Du kan också skapa den här konfigurationen för Resource Manager-distributionsmodellen genom att välja ett annat alternativ i listan nedan:
+Den här artikeln visar hur du kan använda Azure Portal för att skapa en VPN-gatewayanslutning från plats till plats från ditt lokala nätverk till det virtuella nätverket. Anvisningarna i den här artikeln gäller den klassiska distributionsmodellen. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Resource Manager – CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Klassisk – Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Klassisk – Klassisk portal](vpn-gateway-site-to-site-create.md)
->
+> 
 >
 
-#### <a name="additional-configurations"></a>Ytterligare konfigurationer
-Om du vill koppla ihop VNets, men inte skapar någon anslutning till en lokal plats, kan du läsa mer i [Konfigurera en VNet-till-VNet-anslutning](virtual-networks-configure-vnet-to-vnet-connection.md). Information om att lägga till en plats-till-plats-anslutning till en VNet som redan har en anslutning finns i [Lägga till en S2S-anslutning till en VNet med en befintlig anslutning för VPN-gateway](vpn-gateway-multi-site.md).
+![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
+
+
+En VPN-gatewayanslutning från plats till plats används för att ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk via en IPsec/IKE VPN-tunnel (IKEv1 eller IKEv2). Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en extern offentlig IP-adress. Mer information om VPN-gatewayer finns i [Om VPN-gateway](vpn-gateway-about-vpngateways.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
-Kontrollera att du har följande innan du påbörjar konfigurationen:
-
-* En kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md). Om du inte vet hur man konfigurerar VPN-enheten eller inte känner till IP-adressintervallen i din lokala nätverkskonfiguration måste du vända dig till någon som kan ge den informationen till dig.
+* Verifiera att du vill arbeta med den klassiska distributionsmodellen. [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
+* En kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter och enhetskonfiguration.
 * En extern offentlig IPv4 IP-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt konto](http://azure.microsoft.com/pricing/free-trial).
+* Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen. När du skapar den här konfigurationen måste du ange prefix för IP-adressintervall som Azure dirigerar till den lokala platsen. Inget av undernäten i ditt lokala nätverk kan överlappa de virtuella nätverksundernät du vill ansluta till.
 * För närvarande krävs PowerShell för att ange den delade nyckeln och skapa VPN-gatewayanslutningen. Installera den senaste versionen av Azure Service Management (SM) PowerShell-cmdletar. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs). När du arbetar med PowerShell i den här konfigurationen ska du kontrollera att du kör som administratör. 
 
-> [!NOTE]
-> När du konfigurerar en plats-till-plats-anslutning krävs en offentlig IPv4-adress för VPN-enheten.
->
-
 ### <a name="values"></a>Exempel på konfigurationsvärden för övningen
-När du använder stegen som en övning kan du använda följande exempel på konfigurationsvärden:
+
+Vi använder följande värden i exemplen. Du kan använda värdena till att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln.
 
 * **VNet-namn:** TestVNet1
 * **Adressutrymme:** 
@@ -151,7 +146,7 @@ Du måste skapa ett gatewayundernät för din VPN-gateway. Gatewayundernätet in
 3. Klicka på **Undernät - Konfigurera obligatoriska inställningar** på bladet **Gateway-konfiguration** för att öppna bladet **Lägg till undernät**.
 
     ![Gateway-konfiguration - Gatewayundernät](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "Gateway-konfiguration - Gatewayundernät")
-4. Lägg till gatewayundernätet på bladet **Lägg till undernät**. När du lägger till gatewayundernätet rekommenderar vi att du om möjligt skapar ett gatewayundernät med CIDR-block på /28 eller /27. På så sätt ser du till att du har tillräckligt med IP-adresser för framtida konfigurationsbehov.  Spara inställningarna genom att klicka på **OK**.
+4. Lägg till gatewayundernätet på bladet **Lägg till undernät**. Storleken på gatewayundernätet du anger beror på konfigurationen av VPN-gatewayen du vill skapa. Även om det är möjligt att skapa ett gateway-undernät som är så litet som /29 så rekommenderar vi att du skapar ett större undernät som inkluderar fler adresser genom att välja /27 eller /28. Om du använder det större nätverksundernätet får du tillräckligt många IP-adresser för att hantera möjliga framtida konfigurationer.
 
     ![Lägg till gatewayundernät](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Lägg till gatewayundernät")
 
@@ -165,24 +160,13 @@ Du måste skapa ett gatewayundernät för din VPN-gateway. Gatewayundernätet in
 
 ## <a name="vpndevice"></a>7. Konfigurera din VPN-enhet
 
-Plats-till-plats-anslutningar till ett lokalt nätverk kräver en VPN-enhet. Vi tillhandahåller inte konfigurationssteg för alla VPN-enheter men informationen i följande länkar kan vara användbar:
-
-- Se [VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter. 
-- Mer information om länkar till konfigurationsinställningar för enheter, finns i [Verifierade VPN-enheter](vpn-gateway-about-vpn-devices.md#devicetable). Dessa länkar tillhandahålls i mån av möjlighet. Det är alltid bäst att kontrollera med enhetstillverkaren för att få den senaste konfigurationsinformationen.
-- Mer information om att redigera enhetens konfigurationsexempel finns i [Redigera exempel](vpn-gateway-about-vpn-devices.md#editing).
-- Mer information om IPsec-/IKE-parametrar finns i [Parametrar](vpn-gateway-about-vpn-devices.md#ipsec).
-- Innan du konfigurerar VPN-enheten kontrollerar du om det finns några [kända kompatibilitetsproblem](vpn-gateway-about-vpn-devices.md#known) med den VPN-enhet som du vill använda.
-
-När du konfigurerar VPN-enheten behöver du följande objekt:
-
-- Den offentliga IP-adressen för din virtuella nätverksgateway. Du hittar den på bladet **Översikt** för det virtuella nätverket.
-- En delad nyckel. Det här är samma delade nyckel som du anger när du skapar VPN-anslutningen för plats-till-plats. I vårt exempel använder vi en enkel delad nyckel. Du bör skapa och använda en mer komplex nyckel.
+[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 ## <a name="CreateConnection"></a>8. Skapa anslutningen
 I det här steget anger du den delade nyckeln och skapar anslutningen. Nyckeln som du anger måste vara samma nyckel som används i konfigurationen för VPN-enheten.
 
 > [!NOTE]
-> Det här steget är för närvarande inte tillgängligt i Azure Portal. Du måste använda SM-versionen (Service Management) av Azure PowerShell-cmdletarna.                                        >
+> Det här steget är för närvarande inte tillgängligt i Azure Portal. Du måste använda SM-versionen (Service Management) av Azure PowerShell-cmdletarna.
 >
 
 ### <a name="step-1-connect-to-your-azure-account"></a>Steg 1. Anslut till ditt Azure-konto

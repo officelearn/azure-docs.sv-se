@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -99,12 +99,12 @@ Precis som med alla andra levande paneler på OMS-instrumentpanelen öppnas blad
 Om du klickar på datorns namn visas den kronologiska vyn över skyddsstatusen för datorn. Detta är väldigt användbart för scenarier då du behöver veta om programmet mot skadlig kod har tagits bort sedan det installerades.   
 
 ### <a name="update-assessment"></a>Kontroll av uppdateringar
-Med det här alternativet kan du snabbt bedöma exponeringen för potentiella säkerhetsproblem, och se om och i så fall hur viktiga dessa uppdateringar är för din miljö. Säkerhets- och granskningslösningen i OMS visar bara visualiseringen av dessa uppdateringar. Den verkliga informationen kommer från [Systemuppdateringar](https://technet.microsoft.com/library/mt484096.aspx), som är en annan modul i OMS. Här ett exempel på uppdateringarna:
+Med det här alternativet kan du snabbt bedöma exponeringen för potentiella säkerhetsproblem, och se om och i så fall hur viktiga dessa uppdateringar är för din miljö. Säkerhets- och granskningslösningen i OMS visar bara visualiseringen av dessa uppdateringar. Den verkliga informationen kommer från [lösningar för uppdateringshantering](oms-solution-update-management.md), som är en annan modul i OMS. Här ett exempel på uppdateringarna:
 
-![systemuppdateringar](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![systemuppdateringar](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> Mer information om uppdateringslösningen finns i [Uppdatera servrar med systemuppdateringslösningen](https://technet.microsoft.com/library/mt484096.aspx).
+> Mer information om lösningar för uppdateringshantering finns i [Uppdateringshanteringslösning i OMS](oms-solution-update-management.md).
 > 
 > 
 
@@ -135,6 +135,14 @@ Den här panelen kan användas för att få åtkomst till alla datorer som aktiv
 
 Du kan fortsätta din undersökning genom att klicka på varje dator och granska säkerhetshändelserna som flaggats.
 
+### <a name="threat-intelligence"></a>Hotinformation
+
+När IT-administratörer använder alternativet Hotinformation som är tillgängligt i OMS Säkerhet och granskning kan de identifiera säkerhetshot mot miljön, till exempel identifiera om en specifik dator är en del av ett botnät. Datorer kan bli noder i ett botnät när angripare installerar otillåten skadlig kod som i hemlighet ansluter datorn till kommando och kontroll. Hotinformation kan också identifiera potentiella hot från kommunikationskanaler under marken, som darknet. Läs mer om hotinformation genom att läsa artikeln [Övervaka och svara på säkerhetsaviseringar i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-responding-alerts.md).
+
+### <a name="baseline-assessment"></a>Utvärdering av baslinje
+
+Microsoft definierar, i samarbete med branschspecifika och offentliga organisationer i hela världen, en Windows-konfiguration för mycket säkra serverinstallationer. Den här konfigurationen består av en uppsättning registernycklar, granskningsprincipinställningar och säkerhetsprincipinställningar tillsammans med Microsofts rekommenderade värden för dessa inställningar. Den här uppsättningen regler kallas för en säkerhetsbaslinje. Läs [bedömning av baslinjen i Operations Management Suite säkerhet och granska lösningen](oms-security-baseline.md) för mer information om det här alternativet.
+
 ### <a name="azure-security-center"></a>Azure Security Center
 Den här panelen är i grunden en genväg till instrumentpanelen för Azure Security Center. Mer information om den här lösningen finns i [Komma igång med Azure Security Center](../security-center/security-center-get-started.md).
 
@@ -153,7 +161,7 @@ Det huvudsakliga syftet med det här alternativet är att IT-personalen snabbt s
 Det här alternativet kan också användas vid en [incidenthanteringsundersökning](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) för att utvärdera och få mer information om attacken.
 
 > [!NOTE]
-> Mer information om hur du använder OMS för incidenthantering finns i [Utnyttja Azure Security Center och Microsoft Operations Management Suite för incidenthantering](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
+> Mer information om hur du använder OMS för incidenthantering finns i den här videon: [Utnyttja Azure Security Center och Microsoft Operations Management Suite för incidenthantering](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 > 
 > 
 

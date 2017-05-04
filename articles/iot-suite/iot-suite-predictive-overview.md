@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/25/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: caecd0d6e546d4ddef71ebeee6fad3a5c7ba6451
-ms.openlocfilehash: 5447dff1ff9aea1b90f7e18499f795e7c173e2b9
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: e0e658fc392bf6a53f777f22a2e0b6e7bd742f97
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -95,7 +96,7 @@ I Azure Portal navigerar du till resursgruppen med det lösningsnamn som du har 
 
 ![][img-resource-group]
 
-När du etablerar den förkonfigurerade lösningen kan du få ett e-postmeddelande med en länk till Machine Learning-arbetsytan. Du kan också navigera till Machine Learning-arbetsytan från ikonen på sidan [azureiotsuite.com][lnk-azureiotsuite] för din etablerade lösning när den har statusen **Klar**.
+När du etablerar den förkonfigurerade lösningen kan du få ett e-postmeddelande med en länk till Machine Learning-arbetsytan. Du kan också navigera till Machine Learning-arbetsytan från ikonen på sidan [azureiotsuite.com][lnk-azureiotsuite] för din etablerade lösning när lösningen har statusen **Klar**.
 
 ![][img-machine-learning]
 
@@ -150,8 +151,3 @@ Du kan även utforska några andra funktioner och möjligheter i de förkonfigur
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

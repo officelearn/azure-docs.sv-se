@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 79f0c9297c4be70f705f325274f3d9241ea4bc3f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/29/2017
 
 Den här artikeln visar hur du skapa din första DNS-zon och DNS-post med Azure Portal. Du kan också utföra dessa steg med Azure PowerShell eller plattformsoberoende Azure CLI.
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera din DNS-zon på Internet måste du konfigurera namnservrarna för domänen. Dessa steg beskrivs nedan.
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera din DNS-zon på Internet måste du konfigurera namnservrarna för domänen. Vart och ett av dessa steg beskrivs i följande steg.
 
 ## <a name="create-a-dns-zone"></a>Skapa en DNS-zon
 
@@ -41,41 +41,36 @@ En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill l
 
     ![DNS-zon](./media/dns-getstarted-portal/openzone650.png)
 
-4. Namnge DNS-zonen på bladet **Skapa DNS-zon**. Till exempel *contoso.com*.
- 
-    ![Skapa zon](./media/dns-getstarted-portal/newzone250.png)
+4. På bladet **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
 
-5. Ange den resursgrupp som du vill använda. Du kan antingen skapa en ny resursgrupp eller välja en som redan finns. Om du vill skapa en ny resursgrupp använder du listrutan **Plats** för att ange platsen för resursgruppen. Observera att inställningen refererar till platsen för resursgruppen och har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid "global" och visas inte.
 
-6. Du kan låta kryssrutan **Fäst på instrumentpanelen** vara markerad så att du enkelt kan hitta den nya zonen på instrumentpanelen. Klicka sedan på **Skapa**.
+   | **Inställning** | **Värde** | **Detaljer** |
+   |---|---|---|
+   |**Namn**|contoso.com|Namnet på DNS-zonen|
+   |**Prenumeration**|[Din prenumeration]|Välj den prenumeration där du vill skapa programgatewayen.|
+   |**Resursgrupp**|**Skapa ny:** contosoDNSRG|Skapa en resursgrupp. Resursgruppens namn måste vara unikt inom den prenumeration du valde. Mer information om resursgrupper finns i [översikten över Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
+   |**Plats**|Västra USA||
 
-    ![Fäst vid instrumentpanelen](./media/dns-getstarted-portal/pindashboard150.png)
-
-7. När du klickar på Skapa ser du din nya zon som konfigureras på instrumentpanelen.
-
-    ![Skapar](./media/dns-getstarted-portal/creating150.png)
-
-8. När den nya zonen har skapats öppnas bladet för den nya zonen på instrumentpanelen.
-
+> [!NOTE]
+> Resursgruppen refererar till platsen för resursgruppen och har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid "global" och visas inte.
 
 ## <a name="create-a-dns-record"></a>Skapa en DNS-post
 
 Följande exempel visar hur du skapar en ny "A"-post. Information om andra posttyper och hur du ändrar befintliga poster finns i [Hantera DNS-poster och postuppsättningar med Azure Portal](dns-operations-recordsets-portal.md) (på engelska). 
 
+1. I Azure Portal klickar du på **Alla resurser** i rutan **Favoriter** för den DNS-zon du skapade. Klicka på DNS-zonen **contoso.com** på bladet Alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange **contoso.com** i rutan **Filtrera efter namn...** när du ska hitta din DNS-zon.
 
 1. Välj **+ Postuppsättning** längst upp på bladet **DNS-zon** för att öppna bladet **Lägg till uppsättning av poster**.
 
-    ![Ny postuppsättning](./media/dns-getstarted-portal/newrecordset500.png)
+1. Ange följande värden på bladet **Lägg till uppsättning av poster** och klicka sedan på **OK**. I det här exemplet skapar du en A-post.
 
-4. Namnge din postuppsättning på bladet **Lägg till uppsättning av poster**. Du kan till exempel ge postuppsättningen namnet "**www**".
-
-    ![Lägga till en postuppsättning](./media/dns-getstarted-portal/addrecordset500.png)
-
-5. Välj vilken typ av post som du vill skapa. I det här exemplet väljer du **A**.
-6. Ange **TTL**. Standard-TTL (Time To Live) är en timme.
-7. Lägg till IP-adressen för posten.
-8. Klicka på **OK** längst ned på bladet för att skapa DNS-posten.
-
+   |**Inställning** | **Värde** | **Detaljer** |
+   |---|---|---|
+   |**Namn**|www|Namnet på posten|
+   |**Typ**|A| Den typ av DNS-post som du vill skapa. Godkända värden är A, AAAA, CNAME, MX, NS, SRV, TXT och PTR.  Mer information om posttyper finns i [Översikt över DNS-zoner och poster](dns-zones-records.md)|
+   |**TTL**|1|Time-to-live för DNS-begäran.|
+   |**TTL-enhet**|Timmar|Tidsmått för TTL-värde.|
+   |**IP-adress**|{ipAddressValue| Det här värdet är den IP-adress som DNS-posten matchar till.|
 
 ## <a name="view-records"></a>Visa poster
 
@@ -93,6 +88,14 @@ Namnservrarna för din zon anges på Azure Portal:
 ![zon](./media/dns-getstarted-portal/viewzonens500.png)
 
 Dessa namnservrar ska konfigureras med domännamnsregistratorn (där du köpte domännamnet). Registratorn erbjuder möjligheten att konfigurera namnservrar för domänen. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
+
+## <a name="delete-all-resources"></a>Ta bort alla resurser
+
+Så här tar du bort alla resurser som skapats i den här artikeln:
+
+1. Klicka på **Alla resurser** i rutan **Favoriter** i Azure Portal. Klicka på resursgruppen **MyResourceGroup** på bladet Alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange **MyResourceGroup** i rutan **Filtrera efter namn** när du ska hitta resursgruppen.
+1. Klicka på knappen **Ta bort** på bladet **MyResourceGroup**.
+1. Du måste ange namnet på resursgruppen i portalen som bekräftelse på att du vill ta bort den. Klicka på **Ta bort**, skriv *MyResourceGroup* som resursgruppnamn och klicka sedan på **Ta bort**. När du tar bort en resursgrupp så tas alla resurser i resursgruppen bort, så du måste alltid kontrollera innehållet i en resursgrupp innan du tar bort den. Portalen tar bort alla resurser som finns i resursgruppen och sedan tas själva resursgruppen bort. Den här processen tar flera minuter.
 
 
 ## <a name="next-steps"></a>Nästa steg

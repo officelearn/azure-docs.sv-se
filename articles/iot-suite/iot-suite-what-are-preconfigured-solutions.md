@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 04/24/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a3657f8bb60cd1181740b0700f503b5bd1bd559f
-ms.openlocfilehash: a3847f83af1f28e40572af95ff31f44d2f3d6dc4
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -43,6 +43,7 @@ Följande tabell visar hur lösningarna mappar till specifika IoT-funktioner:
 | --- | --- | --- | --- | --- | --- | --- |
 | [Fjärrövervakning][lnk-getstarted-preconfigured] |Ja |Ja |Ja |Ja |Ja |- |
 | [Förebyggande underhåll][lnk-predictive-maintenance] |Ja |Ja |- |Ja |Ja |Ja |
+| [Ansluten fabrik][lnk-getstarted-factory] |Ja |Ja |Ja |Ja |Ja |- |
 
 * *Datainhämtning*: Inhämtning av data till molnet i hög skala.
 * *Enhetsidentitet*: Hantera unika enhetsidentiteter och kontrollera enhetsåtkomst till lösningen.
@@ -166,4 +167,4 @@ Nu vet du vad en förkonfigurerad lösning är och kan komma igång genom att di
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-
+[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/25/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 719f9810abb12cbe8645651d35cbff936cecd158
-ms.openlocfilehash: 57531b609b095359c8bf0ea3685af40124f46311
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -43,7 +44,7 @@ De grå objekten representerar komponenter som implementerar funktioner för *en
 
 I den förkonfigurerade lösningen representerar en simulerad enhet en flygplansmotor. Lösningen etableras med två motorer som mappar till ett enda flygplan. Varje motor sänder fyra typer av telemetri: Sensor 9, Sensor 11, Sensor 14 och Sensor 15 tillhandahåller de data som behövs för att Machine Learning-modellen ska kunna beräkna motorns återstående driftstid. Varje simulerad enhet skickar följande telemetrimeddelanden till IoT Hub:
 
-*Antal cykler*. En cykel representerar en slutförd flygning med varierande längd på mellan&2;–10 timmar. Telemetridata samlas in varje halvtimme under flygningens längd.
+*Antal cykler*. En cykel representerar en slutförd flygning med varierande längd på mellan 2–10 timmar. Telemetridata samlas in varje halvtimme under flygningens längd.
 
 *Telemetri*. Det finns fyra sensorer som representerar motorattribut. Sensorerna har allmänna beteckningar: Sensor 9, Sensor 11, Sensor 14 och Sensor 15. Dessa fyra sensorer representerar den mängd telemetri som krävs för att få fram användbara resultat från RUL-modellen. Modellen som används i den förkonfigurerade lösningen har skapats från en offentlig datauppsättning som innehåller verkliga data från motorsensorer. Mer information om hur modellen har skapats från den ursprungliga datauppsättningen finns i [mallen för förebyggande underhåll i Cortana Intelligence-galleriet][lnk-cortana-analytics].
 
@@ -63,7 +64,7 @@ IoT Hub bekräftar enhetskommandona.
 **Händelseprocessorvärden** körs i ett Azure-webbjobb. **Händelseprocessorn** tar de genomsnittliga sensorvärdena från en slutförd cykel. Den skickar dessa värden till en API som får den tränade modellen att beräkna RUL för en motor. API: et exponeras av en Machine Learning-arbetsyta som har etablerats som en del av lösningen.
 
 ## <a name="machine-learning"></a>Machine Learning
-Machine Learning-komponenten använder en modell som härletts från de data som samlats in från verkliga luftfartygsmotorer. Du kan navigera till Machine Learning-arbetsytan från ikonen på sidan [azureiotsuite.com][lnk-azureiotsuite] för din etablerade lösning när den har statusen **Klar**.
+Machine Learning-komponenten använder en modell som härletts från de data som samlats in från verkliga luftfartygsmotorer. Du kan navigera till Machine Learning-arbetsytan från ikonen på sidan [azureiotsuite.com][lnk-azureiotsuite] för din etablerade lösning när lösningen har statusen **Klar**.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -83,8 +84,3 @@ Du kan även utforska några andra funktioner och möjligheter i de förkonfigur
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -13,34 +13,36 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: d0cedf73aa3f73e672a73b6abaca5eb8c22a76a7
+ms.lasthandoff: 04/25/2017
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Skapa ett VNet med en plats-till-plats-anslutning med hjälp av den klassiska portalen
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal-classic"></a>Skapa ett VNet med en plats-till-plats-anslutning med hjälp av den klassiska portalen
 
-En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en VPN-tunnel med IPsec/IKE (IKEv1 eller IKEv2). Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats en offentlig IP-adress och som inte finns bakom en NAT. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer.
-
-![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
-
-Den här artikeln visar dig hur du skapar ett virtuellt nätverk och en VPN-gateway från plats till plats till ditt lokala nätverk med hjälp av den klassiska distributionsmodellen och den klassiska portalen. Plats-till-plats-anslutningar kan användas för flera platser och hybridkonfigurationer. Du kan också skapa den här konfigurationen för Resource Manager-distributionsmodellen genom att välja ett annat alternativ i listan nedan:
+Den här artikeln visar hur du kan använda den klassiska portalen för att skapa en VPN-gatewayanslutning från plats till plats från ditt lokala nätverk till det virtuella nätverket. Anvisningarna i den här artikeln gäller den klassiska distributionsmodellen. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Resource Manager – CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Klassisk – Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Klassisk – Klassisk portal](vpn-gateway-site-to-site-create.md)
+> 
 >
->
+
+![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
+
+
+En VPN-gatewayanslutning från plats till plats används för att ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk via en IPsec/IKE VPN-tunnel (IKEv1 eller IKEv2). Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en extern offentlig IP-adress. Mer information om VPN-gatewayer finns i [Om VPN-gateway](vpn-gateway-about-vpngateways.md).
 
 #### <a name="additional-configurations"></a>Ytterligare konfigurationer
-Om du vill koppla ihop VNets kan du läsa mer i [Konfigurera en VNet-till-VNet-anslutning för den klassiska distributionsmodellen](virtual-networks-configure-vnet-to-vnet-connection.md). Information om att lägga till en plats-till-plats-anslutning till en VNet som redan har en anslutning finns i [Lägga till en S2S-anslutning till en VNet med en befintlig anslutning för VPN-gateway](vpn-gateway-multi-site.md).
 
+Om du vill koppla ihop VNets kan du läsa mer i [Konfigurera en VNet-till-VNet-anslutning för den klassiska distributionsmodellen](virtual-networks-configure-vnet-to-vnet-connection.md). Information om att lägga till en plats-till-plats-anslutning till en VNet som redan har en anslutning finns i [Lägga till en S2S-anslutning till en VNet med en befintlig anslutning för VPN-gateway](vpn-gateway-multi-site.md).
 ## <a name="before-you-begin"></a>Innan du börjar
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -59,7 +61,7 @@ Kontrollera att du har följande innan du påbörjar konfigurationen:
 ## <a name="Details"></a>Sidan Virtuell nätverksinformation
 Ange följande information:
 
-* **Namn**: Ge ett namn till det virtuella nätverket. Till exempel *EastUSVNet*. Du använder det här virtuella nätverksnamnet när du distribuerar dina virtuella datorer och PaaS-instanser, så du bör inte göra namnet för komplicerat. 
+* **Namn**: Ge ett namn till det virtuella nätverket. Till exempel *EastUSVNet*. Du använder det här virtuella nätverksnamnet när du distribuerar dina virtuella datorer och PaaS-instanser, så du bör inte göra namnet för komplicerat.
 * **Plats**: Platsen är direkt relaterad till den fysiska platsen (region) där du vill att resurserna (VM) ska finnas. Om du exempelvis vill att de virtuella datorer som du distribuerar till det här virtuella nätverket ska finnas fysiskt i *östra USA*, väljer du den platsen. Du kan inte ändra den region som är associerad med det virtuella nätverket när du har skapat det.
 
 ## <a name="DNS"></a>Sidan DNS-servrar och VPN-anslutning
@@ -90,7 +92,7 @@ Ange följande information och klicka sedan på bockmarkeringen längst ned till
 * **Lägg till undernät**: Ta med inledande IP-adress och antal adresser. Fler undernät krävs inte, men du kanske vill skapa ett separat undernät för virtuella datorer med statiska DIPS. Du kan också vilja ha dina virtuella datorer i ett undernät som är avgränsat från dina andra rollinstanser.
 * **Lägg till gateway-undernät**: Klicka för att lägga till gateway-undernätet. Gateway-undernätet används bara för den virtuella nätverksgatewayen och krävs för den här konfigurationen.
 
-Klicka på bockmarkeringen längst ned på sidan. Det virtuella nätverket börjar att skapas. När det är slutfört visas **Skapad** under **Status** på sidan **Nätverk** i den klassiska Azure-portalen. När du har skapat VNet kan du konfigurera din virtuella nätverksgateway.
+Klicka på bockmarkeringen längst ned på sidan för att skapa det virtuella nätverket. När det är slutfört visas **Skapad** under **Status** på sidan **Nätverk** i den klassiska Azure-portalen. När du har skapat VNet kan du konfigurera din virtuella nätverksgateway.
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 

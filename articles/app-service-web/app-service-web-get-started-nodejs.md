@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/28/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 22966659db3951316dca11fd555e07a183114062
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c32cb52e4bb7bacde20e21820f277b4e86877e74
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="create-a-nodejs-application-on-web-app"></a>Skapa en Node.js-app i en webbapp
@@ -148,7 +148,7 @@ När App Service-planen har skapats visas information av Azure CLI. Informatione
 
 Nu när en App Service-plan har skapats kan du skapa en webbapp i `quickStartPlan` App Service-planen. Med webbappen får vi ett utrymme för att distribuera vår kod och en URL så att vi kan visa den distribuerade appen. Använd kommandot [az appservice web create](/cli/azure/appservice/web#create) för att skapa webbappen.
 
-I kommandot nedan anger du ditt unika appnamn i platshållaren <app_name>. <app_name> används som standard-DNS-webbplats för webbappen. Därför måste namnet vara unikt i förhållande till alla appar på Azure. Du kan senare mappa en anpassad DNS-post till webbappen innan du exponerar den för användarna.
+I kommandot nedan anger du ditt unika appnamn i platshållaren `<app_name>`. `<app_name>` används som standard-DNS-webbplats för webbappen. Därför måste namnet vara unikt i förhållande till alla appar på Azure. Du kan senare mappa en anpassad DNS-post till webbappen innan du exponerar den för användarna.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -296,7 +296,7 @@ Gå till Azure Portal och titta på webbappen du nyss skapade.
 
 Logga in på [https://portal.azure.com](https://portal.azure.com).
 
-Klicka på **App Services** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
+Klicka på **Apptjänster** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
@@ -321,3 +321,4 @@ Flikarna på bladet innehåller många bra funktioner som du kan lägga till i w
 ## <a name="next-steps"></a>Nästa steg
 
 Utforska färdiga [CLI-skript för Web Apps](app-service-cli-samples.md).
+

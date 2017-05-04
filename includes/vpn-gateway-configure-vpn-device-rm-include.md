@@ -6,16 +6,7 @@ Plats-till-plats-anslutningar till ett lokalt nätverk kräver en VPN-enhet. Vi 
 - Mer information om IPsec-/IKE-parametrar finns i [Parametrar](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
 - Innan du konfigurerar VPN-enheten kontrollerar du om det finns några [kända kompatibilitetsproblem](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) med den VPN-enhet som du vill använda.
 
-När du konfigurerar VPN-enheten behöver du följande objekt:
+När du konfigurerar VPN-enheten behöver du följande:
 
-- Den offentliga IP-adressen för din virtuella nätverksgateway.
-
-    -  Om du använder Azure Portal hittar du den offentliga IP-adressen genom att gå till **Virtuella nätverksgatewayer** och klicka på namnet på din gateway. 
-    - Om du använder PowerShell hittar du den offentliga IP-adressen för din virtuella nätverksgateway genom att ersätta värdena med dina egna värden i följande exempel.
-
-            Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
-- En delad nyckel. Det här är samma delade nyckel som du anger när du skapar VPN-anslutningen för plats-till-plats. I vårt exempel använder vi en enkel delad nyckel. Du bör skapa och använda en mer komplex nyckel.
-
-
-
-
+- En delad nyckel. Det här är samma delade nyckel som du anger när du skapar VPN-anslutningen för plats-till-plats. I vårt exempel använder vi en enkel delad nyckel. Vi rekommenderar att du skapar och använder en mer komplex nyckel.
+- Den offentliga IP-adressen för din virtuella nätverksgateway. Du kan visa den offentliga IP-adressen genom att använda Azure Portal, PowerShell eller CLI.

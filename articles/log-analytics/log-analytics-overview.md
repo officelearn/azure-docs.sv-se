@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 762d8deac1f176e51b54295ef571ae529d338d2c
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c2e78e0191be6ac7d828402859c04c486e8df594
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -27,7 +27,7 @@ Log Analytics är en tjänst i [Operations Management Suite\(OMS\)](../operation
 ## <a name="is-log-analytics-for-you"></a>Är Log Analytics rätt val för dig?
 Om du inte har någon aktuell övervakning för Azure-miljön ska du börja med [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) som samlar in och analyserar övervakningsdata för dina Azure-resurser.  Log Analytics kan samla in data från Azure Monitor för att jämföra dem med andra data och ge ytterligare analys.
 
-Om du vill övervaka din lokala miljö eller om du har befintlig övervakning med hjälp av tjänster som Azure Monitor eller System Center Operations Manager kan Log Anlalytics sedan lägga till betydande värde.  Den kan samla in data direkt från dina agenter och från de andra verktygen till en databas.  Analysverktygen i Log Analytics som loggsökningar, vyer och lösningar fungerar mot alla insamlade data och ger en centraliserad analys av hela miljön.
+Om du vill övervaka din lokala miljö eller om du har befintlig övervakning med hjälp av tjänster som Azure Monitor eller System Center Operations Manager kan Log Analytics sedan lägga till betydande värde.  Den kan samla in data direkt från dina agenter och från de andra verktygen till en databas.  Analysverktygen i Log Analytics som loggsökningar, vyer och lösningar fungerar mot alla insamlade data och ger en centraliserad analys av hela miljön.
 
 
 ## <a name="using-log-analytics"></a>Använda Log Analytics

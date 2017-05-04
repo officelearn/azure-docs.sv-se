@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Det finns flera metoder som kan användas för att konfigurera de nödvändiga k
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Installera och konfigurera Azure PowerShell
-Du behöver ha Azure PowerShell version 1.2.1 eller senare installerat på datorn. Artikeln [Så installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs) beskriver alla steg du behöver för att ställa in datorn så att den fungerar med Azure PowerShell. Den enklaste metoden är att använda metoden för Web PI-installation som beskrivs i den artikeln. Även om du redan har installerat Azure PowerShell bör du installera det igen med Web PI-metoden så att du har den senaste versionen av Azure PowerShell.
+Du behöver ha Azure PowerShell version 1.2.1 eller senare installerat på datorn. Artikeln [Så installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) beskriver alla steg du behöver för att ställa in datorn så att den fungerar med Azure PowerShell. Den enklaste metoden är att använda metoden för Web PI-installation som beskrivs i den artikeln. Även om du redan har installerat Azure PowerShell bör du installera det igen med Web PI-metoden så att du har den senaste versionen av Azure PowerShell.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Hämta och kör det konfigurationsskript som krävs för Azure Disk Encryption
 Med det nödvändiga konfigurationsskriptet för Azure Disk Encryption ställs alla förutsättningar som krävs för kryptering av dina virtuella Azure-datorer in.

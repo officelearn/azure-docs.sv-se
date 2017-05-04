@@ -46,7 +46,7 @@
 ###[Använd Redis-kluster för att skala in och ut](cache-how-to-premium-clustering.md)
 
 # Referens
-## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Förhandsversion av Azure CLI 2.0](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)

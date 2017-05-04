@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0ccde30b93214b161558daf8e2b4e37e58711da
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d340210d799f995cb10a20cf48a9245bbd3bc8d3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -68,7 +68,7 @@ Vi använder följande värden för den här konfigurationen. Vi anger variabler
 
 ## <a name="before-beginning"></a>Innan du börjar
 * Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial).
-* Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar. Mer information om hur du installerar PowerShell-cmdlets finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar. Mer information om hur du installerar PowerShell-cmdlets finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). 
 
 ## <a name="declare"></a>Del 1 – Logga in och ställ in variabler
 I det här avsnittet ska du logga in och deklarera värdena som används i den här konfigurationen. De deklarerade värdena används i exempelskripten. Om du vill ändrar du värdena så att de återspeglar din egen miljö. Eller så använder du de deklarerade värdena och går igenom stegen som en övning.
@@ -166,8 +166,8 @@ Om du inte använder en företagscertifikatlösning måste du generera ett själ
 
 Punkt-till-plats-anslutningar kräver att den offentliga nyckeln (.cer) överförs till Azure. Följande steg hjälper dig att exportera .cer-filen för det självsignerade rotcertifikatet.
 
-1. Du hämtar en CER-fil från certifikatet genom att öppna **Hantera användarcertifikat**.
-2. Leta upp det självsignerade rotcertifikatet ”P2SRootCert” som finns under ”Certifikat – aktuell användare\Personligt\Certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera** för att öppna **guiden Exportera certifikat**.
+1. Om du vill hämta en .cer-fil från certifikatet öppnar du **Hantera användarcertifikat**.
+2. Leta upp det självsignerade rotcertifikatet ”P2SRootCert” som finns under ”Certifikat – Aktuell användare\Personligt\Certifikat” och högerklicka. Klicka på **Alla aktiviteter** och klicka sedan på **Exportera** för att öppna **guiden Exportera certifikat**.
 3. Klicka på **Nästa** i guiden. Välj **Nej, exportera inte den privata nyckeln** och klicka sedan på **Nästa**.
 4. På sidan **Filformat för export** väljer du **Base 64-kodad X.509 (.CER).** och klickar sedan på **Nästa**. 
 5. På sidan **Fil som ska exporteras** bläddrar du till ”C:” och skapar en underkatalog med namnet ”cert” och väljer den. Ge certifikatfilen namnet ”P2SRootCert.cer” och klicka sedan på **Spara**. 
@@ -284,7 +284,7 @@ Om du har problem med att ansluta kontrollerar du följande:
 
 ## <a name="connectVM"></a>Ansluta till en virtuell dator
 
-1. När du har anslutit till ditt virtuella nätverk kan du ansluta till en virtuell dator via P2S-anslutningen. För att ansluta till den virtuella datorn behöver du den privata IP-adressen för den virtuella datorn. Följande exempel beskriver hur du hämtar den privata IP-adressen med [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). Resultatet returnerar en lista över virtuella datorer och motsvarande privata IP-adresser i alla dina resursgrupper. 
+1. När du har anslutit till ditt virtuella nätverk kan du ansluta till en virtuell dator via P2S-anslutningen. För att ansluta till den virtuella datorn behöver du den privata IP-adressen för den virtuella datorn. Följande exempel beskriver hur du hämtar den privata IP-adressen med [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). Resultatet returnerar en lista över virtuella datorer och motsvarande privata IP-adresser i alla dina resursgrupper. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -308,7 +308,7 @@ Om du har problem med att ansluta till en virtuell dator via P2S kan du använda
 
 ## <a name="addremovecert"></a>Lägga till eller ta bort ett betrott rotcertifikat
 
-Du kan lägga till och ta bort betrodda rotcertifikat från Azure. När du tar bort ett betrott certifikat kan klientcertifikaten som genererades från rotcertifikatet inte längre ansluta till Azure via punkt-till-plats. Om du vill att klienter ska kunna ansluta måste du installera ett nytt klientcertifikat som genereras från ett certifikat som är betrott i Azure.
+Du kan lägga till och ta bort betrodda rotcertifikat från Azure. När du tar bort ett betrott certifikat, kan klientcertifikaten som genererades från rotcertifikatet inte längre ansluta till Azure via punkt-till-plats. Om du vill att klienter ska kunna ansluta måste du installera ett nytt klientcertifikat som genereras från ett certifikat som är betrott i Azure.
 
 ### <a name="to-add-a-trusted-root-certificate"></a>Lägga till ett betrott rotcertifikat
 Du kan lägga till upp till 20 betrodda CER-filer för rotcertifikat i Azure. Följande steg beskriver hur du lägger till ett rotcertifikat:
@@ -365,7 +365,7 @@ Du kan lägga till upp till 20 betrodda CER-filer för rotcertifikat i Azure. F�
   ```
 
 ## <a name="revoke"></a>Återkalla ett klientcertifikat
-Du kan återkalla certifikat. Du kan använda listan över återkallade certifikat för att selektivt neka punkt-till-plats-anslutningar baserat på enskilda klientcertifikat. Detta skiljer sig från att ta bort ett betrott rotcertifikat. Om du tar bort CER-filen för ett betrott rotcertifikat i Azure återkallas åtkomsten för alla klientcertifikat som genererats/signerats med det återkallade rotcertifikatet. När du återkallar ett klientcertifikat, i stället för rotcertifikatet, kan de andra certifikaten som har skapats med rotcertifikatet fortfarande användas för autentisering.
+Du kan återkalla certifikat. Du kan använda listan över återkallade certifikat för att selektivt neka punkt-till-plats-anslutningar baserat på enskilda klientcertifikat. Detta skiljer sig från att ta bort ett betrott rotcertifikat. Om du tar bort CER-filen för ett betrott rotcertifikat i Azure återkallas åtkomsten för alla klientcertifikat som genererats/signerats med det återkallade rotcertifikatet. När du återkallar ett klientcertifikat, snarare än rotcertifikatet, så kan de andra certifikat som har genererats från rotcertifikatet fortfarande användas för autentisering.
 
 Den vanligaste metoden är att använda rotcertifikatet för att hantera åtkomst på grupp- eller organisationsnivå, och att återkalla klientcertifikat för mer detaljerad åtkomstkontroll för enskilda användare.
 
@@ -424,3 +424,4 @@ Du kan återställa ett klientcertifikat genom att ta bort tumavtrycket från li
 
 ## <a name="next-steps"></a>Nästa steg
 När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
+

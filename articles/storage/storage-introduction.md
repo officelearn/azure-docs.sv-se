@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -32,7 +32,9 @@ Azure Storage är molnlagringslösningen för moderna program som kräver hållb
 * Hur dina Azure Storage-data blir hållbara genom redundans och replikering.
 * Vart du går för att skapa ditt första Azure Storage-program.
 
-Information om hur du snabbt kommer igång med Azure Storage finns i [Komma igång med Azure Storage på fem minuter](storage-getting-started-guide.md).
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Mer information om verktyg, bibliotek och andra resurser för att arbeta med Azure Storage finns i [Nästa steg](#next-steps) nedan.
 
@@ -185,12 +187,12 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 * [Storage-klientbibliotek för PHP](https://azure.microsoft.com/develop/php/)
 * [Storage-klientbibliotek för Ruby](https://azure.microsoft.com/develop/ruby/)
 * [Storage-klientbibliotek för Python](https://azure.microsoft.com/develop/python/)
-* [Storage-cmdletar för PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [Storage-cmdletar för PowerShell 1.0](/powershell/module/azurerm.storage/#storage)
 
 ### <a name="azure-storage-management-services"></a>Azure Storage Management Services
 * [Referens för REST-API för Storage Resource Provider](/rest/api/storagerp/)
 * [Klientbibliotek för Storage Resource Provider för .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Cmdlets för Storage Resource Provider för PowerShell 1.0](/powershell/storage/)
+* [Cmdlets för Storage Resource Provider för PowerShell 1.0](/powershell/module/azure.storage)
 * [REST-API för Service Management för Storage (klassisk)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Azure Storage Data Movement Services
@@ -202,7 +204,7 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 * [Azure Storage-klientverktyg](storage-explorers.md)
 * [SDK:er och verktyg för Azure](https://azure.microsoft.com/tools/)
 * [Azure Storage-emulator](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Kommandoradsverktyget AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -211,7 +213,11 @@ Utforska gärna dessa resurser om du vill veta mer om Azure Storage:
 ### <a name="documentation"></a>Dokumentation
 * [Azure Storage-dokumentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Skapa ett lagringskonto](storage-create-storage-account.md)
-* [Komma igång med Azure Storage på fem minuter](storage-getting-started-guide.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### <a name="for-administrators"></a>För administratörer
 * [Använd Azure PowerShell med Azure Storage](storage-powershell-guide-full.md)

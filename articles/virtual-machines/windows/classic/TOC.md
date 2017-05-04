@@ -9,7 +9,7 @@
 # Kom igång
 ## [Skapa en virtuell dator med portalen](tutorial.md)
 ## [Logga in på en virtuell dator](connect-logon.md)
-## [Installera Azure PowerShell](/powershell/azureps-cmdlets-docs)
+## [Installera Azure PowerShell](/powershell/azure/overview)
 ## [Installera Azure CLI](../../../cli-install-nodejs.md)
 
 # Gör så här för att
@@ -88,7 +88,7 @@
 ## [Återställ RDP-lösenord](reset-rdp.md)
 
 # Referens
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [NET](/dotnet/api/microsoft.azure.management.compute)

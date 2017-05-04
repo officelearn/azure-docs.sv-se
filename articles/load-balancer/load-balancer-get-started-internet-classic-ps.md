@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 4c29a3d17161a38f9aee9337e27feb36306cf329
-ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
 
 Följ stegen nedan om du vill konfigurera en belastningsutjämnare med hjälp av PowerShell:
 
-1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
+1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](/powershell/azure/overview) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
 2. När du har skapat en virtuell dator kan du använda PowerShell-cmdlets för att lägga till en belastningsutjämnare till en virtuell dator i samma molntjänst.
 
 I följande exempel lägger du till en belastningsutjämnare kallad ”webfarm” till molntjänsten ”mytestcloud” (eller myctestcloud.cloudapp.net) genom att lägga till slutpunkter för belastningsutjämnaren till de virtuella datorerna ”web1” och ”web2”. Belastningsutjämnaren tar emot nätverkstrafik på port 80 och belastningsutjämnar mellan de virtuella datorerna som definierats av den lokala slutpunkten (i det här fallet port 80) med hjälp av TCP.
@@ -73,9 +74,4 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 Du kan också läsa mer om hur du [kommer igång med att skapa en intern belastningsutjämnare](load-balancer-get-started-ilb-classic-ps.md) och hur du konfigurerar typen av [distributionsläge](load-balancer-distribution-mode.md) för ett specifikt trafikbeteende i ett belastningsutjämnat nätverk.
 
 Om ditt program kräver aktiva anslutningar för servrar bakom en belastningsutjämnare rekommenderar vi att du läser mer om [timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md). Den här artikeln innehåller information om beteendet vid inaktiva anslutningar när du använder Azure Load Balancer.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

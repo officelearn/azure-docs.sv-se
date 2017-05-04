@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ Följ stegen nedan om du vill aktivera MFA för dina användare.
 När du har aktiverat användarna bör du meddela dem via e-post. Nästa gång de försöker logga in, ombeds de att registrera sina konton för tvåstegsverifiering. Då de börjar använda tvåstegsverifiering, ska de också ställa in applösenord för att undvika att låsas ute från icke-webbläsarbaserade appar.
 
 ## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Använd PowerShell för att aktivera tvåstegsverifiering
-Du kan ändra [status](multi-factor-authentication-whats-next.md) med [Azure AD PowerShell](/powershell/azureps-cmdlets-docs) genom att använda följande.  Du kan ändra `$st.State` till någon av följande statusar:
+Du kan ändra [status](multi-factor-authentication-whats-next.md) med [Azure AD PowerShell](/powershell/azure/overview) genom att använda följande.  Du kan ändra `$st.State` till någon av följande statusar:
 
 * Enabled
 * Enforced

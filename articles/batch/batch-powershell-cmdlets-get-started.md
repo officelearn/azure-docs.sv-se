@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,14 +26,14 @@ ms.lasthandoff: 02/28/2017
 
 Med Azure Batch PowerShell-cmdletarna kan du genomföra och skriva många av de uppgifter som du utför med Batch-API:erna, Azure Portal och Azures kommandoradsgränssnitt (CLI). Det här är en snabb introduktion till de cmdletar som du kan använda för att hantera Batch-konton och arbeta med Batch-resurser, t.ex. pooler, jobb och uppgifter.
 
-En fullständig lista över alla Batch-cmdlets och en detaljerad cmdlet-syntax finns i [Cmdlet-referens för Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+En fullständig lista över alla Batch-cmdlets och en detaljerad cmdlet-syntax finns i [Cmdlet-referens för Azure Batch](/powershell/module/azurerm.batch/#batch).
 
 Den här artikeln baseras på cmdlet:ar i Azure PowerShell, version 3.0.0. Vi rekommenderar att du uppdaterar Azure PowerShell ofta för att dra nytta av tjänstuppdateringar och förbättringar.
 
 ## <a name="prerequisites"></a>Krav
 Utför följande åtgärder för att använda Azure PowerShell för att hantera dina Batch-resurser.
 
-* Installera och konfigurera [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* Installera och konfigurera [Azure PowerShell](/powershell/azure/overview)
 * Kör cmdlet:en **Login-AzureRmAccount** för att ansluta till din prenumeration (Azure Batch-cmdlet:ar levereras i modulen Azure Resource Manager):
   
     `Login-AzureRmAccount`
@@ -43,7 +43,7 @@ Utför följande åtgärder för att använda Azure PowerShell för att hantera 
 
 ## <a name="manage-batch-accounts-and-keys"></a>Hantera Batch-konton och nycklar
 ### <a name="create-a-batch-account"></a>Skapa ett Batch-konto
-**New-AzureRmBatchAccount** skapar ett Batch-konto i en angiven resursgrupp. Om du inte redan har en resursgrupp, skapa en genom att köra cmdlet:en [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx). Ange ett av Azure-områdena i parametern **Plats**, till exempel "USA, centrala". Exempel:
+**New-AzureRmBatchAccount** skapar ett Batch-konto i en angiven resursgrupp. Om du inte redan har en resursgrupp, skapa en genom att köra cmdlet:en [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Ange ett av Azure-områdena i parametern **Plats**, till exempel "USA, centrala". Exempel:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -237,7 +237,7 @@ Poolens egenskaper i Batch-tjänsten har nu uppdaterats. Du måste starta om ell
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-* Detaljerad cmdlet-syntax och exempel finns i [Cmdlet-referens för Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+* Detaljerad cmdlet-syntax och exempel finns i [Cmdlet-referens för Azure Batch](/powershell/module/azurerm.batch/#batch).
 * Mer information om program och programpaket i Batch finns i [Programdistribution med Azure Batch-programpaket](batch-application-packages.md).
 
 

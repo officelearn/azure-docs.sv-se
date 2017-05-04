@@ -6,7 +6,7 @@
     href: app-service-web-overview.md
   - name: "Jämför värdalternativ"
     href: choose-web-site-cloud-service-vm.md
-- name: "Snabbstart"
+- name: "Snabbstarter"
   expanded: true
   items:
   - name: "Skapa .NET-app"

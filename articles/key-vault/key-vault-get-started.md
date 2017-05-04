@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: dd53cbc0ec10700ebcd47f9d2f9d6cc358f68569
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -30,10 +31,10 @@ Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault f�
 
 > [!NOTE]
 > Den här kursen innehåller inte instruktioner för hur du skriver Azure-programmet som ingår i ett av stegen, nämligen hur du tillåter ett program att använda en nyckel eller hemlighet i nyckelvalvet.
-> 
-> I den här kursen används Azure PowerShell. Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [den här självstudiekursen](key-vault-manage-with-cli.md).
-> 
-> 
+>
+> I den här kursen används Azure PowerShell. Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [den här självstudiekursen](key-vault-manage-with-cli2.md).
+>
+>
 
 Översiktlig information om Azure Key Vault finns i [Vad är Azure Key Vault?](key-vault-whatis.md)
 
@@ -41,7 +42,7 @@ Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault f�
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
 * En prenumeration på Microsoft Azure. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell, **minst version 1.1.0**. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs). Om du redan har installerat Azure PowerShell och inte vet vilken version du har skriver du `(Get-Module azure -ListAvailable).Version` i Azure PowerShell-konsolen. Du kan använda den här självstudiekursen med några mindre ändringar även om du har Azure PowerShell version 0.9.1 till och med 0.9.8 installerad. Du måste till exempel använda kommandot `Switch-AzureMode AzureResourceManager`, och vissa Azure Key Vault-kommandon har ändrats. En lista med Key Vault-cmdlets för version 0.9.1 till och med 0.9.8 finns i [Cmdlets för Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
+* Azure PowerShell, **minst version 1.1.0**. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Om du redan har installerat Azure PowerShell och inte vet vilken version du har skriver du `(Get-Module azure -ListAvailable).Version` i Azure PowerShell-konsolen. Du kan använda den här självstudiekursen med några mindre ändringar även om du har Azure PowerShell version 0.9.1 till och med 0.9.8 installerad. Du måste till exempel använda kommandot `Switch-AzureMode AzureResourceManager`, och vissa Azure Key Vault-kommandon har ändrats. En lista med Key Vault-cmdlets för version 0.9.1 till och med 0.9.8 finns i [Cmdlets för Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
 * Ett program som ska konfigureras att använda nyckeln eller lösenordet som du skapar i den här självstudiekursen. Ett exempelprogram är tillgängligt från [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Anvisningar finns i den tillhörande Readme-filen.
 
 Den här kursen är avsedd för nybörjare av Azure PowerShell, men vi förutsätter att du förstår de grundläggande begreppen, t.ex. moduler, cmdlets och sessioner. Mer information finns i [Komma igång med Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -56,13 +57,13 @@ Om du till exempel behöver hjälp med cmdleten **Login-AzureRmAccount** skriver
 
 Du kan också läsa följande självstudier för att bekanta dig med Azure Resource Manager i Azure PowerShell:
 
-* [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Installera och konfigurera Azure PowerShell](/powershell/azure/overview)
 * [Använda Azure PowerShell med Resource Manager](../powershell-azure-resource-manager.md)
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Ansluta till dina prenumerationer
+## <a id="connect"></a>Ansluta till dina prenumerationer
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:  
 
-    Login-AzureRmAccount 
+    Login-AzureRmAccount
 
 Om du använder en specifik instans av Azure, till exempel Azure Government, använder du parametern -Environment med det här kommandot. Exempel: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
@@ -76,16 +77,16 @@ Ange sedan den prenumeration som du vill använda genom att skriva:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Mer information om hur du konfigurerar Azure PowerShell finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Mer information om hur du konfigurerar Azure PowerShell finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
-## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Skapa en ny resursgrupp
+## <a id="resource"></a>Skapa en ny resursgrupp
 När du använder Azure Resource Manager skapas alla relaterade resurser inuti en resursgrupp. Vi ska skapa en ny resursgrupp med namnet **ContosoResourceGroup** i den här självstudiekursen:
 
     New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
-## <a name="a-idvaultacreate-a-key-vault"></a><a id="vault"></a>Skapa ett nyckelvalv
-Skapa ett nytt nyckelvalv med cmdleten [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx). Denna cmdlet har tre obligatoriska parametrar: ett **resursgruppsnamn**, ett **nyckelvalvsnamn** och en **geografisk plats**.
+## <a id="vault"></a>Skapa ett nyckelvalv
+Skapa ett nytt nyckelvalv med cmdleten [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Denna cmdlet har tre obligatoriska parametrar: ett **resursgruppsnamn**, ett **nyckelvalvsnamn** och en **geografisk plats**.
 
 Om du till exempel använder valvnamnet **ContosoKeyVault**, resursgruppsnamnet **ContosoResourceGroup** och platsen **East Asia** skriver du:
 
@@ -99,12 +100,12 @@ Utdata från denna cmdlet visar egenskaper för nyckelvalvet som du precis skapa
 Nu har ditt Azure-konto behörighet att utföra åtgärder i det här nyckelvalvet. Vilket ingen annan har ännu.
 
 > [!NOTE]
-> Om du får felet **Prenumerationen har inte registrerats för användning av namnrymden Microsoft.KeyVault** när du försöker skapa ett nytt nyckelvalv kör du `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` och kör sedan kommandot New-AzureRmKeyVault igen. Mer information finns i [Register-AzureRmResourceProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.300\).aspx).
-> 
-> 
+> Om du får felet **Prenumerationen har inte registrerats för användning av namnrymden Microsoft.KeyVault** när du försöker skapa ett nytt nyckelvalv kör du `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` och kör sedan kommandot New-AzureRmKeyVault igen. Mer information finns i [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider).
+>
+>
 
-## <a name="a-idaddaadd-a-key-or-secret-to-the-key-vault"></a><a id="add"></a>Lägga till en nyckel eller hemlighet till nyckelvalvet
-Om du vill att Azure Key Vault ska skapa en programvaruskyddad nyckel åt dig använder du cmdleten [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx)  och skriver följande:
+## <a id="add"></a>Lägga till en nyckel eller hemlighet till nyckelvalvet
+Om du vill att Azure Key Vault ska skapa en programvaruskyddad nyckel åt dig använder du cmdleten [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey)  och skriver följande:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -144,13 +145,13 @@ Nu ska vi visa nyckeln eller hemligheten som du precis skapat:
 
 Nu är ditt nyckelvalv och din nyckel eller hemlighet redo att användas av program. Du måste ge programmen tillstånd att använda dem.  
 
-## <a name="a-idregisteraregister-an-application-with-azure-active-directory"></a><a id="register"></a>Registrera ett program med Azure Active Directory
+## <a id="register"></a>Registrera ett program med Azure Active Directory
 Det här steget utförs normalt av en utvecklare, på en separat dator. Det är inte specifikt för Azure Key Vault men tas med i kursen för att inte utelämna något.
 
 > [!IMPORTANT]
 > För att slutföra självstudiekursen måste ditt konto, valvet och det program som du ska registrera i det här steget finnas i samma Azure-katalog.
-> 
-> 
+>
+>
 
 Program som använder ett nyckelvalv måste autentiseras med hjälp av en token från Azure Active Directory. Programmets ägare måste då först registrera programmet i sin Azure Active Directory. I slutet av registreringen hämtar programmets ägare följande värden:
 
@@ -169,8 +170,8 @@ Så här registrerar du programmet i Azure Active Directory:
 9. Bläddra till **nycklarna**, välj varaktighet och klicka sedan på **Spara**. Sidan uppdateras och innehåller nu ett nyckelvärde. Du måste konfigurera ditt program med det här nyckelvärdet och värdet **klient-ID**. (Anvisningar för den här konfigurationen är programspecifika.)
 10. Kopiera värdet för klient-ID:t från den här sidan, som du ska använda i nästa steg för att ange behörigheter för valvet.
 
-## <a name="a-idauthorizeaauthorize-the-application-to-use-the-key-or-secret"></a><a id="authorize"></a>Godkänna att programmet använder nyckeln eller hemligheten
-För att ge programmet tillstånd att komma åt nyckeln eller hemligheten i valvet använder du cmdleten  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx).
+## <a id="authorize"></a>Godkänna att programmet använder nyckeln eller hemligheten
+För att ge programmet tillstånd att komma åt nyckeln eller hemligheten i valvet använder du cmdleten  [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Om ditt valvnamn till exempel är **ContosoKeyVault** och programmet som du vill auktorisera har klient-ID:t 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed och du vill tillåta att programmet dekrypterar och loggar in med nycklar i valvet, kör du följande:
 
@@ -180,7 +181,7 @@ Om du vill att samma program ska kunna läsa hemligheter i valvet kör du följa
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
-## <a name="a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm"></a><a id="HSM"></a>Om du vill använda en maskinvarusäkerhetsmodul (HSM)
+## <a id="HSM"></a>Om du vill använda en maskinvarusäkerhetsmodul (HSM)
 Om du vill öka säkerheten ytterligare kan du importera och generera nycklar i maskinvarusäkerhetsmoduler (HSM) som aldrig lämnar HSM-gränsen. HSM-modulerna är FIPS 140-2 Level 2-verifierade. Om detta krav inte är nödvändigt för dig hoppar du över det här avsnittet och går vidare till [Ta bort nyckelvalvet och associerade nycklar och hemligheter](#delete).
 
 För att skapa dessa HSM-skyddade nycklar måste du använda [premiumnivån av Azure Key Vault för att stödja HSM-skyddade nycklar](https://azure.microsoft.com/pricing/free-trial/). Observera även att den här funktionen inte är tillgänglig för Azure i Kina.
@@ -206,8 +207,8 @@ Nästa kommando importerar ett BYOK-paket (Bring Your Own Key). Med det är scen
 
 Mer detaljerad information om hur du skapar det här BYOK-paketet finns i [Generera och överföra HSM-skyddade nycklar för Azure Key Vault](key-vault-hsm-protected-keys.md).
 
-## <a name="a-iddeleteadelete-the-key-vault-and-associated-keys-and-secrets"></a><a id="delete"></a>Ta bort nyckelvalvet och associerade nycklar och hemligheter
-Om du inte längre behöver nyckelvalvet och nyckeln eller hemligheten som det innehåller kan du ta bort nyckelvalvet med cmdleten [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx):
+## <a id="delete"></a>Ta bort nyckelvalvet och associerade nycklar och hemligheter
+Om du inte längre behöver nyckelvalvet och nyckeln eller hemligheten som det innehåller kan du ta bort nyckelvalvet med cmdleten [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault):
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -216,7 +217,7 @@ Eller så kan du ta bort en hel Azure-resursgrupp, som innehåller nyckelvalvet 
     Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
-## <a name="a-idotheraother-azure-powershell-cmdlets"></a><a id="other"></a>Andra Azure PowerShell-cmdletar
+## <a id="other"></a>Andra Azure PowerShell-cmdletar
 Andra kommandon som kan vara användbara för att hantera Azure Key Vault:
 
 * `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: Det här kommandot hämtar en tabellvy över alla nycklar och valda egenskaper.
@@ -225,18 +226,12 @@ Andra kommandon som kan vara användbara för att hantera Azure Key Vault:
 * `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: Exempel på hur du tar bort en särskild nyckel.
 * `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: Exempel på hur du tar bort en särskild hemlighet.
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Nästa steg
+## <a id="next"></a>Nästa steg
 En uppföljningskurs där Azure Key Vault används i en webbapp finns i [Använda Azure Key Vault från en webbapp](key-vault-use-from-web-application.md).
 
 Om du vill se hur nyckelvalvet används läser du avsnittet om [Azure Key Vault-loggning](key-vault-logging.md).
 
-En lista över de senaste Azure PowerShell-cmdlets för Azure Key Vault finns i [Cmdlets för Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.300\).aspx). 
+En lista över de senaste Azure PowerShell-cmdlets för Azure Key Vault finns i [Cmdlets för Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
 
 Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](key-vault-developers-guide.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

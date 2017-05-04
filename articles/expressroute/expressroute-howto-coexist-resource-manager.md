@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 1acd56f13c06d45287c38ea4f62aecf0ce0cf072
-ms.lasthandoff: 04/20/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ec9da5c9818f03a85e858800bd38be49d8ed14e6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -79,7 +79,7 @@ Det finns två uppsättningar procedurer för att välja bland. Vilken konfigura
 ## <a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar
 Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats- och ExpressRoute-anslutningar som ska finnas samtidigt.
 
-1. Installera den senaste versionen av Azure PowerShell-cmdletarna. Mer information om hur man installerar cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs). De cmdletar som du använder för den här konfigurationen kan se annorlunda ut än de du tidigare använt. Var noga med att använda de cmdletar som anges i instruktionerna.
+1. Installera den senaste versionen av Azure PowerShell-cmdletarna. Mer information om hur man installerar cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). De cmdletar som du använder för den här konfigurationen kan se annorlunda ut än de du tidigare använt. Var noga med att använda de cmdletar som anges i instruktionerna.
 2. Logga in på ditt konto och konfigurera miljön.
 
   ```powershell
@@ -179,7 +179,7 @@ Om gateway-undernätet är /27 eller större och det virtuella nätverket är an
 > 
 > 
 
-1. Du måste installera den senaste versionen av Azure PowerShell-cmdletarna. Mer information om hur du installerar cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azureps-cmdlets-docs). De cmdletar som du använder för den här konfigurationen kan se annorlunda ut än de du tidigare använt. Var noga med att använda de cmdletar som anges i instruktionerna. 
+1. Du måste installera den senaste versionen av Azure PowerShell-cmdletarna. Mer information om hur du installerar cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). De cmdletar som du använder för den här konfigurationen kan se annorlunda ut än de du tidigare använt. Var noga med att använda de cmdletar som anges i instruktionerna. 
 2. Ta bort den befintliga ExpressRoute- eller VPN-gatewayen för plats till plats.
 
   ```powershell 
@@ -232,3 +232,4 @@ Mer information om punkt-till-plats-VPN finns i [Konfigurera en punkt-till-plats
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
+

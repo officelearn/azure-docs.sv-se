@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: e16792bb762287bc16c280386981a4d442448674
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -42,11 +42,10 @@ I den här kursen ska du:
 
 ## <a name="select-a-sql-vm-image-from-the-gallery"></a>Välja en VM-avbildning med SQL från galleriet
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
-   
+
    > [!NOTE]
    > Om du inte har något Azure-konto besöker du sidan för [kostnadsfria utvärderingsversioner av Azure](https://azure.microsoft.com/pricing/free-trial/).
-   > 
-   > 
+
 2. Klicka på **Nytt** på Azure Portal. Portalen öppnas på bladet **Nytt**. VM-resurserna med SQL Server finns i gruppen **Compute** på Marketplace.
 3. I det **Nya** bladet klickar du på **Compute** och sedan på **Se alla**.
 4. I textrutan **Filter** anger du ”SQL Server” och trycker på RETUR-tangenten.
@@ -58,13 +57,13 @@ I den här kursen ska du:
 
    > [!TIP]
    > Vi använder Developer-versionen i den här självstudiekursen eftersom det är en komplett version av SQL Server som är kostnadsfri i samband med utvecklingstester. Du betalar endast för kostnaden för den VM som körs.
-   
+
    > [!NOTE]
-   > För avbildningar av virtuella SQL-datorer ingår licenskostnaden för SQL Server i minutpriset för den virtuella dator som du skapar (förutom för versionerna Developer och Express). SQL Server Developer är kostnadsfri när den används till utveckling och testning (inte i samband med produktion) och SQL Express är kostnadsfri för enklare arbetsbelastningar (mindre än 1 GB minne och mindre än 10 GB lagringsutrymme). Ett annat alternativ är att använda en egen licens (BYOL, bring-your-own-license) och endast betala för den virtuella datorn. Dessa avbildningsnamn föregås av {BYOL}. Mer information om det här alternativet finns i [Komma igång med SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
-   > 
-   > 
+   > För avbildningar av virtuella SQL-datorer ingår licenskostnaden för SQL Server i minutpriset för den virtuella dator som du skapar (förutom för versionerna Developer och Express). SQL Server Developer är kostnadsfri när den används till utveckling och testning (inte i samband med produktion) och SQL Express är kostnadsfri för enklare arbetsbelastningar (mindre än 1 GB minne och mindre än 10 GB lagringsutrymme).
+   > Ett annat alternativ är att använda en egen licens (BYOL, bring-your-own-license) och endast betala för den virtuella datorn. Dessa avbildningsnamn föregås av {BYOL}. Mer information om alternativen finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
+
 7. Under **Välj en distributionsmodell** kontrollerar du att **Resource Manager** är valt. Resource Manager är den rekommenderade distributionsmodellen för nya virtuella datorer. Klicka på **Skapa**.
-   
+
     ![Skapa den virtuella SQL-datorn med Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>Konfigurera den virtuella datorn
@@ -100,7 +99,7 @@ Ange följande information i bladet **Grundläggande inställningar**:
 I steget **Storlek** väljer du en storlek för den virtuella dator i bladet **Välj en storlek**. På bladet visas initialt rekommenderade datorstorlekar baserat på den avbildning som du har valt.
 
 > [!IMPORTANT]
-> Den uppskattade månadskostnaden som visas på bladet **Välj en storlek** innefattar inte SQL Server-licenskostnaden. Detta är endast kostnaden för den virtuella datorn. För SQL Server-utgåvorna Express och Developer är detta den totala uppskattade kostnaden. För andra utgåvor kan du se [sidan med priser för Windows Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and och välja din utgåva av SQL Server. 
+> Den uppskattade månadskostnaden som visas på bladet **Välj en storlek** innefattar inte SQL Server-licenskostnaden. Detta är endast kostnaden för den virtuella datorn. För SQL Server-utgåvorna Express och Developer är detta den totala uppskattade kostnaden. För andra utgåvor kan du se [sidan med priser för Windows Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and och välja din utgåva av SQL Server. Läs också [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
 ![Storleksalternativ för en virtuell dator med SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -108,8 +107,6 @@ För produktionsarbetsbelastningar rekommenderar vi att du väljer en storlek p�
 
 > [!NOTE]
 > Mer information om storlekar för virtuella datorer finns i [Storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Saker att tänka på när du väljer storlek för virtuella datorer med SQL Server finns i [Prestandarelaterade metodtips för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
-> 
-> 
 
 Välj din datorstorlek och klicka på **Välj**.
 

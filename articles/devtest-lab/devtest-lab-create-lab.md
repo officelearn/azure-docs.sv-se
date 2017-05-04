@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
-ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -40,9 +41,11 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
    2. Välj den **prenumeration** som du vill koppla till labbet.
    3. Välj en **plats** där du vill lagra labbet.
    4. Välj **Automatisk avstängning** för att ange om du vill aktivera, och definiera parametrar för, automatisk avstängning av alla labbets virtuella datorer. 
-   5. Välj **Skapa**.
-      
-      ![Skapa ett blad för labbet](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+   5. Välj **Fäst på instrumentpanelen** om du vill att en genväg till labbet ska visas på instrumentpanelen i portalen.
+   6. Välj **Automatiseringsalternativ** för att hämta Azure Resource Manager-mallar för konfigurationsautomatisering. 
+   7. Välj **Skapa**.
+    
+    ![Skapa ett blad för labbet](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -54,10 +57,5 @@ När du har skapat labbet kan du fundera på följande steg:
 * [Skapa en labbmall](devtest-lab-create-template.md).
 * [Skapa anpassade artefakter för dina virtuella datorer](devtest-lab-artifact-author.md).
 * [Lägga till en virtuell dator med artefakter i ett labb](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

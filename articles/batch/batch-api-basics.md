@@ -16,9 +16,9 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -73,11 +73,12 @@ Ett Batch-konto är en unikt identifierad entitet i Batch-tjänsten. All bearbet
 
 Du kan skapa ett Azure Batch-konto med [Azure Portal](batch-account-create-portal.md) eller programmässigt som med [Batch Management .NET-biblioteket](batch-management-dotnet.md). Du kan associera ett Azure Storage-konto när du skapar kontot.
 
-Batch har stöd för två kontokonfigurationer, baserat på egenskapen *poolallokeringsläge*. De två konfigurationerna ger dig olika alternativ för att autentisera med Batch-tjänsten och för etablering och hantering av Batch-[pooler](#pool) (mer information finns längre ned i den här artikeln). 
+Batch har stöd för två kontokonfigurationer, baserat på egenskapen *poolallokeringsläge*. Dessa två konfigurationer ger dig åtkomst till olika funktioner för [Batch-pooler](#pool) (se nedan). 
 
 
-* **Batch-tjänsten** (standard): Du kan få åtkomst till Batch-API:erna med antingen delad nyckelautentisering eller [Azure Active Directory-autentisering](batch-aad-auth.md). Batch-beräkningsresurser allokeras i bakgrunden i ett Azure-hanterat konto.   
-* **Användarprenumeration**: Du kan endast få åtkomst till Batch API:erna med [Azure Active Directory-autentisering](batch-aad-auth.md). Batch-beräkningsresurser allokeras direkt i din Azure-prenumeration. Det här läget ger dig mer flexibilitet för att konfigurera datornoderna och integrera med andra tjänster. Det här läget kräver att du ställer in ytterligare ett Azure-nyckelvalv för ditt Batch-konto.
+* **Batch-tjänst**: Det här är standardalternativet med Batch-pool med virtuella datorer som tilldelas i bakgrunden i Azure-hanterade prenumerationer. Den här kontokonfigurationen måste användas om Cloud Services-pooler krävs, men kan inte användas om Virtual Machine-pooler krävs (som skapas från anpassade VM-avbildningar eller använder ett virtuellt nätverk). Du kan få åtkomst till Batch-API:erna med antingen delad nyckelautentisering eller [Azure Active Directory-autentisering](batch-aad-auth.md). 
+
+* **Användarprenumeration**: Den här kontokonfigurationen måste användas om Virtual Machine-pooler krävs (som skapas från anpassade VM-avbildningar eller använder ett virtuellt nätverk). Du kan endast få åtkomst till Batch API:erna med [Azure Active Directory-autentisering](batch-aad-auth.md) och Cloud Services-pooler stöds inte. Virtuella Batch-beräkningsdatorer allokeras direkt i din Azure-prenumeration. Det här läget kräver att du ställer in ett Azure-nyckelvalv för ditt Batch-konto.
  
 
 ## <a name="compute-node"></a>Beräkningsnod

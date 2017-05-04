@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93920075a8ad8de4fd650d9cbbfd13b7bc18bf52
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ Bilden nedan visar ett exempel på användardefinierade vägar och IP-vidarebefo
 ![Systemvägar i Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Användardefinierade vägar tillämpas bara på trafik som lämnar ett undernät. Du kan till exempel inte skapa flöden för att ange hur trafiken går i ett undernät från Internet. Dessutom får inte den enhet som du vidarebefordar trafik till finnas i samma undernät som trafiken kommer ifrån. Skapa alltid ett separat undernät för dina installationer. 
+> Användardefinierade vägar tillämpas till trafik som lämnar ett undernät (som nätverksgränssnitt som är anslutna till den virtuella datorn) i undernätet. Du kan till exempel inte skapa flöden för att ange hur trafiken går i ett undernät från Internet. Den enhet som du vidarebefordrar trafik till får inte finnas i samma undernät som trafiken kommer ifrån. Skapa alltid ett separat undernät för dina installationer. 
 > 
 > 
 

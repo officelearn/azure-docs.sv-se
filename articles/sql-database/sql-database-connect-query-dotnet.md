@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,6 +32,8 @@ Den här snabbstarten använder resurser som har skapats i någon av dessa snabb
 - [Skapa DB – CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-net"></a>Installera .NET
+
+Stegen i det här avsnittet förutsätter att du är bekant med att utveckla med .NET och att du är nybörjare när det gäller att arbeta med Azure SQL Database. Om du är nybörjare på utveckla med .NET går du till [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Skapa en app med SQL Server) och väljer **C#** och sedan ditt operativsystem.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET framework och .NET core**
 
@@ -66,7 +68,7 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 
-Hämta anslutningssträngen i Azure Portal. Du kan använda anslutningssträngen för att ansluta till Azure SQL Database.
+Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet, databasnamnet och inloggningsinformationen i nästa procedurer.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
@@ -96,7 +98,8 @@ När du använder .NET core lägger du till System.Data.SqlClient i projektets *
 1. Öppna en tom kodfil i din utvecklingsmiljö.
 2. Lägg till ```using System.Data.SqlClient``` i kodfilen ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Använd [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) med ett [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-uttryck för att skicka frågor till data i Azure SQL Database. Lägg till lämpliga värden för din server.
+3. Använd följande kod för att söka efter de 20 främsta produkterna med kommandot [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) med Transact-SQL-instruktionen [SELECT](https://msdn.microsoft.com/library/ms189499.aspx). Lägg till lämpliga värden för din server, användare och lösenord.
+
 ```csharp
 using System;
 using System.Data;
@@ -152,7 +155,7 @@ namespace ConsoleApplication1
 
 ## <a name="insert-data"></a>Infoga data
 
-Använd [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) med ett [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-uttryck för att infoga data i Azure SQL Database.
+Använd följande kod för att infoga en ny produkt i tabellen SalesLT.Product med [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) med Transact-SQL-instruktionen [INSERT](https://msdn.microsoft.com/library/ms174335.aspx). Lägg till lämpliga värden för din server, användare och lösenord.
 
 ```csharp
 using System;
@@ -207,7 +210,7 @@ namespace ConsoleApplication1
 
 ## <a name="update-data"></a>Uppdatera data
 
-Använd [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) med ett [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-uttryck för att uppdatera data i Azure SQL Database.
+Med följande kod uppdaterar du den nya produkt du tidigare lade till med [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) med Transact-SQL-instruktionen [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx). Lägg till lämpliga värden för din server, användare och lösenord.
 
 ```csharp
 using System;
@@ -257,7 +260,7 @@ namespace ConsoleApplication1
 
 ## <a name="delete-data"></a>Ta bort data
 
-Använd [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) med ett [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-uttryck för att ta bort data i Azure SQL Database.
+Med följande kod tar du bort den nya produkt du tidigare lade till med [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) med Transact-SQL-instruktionen [DELETE](https://msdn.microsoft.com/library/ms189835.aspx). Lägg till lämpliga värden för din server, användare och lösenord.
 
 ```csharp
 using System;

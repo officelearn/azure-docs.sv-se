@@ -1,9 +1,9 @@
 # Översikt
 ## [Vad är Azure Active Directory?](active-directory-whatis.md)
 ## [Välj utgåva](active-directory-editions.md)
-## [Om Azures identitetshantering](fundamentals-identity.md)
-## [Förhandsgranska Azure AD-portalen](active-directory-preview-explainer.md)
 
+## [Om Azures identitetshantering](identity-fundamentals.md)
+## [Förhandsgranska Azures portalupplevelse](active-directory-preview-explainer.md)
 
 # Kom igång
 ## [Hämta en Azure AD-klientorganisation](active-directory-howto-tenant.md)
@@ -58,6 +58,7 @@
 ### [Visa alla grupper](active-directory-groups-view-azure-portal.md)
 ### [Aktivera dedikerade grupper](active-directory-accessmanagement-dedicated-groups.md)
 ### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
+### [Återställa en borttagen Office 365-grupp](active-directory-groups-restore-azure-portal.md)
 ### Hantera gruppinställningar
 #### [Azure-portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdletar](active-directory-accessmanagement-groups-settings-cmdlets.md)
@@ -110,24 +111,27 @@
 ##### [Okända källor](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Avvikande inloggningar](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Hantera lösenord](active-directory-manage-passwords.md)
-### [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
-### [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
-### [Administratörer aktiverar självbetjäning för återställning av lösenord](active-directory-passwords.md)
-### [Förstå lösenordshantering](active-directory-passwords-how-it-works.md)
-### [Förstå principer och begränsningar](active-directory-passwords-policy.md)
-### Återställa lösenord
-#### [Azure-portal](active-directory-users-reset-password-azure-portal.md)
-#### [Klassisk portal](active-directory-create-users-reset-password.md)
-### [Ställ in giltighetsprinciper](active-directory-passwords-set-expiration-policy.md)
-### Aktivera lösenordshantering
-#### [Kom igång](active-directory-passwords-getting-started.md)
-#### [Distribuera](active-directory-passwords-best-practices.md)
-#### [Anpassa](active-directory-passwords-customize.md)
-#### [Visa rapporter](active-directory-passwords-get-insights.md)
-#### [Läs mer](active-directory-passwords-learn-more.md)
-#### [Vanliga frågor och svar](active-directory-passwords-faq.md)
-#### [Felsöka](active-directory-passwords-troubleshoot.md)
+## [Hantera lösenord](active-directory-passwords.md)
+### Användardokument
+#### [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
+#### [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
+### [Snabbstart: återställning av lösenord för självbetjäning](active-directory-passwords-getting-started.md)
+### [Licensiera SSPR](active-directory-passwords-licensing.md)
+### [Distribuera SSPR](active-directory-passwords-best-practices.md)
+### IT-administratörer: Återställ lösenord
+#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
+#### [Klassisk Azure-portal](active-directory-create-users-reset-password.md)
+### [Förstå SSPR-principer](active-directory-passwords-policy.md)
+### [Förstå lösenordsåterställning](active-directory-passwords-how-it-works.md)
+### [Anpassa SSPR](active-directory-passwords-customize.md)
+### [Data som används av SSPR](active-directory-passwords-data.md)
+### [Rapportering på SSPR](active-directory-passwords-reporting.md)
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Tillbakaskrivning av lösenord](active-directory-passwords-writeback.md)
+### [Synkronisering av lösenordshash](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
+### [Felsöka](active-directory-passwords-troubleshoot.md)
+### [Vanliga frågor och svar](active-directory-passwords-faq.md)
+
 
 ## Hantera enheter
 ### [Registrera enheter](active-directory-device-registration-overview.md)
@@ -289,6 +293,7 @@
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [Felsöka](role-based-access-control-troubleshooting.md)
+#### [Åtgärder för resursprovider](role-based-access-control-resource-provider-operations.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
 
 ## Skydda dina identiteter
@@ -341,7 +346,7 @@
 
 
 # Referens
-## [PowerShell-cmdletar](/powershell/ )
+## [PowerShell-cmdletar](/powershell/azure/overview)
 ## [Java API-referens](/java/api)
 ## [.NET-API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Tjänstens begränsningar](active-directory-service-limits-restrictions.md)

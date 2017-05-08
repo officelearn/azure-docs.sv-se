@@ -15,13 +15,12 @@
 ### [Azure Portal](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
-## [Hantera sökresultat](search-pagination-page-layout.md)
-## Självstudier
-### [NET](search-howto-dotnet-sdk.md)
-### [Förhandsversion av .NET-synonymer](search-synonyms-tutorial-sdk.md)
-### [Portal](search-get-started-portal.md)
-### [NodeJS](search-get-started-nodejs.md)
-### [Java](search-get-started-java.md)
+# Självstudier
+## [NET](search-howto-dotnet-sdk.md)
+## [Förhandsversion av .NET-synonymer](search-synonyms-tutorial-sdk.md)
+## [Portal](search-get-started-portal.md)
+## [Node.js](search-get-started-nodejs.md)
+## [Java](search-get-started-java.md)
 # Gör så här för att
 ## Planera och designa
 ### [Tjänstbegränsningar](search-limits-quotas-capacity.md)
@@ -59,14 +58,16 @@
 ### Anpassad sökning
 #### [Språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### [Växla resultat](search-pagination-page-layout.md)
 ### [Resultat](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Förslag](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Aspektbaserad navigering](search-faceted-navigation.md)
 ### [Förhandsversion av synonymer](search-synonyms.md)
 
 # Referens
-## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET (hantering)](/dotnet/api/microsoft.azure.management.search)
+
+## [.NET](/dotnet/api/?term=microsoft.azure.search)
+## [.NET (hantering)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (hantering)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (hantering)](/rest/api/searchmanagement)

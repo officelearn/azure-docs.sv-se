@@ -9,14 +9,14 @@
 ## Snabbstartguider
 ### [Skapa en iOS-app](active-directory-b2c-devquickstarts-ios.md)
 ### [Skapa en Android-app](active-directory-b2c-devquickstarts-android.md)
-### [Skapa en Node.js-webb-API](active-directory-b2c-devquickstarts-api-node.md)
-### [Bygg en .NET-webbapp](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Registrera dig och logga in på en ASP.NET-webbapp](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [Skapa ett .NET Webb-API](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Skapa en Windows-skrivbordsapp](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Anropa ett webb-API från en .NET-webbapp](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### Skapa en .NET-webbapp
+#### [Registrera dig och logga in på en .NET-webbapp](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [Anropa ett webb-API från en .NET-webbapp](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Skapa ett webb-API för .NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [Skapa en Node.Js-webbapp](active-directory-b2c-devquickstarts-web-node.md)
+### [Skapa ett webb-API för Node.Js](active-directory-b2c-devquickstarts-api-node.md)
+### [Skapa en .NET-skrivbordsapp](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Använd Azure AD Graph API:n](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Lägga till en inloggning till en Node.js-webbapp](active-directory-b2c-devquickstarts-web-node.md)
 ## [Vanliga frågor och svar](active-directory-b2c-faqs.md)
 
 # Gör så här för att
@@ -53,7 +53,7 @@
 
 # Resurser
 ## [Prissättning](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Azures feedbackforum](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure AD B2C-feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Support](active-directory-b2c-support.md)

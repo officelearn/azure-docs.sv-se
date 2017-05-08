@@ -7,11 +7,14 @@
 ## [Skapa ett Batch-konto](batch-account-create-portal.md)
 ## [Batch .NET-självstudier](batch-dotnet-get-started.md)
 ## [Batch Python-självstudier](batch-python-tutorial.md)
+## [Batch Node.js-självstudier](batch-nodejs-get-started.md)
 # Gör så här för att
 ## Utveckla
 ### [Programpaket](batch-application-packages.md)
 ### [Automatisk skalning för beräkningsnoder](batch-automatic-scaling.md)
-### [Azure AD-autentisering](batch-aad-auth.md)
+### Azure AD-autentisering
+#### [Azure AD med Batch-tjänsten](batch-aad-auth.md)
+#### [Azure AD med Batch Management](batch-aad-auth-management.md)
 ### [Samtidiga nodaktiviteter](batch-parallel-node-tasks.md)
 ### [Effektiv lista: frågor](batch-efficient-list-queries.md)
 ### [Aktiviteter för jobbförberedelse och -slutförande](batch-job-prep-release.md)
@@ -27,7 +30,7 @@
 ### [Azure CLI](batch-cli-get-started.md)
 
 # Referens
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)

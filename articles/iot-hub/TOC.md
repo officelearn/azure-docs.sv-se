@@ -81,6 +81,7 @@
 ### Använda direkta metoder
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-direct-methods.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-direct-methods.md)
+#### [Java-serverdel/Java-enhet](iot-hub-java-java-direct-methods.md)
 ### Komma igång med enhetshantering
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-device-management-get-started.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-device-management-get-started.md)

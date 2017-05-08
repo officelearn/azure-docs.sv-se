@@ -48,6 +48,7 @@
 ### [Lösning för aviseringshantering](log-analytics-solution-alert-management.md)
 ## Använd lösningar
 ### [Översikt över lösningar](log-analytics-add-solutions.md)
+### [Mållösningar](../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD-bedömning](log-analytics-ad-assessment.md)
 ### [AD-replikeringsstatus](log-analytics-ad-replication-status.md)
@@ -57,6 +58,8 @@
 ### [Spårning av ändringar](log-analytics-change-tracking.md)
 ### [Behållare](log-analytics-containers.md)
 ### [DNS-analys](log-analytics-dns.md)
+### [IT Service Management Connector i OMS](log-analytics-itsmc-overview.md)
+#### [IT Service Management-anslutningar i OMS](log-analytics-itsmc-connections.md)
 ### [Key Vault](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B-meddelanden
 #### [Lösning för Logic Apps B2B-meddelanden](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -84,7 +87,7 @@
 ### [Aviserings-API](log-analytics-api-alerts.md)
 
 # Referens
-## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [PowerShell](/powershell/module/azurerm.operationalinsights)
 ## [REST](/rest/api/loganalytics)
 
 # Resurser

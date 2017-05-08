@@ -7,6 +7,13 @@
 ## [Skapa en händelsekälla](time-series-insights-add-event-source.md)
 ## [Skicka händelser](time-series-insights-send-events.md)
 
+# Gör så här för att
+## [Skapa en Event Hub-händelsekälla](time-series-insights-how-to-add-an-event-source-eventhub.md)
+## [Skapa en IoT Hub-händelsekälla](time-series-insights-how-to-add-an-event-source-iothub.md)
+## [Skala din miljö](time-series-insights-how-to-scale-your-environment.md)
+## [Diagnostisera och lösa problem](time-series-insights-diagnose-and-solve-problems.md)
+## [Fråga data med C#](time-series-insights-query-data-csharp.md)
+
 # Referens
 ## [Fråge-API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
 ## [Frågesyntax](/rest/api/time-series-insights/time-series-insights-reference-query-syntax)

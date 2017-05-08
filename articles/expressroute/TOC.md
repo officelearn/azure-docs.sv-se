@@ -12,7 +12,6 @@
 ## [Förutsättningar](expressroute-prerequisites.md)
 ## [Arbetsflöden](expressroute-workflows.md)
 ## [Routningskrav](expressroute-routing.md)
-## [NAT-krav](expressroute-nat.md)
 ## [QoS-krav](expressroute-qos.md)
 ## [Om att flytta kretsar från klassisk till Resource Manager](expressroute-move.md)
 
@@ -38,8 +37,9 @@
 
 ## Metodtips
 ### [Bästa metoder för nätverkssäkerhet och molntjänster](../best-practices-network-security.md)
-## [Optimera routning](expressroute-optimize-routing.md)
+### [Optimera routning](expressroute-optimize-routing.md)
 ### [Asymmetrisk routning](expressroute-asymmetric-routing.md)
+### [NAT för ExpressRoute](expressroute-routing-nat.md)
 
 ## Felsöka
 ### [Verifiera ExpressRoute-anslutning](expressroute-troubleshooting-expressroute-overview.md)
@@ -47,7 +47,7 @@
 ### [Hämta ARP-tabeller (klassisk)](expressroute-troubleshooting-arp-classic.md)
 
 # Referens
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klassisk)](https://msdn.microsoft.com/library/azure/dn606310)
 

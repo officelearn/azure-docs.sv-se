@@ -37,21 +37,23 @@
 ### [PowerShell (klassisk)](vpn-gateway-multi-site.md)
 ## [Konfigurera BGP för en VPN-gateway](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Konfigurera aktiv-aktiv-anslutningar med hög tillgänglighet](vpn-gateway-activeactive-rm-powershell.md)
-## [Ändra inställningar för lokal nätverksgateway med PowerShell](vpn-gateway-modify-local-network-gateway.md)
+## Ändra inställningar för lokal nätverksgateway
+### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+### [CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verifiera en anslutning till VPN-gateway](vpn-gateway-verify-connection-resource-manager.md)
 ## [Återställ en VPN-gateway](vpn-gateway-resetgw-classic.md)
 ## Ta bort en VPN-gateway
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klassisk)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Skapa självsignerade rotcertifikat för P2S-anslutningar](vpn-gateway-certificates-point-to-site.md)
+## [Skapa självsignerade certifikat för punkt-till-plats](vpn-gateway-certificates-point-to-site.md)
 ## [Konfigurera en VPN-gateway (klassisk)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Felsöka
 ### [Validera VPN-dataflöde till VNet](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Referens
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
-## [PowerShell (klassisk)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell](/powershell/module/azurerm.network)
+## [PowerShell (klassisk)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (klassisk)](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)

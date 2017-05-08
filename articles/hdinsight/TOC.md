@@ -132,8 +132,9 @@
 ## Utöka kluster
 ### [Anpassa kluster med Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Anpassa kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md)
-### [Lägga till Hive-bibliotek](hdinsight-hadoop-add-hive-libraries.md)
 ### [Utveckla skriptåtgärder](hdinsight-hadoop-script-actions-linux.md)
+### [Installera eller uppdatera Mono](hdinsight-hadoop-install-mono.md)
+### [Lägga till Hive-bibliotek](hdinsight-hadoop-add-hive-libraries.md)
 ### [Använda Giraph](hdinsight-hadoop-giraph-install-linux.md)
 ### [Använda Hue](hdinsight-hadoop-hue-linux.md)
 ### [Använda R](hdinsight-hadoop-r-scripts-linux.md)
@@ -190,7 +191,7 @@
 #### [Prestanda för Hive-frågor](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referens
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)

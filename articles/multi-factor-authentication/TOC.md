@@ -47,3 +47,4 @@
 ## Felsöka
 ### [Vanliga frågor och svar](multi-factor-authentication-faq.md)
 ### [Ställ en fråga](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
+### [Fel i NPS-tillägg](multi-factor-authentication-nps-errors.md)

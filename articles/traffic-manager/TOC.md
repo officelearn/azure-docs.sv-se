@@ -22,9 +22,11 @@
 ## [Mät Traffic Manager-prestanda](traffic-manager-performance-considerations.md)
 ## [Hantera Traffic Manager med hjälp av PowerShell](traffic-manager-powershell-arm.md)
 ## [Peka din Internetdomän till Traffic Manager](traffic-manager-point-internet-domain.md)
+## Felsöka
+### [Felsök degraderat tillstånd på Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Referens
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
+## [PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

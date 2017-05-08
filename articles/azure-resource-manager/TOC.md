@@ -29,15 +29,19 @@
 ### [Ange en plats](resource-manager-template-location.md)
 ### [Tilldela taggar](resource-manager-template-tags.md)
 ### [Ange underordnat resursnamn och typ](resource-manager-template-child-resource.md)
+### [Uppdatera resurs](resource-manager-update.md)
+### [Använda objekt för parametrar](resource-manager-objects-as-parameters.md)
 ### [Dela tillstånd mellan länkade mallar](best-practices-resource-manager-state.md)
 ### [Mönster för att utforma mallar](best-practices-resource-manager-design-templates.md)
 ## Distribuera
 ### PowerShell
 #### [Distribuera mall](resource-group-template-deploy.md)
 #### [Distribuera privat mall med SAS-token](resource-manager-powershell-sas-token.md)
+#### [Exportera mall och distribuera om](resource-manager-export-template-powershell.md)
 ### Azure CLI
 #### [Distribuera mall](resource-group-template-deploy-cli.md)
 #### [Distribuera privat mall med SAS-token](resource-manager-cli-sas-token.md)
+#### [Exportera mall och distribuera om](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -72,7 +76,13 @@
 
 # Referens
 ## [Mallfunktioner](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Funktioner för matris och objekt](resource-group-template-functions-array.md)
+### [Jämförelsefunktioner](resource-group-template-functions-comparison.md)
+### [Distributionsfunktioner](resource-group-template-functions-deployment.md)
+### [Numeriska funktioner](resource-group-template-functions-numeric.md)
+### [Resursfunktioner](resource-group-template-functions-resource.md)
+### [Strängfunktioner](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

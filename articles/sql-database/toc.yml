@@ -4,7 +4,7 @@
   items:
   - name: "Om SQL DB"
     href: sql-database-technical-overview.md
-- name: "Snabbstart"
+- name: "Snabbstarter"
   expanded: true
   items:
   - name: "Skapa DB – Portal"
@@ -38,7 +38,9 @@
   - name: "1 – Skapa/utforma ny SQL-databas"
     href: sql-database-design-first-database.md
   - name: "2 – Migrera en befintlig SQL-server"
-    href: sql-database-migrate-your-sql-server-database.md 
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: "3 – Skydda din SQL-databas"
+    href: sql-database-security-tutorial.md
 - name: "Exempel"
   items:
   - name: "Azure CLI"

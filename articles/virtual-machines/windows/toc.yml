@@ -4,7 +4,7 @@
   items:
   - name: "Om Virtual Machines"
     href: overview.md
-- name: "Snabbstart"
+- name: "Snabbstarter"
   expanded: true
   items:
   - name: "Skapa VM – Portal"
@@ -21,10 +21,19 @@
     href: tutorial-manage-data-disk.md
   - name: "3 – Automatisera konfiguration"
     href: tutorial-automate-vm-deployment.md
-  - name: "4 – Belastningsutjämna virtuella datorer"
+  - name: "4 – Skapa avbildningar av virtuella datorer"
+    href: tutorial-custom-images.md
+  - name: "5 – Virtuella datorer med hög tillgänglighet"
+    href: tutorial-availability-sets.md
+  - name: "6 – Skapa en VM-skalningsuppsättning"
+    href: tutorial-create-vmss.md
+  - name: "7 – Belastningsutjämna virtuella datorer"
     href: tutorial-load-balancer.md
-  - name: "5 – Hantera nätverk"
+  - name: "8 – Hantera nätverk"
     href: tutorial-virtual-network.md
+  - name: "9 – Hantera VM-säkerhet"
+    href: tutorial-azure-security.md
+
 - name: "Exempel"
   items:
   - name: "PowerShell"

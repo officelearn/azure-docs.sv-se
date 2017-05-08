@@ -4,7 +4,7 @@
   items:
   - name: "Om Virtual Machines"
     href: overview.md
-- name: "Snabbstart"
+- name: "Snabbstarter"
   expanded: true
   items:
   - name: "Skapa VM – Azure CLI"
@@ -31,6 +31,8 @@
     href: tutorial-load-balancer.md
   - name: "8 – Hantera nätverk"
     href: tutorial-virtual-network.md
+  - name: "9 – Hantera VM-säkerhet"
+    href: tutorial-azure-security.md
 - name: "Exempel"
   items:
   - name: "Azure CLI"

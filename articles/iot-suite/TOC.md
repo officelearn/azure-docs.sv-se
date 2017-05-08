@@ -11,12 +11,22 @@
 ## [Översikt över ansluten fabrikslösning](iot-suite-connected-factory-overview.md)
 ## [Genomgång av lösning för fjärrövervakning](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Genomgång av lösning för förebyggande underhåll](iot-suite-predictive-walkthrough.md)
+## [Anslut Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
+### Använd C
+#### [Simulerade data](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+#### [Använd verkliga sensorer](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+#### [Implementera uppdatering för inbyggd programvara](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### Använd Node.js
+#### [Simulerade data](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+#### [Använd verkliga sensorer](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+#### [Implementera uppdatering för inbyggd programvara](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
 
 # Gör så här för att
-## [Anslut enheten till fjärrövervakningslösningen (Windows)](iot-suite-connecting-devices.md)
-## [Anslut enheten till fjärrövervakningslösningen (Linux)](iot-suite-connecting-devices-linux.md)
-## [Anslut enheten till fjärrövervakningslösningen (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Anslut enheten till fjärrövervakningslösningen (Node)](iot-suite-connecting-devices-node.md)
+## Anslut en simulerad enhet
+### [C i Windows](iot-suite-connecting-devices.md)
+### [C i Linux](iot-suite-connecting-devices-linux.md)
+### [Node.js](iot-suite-connecting-devices-node.md)
+## [Anslut din mbed-enhet](iot-suite-connecting-devices-mbed.md)
 ## [Anslut en logikapp till fjärrövervakningslösningen](iot-suite-logic-apps-tutorial.md)
 ## [Anpassa en förkonfigurerad lösning](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Använd dynamisk telemetri med fjärrövervakningslösningen](iot-suite-dynamic-telemetry.md)

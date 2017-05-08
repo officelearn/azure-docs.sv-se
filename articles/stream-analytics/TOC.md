@@ -32,23 +32,33 @@
 
 ## Hantera
 ### [Tillförlitlighet för jobb](stream-analytics-job-reliability.md)
-### [Övervaka jobb](stream-analytics-monitoring.md)
-### [Diagnostikloggar](stream-analytics-job-diagnostic-logs.md)
 ### [Övervaka jobb programmässigt](stream-analytics-monitor-jobs.md)
 ### [Övervaka jobb med PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Skala för att öka dataflödet](stream-analytics-scale-jobs.md)
 ### [Skala för Machine Learning-funktioner](stream-analytics-scale-with-machine-learning-functions.md)
 ### [Rotera autentiseringsuppgifter för in- och utdata](stream-analytics-login-credentials-inputs-outputs.md)
 
+## Felsöka
+### [Felsökningsguide](stream-analytics-troubleshooting-guide.md)
+### [Övervaka jobb](stream-analytics-monitoring.md)
+### [Resource Health-blad](stream-analytics-resource-health.md)
+### [Jobbdiagram och mått](stream-analytics-job-diagram-with-metrics.md)
+### [Testfrågor](stream-analytics-test-query.md)
+### [Exempel på inmatade data](stream-analytics-sample-data-input.md)
+### [SELECT INTO-felsökning](stream-analytics-select-into.md)
+### [Hantering av händelseordning](stream-analytics-out-of-order-and-late-events.md)
+### [Läsbegränsningar för händelsehubb](stream-analytics-event-hub-consumer-groups.md)
+### [Optimera direktuppspelningsenheter](stream-analytics-streaming-unit-consumption.md)
+### [Diagnostikloggar](stream-analytics-job-diagnostic-logs.md)
+
 ## Automatisera
 ### [PowerShell med ett klick](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Referens
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Frågespråk](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
-
 
 # Resurser
 ## [Viktig information](stream-analytics-release-notes.md)

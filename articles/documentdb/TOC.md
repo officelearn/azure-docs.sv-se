@@ -6,6 +6,7 @@
 ## [Global distribution](documentdb-distribute-data-globally.md)
 ## [Regionala redundanstestningar](documentdb-regional-failovers.md)
 ## [Säkerhet](documentdb-nosql-database-security.md)
+## [Vilande kryptering](documentdb-nosql-database-encryption-at-rest.md)
 ## [TCO-analys för NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Scenarier
 ### [Vanliga användarsituationer](documentdb-use-cases.md)

@@ -1,5 +1,5 @@
 ---
-title: "Lägga till företagsinformation till inloggnings- och åtkomstpanelsidor i Azure Active Directory"
+title: "Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag"
 description: "Lär dig hur du anpassar inloggningssidan och åtkomstpanelsidan i Azure till ditt företag"
 services: active-directory
 documentationcenter: 
@@ -8,108 +8,111 @@ manager: femila
 editor: 
 ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
-ms.workload: identity
+ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/07/2017
+ms.date: 03/03/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 6d4fbfe97288fcb76628b45649b8b678152198a9
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="add-company-branding-to-sign-in-and-access-panel-pages"></a>Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag
-Många organisationer vill ha ett konsekvent utseende och en enhetlig stil på de webbplatser och tjänster som de hanterar. I Azure Active Directory kan IT-experter anpassa utseendet på följande webbsidor med företagslogotyper och företagsbilder:
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag
+För att undvika förvirring vill många företag använda ett enhetligt utseende på alla webbplatser och tjänster som de hanterar. Azure Active Directory erbjuder den här möjligheten genom att låta dig anpassa utseendet på följande webbsidor med företagets logotyp och egna färgscheman:
 
-* **Inloggningssidan** – Det här är den sida som visas när anställda och företagsgäster loggar in i Office 365 eller andra program som använder Azure AD.
-* **Åtkomstpanelsidan** – Åtkomstpanelen är en webbaserad portal där du kan visa och starta de molnbaserade program som din Azure AD-administratör har gett dig åtkomst till. Åtkomstpanelen finns på: [https://myapps.microsoft.com](https://myapps.microsoft.com).
+* **Inloggningssidan** – Det här är den sida som visas när du loggar in i Office 365 eller andra webbaserade program som använder Azure AD som identitetsprovider. Du kan interagera med den här sidan antingen under identifieringen av startsfären eller för att ange dina autentiseringsuppgifter. Identifieringen av startsfären gör att systemet kan omdirigera externa användare till deras lokala STS (till exempel AD FS).
+* **Åtkomstpanelsidan** – Åtkomstpanelen är en webbaserad portal där du kan visa och starta de molnbaserade program som din Azure AD-administratör har gett dig åtkomst till. Använd följande URL för att komma åt åtkomstpanelen: [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 I det här avsnittet lär du dig hur du kan anpassa inloggningssidan och åtkomstpanelsidan.
 
 > [!NOTE]
-> * Funktionen för varumärkesanpassning är bara tillgänglig om du har uppgraderat till Premium- eller Basic-versionen av Azure Active Directory, eller om du har en Office 365-licens. Mer information finns i avsnittet om Azure Active Directory-versioner.
-> 
-> * Azure Active Directory Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure Active Directory Premium och Basic stöds inte för närvarande i Microsoft Azure-tjänsten som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via Azure Active Directory-forumet.
-
+> * Funktionen för företagsanpassning är en funktion som bara är tillgänglig om du har uppgraderat till Premium- eller Basic-versionen av Azure Active Directory, eller om du använder Office 365. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
+> * Azure Active Directory Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure Active Directory Premium och Basic stöds inte för närvarande i Microsoft Azure-tjänsten som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>Anpassa inloggningssidan
-Användarna interagerar vanligtvis med Azure AD-inloggningssidan när de försöker komma åt molnprogram och molntjänster som din organisation prenumererar på.
+Du använder vanligtvis inloggningssidan om du behöver webbläsarbaserad åtkomst till molnappar och tjänster som din organisation prenumererar på.
 
-Om du har använt varumärkesanpassningar på inloggningssidan kan det ta upp till en timme innan ändringarna visas för slutanvändarna.
+Om du har gjort ändringar på inloggningssidan kan det ta upp till en timme innan ändringarna visas.
 
-Varumärkesanpassningen visas på inloggningssidan för Azure AD när användarna ansluter till en klientspecifik URL, till exempel https://outlook.com/contoso.com.
+En företagsanpassad inloggningssida visas bara när du besöker en tjänst med en URL som är specifik för en klientorganisation, till exempel https://outlook.com/**contoso**.com eller https://mail.**contoso**.com.
 
-Om användarna besöker en tjänst på en allmän URL, till exempel www.office.com, visas ingen varumärkningsanpassning på inloggningssidan eftersom systemet inte veta vem användaren är. Varumärkesanpassningen visas dock när användarna har angett sitt användar-ID eller valt en användarpanel.
+När du besöker en tjänst med en URL som inte är specifik för en klientorganisation (t.ex. https://mail.office365.com) visas en icke företagsanpassad inloggningssida. I så fall visas din anpassning först när du har angett ditt användar-ID eller då du har valt en användarikon.
 
 > [!NOTE]
 > * Domännamnet måste visas som ”Aktiv” i avsnittet **Active Directory** > **Katalog** > **Domäner** på den klassiska Azure-portalen där du har konfigurerat anpassningen.
-> * Varumärkesanpassningen på inloggningssidan förs inte över till inloggningssidan för personliga Microsoft-konton. Om dina anställda eller företagsgäster loggar in med ett personligt Microsoft-konto återges inte organisationens varumärkesanpassning på deras inloggningssida.
+> * Anpassningen av inloggningssidan överförs inte till Microsofts konsumentinloggningssida. Om du loggar in med ett personligt Microsoft-konto kan du se en företagsanpassad lista över användarikoner som återges av Azure AD, men organisationens företagsanpassning används inte på inloggningssidan för Microsoft-konton.
+>
 >
 
-Följande skärmbilder förklarar hur inloggningssidor anpassas.
+Om du vill att ditt företags varumärke, färger och andra anpassningsbara element ska återges på den här sidan tittar du på följande bilder som visar skillnaden mellan de båda upplevelserna.
 
-### <a name="scenario-1-contoso-employee-goes-to-a-generic-app-url-for-example-wwwofficecom"></a>Scenario 1: Contosos anställda går till en allmän URL för en app (till exempel www.office.com)
+Följande skärmbild visar ett exempel på Office 365-inloggningssidan på en stationär dator **före** en anpassning:
 
-I det här exemplet loggar en Contoso-användare in i ett mobilt program, eller i ett webbprogram med hjälp av en allmän URL. Bilden till vänster representerar alltid appen och interaktionsrutan till höger uppdateras för att visa Contoso-varumärkeselement när det är lämpligt.
+![Office 365-inloggningssida före anpassning][1]
 
-![Office 365-inloggningssidan före och efter anpassning][1]
+Följande skärmbild visar ett exempel på Office 365-inloggningssidan på en stationär dator **efter** en anpassning:
 
-### <a name="scenario-2-contoso-employee-goes-to-contoso-app-thats-restricted-to-internal-users"></a>Scenario 2: Contosos anställda går till en Contoso-app som är begränsad till interna användare
+![Office 365-inloggningssida efter anpassning][2]
 
-I det här exemplet loggar en Contoso-användare in i ett internt program med en företagsspecifik URL. Bilden till vänster representerar företagets varumärke (Contoso). Interaktionsrutan till höger är låst till Contoso och hjälper anställda genom inloggningen.
+Följande skärmbild visar ett exempel på Office 365-inloggningssidan på en mobil enhet **före** en anpassning:
 
-![inloggningssida för begränsad app][2]
+![Office 365-inloggningssida före anpassning][3]
 
-### <a name="scenario-3-contoso-employee-goes-to-a-contoso-app-thats-open-to-external-users"></a>Scenario 3: Contosos anställda går till en Contoso-app som är öppen för externa användare
+Följande skärmbild visar ett exempel på Office 365-inloggningssidan på en mobil enhet **efter** en anpassning:
 
-I det här exemplet loggar användarna in i ett verksamhetsspecifikt program från Contoso. Användarna kan men måste inte vara Contoso-anställda. Bilden till vänster representerar resursägaren (Contoso), precis som i fall \#2 ovan. Men den här gången är interaktionsrutan till höger inte låst till Contoso, och externa användare är välkomna att logga in.
+![Office 365-inloggningssida efter anpassning][4]
 
-![inloggning med öppen åtkomst][3]
+När du ändrar storlek på ett webbläsarfönster beskärs ofta den stora bilden, som den du såg tidigare, för att passa olika skärmproportioner. Med detta i åtanke bör du försöka behålla viktiga visuella element i bilden så att de alltid visas i det övre vänstra hörnet (längst upp till höger för höger-till-vänster-språk). Detta är viktigt eftersom storleksändringar vanligtvis sker från det nedre högra hörnet upp mot det vänstra hörnet eller nedifrån och uppåt.
 
-### <a name="scenario-4-fabrikam-business-guest-goes-to-contoso-app-thats-open-to-external-users"></a>Scenario 4: Fabrikam-företagsgäster går till en Contoso-app som är öppen för externa användare
+Följande bild visar hur bilden beskärs när webbläsaren storleksändras åt vänster:
 
-I det här exemplet loggar en Contoso-användare in i ett internt program med en företagsspecifik URL. Bilden till vänster representerar företagets varumärke (Contoso). Interaktionsrutan till höger är låst till Contoso och hjälper anställda genom inloggningen.
+![][6]
 
-![inloggning som en extern användare][4]
+Så här ser det ut när webbläsaren har storleksändrats mot överkanten:
 
+![][7]
 
 ## <a name="what-elements-on-the-page-can-i-customize"></a>Vilka element på sidan kan jag anpassa?
-
 Du kan anpassa följande element på inloggningssidan:
 
 ![][5]
 
 | Sidelement | Plats på sidan |
 |:--- | --- |
-| Banderollslogotyp | Visas längst upp till höger på sidan. Ersätter applogotypen när användarens organisation har fastställts (vanligtvis när användarnamnet har angetts). |
-| Bakgrundsbild | Visas som en helt utfallande bild till vänster på inloggningssidan. Ersätter appens bild i inloggningsscenarier med klientorganisationer (när användarna kommer åt ett program som publicerats av deras egen organisation eller en organisation där de är företagsgäster).<br>I anslutningar med låg bandbredd ersätts bakgrundsbilden med en bakgrundsfärg. Bilden visas inte på smala skärmar som till exempel telefoner.<br>Bakgrundsbilden beskärs när användare ändrar storlek på webbläsaren. När du utformar din bild bör du placera viktiga visuella element i det övre högra hörnet så att de inte beskärs. | 
-| Kryssrutan ”Håll mig inloggad” | Visas under rutan **Lösenord**. |
-| Text på inloggningssidan | Formaterad exempeltext som ska visas ovanför sidfoten. Den kan användas för att förmedla användbar information till användare, till exempel telefonnumret till supporten eller ett juridiskt meddelande. |
+| Banderollslogotyp |Visas längst upp till höger på sidan. Ersätter logotypen som visas på målwebbplatsen som du loggar in på (till exempel Office 365 eller Azure). |
+| Stor bild/bakgrundsfärg |Visas till vänster på sidan. Ersätter bilden som visas på målwebbplatsen som du loggar in på. Bakgrundsfärgen kanske visas i stället för den stora bilden vid anslutningar med låg bandbredd eller på smala skärmar. |
+| Håll mig inloggad |Visas under textrutan lösenord. |
+| Text på inloggningssidan |Visas ovanför sidfoten och kan förmedla praktisk information till användare innan de loggar in med ett arbets- eller skolkonto. Du kanske vill lägga till telefonnumret till supportavdelningen eller ett juridiskt meddelande. |
 
 > [!NOTE]
-> Alla element är valfria. Om du till exempel lägger till en banderollslogotyp men ingen bakgrundsbild så visas din logotyp och målwebbplatsens bild (dvs. bilden på en motorväg i Kalifornien för Office 365) på inloggningssidan.
+> Alla element är valfria. Om du till exempel lägger till en banderollslogotyp men ingen stor bild så visas din logotyp och målwebbplatsens bild (dvs. bilden på en motorväg i Kalifornien för Office 365).
+>
 >
 
-På inloggningssidan kan användare markera kryssrutan **Håll mig inloggad** för att förbli inloggade när de stänger och sedan öppnar webbläsaren igen, och sessionens livslängd påverkas inte.
+På inloggningssidan gör kryssrutan **Håll mig inloggad** att användaren kan förbli inloggad när de stänger och öppnar webblösaren. Den påverkar inte sessionens längd. Du kan dölja kryssrutan på inloggningssidan för Azure Active Directory.
 
 Inställningen för **Dölj KMSI** avgör om kryssrutan visas.
 
-![Inställningen Dölj KMSI][6]
+![][9]
 
-Om du vill dölja den här kryssrutan konfigurerar du den här inställningen till **Dold**.
+Konfigurera den här inställningen om du vill dölja kryssrutan **dold**.
 
 > [!NOTE]
-> För vissa funktioner i SharePoint Online och Office 2010 måste användarna kunna markera den här kryssrutan. Om du konfigurerar den här inställningen som dold kan eventuellt ytterligare och oväntade uppmaningar om att logga in visas för dina användare.
+> För vissa funktioner i SharePoint Online och Office 2010 måste användarna kunna markera den här kryssrutan. Om du konfigurerar den här inställningen som dold kan eventuellt ytterligare och oväntade uppmaningar att logga in visas för dina användare.
 >
 >
 
 Du kan också lokalisera alla element på den här sidan. När du har konfigurerat en standarduppsättning med anpassningselement kan du konfigurera fler versioner för olika språk. Du kan också blanda och matcha olika element. Du kan till exempel:
 
-* Skapa en förvald bild som passar alla kulturer och sedan skapa specifika versioner för engelska och franska. När något av dessa språk anges i webbläsaren visas den specifika bilden, medan standardbilden visas för andra språk.
-* Konfigurera olika logotyper för din organisation (till exempel japanska och hebreiska versioner).
+* Skapa en förvald stor bild som passar alla kulturer och sedan skapa specifika versioner för engelska och franska. När något av dessa språk anges i webbläsaren visas den specifika bilden, medan standardbilden visas för andra språk.
+* Konfigurera olika logotyper för din organisation (t.ex. japanska och hebreiska versioner).
 
 ## <a name="access-panel-page-customization"></a>Anpassning av åtkomstpanelsidan
 Åtkomstpanelsidan är i grunden en portalsida för snabb åtkomst till molnappar som du har beviljats åtkomst till av administratören. På den här sidan visas dina appar som klickbara programpaneler.
@@ -131,6 +134,10 @@ Föreställ dig följande konfiguration:
 Om din språkinställning är tyska visas standardbanderollslogotypen men med den tyska texten.
 
 Tekniskt sett kan du konfigurera olika uppsättningar för varje språk som stöds av Azure AD, men av prestanda- och underhållsskäl rekommenderar vi att du nöjer dig med några få varianter.
+
+> [!IMPORTANT]
+> Yammer visar inte den Azure AD-märkta inloggningssidan förrän användaren loggar in. Användaren ser den allmänna Office 365-inloggningssidan först och sedan den märkta sidan.   
+ 
  
 **Utför följande steg om du vill lägga till företagsprofilering för din katalog:**
 
@@ -176,31 +183,48 @@ fs3. Klicka på **Konfigurera** i verktygsfältet högst upp.
 8. Om det behövs klickar du på alternativet för att **anpassa profilering** igen och upprepar de här stegen för all språkspecifik anpassning som ska tas bort.
     Alla inställningar för företagsanpassning har tagits bort när du klickar på alternativet för att **anpassa profilering** och ser formuläret **Anpassa standardanpassning** utan några konfigurerade inställningar.
 
+## <a name="testing-and-examples"></a>Testning och exempel
+Vi rekommenderar att du experimenterar med en testklient innan du gör ändringar i produktionsmiljön.
+
+**Så här kontrollerar du om din företagsanpassning har tillämpats:**
+
+1. Öppna en InPrivate- eller Incognito-webbläsarsession.
+2. Besök https://outlook.com/contoso.com och ersätt contoso.com med den domän som du har anpassat.
+
+Detta fungerar även med domäner som ser ut som contoso.onmicrosoft.com.
+
+För att hjälpa dig att skapa effektiva anpassningar har vi anpassat följande två fiktiva inloggningssidor:
+
+* [http://aka.ms/aaddemo001](http://aka.ms/aaddemo001)
+* [http://aka.ms/aaddemo002](http://aka.ms/aaddemo002)
+
+För att testa de språkspecifika inställningarna måste du ändra standardspråkinställningarna i webbläsaren till ett språk som du har angett i anpassningen. I Internet Explorer konfigurerar du detta på **Internetalternativ**-menyn.
 
 ## <a name="customizable-elements"></a>Anpassningsbara element
-Företagslogotyper används för inloggnings- och åtkomstpanelsidor, medan andra element endast används på inloggningssidan. Följande tabell innehåller information om de olika anpassningsbara elementen.
+Vissa anpassningsbara element i Azure AD har flera användningsscenarier. Du kan konfigurera en företagslogotyp en gång för varje katalog så används den både på inloggningssidan och åtkomstpanelsidan. Vissa anpassningsbara element är specifika för inloggningssidan. Följande tabell innehåller information om de olika anpassningsbara elementen.
 
 | Namn | Beskrivning | Villkor | Rekommendationer |
 | --- | --- | --- | --- |
 | Banderollslogotyp |Banderollslogotypen visas på inloggningssidan och på åtkomstpanelen. |<p>JPG eller PNG</p><p>60 × 280 bildpunkter</p><p>10 kB</p> |<p>Använd organisationens hela logotyp (inklusive grafik och text)</p><p>Se till att den inte är högre än 30 bildpunkter för att undvika att rullningslistor visas på mobila enheter</p><p>Se till att den inte är större än 4 kB</p><p>Använd en transparent PNG (förutsätt inte att inloggningssidan alltid har en vit bakgrund)</p> |
-| Panellogotyp | Används inte för tillfället |<p>JPG eller PNG</p><p>120 × 120 bildpunkter</p><p>10 kB</p> |<p>Håll det enkelt (ingen liten text) eftersom bildens storlek kan minska till 50 % |
+| Ikonlogotyp |(används inte på inloggningssidan för närvarande) I framtiden kan den här texten användas för att ersätta det generella piktogrammet för arbets- och skolkonton på olika platser i miljön. |<p>JPG eller PNG</p><p>120 × 120 bildpunkter</p><p>10 kB</p> |<p>Håll det enkelt (ingen liten text) eftersom bildens storlek kan minska till 50 % |
 | </p> | | | |
-| Användarnamnsetikett för inloggning | Används inte för tillfället |<p>Unicode-text, upp till 50 tecken</p><p>Endast oformaterad text (inga länkar eller HTML-taggar)</p> |<p>Håll det kort och enkelt</p><p>Fråga användarna hur de vanligtvis refererar till arbets- eller skolkontot som du ger dem.</p> |
-| Formaterad exempeltext för inloggningssidan |Den här exempeltexten visas under formuläret på inloggningssidan och kan användas för att ge ytterligare instruktioner eller information om var användaren kan få hjälp och support. |<p>Unicode-text, upp till 256 tecken</p><p>Endast oformaterad text (inga länkar eller HTML-taggar)</p> |Se till att den inte är längre än 250 tecken (cirka 3 rader med text) |
-| Bakgrundsbild för inloggningssidan | Stor bild som visas till vänster på inloggningssidan (till höger för höger-till-vänster-språk) när användare kommer åt klientspecifika URL:er. |<p>JPG eller PNG</p><p>1420 × 1200</p><p>500 kB</p> |<p>1420 × 1200 bildpunkter</p><p>Viktigt! Håll den så liten som möjligt, helst under 200 kB. Om den här bilden är för stor påverkas inloggningssidans prestanda om bilden inte cachelagras</p><p>Den här bilden beskärs nästan alltid för att passa olika skärmproportioner. Behåll de primära visuella elementen i det övre vänstra hörnet.</p> |
-| Bakgrundsfärg på inloggningssidan | Den här färgen används i stället för bakgrundsbilden vid anslutningar med låg bandbredd. | Måste vara en RGB-färg i hexadecimalt format (exempel: \#FFFFFF) | Vi rekommenderar att du väljer den primära färgen i banderollslogotypen. |
+| Etikett för användarnamn på inloggningssidan |(används inte på inloggningssidan för närvarande) I framtiden kan den här texten användas för att ersätta den generella strängen för arbets- och skolkonton på olika ställen i miljön. Du kan välja något som ”Contoso-konto” eller ”Contoso-ID” |<p>Unicode-text, upp till 50 tecken</p><p>Endast oformaterad text (inga länkar eller HTML-taggar)</p> |<p>Håll det kort och enkelt</p><p>Fråga användarna hur de vanligtvis refererar till arbets- eller skolkontot som du ger dem.</p> |
+| Text på inloggningssidan |Den här exempeltexten visas under formuläret på inloggningssidan och kan användas för att ge ytterligare instruktioner eller information om var användaren kan få hjälp och support. |<p>Unicode-text, upp till 256 tecken</p><p>Endast oformaterad text (inga länkar eller HTML-taggar)</p> |Se till att den inte är längre än 250 tecken (cirka 3 rader med text) |
+| Bild av inloggningssidan |Bilden är en stor bild som visas på inloggningssidan till vänster om inloggningssidans formulär. |<p>JPG eller PNG</p><p>1420 × 1200</p><p>500 kB</p> |<p>1420 × 1200 bildpunkter</p><p>Viktigt! Håll den så liten som möjligt, helst under 200 kB. Om den här bilden är för stor påverkas inloggningssidans prestanda om bilden inte cachelagras</p><p>Den här bilden beskärs ofta för att passa olika skärmproportioner. Se till att viktiga visuella element är placerade i det övre vänstra hörnet (övre högra hörnet för höger-till-vänster-språk) eftersom storleksändringen görs från det nedre högra hörnet och upp mot det övre vänstra hörnet när webbläsarfönstret krymper.</p> |
+| Bakgrundsfärg på inloggningssidan |Bakgrundsfärgen på inloggningssidan används i området till vänster om inloggningssidans formulär. |Måste vara en RGB-färg i hexadecimalt format (exempel: #FFFFFF) |<p>Bakgrundsfärgen kan visas i stället för den stora bilden vid anslutningar med låg bandbredd</p><p>Vi rekommenderar att du väljer den primära färgen i banderollogotypen</p> |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Komma igång med Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Visa åtkomst- och användningsrapporterna](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-add-company-branding/signin-page_before-customization.png
-[2]: ./media/active-directory-add-company-branding/signin-page-restricted-app.png
-[3]: ./media/active-directory-add-company-branding/signin-page-open-access.png
-[4]: ./media/active-directory-add-company-branding/signin-page-external-guest.png
-[5]: ./media/active-directory-add-company-branding/which-elements-can-i-customize.png
-[6]: ./media/active-directory-add-company-branding/hide-kmsi.png
+[1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
+[2]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization.png
+[3]: ./media/active-directory-add-company-branding/SignInPage_mobile_beforecustomization.png
+[4]: ./media/active-directory-add-company-branding/SignInPage_mobile_aftercustomization.png
+[5]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_elements.png
+[6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
+[7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
 

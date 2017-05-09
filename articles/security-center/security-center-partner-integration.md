@@ -4,7 +4,7 @@ description: "Det här dokumentet beskriver hur Azure Security Center integrerar
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
-ms.lasthandoff: 12/02/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 8dddfc8929ab1a0c44522ed2a2596e2c82e3987d
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -37,10 +38,10 @@ De fyra viktigaste skälen till att använda partnerintegrationen i Security Cen
 ## <a name="what-partners-are-integrated-with-security-center"></a>Vilka partner är integrerade med Security Center?
 För närvarande integrerar Security Center med följande partner:
 
-- Endpoint Protection (Trend Micro), 
-- Web Application Firewall (Barracuda, F5, Imperva och snart Microsoft WAF och Fortinet), 
-- Next Generation Firewall (Check Point, Barracuda och snart Fortinet och Cisco). 
-- Lösningar för sårbarhetsbedömning (Qualys – förhandsversion). 
+- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)) 
+- Web Application Firewall ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [App Gateway WAF](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)) 
+- Nästa generations brandvägg ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) och [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
+- Sårbarhetsbedömning ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) – förhandsversion)  
 
 Framöver kommer Security Center att utökas med fler partner inom dessa befintliga kategorier, och nya kategorier kommer att läggas till. 
 
@@ -57,7 +58,7 @@ Beroende på konfigurationen av din Azure-miljö och den säkerhetsprincip som d
 
 När en partnerlösning har distribuerats kan du visa information om lösningens hälsotillstånd och utföra grundläggande hanteringsuppgifter från panelen Partnerlösning på huvudinstrumentpanelen för Security Center. Mer information om hur du hanterar partnerlösningar i Security Center finns i [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md).
 
-![Partnerintegration](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
+![Partnerintegration](./media/security-center-partner-integration/security-center-partner-integration-fig1-newUI.png)
 
 
 ## <a name="see-also"></a>Se även

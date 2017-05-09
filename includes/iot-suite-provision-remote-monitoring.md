@@ -1,4 +1,7 @@
 ## <a name="provision-the-solution"></a>Etablera lösningen
+
+Om du inte redan har etablerat den förkonfigurerade lösningen för fjärrövervakning i ditt konto:
+
 1. Logga in på [azureiotsuite.com][lnk-azureiotsuite] med din Azure-kontoinformation och skapa en lösning genom att klicka på **+**.
 2. Klicka på **Välj** på panelen **Fjärrövervakning**.
 3. Ange ett **lösningsnamn** för den förkonfigurerade lösningen för fjärrövervakning.

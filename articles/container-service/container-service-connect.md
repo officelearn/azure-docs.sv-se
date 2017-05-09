@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3dfa2c56dd6d3e0fe7757995d284cebe172eabc4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 317399c04afa9f81e5916c08b750d494dd7704dc
+ms.contentlocale: sv-se
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -29,34 +30,34 @@ När du har skapat ett Azure Container Service-kluster måste du ansluta till kl
 
 Kubernetes-, DC/OS- och Docker Swarm-klustren tillhandahåller HTTP-slutpunkter lokalt. För Kubernetes exponeras den här slutpunkten på ett säkert sätt på Internet och du kan komma åt den genom att köra `kubectl`-kommandoradsverktyget från valfri Internetansluten dator. 
 
-För DC/OS och Docker Swarm måste du skapa en SSH-tunnel (Secure Shell) till ett internt system. När tunneln har upprättats kan du köra kommandon som använder HTTP-slutpunkter och visa klustrets webbgränssnitt från det lokala systemet. 
+För DC/OS och Docker Swarm rekommenderar vi att du skapar en SSH-tunnel (secure shell) från den lokala datorn till klusterhanteringssystemet. När tunneln har upprättats kan du köra kommandon som använder HTTP-slutpunkter och visa Orchestrators webbgränssnitt från det lokala systemet. 
 
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Kubernetes-, DC/OS- eller Swarm-kluster [som distribuerats i Azure Container Service](container-service-deployment.md).
-* En SSH RSA-fil för privat nyckel som motsvarar den offentliga nyckel som lades till i klustret under distributionen. Dessa kommandon förutsätter att den privata SSH-nyckeln finns i `$HOME/.ssh/id_rsa` på din dator. Mer information finns i dessa anvisningar för [OS X och Linux](../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../virtual-machines/linux/ssh-from-windows.md). Om SSH-anslutningen inte fungerar kan du behöva [återställa dina SSH-nycklar](../virtual-machines/linux/troubleshoot-ssh-connection.md).
+* Ett Kubernetes-, DC/OS- eller Docker Swarm-kluster [som distribuerats i Azure Container Service](container-service-deployment.md).
+* En SSH RSA-fil för privat nyckel som motsvarar den offentliga nyckel som lades till i klustret under distributionen. Dessa kommandon förutsätter att den privata SSH-nyckeln finns i `$HOME/.ssh/id_rsa` på din dator. Mer information finns i dessa anvisningar för [macOS och Linux](../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../virtual-machines/linux/ssh-from-windows.md). Om SSH-anslutningen inte fungerar kan du behöva [återställa dina SSH-nycklar](../virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Ansluta till ett Kubernetes-kluster
 
 Följ stegen nedan för att installera och konfigurera `kubectl` på datorn.
 
 > [!NOTE] 
-> På Linux eller OS X kan du behöva köra kommandona i det här avsnittet med `sudo`.
+> På Linux eller macOS kan du behöva köra kommandona i det här avsnittet med `sudo`.
 > 
 
 ### <a name="install-kubectl"></a>Installera kubectl
 Ett sätt att installera det här verktyget är att använda kommandot `az acs kubernetes install-cli` från Azure CLI 2.0. Om du vill köra det här kommandot kontrollerar du att den senaste versionen av Azure CLI 2.0 är [installerad](/cli/azure/install-az-cli2) och att du är inloggad på ett Azure-konto (`az login`).
 
 ```azurecli
-# Linux or OS X
+# Linux or macOS
 az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 
 # Windows
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Du kan också hämta den senaste klienten direkt på [Kubernetes-sidan med versioner](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Mer information finns i [Installera och konfigurera kubectl](https://kubernetes.io/docs/user-guide/prereqs/).
+Du kan också hämta den senaste `kubectl`-klienten direkt på [Kubernetes-sidan med versioner](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Mer information finns i [Installera och konfigurera kubectl](https://kubernetes.io/docs/tasks/kubectl/install/).
 
 ### <a name="download-cluster-credentials"></a>Hämta autentiseringsuppgifter för kluster
 När du har installerat `kubectl` måste du kopiera klustrets autentiseringsuppgifter till datorn. Ett sätt att hämta autentiseringsuppgifterna är att använda kommandot `az acs kubernetes get-credentials`. Ange namnet på resursgruppen och namnet på behållartjänstens resurs:
@@ -70,26 +71,26 @@ Det här kommandot hämtar autentiseringsuppgifterna för klustret till `$HOME/.
 
 Du kan också använda `scp` för att kopiera filen från `$HOME/.kube/config` på den virtuella huvuddatorn till din dator på ett säkert sätt. Exempel:
 
-```console
+```bash
 mkdir $HOME/.kube
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
-Om du använder Windows måste du använda Bash i Ubuntu för Windows, PuTTy-klienten för säker filkopiering eller ett liknande verktyg.
+Om du använder Windows kan du använda Bash i Ubuntu för Windows, PuTTy-klienten för säker filkopiering eller ett liknande verktyg.
 
 
 
 ### <a name="use-kubectl"></a>Använda kubectl
 
-När du har konfigurerat `kubectl` kan du testa anslutningen genom att visa en lista över noderna i klustret:
+När du har konfigurerat `kubectl` testar du anslutningen genom att visa en lista över noderna i klustret:
 
-```console
+```bash
 kubectl get nodes
 ```
 
 Du kan prova andra `kubectl`-kommandon. Du kan till exempel visa instrumentpanelen för Kubernetes. Börja med att köra en proxy till Kubernetes API-servern:
 
-```console
+```bash
 kubectl proxy
 ```
 
@@ -99,19 +100,19 @@ Mer information finns i [snabbstarten för Kubernetes](http://kubernetes.io/docs
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Ansluta till ett DC/OS- eller Swarm-kluster
 
-Om du vill använda DC/OS- och Docker Swarm-kluster som distribueras av Azure Container Service, följer du dessa instruktioner för att skapa en SSH-tunnel (Secure Shell) från ditt lokala Linux-, OS X- eller Windows-system. 
+Om du vill använda DC/OS- och Docker Swarm-kluster som distribueras av Azure Container Service, följer du dessa instruktioner för att skapa en SSH-tunnel från ditt lokala Linux-, macOS- eller Windows-system. 
 
 > [!NOTE]
 > Dessa anvisningar fokuserar på tunnling av TCP-trafik över SSH. Du kan också starta en interaktiv SSH-session med något av de interna klusterhanteringssystemen, men det rekommenderas inte. Det finns en risk för oavsiktliga konfigurationsändringar om du arbetar direkt i ett internt system.  
 > 
 
-### <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Skapa en SSH-tunnel i Linux eller OS X
-Det första du ska göra när du ska skapa en SSH-tunnel i Linux eller OS X är att leta upp det offentliga DNS-namnet på belastningsutjämnade huvudservrar. Följ de här stegen:
+### <a name="create-an-ssh-tunnel-on-linux-or-macos"></a>Skapa en SSH-tunnel i Linux eller macOS
+Det första du ska göra när du ska skapa en SSH-tunnel i Linux eller macOS är att leta upp det offentliga DNS-namnet på belastningsutjämnade huvudservrar. Följ de här stegen:
 
 
 1. På [Azure Portal](https://portal.azure.com) bläddrar du till resursgruppen som innehåller behållartjänstens kluster. Expandera resursgruppen så att varje resurs visas. 
 
-2. Klicka på resursen för behållartjänsten och klicka sedan på **Översikt**. **Master-FQDN** för klustret visas under **Essentials**. Spara det här namnet för senare användning. 
+2. Klicka på resursen för **Container Service** och klicka sedan på **Översikt**. **Master-FQDN** för klustret visas under **Essentials**. Spara det här namnet för senare användning. 
 
     ![Offentligt DNS-namn](media/pubdns.png)
 
@@ -119,7 +120,7 @@ Det första du ska göra när du ska skapa en SSH-tunnel i Linux eller OS X är 
 
 3. Öppna ett gränssnitt och kör `ssh`-kommandot genom att ange följande värden: 
 
-    **LOCAL_PORT** är TCP-porten som ska anslutas till på serversidan av tunneln. För Swarm anger du port 2375. För DC/OS anger du 80.  
+    **LOCAL_PORT** är TCP-porten som ska anslutas till på serversidan av tunneln. För Swarm anger du port 2375. För DC/OS anger du 80. 
     **REMOTE_PORT** är porten för den slutpunkt som du vill exponera. Använd port 2375 för Swarm. Använd port 80 för DC/OS.  
     **USERNAME** är det användarnamn som angavs när du distribuerade klustret.  
     **DNSPREFIX** är det DNS-prefix som du angav när du distribuerade klustret.  
@@ -127,13 +128,14 @@ Det första du ska göra när du ska skapa en SSH-tunnel i Linux eller OS X är 
     **PATH_TO_PRIVATE_KEY** [VALFRITT] är sökvägen till den privata nyckeln som motsvarar den offentliga nyckeln som du angav när du skapade klustret. Använd det här alternativet med flaggan `-i`.
 
     ```bash
-    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
-    > [!NOTE]
-    > SSH-anslutningsporten är 2200 och inte standardporten 22. I ett kluster med flera virtuella huvuddatorer är detta anslutningsporten till den första virtuella huvuddatorn.
-    > 
+  
+  > [!NOTE]
+  > SSH-anslutningsporten är 2200 och inte standardporten 22. I ett kluster med flera virtuella huvuddatorer är detta anslutningsporten till den första virtuella huvuddatorn.
+  > 
 
-
+  Kommandot returneras utan utdata.
 
 Se exemplen för DC/OS och Swarm i följande avsnitt.    
 
@@ -145,7 +147,8 @@ sudo ssh -fNL 80:localhost:80 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudap
 ```
 
 > [!NOTE]
-> Du kan ange en annan lokal port än port 80, till exempel port 8888. Men vissa länkar i webbgränssnitt kanske inte fungerar när du använder den här porten.
+> Se till att du inte har någon annan lokal process som binder port 80. Om det behövs kan du ange en annan lokal port än port 80, till exempel port 8080. Men vissa länkar i webbgränssnitt kanske inte fungerar när du använder den här porten.
+>
 
 Nu kan du komma åt DC/OS-slutpunkter från den lokala datorn via följande URL:er (förutsatt att port 80 används som lokal port):
 
@@ -161,21 +164,34 @@ Om du vill öppna en tunnel till Swarm-slutpunkten kör du ett kommando liknande
 ```bash
 ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com
 ```
+> [!NOTE]
+> Se till att du inte har någon annan lokal port som binder post 2375. Om du till exempel kör Deamon för Docker lokalt använder den som standard port 2375. Om det behövs kan du ange en annan lokal port än port 2375.
+>
 
-Du kan nu ange din DOCKER_HOST-miljövariabel på följande sätt. Du kan fortsätta att använda ditt Docker-kommandoradsgränssnitt (CLI) som vanligt.
+Du kan nu komma åt Docker Swarm-klustret via kommandoradsgränssnittet för Docker (Docker CLI) på den lokala datorn. Installationsinstruktioner finns i [Installera Docker](https://docs.docker.com/engine/installation/).
+
+Ange DOCKER_HOST-miljövariabeln till den lokala port som du konfigurerade för tunneln. 
 
 ```bash
 export DOCKER_HOST=:2375
 ```
 
+Kör Docker-kommandon för att skapa en tunnel till Docker Swarm-klustret. Exempel:
+
+```bash
+docker info
+```
+
+
+
 ### <a name="create-an-ssh-tunnel-on-windows"></a>Skapa en SSH-tunnel i Windows
-Det finns flera olika sätt att skapa SSH-tunnlar i Windows. Det här avsnittet beskriver hur du använder PuTTY för att skapa tunneln.
+Det finns flera olika sätt att skapa SSH-tunnlar i Windows. Om du kör Bash på Ubuntu på Windows eller ett liknande verktyg kan du följa anvisningarna för hur du använder SSH-tunnlar tidigare i den här artikeln för macOS och Linux. I det här avsnittet beskrivs också hur du använder PuTTY för att skapa tunneln, som ett alternativ i Windows.
 
 1. [Ladda ned PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) till din Windows-dator.
 
 2. Kör appen.
 
-3. Ange ett värdnamn som består av klustrets adminanvändarnamn och det offentliga DNS-namnet på den första huvudservern i klustret. **Värdnamnet** liknar `adminuser@PublicDNSName`. Ange 2200 som **Port**.
+3. Ange ett värdnamn som består av klustrets adminanvändarnamn och det offentliga DNS-namnet på den första huvudservern i klustret. **Värdnamnet** liknar `azureuser@PublicDNSName`. Ange 2200 som **Port**.
 
     ![PuTTY-konfiguration 1](media/putty1.png)
 

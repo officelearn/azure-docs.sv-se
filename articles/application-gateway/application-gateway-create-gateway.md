@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 8b72a3f26e356af588e9f5c2039bcc525366ce11
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 79e373a69f3b899dea1f10ac447a0284931648f4
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 02/28/2017
 > * [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway är en Layer&7;-belastningsutjämnare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Application Gateway innehåller många ADC-funktioner (Application Delivery Controller), inklusive HTTP-belastningsutjämning, cookie-baserad sessionstilldelning, SSL-avlastning (Secure Sockets Layer), anpassade hälsoavsökningar, stöd för flera platser och mycket mer. En fullständig lista över funktioner som stöds finns i [Översikt över Application Gateway](application-gateway-introduction.md)
+Azure Application Gateway är en Layer 7-belastningsutjämnare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Application Gateway innehåller många ADC-funktioner (Application Delivery Controller), inklusive HTTP-belastningsutjämning, cookie-baserad sessionstilldelning, SSL-avlastning (Secure Sockets Layer), anpassade hälsoavsökningar, stöd för flera platser och mycket mer. En fullständig lista över funktioner som stöds finns i [Översikt över Application Gateway](application-gateway-introduction.md)
 
 Den här artikeln beskriver steg för steg hur du skapar, konfigurerar, startar och tar bort en programgateway.
 
@@ -106,11 +107,11 @@ DnsName       :
 
 Du kan konfigurera programgatewayen med hjälp av XML eller ett konfigurationsobjekt.
 
-## <a name="configure-the-application-gateway-by-using-xml"></a>Konfigurera programgatewayen med hjälp av XML
+### <a name="configure-the-application-gateway-by-using-xml"></a>Konfigurera programgatewayen med hjälp av XML
 
 I följande exempel använder vi en XML-fil för att konfigurera alla inställningar för programgatewayen och för att skicka dem till programgatewayresursen.  
 
-### <a name="step-1"></a>Steg 1
+#### <a name="step-1"></a>Steg 1
 
 Kopiera följande text till Anteckningar.
 
@@ -211,7 +212,7 @@ I följande exempel visas hur du kan konfigurera programgatewayen med en konfigu
 </ApplicationGatewayConfiguration>
 ```
 
-### <a name="step-2"></a>Steg 2
+#### <a name="step-2"></a>Steg 2
 
 Nu ska vi konfigurera programgatewayen. Använd cmdleten `Set-AzureApplicationGatewayConfig` med en XML-konfigurationsfil.
 
@@ -219,14 +220,14 @@ Nu ska vi konfigurera programgatewayen. Använd cmdleten `Set-AzureApplicationGa
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Konfigurera programgatewayen med hjälp av ett konfigurationsobjekt
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Konfigurera programgatewayen med hjälp av ett konfigurationsobjekt
 
 Följande exempel visar hur du konfigurerar programgatewayen med hjälp av konfigurationsobjekt. Alla konfigurationsobjekt måste konfigureras individuellt och sedan läggas till i ett konfigurationsobjekt för programgatewayen. När du har skapat konfigurationsobjektet använder du kommandot `Set-AzureApplicationGateway` för att tillämpa konfigurationen på den programgatewayresurs som du skapade tidigare.
 
 > [!NOTE]
 > Innan du tilldelar ett värde till konfigurationsobjekten måste du deklarera vilken typ av objekt PowerShell använder för lagring. Den första raden skapar de enskilda objekt som definierar vilka `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` som används.
 
-### <a name="step-1"></a>Steg 1
+#### <a name="step-1"></a>Steg 1
 
 Skapa alla enskilda konfigurationsobjekt.
 
@@ -297,7 +298,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### <a name="step-2"></a>Steg 2
+#### <a name="step-2"></a>Steg 2
 
 Tilldela alla konfigurationsobjekt till konfigurationsobjektet för programgatewayen ($appgwconfig).
 
@@ -385,9 +386,9 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-an-application-gateway"></a>Ta bort en programgateway
+## <a name="delete-the-application-gateway"></a>Ta bort programgatewayen
 
-Så här tar du bort en programgateway:
+Så här tar du bort programgatewayen:
 
 1. Stoppa gatewayen med hjälp av cmdleten `Stop-AzureApplicationGateway`.
 2. Ta bort gatewayen med hjälp av cmdleten `Remove-AzureApplicationGateway`.

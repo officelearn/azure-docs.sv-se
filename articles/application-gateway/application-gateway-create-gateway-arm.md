@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ I exemplet ovan skapade vi resursgruppen **appgw-RG** och platsen **USA, västra
 > [!NOTE]
 > Om du behöver konfigurera en anpassad avsökning för din programgateway läser du [Skapa en programgateway med anpassade avsökningar med hjälp av PowerShell](application-gateway-create-probe-ps.md). Mer information finns i [Anpassade avsökningar och hälsoövervakning](application-gateway-probe-overview.md).
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Skapa ett virtuellt nätverk och ett undernät för programgatewayen
+## <a name="create-a-virtual-network-and-a-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 
 Följande exempel illustrerar hur du skapar ett virtuellt nätverk med hjälp av Resource Manager. Det här exemplet skapar ett virtuellt nätverk för Application Gateway. Application Gateway kräver ett eget undernät. Därför är undernätet som skapas för Application Gateway mindre än adressutrymmet för det virtuella nätverket. Genom att använda ett mindre undernätverk kan andra resurser, inklusive men inte begränsat till webbservrar, konfigureras i samma virtuella nätverk.
 
@@ -135,7 +136,7 @@ Tilldela undernätsvariabeln för nästa steg. Den här variabeln används med c
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Skapa en offentlig IP-adress för frontend-konfigurationen
+## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
 Skapa en offentlig IP-resurs, **publicIP01**, i resursgruppen **appgw-rg** för regionen USA, västra. Application Gateway kan använda en offentlig IP-adress, en intern IP-adress eller båda för att ta emot förfrågningar för belastningsutjämning.  I det här exemplet används endast en offentlig IP-adress. I följande exempel konfigureras inget DNS-namn när den offentliga IP-adressen skapas.  Application Gateway stöder inte anpassade DNS-namn med offentliga IP-adresser.  Om ett anpassat namn krävs för den offentliga slutpunkten bör en CNAME-post skapas som pekar på det automatiskt genererade DNS-namnet för den offentliga IP-adressen.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > Standardvärdet för **InstanceCount** är 2, och det högsta värdet är 10. Standardvärdet för **GatewaySize** är Medium. Du kan välja mellan **Standard_Small**, **Standard_Medium** och **Standard_Large**.
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Skapa en programgateway med hjälp av New-AzureRmApplicationGateway
+## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
 Skapa en programgateway med alla konfigurationsobjekt från föregående steg. I det här exemplet heter programgatewayen **appgwtest**.
 
@@ -233,7 +234,7 @@ Hämta DNS- och VIP-information för programgatewayen från den offentliga IP-re
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>Ta bort en programgateway
+## <a name="delete-the-application-gateway"></a>Ta bort programgatewayen
 
 Följ dessa anvisningar om du vill ta bort en programgateway:
 
@@ -296,6 +297,14 @@ IpConfiguration          : {
 DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
+```
+
+## <a name="delete-all-resources"></a>Ta bort alla resurser
+
+Så här tar du bort alla resurser som skapats i den här artikeln:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
 ```
 
 ## <a name="next-steps"></a>Nästa steg

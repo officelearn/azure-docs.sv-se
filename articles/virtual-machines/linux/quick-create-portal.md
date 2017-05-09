@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8bfc4892343dd62c958ce6937c4879a2b029cb88
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -46,9 +47,9 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 
-2. Välj **Beräkna** på bladet **Nytt**, välj **Ubuntu Server 16.04 LTS** på bladet **Beräkna** och klicka sedan på knappen **Skapa**.
+2. Välj **Beräkna** på bladet **Nytt**, välj *Ubuntu Server 16.04 LTS* på bladet **Beräkna** och klicka sedan på knappen **Skapa**.
 
-3. Fyll i formuläret **Grundinställningar** för den virtuella datorn. Välj **SSH** för **Autentiseringstyp**. När du klistrar in den **offentliga SSH-nyckeln** ska du tänka på att ta bort eventuella inledande eller avslutande blanksteg. Skapa en ny för **Resursgrupp**. En resursgrupp är en logisk behållare där Azure-resurser skapas och hanteras gemensamt. När du är klar klickar du på **OK**.
+3. Fyll i formuläret **Grundinställningar** för den virtuella datorn. Välj *SSH* för **Autentiseringstyp**. När du klistrar in den **offentliga SSH-nyckeln** ska du tänka på att ta bort eventuella inledande eller avslutande blanksteg. Skapa en ny för **Resursgrupp**. En resursgrupp är en logisk behållare där Azure-resurser skapas och hanteras gemensamt. När du är klar klickar du på **OK**.
 
     ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
@@ -56,11 +57,11 @@ Logga in på Azure Portal på http://portal.azure.com.
 
     ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. På inställningsbladet väljer du **Ja** under **Use managed disks** (Använd hanterade diskar), låter standardinställningarna vara kvar för resten och klickar på **OK**.
+5. På inställningsbladet väljer du *Ja* under **Use managed disks** (Använd hanterade diskar), låter standardinställningarna vara kvar för resten och klickar på **OK**.
 
 6. På sammanfattningssidan klickar du på **Ok** för att starta distributionen av den virtuella datorn.
 
-7. Klicka på den virtuella datorn om du vill övervaka distributionsstatus. Den virtuella datorn finns på instrumentpanelen för Azure Portal eller genom att välja **Virtuella datorer** på den vänstra menyn. När den virtuella datorn har skapats ändras statusen från till **Distribuerar** till **Körs**.
+7. Klicka på den virtuella datorn om du vill övervaka distributionsstatus. Den virtuella datorn finns på instrumentpanelen för Azure Portal eller genom att välja **Virtuella datorer** på den vänstra menyn. När den virtuella datorn har skapats ändras statusen från till *Distribuerar* till *Körs*.
 
 
 ## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik 
@@ -68,10 +69,10 @@ Logga in på Azure Portal på http://portal.azure.com.
 Som standard tillåts enbart SSH-anslutningar till virtuella Linux-datorer distribuerade i Azure. Om den här virtuella datorn kommer att vara en webbserver måste du öppna port 80 för webbtrafik. Det här steget vägleder dig genom processen med att skapa en regel för en nätverkssäkerhetsgrupp (NSG) för att tillåta inkommande anslutningar på port 80.
 
 1. På bladet för den virtuella datorn i avsnittet **Essentials** klickar du på namnet på **Resursgruppen**.
-2. Gå till bladet för resursgruppen och klicka på **Nätverkssäkerhetsgrupp** i listan över resurser. NSG-namnet bör vara namnet på den virtuella datorn med ”- nsg” tillagt i slutet.
+2. Gå till bladet för resursgruppen och klicka på **Nätverkssäkerhetsgrupp** i listan över resurser. NSG-namnet bör vara namnet på den virtuella datorn med *-nsg* tillagt i slutet.
 3. Klicka på rubriken **Ingående säkerhetsregel** så öppnas listan med regler för inkommande trafik. Du bör se en regel för RDP i listan redan.
 4. Klicka på **+ Lägg till** så öppnas bladet **Lägg till ingående säkerhetsregel**.
-5. Skriv **nginx** i fältet **Namn**. Kontrollera att 80 har angetts för **Portintervall** och att **Tillåt** har angetts för **Åtgärd**. Klicka på **OK**.
+5. Skriv *nginx* i fältet **Namn**. Kontrollera att *80* har angetts för **Portintervall** och att *Tillåt* har angetts för **Åtgärd**. Klicka på **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
@@ -104,7 +105,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Visa NGIX-välkomstsidan
 
-Du kan använda en webbläsare som du väljer för att visa välkomstsidan till NGINX när NGINX är installerat och port 80 nu är öppen på en virtuell dator från Internet. Se till att använda den `publicIpAddress` som du har dokumenterat för att besöka standardsidan. 
+Du kan använda en webbläsare som du väljer för att visa välkomstsidan till NGINX när NGINX är installerat och port 80 nu är öppen på en virtuell dator från Internet. Hämta den *offentliga IP-adressen* från bladet för den virtuella datorn och använd den för att besöka standardwebbsidan.
 
 ![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Ta bort en virtuell dator

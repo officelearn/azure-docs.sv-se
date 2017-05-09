@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/02/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Flytta ExpressRoute-kretsar från den klassiska till Resource Manager-distributionsmodellen
 Den här artikeln innehåller en översikt över vad det innebär att flytta en Azure ExpressRoute-krets från den klassiska till Azure Resource Manager-distributionsmodellen.
-
-[!INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Du kan använda en enda ExpressRoute-krets för att ansluta till virtuella nätverk som distribueras både i de klassiska och Resource Manager-distributionsmodellerna. En ExpressRoute-krets, oavsett hur den skapats, kan nu länka till virtuella nätverk i båda distributionsmodellerna.
 
@@ -87,11 +87,11 @@ I det här avsnittet beskrivs vad som stöds för ExpressRoute-kretsar:
 * När en ExpressRoute-krets har flyttats till Resource Manager-distributionsmodellen kan du hantera livscykeln för ExpressRoute-kretsen med hjälp av modellen. Det innebär att du kan utföra åtgärder som att lägga till/uppdatera/ta bort peerings, uppdatera kretsegenskaper (till exempel bandbredd, SKU och faktureringstyp), samt ta bort kretsar enbart i Resource Manager-distributionsmodellen.
 * ExpressRoute-kretsen fungerar som en brygga mellan klassiska och Resource Manager-distributionsmodeller. Trafik mellan virtuella datorer i virtuella nätverk i den klassiska distributionsmodellen, och de i virtuella nätverk i Resource Manager-distributionsmodellen, flödar genom ExpressRoute om båda virtuella nätverken är länkade till samma ExpressRoute-krets.
 * Anslutningen mellan prenumerationer stöds i både de klassiska och Resource Manager-distributionsmodellerna.
+* När du har flyttat en ExpressRoute-krets från den klassiska modellen till Azure Resource Manager-modellen kan du [migrera de virtuella nätverk som är länkade till ExpressRoute-kretsen](expressroute-migration-classic-resource-manager.md).
 
 ## <a name="whats-not-supported"></a>Vad som inte stöds
 I det här avsnittet beskrivs vad som inte stöds för ExpressRoute-kretsar:
 
-* Flytta kretslänkar, gatewayer och virtuella nätverk från den klassiska till Resource Manager-distributionsmodellen.
 * Hantera livscykeln för en ExpressRoute-krets från den klassiska distributionsmodellen.
 * Rollbaserad åtkomstkontroll (RBAC) stöds för den klassiska distributionsmodellen. Du kan inte utföra RBAC-kontroller på en krets i den klassiska distributionsmodellen. En administratör/medadministratör för prenumerationen kan länka eller avlänka virtuella nätverk för kretsen.
 
@@ -99,16 +99,12 @@ I det här avsnittet beskrivs vad som inte stöds för ExpressRoute-kretsar:
 Följ anvisningarna som beskrivs i [Flytta en ExpressRoute-krets från den klassiska till Resource Manager-distributionsmodellen](expressroute-howto-move-arm.md).
 
 ## <a name="next-steps"></a>Nästa steg
+* [Migrera de virtuella nätverk som är länkade till ExpressRoute-kretsen från den klassiska modellen till Azure Resource Manager-modellen](expressroute-migration-classic-resource-manager.md)
 * Arbetsflödesinformation finns i [ExpressRoute-kretsens etablering av arbetsflöden och kretsstatus](expressroute-workflows.md).
 * Så här konfigurerar du ExpressRoute-anslutningen:
   
   * [Skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md)
   * [Konfigurera routning](expressroute-howto-routing-arm.md)
   * [Länka ett virtuellt nätverk till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

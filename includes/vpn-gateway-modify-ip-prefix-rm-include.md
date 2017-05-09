@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Ändra prefix – ingen gatewayanslutning
+### <a name="noconnection"></a>Ändra IP-adressprefix för nätverksgateway – ingen gatewayanslutning
 
 - Så här lägger du till ytterligare adressprefix:
 
@@ -8,7 +8,7 @@
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
 
-- Så här tar du bort ett adressprefix:<br>
+- Så här tar du bort adressprefix:<br>
   Utelämna de prefix som du inte längre behöver. I det här exemplet behöver vi inte längre prefixet 20.0.0.0/24 (från föregående exempel), så vi uppdaterar den lokala nätverksgatewayen och tar bort det prefixet.
 
   ```powershell
@@ -17,13 +17,10 @@
   -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
   ```
 
-### <a name="withconnection"></a>Ändra prefix – existerande gatewayanslutning
-Om du har en gatewayanslutning och vill lägga till eller ta bort IP-adressprefixet som ingår i din lokala nätverksgateway, behöver du genomföra följande steg i turordning. Det medför en del avbrott för din VPN-anslutning.
+### <a name="withconnection"></a>Ändra IP-adressprefix för nätverksgateway – existerande gatewayanslutning
 
-> [!IMPORTANT]
-> Ta inte bort VPN-gatewayen. Om du gör det måste du gå tillbaka och utföra stegen för att skapa den på nytt. Dessutom måste du uppdatera din lokala VPN-enhet med den nya IP-adressen för VPN-gatewayen.
-> 
-> 
+Om du har en gatewayanslutning och vill lägga till eller ta bort IP-adressprefixet som ingår i din lokala nätverksgateway, behöver du genomföra följande steg i turordning. Det medför en del avbrott för din VPN-anslutning. När du ändrar IP-adressprefix behöver du inte ta bort VPN-gatewayen. Du måste bara ta bort anslutningen.
+
 
 1. Ta bort anslutningen.
 

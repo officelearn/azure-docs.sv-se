@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.contentlocale: sv-se
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,6 +75,13 @@ När källorna har uppdaterats kan du installera SDK.
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    För att automatisera installationen kan du hoppa över uppmaningen om licensavtal genom att ange dina debconf-val för Server Fabric-paketen. Följande två kommandon kan köras
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Kör SDK-installationsskriptet.
 
     ```bash
@@ -203,6 +211,11 @@ Om du vill uppdatera till den senaste versionen av SDK och Runtime kör du följ
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> När du uppdaterar paketen ovan kan ditt lokala miljökluster stoppas. Starta om ditt lokala kluster efter en uppgradering genom att följa instruktionerna på den här sidan
+>
+>
 
 Om du vill uppdatera CLI går du till katalogen där du klonade CLI och kör `git pull` för att uppdatera.  Om det behövs ytterligare steg för att uppdatera anges dessa i Viktig information. 
 

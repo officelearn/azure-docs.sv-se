@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/13/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f43a08a7096476fea79884163f89441e7e0c34cf
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: e2a9802e76579a523897d8904add6b317652ff05
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -153,7 +154,7 @@ I den här artikeln använder du **PySpark**-kerneln. Mer information om dessa k
 Följande är några vanliga problem som du kan stöta på när du arbetar med HDInsight-kluster.
 
 ### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0624bde9ab53231768beb0c832a4a49b21a8975
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -87,9 +88,14 @@ När du har aktiverat den här lösningen konfigureras en Windows-dator direkt s
 Du kan emellertid lägga till Windows-datorer till en Hybrid Runbook Worker-grupp i ditt Automation-konto så att den stöder runbook-flöden för Automation så länge du använder samma konto för både lösningen och Hybrid Runbook Worker-gruppmedlemskapet.  Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.  
 
 ## <a name="configuration"></a>Konfiguration
-Utför följande steg för att lägga till uppdateringshanteringslösningen till din OMS-arbetsyta och bekräfta att agenterna rapporterar. Windows-agenter läggs till automatiskt utan någon ytterligare konfiguration. 
+Utför följande steg för att lägga till uppdateringshanteringslösningen till din OMS-arbetsyta och bekräfta att agenterna rapporterar. Windows-agenter som redan är anslutna till ditt arbetsområde läggs till automatiskt utan någon ytterligare konfiguration. 
 
-Du kan lägga till lösningen på tre olika sätt: från Azure Marketplace i Azure Portal genom att välja antingen Automation & Control-erbjudandet eller lösningen för uppdateringshantering eller från OMS-lösningsgalleriet i din OMS-arbetsyta.  Om du redan har ett Automation-konto och en OMS-arbetsyta länkade i samma resursgrupp och region verifieras din konfiguration när du väljer Automation & Control, och endast lösningen installeras och konfigureras i båda tjänsterna.  Om du väljer lösningen för uppdateringshantering från Azure Marketplace blir beteendet detsamma.  Om ingen av tjänsterna är distribuerade i din prenumeration följer du anvisningarna på bladet **Skapa ny lösning** och bekräfta att du vill installera de andra förvalda rekommenderade lösningarna.  Du kan även lägga till uppdateringshanteringslösningen i din OMS-arbetsyta med hjälp av de steg som beskrivs i [Lägg till OMS-lösningar](../log-analytics/log-analytics-add-solutions.md) från lösningsgalleriet.  
+Du kan distribuera lösningen på följande sätt:
+
+* Från Azure Marketplace i Azure Portal genom att välja antingen erbjudandet Automatisering och kontroll eller lösningen för uppdateringshantering
+* Från OMS-lösningsgalleriet i OMS-arbetsytan
+
+Om du redan har ett Automation-konto och en OMS-arbetsyta länkade i samma resursgrupp och region verifieras din konfiguration när du väljer Automation & Control, och endast lösningen installeras och konfigureras i båda tjänsterna.  Om du väljer lösningen för uppdateringshantering från Azure Marketplace blir beteendet detsamma.  Om ingen av tjänsterna är distribuerade i din prenumeration följer du anvisningarna på bladet **Skapa ny lösning** och bekräfta att du vill installera de andra förvalda rekommenderade lösningarna.  Du kan även lägga till uppdateringshanteringslösningen i din OMS-arbetsyta med hjälp av de steg som beskrivs i [Lägg till OMS-lösningar](../log-analytics/log-analytics-add-solutions.md) från lösningsgalleriet.  
 
 ### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Bekräfta OMS-agenter och Operations Manager-hanteringsgrupper som är anslutna till OMS
 
@@ -144,7 +150,7 @@ När uppdateringar har utvärderats för alla Linux- och Windows-datorer i din a
 > [!NOTE]
 > Virtuella Windows-datorer som distribueras från Azure Marketplace som standard är inställda på att ta emot automatiska uppdateringar från Windows Update-tjänsten.  Det beteendet ändras inte när du har lagt till lösningen eller virtuella Windows-datorer i arbetsytan.  Om du inte aktivt har hanterat uppdateringar med den här lösningen gäller standardbeteendet (uppdateringar tillämpas automatiskt).  
 
-För virtuella datorer som skapats från de Red Hat Enterprise Linux (RHEL)-avbildningar på begäran som finns i Azure Marketplace är de registrerade för att få åtkomst till [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) som är distribuerat i Azure.  Andra Linux-distributioner måste uppdateras från distributionens fildatabas på nätet genom de metoder som distributionerna stöder.  
+För virtuella datorer som skapats från de Red Hat Enterprise Linux (RHEL)-avbildningar på begäran som finns i Azure Marketplace är de registrerade för att få åtkomst till [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) som är distribuerat i Azure.  Andra Linux-distributioner måste uppdateras från distributionens fildatabas på nätet genom de metoder som distributionerna stöder.  
 
 ### <a name="viewing-update-deployments"></a>Visa uppdateringsdistributioner
 Klicka på ikonen **Uppdateringsdistribution** för att visa en lista över befintliga uppdateringsdistributioner.  De grupperas efter status – **Schemalagda**, **Kör** och **Slutförda**.<br><br> ![Uppdatera sidan med scheman över uppdateringsdistributioner](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

@@ -1,4 +1,12 @@
 > [!IMPORTANT] 
-> You will not be able to create new ExpressRoute circuits in the classic deployment model starting March 1, 2017. You can move an existing ExpressRoute circuit from the classic deployment model to the Resource Manager deployment model without experiencing any connectivity down time. For more information, see [Move an existing circuit](../articles/expressroute/expressroute-move.md). You can connect to virtual networks in the classic deployment model by setting **allowClassicOperations** to TRUE.<br>Use the following links to create and manage ExpressRoute circuits in the Resource Manager deployment model:<br>[Create and manage ExpressRoute circuits](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md)<br>[Configure routing (peering) for ExpressRoute circuits](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md)<br>
->     
+> Du kommer inte att kunna skapa nya ExpressRoute-kretsar i den klassiska distributionsmodellen från och med 1 mars 2017.
+> 
+> - Du kan flytta en befintlig ExpressRoute-krets från den klassiska distributionsmodellen till Resource Manager-distributionsmodellen utan avbrott i anslutningen. Mer information finns i [Flytta en befintlig krets](../articles/expressroute/expressroute-move.md).
+> - Du kan ansluta till virtuella nätverk i den klassiska distributionsmodellen genom att ange **allowClassicOperations** till TRUE.
+> 
+> Använd följande länkar om du vill skapa och hantera ExpressRoute-kretsar i Resource Manager-distributionsmodellen.
+
+> - [Skapa och hantera ExpressRoute-kretsar](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md)<br>
+> - [Konfigurera routning (peering) för ExpressRoute-kretsar](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md)
+>
 >

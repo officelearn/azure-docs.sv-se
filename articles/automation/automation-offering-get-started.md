@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -98,8 +99,6 @@ När du skapar ett Automation-konto på Azure Portal skapar du automatiskt två 
 
 Rollbaserad åtkomstkontroll är tillgängligt i Azure Resource Manager-läge för att bevilja tillåtna åtgärder för ett Azure AD-användarkonto och Kör som-konto för att autentisera tjänstobjektet.  Mer information om hur du utvecklar din modell för att hantera Automation-behörigheter finns i artikeln [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).  
 
-
-
 #### <a name="authentication-methods"></a>Autentiseringsmetoder
 Följande tabell sammanfattar de olika autentiseringsmetoderna för varje miljö som stöds av Azure Automation.
 
@@ -136,6 +135,13 @@ Om du har ett Automation-konto som har definierats för en specifik region och v
 | Sydöstra Australien |ase-jobruntimedata-prod-su1.azure-automation.net |
 | Storbritannien, södra | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Virginia (USA-förvaltad region) | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Om du behöver en lista med IP-adresser istället för namn kan du ladda ned och läsa igenom XML-filen med [IP-adresser från Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) från Microsoft Download Center. 
+
+> [!NOTE]
+> Den här filen innehåller de IP-adressintervall (inklusive Compute, SQL och Storage-intervall) som används i Microsoft Azure-datacentren. Varje vecka publiceras en uppdaterad fil med aktuella intervall och eventuella kommande ändringar av IP-adressintervallen. De nya intervall som anges i filen kommer inte att börja användas i datacentren förrän om minst en vecka. Ladda ned den nya XML-filen varje vecka och gör nödvändiga ändringar på din webbplats för att kunna identifiera vilka tjänster som körs i Azure. ExpressRoute-användare minns kanske att den här filen användes för att uppdatera Azures BGP-annonser under den första veckan varje månad. 
+> 
+
 
 ## <a name="implementation"></a>Implementering
 
@@ -191,27 +197,6 @@ Den rekommenderade metoden för att integrera Automation är att välja erbjudan
 8. Klicka på **Skapa** för att fortsätta med integreringen av Automation och OMS-arbetsytan. Alla inställningar verifieras och sedan distribueras lösningen i din prenumeration.  Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **Meddelanden** på menyn. 
 
 När erbjudandet har integrerats kan du börja skapa runbooks, arbeta med hanteringslösningarna som du har aktiverat eller börjar arbeta med [Log Analytics](https://docs.microsoft.com/azure/log-analytics) för att samla in data som genereras av resurser i molnet eller som finns lokalt.   
-
-### <a name="resources-included"></a>Resurser som ingår
-När Automation-kontot har skapats skapas flera resurser automatiskt. Resurserna sammanfattas i följande två tabeller:<br>
-
-#### <a name="run-as-account-resources"></a>Resurser för Kör som-konton
-
-| Resurs | Beskrivning |
-| --- | --- |
-| AzureAutomationTutorial-runbook | Ett exempel på en grafisk runbook som visar hur du autentiserar med hjälp av Kör som-kontot och hur du hämtar alla Resource Manager-resurser. |
-| AzureAutomationTutorialScript-runbook | Ett exempel på en PowerShell-runbook som visar hur du autentiserar med hjälp av Kör som-kontot och hur du hämtar alla Resource Manager-resurser. |
-| AzureRunAsCertificate | Certifikattillgången som skapas automatiskt när du skapar ett Automation-konto eller använder följande PowerShell-skript för ett befintligt konto. Certifikatet gör att du kan autentisera med Azure så att du kan hantera Azure Resource Manager-resurser från runbookflöden. Certifikatet har en livslängd på ett år. |
-| AzureRunAsConnection | Anslutningstillgången som skapas automatiskt när du skapar ett Automation-konto eller använder PowerShell-skriptet för ett befintligt konto. |
-
-#### <a name="classic-run-as-account-resources"></a>Resurser för klassiska Kör som-konton
-
-| Resurs | Beskrivning |
-| --- | --- |
-| AzureClassicAutomationTutorial-runbook | Ett exempel på en grafisk runbook som hämtar alla virtuella datorer som skapas med den klassiska distributionsmodellen i en prenumeration med hjälp av det klassiska Kör som-kontot (certifikat) och som sedan skriver namnet och statusen för de virtuella datorerna. |
-| AzureClassicAutomationTutorial Script-runbook | Ett exempel på en PowerShell-runbook som hämtar alla klassiska virtuella datorer i en prenumeration med hjälp av det klassiska Kör som-kontot (certifikat) och som sedan skriver namnet och statusen för de virtuella datorerna. |
-| AzureClassicRunAsCertificate | Certifikattillgången som skapas automatiskt och som du använder för att autentisera med Azure så att du kan hantera klassiska Azure-resurser från runbookflöden. Certifikatet har en livslängd på ett år. |
-| AzureClassicRunAsConnection | Anslutningstillgången som skapas automatiskt och som du använder för att autentisera med Azure så att du kan hantera klassiska Azure-resurser från runbookflöden.|
 
 ## <a name="next-steps"></a>Nästa steg
 * Du kan bekräfta att det nya Automation-kontot kan autentisera mot Azure-resurser genom att granska [testa autentisering av Azure Automation Kör som-konto](automation-verify-runas-authentication.md).

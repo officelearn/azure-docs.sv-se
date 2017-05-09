@@ -16,10 +16,11 @@ ms.workload: big-data
 ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 4787928ed066b9aed51a8512deeda6cd49897d82
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 2ab0818646626577a23fb4096fbe863d7525a8f2
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/03/2017
 
 ---
 #<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Kom igång med Storm Starter-exempel för analys av stordata i Linux-baserade HDInsight
@@ -36,10 +37,6 @@ Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkni
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * **kunskap om SSH och SCP**. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
-
-### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-a-storm-cluster"></a>Skapa ett Storm-kluster
 
@@ -145,7 +142,7 @@ Genomför följande för att övervaka topologin med hjälp av Storm-användargr
 
     * **Activate** (Aktivera) – återupptar bearbetningen av en inaktiverad topologi.
 
-    * **Deactivate** (Inaktivera) – pausar en topologi som körs.
+    * **Deactivate**  (Inaktivera) – pausar en topologi som körs.
 
     * **Rebalance** (Balansera) – justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [Förstå parallellitet i en Storm-topologi](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
@@ -190,6 +187,8 @@ Gå tillbaka till sidan **Topology summary** (Topologiöversikt) för ordräknin
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a id="next"></a>Nästa steg
 

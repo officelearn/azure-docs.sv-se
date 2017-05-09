@@ -1,5 +1,5 @@
 ---
-title: "Routningskrav för ExpressRoute | Microsoft Docs"
+title: "NAT för Azure ExpressRoute | Microsoft Docs"
 description: "Den här sidan innehåller detaljerade krav för att konfigurera och hantera routning för ExpressRoute-kretsar."
 documentationcenter: na
 services: expressroute
@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: osamam
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5e3c65d9ada5c75e0ddef3b3778a79ca77aa07d8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: a97662819acbbbd4c4a331acac4fdec193242d80
+ms.contentlocale: sv-se
+ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
+# <a name="nat-for-expressroute"></a>NAT för ExpressRoute
+
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om de inte gör det så måste du följa följande krav. 
 
-Referera till artikeln [Kretsar och routningsdomäner](expressroute-circuit-peerings.md) för en beskrivnign av de routningssessioner som behöver ställas in för att förenkla anslutningen.
+Referera till artikeln [Kretsar och routningsdomäner](expressroute-circuit-peerings.md) för en beskrivning av de routningssessioner som behöver ställas in för att förenkla anslutningen.
 
 > [!NOTE]
 > Microsoft stöder inte några protokoll för router-redundans (t.ex., HSRP, VRRP) för konfigurationer med hög tillgänglighet. Vi förlitar oss på ett redundant par med BGP-sessioner per peering för hög tillgänglighet.
@@ -31,9 +34,11 @@ Referera till artikeln [Kretsar och routningsdomäner](expressroute-circuit-peer
 > 
 
 ## <a name="ip-addresses-used-for-peerings"></a>IP-adresser som används för peerings
+
 Du behöver reservera några IP-adressblock för att kunna konfigurera routning mellan ditt nätverk och Microsofts Enterprise-gränsroutrar (MSEE). Det här avsnittet innehåller en lista med krav och en beskrivning av reglerna för hur dessa IP-adresser måste hämtas och användas.
 
 ### <a name="ip-addresses-used-for-azure-private-peering"></a>IP-adresser för Azures privata peering
+
 Du kan antingen använda privata IP-adresser eller offentliga IP-adresser för att konfigurera peerings. Adressintervallet som används för att konfigurera routning får inte överlappa de adressintervall som användes för att skapa virtuella nätverk i Azure. 
 
 * Du måste reservera ett /29-undernät eller två /30-undernät för routningsgränssnitten.
@@ -45,6 +50,7 @@ Du kan antingen använda privata IP-adresser eller offentliga IP-adresser för a
   * Du måste konfigurera båda BGP-sessionerna för att vårt [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltigt.  
 
 #### <a name="example-for-private-peering"></a>Exempel på privat peering
+
 Om du väljer att använda a.b.c.d/29 för att konfigurera peeringen delas den upp i två /30-undernät. I exemplet nedan beskrivs hur a.b.c.d/29-undernätet används. 
 
 a.b.c.d/29 kommer att delas upp till a.b.c.d/30 och a.b.c.d+4/30 samt skickas till Microsoft via etablerings-API: er. Du kommer att använda a.b.c.d+1 som VRF IP för din primära PE och Microsoft kommer att använda a.b.c.d+2 som VRF IP för den primära MSEE:n. Du kommer att använda a.b.c.d+5 som VRF IP för din sekundära PE och Microsoft kommer att använda a.b.c.d+6 som VRF IP för den sekundära MSEE:n.
@@ -55,6 +61,7 @@ Tänk dig ett fall där du väljer 192.168.100.128/29 för att konfigurera priva
 * 192.168.100.132/30 tilldelas till link2, där leverantören använder 192.168.100.133 och Microsoft använder 192.168.100.134.
 
 ### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>IP-adresser för Azure offentlig och Microsoft peering
+
 Du måste använda offentliga IP-adresser som du äger när du konfigurerar BGP-sessionerna. Microsoft måste kunna verifiera ditt ägarskap till IP-adresserna via RIR (Routing Internet Registries) och IIR (Internet Routing Registries). 
 
 * Du måste använda ett unikt /29-undernät eller två /30-undernät till att konfigurera BGP-peeringen för varje peering per ExpressRoute-krets (om du har fler än en). 
@@ -64,13 +71,17 @@ Du måste använda offentliga IP-adresser som du äger när du konfigurerar BGP-
   * Du måste konfigurera båda BGP-sessionerna för att vårt [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltigt.
 
 ## <a name="public-ip-address-requirement"></a>Krav för offentliga IP-adress
+
 ### <a name="private-peering"></a>Privat peering
+
 Du kan välja att använda offentliga eller privata IPv4-adresser för privat peering. Vi erbjuder slutpunkt-till-slutpunkt isolering av din trafik så adressöverlappning med andra kunder är inte möjligt med privat peering. De här adresserna annonseras inte till Internet. 
 
 ### <a name="public-peering"></a>Offentlig peering
+
 Med Azures offentliga peeringsökväg kan du ansluta till alla tjänster som finns i Azure med deras offentliga IP-adresser. Det inkluderar tjänster som finns i listan [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md) och tjänster med ISV:er i Microsoft Azure. Anslutningen till Microsoft Azure-tjänster vid offentlig peering initieras alltid från ditt nätverk till Microsoft-nätverket. Du måste använda offentliga IP-adresser för trafik till Microsoft-nätverk.
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
+
 Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som inte stöds via Azures offentliga peeringsökväg. Listan med tjänster innefattar Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och CRM Online. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket.
 
 Kontrollera att din IP-adress och AS-nummer är registrerade till dig i något av registren nedan.
@@ -89,22 +100,27 @@ Kontrollera att din IP-adress och AS-nummer är registrerade till dig i något a
 > 
 
 ## <a name="dynamic-route-exchange"></a>Dynamiskt routningsutbyte
+
 Routningsutbytet kommer att ske via EBGP-protokollet. EBGP-sessioner upprättas mellan MSEE:erna och dina routrar. Autentisering av BGP-sessioner är inte något krav. Om det behövs kan en MD5-hash konfigureras. Se [Konfigurera routning](expressroute-howto-routing-classic.md) och [Kretsetablering av arbetsflöden och kretsstatus](expressroute-workflows.md) för information om att konfigurera BGP-sessioner.
 
 ## <a name="autonomous-system-numbers"></a>Autonoma systemnummer
+
 Microsoft använder AS 12076 för Azures offentliga, Azures privata och Microsofts peering. Vi har reserverat ASN:er från 65515 till 65520 för intern användning. Både 16- och 32-bitars AS-nummer stöds.
 
 Det finns inga krav på symmetri vid dataöverföring. Sökvägar vid vidarebefordran och retur kan passera olika routerpar. Identiska vägar måste annonseras från någon av sidorna över flera kretspar som du äger. Vägmåtten behöver inte vara identiska.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Vägsammanställning och begränsningar för prefix
+
 Vi stöder upp till 4 000 prefix som annonseras till oss via Azures privata peering. Detta kan utökas upp till 10 000 prefix om ExpressRoute-premiumtillägget är aktiverat. Vi kan acceptera upp till 200 prefix per BGP-session för Azures offentliga och Microsofts peering. 
 
 BGP-sessionen kommer att tas bort om antalet prefix överskrider gränsen. Vi kommer endast att acceptera standardvägar på den privata peeringlänken. Leverantören måste filtrera ut standardvägen och privata IP-adresser (RFC 1918) från Azures offentliga och Microsofts peeringsökvägar. 
 
 ## <a name="transit-routing-and-cross-region-routing"></a>Överföringsroutning och routning mellan regioner
+
 ExpressRoute kan inte konfigureras som överföringsroutrar. Du måste förlita dig på din anslutningsleverantör vid överföring av routningstjänster.
 
 ## <a name="advertising-default-routes"></a>Annonsering av standardvägar
+
 Standardvägar tillåts bara i Azures privata peeringsessioner. I dessa fall kommer vi dirigera all trafik från associerade virtuella nätverk till ditt nätverk. Annonsering av standardvägar till privat peering resulterar i att Internetvägen från Azure blockeras. Du måste använda på ditt företags gräns till att dirigera trafik från och till Internet för tjänster som finns i Azure. 
 
  Om du vill aktivera anslutningar till andra Azure-tjänster och infrastrukturtjänster, måste något av följande objekt finnas på plats:
@@ -118,6 +134,7 @@ Standardvägar tillåts bara i Azures privata peeringsessioner. I dessa fall kom
 > 
 
 ## <a name="support-for-bgp-communities-preview"></a>Stöd för BGP-communities (förhandsgranskning)
+
 Det här avsnittet innehåller en översikt över hur BGP-communities kommer att användas med ExpressRoute. Microsoft kommer att annonsera vägar i offentliga och Microsofts peeringsökvägar med vägar som är taggade med lämpliga community-värden. Anledningen till att man gör detta samt information om community-värden beskrivs nedan. Microsoft använder dock inte några community-värden som är taggade på vägar som annonserats till Microsoft.
 
 Om du ansluter till Microsoft via ExpressRoute på valfri peeringplats i en geopolitisk region, får du åtkomst till alla Microsoft-molntjänster i alla regioner inom den geopolitiska gränsen. 
@@ -185,15 +202,11 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Konfigurera ExpressRoute-anslutningen.
   
   * [Skapa en ExpressRoute-krets för den klassiska distributionsmodellen](expressroute-howto-circuit-classic.md) eller [Skapa och ändra en ExpressRoute-krets med Azure Resource Manager](expressroute-howto-circuit-arm.md)
   * [Konfigurera routning för den klassiska distributionsmodellen](expressroute-howto-routing-classic.md) eller [Konfigurera routning för Resource Manager-distributionsmodellen](expressroute-howto-routing-arm.md)
   * [Länka ett klassiskt VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md) eller [Länka ett Resource Manager-VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

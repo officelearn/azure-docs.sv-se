@@ -1,5 +1,5 @@
 ---
-title: "Komma igång med Lagringsutforskaren (förhandsversion) | Microsoft Docs"
+title: "Kom igång med Lagringsutforskaren (förhandsversion) | Microsoft Docs"
 description: "Hantera Azure-lagringsresurser med Lagringsutforskaren (förhandsversion)"
 services: storage
 documentationcenter: na
@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 07b62cd6f6deb0cf3ff1c806204ebc26c773a164
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: fbcd35529c5d2360f5b0c9de4d3c9c4a08a0cc8f
+ms.contentlocale: sv-se
+ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="getting-started-with-storage-explorer-preview"></a>Komma igång med Lagringsutforskaren (förhandsversion)
+# <a name="get-started-with-storage-explorer-preview"></a>Kom igång med Lagringsutforskaren (förhandsversion)
 ## <a name="overview"></a>Översikt
-Microsoft Azure Storage Explorer (förhandsversion) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, Mac OS och Linux. I den här artikeln lär du dig hur du kan ansluta till och hantera dina Azure Storage-konton på olika sätt.
+Azure Lagringsutforskaren (förhandsversion) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, Mac OS och Linux. I den här artikeln lär du dig hur du kan ansluta till och hantera dina Azure Storage-konton på olika sätt.
 
 ![Microsoft Azure Lagringsutforskaren (förhandsversion)][15]
 
@@ -31,13 +32,18 @@ Microsoft Azure Storage Explorer (förhandsversion) är en fristående app som g
 * [Hämta och installera Lagringsutforskaren (förhandsversion)](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Ansluta till ett lagringskonto eller en tjänst
-Med Storage Explorer (förhandsversion) kan du ansluta till lagringskonton på flera olika sätt. Du kan t.ex. ansluta till lagringskonton som är kopplade till dina Azure-prenumerationer, ansluta till lagringskonton och tjänster som delas från andra Azure-prenumerationer och även ansluta till och hantera lokal lagring med hjälp av Azure Storage-emulatorn. Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
+Med Lagringsutforskaren (förhandsversion) kan du ansluta till lagringskonton på flera olika sätt. Du kan till exempel:
+* Ansluta till lagringskonton som är associerade med dina Azure-prenumerationer.
+* Ansluta till lagringskonton och tjänster som delas från andra Azure-prenumerationer.
+* Ansluta till och hantera lokal lagring med hjälp av Azure Storage-emulatorn. 
 
-* [Ansluta till en Azure-prenumeration](#connect-to-an-azure-subscription) – Hantera lagringsresurser som hör till din Azure-prenumeration.
-* [Arbeta med lokal utvecklingslagring](#work-with-local-development-storage) – Hantera lokal lagring med hjälp av Azure Storage-emulatorn.
-* [Ansluta till extern lagring](#attach-or-detach-an-external-storage-account) – Hantera lagringsresurser som hör till en annan Azure-prenumeration eller nationella Azure-moln med hjälp av lagringskontots namn, nyckel och slutpunkter.
-* [Ansluta ett lagringskonto med hjälp av SAS](#attach-storage-account-using-sas) – Hantera lagringsresurser som hör till en annan Azure-prenumeration med hjälp av en SAS.
-* [Ansluta en tjänst med hjälp av SAS](#attach-service-using-sas) – Hantera en specifik lagringstjänst (blobbehållare, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
+Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
+
+* [Ansluta till en Azure-prenumeration](#connect-to-an-azure-subscription): hantera lagringsresurser som hör till din Azure-prenumeration.
+* [Arbeta med lokal utvecklingslagring](#work-with-local-development-storage): hantera lokal lagring med hjälp av Azure Storage-emulatorn.
+* [Ansluta till extern lagring](#attach-or-detach-an-external-storage-account): hantera lagringsresurser som hör till en annan Azure-prenumeration eller nationella Azure-moln med hjälp av lagringskontots namn, nyckel och slutpunkter.
+* [Ansluta ett lagringskonto med hjälp av en SAS](#attach-storage-account-using-sas): hantera lagringsresurser som tillhör en annan Azure-prenumeration med hjälp av en signatur för delad åtkomst (SAS).
+* [Ansluta en tjänst med hjälp av SAS](#attach-service-using-sas): hantera en specifik lagringstjänst (blobbehållare, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ansluta till en Azure-prenumeration
 > [!NOTE]
@@ -48,77 +54,95 @@ Med Storage Explorer (förhandsversion) kan du ansluta till lagringskonton på f
 1. I Lagringsutforskaren (förhandsversion) väljer du **Inställningar för Azure-konto**.
 
     ![Inställningar för Azure-konto][0]
-2. Den vänstra rutan visar alla Microsoft-konton som du har loggat in på. Om du vill ansluta till ett annat konto väljer du **Lägg till ett konto** och följer dialogrutorna för att logga in med ett Microsoft-konto som är kopplat till minst en aktiv Azure-prenumeration.
-> [!NOTE]
->För närvarande går det inte att ansluta till nationella Azure, t.ex. Black Forest Azure, Fairfax Azure eller Mooncake Azure, via inloggning. Mer information om hur du ansluter till nationella Azure Storage-konton finns i avsnittet **Koppla eller koppla från ett externt lagringskonto**.
+
+2. Den vänstra rutan visar alla Microsoft-konton som du har loggat in på. Om du vill ansluta till ett annat konto väljer du **Lägg till ett konto** och följer instruktionerna för att logga in med ett Microsoft-konto som är kopplat till minst en aktiv Azure-prenumeration.
+
+    >[!NOTE]
+    >För närvarande går det inte att ansluta till nationella Azure (t.ex. Azure Germany, Azure Government och Azure China) via inloggning. Mer information om hur du ansluter till nationella Azure Storage-konton finns i avsnittet Ansluta eller koppla från ett externt lagringskonto.
 
 3. När du har loggat in med ett Microsoft-konto fylls den vänstra rutan i med de Azure-prenumerationer som är kopplade till kontot. Välj de Azure-prenumerationer som du vill arbeta med och välj sedan **Använd**. (Om du klickar på **Alla prenumerationer** växlar du mellan att välja alla eller inga av de Azure-prenumerationer som visas.)
 
-    ![Välja Azure-prenumerationer][3]
-4. I den vänstra rutan visas lagringskontona som är kopplade till de valda Azure-prenumerationerna.
+    ![Välja Azure-prenumerationer][3]  
+    I den vänstra rutan visas lagringskontona som är kopplade till de valda Azure-prenumerationerna.
 
     ![Valda Azure-prenumerationer][4]
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Ansluta till en Azure Stack-prenumeration
 
-1. En VPN-anslutning krävs så att Lagringsutforskaren kan komma åt Azure Stack-prenumerationen via fjärranslutning. Mer information om hur du konfigurerar en VPN-anslutning till Azure Stack finns i [Connect to Azure Stack with VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn) (Anslut till Azure Stack via VPN).
+Du behöver en VPN-anslutning så att Lagringsutforskaren kan komma åt Azure Stack-prenumerationen via fjärranslutning. Information om hur du konfigurerar en VPN-anslutning till Azure Stack finns i [Connect to Azure Stack with VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn) (Anslut till Azure Stack via VPN).
 
-2. För Azure Stack POC måste du exportera rotcertifikatet för Azure Stack-behörighet. Öppna `mmc.exe` på MAS-CON01, värddatorn för Azure Stack eller en lokal dator med VPN-anslutning till Azure Stack. Under **Arkiv** väljer du **Lägg till/ta bort snapin-modul**. Lägg till **Certifikat** för hantering av **datorkontot** **Lokal dator**.
+För Azure Stack POC (Proof of Concept) måste du exportera rotcertifikatet för Azure Stack-behörighet. Gör så här:
 
-   ![Läsa in rotcertifikatet för Azure Stack via mmc.exe][25]   
+1. Öppna `mmc.exe` på MAS-CON01, en värddator för Azure Stack eller en lokal dator med VPN-anslutning till Azure Stack. 
 
-   Leta rätt på **AzureStackCertificationAuthority** under **[konsolrot]\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. Högerklicka på objektet och välj **Alla uppgifter -> Exportera**. Följ sedan dialogrutorna och exportera certifikatet med **Base 64-kodad X.509 (.CER)**. Det exporterade certifikatet ska användas i nästa steg.   
+2. Under **Arkiv** väljer du **Lägg till/ta bort snapin-modul** och lägger till **certifikat** för hantering av **datorkontot** **Lokal dator**.
 
-   ![Exportera rotcertifikatet för Azure Stack-behörighet][26]   
+    ![Läsa in rotcertifikatet för Azure Stack via mmc.exe][25]   
 
-3. I Lagringsutforskaren (förhandsversion) väljer du menyn **Redigera**. Välj sedan **SSL-certifikat** och **Importera certifikat**. Använd filväljaren till att leta rätt på och öppna certifikatet du exporterade i föregående steg. Efter importen uppmanas du att starta om Lagringsutforskaren.
+3. Leta rätt på **AzureStackCertificationAuthority** under **[konsolrot]\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. 
 
-   ![Importera certifikatet till Lagringsutforskaren (förhandsversion)][27]
+4. Högerklicka på objektet, välj **Alla aktiviteter** > **Exportera** och följ sedan instruktionerna för att exportera certifikatet med **Base 64-kodad X.509 (.cer)**.  
 
-4. När Lagringsutforskaren (förhandsversion) startats om väljer du menyn **Redigera** och ser till att **Target Azure Stack** (Använd Azure Stack som mål) är markerat. Om inte så markerar du alternativet och startar om Lagringsutforskaren så att ändringen börjar gälla. Denna konfiguration krävs för kompatibilitet med Azure Stack-miljön.
+    Det exporterade certifikatet ska användas i nästa steg.   
 
-   ![Se till att Target Azure Stack (Använd Azure Stack som mål) är markerat][28]
+    ![Exportera rotcertifikatet för Azure Stack-behörighet][26]   
 
-5. Välj **Hantera konton** i den vänstra listen. Du ser alla Microsoft-konton som du har loggat in på i den vänstra rutan. Om du vill ansluta till Azure Stack-kontot väljer du **Lägg till ett konto**.
+5. I Lagringsutforskaren (förhandsversion) pekar du på **SSL-certifikat** på **Redigera**-menyn och väljer sedan **Importera certifikat**. Använd filväljaren till att leta rätt på och öppna certifikatet du exporterade i föregående steg.  
 
-   ![Lägga till ett Azure Stack-konto][29]
+    Efter importen uppmanas du att starta om Lagringsutforskaren.
 
-6. Välj **Create Custom Environment** (Skapa anpassad miljö) under **Azure-miljö** i dialogrutan **Lägg till nytt konto** och klicka på **Nästa**.
+    ![Importera certifikatet till Lagringsutforskaren (förhandsversion)][27]
 
-7. Ange all nödvändig information om den anpassade Azure Stack-miljön och klicka på **Logga in**.  Fyll i dialogrutan **Sign in to a Custom Cloud environment** (Logga in i en anpassad molnmiljö) och logga in med ett Azure Stack-konto som är associerat med minst en aktiv Stack Azure-prenumeration. Här är information om de olika fälten i dialogrutan:
+6. När Lagringsutforskaren (förhandsversion) startats om väljer du **Redigera**-menyn och ser till att **Target Azure Stack** (Använd Azure Stack som mål) är markerat. Om alternativet inte är markerat markerar du det och startar om Lagringsutforskaren så att ändringen börjar gälla. Denna konfiguration krävs för kompatibilitet med Azure Stack-miljön.
 
-    * **Miljönamn** – fältet kan anpassas av användaren.
-    * **Myndighet** – värdet ska vara https://login.windows.net. Använd https://login.chinacloudapi.cn för Azure Kina (Mooncake).
-    * **Sign in resource id** (Id för inloggningsresurs) – hämta värdet genom att köra följande PowerShell:
+    ![Se till att Target Azure Stack (Använd Azure Stack som mål) är markerat][28]
 
-    Om du är administratör för molnet:
+7. Välj **Hantera konton** i den vänstra rutan.  
+    Alla Microsoft-konton som du är inloggad på visas.
 
-    ```powershell
-    PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-    ```
+8. Om du vill ansluta till Azure Stack-kontot väljer du **Lägg till ett konto**.
 
-    Om du är en klient:
+    ![Lägga till ett Azure Stack-konto][29]
 
-    ```powershell
-    PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-    ```
+9. Välj **Create Custom Environment** (Skapa anpassad miljö) under **Azure-miljö** i dialogrutan **Lägg till nytt konto** och klicka på **Nästa**.
 
-    * **Graph endpoint** (Graph-slutpunkt) – värdet ska vara https://graph.windows.net. Använd https://graph.chinacloudapi.cn för Azure Kina (Mooncake).
-    * **ARM resource id** (Id för ARM-resurs) – använd samma värde som id:t för inloggningsresursen.
-    * **ARM resurs endpoint** (Slutpunkt för ARM-resurs) – exempel på slutpunkter för ARM-resursen:
+10. Ange all nödvändig information om den anpassade Azure Stack-miljön och klicka på **Logga in**. 
 
-    För molnadministratörer: https://adminmanagement.local.azurestack.external   
-    For klienter: https://management.local.azurestack.external
+11. Logga in med ett Azure Stack-konto som är associerat med minst en aktiv Stack Azure-prenumeration genom att fylla i dialogrutan **Sign in to a Custom Cloud environment** (Logga in i en anpassad molnmiljö).  
+
+    Information om de olika fälten:
+
+    * **Miljönamn**: fältet kan anpassas av användaren.
+    * **Myndighet**: värdet ska vara https://login.windows.net. Använd https://login.chinacloudapi.cn för Azure China.
+    * **Sign in resource id** (Id för inloggningsresurs): hämta värdet genom att köra följande PowerShell-skript:
+
+        Om du är molnadministratör:
+
+        ```powershell
+        PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+        ```
+
+        Om du är en klient:
+
+        ```powershell
+        PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+        ```
+
+    * **Graph endpoint** (Graph-slutpunkt): värdet ska vara https://graph.windows.net. Använd https://graph.chinacloudapi.cn för Azure China.
+    * **ARM resource id** (Id för ARM-resurs): använd samma värde som **id:t för inloggningsresursen**.
+    * **ARM resurs endpoint** (Slutpunkt för ARM-resurs): exempel på slutpunkter för Azure Resource Manager-resursen:
+
+        * För molnadministratörer: https://adminmanagement.local.azurestack.external   
+        * För klienter: https://management.local.azurestack.external
  
-    * **Tenant Ids** (Klient-id:n) – valfritt. Värdet anges bara när du måste ange katalogen.
+    * **Tenant Ids** (Klient-id:n): valfritt. Värdet anges bara när du måste ange katalogen.
 
-8. När du har loggat in med ett Azure Stack-konto fylls den vänstra rutan i med de Azure Stack-prenumerationer som är kopplade till kontot. Välj de Azure Stack-prenumerationer du vill arbeta med och välj sedan **Använd**. (Om du klickar på **Alla prenumerationer** växlar du mellan att välja alla eller inga av de Azure Stack-prenumerationer som visas.)
+12. När du har loggat in med ett Azure Stack-konto fylls den vänstra rutan i med de Azure Stack-prenumerationer som är kopplade till kontot. Välj de Azure Stack-prenumerationer som du vill arbeta med och välj sedan **Använd**. (Om du markerar eller avmarkerar kryssrutan **Alla prenumerationer** växlar du mellan att välja alla eller inga av de Azure Stack-prenumerationer som visas.)
 
-   ![Välj Azure Stack-prenumerationer när du har fyllt i dialogrutan Custom Cloud Environment (Anpassad molnmiljö)][30]
+    ![Välj Azure Stack-prenumerationer när du har fyllt i dialogrutan Custom Cloud Environment (Anpassad molnmiljö)][30]  
+    I den vänstra rutan visas de lagringskonton som är kopplade till de valda Azure Stack-prenumerationerna.
 
-9. I den vänstra rutan visas de lagringskonton som är kopplade till de valda Azure Stack-prenumerationerna.
-
-   ![Lista med lagringskonton inklusive konton för Azure Stack-prenumerationer][31]
+    ![Lista med lagringskonton inklusive konton för Azure Stack-prenumerationer][31]
 
 ## <a name="work-with-local-development-storage"></a>Arbeta med lokal utvecklingslagring
 Med Lagringsutforskaren (förhandsversion) kan du arbeta mot lokal lagring med hjälp av Azure Storage-emulatorn. På så sätt kan du skriva kod mot och testa lagring utan att nödvändigtvis ha distribuerat ett lagringskonto i Azure (eftersom lagringskontot emuleras av Azure Storage-emulatorn).
@@ -131,123 +155,157 @@ Med Lagringsutforskaren (förhandsversion) kan du arbeta mot lokal lagring med h
 1. I den vänstra rutan i Lagringsutforskaren (förhandsversion) utökar du noden **(Lokala och anslutna)** > **Lagringskonton** > **(Utveckling)**.
 
     ![Noden Lokal utveckling][21]
-2. Om du inte har installerat Azure Storage-emulatorn än uppmanas du att göra det via ett informationsfält. Om informationsfältet visas väljer du **Hämta den senaste versionen** och installerar emulatorn.
+
+2. Om du inte har installerat Azure Storage-emulatorn än uppmanas du att göra det via ett informationsfält. Om informationsfältet visas väljer du **Hämta den senaste versionen** och installerar sedan emulatorn.
 
     ![Fråga om att hämta Azure Storage-emulatorn][22]
-3. När emulatorn har installerats kan du välja att skapa och arbeta med lokala blobbar, köer och tabeller. Välj någon av följande länkar om du vill lära dig mer om hur du arbetar med varje typ av lagringskonto:
 
-   * [Hantera Azure-bloblagringsresurser](vs-azure-tools-storage-explorer-blobs.md)
-   * Hantera Azure-filresurslagringsresurser – *kommer snart*
-   * Hantera Azure-kölagringsresurser – *kommer snart*
-   * Hantera Azure-tabellagringsresurser – *kommer snart*
+3. När emulatorn har installerats kan du skapa och arbeta med lokala blobbar, köer och tabeller. Mer information om hur du arbetar med varje typ av lagringskonto finns i följande avsnitt:
+
+    * [Hantera Azure-bloblagringsresurser](vs-azure-tools-storage-explorer-blobs.md)
+    * Hantera Azure-filresurslagringsresurser: *kommer snart*
+    * Hantera Azure-kölagringsresurser: *kommer snart*
+    * Hantera Azure-tabellagringsresurser: *kommer snart*
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Ansluta eller koppla från ett externt lagringskonto
-Lagringsutforskaren (förhandsversion) ger dig möjlighet att ansluta till externa lagringskonton så att du enkelt kan dela lagringskonton. Det här avsnittet beskriver hur du ansluter till (och kopplar från) externa lagringskonton.
+Med Lagringsutforskaren (förhandsversion) kan du ansluta till externa lagringskonton så att du enkelt kan dela lagringskonton. Det här avsnittet beskriver hur du ansluter till (och kopplar från) externa lagringskonton.
 
 ### <a name="get-the-storage-account-credentials"></a>Hämta autentiseringsuppgifterna för lagringskontot
-För att kunna dela ett externt lagringskonto måste kontoägaren först hämta autentiseringsuppgifterna – kontonamnet och nyckeln – för kontot och sedan dela den informationen med den person som ska ansluta till det (externa) kontot. Du kan hämta autentiseringsuppgifterna för ett lagringskonto via Azure Portal genom att följa dessa steg:
+För att kunna dela ett externt lagringskonto måste kontoägaren först hämta autentiseringsuppgifterna (kontonamnet och nyckeln) för kontot och sedan dela den informationen med den person som ska ansluta till det (externa) kontot. Så här hämtar du autentiseringsuppgifterna för ett lagringskonto via Azure Portal:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
+
 2. Välj **Bläddra**.
+
 3. Välj **Lagringskonton**.
-4. Välj önskat lagringskonto i bladet **Lagringskonton**.
-5. Välj **Åtkomstnycklar** i bladet **Inställningar** för det valda lagringskontot.
 
-   ![Alternativ för åtkomstnycklar][5]
-6. I bladet **Åtkomstnycklar** kopierar du värdena för **LAGRINGSKONTONAMN** och **NYCKEL 1** som används för att ansluta till lagringskontot.
+4. Välj önskat lagringskonto på bladet **Lagringskonton**.
 
-   ![Åtkomstnycklar][6]
+5. Välj **Åtkomstnycklar** på bladet **Inställningar** för det valda lagringskontot.
+
+    ![Alternativ för åtkomstnycklar][5]
+
+6. På bladet **Åtkomstnycklar** kopierar du värdena för **lagringskontonnamn** och **nyckel1** som används för att ansluta till lagringskontot.
+
+    ![Åtkomstnycklar][6]
 
 ### <a name="attach-to-an-external-storage-account"></a>Ansluta till ett externt lagringskonto
-Om du vill ansluta till ett externt lagringskonto behöver du ha tillgång till kontots namn och nyckel. Avsnittet *Hämta autentiseringsuppgifter för lagringskonto* förklarar hur du hämtar dessa värden från Azure Portal. Observera dock att på portalen kallas kontonyckeln för "nyckel 1", så när Lagringsutforskaren (förhandsversion) begär en kontonyckel ska du ange (eller klistra in) värdet "nyckel 1".
+Om du vill ansluta till ett externt lagringskonto behöver du ha tillgång till kontots namn och nyckel. I avsnittet Hämta autentiseringsuppgifter för lagringskonto beskrivs hur du hämtar dessa värden från Azure Portal. Men i portalen kallas kontonyckeln **nyckel1**. Om Lagringsutforskaren (förhandsgranskning) begär en kontonyckel anger du alltså **nyckel1**-värdet.
 
 1. I Lagringsutforskaren (förhandsversion) väljer du **Anslut till Azure Storage**.
 
-   ![Alternativet Anslut till Azure Storage][23]
-2. I dialogrutan **Anslut till Azure Storage** anger du kontonyckeln ("nyckel 1"-värdet från Azure Portal) och väljer sedan **Nästa**.
-> [!NOTE]
-> Du kan ange en anslutningssträng för lagring från ett lagringskonto på nationella Azure. Du kan t.ex. ange anslutningssträngar som liknande de som här följer om du vill ansluta till Azure Black Forest-lagringskonton: DefaultEndpointsProtocol = https; AccountName = cawatest03; AccountKey =<storage_account_key>; EndpointSuffix=core.cloudapi.de; Du kan hämta anslutningssträngen från Azure Portal på det sätt som beskrivs i avsnittet **Hämta autentiseringsuppgifter för lagringskonto**
+    ![Alternativet Anslut till Azure Storage][23]
 
-   ![Dialogrutan Anslut till Azure Storage][24]
+2. I dialogrutan **Anslut till Azure Storage** anger du kontonyckeln (**nyckel 1**-värdet från Azure Portal) och väljer sedan **Nästa**.
 
-3. I dialogrutan **Anslut extern lagring** anger du lagringskontots namn i rutan **Kontonamn**, anger eventuella andra önskade inställningar och väljer sedan **Nästa** när du är klar.
+    > [!NOTE]
+    > Du kan ange en anslutningssträng för lagring från ett lagringskonto på nationella Azure. Om du till exempel vill ansluta till Azure Germany-lagringskonton anger du anslutningssträngar som ser ut ungefär så här: 
+    >
+    >* DefaultEndpointsProtocol=https
+    >* AccountName=cawatest03
+    >* AccountKey=<storage_account_key>
+    >* EndpointSuffix=core.cloudapi.de
+    
+    >Du kan hämta anslutningssträngen på Azure Portal på samma sätt som beskrivs i avsnittet Hämta autentiseringsuppgifterna för lagringskontot.
 
-   ![Dialogrutan Anslut extern lagring][8]
-4. Kontrollera uppgifterna i dialogrutan **Anslutningssammanfattning**. Om du vill ändra något väljer du **Tillbaka** och anger sedan önskade inställningar på nytt. När du är klar väljer du **Anslut**.
-5. När det externa lagringskontot har anslutits visas det med texten **(Externt)** sist i namnet.
+    ![Dialogrutan Anslut till Azure Storage][24]
 
-   ![Resultatet av att ansluta till ett externt lagringskonto][9]
+3. I dialogrutan **Anslut extern lagring** anger du lagringskontots namn i rutan **Kontonamn**, anger eventuella andra önskade inställningar och väljer sedan **Nästa**.
+
+    ![Dialogrutan Anslut extern lagring][8]
+
+4. Kontrollera uppgifterna i dialogrutan **Anslutningssammanfattning**. Om du vill ändra något väljer du **Tillbaka** och anger sedan önskade inställningar på nytt. 
+
+5. Välj **Anslut**.
+
+6. När det externa lagringskontot har anslutits visas det med texten **(Externt)** sist i namnet.
+
+    ![Resultatet av att ansluta till ett externt lagringskonto][9]
 
 ### <a name="detach-from-an-external-storage-account"></a>Ansluta från ett externt lagringskonto
-1. Högerklicka på det externa lagringskonto som du vill koppla från och välj **Koppla från** på snabbmenyn.
+1. Högerklicka på det externa lagringskonto som du vill koppla från och välj sedan **Koppla från**.
 
-   ![Koppla bort lagringsalternativ][10]
-2. När rutan med bekräftelsemeddelandet visas väljer du **Ja** för att bekräfta att du vill koppla bort det externa lagringskontot.
+    ![Koppla bort lagringsalternativ][10]
 
-## <a name="attach-storage-account-using-sas"></a>Ansluta ett lagringskonto med hjälp av SAS
-En [SAS (signatur för delad åtkomst)](storage/storage-dotnet-shared-access-signature-part-1.md) gör det möjligt för administratören av en Azure-prenumeration att bevilja tillfällig åtkomst till ett lagringskonto utan att behöva uppge sina autentiseringsuppgifter för Azure-prenumerationen.
+2. I bekräftelsemeddelandet väljer du **Ja** för att bekräfta att du vill koppla bort det externa lagringskontot.
 
-För att illustrera detta antar vi att Användare A som är administratör för en Azure-prenumeration vill ge Användare B åtkomst till ett lagringskonto under en begränsad tid med särskilda behörigheter:
+## <a name="attach-a-storage-account-by-using-an-sas"></a>Ansluta ett lagringskonto med hjälp av en SAS
+Med en [SAS](storage/storage-dotnet-shared-access-signature-part-1.md) kan administratören för en Azure-prenumeration bevilja tillfällig åtkomst till ett lagringskonto utan att uppge autentiseringsuppgifter för Azure-prenumerationen.
+
+För att illustrera detta antar vi att Användare A är administratör för en Azure-prenumeration och vill ge Användare B åtkomst till ett lagringskonto under en begränsad tid med särskilda behörigheter:
 
 1. Användare A genererar en SAS (som består av anslutningssträngen för lagringskontot) för en viss tidsperiod och med önskade behörigheter.
-2. Användare A delar SAS med den person som vill ha åtkomst till lagringskontot, Användare B i vårt exempel.  
+
+2. Användare A delar SAS med den person (Användare B i vårt exempel) som vill ha åtkomst till lagringskontot.  
+
 3. Användare B använder Lagringsutforskaren (förhandsversion) för att ansluta till kontot som hör till Användare A med hjälp av den SAS som han eller hon fått.
 
-### <a name="get-a-sas-for-the-account-you-want-to-share"></a>Hämta en SAS för det konto som du vill dela
-1. I Lagringshanteraren (förhandsversion) högerklickar du på det lagringskonto som du vill dela och väljer **Hämta signatur för delad åtkomst** i snabbmenyn.
+### <a name="get-an-sas-for-the-account-you-want-to-share"></a>Hämta en SAS för det konto som du vill dela
+1. I Lagringshanteraren (förhandsversion) högerklickar du på det lagringskonto som du vill dela och väljer sedan **Hämta signatur för delad åtkomst**.
 
-   ![Snabbmenyalternativet Hämta SAS][13]
+    ![Snabbmenyalternativet Hämta SAS][13]
+
 2. I dialogrutan **Signatur för delad åtkomst** anger du det tidsintervall och de behörigheter som du vill använda för kontot och väljer sedan **Skapa**.
 
-    ![Dialogrutan Hämta SAS][14]
-3. SAS-signaturen visas i en andra dialogruta av typen **Signatur för delad åtkomst**. Välj **Kopiera** bredvid **anslutningssträngen** för att kopiera den till Urklipp. Stäng dialogrutan genom att välja **Stäng**.
+    Dialogrutan ![Hämta SAS][14]  
+    SAS visas i dialogrutan **Signatur för delad åtkomst**.
 
-### <a name="attach-to-the-shared-account-using-the-sas"></a>Ansluta till det delade kontot med hjälp av SAS
+3. Välj **Kopiera** bredvid **anslutningssträngen** för att kopiera den till Urklipp och välj sedan **Stäng**.
+
+### <a name="attach-to-the-shared-account-by-using-the-sas"></a>Ansluta till det delade kontot med hjälp av SAS
 1. I Lagringsutforskaren (förhandsversion) väljer du **Anslut till Azure Storage**.
 
-   ![Alternativet Anslut till Azure Storage][23]
+    ![Alternativet Anslut till Azure Storage][23]
+
 2. I dialogrutan **Anslut till Azure Storage** anger du anslutningssträngen och väljer sedan **Nästa**.
 
-   ![Dialogrutan Anslut till Azure Storage][24]
-3. Kontrollera uppgifterna i dialogrutan **Anslutningssammanfattning**. Om du vill ändra något väljer du **Tillbaka** och anger sedan önskade inställningar på nytt. När du är klar väljer du **Anslut**.
-4. När lagringskontot har anslutits visas det med texten (SAS) sist i kontonamnet som du angav.
+    ![Dialogrutan Anslut till Azure Storage][24]
 
-   ![Resultatet av anslutning till ett konto med SAS][17]
+3. Kontrollera uppgifterna i dialogrutan **Anslutningssammanfattning**. Om du vill göra ändringar väljer du **Bakåt** och anger sedan önskade inställningar. 
 
-## <a name="attach-service-using-sas"></a>Ansluta en tjänst med hjälp av SAS
-Avsnittet [Ansluta ett lagringskonto med hjälp av SAS](#attach-storage-account-using-sas) illustrerar hur administratören av en Azure-prenumeration kan bevilja tillfällig åtkomst till ett lagringskonto genom att generera (och dela) en SAS för lagringskontot. På samma sätt kan en SAS genereras för en specifik tjänst (blobbehållare, kö eller tabell) i ett lagringskonto.  
+4. Välj **Anslut**.
 
-### <a name="generate-a-sas-for-the-service-you-want-to-share"></a>Generera en SAS för den tjänst som du vill dela
-I det här scenariot kan en tjänst vara en blobbehållare, en kö eller en tabell. Följande avsnitt beskriver hur du skapar en SAS för den angivna tjänsten:
+5. När lagringskontot har anslutits visas det med texten **(SAS)** sist i kontonamnet som du angav.
+
+    ![Resultatet av anslutning till ett konto med SAS][17]
+
+## <a name="attach-a-service-by-using-an-sas"></a>Ansluta en tjänst med en SAS
+I avsnittet Ansluta ett lagringskonto med hjälp av SAS beskrivs hur en administratör för en Azure-prenumeration kan bevilja tillfällig åtkomst till ett lagringskonto genom att generera och dela en SAS för lagringskontot. På samma sätt kan en SAS genereras för en specifik tjänst (blobbehållare, kö eller tabell) i ett lagringskonto.  
+
+### <a name="generate-an-sas-for-the-service-that-you-want-to-share"></a>Generera en SAS för den tjänst som du vill dela
+I det här scenariot kan en tjänst vara en blobbehållare, en kö eller en tabell. Om du vill generera SAS för en tjänst kan du läsa:
 
 * [Hämta SAS för en blobbehållare](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* Hämta SAS för en filresurs – *kommer snart*
-* Hämta SAS för en kö – *kommer snart*
-* Hämta SAS för en tabell – *kommer snart*
+* Hämta SAS för en filresurs: *kommer snart*
+* Hämta SAS för en kö: *kommer snart*
+* Hämta SAS för en tabell: *kommer snart*
 
-### <a name="attach-to-the-shared-account-service-using-the-sas"></a>Ansluta till tjänsten för det delade kontot med hjälp av SAS
+### <a name="attach-to-the-shared-account-service-by-using-the-sas"></a>Ansluta till tjänsten för det delade kontot med hjälp av SAS
 1. I Lagringsutforskaren (förhandsversion) väljer du **Anslut till Azure Storage**.
 
-   ![Alternativet Anslut till Azure Storage][23]
+    ![Alternativet Anslut till Azure Storage][23]
+
 2. I dialogrutan **Anslut till Azure Storage** anger du SAS-URI och väljer sedan **Nästa**.
 
-   ![Dialogrutan Anslut till Azure Storage][24]
-3. Kontrollera uppgifterna i dialogrutan **Anslutningssammanfattning**. Om du vill ändra något väljer du **Tillbaka** och anger sedan önskade inställningar på nytt. När du är klar väljer du **Anslut**.
-4. När den har kopplats visas den nyligen kopplade tjänsten under noden **(Service SAS)**.
+    ![Dialogrutan Anslut till Azure Storage][24]
 
-   ![Resultatet av att ansluta till en delad tjänst med hjälp av SAS][20]
+3. Kontrollera uppgifterna i dialogrutan **Anslutningssammanfattning**. Om du vill göra ändringar väljer du **Bakåt** och anger sedan önskade inställningar. 
+
+4. Välj **Anslut**.
+
+5. När tjänsten har anslutits visas den under noden **(SAS för tjänst)**.
+
+    ![Resultatet av att ansluta till en delad tjänst med en SAS][20]
 
 ## <a name="search-for-storage-accounts"></a>Söka efter lagringskonton
 Om du har en lång lista med lagringskonton kan du snabbt hitta ett visst lagringskonto genom att använda sökrutan överst i den vänstra rutan.
 
-När du skriver i sökrutan visas endast de lagringskonton som matchar sökvärdet som du har skrivit hittills i den vänstra rutan. Följande skärmbild visas ett exempel där jag har sökt efter alla lagringskonton där lagringskontonamnet innehåller texten ”tarcher”.
+När du skriver i sökrutan visas de lagringskonton som matchar sökvärdet som du har skrivit hittills i den vänstra rutan. På följande skärmbild visas ett exempel på en sökning efter alla lagringskonton vars namn innehåller **tarcher**:
 
 ![Lagringskontosökning][11]
 
-Om du vill rensa sökningen väljer du knappen **x** i sökrutan.
-
 ## <a name="next-steps"></a>Nästa steg
-* [Hantera Azure-blobblagringsresurser med Lagringsutforskaren (förhandsversion)](vs-azure-tools-storage-explorer-blobs.md)
+* [Hantera Azure Blob Storage-resurser med Lagringsutforskaren (förhandsversion)](vs-azure-tools-storage-explorer-blobs.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png

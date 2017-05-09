@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -337,7 +338,7 @@ När du skapar en pool med beräkningsnoder i Azure Batch, kan du använda API:e
 
 * Det angivna undernätet måste tillåta kommunikation från Batch-tjänsten för att kunna schemalägga aktiviteter på beräkningsnoderna. Om kommunikation till beräkningsnoderna nekas av en **nätverkssäkerhetsgrupp (NSG)** som är associerad med din VNet, ändrar Batch-tjänsten beräkningsnodernas status till **Oanvändbar**. 
 
-* Om angivet VNet har några associerade NSG:er, måste porten för inkommande kommunikation aktiveras. Portarna 29876, 29877 och 22 måste aktiveras för en Linux-pool. Port 3389 måste aktiveras för en Windows-pool.
+* Om angivet VNet har några associerade NSG:er, måste porten för inkommande kommunikation aktiveras. Portarna 29876 och 29877 måste vara aktiverade för Linux- och Windows-pooler. Du kan välja att aktivera (eller selektivt filtrera) portarna 22 eller 3389 för SSH för Linux-pooler eller RDP för Windows-pooler.
 
 Ytterligare inställningar för din VNet varierar beroende på Batch-kontots poolallokeringsläge.
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,13 +37,9 @@ I HDInsight finns ett R Server-alternativ som ska integreras i HDInsight-klustre
 > Stegen i det här dokumentet förutsätter att du använder ett lösenord.
 
 
-### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## <a name="automated-cluster-creation"></a>Skapa kluster automatiskt
 
-Du kan skapa HDInsight R Server-instanser automatiskt med hjälp av ARM-mallar, SDK och PowerShell.
+Du kan skapa HDInsight R Server-instanser automatiskt med hjälp av Azure Resource Manage-mallar, SDK och PowerShell.
 
 * Om du vill skapa en R Server med en mall för Azure-resurshantering kan du läsa artikeln om att [distribuera ett R Server HDInsight-kluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 * Om du vill skapa en R Server med .NET SDK kan du läsa artikeln om att [skapa Linux-baserade kluster i HDInsight med hjälp av .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
@@ -590,7 +587,7 @@ remoteLogin(
 )
 ```
 
-## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Hur skalar man beräkningsnoder för Microsoft R Server-driftsättning på HDInsight-arbetarnoder?
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Så här skalar man beräkningsnoder för Microsoft R Server-driftsättning på HDInsight-arbetarnoder
 
 
 ### <a name="decommission-the-worker-nodes"></a>Inaktivera arbetarnoder
@@ -630,6 +627,10 @@ När alla inaktiverade arbetarnoder har konfigurerats för att köra beräknings
 * Leta efter ”URI”-avsnittet och lägg till arbetarnodens IP och portinformation.
 
 ![ta arbetarnoder ur drift, kommandorad](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>Felsöka
+
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Nästa steg
 

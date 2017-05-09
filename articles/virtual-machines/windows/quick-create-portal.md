@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: df6f1b86b706d58a5c07a4f3de43a1872da61511
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -36,7 +37,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 2. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 
-3. Välj **Beräkna** på bladet **Nytt**, välj **Windows Server 2016 Datacenter** på bladet **Beräkna** och klicka sedan på knappen **Skapa**.
+3. Välj **Beräkna** på bladet **Nytt**, välj *Windows Server 2016 Datacenter* på bladet **Beräkna** och klicka sedan på knappen **Skapa**.
 
 4. Fyll i formuläret **Grundinställningar** för den virtuella datorn. Användarnamnet och lösenordet som anges här används för att logga in på den virtuella datorn. Skapa en ny för **Resursgrupp**. En resursgrupp är en logisk behållare där Azure-resurser skapas och hanteras gemensamt. När du är klar klickar du på **OK**.
 
@@ -46,21 +47,21 @@ Logga in på Azure Portal på http://portal.azure.com.
 
     ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-6. På inställningsbladet väljer du **Ja** under **Use managed disks** (Använd hanterade diskar), låter standardinställningarna vara kvar för resten och klickar på **OK**.
+6. På inställningsbladet väljer du *Ja* under **Use managed disks** (Använd hanterade diskar), låter standardinställningarna vara kvar för resten och klickar på **OK**.
 
 7. På sammanfattningssidan klickar du på **Ok** för att starta distributionen av den virtuella datorn.
 
-8. Klicka på den virtuella datorn om du vill övervaka distributionsstatus. Den virtuella datorn finns på instrumentpanelen för Azure Portal eller genom att välja **Virtuella datorer** på den vänstra menyn. När den virtuella datorn har skapats ändras statusen från till **Distribuerar** till **Körs**.
+8. Klicka på den virtuella datorn om du vill övervaka distributionsstatus. Den virtuella datorn finns på instrumentpanelen för Azure Portal eller genom att välja **Virtuella datorer** på den vänstra menyn. När den virtuella datorn har skapats ändras statusen från till *Distribuerar* till *Körs*.
 
 ## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik 
 
 Du måste öppna port 80 för webbtrafik om du vill tillåta trafik för IIS. Det här steget vägleder dig genom processen med att skapa en regel för en nätverkssäkerhetsgrupp (NSG) för att tillåta inkommande anslutningar på port 80.
 
 1. På bladet för den virtuella datorn i avsnittet **Essentials** klickar du på namnet på **Resursgruppen**.
-2. Gå till bladet för resursgruppen och klicka på **Nätverkssäkerhetsgrupp** i listan över resurser. NSG-namnet bör vara namnet på den virtuella datorn med ”- nsg” tillagt i slutet.
+2. Gå till bladet för resursgruppen och klicka på **Nätverkssäkerhetsgrupp** i listan över resurser. NSG-namnet bör vara namnet på den virtuella datorn med *-nsg* tillagt i slutet.
 3. Klicka på rubriken **Ingående säkerhetsregel** så öppnas listan med regler för inkommande trafik. Du bör se en regel för RDP i listan redan.
 4. Klicka på **+ Lägg till** så öppnas bladet **Lägg till ingående säkerhetsregel**.
-5. Skriv **IIS** i fältet **Namn**. Kontrollera att 80 har angetts för **Portintervall** och att **Tillåt** har angetts för **Åtgärd**. Klicka på **OK**.
+5. Skriv *IIS* i fältet **Namn**. Kontrollera att *80* har angetts för **Portintervall** och att *Tillåt* har angetts för **Åtgärd**. Klicka på **OK**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
@@ -88,7 +89,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Visa välkomstsidan för IIS
 
-Du kan använda en webbläsare som du själv väljer för att visa standardvälkomstsidan för IIS när IIS är installerat och port 80 nu är öppen på den virtuella datorn från Internet. Hämta den **offentliga IP-adressen** från bladet för den virtuella datorn och använd den för att besöka standardwebbsidan. 
+Du kan använda en webbläsare som du själv väljer för att visa standardvälkomstsidan för IIS när IIS är installerat och port 80 nu är öppen på den virtuella datorn från Internet. Hämta den *offentliga IP-adressen* från bladet för den virtuella datorn och använd den för att besöka standardwebbsidan. 
 
 ![Standardwebbplatsen i IIS](./media/quick-create-powershell/default-iis-website.png) 
 

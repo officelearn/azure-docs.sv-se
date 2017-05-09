@@ -11,11 +11,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.contentlocale: sv-se
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
 > 
 > 
 
-När du skickar sökförfrågningar till Azure Search finns det ett antal parametrar som du kan ange tillsammans med de ord som du skriver i sökrutan i programmet. Med dessa frågeparametrar kan du få djupare kontroll över textsökningsupplevelsen.
+När du skickar sökförfrågningar till Azure Search finns det ett antal parametrar som du kan ange tillsammans med de ord som du skriver i sökrutan i programmet. Med dessa frågeparametrar kan du få djupare kontroll över [textsökningsupplevelsen](search-lucene-query-architecture.md).
 
 Listan nedan beskriver kortfattat vanliga användningsområden för frågeparametrar i Azure Search. Fullständig information om frågeparametrar och hur de fungerar finns på de detaljerade sidorna för [REST-API:et](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) och [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
 
@@ -59,10 +61,5 @@ Mer information om hur du använder sidindelning för sökresultat finns i artik
 
 ## <a name="hit-highlighting"></a>Träffmarkering
 I Azure Search kan du enkelt framhäva exakt den del av sökresultatet som matchar sökfrågan med hjälp av parametrarna `highlight`, `highlightPreTag` och `highlightPostTag`. Du kan ange vilka *sökbara* fält vars matchade text ska framhävas samt ange de exakta strängtaggarna som ska läggas till i början och slutet av den matchade texten som Azure Search returnerar.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -5,7 +5,7 @@ keywords:
 services: time-series-insights
 documentationcenter: 
 author: op-ravi
-manager: santoshb
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 
 ms.service: time-series-insights
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: omravi
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5e9ee102c0375c8c1ac0e0ff6bc93989115b7cfa
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -29,16 +30,17 @@ Time Series Insights-miljöer har två oberoende typer av principer för åtkoms
 * Hantera åtkomstprinciper
 * Dataåtkomstprinciper
 
-Båda typerna av principer beviljar Azure Active Directory-huvudkonton (användare och appar) olika behörigheter i en viss miljö. Huvudkontona (användare och appar) måste tillhöra den Active Directory (eller ”Azure-klient”) som är associerad med prenumerationen som innehåller miljön.
+Båda principerna beviljar Azure Active Directory-huvudkonton (användare och appar) olika behörigheter i en viss miljö. Huvudkontona (användare och appar) måste tillhöra den Active Directory (eller ”Azure-klient”) som är associerad med prenumerationen som innehåller miljön.
 
 Principer för hantering av åtkomst beviljar behörigheter som rör konfigurationen av miljön, som
-*    skapandet och borttagningen av miljön, händelsekällor, referensdatamängder och
+*    Skapandet och borttagningen av miljön, händelsekällor, referensdatamängder och
 *    hantering av principerna för dataåtkomst.
 
 Principerna för dataåtkomst beviljar behörigheter för att utfärda datafrågor, manipulera referensdata i miljön och sparade delade frågor och perspektiv som är associerade till miljön.
 
 De två typerna av principer möjliggör en tydlig uppdelning mellan åtkomst till hantering av miljön och till data inuti miljön. Det är till exempel möjligt att konfigurera en miljö så att miljöns ägare/skapare tas bort från dataåtkomsten. Användare och tjänster som tillåts läsa data från miljön kan nekas åtkomst till miljöns konfiguration.
 
+## <a name="grant-data-access"></a>Bevilja åtkomst till data
 I följande steg visas hur du ger åtkomst till data för en användares huvudnamn:
 
 1.    Logga in på [Azure Portal](https://portal.azure.com).

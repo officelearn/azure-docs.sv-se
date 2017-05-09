@@ -1,6 +1,6 @@
 **Skapa en ny CDN-profil**
 
-1. I [Azure Portal](https://portal.azure.com), i det övre vänstra hörnet, klickar du på **Ny**.  På det **nya** bladet väljer du **Media + CDN** och sedan **CDN**.
+1. I [Azure Portal](https://portal.azure.com), i det övre vänstra hörnet, klickar du på **Ny**.  På det **nya** bladet väljer du **Webb och mobilt** och sedan **CDN**.
    
     Det nya CDN-profilbladet visas.
    
@@ -13,9 +13,4 @@
     ![Val av CDN-prisnivå](./media/cdn-create-profile/cdn-choose-sku-include.png)
 6. Välj **Prenumeration** för den här CDN-profilen.
 7. Klicka på **Skapa**-knappen för att skapa den nya profilen. 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

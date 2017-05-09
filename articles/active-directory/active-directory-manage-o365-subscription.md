@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
 ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -65,9 +67,4 @@ Anta nu att Jane Doe behöver administrera webbplatser och databasresurser som �
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om relationen mellan prenumerationer och kataloger finns i [Hur en prenumeration är associerad med en katalog](active-directory-how-subscriptions-associated-directory.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

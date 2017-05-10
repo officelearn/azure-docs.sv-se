@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
@@ -58,7 +58,7 @@ Beroende på konfigurationen av din Azure-miljö och den säkerhetsprincip som d
 
 När en partnerlösning har distribuerats kan du visa information om lösningens hälsotillstånd och utföra grundläggande hanteringsuppgifter från panelen Partnerlösning på huvudinstrumentpanelen för Security Center. Mer information om hur du hanterar partnerlösningar i Security Center finns i [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md).
 
-![Partnerintegration](./media/security-center-partner-integration/security-center-partner-integration-fig1-newUI.png)
+![Partnerintegration](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
 
 
 ## <a name="see-also"></a>Se även

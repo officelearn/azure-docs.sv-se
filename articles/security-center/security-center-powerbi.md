@@ -4,7 +4,7 @@ description: "Med innehållspaketet Azure Security Center Power BI är det lätt
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
@@ -32,7 +32,7 @@ Du kan även öppna Power BI-rapporter från instrumentpanelen i Azure Security 
 
 1. Klicka på knappen **Power BI** på instrumentpanelen i **Azure Security Center**.
 
-    ![Ansluta till Azure Security Center med Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-newUI-2017.png)
+    ![Ansluta till Azure Security Center med Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-1-newUI-2017.png)
 2. Bladet **Power BI** öppnas på höger sida som på bilden nedan:
 
     ![Ansluta till Azure Security Center med Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)

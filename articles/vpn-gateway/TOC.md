@@ -1,7 +1,7 @@
 # Översikt
 ## [Om VPN-gateway](vpn-gateway-about-vpngateways.md)
 ## [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md)
-## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md)
+## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Kom igång
 ## [Planering och design för VPN Gateway](vpn-gateway-plan-design.md)
@@ -46,7 +46,9 @@
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klassisk)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Skapa självsignerade certifikat för punkt-till-plats](vpn-gateway-certificates-point-to-site.md)
+## Skapa självsignerade certifikat för punkt-till-plats
+### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Konfigurera en VPN-gateway (klassisk)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Felsöka
 ### [Validera VPN-dataflöde till VNet](vpn-gateway-validate-throughput-to-vnet.md)

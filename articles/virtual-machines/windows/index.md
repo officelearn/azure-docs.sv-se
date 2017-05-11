@@ -11,10 +11,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 631eb4c8aa3a41e03cf623fcc5610d3e84f18ec4
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: fee83e309ce10c4b42c8a31a2b3908d3a12db66d
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 ---
 <div class="content">
@@ -63,8 +64,15 @@ ms.lasthandoff: 04/22/2017
    <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Skapa och hantera virtuella Windows-datorer</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Skapa och hantera virtuella datordiskar</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automatisera konfiguration av virtuella datorer</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-custom-images">Skapa anpassade avbildningar av en virtuell dator</a></li> 
+    <li><a href="/azure/virtual-machines/windows/tutorial-availability-sets">Skapa virtuella datorer med hög tillgänglighet</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-create-vmss">Skapa en VM-skalningsuppsättning</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-load-balancer">Belastningsutjämna virtuella datorer</a></li>
-    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Hantera VM-nätverk</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Hantera virtuella datorer med virtuella nätverk</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-backup-vms">Säkerhetskopiera virtuella datorer</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-monitoring">Övervaka virtuella datorer</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-azure-security">Hantera säkerhet på virtuella datorer</a></li>
+    
 </ol>
 
 <h2 style="margin-top: 36px">Kostnadsfri videoutbildning för PluralSight</h2>
@@ -156,7 +164,7 @@ ms.lasthandoff: 04/22/2017
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
                         <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
                     </div>
                 </div>
             </div>

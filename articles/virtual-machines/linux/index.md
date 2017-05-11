@@ -11,10 +11,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
-ms.openlocfilehash: e4fede90a5df7c4a74c1e1d41ecbe669d731a1b5
-ms.lasthandoff: 04/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 2dd642627033d297bfa53b00aac0de418212ecb3
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 ---
 <div class="content">
@@ -67,7 +68,12 @@ ms.lasthandoff: 04/23/2017
     <li><a href="/azure/virtual-machines/linux/tutorial-availability-sets">Skapa virtuella datorer med hög tillgänglighet</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">Skapa en VM-skalningsuppsättning</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-load-balancer">Belastningsutjämna virtuella datorer</a></li>
-    <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Hantera VM-nätverk</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Hantera virtuella datorer och virtuella nätverk</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-backup-vms">Säkerhetskopiera virtuella datorer</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-monitoring">Övervaka virtuella datorer</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-azure-security">Hantera säkerhet på virtuella datorer</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Skapa en CI/CD-infrastruktur med Jenkins, Docker och GitHub</a></li>
+    
 </ol>
 
 <h2 style="margin-top: 36px">Kostnadsfri videoutbildning för PluralSight</h2>
@@ -158,8 +164,8 @@ ms.lasthandoff: 04/23/2017
                         <h3>Språk</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
                     </div>
                 </div>
             </div>

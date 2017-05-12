@@ -4,58 +4,58 @@
 > 
 > 
 
-Den här genomgången av [exemplet på molnöverföring av simulerad enhet] visar hur du kan använda [Azure IoT Gateway SDK][lnk-sdk] för att skicka enhet-till-moln-telemetri till IoT Hub från simulerade enheter.
+This walkthrough of the [Simulated Device Cloud Upload sample] shows how to use [Azure IoT Edge][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
 
-Den här genomgången omfattar:
+This walkthrough covers:
 
-1. **Arkitektur**: viktig arkitekturinformation om exemplet på molnöverföring av simulerad enhet.
-2. **Skapa och kör**: stegen som krävs för att bygga och köra exemplet.
+1. **Architecture**: important architectural information about the Simulated Device Cloud Upload sample.
+2. **Build and run**: the steps required to build and run the sample.
 
-## <a name="architecture"></a>Arkitektur
-Exemplet på molnöverföring av simulerad enhet visar hur du kan använda SDK för att skapa en gateway som skickar telemetri från simulerade enheter till en IoT Hub. De simulerade enheterna kan inte anslutas direkt till IoT Hub eftersom:
+## <a name="architecture"></a>Architecture
+The Simulated Device Cloud Upload sample shows how to use IoT Edge to create a gateway which sends telemetry from simulated devices to an IoT hub. The simulated devices cannot connect directly to IoT Hub because:
 
-* Enheterna inte använder kommunikationsprotokoll som kan tolkas av IoT Hub.
-* Enheterna inte är tillräckligt smarta för att komma ihåg identiteten som tilldelats dem av IoT Hub.
+* The devices do not use a communications protocol understood by IoT Hub.
+* The devices are not smart enough to remember the identity assigned to them by IoT Hub.
 
-Gatewayen löser dessa problem för de simulerade enheterna på följande sätt:
+The gateway solves these problems for the simulated devices in the following ways:
 
-* Gatewayen kan tolka protokollet som används av de simulerade enheterna, tar emot enhet-till-moln-telemetri från enheterna och vidarebefordra meddelandena till IoT Hub med ett protokoll som kan tolkas av IoT Hub.
-* Gatewayen lagrar IoT Hub-identiteter åt de simulerade enheterna och fungerar som en proxy när de simulerade enheterna skickar meddelanden till IoT Hub.
+* The gateway understands the protocol used by the simulated devices, receives device-to-cloud telemetry from the devices, and forwards those messages to IoT Hub using a protocol understood by the IoT hub.
+* The gateway stores IoT Hub identities on behalf of the simulated devices and acts as a proxy when the simulated devices send messages to IoT Hub.
 
-Följande diagram visar huvudkomponenterna för exemplet, inklusive gatewaymodulerna:
+The following diagram shows the main components of the sample, including the gateway modules:
 
 ![][1]
 
 > [!NOTE]
-> Moduler skickar inte meddelanden direkt till varandra. Modulerna publicerar meddelanden till en asynkron meddelandekö som levererar meddelandena till de andra modulerna med en prenumerationsmekanism som du ser i diagrammet nedan. Mer information finns i [Get started with the IoT Gateway SDK][lnk-gw-getstarted] (Komma igång med the IoT Gateway SDK).
+> The modules do not pass messages directly to each other. The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism as shown in the diagram below. For more information, see [Get started with Azure IoT Edge][lnk-gw-getstarted].
 > 
 > 
 
-### <a name="protocol-ingestion-module"></a>Modul för protokollinhämtning
-Den här modulen är startpunkten för att hämta data från enheter, via gatewayen, och till molnet. I exemplet utför modulen fyra åtgärder:
+### <a name="protocol-ingestion-module"></a>Protocol ingestion module
+This module is the starting point for getting data from devices, through the gateway, and into the cloud. In the sample, the module performs four tasks:
 
-1. Den skapar simulerade temperaturdata. Observera att om du använder verkliga enheter läser modulen data från de fysiska enheterna.
-2. Den placerar simulerade temperaturdata i innehållet i ett meddelande.
-3. Den lägger till en egenskap med en falsk MAC-adress till meddelandet som innehåller de simulerade temperaturdata.
-4. Det gör meddelandet tillgängligt för nästa modul i kedjan.
+1. It creates simulated temperature data. Note that if you use real devices, the module reads data from those physical devices.
+2. It places the simulated temperature data into the contents of a message.
+3. It adds a property with a fake MAC address to the message that contains the simulated temperature data.
+4. It makes the message available to the next module in the chain.
 
 > [!NOTE]
-> Modulen som heter **Protocol X ingestion** (Protokoll X-inhämtning) i diagrammet ovan kallas **Simulated device** (Simulerad enhet) i källkoden.
+> The module called **Protocol X ingestion** in the diagram above is called **Simulated device** in the source code.
 > 
 > 
 
-### <a name="mac-lt-gt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID-modul
-Modulen söker efter meddelanden som innehåller en egenskap som innehåller MAC-adressen, tillagd av modulen för protokollinhämtning, för den simulerade enhetsappen. Om modulen hittar en sådan egenskap lägger den till ytterligare en egenskap med en IoT Hub-enhetsnyckel till meddelandet och gör sedan meddelandet tillgängligt för nästa modul i kedjan. Det är så exemplet kopplar IoT Hub-enhetsidentiteter till simulerade enheter. Utvecklaren konfigurerar mappningen mellan MAC-adresser och IoT Hub-identiteter manuellt som en del av modulkonfigurationen. 
+### <a name="mac-lt-gt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID module
+This module scans for messages that include a property that contains the MAC address, added by the protocol ingestion module, of the simulated device app. If the module finds such a property, it adds another property with an IoT Hub device key to the message and then makes the message available to the next module in the chain. This is how the sample associates IoT Hub device identities with simulated devices. The developer sets up the mapping between MAC addresses and IoT Hub identities manually as part of the module configuration. 
 
 > [!NOTE]
-> I det här exemplet används en MAC-adress som en unik enhetsidentifierare och kopplar den till en IoT Hub-enhetsidentitet. Du kan emellertid skriva din egen modul som använder en annan unik identifierare. Du kan exempelvis ha enheter med unika serienummer eller telemetridata som har ett unikt enhetsnamn inbäddat i sig, så du kan använda dem för att fastställa IoT Hub-enhetsidentiteten.
+> This sample uses a MAC address as a unique device identifier and correlates it with an IoT Hub device identity. However, you can write your own module that uses a different unique identifier. For example, you may have devices with unique serial numbers or telemetry data that has a unique device name embedded in it that you could use to determine the IoT Hub device identity.
 > 
 > 
 
-### <a name="iot-hub-communication-module"></a>IoT Hub-kommunikationsmodul
-Den här modulen tar meddelanden med en IoT Hub-enhetsidentitet som tilldelats av den föregående modulen och skickar meddelandets innehåll till IoT Hub med HTTP. HTTP är ett av de tre protokollen som kan tolkas av IoT Hub.
+### <a name="iot-hub-communication-module"></a>IoT Hub communication module
+This module takes messages with an IoT Hub device identity assigned by the previous module and sends the message content to IoT Hub using HTTP. HTTP is one of the three protocols understood by IoT Hub.
 
-Istället för att starta en anslutning till IoT Hub för varje simulerad enhetsapp öppnar den här modulen en enda HTTP-anslutning från gatewayen till IoT-hubben och flerfaldigar anslutningar från alla simulerade enheter via den anslutningen. Det gör att en enda gateway kan ansluta många fler enheter, simulerade eller andra, än vad som skulle vara möjligt om en unik anslutning öppnades för varje enhet.
+Instead of opening a connection to IoT Hub for each simulated device app, this module opens a single HTTP connection from the gateway to the IoT hub and multiplexes connections from all the simulated devices over that connection. This enables a single gateway to connect many more devices, simulated or otherwise, than would be possible if it opened a unique connection for every device.
 
 ![][2]
 
@@ -64,10 +64,6 @@ Istället för att starta en anslutning till IoT Hub för varje simulerad enhets
 [2]: media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
 <!-- Links -->
-[exemplet på molnöverföring av simulerad enhet]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/simulated_device_cloud_upload/README.md
+[Simulated Device Cloud Upload sample]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/simulated_device_cloud_upload/README.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -1,42 +1,46 @@
-1. Kör det enhetliga installationsprogrammet.
-2. I **Before you begin** (Innan du börjar) väljer du **Install the configuration server and process server** (Installera konfigurationsservern och processervern).
-    ![Innan du börjar](./media/site-recovery-add-configuration-server/combined-wiz1.png)
-3. I **Third Party Software License** (Licens för programvara från tredje part) klickar du på **I Accept** (Jag accepterar) för att ladda ned och installera MySQL.
+1. Run the Unified Setup installation file.
+2. In **Before You Begin**, select **Install the configuration server and process server**.
 
-    ![Tredjepartsprogram](./media/site-recovery-add-configuration-server/combined-wiz2.png)
-4. I **Registration** (Registrering) väljer du den registreringsnyckel som du hämtade från valvet.
+    ![Before you start](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 
-    ![Registrering](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. I **Internet Settings** (Internetinställningar) anger du hur providern som körs på konfigurationsservern ska ansluta till Azure Site Recovery via internet.
+3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
 
-   * Om du vill ansluta till den befintliga proxyservern som är konfigurerad på datorn väljer du **Anslut med befintliga proxyinställningar**.
-   * Om du vill att providern ska ansluta direkt väljer du **Anslut direkt utan en proxy**.
-   * Om den befintliga proxyservern kräver autentisering, eller om du vill använda en anpassad proxyserver för provideranslutningen, väljer du **Anslut med anpassade proxyinställningar**.
+    ![Third-party software](./media/site-recovery-add-configuration-server/combined-wiz2.png)
+4. In **Registration**, select the registration key you downloaded from the vault.
 
-     * Om du använder en anpassad proxyserver måste du ange adressen, porten och autentiseringsuppgifterna.
-     * Om du använder en proxyserver bör du redan ha tillåtit URL:erna som beskrivs i [krav](#prerequisites).
+    ![Registration](./media/site-recovery-add-configuration-server/combined-wiz3.png)
+5. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the Internet.
 
-     ![Brandvägg](./media/site-recovery-add-configuration-server/combined-wiz4.png)
-6. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid**) är samma som tidszonen.
+   a. If you want to connect with the proxy that's currently set up on the machine, select **Connect to Azure Site Recovery using a proxy server**.
 
-    ![Krav](./media/site-recovery-add-configuration-server/combined-wiz5.png)
-7. I **MySQL Configuration** (MySQL-konfiguration) skapar du autentiseringsuppgifter för att logga in på den MySQL-serverinstans som är installerad.
+   b. If you want the Provider to connect directly, select **Connect directly to Azure Site Recovery without a proxy server**.
+
+   c. If the existing proxy requires authentication, or if you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**.
+
+     * If you use a custom proxy, you need to specify the address, port, and credentials.
+     * If you're using a proxy, you should have already allowed the URLs described in [Prerequisites](#prerequisites).
+
+     ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
+6. In **Prerequisites Check**, Setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check**, verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
+
+    ![Prerequisites](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+7. In **MySQL Configuration**, create credentials for logging on to the MySQL server instance that is installed.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. I **Miljöinformation** väljer du om du ska replikera virtuella VMwares-datorer. I så fall konfigurerar du kontroller som kontrollerar att PowerCLI 6.0 är installerat.
+8. In **Environment Details**, select whether you're going to replicate VMware VMs. If you are, then Setup checks that PowerCLI 6.0 is installed.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
 
-9. I **Installationsplats** väljer du om du vill installera binärfilerna och lagra cachen. Enheten du väljer måste ha minst 5 GB tillgängligt utrymme, men vi rekommenderar en cacheenhet med 600 GB eller mer ledigt utrymme.
+9. In **Install Location**, select where you want to install the binaries and store the cache. The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
 
-    ![Installationsplats](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. I **Val av nätverk** anger du lyssnare (nätverkskort och SSL-port) där konfigurationsservern skickar och tar emot replikeringsdata. Port 9443 är standardporten som används för att skicka och ta emot replikeringstrafik, men du kan ändra portnumret så att det passar din miljö. Förutom port 9443 öppnar vi också port 443, som används av en webbserver för att dirigera replikeringsåtgärder. Använd inte Port 443 för att skicka eller ta emot replikeringstrafik.
+    ![Install location](./media/site-recovery-add-configuration-server/combined-wiz8.png)
+10. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server sends and receives replication data. Port 9443 is the default port used for sending and receiving replication traffic, but you can modify this port number to suit your environment's requirements. In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations. Do not use port 443 for sending or receiving replication traffic.
 
-    ![Val av nätverk](./media/site-recovery-add-configuration-server/combined-wiz9.png)
+    ![Network selection](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
 
-11. I **Sammanfattning** granskar du informationen och klickar på **Installera**. När installationen är klar skapas en lösenfras. Du behöver den när du aktiverar replikering. Kopiera lösenfrasen och förvara den på en säker plats.
+11. In **Summary**, review the information and click **Install**. When installation finishes, a passphrase is generated. You will need this when you enable replication, so copy it and keep it in a secure location.
 
-    ![Sammanfattning](./media/site-recovery-add-configuration-server/combined-wiz10.png)
+    ![Summary](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-När registreringen är klar visas servern på bladet **Inställningar** > **Servrar** i valvet.
+After registration finishes, the server is displayed on the **Settings** > **Servers** blade in the vault.

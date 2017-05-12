@@ -50,10 +50,4 @@
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. När uppdateringarna har installerats ser du ett meddelande om detta på bladet **Enhetsuppdateringar**. Programvaruversionen ändras också till **10.0.10289.0**.
-
-    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate17m1.png)
-
-<!--HONumber=Feb17_HO1-->
-
-
+9. När uppdateringarna har installerats ser du ett meddelande om detta på bladet **Enhetsuppdateringar**. 

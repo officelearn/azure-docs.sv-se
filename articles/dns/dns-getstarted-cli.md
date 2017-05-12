@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
+ms.contentlocale: sv-se
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -62,7 +63,7 @@ Skapa en DNS-post genom att använda kommandot `az network dns record-set [recor
 I följande exempel skapas en post med det relativa namnet "www" i resursgruppen "MyResourceGroup" i DNS-zonen "contoso.com". Postuppsättningens fullständigt kvalificerade namn är ”www.contoso.com”. Postens typ är "A", IP-adressen är "1.2.3.4" och en standard-TTL på 3 600 sekunder (1 timme) används.
 
 ```azurecli
-az network dns record-set A add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
+az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
 ```
 
 Information om andra posttyper, postuppsättningar med fler än en post, alternativa TTL-värden och ändring av befintliga poster finns i [Hantera DNS-poster och postuppsättningar med Azure CLI 2.0](dns-operations-recordsets-cli.md).

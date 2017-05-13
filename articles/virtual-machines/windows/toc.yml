@@ -31,7 +31,11 @@
     href: tutorial-load-balancer.md
   - name: "8 – Hantera nätverk"
     href: tutorial-virtual-network.md
-  - name: "9 – Hantera VM-säkerhet"
+  - name: "9 – Säkerhetskopiera virtuella datorer"
+    href: tutorial-backup-vms.md
+  - name: "10 – Övervaka virtuella datorer"
+    href: tutorial-monitoring.md
+  - name: "11 – Hantera säkerhet för virtuella datorer"
     href: tutorial-azure-security.md
 
 - name: "Exempel"
@@ -202,7 +206,7 @@
       - name: "Azure PowerShell"
         href: attach-disk-ps.md
       - name: "Azure Portal"
-        href: attach-disk-portal.md
+        href: attach-managed-disk-portal.md
     - name: "Koppla från datadisk"
       href: detach-disk.md
     - name: "Expandera operativsystemets disk"
@@ -223,6 +227,8 @@
         href: vhd-copy.md
       - name: "Skapa en virtuell dator från en specialiserad virtuell hårddisk"
         href: create-vm-specialized.md
+      - name: "Anslut en ohanterad datadisk"
+        href: attach-disk-portal.md
   - name: "VM-nätverk"
     href: ps-common-network-ref.md
     items:
@@ -392,9 +398,9 @@
   - name: "Java"
     href: /java/api
   - name: "Node.js"
-    href: https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: "Python"
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
+    href: https://azure.microsoft.com/develop/python/
   - name: "Compute REST"
     href: /rest/api/compute
   - name: "Managed Disks REST"

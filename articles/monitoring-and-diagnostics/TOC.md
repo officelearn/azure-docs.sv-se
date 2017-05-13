@@ -1,5 +1,6 @@
 # Översikt
-## [Översikt över Azure Monitor](monitoring-overview.md)
+## [Övervakningsverktyg i Azure](monitoring-overview.md)
+## [Azure Monitor](monitoring-overview-azure-monitor.md)
 ## [Mått](monitoring-overview-metrics.md)
 ## [Aviseringar](monitoring-overview-alerts.md)
 ## [Automatisk skalning](monitoring-overview-autoscale.md)
@@ -7,12 +8,14 @@
 ## [Åtgärdsgrupper](monitoring-action-groups.md)
 ## [Diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)
 ## [Partnerintegrering](monitoring-partners.md)
-## [Azure Diagnostics](azure-diagnostics.md)
+## [Azure Diagnostics-tillägg](azure-diagnostics.md)
 
 
 # Kom igång
 ## [Kom igång med Azure Monitor](monitoring-get-started.md)
+## [Kom igång med automatisk skalning](monitoring-autoscale-get-started.md)
 ## [Rollbehörigheter och säkerhet](monitoring-roles-permissions-security.md)
+
 
 # Gör så här för att
 ## Använda aviseringar
@@ -24,6 +27,8 @@
 ## Använda automatisk skalning
 ### [Bästa metoder för autoskalning](insights-autoscale-best-practices.md)
 ### [Vanliga mått för autoskalning](insights-autoscale-common-metrics.md)
+### [Vanliga autoskalningsmönster](monitoring-autoscale-common-scale-patterns.md)
+### [Autoskalning med anpassat mått](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Skala skalningsuppsättningar för virtuell dator automatiskt med Resource Manager-mallar](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Skala automatiskt datorer i en skalningsuppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Konfigurera webhooks och e-postaviseringar med autoskalning](insights-autoscale-to-webhook-email.md)
@@ -48,7 +53,7 @@
 ### [Aktivera diagnostikinställningar med Resource Manager-mallar](monitoring-enable-diagnostic-logs-using-template.md)
 ## Använd REST API
 ### [Genomgång med REST API](monitoring-rest-api-walkthrough.md)
-## Använd Azure Diagnostics
+## Använd Azure Diagnostics-tillägg
 ### [Skicka till Application Insights](azure-diagnostics-configure-application-insights.md)
 ### [Skicka till Event Hubs](azure-diagnostics-streaming-event-hubs.md)
 ### [Felsökning](azure-diagnostics-troubleshooting.md)

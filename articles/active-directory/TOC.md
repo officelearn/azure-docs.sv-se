@@ -3,7 +3,6 @@
 ## [Välj utgåva](active-directory-editions.md)
 
 ## [Om Azures identitetshantering](identity-fundamentals.md)
-## [Förhandsgranska Azures portalupplevelse](active-directory-preview-explainer.md)
 
 # Kom igång
 ## [Hämta en Azure AD-klientorganisation](active-directory-howto-tenant.md)
@@ -18,7 +17,9 @@
 
 # Gör så här för att
 ## Planera och designa
+### [Förstå Azure AD-arkitektur](active-directory-architecture.md)
 ### [Distribuera en hybrididentitetslösning](active-directory-hybrid-identity-design-considerations-overview.md)
+
 #### Fastställa krav
 ##### [Identitet](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Katalogsynkronisering](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -80,7 +81,7 @@
 ### [Användare i riskzonen](active-directory-reporting-security-user-at-risk.md)
 ### [Riskfyllda inloggningar](active-directory-reporting-security-risky-sign-ins.md)
 ### [Riskhändelser](active-directory-reporting-risk-events.md)
-### [Namngivna nätverk](active-directory-known-networks-azure-portal.md)
+### [Namngivna platser](active-directory-named-locations.md)
 ### [Rapportera migrering](active-directory-reporting-migration.md)
 ### [Kvarhållning](active-directory-reporting-retention.md)
 ### [Svarstider](active-directory-reporting-latencies-azure-portal.md)
@@ -91,6 +92,7 @@
 ###    Programmässig åtkomst
 #### [Granska referens](active-directory-reporting-api-audit-reference.md)
 #### [Granska exempel](active-directory-reporting-api-audit-samples.md)
+#### [Hämta data](active-directory-reporting-api-with-certificates.md)
 #### [Förutsättningar](active-directory-reporting-api-prerequisites.md)
 #### [Inloggningsreferens](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Inloggningsexempel](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -114,6 +116,7 @@
 ## [Hantera lösenord](active-directory-passwords.md)
 ### Användardokument
 #### [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
+#### [Metodtips för lösenord](active-directory-secure-passwords.md)
 #### [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
 ### [Snabbstart: återställning av lösenord för självbetjäning](active-directory-passwords-getting-started.md)
 ### [Licensiera SSPR](active-directory-passwords-licensing.md)
@@ -159,33 +162,37 @@
 #### [Uppdatera registerinställningar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Förstå säkerhet och sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Ge fjärråtkomst till dina appar](active-directory-application-proxy-get-started.md)
-#### [Aktivera App Proxy](active-directory-application-proxy-enable.md)
-#### [Förstå anslutningar](application-proxy-understand-connectors.md)
-#### [Publicera appar](application-proxy-publish-azure-portal.md)
-#### [Säkerhet](application-proxy-security-considerations.md)
-#### [Nätverk](application-proxy-network-topology-considerations.md)
-#### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
-#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-#### [Publicera i separata nätverk](active-directory-application-proxy-connectors-azure-portal.md)
-#### [Proxyservrar](application-proxy-working-with-proxy-servers.md)
-#### [Anpassade domäner](active-directory-application-proxy-custom-domains.md)
-#### [Få åtkomst till appar](active-directory-appssoaccess-whatis.md)
-##### [Azure Portal](application-proxy-sso-azure-portal.md)
-#### [Enkel inloggning med KCD](active-directory-application-proxy-sso-using-kcd.md)
-#### [Enkel inloggning med rubriker](application-proxy-ping-access.md)
-#### [Anspråksmedvetna appar](active-directory-application-proxy-claims-aware-apps.md)
-#### [Ursprungliga klientappar](active-directory-application-proxy-native-client.md)
-#### [Anpassad startsida](application-proxy-office365-app-launcher.md)
-#### [Villkorlig åtkomst](active-directory-application-proxy-conditional-access.md)
-#### [Tyst installation](active-directory-application-proxy-silent-installation.md)
-#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
+### [Få åtkomst till appar med App Proxy](active-directory-application-proxy-get-started.md)
+#### Kom igång
+##### [Aktivera App Proxy](active-directory-application-proxy-enable.md)
+##### [Publicera appar](application-proxy-publish-azure-portal.md)
+##### [Anpassade domäner](active-directory-application-proxy-custom-domains.md)
+#### [Åtkomst med enkel inloggning](active-directory-appssoaccess-whatis.md)
+##### [Enkel inloggning med KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [Enkel inloggning med rubriker](application-proxy-ping-access.md)
+##### [Enkel inloggning med lösenordsvalv](application-proxy-sso-azure-portal.md)
+#### Förstå metodtips
+##### [Anslutningsappar](application-proxy-understand-connectors.md)
+##### [Säkerhet](application-proxy-security-considerations.md)
+##### [Nätverk](application-proxy-network-topology-considerations.md)
+#### 
+#### Avancerade konfigurationer
+##### [Publicera i separata nätverk](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Proxyservrar](application-proxy-working-with-proxy-servers.md)
+##### [Anspråksmedvetna appar](active-directory-application-proxy-claims-aware-apps.md)
+##### [Ursprungliga klientappar](active-directory-application-proxy-native-client.md)
+##### [Tyst installation](active-directory-application-proxy-silent-installation.md)
+##### [Anpassad startsida](application-proxy-office365-app-launcher.md)
+#### Publicera genomgångar
+##### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
+##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Felsöka](active-directory-application-proxy-troubleshoot.md)
 #### Använd den klassiska portalen
 ##### [Ladda ned anslutningsappar](application-proxy-enable-classic-portal.md)
 ##### [Publicera appar](active-directory-application-proxy-publish.md)
 ##### [Använd anslutningsappar](active-directory-application-proxy-connectors.md)
-
+##### [Villkorlig åtkomst](active-directory-application-proxy-conditional-access.md)
 
 ### Hantera företagets appar
 #### [Tilldela användare](active-directory-coreapps-assign-user-azure-portal.md)
@@ -297,14 +304,18 @@
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
 
 ## Skydda dina identiteter
-### [Villkorlig åtkomst](active-directory-conditional-access.md)
-#### [Kom igång](active-directory-conditional-access-azuread-connected-apps.md)
+### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
+#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Appar som stöds](active-directory-conditional-access-supported-apps.md)
 #### [Förstå enhetsprinciper](active-directory-conditional-access-device-policies.md)
 #### [Konfigurera åtkomst till anslutna appar](active-directory-conditional-access-policy-connected-applications.md)
+#### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
 #### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
-#### [Felsöka](active-directory-conditional-access-device-remediation.md)
-#### [Referens](active-directory-conditional-access-technical-reference.md)
+#### [Reparation](active-directory-conditional-access-device-remediation.md)
+#### [Klassisk portal](active-directory-conditional-access.md)
+##### [Kom igång](active-directory-conditional-access-azuread-connected-apps.md)
+
+
 ### Windows Hello
 #### [Autentisera utan lösenord](active-directory-azureadjoin-passport.md)
 #### [Aktivera Windows Hello för företag](active-directory-azureadjoin-passport-deployment.md)

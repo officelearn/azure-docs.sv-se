@@ -20,6 +20,9 @@
 #### [Simulerade data](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [Använd verkliga sensorer](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [Implementera uppdatering för inbyggd programvara](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Anslut Intel NUC-gateway
+### [Simulerade data](iot-suite-gateway-kit-get-started-simulator.md)
+### [Använd verklig sensor](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # Gör så här för att
 ## Anslut en simulerad enhet
@@ -33,6 +36,7 @@
 ## [Skapa en anpassad regel i fjärrövervakningslösningen](iot-suite-custom-rule.md)
 ## [Enhetsinformation i fjärrövervakningslösningen](iot-suite-remote-monitoring-device-info.md)
 ## [Distribuera en gateway för ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
+## [Anpassa ansluten fabrik ](iot-suite-connected-factory-customize.md)
 
 # Referens
 ## [Säkerhetsarkitektur](iot-security-architecture.md)

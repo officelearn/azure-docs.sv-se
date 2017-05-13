@@ -19,6 +19,7 @@
 ### [Effektiv lista: frågor](batch-efficient-list-queries.md)
 ### [Aktiviteter för jobbförberedelse och -slutförande](batch-job-prep-release.md)
 ### [Linux-beräkningsnoder](batch-linux-nodes.md)
+### [Lågprioriterade virtuella datorer](batch-low-pri-vms.md)
 ### [Hantera Batch-konton med Batch Management .NET](batch-management-dotnet.md)
 ### [Bevara jobb- och uppgiftsutdata](batch-task-output.md)
 ### [Köra MPI-jobb i Batch](batch-mpi.md)

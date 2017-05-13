@@ -41,6 +41,26 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: "3 – Skydda din SQL-databas"
     href: sql-database-security-tutorial.md
+  - name: "4 – Förbättra prestanda för SQL-databas"
+    href: sql-database-performance-tutorial.md
+  - name: "5 – Implementera app för flera klientorganisationer"
+    href: sql-database-multi-tenant-application.md
+  - name: "6 – Distribuera app för flera klientorganisationer"
+    href: sql-database-saas-tutorial.md
+  - name: "7 – Etablera/katalogisera nya klientorganisationer"
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: "8 – Övervaka prestanda"
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: "9 – Återställ en enskild klientorganisation"
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: "10 – Hantera scheman för klientorganisationer"
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: "11 – Kör adhoc-analys"
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: "12 – Övervaka med Log Analytics"
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: "13 – Hantera klientorganisationsanalys"
+
 - name: "Exempel"
   items:
   - name: "Azure CLI"
@@ -142,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: "Återställning av databaser"
       href: sql-database-recovery-using-backups.md
-    - name: "Geo-replikering"
+    - name: "Automatisk redundans och geo-replikering"
       href: sql-database-geo-replication-overview.md
     - name: "Inloggningar"
       href: sql-database-geo-replication-security-config.md

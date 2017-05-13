@@ -15,12 +15,14 @@
 
 # Gör så här för att
 ## Utveckla
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL-grunder](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL-katalog](data-lake-analytics-u-sql-catalog.md)
+### [U-SQL-parametrar](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [U-SQL-fönsterfunktioner](data-lake-analytics-use-window-functions.md)
 ### [U-SQL-användardefinierade operatörer](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python-tillägg](data-lake-analytics-u-sql-python-extensions.md)
 ### [U-SQL R-tillägg](data-lake-analytics-u-sql-r-extensions.md)
-### [Kognitiva funktioner för U-SQL](data-lake-analytics-u-sql-cognitive.md)
+### [Kognitiva tillägg för U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Skapa lösningar
 ### [Analysera webbplatsloggar](data-lake-analytics-analyze-weblogs.md)

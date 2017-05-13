@@ -1,4 +1,5 @@
 # StorSimple virtuell matris
+
 ## Översikt
 ### [Vad är lösningen?](storsimple-ova-overview.md)
 
@@ -8,7 +9,7 @@
 #### [Förstå begränsningar](storsimple-ova-limits.md)
 #### [Granska metodtips](storsimple-ova-best-practices.md)
 
-### Distribuera (Azure portal)
+### Distribuera
 #### [Förbered distributionen](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Använd StorSimple Manager-tjänsten](storsimple-virtual-array-manage-service.md)
 #### [Etablera i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
@@ -16,17 +17,10 @@
 #### [Konfigurera som filserver](storsimple-virtual-array-deploy3-fs-setup.md)
 #### [Konfigurera som iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md)
 
-### Distribuera (klassisk portal)
-#### [Förbered distributionen](storsimple-ova-deploy1-portal-prep.md)
-##### [Använd StorSimple Manager-tjänsten](storsimple-ova-manage-service.md)
-#### [Etablera i Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-#### [Etablera i VMware](storsimple-ova-deploy2-provision-vmware.md)
-#### [Konfigurera som filserver](storsimple-ova-deploy3-fs-setup.md)
-#### [Konfigurera som iSCSI-server](storsimple-ova-deploy3-iscsi-setup.md)
-
 ## Gör så här för att
 ### [Hantera via Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Installera den senaste uppdateringen](storsimple-virtual-array-install-update-04.md)
+#### [Installera senaste uppdatering](storsimple-virtual-array-install-update-05.md)
+##### [Installera uppdatering 0.4](storsimple-virtual-array-install-update-04.md)
 ##### [Installera Uppdatering 0.3](storsimple-virtual-array-install-update.md)
 #### [Skapa och hantera säkerhetskopior](storsimple-virtual-array-backup.md)
 #### [Klona från säkerhetskopior](storsimple-virtual-array-clone.md)
@@ -44,22 +38,11 @@
 #### [Diagnostisera och felsöka](storsimple-virtual-array-diagnose-problems.md)
 #### [Logga supportbegäran](storsimple-virtual-array-log-support-ticket.md)
 
-### [Hantera via den klassiska Azure-portalen](storsimple-ova-manager-service-administration.md)
-#### [Installera den senaste uppdateringen](storsimple-ova-install-update-01.md)
-#### [Skapa och hantera säkerhetskopior](storsimple-ova-backup.md)
-#### [Återställa från säkerhetskopior](storsimple-ova-restore.md)
-#### [Redundans och DR](storsimple-ova-failover-dr.md)
-#### [Inaktivera och ta bort](storsimple-ova-deactivate-and-delete-device.md)
-#### [Instrumentpanel för övervakningstjänsten](storsimple-ova-service-dashboard.md)
-#### [Ändra enhetens lösenord](storsimple-ova-change-device-admin-password.md)
-#### [Hantera ACR:er](storsimple-ova-manage-acrs.md)
-#### [Hantera lagringskonton](storsimple-ova-manage-storage-accounts.md)
-#### [Hantera jobb](storsimple-ova-manage-jobs.md)
-#### [Konfigurera MPIO på Windows Server-värden](storsimple-ova-configure-mpio-windows-server.md)
 ### [Konfigurera via lokalt webbgränssnitt](storsimple-ova-web-ui-admin.md)
 
 ## Viktig information
-### [Uppdatering 0.4 – aktuell](storsimple-virtual-array-update-04-release-notes.md)
+### [Uppdatering 0.5 – aktuell](storsimple-virtual-array-update-05-release-notes.md)
+### [Uppdatering 0.4](storsimple-virtual-array-update-04-release-notes.md)
 ### [Uppdatering 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Uppdatering 0.2 och 0.1](storsimple-ova-update-01-release-notes.md)
 
@@ -71,6 +54,7 @@
 ### [Säkerhetsöverväganden](storsimple-security.md)
 
 ## Kom igång
+
 ### Planera
 #### [Granska krav](storsimple-system-requirements.md)
 #### [Granska tekniska specifikationer](storsimple-technical-specifications-and-compliance.md)
@@ -80,7 +64,6 @@
 ### Installera
 #### [Granska säkerhet](storsimple-safety.md)
 #### [Packa upp, racka, kabla en 8100](storsimple-8100-hardware-installation.md)
-
 #### [Packa upp, racka, kabla en 8600](storsimple-8600-hardware-installation.md)
 #### [Maskinvara som stöds för 10 GbE-nätverksgränssnitt](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -96,6 +79,7 @@
 #### [StorSimple-adapter för SharePoint](storsimple-adapter-for-sharepoint.md)
 
 ## Gör så här för att
+
 ### Hantera
 #### [Använd StorSimple Manager-tjänsten](storsimple-manager-service-administration.md)
 ##### [Återställ från en säkerhetskopia](storsimple-restore-from-backup-set-u2.md)
@@ -214,6 +198,7 @@
 ### [Ändra standardsökvägen för blob](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple för partner
+
 ## Översikt
 ### [Vad är lösningen?](storsimple-partner-csp-overview.md)
 

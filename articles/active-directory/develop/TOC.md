@@ -6,7 +6,7 @@
 ### [Översikt](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [NET](active-directory-devquickstarts-dotnet.md)
+### [.NET](active-directory-devquickstarts-dotnet.md)
 ### [Windows](active-directory-devquickstarts-windowsstore.md)
 ### [Xamarin](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
@@ -67,6 +67,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [Tjänst-till-tjänst-anrop](active-directory-protocols-oauth-service-to-service.md)
+### [On-Behalf-Of-flöde](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Token och anspråkstyper som stöds](active-directory-token-and-claims.md)
 ### [Förnyelse av signeringsnyckel](active-directory-signing-key-rollover.md)
 ### [Federationsmetadata](active-directory-federation-metadata.md)
@@ -77,31 +78,27 @@
 ## [Tjänstbegränsningar](../active-directory-service-limits-restrictions.md)
 # v2.0-slutpunkt
 ## [Översikt](active-directory-appmodel-v2-overview.md)
-### [Skillnader](active-directory-v2-compare.md)
 ### [Apptyper](active-directory-v2-flows.md)
 ### [Begränsningar](active-directory-v2-limitations.md)
-## Snabbstarter
-### Mobile Apps
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### Webbappar och API:er
-#### [AngularJS med NodeJS](active-directory-v2-devquickstarts-angular-node.md)
-#### [Angular JS med .NET](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [.NET-webbapp](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [API för .NET-webb](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [NodeJS-API](active-directory-v2-devquickstarts-node-api.md)
+### [Jämförelse mellan v1 och v2](active-directory-v2-compare.md)
+## Kom igång
+### Mobilappar och skrivbordsappar
+#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [Windows-skrivbord .NET](guidedsetups/active-directory-windesktop.md)
+### Webbappar
+#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [ASP.NET-webbserver](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS-webbapp](active-directory-v2-devquickstarts-node-web.md)
-#### [Webb-API från .NET-webbapp](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 ## Guider
 ### [Registrera en app](active-directory-v2-app-registration.md)
 ## Referens
-### [Referens för registrering av appar](active-directory-v2-registration-portal.md)
 ### [Autentiseringsbibliotek](active-directory-v2-libraries.md)
 ### [v2.0 Autentiseringsprotokoll](active-directory-v2-protocols.md)
-#### [Tokenreferens](active-directory-v2-tokens.md)
-#### [OAuth2.0-auktoriseringskodflöde](active-directory-v2-protocols-oauth-code.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [Implicit flöde](active-directory-v2-protocols-implicit.md)
-#### [Autentiseringsuppgifter för OAuth 2.0-klient](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Beviljande av OAuth 2.0-auktoriseringskod](active-directory-v2-protocols-oauth-code.md)
+#### [Implicit beviljande av OAuth 2.0](active-directory-v2-protocols-implicit.md)
+#### [Beviljande av autentiseringsuppgifter för OAuth 2.0-klient](active-directory-v2-protocols-oauth-client-creds.md)
+#### [On-Behalf-Of-flöde för OAuth 2.0-klient](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [Tokenreferens](active-directory-v2-tokens.md)
 ### [Scope](active-directory-v2-scopes.md)

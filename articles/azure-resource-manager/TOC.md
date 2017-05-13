@@ -53,6 +53,7 @@
 ### [REST-API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
+### [Skapa definitioner för användargränssnitt](managed-application-createuidefinition-overview.md)
 ## Styr åtkomsten
 ### [Skapa tjänstens huvudnamn med PowerShell](resource-group-authenticate-service-principal.md)
 ### [Skapa tjänstens huvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -82,6 +83,7 @@
 ### [Numeriska funktioner](resource-group-template-functions-numeric.md)
 ### [Resursfunktioner](resource-group-template-functions-resource.md)
 ### [Strängfunktioner](resource-group-template-functions-string.md)
+## [Funktioner för användargränssnittsdefinition](managed-application-createuidefinition-functions.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [NET](/dotnet/api/microsoft.azure.management.resourcemanager)

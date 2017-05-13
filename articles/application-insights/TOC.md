@@ -18,12 +18,13 @@
 ### [Webbappar – körning](app-insights-java-live.md)
 ### [Docker-appar](app-insights-docker.md)
 
+## Övervaka Node.js-appar
+### [Node.js](app-insights-nodejs.md)
 
 ## Övervaka webbsidor
 ### [JavaScript](app-insights-javascript.md)
-
+ 
 ## Övervaka andra plattformar
-### [Node.js-appar](app-insights-nodejs.md)
 ### [SharePoint-webbplatser](app-insights-sharepoint.md)
 ### [Fler plattformar](app-insights-platforms.md)
 
@@ -32,7 +33,6 @@
 ## Planera och designa
 ### [Djup diagnostik för webbappar och tjänster](app-insights-devops.md)
 ### [Övervaka prestanda i webbprogram](app-insights-web-monitor-performance.md)
-### [Användningsanalys med Application Insights](app-insights-web-track-usage.md)
 ### [Separera Application Insights-resurser](app-insights-separate-resources.md)
 ### [Hur kan jag ... i Application Insights?](app-insights-how-do-i.md)
 
@@ -50,7 +50,7 @@
 #### [Beroenden](app-insights-asp-net-dependencies.md)
 #### [Versionsanteckningar](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-
+#### [Felsökning av ögonblicksbild](app-insights-snapshot-debugger.md)
 
 ### J2EE
 #### [Loggspårningar](app-insights-java-trace-logs.md)
@@ -86,6 +86,11 @@
 #### [F5-insikter](app-insights-visual-studio.md)
 #### [Trender](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
+
+### Användning
+#### [Översikt](app-insights-usage-overview.md)
+#### [Kvarhållning](app-insights-usage-retention.md)
+#### [Användare, sessioner, händelser](app-insights-usage-segmentation.md)
 
 ### Analys
 
@@ -152,14 +157,14 @@
 ## Nyheter
 
 ### [Blogg](https://azure.microsoft.com/blog/tag/application-insights/)
-### [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=application-insights) 
 ### [Viktig information för SDK](app-insights-release-notes.md)
 ### [Viktig information för Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
 ## [Vanliga frågor och svar](app-insights-troubleshoot-faq.md)
 
 ## Hjälp
-### [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
 ### [Support](https://azure.microsoft.com/support/)

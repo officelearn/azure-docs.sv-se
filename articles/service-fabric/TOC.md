@@ -18,8 +18,10 @@
 ### [Java i Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# i Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Distribuera appar i ett lokalt kluster](service-fabric-get-started-with-a-local-cluster.md)
+## [Distribuera .NET-appar i en behållare](service-fabric-host-app-in-a-container.md)
 ## [Skapa ditt första kluster på Azure](service-fabric-get-started-azure-cluster.md)
 ## [Skapa ditt första fristående kluster](service-fabric-get-started-standalone-cluster.md)
+## [Skapa din första behållarapp](service-fabric-get-started-containers.md)
 
 # Gör så här för att
 ## Skapa ett program
@@ -27,6 +29,7 @@
 ### Koncept
 #### [Programmeringsmodeller som stöds](service-fabric-choose-framework.md)
 #### [Programmodell](service-fabric-application-model.md)
+#### [Värdmodell](service-fabric-hosting-model.md)
 #### [Tjänstmanifestresurser](service-fabric-service-manifest-resources.md)
 #### [Tjänsttillstånd](service-fabric-concepts-state.md)
 #### [Tjänstpartitionering](service-fabric-concepts-partitioning.md)
@@ -44,20 +47,29 @@
 #### [Översikt](service-fabric-containers-overview.md)
 #### [Distribuera Windows-behållare](service-fabric-deploy-container.md)
 #### [Distribuera Linux-behållare](service-fabric-deploy-container-linux.md)
+#### [Docker Compose (förhandsversion)](service-fabric-docker-compose.md)
+#### [Resursstyrning för behållare och tjänster](service-fabric-resource-governance.md)
 
 ### Skapa en Reliable Service-tjänst
 #### [Översikt](service-fabric-reliable-services-introduction.md)
 #### Koncept
 ##### [Reliable Services-livscykel – C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Reliable Services-livscykel – Java](service-fabric-reliable-services-lifecycle-java.md)
+
+#### Reliable Collections
 ##### [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
+##### [Riktlinjer och rekommendationer för Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
+##### [Arbeta med Reliable Collections](service-fabric-work-with-reliable-collections.md)
+##### [Transaktioner och lås](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md)
+##### [Reliable Collection-serialisering](service-fabric-reliable-services-reliable-collections-serialization.md)
+##### [Internt i Reliable State Manager och Reliable Collection](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Kom igång
 ##### [C# i Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java i Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Reliable Services-livscykel
-#### [Använd Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Konfigurera](service-fabric-reliable-services-configuration.md)
 #### [Skicka aviseringar](service-fabric-reliable-services-notifications.md)
 #### [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
@@ -94,6 +106,7 @@
 
 ### Kommunicera med tjänster
 #### [Tjänstkommunikation](service-fabric-connect-and-communicate-with-services.md)
+#### [DNS-tjänst](service-fabric-dnsservice.md)
 #### [Omvänd proxy](service-fabric-reverseproxy.md)
 
 ### [Lägga till en frontwebb](service-fabric-add-a-web-frontend.md)

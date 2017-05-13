@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1156135200e05f8a2585467f37805a72d67279ba
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -72,7 +73,7 @@ Du kan ange en DNS-domännamnsetikett för en offentlig IP-resurs, vilket skapar
 >
 
 ### <a name="virtual-machines"></a>Virtuella datorer
-Du kan associera en offentlig IP-adress med en [Windows](../virtual-machines/windows/about.md)- eller [Linux](../virtual-machines/virtual-machines-linux-about.md)-baserad virtuell dator genom att tilldela den till dess **nätverksgränssnitt**. Om du har en virtuell dator med flera nätverkskort kan du bara koppla den till det *primära* nätverksgränssnittet. Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till en virtuell dator.
+Du kan associera en offentlig IP-adress med en [Windows](../virtual-machines/windows/overview.md)- eller [Linux](../virtual-machines/virtual-machines-linux-about.md)-baserad virtuell dator genom att tilldela den till dess **nätverksgränssnitt**. Om du har en virtuell dator med flera nätverkskort kan du bara koppla den till det *primära* nätverksgränssnittet. Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till en virtuell dator.
 
 ### <a name="internet-facing-load-balancers"></a>Internetuppkopplade belastningsutjämnare
 Du kan associera en offentlig IP-adress med en [Azure Load Balancer-belastningsutjämnare](../load-balancer/load-balancer-overview.md) genom att tilldela den till belastningsutjämnarens konfiguration på **klientsidan**. Den här offentliga IP-adressen fungerar som en belastningsutjämnad virtuella IP-adress (VIP). Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till klientsidan för en belastningsutjämnare. Du kan också tilldela flera offentliga IP-adresser till klientsidan för en belastningsutjämnare, t.ex. för scenarier med [flera virtuella IP-adresser](../load-balancer/load-balancer-multivip.md), exempelvis i en miljö med flera klientorganisationer med SSL-baserade webbplatser.
@@ -116,7 +117,7 @@ Statiska privata IP-adresser används ofta för:
 * Resurser som nås av andra appar/resurser via en IP-adress.
 
 ### <a name="virtual-machines"></a>Virtuella datorer
-En privat IP-adress tilldelas till **nätverksgränssnittet** för en [Windows](../virtual-machines/windows/about.md)- eller [Linux](../virtual-machines/virtual-machines-linux-about.md)-baserad virtuell dator. Om du har en virtuell dator med flera nätverksgränssnitt tilldelas varje gränssnitt en privat IP-adress. Du kan ange allokeringsmetoden som dynamisk eller statisk för ett nätverksgränssnitt.
+En privat IP-adress tilldelas till **nätverksgränssnittet** för en [Windows](../virtual-machines/windows/overview.md)- eller [Linux](../virtual-machines/virtual-machines-linux-about.md)-baserad virtuell dator. Om du har en virtuell dator med flera nätverksgränssnitt tilldelas varje gränssnitt en privat IP-adress. Du kan ange allokeringsmetoden som dynamisk eller statisk för ett nätverksgränssnitt.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>Intern DNS-värdnamnsmatchning (för virtuella datorer)
 Alla virtuella datorer i Azure konfigureras med [Azure-hanterade DNS-servrar](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) som standard, om du inte uttryckligen konfigurerar anpassade DNS-servrar. Dessa DNS-servrar tillhandahåller intern namnmatchning för virtuella datorer som finns i samma virtuella nätverk (VNet).

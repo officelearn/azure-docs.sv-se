@@ -15,6 +15,7 @@
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
+        "LandingData": "Content",
         "RestApi": "Content"
       },
       "build_entry_point": "docs",

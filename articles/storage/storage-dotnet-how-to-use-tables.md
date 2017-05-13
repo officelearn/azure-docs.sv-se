@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 04/10/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 0764d4cbcd618be54c8b6e71a632d24c5c3bfe67
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: bcd59c9951965fb1304bb8da678fd1f04ddded14
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Komma igång med Azure Table Storage med hjälp av .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 Azure Table Storage är en tjänst som lagrar strukturerade NoSQL-data i molnet och som ger tillgång till ett nyckel-/attributlager med en schemalös design. Eftersom Table Storage är schemalös är det enkelt att anpassa dina data i takt med att programmets behov förändras. Åtkomsten till data i Table Storage är snabb och kostnadseffektiv för många typer av program, och medför normalt lägre kostnad än traditionell SQL för liknande datavolymer.
 
@@ -465,14 +465,15 @@ do
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar för att lära dig mer om komplexa lagringsuppgifter:
 
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * Du hittar fler Table Storage-exempel i [Komma igång med Azure Table Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 * Fullständig information om tillgängliga API:er finns i referensdokumentationen för tabelltjänsten:
-  * [Storage-klientbibliotek för .NET-referens](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  * [REST API-referens](http://msdn.microsoft.com/library/azure/dd179355)
+* [Storage-klientbibliotek för .NET-referens](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+* [REST API-referens](http://msdn.microsoft.com/library/azure/dd179355)
 * Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 * Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
-  * [Kom igång med Azure Blob Storage med hjälp av .NET](storage-dotnet-how-to-use-blobs.md) om du vill lagra ostrukturerade data.
-  * [Anslut till SQL Database med hjälp av .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) för att lagra relationsdata.
+* [Kom igång med Azure Blob Storage med hjälp av .NET](storage-dotnet-how-to-use-blobs.md) om du vill lagra ostrukturerade data.
+* [Anslut till SQL Database med hjälp av .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) för att lagra relationsdata.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
 [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx

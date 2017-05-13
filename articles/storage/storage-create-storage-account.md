@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="about-azure-storage-accounts"></a>Om Azure-lagringskonton
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
-[!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Översikt
 Ett Azure Storage-konto tillhandahåller en unik namnrymd där du kan lagra och få åtkomst till dina Azure Storage-dataobjekt. Alla objekt i ett lagringskonto faktureras tillsammans som en grupp. Som standard är data i ditt konto endast tillgängliga för dig, kontoägaren.
@@ -153,15 +155,11 @@ Om lagringskontot använder den klassiska distributionsmodellen kan du ta bort d
 Mer information finns i [dokumentationen för Azure Virtual Machines](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="next-steps"></a>Nästa steg
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * [Azure Blob Storage: nivåerna Kall och Het](storage-blob-storage-tiers.md)
 * [Azure Storage-replikering](storage-redundancy.md)
 * [Konfigurera anslutningssträngar för Azure Storage](storage-configure-connection-string.md)
 * [Överföra data med kommandoradsverktyget AzCopy](storage-use-azcopy.md)
 * Besök [Azure Storage-teamets blogg](http://blogs.msdn.com/b/windowsazurestorage/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

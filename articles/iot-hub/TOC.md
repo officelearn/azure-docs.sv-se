@@ -106,6 +106,7 @@
 ### Konfigurera filuppladdning
 #### [Använda portalen](iot-hub-configure-file-upload.md)
 #### [Använda PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Använda CLI 2.0](iot-hub-configure-file-upload-cli.md)
 ### [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
 ### [Användningsstatistik](iot-hub-metrics.md)
 ### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)

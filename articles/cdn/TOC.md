@@ -29,6 +29,7 @@
 ### [Övervaka resurser](cdn-resource-health.md)
 ### [Åsidosätt beteende med regler](cdn-rules-engine.md)
 ### [Få aviseringar i realtid](cdn-real-time-alerts.md)
+### [Stöd för HTTP/2](cdn-http2.md)
 
 ## Analysera
 ### [Analysera användningsmönster](cdn-analyze-usage-patterns.md)

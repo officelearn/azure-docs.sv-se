@@ -16,10 +16,10 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/03/2017
 
 I den här översikten över huvudkomponenterna i tjänsten Azure Batch diskuterar vi de viktigaste tjänstfunktionerna och resurserna som Batch-utvecklare kan använda för att skapa storskaliga parallella beräkningslösningar.
 
-Oavsett om du utvecklar ett distribuerat beräkningsprogram eller en tjänst som skickar direkta [REST API][batch_rest_api]-API-anrop eller om du använder någon av [Batch SDK:erna](batch-apis-tools.md#batch-development-apis) så använder du många av resurserna och funktionerna som beskrivs i den här artikeln.
+Oavsett om du utvecklar ett distribuerat beräkningsprogram eller en tjänst som skickar direkta [REST API][batch_rest_api]-API-anrop eller om du använder någon av [Batch SDK:erna](batch-apis-tools.md#azure-accounts-for-batch-development) så använder du många av resurserna och funktionerna som beskrivs i den här artikeln.
 
 > [!TIP]
 > En mer översiktlig introduktion till Batch-tjänsten finns i [Grunderna i Azure Batch](batch-technical-overview.md).
@@ -74,13 +74,13 @@ Ett Batch-konto är en unikt identifierad entitet i Batch-tjänsten. All bearbet
 
 Du kan skapa ett Azure Batch-konto med [Azure Portal](batch-account-create-portal.md) eller programmässigt som med [Batch Management .NET-biblioteket](batch-management-dotnet.md). Du kan associera ett Azure Storage-konto när du skapar kontot.
 
-Batch har stöd för två kontokonfigurationer, baserat på egenskapen *poolallokeringsläge*. Dessa två konfigurationer ger dig åtkomst till olika funktioner för [Batch-pooler](#pool) (se nedan). 
+Batch har stöd för två kontokonfigurationer, baserat på egenskapen *poolallokeringsläge*. Dessa två konfigurationer ger dig åtkomst till olika funktioner för [Batch-pooler](#pool) (se nedan).
 
 
-* **Batch-tjänst**: Det här är standardalternativet med Batch-pool med virtuella datorer som tilldelas i bakgrunden i Azure-hanterade prenumerationer. Den här kontokonfigurationen måste användas om Cloud Services-pooler krävs, men kan inte användas om Virtual Machine-pooler krävs (som skapas från anpassade VM-avbildningar eller använder ett virtuellt nätverk). Du kan få åtkomst till Batch-API:erna med antingen delad nyckelautentisering eller [Azure Active Directory-autentisering](batch-aad-auth.md). 
+* **Batch-tjänst**: Det här är standardalternativet med Batch-pool med virtuella datorer som tilldelas i bakgrunden i Azure-hanterade prenumerationer. Den här kontokonfigurationen måste användas om Cloud Services-pooler krävs, men kan inte användas om Virtual Machine-pooler krävs (som skapas från anpassade VM-avbildningar eller använder ett virtuellt nätverk). Du kan få åtkomst till Batch-API:erna med antingen delad nyckelautentisering eller [Azure Active Directory-autentisering](batch-aad-auth.md).
 
 * **Användarprenumeration**: Den här kontokonfigurationen måste användas om Virtual Machine-pooler krävs (som skapas från anpassade VM-avbildningar eller använder ett virtuellt nätverk). Du kan endast få åtkomst till Batch API:erna med [Azure Active Directory-autentisering](batch-aad-auth.md) och Cloud Services-pooler stöds inte. Virtuella Batch-beräkningsdatorer allokeras direkt i din Azure-prenumeration. Det här läget kräver att du ställer in ett Azure-nyckelvalv för ditt Batch-konto.
- 
+
 
 ## <a name="compute-node"></a>Beräkningsnod
 En beräkningsnod är en virtuell Azure-dator (VM) som är dedikerad för bearbetning av en del av ditt programs arbetsbelastning. Storleken på en nod avgör antalet CPU-kärnor, minneskapaciteten och storleken på det lokala filsystemet som allokeras till noden. Du kan skapa pooler för Windows- eller Linux-noder med antingen Azure Cloud Services eller Marketplace-avbildningar för Virtual Machines. Mer information om dessa alternativ finns i följande [poolavsnitt](#pool).
@@ -336,7 +336,7 @@ När du skapar en pool med beräkningsnoder i Azure Batch, kan du använda API:e
 
 * Det virtuella nätverket måste ha tillräckligt med lediga **IP-adresser** för poolens `targetDedicated`-egenskap. Om undernätet inte har tillräckligt med lediga IP-adresser blir Batch-tjänstens allokering av beräkningsnoder i poolen inte fullständig och ett storleksändringsfel returneras.
 
-* Det angivna undernätet måste tillåta kommunikation från Batch-tjänsten för att kunna schemalägga aktiviteter på beräkningsnoderna. Om kommunikation till beräkningsnoderna nekas av en **nätverkssäkerhetsgrupp (NSG)** som är associerad med din VNet, ändrar Batch-tjänsten beräkningsnodernas status till **Oanvändbar**. 
+* Det angivna undernätet måste tillåta kommunikation från Batch-tjänsten för att kunna schemalägga aktiviteter på beräkningsnoderna. Om kommunikation till beräkningsnoderna nekas av en **nätverkssäkerhetsgrupp (NSG)** som är associerad med din VNet, ändrar Batch-tjänsten beräkningsnodernas status till **Oanvändbar**.
 
 * Om angivet VNet har några associerade NSG:er, måste porten för inkommande kommunikation aktiveras. Portarna 29876 och 29877 måste vara aktiverade för Linux- och Windows-pooler. Du kan välja att aktivera (eller selektivt filtrera) portarna 22 eller 3389 för SSH för Linux-pooler eller RDP för Windows-pooler.
 
@@ -345,7 +345,7 @@ Ytterligare inställningar för din VNet varierar beroende på Batch-kontots poo
 ### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>VNet för pooler etablerade i Batch-tjänsten
 
 I allokeringsläget för Batch-tjänster kan bara **Cloud Services-konfigurationspooler** tilldelas en VNet. Dessutom måste angiven VNet vara en **klassisk** VNet. Virtuella nätverk som skapas med Azure Resource Manager-distributionsmodellen stöds inte.
-   
+
 
 
 * *MicrosoftAzureBatch*-tjänstobjektet måste ha RBAC-rollen (rollbaserad åtkomstkontroll) [Klassisk virtuell datordeltagare](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) för det angivna virtuella nätverket. På Azure Portal:
@@ -368,7 +368,7 @@ Med [automatisk skalning](batch-automatic-scaling.md) kan Batch-tjänsten dynami
 
 Du aktiverar automatisk skalning genom att skriva en [formel för automatisk skalning](batch-automatic-scaling.md#automatic-scaling-formulas) och associera formeln med en pool. Batch-tjänsten använder formeln för att bestämma antalet noder i poolen för nästa skalningsintervall (ett intervall som du kan konfigurera). Du kan ange inställningarna för automatisk skalning för en pool när du skapar den eller aktivera skalning för en pool senare. Du kan också uppdatera skalningsinställningarna för en skalningsaktiverad pool.
 
-Exempelvis kanske ett jobb kräver att du skickar ett mycket stort antal aktiviteter som ska köras. Du kan tilldela en skalningsformel till poolen som justerar antalet noder i poolen baserat på antalet köade aktiviteter och aktiviteternas slutförandefrekvens. Batch-tjänsten utvärderar med jämna mellanrum formeln och ändrar storlek på poolen baserat på arbetsbelastningen och dina övriga formelinställningar. Tjänsten lägger till noder efter behov när det finns ett stort antal köade aktiviteter och tar bort noder när det inte finns några uppgifter i kö eller inte körs några uppgifter. 
+Exempelvis kanske ett jobb kräver att du skickar ett mycket stort antal aktiviteter som ska köras. Du kan tilldela en skalningsformel till poolen som justerar antalet noder i poolen baserat på antalet köade aktiviteter och aktiviteternas slutförandefrekvens. Batch-tjänsten utvärderar med jämna mellanrum formeln och ändrar storlek på poolen baserat på arbetsbelastningen och dina övriga formelinställningar. Tjänsten lägger till noder efter behov när det finns ett stort antal köade aktiviteter och tar bort noder när det inte finns några uppgifter i kö eller inte körs några uppgifter.
 
 En skalningsformel kan baseras på följande mått:
 

@@ -9,7 +9,7 @@
 
 # Kom igång
 ## [Replikera VMware-VM:ar till Azure](site-recovery-vmware-to-azure.md)
-## [Replikera fysiska servrar till Azure](site-recovery-physical-servers-to-azure.md) 
+## [Replikera fysiska servrar till Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replikera virtuella Hyper-V-datorer till Azure (med VMM)](site-recovery-vmm-to-azure.md)
 ## [Replikera Hyper-V-VM:ar till Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Replikera virtuella Hyper-V-datorer till en sekundär plats (med VMM)](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [Planera kapacitet och skala VMware-replikering till Azure](site-recovery-plan-capacity-vmware.md)
 ### [Distributionsplaneraren för VMware-replikering till Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner för Hyper-V-replikering](site-recovery-capacity-planner.md)
+### [Rollbaserad åtkomstkontroll](site-recovery-role-based-linked-access-control.md)
 
 ## Konfigurera
 ### [Konfigurera källmiljön](site-recovery-set-up-vmware-to-azure.md)
@@ -47,8 +48,8 @@
 ## Arbetsbelastningar
 ### [Active Directory och DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-workload.md#protect-sharepoint)
-### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
+### [SharePoint](site-recovery-sharepoint.md)
+### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)

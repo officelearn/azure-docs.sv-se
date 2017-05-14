@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 05/08/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -89,7 +90,7 @@ Azure Site Recovery hjälper dig att skydda SharePoint-distributioner på följa
 * Förenklar utvecklingen och testningen av SharePoint-program genom att på begäran skapa en produktionslik kopia av replikmiljön för testning och felsökning.
 * Förenklar övergången till molnet genom att använda Site Recovery för att migrera SharePoint-distributioner till Azure.
 
-[Lär dig mer](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) om hur du kan skydda SharePoint.
+[Lär dig mer](site-recovery-sharepoint.md) om hur du kan skydda SharePoint.
 
 ## <a name="protect-dynamics-ax"></a>Skydda Dynamics AX
 Azure Site Recovery hjälper dig att skydda din Dynamics AX ERP-lösning genom att:
@@ -98,7 +99,7 @@ Azure Site Recovery hjälper dig att skydda din Dynamics AX ERP-lösning genom a
 * Förenkla migreringen av Dynamics AX-distributioner till molnet (Azure).
 * Förenkla utvecklingen och testningen av Dynamics AX-program genom att på begäran skapa en produktionslik kopia för testning och felsökning.
 
-[Lär dig mer](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) om hur du kan skydda Dynamic AX.
+[Lär dig mer](site-recovery-dynamicsax.md) om hur du kan skydda Dynamic AX.
 
 ## <a name="protect-rds"></a>Skydda Fjärrskrivbordstjänster
 Fjärrskrivbordstjänster (RDS) stöder VDI-sessionsbaserade (Virtual Desktop Infrastructure) skrivbord och program så att användarna kan arbeta var som helst. Med Azure Site Recovery kan du:

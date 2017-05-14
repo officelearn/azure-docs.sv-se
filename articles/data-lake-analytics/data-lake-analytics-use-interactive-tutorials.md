@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 36677be6bc5599f55f1f15bc145c59033ad20e0a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ca88b355416b4ae4785bc69244185a67756ca916
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="use-azure-data-lake-analytics-interactive-tutorials"></a>Använd interaktiva Azure Data Lake Analytics-självstudier
 Azure Portal tillhandahåller interaktiva självstudier som hjälper dig att komma igång med Data Lake Analytics. Den här artikeln visar hur du med hjälp av självstudierna lär dig att analysera webbplatsloggar.
-
-> [!NOTE]
-> Om du vill gå igenom samma självstudier med hjälp av Visual Studio finns information i avsnittet [Analysera webbplatsloggar med hjälp av Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-> Fler interaktiva självstudier kommer att läggas till på portalen.
-> 
-> 
 
 Andra självstudier finns i:
 
@@ -87,10 +83,5 @@ Varje Data Lake Analytics-konto har ett kontoberoende för [Azure Data Lake Stor
 * [Kom igång med Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

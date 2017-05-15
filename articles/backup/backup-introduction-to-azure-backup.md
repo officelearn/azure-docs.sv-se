@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -112,10 +113,10 @@ Virtuell dator för Premium Storage VM kan återställas till antingen Premium S
 Azure Backup skyddar virtuella datorer med hanterade diskar. Om du använder hanterade diskar behöver du inte hantera lagringskonton för virtuella datorer och det blir mycket enklare att etablera virtuella datorer.
 
 ### <a name="back-up-managed-disk-vms"></a>Säkerhetskopiera virtuella datorer med hanterade diskar
-Säkerhetskopieringen av virtuella datorer på hanterade diskar fungerar på samma sätt som säkerhetskopieringen av virtuella datorer med Resource Manager. I Azure Portal kan du konfigurera säkerhetskopieringen direkt från vyn Virtuell dator eller från Recovery Services-valvvyn. Du kan säkerhetskopiera virtuella datorer på hanterade diskar via RestorePoint-samlingar som är byggda ovanpå hanterade diskar. Azure Backup stöder för närvarande inte säkerhetskopiering av virtuella datorer på hanterade diskar som krypterats med ADE (Azure Disk Encryption).
+Säkerhetskopieringen av virtuella datorer på hanterade diskar fungerar på samma sätt som säkerhetskopieringen av virtuella datorer med Resource Manager. I Azure Portal kan du konfigurera säkerhetskopieringen direkt från vyn Virtuell dator eller från Recovery Services-valvvyn. Du kan säkerhetskopiera virtuella datorer på hanterade diskar via RestorePoint-samlingar som är byggda ovanpå hanterade diskar. Azure Backup stöder också säkerhetskopiering av virtuella datorer på hanterade diskar som krypterats med ADE (Azure Disk Encryption).
 
 ### <a name="restore-managed-disk-vms"></a>Återställa virtuella datorer med hanterade diskar
-Med Azure Backup kan du återställa en hel virtuell dator med hanterade diskar eller återställa hanterade diskar till ett Resource Manager-lagringskonto. Azure hanterar de hanterade diskarna under återställningsprocessen. Du (kunden) hanterar lagringskontot som skapas som en del av återställningsprocessen.
+Med Azure Backup kan du återställa en hel virtuell dator med hanterade diskar eller återställa hanterade diskar till ett Resource Manager-lagringskonto. Azure hanterar de hanterade diskarna under återställningsprocessen. Du (kunden) hanterar lagringskontot som skapas som en del av återställningsprocessen. För att återställa hanterade krypterade virtuella datorer ska den virtuella datorns nycklar och hemligheter redan finnas i nyckelvalvet innan återställningen.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Vilka är funktionerna i varje Backup-komponent?
 Följande avsnitt innehåller tabeller som sammanfattar tillgänglighet eller stöd för olika funktioner i varje komponent i Azure Backup. Titta på informationen efter varje tabell för ytterligare support eller information.

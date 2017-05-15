@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 2673a9c0d91510756a97b2dba3801d2925905c9a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -44,11 +45,9 @@ Du behöver också en Azure-prenumeration för att kunna utföra stegen i den h�
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Skapa ett dynamiskt webbprojekt i Eclipse
 
-I Eclipse klickar du på **File** (Arkiv), på **New** (Nytt) och sedan på **Dynamic Web Project** (Dynamiskt webbprojekt).
+I Eclipse väljer du menyn **File** (Arkiv), **New** (Nytt) och sedan **Dynamic Web Project** (Dynamiskt webbprojekt).
 
-![Nytt dynamiskt webbprojekt](./media/app-service-web-get-started-java/file-new-dynamic-web-project-menu.png)
-
-När dialogrutan för dynamiskt webbprojekt visas ger du appen namnet **MyFirstJavaOnAzureWebApp** och klickar sedan på **Slutför**.
+I dialogrutan **New Dynamic Web Project** (Nytt dynamiskt webbprojekt) ger du projektet namnet **MyFirstJavaOnAzureWebApp** och väljer **Finish** (Slutför).
    
 ![Dialogrutan för dynamiskt webbprojekt](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -73,13 +72,11 @@ När din nya sida öppnas i Eclipse ersätter du det befintliga `<body></body>`-
 
 ```jsp
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 ```
 
 Spara ändringarna på sidan.
-
-![Redigera JSP-kod](./media/app-service-web-get-started-java/creating-index-jsp-page.png)
 
 ## <a name="publish-your-web-app-to-azure"></a>Publicera din webbapp till Azure
 
@@ -183,14 +180,12 @@ Börja med att ändra JSP-exempelkoden (som angavs tidigare) så att titeln ers�
 <title><% out.println(date.format(new Date())); %></title>
 </head>
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 </html>
 ```
 
-![Uppdatera JSP-kod](./media/app-service-web-get-started-java/updating-index-jsp-page.png)
-
-När du har sparat ändringarna på sidan högerklickar du på projektet i Eclipse **Project Explorer** (Projektutforskaren). Klicka sedan på **Azure** och på **Publish as Azure Web App** (Publicera som Azure Web App).
+När du har sparat ändringarna högerklickar du på projektet i Eclipse **Project Explorer** (Projektutforskaren). Klicka sedan på **Azure** och på **Publish as Azure Web App** (Publicera som Azure Web App).
 
 ![Publicera en uppdaterad webbapp](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
 
@@ -207,9 +202,9 @@ När du har publicerat ändringarna ser du att sidans titel har ändrats till da
 
 ![Bläddra till webbappen](./media/app-service-web-get-started-java/browse-web-app-2.png)
 
-## <a name="deleting-your-web-app"></a>Ta bort en webbapp
+## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan ta bort en webbapp via **Azure Explorer**, som är en del av Azure Toolkit. Om **Azure Explorer**-vyn inte är synlig i Eclipse kan du visa den på följande sätt:
+Om du vill ta bort webbappen använder du **Azure Explorer** som ingår i Azure Toolkit. Om **Azure Explorer**-vyn inte är synlig i Eclipse kan du visa den på följande sätt:
 
 1. Klicka på **Window** (Fönster), på **Show View** (Visa vy) och sedan på **Other** (Annat).
 

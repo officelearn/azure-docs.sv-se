@@ -1,6 +1,7 @@
 ---
-title: "Säkerhetsrapporten Användare i farozonen i förhandsutgåvan av Azure Active Directory | Microsoft Docs"
-description: "Lär dig mer om rapporten om användare i farozonen i Azure Active Directory-portalen – förhandsutgåva"
+
+title: "Säkerhetsrapporten Användare i farozonen i Azure Active Directory | Microsoft Docs"
+description: "Lär dig mer om rapporten om användare i farozonen i Azure Active Directory-portalen"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,18 +11,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 48c504a9ed5bc4ef9f0bff889df031962c5bf6e8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal---preview"></a>Säkerhetsrapporten Användare i farozonen i portalen Azure Active Directory – förhandsutgåva
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Säkerhetsrapporten Användare i farozonen i portalen Azure Active Directory
 
-Med hjälp av säkerhetsrapporterna i [förhandsversionen](active-directory-preview-explainer.md) av Azure Active Directory kan du bedöma risken för att användarkonton i din miljö har komprometterats. 
+Med hjälp av säkerhetsrapporterna i Azure Active Directory (Azure AD) kan du bedöma risken för att användarkonton i din miljö har komprometterats. 
 
 Azure Active Directory identifierar misstänkta åtgärder relaterade till dina användarkonton. För varje identifierad åtgärd skapas en post med namnet *riskhändelse*. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](active-directory-identity-protection-risk-events.md). 
 

@@ -3,8 +3,8 @@ title: "Översikt över Microsoft Azure Data Lake Analytics | Microsoft Docs"
 description: "Data Lake Analytics är en Azure Big Data-tjänst med vilken du kan använda data för att driva ditt företag med hjälp av kunskap från dina data i molnet, oavsett deras storlek eller plats."
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/28/2017
+ms.date: 05/06/2017
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 12d6fe834ed2b31a756123351288eec7ba2a72f7
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cb2da3515cfe5fd460e16b019d3738f4a9a050bb
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -53,24 +54,16 @@ Azure Data Lake Analytics är en tjänst på begäran som gör det enklare att a
   * [Kom igång med Data Lake Analytics med hjälp av Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
   * [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
   * [Kom igång med Azure Data Lake Analytics U-SQL-språk](data-lake-analytics-u-sql-get-started.md)
-* U-SQL och utveckling
-  
-  * [Använd U-SQL-fönstrets funktioner för Azure Data Lake Analytics-jobb](data-lake-analytics-use-window-functions.md)
-  * [Utveckla användardefinierade U-SQL-operatörer för Data Lake Analytics-jobb](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+
 * Hantering
   
   * [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md)
   * [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
   * [Övervaka och felsök Azure Data Lake Analytics-jobb med hjälp av Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-  * [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
-* Självstudier för slutpunkt till slutpunkt
-  
-  * [Använd interaktiva Azure Data Lake Analytics-självstudier](data-lake-analytics-use-interactive-tutorials.md)
-  * [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
+
 * Berätta vad du tycker
   
-  <!-- Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future. Hyperlink text: Comment on our documentation backlog. Referenced file: data-lake-analytics-documentation-backlog.md -->
   * [Skicka en funktionsbegäran](http://aka.ms/adlafeedback)
-  * [Få hjälp i forumen](http://aka.ms/adlaforums)
+  * [Få hjälp i MSDN-forumen](http://aka.ms/adlaforums)
 
 

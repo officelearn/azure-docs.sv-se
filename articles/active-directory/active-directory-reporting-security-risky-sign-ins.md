@@ -1,6 +1,7 @@
 ---
-title: "Rapporten om riskfyllda inloggningar i Azure Active Directory-portalen – förhandsutgåva | Microsoft Docs"
-description: "Lär dig mer om rapporten över riskfyllda inloggningar i Azure Active Directory-portalen – förhandsutgåva"
+
+title: Rapporten om riskfyllda inloggningar i Azure Active Directory-portalen | Microsoft Docs
+description: "Lär dig mer om rapporten över riskfyllda inloggningar i Azure Active Directory-portalen"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,20 +11,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 69b2166dcbc3e4abd99084b47907c90e157791de
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal---preview"></a>Rapporten över riskfyllda inloggningar i Azure Active Directory-portalen – förhandsutgåva
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
 
-Med hjälp av säkerhetsrapporterna i [förhandsversionen](active-directory-preview-explainer.md) av Azure Active Directory kan du bedöma risken för att användarkonton i din miljö har komprometterats. 
+Med hjälp av säkerhetsrapporterna i Azure Active Directory (Azure AD) kan du bedöma risken för att användarkonton i din miljö har komprometterats. 
 
-Azure Active Directory identifierar misstänkta åtgärder relaterade till dina användarkonton. För varje identifierad åtgärd skapas en post med namnet *riskhändelse*. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](active-directory-identity-protection-risk-events.md). 
+Azure AD identifierar misstänkta åtgärder relaterade till dina användarkonton. För varje identifierad åtgärd skapas en post med namnet *riskhändelse*. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](active-directory-identity-protection-risk-events.md). 
 
 De identifierade riskhändelserna används för att beräkna:
 
@@ -31,7 +33,7 @@ De identifierade riskhändelserna används för att beräkna:
 
 - **Användare som har flaggats för risk** – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. Mer information finns i avsnittet om [användare som har flaggats för risk](active-directory-identityprotection.md#users-flagged-for-risk).  
 
-I Azure-portalen hittar du säkerhetsrapporter på bladet **Azure Active Directory** i avsnittet **Säkerhet**. 
+I [Azure Portal](https://portal.azure.com) hittar du säkerhetsrapporter på bladet **Azure Active Directory** i avsnittet **Säkerhet**. 
 
 ![Riskfyllda inloggningar](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
@@ -40,7 +42,7 @@ I Azure-portalen hittar du säkerhetsrapporter på bladet **Azure Active Directo
 
 Den grundläggande och den kostnadsfria versionen av Azure Active Directory tillhandahåller en lista över riskfyllda inloggningar som har identifierats för dina användare. Rapporten över riskhändelser innehåller följande information:
 
-- **Användare** –Namnet på användaren som användes vid inloggningen.
+- **Användare** – Namnet på användaren som användes vid inloggningen.
 - **IP-adress** – IP-adressen för enheten som användes för att ansluta till Azure Active Directory.
 - **Plats** – Platsen som används för att ansluta till Azure Active Directory.
 - **Inloggningstid** – Tidpunkten för inloggningen.

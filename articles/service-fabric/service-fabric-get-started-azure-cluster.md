@@ -12,25 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: cf652f1ba6b7d3aa0717a2e3a54000a4aebccc78
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ad473a2c9006e2593a84364f03e3954a569adcab
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
 
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Skapa ditt första Service Fabric-kluster i Azure
-Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. I den här snabbstarten får du hjälp att skapa ett kluster med fem noder som körs i antingen Windows eller Linux på bara några minuter via [Azure Portal](http://portal.azure.com).  
+Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. I den här snabbstarten får du hjälp att skapa ett kluster med fem noder som körs i antingen Windows eller Linux på bara några minuter via [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) eller [Azure Portal](http://portal.azure.com).  
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+
+## <a name="use-the-azure-portal"></a>Använda Azure-portalen
+
 Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
 
-## <a name="create-the-cluster"></a>Skapa klustret
+### <a name="create-the-cluster"></a>Skapa klustret
 
 1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 2. Välj **Compute** från bladet **Nytt** och sedan **Service Fabric-kluster** från bladet **Compute**.
@@ -66,19 +69,19 @@ Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com)
 
     Du kan se förloppet bland aviseringarna. (Klicka på klockikonen nära statusfältet uppe till höger på skärmen.) Om du klickade på **Fäst på startsidan** när du skapade klustret ser du **Deploying Service Fabric Cluster** (Distribuerar Service Fabric-kluster) fäst på **startsidan**.
 
-## <a name="view-cluster-status"></a>Visa klusterstatus
+### <a name="view-cluster-status"></a>Visa klusterstatus
 När du har skapat ett kluster kan du granska det på bladet **Översikt** i portalen. Där kan du se information om klustret på instrumentpanelen, bland annat klustrets offentliga slutpunkter och en länk till Service Fabric Explorer.
 
 ![Klusterstatus][cluster-status]
 
-## <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Visualisera klustret med hjälp av Service Fabric Explorer
+### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Visualisera klustret med hjälp av Service Fabric Explorer
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett bra verktyg för att visualisera klustret och hantera program.  Service Fabric Explorer är en tjänst som körs i klustret.  Du kommer åt den i en webbläsare genom att klicka på länken **Service Fabric Explorer** på sidan **Översikt** för klustret i portalen.  Du kan också ange adressen direkt i webbläsaren: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
 
 Instrumentpanelen för klustret innehåller en översikt över klustret, inklusive en sammanfattning av program- och nodhälsan. Nodvyn visar klustrets fysiska layout. För en viss nod kan du inspektera vilka program som har kod distribuerad på noden.
 
 ![Service Fabric Explorer][service-fabric-explorer]
 
-## <a name="connect-to-the-cluster-using-powershell"></a>Ansluta till klustret med PowerShell
+### <a name="connect-to-the-cluster-using-powershell"></a>Ansluta till klustret med PowerShell
 Kontrollera att klustret körs genom att ansluta med PowerShell.  Service Fabric PowerShell-modulen installeras med [Service Fabric SDK](service-fabric-get-started.md).  Cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) upprättar en anslutning till klustret.   
 
 ```powershell
@@ -98,8 +101,8 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVe
                      _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
 ```
 
-## <a name="remove-the-cluster"></a>Ta bort klustret
-Ett Service Fabric-kluster består av andra Azure-resurser förutom själva klusterresursen. Så om du vill ta bort ett Service Fabric-kluster helt måste du också ta bort alla resurser det består av. Det enklaste sättet att ta bort klustret och alla dess resurser är att ta bort resursgruppen. Andra sätt att ta bort ett kluster eller borttagning av vissa (men inte alla) resurser i en resursgrupp beskrivs i [Ta bort ett kluster](service-fabric-cluster-delete.md)
+### <a name="remove-the-cluster"></a>Ta bort klustret
+Ett Service Fabric-kluster består av andra Azure-resurser förutom själva klusterresursen. Så om du vill ta bort ett Service Fabric-kluster helt måste du också ta bort alla resurser det består av. Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen. Andra sätt att ta bort ett kluster eller borttagning av vissa (men inte alla) resurser i en resursgrupp beskrivs i [Ta bort ett kluster](service-fabric-cluster-delete.md)
 
 Ta bort en resursgrupp på Azure Portal:
 1. Navigera till det Service Fabric-kluster du vill ta bort.
@@ -107,8 +110,122 @@ Ta bort en resursgrupp på Azure Portal:
 3. I den **Resource Group Essentials** (Information om resursgrupp) klickar du på **Ta bort** och följer sedan anvisningarna för borttagning av resursgruppen.
     ![Ta bort resursgruppen][cluster-delete]
 
+
+## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Använda Azure Powershell för att distribuera ett säkert kluster
+
+
+1) Ladda ned [Azure Powershell-modul version 4.0 eller senare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) på datorn.
+
+2) Öppna ett Windows PowerShell-fönster och kör följande kommando. 
+    
+```powershell
+
+Get-Command -Module AzureRM.ServiceFabric 
+```
+
+Du bör se utdata som liknar följande.
+
+![ps-list][ps-list]
+
+3) Logga in på Azure och välj den prenumeration som du vill skapa klustret på
+
+```powershell
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+
+```
+
+4) Kör följande kommande för att skapa ett säkert kluster. Glöm inte att anpassa parametrarna. 
+
+
+````powershell
+
+$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+$RDPuser="vmadmin"
+$RGname="mycluster" # this is also the name of your cluster
+$clusterloc="SouthCentralUS"
+$subname="$RGname.$clusterloc.cloudapp.azure.com"
+$certfolder="c:\mycertificates\"
+$clustersize=1 # can take values 1, 3-99
+
+New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+
+````
+
+Det kan ta mellan 10 och 30 minuter att slutföra kommandot. När det har slutförts bör utdata se ut ungefär som nedan. Utdata innehåller information om certifikatet, nyckelvalvet som certifikatet överfördes till och den lokala mapp som certifikatet kopieras till. 
+
+![ps-out][ps-out]
+
+5) Kopiera alla utdata och spara dem i en textfil eftersom vi behöver hänvisa till dem. Anteckna följande information från utdata.
+ 
+
+- **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
+- **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
+- **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
+- **ClientConnectionEndpointPort** : 19000
+
+### <a name="install-the-certificate-on-your-local-machine"></a>Installera certifikatet på din lokala dator
+  
+För att kunna ansluta till klustret måste du installera certifikatet i det personliga arkivet för den aktuella användaren. 
+
+Kör följande PowerShell-kommando
+
+```powershell
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+        -FilePath C:\mycertificates\the name of the cert.pfx `
+        -Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
+```
+
+Du är nu redo att ansluta till det säkra klustret.
+
+### <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster 
+
+Kör följande PowerShell-kommando för att ansluta till ett säkert kluster. Certifikatinformationen måste matcha certifikatet som användes för att konfigurera klustret. 
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+          -KeepAliveIntervalInSec 10 `
+          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+          -StoreLocation CurrentUser -StoreName My
+```
+
+
+I följande exempel visas de ifyllda parametrarna: 
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.cloudapp.azure.com:19000 `
+          -KeepAliveIntervalInSec 10 `
+          -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
+          -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
+          -StoreLocation CurrentUser -StoreName My
+```
+
+Kör följande kommando för att kontrollera att du är ansluten och att klustret är felfritt.
+
+```powershell
+
+Get-ServiceFabricClusterHealth
+
+```
+### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Publicera dina appar till klustret från Visual Studio
+
+Nu när du har konfigurerat ett Azure-kluster kan du publicera dina program från Visual Studio till Azure enligt anvisningarna i dokumentet [Publicera till ett kluster](service-fabric-publish-app-remote-cluster.md). 
+
+### <a name="remove-the-cluster"></a>Ta bort klustret
+Ett kluster består av andra Azure-resurser förutom själva klusterresursen. Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen. 
+
+```powershell
+
+Remove-AzureRmResourceGroup -Name $RGname -Force
+
+```
+
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har konfigurerat ett fristående utvecklingskluster provar du följande:
+Nu när du har konfigurerat ett utvecklingskluster provar du följande:
 * [Create a secure cluster in the portal](service-fabric-cluster-creation-via-portal.md) (Skapa ett säkert kluster i portalen)
 * [Create a cluster from a template](service-fabric-cluster-creation-via-arm.md) (Skapa ett kluster från en mall) 
 * [Distribuera appar med hjälp av PowerShell](service-fabric-deploy-remove-applications.md)
@@ -119,4 +236,6 @@ Nu när du har konfigurerat ett fristående utvecklingskluster provar du följan
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
+[ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
+[ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
 

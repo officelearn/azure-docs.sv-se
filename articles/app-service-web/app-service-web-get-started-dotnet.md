@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -29,7 +30,7 @@ Den här snabbstarten hjälper dig att distribuera din första ASP.NET-webbapp v
 
 ![ASP.NET-webbapp i Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Krav
 
 Den här kursen visar hur du använder Visual Studio 2017 för att skapa och distribuera en ASP.NET-webbapp till Azure. Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
@@ -37,7 +38,7 @@ Den här kursen visar hur du använder Visual Studio 2017 för att skapa och dis
 
 ## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 
-Skapa ett nytt projekt i Visual Studio med `Ctrl`+`Shift`+`N`.
+Skapa ett projekt i Visual Studio med `Ctrl`+`Shift`+`N`.
 
 I dialogrutan **Nytt projekt** klickar du på **Visual C# > Webb > ASP.NET-webbtillämpningsprogram (.NET Framework)**.
 
@@ -110,7 +111,7 @@ I dialogrutan **Configure App Service Plan** (Konfigurera App Service-plan) ange
 
 Klicka på **OK**.
 
-![Skapa en ny App Service-plan](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Skapa apptjänstplan](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## <a name="create-and-publish-the-web-app"></a>Skapa och publicera webbappen
 
@@ -165,11 +166,11 @@ Klicka på **Apptjänster** på menyn till vänster och klicka sedan på namnet 
 
 Nu visas webbappens _blad_ (en portalsida som öppnas vågrätt). 
 
-Sidan **Översikt** visas som standard på webbappens blad. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på bladet kan du se olika konfigurationssidor som du kan öppna. 
+Sidan **Översikt** visas som standard på webbappens blad. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.  
 
 ![App Service-blad på Azure Portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Flikarna på bladet innehåller många bra funktioner som du kan lägga till i webbappen. I listan nedan kan du se några av möjligheterna:
+På flikarna till vänster på bladet kan du se olika konfigurationssidor som du kan öppna. I listan nedan kan du se några av möjligheterna:
 
 - Mappa ett anpassat DNS-namn
 - Bind ett anpassat SSL-certifikat
@@ -193,5 +194,9 @@ Bekräfta genom att skriva resursgruppnamnet **myResourceGroup** i textrutan på
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska färdiga [PowerShell-skript för Web Apps](app-service-powershell-samples.md).
+> [!div class="nextstepaction"]
+> [Learn how to build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) (Lär dig att skapa en ASP.NET-app i Azure med SQL Database)
+
+> [!div class="nextstepaction"]
+> [Explore sample Web Apps PowerShell scripts](app-service-powershell-samples.md) (Utforska exempelskript för PowerShell för Web Apps)
 

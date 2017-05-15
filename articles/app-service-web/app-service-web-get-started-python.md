@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -29,7 +30,7 @@ I den här kursen visar vi hur du utvecklar en Python-app och distribuerar den t
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. Det tar normalt bara 5 minuter att slutföra alla steg.
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Krav
 
 Innan du kör det här exemplet måste du installera följande på den lokala datorn:
 
@@ -107,7 +108,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-app-service"></a>Skapa en Azure App Service
 
-Skapa en Linux-baserad App Service-plan med kommandot [az appservice plan create](/cli/azure/appservice/plan#create).
+Skapa en App Service-plan med kommandot [az appservice plan create](/cli/azure/appservice/plan#create).
 
 > [!NOTE]
 > En App Service-plan representerar den samling fysiska resurser som dina appar finns i. Alla program som har tilldelats en App Service-plan delar de resurser som definierats av planen. Det innebär att du kan minska kostnaderna när du har flera appar i en plan.
@@ -119,7 +120,7 @@ Skapa en Linux-baserad App Service-plan med kommandot [az appservice plan create
 > * SKU (Kostnadsfri, Delad, Basic, Standard, Premium)
 >
 
-I följande exempel skapas en App Service-plan på Linux-arbetare med namnet `quickStartPlan` och prisnivån **Kostnadsfri**.
+I följande exempel skapas en App Service-plan med namnet `quickStartPlan` och prisnivån **Kostnadsfri**.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -290,7 +291,7 @@ http://<app_name>.azurewebsites.net
 
 Nu körs sidan som visar Hello World-meddelandet som en Azure App Service-webbapp med vår Python-kod.
 
-![]()
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## <a name="updating-and-deploying-the-code"></a>Uppdatera och distribuera koden
 
@@ -309,7 +310,7 @@ git push azure master
 
 När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle gå till appen och klickar på knappen för att uppdatera.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
 
@@ -319,13 +320,13 @@ Logga in på [https://portal.azure.com](https://portal.azure.com).
 
 Klicka på **Apptjänster** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
 
-![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-python/app-service-list.png)
 
 Nu visas webbappens _blad_ (en portalsida som öppnas vågrätt).
 
 Sidan **Översikt** visas som standard på webbappens blad. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på bladet kan du se olika konfigurationssidor som du kan öppna.
 
-![App Service-blad på Azure Portal](media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![App Service-blad på Azure Portal](media/app-service-web-get-started-python/app-service-detail.png)
 
 Flikarna på bladet innehåller många bra funktioner som du kan lägga till i webbappen. I listan nedan kan du se några av möjligheterna:
 
@@ -341,4 +342,6 @@ Flikarna på bladet innehåller många bra funktioner som du kan lägga till i w
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska färdiga [CLI-skript för Web Apps](app-service-cli-samples.md).
+> [!div class="nextstepaction"]
+> [Explore sample Web Apps CLI scripts](app-service-cli-samples.md) (Utforska exempelskript för Web Apps CLI)
+

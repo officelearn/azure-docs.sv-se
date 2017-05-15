@@ -1,6 +1,7 @@
 ---
-title: "Granska aktivitetsrapporter i Azure Active Directory-portalen – förhandsversion | Microsoft Docs"
-description: "Introduktion till granskning av aktivitetsrapporter i Azure Active Directory-portalen – förhandsversion"
+
+title: Granska aktivitetsrapporter i Azure Active Directory-portalen | Microsoft Docs
+description: Introduktion till granskning av aktivitetsrapporter i Azure Active Directory-portalen
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,20 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal---preview"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen – förhandsversion
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
-Med rapportering i Azure Active Directory-[förhandsversionen](active-directory-preview-explainer.md) får du all information du behöver för att ta reda på hur din miljö klarar sig.
+Med rapportering i Azure Active Directory (Azure AD) får du all information du behöver för att ta reda på hur din miljö klarar sig.
 
-Rapporteringsarkitekturen i Azure Active Directory består av följande komponenter:
+Rapporteringsarkitekturen i Azure AD består av följande komponenter:
 
 - **Aktivitet** 
     - **Inloggningsaktiviteter** – Information om användningen av hanterade program och användares inloggningsaktiviteter

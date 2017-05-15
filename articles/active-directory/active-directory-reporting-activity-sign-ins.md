@@ -1,6 +1,7 @@
 ---
-title: "Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen – förhandsversion | Microsoft Docs"
-description: "Introduktion till rapporter om inloggningsaktiviteter i Azure Active Directory-portalen – förhandsversion"
+
+title: Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen | Microsoft Docs
+description: Introduktion till rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal---preview"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen – förhandsversion
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
-Med rapportering i Azure Active Directory-[förhandsversionen](active-directory-preview-explainer.md) får du all information du behöver för att ta reda på hur din miljö klarar sig.
+Med rapportering i Azure Active Directory (Azure AD) i [Azure Portal](https://portal.azure.com) får du all information du behöver för att ta reda på hur din miljö klarar sig.
 
 Rapporteringsarkitekturen i Azure Active Directory består av följande komponenter:
 
@@ -44,10 +46,10 @@ Med den information som tillhandahålls av rapporten över användarinloggningsa
 * Hur många användare har en användare loggat in under en vecka?
 * Vad är status för dessa inloggningar?
 
-Din startpunkt för alla granskningsdata är **Inloggningar** i avsnittet Aktivitet i **Azure Active**. Directory.
+Din startpunkt för alla granskningsdata är **Inloggningar** i avsnittet Aktivitet i **Azure Active**.
 
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/61.png "inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/61.png "Inloggningsaktivitet")
 
 
 En granskningslogg har en standardlistvy som visar:

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4f7860b906ab988c918de31d53f4a958e4dea83b
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -31,9 +31,7 @@ ms.lasthandoff: 04/28/2017
 Azure AD-programproxyn hjälper dig att stödja fjärranvändare genom att publicera lokala program som kan nås via Internet. I det här läget bör du redan ha [aktiverat programproxyn i den klassiska Azure-portalen](active-directory-application-proxy-enable.md). Den här artikeln beskriver hur du publicerar program som körs i nätverket och hur du tillhandahåller säker fjärråtkomst utanför nätverket. När du är klar med den här artikeln kan du konfigurera programmet med personlig information eller säkerhetskrav.
 
 > [!NOTE]
-> Application Proxy är en funktion som bara är tillgänglig om du har uppgraderat till Premium- eller Basic-versionen av Azure Active Directory. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md).
-
-Om du vill använda förhandsversionen av Application Proxy kan du [Publicera program i Azure Portal](application-proxy-publish-azure-portal.md).
+> Application Proxy är en funktion som bara är tillgänglig om du har uppgraderat till Premium- eller Basic-versionen av Azure Active Directory. Mer information finns i [Azure Active Directory-versioner](active-directory-editions.md). Om du vill använda Application Proxy kan du [Publicera program i Azure Portal](application-proxy-publish-azure-portal.md).
 
 ## <a name="publish-an-app-using-the-wizard"></a>Publicera en app med hjälp av guiden
 1. Logga in som administratör på [den klassiska Azure-portalen](https://manage.windowsazure.com/).

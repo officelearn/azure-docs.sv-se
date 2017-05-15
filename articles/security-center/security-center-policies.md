@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -66,7 +67,7 @@ Det går att ställa in särskilda säkerhetsprinciper för varje prenumeration 
    >
 9. På bladet **Säkerhetsprincip** klickar du på **På** för de säkerhetsrekommendationer du vill aktivera för aktuell prenumeration. Klicka på **Skyddsprincip** för att se alternativ som de som finns i följande skärmbild:
 
-    ![Val av säkerhetsprinciper](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![Val av säkerhetsprinciper](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
 Använd följande tabell som referens för vad de olika alternativen innebär:
 
@@ -82,6 +83,7 @@ Använd följande tabell som referens för vad de olika alternativen innebär:
 | SQL-granskning och hotidentifiering |Rekommenderar att granskning av åtkomst till Azure-databasen aktiveras för lag- och regelefterlevnad, avancerad hotidentifiering och undersökning. |
 | SQL transparent datakryptering |Rekommenderar att kryptering i vila ska aktiveras för Azure SQL Database, tillhörande säkerhetskopior och transaktionsloggfiler. Även om intrång i datan sker, går den inte att läsa. |
 | Sårbarhetsbedömning |Rekommenderar att du installerar en lösning för sårbarhetsbedömning på den virtuella datorn. |
+| Lagringskryptering |Den här funktionen är för närvarande tillgänglig för Azure-blobbar och filer. Observera att när du har aktiverat Kryptering av lagringstjänst kommer endast nya data att krypteras. Alla befintliga filer i lagringskontot kommer att förbli okrypterade. |
 
 När du har ställt in alla alternativ klickar du på **OK** i bladet **Säkerhetsprincip** med rekommendationerna och sedan på **Spara** i bladet **Säkerhetsprincip** med grundinställningarna.
 

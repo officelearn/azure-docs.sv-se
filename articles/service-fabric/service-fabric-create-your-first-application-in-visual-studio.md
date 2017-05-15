@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: dea338477ca82eead9e272ed9a1709cb2643f743
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -116,7 +117,18 @@ Nu när du har ett program kan du prova att köra det.
    
     ![Loggboken Diagnostik efter en redundansväxling][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="switch-cluster-mode"></a>Växla klusterläge
+## <a name="cleaning-up-the-local-cluster-optional"></a>Rensa det lokala klustret (valfritt)
+Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. Om du stoppar felsökningen tar du bort din instans av programmet och avregistrerar programtypen. Klustret fortsätter dock att köras i bakgrunden. Du kan hantera klustret på flera sätt:
+
+1. Om du vill stänga av klustret, men behålla programdata och spårningar, klickar du på **Stoppa lokalt kluster** i appen i systemfältet.
+2. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Ta bara bort klustret om du inte planerar att använda det lokala klustret under en tid eller om du behöver frigöra resurser.
+
+## <a name="deploy-your-application-to-an-azure-cluster"></a>Distribuera programmet till ett Azure-kluster
+Nu när du har distribuerat programmet lokalt kan du distribuera det till Azure. Dokumentet [Skapa ditt första Azure Service Fabric-program](service-fabric-get-started-azure-cluster.md) visar hur du gör detta med Azure PowerShell eller portalen.
+
+När du har konfigurerat ett Azure-kluster kan du publicera programmet från Visual Studio till Azure enligt anvisningarna i artikeln [Publicera till ett Azure-kluster](service-fabric-publish-app-remote-cluster.md).  
+
+## <a name="switch-cluster-mode-of-your-local-development-cluster"></a>Växla klusterläge för det lokala utvecklingsklustret
 Som standard är det lokala utvecklingsklustret konfigurerat att köras som ett kluster med fem noder, vilket är användbart för felsökning av tjänster som är distribuerade över flera noder. Det kan dock ta tid att distribuera ett program till utvecklingsklustret med fem noder. Om du snabbt vill iterera kodändringar, utan att köra din app på fem noder, byter du utvecklingsklustret till läget för en nod. Om du vill köra din kod i ett kluster med en nod högerklickar du på den lokala klusterhanteraren i systemfältet och väljer **Växla klusterläge -> 1 nod**.  
 
 ![Växla klusterläge][switch-cluster-mode]
@@ -136,11 +148,7 @@ Du kan även byta klusterläge med hjälp av PowerShell:
    
     ![Utdata efter klusterinstallationen][cluster-setup-success-1-node]
 
-## <a name="cleaning-up"></a>Rensa
-Innan du avslutar är det viktigt att komma ihåg att det lokala klustret är verkligt. Om du stoppar felsökningen tar du bort din instans av programmet och avregistrerar programtypen. Klustret fortsätter dock att köras i bakgrunden. Du kan hantera klustret på flera sätt:
 
-1. Om du vill stänga av klustret, men behålla programdata och spårningar, klickar du på **Stoppa lokalt kluster** i appen i systemfältet.
-2. Om du vill ta bort klustret helt klickar du på **Ta bort lokalt kluster** i appen i systemfältet. Alternativet resulterar i en till långsam distribution nästa gång du trycker på F5 i Visual Studio. Ta bara bort klustret om du inte planerar att använda det lokala klustret under en tid eller om du behöver frigöra resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du skapar ett [kluster i Azure](service-fabric-cluster-creation-via-portal.md) eller ett [fristående kluster i Windows](service-fabric-cluster-creation-for-windows-server.md).

@@ -1,6 +1,7 @@
 ---
-title: "Azure Active Directory Reporting - förhandsgranskning | Microsoft Docs"
-description: "Visar de olika tillgängliga rapporterna i Azure Active Directory-förhandsgranskning"
+
+title: Azure Active Directory-rapportering | Microsoft Docs
+description: "Visar de olika tillgängliga rapporterna i Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Azure Active Directory Reporting - förhandsgranskning
+# <a name="azure-active-directory-reporting"></a>Azure Active Directory-rapportering
 
 
 *Den här dokumentationen är en del av [Azure Active Directory Reporting-guiden](active-directory-reporting-guide.md).*
 
-Med rapportering i Azure Active Directory-förhandsgranskning får du all information du behöver för att ta reda på hur din miljö klarar sig. [Vad finns i förhandsgranskningen?](active-directory-preview-explainer.md)
+Med rapportering i Azure Active Directory (Azure AD) får du all information du behöver för att ta reda på hur din miljö klarar sig.
 
 Det finns två huvudområden för rapportering:
 

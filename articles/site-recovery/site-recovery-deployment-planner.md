@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Kapacitetsplaneraren i Azure Site Recovery
-Det här artikeln är användarhandboken för Azure Site Recovery för produktionsdistributioner av VMware till Azure.
+Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
 
 ## <a name="overview"></a>Översikt
 
@@ -36,7 +37,7 @@ Du kan se följande information i verktyget:
 
 **Utvärdering av kompatibilitet**
 
-* En utvärdering av om den virtuella datorn stöds som baseras på antalet diskar, diskstorleken, IOPS och dataomsättningen
+* En utvärdering av om den virtuella datorn stöds baserat på antal diskar, diskstorlek, IOPS, dataomsättninn och starttyp (EFI/BIOS)
 * Beräknad nätverksbandbredd som krävs för deltareplikering
 
 **Nätverkets bandbreddsbehov kontra utvärdering av återställningspunktmål**
@@ -204,6 +205,10 @@ När profileringen är färdig kan köra du verktyget i läget för rapportgener
 | -StartDate | (Valfritt) Startdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *StartDate* måste anges tillsammans med *EndDate*. När StartDate anges genereras rapporten för de profileringsdata som samlats in mellan StartDate och EndDate. |
 | -EndDate | (Valfritt) Slutdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *EndDate* måste anges tillsammans med *StartDate*. När du anger EndDate genereras rapporten för profileringsdata som samlats in mellan StartDate och EndDate. |
 | -GrowthFactor | (Valfritt) Tillväxtfaktor, uttryckt i procent. Standardvärdet är 30 procent. |
+| -UseManagedDisks | (Valfritt) UseManagedDisks - Ja/Nej. Standardvärdet är Ja. Antalet virtuella datorer som kan placeras i ett enda lagringskonto beräknas baserat på om den hanterade disken har valts för redundans/redundanstest. |
+
+För ett enskilt lagringskonto beräknas placeringen beroende på om redundans/redundanstest för virtuella datorer görs på en hanterad disk i stället för en ohanterad disk. |
+
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exempel 1: Generera en rapport med standardvärden när profileringsdata ligger på den lokala enheten
 ```
@@ -480,7 +485,7 @@ Om arbetsbelastningsegenskaperna för en disk placerar den i kategorin P20 eller
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
-**Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI. Azure Site Recovery stöder för närvarande endast starttypen BIOS. Alla virtuella datorer för starttypen EFI visas i kalkylbladet över inkompatibla virtuella datorer. 
+**Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI. Azure Site Recovery stöder för närvarande endast starttypen BIOS. Alla virtuella datorer för starttypen EFI visas i kalkylbladet över inkompatibla virtuella datorer.
 
 **OS-typ**: Den virtuella datorns typ av operativsystem. Typen kan vara Windows, Linux eller någon annan typ.
 
@@ -517,7 +522,7 @@ Om arbetsbelastningsegenskaperna för en disk placerar den i kategorin P20 eller
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
-**Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI. Azure Site Recovery stöder för närvarande endast starttypen BIOS. Alla virtuella datorer för starttypen EFI visas i kalkylbladet över inkompatibla virtuella datorer. 
+**Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI. Azure Site Recovery stöder för närvarande endast starttypen BIOS. Alla virtuella datorer för starttypen EFI visas i kalkylbladet över inkompatibla virtuella datorer.
 
 **OS-typ**: Den virtuella datorns typ av operativsystem. Typen kan vara Windows, Linux eller någon annan typ.
 
@@ -558,6 +563,15 @@ Så här gör du om du vill uppdatera kapacitetsplaneraren:
 
 
 ## <a name="version-history"></a>Versionshistorik
+
+### <a name="13"></a>1.3
+Uppdaterad: 9 maj 2017
+
+En ny funktion har lagts till:
+
+* Stöd för hanterad disk i rapportgenerering. Antalet virtuella datorer som kan placeras i ett enda lagringskonto beräknas baserat på om den hanterade disken har valts för redundans/redundanstest.        
+
+
 ### <a name="12"></a>1.2
 Uppdaterat: 7 april 2017
 

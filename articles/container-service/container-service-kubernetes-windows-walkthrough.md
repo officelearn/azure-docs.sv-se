@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/04/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: eb3af43b8a13eaaebfa9147848383ff889119d97
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 4e730b65a98af05ea00c5f8ebd9914e3367b66a7
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -28,184 +29,203 @@ ms.lasthandoff: 04/03/2017
 # <a name="get-started-with-kubernetes-and-windows-containers-in-container-service"></a>Kom igång med Kubernetes och Windows-behållare i Container Service
 
 
-Den här artikeln beskriver hur du skapar ett Kubernetes-kluster i Azure Container Service som innehåller Windows-noder för att köra Windows-behållare. 
+Den här artikeln beskriver hur du skapar ett Kubernetes-kluster i Azure Container Service som innehåller Windows-noder för att köra Windows-behållare. Kom igång med `az acs` Azure CLI 2.0-kommandon för att skapa ett Kubernetes-kluster i Azure Container Service. Använd sedan Kubernetes `kubectl` kommandoradsverktyg för att börja arbeta med Windows-behållare som har byggts från Docker-avbildningar. 
 
 > [!NOTE]
-> Stöd för Windows-behållare med Kubernetes i Azure Container Service är tillgängligt som en förhandsversion. Använd Azure-portalen eller en Resource Manager-mall om du vill skapa ett Kubernetes-kluster med Windows-noder. För närvarande stöds inte den här funktionen med Azure CLI 2.0.
+> Stöd för Windows-behållare med Kubernetes i Azure Container Service är tillgängligt som en förhandsversion. 
 >
 
 
 
 Följande bild illustrerar arkitekturen i ett Kubernetes-kluster i Azure Container Service med en Linux-huvudnod och två Windows-agentnoder. 
 
+![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
+
 * Linux-huvudnoden använder REST-API:et för Kubernetes och kan nås via SSH på port 22 eller `kubectl` på port 443. 
 * Windows-agentnoderna är grupperade i en Azure-tillgänglighetsuppsättning och kör dina behållare. Windows-noderna kan nås via en RDP SSH-tunnel via huvudnoden. Azure-belastningsutjämningsregler läggs till dynamiskt i klustret beroende på vilka tjänster som exponeras.
 
 
-![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
 
 Alla virtuella datorer finns i samma privata virtuella nätverk och kan nås av varandra. Alla virtuella datorer kör en kubelet, Docker och en proxy.
 
+Mer bakgrundsinformation finns i [Introduktion till Azure Container Service](container-service-intro.md) och [Kubernetes-dokumentationen](https://kubernetes.io/docs/home/).
+
 ## <a name="prerequisites"></a>Krav
+För att skapa ett Azure Container Service-kluster med hjälp av Azure CLI 2.0 måste du
+* ha ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/))
+* ha installerat och loggat in på [Azure CLI 2.0](/cli/azure/install-az-cli2)
+
+Du måste också följande för Kubernetes-klustret. Du kan förbereda dem i förväg eller använda `az acs create`-kommandoalternativ för att generera dem automatiskt under distributionen av klustret. 
+
+* **Offentlig SSH-RSA-nyckel**: Om du vill skapa SSH (Secure Shell) RSA-nycklar läser du hjälpartiklarna för [macOS och Linux](../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../virtual-machines/linux/ssh-from-windows.md). 
+
+* **Klient-ID och hemlighet för tjänstobjekt**: Anvisningar för att skapa ett tjänstehuvudnamn för Azure Active Directory och ytterligare information finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md).
+
+Kommandoexemplet i den här artikeln genererar automatiskt SSH-nycklar och tjänstens huvudnamn.
+  
+## <a name="create-your-kubernetes-cluster"></a>Skapa Kubernetes-klustret
+
+Här följer Azure CLI 2.0-kommandon för att skapa klustret. 
+
+### <a name="create-a-resource-group"></a>Skapa en resursgrupp
+Skapa en resursgrupp på en plats där Azure Container Service är [tillgängligt](https://azure.microsoft.com/regions/services/). Följande kommando skapar en resursgrupp med namnet *myKubernetesResourceGroup* på platsen *westus*.
+
+```azurecli
+az group create --name=myKubernetesResourceGroup --location=westus
+```
+
+### <a name="create-a-kubernetes-cluster-with-windows-agent-nodes"></a>Skapa ett Kubernetes-kluster med Windows-agentnoder
+
+Skapa ett Kubernetes-kluster i din resursgrupp med kommandot `az acs create` med `--orchestrator-type=kubernetes` och agentalternativet `--windows`. Kommandosyntax finns i `az acs create` [hjälp](/cli/azure/acs#create).
+
+Följande kommando skapar ett Container Service-kluster med namnet *myKubernetesClusterName* med DNS-prefixet *myPrefix* för hanteringsnoden och de angivna autentiseringsuppgifterna för att nå Windows-noderna. Den här versionen av kommandot genererar automatiskt SSH RSA-nycklar och tjänstens huvudnamn för Kubernetes-klustret.
 
 
-* **Offentlig SSH RSA-nyckel**: Om du distribuerar med hjälp av portalen eller en av Azures snabbstartmallar måste du ange en offentlig SSH RSA-nyckel för autentisering mot virtuella datorer i Azure Container Service. Information om hur du skapar SSH (Secure Shell) RSA-nycklar finns i hjälpartiklarna för [OS X och Linux](../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../virtual-machines/linux/ssh-from-windows.md). 
+```azurecli
+az acs create --orchestrator-type=kubernetes \
+    --resource-group myKubernetesResourceGroup \
+    --name=myKubernetesClusterName \
+    --dns-prefix=myPrefix \
+    --agent-count=2 \
+    --generate-ssh-keys \
+    --windows --admin-username myWindowsAdminName \
+    --admin-password myWindowsAdminPassword
+```
 
-* **Klient-ID och hemlighet för tjänstobjekt**: Mer information och riktlinjer finns i [Om Azure Active Directory-tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md).
+Kommandot har slutförts och du bör ha ett fungerande Kubernetes-kluster efter ett par minuter.
+
+> [!IMPORTANT]
+> Om ditt konto inte har behörighet för att skapa Azure AD-tjänstens huvudnamn genererar kommandot ett fel som liknar `Insufficient privileges to complete the operation.` Mer information finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md). 
+> 
+
+## <a name="connect-to-the-cluster-with-kubectl"></a>Anslut till klustret med kubectl
+
+För att ansluta till Kubernetes-klustret från klientdatorn använder du [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), Kubernetes kommandoradsklient. 
+
+Om du inte har installerat `kubectl` kan du göra det med `az acs kubernetes install-cli`. (Du kan även hämta det från [Kubernetes-webbplatsen](https://kubernetes.io/docs/tasks/kubectl/install/).)
+
+**Linux eller macOS**
+
+```azurecli
+sudo az acs kubernetes install-cli
+```
+
+**Windows**
+```azurecli
+az acs kubernetes install-cli
+```
+
+> [!TIP]
+> Som standard installerar det här kommandot den här `kubectl` binära filen `/usr/local/bin/kubectl` på ett Linux- eller macOS-system, eller på `C:\Program Files (x86)\kubectl.exe` i Windows. Om du vill ange en annan installationssökväg använder du parametern `--install-location`.
+>
+> När `kubectl` är installerat, se till att dess katalog finns i systemsökvägen eller lägg till det i sökvägen. 
 
 
+Sedan kör du följande kommando för att hämta huvudkonfigurationen för Kubernetes till den lokala `~/.kube/config`-filen:
 
+```azurecli
+az acs kubernetes get-credentials --resource-group=myKubernetesResourceGroup --name=myKubernetesClusterName
+```
 
-## <a name="create-the-cluster"></a>Skapa klustret
+Nu bör du kunna komma åt ditt kluster från datorn. Prova att köra:
 
-Du kan använda Azure-portalen för att [skapa ett Kubernetes-kluster](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal) med Windows-agentnoder. Tänk på följande inställningar när du skapar klustret:
+```bash
+kubectl get nodes
+```
 
-* På bladet **Basics** i **Orchestrator** markerar du **Kubernetes**. 
+Kontrollera att du kan se en lista över datorerna i klustret.
 
-  ![Välj Kubernetes Orchestrator](media/container-service-kubernetes-windows-walkthrough/portal-select-kubernetes.png)
-
-* På bladet **Konfiguration av huvudservrar** anger du autentiseringsuppgifterna och autentiseringsuppgifter för tjänstens huvudnamn för överordnade Linux-noder. Välj 1, 3 eller 5 masterenheter.
-
-* På bladet **Agentkonfiguration** i **Operativsystem**, väljer du **Windows (preview)** (Windows (förhandsversion)). Ange administratörsautentiseringsuppgifter för Windows-agentnoder.
-
-  ![Välj Windows-agenter](media/container-service-kubernetes-windows-walkthrough/portal-select-windows.png)
-
-Mer information finns i [Distribuera ett Azure Container Service-kluster](container-service-deployment.md).
-
-## <a name="connect-to-the-cluster"></a>Anslut till klustret
-
-Använd kommandoradsverktyget `kubectl` för att ansluta från den lokala datorn till huvudnoden i Kubernetes-klustret. Anvisningar för hur du installerar och konfigurerar `kubectl` finns i [Ansluta till ett Azure Container Service-kluster](container-service-connect.md#connect-to-a-kubernetes-cluster). Du kan använda `kubectl`-kommandon för att komma åt Kubernetes webbgränssnitt och för att skapa och hantera Windows-behållararbetsbelastningar.
+![Noder som körs i ett Kubernetes-kluster](media/container-service-kubernetes-windows-walkthrough/kubectl-get-nodes.png)
 
 ## <a name="create-your-first-kubernetes-service"></a>Skapa din första Kubernetes-tjänst
 
-När klustret har skapats och anslutits till `kubectl` kan du prova att starta en enkel Windows-webbapp och exponera den för Internet. I det här exemplet anger du behållarresurserna med hjälp av en YAML-fil och skapar den sedan med `kubctl apply`.
+När klustret har skapats och anslutits till `kubectl` kan du prova att starta en Windows-app från en Docker-behållare och exponera den för Internet. Det här grundläggande exemplet använder en JSON-fil för att ange en behållare för Microsoft Internet Information Server (IIS) och skapar den med hjälp av `kubctl apply`. 
 
-1. Om du vill visa en lista över noderna skriver du `kubectl get nodes`. Om du vill visa fullständig information om noderna skriver du:  
+1. Skapa en lokal fil med namnet `iis.json` och kopiera följande. Filen uppmanar Kubernetes att köra IIS på Windows Server 2016 Server Core med en offentlig avbildning från [Docker Hub](https://hub.docker.com/r/microsoft/iis/). Behållaren använder port 80, men är ursprungligen endast tillgänglig i nätverket för klustret.
 
-    ```
-    kubectl get nodes -o yaml
-    ```
+  ```JSON
+  {
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": {
+      "name": "iis",
+      "labels": {
+        "name": "iis"
+      }
+    },
+    "spec": {
+      "containers": [
+        {
+          "name": "iis",
+          "image": "microsoft/iis",
+          "ports": [
+            {
+            "containerPort": 80
+            }
+          ]
+        }
+      ],
+      "nodeSelector": {
+        "beta.kubernetes.io/os": "windows"
+      }
+    }
+  }
+  ```
+2. Om du vill starta programmet skriver du:  
+  
+  ```bash
+  kubectl apply -f iis.json
+  ```  
+3. Om du vill följa distributionen av behållaren skriver du:  
+  ```bash
+  kubectl get pods
+  ```
+  Medan behållaren distribueras är statusen `ContainerCreating`. 
 
-2. Skapa en fil med namnet `simpleweb.yaml` och kopiera följande. Den här filen konfigurerar en webbapp med hjälp av den Windows Server 2016 Server Core-baserade OS-avbildningen från [Docker Hub](https://hub.docker.com/r/microsoft/windowsservercore/).  
+  ![IIS-behållare med status ContainerCreating](media/container-service-kubernetes-windows-walkthrough/iis-pod-creating.png)   
 
-```yaml
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: win-webserver
-    labels:
-      app: win-webserver
-  spec:
-    ports:
-      # the port that this service should serve on
-    - port: 80
-      targetPort: 80
-    selector:
-      app: win-webserver
-    type: LoadBalancer
-  ---
-  apiVersion: extensions/v1beta1
-  kind: Deployment
-  metadata:
-    labels:
-      app: win-webserver
-    name: win-webserver
-  spec:
-    replicas: 1
-    template:
-      metadata:
-        labels:
-          app: win-webserver
-        name: win-webserver
-      spec:
-        containers:
-        - name: windowswebserver
-          image: microsoft/windowsservercore
-          command:
-          - powershell.exe
-          - -command
-          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add('http://*:80/') ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at http://*:80/') ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
-        nodeSelector:
-          beta.kubernetes.io/os: windows
+  På grund av IIS-avbildningens storlek kan det ta flera minuter för behållaren att uppnå statusen `Running`.
+
+  ![IIS-behållare i körningsstatus](media/container-service-kubernetes-windows-walkthrough/iis-pod-running.png)
+
+4. Skriv följande kommando för att visa behållaren:
+
+  ```bash
+  kubectl expose pods iis --port=80 --type=LoadBalancer
   ```
 
-      
-> [!NOTE] 
-> Konfigurationen innehåller `type: LoadBalancer`. Den här inställningen gör att tjänsten exponeras för Internet via en Azure-belastningsutjämnare. Mer information finns i [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md) (Belastningsutjämna behållare i ett Kubernetes-kluster i Azure Container Service).
->
+  Med detta kommando skapar Kubernetes en Azure Load Balancer-regel med en offentlig IP-adress. Det tar några minuter för ändringen att distribueras till belastningsutjämnaren. Mer information finns i [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md) (Belastningsutjämna behållare i ett Kubernetes-kluster i Azure Container Service).
 
-## <a name="start-the-application"></a>Starta programmet
+5. Kör följande kommando för att se status för tjänsten.
 
-1. Om du vill starta programmet skriver du:  
+  ```bash
+  kubectl get svc
+  ```
 
-    ```
-    kubectl apply -f simpleweb.yaml
-    ```  
+  IP-adressen visas först som `pending`:
+
+  ![Väntande extern IP-adress](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose.png)
+
+  IP-adressen har angetts efter några minuter:
   
-  
-2. Om du vill verifiera distributionen av tjänsten (som tar ungefär 30 sekunder) skriver du:  
-
-    ```
-    kubectl get pods
-    ```
-
-3. När tjänsten körs skriver du följande om du vill visa tjänstens interna och externa IP-adresser:
-
-    ```
-    kubectl get svc
-    ``` 
-  
-    ![IP-adresser för Windows-tjänst](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
-
-    Det tar flera minuter innan den externa IP-adressen läggs till. Innan belastningsutjämnaren konfigurerar den externa adressen visas den som `<pending>`.
-
-4. När den externa IP-adressen är tillgänglig kan du nå tjänsten i din webbläsare.
-
-    ![Windows Server-app i webbläsare](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
+  ![Extern IP-adress för IIS](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose-public.png)
 
 
-## <a name="access-the-windows-nodes"></a>Komma åt Windows-noderna
-Windows-noder kan nås från en lokal Windows-dator via Anslutning till fjärrskrivbord. Vi rekommenderar att du använder en RDP SSH-tunnel via huvudnoden. 
+6. När den externa IP-adressen är tillgänglig kan du gå till den i webbläsaren:
 
-Det finns flera olika sätt att skapa SSH-tunnlar i Windows. Det här avsnittet beskriver hur du använder PuTTY för att skapa tunneln.
+  ![Bild som visar hur du går till IIS](media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
-1. [Ladda ned PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) till din Windows-dator.
+7. Om du vill ta bort IIS-podden skriver du:
 
-2. Kör appen.
-
-3. Ange ett värdnamn som består av administratörsanvändarnamnet för klustret och det offentliga DNS-namnet på den första huvudservern i klustret. **Värdnamnet** liknar `adminuser@PublicDNSName`. Ange 22 som **Port**.
-
-  ![PuTTY-konfiguration 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
-
-4. Välj **SSH > Aut**. Lägg till en sökväg till filen för privat nyckel (PPK-format) för autentisering. Du kan använda ett verktyg som [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) för att skapa den här filen från SSH-nyckeln som används för att skapa klustret.
-
-  ![PuTTY-konfiguration 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
-
-5. Välj **SSH > Tunnlar** och konfigurera de vidarebefordrade portarna. Eftersom den lokala Windows-datorn redan använder port 3389 rekommenderar vi att du använder följande inställningar för att nå Windows-nod 0 och Windows-nod 1. (Fortsätta med samma mönster för ytterligare Windows-noder.)
-
-    **Windows-nod 0**
-
-    * **Källport:** 3390
-    * **Mål:** 10.240.245.5:3389
-
-    **Windows-nod 1**
-
-    * **Källport:** 3391
-    * **Mål:** 10.240.245.6:3389
-
-    ![Bild av Windows RDP-tunnlar](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
-
-6. När du är klar klickar du på **Session > Spara** för att spara anslutningskonfigurationen.
-
-7. Anslut till PuTTY-sessionen genom att klicka på **Öppna**. Slutför anslutningen till huvudnoden.
-
-8. Starta Anslutning till fjärrskrivbord. Anslut den första Windows-noden genom att ange `localhost:3390` för **Dator** och klicka på **Anslut**. (För att ansluta till den andra anger du `localhost:3390` osv.) Slutför anslutningen genom att ange det lokala administratörslösenordet för Windows som du konfigurerade under distributionen.
-
+  ```bash
+  kubectl delete pods iis
+  ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här är en lista med rekommenderade länkar till mer information om Kubernetes:
+* För att använda Kubernetes-användargränssnittet kör du kommandot `kubectl proxy`. Gå sedan till http://localhost:8001/ui.
 
-* [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) – visar hur du distribuerar, skalar, uppdaterar och felsöker program som använder behållare.
-* [Användarhandboken för Kubernetes](http://kubernetes.io/docs/user-guide/) – innehåller information om hur du kör program i ett befintligt Kubernetes-kluster.
-* [Kubernetes-exempel](https://github.com/kubernetes/kubernetes/tree/master/examples) – innehåller exempel på hur du kör verkliga program med Kubernetes.
+* Anvisningar om hur du bygger en anpassad IIS-webbplats och kör den i en Windows-behållare finns i riktlinjerna för [Docker Hub](https://hub.docker.com/r/microsoft/iis/).
+
+* Om du vill få åtkomst till Windows-noderna via en RDP SSH-tunnel till huvudnyckeln med PuTTy läser du [ACS-Engine-dokumentationen](https://github.com/Azure/acs-engine/blob/master/docs/ssh.md#create-port-80-tunnel-to-the-master). 
+

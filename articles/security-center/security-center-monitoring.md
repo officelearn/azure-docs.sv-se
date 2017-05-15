@@ -4,7 +4,7 @@ description: "I den här artikeln får du hjälp att komma igång med övervakni
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -28,18 +29,17 @@ I den här artikeln berättar vi hur du använder övervakningsfunktionerna i Az
 Ofta tänker vi oss att övervakning är att sitta och titta och vänta på att något ska hända som vi sedan ska åtgärda. Säkerhetsövervakning handlar om att ha en proaktiv strategi där resurserna hela tiden kontrolleras så att system som inte uppfyller organisationens normer och principer hittas.
 
 ## <a name="monitoring-security-health"></a>Övervakning av säkerhetshälsa
-När du har aktiverat [säkerhetsprinciper](security-center-policies.md) för resurser i en prenumeration analyserar Security Center resursernas säkerhet för upptäckt av eventuella säkerhetsrisker. Information om nätverkskonfigurationen är tillgänglig direkt. Det kan ta en timme eller mer för information om konfiguration av virtuell dator, till exempel uppdatera säkerhetsstatus och konfiguration av operativsystem, att bli tillgänglig. Du kan se säkerhetsstatus för dina resurser och eventuella problem i bladet **Resurssäkerhetshälsa**. Problemen visas även i en lista på bladet **Recommendations (Rekommendationer)**.
+När du har aktiverat [säkerhetsprinciper](security-center-policies.md) för resurser i en prenumeration analyserar Security Center resursernas säkerhet för upptäckt av eventuella säkerhetsrisker. Information om nätverkskonfigurationen är tillgänglig direkt. Det kan ta en timme eller mer för information om konfiguration av virtuell dator, till exempel uppdatera säkerhetsstatus och konfiguration av operativsystem, att bli tillgänglig. Du kan se säkerhetsstatus för dina resurser och eventuella problem i bladet **Prevention** (Skydd). Problemen visas även i en lista på panelen **Recommendations (Rekommendationer)**.
 
 Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
 
-Via ikonen **Resurssäkerhetshälsa** kan du övervaka dina resursers säkerhetstillstånd. I följande exempel ser du att ett antal problem har hög och medelhög allvarlighetsgrad och kräver uppmärksamhet. Vilka säkerhetsprinciper som är aktiverade påverkar vad det är som övervakas.
+I avsnittet **Prevention** (Förebygga) kan du övervaka resursernas säkerhetsstatus. I följande exempel visas varje resurspanel (beräkning, nätverk, lagring data och program) med det totala antalet problem som har identifierats.
 
-![Panelen resurssäkerhetshälsa](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
+![Panelen resurssäkerhetshälsa](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
-Om en säkerhetsrisk som måste åtgärdas upptäcks, till exempel en virtuell dator där det saknas säkerhetsuppdateringar eller ett undernät som inte har någon [nätverkssäkerhetsgrupp](/virtual-network/virtual-networks-nsg.md), ser du det här.
 
 ### <a name="monitor-compute"></a>Övervaka beräkning
-När du klickar på **Beräkna** på ikonen **Resurssäkerhetshälsa** öppnas bladet **Beräkna** där tre flikar visas:
+När du klickar på panelen **Beräkna** öppnas bladet **Beräkna** där tre flikar visas:
 
 - **Översikt**: Övervakning och rekommendationer för virtuella datorer.
 - **Virtuella datorer**: Lista över alla virtuella datorer och det aktuella säkerhetstillståndet.
@@ -119,7 +119,7 @@ Om du vill få en mer ingående förklaring av den här rekommendationen klickar
 ![Molntjänstrekommendationer](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Övervakning av virtuella nätverk
-Om du klickar på **Nätverk** i rutan **Resurssäkerhetshälsa** öppnas bladet **Nätverk** med mer information som på följande skärmbild:
+Om du klickar på **Nätverk** öppnas bladet **Nätverk** med mer information som på följande skärmbild:
 
 ![Bladet Nätverk](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -170,11 +170,11 @@ I den här topologiska vyn har du [virtuella nätverk](../virtual-network/virtua
 
 Längst ned på det här bladet finns rekommendationer för den här virtuella datorn som liknar vad som beskrivs ovan. Om du klickar på en av rekommendationerna får du mer information och kan utföra den säkerhetskontroll eller säkerhetskonfiguration som behövs.
 
-### <a name="monitor-data"></a>Övervaka data
+### <a name="monitor-storage--data"></a>Övervaka lagring och data
 
-När du klickar på **SQL och data** i panelen **Säkerhetshälsa för resurser** öppnas **dataresurser**-bladet med rekommendationer för SQL och Storage. Här finns även [rekommendationer](security-center-sql-service-recommendations.md) gällande databasens allmänna hälsoläge. Mer information om lagringskryptering finns i [Aktivera kryptering för Azure-lagringskontot i Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+När du klickar på **Storage & data** (Lagring och data) i panelen **Prevention** (Förebygga) öppnas **dataresurser**-bladet med rekommendationer för SQL och Storage. Här finns även [rekommendationer](security-center-sql-service-recommendations.md) gällande databasens allmänna hälsoläge. Mer information om lagringskryptering finns i [Aktivera kryptering för Azure-lagringskontot i Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
-![Dataresurser](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
+![Dataresurser](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
 Under **SQL-rekommendationer**, kan du klicka på valfri rekommendation och få mer information om ytterligare åtgärder för att lösa ett problem. Följande exempel visar den expanderade rekommendationen **Databasgranskning och hotidentifiering på SQL-databaser**.
 

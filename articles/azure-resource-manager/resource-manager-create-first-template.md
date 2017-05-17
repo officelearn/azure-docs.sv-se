@@ -14,10 +14,11 @@ ms.devlang: na
 ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -184,7 +185,7 @@ Om du vill att lagringskontot ska distribueras till samma plats som resursgruppe
 
 ![visa funktioner](./media/resource-manager-create-first-template/show-functions.png)
 
-Observera att funktionen omges av hakparenteser. Funktionen [resourceGroup](resource-group-template-functions.md#resourcegroup) returnerar ett objekt med egenskapen `location`. Resursgruppen innehåller alla relaterade resurser för din lösning. Du skulle kunna hårdkoda platsegenskapen (”location”) till ett värde som ”USA, centrala”, men i så fall skulle du behöva ändra mallen manuellt för att distribuera om den till en annan plats. Med funktionen `resourceGroup` är det enkelt att distribuera om mallen till en annan resursgrupp på en annan plats.
+Observera att funktionen omges av hakparenteser. Funktionen [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) returnerar ett objekt med egenskapen `location`. Resursgruppen innehåller alla relaterade resurser för din lösning. Du skulle kunna hårdkoda platsegenskapen (”location”) till ett värde som ”USA, centrala”, men i så fall skulle du behöva ändra mallen manuellt för att distribuera om den till en annan plats. Med funktionen `resourceGroup` är det enkelt att distribuera om mallen till en annan resursgrupp på en annan plats.
 
 Nu ser din mall ut så här:
 
@@ -216,7 +217,7 @@ Nu ser din mall ut så här:
 ## <a name="add-parameters-and-variables"></a>Lägga till parametrar och variabler
 Det finns bara två värden kvar att ange i din mall: **name** och **sku.name**. För dessa egenskaper lägger du till parametrar som gör att du kan ändra dessa värden under distributionen. 
 
-Lagringskontonamn har flera begränsningar som gör att de är svåra att ange. Namnet måste vara mellan 3 och 24 tecken långt, endast bestå av siffror och gemener samt vara unikt. I stället för att försöka gissa ett värde som uppfyller kraven och som är unikt kan du generera ett hashvärde med funktionen [uniqueString](resource-group-template-functions.md#uniquestring). Du kan göra hashvärdet mer begripligt genom att lägga till ett prefix som hjälper dig att identifiera kontot som ett lagringskonto efter distributionen. 
+Lagringskontonamn har flera begränsningar som gör att de är svåra att ange. Namnet måste vara mellan 3 och 24 tecken långt, endast bestå av siffror och gemener samt vara unikt. I stället för att försöka gissa ett värde som uppfyller kraven och som är unikt kan du generera ett hashvärde med funktionen [uniqueString](resource-group-template-functions-string.md#uniquestring). Du kan göra hashvärdet mer begripligt genom att lägga till ett prefix som hjälper dig att identifiera kontot som ett lagringskonto efter distributionen. 
 
 1. Om du vill skicka ett prefix för namnet som matchar dina namngivningskonventioner går du till avsnittet för **parametrar** för din mall. Lägg till en parameter i mallen som godtar ett prefix i lagringskontonamnet:
 

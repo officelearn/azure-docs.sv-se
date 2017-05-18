@@ -1,4 +1,4 @@
---- 
+---
 title: "Komma igång med Azure Automation | Microsoft Docs"
 description: "Den här artikeln ger en översikt över Azure Automation-tjänsten och beskriver grundläggande koncept, implementeringsdetaljer och förberedelser inför distribution från Azure Marketplace."
 services: automation
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 9b4982ffece9283304ad3ab3c82a471ac1dbd463
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 ---
 
 ## <a name="getting-started-with-azure-automation"></a>Komma igång med Azure Automation
 
-Den här guiden för att komma igång beskriver grundläggande begrepp för distribution av Azure Automation. Om Automation i Azure är nytt för dig eller om du har erfarenhet av programvara för automatiserat arbetsflöde (till exempel System Center Orchestrator) kan den här guiden hjälpa dig att komma igång. Guiden innehåller information om begrepp och distribution. 
+Den här guiden för att komma igång beskriver grundläggande begrepp för distribution av Azure Automation. Om Automation i Azure är nytt för dig eller om du har erfarenhet av programvara för automatiserat arbetsflöde (till exempel System Center Orchestrator) kan den här guiden hjälpa dig att komma igång. Guiden innehåller information om begrepp och distribution.
 
 ## <a name="key-concepts"></a>Viktiga begrepp
 
@@ -83,14 +83,14 @@ När du anger att en dator ska köra hybrid runbook-jobb måste datorn ha följa
 ## <a name="security"></a>Säkerhet
 Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders.  För att en runbook ska kunna utföra sina åtgärder måste den ha behörighet att komma åt resurserna på ett säkert sätt med den minsta behörighet som krävs i prenumerationen.  
 
-### <a name="automation-account"></a>Automation-konto 
+### <a name="automation-account"></a>Automation-konto
 Alla automatiseringsaktiviteter som du utför mot resurser med hjälp av Azure-cmdletar i Azure Automation autentiserar till Azure med hjälp av autentiseringsuppgiftsbaserad autentisering med organisationens Azure Active Directory-ID.  Ett Automation-konto är ett annat konto än det som du använder för att logga in på portalen för att konfigurera och använda Azure-resurser.  
 
 Automation-resurserna för varje Automation-konto associeras med en enda Azure-region, men Automation-konton kan hantera alla resurser i din prenumeration. Skapa Automation-konton i olika regioner om du har principer som kräver att data och resurser är isolerade i en specifik region.
 
 > [!NOTE]
 > Automation-konton, och de resurser som de innehåller, som skapats på Azure-portalen kan inte nås på den klassiska Azure-portalen. Om du vill hantera dessa konton eller deras resurser med Windows PowerShell måste du använda Azure Resource Manager-modulerna.
-> 
+>
 
 När du skapar ett Automation-konto på Azure Portal skapar du automatiskt två autentiseringsenheter:
 
@@ -102,17 +102,17 @@ Rollbaserad åtkomstkontroll är tillgängligt i Azure Resource Manager-läge f�
 #### <a name="authentication-methods"></a>Autentiseringsmetoder
 Följande tabell sammanfattar de olika autentiseringsmetoderna för varje miljö som stöds av Azure Automation.
 
-| Metod | Miljö 
-| --- | --- | 
+| Metod | Miljö
+| --- | --- |
 | Azure Kör som-konto och klassiskt Kör som-konto |Azure Resource Manager och klassisk Azure-distribution |  
 | Azure AD-användarkonto |Azure Resource Manager och klassisk Azure-distribution |  
 | Windows-autentisering |Lokalt datacenter eller annan molnprovider som använder Hybrid Runbook Worker |  
 | AWS-autentiseringsuppgifter |Amazon Web Services |  
 
 I avsnittet **How to\Authentication and Security** (Anvisningar\Autentisering och säkerhet) finns artiklar som innehåller en översikt och implementeringssteg för att konfigurera autentisering för dessa miljöer, antingen med ett befintligt eller ett nytt konto som du anger för den miljön.  I [Uppdatera ett Automation-konto med hjälp av PowerShell](automation-update-account-powershell.md) beskrivs hur du uppdaterar ditt befintliga Automation-konto med Kör som-konton med PowerShell, om inte kontot ursprungligen konfigurerades med ett Kör som-konto eller ett klassiskt Kör som-konto.   
- 
+
 ## <a name="network"></a>Nätverk
-För att Hybrid Runbook Worker ska kunna ansluta till och registreras med Microsoft Operations Management Suite (OMS) måste den ha åtkomst till portnumret och URL:en som anges nedan.  Detta gäller utöver de [portar och URL:er som krävs för att Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) ska kunna ansluta till OMS. Om du använder en proxyserver för kommunikation mellan agenten och OMS-tjänsten måste du se till att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till Internet måste du konfigurera brandväggen att tillåta åtkomst.
+För att Hybrid Runbook Worker ska kunna ansluta till och registreras med Microsoft Operations Management Suite (OMS) måste den ha åtkomst till portnumret och URL:en som anges nedan.  Detta gäller utöver de [portar och URL:er som krävs för att Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md) ska kunna ansluta till OMS. Om du använder en proxyserver för kommunikation mellan agenten och OMS-tjänsten måste du se till att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till Internet måste du konfigurera brandväggen att tillåta åtkomst.
 
 Nedan anges porten och de URL:er som krävs för att Hybrid Runbook Worker ska kunna kommunicera med Automation.
 
@@ -136,11 +136,11 @@ Om du har ett Automation-konto som har definierats för en specifik region och v
 | Storbritannien, södra | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Virginia (USA-förvaltad region) | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Om du behöver en lista med IP-adresser istället för namn kan du ladda ned och läsa igenom XML-filen med [IP-adresser från Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) från Microsoft Download Center. 
+Om du behöver en lista med IP-adresser istället för namn kan du ladda ned och läsa igenom XML-filen med [IP-adresser från Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) från Microsoft Download Center.
 
 > [!NOTE]
-> Den här filen innehåller de IP-adressintervall (inklusive Compute, SQL och Storage-intervall) som används i Microsoft Azure-datacentren. Varje vecka publiceras en uppdaterad fil med aktuella intervall och eventuella kommande ändringar av IP-adressintervallen. De nya intervall som anges i filen kommer inte att börja användas i datacentren förrän om minst en vecka. Ladda ned den nya XML-filen varje vecka och gör nödvändiga ändringar på din webbplats för att kunna identifiera vilka tjänster som körs i Azure. ExpressRoute-användare minns kanske att den här filen användes för att uppdatera Azures BGP-annonser under den första veckan varje månad. 
-> 
+> Den här filen innehåller de IP-adressintervall (inklusive Compute, SQL och Storage-intervall) som används i Microsoft Azure-datacentren. Varje vecka publiceras en uppdaterad fil med aktuella intervall och eventuella kommande ändringar av IP-adressintervallen. De nya intervall som anges i filen kommer inte att börja användas i datacentren förrän om minst en vecka. Ladda ned den nya XML-filen varje vecka och gör nödvändiga ändringar på din webbplats för att kunna identifiera vilka tjänster som körs i Azure. ExpressRoute-användare minns kanske att den här filen användes för att uppdatera Azures BGP-annonser under den första veckan varje månad.
+>
 
 
 ## <a name="implementation"></a>Implementering
@@ -175,16 +175,16 @@ Den rekommenderade metoden för att integrera Automation är att välja erbjudan
 
 4. Klicka på **Skapa** när du har läst beskrivningen för erbjudandet.  
 
-5. Välj **OMS-arbetsyta** på inställningsbladet **Automatisering och kontroll**.  På bladet **OMS-arbetsytor** kan du välja en OMS-arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot eller skapa en ny OMS-arbetsyta.  Om du inte har en OMS-arbetsyta väljer du **Skapa ny arbetsyta** och utför följande på bladet **OMS-arbetsyta**: 
+5. Välj **OMS-arbetsyta** på inställningsbladet **Automatisering och kontroll**.  På bladet **OMS-arbetsytor** kan du välja en OMS-arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot eller skapa en ny OMS-arbetsyta.  Om du inte har en OMS-arbetsyta väljer du **Skapa ny arbetsyta** och utför följande på bladet **OMS-arbetsyta**:
    - Ange ett namn för den nya **OMS-arbetsytan**.
    - Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
    - Du kan skapa en **resursgrupp** eller välja en befintlig resursgrupp.  
    - Välj en **Plats**.  För närvarande är endast regionerna **Australien, sydöstra**,  **USA, östra**, **Sydostasien**, **USA, västra centrala** och **Europa, västra** tillgängliga.
    - Välj en **Prisnivå**.  Lösningen erbjuds i två nivåer: Kostnadsfri eller Per nod (OMS).  Den kostnadsfria nivån har en gräns för mängden information som samlas in varje dag, kvarhållningsperioden och körtid för runbook-jobb.  Per nod (OMS) har ingen daglig gräns för insamlad data.  
-   - Välj **Automation-konto**.  Om du skapar en ny OMS-arbetsyta måste du också skapa ett Automation-konto som ska associeras med den nya OMS-arbetsytan, inklusive din Azure-prenumeration, resursgrupp och region.  Du kan välja **Skapa ett Automation-konto** och ange följande på bladet **Automation-konto**: 
+   - Välj **Automation-konto**.  Om du skapar en ny OMS-arbetsyta måste du också skapa ett Automation-konto som ska associeras med den nya OMS-arbetsytan, inklusive din Azure-prenumeration, resursgrupp och region.  Du kan välja **Skapa ett Automation-konto** och ange följande på bladet **Automation-konto**:
   - I fältet **namn** anger du namnet på Automation-kontot.
 
-    Alla andra alternativ fylls i automatiskt baserat på den valda OMS-arbetsytan. Dessa alternativ kan inte ändras.  Ett Azure Kör som-konto är standardmetoden för autentisering för erbjudandet.  När du klickar på **OK** verifieras konfigurationsalternativen och Automation-kontot skapas.  Du kan spåra förloppet under **Meddelanden** på menyn. 
+    Alla andra alternativ fylls i automatiskt baserat på den valda OMS-arbetsytan. Dessa alternativ kan inte ändras.  Ett Azure Kör som-konto är standardmetoden för autentisering för erbjudandet.  När du klickar på **OK** verifieras konfigurationsalternativen och Automation-kontot skapas.  Du kan spåra förloppet under **Meddelanden** på menyn.
 
     Annars väljer du ett befintligt Automation Kör som-konto.  Kontot du väljer får inte redan vara länkat till en annan OMS-arbetsyta. I så fall visas ett meddelande i bladet.  Om det redan är länkat måste du välja ett annat Automation Kör som-konto eller skapa ett nytt.
 
@@ -194,7 +194,7 @@ Den rekommenderade metoden för att integrera Automation är att välja erbjudan
 
 7. På inställningsbladet **Automatisering och kontroll** bekräftar du att du vill installera de rekommenderade förvalda lösningarna. Om du avmarkerar någon av dessa kan du installera dem individuellt senare.  
 
-8. Klicka på **Skapa** för att fortsätta med integreringen av Automation och OMS-arbetsytan. Alla inställningar verifieras och sedan distribueras lösningen i din prenumeration.  Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **Meddelanden** på menyn. 
+8. Klicka på **Skapa** för att fortsätta med integreringen av Automation och OMS-arbetsytan. Alla inställningar verifieras och sedan distribueras lösningen i din prenumeration.  Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **Meddelanden** på menyn.
 
 När erbjudandet har integrerats kan du börja skapa runbooks, arbeta med hanteringslösningarna som du har aktiverat eller börjar arbeta med [Log Analytics](https://docs.microsoft.com/azure/log-analytics) för att samla in data som genereras av resurser i molnet eller som finns lokalt.   
 
@@ -202,5 +202,4 @@ När erbjudandet har integrerats kan du börja skapa runbooks, arbeta med hanter
 * Du kan bekräfta att det nya Automation-kontot kan autentisera mot Azure-resurser genom att granska [testa autentisering av Azure Automation Kör som-konto](automation-verify-runas-authentication.md).
 * Information om hur du kommer igång med PowerShell-runbooks finns i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md).
 * Läs mer om grafisk redigering i [Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
-
 

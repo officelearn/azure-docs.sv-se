@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
-translationtype: Human Translation
-ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
-ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -50,7 +52,7 @@ I [Machine Learning Studio](machine-learning-what-is-ml-studio.md) kan du snabbt
 * I [Cortana Intelligence-galleriet](machine-learning-gallery-how-to-use-contribute-publish.md) kan du prova analyslösningar som skapats av andra eller bidra med dina egna. Skicka frågor eller kommentarer om experiment till communityn eller dela länkar till experiment via sociala nätverk, till exempel LinkedIn och Twitter.
 
   ![Prova förutsägelseexperiment eller bidra med egna i Azure Cortana Intelligence-galleriet](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
-* Kom snabbt igång med dina förutsägelsemodeller genom att dra nytta av det stora biblioteket med [algoritmer och moduler för maskininlärning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) i Machine Learning Studio. Välj bland exempelexperiment, R- och Python-paket och algoritmer av högsta klass från Xbox och Bing med flera. Utöka Studio-modulerna med dina egna anpassade [R](machine-learning-r-quickstart.md)- och [Python](machine-learning-execute-python-scripts.md)-skript.
+* Kom snabbt igång med dina förutsägelsemodeller genom att dra nytta av det stora biblioteket med [algoritmer och moduler för maskininlärning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) i Machine Learning Studio. Välj bland exempelexperiment, R- och Python-paket och algoritmer av högsta klass från Xbox och Bing med flera. Utöka Studio-modulerna med dina egna anpassade [R](machine-learning-extend-your-experiment-with-r.md)- och [Python](machine-learning-execute-python-scripts.md)-skript.
 
   ![Vad är förutsägelseanalyser: Exempel på ett förutsägelseanalysexperiment i Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
@@ -112,9 +114,4 @@ Du kan lära dig grunderna i förutsägelseanalyser och maskininlärning genom a
 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

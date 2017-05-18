@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -59,6 +60,21 @@ Om programmet körs som en Azure-webbtjänst kan du aktivera övervakning på f�
     ![Klicka här så kommer du till Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Övervaka appar för moln och virtuella datorer](app-insights-azure.md).
+
+### <a name="enable-client-side-monitoring-in-azure"></a>Aktivera övervakning på klientsidan i Azure
+
+Om du har aktiverat Application Insights i Azure kan du lägga till sidvy och användartelemetri.
+
+1. Välj Inställningar > Programinställningar
+2.  Under Appinställningar lägger du till ett nytt nyckel/värde-par: 
+   
+    Nyckel: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Värde:`true`
+
+3. **Spara** inställningarna och **starta om** din app.
+
+Application Insights JavaScript SDK infogas nu i alla webbsidor.
 
 ## <a name="monitor-a-live-iis-web-app"></a>Övervaka en IIS-livewebbapp
 

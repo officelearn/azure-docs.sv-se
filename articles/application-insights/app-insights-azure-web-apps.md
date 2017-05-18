@@ -11,12 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,9 +41,20 @@ Om du redan kör en webbapp i Azure har du redan tillgång till viss övervaknin
 2. **Instrumentera din webbapp** när Application Insights har installerats. 
    
     ![Instrumentera din webbapp](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+
+   **Aktivera övervakning på klientsidan** för sidvy och användartelemetri.
+
+   * Välj Inställningar > Programinställningar
+   * Under Appinställningar lägger du till ett nytt nyckel/värde-par: 
+   
+    Nyckel: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Värde:`true`
+
+   * **Spara** inställningarna och **starta om** din app.
 3. **Övervaka din app**.  [Utforska data](#explore-the-data).
 
-Senare kan du skapa och distribuera appen igen med Application Insights om du vill.
+Senare kan du skapa appen med Application Insights om du vill.
 
 *Hur tar jag bort Application Insights eller växlar till att skicka telemetri till en annan resurs?*
 
@@ -104,6 +116,7 @@ För mer kraftfulla sökningar över din telemetri kan du använda [Analytics-fr
 
 ## <a name="next-steps"></a>Nästa steg
 * [Kör profileraren för din live-app](app-insights-profiler.md).
+* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) – övervaka Azure Functions med Application Insights
 * [Aktivera Azure-diagnostik](app-insights-azure-diagnostics.md) så att den skickas till Application Insights.
 * [Övervaka mätvärden för tjänstens hälsotillstånd](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) för att se till att tjänsten är tillgänglig och svarar.
 * [Få aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) när drifthändelser inträffar eller när mätvärden överskrider ett tröskelvärde.

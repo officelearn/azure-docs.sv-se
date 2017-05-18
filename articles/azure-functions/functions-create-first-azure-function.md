@@ -1,58 +1,94 @@
 ---
-title: "Skapa din första Azure-funktion | Microsoft Docs"
-description: "Skapa din första Azure-funktion, ett program utan server, på mindre än två minuter."
+title: "Skapa din första funktion i Azure Portal | Microsoft Docs"
+description: "Lär dig hur du skapar din första Azure-funktion för serverfri körning i Azure Portal."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
 editor: 
 tags: 
-ms.assetid: 4a1669e7-233e-4ea2-9b83-b8624f2dbe59
+ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/14/2016
+ms.date: 05/10/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a797910e286cd2aacf5a8aa6c509e2b0f5f60276
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: abd508631787ba5f839a4ae2ea82e76c4bfab425
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="create-your-first-azure-function"></a>Skapa din första Azure-funktion
+# <a name="create-your-first-function-in-the-azure-portal"></a>Skapa din första funktion i Azure Portal
 
-Det här ämnet visar hur du använder Azure Functions-snabbstart i portalen för att skapa en enkel "hello world"-funktion som anropas av en HTTP-begäran. Läs mer om Azure Functions i [Översikt över Azure Functions](functions-overview.md).
+Med Azure Functions kan du köra kod i en serverfri miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. I det här ämnet får du lära dig att använda Functions till att skapa en ”hello world”-funktion i Azure Portal.
 
-Innan du börjar måste du ha ett Azure-konto. Det finns [kostnadsfria konton](https://azure.microsoft.com/free/). Du kan också [prova Azure Functions](https://azure.microsoft.com/try/app-service/functions/) utan Azure-registrering.
+![Skapa en funktionsapp i Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
-## <a name="create-a-function-from-the-portal-quickstart"></a>Skapa en funktion från snabbstarten
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. Gå till [Azure Functions-portalen](https://functions.azure.com/signin) och logga in med ditt Azure-konto. 
- 
-2. Skriv ett unikt **Namn** för din nya funktionsapp eller acceptera namnet som genererats automatiskt, välj **Region** och klicka på **Skapa + Kom igång**. Namn får endast innehålla bokstäver, siffror och bindestreck. Understreck (**_**) är inte tillåtna.
+Det bör ta mindre än fem minuter att slutföra alla steg i det här avsnittet.
 
-3. På fliken **Snabbstart** klickar du på **WebHook + API**, väljer ett språk för funktionen och klickar sedan på **Skapa en funktion**. En ny fördefinierad funktion skapas på det språk som du har valt. 
+## <a name="log-in-to-azure"></a>Logga in på Azure
+
+Logga in på [Azure-portalen](https://portal.azure.com/).
+
+## <a name="create-a-function-app"></a>Skapa en funktionsapp
+
+Du måste ha en funktionsapp som värd för körning av dina funktioner. I en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. 
+
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
+
+![Funktionsappen skapades.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+Därefter skapar du en funktion i den nya funktionsappen.
+
+## <a name="create-function"></a>Skapa en HTTP-utlöst funktion
+
+1. Expandera den nya funktionsappen och klicka på knappen **+** bredvid **Funktioner**.
+
+2.  På sidan **Kom igång snabbt** klickar du på **WebHook + API**. Välj ett språk för funktionen och klicka på **Skapa den här funktionen**. 
    
-    ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![Snabbstart för funktioner i Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-4. (Valfritt) I det här läget i Snabbstart kan du välja att få en snabb genomgång av funktionerna i Azure Functions i portalen. När du har slutfört eller hoppat över genomgången kan du testa den nya funktionen genom att skicka en HTTP-begäran.
+En funktion skapas i ditt valda språk med hjälp av mallen för en HTTP-utlöst funktion. Du kan köra den nya funktionen genom att skicka en HTTP-begäran.
 
 ## <a name="test-the-function"></a>Testa funktionen
-[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
-## <a name="watch-the-video"></a>Titta på videon
-Följande videoklipp visar hur du utför de grundläggande stegen i den här självstudiekursen. 
+1. Klicka på **</> Hämta funktionswebbadress** i den nya funktionen och kopiera **funktionswebbadressen**. 
 
-> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-your-first-Azure-Function-simple/player]
-> 
+    ![Kopiera funktionswebbadressen från Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
+2. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Lägg till frågesträngen `&name=<yourname>` i webbadressen och kör din begäran. Nedan visas svaret på GET-begäran som returnerades av funktionen i webbläsaren:
+
+    ![Funktionssvar i webbläsaren.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+
+    Begäransadressen innehåller en nyckel som krävs för åtkomst till din funktion över HTTP.   
+
+## <a name="view-the-function-logs"></a>Visa funktionsloggarna 
+
+När din funktion körs skrivs spårningsinformation till loggarna. Om du vill visa spårningsinformationen från föregående körning återgår du till funktionen i portalen och klickar på uppåtpilen längst ned på skärmen så att **Loggar** expanderas. 
+
+![Funktionsloggvisning i Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+Du har nu skapat en funktionsapp med en enkel HTTP-utlöst funktion.  
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Mer information finns i [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md) (HTTP- och webhookbindningar i Azure Functions).
+
+
 
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/08/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: df5832478bf7049a7bb883eacac4be961ef65cf9
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: acb68b274228aa647dc7be5d36b2b077bd213c1b
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,7 +32,7 @@ En utvecklingsdator som kör:
 * [Service Fabric SDK och verktyg](service-fabric-get-started.md).
 *  Docker för Windows.  [Hämta Docker CE för Windows (stabil)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta krävs för att köra Docker-avbildningar baserade på Windows.
 
-Ett Windows-kluster med tre eller fler noder som kör Windows Server 2016 med behållare – [Skapa ett kluster](service-fabric-get-started-azure-cluster.md) eller [prova Service Fabric utan kostnad](http://tryazureservicefabrictest.westus.cloudapp.azure.com/). 
+Ett Windows-kluster med tre eller fler noder som kör Windows Server 2016 med behållare – [Skapa ett kluster](service-fabric-get-started-azure-cluster.md) eller [prova Service Fabric utan kostnad](http://tryazureservicefabric.westus.cloudapp.azure.com/). 
 
 Ett register i Azure Container Registry – [Skapa ett behållarregister](../container-registry/container-registry-get-started-portal.md) i din Azure-prenumeration. 
 
@@ -193,7 +193,7 @@ Service Fabric SDK och verktygen innehåller en tjänstmall som hjälper dig att
 4. Öppna en webbläsare och navigera till http://containercluster.westus2.cloudapp.azure.com. Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
-Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party-kluster](http://tryazureservicefabrictest.westus.cloudapp.azure.com/) tas bort automatiskt efter ett par timmar.
+Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party-kluster](http://tryazureservicefabric.westus.cloudapp.azure.com/) tas bort automatiskt efter ett par timmar.
 
 När du har överfört avbildningen till behållarregistret kan du ta bort den lokala avbildningen från utvecklingsdatorn:
 

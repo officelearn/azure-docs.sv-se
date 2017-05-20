@@ -71,9 +71,11 @@
 ### [Långsam säkerhetskopiering av filer och mappar i Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Koncept
+## [Översikt över Recovery Services-valv](backup-azure-recovery-services-vault-overview.md)
+## [Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Radera ett Azure Backup-valv](backup-azure-delete-vault.md)
 ## [Rollbaserad åtkomstkontroll](backup-rbac-rs-vault.md)
 ## [Säkerhet för hybridsäkerhetskopieringar](backup-azure-security-feature.md)
-## [Radera ett Azure Backup-valv](backup-azure-delete-vault.md)
 ## [Konfigurera säkerhetskopiering offline](backup-azure-backup-import-export.md)
 ## [Ersätt ditt bandbibliotek](backup-azure-backup-cloud-as-tape.md)
 ## [Programkonsekventa säkerhetskopior av virtuella Linux-datorer](backup-azure-linux-app-consistent.md)

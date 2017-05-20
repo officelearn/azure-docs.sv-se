@@ -12,6 +12,7 @@
 ### [Webbappar som redan är aktiva](app-insights-monitor-performance-live-website-now.md)
 ### [Windows-tjänster](app-insights-windows-services.md)
 ### [Windows-skrivbordet](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Övervaka Java-appar
 ### [Webbappar](app-insights-java-get-started.md)
@@ -33,7 +34,8 @@
 ## Planera och designa
 ### [Djup diagnostik för webbappar och tjänster](app-insights-devops.md)
 ### [Övervaka prestanda i webbprogram](app-insights-web-monitor-performance.md)
-### [Separera Application Insights-resurser](app-insights-separate-resources.md)
+### [Avgränsa utveckling, testning och produktion](app-insights-separate-resources.md)
+### [Övervaka appar med flera roller](app-insights-monitor-multi-role-apps.md)
 ### [Hur kan jag ... i Application Insights?](app-insights-how-do-i.md)
 
 
@@ -112,7 +114,6 @@
 ### [API för anpassade händelser och mått](app-insights-api-custom-events-metrics.md)
 ### [Filtrera och förbearbeta telemetri](app-insights-api-filtering-sampling.md)
 ### [Sampling](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Hantera
 ### [Hantera priser och kvot](app-insights-pricing.md)

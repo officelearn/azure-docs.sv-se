@@ -1,5 +1,6 @@
 # Översikt
 ## [Vad är Event Hubs?](event-hubs-what-is-event-hubs.md)
+## [Event Hubs-funktioner](event-hubs-features.md)
 ## [Vanliga frågor och svar](event-hubs-faq.md)
 
 # Kom igång

@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 7c70129ebf4bacc28400cf68418bf898e4e646d2
+ms.contentlocale: sv-se
 ms.lasthandoff: 04/25/2017
 
 
@@ -141,7 +142,7 @@ Du kan också kan du utföra mer komplexa åtgärder. För Pressure OPC UA-noden
 
 ## <a name="view-overall-equipment-efficiency"></a>Visa OEE (Overall Equipment Efficiency)
 
-OEE är nyckeltal för att mäta produktionseffektivitet. OEE är ett branschstandardmått som beräknas genom att multiplicera tillgänglighet, anläggningsutnyttjande och kvalitetsutbyte: OEE = tillgänglighet * anläggningsutnyttjande * kvalitetsutbyte.
+OEE är nyckeltal för att mäta produktionseffektivitet. OEE är ett branschstandardmått som beräknas genom att multiplicera tillgänglighet, anläggningsutnyttjande och kvalitetsutbyte: OEE = tillgänglighet x anläggningsutnyttjande x kvalitetsutbyte.
 
 ![OEE för den förkonfigurerade lösningen Ansluten fabrik][cf-img-oee]
 

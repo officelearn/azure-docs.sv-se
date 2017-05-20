@@ -1,8 +1,9 @@
 # Översikt
 ## [Vad är Azure Active Directory?](active-directory-whatis.md)
 ## [Välj utgåva](active-directory-editions.md)
-
-## [Om Azures identitetshantering](identity-fundamentals.md)
+## [Om Azures identitetshantering](fundamentals-identity.md)
+## [Förstå Azure-identitetslösningar](understand-azure-identity-solutions.md)
+## [Förhandsgranska Azures portalupplevelse](active-directory-preview-explainer.md)
 
 # Kom igång
 ## [Hämta en Azure AD-klientorganisation](active-directory-howto-tenant.md)
@@ -91,16 +92,17 @@
 #### [Data som saknas i nedladdningar](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Programmässig åtkomst
 #### [Granska referens](active-directory-reporting-api-audit-reference.md)
-#### [Granska exempel](active-directory-reporting-api-audit-samples.md)
-#### [Hämta data](active-directory-reporting-api-with-certificates.md)
-#### [Förutsättningar](active-directory-reporting-api-prerequisites.md)
 #### [Inloggningsreferens](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Förutsättningar](active-directory-reporting-api-prerequisites-azure-portal.md)
+#### [Granska exempel](active-directory-reporting-api-audit-samples.md)
 #### [Inloggningsexempel](active-directory-reporting-api-sign-in-activity-samples.md)
+#### [Hämta data](active-directory-reporting-api-with-certificates.md)
 ### [Klassisk portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD-rapportering](active-directory-reporting-getting-started.md)
 #### [Rapporteringsguide](active-directory-reporting-guide.md)
 #### [Kända nätverk](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
+##### [Förutsättningar](active-directory-reporting-api-prerequisites.md)
 #### [Granska händelser](active-directory-reporting-audit-events.md)
 #### [Svarstider](active-directory-reporting-latencies.md)
 #### [Meddelanden](active-directory-reporting-notifications.md)
@@ -171,11 +173,14 @@
 ##### [Enkel inloggning med KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Enkel inloggning med rubriker](application-proxy-ping-access.md)
 ##### [Enkel inloggning med lösenordsvalv](application-proxy-sso-azure-portal.md)
-#### Förstå metodtips
+#### Koncept
 ##### [Anslutningsappar](application-proxy-understand-connectors.md)
 ##### [Säkerhet](application-proxy-security-considerations.md)
 ##### [Nätverk](application-proxy-network-topology-considerations.md)
-#### 
+
+
+##### [Uppgradera från TMG eller UAG](application-proxy-transition-from-uag-tmg.md)
+
 #### Avancerade konfigurationer
 ##### [Publicera i separata nätverk](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Proxyservrar](application-proxy-working-with-proxy-servers.md)
@@ -186,7 +191,6 @@
 #### Publicera genomgångar
 ##### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Felsöka](active-directory-application-proxy-troubleshoot.md)
 #### Använd den klassiska portalen
 ##### [Ladda ned anslutningsappar](application-proxy-enable-classic-portal.md)
@@ -201,12 +205,6 @@
 #### [Ta bort användare](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [Visa alla mina appar](active-directory-coreapps-view-azure-portal.md)
 #### [Hantera användarens kontoetablering](active-directory-enterprise-apps-manage-provisioning.md)
-
-### Utveckla
-#### [Tilldela användare](active-directory-applications-guiding-developers-assigning-users.md)
-#### [Tilldela grupper](active-directory-applications-guiding-developers-assigning-groups.md)
-#### [Kräv tilldelning](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [Utveckla LoB-appar](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ### [Hantera åtkomst till appar](active-directory-managing-access-to-apps.md)
 #### [Åtkomst med självbetjäning](active-directory-self-service-application-access.md)
@@ -226,7 +224,7 @@
 ##### [Åtkomstpanel](active-directory-application-access-panel-content-map.md)
 ##### [Programproxy](active-directory-application-proxy-content-map.md)
 ##### [Villkorlig åtkomst](active-directory-application-conditional-access-content-map.md)
-
+### [Utveckla appar](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Dokumentbibliotek](active-directory-apps-index.md)
 
 ## Hantera din katalog
@@ -294,6 +292,7 @@
 ##### [Efter resurs](role-based-access-control-configure.md)
 #### [Inbyggda roller](role-based-access-built-in-roles.md)
 #### [Anpassade roller](role-based-access-control-custom-roles.md)
+#### [Tilldela anpassade roller för interna och externa användare](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [Rapportering](role-based-access-control-access-change-history-report.md)
 #### Fler sätt att hantera roller på
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
@@ -306,12 +305,13 @@
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Bästa praxis](active-directory-conditional-access-best-practices.md)
+#### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
 #### [Appar som stöds](active-directory-conditional-access-supported-apps.md)
 #### [Förstå enhetsprinciper](active-directory-conditional-access-device-policies.md)
 #### [Konfigurera åtkomst till anslutna appar](active-directory-conditional-access-policy-connected-applications.md)
-#### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
-#### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
 #### [Reparation](active-directory-conditional-access-device-remediation.md)
+#### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
 #### [Klassisk portal](active-directory-conditional-access.md)
 ##### [Kom igång](active-directory-conditional-access-azuread-connected-apps.md)
 
@@ -332,6 +332,7 @@
 #### [Inloggning](active-directory-identityprotection-flows.md)
 #### [Simulera riskhändelser](active-directory-identityprotection-playbook.md)
 #### [Avblockera användare](active-directory-identityprotection-unblock-howto.md)
+#### [Vanliga frågor och svar](active-directory-identity-protection-faqs.md)
 #### [Ordlista](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)

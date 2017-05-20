@@ -18,13 +18,16 @@
 
 ## Distribuera
 ### Virtuella nätverk
-#### [Portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [Mall](virtual-networks-create-vnet-arm-template-click.md)
-#### [Portal (klassisk)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (klassisk)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [CLI (klassisk)](virtual-networks-create-vnet-classic-cli.md)
+#### [Skapa, ändra eller ta bort virtuella nätverk](virtual-network-manage-network.md)
+#### [Skapa, ändra eller ta bort undernät](virtual-network-manage-subnet.md)
+#### [Skapa ett virtuellt nätverk – flera undernät](virtual-networks-create-vnet-arm-pportal.md) 
+##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+##### [CLI](virtual-networks-create-vnet-arm-cli.md)
+##### [Mall](virtual-networks-create-vnet-arm-template-click.md)
+#### Skapa ett virtuellt nätverk – flera undernät (klassisk)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Nätverkssäkerhetsgrupper
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -46,20 +49,22 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Mall](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### [Nätverksgränssnitt](virtual-network-network-interface.md)
+### Nätverksgränssnitt (nätverkskort)
+#### [Skapa, ändra eller ta bort nätverkskort](virtual-network-network-interface.md)
+#### [Lägg till, ändra eller ta bort IP-adresser](virtual-network-network-interface-addresses.md)
 
 ### [Offentliga IP-adresser](virtual-network-public-ip-address.md)
 
 ### Virtuella datorer
-
-#### Statiska offentliga IP-adresser
+#### [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md) 
+#### Skapa en virtuell dator med en statisk offentlig IP-adress
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Mall](virtual-network-deploy-static-pip-arm-template.md)
 ##### [PowerShell (klassisk)](virtual-networks-reserved-public-ip.md)
 
-#### Statiska privata IP-adresser
+#### Skapa en virtuell dator med en statisk privat IP-adress
 ##### [Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -67,18 +72,19 @@
 ##### [PowerShell (klassisk)](virtual-networks-static-private-ip-classic-ps.md)
 ##### [CLI (klassisk)](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Flera nätverksgränssnitt
-##### [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-##### [CLI](virtual-network-deploy-multinic-arm-cli.md)
-##### [Mall](virtual-network-deploy-multinic-arm-template.md)
+#### Skapa en virtuell dator med flera nätverksgränssnitt
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (klassisk)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI (klassisk)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Flera IP-adresser
-##### [Azure-portal](virtual-network-multiple-ip-addresses-portal.md)
+#### Skapa en virtuell dator med flera IP-adresser
+##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Mall](virtual-network-multiple-ip-addresses-template.md)
+
+#### [Skapa en virtuell dator med accelererat nätverk](virtual-network-create-vm-accelerated-networking.md)
 
 ### Scenarier för anslutning
 #### [Virtuellt nätverk (VNet) till VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -97,9 +103,6 @@
 ##### [Exempelprogram](virtual-networks-sample-app.md)
 
 ## Konfigurera
-### Snabbare nätverk för virtuella datorer
-#### [Azure Portal](virtual-network-accelerated-networking-portal.md)
-#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
 ### [Optimera det virtuella nätverkets dataflöde](virtual-network-optimize-network-bandwidth.md)
 ### Listor för åtkomstkontroll
 #### [Klassisk portal](virtual-networks-acl.md)

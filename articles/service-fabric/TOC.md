@@ -70,9 +70,9 @@
 ##### [Java i Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Reliable Services-livscykel
-#### [Konfigurera](service-fabric-reliable-services-configuration.md)
-#### [Skicka aviseringar](service-fabric-reliable-services-notifications.md)
-#### [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
+##### [Konfigurera](service-fabric-reliable-services-configuration.md)
+##### [Skicka aviseringar](service-fabric-reliable-services-notifications.md)
+##### [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
 
 #### Kommunicera med tjänster
 ##### [Kommunicera med Reliable Services](service-fabric-reliable-services-communication.md)
@@ -215,6 +215,7 @@
 ### [Ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md)
 
 ### [Hantera ett kluster med Azure CLI](service-fabric-azure-cli.md)
+### [Korrigera klusternoder](service-fabric-patch-orchestration-application.md)
 
 ### Hantera och dirigera klusterresurser
 #### [Översikt över Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
@@ -249,11 +250,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Samla in loggar från en tjänstprocess](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Övervaka Windows Server-behållare](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Diagnostik för tillståndskänslig Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostik i Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Felsök ditt lokala kluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Referens
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Java-API](/java/api/)
 ## [.NET](/dotnet/api/)

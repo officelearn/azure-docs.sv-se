@@ -9,7 +9,7 @@
 ## [Skapa din första virtuella dator](devtest-lab-create-first-vm.md)
 ## [Ange startprinciper](devtest-lab-get-started-with-lab-policies.md)
 
-# Gör så här för att
+# Instruktionsguider
 ## Använd virtuella datorer i ett labb
 ### [Skapa virtuella datorer](devtest-lab-add-vm.md)
 ### [Skapa virtuell dator som kan hämtas](devtest-lab-add-claimable-vm.md)
@@ -44,6 +44,8 @@
 ## Hantera virtuella nätverk
 ### [Konfigurera virtuella nätverk](devtest-lab-configure-vnet.md)
 ### [Välj IP-konfigurationsalternativ](devtest-lab-shared-ip.md)
+
+## [Skala ditt labb](devtest-lab-scale-lab.md)
 
 # Referens
 ## [CLI 2.0](/cli/azure/lab)

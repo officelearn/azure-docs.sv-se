@@ -3,7 +3,7 @@ title: "Övervaka tillgänglighet och svarstider på valfri webbplats | Microsof
 description: "Konfigurera webbtester i Application Insights. Få aviseringar om en webbplats blir otillgänglig eller svarar långsamt."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -11,30 +11,29 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
-ms.lasthandoff: 04/13/2017
+ms.date: 04/26/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
-När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera webbtester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
+När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
 
-![Exempel på webbtest](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+Du kan konfigurera tillgänglighetstester för valfri HTTP- eller HTTPS-slutpunkt som kan nås från det offentliga Internet. Du behöver inte lägga till något till den webbplats som du testar. Det behöver inte ens vara din webbplats: du kan testa en REST API-tjänst som du är beroende av.
 
-Du kan konfigurera webbtester för valfri HTTP- eller HTTPS-slutpunkt som kan nås från det offentliga Internet. Du behöver inte lägga till något till den webbplats som du testar. Det behöver inte ens vara din webbplats: du kan testa en REST API-tjänst som du är beroende av.
-
-Det finns två typer av webbtester:
+Det finns två typer av tillgänglighetstester:
 
 * [URL-pingtest](#create): Ett enkelt test som du kan skapa på Azure-portalen.
 * [Flerstegstest för webbplatser](#multi-step-web-tests): Ett test som du skapar i Visual Studio Enterprise och laddar upp till portalen.
 
-Du kan skapa upp till tio webbtester per programresurs.
+Du kan skapa upp till 25 tillgänglighetstester per programresurs.
 
-## <a name="create"></a>1. Öppna en resurs för dina webbtestrapporter
+## <a name="create"></a>1. Öppna en resurs för dina tillgänglighetstestrapporter
 
 **Om du redan har konfigurerat Application Insights** för din webbapp öppnar du dess Application Insights-resurs i [Azure Portal](https://portal.azure.com).
 
@@ -45,11 +44,11 @@ Du kan skapa upp till tio webbtester per programresurs.
 Klicka på **alla resurser** för att öppna översiktsbladet för den nya resursen.
 
 ## <a name="setup"></a>2. Skapa ett URL-pingtest
-Öppna bladet Tillgänglighet och lägg till ett webbtest.
+Öppna bladet Tillgänglighet och lägg till ett test.
 
 ![Fyll åtminstone i URL:en för din webbplats](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **URL: en** kan vara en webbsida som du vill testa, men den måste vara synlig från Internet. URL:en kan innehålla en frågesträng, vilket innebär att du kan arbeta med din databas om du vill. Om URL-adressen matchar en omdirigering följer vi den upp till tio omdirigeringar.
+* **URL: en** kan vara en webbsida som du vill testa, men den måste vara synlig från Internet. URL: en kan innehålla en frågesträng. Du kan arbeta med din databas om du vill. Om URL-adressen matchar en omdirigering följer vi den upp till tio omdirigeringar.
 * **Parsa beroendebegäranden**: om det här alternativet är markerat begärs bilder, skript, filer och andra filer som ingår i webbsidan under testet. Den registrerade svarstiden innefattar den tid det tar att hämta dessa filer. Testet misslyckas om dessa resurser inte kan laddas ned inom tidsgränsen för hela testet. 
 
     Om alternativet inte är markerat begärs endast filen på den URL som du har angett i testet.
@@ -71,30 +70,38 @@ Klicka på **alla resurser** för att öppna översiktsbladet för den nya resur
 Lägg till fler test. Förutom att testa din hemsida kan du till exempel kontrollera att din databas körs genom att testa URL:en för en sökning.
 
 
-## <a name="monitor"></a>3. Se webbtestresultaten
+## <a name="monitor"></a>3. Visa tillgänglighetstestresultat
 
-Efter 5 minuter klickar du på **Uppdatera** för att visa testresultaten. 
+Efter ett par minuter klickar du på **Uppdatera** för att visa testresultaten. 
 
-![Sammanfattningsresultat på startbladet](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+![Sammanfattningsresultat på startbladet](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-Klicka på valfri stapel i sammanfattningsdiagrammet om du vill visa en mer detaljerad vy av den aktuella tidsperioden.
+Spridningsdiagrammet visar exempel på testresultat som innehåller information om diagnostiska test. Testmotorn lagrar diagnosinformation för tester som innehåller fel. För lyckade tester lagras diagnosinformation för en delmängd av körningarna. För pekaren över någon av de gröna/röda punkterna för att visa tidsstämpel, varaktighet, plats och namn för testet. Klicka på någon av punkterna i spridningsdiagrammet för att visa detaljerad information om testresultatet.  
+
+Välj ett visst test, en viss plats eller minska tidsperioden för att visa fler resultat för en viss tidsperiod som du är intresserad av. Använd Sökutforskaren för att visa resultat från alla körningar, eller använd analysfrågor om du vill köra anpassade rapporter för dessa data.
+
+Förutom rådataresultat finns även två tillgänglighetsmått i Metrics Explorer: 
+
+1. Tillgänglighet: antal procent av testerna som lyckades av alla testkörningar. 
+2. Testets varaktighet: genomsnittlig tid för alla testkörningar.
+
+Du kan använda filter för testnamn och plats om du vill analysera trender för ett visst test och/eller en viss plats.
 
 ## <a name="edit"></a>Granska och redigera tester
 
 Välj ett specifikt test på sammanfattningssidan. Där du kan se specifika resultat för testet och redigera eller tillfälligt inaktivera det.
 
-![Redigera eller inaktivera ett webbtest](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+![Redigera eller inaktivera ett webbtest](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
-Du kanske vill inaktivera webbtesterna när du utför underhåll av tjänsten.
-
+Du kanske vill inaktivera tillgänglighetstester eller varningsreglerna som är associerade med dem medan du utför underhåll på tjänsten. 
 
 ## <a name="failures"></a>Om du ser fel
 Klicka på en röd punkt.
 
-![Klicka på en röd punkt](./media/app-insights-monitor-web-app-availability/open-instance.png)
+![Klicka på en röd punkt](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
 
 
-Från ett webbtestresultat kan du göra följande:
+Från ett tillgänglighetstestresultat kan du:
 
 * Kontrollera de svar som mottas från servern.
 * Öppna telemetrin som har skickas av serverappen samtidigt som den misslyckades begärandeinstansen behandlas.
@@ -104,7 +111,7 @@ Från ett webbtestresultat kan du göra följande:
 
 *Ser det okej ut trots att fel har rapporterats?* Kontrollera alla bilder, skript, formatmallar och andra filer som lästs in av sidan. Om någon av komponenterna inte kunde läsas in rapporteras testet som misslyckat, även om HTML-huvudsidan kan läsas in korrekt.
 
-*Inga relaterade objekt?* Det kan bero på att [sampling](app-insights-sampling.md) pågår.
+*Inga relaterade objekt?* Om du har konfigurerat Application Insights för din app på serversidan kan detta bero på att [sampling](app-insights-sampling.md) pågår. 
 
 ## <a name="multi-step-web-tests"></a>Webbtester med flera steg
 Du kan övervaka ett scenario med en serie URL:er. Om du till exempel övervakar en försäljningswebbplats kan du testa att det går att lägga till objekt i kundvagnen korrekt.
@@ -149,7 +156,7 @@ Spela in en webbsession med Visual Studio Enterprise.
     ![Öppna filen .webtest i Visual Studio och klicka på Kör.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 #### <a name="2-upload-the-web-test-to-application-insights"></a>2. Ladda upp webbtestet till Application Insights
-1. Skapa ett nytt webbtest på Application Insights-portalen.
+1. Skapa ett webbtest på Application Insights-portalen.
 
     ![Välj Lägg till på bladet Webbtest.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
 2. Välj ett flerstegstest och ladda upp filen .webtest.
@@ -240,7 +247,7 @@ Du kan köra ett inläsningstest på din webbplats. Som med tillgänglighetstest
 När testet är klart visas svarstiderna och slutförandefrekvens.
 
 ## <a name="automation"></a>Automation
-* [Konfigurera ett webbtest automatiskt med hjälp av PowerShell-skript](app-insights-powershell.md#add-an-availability-test).
+* [Konfigurera ett tillgänglighetstest automatiskt med hjälp av PowerShell-skript](app-insights-powershell.md#add-an-availability-test).
 * Konfigurera en [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) som anropas när en avisering genereras.
 
 ## <a name="qna"></a>Har du några frågor? Har du problem?
@@ -252,13 +259,13 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
     Vi stöder TLS 1.1 och TLS 1.2.
 * *Är det någon skillnad mellan ”webbtester” och ”tillgänglighetstester”?*
 
-    Vi använder båda termerna synonymt.
+    De är synonyma begrepp. Tillgänglighetstest är ett mer allmänt begrepp som innefattar tester med en URL-ping utöver webbtester i flera steg.
 * *Jag vill använda tillgänglighetstester på vår interna server som körs bakom en brandvägg.*
 
     Det finns två möjliga lösningar:
     
     * Konfigurera din brandvägg att tillåta inkommande förfrågningar från [IP-adresserna för webbtestagenter](app-insights-ip-addresses.md).
-    * Skriv koden för att regelbundet testa din interna server. Kör koden i bakgrunden på en testserver bakom brandväggen. Testprocessen kan skicka resultaten till Application Insights med [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API i core-SDK-paketet. Detta kräver att din testserver har utgående åtkomst till Application Insights slutpunkt för inmatning, men detta utgör en mycket mindre säkerhetsrisk än alternativet att tillåta inkommande förfrågningar. Resultatet visas inte i bladet webtillgänglighetstest, men visas som tillgänglighetsresultat i Analytics, Sök och Metric Explorer.
+    * Skriv koden för att regelbundet testa din interna server. Kör koden i bakgrunden på en testserver bakom brandväggen. Testprocessen kan skicka resultaten till Application Insights med [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API i core-SDK-paketet. Detta kräver att din testserver har utgående åtkomst till Application Insights slutpunkt för inmatning, men detta utgör en mycket mindre säkerhetsrisk än alternativet att tillåta inkommande förfrågningar. Resultatet visas inte på bladen för webbtillgänglighetstester, men däremot visas det som tillgänglighetsresultat i Analytics, Sök och Metric Explorer.
 * *Det går inte att överföra ett flerstegstest för webbplatser*
 
     Det finns en storleksgräns på 300 kB.
@@ -291,4 +298,3 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

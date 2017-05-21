@@ -1,5 +1,5 @@
 ---
-title: Skapa en PHP-app i en webbapp | Microsoft Docs
+title: Skapa en PHP-app i en Azure-webbapp | Microsoft Docs
 description: "Distribuera din första Hello World-app med PHP i App Service-webbappen på bara några minuter."
 services: app-service\web
 documentationcenter: 
@@ -12,30 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/31/2017
+ms.date: 05/04/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d5126f3b9fa92ff95eaa8bc06554c49f9836bab9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0541778e07193c4903a90ce0b91db224bdf60342
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="create-a-php-application-on-web-app"></a>Skapa en PHP-app i en webbapp
 
-I den här kursen visar vi hur du utvecklar en PHP-app och distribuerar den till Azure. Vi kommer att köra appen med en Linux-baserad Azure App Service och skapa och konfigurera en ny webbapp i den med hjälp av Azure CLI. Sedan kommer vi att använda git för att distribuera PHP-appen till Azure.
+I den här kursen visar vi hur du utvecklar en PHP-app och distribuerar den till Azure. Vi kommer att köra appen med en [Azure App Service-plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) och skapa och konfigurera en ny webbapp i den med hjälp av Azure CLI. Sedan kommer vi att använda git för att distribuera PHP-appen till Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. Det tar normalt bara 5 minuter att slutföra alla steg.
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Krav
 
-Innan du kör det här exemplet måste du installera följande på den lokala datorn:
+Innan du skapar det här exemplet måste du hämta och installera följande:
 
-1. [Hämta och installera git](https://git-scm.com/)
-1. [Hämta och installera PHP](https://php.net)
-1. Hämta och installera [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Git](https://git-scm.com/)
+* [PHP](https://php.net)
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,9 +47,6 @@ Klona databasen för Hello World-exempelappen till den lokala datorn.
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
 ```
-
-> [!TIP]
-> Du kan också [hämta exemplet](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) som en zip-fil och extrahera den.
 
 Ändra till den katalog som innehåller exempelkoden.
 
@@ -84,20 +82,8 @@ Nu ska vi använda Azure CLI 2.0 i ett terminalfönster för att skapa de resurs
 az login
 ```
 
-## <a name="configure-a-deployment-user"></a>Konfigurera en distributionsanvändare
-
-För FTP och lokal Git måste du ha en distributionsanvändare konfigurerad på servern för att autentisera din distribution. Du behöver bara skapa distributionsanvändaren en gång. Anteckna användarnamnet och lösenordet eftersom du kommer att använda dem i ett steg nedan.
-
-> [!NOTE]
-> En distributionsanvändare krävs för en FTP-distribution och en lokal git-distribution till en webbapp.
-> `username` och `password` är på kontonivå, vilket innebär att de skiljer sig från autentiseringsuppgifterna för din Azure-prenumeration. **Dessa autentiseringsuppgifter behöver bara skapas en gång**.
->
-
-Använd kommandot [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) för att skapa dina autentiseringsuppgifter på kontonivå.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
+<!-- ## Configure a Deployment User -->
+[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)]
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -107,24 +93,19 @@ Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). E
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-an-azure-app-service"></a>Skapa en Azure App Service
+## <a name="create-an-azure-app-service-plan"></a>Skapa en Azure App Service-plan
 
-Skapa en Linux-baserad App Service-plan med kommandot [az appservice plan create](/cli/azure/appservice/plan#create).
+Skapa en kostnadsfri [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) med kommandot [az appservice plan create](/cli/azure/appservice/plan#create).
 
-> [!NOTE]
-> En App Service-plan representerar den samling fysiska resurser som dina appar finns i. Alla program som har tilldelats en App Service-plan delar de resurser som definierats av planen. Det innebär att du kan minska kostnaderna när du har flera appar i en plan.
->
-> App Service-planer definierar följande:
-> * Region (Europa, norra; USA, östra; Asien, sydöstra)
-> * Instansstorlek (liten, medel, stor)
-> * Skalningsantal (en, två eller tre instanser osv.)
-> * SKU (Kostnadsfri, Delad, Basic, Standard, Premium)
->
+<!--
+ An App Service plan represents the collection of physical resources used to ..
+-->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-I följande exempel skapas en App Service-plan på Linux-arbetare med namnet `quickStartPlan` och prisnivån **Standard**.
+I följande exempel skapas en App Service-plan med namnet `quickStartPlan` och prisnivån **Kostnadsfri**.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
 När App Service-planen har skapats visas information av Azure CLI. Informationen ser ut ungefär som i följande exempel.
@@ -132,7 +113,6 @@ När App Service-planen har skapats visas information av Azure CLI. Informatione
 ```json
 {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
     "location": "West Europe",
     "sku": {
     "capacity": 1,
@@ -147,9 +127,13 @@ När App Service-planen har skapats visas information av Azure CLI. Informatione
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-Nu när en App Service-plan har skapats kan du skapa en webbapp i `quickStartPlan` App Service-planen. Med webbappen får vi ett utrymme för att distribuera vår kod och en URL så att vi kan visa den distribuerade appen. Använd kommandot [az appservice web create](/cli/azure/appservice/web#create) för att skapa webbappen.
+Nu när en App Service-plan har skapats kan du skapa en [webbapp](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) i `quickStartPlan` App Service-planen. Med webbappen får vi ett utrymme för att distribuera vår kod och en URL så att vi kan visa den distribuerade appen. Använd kommandot [az appservice web create](/cli/azure/appservice/web#create) för att skapa webbappen.
 
-I kommandot nedan anger du ditt unika appnamn i platshållaren <app_name>. <app_name> används som standard-DNS-webbplats för webbappen. Därför måste namnet vara unikt i förhållande till alla appar på Azure. Du kan senare mappa en anpassad DNS-post till webbappen innan du exponerar den för användarna.
+I kommandot nedan anger du ditt unika appnamn i platshållaren `<app_name>`. `<app_name>` används i DNS-standardwebbplatsen för webbappen. Om `<app_name>` inte är unikt får du ett felmeddelande om att webbplatsen med det angivna namnet <appens_namn> redan finns.
+
+<!-- removed per https://github.com/Microsoft/azure-docs-pr/issues/11878
+You can later map any custom DNS entry to the web app before you expose it to your users.
+-->
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -183,18 +167,7 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-Nu har vi skapat en ny tom webbapp på Azure. Och nu ska vi konfigurera webbappen för användning av PHP och distribuera vår app till den.
-
-## <a name="configure-to-use-php"></a>Konfiguration för användning av PHP
-
-Använd kommandot [az appservice web config update](/cli/azure/app-service/web/config#update) för att konfigurera webbappen för användning av PHP version `7.0.x`.
-
-> [!TIP]
-> När PHP-versionen konfigureras på det här sättet används en standardbehållare som tillhandahålls av plattformen. Om du vill använda en egen behållare kan du läsa CLI-referensen för kommandot [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update).
-
-```azurecli
-az appservice web config update --linux-fx-version "PHP|7.0" --name <app_name> --resource-group myResourceGroup
-```
+Nu har vi skapat en ny tom webbapp på Azure.
 
 ## <a name="configure-local-git-deployment"></a>Konfigurera lokal git-distribution
 
@@ -220,9 +193,9 @@ Lägg till en Azure-fjärrdatabas till din lokala Git-databas.
 git remote add azure <paste-previous-command-output-here>
 ```
 
-Skicka till Azure-fjärrdatabasen för att distribuera appen. Du uppmanas att ange lösenordet du angav tidigare. Det behövs för att skapa distributionsanvändaren.
+Skicka till Azure-fjärrdatabasen för att distribuera appen. Du uppmanas att ange lösenordet du angav tidigare när du skapade distributionsanvändaren. Se till att du anger det lösenord som du skapade i [Konfigurera en distributionsanvändare](#configure-a-deployment-user), inte lösenordet du använde när du loggade in på Azure Portal.
 
-```azurecli
+```bash
 git push azure master
 ```
 
@@ -280,7 +253,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle gå till appen och klickar på knappen för att uppdatera.
+När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -312,6 +285,7 @@ Flikarna på bladet innehåller många bra funktioner som du kan lägga till i w
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Nästa steg
+> [!div class="nextstepaction"]
+> [Utforska exempelskript för Web Apps CLI](app-service-cli-samples.md)
 
-Utforska färdiga [CLI-skript för Web Apps](app-service-cli-samples.md).
+

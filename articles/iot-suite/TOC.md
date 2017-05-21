@@ -11,6 +11,7 @@
 ## [Översikt över ansluten fabrikslösning](iot-suite-connected-factory-overview.md)
 ## [Genomgång av lösning för fjärrövervakning](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Genomgång av lösning för förebyggande underhåll](iot-suite-predictive-walkthrough.md)
+## [Genomgång av ansluten fabrikslösning](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Anslut Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
 ### Använd C
 #### [Simulerade data](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)

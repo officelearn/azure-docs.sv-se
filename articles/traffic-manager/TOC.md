@@ -2,6 +2,7 @@
 ## [Vad är Traffic Manager?](traffic-manager-overview.md)
 ## [Metoder för routning](traffic-manager-routing-methods.md)
 ### [Hierarki för land/region som används av Traffic Manager](traffic-manager-geographic-regions.md)
+## [Kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md)
 ## [Slutpunktstyper](traffic-manager-endpoint-types.md)
 ## [Slutpunktsövervakning](traffic-manager-monitoring.md)
 ## [Vanliga frågor och svar](traffic-manager-FAQs.md)

@@ -1,9 +1,9 @@
 # Översikt
 ## [Vad är Resource Manager?](resource-group-overview.md)
-## [Tjänster, regioner och API-versioner som stöds](resource-manager-supported-services.md)
-## [Så här fungerar Resource Manager och klassisk distribution](resource-manager-deployment-model.md)
-## [Förebyggande prenumerationsåtgärder](resource-manager-subscription-governance.md)
-## [Styrningsexempel för företag](resource-manager-subscription-examples.md)
+## [Tjänster som stöds](resource-manager-supported-services.md)
+## [Resource Manager och klassisk distribution](resource-manager-deployment-model.md)
+## [Prenumerationsåtgärder](resource-manager-subscription-governance.md)
+## [Hanterade program](managed-application-overview.md)
 
 # Kom igång
 ## [Exportera mall](resource-manager-export-template.md)
@@ -13,6 +13,7 @@
 # Exempel
 ## PowerShell
 ### [Distribuera mall](resource-manager-samples-powershell-deploy.md)
+
 ## Azure CLI
 ### [Distribuera mall](resource-manager-samples-cli-deploy.md)
 
@@ -22,10 +23,8 @@
 ### [Mall-avsnitt](resource-group-authoring-templates.md)
 ### [Länk till andra mallar](resource-group-linked-templates.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
-### Kopiera loop för att skapa flera instanser
-#### [Grundläggande syntax](resource-group-create-multiple.md)
-#### [Sekventiell loop](resource-manager-sequential-loop.md)
-#### [Egenskapskopia](resource-manager-property-copy.md)
+### [Skapa flera instanser](resource-group-create-multiple.md)
+### [Sekventiell loop](resource-manager-sequential-loop.md)
 ### [Ange en plats](resource-manager-template-location.md)
 ### [Tilldela taggar](resource-manager-template-tags.md)
 ### [Ange underordnat resursnamn och typ](resource-manager-template-child-resource.md)
@@ -33,6 +32,7 @@
 ### [Använda objekt för parametrar](resource-manager-objects-as-parameters.md)
 ### [Dela tillstånd mellan länkade mallar](best-practices-resource-manager-state.md)
 ### [Mönster för att utforma mallar](best-practices-resource-manager-design-templates.md)
+
 ## Distribuera
 ### PowerShell
 #### [Distribuera mall](resource-group-template-deploy.md)
@@ -44,8 +44,10 @@
 #### [Exportera mall och distribuera om](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
+### [Distribution av flera resursgrupper](resource-manager-cross-resource-group-deployment.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)
+
 ## Hantera
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -53,15 +55,18 @@
 ### [REST-API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
-### [Skapa definitioner för användargränssnitt](managed-application-createuidefinition-overview.md)
+### [Styrningsexempel](resource-manager-subscription-examples.md)
+
 ## Styr åtkomsten
-### [Skapa tjänstens huvudnamn med PowerShell](resource-group-authenticate-service-principal.md)
-### [Skapa tjänstens huvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Skapa tjänstens huvudnamn med Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
-### [Skapa tjänstens huvudnamn med portalen](resource-group-create-service-principal-portal.md)
+### Skapa tjänstens huvudnamn
+#### [PowerShell](resource-group-authenticate-service-principal.md)
+#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
+#### [Portal](resource-group-create-service-principal-portal.md)
 ### [Autentiserings-API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md)
 ### [Lås resurser](resource-group-lock-resources.md)
 ### [Säkerhetsöverväganden](best-practices-resource-manager-security.md)
+
 ## Ange resursprinciper
 ### [Vad är resursprinciper?](resource-manager-policy.md)
 ### [Tilldelning av principer för portalen](resource-manager-policy-portal.md)
@@ -70,12 +75,21 @@
 ### [Lagringsprinciper](resource-manager-policy-storage.md)
 ### [Principer för virtuella Linux-datorer](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Principer för virtuella Windows-datorer](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Granska och felsöka
-### [Felsök vanliga distributionsfel](resource-manager-common-deployment-errors.md)
+
+## Använda hanterade program
+### [Publicera hanterat program](managed-application-publishing.md)
+### [Använda hanterat program](managed-application-consumption.md)
+### [Skapa definitioner för användargränssnitt](managed-application-createuidefinition-overview.md)
+
+## Granska
 ### [Visa aktivitetsloggar](resource-group-audit.md)
 ### [Visa distributionsåtgärder](resource-manager-deployment-operations.md)
 
+## Felsöka
+### [Vanliga distributionsfel](resource-manager-common-deployment-errors.md)
+
 # Referens
+## [Mallformat](/azure/templates/)
 ## [Mallfunktioner](resource-group-template-functions.md)
 ### [Funktioner för matris och objekt](resource-group-template-functions-array.md)
 ### [Jämförelsefunktioner](resource-group-template-functions-comparison.md)
@@ -84,12 +98,25 @@
 ### [Resursfunktioner](resource-group-template-functions-resource.md)
 ### [Strängfunktioner](resource-group-template-functions-string.md)
 ## [Funktioner för användargränssnittsdefinition](managed-application-createuidefinition-functions.md)
+## [Definitionselement för användargränssnitt](managed-application-createuidefinition-elements.md)
+### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
+### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
+### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
+### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
+### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
+### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
+### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
+### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
+### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
+### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
+### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
+### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
+### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
-## [Azure 2.0 CLI](/cli/azure/resource)
+## [Azure CLI](/cli/azure/resource)
 ## [NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Mallformat](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Resurser

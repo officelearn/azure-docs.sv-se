@@ -16,7 +16,7 @@
     Inställning|Föreslaget värde|Beskrivning
     ---|---|---
     ID|*Unikt värde*|Ett unikt namn du väljer för att identifiera Azure Cosmos DB-kontot. *documents.azure.com* läggs till det ID du anger för att skapa din URI, så använd ett unikt men identifierbart ID. Id:n får bara innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken.
-    AP|Tabell (nyckelvärde)|Vi kommer att programmera mot [Tabell-API](../articles/cosmos-db/table-introduction.md) längre ned i den här artikeln.|
+    API|Tabell (nyckelvärde)|Vi kommer att programmera mot [Tabell-API](../articles/cosmos-db/table-introduction.md) längre ned i den här artikeln.|
     Prenumeration|*Din prenumeration*|Den Azure-prenumeration du vill använda för Azure Cosmos DB-kontot. 
     Resursgrupp|*Samma värde som ID*|Namnet på den nya resursgruppen för kontot. För enkelhetens skull kan du använda samma namn som för ditt ID. 
     Plats|*Regionen som ligger närmast dina användare*|Den geografiska plats som ska vara värd för ditt Azure Cosmos DB-konto. Välj den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.   

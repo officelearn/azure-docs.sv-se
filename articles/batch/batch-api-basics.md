@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -77,13 +77,12 @@ Du kan skapa ett Azure Batch-konto med [Azure Portal](batch-account-create-porta
 Batch har stöd för två kontokonfigurationer, baserat på egenskapen *poolallokeringsläge*. Dessa två konfigurationer ger dig åtkomst till olika funktioner för [Batch-pooler](#pool) (se nedan).
 
 
-* **Batch-tjänst**: Det här är standardalternativet med Batch-pool med virtuella datorer som tilldelas i bakgrunden i Azure-hanterade prenumerationer. Den här kontokonfigurationen måste användas om Cloud Services-pooler krävs, men kan inte användas om Virtual Machine-pooler krävs (som skapas från anpassade VM-avbildningar eller använder ett virtuellt nätverk). Du kan få åtkomst till Batch-API:erna med antingen delad nyckelautentisering eller [Azure Active Directory-autentisering](batch-aad-auth.md).
+* **Batch-tjänst**: Det här är standardalternativet med Batch-pool med virtuella datorer som tilldelas i bakgrunden i Azure-hanterade prenumerationer. Den här kontokonfigurationen måste användas om Cloud Services-pooler krävs, men kan inte användas om Virtual Machine-pooler krävs (som skapas från anpassade VM-avbildningar eller använder ett virtuellt nätverk). Du kan få åtkomst till Batch-API:erna med antingen delad nyckelautentisering eller [Azure Active Directory-autentisering](batch-aad-auth.md). Du kan antingen använda dedikerade noder eller beräkningsnoder med låg prioritet i pooler i kontokonfigurationen för Batch-tjänsten.
 
-* **Användarprenumeration**: Den här kontokonfigurationen måste användas om Virtual Machine-pooler krävs (som skapas från anpassade VM-avbildningar eller använder ett virtuellt nätverk). Du kan endast få åtkomst till Batch API:erna med [Azure Active Directory-autentisering](batch-aad-auth.md) och Cloud Services-pooler stöds inte. Virtuella Batch-beräkningsdatorer allokeras direkt i din Azure-prenumeration. Det här läget kräver att du ställer in ett Azure-nyckelvalv för ditt Batch-konto.
-
+* **Användarprenumeration**: Den här kontokonfigurationen måste användas om Virtual Machine-pooler krävs (som skapas från anpassade VM-avbildningar eller använder ett virtuellt nätverk). Du kan endast få åtkomst till Batch API:erna med [Azure Active Directory-autentisering](batch-aad-auth.md) och Cloud Services-pooler stöds inte. Virtuella Batch-beräkningsdatorer allokeras direkt i din Azure-prenumeration. Det här läget kräver att du ställer in ett Azure-nyckelvalv för ditt Batch-konto. Du kan endast använda dedikerade beräkningsnoder i pooler i kontokonfigurationen för användarprenumerationen. 
 
 ## <a name="compute-node"></a>Beräkningsnod
-En beräkningsnod är en virtuell Azure-dator (VM) som är dedikerad för bearbetning av en del av ditt programs arbetsbelastning. Storleken på en nod avgör antalet CPU-kärnor, minneskapaciteten och storleken på det lokala filsystemet som allokeras till noden. Du kan skapa pooler för Windows- eller Linux-noder med antingen Azure Cloud Services eller Marketplace-avbildningar för Virtual Machines. Mer information om dessa alternativ finns i följande [poolavsnitt](#pool).
+En beräkningsnod är en virtuell Azure-dator eller molntjänstdator som är dedikerad för bearbetning av en del av ditt programs arbetsbelastning. Storleken på en nod avgör antalet CPU-kärnor, minneskapaciteten och storleken på det lokala filsystemet som allokeras till noden. Du kan skapa pooler för Windows- eller Linux-noder med antingen Azure Cloud Services eller Marketplace-avbildningar för Virtual Machines. Mer information om dessa alternativ finns i följande [poolavsnitt](#pool).
 
 Noder kan köra alla körbara filer eller skript som stöds av nodens operativsystemmiljö, inklusive \*.exe-, \*.cmd-, \*.bat- och PowerShell-skript för Windows och binär-, shell- och Python-skript för Linux.
 
@@ -117,6 +116,25 @@ När du skapar en pool kan du ange nedanstående attribut. Vissa inställningar 
   * *Operativsystemfamiljen* avgör också vilka versioner av .NET som installeras med operativsystemet.
   * Precis som med arbetarroller i Cloud Services kan du ange en *operativsystemversion* (mer information om arbetarroller finns i avsnittet [Berätta mer om Cloud Services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) i [Översikt över Cloud Services](../cloud-services/cloud-services-choose-me.md)).
   * Som med arbetarroller rekommenderar vi att du anger `*` för *operativsystemversionen* så att noderna uppgraderas automatiskt och så att inget extra arbete krävs för att hantera nya versioner. Det huvudsakliga skälet till att välja en viss operativsystemversion är att säkerställa programkompatibiliteten, så att du kan testa bakåtkompatibiliteten innan versionen uppdateras. Efter valideringen kan *operativsystemversionen* för poolen uppdateras och den nya operativsystemavbildningen kan installeras – eventuella aktiviteter som körs avbryts och placeras i kö.
+
+* **Typ av beräkningsnod** och **antal målnoder**
+
+    När du skapar en pool kan du ange vilka typer av beräkningsnoder du vill ha och antal målnoder för var och en av dem. Det finns två typer av beräkningsnoder:
+
+    - **Beräkningsnoder med låg prioritet.** Noder med låg prioritet utnyttjar överkapacitet i Azure för att köra Batch-arbetsbelastningar. Noder med låg prioritet är mer kostnadseffektiva än dedikerade noder och gör att du kan använda arbetsbelastningar som kräver mycket beräkningskraft. Mer information finns i [Use low-priority VMs with Batch](batch-low-pri-vms.md) (Använda virtuella datorer med låg prioritet med Batch).
+
+        Beräkningsnoder med låg prioritet kan avbrytas om det inte finns tillräckligt med överkapacitet. Om en nod avbryts när aktiviteter körs placeras aktiviteterna i kö igen och körs när en beräkningsnod blir tillgänglig igen. Noder med låg prioritet är ett bra alternativ för arbetsbelastningar om tiden för slutförande av jobbet är flexibelt och om arbetet är fördelat på flera noder.
+
+        Beräkningsnoder med låg prioritet är endast tillgängliga för Batch-konton som har skapats med poolallokeringsläget inställt på **Batch-tjänst**.
+
+    - **Dedikerade beräkningsnoder.** Dedikerade beräkningsnoder är reserverade för dina arbetsbelastningar. De kostar mer än noder med låg prioritet, men de avbryts aldrig.    
+
+    Du kan ha både noder med låg prioritet och dedikerade beräkningsnoder i samma pool. Varje typ av nod &mdash; låg prioritet och dedikerad &mdash; har en egen inställning för antal målnoder. 
+        
+    Antalet beräkningsnoder kallas *mål* eftersom din pool i vissa fall kanske inte når det önskade antalet noder. Detta kan hända om poolen först nått [kärnkvoten](batch-quota-limit.md) för ditt Batch-konto. Det kan också hända att poolen inte når målantalet om du använder en formel för automatisk skalning för poolen som begränsar det högsta antalet noder.
+
+    Information om priser för beräkningsnoder med låg prioritet och dedikerade beräkningsnoder finns i [Batch-priser](https://azure.microsoft.com/pricing/details/batch/).
+
 * **Nodernas storlek**
 
     Information om storleken på beräkningsnoder med **Cloud Services-konfiguration** finns i [Storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch stöder alla Cloud Services-storlekar utom `ExtraSmall`, `STANDARD_A1_V2` och `STANDARD_A2_V2`.
@@ -126,12 +144,11 @@ När du skapar en pool kan du ange nedanstående attribut. Vissa inställningar 
     När datorns nodstorlek beräknas bör egenskaperna och kraven hos programmen som ska köras på noderna betraktas. Det är lämpligt att ha i åtanke när du väljer den lämpligaste och mest kostnadseffektiva nodstorleken huruvida programmet är flertrådat och hur mycket minne det förbrukar. Du väljer normalt en nodstorlek under antagandet att en aktivitet i taget ska köras på noden. Du kan dock välja att flera aktiviteter, och därmed flera programinstanser, ska kunna [köras parallellt](batch-parallel-node-tasks.md) på datornoder i samband med utförandet av åtgärder. I det här fallet är det vanligt att välja en större nod för att hantera det utökade behovet av att köra åtgärder parallellt. Se [Schemaläggningsprincip](#task-scheduling-policy) för mer information.
 
     Alla noderna i en pool har samma storlek. Om du avser att köra program med olika systemkrav och/eller belastningsnivåer rekommenderar vi att du använder olika pooler.
-* **Antalet målnoder**
 
-    Det här är antalet beräkningsnoder som du vill distribuera i poolen. Detta kallas för ett *mål* eftersom önskat antal noder inte alltid uppnås för poolen. Det önskade antalet noder kanske inte uppnås om poolen når [kärnkvoten](batch-quota-limit.md) för ditt Batch-konto, eller om en formel för automatisk skalning tillämpas på poolen som begränsar det högsta antalet noder (se avsnittet ”Skalningsprincip” nedan).
 * **Skalningsprincip**
 
     När det gäller dynamiska arbetsbelastningar kan du skriva och använda en [formel för automatisk skalning](#scaling-compute-resources) en pool. Batch-tjänsten utvärderar med jämna mellanrum din formel och justerar antalet noder i poolen baserat på olika pool-, jobb- och aktivitetsparametrar som du kan ange.
+
 * **Schemaläggningsprincip för aktiviteter**
 
     Konfigurationsalternativet för [högsta antal aktiviteter per nod](batch-parallel-node-tasks.md) anger det högsta antal aktiviteter som kan köras parallellt på varje beräkningsnod i poolen.

@@ -13,6 +13,7 @@
 ## Skapa en mall
 ### [Läs mer om skalningsuppsättningsmallar](virtual-machine-scale-sets-mvss-start.md)
 ### [Lägg till ett virtuellt nätverk](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Använd en anpassad avbildning](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Distribuera
 ### [Skapa med portalen](virtual-machine-scale-sets-portal-create.md)

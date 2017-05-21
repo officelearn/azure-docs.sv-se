@@ -116,7 +116,7 @@
 ### [Metodtips för säkerhet](iot-hub-security-best-practices.md)
 ### [Säkerhetsarkitektur](iot-hub-security-architecture.md)
 ### [Skydda distributionen av IoT](iot-hub-security-deployment.md)
-## SDK för gateway
+## IoT Edge
 ### Simulera en enhet
 #### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
 #### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
@@ -129,7 +129,7 @@
 ## [Java (tjänst)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (enheter)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [SDK:er för Azure IoT](http://azure.github.io/azure-iot-sdks/)
-## [SDK för gateway](http://azure.github.io/azure-iot-gateway-sdk)
+## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (resursprovider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (enhetsidentiteter)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [REST (enhetstvillingar)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)

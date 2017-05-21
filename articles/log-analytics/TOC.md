@@ -5,7 +5,6 @@
 # Kom igång
 ## [Registrera dig för Log Analytics](log-analytics-get-started.md)
 ## [Hantera åtkomst](log-analytics-manage-access.md)
-## [Proxy och brandvägg](log-analytics-proxy-firewall.md)
 ## [Användningsdata](log-analytics-usage.md)
 ## [Vanliga frågor och svar om Log Analytics](log-analytics-faq.md)
 ## [Tjänstleverantörer](log-analytics-service-providers.md)
@@ -14,7 +13,7 @@
 ## Samla in data
 ### Anslutna källor
 #### [Windows-agenter](log-analytics-windows-agents.md)
-#### [Linux-agenter](log-analytics-linux-agents.md)
+#### [Linux-agenter](log-analytics-agent-linux.md)
 #### [Azure Virtual Machines](log-analytics-azure-vm-extension.md)
 #### [Azure-resurser](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +22,12 @@
 ### Datakällor
 #### [Översikt över datakällor](log-analytics-data-sources.md)
 #### [Windows-händelser](log-analytics-data-sources-windows-events.md)
+#### [Anpassade JSON-data](log-analytics-data-sources-json.md)
+#### [Insamlade prestandadata](log-analytics-data-sources-collectd.md)
+#### [Nagios- och Zabbix-aviseringar](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
 #### [Prestandaräknare](log-analytics-data-sources-performance-counters.md)
+#### [Programprestanda på Linux](log-analytics-data-sources-linux-applications.md)
 #### [IIS-loggar](log-analytics-data-sources-iis-logs.md)
 #### [Anpassade loggar](log-analytics-data-sources-custom-logs.md)
 #### [Anpassade fält](log-analytics-custom-fields.md)
@@ -32,6 +35,7 @@
 ### [Översikt över loggsökningar](log-analytics-log-searches.md)
 ### [Sökreferens](log-analytics-search-reference.md)
 #### [Reguljära uttryck](log-analytics-log-searches-regex.md)
+### [Utför åtgärder från sökresultat](log-analytics-log-search-takeaction.md)
 ### [Datorgrupper](log-analytics-computer-groups.md)
 ## Analysera data
 ### [Instrumentpaneler](log-analytics-dashboards.md)
@@ -54,6 +58,7 @@
 ### [AD-replikeringsstatus](log-analytics-ad-replication-status.md)
 ### [Varningshantering](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
+### [Azure Web Apps-analys](log-analytics-azure-web-apps-analytics.md)
 ### [Kapacitet och prestanda](log-analytics-capacity.md)
 ### [Spårning av ändringar](log-analytics-change-tracking.md)
 ### [Behållare](log-analytics-containers.md)

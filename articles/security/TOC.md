@@ -1,4 +1,4 @@
-# [Översikt](security-get-started-overview.md)
+# [Översikt](azure-security.md)
 ## [Nätverkssäkerhet](security-network-overview.md)
 ## [Lagringssäkerhet](security-storage-overview.md)
 ## [Compute-säkerhet](security-virtual-machines-overview.md)
@@ -6,6 +6,10 @@
 ## [Identitetshantering](security-identity-management-overview.md)
 ## [IoT-säkerhet](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Säkerhetsarkitektur](azure-security-architecture-overview.md)
+### [Driftsäkerhet](azure-operational-security.md)
+### [Avancerad hotidentifiering](azure-threat-detection.md)
+### [Loggning och granskning](azure-log-audit.md)
+### [Isolering i det offentliga molnet](azure-isolation.md)
 
 # Kom igång
 ## [Komma igång med Azure Security](azure-security-getting-started.md)

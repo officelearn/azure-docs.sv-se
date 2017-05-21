@@ -36,6 +36,7 @@
 ### [Generera avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
 ### [Visa statistik i realtid](cdn-real-time-stats.md)
 ### [Analysera gränsnodsprestanda](cdn-edge-performance.md)
+### [Exportera mått med diagnostikloggar](cdn-log-analysis.md)
 
 ## Utveckla
 ### [.NET](cdn-app-dev-net.md)

@@ -1,128 +1,128 @@
-- name: "Dokumentation om Functions"
+- name: Dokumentation om Functions
   href: index.yml
-- name: "Översikt"
+- name: Översikt
   items:
-  - name: "Om Functions"
+  - name: Om Functions
     href: functions-overview.md
-  - name: "Functions-körning"
+  - name: Functions-körning
     href: functions-runtime-overview.md
-  - name: "Välj mellan Flow, Logic Apps, Functions och WebJobs"
+  - name: 'Välj mellan Flow, Logic Apps, Functions och WebJobs'
     href: functions-compare-logic-apps-ms-flow-webjobs.md
-- name: "Snabbstarter"
+- name: Snabbstarter
   expanded: true
   items:
-  - name: "Skapa funktion: portal"
+  - name: 'Skapa funktion: portal'
     href: functions-create-first-azure-function.md
-  - name: "Skapa funktion: Azure CLI"
+  - name: 'Skapa funktion: Azure CLI'
     href: functions-create-first-azure-function-azure-cli.md
 #  - name: Create function - Visual Studio
 #    href: functions-create-your-first-function-visual-studio.md
-  - name: "Utlösare"
+  - name: Utlösare
     items:
-    - name: "Timer"
+    - name: Timer
       href: functions-create-scheduled-function.md
-    - name: "GitHub-webhook"
+    - name: GitHub-webhook
       href: functions-create-github-webhook-triggered-function.md
-    - name: "Blob Storage"
+    - name: Blob Storage
       href: functions-create-storage-blob-triggered-function.md
-    - name: "Queue Storage"
+    - name: Queue Storage
       href: functions-create-storage-queue-triggered-function.md
-  - name: "Integrera"
+  - name: Integrera
     items:
-    - name: "Storage"
+    - name: Lagring
       href: functions-integrate-storage-queue-output-binding.md
-#    - name: Cosmos DB
-#      href: functions-integrate-store-unstructured-data-cosmosdb.md
-- name: "Exempel"
+    - name: Cosmos DB
+      href: functions-integrate-store-unstructured-data-cosmosdb.md
+- name: Exempel
   items:
-  - name: "Azure CLI"
+  - name: Azure CLI
     href: functions-cli-samples.md
-- name: "Självstudier"
+- name: Självstudier
   items:
-  - name: "1 – Functions med Logic Apps"
+  - name: 1 – Functions med Logic Apps
     href: functions-twitter-email.md
-  - name: "2.– Skapa ett serverlöst API"
+  - name: 2.– Skapa ett serverlöst API
     href: functions-create-serverless-api.md
-- name: "Koncept"
+- name: Koncept
   items:
-  - name: "Värdplaner"
+  - name: Värdplaner
     href: functions-scale.md
-  - name: "Utlösare och bindningar"
+  - name: Utlösare och bindningar
     href: functions-triggers-bindings.md
-- name: "Instruktionsguider"
+- name: Instruktionsguider
   items:
-  - name: "Testa Azure Functions"
+  - name: Testa Azure Functions
     href: functions-test-a-function.md
-  - name: "Utveckla och felsöka lokalt"
+  - name: Utveckla och felsöka lokalt
     href: functions-run-local.md
-  - name: "Konfigurera inställningar för en funktionsapp"
+  - name: Konfigurera inställningar för en funktionsapp
     href: functions-how-to-use-azure-function-app-settings.md
-  - name: "Löpande distribution för Azure Functions"
+  - name: Löpande distribution för Azure Functions
     href: functions-continuous-deployment.md
-  - name: "Distribuera Functions med infrastruktur som kod"
+  - name: Distribuera Functions med infrastruktur som kod
     href: functions-infrastructure-as-code.md
-  - name: "Övervaka Azure Functions"
+  - name: Övervaka Azure Functions
     href: functions-monitoring.md
-  - name: "Installera Functions-körning"
+  - name: Installera Functions-körning
     href: functions-runtime-install.md
-- name: "Referens"
+- name: Referens
   items:
-  - name: "Utveckla funktionsappar"
+  - name: Utveckla funktionsappar
     href: functions-reference.md
     items:
-    - name: "Öppna API 2.0"
+    - name: Öppna API 2.0
       href: functions-api-definition.md
-  - name: "Metodtips för Azure Functions"
+  - name: Metodtips för Azure Functions
     href: functions-best-practices.md
-  - name: "Bindningar"
+  - name: Bindningar
     items:
-    - name: "DocumentDB-bindningar"
+    - name: Cosmos DB-bindningar
       href: functions-bindings-documentdb.md
-    - name: "Event Hub-bindningar"
+    - name: Event Hub-bindningar
       href: functions-bindings-event-hubs.md
-    - name: "HTTP- och webhook-bindningar"
+    - name: HTTP- och webhook-bindningar
       href: functions-bindings-http-webhook.md
-    - name: "Mobile Apps-bindningar"
+    - name: Mobile Apps-bindningar
       href: functions-bindings-mobile-apps.md
-    - name: "Notification Hub-utdatabindning"
+    - name: Notification Hub-utdatabindning
       href: functions-bindings-notification-hubs.md
-    - name: "Service Bus-utlösare och bindningar för köer och ämnen"
+    - name: Service Bus-utlösare och bindningar för köer och ämnen
       href: functions-bindings-service-bus.md
-    - name: "SendGrid-bindningar"
+    - name: SendGrid-bindningar
       href: functions-bindings-sendgrid.md
-    - name: "Lagringsbindningar"
+    - name: Lagringsbindningar
       items:
-      - name: "Blobbindningar"
+      - name: Blobbindningar
         href: functions-bindings-storage-blob.md
-      - name: "Köbindningar"
+      - name: Köbindningar
         href: functions-bindings-storage-queue.md
-      - name: "Tabellbindningar"
+      - name: Tabellbindningar
         href: functions-bindings-storage-table.md
-      - name: "Bindningar för externa filer"
+      - name: Bindningar för externa filer
         href: functions-bindings-external-file.md
-    - name: "SendGrid-bindningar"
+    - name: SendGrid-bindningar
       href: functions-bindings-sendgrid.md
-    - name: "Timerutlösare"
+    - name: Timerutlösare
       href: functions-bindings-timer.md
-    - name: "Twilio-utdatabindning"
+    - name: Twilio-utdatabindning
       href: functions-bindings-twilio.md
-  - name: "Ramverk"
+  - name: Ramverk
     items:
-    - name: "C#"
+    - name: 'C#'
       href: functions-reference-csharp.md
-    - name: "F#"
+    - name: 'F#'
       href: functions-reference-fsharp.md
-    - name: "JavaScript"
+    - name: JavaScript
       href: functions-reference-node.md
-- name: "Resurser"
+- name: Resurser
   items:
-  - name: "Prissättning"
+  - name: Prissättning
     href: https://azure.microsoft.com/pricing/details/functions/
-  - name: "MSDN-forum"
+  - name: MSDN-forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
-  - name: "Stack Overflow"
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-functions
-  - name: "Azure Functions GitHub-lagringsplats"
+  - name: Azure Functions GitHub-lagringsplats
     href: https://github.com/Azure/Azure-Functions/
-  - name: "Tjänstuppdateringar"
+  - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=

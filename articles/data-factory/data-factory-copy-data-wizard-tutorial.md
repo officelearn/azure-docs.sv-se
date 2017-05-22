@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/24/2017
 ms.author: spelluru
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
 ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
+ms.contentlocale: sv-se
 ms.lasthandoff: 02/03/2017
 
 
@@ -145,7 +146,7 @@ I det här steget använder du Azure-portalen för att skapa en Azure-datafabrik
    ![Övervakningsapp](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
    
    
-   Klicka på knappen **Uppdatera** längst ner i listan **AKTIVITETSFÖNSTER ** för att se senaste status. Den uppdateras inte automatiskt. 
+   Klicka på knappen **Uppdatera** längst ner i listan **AKTIVITETSFÖNSTER**  för att se senaste status. Den uppdateras inte automatiskt. 
 
 > [!NOTE]
 > Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg din första pipeline för att omvandla data med Hadoop-kluster).

@@ -4,7 +4,7 @@ Klientbiblioteket för IoT Hub-serialiseraren använder en modell för att ange 
 
 1. Lägg till följande variabeldeklarationer efter `#include`-instruktionerna. Ersätt platshållarvärdena [Enhets-ID] och [Enhetsnyckel] med de värden du antecknade för enheten i instrumentpanelen för fjärrövervakningslösningen. Använd värdnamnet för IoT Hub från lösningens instrumentpanel för att ersätta [IoTHub-namn]. Om ditt värdnamn för IoT Hub exempelvis är **contoso.azure-devices.net** ersätter du [IoTHub-namn] med **contoso**:
    
-    ```
+    ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
@@ -17,7 +17,7 @@ Klientbiblioteket för IoT Hub-serialiseraren använder en modell för att ange 
    - Ta emot och arbeta med önskade egenskaper som angetts i enhetstvillingen i IoT Hub.
    - Svara på de direkta metoderna **Reboot** och **InitiateFirmwareUpdate** som anropas via lösningsportalen. Enheten använder rapporterade egenskaper för att skicka information om direkta metoder som stöds.
    
-    ```
+    ```c
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
 
@@ -90,7 +90,7 @@ Lägg till kod som implementerar det beteende som definierats i modellen.
 
 1. Lägg till följande funktioner som hanterar de önskade egenskaperna i lösningens instrumentpanel. Dessa önskade egenskaper definieras i modellen:
 
-    ```
+    ```c
     void onDesiredTemperatureMeanValue(void* argument)
     {
       /* By convention 'argument' is of the type of the MODEL */
@@ -109,7 +109,7 @@ Lägg till kod som implementerar det beteende som definierats i modellen.
 
 1. Lägg till följande funktioner som hanterar de direkta metoder som anropas via IoT Hub. Dessa direkta metoder definieras i modellen:
 
-    ```
+    ```c
     /* Handlers for direct methods */
     METHODRETURN_HANDLE Reboot(Thermostat* thermostat)
     {
@@ -132,7 +132,7 @@ Lägg till kod som implementerar det beteende som definierats i modellen.
 
 1. Lägg till följande funktion som skickar ett meddelande till den förkonfigurerade lösningen:
    
-    ```
+    ```c
     /* Send data to IoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -160,7 +160,7 @@ Lägg till kod som implementerar det beteende som definierats i modellen.
 
 1. Lägg till följande motringningshanterare som körs när enheten har skickat nya rapporterade egenskapsvärden till den förkonfigurerade lösningen:
 
-    ```
+    ```c
     /* Callback after sending reported properties */
     void deviceTwinCallback(int status_code, void* userContextCallback)
     {
@@ -180,7 +180,7 @@ Lägg till kod som implementerar det beteende som definierats i modellen.
     - Skapar en loop för att skicka telemetri varje sekund.
     - Avinitierar alla resurser.
 
-      ```
+      ```c
       void remote_monitoring_run(void)
       {
         if (platform_init() != 0)

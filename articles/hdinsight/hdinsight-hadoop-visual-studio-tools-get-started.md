@@ -1,7 +1,7 @@
 ---
 title: "Lär dig använda Data Lake (HDInsight) Tools för Visual Studio | Microsoft Docs"
 description: "Få reda på hur du installerar och använder Data Lake-verktygen (HDInsight) för Visual Studio för att ansluta till ett Hadoop-kluster och köra en Hive-fråga."
-keywords: "hadoop-verktyg, hive-fråga, visual studio"
+keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 services: HDInsight
 documentationcenter: 
 tags: azure-portal
@@ -17,10 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/07/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 86641734634df131fd366e0b9e7cc6f0d4e54b7e
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3adbd56132373fee50125c6514c6c1191d2b6ed4
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---

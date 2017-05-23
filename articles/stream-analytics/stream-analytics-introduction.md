@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 42f77fbea2ac9572940e8c428999c79d6b4b6e23
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -39,7 +40,7 @@ Stora mängder data flödar med hög hastighet via kabel i dag. Organisationer s
 * **Låg kostnad:** Som molntjänst är Stream Analytics optimerad att hjälpa användarna att till en mycket låg kostnad komma igång med och underhålla lösningar för realtidsanalys. Tjänsten är utformad så att du betalar per användning baserat på en Streaming Unit och mängden data som bearbetas av systemet. Användningen beräknas baserat på mängden bearbetade händelser och hur mycket datorkraft som tilldelats i klustret för att hantera motsvarande Stream Analytics-jobb.  
 * **Referensdata:** Stream Analytics ger användarna möjlighet att ange och använda referensdata. Detta kan utgöra historiska data eller data som inte strömmas och som förändras mindre ofta över tid. Systemet förenklar användningen av referensdata så att de behandlas precis som alla andra inkommande händelseströmmar som ska kopplas till andra händelseströmmar som inhämtas i realtid för att genomföra transformationer.  
 * **Användardefinierade funktioner:** Stream Analytics integreras med Azure Machine Learning för att definiera funktionsanrop i Machine Learning-tjänsten som en del av en Stream Analytics-fråga. Detta utökar funktionerna i Stream Analytics så att man att utnyttjar befintliga Azure Machine Learning-lösningar. Mer information om detta finns i [Självstudie om Machine Learning-integration](stream-analytics-machine-learning-integration-tutorial.md).
-* **Anslutningsbarhet:** Stream Analytics ansluter direkt till Azure Event Hubs och Azure IoT Hubs för inhämtning av dataströmmar och till tjänsten Azure Blob för att mata in historiska data. Resultatet kan skrivas från Stream Analytics till Azure Storage-blobbar eller Azure Storage-tabeller, Azure SQL DB, Azure Data Lake Stores, DocumentDB, Event Hubs, Azure Service Bus-ämnen eller Azure Service Bus-köer och Power BI, där det kan bearbetas ytterligare av arbetsflöden, användas i batchanalyser via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) eller bearbetas igen som en serie händelser. Om du använder Event Hubs kan du skapa flera Stream Analytics-jobb tillsammans med andra datakällor och bearbetningsmotorer utan att beräkningarnas strömmande egenskaper går förlorade.  
+* **Anslutningsbarhet:** Stream Analytics ansluter direkt till Azure Event Hubs och Azure IoT Hubs för inhämtning av dataströmmar och till tjänsten Azure Blob för att mata in historiska data. Resultatet kan skrivas från Stream Analytics till Azure Storage-blobbar eller Azure Storage-tabeller, Azure SQL DB, Azure Data Lake Stores, Azure Cosmos DB, Event Hubs, Azure Service Bus-ämnen eller Azure Service Bus-köer och Power BI, där det kan bearbetas ytterligare av arbetsflöden, användas i batchanalyser via [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) eller bearbetas igen som en serie händelser. Om du använder Event Hubs kan du skapa flera Stream Analytics-jobb tillsammans med andra datakällor och bearbetningsmotorer utan att beräkningarnas strömmande egenskaper går förlorade.  
 
 ## <a name="get-help"></a>Få hjälp
 Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)

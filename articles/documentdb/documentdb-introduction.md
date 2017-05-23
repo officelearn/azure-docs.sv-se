@@ -1,68 +1,84 @@
 ---
-title: Introduktion till DocumentDB, en JSON-databas | Microsoft Docs
-description: "Läs mer om Azure DocumentDB, en NoSQL JSON-databas. Den här dokumentdatabasen har skapats för stordata, elastisk skalbarhet och hög tillgänglighet."
+title: "DocumentDB-API:et för Azure Cosmos DB | Microsoft Docs"
+description: "Lär dig hur du kan använda Azure Cosmos DB för att lagra och skicka frågor mot enorma mängder JSON-dokument med korta svarstider med hjälp av SQL och JavaScript."
 keywords: json-databas, dokumentdatabas
-services: documentdb
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
+ms.date: 05/04/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4f6ae0c3c40a10f75b46c6e44b0aa9e8ce440b4d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 60cc7b5acf0a8c54d8927e992b2189f49af1db3c
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="introduction-to-documentdb-a-nosql-json-database"></a>Introduktion till DocumentDB, en NoSQL JSON-databas
-## <a name="what-is-documentdb"></a>Vad är DocumentDB?
-DocumentDB är en helt hanterad NoSQL-databas för snabb och förutsägbar prestanda, hög tillgänglighet, elastisk skalning, global distribuering och enkel utveckling. Som en schemafri NoSQL-databas ger DocumentDB omfattande och bekanta SQL-frågefunktioner med konsekvent korta svarstider för JSON-data – vilket säkerställer att 99 % din läsningar behandlas på under 10 millisekunder och 99 % av din skrivningar behandlas på under 15 millisekunder. Dessa unika fördelar gör att DocumentDB passar mycket bra för webb, mobil, spel, IoT och många andra tillämpningar som behöver sömlös skalning och global replikering.
+# <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Introduktion till DocumentDB-API:et för Azure Cosmos DB
 
-## <a name="how-can-i-learn-about-documentdb"></a>Hur kan jag lära mig om DocumentDB?
-Du kan snabbt lära dig mer om DocumentDB och se hur det fungerar i praktiken med följande tre steg: 
+[Azure Cosmos DB](../cosmos-db/introduction.md) är Microsofts globalt distribuerade databastjänst för flera datamodeller för verksamhetskritiska program. Azure Cosmos DB erbjuder [nyckelfärdig global distribution](../documentdb/documentdb-distribute-data-globally.md), [elastisk skalning av dataflöde och lagring](../cosmos-db/partition-data.md) världen över, ensiffrig svarstid som den 99:e percentilen, [fem väldefinierade konsekvensnivåer](../documentdb/documentdb-consistency-levels.md) och garanterat hög tillgänglighet, och allt understöds av [branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/). Azure Cosmos DB [indexerar alla data automatiskt](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) utan att du behöver bry dig om schema- eller indexhantering. Det stöder flera modeller och dokument, nyckelvärde graf och kolumndatamodeller. 
 
-1. Titta på tvåminutersvideon [Vad är DocumentDB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/), där fördelarna med att använda DocumentDB beskrivs.
-2. Titta på treminutersvideon [Skapa DocumentDB på Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/), som visar hur du kommer igång med DocumentDB med hjälp av Azure Portal.
+![Azure DocumentDB-API:et](./media/documentdb-introduction/cosmosdb-documentdb.png) 
+
+Genom DocumentDB-API:et tillhandahåller Azure Cosmos DB omfattande och välbekanta [SQL-frågefunktioner](documentdb-sql-query.md) med genomgående korta svarstider för schemalösa JSON-data. Den här artikeln innehåller en översikt över DocumentDB-API:et för Azure Cosmos DB och förklarar hur du kan använda det för att lagra enorma mängder JSON-data och skicka frågor mot dem med svarstider på bara några millisekunder. Artikeln beskriver också hur du enkelt kan utveckla schemat. 
+
+## <a name="how-can-i-learn-about-the-documentdb-api"></a>Hur lär jag mig mer om DocumentDB-API:et?
+Du kan snabbt lära dig mer om DocumentDB-API:et och se hur det fungerar i praktiken genom att följa dessa tre steg: 
+
+1. Titta på den två minuter långa videon [What is Azure Cosmos DB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) (Vad är Azure Cosmos DB?), som beskriver fördelarna med att använda Azure Cosmos DB.
+2. Titta på den tre minuter långa videon [Create Azure Cosmos DB on Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) (Skapa Azure Cosmos DB i Azure), som beskriver hur du kommer igång med Azure Cosmos DB med hjälp av Azure Portal.
 3. Besök [Query Playground](http://www.documentdb.com/sql/demo), där du kan prova olika aktiviteter där du lär dig mer om de omfattande frågefunktionerna i DocumentDB. Öppna sedan fliken Begränsat läge och kör egna anpassade SQL-frågor och experimentera med DocumentDB.
 
 Gå därefter tillbaka till den här artikeln för att gå djupare.  
 
-## <a name="what-capabilities-and-key-features-does-documentdb-offer"></a>Vilka möjligheter och viktiga funktioner erbjuder DocumentDB?
-Azure DocumentDB erbjuder följande viktiga funktioner och fördelar:
+## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Vilka är de viktigaste funktionerna i Azure Cosmos DB?
+Azure Cosmos DB erbjuder, via DocumentDB-API:et, följande funktioner och fördelar:
 
-* **Elastiska och skalbara dataflöden och lagringsutrymmen:** Det är enkelt att skala upp eller ned en DocumentDB-JSON-databas så att den passar behoven för ditt program. Dina data lagras på SSD-diskar (Solid State Disk) för korta och förutsägbara svarstider. DocumentDB stöder behållare för lagring av anropade samlingar JSON-data som kan skalas till praktiskt taget obegränsade lagringsstorlekar och etablerade dataflöden. Du kan skala DocumentDB elastiskt och smidigt med förutsägbar prestanda när programmet växer. 
-* **Replikering av flera regioner:** DocumentDB replikerar på ett transparent sätt data till alla regioner som du har kopplat till DocumentDB-kontot, så att du kan utveckla program som kräver global åtkomst till data samtidigt som man kompromissar mellan konsekvens, tillgänglighet och prestanda med motsvarande garantier. DocumentDB ger transparent regional redundans med flera API: er och möjlighet att på ett elastiskt sätt skala dataflöde och lagring i hela världen. Läs mer i [Distribuera data globalt med DocumentDB](documentdb-distribute-data-globally.md).
-* **Ad hoc-frågor med välbekant SQL-syntax:** Lagra heterogena JSON-dokument inom DocumentDB och skicka förfrågningar till dokumenten via en välbekant SQL-syntax. DocumentDB använder en samtidig, låsfri, loggstrukturerad indexeringsteknik som automatiskt indexerar allt dokumentinnehåll. På så vis kan du skicka omfattande förfrågningar i realtid utan att behöva ange schematips, sekundärindex eller vyer. Läs mer i [Förfrågningar i DocumentDB](documentdb-sql-query.md). 
-* **JavaScript-körning i databasen:** Uttryck programlogik som lagrade procedurer, utlösare och användardefinierade funktioner (UFD:er) med standard JavaScript. Då kan applogiken bearbeta data utan bekymmer för matchningsfel mellan appen och databasschemat. DocumentDB ger fullständig transaktionell körning av JavaScript-programlogik direkt i databasmotorn. Med den djupgående integrationen av JavaScript kan åtgärderna INFOGA, ERSÄTT, TA BORT och VÄLJ köras från ett JavaScript-program som en isolerad transaktion. Mer information finns i [Programmering av serversidan i DocumentDB](documentdb-programming.md).
-* **Justerbara konsekvensnivåer:** Välj bland fyra väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. DocumentDB erbjuder fyra olika konsekvensnivåer för frågor och läsåtgärder: stark, begränsat föråldrad, session och slutlig. Med de här detaljerade, väldefinierade konsekvensnivåerna kan du själv avgöra balansen mellan konsekvens, tillgänglighet och svarstid. Läs mer om hur du [maximerar tillgänglighet och prestanda i DocumentDB med hjälp av konsekvensnivåer](documentdb-consistency-levels.md).
-* **Fullständigt hanterad:** Eliminerar behovet av att hantera databasen och datorresurser. Eftersom det är en fullständigt hanterad Microsoft Azure-tjänst behöver du inte hantera virtuella datorer, distribuera och konfigurera programvara, hantera skalning eller hantera komplexa uppgraderingar av datanivåer. Alla databaser säkerhetskopieras och skyddas automatiskt mot regionala fel. Du kan enkelt lägga till ett DocumentDB-konto och etablera kapacitet när du behöver den, så att du kan fokusera på din app i stället för på att använda och hantera din databas. 
-* **Öppen design:** Kom igång snabbt med hjälp av befintliga kunskaper och verktyg. Det är enkelt och användarvänligt att programmera mot DocumentDB och det kräver inte att du skaffar nya verktyg eller följer anpassade tillägg till JSON eller JavaScript. Du kommer åt databasens alla funktioner, som CRUD-, fråge- och JavaScript-bearbetning, över ett enkelt RESTful HTTP-gränssnitt. DocumentDB omfattar befintliga format, språk och standarder och erbjuder dessutom värdefull databaskapacitet.
-* **Automatisk indexering:** Som standard indexerar DocumentDB automatiskt alla dokument i databasen och varken förväntar sig eller kräver något schema eller att sekundära index skapas. Vill du inte indexera allt? Oroa dig inte, du kan även [välja bort sökvägar i JSON-filer](documentdb-indexing-policies.md).
-* **Kompatibilitet med MongoDB-appar:** Med DocumentDB: API för MongoDB kan du använda DocumentDB-databaser som datalager för appar som är skrivna för MongoDB. Det innebär att ditt program som är skrivet för MongoDB nu kan kommunicera med DocumentDB och använda DocumentDB-databaser istället för MongoDB-databaser genom att använda befintliga drivrutiner för MongoDB-databaser. I många fall kan du växla från att använda MongoDB till DocumentDB genom att bara ändra en anslutningssträng. Läs mer i [Vad är DocumentDB: API för MongoDB?](documentdb-protocol-mongodb.md)
+* **Elastiska och skalbara dataflöden och lagringsutrymmen:** Skala enkelt upp eller ned din JSON-databas så att den passar dina programbehov. Dina data lagras på SSD-diskar (Solid State Disk) för korta och förutsägbara svarstider. Azure Cosmos DB stöder behållare för lagring av JSON-data kallade samlingar som kan skalas till praktiskt taget obegränsade lagringsstorlekar och etablerade dataflöden. Du kan skala Azure Cosmos DB elastiskt och smidigt med förutsägbara prestanda allteftersom programmet växer. 
 
-## <a name="data-management"></a>Hur hanterar DocumentDB data?
-Azure DocumentDB hanterar JSON-data via väldefinierade databasresurser. Dessa resurser replikeras för hög tillgänglighet och är unikt adresserbara genom sina logiska URI:er. DocumentDB erbjuder en enkel HTTP-baserad RESTful-programmeringsmiljö för alla resurser. 
 
-DocumentDB-databaskontot är ett unikt namnområde som ger dig tillgång till Azure DocumentDB. Innan du kan skapa ett databaskonto måste du ha en Azure-prenumeration, som ger dig tillgång till en mängd olika Azure-tjänster. 
+* **Replikering mellan flera regioner:** Azure Cosmos DB replikerar data transparent till alla regioner som du har associerat med ditt Azure Cosmos DB-konto, så att du kan utveckla program som kräver global åtkomst till data med rätt balans mellan konsekvens, tillgänglighet och prestanda – allt med motsvarande garantier. Azure Cosmos DB tillhandahåller transparent regional redundans med flera API:er, och möjligheten att elastiskt skala dataflöde och lagring i hela världen. Mer information finns i [Distribute data globally with Azure Cosmos DB](documentdb-distribute-data-globally.md) (Distribuera data globalt med Azure Cosmos DB).
 
-Alla resurser inom DocumentDB modelleras och lagras som JSON-dokument. Resurser hanteras som objekt, som är JSON-dokument med metadata, och som flöden, som är samlingar av objekt. Objektuppsättningar ingår i respektive flöde.
+* **Ad hoc-frågor med välbekant SQL-syntax:** Lagra heterogena JSON-dokument och skicka frågor mot dokumenten med hjälp av en välbekant SQL-syntax. Azure Cosmos DB använder en samtidig, låsfri, loggstrukturerad indexeringsteknik som automatiskt indexerar allt dokumentinnehåll. På så vis kan du skicka omfattande förfrågningar i realtid utan att behöva ange schematips, sekundärindex eller vyer. Mer information finns i [Query Azure Cosmos DB](documentdb-sql-query.md) (Skicka frågor mot Azure Cosmos DB). 
+* **JavaScript-körning i databasen:** Uttryck programlogik som lagrade procedurer, utlösare och användardefinierade funktioner (UFD:er) med standard JavaScript. Då kan applogiken bearbeta data utan bekymmer för matchningsfel mellan appen och databasschemat. DocumentDB-API:et erbjuder fullständig transaktionell körning av JavaScript-programlogik direkt i databasmotorn. Med den djupgående integrationen av JavaScript kan åtgärderna INFOGA, ERSÄTT, TA BORT och VÄLJ köras från ett JavaScript-program som en isolerad transaktion. Mer information finns i [Programmering av serversidan i DocumentDB](documentdb-programming.md).
 
-Bilden nedan visar relationerna mellan DocumentDB-resurser:
+* **Justerbara konsekvensnivåer:** Välj mellan fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Med de här detaljerade, väldefinierade konsekvensnivåerna kan du själv avgöra balansen mellan konsekvens, tillgänglighet och svarstid. Läs mer om hur du [maximerar tillgänglighet och prestanda med hjälp av konsekvensnivåer](documentdb-consistency-levels.md).
 
-![Hierarkisk relation mellan resurser i DocumentDB, en NoSQL JSON-databas][1] 
+* **Fullständigt hanterad:** Eliminerar behovet av att hantera databasen och datorresurser. Eftersom det är en fullständigt hanterad Microsoft Azure-tjänst behöver du inte hantera virtuella datorer, distribuera och konfigurera programvara, hantera skalning eller hantera komplexa uppgraderingar av datanivåer. Alla databaser säkerhetskopieras och skyddas automatiskt mot regionala fel. Du kan enkelt lägga till ett Azure Cosmos DB-konto och etablera kapacitet när du behöver den, så att du kan fokusera på din app i stället för på driften och hanteringen av databasen. 
+
+* **Öppen design:** Kom igång snabbt med hjälp av befintliga kunskaper och verktyg. Det är enkelt att programmera mot DocumentDB-API:et och du behöver inte skaffa nya verktyg eller använda de vanliga tilläggen för JSON eller JavaScript. Du kommer åt databasens alla funktioner, som CRUD-, fråge- och JavaScript-bearbetning, över ett enkelt RESTful HTTP-gränssnitt. DocumentDB-API:et omfattar befintliga format, språk och standarder och erbjuder dessutom värdefull databaskapacitet.
+
+* **Automatisk indexering:** Som standard indexerar Azure Cosmos DB automatiskt alla dokument i databasen och varken förväntar sig eller kräver något schema eller att sekundära index skapas. Vill du inte indexera allt? Oroa dig inte, du kan även [välja bort sökvägar i JSON-filer](documentdb-indexing-policies.md).
+
+## <a name="data-management"></a>Hur hanteras data med DocumentDB-API?
+Med DocumentDB-API:et hanteras JSON-data med hjälp av väldefinierade databasresurser. Dessa resurser replikeras för hög tillgänglighet och är unikt adresserbara genom sina logiska URI:er. DocumentDB erbjuder en enkel HTTP-baserad RESTful-programmeringsmiljö för alla resurser. 
+
+
+Azure Cosmos DB-databaskontot är ett unikt namnområde som ger dig åtkomst till Azure Cosmos DB. Innan du kan skapa ett databaskonto måste du ha en Azure-prenumeration, som ger dig tillgång till en mängd olika Azure-tjänster. 
+
+Alla resurser i Azure Cosmos DB modelleras och lagras som JSON-dokument. Resurser hanteras som objekt, som är JSON-dokument med metadata, och som flöden, som är samlingar av objekt. Objektuppsättningar ingår i respektive flöde.
+
+Bilden nedan visar relationerna mellan Azure DB Cosmos-resurserna:
+
+![Den hierarkiska relationen mellan resurser i Azure Cosmos DB][1] 
 
 Ett databaskonto består av en uppsättning databaser som alla innehåller flera samlingar, som i sin tur kan innehålla lagrade procedurer, utlösare, UDF:er, dokument och relaterade bilagor. En databas har också associerade användare med en uppsättning behörigheter att komma åt andra samlingar, lagrade procedurer, utlösare, UDF:er, dokument eller bilagor. Databaser, användare, behörigheter och samlingar är systemdefinierade resurser med välkända scheman, men dokument, lagrade procedurer, utlösare, UDF:er och bilagor innehåller godtyckligt användardefinierat JSON-innehåll.  
 
-## <a name="develop"></a> Hur kan jag utveckla appar med DocumentDB?
-Azure DocumentDB visar resurser via ett REST-API som kan anropas av alla språk som kan göra HTTP/HTTPS-förfrågningar. Dessutom erbjuder DocumentDB programmeringsbibliotek för flera populära språk, och det är kompatibelt med API:er för MongoDB. Klientbiblioteken förenklar många aspekter av arbetet med Azure DocumentDB eftersom de hanterar information om till exempel cachelagring av adresser, hantering av undantag och automatiska nya försök. Bibliotek finns just nu tillgängliga för följande språk och plattformar:  
+> [!NOTE]
+> Eftersom DocumentDB-API:et tidigare var tillgängligt som Azure DocumentDB-tjänsten kan du fortsätta att etablera, övervaka och hantera konton som skapats med REST-API:et eller verktygen för Azure Resource Management genom att använda antingen Azure DocumentDB- eller Azure Cosmos DB-resursnamn. Vi använder namnen utan åtskillnad när vi refererar till Azure DocumentDB-API:erna. 
+
+## <a name="develop"></a>Hur kan jag utveckla appar med DocumentDB-API:et?
+
+Azure Cosmos DB exponerar resurser via ett DocumentDB REST-API som kan anropas av alla språk som stöder HTTP/HTTPS-förfrågningar. Vi erbjuder också programmeringsbibliotek för flera populära språk för DocumentDB-API:et. Klientbiblioteken förenklar många aspekter av arbetet med API:et eftersom de hanterar information om till exempel cachelagring av adresser, hantering av undantag och automatiska nya försök. Bibliotek finns just nu tillgängliga för följande språk och plattformar:  
 
 | Ladda ned | Dokumentation |
 | --- | --- |
@@ -74,23 +90,24 @@ Azure DocumentDB visar resurser via ett REST-API som kan anropas av alla språk 
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python-bibliotek](http://azure.github.io/azure-documentdb-python/) |
 | Saknas | [API för MongoDB](documentdb-protocol-mongodb.md)
 
-Med [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) kan du utveckla och testa ditt program lokalt, utan att skapa en Azure-prenumeration och utan kostnad. När du är nöjd med hur programmet fungerar i DocumentDB-emulatorn kan du växla till ett Azure DocumentDB-konto i molnet.
 
-DocumentDB erbjuder inte bara grundläggande åtgärder för skapande, läsning, uppdateringar och borttagning, utan också ett omfattande SQL-gränssnitt för hämtning av JSON-dokument och support på serversidan för transaktionell körning av JavaScript-programlogik. Gränssnitten för fråge- och skriptkörning finns tillgängliga via alla plattformsbibliotek samt REST-API:erna. 
+Med [Azure Cosmos DB-emulatorn](documentdb-nosql-local-emulator.md) kan du utveckla och testa ditt program lokalt med DocumentDB-API:et, utan att skapa en Azure-prenumeration och utan kostnad. När du är nöjd med hur programmet fungerar i emulatorn kan du växla till ett Azure Cosmos DB-konto i molnet.
+
+DocumentDB-API:et tillhandahåller inte bara grundläggande åtgärder för generering, läsning, uppdatering och borttagning, utan även ett omfattande SQL-gränssnitt för hämtning av JSON-dokument och stöd på serversidan för transaktionell körning av JavaScript-programlogik. Gränssnitten för fråge- och skriptkörning finns tillgängliga via alla plattformsbibliotek samt REST-API:erna. 
 
 ### <a name="sql-query"></a>SQL-fråga
-Azure DocumentDB stöder förfrågningar till dokument med ett SQL-språk, som grundas på typsystemet i JavaScript, och uttryck med stöd för relations-, hierarki- och rumsfrågor. Frågespråket i DocumentDB är ett enkelt men kraftfullt gränssnitt för förfrågningar till JSON-dokument. Språket har stöd för en delmängd av ANSI SQL-grammatiken och dessutom djupgående integration av objekt, matriser, objektkonstruktion och funktionsanrop i JavaScript. Frågemodellen i DocumentDB erbjuds utan uttryckliga scheman eller indexeringstips från utvecklaren.
+DocumentDB-API:et stöder frågekörning mot dokument med ett SQL-språk, som bygger på JavaScript-typsystemet, och uttryck med stöd för relations-, hierarki- och spatialfrågor. Frågespråket i DocumentDB är ett enkelt men kraftfullt gränssnitt för förfrågningar till JSON-dokument. Språket har stöd för en delmängd av ANSI SQL-grammatiken och dessutom djupgående integration av objekt, matriser, objektkonstruktion och funktionsanrop i JavaScript. Frågemodellen i DocumentDB erbjuds utan uttryckliga scheman eller indexeringstips från utvecklaren.
 
-Användardefinierade funktioner (UDF:er) kan registreras med DocumentDB och refereras till som en del av en SQL-fråga, vilket innebär att grammatiken även stöder anpassad programlogik. Dessa UDF:er skrivs som JavaScript-program och körs i databasen. 
+Användardefinierade funktioner (UDF:er) kan registreras med DocumentDB-API:et och refereras till som en del av en SQL-fråga, vilket innebär att grammatiken även stöder anpassad programlogik. Dessa UDF:er skrivs som JavaScript-program och körs i databasen. 
 
-För .NET-utvecklare erbjuder DocumentDB även en LINQ-frågeleverantör som en del i [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx). 
+För .NET-utvecklare erbjuder DocumentDB [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) även en LINQ-frågeprovider. 
 
 ### <a name="transactions-and-javascript-execution"></a>Transaktioner och JavaScript-körning
-Med DocumentDB kan du skriva programlogiken som namngivna program helt skrivna i JavaScript. Programmen registreras i en samling och kan utfärda databasåtgärder i dokumenten inom en angiven samling. JavaScript kan registreras för körning som en utlösare, lagrad procedur eller användardefinierad funktion. Utlösare och lagrade procedurer kan skapa, läsa, uppdatera och ta bort dokument medan användardefinierade funktioner körs som en del av frågans körningslogik utan skrivåtkomst till samlingen.
+Med DocumentDB-API:et kan du skriva programlogiken som namngivna program helt skrivna i JavaScript. Programmen registreras i en samling och kan utfärda databasåtgärder i dokumenten inom en angiven samling. JavaScript kan registreras för körning som en utlösare, lagrad procedur eller användardefinierad funktion. Utlösare och lagrade procedurer kan skapa, läsa, uppdatera och ta bort dokument medan användardefinierade funktioner körs som en del av frågans körningslogik utan skrivåtkomst till samlingen.
 
-JavaScript-körning inom DocumentDB modelleras efter begrepp som stöds av relationsdatabassystem, med JavaScript som en modern ersättning för Transact-SQL. All JavaScript-logik körs inom en omgivande ACID-transaktion med ögonblicksbildisolering. Om JavaScript genererar ett undantag under körningen avbryts hela transaktionen.
+JavaScript-körning inom DocumentDB-API:et modelleras efter begrepp som stöds av relationsdatabassystem, med JavaScript som en modern ersättning för Transact-SQL. All JavaScript-logik körs inom en omgivande ACID-transaktion med ögonblicksbildisolering. Om JavaScript genererar ett undantag under körningen avbryts hela transaktionen.
 
-## <a name="are-there-any-online-courses-on-documentdb"></a>Finns det några onlinekurser på DocumentDB?
+## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Finns det några onlinekurser om Azure Cosmos DB?
 
 Ja, det finns en kurs om [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) på Azure DocumentDB. 
 
@@ -99,15 +116,7 @@ Ja, det finns en kurs om [Microsoft Virtual Academy](https://mva.microsoft.com/e
 >
 
 ## <a name="next-steps"></a>Nästa steg
-Har du redan ett Azure-konto? Då kan du komma igång med DocumentDB i [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) genom att [skapa ett databaskonto i DocumentDB](documentdb-create-account.md).
-
-Har du inte ett Azure-konto? Du kan:
-
-* Registrera dig för ett [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/free/) som ger dig 30 dagar och 200 USD i rabatt för att prova alla Azure-tjänster. 
-* Om du har en prenumeration på MSDN är du berättigad till [150 USD i kostnadsfria Azure-krediter per månad](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) att använda i valfria Azure-tjänster. 
-* Hämta [Azure DocumentDB-emulatorn](documentdb-nosql-local-emulator.md) om du vill utveckla ditt program lokalt.
-
-Sedan, när du vill veta mer, finns våra [utbildningsvägar](https://azure.microsoft.com/documentation/learning-paths/documentdb/) där du hittar alla tillgängliga utbildningsresurser. 
+Har du redan ett Azure-konto? Sedan kan du sätta igång med Azure Cosmos DB genom att följa våra [snabbstarter](../cosmos-db/create-documentdb-dotnet.md), som hjälper dig att skapa ett konto och att komma igång med Cosmos DB.
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
 

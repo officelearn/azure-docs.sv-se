@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: a8c815326c255833fc7944821199d80e26b735ee
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 3daf74e480854255a40e7ee74e96993fff930471
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,9 +34,16 @@ Den här artikeln visar dig hur du skapar ett virtuellt nätverk med en punkt-ti
 >
 >
 
-Med en P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning från en enskild klientdator till ett virtuellt nätverk. P2S är en VPN-anslutning över SSTP (Secure Socket Tunneling Protocol). En punkt-till-plats-anslutning är användbar när du vill ansluta till ditt virtuella nätverk från en annan plats, t.ex. hemifrån eller från en konferens, eller när du bara har ett fåtal klienter som behöver kunna ansluta till ett virtuellt nätverk. P2S-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. Du upprättar VPN-anslutningen från klientdatorn. Mer information om punkt-till-plats-anslutningar finns i [Vanliga frågor och svar om punkt-till-plats](#faq) i slutet av den här artikeln.
+Med en P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning från en enskild klientdator till ett virtuellt nätverk. P2S är en VPN-anslutning över SSTP (Secure Socket Tunneling Protocol). En punkt-till-plats-anslutning är användbar när du vill ansluta till ditt virtuella nätverk från en annan plats, t.ex. hemifrån eller från en konferens, eller när du bara har ett fåtal klienter som behöver kunna ansluta till ett virtuellt nätverk. P2S-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. Du upprättar VPN-anslutningen från klientdatorn.
 
 ![Punkt-till-plats-diagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
+
+P2S-anslutningar kräver följande:
+
+* En RouteBased VPN-gateway.
+* Den offentliga nyckeln (CER-fil) för ett rotcertifikat som överförts till Azure. Detta anses vara ett betrott certifikat och används för autentisering.
+* Ett klientcertifikat genereras från rotcertifikatet och installerad på varje klientdator som ska ansluta. Det här certifikatet används för klientautentisering.
+* Ett konfigurationspaket för VPN-klienter måste skapas och installeras på varje klientdator som ansluter. Klientkonfigurationspaketet konfigurerar den interna VPN-klienten som redan finns i operativsystemet med den information som krävs för att ansluta till det virtuella nätverket.
 
 ### <a name="example"></a>Exempelvärden
 
@@ -98,7 +105,7 @@ Punkt-till-plats-anslutningar kräver följande inställningar:
 
 ## <a name="generatecert"></a>6 – Generera certifikat
 
-Certifikat används av Azure för att autentisera VPN-klienter för punkt-till-plats-VPN:er.
+Certifikat används av Azure för att autentisera VPN-klienter för punkt-till-plats-VPN:er. Du överför informationen om den offentliga nyckeln för rotcertifikatet till Azure. Den offentliga nyckeln anses sedan vara ”betrodd”. Klientcertifikat måste skapas från det betrodda rotcertifikatet och sedan installeras på varje dator i certifikatarkivet Certifikat – aktuell användare/Personlig. Certifikatet används för att autentisera klienten när den upprättar en anslutning till det virtuella nätverket. Mer information om hur du skapar och installerar certifikat finns i avsnittet om [certifikat för punkt-till-plats](vpn-gateway-certificates-point-to-site.md).
 
 ### <a name="getcer"></a>Steg 1 – Hämta CER-filen för rotcertifikatet
 
@@ -110,16 +117,18 @@ Certifikat används av Azure för att autentisera VPN-klienter för punkt-till-p
 
 ## <a name="addresspool"></a>7 – Lägga till klientadresspoolen
 
+Klientens adresspool är ett intervall med privata IP-adresser som du anger. Klienterna som ansluter via P2S får en IP-adress från det här intervallet. Använd ett intervall för privata IP-adresser som inte överlappar med den lokala platsen som du ansluter från, eller med det virtuella nätverk som du vill ansluta till.
+
 1. När den virtuella nätverksgatewayen har skapats navigerar du till avsnittet **Inställningar** på bladet för den virtuella nätverksgatewayen. I avsnittet **Inställningar** klickar du på **Punkt-till-plats-konfiguration** för att öppna bladet **Konfiguration**.
 
   ![Punkt-till-plats-blad](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png)
-2. **Adresspool** är den pool med IP-adresser från vilken klienter som ansluter sig får en IP-adress. Lägg till adresspoolen och klicka sedan på **Spara**.
+2. Du kan ta bort det automatiskt ifyllda intervallet och sedan lägga till det intervall med privata IP-adresser som du vill använda. Validera och spara inställningen genom att klicka på **Spara**.
 
   ![Klientadresspool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
 ## <a name="uploadfile"></a>8 – Ladda upp .cer-filen med rotcertifikatet
 
-När gatewayen har skapats, kan du överföra .cer-filen för ett betrott rotcertifikat till Azure. Du kan överföra filer för upp till 20 rotcertifikat. Du överför inte den privata nyckeln för rotcertifikatet till Azure. När .cer-filen har överförts använder Azure den för att autentisera klienter som ansluter till det virtuella nätverket.
+När gatewayen har skapats kan du överföra CER-filen (som innehåller informationen om den offentliga nyckeln) för ett betrott rotcertifikat till Azure. När en CER-fil har överförts kan Azure använda den för att autentisera klienter som har ett installerat klientcertifikat som har genererats från det betrodda rotcertifikatet. Du kan överföra ytterligare betrodda rotcertifikatfiler (upp till 20 stycken) senare om det behövs. 
 
 1. Certifikat läggs till på bladet **Punkt-till-plats-konfiguration** i avsnittet **Rotcertifikat**.  
 2. Kontrollera att du har exporterat rotcertifikatet som en Base64-kodad X.509-fil (.cer). Du behöver exportera certifikatet i det här formatet så att du kan öppna certifikatet med textredigerare.
@@ -132,9 +141,9 @@ När gatewayen har skapats, kan du överföra .cer-filen för ett betrott rotcer
 
 ## <a name="clientconfig"></a>9 – Installera konfigurationpaketet för VPN-klienten
 
-För att ansluta till ett virtuellt nätverk med hjälp av ett VPN för punkt-till-plats måste varje klient installera ett VPN-klientkonfigurationspaket. Paketet installerar inte en VPN-klient. Du kan använda samma VPN-klientkonfigurationspaket på varje klientdator, förutsatt att versionen matchar arkitekturen för klienten. En lista över klientoperativsystem som stöds finns i [Vanliga frågor och svar om punkt-till-plats](#faq) i slutet av den här artikeln.
+För att ansluta till ett virtuellt nätverk med hjälp av ett VPN för punkt-till-plats måste varje klient installera ett paket för konfiguration av den interna Windows VPN-klienten. Konfigurationspaketet konfigurerar den inbyggda VPN-klienten för Windows med inställningarna som behövs för att ansluta till det virtuella nätverket, och om du har angett en DNS-server för ditt virtuella nätverk innehåller den DNS-serverns IP-adress som klienten använder för namnmatchning. Om du ändrar den angivna DNS-servern senare, efter att du har genererat konfigurationspaketet för klienten, bör du generera ett nytt konfigurationpaket för klienten som du kan använda för att installera på klientdatorerna.
 
-Konfigurationspaketet konfigurerar den inbyggda VPN-klienten för Windows med inställningarna som behövs för att ansluta till det virtuella nätverket, och om du har angett en DNS-server för ditt virtuella nätverk innehåller den DNS-serverns IP-adress som klienten använder för namnmatchning. Om du ändrar den angivna DNS-servern senare, efter att du har genererat konfigurationspaketet för klienten, bör du generera ett nytt konfigurationpaket för klienten som du kan använda för att installera på klientdatorerna.
+Du kan använda samma VPN-klientkonfigurationspaket på varje klientdator, förutsatt att versionen matchar arkitekturen för klienten. En lista över klientoperativsystem som stöds finns i [Vanliga frågor och svar om punkt-till-plats](#faq) i slutet av den här artikeln.
 
 ### <a name="step-1---download-the-client-configuration-package"></a>Del 1 – Hämta klientkonfigurationspaketet
 

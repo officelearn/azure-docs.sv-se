@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 05/17/2017
 ms.author: ryanwi, mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 91049ee124999269a326106cbd6fc211cc027d26
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: dc07c709df84bbfcbf677bc3c2977590e651b194
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -70,9 +71,16 @@ Om du bara behöver SDK kan du installera det här paketet:
 > Vi ber om ursäkt för besväret. 
 
 De aktuella versionerna är:
-* Service Fabric SDK 2.5.216
-* Service Fabric Runtime 5.5.216
-* Visual Studio 2015 Tools 1.5.50311.1
+* Service Fabric SDK 2.6.204
+* Service Fabric Runtime 5.6.204
+* Visual Studio 2015 Tools 1.6.50508.2
+* Visual Studio 2017 Update 2
+
+De aktuella förhandsversionerna är:
+* Service Fabric SDK 255.255.2709.255
+* Service Fabric Runtime 255.255.5709.255
+* Visual Studio 2015 Tools 1.6.50509.5
+* Visual Studio 2017 Update 3 Preview 1
 
 En lista över versioner som stöds finns i [Service Fabric-stöd](service-fabric-support.md)
 

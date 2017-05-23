@@ -11,7 +11,7 @@ Du kan använda Tabelltjänsten för att lagra och fråga stora mängder struktu
 ## <a name="table-service-concepts"></a>Tabelltjänst-koncept
 Tabelltjänsten består av följande komponenter:
 
-![Tabell1][Table1]
+![Diagram över komponenterna i tabelltjänsten][Table1]
 
 * **URL-format:** kod adresserar tabeller i ett konto med det här adressformatet:   
   http://`<storage account>`.table.core.windows.net/`<table>`  
@@ -26,8 +26,3 @@ Mer information om namngivning av tabeller och egenskaper finns i [Förstå Tabe
 
 [Table1]: ./media/storage-table-concepts-include/table1.png
 [OData.org]: http://www.odata.org/
-
-
-<!--HONumber=Nov16_HO2-->
-
-

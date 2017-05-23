@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 33ddab887ade0d788129367eec4db7e70f35e0b9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68d409c7c7ce14c988d8335f6ed54e9be69bcba7
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -243,7 +244,7 @@ Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-sc
 
 * [Connecting your device][lnk-connect-device] (Ansluta din enhet)
 * [Connecting your device][lnk-device-management] (Komma igång med enhetshantering)
-* [Getting started with the IoT Gateway SDK][lnk-gateway-SDK] (Komma igång med IoT Gateway SDK)
+* [Komma igång med IoT Edge][lnk-gateway-SDK]
 
 Självstudiekursen [Bearbeta meddelanden från enhet till moln][lnk-process-d2c-tutorial] beskriver hur du utökar din IoT-lösning och bearbetar ”enhet till molnet”-meddelanden i hög skala.
 

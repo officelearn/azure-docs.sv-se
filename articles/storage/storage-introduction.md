@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
-ms.lasthandoff: 04/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e041a4d88d93b5ea9fcd792800c4a12a6a44ce36
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -90,7 +91,7 @@ Blob Storage erbjuder tre typer av blobbar: blockblobbar, tilläggsblobbar och s
 För mycket stora datamängder där nätverksbegränsningar gör det orealistiskt att överföra eller hämta data till Blob Storage via kabel kan du skicka en hårdisk till Microsoft för att importera eller exportera data direkt från datacentret. Mer information finns i [Använda tjänsten Microsoft Azure Import/Export för att överföra data till Blob Storage](storage-import-export-service.md).
 
 ## <a name="table-storage"></a>Table Storage
-Moderna program behöver ofta datalager med bättre skalbarhet och flexibilitet än tidigare versioner av den programvara som krävs. Table Storage erbjuder mycket skalbar lagring med hög tillgänglighet, så att ditt program kan anpassas automatiskt efter användarens behov. Table Storage är Microsofts nyckel- och attributdatabas för NoSQL. Tjänsten har en schemalös design, vilket skiljer den från traditionella relationsdatabaser. Ett schemalöst datalager gör det enkelt att anpassa data i takt med att programmets behov förändras. Table Storage är enkelt att använda, vilket gör det lätt för utvecklare att snabbt skapa program. Åtkomsten till data är snabb och kostnadseffektiv för alla typer av program.  Kostnaden för Table Storage är normalt sett betydligt lägre än för motsvarande volymer med traditionell SQL.
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]Moderna program behöver ofta datalager med bättre skalbarhet och flexibilitet än vad som krävdes i tidigare programvarugenerationer. Table Storage erbjuder mycket skalbar lagring med hög tillgänglighet, så att ditt program kan anpassas automatiskt efter användarens behov. Table Storage är Microsofts nyckel- och attributdatabas för NoSQL. Tjänsten har en schemalös design, vilket skiljer den från traditionella relationsdatabaser. Ett schemalöst datalager gör det enkelt att anpassa data i takt med att programmets behov förändras. Table Storage är enkelt att använda, vilket gör det lätt för utvecklare att snabbt skapa program. Åtkomsten till data är snabb och kostnadseffektiv för alla typer av program.  Kostnaden för Table Storage är normalt sett betydligt lägre än för motsvarande volymer med traditionell SQL.
 
 Table Storage är en nyckel- och attributdatabas, vilket innebär att varje värde i en tabell lagras med ett typbestämt egenskapsnamn. Egenskapsnamnet kan användas för att filtrera och ange urvalskriterier. En uppsättning egenskaper och deras värden utgör en entitet. Eftersom Table Storage är schemalöst kan två entiteter i samma tabell innehålla olika samlingar egenskaper, och dessa egenskaper kan höra till olika typer.
 
@@ -200,7 +201,7 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 * [Klientbibliotek för Storage Data Movement för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>Verktyg och hjälpmedel
-* [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * [Azure Storage-klientverktyg](storage-explorers.md)
 * [SDK:er och verktyg för Azure](https://azure.microsoft.com/tools/)
 * [Azure Storage-emulator](http://www.microsoft.com/download/details.aspx?id=43709)

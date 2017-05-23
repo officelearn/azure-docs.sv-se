@@ -1,6 +1,6 @@
 ---
 title: Importera data till Azure Search i portalen | Microsoft Docs
-description: "Använd Azure Search i guiden Importera data i Azure Portal för att uppdatera Azure-data från NoSQL DocumentDB, Blob Storage, Table Storage, SQL Database och SQL Server på virtuella Azure-datorer."
+description: "Använd Azure Search i guiden Importera data i Azure Portal för att uppdatera Azure-data från NoSQL Azure Cosmos DB, Blob Storage, Table Storage, SQL Database och SQL Server på virtuella Azure-datorer."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
-ms.openlocfilehash: c03c26d0e5ea2529162262664412f4f8f7e854dc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,17 +34,17 @@ Internt konfigurerar och aktiverar guiden en *indexerare*, vilket automatiserar 
 * Generera ett ändringsbart indexschema baserat på källdatastrukturen
 * Läs in JSON-dokument i ett index med en raduppsättning som hämtats från datakällan
 
-Du kan testa det här arbetsflödet med exempeldata i DocumentDB. Om du behöver anvisningar läser du [Komma igång med Azure Search i Azure Portal](search-get-started-portal.md).
+Du kan testa det här arbetsflödet med exempeldata i Azure Cosmos DB. Om du behöver anvisningar läser du [Komma igång med Azure Search i Azure Portal](search-get-started-portal.md).
 
 > [!NOTE]
-> Du kan starta guiden **Importera data** från DocumentDB-instrumentpanelen för att förenkla indexeringen för datakällan. Välj **Samlingar** > **Lägg till Azure Search** i navigeringsfältet till vänster för att komma igång.
+> Du kan starta guiden **Importera data** från Azure Cosmos DB-instrumentpanelen för att förenkla indexeringen för datakällan. Välj **Samlingar** > **Lägg till Azure Search** i navigeringsfältet till vänster för att komma igång.
 
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Datakällor som stöds av guiden Importera data
 Guiden Importera Data stöder följande datakällor: 
 
 * Azure SQL Database
 * SQL Server-relationsdata på en virtuell Azure-dator
-* Azure DocumentDB
+* Azure Cosmos DB
 * Azure Blob Storage
 * Azure Table Storage
 
@@ -58,7 +60,7 @@ En utjämnad datauppsättning är en obligatorisk inmatning. Du kan bara importe
 | **Befintlig datakälla** |Om du redan har definierat indexerare i söktjänsten, kan du välja en definition av en befintlig datakälla för en annan import. |
 | **Azure SQL Database** |Tjänstens namn, autentiseringsuppgifterna för en databasanvändare med läsbehörighet och ett databasnamn kan anges på sidan eller via en ADO.NET-anslutningssträng. Välj alternativet för anslutningssträngar till att visa eller anpassa egenskaperna. <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
 | **SQL Server på virtuella Azure-datorer** |Ange ett fullständigt tjänstnamn, användar-ID och lösenord, samt databasen som en anslutningssträng. Om du vill använda den här datakällan måste du tidigare ha installerat ett certifikat i det lokala arkiv som krypterar anslutningen. Instruktioner finns i [SQL VM-anslutning till Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
-| **DocumentDB** |Kraven innefattar konto, databas och samling. Alla dokument i samlingen kommer att ingå i indexet. Du kan definiera en fråga för att utjämna eller filtrera raduppsättningen, eller identifiera ändrade dokument för efterföljande datauppdateringar. |
+| **Azure Cosmos DB** |Kraven innefattar konto, databas och samling. Alla dokument i samlingen kommer att ingå i indexet. Du kan definiera en fråga för att utjämna eller filtrera raduppsättningen, eller identifiera ändrade dokument för efterföljande datauppdateringar. |
 | **Azure Blob Storage** |Kraven innefattar lagringskonto och en behållare. Om blob-namnet följer en virtuell namngivningskonvention i grupperingssyfte, kan du också ange den virtuella katalogdelen av namnet som en mapp under behållaren. Se [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md) för mer information. |
 | **Azure Table Storage** |Kraven innefattar lagringskontot och ett tabellnamn. Du kan också ange en fråga för att hämta en delmängd av tabellerna. Se [Indexera Table Storage](search-howto-indexing-azure-tables.md) för mer information. |
 
@@ -113,16 +115,11 @@ Guiden skapade även ett **index**. Om det görs strukturella uppdateringar av e
 Använd dessa länkar om du vill veta mer om indexerare:
 
 * [Indexera Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexera DocumentDB](search-howto-index-documentdb.md)
+* [Indexera Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexera Table Storage](search-howto-indexing-azure-tables.md)
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

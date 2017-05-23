@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 309a36b1aa5db95a287b7a6b21449f9d61880cf4
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -47,7 +48,7 @@ De förkonfigurerade lösningarna använder vanligtvis följande tjänster:
 
 * Kärnan i Azure IoT Suite är [Azure IoT Hub][lnk-iot-hub]-tjänsten. Den här tjänsten tillhandahåller funktioner för meddelandehantering från ”enhet till moln” och från ”moln till enhet” och fungerar som en gateway till molnet och andra viktiga IoT Suite-tjänster. Tjänsten gör att du kan ta emot meddelanden från dina enheter i hög skala och skicka kommandon till dina enheter. Med tjänsten kan du även [hantera dina enheter][lnk-device-management]. Du kan till exempel konfigurera, starta om eller utföra en fabriksåterställning på en eller flera enheter som är anslutna till hubben.
 * [Azure Stream Analytics][lnk-asa] tillhandahåller analys av data i rörelse. IoT Suite använder den här tjänsten för att bearbeta inkommande telemetri, utföra aggregeringar och identifiera händelser. De förkonfigurerade lösningarna använder också Stream Analytics för att bearbeta informationsmeddelanden som innehåller data, till exempel metadata eller kommandosvar från enheter. Lösningarna använder Stream Analytics för att hantera meddelanden från dina enheter och leverera dem till andra tjänster.
-* [Azure Storage][lnk-azure-storage] och [Azure DocumentDB][lnk-document-db] tillhandahåller funktioner för datalagring. De förkonfigurerade lösningarna använder Blob Storage för att lagra telemetri och för att göra den tillgänglig för analys. Lösningarna använda DocumentDB för att lagra metadata om enheter och för att aktivera enhetshanteringsfunktionerna i lösningarna.
+* [Azure Storage][lnk-azure-storage] och [Azure Cosmos DB][lnk-document-db] tillhandahåller funktioner för datalagring. De förkonfigurerade lösningarna använder Blob Storage för att lagra telemetri och för att göra den tillgänglig för analys. Lösningarna använda Cosmos DB för att lagra metadata om enheter och för att aktivera enhetshanteringsfunktionerna i lösningarna.
 * [Azure Web Apps][lnk-web-apps] och [Microsoft Power BI][lnk-power-bi] tillhandahåller visualiseringsfunktioner. Flexibiliteten i Power BI gör att du snabbt kan skapa egna interaktiva instrumentpaneler som använder IoT Suite-data.
 
 En översikt över arkitekturen i en typisk IoT-lösning finns i [Microsoft Azure och Sakernas Internet (IoT)][iot-suite-what-is-azure-iot].

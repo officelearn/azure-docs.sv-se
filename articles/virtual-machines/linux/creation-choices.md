@@ -13,12 +13,13 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d7ff1317cdf6ccfe6b4e5035878fc4e096fcc0f9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 756711abb014829971af126c5cb60c12e79c920e
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -27,32 +28,25 @@ I Azure har du tillräcklig flexibilitet för att kunna skapa en virtuell Linux-
 
 [Azure CLI 2.0](/cli/azure/install-az-cli2) är tillgängligt på flera plattformar via ett npm-paket, distro-paket eller en Docker-behållare. Installera den lämpligaste versionen för din miljö och logga in på ett Azure-konto med hjälp av [az login](/cli/azure/#login)
 
-I följande exempel används Azure CLI 2.0. Läs alla artiklarna för mer information om de kommandon som visas. Du hittar också exempel på hur du skapar virtuella Linux-datorer med hjälp av [Azure CLI 1.0](creation-choices-nodejs.md).
-
-* [Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0](quick-create-cli.md)
   
-  * I det här exemplet används [az group create](/cli/azure/group#create) för att skapa en resursgrupp med namnet `myResourceGroup`: 
--    
+  * Skapa en resursgrupp med [az group create](/cli/azure/group#create) med namnet *myResourceGroup*: 
+   
     ```azurecli
-    az group create --name myResourceGroup --location westus
+    az group create --name myResourceGroup --location eastus
     ```
     
-  * I det här exemplet används [az vm create](/cli/azure/vm#create) för att skapa en virtuell dator med namnet `myVM` med hjälp av den senaste Debian-avbildningen med Azure Managed Disks och en offentlig nyckel med namnet `id_rsa.pub`:
+  * Skapa en virtuell dator med [az vm create](/cli/azure/vm#create) med namnet *myVM* med den senaste *UbuntuLTS*-avbildningen och generera SSH-nycklar om de redan finns i *~/.ssh*:
 
     ```azurecli
     az vm create \
-    --image credativ:Debian:8:latest \
-     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –-new --size-gb 5    --public-ip-address-dns-name myPublicDNS \
-    --resource-group myResourceGroup \
-    --location westus \
-    --name myVM
+        --resource-group myResourceGroup \
+        --name myVM \
+        --image UbuntuLTS \
+        --generate-ssh-keys
     ```
 
-    * Om du vill använda ohanterade diskar lägger du till `--use-unmanaged-disks`-flaggan till kommandot ovan. Ett lagringskonto skapas åt dig. Mer information finns i [Översikt över Azure Managed Disks](../../storage/storage-managed-disks-overview.md).
-
-* [Skapa en säker virtuell Linux-dator med hjälp av en Azure-mall](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Skapa en virtuell Linux-dator med hjälp av en Azure-mall](create-ssh-secured-vm-from-template.md)
   
   * I följande exempel används [az group deployment create](/cli/azure/group/deployment#create) för att skapa en virtuell dator med hjälp av en mall som lagras på GitHub:
     
@@ -61,25 +55,16 @@ az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
       --parameters @myparameters.json
     ```
-    
-* [Skapa en fullständig Linux-miljö med Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-  
-  * Innefattar att skapa en belastningsutjämnare och flera virtuella datorer i en tillgänglighetsuppsättning.
+* [Skapa en virtuell Linux-dator och anpassa med cloud-init](tutorial-automate-vm-deployment.md)
 
-* [Lägg till en disk till en virtuell Linux-dator](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-  
-  * I följande exempel används [az vm disk attach-new](/cli/azure/vm/disk#attach-new) till att lägga till en hanterad disk på 50 GB med namnet `myVM`:
-  
-    ```azurecli
-    az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  \
-    –-new --size-gb 50
-    ```
+* [Skapa en belastningsutjämnat och mycket tillgängligt program på flera virtuella Linux-datorer](tutorial-load-balancer.md)
+
 
 ## <a name="azure-portal"></a>Azure Portal
 I [Azure Portal](https://portal.azure.com) kan du snabbt skapa en virtuell dator eftersom det inte finns något att installera i ditt system. Använd Azure Portal när du skapar den virtuella datorn:
 
-* [Skapa en virtuell Linux-dator med hjälp av Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
-* [Anslut en disk med hjälp av Azure Portal](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Skapa en virtuell Linux-dator med hjälp av Azure Portal](quick-create-portal.md) 
+
 
 ## <a name="operating-system-and-image-choices"></a>Alternativ för operativsystem och avbildning
 När du skapar en virtuell dator, väljer du en avbildning baserat på vilket operativsystem du vill köra. Azure och dess samarbetspartner erbjuder många avbildningar, varav några innehåller förinstallerade program och verktyg. Eller ladda upp en av dina egna avbildningar (se [följande avsnitt](#use-your-own-image)).
@@ -90,30 +75,30 @@ Använd [az vm image](/cli/azure/vm/image)-kommandona för att se vad som är ti
 Lista tillgängliga utgivare:
 
 ```azurecli
-az vm image list-publishers --location WestUS
+az vm image list-publishers --location eastus
 ```
 
 Lista tillgängliga produkter (erbjudanden) för en viss utgivare:
 
 ```azurecli
-az vm image list-offers --publisher Canonical --location WestUS
+az vm image list-offers --publisher Canonical --location eastus
 ```
 
 Lista tillgängliga SKU:er (distributionsutgåvor) för ett givet erbjudande:
 
 ```azurecli
-az vm image list-skus --publisher Canonical --offer UbuntuServer --location WestUS
+az vm image list-skus --publisher Canonical --offer UbuntuServer --location eastus
 ```
 
 Lista alla tillgängliga bilder för en viss version:
 
 ```azurecli
-az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --location WestUS
+az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --location eastus
 ```
 
-Se [Analysera och välja avbildningar för virtuell Azure-datorer med Azure CLI](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för fler exempel på hur du hittar och använder tillgängliga avbildningar.
+Se [Analysera och välja avbildningar för virtuell Azure-datorer med Azure CLI](cli-ps-findimage.md) för fler exempel på hur du hittar och använder tillgängliga avbildningar.
 
-**az vm create**-kommandot har alias som du kan använda för att snabbt komma åt vanliga distributioner och deras senaste versioner. Det går snabbare att använda alias än ange utgivare, erbjudande, SKU och version varje gång du skapar en virtuell dator:
+[az vm create](/cli/azure/vm#create)-kommandot har alias som du kan använda för att snabbt komma åt vanliga distributioner och deras senaste versioner. Det går snabbare att använda alias än ange utgivare, erbjudande, SKU och version varje gång du skapar en virtuell dator:
 
 | Alias | Utgivare | Erbjudande | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
@@ -126,22 +111,22 @@ Se [Analysera och välja avbildningar för virtuell Azure-datorer med Azure CLI]
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |senaste |
 
 ### <a name="use-your-own-image"></a>Använda en egen avbildning
-Om du behöver specifika anpassningar kan du använda en avbildning baserad på en befintlig virtuell Azure-dator genom att *avbilda* den virtuella datorn. Du kan också ladda upp en avbildning som skapats lokalt. Mer information om distributioner som stöds och hur du använder egna avbildningar finns i följande artiklar:
+Om du behöver specifika anpassningar kan du använda en avbildning baserad på en befintlig virtuell Azure-dator genom att avbilda den virtuella datorn. Du kan också ladda upp en avbildning som skapats lokalt. Mer information om distributioner som stöds och hur du använder egna avbildningar finns i följande artiklar:
 
-* [Azure-godkända distributioner](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Information om icke-godkända distributioner](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Avbilda en virtuell Linux-dator som en Resource Manager-mall](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Azure-godkända distributioner](endorsed-distros.md)
+* [Information om icke-godkända distributioner](create-upload-generic.md)
+* [Så här skapar du en avbildning från en befintliga virtuell Azure-dator](tutorial-custom-images.md).
   
-  * Snabbstart med **az vm**-exempelkommandon för att avbilda en befintlig virtuell dator med ohanterade diskar:
+  * Snabbstart med exempel på kommandon för att skapa en avbildning från en befintlig Azure VM:
     
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     az vm generalize --resource-group myResourceGroup --name myVM
-    az vm capture --resource-group myResourceGroup --name myVM --vhd-name-prefix myCapturedVM
+    az vm image create --resource-group myResourceGroup --source myVM --name myImage
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Skapa en virtuell Linux-dator från [portalen](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), med [CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller genom att använda en [Azure Resource Manager-mall](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* När du har skapat en virtuell Linux-dator kan du [lägga till en datadisk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Snabba steg för att [återställa ett lösenord eller SSH-nycklar och hantera användare](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Skapa en virtuell Linux-dator från [CLI](quick-create-cli.md), från [portalen](quick-create-portal.md) eller genom att använda en [Azure Resource Manager-mall](../windows/cli-deploy-templates.md).
+* När du har skapat en Linux VM ska du [lära dig mer om Azure-diskar och lagring](tutorial-manage-disks.md).
+* Snabba steg för att [återställa ett lösenord eller SSH-nycklar och hantera användare](using-vmaccess-extension.md).
 

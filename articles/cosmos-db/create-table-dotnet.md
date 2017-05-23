@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 73b9448153ec520d77afd1bdb65b9694e7bf7b9e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: cba0b278d84e25876a8b73cedb7e35f84500fc5e
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -70,27 +70,33 @@ Nu ska vi klona en DocumentDB-API-app från github, ange anslutningssträngen oc
 
 ## <a name="review-the-code"></a>Granska koden
 
-Vi gör en snabb genomgång av vad som händer i appen. Öppna filen DocumentDBRepository.cs så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
+Vi gör en snabb genomgång av vad som händer i appen. Öppna filen Program.cs så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
 
 * DocumentClient initieras.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-* En ny databas skapas.
+* En ny tabell skapas om det inte finns någon.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    CloudTable table = tableClient.GetTableReference("people");
+    table.CreateIfNotExists();
     ```
 
-* En ny grafbehållare skapas.
+* En ny tabellbehållare skapas. Du märker att den här koden är mycket lik vanliga SDK:er för Azure Table Storage 
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+    CustomerEntity item = new CustomerEntity()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    Email = $"{GetRandomString(6)}@contoso.com",
+                    PhoneNumber = "425-555-0102",
+                    Bio = GetRandomString(1000)
+                };
     ```
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
@@ -106,7 +112,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 3. Kopiera kontonamnet för Azure Cosmos DB från portalen och använd det som värde för AccountName i strängvärdet PremiumStorageConnection i app.config. I skärmbilden ovan är kontonamnet cosmos-db-quickstart. Kontonamnet visas överst i portalen.
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
 
 4. Kopiera sedan PRIMÄRNYCKEL-värdet från portalen och använd det som värde för AccountKey i PremiumStorageConnectionString. 
 
@@ -114,7 +120,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 5. Kopiera slutligen URI-värdet från sidan Nycklar i portalen (med kopieringsknappen) och använd det som värde för TableEndpoint i PremiumStorageConnectionString.
 
-    `TableEndpoint=https://COSMODB.documents.azure.com`
+    `TableEndpoint=https://COSMOSDB.documents.azure.com`
 
     Du kan lämna värdet för StandardStorageConnectionString.
 
@@ -143,7 +149,7 @@ Du kan nu gå tillbaka till datautforskaren och ställa frågor, ändra och arbe
 Om du inte planerar att fortsätta använda den här appen tar du bort alla resurser som skapades i snabbstarten i Azure Portal med följande steg: 
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade. 
-2. Klicka på **Ta bort** på sidan med resursgrupper, ange namnet på resursen du vill ta bort i textrutan och klicka på **Ta bort**.
+2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

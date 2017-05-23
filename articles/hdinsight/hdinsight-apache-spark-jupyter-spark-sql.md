@@ -1,6 +1,7 @@
 ---
-title: "Komma igång med Apache Spark-kluster i Azure HDInsight | Microsoft Docs"
-description: "Stegvisa instruktioner om hur du snabbt skapar ett Apache Spark-kluster i HDInsight och sedan använder Spark SQL från Jupyter-anteckningsböcker för att köra interaktiva frågor."
+title: "Kom igång – Apache Spark och interaktiva Spark SQL-frågor – Azure HDInsight | Microsoft Doc"
+description: "HDInsight Spark-snabbstart om hur du skapar ett Apache Spark-kluster i HDInsight och kör interaktiva frågor med Jupyter-anteckningsböcker."
+keywords: "spark-snabbstart,interaktiv spark,interaktiv fråga,hdinsight spark,azure spark"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,31 +10,33 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
+ms.date: 05/12/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: e2a9802e76579a523897d8904add6b317652ff05
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 0c59792423bfe2848ab5773746db466890228ddc
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="get-started-create-apache-spark-cluster-in-azure-hdinsight-and-run-interactive-queries-using-spark-sql"></a>Komma igång: Skapa ett Apache Spark-kluster i Azure HDInsight och köra interaktiva frågor med Spark SQL
+# <a name="get-started-create-an-apache-spark-cluster-in-hdinsight-and-run-interactive-spark-sql-queries"></a>Kom igång: Skapa ett Apache Spark-kluster i HDInsight och köra interaktiva frågor med Spark SQL
 
-Lär dig hur du skapar ett [Apache Spark](hdinsight-apache-spark-overview.md)-kluster i HDInsight och sedan använder [Jupyter](https://jupyter.org)-anteckningsboken för att köra interaktiva Spark SQL-frågor i Spark-klustret.
+Lär dig hur du skapar ett [Apache Spark](hdinsight-apache-spark-overview.md)-kluster i HDInsight och kör interaktiva Spark SQL-frågor med [Jupyter](https://jupyter.org)-anteckningsboken.
 
-   ![Komma igång med Apache Spark i HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Självstudie: Komma igång med Apache Spark i HDInsight. Illustrerade steg: Skapa ett lagringskonto, Skapa ett kluster; Kör Spark SQL-uttryck")
+   ![Snabbstartsdiagram som beskriver steg för att skapa ett Apache Spark-kluster på Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark-snabbstart med Apache Spark i HDInsight. Illustrerade steg: skapa ett kluster, kör interaktiv Spark-fråga")
 
 ## <a name="prerequisites"></a>Krav
+
 * **En Azure-prenumeration**. Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free).
 
-## <a name="create-a-spark-cluster"></a>Skapa ett Spark-kluster
+## <a name="create-hdinsight-spark-cluster"></a>Skapa HDInsight Spark-kluster
+
 I det här avsnittet skapar du ett Spark-kluster i HDInsight med en [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Information om andra metoder för att skapa kluster finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Klicka på följande bild för att öppna mallen i Azure Portal.         
@@ -42,7 +45,7 @@ I det här avsnittet skapar du ett Spark-kluster i HDInsight med en [Azure Resou
 
 2. Ange följande värden:
 
-    ![Skapa Spark-kluster i HDInsight med en Azure Resource Manager-mall](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Skapa Spark-kluster i HDInsight med en Azure Resource Manager-mall")
+    ![Skapa HDInsight Spark-kluster med en Azure Resource Manager-mall](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Skapa Spark-kluster i HDInsight med en Azure Resource Manager-mall")
 
     * **Prenumeration**: Välj din Azure-prenumeration för det här klustret.
     * **Resursgrupp**: Skapa en resursgrupp eller välj en befintlig. Resursgrupp används för att hantera Azure-resurser till dina projekt.
@@ -61,19 +64,19 @@ I det här avsnittet skapar du ett Spark-kluster i HDInsight med en [Azure Resou
 >
 >
 
-## <a name="run-a-spark-sql-query"></a>Kör en Spark SQL-fråga
+## <a name="run-an-interactive-spark-sql-query"></a>Köra en interaktiv Spark SQL-fråga
 
-I det här avsnittet använder du Jupyter-anteckningsboken för att köra Spark SQL-frågor mot Spark-klustret. HDInsight Spark-kluster tillhandahåller tre kernels som du kan använda med Jupyter-anteckningsboken. Dessa är:
+I det här avsnittet använder du Jupyter-anteckningsboken för att köra interaktiva Spark SQL-frågor mot Spark-klustret du skapade tidigare. HDInsight Spark-kluster tillhandahåller tre kernels som du kan använda med Jupyter-anteckningsboken. Dessa är:
 
 * **PySpark** (för appar som skrivits i Python)
 * **PySpark3** (för appar som skrivits i Python3)
 * **Spark** (för appar som skrivits i Scala)
 
-I den här artikeln använder du **PySpark**-kerneln. Mer information om dessa kernlar finns i [Använda kernlar i Jupyter-anteckningsböcker med Apache Spark-kluster i HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Några av de främsta fördelarna med att använda PySpark-kerneln är:
+I den här artikeln använder du **PySpark**-kerneln i anteckningsboken som du kör den interaktiva Spark SQL-frågan från. Mer information om dessa kernlar finns i [Använda kernlar i Jupyter-anteckningsböcker med Apache Spark-kluster i HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Några av de främsta fördelarna med att använda PySpark-kerneln är:
 
 * Kontexter för Spark och Hive anges automatiskt.
-* Du kan använda cellfunktioner som `%%sql` för att köra dina SQL- eller Hive-frågor direkt utan några föregående kodfragment.
-* Utdata för SQL- eller Hive-frågor visualiseras automatiskt.
+* Du kan använda cellfunktioner som `%%sql` för att köra dina interaktiva SQL- eller Hive-frågor direkt utan några föregående kodfragment.
+* Utdata för interaktiva frågor visualiseras automatiskt.
 
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Skapa en Jupyter-anteckningsbok med PySpark-kernel
 
@@ -85,23 +88,23 @@ I den här artikeln använder du **PySpark**-kerneln. Mer information om dessa k
 
 3. I **Snabblänkar** klickar du på **Klusterinstrumentpaneler** och sedan på **Jupyter Notebook**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
-   ![HDInsight-klusterinstrumentpaneler](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "HDInsight-klusterinstrumentpaneler")
+   ![Öppna Jupyter-anteckningsboken för att köra interaktiv Spark SQL-fråga](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Öppna Jupyter-anteckningsboken för att köra interaktiv Spark SQL-fråga")
 
    > [!NOTE]
-   > Du kan också nå Jupyter Notebook för ditt kluster genom att öppna nedanstående URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
+   > Du kan också nå Jupyter-anteckningsboken för ditt kluster genom att öppna nedanstående URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
 3. Skapa en anteckningsbok. Klicka på **Ny** och sedan på **PySpark**.
 
-   ![Skapa en Jupyter-anteckningsbok](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Skapa en Jupyter-anteckningsbok")
+   ![Skapa en Jupyter-anteckningsbok för att köra interaktiv Spark SQL-fråga](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Skapa en Jupyter-anteckningsbok för att köra interaktiv Spark SQL-fråga")
 
    En ny anteckningsbok skapas och öppnas med namnet Untitled(Untitled.pynb).
 
 4. Klicka på anteckningsbokens namn högst upp och ange ett beskrivande namn om du vill.
 
-    ![Ange ett namn för anteckningsboken](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Ange ett namn för anteckningsboken")
+    ![Ange ett namn för Jupter-anteckningsboken för att köra en interaktiv Spark-fråga från](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Ange ett namn för Jupter-anteckningsboken för att köra en interaktiv Spark-fråga från")
 
 5. Klistra in följande kod i en tom cell och tryck sedan på **SKIFT+RETUR** för att köra koden. Koden importerar de typer som krävs för det här scenariot:
 
@@ -109,9 +112,9 @@ I den här artikeln använder du **PySpark**-kerneln. Mer information om dessa k
 
     Du behöver inte uttryckligen skapa några kontexter eftersom du har skapat anteckningsboken med hjälp av PySpark-kerneln. Spark- och Hive-kontexterna skapas automatiskt för dig när du kör den första kodcellen.
 
-    ![Status för ett Jupyter-anteckningsboksjobb](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status för ett Jupyter-anteckningsboksjobb")
+    ![Status för interaktiv Spark SQL-fråga](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-interactive-spark-query-status.png "Status för interaktiv Spark SQL-fråga")
 
-    Varje gång du kör ett jobb i Jupyter visar fönsterrubriken i webbläsaren statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du ser även en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet. När jobbet har slutförts ändras detta till en tom cirkel.
+    Varje gång du kör en interaktiv fråga i Jupyter visar fönsterrubriken i webbläsaren statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du ser även en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet. När jobbet har slutförts ändras detta till en tom cirkel.
 
 6. Registrera en exempeldatauppsättning som en tillfällig tabell (**hvac**) genom att köra följande kod.
 
@@ -132,32 +135,29 @@ I den här artikeln använder du **PySpark**-kerneln. Mer information om dessa k
 
     Spark-kluster i HDInsight har en exempeldatafil, **hvac.csv**, under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
-7. Kör följande kod för att köra en fråga mot dessa data.
+7. Använd följande kod för att köra den interaktiva frågan på data.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Eftersom du använder en PySpark-kernel kan du nu direkt köra en SQL-fråga för den tillfälliga tabellen **hvac** som du skapade med den användbara `%%sql`-funktionen. Mer information om `%%sql`-funktionen, samt andra användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Eftersom du använder en PySpark-kernel kan du nu direkt köra en interaktiv SQL-fråga för den tillfälliga tabellen **hvac** som du skapade med den användbara `%%sql`-funktionen. Mer information om `%%sql`-funktionen, samt andra användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    Följande tabellutdata visas som standard.
 
-     ![Tabellutdata från frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Tabellutdata från frågeresultat")
+     ![Tabellutdata från interaktivt Spark-frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-interactive-spark-query-result.png "Tabellutdata från interaktivt Spark-frågeresultat")
 
     Du kan också visa resultaten i andra visualiseringar. Ett områdesdiagram för samma utdata skulle som exempel se ut enligt nedan.
 
-    ![Områdesdiagram över frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Områdesdiagram över frågeresultat")
+    ![Områdesdiagram över interaktivt Spark-frågeresultat](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-interactive-spark-query-result-area-chart.png "Områdesdiagram över interaktivt Spark-frågeresultat")
 
 9. När du har kört programmet stänger du anteckningsboken för att frigöra klusterresurserna. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny.
 
-## <a name="troubleshoot"></a>Felsöka
-
-Följande är några vanliga problem som du kan stöta på när du arbetar med HDInsight-kluster.
-
-### <a name="access-control-requirements"></a>Åtkomstkontrollkrav
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-administer-use-portal-linux.md#create-clusters).
-
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot-access-control"></a>Felsöka åtkomstkontroll
+
+Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="see-also"></a>Se även
 * [Översikt: Apache Spark i Azure HDInsight](hdinsight-apache-spark-overview.md)

@@ -1,6 +1,8 @@
 --- 
 layout: HubPage
 hide_bc: true
+experimental: true
+experiment_id: d6155f71-baae-45
 title: Microsoft Azure-dokumentation
 description: "Lär dig att skapa och hantera kraftfulla program med Microsoft Azure-molntjänster. Hämta dokumentation, exempelkod, självstudier och annat."
 ms.translationtype: Human Translation

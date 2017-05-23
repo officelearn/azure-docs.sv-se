@@ -29,6 +29,10 @@
 ## Hantera
 ### [PowerShell-cmdletar för Batch](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
+#### [Skapa ett Batch-konto](./scripts/batch-cli-sample-create-account.md)
+#### [Lägga till ett program](./scripts/batch-cli-sample-add-application.md)
+#### [Hantera pooler](./scripts/batch-cli-sample-manage-pool.md)
+#### [Köra ett jobb och aktiviteter](./scripts/batch-cli-sample-run-job.md)
 
 # Referens
 ## [PowerShell](/powershell/module/azurerm.batch)
@@ -63,7 +67,6 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C#-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [CLI-exempel](batch-cli-samples.md)
 ## [Big Compute-resurser](big-compute-resources.md)
 ## [Blogg](https://blogs.technet.microsoft.com/windowshpc/)
 

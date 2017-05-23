@@ -1,85 +1,87 @@
-- name: "LUIS Documentation"
+- name: LUIS-dokumentation
   href: ../index.md
-- name: "Overview"
+- name: Översikt
   items: 
-  - name: "Learn about Language Understanding Intelligent Service"
+  - name: Language Understanding Intelligent Service
     href: Home.md
-- name: "Quickstarts"
+- name: Snabbstarter
   expanded: true
   items: 
-  - name: "Create a new app"
+  - name: Skapa en ny app
     href: luis-get-started-create-app.md
-- name: "Tutorials"
+- name: Självstudier
   items: 
-  - name: "Integrate LUIS with a bot using Node.js"
+  - name: Integrera LUIS med en bot med Node.js
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
-- name: "Concepts"
+- name: Koncept
   items: 
-  - name: "Intents"
+  - name: Avsikter
     href: luis-concept-intent.md
-  - name: "Entities"
+  - name: Entiteter
     href: luis-concept-entity-types.md
-  - name: "Utterances"
+  - name: Yttranden
     href: luis-concept-utterance.md
-  - name: "Support for multiple languages"
+  - name: Stöd för flera språk
     href: luis-concept-language-support.md
-- name: "How-to guides"
+- name: Instruktionsguider
   items: 
-  - name: "Plan your app"
+  - name: Planera din app
     href: Plan-your-app.md
-  - name: "Build a LUIS app"
+  - name: Skapa en LUIS-app
     items: 
-    - name: "Start a new app"
+    - name: Starta en ny app
       href: Create-new-app.md
-    - name: "Add intents"
+    - name: Lägg till avsikter
       href: Add-intents.md
-    - name: "Add utterances"
+    - name: Lägg till yttranden
       href: Add-example-utterances.md
-    - name: "Add entities"
+    - name: Lägg till entiteter
       href: Add-entities.md
-    - name: "Improve performance using features"
+    - name: Förbättra prestanda med hjälp av funktioner
       href: Add-Features.md
-    - name: "Train and test the app"
+    - name: Träna och testa appen
       href: Train-Test.md
-    - name: "Use active learning"
+    - name: Använda aktiv inlärning
       href: Label-Suggested-Utterances.md
-    - name: "Publish your app"
+    - name: Publicera appen
       href: PublishApp.md
-  - name: "Prebuilt models"
+  - name: Fördefinierade modeller
     items: 
-    - name: "Use prebuilt entities"
+    - name: Använda fördefinierade entiteter
       href: Pre-builtEntities.md
-    - name: "Use prebuilt domains"
+    - name: Använda fördefinierade domäner
       href: luis-how-to-use-prebuilt-domains.md
-    - name: "Use the Cortana prebuilt app"
+    - name: Använda den färdiga Cortana-appen
       href: Cortana-Prebuilt-App.md
-  - name: "Manage your LUIS app"
+  - name: Hantera LUIS-appen
     items: 
-    - name: "Monitor your app using the dashboard"
+    - name: Övervaka appen med instrumentpanelen
       href: App-Dashboard.md
-    - name: "Manage keys"
+    - name: Hantera nycklar
       href: Manage-Keys.md
-    - name: "Create subscription keys"
+    - name: Skapa prenumerationsnycklar
       href: AzureIbizaSubscription.md
-    - name: "Manage versions"
+    - name: Hantera versioner
       href: luis-how-to-manage-versions.md
-    - name: "Collaborate on a LUIS app"
+    - name: Samarbeta i en LUIS-app
       href: luis-how-to-collaborate.md    
-- name: "Reference"
+- name: Referens
   items: 
-  - name: "LUIS API"
+  - name: 'Redigera API:er'
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: "SDKs"
+  - name: Slutpunkts-API
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
+  - name: 'SDK:er'
     items:
-    - name: "Android"
+    - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
-    - name: "Node.js"
+    - name: Node.js
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
-    - name: "Python"
+    - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
-    - name: "Windows"
+    - name: Windows
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
-- name: "Resources"
+- name: Resurser
   items: 
-  - name: "LUIS FAQ"
+  - name: Vanliga frågor och svar om LUIS
     href: luis-resources-faq.md

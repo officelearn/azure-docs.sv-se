@@ -3,6 +3,7 @@
 ## Arkitektur
 ### [Asymmetrisk routning med flera nätverksvägar](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Skydda nätverkstrafik](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Topologi av typen hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 ### [Metodtips för nätverkssäkerhet](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Högtillgängliga virtuella nätverksinstallationer](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Kombinera metoder för belastningsutjämning](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)

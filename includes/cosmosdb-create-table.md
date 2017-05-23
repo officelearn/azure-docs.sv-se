@@ -11,6 +11,6 @@ Du kan nu använda datautforskaren för att skapa en grafbehållare och lägga t
     Samlings-id|sample-table|ID:t för din nya samling. Samma teckenkrav gäller för samlingsnamn som databas-id.
     Lagringskapacitet| 10 GB|Låt standardvärdet vara kvar. Det här är databasens lagringskapacitet.
     Dataflöde|400 RU:er|Låt standardvärdet vara kvar. Du kan skala upp dataflödet senare om du vill minska svarstiden.
-    Partitionsnyckeln|/databaser|En partitionsnyckel som ska distribuera data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel när man skapar en performant samling. Läs mer om det i [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Utforma för partitionering).
+    Partitionsnyckeln|/lastname|En partitionsnyckel som ska distribuera data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel när man skapar en performant samling. Läs mer om det i [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Utforma för partitionering).
 
 3. När formuläret är ifyllt klickar du på **OK**.

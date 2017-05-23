@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 89921997f68bd72ee6086d2b635361eeeaba1c28
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -33,7 +34,7 @@ Azure Recovery Services kan ingå i din BCDR-strategi. Med tjänsten [Azure Back
 
 - **Haveriberedskap i molnet** – du kan replikera arbetsbelastningar som körs på virtuella datorer och fysiska servrar till Azure i stället för en sekundär plats. Därmed kan du göra dig av med kostnaden och komplexiteten med att underhålla ett sekundärt datacenter.
 - **Flexibel replikering i hybridmiljöer** – du kan du replikera alla typer av arbetsbelastningar som körs på de lokala, virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows- och Linux-servrar som stöds.
-- **Migrering** – du kan använda Site Recovery till att migrera lokala, virtuella AWS-instanser till virtuella Azure-datorer och till att migrera virtuella Azure-datorer mellan olika Azure-regioner.
+- **Migrering** – du kan använda Site Recovery till att migrera AWS-instanser till virtuella Azure-datorer och till att migrera virtuella Azure-datorer mellan olika Azure-regioner.
 - **Enklare BCDR** – du kan distribuera all replikering från en enda plats i Azure Portal.  Du kan köra enkel redundansväxling och återställning efter fel för en eller flera datorer.
 - **Flexibilitet** – Site Recovery dirigerar replikering och redundansväxling utan att spärra programdata.
 Replikerade data lagras flexibelt i Azure Storage. Vid redundans skapas virtuella Azure-datorer utifrån replikerade data.

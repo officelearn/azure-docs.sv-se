@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Traffic Manager-profiler | Microsoft Docs
-description: "Den här artikeln beskriver hur du skapar, inaktiverar, aktiverar, tar bort och visar historiken för en Azure Traffic Manager-profil."
+description: "Den här artikeln beskriver hur du skapar, inaktiverar, aktiverar och tar bort en Azure Traffic Manager-profil."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 05/10/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 7e7de7dc1eca6903403afef03fdd6afb98ff16c9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 3d30024920295298ad2a8a6e22e11ef829934255
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -24,19 +26,22 @@ ms.openlocfilehash: 7e7de7dc1eca6903403afef03fdd6afb98ff16c9
 
 Traffic Manager-profiler använder trafikroutningsmetoder för att kontrollera trafikdistributionen till dina molntjänster eller webbplats-slutpunkter. Den här artikeln förklarar hur du skapar och hanterar de här profilerna.
 
-## <a name="create-a-traffic-manager-profile-using-quick-create"></a>Skapa en Traffic Manager-profil med hjälp av Snabbregistrering
+## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
-Du kan snabbt skapa en Traffic Manager-profil genom att använda Snabbregistrering på den klassiska Azure-portalen. Med Snabbregistrering kan du skapa profiler med grundläggande konfigurationsinställningar. Men du kan inte använda Snabbregistrering för konfigurationen av slutpunkter (molntjänster och webbplatser), redundansordningen för trafikroutningsmetoden för redundans eller övervakningsinställningar. När du har skapat din profil kan du konfigurera dessa inställningar på den klassiska Azure-portalen. Traffic Manager har stöd för upp till 200 slutpunkter per profil. De flesta användningsscenarier kräver dock endast ett litet antal slutpunkter.
+Du kan skapa en Traffic Manager-profil med Azure Portal. När du har skapat din profil kan du konfigurera slutpunkter, övervakning och andra inställningar på Azure Portal. Traffic Manager har stöd för upp till 200 slutpunkter per profil. De flesta användningsscenarier kräver dock endast ett litet antal slutpunkter.
 
 ### <a name="to-create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
-1. **Distribuera dina molntjänster och webbplatser till din produktionsmiljö.** Mer information om molntjänster finns i [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). Mer information om webbplatser finns i [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
-2. **Logga in på den klassiska Azure-portalen.** Klicka på **Ny** nere till vänster i portalen, klicka på **Nätverkstjänster > Traffic Manager** och klicka sedan på **Snabbregistrering** för att börja konfigurera din profil.
-3. **Konfigurera DNS-prefix.** Ge din Traffic Manager-profil ett unikt DNS-prefixnamn. Du kan ange bara prefixet för ett Traffic Manager-domännamn.
-4. **Välj prenumeration.** Välj lämplig Azure-prenumeration. Varje profil är associerad med en enda prenumeration. Om du bara har en prenumeration visas inte det här alternativet.
-5. **Välj trafikroutningsmetod.** Välj trafikroutningsmetod i **trafikroutningsprincip**. Mer information om trafikroutningsmetoder finns i [Om Traffic Manager-trafikroutningsmetoder](traffic-manager-routing-methods.md).
-6. **Klicka på ”Skapa” för att skapa profilen**. När profilkonfigurationen har slutförts hittar du din profil i Traffic Manager-fönstret på den klassiska Azure-portalen.
-7. **Konfigurera slutpunkter, övervakning och ytterligare inställningar i den klassiska Azure-portalen.** Snabbregistrering konfigurerar bara grundläggande inställningar. Det är nödvändigt att konfigurera ytterligare inställningar som exempelvis listan över slutpunkter och redundansordning.
+1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
+2. På menyn **Hub** (Hubb) klickar du på **New** (Ny) > **Nätverk** > **See all** (Visa alla), klicka på **Traffic Manager**-profilen för att öppna bladet **Skapa Traffic Manager-profil** och sedan på **Skapa**.
+3. På bladet **Skapa Traffic Manager-profil** gör du följande:
+    1. Ge profilen ett namn i **Namn**. Namnet måste var unikt inom trafficmanager.net-zonen och genererar DNS-namnet <name>, trafficmanager.net, som används för att öppna din Traffic Manager-profil.
+    2. I **Routningsmetod** väljer du routningsmetoden **Priority** (Prioritet).
+    3. I **Prenumeration** väljer du den prenumeration du vill skapa profilen under
+    4. I **Resursgrupp** skapar du en ny resursgrupp att placera profilen under.
+    5. I **Resursgruppsplats** väljer du plats för resursgruppen. Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.
+    6. Klicka på **Skapa**.
+    7. När den globala distribueringen av din Traffic Manager-profil är klar listas den i respektive resursgrupp som en av resurserna.
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Inaktivera, aktivera eller ta bort en profil
 
@@ -46,47 +51,29 @@ Du kan inaktivera en befintlig profil så att Traffic Manager inte refererar anv
 
 1. Om du använder ett anpassat domännamn, ändra då CNAME-posten på din Internet-DNS-server så att den inte längre pekar mot din Traffic Manager-profil.
 2. Trafiken slutar att dirigeras till slutpunkterna via Traffic Manager-profilinställningarna.
-3. Välj den profil som du vill inaktivera. På Traffic Manager-sidan, markerar du profilen genom att klicka på kolumntexten bredvid profilnamnet. Observera att om du klickar på namnet i profilen eller pilen bredvid namnet, så öppnas inställningssidan för profilen.
-4. När du har valt profilen klickar du på **Inaktivera** längst ned på sidan.
+3. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare.
+2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
+3. På bladet **Traffic Manager-profil** klickar du på **Översikt**, i bladet Översikt klickar du på **Inaktivera** och bekräftar sedan för att inaktivera Traffic Manager-profilen.
 
 ### <a name="to-enable-a-profile"></a>Så här aktiverar du en profil
 
-1. Välj den profil som du vill inaktivera. På Traffic Manager-sidan, markerar du profilen genom att klicka på kolumntexten bredvid profilnamnet. Observera att om du klickar på namnet i profilen eller pilen bredvid namnet, så öppnas inställningssidan för profilen.
-2. När du har valt profilen klickar du på **Aktivera** längst ned på sidan.
-3. Om du använder ett anpassat domännamn, skapar du en CNAME-resurspost på din Internet-DNS-server som pekar mot domännamnet för din Traffic Manager-profil.
-4. Trafiken börjar dirigeras till slutpunkterna igen.
+1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare.
+2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
+3. I bladet **Traffic Manager-profil** klickar du på **Översikt** och sedan på bladet Översikt klickar du på **Aktivera**.
+5. Om du använder ett anpassat domännamn, skapar du en CNAME-resurspost på din Internet-DNS-server som pekar mot domännamnet för din Traffic Manager-profil.
+6. Trafiken börjar dirigeras till slutpunkterna igen.
 
 ### <a name="to-delete-a-profile"></a>Så här tar du bort en profil
 
 1. Kontrollera att DNS-resursposten på Internet-DNS-servern inte längre använder en CNAME-resurspost som pekar på domännamnet för Traffic Manager-profilen.
-2. Välj den profil som du vill inaktivera. På Traffic Manager-sidan, markerar du profilen genom att klicka på kolumntexten bredvid profilnamnet. Observera att om du klickar på namnet i profilen eller pilen bredvid namnet, så öppnas inställningssidan för profilen.
-3. När du har valt profilen klickar du på **Ta bort** längst ned på sidan.
-
-## <a name="view-traffic-manager-profile-change-history"></a>Visa Traffic Manager-profilens ändringshistorik
-
-Du kan visa ändringshistoriken för din Traffic Manager-profil på den klassiska Azure-portalen i Hanteringstjänster.
-
-### <a name="to-view-your-traffic-manager-change-history"></a>Så här visar du ändringshistoriken för Traffic Manager
-
-1. Klicka på **Hanteringstjänster** i den vänstra rutan på den klassiska Azure-portalen.
-2. Klicka på **Åtgärdsloggar** på sidan Hanteringstjänster.
-3. På sidan Åtgärdsloggar kan du filtrera fram ändringshistoriken för Traffic Manager-profilen. När du har valt filtreringsalternativ klickar du på bockmarkeringen för att visa resultatet.
-
-   * Om du vill visa ändringar för alla dina profiler, väljer du din prenumeration och ett tidsintervall och väljer sedan **Traffic Manager** från snabbmenyn **Typ**.
-   * Om du vill filtrera efter profilnamn skriver du namnet på profilen i fältet **Tjänstnamn** eller väljer den från snabbmenyn.
-   * Om du vill visa information för varje enskild ändring markerar du raden med den ändring som du vill visa och klickar sedan på **Information** längst ned på sidan. I fönstret **Åtgärdsinformation** kan du visa en XML-representation av API-objektet som skapades eller uppdaterades som en del av åtgärden.
+2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
+3. På bladet **Traffic Manager-profil** klickar du på **Översikt**, i bladet Översikt klickar du på **Ta bort** och bekräftar sedan för att ta bort Traffic Manager-profilen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lägg till en slutpunkt](traffic-manager-endpoints.md)
-* [Konfigurera routningsmetod vid redundans](traffic-manager-configure-failover-routing-method.md)
-* [Konfigurera routningsmetod vid resursallokering](traffic-manager-configure-round-robin-routing-method.md)
+* [Konfigurera prioriterad routningsmetod](traffic-manager-configure-priority-routing-method.md)
+* [Konfigurera geografisk routningsmetod](traffic-manager-configure-geographic-routing-method.md) 
+* [Konfigurera viktad routningsmetod](traffic-manager-configure-weighted-routing-method.md)
 * [Konfigurera routningsmetod för prestanda](traffic-manager-configure-performance-routing-method.md)
-* [Peka företagets Internetdomän till ett Traffic Manager-domännamn](traffic-manager-point-internet-domain.md)
-* [Felsök degraderat tillstånd i Traffic Manager](traffic-manager-troubleshooting-degraded.md)
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

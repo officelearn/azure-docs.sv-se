@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 83b72b046605f6076302d4347afa70707060929e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 2bf0fa92b4f0a54738da86e2c8f26a51d053cfac
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -29,7 +29,7 @@ Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Den här snabbstarten kräver Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure 
 
@@ -76,7 +76,7 @@ När den virtuella datorn har skapats visar Azure CLI information som ser ut ung
 
 ## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik 
 
-Som standard tillåts enbart SSH-anslutningar till virtuella Linux-datorer distribuerade i Azure. Om den här virtuella datorn kommer att vara en webbserver måste du öppna port 80 från Internet. Använd kommandot [az vm open-port](/cli/azure/vm#open-port)] för att öppna önskad port.  
+Som standard tillåts enbart SSH-anslutningar till virtuella Linux-datorer distribuerade i Azure. Om den här virtuella datorn kommer att vara en webbserver måste du öppna port 80 från Internet. Använd kommandot [az vm open-port](/cli/azure/vm#open-port) för att öppna önskad port.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -104,7 +104,7 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## <a name="view-the-ngix-welcome-page"></a>Visa NGIX-välkomstsidan
+## <a name="view-the-nginx-welcome-page"></a>Visa NGINX-välkomstsidan
 
 Du kan använda en webbläsare som du väljer för att visa välkomstsidan till NGINX när NGINX är installerat och port 80 nu är öppen på en virtuell dator från Internet. Se till att använda den *publicIpAddress* som du har dokumenterat ovan för att besöka standardsidan. 
 

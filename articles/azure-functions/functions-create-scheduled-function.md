@@ -16,43 +16,49 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 10461bddeb4d5adf4a6e4f65159ba2653dbef8a4
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 1478a2eedad496d3113fef28920d10859d11b1ce
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-#  <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
+# <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
 
-Lär dig hur du använder Azure Functions till att skapa en funktion som körs enligt ett schema du definierar. 
+Lär dig hur du använder Azure Functions till att skapa en funktion som körs enligt ett schema du definierar.
 
 ![Skapa en funktionsapp i Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-Det bör ta mindre än fem minuter att slutföra alla steg i det här avsnittet.
+## <a name="prerequisites"></a>Krav
 
-## <a name="prerequisites"></a>Krav 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-I det här avsnittet skapar du en timerutlöst funktion i din befintliga funktionsapp. 
+## <a name="create-an-azure-function-app"></a>Skapa en Azure Functions-app
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-function"></a>Skapa en timerutlöst funktion
+![Funktionsappen skapades.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+Därefter skapar du en funktion i den nya funktionsappen.
+
+<a name="create-function"></a>
+
+## <a name="create-a-timer-triggered-function"></a>Skapa en timerutlöst funktion
 
 1. Expandera din funktionsapp, klicka på knappen **+** bredvid **Funktioner** och klicka på mallen **TimerTrigger** för önskat språk. Använd inställningarna som anges i tabellen och klicka på **Skapa**:
 
-    | Inställning      |  Föreslaget värde   | Beskrivning                              |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Namnge din funktion** | TimerTriggerCSharp1 | Det här är namnet på den timerutlösta funktionen.
-    | **[Schema](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 */1 * * * * | Ett [CRON-uttryck](http://en.wikipedia.org/wiki/Cron#CRON_expression) med sex fält som schemalägger att funktionen ska köras varje minut. |
+| Inställning | Föreslaget värde | Beskrivning |
+|---|---|---|
+| **Namnge din funktion** | TimerTriggerCSharp1 | Det här är namnet på den timerutlösta funktionen. |
+| **[Schema](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Ett [CRON-uttryck](http://en.wikipedia.org/wiki/Cron#CRON_expression) med sex fält som schemalägger att funktionen ska köras varje minut. |
 
-    En funktion skapas i valt språk som körs varje minut. 
+En funktion skapas i valt språk som körs varje minut.
 
-4. Kontrollera körningen genom att granska spårningsinformationen som skrivs till loggarna. 
+1. Kontrollera körningen genom att granska spårningsinformationen som skrivs till loggarna.
 
-    ![Funktionsloggvisning i Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+![Funktionsloggvisning i Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
 Du kan nu ändra funktionens schema så att den körs mindre ofta, till exempel en gång i timmen. 
 
@@ -71,12 +77,9 @@ Du har nu en funktion som körs en gång i timmen.
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Du har skapat en funktion som körs enligt ett schema. 
+
+Du har skapat en funktion som körs enligt ett schema.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Mer information timerutlösare finns i [Schedule code execution with Azure Functions](functions-bindings-timer.md) (Schemalägga kodkörning med Azure Functions). 
-
-
-
-
+Mer information timerutlösare finns i [Schedule code execution with Azure Functions](functions-bindings-timer.md) (Schemalägga kodkörning med Azure Functions).

@@ -1,6 +1,6 @@
 ---
-title: "Köra adhoc-analysfrågor över alla klienter (SaaS-exempelapp med Azure SQL Database) | Microsoft Docs"
-description: "Köra adhoc-analysfrågor över alla klienter"
+title: "Köra adhoc-analysfrågor över flera Azure SQL-databaser | Microsoft Docs"
+description: "Köra adhoc-analysfrågor över flera databaser i ett program för flera klienter"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c00c25116002c46fc94c5ea59acc101a2055b689
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: dd41e7f1f131f6c18e03d2434982c3d681342b8b
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -54,7 +54,7 @@ Det är lätt att komma åt en enkel databas med flera klienter, men inte så en
 
 ## <a name="get-the-wingtip-application-scripts"></a>Hämta Wingtip-programskript
 
-Wingtip Tickets-skript och programmets källkod finns tillgängligt från github-repon [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Skriptfilerna finns i [mappen Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Ladda ner mappen **Learning Modules** till din lokala dator med mappstrukturen intakt.
+Wingtip biljettskripten och programmets källkod finns tillgängliga från github-repon [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Skriptfilerna finns i [mappen inlärningsmoduler](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Ladda ner mappen **Learning Modules** till din lokala dator med mappstrukturen intakt.
 
 ## <a name="deploy-the-database-used-for-ad-hoc-analytics-queries"></a>Distribuera databasen som används för adhoc-analysfrågor
 

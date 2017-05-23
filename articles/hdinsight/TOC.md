@@ -1,5 +1,5 @@
 # Översikt
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [Om HDInsight och Hadoop](hdinsight-hadoop-introduction.md)
 ## [Hadoop-komponenter på HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
@@ -133,6 +133,7 @@
 ### [Anpassa kluster med Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Anpassa kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Utveckla skriptåtgärder](hdinsight-hadoop-script-actions-linux.md)
+### [Installera och använda Presto](hdinsight-hadoop-install-presto.md)
 ### [Installera eller uppdatera Mono](hdinsight-hadoop-install-mono.md)
 ### [Lägga till Hive-bibliotek](hdinsight-hadoop-add-hive-libraries.md)
 ### [Använda Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -221,5 +222,6 @@
 ### [Övervaka kluster med Ambari-API](hdinsight-monitor-use-ambari-api.md)
 
 # Resurser
+## [Windows-verktyg för HDInsight](hdinsight-hadoop-windows-tools.md)
 ## [Få hjälp i forumet](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

@@ -13,19 +13,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/3/2017
+ms.date: 5/8/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: cd07cfe9663ffe2561f87b76b3eef1a551c9d665
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
-Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett säkerhetskopieringsvalv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
+Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
 
 [Titta på en videoöversikt över Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
 
@@ -42,7 +42,7 @@ Traditionella säkerhetskopieringslösningar har utvecklats för att behandla mo
 
 * Geo-redundant lagring (GRS) replikerar dina data till en sekundär region (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger högre hållbarhet för dina data, även i händelse av ett regionalt avbrott.
 
-**Obegränsad dataöverföring** – Azure Backup begränsar inte hur mycket inkommande eller utgående data du överför. Azure Backup debiterar inte heller för de data som överförs. Om du använder Azure Import/Export-tjänsten för att importera stora mängder data finns det dock en kostnad som är kopplad till inkommande data. Mer information om kostnaden finns i [Offline-backup workflow in Azure Backup](backup-azure-backup-import-export.md) (Arbetsflöde för säkerhetskopiering offline i Azure Backup). Utgående data innebär data som överförs från ett säkerhetskopieringsvalv under en återställning.
+**Obegränsad dataöverföring** – Azure Backup begränsar inte hur mycket inkommande eller utgående data du överför. Azure Backup debiterar inte heller för de data som överförs. Om du använder Azure Import/Export-tjänsten för att importera stora mängder data finns det dock en kostnad som är kopplad till inkommande data. Mer information om kostnaden finns i [Offline-backup workflow in Azure Backup](backup-azure-backup-import-export.md) (Arbetsflöde för säkerhetskopiering offline i Azure Backup). Utgående data syftar på data som överförs från ett Recovery Services-valv under en återställningsåtgärd.
 
 **Datakryptering** – Datakryptering möjliggör säker överföring och lagring av dina data i det offentliga molnet. Krypteringslösenfrasen lagras på lokalt och överförs eller lagras aldrig i Azure. Om det är nödvändigt att återställa data kan du göra det om du har krypteringslösenfrasen eller nyckeln.
 
@@ -55,18 +55,18 @@ Om du inte är säker på vilken Azure Backup-komponent som passar dina behov ka
 
 | Komponent | Fördelar | Begränsningar | Vad skyddas? | Var lagras säkerhetskopiorna? |
 | --- | --- | --- | --- | --- |
-| Azure Backup-agent (MARS) |<li>Säkerhetskopiera filer och mappar på en fysisk eller virtuell dator med Windows OS (virtuella datorer kan finnas lokalt eller i Azure)<li>Ingen separat säkerhetskopieringsserver krävs. |<li>Säkerhetskopiera 3 gånger per dag <li>Inte programmedveten, endast återställning på fil-/mapp-/volymnivå, <li>  Inget stöd för Linux. |<li>Filer, <li>Mappar |Azure Backup-valv |
-| System Center DPM |<li>Programmedvetna ögonblicksbilder (VSS)<li>Fullständig flexibilitet när du vill skapa säkerhetskopior<li>Återställningsprecision (allt)<li>Kan använda Azure Backup-valv<li>Linux-stöd på Hyper-V- och VMware-baserade virtuella datorer <li>Säkerhetskopiera och återställ virtuella VMware-datorer med DPM 2012 R2 |Det går inte att säkerhetskopiera Oracle-arbetsbelastningar.|<li>Filer, <li>Mappar,<li> Volymer, <li>Virtuella datorer,<li> Program,<li> Arbetsbelastningar |<li>Azure Backup-valvet,<li> Lokalt ansluten disk,<li>  Band (endast lokalt) |
-| Azure Backup Server |<li>Appmedvetna ögonblicksbilder (VSS)<li>Fullständig flexibilitet när du vill skapa säkerhetskopior<li>Återställningsprecision (allt)<li>Kan använda Azure Backup-valv<li>Linux-stöd på Hyper-V- och VMware-baserade virtuella datorer<li>Säkerhetskopiera och återställ virtuella VMware-datorer <li>Kräver inte en System Center-licens |<li>Det går inte att säkerhetskopiera Oracle-arbetsbelastningar.<li>Kräver alltid en aktiv Azure-prenumeration<li>Inget stöd för säkerhetskopiering på band |<li>Filer, <li>Mappar,<li> Volymer, <li>Virtuella datorer,<li> Program,<li> Arbetsbelastningar |<li>Azure Backup-valvet,<li> Lokalt ansluten disk |
-| Säkerhetskopiering av virtuella IaaS-datorer i Azure |<li>Interna säkerhetskopieringar för Windows/Linux<li>Ingen specifik agentinstallation krävs<li>Säkerhetskopiering på infrastrukturnivå utan behov av en infrastruktur för säkerhetskopiering |<li>Säkerhetskopiera virtuella datorer en gång om dagen <li>Återställ virtuella datorer endast på disknivå<li>Det går inte att säkerhetskopiera lokalt |<li>Virtuella datorer, <li>Alla diskar (med PowerShell) |<p>Azure Backup-valv</p> |
+| Azure Backup-agent (MARS) |<li>Säkerhetskopiera filer och mappar på en fysisk eller virtuell dator med Windows OS (virtuella datorer kan finnas lokalt eller i Azure)<li>Ingen separat säkerhetskopieringsserver krävs. |<li>Säkerhetskopiera 3 gånger per dag <li>Inte programmedveten, endast återställning på fil-/mapp-/volymnivå, <li>  Inget stöd för Linux. |<li>Filer, <li>Mappar |Recovery Services-valv |
+| System Center DPM |<li>Programmedvetna ögonblicksbilder (VSS)<li>Fullständig flexibilitet när du vill skapa säkerhetskopior<li>Återställningsprecision (allt)<li>Kan använda Recovery Services-valv<li>Linux-stöd på Hyper-V- och VMware-baserade virtuella datorer <li>Säkerhetskopiera och återställ virtuella VMware-datorer med DPM 2012 R2 |Det går inte att säkerhetskopiera Oracle-arbetsbelastningar.|<li>Filer, <li>Mappar,<li> Volymer, <li>Virtuella datorer,<li> Program,<li> Arbetsbelastningar |<li>Recovery Services-valv,<li> Lokalt ansluten disk,<li>  Band (endast lokalt) |
+| Azure Backup Server |<li>Appmedvetna ögonblicksbilder (VSS)<li>Fullständig flexibilitet när du vill skapa säkerhetskopior<li>Återställningsprecision (allt)<li>Kan använda Recovery Services-valv<li>Linux-stöd på Hyper-V- och VMware-baserade virtuella datorer<li>Säkerhetskopiera och återställ virtuella VMware-datorer <li>Kräver inte en System Center-licens |<li>Det går inte att säkerhetskopiera Oracle-arbetsbelastningar.<li>Kräver alltid en aktiv Azure-prenumeration<li>Inget stöd för säkerhetskopiering på band |<li>Filer, <li>Mappar,<li> Volymer, <li>Virtuella datorer,<li> Program,<li> Arbetsbelastningar |<li>Recovery Services-valv,<li> Lokalt ansluten disk |
+| Säkerhetskopiering av virtuella IaaS-datorer i Azure |<li>Interna säkerhetskopieringar för Windows/Linux<li>Ingen specifik agentinstallation krävs<li>Säkerhetskopiering på infrastrukturnivå utan behov av en infrastruktur för säkerhetskopiering |<li>Säkerhetskopiera virtuella datorer en gång om dagen <li>Återställ virtuella datorer endast på disknivå<li>Det går inte att säkerhetskopiera lokalt |<li>Virtuella datorer, <li>Alla diskar (med PowerShell) |<p>Recovery Services-valv</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Vilka är distributionsscenarierna för varje komponent?
 | Komponent | Kan den distribueras i Azure? | Kan den distribuerade lokalt? | Mållagring som stöds |
 | --- | --- | --- | --- |
-| Azure Backup-agent (MARS) |<p>**Ja**</p> <p>Azure Backup-agenten kan distribueras på virtuella datorer med Windows som körs i Azure.</p> |<p>**Ja**</p> <p>Backup-agenten kan distribueras på virtuella datorer med Windows Server eller en fysisk dator.</p> |<p>Azure Backup-valv</p> |
-| System Center DPM |<p>**Ja**</p><p>Lär dig mer om [hur du skyddar arbetsbelastningar i Azure med hjälp av System Center DPM](backup-azure-dpm-introduction.md).</p> |<p>**Ja**</p> <p>Lär dig mer om [hur du skyddar arbetsbelastningar och virtuella datorer i ditt datacenter](https://technet.microsoft.com/en-us/system-center-docs/dpm/data-protection-manager).</p> |<p>Lokalt ansluten disk,</p> <p>Azure Backup-valvet,</p> <p>band (endast lokalt)</p> |
-| Azure Backup Server |<p>**Ja**</p><p>Lär dig mer om [hur du skyddar arbetsbelastningar i Azure med Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>**Ja**</p> <p>Lär dig mer om [hur du skyddar arbetsbelastningar i Azure med Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>Lokalt ansluten disk,</p> <p>Azure Backup-valv</p> |
-| Säkerhetskopiering av virtuella IaaS-datorer i Azure |<p>**Ja**</p><p>En del av Azure-infrastrukturen</p><p>Specialiserad för [säkerhetskopiering av virtuella Iaas-datorer (Infrastructure as a Service) i Azure](backup-azure-vms-introduction.md).</p> |<p>**Nej**</p> <p>Använd System Center DPM för att säkerhetskopiera virtuella datorer i datacentret.</p> |<p>Azure Backup-valv</p> |
+| Azure Backup-agent (MARS) |<p>**Ja**</p> <p>Azure Backup-agenten kan distribueras på virtuella datorer med Windows som körs i Azure.</p> |<p>**Ja**</p> <p>Backup-agenten kan distribueras på virtuella datorer med Windows Server eller en fysisk dator.</p> |<p>Recovery Services-valv</p> |
+| System Center DPM |<p>**Ja**</p><p>Lär dig mer om [hur du skyddar arbetsbelastningar i Azure med hjälp av System Center DPM](backup-azure-dpm-introduction.md).</p> |<p>**Ja**</p> <p>Lär dig mer om [hur du skyddar arbetsbelastningar och virtuella datorer i ditt datacenter](https://technet.microsoft.com/system-center-docs/dpm/data-protection-manager).</p> |<p>Lokalt ansluten disk,</p> <p>Recovery Services-valv,</p> <p>band (endast lokalt)</p> |
+| Azure Backup Server |<p>**Ja**</p><p>Lär dig mer om [hur du skyddar arbetsbelastningar i Azure med Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>**Ja**</p> <p>Lär dig mer om [hur du skyddar arbetsbelastningar i Azure med Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>Lokalt ansluten disk,</p> <p>Recovery Services-valv</p> |
+| Säkerhetskopiering av virtuella IaaS-datorer i Azure |<p>**Ja**</p><p>En del av Azure-infrastrukturen</p><p>Specialiserad för [säkerhetskopiering av virtuella Iaas-datorer (Infrastructure as a Service) i Azure](backup-azure-vms-introduction.md).</p> |<p>**Nej**</p> <p>Använd System Center DPM för att säkerhetskopiera virtuella datorer i datacentret.</p> |<p>Recovery Services-valv</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Vilka program och arbetsbelastningar kan säkerhetskopieras?
 Följande tabell innehåller en matris med data och arbetsbelastningar som kan skyddas med Azure Backup. I kolumnen med Azure Backup-lösningar finns länkar till dokumentationen för lösningen. Varje komponent i Azure Backup kan distribueras i en klassisk (Service Manager-distribuering) eller Resource Manager-modellmiljö för distribuering.
@@ -91,15 +91,15 @@ I följande tabell visas de Azure Backup-komponenter som har stöd för Linux.
 | Komponent | Linux-stöd (Azure-godkänt) |
 | --- | --- |
 | Azure Backup-agent (MARS) |Nej (endast Windows-baserad agent) |
-| System Center DPM |Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/> (inte tillgängligt för virtuella Azure-datorer)<br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare |
-| Azure Backup Server |Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/> (inte tillgängligt för virtuella Azure-datorer)<br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare |
-| Säkerhetskopiering av virtuella IaaS-datorer i Azure |Programkonsekvent säkerhetskopiering med [ramverk för förskript och efterskript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)<br/> [Detaljerad filåterställning](backup-azure-restore-files-from-vm.md)<br/> [Återställ alla diskar på virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [Återställning av virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
+| System Center DPM |<li> Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/> <li> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare </br> </br>  *Filkonsekvent säkerhetskopiering är inte tillgängligt för Azure VM* <br/> |
+| Azure Backup Server |<li>Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/> <li> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare </br></br> *Filkonsekvent säkerhetskopiering är inte tillgängligt för Azure VM*  |
+| Säkerhetskopiering av virtuella IaaS-datorer i Azure |Programkonsekvent säkerhetskopiering med [ramverk för förskript och efterskript](backup-azure-linux-app-consistent.md)<br/> [Detaljerad filåterställning](backup-azure-restore-files-from-vm.md)<br/> [Återställ alla diskar på virtuella datorer](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Återställning av virtuella datorer](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Använd virtuella Premium Storage-datorer med Azure Backup
 Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium-lagring finns i artikeln [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Säkerhetskopiera virtuella datorer i Premium Storage
-När du säkerhetskopierar virtuella datorer i Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet ”AzureBackup-” i Premium Storage-kontot. Mellanlagringsplatsen är lika stor som återställningspunkten för ögonblicksbilden. Se till att det finns tillräckligt med ledigt utrymme i lagringskontot för mellanlagringsplatsen. Mer information finns i artikeln om [Premium Storage-begränsningar](../storage/storage-premium-storage.md#scalability-and-performance-targets). När säkerhetskopieringen är klar tas mellanlagringsplatsen bort. Priset för lagringen som används för mellanlagringsplatsen följer [prissättningen för Premium-lagring](../storage/storage-premium-storage.md#pricing-and-billing).
+När du säkerhetskopierar virtuella datorer i Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet ”AzureBackup-” i Premium Storage-kontot. Storleken på mellanlagringsplatsen är lika stor som återställningspunktens ögonblicksbild. Kontrollera att Premium Storage-kontot har tillräckligt med ledigt utrymme så att den tillfälliga mellanlagringsplatsen får plats. Mer information finns i artikeln om [Premium Storage-begränsningar](../storage/storage-premium-storage.md#scalability-and-performance-targets). När säkerhetskopieringen är klar tas mellanlagringsplatsen bort. Priset för lagringen som används för mellanlagringsplatsen följer [prissättningen för Premium-lagring](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Ändra inte mellanlagringsplatsen.
@@ -116,7 +116,7 @@ Azure Backup skyddar virtuella datorer med hanterade diskar. Om du använder han
 Säkerhetskopieringen av virtuella datorer på hanterade diskar fungerar på samma sätt som säkerhetskopieringen av virtuella datorer med Resource Manager. I Azure Portal kan du konfigurera säkerhetskopieringen direkt från vyn Virtuell dator eller från Recovery Services-valvvyn. Du kan säkerhetskopiera virtuella datorer på hanterade diskar via RestorePoint-samlingar som är byggda ovanpå hanterade diskar. Azure Backup stöder också säkerhetskopiering av virtuella datorer på hanterade diskar som krypterats med ADE (Azure Disk Encryption).
 
 ### <a name="restore-managed-disk-vms"></a>Återställa virtuella datorer med hanterade diskar
-Med Azure Backup kan du återställa en hel virtuell dator med hanterade diskar eller återställa hanterade diskar till ett Resource Manager-lagringskonto. Azure hanterar de hanterade diskarna under återställningsprocessen. Du (kunden) hanterar lagringskontot som skapas som en del av återställningsprocessen. För att återställa hanterade krypterade virtuella datorer ska den virtuella datorns nycklar och hemligheter redan finnas i nyckelvalvet innan återställningen.
+Med Azure Backup kan du återställa en hel virtuell dator med hanterade diskar eller återställa hanterade diskar till ett lagringskonto. Azure hanterar de hanterade diskarna under återställningsprocessen. Du (kunden) hanterar lagringskontot som skapas som en del av återställningsprocessen. När du återställer hanterade krypterade virtuella datorer bör de virtuella datorernas nycklar och hemligheter finnas i nyckelvalvet innan återställningsåtgärden startar.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Vilka är funktionerna i varje Backup-komponent?
 Följande avsnitt innehåller tabeller som sammanfattar tillgänglighet eller stöd för olika funktioner i varje komponent i Azure Backup. Titta på informationen efter varje tabell för ytterligare support eller information.
@@ -124,19 +124,19 @@ Följande avsnitt innehåller tabeller som sammanfattar tillgänglighet eller st
 ### <a name="storage"></a>Lagring
 | Funktion | Azure Backup-agent | System Center DPM | Azure Backup Server | Säkerhetskopiering av virtuella IaaS-datorer i Azure |
 | --- | --- | --- | --- | --- |
-| Azure Backup-valv |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |
+| Recovery Services-valv |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |
 | Disklagring | |![Ja][green] |![Ja][green] | |
 | Bandlagring | |![Ja][green] | | |
-| Komprimering <br/>(i säkerhetskopieringsvalvet) |![Ja][green] |![Ja][green] |![Ja][green] | |
+| Komprimering <br/>(i Recovery Services-valv) |![Ja][green] |![Ja][green] |![Ja][green] | |
 | Inkrementell säkerhetskopiering |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |
-| Diskdeduplicering | |![Delvis][yellow] |![Delvis][yellow] | |
+| Diskdeduplicering | |![Delvis][yellow] |![Delvis][yellow] | | |
 
 ![tabellförklaring](./media/backup-introduction-to-azure-backup/table-key.png)
 
-Backup-valvet är det prioriterade lagringsmålet i alla komponenter. Med System Center DPM och Azure Backup Server kan du också välja att kopiera en lokal disk. Dock kan du endast skriva data till en bandlagringsenhet med System Center DPM.
+Recovery Services-valvet är det prioriterade lagringsmålet för alla komponenter. Med System Center DPM och Azure Backup Server kan du också välja att kopiera en lokal disk. Dock kan du endast skriva data till en bandlagringsenhet med System Center DPM.
 
 #### <a name="compression"></a>Komprimering
-Säkerhetskopior komprimeras för att minska lagringsutrymmet som krävs. Den enda komponenten som inte använder komprimering är VM-tillägget. VM-tillägget kopierar alla säkerhetskopierade data från ditt lagringskonto till säkerhetskopieringsvalvet i samma region. Ingen komprimering används vid överföringen av data. Överföringen av data utan komprimering förbrukar något mer lagringsutrymme. Lagringen av data utan komprimering medför dock snabbare återställning, om du behöver använda den återställningspunkten.
+Säkerhetskopior komprimeras för att minska lagringsutrymmet som krävs. Den enda komponenten som inte använder komprimering är VM-tillägget. VM-tillägget kopierar alla säkerhetskopierade data från ditt lagringskonto till Recovery Services-valvet i samma region. Ingen komprimering används vid överföringen av data. Överföringen av data utan komprimering förbrukar något mer lagringsutrymme. Lagringen av data utan komprimering medför dock snabbare återställning, om du behöver använda den återställningspunkten.
 
 
 #### <a name="disk-deduplication"></a>Diskdeduplicering
@@ -148,7 +148,7 @@ Du kan dra nytta av datadeduplicering när du distribuerar System Center DPM ell
 >
 
 ### <a name="incremental-backup-explained"></a>Förklaring av inkrementell säkerhetskopiering
-Alla Azure Backup-komponenter stöder inkrementell säkerhetskopiering oavsett mållagring (disk, band eller säkerhetskopieringsvalv). Inkrementell säkerhetskopiering ser till att säkerhetskopieringarna är lagrings- och tidseffektiva genom att endast överföra de ändringar som gjorts sedan den senaste säkerhetskopieringen.
+Alla Azure Backup-komponenter stöder inkrementell säkerhetskopiering oavsett mållagring (disk, band eller Recovery Services-valv). Inkrementell säkerhetskopiering ser till att säkerhetskopieringarna är lagrings- och tidseffektiva genom att endast överföra de ändringar som gjorts sedan den senaste säkerhetskopieringen.
 
 #### <a name="comparing-full-differential-and-incremental-backup"></a>Jämföra fullständig, differentiell och inkrementell säkerhetskopiering
 
@@ -171,10 +171,10 @@ Med **fullständig säkerhetskopiering** innehåller varje säkerhetskopia hela 
 ![tabellförklaring](./media/backup-introduction-to-azure-backup/table-key.png)
 
 #### <a name="network-security"></a>Nätverkssäkerhet
-All säkerhetskopieringstrafik från dina servrar till säkerhetskopieringsvalvet krypteras med hjälp av Advanced Encryption Standard 256. Säkerhetskopierade data skickas via en säker HTTPS-anslutning. Säkerhetskopierade data lagras också i Backup-valvet i krypterad form. Endast du, Azure-kunden, har tillgång till lösenfrasen som krävs för att låsa upp dessa data. Microsoft kan aldrig dekryptera säkerhetskopierade data.
+All säkerhetskopieringstrafik från dina servrar till Recovery Services-valvet krypteras med hjälp av Advanced Encryption Standard 256. Säkerhetskopierade data skickas via en säker HTTPS-anslutning. Säkerhetskopierade data lagras också i Recovery Services-valvet i krypterad form. Endast du, Azure-kunden, har tillgång till lösenfrasen som krävs för att låsa upp dessa data. Microsoft kan aldrig dekryptera säkerhetskopierade data.
 
 > [!WARNING]
-> När du har skapat säkerhetskopieringsvalvet har bara du åtkomst till krypteringsnyckeln. Microsoft sparar aldrig en kopia av krypteringsnyckeln och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan inte Microsoft återställa dina säkerhetskopierade data.
+> När du har etablerat Recovery Services-valvet är du den enda som har åtkomst till krypteringsnyckeln. Microsoft sparar aldrig en kopia av krypteringsnyckeln och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan inte Microsoft återställa dina säkerhetskopierade data.
 >
 >
 
@@ -185,15 +185,15 @@ Säkerhetskopieringen av virtuella datorer i Azure kräver krypteringsinställni
 | Funktion | Azure Backup-agent | System Center DPM | Azure Backup Server | Säkerhetskopiering av virtuella IaaS-datorer i Azure |
 | --- | --- | --- | --- | --- |
 | Nätverkskomprimering <br/>(till **backup server**) | |![Ja][green] |![Ja][green] | |
-| Nätverkskomprimering <br/>(till **säkerhetskopieringsvalvet**) |![Ja][green] |![Ja][green] |![Ja][green] | |
+| Nätverkskomprimering <br/>(till **Recovery Services-valv**) |![Ja][green] |![Ja][green] |![Ja][green] | |
 | Nätverksprotokoll <br/>(till **backup server**) | |TCP |TCP | |
-| Nätverksprotokoll <br/>(till **säkerhetskopieringsvalvet**) |HTTPS |HTTPS |HTTPS |HTTPS |
+| Nätverksprotokoll <br/>(till **Recovery Services-valv**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
 ![tabellförklaring](./media/backup-introduction-to-azure-backup/table-key-2.png)
 
 VM-tillägget (eller virtuella IaaS-datorer) läser data direkt från Azure Storage-kontot i lagringsnätverket behöver du inte komprimera den här trafiken.
 
-Om du säkerhetskopierar data till ett System Center DPM eller Azure Backup Server ska komprimerade data gå från den primära servern till säkerhetskopieringsservern. Du kan spara bandbredd genom att komprimera data innan du säkerhetskopierar dem till DPM eller Azure Backup Server.
+Om du använder en System Center DPM-server eller Azure Backup Server som en sekundär server för säkerhetskopiering, komprimerar du data som överförs från den primära servern till säkerhetskopieringsservern. Du kan spara bandbredd genom att komprimera data innan du säkerhetskopierar dem till DPM eller Azure Backup Server.
 
 #### <a name="network-throttling"></a>Nätverksbegränsningar
 Azure Backup-agenten tillhandahåller nätverksbegränsning som du kan använda för att styra hur nätverksbandbredden används under dataöverföringar. Begränsning kan vara användbart om du behöver säkerhetskopiera data under arbetstid, men inte vill att säkerhetskopieringsprocessen ska störa annan Internettrafik. Begränsningar av dataöverföringar gäller säkerhetskopierings- och återställningsaktiviteter.
@@ -204,7 +204,7 @@ Azure Backup har en gräns på 9 999 återställningspunkter (även kallade s�
 
 |  | Azure Backup-agent | System Center DPM | Azure Backup Server | Säkerhetskopiering av virtuella IaaS-datorer i Azure |
 | --- | --- | --- | --- | --- |
-| Säkerhetskopieringsfrekvens<br/> (till säkerhetskopieringsvalvet) |Tre säkerhetskopieringar om dagen |Två säkerhetskopieringar om dagen |Två säkerhetskopieringar om dagen |En säkerhetskopiering om dagen |
+| Säkerhetskopieringsfrekvens<br/> (till Recovery Services-valv) |Tre säkerhetskopieringar om dagen |Två säkerhetskopieringar om dagen |Två säkerhetskopieringar om dagen |En säkerhetskopiering om dagen |
 | Säkerhetskopieringsfrekvens<br/> (till disk) |Inte tillämpligt |<li>Varje kvart för SQL Server <li>Varje timme för andra arbetsbelastningar |<li>Varje kvart för SQL Server <li>Varje timme för andra arbetsbelastningar</p> |Inte tillämpligt |
 | Kvarhållningsalternativ |Varje dag, varje vecka, varje månad, varje år |Varje dag, varje vecka, varje månad, varje år |Varje dag, varje vecka, varje månad, varje år |Varje dag, varje vecka, varje månad, varje år |
 | Högsta antal återställningspunkter per skyddad instans |9999|9999|9999|9999|
@@ -222,12 +222,12 @@ Några vanliga exempel på skyddade instanser är virtuella datorer, programserv
 
 
 ## <a name="what-is-the-vault-credential-file"></a>Vad är valvautentiseringsfilen?
-Valvautentiseringsfilen är ett certifikat som genereras av portalen för varje säkerhetskopieringsvalv. Portalen överför sedan den offentliga nyckeln till Access Control Service (ACS). Den privata nyckeln får du när du laddar ned autentiseringsuppgifterna. Använd den för att registrera de datorer som du skyddar. Med den privata nyckeln kan du autentisera servrar eller datorer för att skicka säkerhetskopierade data till ett visst säkerhetskopieringsvalv.
+Filen med autentiseringsuppgifter för valvet är ett certifikat som genereras av portalen för varje Recovery Services-valv. Portalen överför sedan den offentliga nyckeln till Access Control Service (ACS). Den privata nyckeln får du när du laddar ned autentiseringsuppgifterna. Använd den för att registrera de datorer som du skyddar. Med den privata nyckeln kan du autentisera servrar eller datorer för att skicka säkerhetskopierade data till ett visst Recovery Services-valv.
 
-Du använder bara valvautentiseringen för att registrera servrar eller datorer. Men var noga med autentiseringsuppgifter för valv. Om de tappas bort eller hämtas av andra kan autentiseringsuppgifterna användas för att registrera andra datorer mot samma valv. Eftersom säkerhetskopierade data krypteras med en lösenfras som endast du kan få åtkomst till kan inte befintliga säkerhetskopierade data komprometteras. Valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Du kan ladda ned autentiseringsuppgifter för säkerhetskopieringsvalvet så ofta du vill, men du kan enbart använda de senaste autentiseringsuppgifterna för registrering.
+Du använder bara valvautentiseringen för att registrera servrar eller datorer. Men var noga med autentiseringsuppgifter för valv. Om de tappas bort eller hämtas av andra kan autentiseringsuppgifterna användas för att registrera andra datorer mot samma valv. Eftersom säkerhetskopierade data krypteras med en lösenfras som endast du kan få åtkomst till kan inte befintliga säkerhetskopierade data komprometteras. Valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Du kan ladda ned autentiseringsuppgifter för Recovery Services-valvet så ofta du vill, men du kan endast använda de senaste autentiseringsuppgifterna för registrering.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Vad är skillnaden mellan Azure Backup och Azure Site Recovery?
-Azure Backup och Azure Site Recovery är relaterade eftersom båda tjänsterna säkerhetskopierar och återställer data. Tjänsterna har emellertid olika förslagsvärden.
+Azure Backup och Azure Site Recovery är relaterade eftersom båda tjänsterna säkerhetskopierar och återställer data. Dessa tjänster tjänar dock olika syften när det gäller att tillhandahålla affärskontinuitet och haveriberedskap i organisationen. Använd Azure Backup om du vill skydda och återställa data på en mer detaljerad nivå. Om till exempel en presentation på en bärbar dator skadas, använder du Azure Backup för att återställa presentationen. Om du vill replikera konfigurationen och data på en virtuell dator på ett annat datacenter använder du Azure Site Recovery.
 
 Azure Backup skyddar data lokalt och i molnet. Azure Site Recovery samordnar replikeringen på virtuella datorer och fysiska servrar, redundans och återställning. Båda tjänsterna är viktiga eftersom en haveriberedskapslösning måste skydda dina data, se till att de kan återställas (säkerhetskopiering) *och* säkerställa att arbetsbelastningarna förblir tillgängliga (Site Recovery) i händelse av avbrott.
 

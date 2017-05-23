@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 29e8639a6f1f0c2733d24dda78975ea7cfb6107a
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -107,7 +108,7 @@ Kapaciteten för enhetshantering av IoT Hub hjälper dig att hantera dina enhets
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Den förkonfigurerade lösningen använder tre [Azure Stream Analytics][lnk-asa]-jobb (ASA) för att filtrera telemetriströmmen från enheterna:
 
-* Jobbet *Enhetsinformation* – matar ut data till en händelsehubb som dirigerar enhetsregistreringsspecifika meddelanden till lösningens enhetsregister (en DocumentDB-databas). Det här meddelandet skickas när en enhet ansluter första gången eller som svar på kommandot **Ändra enhetstillstånd**.
+* *Jobbet DeviceInfo* – matar ut data till en händelsehubb som dirigerar enhetsregistreringsspecifika meddelanden till lösningens enhetsregister (en Azure Cosmos DB-databas). Det här meddelandet skickas när en enhet ansluter första gången eller som svar på kommandot **Ändra enhetstillstånd**.
 * Jobbet *Telemetri* – skickar alla råtelemetridata till Azure Blob Storage för kall lagring och beräknar telemetriaggregeringar som visas på instrumentpanelen för lösningen.
 * Jobbet *Regler* – filtrerar telemetriströmmen och hämtar värden som överskrider tröskelvärden för regler och matar sedan ut dessa data till en händelsehubb. När en regel utlöses visar instrumentpanelen på lösningsportalen den här händelsen som en ny rad i larmhistoriktabellen. Reglerna kan även utlösa en åtgärd baserad på inställningarna som definierats i vyerna **Regler** och **Åtgärder** på lösningsportalen.
 
@@ -117,10 +118,10 @@ I den här förkonfigurerade lösningen är ASA-jobben en del av **IoT-lösninge
 I den här förkonfigurerade lösningen är händelseprocessorn en del av **IoT-lösningens serverdel** i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
 ASA-jobben **DeviceInfo** och **Regler** skickar sina utdata till Event Hubs för leverans till andra backend-tjänster. Lösningen använder en [EventProcessorHost][lnk-event-processor]-instans som körs i ett [WebJob][lnk-web-job] för att läsa meddelanden från dessa händelsehubbar. **EventProcessorHost** använder:
-- **DeviceInfo**-data för att uppdatera enhetsdata i DocumentDB-databasen.
+- **DeviceInfo**-data för att uppdatera enhetsdata i Cosmos DB-databasen.
 - **Regler**-data för att anropa logikappen och uppdatera aviseringarna som visas i lösningsportalen.
 
-## <a name="device-identity-registry-device-twin-and-documentdb"></a>Enhetsidentitetsregistret, enhetstvillingar och DocumentDB
+## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Enhetsidentitetsregistret, enhetstvillingar och Cosmos DB
 Varje IoT-hubb innehåller ett [enhetsidentitetsregister][lnk-identity-registry] som lagrar enhetsnycklar. IoT Hub använder den här informationen för att autentisera enheter – en enhet måste vara registrerad och ha en giltig nyckel innan den kan ansluta till hubben.
 
 En [enhetstvilling][lnk-device-twin] är ett JSON-dokument som hanteras av IoT Hub. En enhetstvilling för en enhet innehåller:
@@ -129,9 +130,9 @@ En [enhetstvilling][lnk-device-twin] är ett JSON-dokument som hanteras av IoT H
 - Önskade egenskaper som du vill skicka till enheten. Du kan ange de här egenskaperna i lösningsportalen.
 - Taggar som endast finns i enhetstvillingen och inte på enheten. Du kan använda de här taggarna för att filtrera enhetslistan i lösningsportalen.
 
-Den här lösningen använder enhetstvillingar för att hantera enhetsmetadata. Lösningen använder även DocumentDB-databasen för att lagra ytterligare lösningsspecifika enhetsdata, till exempel kommandon som stöds av varje enhet och kommandohistorik.
+Den här lösningen använder enhetstvillingar för att hantera enhetsmetadata. Lösningen använder även Cosmos DB-databasen för att lagra ytterligare lösningsspecifika enhetsdata, till exempel kommandon som stöds av varje enhet och kommandohistorik.
 
-Lösningen måste också spara informationen i enhetsidentitetsregistret som synkroniseras med innehållet i DocumentDB-databasen. **EventProcessorHost** använder data från Stream Analytics-jobbet **Enhetsinformation** för att hantera synkroniseringen.
+Lösningen måste också spara informationen i enhetsidentitetsregistret som synkroniseras med innehållet i Cosmos DB-databasen. **EventProcessorHost** använder data från Stream Analytics-jobbet **Enhetsinformation** för att hantera synkroniseringen.
 
 ## <a name="solution-portal"></a>Lösningsportal
 ![lösningsportal][img-dashboard]
@@ -168,3 +169,4 @@ Nu vet du vad en förkonfigurerad lösning är och kan komma igång genom att di
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+

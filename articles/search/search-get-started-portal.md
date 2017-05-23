@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -199,7 +200,7 @@ Nu har du ett sökindex som du kan börja skicka frågor mot. **Sökutforskaren*
 
   Du kan visa enskilda komponenter genom att klicka på panelerna **Index**, **Indexerare** eller **Datakällor** på instrumentpanelen för att visa en lista med befintliga objekt. Mer information om indexredigeringar som inte kräver återskapning finns i [Uppdatera index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Prova att använda verktygen och stegen med andra datakällor. Exempeldatauppsättningen `realestate-us-sample` kommer från en Azure SQL-databas som Azure Search kan crawla. Utöver Azure SQL Database kan Azure Search crawla och dra slutsatsen av ett index från fasta datastukturer i Azure Table Storage, Blob Storage, SQL Server på en virtuell Azure-dator och DocumentDB. Guiden stöder samtliga dessa datakällor. I koden kan du på ett enkelt sätt fylla i ett index med en *indexerare*.
++ Prova att använda verktygen och stegen med andra datakällor. Exempeldatauppsättningen `realestate-us-sample` kommer från en Azure SQL-databas som Azure Search kan crawla. Utöver Azure SQL Database kan Azure Search crawla och härleda ett index från fasta datastrukturer i Azure Table Storage, Blob Storage, SQL Server på en virtuell Azure-dator och Azure Cosmos DB. Guiden stöder samtliga dessa datakällor. I koden kan du på ett enkelt sätt fylla i ett index med en *indexerare*.
 
 + Alla övriga icke-indexerare-datakällor stöds via en push-modell, där koden skickar nya och ändrade raduppsättningar i JSON till ditt index. Mer information finns i [Lägga till, uppdatera eller ta bort dokument i Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 

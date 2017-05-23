@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e773fd4917c7a96201d94d31b2098a3486d27900
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4e2422e8651d6fd17df2670e78606d1caeaf64ce
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -676,14 +676,11 @@ Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoo
     
     Du kan gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoot-file-connection-problems.md) för felsökningsinformation från slutpunkt till slutpunkt.               
 
-18. **Hur kan jag aktivera kryptering på serversidan för Azure Files?**
-> [!NOTE]
-> [Kryptering på serversidan](storage-service-encryption.md) för Azure Files är för närvarande tillgängligt som en förhandsversion. Du kan kontakta [SSEDiscussion](mailto:ssediscussions@microsoft.com) om du har frågor om förhandsversionen.
-
-    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
+18. **Hur kan jag aktivera kryptering på serversidan för Azure File Storage?**
     
-    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
-    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
+    [Kryptering på serversidan](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) för Azure File Storage-tjänsten är vanligtvis tillgängligt i alla regioner och offentliga och nationella moln. Du kan aktivera SSE for File Storage Service via [Azure Portal](https://ms.portal.azure.com/),[Microsoft Azure Storage Resource Provider-API:et](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) eller [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/storage-azure-cli/).
+    
+    När du har aktiverat SSE för Azure File Storage krypteras alla nya data som skrivs till fillagringen i det lagringskontot automatiskt. Den här funktionen är tillgänglig för alla nya data som skrivs till befintliga eller nya resurser i ett befintligt eller nytt lagringskonto. Inga extra kostnader tillkommer för att aktivera den här funktionen. Mer information finns i avsnittet som beskriver [hur du aktiverar SSE för Azure File Storage-tjänsten](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure File Storage finns på följande länkar.

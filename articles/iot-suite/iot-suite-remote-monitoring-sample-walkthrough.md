@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: dc8ee6a0f17c20c5255d95c7b6f636d89ffe3aee
-ms.openlocfilehash: 9bd4232670256ec7889dd367ea2ea01a2845e789
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 57544151cc020e5170ebd231b5e4d8f424aeada0
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,7 +51,7 @@ Varje simulerad enhet kan skicka följande typer av meddelanden till IoT Hub:
 | Telemetri |En enhet skickar regelbundet ett **telemetrimeddelande** för att rapporterar simulerade värden för temperaturen och fuktigheten som samlats in från enhetens simulerade sensorer. |
 
 > [!NOTE]
-> Listan med kommandon som stöds av enheten lagras i en DocumentDB-databas och inte i enhetstvillingen.
+> Listan med kommandon som stöds av enheten lagras i en Cosmos DB-databas och inte i enhetstvillingen.
 > 
 > 
 
@@ -229,10 +230,10 @@ ASA-jobben för **enhetsinformation** och **regler** skickar sina data till Even
 Lösningen använder Azure-blobblagring för att bevara alla rådata och sammanfattade telemetridata från enheterna i lösningen. Portalen läser av telemetridata från Blob Storage och fyller i diagrammen. När aviseringar ska visas läser lösningsportalen av data från Blob Storage som registreras när telemetrivärden överskrider de konfigurerade tröskelvärdena. I lösningen används också Blob Storage till att registrera de tröskelvärden du anger i lösningsportalen.
 
 ## <a name="webjobs"></a>Webbjobb
-Förutom att fungera som värdar för enhetssimulatorerna fungerar WebJobs i lösningen även som värdar för **händelseprocessorn** som körs i ett Azure WebJob som hanterar svar från kommandon. Svarsmeddelanden från kommandon används till att uppdatera enhetens kommandohistorik (lagras i DocumentDB-databasen).
+Förutom att fungera som värdar för enhetssimulatorerna fungerar WebJobs i lösningen även som värdar för **händelseprocessorn** som körs i ett Azure WebJob som hanterar svar från kommandon. Svarsmeddelanden från kommandon används för att uppdatera enhetens kommandohistorik (lagras i Cosmos DB-databasen).
 
-## <a name="documentdb"></a>DocumentDB
-Lösningen använder en DocumentDB-databas för att lagra information om de enheter som är anslutna till lösningen. I den här informationen ingår historiken för de kommandon som skickas till enheter från lösningsportalen och för de metoder som anropas från lösningsportalen.
+## <a name="cosmos-db"></a>Cosmos DB
+Lösningen använder en Cosmos DB-databas för att lagra information om de enheter som är anslutna till lösningen. I den här informationen ingår historiken för de kommandon som skickas till enheter från lösningsportalen och för de metoder som anropas från lösningsportalen.
 
 ## <a name="solution-portal"></a>Lösningsportal
 
@@ -244,7 +245,7 @@ På den här sidan i webbappen används javascript-baserade PowerBI-kontroller (
 ### <a name="device-list"></a>Enhetslista
 På den här sidan i lösningsportalen kan du göra följande:
 
-* Etablera en ny enhet. Den här åtgärden anger det unika enhets-ID:t och genererar autentiseringsnyckeln. Den skriver information om enheten till både IoT Hub-identitetsregistret och den lösningsspecifika DocumentDB-databasen.
+* Etablera en ny enhet. Den här åtgärden anger det unika enhets-ID:t och genererar autentiseringsnyckeln. Den skriver information om enheten till både IoT Hub-identitetsregistret och den lösningsspecifika Cosmos DB-databasen.
 * Hantera enhetsegenskaper. Den här åtgärden används för att visa befintliga egenskaper och uppdatera dem med nya egenskaper.
 * Skicka kommandon till en enhet.
 * Visa kommandohistoriken för en enhet.
@@ -271,3 +272,4 @@ Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+

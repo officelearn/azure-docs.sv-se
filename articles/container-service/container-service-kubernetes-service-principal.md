@@ -1,6 +1,6 @@
 ---
 title: "Tjänstens huvudnamn för Azure Kubernetes-kluster | Microsoft- Docs"
-description: "Skapa och hantera ett huvudnamn för en Azure Active Directory-tjänst i ett Azure Container Service-kluster med Kubernetes"
+description: "Skapa och hantera ett tjänstobjekt för Azure Active Directory för ett Kubernetes-kluster i Azure Container Service"
 services: container-service
 documentationcenter: 
 author: dlepow
@@ -14,55 +14,74 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 05/08/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: b76020e3e5855a63c416851d9b9adefdbdc5874a
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 48b3a3090573718ff5d3ba70e93567e6428ff59b
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="about-the-azure-active-directory-service-principal-for-a-kubernetes-cluster-in-azure-container-service"></a>Om Azure Active Directory-tjänstens huvudnamn för ett Kubernetes-kluster i Azure Container Service
+# <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Konfigurera ett Azure AD-tjänstobjekt för ett Kubernetes-kluster i Container Service
 
 
+I Azure Container Service kräver ett Kubernetes-kluster ett [Azure Active Directory-tjänstobjekt](../active-directory/active-directory-application-objects.md) för att kunna interagera med Azure-API:er. Tjänstens huvudnamn krävs för att dynamiskt hantera resurser som [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) och [lager 4 för Azure Load Balancer](../load-balancer/load-balancer-overview.md). 
 
-I Azure Container Service kräver Kubernetes ett [Huvudnamn för Azure Active Directory-tjänsten](../active-directory/active-directory-application-objects.md) som ett tjänstkonto för att interagera med Azure API:er. Tjänstens huvudnamn krävs för att dynamiskt hantera resurser som [användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md) och [lager 4 för Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
-Den här artikeln visar olika alternativ för att ange ett huvudnamn för tjänsten för Kubernetes-klustret. Om du till exempel har installerat och konfigurerat [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) kan du köra kommandot [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) för att skapa Kubernetes-klustret och tjänstobjektet samtidigt.
-
+Den här artikeln beskriver hur du konfigurerar ett tjänstobjekt för ett Kubernetes-kluster på olika sätt. Om du till exempel har installerat och konfigurerat [Azure CLI 2.0](/cli/azure/install-az-cli2) kan du köra kommandot [`az acs create`](/cli/azure/acs#create) för att skapa Kubernetes-klustret och tjänstobjektet samtidigt.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Krav för tjänstens huvudnamn
 
-Följande är krav för Azure Active Directory-tjänstens huvudnamn i ett Kubernetes-kluster i Azure Container Service. 
+Du kan använda ett befintligt Azure AD-tjänstobjekt som uppfyller kraven nedan, eller skapa ett nytt.
 
-* **Omfång**: Resursgruppen som klustret distribueras i
+* **Omfång**: Den resursgrupp i prenumerationen som används för att distribuera Kubernetes-klustret, eller (mindre restriktivt) prenumerationen som används för att distribuera klustret.
 
 * **Roll**: **Deltagare**
 
 * **Klienthemlighet**: måste vara ett lösenord. För närvarande kan du inte använda ett huvudnamn för tjänsten som konfigurerats för certifikatautentisering.
 
-> [!NOTE]
-> Varje tjänst är associerad med ett Azure Active Directory-program. Tjänsten huvudnamn för ett Kubernetes-kluster kan associeras med ett giltigt Azure Active Directory-programnamn.
-> 
+> [!IMPORTANT] 
+> För att skapa ett tjänstobjekt måste du ha behörighet att registrera ett program med din Azure AD-klientorganisation, samt behörighet att tilldela programmet till en roll i din prenumeration. Du kan kontrollera om du har nödvändig behörighet [på portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions). 
+>
+
+## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Alternativ 1: Skapa ett tjänstobjekt i Azure AD
+
+Om du vill skapa ett Azure AD-tjänstobjekt innan du distribuerar Kubernetes-klustret kan du välja mellan flera metoder i Azure. 
+
+Kommandona i följande exempel visar hur du gör detta med [Azure CLI 2.0](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Du kan också skapa ett tjänstobjekt med [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), [portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md) eller andra metoder.
+
+```azurecli
+az login
+
+az account set --subscription "mySubscriptionID"
+
+az group create -n "myResourceGroupName" -l "westus"
+
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName"
+```
+
+De utdata som returneras ser ut ungefär så här (redigerat i bilden):
+
+![Skapa ett huvudnamn för tjänsten](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
+
+De **klient-ID** (`appId`) och **klienthemligheten** (`password`) som du använder som parametrar för tjänstens huvudnamn för klusterdistribution är markerade.
 
 
-## <a name="service-principal-options-for-a-kubernetes-cluster"></a>Alternativ för tjänstens huvudnamn för ett Kubernetes-kluster
+### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Ange tjänstobjektet när du skapar Kubernetes-klustret
 
-### <a name="option-1-pass-the-service-principal-client-id-and-client-secret"></a>Alternativ 1: Skicka klient-ID och klienthemlighet för tjänstens huvudnamn
+Ange **klient-ID:t** (kallas även `appId`, dvs. program-ID) och **klienthemligheten** (`password`) för ett befintligt tjänstobjekt som parametrar när du skapar Kubernetes-klustret. Kontrollera att tjänstobjektet uppfyller kraven som anges i början av den här artikeln.
 
-Ange **klient-ID:t** (kallas även `appId`, dvs. program-ID) och **klienthemligheten** (`password`) för ett befintligt tjänstobjekt som parametrar när du skapar Kubernetes-klustret. Om du använder ett befintligt huvudnamn för tjänsten, kontrollera att det uppfyller kraven i föregående avsnitt. Om du behöver skapa ett huvudnamn för tjänsten finns information i [Skapa ett huvudnamn för tjänsten](#create-a-service-principal-in-azure-active-directory) senare i den här artikeln.
-
-Du kan ange dessa parametrar när du [distribuerar Kubernetes-klustret](./container-service-deployment.md) med portalen, Azure-kommandoradsgränssnittet (CLI) 2.0, Azure PowerShell eller andra metoder.
+Du kan ange dessa parametrar när du distribuerar Kubernetes-klustret med hjälp av [Azure Command-Line Interface (CLI) 2.0](container-service-kubernetes-walkthrough.md), [Azure Portal](./container-service-deployment.md) eller andra metoder.
 
 >[!TIP] 
 >När du anger **klient-ID**, måste du använda `appId`, och inte `ObjectId`, av huvudnamnet för tjänsten.
 >
 
-Följande exempel beskriver en metod för att överföra parametrarna med Azure CLI 2.0 (se [installations- och konfigurationsanvisningarna](/cli/azure/install-az-cli2)). I det här exemplet används [mallen Kubernetes-snabbstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+Följande exempel beskriver ett sätt att överföra parametrarna med Azure CLI 2.0. I det här exemplet används [mallen Kubernetes-snabbstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 1. [Hämta](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) filen med mallparametrar `azuredeploy.parameters.json` från GitHub.
 
@@ -83,11 +102,11 @@ Följande exempel beskriver en metod för att överföra parametrarna med Azure 
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20"></a>Alternativ 2: Generera tjänstobjektet när klustret skapas med Azure CLI 2.0
+## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Alternativ 2: Generera ett tjänstobjekt när du skapar klustret med `az acs create`
 
-Om du har installerat och konfigurerat [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) kan du köra kommandot [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) för att [skapa klustret](./container-service-create-acs-cluster-cli.md).
+Om du kör kommandot [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) för att skapa Kubernetes-klustret kan du välja att generera ett tjänstobjekt automatiskt.
 
-Som med andra alternativ för att skapa Kubernetes-kluster, kan du ange parametrar för en befintlig tjänsts huvudnamn när du kör `az acs create`. Men när du utelämnar parametrarna skapar Azure Container Service automatiskt ett huvudnamn för tjänsten. Detta sker transparent under distributionen. 
+Som med andra alternativ för att skapa Kubernetes-kluster, kan du ange parametrar för en befintlig tjänsts huvudnamn när du kör `az acs create`. Om du utelämnar dessa parametrar skapar Azure CLI ett automatiskt för användning med Container Service. Detta sker transparent under distributionen. 
 
 Följande kommando skapar ett Kubernetes-kluster och genererar både SSH-nycklar och autentiseringsuppgifter för tjänstens huvudnamn:
 
@@ -95,49 +114,34 @@ Följande kommando skapar ett Kubernetes-kluster och genererar både SSH-nycklar
 az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
 ```
 
-## <a name="create-a-service-principal-in-azure-active-directory"></a>Skapa ett huvudnamn för tjänsten i Azure Active Directory
-
-Om du vill skapa ett huvudnamn för tjänsten i Azure Active Directory för användning i Kubernetes-klustret, erbjuder Azure flera metoder. 
-
-Kommandona i följande exempel visar hur du gör detta med [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). Du kan också skapa ett huvudnamn för tjänsten med [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), den [klassiska portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md) eller andra metoder.
-
 > [!IMPORTANT]
-> Kontrollera att du går igenom kraven för tjänstens huvudnamn tidigare i den här artikeln.
->
-
-```azurecli
-az login
-
-az account set --subscription "mySubscriptionID"
-
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
-```
-
-Det här returnerar utdata som liknar följande (visas omarbetade här):
-
-![Skapa ett huvudnamn för tjänsten](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
-
-De **klient-ID** (`appId`) och **klienthemligheten** (`password`) som du använder som parametrar för tjänstens huvudnamn för klusterdistribution är markerade.
-
-
-Bekräfta huvudnamn för tjänsten genom att öppna ett nytt gränssnitt och kör följande kommandon och ersätt i `appId`, `password` och `tenant`:
-
-```azurecli 
-az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
-
-az vm list-sizes --location westus
-```
+> Om ditt konto saknar de Azure AD- och prenumerationsbehörigheter som krävs för att skapa ett tjänstobjekt genererar kommandot ett fel liknande `Insufficient privileges to complete the operation.`
+> 
 
 ## <a name="additional-considerations"></a>Annat som är bra att tänka på
 
+* Om du inte har behörighet att skapa ett tjänstobjekt i din prenumeration kan du behöva be din Azure AD- eller prenumerationsadministratör att tilldela nödvändiga behörigheter, eller be om ett tjänstobjekt som kan användas med Azure Container Service. 
 
-* När du anger **klient-ID** för tjänstens huvudnamn, kan du använda värdet för `appId` (som visas i den här artikeln) eller motsvarande huvudnamn för tjänsten `name` (till exempel `https://www.contoso.org/example`).
+* Tjänstobjektet för Kubernetes är en del av klusterkonfigurationen. Men använd inte identiteten för att distribuera klustret.
 
-* Om du använder kommandot `az acs create` för att automatiskt generera huvudnamn för tjänsten, skrivs autentiseringsuppgifterna för huvudnamn för tjänsten till filen ~/.azure/acsServicePrincipal.json på den dator som används för att köra kommandot.
+* Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstobjektet för ett Kubernetes-kluster kan associeras med ett giltigt Azure Active Directory-programnamn (till exempel: `https://www.contoso.org/example`). URL:en för programmet behöver inte vara en verklig slutpunkt.
 
-* På virtuella master- och noddatorer i Kubernetes-klustret lagras autentiseringsuppgifter för tjänstens huvudnamn i filen /etc/kubernetes/azure.json.
+* När du anger **klient-ID:t** för tjänstobjektet kan du använda värdet för `appId` (som anges i den här artikeln) eller motsvarande `name` för tjänstobjektet (till exempel `https://www.contoso.org/example`).
+
+* På virtuella huvud- och agentdatorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen /etc/kubernetes/azure.json.
+
+* Om du använder kommandot `az acs create` för att generera tjänstobjektet automatiskt, skrivs autentiseringsuppgifterna för tjänstobjektet till filen ~/.azure/acsServicePrincipal.json på den dator som används för att köra kommandot. 
+
+* Om du använder kommandot `az acs create` för att generera tjänstobjektet automatiskt, kan tjänstobjektet även autentisera med ett [Azure-behållarregister](../container-registry/container-registry-intro.md) som skapats i samma prenumeration.
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Kom igång med Kubernetes](container-service-kubernetes-walkthrough.md) i behållaren för tjänsteklustret.
+
+* Information om hur du felsöker tjänstobjektet för Kubernetes finns i [ACS Engine-dokumentationen](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes.md#troubleshooting).
+
+
 

@@ -30,7 +30,6 @@
 ### [C i Windows](iot-suite-connecting-devices.md)
 ### [C i Linux](iot-suite-connecting-devices-linux.md)
 ### [Node.js](iot-suite-connecting-devices-node.md)
-## [Anslut din mbed-enhet](iot-suite-connecting-devices-mbed.md)
 ## [Anslut en logikapp till fjärrövervakningslösningen](iot-suite-logic-apps-tutorial.md)
 ## [Anpassa en förkonfigurerad lösning](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Använd dynamisk telemetri med fjärrövervakningslösningen](iot-suite-dynamic-telemetry.md)

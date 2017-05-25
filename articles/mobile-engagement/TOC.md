@@ -76,7 +76,6 @@
 ### Reach
 #### [Kom igång med att använda och hantera pushar](mobile-engagement-how-tos.md)
 #### [Skicka emojis i meddelanden](mobile-engagement-use-emoji-with-push.md)
-#### [Skicka anpassade meddelanden](mobile-engagement-send-personalized-notifications.md)
 
 ### Kom åt tjänst-API:er
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)

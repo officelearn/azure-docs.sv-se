@@ -47,7 +47,7 @@
 ## [Anpassa gränssnittet](active-directory-b2c-reference-ui-customization.md)
 ### [Hjälpverktyg för anpassning](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Språkanpassning](active-directory-b2c-reference-language-customization.md)
-## [Använd rapporterings-API](active-directory-b2c-refererence-usage-reporting-api.md)
+## [Använd rapporterings-API](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Konfigurera återställning av lösenord för självbetjäning](active-directory-b2c-reference-sspr.md)
 
 # Identity Experience Framework
@@ -59,8 +59,8 @@
 ### Konfigurera SAML-providrar
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrera RESTful-API:er
-#### [Hämta ytterligare anspråk](active-directory-b2c-rest-api-step-custom.md)
 #### [Verifiera användarinmatning](active-directory-b2c-rest-api-validation-custom.md)
+#### [Hämta ytterligare anspråk](active-directory-b2c-rest-api-step-custom.md)
 ### Anpassa inloggning
 #### [Konfigurera användarinmatning](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Anpassa användargränssnitt](active-directory-b2c-ui-customization-custom.md)
@@ -79,7 +79,6 @@
 ## [Tillgänglighet för regioner och dataplacering](active-directory-b2c-reference-tenant-type.md)
 ## [Aktivera fakturering](active-directory-b2c-how-to-enable-billing.md)
 ## [Hothantering](active-directory-b2c-reference-threat-management.md)
-## [Begränsningar och restriktioner](active-directory-b2c-limitations.md)
 ## [Problem när du skapar en katalog](active-directory-b2c-support-create-directory.md)
 
 # Relaterat

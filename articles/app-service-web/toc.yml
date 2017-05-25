@@ -141,9 +141,9 @@
     href: web-sites-deploy.md
     items:
     - name: Distribuera via FTP
-      href: app-service-deploy-content-sync.md
+      href: app-service-deploy-ftp.md
     - name: Distribuera via molnsynkronisering
-      href: web-sites-deploy.md
+      href: app-service-deploy-content-sync.md
     - name: Distribuera kontinuerligt
       href: app-service-continuous-deployment.md
     - name: Distribuera till mellanlagring

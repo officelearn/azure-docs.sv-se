@@ -39,9 +39,9 @@
       href: concepts-server-logs.md
   - name: Resurser
     items:
-    - name: Tjänstnivåer
+    - name: Prisnivåer
       href: concepts-service-tiers.md
-    - name: Beräkningsenheter och lagringsenheter
+    - name: Compute-enheter
       href: concepts-compute-unit-and-storage.md
     - name: Begränsningar
       href: concepts-limits.md

@@ -49,6 +49,7 @@
 #### [Distribuera Linux-behållare](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (förhandsversion)](service-fabric-docker-compose.md)
 #### [Resursstyrning för behållare och tjänster](service-fabric-resource-governance.md)
+#### [Drivrutiner för volym och loggning](service-fabric-containers-volume-logging-drivers.md)
 
 ### Skapa en Reliable Service-tjänst
 #### [Översikt](service-fabric-reliable-services-introduction.md)
@@ -69,10 +70,9 @@
 ##### [C# i Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java i Linux](service-fabric-reliable-services-quick-start-java.md)
 
-#### Reliable Services-livscykel
-##### [Konfigurera](service-fabric-reliable-services-configuration.md)
-##### [Skicka aviseringar](service-fabric-reliable-services-notifications.md)
-##### [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
+#### [Konfigurera](service-fabric-reliable-services-configuration.md)
+#### [Skicka aviseringar](service-fabric-reliable-services-notifications.md)
+#### [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
 
 #### Kommunicera med tjänster
 ##### [Kommunicera med Reliable Services](service-fabric-reliable-services-communication.md)
@@ -87,12 +87,12 @@
 ### Skapa en Reliable Actor-tjänst
 #### [Översikt](service-fabric-reliable-actors-introduction.md)
 #### Koncept
-#### [Arkitektur](service-fabric-reliable-actors-platform.md)
-#### [Livscykel och skräpinsamling](service-fabric-reliable-actors-lifecycle.md)
-#### [Tillståndshantering](service-fabric-reliable-actors-state-management.md)
-#### [Polymorfism](service-fabric-reliable-actors-polymorphism.md)
-#### [Återinträde](service-fabric-reliable-actors-reentrancy.md)
-#### [Typserialisering](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [Arkitektur](service-fabric-reliable-actors-platform.md)
+##### [Livscykel och skräpinsamling](service-fabric-reliable-actors-lifecycle.md)
+##### [Tillståndshantering](service-fabric-reliable-actors-state-management.md)
+##### [Polymorfism](service-fabric-reliable-actors-polymorphism.md)
+##### [Återinträde](service-fabric-reliable-actors-reentrancy.md)
+##### [Typserialisering](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### Kom igång
 ##### [C# i Windows](service-fabric-reliable-actors-get-started.md)
@@ -108,6 +108,7 @@
 #### [Tjänstkommunikation](service-fabric-connect-and-communicate-with-services.md)
 #### [DNS-tjänst](service-fabric-dnsservice.md)
 #### [Omvänd proxy](service-fabric-reverseproxy.md)
+#### [Konfigurera omvänd proxy för säker kommunikation](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [Lägga till en frontwebb](service-fabric-add-a-web-frontend.md)
 

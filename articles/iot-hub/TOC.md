@@ -12,9 +12,9 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Använd en simulerad gateway 
-#### [Simulering i Linux](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Simulering i Windows](iot-hub-windows-gateway-sdk-get-started.md)
+### Använd en simulerad gateway
+#### [Simulering i Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Simulering i Windows](iot-hub-windows-iot-edge-get-started.md)
 
 ### Använd en fysisk enhet
 #### [Raspberry Pi med Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -28,9 +28,9 @@
 #### [Adafruit Feather M0 med Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### Använda IoT Gateway-startpaketet
-##### [Konfigurera Intel NUC som en IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Ansluta IoT-gateway till IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Använd IoT-gateway för datakonvertering](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Konfigurera Intel NUC som en gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [Ansluta gatewayen till IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [Använda gatewayen för datakonvertering](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
 ## [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Spara meddelanden från IoT Hub i datalagring för Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -78,6 +78,7 @@
 ### Kom igång med enhetstvillingar
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-getstarted.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-twin-getstarted.md)
 ### Använda direkta metoder
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-direct-methods.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-direct-methods.md)
@@ -85,6 +86,7 @@
 ### Komma igång med enhetshantering
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-device-management-get-started.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-device-management-get-started.md)
+#### [Java-serverdel/Java-enhet](iot-hub-java-java-device-management-getstarted.md)
 ### Så här använder du tvillingegenskaper
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -118,9 +120,9 @@
 ### [Skydda distributionen av IoT](iot-hub-security-deployment.md)
 ## IoT Edge
 ### Simulera en enhet
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Använda en riktig enhet](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [Använda en riktig enhet](iot-hub-iot-edge-physical-device.md)
 
 # Referens
 ## [Förhandsversion av Azure CLI 2.0](/cli/azure/iot)
@@ -154,3 +156,4 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT-enhetskatalog](https://catalog.azureiotsuite.com/)
+## [Tekniska fallstudier](https://microsoft.github.io/techcasestudies/#technology=IoT)

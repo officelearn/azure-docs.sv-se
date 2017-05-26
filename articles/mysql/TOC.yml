@@ -39,9 +39,9 @@
       href: concepts-supported-versions.md
   - name: Resurser
     items:
-    - name: Tjänstnivåer
+    - name: Prisnivåer
       href: concepts-service-tiers.md
-    - name: Beräkningsenheter och lagringsenheter
+    - name: Compute-enheter
       href: concepts-compute-unit-and-storage.md
     - name: Begränsningar
       href: concepts-limits.md
@@ -85,6 +85,8 @@
       href: howto-connection-string.md
     - name: Konfigurera SSL
       href: howto-configure-ssl.md
+    - name: Webbapp
+      href: howto-connect-webapp.md
 - name: Referens
   items:
   - name: Azure CLI

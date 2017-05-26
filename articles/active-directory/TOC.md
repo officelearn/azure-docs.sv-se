@@ -1,7 +1,7 @@
 # Översikt
 ## [Vad är Azure Active Directory?](active-directory-whatis.md)
 ## [Välj utgåva](active-directory-editions.md)
-## [Om Azures identitetshantering](fundamentals-identity.md)
+## [Om Azures identitetshantering](identity-fundamentals.md)
 ## [Förstå Azure-identitetslösningar](understand-azure-identity-solutions.md)
 ## [Förhandsgranska Azures portalupplevelse](active-directory-preview-explainer.md)
 
@@ -90,7 +90,7 @@
 ### Felsöka
 #### [Granskningsdata som saknas](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Data som saknas i nedladdningar](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    Programmässig åtkomst
+###    [Programmässig åtkomst](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Granska referens](active-directory-reporting-api-audit-reference.md)
 #### [Inloggningsreferens](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Förutsättningar](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -115,7 +115,7 @@
 ##### [Okända källor](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Avvikande inloggningar](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Hantera lösenord](active-directory-passwords.md)
+## [Hantera lösenord](active-directory-passwords-overview.md)
 ### Användardokument
 #### [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
 #### [Metodtips för lösenord](active-directory-secure-passwords.md)
@@ -298,6 +298,7 @@
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Öka administratörsåtkomst till klientorganisation](role-based-access-control-tenant-admin-access.md)
 #### [Felsöka](role-based-access-control-troubleshooting.md)
 #### [Åtgärder för resursprovider](role-based-access-control-resource-provider-operations.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)

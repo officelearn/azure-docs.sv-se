@@ -17,17 +17,13 @@
 ### [Nätverkssäkerhetsgrupper](virtual-networks-nsg.md)
 
 ## Distribuera
-### Virtuella nätverk
-#### [Skapa, ändra eller ta bort virtuella nätverk](virtual-network-manage-network.md)
-#### [Skapa, ändra eller ta bort undernät](virtual-network-manage-subnet.md)
-#### [Skapa ett virtuellt nätverk – flera undernät](virtual-networks-create-vnet-arm-pportal.md) 
-##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-##### [CLI](virtual-networks-create-vnet-arm-cli.md)
-##### [Mall](virtual-networks-create-vnet-arm-template-click.md)
-#### Skapa ett virtuellt nätverk – flera undernät (klassisk)
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+### [Virtuella nätverk](virtual-networks-create-vnet-arm-pportal.md)
+#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+#### [CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Mall](virtual-networks-create-vnet-arm-template-click.md)
+#### [Portal (klassisk)](virtual-networks-create-vnet-classic-pportal.md)
+#### [PowerShell (klassisk)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+#### [CLI (klassisk)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Nätverkssäkerhetsgrupper
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -49,14 +45,9 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Mall](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Nätverksgränssnitt (nätverkskort)
-#### [Skapa, ändra eller ta bort nätverkskort](virtual-network-network-interface.md)
-#### [Lägg till, ändra eller ta bort IP-adresser](virtual-network-network-interface-addresses.md)
-
 ### [Offentliga IP-adresser](virtual-network-public-ip-address.md)
 
 ### Virtuella datorer
-#### [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md) 
 #### Skapa en virtuell dator med en statisk offentlig IP-adress
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -103,20 +94,29 @@
 ##### [Exempelprogram](virtual-networks-sample-app.md)
 
 ## Konfigurera
-### [Optimera det virtuella nätverkets dataflöde](virtual-network-optimize-network-bandwidth.md)
+
 ### Listor för åtkomstkontroll
 #### [Klassisk portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
-### [Namnmatchning för virtuella datorer och molntjänster](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+### Virtuella datorer
+#### [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md)
+#### [Namnmatchning för virtuella datorer och molntjänster](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Optimera nätverkets dataflöde](virtual-network-optimize-network-bandwidth.md)
+#### [Visa och ändra värdnamn](virtual-networks-viewing-and-modifying-hostnames.md)
 
 ## Hantera
+### [Virtuella nätverk](virtual-network-manage-network.md)
+#### [Undernät](virtual-network-manage-subnet.md)
+#### [Peering-sessioner](virtual-network-manage-peering.md)
 ### Nätverkssäkerhetsgrupper
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Loggar](virtual-network-nsg-manage-log.md)
+### Nätverksgränssnitt (nätverkskort)
+#### [Skapa, ändra eller ta bort nätverkskort](virtual-network-network-interface.md)
+#### [Lägg till, ändra eller ta bort IP-adresser](virtual-network-network-interface-addresses.md)
 ### Virtuella datorer
-#### [Visa och ändra värdnamn](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Flytta en virtuell dator till ett annat undernät](virtual-networks-move-vm-role-to-subnet.md)
 
 ## Felsöka

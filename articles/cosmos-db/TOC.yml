@@ -5,7 +5,7 @@
   - name: Om Azure Cosmos DB
     href: introduction.md
   - name: Välkommen DocumentDB-kunder
-    href: welcome-documentdb-customers.md
+    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Snabbstarter
   expanded: true
   items:
@@ -236,6 +236,12 @@
       href: ../documentdb/documentdb-online-backup-and-restore.md
     - name: Regional redundans
       href: ../documentdb/documentdb-regional-failovers.md
+    - name: Ange dataflöde
+      href: ../documentdb/documentdb-set-throughput.md
+    - name: Övervaka serviceavtal
+      href: ../documentdb/documentdb-monitor-accounts.md
+    - name: Hantera nycklar och konsekvens
+      href: ../documentdb/documentdb-manage-account.md
     - name: Automation
       items:
       - name: 'Azure CLI 1.0: Skapa ett konto'
@@ -250,10 +256,14 @@
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: Brandväggssupport
         href: ../documentdb/documentdb-firewall-support.md
+      - name: Skydda åtkomst till data
+        href: ../documentdb/documentdb-secure-access-to-data.md
   - name: Integrera
     items:
     - name: Anslut till Spark
       href: ../documentdb/documentdb-spark-connector.md
+    - name: Anslut till Spark GraphX
+      href: spark-connector-graph.md      
     - name: Distribuera en webbplats med Azure App Service
       href: ../documentdb/documentdb-create-documentdb-website.md
     - name: Programloggning med Logic Apps

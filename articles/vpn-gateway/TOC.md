@@ -21,9 +21,13 @@
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### Skapa självsignerade certifikat för punkt-till-plats
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## Konfigurera en VNet-till-VNet-anslutning
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Konfigurera en VNet-till-VNet-anslutning mellan distributionsmodeller
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -46,9 +50,6 @@
 ### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klassisk)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## Skapa självsignerade certifikat för punkt-till-plats
-### [PowerShell](vpn-gateway-certificates-point-to-site.md)
-### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Konfigurera en VPN-gateway (klassisk)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Felsöka
 ### [Validera VPN-dataflöde till VNet](vpn-gateway-validate-throughput-to-vnet.md)
@@ -56,9 +57,9 @@
 # Referens
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [PowerShell (klassisk)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (klassisk)](https://msdn.microsoft.com/library/jj154113)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
 
 # Relaterat
 ## [Virtual Network](/azure/virtual-network/)

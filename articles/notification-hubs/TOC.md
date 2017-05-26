@@ -44,6 +44,7 @@
 
 ## Hantera
 ### [Registreringar](notification-hubs-push-notification-registration-management.md)
+### [APNS-tokenbaserad autentisering](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Skydda](notification-hubs-push-notification-security.md)
 ### Säker push

@@ -24,6 +24,8 @@
 
 # Gör så här för att
 
+## [Migrera användardata från Azure RemoteApp](remoteapp-migrate.md)
+## [Migrera till Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Skapa en RemoteApp-samling
 ### [Vilken samling behöver du?](remoteapp-collections.md)
 ### [Skapa en molnsamling](remoteapp-create-cloud-deployment.md)
@@ -69,8 +71,3 @@
 ## [Prissättning](https://azure.microsoft.com/pricing/details/remoteapp/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

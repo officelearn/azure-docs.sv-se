@@ -18,12 +18,13 @@
 
 # Gör så här för att
 ## Planera
-### [Förhandskrav för distribution](site-recovery-prereq.md)
+### [Förutsättningar för Azure-replikering](site-recovery-prereq.md)
 ### [Planera nätverksinfrastruktur](site-recovery-network-design.md)
+### [Planera nätverksmappning](site-recovery-network-mapping.md)
 ### [Planera kapacitet och skala VMware-replikering till Azure](site-recovery-plan-capacity-vmware.md)
 ### [Distributionsplaneraren för VMware-replikering till Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner för Hyper-V-replikering](site-recovery-capacity-planner.md)
-### [Rollbaserad åtkomstkontroll](site-recovery-role-based-linked-access-control.md)
+### [Kontrollera VM-replikering med rollbaserad åtkomst](site-recovery-role-based-linked-access-control.md)
 
 ## Konfigurera
 ### [Konfigurera källmiljön](site-recovery-set-up-vmware-to-azure.md)
@@ -53,6 +54,8 @@
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
+### [IIS-baserade webbprogram](site-recovery-iis.md)
+### [Citrix XenApp och XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Övriga arbetsbelastningar](site-recovery-workload.md#workload-summary)
 ## Automatisera replikering
 ### [Automatisera Hyper-V-replikering till Azure (utan VMM)](site-recovery-deploy-with-powershell-resource-manager.md)

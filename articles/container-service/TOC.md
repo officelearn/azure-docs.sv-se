@@ -10,7 +10,6 @@
 ## [Distribuera kluster – Portal](container-service-deployment.md)
 ## [Distribuera kluster – Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [CI/CD med Kubernetes och Jenkins](container-service-kubernetes-jenkins.md)
-## [CI/CD med DC/OS och VSTS](container-service-setup-ci-cd.md)
 ## [CI/CD med Docker Swarm och VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
 # Koncept
@@ -44,6 +43,7 @@
 #### [Övervaka med OMS](container-service-kubernetes-oms.md)
 #### [Övervaka med Datadog](container-service-kubernetes-datadog.md)
 #### [Övervaka med Sysdig](container-service-kubernetes-sysdig.md)
+#### [Övervaka med CoScale](container-service-kubernetes-coscale.md)
 ## Hantera med Docker Swarm
 ### [Docker och Docker Compose](container-service-docker-swarm.md)
 

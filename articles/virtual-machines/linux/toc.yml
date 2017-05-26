@@ -297,6 +297,8 @@
       href: extensions-customscript.md
     - name: OMS-agenttillägg
       href: extensions-oms.md
+    - name: Linux-diagnostiktillägg
+      href: diagnostic-extension.md
   - name: Köra program
     items:
     - name: Cloud Foundry
@@ -354,19 +356,24 @@
       href: migration-classic-resource-manager-faq.md
   - name: Felsöka
     items:
-    - name: Felsök SSH-anslutningar
+    - name: SSH-anslutningar
       href: troubleshoot-ssh-connection.md
       items:
       - name: Detaljerade felsökningsanvisningar
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Felsök åtkomst till program
+    - name: Startdiagnostik
+ 
+      href: boot-diagnostics.md
+    - name: Åtkomst till program
       href: troubleshoot-app-connection.md
-    - name: Felsök allokeringsfel
+    - name: Allokeringsfel
       href: allocation-failure.md
-    - name: Felsöka distributionsproblem
+    - name: Distributionsproblem
       href: troubleshoot-deployment-new-vm.md
     - name: Distribuera om virtuell dator till en ny Azure-nod
       href: redeploy-to-new-node.md
+    - name: Vanliga felmeddelanden
+      href: error-messages.md
     - name: Anslut en virtuell hårddisk för felsökning
       items:
       - name: Azure CLI

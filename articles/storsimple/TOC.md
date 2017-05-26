@@ -19,7 +19,8 @@
 
 ## Gör så här för att
 ### [Hantera via Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Installera senaste uppdatering](storsimple-virtual-array-install-update-05.md)
+#### [Installera senaste uppdatering](storsimple-virtual-array-install-update-06.md)
+##### [Installera uppdatering 0.5](storsimple-virtual-array-install-update-05.md)
 ##### [Installera uppdatering 0.4](storsimple-virtual-array-install-update-04.md)
 ##### [Installera Uppdatering 0.3](storsimple-virtual-array-install-update.md)
 #### [Skapa och hantera säkerhetskopior](storsimple-virtual-array-backup.md)
@@ -41,7 +42,8 @@
 ### [Konfigurera via lokalt webbgränssnitt](storsimple-ova-web-ui-admin.md)
 
 ## Viktig information
-### [Uppdatering 0.5 – aktuell](storsimple-virtual-array-update-05-release-notes.md)
+### [Uppdatering 0.6 – aktuell](storsimple-virtual-array-update-06-release-notes.md)
+### [Uppdatering 0.5](storsimple-virtual-array-update-05-release-notes.md)
 ### [Uppdatering 0.4](storsimple-virtual-array-update-04-release-notes.md)
 ### [Uppdatering 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Uppdatering 0.2 och 0.1](storsimple-ova-update-01-release-notes.md)

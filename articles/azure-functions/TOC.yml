@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Koncept
   items:
-  - name: Värdplaner
+  - name: Förbruknings- och App Service-planer
     href: functions-scale.md
   - name: Utlösare och bindningar
     href: functions-triggers-bindings.md
+  - name: Språk
+    items:
+    - name: 'Koncept för C#-funktioner'
+      href: functions-reference-csharp.md
+    - name: 'Koncept för F#-funktioner'
+      href: functions-reference-fsharp.md
+    - name: Koncept för JavaScript-funktioner
+      href: functions-reference-node.md    
 - name: Instruktionsguider
   items:
+  - name: Utvecklarguide
+    href: functions-reference.md
   - name: Testa Azure Functions
     href: functions-test-a-function.md
   - name: Utveckla och felsöka lokalt
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: Installera Functions-körning
     href: functions-runtime-install.md
+  - name: Ansluta SQL Database
+    href: functions-scenario-database-table-cleanup.md
+  - name: Skapa en definition för Open API 2.0
+    href: functions-api-definition-getting-started.md     
+  - name: Metodtips för Azure Functions
+    href: functions-best-practices.md     
 - name: Referens
   items:
-  - name: Utveckla funktionsappar
-    href: functions-reference.md
-    items:
-    - name: Öppna API 2.0
-      href: functions-api-definition.md
-  - name: Metodtips för Azure Functions
-    href: functions-best-practices.md
   - name: Bindningar
     items:
     - name: Cosmos DB-bindningar
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Twilio-utdatabindning
       href: functions-bindings-twilio.md
-  - name: Ramverk
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: OpenAPI-referens
+    href: functions-api-definition.md     
 - name: Resurser
   items:
   - name: Prissättning

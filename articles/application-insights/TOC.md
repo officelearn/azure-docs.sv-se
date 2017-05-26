@@ -35,7 +35,7 @@
 ### [Djup diagnostik för webbappar och tjänster](app-insights-devops.md)
 ### [Övervaka prestanda i webbprogram](app-insights-web-monitor-performance.md)
 ### [Avgränsa utveckling, testning och produktion](app-insights-separate-resources.md)
-### [Övervaka appar med flera roller](app-insights-monitor-multi-role-apps.md)
+### [Övervaka appar med flera komponenter](app-insights-monitor-multi-role-apps.md)
 ### [Hur kan jag ... i Application Insights?](app-insights-how-do-i.md)
 
 
@@ -139,7 +139,7 @@
 ## [NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [API för dataåtkomst](https://dev.applicationinsights.io/)
 ## [Datamodell](application-insights-data-model.md)
 ### [Förfrågan](application-insights-data-model-request-telemetry.md)
 ### [Beroende](application-insights-data-model-dependency-telemetry.md)
@@ -147,6 +147,7 @@
 ### [Spårning](application-insights-data-model-trace-telemetry.md)
 ### [Händelse](application-insights-data-model-event-telemetry.md)
 ### [Mått](application-insights-data-model-metric-telemetry.md)
+### [Kontext](application-insights-data-model-context.md)
 ## [Telemetrikorrelation](application-insights-correlation.md)
 
 # Resurser

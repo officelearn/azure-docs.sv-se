@@ -13,6 +13,7 @@
 ## Använd virtuella datorer i ett labb
 ### [Skapa virtuella datorer](devtest-lab-add-vm.md)
 ### [Skapa virtuell dator som kan hämtas](devtest-lab-add-claimable-vm.md)
+### [Skapa och hantera virtuella datorer med Azure CLI](devtest-lab-vmcli.md)
 
 ## Använd miljöer i ett labb
 ### [Skapa en miljö](devtest-lab-create-environment-from-arm.md)

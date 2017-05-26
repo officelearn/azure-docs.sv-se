@@ -117,6 +117,7 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Övervaka och felsök
+### [Felsöka lagringsutforskaren](storage-explorer-troubleshooting.md)
 ### Mått och loggning
 #### [Lagringsanalys](storage-analytics.md)
 #### [Aktivera och visa mått](storage-enable-and-view-metrics.md)

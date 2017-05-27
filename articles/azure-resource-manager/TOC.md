@@ -24,7 +24,6 @@
 ### [Länk till andra mallar](resource-group-linked-templates.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
 ### [Skapa flera instanser](resource-group-create-multiple.md)
-### [Sekventiell loop](resource-manager-sequential-loop.md)
 ### [Ange en plats](resource-manager-template-location.md)
 ### [Tilldela taggar](resource-manager-template-tags.md)
 ### [Ange underordnat resursnamn och typ](resource-manager-template-child-resource.md)
@@ -43,8 +42,8 @@
 #### [Distribuera privat mall med SAS-token](resource-manager-cli-sas-token.md)
 #### [Exportera mall och distribuera om](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
-### [REST API](resource-group-template-deploy-rest.md)
-### [Distribution av flera resursgrupper](resource-manager-cross-resource-group-deployment.md)
+### [REST-API](resource-group-template-deploy-rest.md)
+### [Distribution mellan resursgrupper](resource-manager-cross-resource-group-deployment.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)
 

@@ -1,5 +1,6 @@
 # Översikt
 ## [Vad är Azure Analysis Services?](analysis-services-overview.md)
+## [Datakällor som stöds](analysis-services-datasource.md)
 
 # Snabbstarter
 ## [Skapa en server – portal](analysis-services-create-server.md)
@@ -17,7 +18,7 @@
 ### [Lektion 6: Skapa mått](tutorials/aas-lesson-6-create-measures.md)  
 ### [Lektion 7: Skapa KPI:er](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 ### [Lektion 8: Skapa perspektiv](tutorials/aas-lesson-8-create-perspectives.md) 
-### [Lektion 9: Skapa hierarkier](tutorials/aas-lesson-9-create-hierarchies.md)  
+### [Lektion 9: Skapa hierarkier](tutorials/aas-lesson-9-create-hierarchies.md) 
 ### [Lektion 10: Skapa partitioner](tutorials/aas-lesson-10-create-partitions.md) 
 ### [Lektion 11: Skapa roller](tutorials/aas-lesson-11-create-roles.md)
 ### [Lektion 12: Analysera i Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
@@ -36,7 +37,6 @@
 ## [Hämta klientbibliotek](analysis-services-data-providers.md)
 ## [Säkerhetskopiering och återställning](analysis-services-backup.md)
 ## [Hög tillgänglighet](analysis-services-bcdr.md)
-## [Anslutningar till datakälla](analysis-services-datasource.md)
 ## [Skapa en ODC-fil](analysis-services-odc.md)
 
 # Referens

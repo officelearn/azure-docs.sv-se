@@ -130,6 +130,8 @@
     items:
     - name: Skapa en virtuell dator – översikt
       href: creation-choices.md
+    - name: Skapa en virtuell dator från en specialiserad virtuell hårddisk
+      href: create-vm-specialized.md
     - name: Skapa en virtuell dator med en mall
       href: ps-template.md
     - name: 'Skapa en virtuell dator med C#'
@@ -215,20 +217,6 @@
       href: expand-data-disks.md
     - name: Använd D som en datadisk
       href: change-drive-letter.md
-    - name: Skapa virtuella datorer med ohanterade diskar
-      items:
-      - name: Ladda upp en virtuell hårddisk
-        href: upload-image.md
-      - name: Skapa en ohanterad avbildning
-        href: capture-image.md
-      - name: Skapa en ohanterad virtuell dator från en generaliserad virtuell hårddisk
-        href: create-vm-generalized.md
-      - name: Kopiera en virtuell dator
-        href: vhd-copy.md
-      - name: Skapa en virtuell dator från en specialiserad virtuell hårddisk
-        href: create-vm-specialized.md
-      - name: Anslut en ohanterad datadisk
-        href: attach-disk-portal.md
   - name: VM-nätverk
     href: ps-common-network-ref.md
     items:
@@ -341,10 +329,8 @@
       items:
       - name: Migrera från Amazon Web Services (AWS) till Azure
         href: aws-to-azure.md
-    - name: Ladda upp och skapa en virtuell dator från en generaliserad virtuell hårddisk
-      href: upload-generalized-managed.md
-    - name: Ladda upp och skapa en virtuell dator från en specialiserad virtuell hårddisk
-      href: upload-specialized.md
+      - name: Ladda upp och skapa en virtuell dator från en generaliserad virtuell hårddisk
+        href: upload-generalized-managed.md
     - name: Migrera från Klassisk till Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:

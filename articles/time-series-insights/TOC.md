@@ -12,7 +12,9 @@
 ## [Skapa en IoT Hub-händelsekälla](time-series-insights-how-to-add-an-event-source-iothub.md)
 ## [Skala din miljö](time-series-insights-how-to-scale-your-environment.md)
 ## [Diagnostisera och lösa problem](time-series-insights-diagnose-and-solve-problems.md)
-## [Fråga data med C#](time-series-insights-query-data-csharp.md)
+## Utveckla
+### [Autentisering och auktorisering](time-series-insights-authentication-and-authorization.md)
+### [Fråga data med C#](time-series-insights-query-data-csharp.md)
 
 # Referens
 ## [Fråge-API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)

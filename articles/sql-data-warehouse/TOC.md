@@ -11,7 +11,7 @@
 ## [Bästa praxis](sql-data-warehouse-best-practices.md)
 ## [Hantera](sql-data-warehouse-overview-manage.md)
 ## [Få support](sql-data-warehouse-get-started-create-support-ticket.md)
-## [Felsöka](sql-data-warehouse-troubleshoot.md)
+
 
 # Gör så här för att
 
@@ -114,7 +114,7 @@
 
 ### [Översikt](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Frågor](sql-data-warehouse-manage-monitor.md)
+### [Övervaka](sql-data-warehouse-manage-monitor.md)
 ### [Arbetsbelastning](sql-data-warehouse-develop-concurrency.md)
 
 ## Säkerhet
@@ -126,6 +126,9 @@
 ### [Kryptering](sql-data-warehouse-encryption-tde.md)
 ### [Kryptering med T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Hotidentifiering](sql-data-warehouse-security-threat-detection.md)
+
+## Felsöka
+### [Felsöka](sql-data-warehouse-troubleshoot.md)
 
 # Referens
 

@@ -64,7 +64,6 @@
 #### [Portal](resource-group-create-service-principal-portal.md)
 ### [Autentiserings-API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md)
 ### [Lås resurser](resource-group-lock-resources.md)
-### [Säkerhetsöverväganden](best-practices-resource-manager-security.md)
 
 ## Ange resursprinciper
 ### [Vad är resursprinciper?](resource-manager-policy.md)

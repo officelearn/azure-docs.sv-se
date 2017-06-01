@@ -2,7 +2,6 @@
 ## [Vad är Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Kom igång
-## [Interaktiva självstudier: Analysera webbplatsloggar](data-lake-analytics-use-interactive-tutorials.md)
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
@@ -27,6 +26,8 @@
 
 ## Skapa lösningar
 ### [Analysera webbplatsloggar](data-lake-analytics-analyze-weblogs.md)
+### [Interaktiva självstudier: Analysera webbplatsloggar](data-lake-analytics-use-interactive-tutorials.md)
+
 
 ## Hantera
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)

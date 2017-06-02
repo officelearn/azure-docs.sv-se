@@ -11,6 +11,7 @@
 ## [Distribuera kluster – Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [CI/CD med Kubernetes och Jenkins](container-service-kubernetes-jenkins.md)
 ## [CI/CD med Docker Swarm och VSTS](container-service-docker-swarm-setup-ci-cd.md)
+## [CI/CD med Docker Swarm-läge och VSTS med ACS-motor](container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md)
 
 # Koncept
 ## [Säkra behållare](container-service-security.md)

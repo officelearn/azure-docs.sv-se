@@ -7,6 +7,7 @@
 ## [Skapa din första logiska app](logic-apps-create-a-logic-app.md)
 ## [Mallar till Logic Apps](logic-apps-use-logic-app-templates.md)
 ## [Skapa Logic Apps från mallar](logic-apps-arm-provision.md)
+## [Flytta MABS-appar till Logic Apps](logic-apps-move-from-mabs.md)
 
 # Gör så här för att
 ## Utveckla
@@ -80,6 +81,7 @@
 ### [Prissättning](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Användningsmätning](logic-apps-pricing.md)
 
+
 # Utan server
 ## Översikt
 ### [Utan server i Azure](logic-apps-serverless-overview.md)
@@ -128,6 +130,8 @@
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
 ### [X12](logic-apps-enterprise-integration-x12.md)
 ### [XML-verifiering](logic-apps-enterprise-integration-xml-validation.md)
+
+## [Anslutningsappar: fullständig information](https://docs.microsoft.com/connectors/)
 ## Schemahistorik
 ### [Allmänt tillgänglig](logic-apps-schema-2016-04-01.md)
 ### [Förhandsversion](logic-apps-schema-2015-08-01.md)

@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: Skapa DB – PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Hantera
+  - name: Anslut och fråga
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS-kod
       href: sql-database-connect-query-vscode.md
-  - name: Anslut
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,7 +35,7 @@
   items:
   - name: 1 – Skapa/utforma ny SQL-databas
     href: sql-database-design-first-database.md
-  - name: 2 – Migrera en befintlig SQL-server
+  - name: 2 – Migrera SQL Server-databas
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 – Skydda din SQL-databas
     href: sql-database-security-tutorial.md
@@ -45,6 +43,8 @@
     href: sql-database-performance-tutorial.md
   - name: 5 – Implementera app för flera klientorganisationer
     href: sql-database-multi-tenant-application.md
+  - name: 6 – Implementera en geodistribuerad databas
+    href: sql-database-implement-geo-distributed-database.md 
   - name: Wingtip SaaS-självstudier
     items:
     - name: Wingtip SaaS-introduktion
@@ -55,15 +55,15 @@
       href: sql-database-saas-tutorial-provision-and-catalog.md
     - name: Övervaka prestanda
       href: sql-database-saas-tutorial-performance-monitoring.md
+    - name: Övervaka med Log Analytics
+      href: sql-database-saas-tutorial-log-analytics.md
     - name: Återställa en enskild klientorganisation
       href: sql-database-saas-tutorial-restore-single-tenant.md
     - name: Hantera scheman för klientorganisation
       href: sql-database-saas-tutorial-schema-management.md
     - name: Köra adhoc-analys
       href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Övervaka med Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Hantera klientorganisationsanalys
+    - name: Köra klientorganisationsanalys
       href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Exempel
   items:
@@ -145,7 +145,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Granskning
       href: sql-database-auditing.md
-    - name: Granskning och TDS
+    - name: Tabellgranskning och TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Hotidentifiering
       href: sql-database-threat-detection.md
@@ -355,6 +355,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: Utökade händelser – ringbuffert
       href: sql-database-xevent-code-ring-buffer.md
+    - name: Diagnostikloggning
+      href: sql-database-metrics-diag-logging.md
   - name: Hantera
     items:
     - name: Azure Automation

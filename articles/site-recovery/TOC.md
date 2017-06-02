@@ -1,13 +1,14 @@
 # Översikt
 ## [Vad är Site Recovery?](site-recovery-overview.md)
-## [Hur fungerar Site Recovery?](site-recovery-components.md)
+## [Hur fungerar Site Recovery?](site-recovery-azure-to-azure-architecture.md)
 ## [Hur fungerar Hyper-V-replikering till Azure?](site-recovery-hyper-v-azure-architecture.md)
 ## [Vilka arbetsbelastningar kan du skydda?](site-recovery-workload.md)
-## [Site Recovery-stödmatris](site-recovery-support-matrix-to-azure.md)
+## [Site Recovery-stödmatris](site-recovery-support-matrix-azure-to-azure.md)
 ## [Vanliga frågor och svar](site-recovery-faq.md)
 ## [Titta på en presentation](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Kom igång
+## [Replikera virtuella Azure-datorer (förhandsversion)](site-recovery-azure-to-azure.md)
 ## [Replikera VMware-VM:ar till Azure](site-recovery-vmware-to-azure.md)
 ## [Replikera fysiska servrar till Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replikera virtuella Hyper-V-datorer till Azure (med VMM)](site-recovery-vmm-to-azure.md)
@@ -18,9 +19,10 @@
 
 # Gör så här för att
 ## Planera
-### [Förutsättningar för Azure-replikering](site-recovery-prereq.md)
-### [Planera nätverksinfrastruktur](site-recovery-network-design.md)
-### [Planera nätverksmappning](site-recovery-network-mapping.md)
+### [Förutsättningar för Azure-replikering](site-recovery-azure-to-azure-prereq.md)
+### [Planera utgående nätverksanslutning för virtuella Azure-datorer (förhandsversion)](site-recovery-azure-to-azure-networking-guidance.md)
+### [Planera nätverksinfrastruktur för lokala datorer](site-recovery-network-design.md)
+### [Planera nätverksmappning](site-recovery-network-mapping-azure-to-azure.md)
 ### [Planera kapacitet och skala VMware-replikering till Azure](site-recovery-plan-capacity-vmware.md)
 ### [Distributionsplaneraren för VMware-replikering till Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner för Hyper-V-replikering](site-recovery-capacity-planner.md)
@@ -33,19 +35,21 @@
 ### [Distribuera mobilitetstjänsten för VMware-replikering](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Distribuera mobilitetstjänsten med System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Distribuera mobilitetstjänsten med Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
-### [Aktivera replikering](site-recovery-replicate-vmware-to-azure.md)
-## Redundans och återställning
-### [Redundansväxla skyddade datorer](site-recovery-failover.md)
+### [Aktivera replikering](site-recovery-replicate-azure-to-azure.md)
+## Redundans och återställning efter fel
 ### [Konfigurera återställningsplaner](site-recovery-create-recovery-plans.md)
 #### [Lägga till Azure-runbookflöden i återställningsplaner](site-recovery-runbook-automation.md)
 ### [Kör ett redundanstest](site-recovery-test-failover-to-azure.md)
-### [Skydda datorer igen efter redundans](site-recovery-how-to-reprotect.md)
+### [Redundansväxla skyddade datorer](site-recovery-failover.md)
+### [Skydda datorer igen efter redundans](site-recovery-how-to-reprotect-azure-to-azure.md)
 ### [Återställ vid fel från Azure](site-recovery-failback-azure-to-vmware.md)
 
 ## Migrera
 ### [Migrera till Azure](site-recovery-migrate-to-azure.md)
 ### [Migrera mellan Azure-regioner](site-recovery-migrate-azure-to-azure.md)
 ### [Migrera AWS Windows-instanser till Azure](site-recovery-migrate-aws-to-azure.md)
+### [Replikera migrerade datorer till en annan Azure-region](site-recovery-azure-to-azure-after-migration.md)
+
 ## Arbetsbelastningar
 ### [Active Directory och DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -68,7 +72,9 @@
 ### [Hantera utskalade processervrar](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Hantera vCenter-servrar](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Ta bort servrar och inaktivera skydd](site-recovery-manage-registration-and-protection.md)
-## [Övervaka och felsök](site-recovery-monitoring-and-troubleshooting.md)
+## Övervaka och felsök
+### [Replikeringsproblem med virtuella Azure-datorer](site-recovery-azure-to-azure-troubleshoot-errors.md)
+### [Replikeringsproblem med lokalt till Azure](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referens
 ## [PowerShell](/powershell/module/azurerm.siterecovery)

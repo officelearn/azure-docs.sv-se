@@ -32,6 +32,7 @@
 ### [Alternativ för användarinloggning](active-directory-aadconnect-user-signin.md)
 ### [Stöd för flera domäner vid federering](active-directory-aadconnect-multiple-domains.md)
 ### [Automatisk uppgradering](active-directory-aadconnect-feature-automatic-upgrade.md)
+### [Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning](active-directory-aadconnect-federation-saml-idp.md)
 
 
 

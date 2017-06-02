@@ -10,6 +10,7 @@
 ### [Avancerad hotidentifiering](azure-threat-detection.md)
 ### [Loggning och granskning](azure-log-audit.md)
 ### [Isolering i det offentliga molnet](azure-isolation.md)
+### [Tekniska funktioner för säkerhet](azure-security-technical-capabilities.md)
 
 # Kom igång
 ## [Komma igång med Azure Security](azure-security-getting-started.md)
@@ -18,6 +19,7 @@
 
 ## Nätverkssäkerhet
 ### [Metodtips för nätverkssäkerhet](azure-security-network-security-best-practices.md)
+###[Azure-nätverkssäkerhet](azure-network-security.md)
 ### [Gränssäkerhet](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Skydda hybridnätverksarkitektur](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 

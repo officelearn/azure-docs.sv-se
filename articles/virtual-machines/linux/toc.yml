@@ -140,6 +140,14 @@
       href: move-vm.md
     - name: Skapa virtuella datorer med hög tillgänglighet
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: Installera och konfigurera
+        href: ansible-install-configure.md
+      - name: Skapa grundläggande virtuell dator
+        href: ansible-create-vm.md
+      - name: Skapa fullständig virtuell dator
+        href: ansible-create-complete-vm.md
     - name: Distribuera en app med en VM-mall
       items:
       - name: Självstudier – översikt
@@ -194,7 +202,7 @@
       href: upload-vhd.md
     - name: Skapa en avbildning av en befintlig virtuell dator
       href: capture-image.md
-    - name: Skapa Azure-godkända avbildningar
+    - name: Skapa Azure-avbildningar
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -206,6 +214,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Hantera VM-lagring
     items:
     - name: Azure Managed Disks

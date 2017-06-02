@@ -12,10 +12,6 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Använd en simulerad gateway
-#### [Simulering i Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Simulering i Windows](iot-hub-windows-iot-edge-get-started.md)
-
 ### Använd en fysisk enhet
 #### [Raspberry Pi med Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi med C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -31,6 +27,8 @@
 ##### [Konfigurera Intel NUC som en gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Ansluta gatewayen till IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Använda gatewayen för datakonvertering](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Använda en onlineenhetssimulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Spara meddelanden från IoT Hub i datalagring för Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -48,15 +46,21 @@
 ### [Stöd för ytterligare protokoll](iot-hub-protocol-gateway.md)
 ## [Utveckla](iot-hub-how-to.md)
 ### [Utvecklarguide](iot-hub-devguide.md)
-#### [Skicka och ta emot meddelanden](iot-hub-devguide-messaging.md)
 #### [Funktionsguide enheten till molnet](iot-hub-devguide-d2c-guidance.md)
 #### [Funktionsguide molnet till enheten](iot-hub-devguide-c2d-guidance.md)
+#### [Skicka och ta emot meddelanden](iot-hub-devguide-messaging.md)
+##### [Skicka meddelanden från enhet till moln till IoT Hub](iot-hub-devguide-messages-d2c.md)
+##### [Läsa meddelanden från enhet till moln från den inbyggda slutpunkten](iot-hub-devguide-messages-read-builtin.md)
+##### [Använda anpassade slutpunkter och routningsregler för meddelanden från enhet till moln](iot-hub-devguide-messages-read-custom.md)
+##### [Skicka meddelanden från moln till enhet från IoT Hub](iot-hub-devguide-messages-c2d.md)
+##### [Skapa och läsa IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)
 #### [Ladda upp filer från en enhet](iot-hub-devguide-file-upload.md)
 #### [Hantera enhetsidentiteter](iot-hub-devguide-identity-registry.md)
 #### [Styra åtkomst till IoT Hub](iot-hub-devguide-security.md)
 #### [Förstå enhetstvillingar](iot-hub-devguide-device-twins.md)
 #### [Anropa direktmetoder på en enhet](iot-hub-devguide-direct-methods.md)
 #### [Schemalägga jobb på flera enheter](iot-hub-devguide-jobs.md)
+#### [Välja ett kommunikationsprotokoll](iot-hub-devguide-protocols.md)
 #### [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md)
 #### [Frågespråk](iot-hub-devguide-query-language.md)
 #### [Kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md)
@@ -119,18 +123,22 @@
 ### [Säkerhetsarkitektur](iot-hub-security-architecture.md)
 ### [Skydda distributionen av IoT](iot-hub-security-deployment.md)
 ## IoT Edge
+### Kom igång
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Simulera en enhet
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Använda en riktig enhet](iot-hub-iot-edge-physical-device.md)
 
 # Referens
-## [Förhandsversion av Azure CLI 2.0](/cli/azure/iot)
+## [Azure CLI 2.0](/cli/azure/iot)
 ## [.NET (tjänst)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (enheter)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (tjänst)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (enheter)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [SDK:er för Azure IoT](http://azure.github.io/azure-iot-sdks/)
+## [Node.js-SDK:er](http://azure.github.io/azure-iot-sdk-node/)
+## [C-enhets-SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (resursprovider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (enhetsidentiteter)](https://docs.microsoft.com/rest/api/iothub/deviceapi)

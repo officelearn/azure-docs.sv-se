@@ -1,57 +1,56 @@
-- name: "Content Moderator Documentation"
+- name: Content Moderator-dokumentation
   href: ../index.md
-- name: "Overview"
+- name: Översikt
   items: 
-  - name: "Learn about the Content Moderator API"
+  - name: 'Läs mer om Content Moderator-API:t'
     href: overview.md
-- name: "Get started"
+- name: Kom igång
   items: 
-  - name: "Get started with Content Moderator"
+  - name: Kom igång med Content Moderator
     href: quick-start.md
-- name: "How to"
+- name: Gör så här för att
   items: 
-  - name: "Review tool user guide"
+  - name: Användarhandbok för granskningsverktyg
     items:
-    - name: "Human in the loop"
+    - name: Human in the loop
       href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: "Create team"
+    - name: Skapa team
       href: Review-Tool-User-Guide/Sign-up.md
-    - name: "Upload images"
+    - name: Ladda upp bilder
       href: Review-Tool-User-Guide/Upload-Images.md
-    - name: "Image reviews"
+    - name: Bildomdömen
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: "Text reviews"
+    - name: Textomdömen
       href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: "Team and subteams"
+    - name: Team och undergrupper
       href: Review-Tool-User-Guide/SubTeams.md
-    - name: "Using workflows"
+    - name: Använda arbetsflöden
       href: Review-Tool-User-Guide/Workflows.md
-    - name: "Settings"
+    - name: Inställningar
       href: Review-Tool-User-Guide/Configure.md
-    - name: "View dashboard"
+    - name: Visa instrumentpanel
       href: Review-Tool-User-Guide/View-Dashboard.md
-- name: "Reference"
+- name: Referens
   items: 
-  - name: "API Reference Guide"  
+  - name: API-referensguide
+  
     href: api-reference.md
     items:
-  - name: "Review APIs"
+  - name: 'Omdömes-API:er'
     href: review-api.md
-  - name: "Review Authentication"
-    href: Review-API-Authentication.md
-  - name: "Image moderation"
+  - name: Bildmoderering
     href: image-moderation-api.md
-  - name: "Text moderation"
+  - name: Textmoderering
     href: text-moderation-api.md
-  - name: "Text moderation - languages"
+  - name: Textmoderering – språk
     href: Text-Moderation-API-Languages.md
-  - name: "Video moderation"
+  - name: Videomoderering
     href: video-moderation-api.md
-- name: "Resources"
+- name: Resurser
   items:  
-  - name: "Windows SDK"
+  - name: Windows SDK
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
-  - name: "Samples"
+  - name: Exempel
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
-  - name: "FAQ"
+  - name: VANLIGA FRÅGOR OCH SVAR
     href: FAQs.md

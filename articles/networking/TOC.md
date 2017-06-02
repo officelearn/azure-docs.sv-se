@@ -1,6 +1,7 @@
 # Översikt
 ## [Om Azure-nätverk](networking-overview.md)
 ## Arkitektur
+### [Virtuella datacenter](networking-virtual-datacenter.md)
 ### [Asymmetrisk routning med flera nätverksvägar](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Skydda nätverkstrafik](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Topologi av typen hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -44,6 +45,7 @@
 ### [Kontrollera ip-flöden för en virtuell dator](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Exempelskript
 ### [Azure CLI](cli-samples.md)
+### [PowerShell](powershell-samples.md)
 ## Självstudier
 ### [Belastningsutjämna virtuella datorer](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Anslut en dator till ett virtuellt nätverk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)

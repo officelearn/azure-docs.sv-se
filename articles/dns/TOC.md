@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Azure DNS?](dns-overview.md)
 ## [DNS-zoner och -poster](dns-zones-records.md)
 ## [DNS-delegering med Azure DNS](dns-domain-delegation.md)
@@ -18,17 +19,21 @@
 # Gör så här för att
 
 ## Hantera DNS-zoner
+### [Portal](dns-operations-dnszones-portal.md)
 ### [PowerShell](dns-operations-dnszones.md)
-### [Azure CLI](dns-operations-dnszones-cli.md)
+### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
-
-## [Hantera DNS-poster](dns-operations-recordsets-portal.md)
+## Hantera DNS-poster
+### [Portal](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Azure CLI](dns-operations-recordsets-cli.md)
+### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 
-## [Hantera omvända DNS-poster](dns-reverse-dns-record-operations-ps.md)
-### [Azure CLI](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+## Hantera omvänd DNS
+### [Översikt](dns-reverse-dns-overview.md)
+### [Hantera zoner för omvänd sökning i Azure DNS](dns-reverse-dns-hosting.md)
+### [Hantera omvända DNS-poster för Azure-tjänster](dns-reverse-dns-for-azure-services.md)
 
 ## [Importera och exportera en DNS-zonfil](dns-import-export.md)
 ## [Integrera med andra Azure-tjänster](dns-for-azure-services.md)

@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Löpande distribution för Azure Functions
     href: functions-continuous-deployment.md
-  - name: Distribuera Functions med infrastruktur som kod
+  - name: Automatisera resursdistribution
     href: functions-infrastructure-as-code.md
   - name: Övervaka Azure Functions
     href: functions-monitoring.md
@@ -85,35 +85,31 @@
   items:
   - name: Bindningar
     items:
-    - name: Cosmos DB-bindningar
+    - name: Blob Storage
+      href: functions-bindings-storage-blob.md
+    - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Event Hub-bindningar
+    - name: Händelsehubb
       href: functions-bindings-event-hubs.md
-    - name: HTTP- och webhook-bindningar
+    - name: Extern fil
+      href: functions-bindings-external-file.md
+    - name: HTTP och webhooks
       href: functions-bindings-http-webhook.md
-    - name: Mobile Apps-bindningar
+    - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
-    - name: Notification Hub-utdatabindning
+    - name: Notification Hubs
       href: functions-bindings-notification-hubs.md
-    - name: Service Bus-utlösare och bindningar för köer och ämnen
+    - name: Queue Storage
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Service Bus
       href: functions-bindings-service-bus.md
-    - name: SendGrid-bindningar
-      href: functions-bindings-sendgrid.md
-    - name: Lagringsbindningar
-      items:
-      - name: Blobbindningar
-        href: functions-bindings-storage-blob.md
-      - name: Köbindningar
-        href: functions-bindings-storage-queue.md
-      - name: Tabellbindningar
-        href: functions-bindings-storage-table.md
-      - name: Bindningar för externa filer
-        href: functions-bindings-external-file.md
-    - name: SendGrid-bindningar
-      href: functions-bindings-sendgrid.md
-    - name: Timerutlösare
+    - name: Table Storage
+      href: functions-bindings-storage-table.md
+    - name: Timer
       href: functions-bindings-timer.md
-    - name: Twilio-utdatabindning
+    - name: Twilio
       href: functions-bindings-twilio.md
   - name: OpenAPI-referens
     href: functions-api-definition.md     

@@ -61,6 +61,9 @@
 ### [Vyer](operations-management-suite-solutions-resources-views.md)
 ### [Bästa praxis](operations-management-suite-solutions-best-practices.md)
 
+## Hanteringsscenarier
+### [Samla in analysdata från runbook](operations-management-suite-runbook-datacollect.md)
+
 ## [Integrera med OMS](operations-management-suite-integration.md)
 
 # Referens

@@ -116,7 +116,7 @@
 ### [Sampling](app-insights-sampling.md)
 
 ## Hantera
-### [Hantera priser och kvot](app-insights-pricing.md)
+### [Hantera priser och datavolym](app-insights-pricing.md)
 ### [Prestandaövervakning av program med Application Insights för SCOM](app-insights-scom.md)
 
 ## Exportera

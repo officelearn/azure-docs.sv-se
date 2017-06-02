@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Ladda upp befintlig app
         href: web-sites-java-add-app.md
-      - name: Fjärrfelsök Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Fjärrfelsök IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: Django-app med MySQL
@@ -162,8 +158,6 @@
       items:
       - name: Köpa domän
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Mappa tredjepartsdomän
-        href: web-sites-custom-domain-name.md
       - name: Mappa domäner med Traffic Manager
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Mappa GoDaddy-domäner
@@ -204,10 +198,6 @@
         href: web-sites-authentication-authorization.md
       - name: App med en databas för flera innehavare
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Tilldela anpassad SSL
-      items:
-      - name: Konfigurera SSL-cert från tredje part
-        href: web-sites-configure-ssl-certificate.md
     - name: Använda HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Konfigurera ömsesidig TLS-autentisering
@@ -278,6 +268,18 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Felsöka prestandaproblem
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      items:
+      - name: 'Vanliga frågor och svar om tillgänglighet, prestanda och program'
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Vanliga frågor och svar om distribution
+        href: app-service-web-deployment-faq.md
+      - name: Vanliga frågor och svar om tekniker med öppen källkod
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Vanliga frågor och svar om konfiguration och hantering
+        href: app-service-web-configuration-and-management-faq.md
+      - name: Fler vanliga frågor och svar
+        href: app-service-web-others-faq.md
   - name: Prissättning
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Kvotinformation

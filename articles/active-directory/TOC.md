@@ -5,6 +5,7 @@
 ## [Förstå Azure-identitetslösningar](understand-azure-identity-solutions.md)
 ## [Förhandsgranska Azures portalupplevelse](active-directory-preview-explainer.md)
 
+
 # Kom igång
 ## [Hämta en Azure AD-klientorganisation](active-directory-howto-tenant.md)
 ## [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md)
@@ -14,7 +15,8 @@
 ### [Klassisk portal](active-directory-licensing-what-is.md)
 ## [Skaffa Azure till din organisation](sign-up-organization.md)
 ## [Vanliga frågor och svar](active-directory-faq.md)
-## [Självstudier för SaaS-appar](active-directory-saas-tutorial-list.md)
+## [Få support för Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [Självstudier om SaaS-appintegration](active-directory-saas-tutorial-list.md)
 
 # Gör så här för att
 ## Planera och designa

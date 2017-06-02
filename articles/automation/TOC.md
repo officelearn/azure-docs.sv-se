@@ -41,6 +41,7 @@
 ### [Konfigurera datorer för hantering](automation-dsc-onboarding.md)
 ### [Kompilera DSC-konfigurationer](automation-dsc-compile.md)
 ### [Kontinuerlig distribution med Chocolatey](automation-dsc-cd-chocolatey.md)
+### [Vidarebefordra Azure Automation DSC-rapportdata till OMS Log Analytics](automation-dsc-diagnostics.md)
 ## Hantera automationstillgångar
 ### [Certifikat](automation-certificates.md)
 ### [Anslutningar](automation-connections.md)

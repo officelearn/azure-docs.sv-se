@@ -2,6 +2,7 @@
 ## [Om Azure DevTest Labs](devtest-lab-overview.md)
 ## [Koncept](devtest-lab-concepts.md)
 ## Scenarier
+### [Använda labb för utvecklare](devtest-lab-developer-lab.md)
 ### [Använd labb för utbildning](devtest-lab-training-lab.md)
 
 # Kom igång

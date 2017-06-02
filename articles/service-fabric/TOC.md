@@ -235,25 +235,27 @@
 
 ### [Ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md)
 
-## Inspektera program- och klusterhälsa
-### [Övervaka Service Fabrics hälsa](service-fabric-health-introduction.md)
-### [Rapportera och kontrollera hälsan hos tjänster](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [Lägg till anpassade hälsorapporter](service-fabric-report-health.md)
-### [Felsök med systemhälsorapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [Visa hälsorapporter](service-fabric-view-entities-aggregated-health.md)
-
 ## Övervaka och diagnostisera
 ### [Övervaka och diagnostisera program](service-fabric-diagnostics-overview.md)
-### Övervaka och diagnostisera tjänster lokalt
-#### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-#### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Azure Diagnostics-loggar
-#### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-#### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Samla in loggar från en tjänstprocess](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Övervaka Windows Server-behållare](service-fabric-diagnostics-containers-windowsserver.md)
-### [Diagnostik för tillståndskänslig Reliable Services](service-fabric-reliable-services-diagnostics.md)
-### [Diagnostik i Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### Generera händelser
+#### [Generera händelser på infrastrukturnivå](service-fabric-diagnostics-event-generation-infra.md)
+##### [Reliable Services-händelser](service-fabric-reliable-services-diagnostics.md)
+##### [Reliable Actors-händelser](service-fabric-reliable-actors-diagnostics.md)
+#### [Generera händelser på programnivå](service-fabric-diagnostics-event-generation-app.md)
+### Inspektera program- och klusterhälsa
+#### [Övervaka Service Fabrics hälsa](service-fabric-health-introduction.md)
+#### [Rapportera och kontrollera hälsan hos tjänster](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Lägg till anpassade hälsorapporter](service-fabric-report-health.md)
+#### [Felsök med systemhälsorapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Visa hälsorapporter](service-fabric-view-entities-aggregated-health.md)
+### Sammanfatta händelser
+#### [Sammanfatta händelser med EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Sammanfatta händelser med Azure-diagnostik
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Analysera händelser
+#### [Analysera händelser med Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Analysera händelser med OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Felsök ditt lokala kluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Referens

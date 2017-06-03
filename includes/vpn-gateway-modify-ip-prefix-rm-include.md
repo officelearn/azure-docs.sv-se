@@ -1,21 +1,21 @@
 ### <a name="noconnection"></a>Ändra IP-adressprefix för nätverksgateway – ingen gatewayanslutning
 
-- Så här lägger du till ytterligare adressprefix:
+Så här lägger du till ytterligare adressprefix:
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-  ```
+```powershell
+$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+-AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+```
 
-- Så här tar du bort adressprefix:<br>
-  Utelämna de prefix som du inte längre behöver. I det här exemplet behöver vi inte längre prefixet 20.0.0.0/24 (från föregående exempel), så vi uppdaterar den lokala nätverksgatewayen och tar bort det prefixet.
+Så här tar du bort adressprefix:<br>
+Utelämna de prefix som du inte längre behöver. I det här exemplet behöver vi inte längre prefixet 20.0.0.0/24 (från föregående exempel), så vi uppdaterar den lokala nätverksgatewayen och tar bort det prefixet.
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
-  ```
+```powershell
+$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+-AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+```
 
 ### <a name="withconnection"></a>Ändra IP-adressprefix för nätverksgateway – existerande gatewayanslutning
 

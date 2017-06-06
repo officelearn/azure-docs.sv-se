@@ -2,6 +2,6 @@
 
 Kör följande kommando för att rensa dina resurser:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```

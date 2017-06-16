@@ -8,7 +8,7 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -108,8 +108,8 @@ Diskar på virtuella Azure-datorer efter redundansväxling är följande:
 
 **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | ---
-DISK0 |    C:\ | Operativsystemdisk
-Disk1 |    E:\ | Temporär lagring</br /> </br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
+DISK0 | C:\ | Operativsystemdisk
+Disk1 | E:\ | Temporär lagring</br /> </br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
 Disk2 | D:\ | SQL-systemdatabas och användardatabas1
 Disk3 | G:\ | Användardatabas2
 
@@ -141,13 +141,13 @@ Det finns två sätt att skapa den här sökvägen:
 3. Kör följande sqlcmd för att ändra tempdb-sökvägen till en ny sökväg.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -173,9 +173,9 @@ I föregående exempel är diskkonfigurationen av den virtuella Azure-datorn fö
 **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | ---
 DISK0 | C:\ | Operativsystemdisk
-Disk1 |    E:\ | Temporär lagring</br /> </br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
-Disk2 |    D:\ | SQL-systemdatabas och användardatabas1
-Disk3 |    G:\ | Användardatabas2
+Disk1 | E:\ | Temporär lagring</br /> </br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
+Disk2 | D:\ | SQL-systemdatabas och användardatabas1
+Disk3 | G:\ | Användardatabas2
 
 
 #### <a name="vmware-to-azure"></a>VMware till Azure
@@ -186,8 +186,8 @@ Diskar på den virtuella VMWare-datorn (ursprunglig plats) efter planerad redund
 **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | ---
 DISK0 | C:\ | Operativsystemdisk
-Disk1 |    D:\ | SQL-systemdatabas och användardatabas1
-Disk2 |    G:\ | Användardatabas2
+Disk1 | D:\ | SQL-systemdatabas och användardatabas1
+Disk2 | G:\ | Användardatabas2
 
 #### <a name="hyper-v-to-azure"></a>Hyper-V till Azure
 När återställningen till den ursprungliga platsen är klar är diskkonfigurationen för den virtuella datorn densamma som den ursprungliga diskkonfigurationen för den virtuella datorn för Hyper-V. Diskar som undantogs från Hyper-V-plats till Azure är inte tillgängliga på den virtuella datorn som redundansväxlas.
@@ -196,7 +196,7 @@ Diskar på den virtuella Hyper-V-datorn (ursprunglig plats) efter planerad redun
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |    C:\ | Operativsystemdisk
+DB-Disk0-OS | DISK0 |   C:\ | Operativsystemdisk
 DB-Disk1 | Disk1 | D:\ | SQL-systemdatabas och användardatabas1
 DB-Disk2 (utesluten disk) | Disk2 | E:\ | Tillfälliga filer
 DB-Disk3 (utesluten disk) | Disk3 | F:\ | SQL tempdb-databasen (mappsökväg (F:\MSSQL\Data\)

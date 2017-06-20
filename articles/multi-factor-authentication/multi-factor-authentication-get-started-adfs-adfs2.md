@@ -5,19 +5,20 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 96168849-241a-4499-a224-d829913caa7e
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 06/14/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017, it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
 ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
+ms.contentlocale: sv-se
 ms.lasthandoff: 02/28/2017
 
 ---
@@ -37,9 +38,9 @@ Om du vill skydda AD FS 2.0 med en proxy installerar du Azure Multi-Factor Authe
    <center>![Installation](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
 
 4. Om du vill identifiera användarnamn, lösenord och domänvariabler automatiskt anger du inloggnings-URL:en (t.ex. https://sso.contoso.com/adfs/ls) i dialogrutan Konfigurera formulärbaserad webbplats automatiskt och klickar på **OK**.
-5. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad. 
+5. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
 6. Om sidvariablerna inte kan identifieras automatiskt klickar du på knappen **Ange manuellt** i dialogrutan Konfigurera formulärbaserad webbplats automatiskt.
-7. I dialogrutan Lägg till formulärbaserad webbplats anger du URL:en för AD FS-inloggningssidan i fältet Överföringswebbadress (t.ex. https://sso.contoso.com/adfs/ls) och anger ett programnamn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar. 
+7. I dialogrutan Lägg till formulärbaserad webbplats anger du URL:en för AD FS-inloggningssidan i fältet Överföringswebbadress (t.ex. https://sso.contoso.com/adfs/ls) och anger ett programnamn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
 8. Ange formatet för begäran till **POST eller GET**.
 9. Ange användarnamnsvariabeln (ctl00$ContentPlaceHolder1$UsernameTextBox) och lösenordsvariabeln (ctl00$ContentPlaceHolder1$PasswordTextBox). Om en textruta för domänen visas på den formulärbaserade inloggningssidan anger du även domänvariabeln. Du kan behöva gå till inloggningssidan i en webbläsare, högerklicka på sidan och välja **Visa källa** för att hitta namnen på inmatningsrutorna på inloggningssidan.
 10. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
@@ -51,7 +52,7 @@ Om du vill skydda AD FS 2.0 med en proxy installerar du Azure Multi-Factor Authe
     - Välj hur du vill autentisera primära autentiseringsuppgifter
 
 12. Eftersom AD FS-proxyservern troligen inte ska anslutas till domänen kan du använda LDAP för att ansluta till domänkontrollanten för användarimport och förautentisering. Klicka på fliken **Primär autentisering** i dialogrutan Avancerad formulärbaserad webbplats och välj **LDAP-bindning** för autentiseringstypen Förautentisering.
-13. När du är klar klickar du på **OK** så visas dialogrutan Lägg till formulärbaserad webbplats igen. 
+13. När du är klar klickar du på **OK** så visas dialogrutan Lägg till formulärbaserad webbplats igen.
 14. Stäng dialogrutan genom att klicka på **OK**.
 15. När URL- och sidvariablerna har identifierats eller angetts visas webbplatsdata på panelen Formulärbaserad.
 16. Klicka på fliken **Ursprunglig modul** och välj servern, webbplatsen som AD FS-proxyn körs under (t.ex. ”Standardwebbplats”) eller AD FS-proxyprogrammet (t.ex. ”Is” under ”adfs”) för att aktivera IIS-pluginprogrammet på önskad nivå.
@@ -93,14 +94,14 @@ Du kan skydda AD FS när AD FS-proxy inte används. Installera Azure Multi-Facto
 3. Klicka på **Lägg till**.
 4. I dialogrutan Lägg till grundläggande webbadress anger du URL:en för AD FS-webbplatsen där HTTP-autentiseringen utförs (t.ex. https://sso.domain.com/adfs/ls/auth/integrated) i fältet Bas-URL. Ange sedan ett programnamn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
 5. Om du vill justerar du värdena för timeout vid inaktivitet och längsta sessionstid.
-6. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad. 
+6. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
 7. Markera kryssrutan för cachelagring av cookies om du vill.
 
    <center>![Installation](./media/multi-factor-authentication-get-started-adfs-adfs2/noproxy.png)</center>
 
 8. Klicka på **OK**.
 9. Klicka på fliken **Ursprunglig modul** och välj servern, webbplatsen (t.ex. ”Standardwebbplats”) eller ADFS-programmet (t.ex. ”Is” under ”adfs”) för att aktivera IIS-pluginprogrammet på önskad nivå.
-10. Klicka på rutan **Aktivera IIS-autentisering** överst på skärmen. 
+10. Klicka på rutan **Aktivera IIS-autentisering** överst på skärmen.
 
 Nu skyddas AD FS av Azure Multi-Factor Authentication.
 

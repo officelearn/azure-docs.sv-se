@@ -5,27 +5,28 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/25/2017
+ms.date: 06/15/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017,it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
 ms.openlocfilehash: 4014bf0217e25ea9bc8473ef2383279e5eb79b87
+ms.contentlocale: sv-se
 ms.lasthandoff: 02/28/2017
 
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Aktivera mobilappautentisering och Azure Multi-Factor Authentication Server
 
-Microsoft Authenticator-appen erbjuder ytterligare ett verifieringsalternativ utanför IP-nätverket. I stället för att ringa ett automatiserat telefonsamtal eller skicka ett SMS till användaren vid inloggningen skickar Azure Multi-Factor Authentication ett meddelande till Microsoft Authentication-appen på användarens smartphone eller surfplatta. Användaren trycker bara på **Autentisera** (eller anger en PIN-kod och trycker på ”Autentisera”) i appen för att slutföra deras inloggning. 
+Microsoft Authenticator-appen erbjuder ytterligare ett verifieringsalternativ utanför IP-nätverket. I stället för att ringa ett automatiserat telefonsamtal eller skicka ett SMS till användaren vid inloggningen skickar Azure Multi-Factor Authentication ett meddelande till Microsoft Authentication-appen på användarens smartphone eller surfplatta. Användaren trycker bara på **Autentisera** (eller anger en PIN-kod och trycker på ”Autentisera”) i appen för att slutföra deras inloggning.
 
-Att använda en mobilapp för tvåstegsverifiering rekommenderas när mobilmottagningen är opålitlig. Om du använder appen som en OATH-tokengenerator behövs ingen nätverks- eller internetanslutning. 
+Att använda en mobilapp för tvåstegsverifiering rekommenderas när mobilmottagningen är opålitlig. Om du använder appen som en OATH-tokengenerator behövs ingen nätverks- eller internetanslutning.
 
 Om du installerar användarportalen på en annan server än Azure Multi-Factor Authentication-servern följer du dessa steg:
 
@@ -51,10 +52,10 @@ För att du ska kunna använda Microsoft Authenticator-appen krävs följande s�
 
 
 ## <a name="install-the-web-service-sdk"></a>Installera webbtjänst-SDK
-Om webbtjänst-SDK för Azure Multi-Factor Authentication inte redan är installerat på Azure Multi-Factor Authentication-servern (MFA) går du till den servern och öppnar Azure MFA-servern. 
+Om webbtjänst-SDK för Azure Multi-Factor Authentication inte redan är installerat på Azure Multi-Factor Authentication-servern (MFA) går du till den servern och öppnar Azure MFA-servern.
 
 1. Klicka på ikonen webbtjänst-SDK.
-2. Klicka på **Installera webbtjänst-SDK** och följ anvisningarna som visas. 
+2. Klicka på **Installera webbtjänst-SDK** och följ anvisningarna som visas.
 
 Webbtjänst-SDK måste skyddas med ett SSL-certifikat. Ett självsignerat certifikat är lämpligt för detta ändamål. Importera certifikatet till arkivet ”Betrodda rotcertifikatutfärdare” för det lokala datorkontot på webbservern för användarportalen så att certifikatet blir betrott när SSL-anslutningen initieras.
 
@@ -65,7 +66,7 @@ Tänk på följande uppgifter innan du installerar mobilappwebbtjänsten:
 
 * Om Azure MFA-användarportalen redan är installerad på den Internetuppkopplade servern kan användarnamnet, lösenordet och URL:en för webbtjänst-SDK kopieras från användarportalens web.config-fil.
 * Det kan vara bra att öppna en webbläsare på den Internetuppkopplade webbservern och gå till URL:en för webbtjänst-SDK som har angetts i web.config-filen. Om webbläsaren kan ansluta till webbtjänsten bör du uppmanas att ange dina autentiseringsuppgifter. Ange användarnamnet och lösenordet som har angetts i web.config-filen exakt som de visas i filen. Se till att inga certifikatvarningar eller fel visas.
-* Om det finns en omvänd proxy eller brandvägg framför webbservern för mobilappwebbtjänsten som utför SSL-avlastning kan du redigera filen web.config för mobilappwebbtjänsten så att mobilappwebbtjänsten kan använda http i stället för https. SSL krävs fortfarande från Mobile App till brandväggen/den omvända proxyn. Lägg till följande nyckel i avsnittet \<appSettings\>: 
+* Om det finns en omvänd proxy eller brandvägg framför webbservern för mobilappwebbtjänsten som utför SSL-avlastning kan du redigera filen web.config för mobilappwebbtjänsten så att mobilappwebbtjänsten kan använda http i stället för https. SSL krävs fortfarande från Mobile App till brandväggen/den omvända proxyn. Lägg till följande nyckel i avsnittet \<appSettings\>:
 
         <add key="SSL_REQUIRED" value="false"/>
 
@@ -79,11 +80,11 @@ Tänk på följande uppgifter innan du installerar mobilappwebbtjänsten:
 
   Vi rekommenderar att du använder ett kort namn för den virtuella katalogen eftersom användarna måste ange Mobile App-webbtjänstens URL på den mobila enheten under aktiveringen.
 
-4. När installationen av Azure Multi-Factor AuthenticationMobileAppWebServiceSetup är klar bläddrar du till C:\inetpub\wwwroot\PA (eller relevant katalog beroende på namnet på den virtuella katalogen) och redigerar filen Web.config. 
+4. När installationen av Azure Multi-Factor AuthenticationMobileAppWebServiceSetup är klar bläddrar du till C:\inetpub\wwwroot\PA (eller relevant katalog beroende på namnet på den virtuella katalogen) och redigerar filen Web.config.
 
 5. Leta upp nycklarna WEB_SERVICE_SDK_AUTHENTICATION_USERNAME och WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD. Ange värdena för användarnamn och lösenord till tjänstkontot som är medlem av säkerhetsgruppen PhoneFactor Admins. Detta kan vara samma konto som används som identitet för Azure Multi-Factor Authentication-användarportalen om den har installerats tidigare. Var noga med att ange användarnamnet och lösenordet inom citattecken i slutet av raden, (value=””/>). Använd ett kvalificerat användarnamn, t.ex. domän\användarnamn eller dator\användarnamn.  
 
-6. Leta reda på inställningen pfMobile App Web Service_pfwssdk_PfWsSdk. Ändra värdet från *http://localhost:4898/PfWsSdk.asmx* till URL:en för webbtjänst-SDK som körs på Azure Multi-Factor Authentication-servern (t.ex. https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). 
+6. Leta reda på inställningen pfMobile App Web Service_pfwssdk_PfWsSdk. Ändra värdet från *http://localhost:4898/PfWsSdk.asmx* till URL:en för webbtjänst-SDK som körs på Azure Multi-Factor Authentication-servern (t.ex. https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).
 
   Eftersom SSL används för den här anslutningen måste du referera till webbtjänst-SDK med servernamnet och inte IP-adressen. SSL-certifikatet skulle ha utfärdats för servernamnet och den URL som används måste matcha namnet på certifikatet. Servernamnet får inte att matcha till en IP-adress från den Internetuppkopplade servern. Om så är fallet lägger du till en post i värdfilen på den servern för att mappa namnet på Azure Multi-Factor Authentication-servern med dess IP-adress. Spara web.config-filen när ändringarna har gjorts.
 

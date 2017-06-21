@@ -40,12 +40,7 @@
 #### [PowerShell (klassisk)](virtual-network-create-udr-classic-ps.md)
 #### [CLI (klassisk)](virtual-network-create-udr-classic-cli.md)
 
-### Virtuell nätverkspeering
-#### [Portal](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Mall](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [Offentliga IP-adresser](virtual-network-public-ip-address.md)
+### [Virtuell nätverkspeering](virtual-network-create-peering.md)
 
 ### Virtuella datorer
 #### Skapa en virtuell dator med en statisk offentlig IP-adress
@@ -118,6 +113,7 @@
 #### [Lägg till, ändra eller ta bort IP-adresser](virtual-network-network-interface-addresses.md)
 ### Virtuella datorer
 #### [Flytta en virtuell dator till ett annat undernät](virtual-networks-move-vm-role-to-subnet.md)
+### [Offentliga IP-adresser](virtual-network-public-ip-address.md)
 
 ## Felsöka
 ### Nätverkssäkerhetsgrupper

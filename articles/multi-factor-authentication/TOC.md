@@ -7,15 +7,15 @@
 ## [Välj var du vill distribuera](multi-factor-authentication-get-started.md)
 ## [MFA i molnet](multi-factor-authentication-get-started-cloud.md)
 ## [MFA lokalt](multi-factor-authentication-get-started-server.md)
-## [MFA för O365-användare](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [MFA för O365-användare](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Metodtips för säkerhet](multi-factor-authentication-security-best-practices.md)
 
 # Gör så här för att
 ## Distribuera och använda
-### [Skapa en autentiseringsleverantör](multi-factor-authentication-get-started-auth-provider.md)
 ### [Konfigurera inställningar](multi-factor-authentication-whats-next.md)
 ### [Rapporter i MFA](multi-factor-authentication-manage-reports.md)
 ### [Använd befintliga servrar för nätverksprinciper](multi-factor-authentication-nps-extension.md)
+### [Skapa en autentiseringsleverantör](multi-factor-authentication-get-started-auth-provider.md)
 ### Azure MFA lokalt
 #### [Installera användarportalen](multi-factor-authentication-get-started-portal.md)
 #### [Avancerade VPN-konfigurationer](multi-factor-authentication-advanced-vpn-configurations.md)

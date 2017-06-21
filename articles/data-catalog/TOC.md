@@ -23,6 +23,7 @@
 
 # Referens
 ## [REST](/rest/api/datacatalog/)
+## [Sök i syntaxreferens](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Utvecklarkoncept](data-catalog-developer-concepts.md)
 ## [Utvecklarexempel](data-catalog-samples.md)
 
@@ -34,8 +35,3 @@
 ## [Prissättning](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

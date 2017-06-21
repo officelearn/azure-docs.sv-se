@@ -155,7 +155,7 @@
 #### [Omtrimma en befintlig webbtjänst](machine-learning-retrain-existing-resource-manager-based-web-service.md)
 #### [Felsöka](machine-learning-troubleshooting-retraining-models.md)
 ### Förbrukningsmodeller
-#### [Översikt](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Översikt](machine-learning-consume-web-services.md)
 #### [Använda Excel](machine-learning-consuming-from-excel.md)
 #### [Använda Excel-tillägg](machine-learning-excel-add-in-for-web-services.md)
 #### [Använda en mall för webbappar](machine-learning-consume-web-service-with-web-app-template.md)

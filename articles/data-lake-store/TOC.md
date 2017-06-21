@@ -10,7 +10,6 @@
 ## [Använda .NET SDK](data-lake-store-get-started-net-sdk.md)
 ## [Använda Java SDK](data-lake-store-get-started-java-sdk.md)
 ## [Använda REST-API](data-lake-store-get-started-rest-api.md)
-## [Använda Azure CLI](data-lake-store-get-started-cli.md)
 ## [Använda Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 ## [Använda Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Använda Python](data-lake-store-get-started-python.md)

@@ -3,6 +3,7 @@
 # Kom igång
 ## [Skapa en Azure AD B2C-katalog](active-directory-b2c-get-started.md)
 ## [Registrera ditt program](active-directory-b2c-app-registration.md)
+## [Inbyggda principer](active-directory-b2c-reference-policies.md)
 ## Mobilappar och skrivbordsappar
 ### [Översikt](active-directory-b2c-reference-oauth-code.md)
 ### iOS
@@ -24,6 +25,7 @@
 ### [JavaScript med Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Webb-API:er
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Anropa ett .NET-webb-API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
@@ -63,6 +65,7 @@
 #### [Hämta ytterligare anspråk](active-directory-b2c-rest-api-step-custom.md)
 ### Anpassa inloggning
 #### [Konfigurera användarinmatning](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Anpassade attribut](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Anpassa användargränssnitt](active-directory-b2c-ui-customization-custom.md)
 #### [Anpassa token](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Felsökning
@@ -74,7 +77,6 @@
 ## Ordlista
 ### [Typer av program](active-directory-b2c-apps.md)
 ### [Autentiseringsprotokoll](active-directory-b2c-reference-protocols.md)
-### [Inbyggda principer](active-directory-b2c-reference-policies.md)
 ### [Token](active-directory-b2c-reference-tokens.md)
 ## [Tillgänglighet för regioner och dataplacering](active-directory-b2c-reference-tenant-type.md)
 ## [Aktivera fakturering](active-directory-b2c-how-to-enable-billing.md)

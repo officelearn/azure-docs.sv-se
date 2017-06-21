@@ -200,13 +200,13 @@
 #### [Ta bort](service-fabric-cluster-delete.md)
 
 ### Fristående kluster
-#### [Innehåll i det fristående paketet](service-fabric-cluster-standalone-package-contents.md)
 #### [Planera och förbereda för distributionen](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Skapa
 ##### [Skapa lokalt](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Skapa på virtuella Azure-datorer](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Skydda med hjälp av certifikat](service-fabric-windows-cluster-x509-security.md)  
 ##### [Skydda med hjälp av Windows-säkerhet](service-fabric-windows-cluster-windows-security.md)
+##### [Innehåll i det fristående paketet](service-fabric-cluster-standalone-package-contents.md)
 #### [Skalning](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Ange åtkomstkontroll](service-fabric-cluster-security-roles.md)
 #### [Konfigurera](service-fabric-cluster-manifest.md)
@@ -232,8 +232,6 @@
 #### [Balansera ett kluster](service-fabric-cluster-resource-manager-balancing.md)
 #### [Begränsning](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Tjänstflöde](service-fabric-cluster-resource-manager-movement-cost.md)
-
-### [Ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md)
 
 ## Övervaka och diagnostisera
 ### [Övervaka och diagnostisera program](service-fabric-diagnostics-overview.md)
@@ -261,8 +259,9 @@
 # Referens
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [Java-API](/java/api/)
-## [.NET](/dotnet/api/)
+## [Azure CLI](/cli/azure/sf)
+## [Java-API](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Resurser

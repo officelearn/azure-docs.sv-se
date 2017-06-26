@@ -5,11 +5,13 @@
 ## Scenarier
 ### [Incidenthantering](security-center-incident-response.md)
 ### [Använd rekommendationer för att förbättra säkerheten](security-center-using-recommendations.md)
+## [Plattformsmigrering](security-center-platform-migration.md)
 
 # Kom igång
 ## [Snabbstart](security-center-get-started.md)
 ## [Planering och drift](security-center-planning-and-operations-guide.md)
 ## [Behörigheter](security-center-permissions.md)
+## [Plattformar som stöds](security-center-os-coverage.md)
 ## [Partnerintegration](security-center-partner-integration.md)
 ## [Vanliga frågor och svar](security-center-faq.md)
 

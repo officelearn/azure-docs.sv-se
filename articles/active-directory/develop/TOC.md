@@ -1,4 +1,5 @@
 # [Översikt](active-directory-developers-guide.md)
+## [Varför Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Grundläggande om Auth](active-directory-authentication-scenarios.md)
 ## [Apptyper](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Kom igång
@@ -71,6 +72,7 @@
 ### [Token och anspråkstyper som stöds](active-directory-token-and-claims.md)
 ### [Förnyelse av signeringsnyckel](active-directory-signing-key-rollover.md)
 ### [Federationsmetadata](active-directory-federation-metadata.md)
+### [Autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md)
 ## [Programobjekt](active-directory-application-objects.md)
 ### [Appar och Azure AD](active-directory-how-applications-are-added.md)
 ## [Programmanifest](active-directory-application-manifest.md)
@@ -101,4 +103,5 @@
 #### [Beviljande av autentiseringsuppgifter för OAuth 2.0-klient](active-directory-v2-protocols-oauth-client-creds.md)
 #### [On-Behalf-Of-flöde för OAuth 2.0-klient](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Tokenreferens](active-directory-v2-tokens.md)
+#### [Autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md)
 ### [Scope](active-directory-v2-scopes.md)

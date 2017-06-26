@@ -10,17 +10,18 @@ ms.service: site-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 06/05/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 491bbfe61cf387f18b903caa45529be206876d49
-ms.openlocfilehash: fe253f5d95b0b9351d6ffd382cbba0c490074f15
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: ef7a25de4536cfd54331e1bce7d22f351768585c
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/05/2017
 
 ---
 # <a name="site-recovery-documentation"></a>Dokumentation om Site Recovery
 
-Lär dig hur du använder Site Recovery för företagskontinuitet och strategi för haveriberedskap för privata moln. Självstudier och annan dokumentation visar hur du planerar, distribuerar och hanterar dirigering av replikering av fysiska servrar på plats och virtuella datorer, till molnet eller till ett sekundärt datacenter.
+Lär dig hur du använder Site Recovery för att understödja företagets strategi för affärskontinuitet och haveriberedskap, så att appar och arbetsbelastningar är tillgänglig även under driftstopp. Självstudier och andra artiklar beskriver hur du planerar, distribuerar och hanterar replikering, redundans och återställning av lokala datorer och virtuella Azure-datorer.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -42,7 +43,7 @@ Lär dig hur du använder Site Recovery för företagskontinuitet och strategi f
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=site-recovery">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -145,6 +146,4 @@ Lär dig hur du använder Site Recovery för företagskontinuitet och strategi f
         </div>
     </li>
 </ul>
-
-
 

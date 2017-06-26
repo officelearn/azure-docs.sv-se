@@ -16,12 +16,13 @@
 ### [Felsök och övervaka](troubleshooting-monitoring.md)
 ## SAP HANA på virtuella datorer
 ### [Enkel instans av SAP HANA](hana-get-started.md)
-### [Distributionsguide för S/4 HANA eller BW/4 HANA](cal-s4h.md)
+### [Distributionsguide för S/4 HANA eller BW/4 HANA SAP CAL](cal-s4h.md)
 ### [Virtuella datorer med hög tillgänglighet](sap-hana-high-availability.md)
 ### [Översikt över Backup](sap-hana-backup-guide.md)
 ### [Säkerhetskopiering på filnivå](sap-hana-backup-file-level.md)
 ### [Säkerhetskopior av Storage-ögonblicksbilder](sap-hana-backup-storage-snapshots.md)
 ## SAP NetWeaver
+### [Distributionsguide för SAP IDES i Windows/SQL Server SAP CAL](sap-cal-ides-erp6-ehp7-sp3-sql.md)
 ### [Översikt och arkitektur](suse-quickstart.md)
 ### [Planera och implementera](planning-guide.md)
 ### [Hög tillgänglighet](high-availability-guide.md)

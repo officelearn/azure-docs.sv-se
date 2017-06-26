@@ -48,7 +48,7 @@
 #### [Förbereda resurshanterarens distribuerade virtuella datorer](backup-azure-arm-vms-prepare.md)
 ### Planera din miljö
 #### [Planera säkerhetskopiering av VM-infrastrukturen](backup-azure-vms-introduction.md)
-### Säkerhetskopiera servrar och arbetsbelastningar
+### Säkerhetskopiera virtuella datorer
 #### [Säkerhetskopiera virtuella Azure-datorer till säkerhetskopieringsvalvet](backup-azure-vms.md)
 #### [Säkerhetskopiera virtuella Azure-datorer till ett Recovery Services-valv](backup-azure-arm-vms.md)
 #### [Säkerhetskopiera krypterade virtuella datorer](backup-azure-vms-encryption.md)

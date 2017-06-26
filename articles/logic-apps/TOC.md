@@ -45,10 +45,12 @@
 ### [EDIFACT Enterprise-integration](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT-kodning](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT-avkodning](logic-apps-enterprise-integration-edifact-decode.md)
+### [Hantera EDIFACT-dokument med ett UNH2.5-segment](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [X12 Enterprise-integration](logic-apps-enterprise-integration-x12.md)
 ### [X12-kodning](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12-avkodning](logic-apps-enterprise-integration-x12-decode.md)
 ### [Haveriberedskap](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [Fel och lösningar](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Komma åt lokala data
 ### [Ansluta till lokala data](logic-apps-gateway-connection.md)
@@ -75,7 +77,6 @@
 ### [Anropa Logic Apps med Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Lägga till fel- och undantagshantering](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B-bearbetning](logic-apps-enterprise-integration-b2b.md)
-### [Hantera EDIFACT-dokument med UNH2.5-segment](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## Priser och fakturering
 ### [Prissättning](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -116,6 +117,7 @@
 ### [HTTP-webhook](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [Integrationskonto](logic-apps-enterprise-integration-metadata.md)
+### [MQ](../connectors/connectors-create-api-mq.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
 ### [Oracle Database](../connectors/connectors-create-api-oracledatabase.md)
 ### [Begäran/svar](../connectors/connectors-native-reqres.md)

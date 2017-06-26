@@ -1,14 +1,16 @@
-- name: "Custom Decision Service"
+- name: Tjänst för anpassat beslut
   href: ../index.md
-- name: "Overview"
+- name: Översikt
   href: custom-decision-service-overview.md
-- name: "Get started"
+- name: Kom igång
   items:
-  - name: "Call API from a browser"
+  - name: Registrera ditt program
+    href: custom-decision-service-get-started-register.md
+  - name: Anropa API från en webbläsare
     href: custom-decision-service-get-started-browser.md
-  - name: "Call API from an app"
+  - name: Anropa API från en app
     href: custom-decision-service-get-started-app.md
-- name: "Tutorial"
+- name: Självstudier
   href: custom-decision-service-tutorial.md
-- name: "API reference"
+- name: API-referens
   href: custom-decision-service-api-reference.md

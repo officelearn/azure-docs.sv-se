@@ -11,6 +11,7 @@
 ### [Loggning och granskning](azure-log-audit.md)
 ### [Isolering i det offentliga molnet](azure-isolation.md)
 ### [Tekniska funktioner för säkerhet](azure-security-technical-capabilities.md)
+### [Styrning i Azure](governance-in-azure.md)
 
 # Kom igång
 ## [Komma igång med Azure Security](azure-security-getting-started.md)

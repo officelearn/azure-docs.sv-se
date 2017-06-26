@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 8252bc979fdeb034384fc65e416643de8ef97031
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: d42045b1c354b7bd5f9299181aefd6d98fda382b
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 ---
 
@@ -43,14 +43,14 @@ Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljonta
         </div>
         </a>
     </li>
-     <li>
+    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="/media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -62,17 +62,17 @@ Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljonta
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted">
+        <a href="/azure/iot-hub/iot-hub-get-started-simulated">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
+                            <img src="/media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Komma igång med IoT Hub med hjälp av .NET</h3>
+                        <h3>Kom igång med en simulerad enhet</h3>
                     </div>
                 </div>
             </div>
@@ -80,17 +80,17 @@ Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljonta
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-java-java-getstarted">
+        <a href="/azure/iot-hub/iot-hub-get-started-physical">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
+                            <img src="/media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Komma igång med IoT Hub med hjälp av Java</h3>
+                        <h3>Kom igång med en fysisk enhet</h3>
                     </div>
                 </div>
             </div>
@@ -98,35 +98,17 @@ Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljonta
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-node-node-getstarted">
+        <a href="/azure/iot-hub/iot-hub-devguide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="/media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Komma igång med IoT Hub med hjälp av Node.js</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/iot-hub/iot-hub-device-sdk-c-intro">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/c.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Komma igång med IoT Hub med hjälp av C</h3>
+                        <h3>Läs utvecklarguiden</h3>
                     </div>
                 </div>
             </div>
@@ -159,11 +141,10 @@ Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljonta
                         <h3>Språk</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (tjänst)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (enheter)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C-enhets-SDK</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (tjänst)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (enheter)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.11/index.html">Nod (tjänst)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.12/index.html">Nod (enheter)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/">SDK:er för Azure IoT</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">Node.js-SDK:er</a></p>
                         <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
@@ -178,6 +159,7 @@ Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljonta
                         <h3>REST</h3>
                         <p><a href="/rest/api/iothub/iothubresource">REST (resursprovider)</a></p>
                         <p><a href="/rest/api/iothub/deviceapi">REST (enhetsidentiteter)</a></p>
+                        <p><a href="/rest/api/iothub/devicetwinapi">REST (enhetstvillingar)</a></p>
                         <p><a href="/rest/api/iothub/httpruntime">REST (enhetsmeddelanden)</a></p>
                         <p><a href="/rest/api/iothub/jobapi">REST (jobb)</a></p>
                     </div>
@@ -186,6 +168,4 @@ Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljonta
         </div>
     </li>
 </ul>
-
-
 

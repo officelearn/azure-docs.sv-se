@@ -19,13 +19,11 @@
 
 # Gör så här för att
 ## Planera och designa
-### [🔧Vanliga integreringsscenerier med Azure-tjänster](event-hubs-common-integrations.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Översikt över autentisering och säkerhetsmodell](event-hubs-authentication-and-security-model-overview.md)
 ### [Tillgänglighet och konsekvens](event-hubs-availability-and-consistency.md)
+### [Skala dataflödesenheter automatiskt](event-hubs-auto-inflate.md)
 ## Utveckla
-### [🔧Hantera fel och försök igen](event-hubs-handling-errors-retry.md)
-### [🔧Hantera prestanda och skalning](event-hubs-performance-scale.md)
 ### [Tillgängliga API:er](event-hubs-api-overview.md)
 #### [.NET-standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

@@ -6,7 +6,13 @@
 ## [Konfigurera din utvecklingsmiljö](media-services-set-up-computer.md)
 ###[NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
-## Ansluta genom programmering
+## [Använda AAD-autentisering för att komma åt API](media-services-use-aad-auth-to-access-ams-api.md)
+###[Hantera AAD-autentisering med hjälp av portalen](media-services-portal-get-started-with-aad.md)
+###[Komma åt API med .NET](media-services-dotnet-get-started-with-aad.md)
+###[Komma åt API med REST](media-services-rest-connect-with-aad.md)
+###[Skapa och konfigurera AAD-appar med hjälp av CLI](media-services-cli-create-and-configure-aad-app.md)
+###[Skapa och konfigurera AAD-appar med hjälp av PowerShell](media-services-powershell-create-and-configure-aad-app.md)
+## Ansluta via programmering med ACS-nycklar
 ### [.NET](media-services-dotnet-connect-programmatically.md)
 ### [REST](media-services-rest-connect-programmatically.md)
 
@@ -214,7 +220,7 @@
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
 # Resurser
 ## [Viktig information](media-services-release-notes.md)

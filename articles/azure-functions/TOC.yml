@@ -4,8 +4,6 @@
   items:
   - name: Om Functions
     href: functions-overview.md
-  - name: Functions-körning
-    href: functions-runtime-overview.md
   - name: 'Välj mellan Flow, Logic Apps, Functions och WebJobs'
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Snabbstarter
@@ -15,8 +13,8 @@
     href: functions-create-first-azure-function.md
   - name: 'Skapa funktion: Azure CLI'
     href: functions-create-first-azure-function-azure-cli.md
-#  - name: Create function - Visual Studio
-#    href: functions-create-your-first-function-visual-studio.md
+  - name: Skapa funktion – Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
   - name: Utlösare
     items:
     - name: Timer
@@ -33,16 +31,16 @@
       href: functions-integrate-storage-queue-output-binding.md
     - name: Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
-- name: Exempel
-  items:
-  - name: Azure CLI
-    href: functions-cli-samples.md
 - name: Självstudier
   items:
   - name: 1 – Functions med Logic Apps
     href: functions-twitter-email.md
   - name: 2.– Skapa ett serverlöst API
     href: functions-create-serverless-api.md
+- name: Exempel
+  items:
+  - name: Azure CLI
+    href: functions-cli-samples.md
 - name: Koncept
   items:
   - name: Förbruknings- och App Service-planer
@@ -51,36 +49,49 @@
     href: functions-triggers-bindings.md
   - name: Språk
     items:
-    - name: 'Koncept för C#-funktioner'
+    - name: 'C#-skript'
+ 
       href: functions-reference-csharp.md
-    - name: 'Koncept för F#-funktioner'
+    - name: .NET-klassbibliotek
+      href: functions-dotnet-class-library.md
+    - name: 'F#'
       href: functions-reference-fsharp.md
-    - name: Koncept för JavaScript-funktioner
+    - name: JavaScript
       href: functions-reference-node.md    
+  - name: Saker att tänka på gällande prestanda
+    href: functions-best-practices.md 
+  - name: Functions-proxyservrar
+    href: functions-proxies.md 
+  - name: Functions-körning
+    href: functions-runtime-overview.md
 - name: Instruktionsguider
   items:
-  - name: Utvecklarguide
-    href: functions-reference.md
-  - name: Testa Azure Functions
-    href: functions-test-a-function.md
-  - name: Utveckla och felsöka lokalt
-    href: functions-run-local.md
-  - name: Konfigurera inställningar för en funktionsapp
+  - name: Utveckla
+    items: 
+     - name: Utvecklarguide
+       href: functions-reference.md
+     - name: Testa funktioner
+       href: functions-test-a-function.md
+     - name: Utveckla och felsöka lokalt
+       href: functions-run-local.md
+  - name: Distribuera
+    items:
+    - name: Kontinuerlig distribution
+      href: functions-continuous-deployment.md
+    - name: Automatisera resursdistribution
+      href: functions-infrastructure-as-code.md
+    - name: Lokala funktioner
+      href: functions-runtime-install.md
+  - name: Konfigurera
     href: functions-how-to-use-azure-function-app-settings.md
-  - name: Löpande distribution för Azure Functions
-    href: functions-continuous-deployment.md
-  - name: Automatisera resursdistribution
-    href: functions-infrastructure-as-code.md
-  - name: Övervaka Azure Functions
+  - name: Övervaka
     href: functions-monitoring.md
-  - name: Installera Functions-körning
-    href: functions-runtime-install.md
-  - name: Ansluta SQL Database
-    href: functions-scenario-database-table-cleanup.md
-  - name: Skapa en definition för Open API 2.0
-    href: functions-api-definition-getting-started.md     
-  - name: Metodtips för Azure Functions
-    href: functions-best-practices.md     
+  - name: Integrera
+    items:   
+    - name: Ansluta SQL Database
+      href: functions-scenario-database-table-cleanup.md
+    - name: Skapa en definition för Open API 2.0
+      href: functions-api-definition-getting-started.md         
 - name: Referens
   items:
   - name: Bindningar
@@ -115,12 +126,16 @@
     href: functions-api-definition.md     
 - name: Resurser
   items:
-  - name: Prissättning
+  - name: Priser
     href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
   - name: MSDN-forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/azurefunctions
   - name: Azure Functions GitHub-lagringsplats
     href: https://github.com/Azure/Azure-Functions/
   - name: Tjänstuppdateringar

@@ -21,6 +21,9 @@
 ### [Ändra klientorganisations-ID](key-vault-subscription-move-fix.md)
 ### [Tillgänglighet och redundans](key-vault-disaster-recovery-guidance.md)
 ### [Säkra ditt nyckelvalv](key-vault-secure-your-key-vault.md)
+### [Översikt över säkerhetsvärldar](key-vault-ovw-security-worlds.md)
+### [Översikt över mjuk borttagning](key-vault-ovw-soft-delete.md)
+### [Översikt över nycklar för lagringskonton](key-vault-ovw-storage-keys.md)
 
 ## Automatisera
 ### [Azure Automation](automation-manage-key-vault.md)
@@ -43,7 +46,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Resurser
-## [Om nycklar och hemligheter](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Om nycklar, hemligheter och certifikat](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Kodexempel](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blogg](http://blogs.technet.com/b/kv/)

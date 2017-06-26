@@ -1,0 +1,96 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure SQL Database
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: 'Dokumentation om SQL Database – självstudier, API-referens'
+  meta.description: Learn how to use Azure SQL databases.
+  services: sql-database
+  author: carolz
+  manager: carolz
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/03/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure SQL Database är en relationsdatabas-som-tjänst som bygger på Microsoft SQL Server-motorn. SQL Database är en högpresterande, tillförlitlig och säker databas som du kan använda för att skapa datadrivna program och webbplatser i valfritt programmeringsspråk, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.'
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/create-sql-database-on-azure.png
+      width: 250  
+    title: 'Skapa en SQL-databas på Azure. (3:12)'
+    href: https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/
+    width: 250
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Lär dig att skapa en SQL-databas, hantera den med hjälp av SQL Management Studio och utveckla den i C#, Java, Python, Node.js och Ruby:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-cli
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-powershell
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: 'Lär dig att skapa, hantera och migrera databaser med SQL DB'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sql-database/sql-database-design-first-database">Skapa och utforma schemat för en ny SQL-databas</a>
+    - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrera en befintlig SQL Server-databas för att använda Azure SQL Database</a>
+    - html: <a href="/azure/sql-database/sql-database-security-tutorial">Skydda din SQL-databas</a>
+    - html: <a href="/azure/sql-database/sql-database-performance-tutorial">Förbättra prestanda för SQL-databasen</a>
+    - html: <a href="/azure/sql-database/sql-database-multi-tenant-application">Implementera ett SaaS-program för flera klientorganisationer med SQL DB</a>
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implementera en geodistribuerad databas</a>
+- title: Kostnadsfri videoutbildning för PluralSight
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - html: '<p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Utveckla med .NET</a></p>'
+      image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/video-training-dotnet.png
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+- title: Exempel
+  items:
+  - type: paragraph
+    text: Hitta skript för att hantera vanliga uppgifter.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
+    - html: <a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p><p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell (elastisk databas)</a></p><p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
+    - title: Språk
+      html: '<p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>'
+    - title: REST
+      html: <p><a href="/rest/api/sql/">REST API-referens</a></p>
+    - title: SQL Server-verktyg
+      html: '<p><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server-verktyg</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Bibliotekspaket för SQL Database-hantering</a></p>'
+    - title: SQL Server-drivrutiner
+      html: '<p><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server-drivrutiner</a></p><p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>'

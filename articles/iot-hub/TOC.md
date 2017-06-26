@@ -6,13 +6,15 @@
 # [Kom igång](iot-hub-get-started.md)
 
 ## Konfigurera din enhet
-### Använda en simulerad enhet
-#### [NET](iot-hub-csharp-csharp-getstarted.md)
+### [Simulera en enhet på datorn](iot-hub-get-started-simulated.md)
+#### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Använd en fysisk enhet
+### [Använda en onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
+
+### [Använda en fysisk enhet](iot-hub-get-started-physical.md)
 #### [Raspberry Pi med Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi med C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
@@ -28,15 +30,14 @@
 ##### [Ansluta gatewayen till IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Använda gatewayen för datakonvertering](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-### [Använda en onlineenhetssimulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
-
-## [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-## [Spara meddelanden från IoT Hub i datalagring för Azure](iot-hub-store-data-in-azure-table-storage.md)
-## [Datavisualisering i Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-## [Datavisualisering med Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
-## [Väderprognoser med hjälp av Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-## [Enhetshantering med IoT Hub-utforskaren](iot-hub-device-management-iothub-explorer.md)
-## [Fjärrövervakning och aviseringar med Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+## Utökade IoT-scenarier
+### [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+### [Spara meddelanden från IoT Hub i datalagring för Azure](iot-hub-store-data-in-azure-table-storage.md)
+### [Datavisualisering i Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+### [Datavisualisering med Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+### [Väderprognoser med hjälp av Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+### [Enhetshantering med IoT Hub-utforskaren](iot-hub-device-management-iothub-explorer.md)
+### [Fjärrövervakning och aviseringar med Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Gör så här för att
 ## Planera
@@ -54,13 +55,13 @@
 ##### [Använda anpassade slutpunkter och routningsregler för meddelanden från enhet till moln](iot-hub-devguide-messages-read-custom.md)
 ##### [Skicka meddelanden från moln till enhet från IoT Hub](iot-hub-devguide-messages-c2d.md)
 ##### [Skapa och läsa IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)
+##### [Välja ett kommunikationsprotokoll](iot-hub-devguide-protocols.md)
 #### [Ladda upp filer från en enhet](iot-hub-devguide-file-upload.md)
 #### [Hantera enhetsidentiteter](iot-hub-devguide-identity-registry.md)
 #### [Styra åtkomst till IoT Hub](iot-hub-devguide-security.md)
 #### [Förstå enhetstvillingar](iot-hub-devguide-device-twins.md)
 #### [Anropa direktmetoder på en enhet](iot-hub-devguide-direct-methods.md)
 #### [Schemalägga jobb på flera enheter](iot-hub-devguide-jobs.md)
-#### [Välja ett kommunikationsprotokoll](iot-hub-devguide-protocols.md)
 #### [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md)
 #### [Frågespråk](iot-hub-devguide-query-language.md)
 #### [Kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md)
@@ -122,7 +123,8 @@
 ### [Metodtips för säkerhet](iot-hub-security-best-practices.md)
 ### [Säkerhetsarkitektur](iot-hub-security-architecture.md)
 ### [Skydda distributionen av IoT](iot-hub-security-deployment.md)
-## IoT Edge
+## Azure IoT Edge
+### [Översikt](iot-hub-iot-edge-overview.md)
 ### Kom igång
 #### [Linux](iot-hub-linux-iot-edge-get-started.md)
 #### [Windows](iot-hub-windows-iot-edge-get-started.md)
@@ -130,9 +132,22 @@
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Använda en riktig enhet](iot-hub-iot-edge-physical-device.md)
+### Skapa en modul
+#### [Java](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-java-modules-windows-10ubuntu-linux-14)
+#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-modules-windows-10)
+#### [Node.js](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-javascript-modules-windows-10ubuntu-linux-14)
+### Utveckla
+#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
+#### [.NET Core-modul](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
+#### [.NET Core-hanterad gateway](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
+#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
+#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
+#### [Lägga till en modul dynamiskt](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
+#### [Processextern proxymodul](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
+#### [Ursprunglig modulvärd](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Referens
-## [Azure CLI 2.0](/cli/azure/iot)
+## [Azure CLI](/cli/azure/iot)
 ## [.NET (tjänst)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (enheter)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (tjänst)](/java/api/com.microsoft.azure.sdk.iot.service)
@@ -164,4 +179,4 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT-enhetskatalog](https://catalog.azureiotsuite.com/)
-## [Tekniska fallstudier](https://microsoft.github.io/techcasestudies/#technology=IoT)
+## [Tekniska fallstudier](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

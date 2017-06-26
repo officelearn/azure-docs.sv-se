@@ -5,6 +5,7 @@
 # Kom igång
 ## [Skapa ett register i portalen](container-registry-get-started-portal.md)
 ## [Skapa ett register med Azure CLI 2.0](container-registry-get-started-azure-cli.md)
+## [Skapa ett register med Azure PowerShell](container-registry-get-started-powershell.md)
 ## [Push och pull en avbildning](container-registry-get-started-docker-cli.md)
 ## [Visa lagringsplatser](container-registry-repositories.md)
 
@@ -17,6 +18,7 @@
 
 ## [Azure CLI 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
+## [Telemetrirubriker](container-registry-headers.md)
 
 # Relaterat
 

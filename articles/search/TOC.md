@@ -78,6 +78,7 @@
 ## [Tjänst-REST (förhandsversion)](search-api-2015-02-28-preview.md)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/search/)
 ## Demowebbplatser
+### [Demo över sökanalysverktyg](http://alice.unearth.ai/)
 ### [Jobblisteapp](http://aka.ms/azjobsdemo)
 ### [Live-demoappar](https://searchsamples.azurewebsites.net/)
 ## Kursprogramvara och självstudier

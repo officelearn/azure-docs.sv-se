@@ -4,6 +4,7 @@
 
 # Kom igång
 ## [Skapa ett namnområde](relay-create-namespace-portal.md)
+## [Skapa ett hybridprogram lokalt eller i molnet](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybridanslutningar
 ### [NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)

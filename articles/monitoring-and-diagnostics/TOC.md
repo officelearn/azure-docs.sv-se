@@ -29,8 +29,8 @@
 ### [Vanliga mått](insights-autoscale-common-metrics.md)
 ### [Vanliga mönster](monitoring-autoscale-common-scale-patterns.md)
 ### [Autoskalning med anpassat mått](monitoring-autoscale-scale-by-custom-metric.md)
-### [Skala skalningsuppsättningar för virtuell dator automatiskt med Resource Manager-mallar](insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Skala automatiskt datorer i en skalningsuppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+### [Skala skalningsuppsättningar för virtuella datorer automatiskt med Resource Manager-mallar](insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### [Skala datorer i en skalningsuppsättning för virtuella datorer automatiskt](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Konfigurera webhooks och e-postaviseringar med autoskalning](insights-autoscale-to-webhook-email.md)
 ## Använd aktivitetsloggen
 ### [Visa händelser i aktivitetsloggen](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
@@ -39,10 +39,10 @@
 ### [Strömma aktivitetsloggen till Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Granska driften med Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Skapa aviseringar för aktivitetsloggen med Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-## Tjänstmeddelanden
+## Använda tjänstmeddelanden
 ### [Visa tjänstmeddelanden](monitoring-service-notifications.md)
 ### [Konfigurera aviseringar för tjänstmeddelanden](monitoring-activity-log-alerts-on-service-notifications.md)
-## Åtgärdsgrupper
+## Använda åtgärdsgrupper
 ### [Lär dig mer om webhook-scheman](monitoring-activity-log-alerts-webhook.md)
 ### [Beteende för SMS-aviseringar](monitoring-sms-alert-behavior.md)
 ### [Begränsningar för aviseringsfrekvensen](monitoring-alerts-rate-limiting.md)

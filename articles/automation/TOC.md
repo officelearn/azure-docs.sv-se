@@ -11,7 +11,7 @@
 ### [Skapa fristående Automation-konto](automation-create-standalone-account.md)
 ### [Skapa Azure AD-användarkonto](automation-create-aduser-account.md)
 ### [Konfigurera autentisering med AWS](automation-config-aws-account.md)
-### [Skapa Kör som-konto i Azure med PowerShell](automation-update-account-powershell.md)
+### [Skapa kör som-konto för Automation](automation-create-runas-account.md)
 ### [Validera Automation-kontokonfig](automation-verify-runas-authentication.md)
 ### [Hantera rollbaserad åtkomstkontroll](automation-role-based-access-control.md)
 ### [Hantera Automation-konto](automation-manage-account.md)
@@ -56,12 +56,12 @@
 ### [Åtgärda varning från virtuell Azure-dator](automation-azure-vm-alert-integration.md)
 ### [Starta/stoppa virtuell dator med JSON-taggar](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Ta bort resursgrupp](automation-scenario-remove-resourcegroup.md)
-### [Starta/stoppa virtuella datorer utanför arbetstid](automation-solution-vm-management.md)
 ### [Källkontrollsintegrering med GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Källkontrollsintegrering med VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Lösningar
 ### [Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md)
 ### [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)
+### [Starta/stoppa virtuella datorer utanför arbetstid](automation-solution-vm-management.md)
 ## Övervaka
 ### [Vidarebefordra jobbdata från Azure Automation till Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Ta bort länk till Azure Automation-konto från Log Analytics](automation-unlink-from-log-analytics.md)

@@ -1,6 +1,7 @@
 # Översikt
 
 ## [Introduktion](storage-introduction.md)
+## [Välja blobbar, filer eller datadiskar](storage-decide-blobs-files-disks.md)
 
 # Kom igång
 
@@ -50,6 +51,7 @@
 ### [Lägga till en hanterad disk till en virtuell Linux-dator](../virtual-machines/linux/add-disk.md)
 ### [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Använda hanterade diskar i Resource Manager-mallar](storage-using-managed-disks-template-deployments.md)
 
 # Gör så här för att
 ## [Skapa ett lagringskonto](storage-create-storage-account.md)
@@ -70,7 +72,8 @@
 ### [Exempel](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Använda filer
 ### [Översikt](/rest/api/storageservices/File-Service-Concepts)
-### [Felsöka Azure Files](storage-troubleshoot-file-connection-problems.md)
+### [Felsöka Azure Files – Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Felsöka Azure Files – Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Exempel](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Använda diskar
 ### [Diskar och virtuella hårddiskar för virtuella Windows-datorer](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## Skydda
 ### [Säkerhetsguide](storage-security-guide.md)
 ### [Kryptering för vilande data](storage-service-encryption.md)
+### [Kryptering i vila med kundnycklar](storage-service-encryption-customer-managed-keys.md)
 ### [Autentisering med delad nyckel](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Självstudier: Kryptera och dekryptera blobar med Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +134,8 @@
 ### [Vägledning om haveriberedskap](storage-disaster-recovery-guidance.md)
 ## Överföra data
 ### [Flytta data till och från Storage](storage-moving-data.md)
-### [Kommandoradsverktyget AzCopy](storage-use-azcopy.md)
+### [AzCopy i Windows](storage-use-azcopy.md)
+### [AzCopy i Linux](storage-use-azcopy-linux.md)
 ### [Använd Import/Export-tjänsten](storage-import-export-service.md)
 ### [Använd Import/Export-verktyget](storage-import-export-tool-how-to.md)
 #### [Konfigurera Import/Export-verktyget](storage-import-export-tool-setup.md)

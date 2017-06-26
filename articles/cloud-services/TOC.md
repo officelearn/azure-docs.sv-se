@@ -102,7 +102,11 @@
 ### [Vanliga distributionsproblem](cloud-services-troubleshoot-deployment-problems.md)
 ### [Rollen startades inte](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Vägledning för återställning](cloud-services-disaster-recovery-guidance.md)
-### [Vanliga frågor och svar om Cloud Services](cloud-services-faq.md)
+### Vanliga frågor och svar om Cloud Services
+#### [Vanliga frågor och svar om program- och tjänsttillgänglighet](cloud-services-application-and-service-availability-faq.md)
+#### [Vanliga frågor och svar om konfiguration och hantering](cloud-services-configuration-and-management-faq.md)
+#### [Vanliga frågor och svar om anslutningar och nätverk](cloud-services-connectivity-and-networking-faq.md)
+#### [Vanliga frågor och svar om distribution](cloud-services-deployment-faq.md)
 
 # Referens
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)

@@ -140,6 +140,12 @@
       href: move-vm.md
     - name: Skapa virtuella datorer med hög tillgänglighet
       href: create-cli-complete.md
+    - name: Terraform
+      items:
+      - name: Installera och konfigurera
+        href: ../terraform-install-configure.md
+      - name: Skapa en grundläggande infrastruktur
+        href: ../terraform-create-complete-vm.md
     - name: Ansible
       items:
       - name: Installera och konfigurera
@@ -202,6 +208,8 @@
       href: upload-vhd.md
     - name: Skapa en avbildning av en befintlig virtuell dator
       href: capture-image.md
+    - name: Skapa en avbildning med Packer
+      href: build-image-with-packer.md
     - name: Skapa Azure-avbildningar
       items:
       - name: Ubuntu
@@ -312,7 +320,11 @@
   - name: Köra program
     items:
     - name: Cloud Foundry
-      href: cloudfoundry-get-started.md
+      items:
+      - name: Översikt
+        href: cloudfoundry-get-started.md
+      - name: Distribuera din första app
+        href: cloudfoundry-deploy-your-first-app.md
     - name: Översikt över Data Science VM
       href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: MongoDB
@@ -366,6 +378,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Felsöka
     items:
+    - name: Förstå en omstart av systemet
+      href: understand-vm-reboot.md
     - name: SSH-anslutningar
       href: troubleshoot-ssh-connection.md
       items:

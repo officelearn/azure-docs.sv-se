@@ -43,6 +43,7 @@
 ### Azure
 #### [Profiler](app-insights-profiler.md)
 #### [Diagnostik](app-insights-azure-diagnostics.md)
+#### [Förhandsversioner](app-insights-previews.md)
 
 ### ASP.NET
 #### [Hämta mer telemetri](app-insights-asp-net-more.md)
@@ -91,8 +92,9 @@
 
 ### Användning
 #### [Översikt](app-insights-usage-overview.md)
-#### [Kvarhållning](app-insights-usage-retention.md)
 #### [Användare, sessioner, händelser](app-insights-usage-segmentation.md)
+#### [Kvarhållning](app-insights-usage-retention.md)
+#### [Arbetsböcker](app-insights-usage-workbooks.md)
 
 ### Analys
 
@@ -108,6 +110,7 @@
 ### [Skapa resurser](app-insights-powershell-script-create-resource.md)
 ### [Ange aviseringar](app-insights-powershell-alerts.md)
 ### [Hämta Azure Diagnostics](app-insights-powershell-azure-diagnostics.md)
+### [Automatisera med Microsoft Flow](app-insights-automate-with-flow.md)
 
 ## Utveckla
 

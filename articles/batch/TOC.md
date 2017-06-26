@@ -22,6 +22,8 @@
 ### [Lågprioriterade virtuella datorer](batch-low-pri-vms.md)
 ### [Hantera Batch-konton med Batch Management .NET](batch-management-dotnet.md)
 ### [Bevara jobb- och uppgiftsutdata](batch-task-output.md)
+#### [Spara utdata med Batch-API](batch-task-output-files.md)
+#### [Spara utdata med File Conventions-bibliotek](batch-task-output-file-conventions.md)
 ### [Köra MPI-jobb i Batch](batch-mpi.md)
 ### [Aktivitetsberoenden](batch-task-dependencies.md)
 ### [Användarkonton för att köra aktiviteter](batch-user-accounts.md)

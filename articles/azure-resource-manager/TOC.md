@@ -1,6 +1,6 @@
 # Översikt
 ## [Vad är Resource Manager?](resource-group-overview.md)
-## [Tjänster som stöds](resource-manager-supported-services.md)
+## [Resursproviders och resurstyper](resource-manager-supported-services.md)
 ## [Resource Manager och klassisk distribution](resource-manager-deployment-model.md)
 ## [Prenumerationsåtgärder](resource-manager-subscription-governance.md)
 ## [Hanterade program](managed-application-overview.md)
@@ -67,12 +67,13 @@
 
 ## Ange resursprinciper
 ### [Vad är resursprinciper?](resource-manager-policy.md)
-### [Tilldelning av principer för portalen](resource-manager-policy-portal.md)
-### [Tilldelning av principer för skript](resource-manager-policy-create-assign.md)
-### [Resursprinciper för taggar](resource-manager-policy-tags.md)
-### [Lagringsprinciper](resource-manager-policy-storage.md)
-### [Principer för virtuella Linux-datorer](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Principer för virtuella Windows-datorer](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Tilldela en princip med hjälp av portalen](resource-manager-policy-portal.md)
+### [Tilldela en princip med hjälp av skript](resource-manager-policy-create-assign.md)
+### Exempel
+#### [Resurstaggar](resource-manager-policy-tags.md)
+#### [Storage](resource-manager-policy-storage.md)
+#### [Virtuell Linux-dator](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Virtuell Windows-dator](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Använda hanterade program
 ### [Publicera hanterat program](managed-application-publishing.md)

@@ -1,6 +1,5 @@
 # Översikt
 ## [Utgåvor](biztalk-editions-feature-chart.md)
-## [Om hybridanslutningar](integration-hybrid-connection-overview.md)
 
 # Kom igång
 ## [Skapa BizTalk Services](biztalk-provision-services.md)
@@ -12,8 +11,6 @@
 ## Konfigurera
 ### [Begränsning](biztalk-throttling-thresholds.md)
 ### [Tjänstinställningar och övervakning](biztalk-dashboard-monitor-scale-tabs.md)
-## Integrera
-### [Hybridanslutningar](integration-hybrid-connection-create-manage.md)
 ## Migrera
 ### [BizTalk Server EDI-lösningar till BizTalk Services](biztalk-migrating-to-edi-guide.md)
 ## Övervaka
@@ -21,6 +18,9 @@
 ## Skydda
 ### [Åtkomstkontroll](biztalk-issuer-name-issuer-key.md)
 ## [Felsöka](biztalk-troubleshoot-using-ops-logs.md)
+## Hybridanslutningar
+### [Översikt](integration-hybrid-connection-overview.md)
+### [Skapa och hantera](integration-hybrid-connection-create-manage.md)
 
 # Resurser
 ## [Viktig information](biztalk-release-notes.md)

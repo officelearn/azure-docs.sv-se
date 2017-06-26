@@ -17,11 +17,21 @@
 ## [Vanliga frågor och svar](active-directory-faq.md)
 ## [Få support för Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Självstudier om SaaS-appintegration](active-directory-saas-tutorial-list.md)
+## Azure AD-kontroller
+### [Fullständig åtkomstgranskning](active-directory-azure-ad-controls-complete-an-access-review.md)
+### [Skapa åtkomstgranskning](active-directory-azure-ad-controls-create-an-access-review.md)
+### [Genomföra en åtkomstgranskning](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 # Gör så här för att
 ## Planera och designa
 ### [Förstå Azure AD-arkitektur](active-directory-architecture.md)
+### [Säkra e-postprinciper och e-postkonfigurationer](secure-email-introduction.md)
+#### [Rekommenderade principer](secure-email-recommended-policies.md)
+#### [Distribuera principer och konfigurationer](secure-email-deploy-recommended-policies.md)
+#### [EMS- och Office 365-tjänstbeskrivningar](secure-email-ems-office365-service-descriptions.md)
 ### [Distribuera en hybrididentitetslösning](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Anspråksmappning i Azure Active Directory](active-directory-claims-mapping.md)
 
 #### Fastställa krav
 ##### [Identitet](active-directory-hybrid-identity-design-considerations-business-needs.md)
@@ -43,6 +53,16 @@
 ### Lägga till användare
 #### [Azure-portal](active-directory-users-create-azure-portal.md)
 #### [Klassisk portal](active-directory-create-users.md)
+### Azure AD-kontroller
+#### [Gäståtkomst med åtkomstgranskningar](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+#### [Hantera användaråtkomst med granskningar](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+
+### [Tilldela licenser med hjälp av grupper](active-directory-licensing-whatis-azure-portal.md)
+#### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifiera och åtgärda licensproblem i en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
+#### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
+#### [PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 
 ### [Lägg till användare från andra kataloger (klassiska portalen)](active-directory-create-users-external.md)
 ### [Ta bort användare](active-directory-users-delete-user-azure-portal.md)
@@ -50,6 +70,8 @@
 ### [Återställ ett lösenord](active-directory-users-reset-password-azure-portal.md)
 ### [Hantera information om användarens arbete](active-directory-users-work-info-azure-portal.md)
 ### [Dela konton](active-directory-sharing-accounts.md)
+
+
 
 ## [Hantera grupper och medlemmar](active-directory-manage-groups.md)
 ### Hantera grupper
@@ -59,6 +81,12 @@
 ### [Hantera gruppmedlemmar](active-directory-groups-members-azure-portal.md)
 ### [Hantera gruppägare](active-directory-accessmanagement-managing-group-owners.md)
 ### [Hantera gruppmedlemskap](active-directory-groups-membership-azure-portal.md)
+### [Tilldela licenser med hjälp av grupper](active-directory-licensing-whatis-azure-portal.md)
+#### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifiera och åtgärda licensproblem i en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
+#### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
+#### [PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 ### [Visa alla grupper](active-directory-groups-view-azure-portal.md)
 ### [Aktivera dedikerade grupper](active-directory-accessmanagement-dedicated-groups.md)
 ### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
@@ -69,12 +97,6 @@
 ### Skapa avancerade regler
 #### [Azure-portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Klassisk portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
-### [Gruppbaserad licensiering](active-directory-licensing-whatis-azure-portal.md)
-#### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identifiera och lös licensproblem för en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
-#### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
-#### [PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 ### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
 ### [Felsöka](active-directory-accessmanagement-troubleshooting.md)
 
@@ -92,13 +114,14 @@
 ### Felsöka
 #### [Granskningsdata som saknas](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Data som saknas i nedladdningar](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    [Programmässig åtkomst](active-directory-reporting-api-getting-started-azure-portal.md)
+#### [Fel i innehållspaket för Azure Active Directory-aktivitetsloggar](active-directory-reporting-troubleshoot-content-pack.md)
+### [Programmässig åtkomst](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Granska referens](active-directory-reporting-api-audit-reference.md)
 #### [Inloggningsreferens](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Förutsättningar](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Granska exempel](active-directory-reporting-api-audit-samples.md)
 #### [Inloggningsexempel](active-directory-reporting-api-sign-in-activity-samples.md)
-#### [Hämta data](active-directory-reporting-api-with-certificates.md)
+#### [Använda certifikat](active-directory-reporting-api-with-certificates.md)
 ### [Klassisk portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD-rapportering](active-directory-reporting-getting-started.md)
 #### [Rapporteringsguide](active-directory-reporting-guide.md)
@@ -165,6 +188,8 @@
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Uppdatera registerinställningar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Förstå säkerhet och sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+### Azure AD-kontroller
+####[Hantera program och deras kontroller](active-directory-azure-ad-controls-manage-programs-and-controls.md)
 
 ### [Få åtkomst till appar med App Proxy](active-directory-application-proxy-get-started.md)
 #### Kom igång

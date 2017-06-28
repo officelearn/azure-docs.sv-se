@@ -1,9 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure Database för PostgreSQL-dokumentation"
+title: Azure Database för PostgreSQL-dokumentation
 metadata:
-  title: "Dokumentation om Azure PostgreSQL – självstudier, API-referens"
-  description: "Azure Database för PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på PostgreSQL-databasmotorn för öppen källkod."
+  document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
+  title: 'Dokumentation om Azure PostgreSQL – självstudier, API-referens'
+  description: Azure Database för PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på PostgreSQL-databasmotorn för öppen källkod.
   services: app-service
   author: jasonwhowell
   manager: jhubbard
@@ -14,12 +15,12 @@ metadata:
   ms.date: 01/23/2017
   ms.author: jasonh
 abstract:
-  description: "Azure Database för PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn för öppen källkod.  Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritiska arbetsbelastningar med förutsägbara prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet.  Utveckla program med Azure Database för PostgreSQL och använd valfria verktyg för öppen källkod och plattform.  Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel."
+  description: 'Azure Database för PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn för öppen källkod.  Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritiska arbetsbelastningar med förutsägbara prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet.  Utveckla program med Azure Database för PostgreSQL och använd valfria verktyg för öppen källkod och plattform.  Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.'
 sections:
-- title: "Snabbstarter på 5 minuter"
+- title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: 'Learn how to create a PostgreSQL database using:'
+    text: 'Lär dig att skapa en PostgreSQL-databas med:'
   - type: list
     style: icon48
     items: 
@@ -31,29 +32,29 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
       text: Azure CLI
       href: /azure/postgresql/quickstart-create-server-database-azure-cli
-- title: "Steg för steg-självstudier"
+- title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: 'Learn how to:'
+    text: 'Lär dig att:'
   - type: list
     style: ordered
     items:
-    - html: Design a Database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Build a Web App using Python and the CLI</a>
-- title: "Exempel"
+    - html: 'Utforma en databas&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Skapa en webbapp med Python och CLI</a>
+- title: Exempel
   items:
   - type: paragraph
-    text: Find scripts to manage common tasks.
+    text: Hitta skript för att hantera vanliga uppgifter.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure CLI</a>
-- title: "Referens"
+- title: Referens
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Kommandorad"
+    - title: Kommandorad
       html: <p><a href="/cli/azure">Azure CLI</a></p>

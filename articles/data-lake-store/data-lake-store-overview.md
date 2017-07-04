@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
+ms.contentlocale: sv-se
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -55,7 +57,7 @@ Azure Data Lake Store kan lagra data i deras ursprungliga format, så som de är
 
 Azure Data Lake Store-behållare för data är i stort sett mappar och filer. Du använder lagrade data med hjälp av Azure Powershell, SDK:er och Azure Portal. Så länge du placerar dina data i lagret med hjälp av dessa gränssnitt och använder lämpliga behållare kan du lagra alla typer av data. Data Lake Store utför inte någon särskild hantering av data baserat på vilken typ av data som lagras.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Skydda data i Azure Data Lake Store
+## <a name="DataLakeStoreSecurity"></a>Skydda data i Azure Data Lake Store
 Azure Data Lake Store använder Azure Active Directory för autentisering och åtkomstkontrollistor (ACL) för att hantera åtkomst till dina data.
 
 | Funktion | Beskrivning |
@@ -101,10 +103,5 @@ Om du vill titta på videor för att lära dig, har Data Lake Store videor om en
 * [Använd Apache Sqoop för att flytta data mellan relationella källor och Azure Data Lake Store](https://mix.office.com/watch/1butcdjxmu114)
 * [Data Orchestration med hjälp av Azure Data Factory för Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Skydda data i Azure Data Lake Store](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

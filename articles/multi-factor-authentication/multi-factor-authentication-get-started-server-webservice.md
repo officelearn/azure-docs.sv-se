@@ -39,7 +39,7 @@ Om du installerar användarportalen på en annan server än Azure Multi-Factor A
 
 För att du ska kunna använda Microsoft Authenticator-appen krävs följande så att appen kan kommunicera med mobilappwebbtjänsten:
 
-* Azure Multi-Factor Authentication Server version&6;.0 eller senare
+* Azure Multi-Factor Authentication Server version 6.0 eller senare
 * Installera mobilappwebbtjänsten på en Internetuppkopplad webbserver som kör Microsoft® [Internet Information Services (IIS) IIS 7.x eller senare](http://www.iis.net/)
 * ASP.NET v4.0.30319 har installerats, registrerats och är inställt på Tillåts
 * Rolltjänsterna ASP.NET och IIS 6 Metabase-kompatibilitet krävs.

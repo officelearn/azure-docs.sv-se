@@ -1,16 +1,20 @@
-- name: Tjänst för anpassat beslut
+- name: Custom Decision Service
   href: ../index.md
-- name: Översikt
+- name: Overview
   href: custom-decision-service-overview.md
-- name: Kom igång
+- name: Get started
   items:
-  - name: Registrera ditt program
+  - name: Register your application
     href: custom-decision-service-get-started-register.md
-  - name: Anropa API från en webbläsare
+  - name: Call API from a browser
     href: custom-decision-service-get-started-browser.md
-  - name: Anropa API från en app
+  - name: Call API from an app
     href: custom-decision-service-get-started-app.md
-- name: Självstudier
+- name: Tutorial
   href: custom-decision-service-tutorial.md
-- name: API-referens
+- name: API reference
   href: custom-decision-service-api-reference.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

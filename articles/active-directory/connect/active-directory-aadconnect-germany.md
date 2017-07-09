@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -35,8 +37,7 @@ För närvarande måste många scenarier i [Microsoft Cloud Tyskland](https://ww
 * Följande funktioner är inte tillgängliga:
   * Azure AD Connect Health
   * Automatiska uppdateringar
-  * Tillbakaskrivning av lösenord
-
+ 
 ## <a name="download"></a>Ladda ned
 Du kan hämta Azure AD Connect från Azure AD Connect-bladet på portalen.  Följ anvisningarna nedan för att hitta Azure AD Connect-bladet.
 
@@ -64,10 +65,5 @@ Du kan använda dokumentationen [här](active-directory-aadconnect.md#install-az
 
 ## <a name="advanced-features-and-additional-information"></a>Avancerade funktioner och ytterligare information
 För ytterligare information och riktlinjer för anpassade inställningar eller avancerade konfigurationer kan du börja med [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).  Den här sidan innehåller information och länkar till ytterligare vägledning.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

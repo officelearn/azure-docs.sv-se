@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
 ms.contentlocale: sv-se
-ms.lasthandoff: 03/28/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -56,7 +56,7 @@ Nästa steg är att skapa en arbetsyta.
    * **prisnivå**  
        ![snabbregistrering](./media/log-analytics-get-started/oms-onboard-quick-create.png)
 3. Klicka på **OK** för att se en lista över dina arbetsytor.
-4. Välj en arbetsyta om du vill se information om den i Azure Portal.       
+4. Välj en arbetsyta om du vill visa dess information i Azure Portal.       
     ![information om arbetsytan](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
 ## <a name="3-add-solutions-and-solution-offerings"></a>3 Lägg till lösningar och erbjudanden för lösningar

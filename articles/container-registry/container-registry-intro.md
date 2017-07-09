@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introduktion till privata Docker-behållarregister
@@ -39,7 +40,7 @@ Bakgrundsinformation om Docker och behållare finns här:
 Hämta avbildningar från ett Azure-behållarregister till olika distributionsmål:
 
 * **Skalbart dirigeringssystem** som hanterar program i behållare över kluster med värdar, inklusive [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) och [Kubernetes](http://kubernetes.io/docs/).
-* **Azure-tjänster** som stöder utveckling och körning av program i stor skala, bland annat [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) och [Service Fabric](../service-fabric/index.md).
+* **Azure-tjänster** som stöder utveckling och körning av program i stor skala, bland annat [Container Service](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.md) och [Service Fabric](../service-fabric/index.md).
 
 Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsflöde för utveckling av behållare. Du kan till exempel arbeta mot ett behållarregister från ett verktyg för löpande integrering och distribution som [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) eller [Jenkins](https://jenkins.io/).
 
@@ -69,6 +70,6 @@ Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsf
 * [Skapa ett behållarregister med hjälp av Azure Portal](container-registry-get-started-portal.md)
 * [Skapa ett behållarregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md)
 * [Skicka din första avbildning med hjälp av Docker CLI](container-registry-get-started-docker-cli.md)
-* Om du vill skapa ett kontinuerligt arbetsflöde för integrering och distribution med Visual Studio Team Services, Azure Container Service och Azure Container Registry kan du kika på den här [självstudiekursen](../container-service/container-service-setup-ci-cd.md).
+* Om du vill skapa ett kontinuerligt arbetsflöde för integrering och distribution med Visual Studio Team Services, Azure Container Service och Azure Container Registry kan du kika på den här [självstudiekursen](../container-service/container-service-docker-swarm-setup-ci-cd.md).
 * Information om hur du ställer in ett privat Docker-register i Azure (utan en offentlig slutpunkt) finns i [Distribuera ditt egna privata Docker-register på Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 

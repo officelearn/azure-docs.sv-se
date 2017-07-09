@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +52,7 @@ Föredrar du att titta eller läsa? Titta på videoklippet nedan från Microsoft
 [Azure Automation DSC](automation-dsc-overview.md) är en molnbaserad lösning för PowerShell DSC som tillhandahåller tjänster som krävs för företagsmiljöer.  Du kan hantera dina DSC-resurser i Azure Automation och tillämpa konfigurationer på virtuella eller fysiska datorer som hämtar dem från en DSC-hämtningsserver i Azure-molnet.  Lösningen innehåller också rapporteringstjänster som informerar dig om viktiga händelser, t.ex. när noder har avvikit från sin tilldelade konfiguration och när en ny konfiguration har tillämpats. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Skapa dina egna DSC-konfigurationer med Azure Automation
-[DSC-konfigurationer](automation-dsc-overview.md#azure-automation-dsc-terms) definierar det önskade tillståndet för en nod.  Flera noder kan använda samma konfiguration så att alla har samma tillstånd.  Du kan skapa en konfiguration med valfri textredigerare på den lokala datorn och sedan importera den till Azure Automation där du kan sammanställa och tillämpa den på noder.
+[DSC-konfigurationer](automation-dsc-overview.md) definierar det önskade tillståndet för en nod.  Flera noder kan använda samma konfiguration så att alla har samma tillstånd.  Du kan skapa en konfiguration med valfri textredigerare på den lokala datorn och sedan importera den till Azure Automation där du kan sammanställa och tillämpa den på noder.
 
 ## <a name="getting-modules-and-configurations"></a>Hämta moduler och konfigurationer
 Du kan hämta [PowerShell-moduler](automation-runbook-gallery.md#modules-in-powershell-gallery) som innehåller cmdlets som du kan använda i dina runbooks och DSC-konfigurationer från [PowerShell-galleriet](http://www.powershellgallery.com/). Du kan starta det här galleriet från Azure-portalen och importera moduler direkt till Azure Automation, eller hämta och importera dem manuellt. Du kan inte installera moduler direkt från Azure-portalen, men du kan hämta dem och installera dem på samma sätt som andra moduler. 
@@ -83,10 +85,5 @@ Det finns många resurser där du kan lära dig mer om Azure Automation och hur 
 
 ## <a name="can-i-provide-feedback"></a>Kan jag lämna feedback?
 **Vi tar gärna emot din feedback!** Om du letar efter en lösning för Azure Automation-runbooks eller en integreringsmodul kan du publicera en skriptbegäran på Script Center. Om du har feedback eller funktionsönskemål om Azure Automation kan du publicera dem i [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Tack! 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

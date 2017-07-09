@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 48b3a3090573718ff5d3ba70e93567e6428ff59b
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 33a1ab822f2900fd51d801f94ad8679fe65ba21f
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -104,7 +104,7 @@ Följande exempel beskriver ett sätt att överföra parametrarna med Azure CLI 
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Alternativ 2: Generera ett tjänstobjekt när du skapar klustret med `az acs create`
 
-Om du kör kommandot [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) för att skapa Kubernetes-klustret kan du välja att generera ett tjänstobjekt automatiskt.
+Om du kör kommandot [`az acs create`](/cli/azure/acs#create) för att skapa Kubernetes-klustret kan du välja att generera ett tjänstobjekt automatiskt.
 
 Som med andra alternativ för att skapa Kubernetes-kluster, kan du ange parametrar för en befintlig tjänsts huvudnamn när du kör `az acs create`. Om du utelämnar dessa parametrar skapar Azure CLI ett automatiskt för användning med Container Service. Detta sker transparent under distributionen. 
 

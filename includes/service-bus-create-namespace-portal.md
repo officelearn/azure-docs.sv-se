@@ -1,5 +1,3 @@
-## <a name="create-a-service-namespace"></a>Skapa ett namnområde för tjänsten
-
 För att komma igång med Service Bus-köer i Azure måste du först skapa ett namnområde. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program. 
 
 Så här skapar du ett namnområde:
@@ -16,6 +14,7 @@ Så här skapar du ett namnområde:
 8. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
 
 ### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
+
 1. I listan över namnområden, klickar du på det nyligen skapade namnområdet.
 2. På namnområdesbladet klickar du på **Principer för delad åtkomst**.
 3. På bladet **Principer för delad åtkomst** klickar du på **RootManageSharedAccessKey**.

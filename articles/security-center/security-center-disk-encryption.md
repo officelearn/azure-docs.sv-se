@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -53,7 +54,7 @@ Du behöver ha Azure PowerShell version 1.2.1 eller senare installerat på dator
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Hämta och kör det konfigurationsskript som krävs för Azure Disk Encryption
 Med det nödvändiga konfigurationsskriptet för Azure Disk Encryption ställs alla förutsättningar som krävs för kryptering av dina virtuella Azure-datorer in.
 
-1. Gå till den GitHub-sida som innehåller det [nödvändiga installationsskriptet för Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+1. Gå till den GitHub-sida som innehåller det [nödvändiga installationsskriptet för Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 2. Klicka på **Raw**-knappen som finns på GibHub-sidan.
 3. Markera all text på sidan genom att använda **CTRL-A**. Använd sedan **CTRL-C** och kopiera all text till Urklipp.
 4. Öppna **Anteckningar** och klistra in den kopierade texten.

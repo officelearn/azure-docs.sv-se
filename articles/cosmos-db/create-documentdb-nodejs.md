@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: skapa en app med Node.js och DocumentDB-API:n | Microsoft Docs'
 description: "Presenterar ett .Node.js-kodexempel som du kan använda för att ansluta till och fråga Azure Cosmos DB DocumentDB-API:n"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 9c0f033c-240e-4fee-8421-08907231087f
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: deab76fadee7b825cb359d0cebf7f84b26fcf3a8
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 26e3548bf6aacbc60c4c46a5cc88749ca14cec01
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokumentdatabas och en samling med hjälp av Azure Portal. Sedan skapar du och kör en konsolapp som är byggd med [DocumentDB Node.js API](../documentdb/documentdb-sdk-node.md).
+I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokumentdatabas och en samling med hjälp av Azure Portal. Sedan skapar du och kör en konsolapp som är byggd med [DocumentDB Node.js API](documentdb-sdk-node.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -39,11 +39,11 @@ I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokume
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Lägga till en samling
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -140,7 +140,7 @@ Du kan nu gå tillbaka till datautforskaren och se frågan, ändra och arbeta me
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -154,7 +154,7 @@ Om du inte planerar att fortsätta använda den här appen tar du bort alla resu
 I den här snabbstarten har du lärt dig hur man skapar ett Azure Cosmos DB-konto, skapar en samling med datautforskaren och kör en app. Du kan nu importera ytterligare data till ditt Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
-> [Importera data till Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importera data till Azure Cosmos DB](import-data.md)
 
 
 

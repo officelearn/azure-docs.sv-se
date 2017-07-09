@@ -3,8 +3,8 @@ title: "Kom igång med Data Lake Analytics med hjälp av REST API| Microsoft Doc
 description: "Använd WebHDFS REST API:er för att utföra åtgärder på Data Lake Analytics"
 services: data-lake-analytics
 documentationcenter: 
-author: mumian
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
 ms.service: data-lake-analytics
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2fea3686b1484406d31c5447c7d3d7e2451b827e
-ms.openlocfilehash: 1898b3d6aa1a9ccbc9f4427cf994c02f9fa35abd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 332d7af2539eea8890745005104ac5b0921c2b7f
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -345,11 +347,5 @@ Utdatan liknar följande:
 * Information om hanteringsuppgifter finns i [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md).
 * Om du vill få en översikt över Data Lake Analytics, se [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
 * Klicka på flikväljarna överst på sidan om du vill se samma självstudier med andra verktyg.
-* Information om hur du loggar diagnostikinformation finns i [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

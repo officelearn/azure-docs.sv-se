@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e68815c2dafc596c3560ad3fcb2a7bf96d29182b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 2364ab79ec4091d41e4d340e13033181df05b507
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Självstudiekurs: Komma igång med förkonfigurerade lösningar
-## <a name="introduction"></a>Introduktion
+# <a name="get-started-with-the-preconfigured-solutions"></a>Kom igång med förkonfigurerade lösningar
+
 Azure IoT Suites [förkonfigurerade lösningar][lnk-preconfigured-solutions] kombinerar flera Azure IoT-tjänster för att leverera lösningar från slutpunkt till slutpunkt som implementerar vanliga IoT-företagsscenarier. Med den förkonfigurerade *fjärrövervakningslösningen* kan du ansluta till och övervaka dina enheter. Du kan använda lösningen för att analysera dataströmmen från dina enheter och för att förbättra affärsresultat genom att konfigurera processer så att de svarar automatiskt på dataströmmen.
 
 I den här självstudiekursen lär du dig hur du etablerar den förkonfigurerade lösningen för fjärrövervakning. Vi går också igenom de grundläggande funktionerna i den förkonfigurerade lösningen. Du kan komma åt många av dessa funktioner från *instrumentpanelen* för lösningen som distribueras som en del av den förkonfigurerade lösningen:
@@ -34,8 +35,6 @@ Du behöver en aktiv Azure-prenumeration för att kunna utföra stegen i den hä
 
 > [!NOTE]
 > Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure][lnk_free_trial].
-> 
-> 
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 

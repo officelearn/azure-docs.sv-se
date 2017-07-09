@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 57544151cc020e5170ebd231b5e4d8f424aeada0
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: c6d76cc741a6d932a506017781e45bc9b8f8c640
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen för fjärrövervakning
-## <a name="introduction"></a>Introduktion
+
 Den [förkonfigurerade fjärrövervakningslösningen][lnk-preconfigured-solutions] i IoT Suite är en implementering av en övervakningslösning från slutpunkt till slutpunkt för flera datorer som körs på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som startpunkt för en egen implementering och [anpassa][lnk-customize] den efter dina egna affärsbehov.
 
 Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakningslösningen så att du förstår hur den fungerar. Med den här kunskapen kan du sedan:
@@ -34,14 +34,17 @@ Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakni
 * Utforma en egen IoT-lösning som använder Azure-tjänster.
 
 ## <a name="logical-architecture"></a>Logisk arkitektur
+
 Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade lösningen:
 
 ![Logisk arkitektur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="simulated-devices"></a>Simulerade enheter
+
 I den förkonfigurerade lösningen representerar den simulerade enheten en kylningsenhet (till exempel en ventilations- eller luftkonditioneringsapparat i en byggnad eller lokal). När du distribuerar den förkonfigurerade lösningen etablerar du också automatiskt fyra simulerade enheter som körs i ett [Azure-webbjobb][lnk-webjobs]. De simulerade enheterna gör det enkelt att utforska lösningens beteende utan att du behöver distribuera några fysiska enheter. Om du vill distribuera en riktig fysisk enhet går du självstudiekursen [Ansluta enheten till den förkonfigurerade fjärrövervakningslösningen][lnk-connect-rm].
 
 ### <a name="device-to-cloud-messages"></a>Meddelanden från enheten till molnet
+
 Varje simulerad enhet kan skicka följande typer av meddelanden till IoT Hub:
 
 | Meddelande | Beskrivning |
@@ -52,10 +55,9 @@ Varje simulerad enhet kan skicka följande typer av meddelanden till IoT Hub:
 
 > [!NOTE]
 > Listan med kommandon som stöds av enheten lagras i en Cosmos DB-databas och inte i enhetstvillingen.
-> 
-> 
 
 ### <a name="properties-and-device-twins"></a>Egenskaper och enhetstvillingar
+
 De simulerade enheterna skickar följande enhetsegenskaper till [tvillingen][lnk-device-twins] i IoT Hub som *rapporterade egenskaper*. Enheten skickar rapporterade egenskaper vid start och som svar på ett kommando eller en metod om att **ändra enhetens tillstånd**.
 
 | Egenskap | Syfte |
@@ -78,6 +80,7 @@ De simulerade enheterna skickar följande enhetsegenskaper till [tvillingen][lnk
 | System.InstalledRAM |Mängden RAM-minne som är installerat på enheten |
 
 Simulatorn lägger till dessa egenskaper på simulerade enheter med exempelvärden. Varje gång simulatorn initierar en simulerad enhet rapporterar enheten fördefinierade metadata till IoT Hub som rapporterade egenskaper. Det är bara enheten som kan uppdatera rapporterade egenskaper. Om du vill ändra en rapporterad egenskap anger du den önskade egenskapen i lösningsportalen. Enheten ansvarar för följande uppgifter:
+
 1. Att med jämna mellanrum hämta önskade egenskaper från IoT Hub.
 2. Att uppdatera konfigurationen med önskade egenskapsvärden.
 3. Att skicka tillbaka det nya värdet till hubben som en rapporterad egenskap.
@@ -88,6 +91,7 @@ Från instrumentpanelen i lösningen kan du använda *önskade egenskaper* till 
 > I koden för den simulerade enheten är det bara de önskade egenskaperna **Desired.Config.TemperatureMeanValue** och **Desired.Config.TelemetryInterval** som används till att uppdatera de rapporterade egenskaper som skickas tillbaka till IoT Hub. Alla andra förfrågningar om att ändra önskade egenskaper ignoreras i den simulerade enheten.
 
 ### <a name="methods"></a>Metoder
+
 De simulerade enheterna kan hantera följande metoder ([direkta metoder][lnk-direct-methods]) som anropas från lösningsportalen via IoT Hub:
 
 | Metod | Beskrivning |
@@ -98,7 +102,8 @@ De simulerade enheterna kan hantera följande metoder ([direkta metoder][lnk-dir
 
 I vissa metoder används rapporterade egenskaper till att informera om förloppet. I metoden **InitiateFirmwareUpdate** simuleras till exempel att uppdateringen körs asynkront på enheten. Metoden returnerar omedelbart ett resultat på enheten medan den asynkrona uppgiften fortsätter att skicka statusuppdateringar till lösningens instrumentpanel med hjälp av rapporterade egenskaper.
 
-### <a name="commands"></a>Kommandon 
+### <a name="commands"></a>Kommandon
+
 De simulerade enheterna kan hantera följande kommandon (meddelanden från molnet till enheten) som skickas från lösningsportalen via IoT Hub:
 
 | Kommando | Beskrivning |
@@ -112,10 +117,9 @@ De simulerade enheterna kan hantera följande kommandon (meddelanden från molne
 
 > [!NOTE]
 > En jämförelse av dessa kommandon (meddelanden från molnet till enheten) och metoder (direkta metoder) finns i artikeln om [kommunikation mellan moln och enheter][lnk-c2d-guidance].
-> 
-> 
 
 ## <a name="iot-hub"></a>IoT Hub
+
 [IoT Hub][lnk-iothub] matar in data som skickas från enheterna till molnet och gör dem tillgängliga för ASA-jobben (Azure Stream Analytics). Varje ASA-jobb använder en separat IoT Hub-konsumentgrupp för att läsa strömmen av meddelanden från dina enheter.
 
 IoT Hub ansvarar även för följande uppgifter i lösningen:
@@ -127,6 +131,7 @@ IoT Hub ansvarar även för följande uppgifter i lösningen:
 - Att schemalägga jobb där egenskaper ska anges för flera enheter eller där metoder ska anropas på flera enheter.
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+
 I fjärrövervakningslösningen skickar [Azure Stream Analytics][lnk-asa] (ASA) meddelanden som tas emot av IoT Hub till andra serverkomponenter för bearbetning eller lagring. Olika ASA-jobb utför specifika funktioner baserat på innehållet i meddelandena.
 
 **Jobb 1: Enhetsinformation** filtrerar meddelandena med enhetsinformation från den inkommande meddelandeströmmen och skickar dem till slutpunkten för en händelsehubb. En enhet skickar meddelanden med enhetsinformation vid starten och som svar på ett **SendDeviceInfo**-kommando. Det här jobbet använder följande frågedefinition för att identifiera **device-info**-meddelanden:
@@ -224,15 +229,19 @@ GROUP BY
 ```
 
 ## <a name="event-hubs"></a>Händelsehubbar
+
 ASA-jobben för **enhetsinformation** och **regler** skickar sina data till Event Hubs för bearbetning i **händelseprocessorn** som körs i webbjobbet.
 
 ## <a name="azure-storage"></a>Azure Storage
+
 Lösningen använder Azure-blobblagring för att bevara alla rådata och sammanfattade telemetridata från enheterna i lösningen. Portalen läser av telemetridata från Blob Storage och fyller i diagrammen. När aviseringar ska visas läser lösningsportalen av data från Blob Storage som registreras när telemetrivärden överskrider de konfigurerade tröskelvärdena. I lösningen används också Blob Storage till att registrera de tröskelvärden du anger i lösningsportalen.
 
 ## <a name="webjobs"></a>Webbjobb
+
 Förutom att fungera som värdar för enhetssimulatorerna fungerar WebJobs i lösningen även som värdar för **händelseprocessorn** som körs i ett Azure WebJob som hanterar svar från kommandon. Svarsmeddelanden från kommandon används för att uppdatera enhetens kommandohistorik (lagras i Cosmos DB-databasen).
 
 ## <a name="cosmos-db"></a>Cosmos DB
+
 Lösningen använder en Cosmos DB-databas för att lagra information om de enheter som är anslutna till lösningen. I den här informationen ingår historiken för de kommandon som skickas till enheter från lösningsportalen och för de metoder som anropas från lösningsportalen.
 
 ## <a name="solution-portal"></a>Lösningsportal
@@ -240,9 +249,11 @@ Lösningen använder en Cosmos DB-databas för att lagra information om de enhet
 Lösningsportalen är en webbapp som ingår i distributionen av den förkonfigurerade lösningen. Några viktiga sidor i lösningsportalen är instrumentpanelen och enhetslistan.
 
 ### <a name="dashboard"></a>Instrumentpanel
+
 På den här sidan i webbappen används javascript-baserade PowerBI-kontroller (se [PowerBI-visuals-databasen](https://www.github.com/Microsoft/PowerBI-visuals)) till att visualisera telemetridata från enheterna. Lösningen använder ASA-telemetrijobbet för att skriva telemetridata till blobblagring.
 
 ### <a name="device-list"></a>Enhetslista
+
 På den här sidan i lösningsportalen kan du göra följande:
 
 * Etablera en ny enhet. Den här åtgärden anger det unika enhets-ID:t och genererar autentiseringsnyckeln. Den skriver information om enheten till både IoT Hub-identitetsregistret och den lösningsspecifika Cosmos DB-databasen.
@@ -252,6 +263,7 @@ På den här sidan i lösningsportalen kan du göra följande:
 * Aktivera och inaktivera enheter.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Följande blogginlägg på TechNet innehåller mer information om den förkonfigurerade lösningen för fjärrövervakning:
 
 * [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 50934bcc065b4039467d7371d4bbac11f5933888
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: c614efa25e2e7ddbb9b6c90094cf84fa8b6b4243
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -27,9 +28,10 @@ ms.lasthandoff: 04/25/2017
 Den här artikeln visar hur du skapar en VPN-gatewayanslutning mellan virtuella nätverk. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av Azure Portal. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager – Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager – PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Klassisk – Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Ansluta olika distributionsmodeller – Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Ansluta olika distributionsmodeller – PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >

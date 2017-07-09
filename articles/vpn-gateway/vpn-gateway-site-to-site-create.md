@@ -15,23 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d0cedf73aa3f73e672a73b6abaca5eb8c22a76a7
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 63d0972f31c2b26b391d5ba019f3e415d8053511
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal-classic"></a>Skapa ett VNet med en plats-till-plats-anslutning med hjälp av den klassiska portalen
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 Den här artikeln visar hur du kan använda den klassiska portalen för att skapa en VPN-gatewayanslutning från plats till plats från ditt lokala nätverk till det virtuella nätverket. Anvisningarna i den här artikeln gäller den klassiska distributionsmodellen. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager – Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager – PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager – CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Klassisk – Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Klassisk – Klassisk portal](vpn-gateway-site-to-site-create.md)
+> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Klassisk portal (klassisk)](vpn-gateway-site-to-site-create.md)
 > 
 >
 

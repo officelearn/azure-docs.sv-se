@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ead9fcc5ec582420d731faccb7abba0dc815ed84
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -37,7 +38,7 @@ Den virtuella enheten StorSimple finns i två modeller, en Standardmodell, 8010 
 | **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../storage/storage-premium-storage.md) |
 | **Riktlinjer för arbetsbelastning** |Hämtning av filer från säkerhetskopior på objektnivå |Scenarier för utveckling och test av molnet, låg latens, arbetsbelastningar med hög prestanda <br></br>Sekundär enhet för katastrofåterställning |
 
-<sup>1</sup> *Kallades tidigare 1100*.
+<sup>1</sup> * Kallades tidigare 1100*.
 
 <sup>2</sup> *Både 8010 och 8020 använder Azure Standardlagring för molnnivån. Skillnaden finns endast på den lokala nivån i enheten*.
 
@@ -69,7 +70,7 @@ I följande avsnitt beskrivs konfigurationskraven för din virtuella StorSimple-
 #### <a name="azure-requirements"></a>Krav för Azure
 Innan du etablerar den virtuella enheten måste du göra följande förberedelser i Azure-miljön:
 
-* [Konfigurera ett virtuellt nätverk på Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md) för den virtuella enheten. Om du använder Premiumlagring, måste du skapa ett virtuellt nätverk i en Azure-region som har stöd för Premiumlagring. Premium Storage-regioner är regioner som motsvarar raden för *disklagring* i listan över [Azure-tjänster efter region](https://azure.microsoft.com/en-us/regions/services).
+* [Konfigurera ett virtuellt nätverk på Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) för den virtuella enheten. Om du använder Premiumlagring, måste du skapa ett virtuellt nätverk i en Azure-region som har stöd för Premiumlagring. Premium Storage-regioner är regioner som motsvarar raden för *disklagring* i listan över [Azure-tjänster efter region](https://azure.microsoft.com/en-us/regions/services).
 * Du rekommenderas att använda standard-DNS-servern från Azure istället för att ange ett eget DNS-servernamn. Om DNS-servernamnet inte är giltigt eller om DNS-servern inte kan matcha IP-adresser korrekt går det inte att skapa den virtuella enheten.
 * Punkt-till-plats och plats-till-plats går att välja, men är inget krav. Om du vill kan du konfigurera dessa alternativ för mer avancerade scenarier.
 * Du kan skapa [virtuella datorer i Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (värdservrar) i det virtuella nätverket som kan använda de volymer som exponeras av den virtuella enheten. Servrarna måste uppfylla följande krav:                             

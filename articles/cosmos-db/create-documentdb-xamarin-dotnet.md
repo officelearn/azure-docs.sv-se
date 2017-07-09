@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: Skapa en webbapp med Xamarin- och Facebook-autentisering | Microsoft Docs'
 description: "Anger ett .NET kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 80aa96973799584118125829f9479fbd14431ac0
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 4ea97c2aca6769843d0210ffeae6f95531a21f10
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokumentdatabas och en samling med hjälp av Azure Portal. Sedan bygger du och distribuerar en webbapp för att göra-lista som är byggd på [DocumentDB .NET API-](../documentdb/documentdb-sdk-dotnet.md), [Xamarin-](https://www.xamarin.com/) och Azure Cosmos DB-auktoriseringsmotorn. Webbappen för att göra-listan implementerar ett datamönster per användare som gör att användare kan logga in med Facebook-auktorisering och hantera sina egna att göra-objekt.
+I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokumentdatabas och en samling med hjälp av Azure Portal. Sedan bygger du och distribuerar en webbapp för att göra-lista som är byggd på [DocumentDB .NET API-](documentdb-sdk-dotnet.md), [Xamarin-](https://www.xamarin.com/) och Azure Cosmos DB-auktoriseringsmotorn. Webbappen för att göra-listan implementerar ett datamönster per användare som gör att användare kan logga in med Facebook-auktorisering och hantera sina egna att göra-objekt.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,11 +37,11 @@ Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Vis
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Lägga till en samling
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -114,7 +114,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -128,5 +128,5 @@ Om du inte planerar att fortsätta använda den här appen tar du bort alla resu
 I den här snabbstarten har du lärt dig hur man skapar ett Azure Cosmos DB-konto, skapar en samling med datautforskaren och skapar och distribuerar en Xamarin-app. Du kan nu importera ytterligare data till ditt Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
-> [Importera data till Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importera data till Azure Cosmos DB](import-data.md)
 

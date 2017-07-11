@@ -14,16 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="biztalk-services-editions-chart"></a>BizTalk Services: Diagram över utgåvor
+<a id="biztalk-services-editions-chart" class="xliff"></a>
+
+# BizTalk Services: Diagram över utgåvor
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk Services erbjuder flera olika utgåvor. Läs den här artikeln för att se vilken utgåva som passar dina scenario- och affärsbehov bäst.
 
-## <a name="compare-the-editions"></a>Jämför utgåvorna
+<a id="compare-the-editions" class="xliff"></a>
+
+## Jämför utgåvorna
 **Kostnadsfri (förhandsversion)**
 
 Kan skapa och hantera hybridanslutningar. En hybridanslutning är ett enkelt sätt att ansluta en Azure-webbplats till ett lokalt system, t.ex. SQL Server.
@@ -44,7 +53,9 @@ Innehåller alla Basic-funktionerna med utökade hybridanslutningar, EAI-bryggor
 
 Innehåller alla Standard-funktionerna med utökade hybridanslutningar, EAI-bryggor, EDI-avtal och BizTalk Adapter Pack-anslutningar. Innehåller också arkivering, hög tillgänglighet samt alternativ för skalning med ett serviceavtal (SLA).
 
-## <a name="editions-chart"></a>Diagram över utgåvor
+<a id="editions-chart" class="xliff"></a>
+
+## Diagram över utgåvor
 I nedanstående tabell visas skillnaderna.
 
 <table border="1">
@@ -59,7 +70,7 @@ I nedanstående tabell visas skillnaderna.
 
 <tr>
 <td><strong>Startpris</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Priser för Azure BizTalk Services</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Priskalkylator för Azure</a></td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Priser för Azure BizTalk Services</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Priskalkylator för Azure</a></td>
 </tr>
 <tr>
 <td><strong>Minsta standardkonfiguration</strong></td>
@@ -205,11 +216,17 @@ Innehåller NRR (Non-Repudiation of Receipt) och hämtning av spårade meddeland
 > 
 > 
 
-## <a name="faqs"></a>Vanliga frågor och svar
-#### <a name="what-is-a-biztalk-unit"></a>Vad är en BizTalk-enhet?
+<a id="faqs" class="xliff"></a>
+
+## Vanliga frågor och svar
+<a id="what-is-a-biztalk-unit" class="xliff"></a>
+
+#### Vad är en BizTalk-enhet?
 En ”enhet” är den atomiska nivån i en distribution av Azure BizTalk Services. Varje utgåva levereras med en enhet som har annan beräkningskapacitet och minne. Till exempel har en Basic-enhet mer databearbetning än Developer, och Standard har mer databearbetning än Basic och så vidare. En BizTalk-tjänst skalas i enheter.
 
-#### <a name="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm"></a>Vad är skillnaden mellan BizTalk Services och virtuella Azure BizTalk-datorer?
+<a id="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm" class="xliff"></a>
+
+#### Vad är skillnaden mellan BizTalk Services och virtuella Azure BizTalk-datorer?
 BizTalk Services innehåller en verklig ”plattform som en tjänst”-arkitektur (PaaS) som kan skapa integrationslösningar i molnet. Med PaaS-modellen kan du helt fokusera på programlogiken och lämna all infrastrukturhantering till Microsoft, inklusive:
 
 * Inget behov av att hantera eller korrigera virtuella datorer.
@@ -220,30 +237,46 @@ BizTalk Server i Azure Virtual Machines ger en ”infrastruktur som en tjänst�
 
 Om du funderar på att skapa nya integrationslösningar som minimerar din infrastrukturhantering, bör du använda BizTalk Services. Om du vill migrera dina befintliga BizTalk-lösningar snabbt, eller om du söker efter en ”på begäran”-miljö för att utveckla och testa BizTalk Server-program, använder du BizTalk Server på en virtuell Azure-dator.
 
-#### <a name="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>Vad är skillnaden mellan BizTalk Adapter-tjänsten och hybridanslutningar?
+<a id="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections" class="xliff"></a>
+
+#### Vad är skillnaden mellan BizTalk Adapter-tjänsten och hybridanslutningar?
 BizTalk Adapter-tjänsten används av en Azure BizTalk-tjänst. BizTalk Adapter-tjänsten använder BizTalk Adapter Pack för att ansluta till ett lokalt LOB-system (Line of Business). En hybridanslutning är ett enkelt och praktiskt sätt att ansluta Azure-program, som t.ex. Web Apps-funktionen i Azure Apptjänst och Azure Mobile Services, till en lokal resurs.
 
-#### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached"></a>Vad innebär ”Hybridanslutningens dataöverföring (GB) per enhet”? Är detta per minut/timme/dag/vecka/månad? Vad händer när gränsen har nåtts?
+<a id="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached" class="xliff"></a>
+
+#### Vad innebär ”Hybridanslutningens dataöverföring (GB) per enhet”? Är detta per minut/timme/dag/vecka/månad? Vad händer när gränsen har nåtts?
 Hybridanslutningens kostnad per enhet beror på vilken BizTalk Services-utgåva du har. Kostnaderna beror helt enkelt på hur mycket data du överför. Att exempelvis överföra 10 GB data per dag kostar mindre än att överföra 100 GB per dag. Använd [Priskalkylatorn](https://azure.microsoft.com/pricing/calculator/?scenario=full) för BizTalk Services när du fastställer kostnader. Vanligtvis tillämpas gränserna per dag. Om du överskrider gränsen debiteras eventuell överanvändning med $1 per GB.
 
-#### <a name="when-i-create-an-agreement-in-biztalk-services-why-does-the-number-of-bridges-go-up-by-two-instead-of-just-one"></a>Varför går antalet bryggor upp med två i stället för bara en när jag skapar ett avtal i BizTalk Services?
+<a id="when-i-create-an-agreement-in-biztalk-services-why-does-the-number-of-bridges-go-up-by-two-instead-of-just-one" class="xliff"></a>
+
+#### Varför går antalet bryggor upp med två i stället för bara en när jag skapar ett avtal i BizTalk Services?
 Varje avtal består av två olika bryggor: en kommunikationsbrygga på sändningssidan och en kommunikationsbrygga på mottagningssidan.
 
-#### <a name="what-happens-when-i-hit-the-quota-limit-on-the-number-of-bridges-or-agreements"></a>Vad händer när jag uppnår kvotgränsen för antalet bryggor eller avtal?
+<a id="what-happens-when-i-hit-the-quota-limit-on-the-number-of-bridges-or-agreements" class="xliff"></a>
+
+#### Vad händer när jag uppnår kvotgränsen för antalet bryggor eller avtal?
 Du kommer inte att kunna distribuera några nya bryggor eller skapa några nya avtal. Om du vill distribuera flera måste du skala upp till fler enheter av BizTalk-tjänsten, eller uppgradera till en högre utgåva.
 
-#### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>Hur migrerar jag från en nivå av BizTalk Services till en annan?
+<a id="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another" class="xliff"></a>
+
+#### Hur migrerar jag från en nivå av BizTalk Services till en annan?
 Free-utgåvan kan inte migreras eller ”skalas upp” till en annan nivå och kan inte heller säkerhetskopieras och återställas till en annan nivå. Om du behöver en annan nivå skapar du en ny BizTalk-tjänst med den nya nivån. Alla artefakter som skapats med Free-utgåvan, inklusive hybridanslutningar, måste återskapas i den nya BizTalk-tjänsten. 
 
 För de återstående utgåvorna använder du säkerhetskopiering och återställning för att migrera artefakterna från en nivå till en annan. Du kan till exempel säkerhetskopiera dina artefakter på Standard-nivån och återställa dem till Premium-nivån. [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md) beskriver de migreringsvägar som stöds och visar en lista över vilka artefakter som säkerhetskopieras. Observera att hybridanslutningar inte säkerhetskopieras. När du har säkerhetskopierat och återställt till en ny nivå återskapar du sedan hybridanslutningarna.  
 
-#### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Ingår BizTalk Adapter i tjänsten? Hur får jag programvaran?
+<a id="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software" class="xliff"></a>
+
+#### Ingår BizTalk Adapter i tjänsten? Hur får jag programvaran?
 Ja, BizTalk Adapter-tjänsten med BizTalk Adapter Pack ingår i Azure BizTalk Services SDK-[hämtning](http://www.microsoft.com/download/details.aspx?id=39087).
 
-## <a name="next-steps"></a>Nästa steg
+<a id="next-steps" class="xliff"></a>
+
+## Nästa steg
 Om du vill skapa Azure BizTalk Services i Azure-portalen går du till [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md). Om du vill börja skapa program går du till [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="additional-resources"></a>Ytterligare resurser
+<a id="additional-resources" class="xliff"></a>
+
+## Ytterligare resurser
 * [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md)<br/>
 * [BizTalk Services: Etablering av statusdiagram](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md)<br/>
@@ -251,10 +284,5 @@ Om du vill skapa Azure BizTalk Services i Azure-portalen går du till [BizTalk S
 * [BizTalk Services: Begränsning](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Utfärdarens namn och nyckel](biztalk-issuer-name-issuer-key.md)<br/>
 * [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

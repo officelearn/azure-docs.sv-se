@@ -1,0 +1,3 @@
+Med Azure Functions Core Tools kan du köra Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio.  
+
+Om du vill testa funktionen högerklickar du på projektnoden i **Solution Explorer** och väljer **Felsök** > **Starta ny instans**. Acceptera begäran från Visual Studio för att ladda ned och installera Azure Functions Core (CLI)-verktyg.  Du kan även behöva skapa ett brandväggsundantag för att göra så att verktygen kan hantera HTTP-förfrågningar.

@@ -6,7 +6,7 @@ metadata:
   title: 'Dokumentation om virtuella Windows-datorer i Azure – självstudier, API-referens'
   meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
   services: virtual-machines\windows
-  author: apexprodleads
+  author: czeumault
   manager: carolz
   ms.service: virtual-machines-windows
   ms.tgt_pltfrm: na
@@ -29,7 +29,7 @@ sections:
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: 'Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:'
+    text: 'Lär dig hur du distribuerar en IIS-webbserver i en virtuell dator som kör Windows Server 2016:'
   - type: list
     style: icon48
     items: 
@@ -48,43 +48,44 @@ sections:
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and monitor Windows VMs on Azure
+    text: 'Lär dig att distribuera, hantera och övervaka virtuella Windows-datorer på Azure'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-vm">Create and manage Windows VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Create and manage VM disks</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automate VM configuration</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-custom-images">Create custom VM images</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-availability-sets">Create highly available VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-create-vmss">Create a VM scale set</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-load-balancer">Load balance VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-virtual-network">Manage VMs with virtual networks</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">Backup VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Monitor VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Manage security on VMs</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-vm">Skapa och hantera virtuella Windows-datorer</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Skapa och hantera virtuella datordiskar</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automatisera konfiguration av virtuella datorer</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-custom-images">Skapa anpassade avbildningar av en virtuell dator</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-availability-sets">Skapa virtuella datorer med hög tillgänglighet</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-create-vmss">Skapa en VM-skalningsuppsättning</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-load-balancer">Belastningsutjämna virtuella datorer</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-virtual-network">Hantera virtuella datorer med virtuella nätverk</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">Säkerhetskopiera virtuella datorer</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Övervaka virtuella datorer</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Hantera säkerhet på virtuella datorer</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Skapa en pipeline för kontinuerlig integrering med Visual Studio</a>
 - title: Kostnadsfri videoutbildning för PluralSight
   items:
   - type: list
     style: cards
     className: cardsW
     items:
-    - html: <p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Managing Infrastructure</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Hantera infrastruktur</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-infrastructure.png
         href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with Virtual Machines</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Komma igång med Virtual Machines</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-vms.png
         href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with IaaS Monitoring</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Komma igång med IaaS-övervakning</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-iaas-monitoring.png
         href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
 - title: Exempel
   items:
   - type: paragraph
-    text: Deploy your first application to Azure.
+    text: Distribuera din första app till Azure.
   - type: list
     style: unordered
     className: spaced noBullet
@@ -100,6 +101,6 @@ sections:
     - title: Kommandorad
       html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/vm">Azure CLI</a></p>
     - title: Språk
-      html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+      html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
     - title: REST
-      html: <p><a href="/rest/api/compute">Compute REST API Reference</a></p>
+      html: <p><a href="/rest/api/compute">Compute REST API-referens</a></p>

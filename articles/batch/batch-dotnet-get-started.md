@@ -12,17 +12,20 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 91fab2cd7ad2babd567380308698f0608dda4cbf
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 5144c27ccbef6cc0e1e8c0b168bbfd86b736331b
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Börja utveckla lösningar med Batch-klientbibliotek för .NET
+<a id="get-started-building-solutions-with-the-batch-client-library-for-net" class="xliff"></a>
+
+# Börja utveckla lösningar med Batch-klientbibliotek för .NET
 
 > [!div class="op_single_selector"]
 > * [NET](batch-dotnet-get-started.md)
@@ -35,10 +38,14 @@ Lär dig grunderna om [Azure Batch][azure_batch] och [Batch .NET][net_api]-bibli
 
 ![Arbetsflöde för Batch-lösning (grundläggande)][11]<br/>
 
-## <a name="prerequisites"></a>Krav
+<a id="prerequisites" class="xliff"></a>
+
+## Krav
 I den här artikeln förutsätter vi att du har erfarenhet av att arbeta med C# och Visual Studio. Vi förutsätter också att du uppfyller kontokraven som anges nedan för Azure och Batch- och Storage-tjänsterna.
 
-### <a name="accounts"></a>Konton
+<a id="accounts" class="xliff"></a>
+
+### Konton
 * **Azure-konto**: Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt Azure-konto][azure_free_account].
 * **Batch-konto**: När du har skaffat en Azure-prenumeration [skapar du ett Azure Batch-konto](batch-account-create-portal.md).
 * **Lagringskonto**: Se [skapar ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
@@ -48,18 +55,26 @@ I den här artikeln förutsätter vi att du har erfarenhet av att arbeta med C# 
 >
 >
 
-### <a name="visual-studio"></a>Visual Studio
+<a id="visual-studio" class="xliff"></a>
+
+### Visual Studio
 Du måste ha **Visual Studio 2015** eller senare för att kunna skapa exempelprojektet. Du hittar kostnadsfria versioner och utvärderingsversioner av Visual Studio i [Översikt över Visual Studio-produkter][visual_studio].
 
-### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial*kodexempel
+<a id="dotnettutorial-code-sample" class="xliff"></a>
+
+### *DotNetTutorial*kodexempel
 [DotNetTutorial][github_dotnettutorial]-exemplet är ett av många Batch-kodexempel i [azure-batch-samples][github_samples]-databasen på GitHub. Du kan ladda ned alla exempel genom att klicka på **Klona eller ladda ned > Ladda ned ZIP** på startsidan för databasen eller genom att klicka på direktnedladdningslänken för [azure-batch-samples-master.zip][github_samples_zip]. När du har extraherat innehållet i ZIP-filen hittar du lösningen i följande mapp:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### <a name="azure-batch-explorer-optional"></a>Azure Batch Explorer (valfritt)
+<a id="azure-batch-explorer-optional" class="xliff"></a>
+
+### Azure Batch Explorer (valfritt)
 [Azure Batch Explorer][github_batchexplorer] är ett kostnadsfritt verktyg som ingår i [azure-batch-samples][github_samples]-databasen på GitHub. Det krävs inte för att slutföra den här kursen men kan vara praktiskt när du skapar och felsöker Batch-lösningar.
 
-## <a name="dotnettutorial-sample-project-overview"></a>Översikt över DotNetTutorial-exempelprojekt
+<a id="dotnettutorial-sample-project-overview" class="xliff"></a>
+
+## Översikt över DotNetTutorial-exempelprojekt
 *DotNetTutorial*-kodexemplet är en Visual Studio-lösning som består av två projekt: **DotNetTutorial** och **TaskApplication**.
 
 * **DotNetTutorial** är klientprogrammet som samverkar med Batch- och Storage-tjänsterna för att köra en parallell arbetsbelastning på beräkningsnoder (virtuella datorer). DotNetTutorial körs på den lokala arbetsstationen.
@@ -83,7 +98,9 @@ Följande diagram illustrerar de viktigaste åtgärderna som utförs av klientpr
 
 Som vi redan nämnt utförs inte exakt dessa steg i alla Batch-lösningar, och många lösningar omfattar många fler steg, men *DotNetTutorial*-exempelprogrammet demonstrerar vanliga processer som återfinns i många Batch-lösningar.
 
-## <a name="build-the-dotnettutorial-sample-project"></a>Skapa *DotNetTutorial*-exempelprojektet
+<a id="build-the-dotnettutorial-sample-project" class="xliff"></a>
+
+## Skapa *DotNetTutorial*-exempelprojektet
 Innan du kan köra exemplet måste du ange autentiseringsuppgifter både för Batch och Storage i *DotNetTutorial*-projektets `Program.cs`-fil. Om du inte redan har gjort det öppnar du lösningen i Visual Studio genom att dubbelklicka på `DotNetTutorial.sln`-lösningsfilen. Du kan också öppna den från Visual Studio från menyn **Arkiv > Öppna > Projekt/lösning**.
 
 Öppna `Program.cs` i *DotNetTutorial*-projektet. Följ uppmaningen längst upp i filen och lägg till dina autentiseringsuppgifter:
@@ -124,7 +141,9 @@ I följande avsnitt bryter vi ned exempelprogrammet i de steg som det utför fö
 
 Gå till början av `MainAsync`-metoden i *DotNetTutorial*-projektets `Program.cs`-fil för att börja med steg 1. Varje steg nedan följer sedan i stora drag processen för metodanrop i `MainAsync`.
 
-## <a name="step-1-create-storage-containers"></a>Steg 1: Skapa Storage-behållare
+<a id="step-1-create-storage-containers" class="xliff"></a>
+
+## Steg 1: Skapa Storage-behållare
 ![Skapa behållare i Azure Storage][1]
 <br/>
 
@@ -192,7 +211,9 @@ När behållarna har skapats kan programmet ladda upp filerna som ska användas 
 >
 >
 
-## <a name="step-2-upload-task-application-and-data-files"></a>Steg 2: Ladda upp filer för aktivitetsprogram och indata
+<a id="step-2-upload-task-application-and-data-files" class="xliff"></a>
+
+## Steg 2: Ladda upp filer för aktivitetsprogram och indata
 ![Ladda upp filer för aktivitetsprogram och indata till behållare][2]
 <br/>
 
@@ -269,7 +290,9 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 }
 ```
 
-### <a name="resourcefiles"></a>ResourceFiles
+<a id="resourcefiles" class="xliff"></a>
+
+### ResourceFiles
 En [ResourceFile][net_resourcefile] definierar aktiviteter i Batch med URL-adressen till en fil i Azure Storage som laddas ned till en beräkningsnod innan aktiviteten körs. Egenskapen [ResourceFile.BlobSource][net_resourcefile_blobsource] anger den fullständiga URL:en för filen i Azure Storage. URL-adressen kan även innehålla en signatur för delad åtkomst (SAS) som ger säker åtkomst till filen. De flesta typer av aktiviteter i Batch .NET innehåller en *ResourceFiles*-egenskap, inklusive:
 
 * [CloudTask][net_task]
@@ -279,7 +302,9 @@ En [ResourceFile][net_resourcefile] definierar aktiviteter i Batch med URL-adres
 
 I DotNetTutorial-exempelprogrammet används inte aktivitetstyperna JobPreparationTask och JobReleaseTask, men du kan läsa mer om dem i [Köra jobbförberedelse- och jobbpubliceringsaktiviteter på Azure Batch-beräkningsnoder](batch-job-prep-release.md).
 
-### <a name="shared-access-signature-sas"></a>Signatur för delad åtkomst (SAS)
+<a id="shared-access-signature-sas" class="xliff"></a>
+
+### Signatur för delad åtkomst (SAS)
 Signaturer för delad åtkomst är strängar som, när de är en del av en URL, ger säker åtkomst till behållare och blobbar i Azure Storage. DotNetTutorial-programmet använder URL:er med signaturer för delad åtkomst både för blobbar och behållare och visar hur du skaffar signatursträngarna för delad åtkomst från Storage-tjänsten.
 
 * **Signaturer för delad åtkomst för blobbar**: Poolens StartTask i DotNetTutorial använder signaturer för delad åtkomst för blobbar när den laddar ned programmets binärfiler och indatafilerna från Storage (se steg 3 nedan). `UploadFileToContainerAsync`-metoden i DotNetTutorials `Program.cs` innehåller koden som hämtar varje blobbs signatur för delad åtkomst. Detta sker genom anrop till [CloudBlob.GetSharedAccessSignature][net_sas_blob].
@@ -290,13 +315,15 @@ Signaturer för delad åtkomst är strängar som, när de är en del av en URL, 
 >
 >
 
-## <a name="step-3-create-batch-pool"></a>Steg 3: Skapa en Batch-pool
+<a id="step-3-create-batch-pool" class="xliff"></a>
+
+## Steg 3: Skapa en Batch-pool
 ![Skapa en Batch-pool][3]
 <br/>
 
 En Batch-**pool** är en samling beräkningsnoder (virtuella datorer) där Batch utför aktiviteterna i ett jobb.
 
-När *DotNetTutorial* har laddat upp program- och datafilerna till Storage-kontot börjar programmet interagera med Batch-tjänsten med hjälp av Batch-biblioteket för .NET. För att göra detta skapas först en [BatchClient][net_batchclient]:
+När du har överfört programmet och datafilerna till Storage-kontot med Azure Storage-API:erna börjar *DotNetTutorial* skicka anrop till Batch-tjänsten med de API:erna i Batch .NET-biblioteket. Koden skapar först en [BatchClient][net_batchclient]:
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
@@ -309,7 +336,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
     ...
 ```
 
-Därefter skapas en pool med beräkningsnoder i Batch-kontot med ett anrop till `CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync` använder metoden [BatchClient.PoolOperations.CreatePool][net_pool_create] för att skapa en pool i Batch-tjänsten.
+Därefter skapar exempelkoden en pool med beräkningsnoder i Batch-kontot med ett anrop till `CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync` använder metoden [BatchClient.PoolOperations.CreatePool][net_pool_create] för att skapa en ny pool i Batch-tjänsten:
 
 ```csharp
 private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -323,7 +350,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
-            targetDedicated: 3,                                                         // 3 compute nodes
+            targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
             virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
@@ -365,7 +392,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 När du skapar en pool med [CreatePool][net_pool_create] anger du flera parametrar, t.ex. antalet beräkningsnoder, [storleken på noderna](../cloud-services/cloud-services-sizes-specs.md) och nodernas operativsystem. I *DotNetTutorial* använder vi [CloudServiceConfiguration][net_cloudserviceconfiguration] för att ange Windows Server 2012 R2 från [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). Men om du i stället anger en [VirtualMachineConfiguration][net_virtualmachineconfiguration] kan du skapa pooler med noder som skapats från Marketplace-avbildningar, som innehåller både Windows- och Linux-avbildningar. Mer information finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md).
 
 > [!IMPORTANT]
-> Du debiteras för beräkningsresurser i Batch. Du kan minimera kostnaderna genom att sänka `targetDedicated` till 1 innan du kör exemplet.
+> Du debiteras för beräkningsresurser i Batch. Du kan minimera kostnaderna genom att sänka `targetDedicatedComputeNodes` till 1 innan du kör exemplet.
 >
 >
 
@@ -385,7 +412,9 @@ Något annat att notera i kodfragmentet ovan är användningen av två miljövar
 >
 >
 
-## <a name="step-4-create-batch-job"></a>Steg 4: Skapa ett Batch-jobb
+<a id="step-4-create-batch-job" class="xliff"></a>
+
+## Steg 4: Skapa ett Batch-jobb
 ![Skapa ett Batch-jobb][4]<br/>
 
 Ett Batch-**jobb** är en samling aktiviteter och associeras med en pool av beräkningsnoder. Aktiviteterna i ett jobb körs på den associerade poolens beräkningsnoder.
@@ -412,7 +441,9 @@ private static async Task CreateJobAsync(
 
 Nu när jobbet har skapats är det dags att lägga till aktiviteterna som ska utföra arbetet.
 
-## <a name="step-5-add-tasks-to-job"></a>Steg 5: Lägga till aktiviteter till ett jobb
+<a id="step-5-add-tasks-to-job" class="xliff"></a>
+
+## Steg 5: Lägga till aktiviteter till ett jobb
 ![Lägga till aktiviteter till ett jobb][5]<br/>
 *(1) Aktiviteterna läggs till i jobbet, (2) aktiviteterna schemaläggs för att köras på noder och (3) aktiviteterna hämtar datafilerna som ska bearbetas*
 
@@ -503,7 +534,9 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 }
 ```
 
-## <a name="step-6-monitor-tasks"></a>Steg 6: Övervaka aktiviteter
+<a id="step-6-monitor-tasks" class="xliff"></a>
+
+## Steg 6: Övervaka aktiviteter
 ![Övervaka aktiviteter][6]<br/>
 *Klientprogrammet (1) övervakar aktiviteterna och ser till att de slutförs korrekt och (2) aktiviteterna laddar upp resultatdata till Azure Storage*
 
@@ -558,7 +591,7 @@ private static async Task<bool> MonitorTasks(
 
     // All tasks have reached the "Completed" state, however, this does not
     // guarantee all tasks completed successfully. Here we further check each task's
-    // ExecutionInfo property to ensure that it did not encounter a scheduling error
+    // ExecutionInfo property to ensure that it did not encounter a failure
     // or return a non-zero exit code.
 
     // Update the detail level to populate only the task id and executionInfo
@@ -568,32 +601,25 @@ private static async Task<bool> MonitorTasks(
 
     foreach (CloudTask task in tasks)
     {
-        // Populate the task's properties with the latest info from the
-        // Batch service
+        // Populate the task's properties with the latest info from the Batch service
         await task.RefreshAsync(detail);
 
-        if (task.ExecutionInformation.SchedulingError != null)
+        if (task.ExecutionInformation.Result == TaskExecutionResult.Failure)
         {
-            // A scheduling error indicates a problem starting the task on the node.
-            // It is important to note that the task's state can be "Completed," yet
-            // still have encountered a scheduling error.
+            // A task with failure information set indicates there was a problem with the task. It is important to note that
+            // the task's state can be "Completed," yet still have encountered a failure.
 
             allTasksSuccessful = false;
 
-            Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}",
-                task.Id,
-                task.ExecutionInformation.SchedulingError.Message);
-        }
-        else if (task.ExecutionInformation.ExitCode != 0)
-        {
-            // A non-zero exit code may indicate that the application executed by
-            // the task encountered an error during execution. As not every
-            // application returns non-zero on failure by default (e.g. robocopy),
-            // your implementation of error checking may differ from this example.
+            Console.WriteLine("WARNING: Task [{0}] encountered a failure: {1}", task.Id, task.ExecutionInformation.FailureInformation.Message);
+            if (task.ExecutionInformation.ExitCode != 0)
+            {
+                // A non-zero exit code may indicate that the application executed by the task encountered an error
+                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // your implementation of error checking may differ from this example.
 
-            allTasksSuccessful = false;
-
-            Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+            }
         }
     }
 
@@ -606,7 +632,9 @@ private static async Task<bool> MonitorTasks(
 }
 ```
 
-## <a name="step-7-download-task-output"></a>Steg 7: Hämta aktivitetsutdata
+<a id="step-7-download-task-output" class="xliff"></a>
+
+## Steg 7: Hämta aktivitetsutdata
 ![Hämta aktivitetsutdata från Storage][7]<br/>
 
 Nu när jobbet har slutförts kan du hämta aktivietsutdata från Azure Storage. Detta görs med ett anrop till `DownloadBlobsFromContainerAsync` i *DotNetTutorial*s `Program.cs`:
@@ -644,7 +672,9 @@ private static async Task DownloadBlobsFromContainerAsync(
 >
 >
 
-## <a name="step-8-delete-containers"></a>Steg 8: Ta bort behållare
+<a id="step-8-delete-containers" class="xliff"></a>
+
+## Steg 8: Ta bort behållare
 Eftersom du debiteras för data som finns i Azure Storage är det alltid en bra idé att ta bort alla blobar som inte längre behövs för dina Batch-jobb. I DotNetTutorials `Program.cs` görs detta med tre anrop till hjälpmetoden `DeleteContainerAsync`:
 
 ```csharp
@@ -675,7 +705,9 @@ private static async Task DeleteContainerAsync(
 }
 ```
 
-## <a name="step-9-delete-the-job-and-the-pool"></a>Steg 9: Ta bort jobbet och poolen
+<a id="step-9-delete-the-job-and-the-pool" class="xliff"></a>
+
+## Steg 9: Ta bort jobbet och poolen
 I det sista steget uppmanas du att ta bort jobbet och poolen som skapats av DotNetTutorial-programmet. Även om du inte debiteras för själva jobben och aktiviteterna *debiteras* du för beräkningsnoder. Vi rekommenderar därför att du endast allokerar noder efter behov. Borttagning av oanvända pooler kan ingå i din underhållsrutin.
 
 BatchClients [JobOperations][net_joboperations] och [PoolOperations][net_pooloperations] har båda motsvarande borttagningsmetoder, som anropas om användaren bekräftar borttagningen:
@@ -703,7 +735,9 @@ if (response != "n" && response != "no")
 >
 >
 
-## <a name="run-the-dotnettutorial-sample"></a>Kör *DotNetTutorial*-exemplet
+<a id="run-the-dotnettutorial-sample" class="xliff"></a>
+
+## Kör *DotNetTutorial*-exemplet
 När du kör exempelprogrammet ser konsolens utdata ut ungefär så här: Under körningen uppstår det en paus vid `Awaiting task completion, timeout in 00:30:00...` medan poolens beräkningsnoder startas. Använd [Azure Portal][azure_portal] när du vill övervaka poolen, beräkningsnoderna, jobbet och aktiviteterna under och efter körningen. Använd [Azure Portal][azure_portal] eller [Azure Storage Explorer][storage_explorers] för att visa de lagringsresurser (behållare och blobar) som skapas av programmet.
 
 Körningen tar normalt **runt fem minuter** om du kör programmet med standardkonfigurationen.
@@ -739,7 +773,9 @@ Delete pool? [yes] no: yes
 Sample complete, hit ENTER to exit...
 ```
 
-## <a name="next-steps"></a>Nästa steg
+<a id="next-steps" class="xliff"></a>
+
+## Nästa steg
 Gör gärna ändringar i *DotNetTutorial* och *TaskApplication* för att experimentera med olika beräkningsscenarier. Prova till exempel att lägga till en körningsfördröjning till *TaskApplication*, till exempel med [Thread.Sleep][net_thread_sleep], om du vill simulera långvariga aktiviteter och övervaka dem på portalen. Prova att lägga till fler aktiviteter eller att justera antalet beräkningsnoder. Lägg till logik om du vill söka efter och tillåta användningen av en befintlig pool för att förkorta körningstiden (*Tips!* Se `ArticleHelpers.cs` i [Microsoft.Azure.Batch.Samples.Common][github_samples_common]-projektet i [azure-batch-samples][github_samples]).
 
 Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lösning är det dags att titta närmare på de andra funktionerna i Batch-tjänsten.

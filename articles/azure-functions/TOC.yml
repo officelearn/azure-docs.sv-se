@@ -74,6 +74,8 @@
        href: functions-test-a-function.md
      - name: Utveckla och felsöka lokalt
        href: functions-run-local.md
+     - name: Visual Studio-utveckling
+       href: functions-develop-vs.md
   - name: Distribuera
     items:
     - name: Kontinuerlig distribution
@@ -100,7 +102,7 @@
       href: functions-bindings-storage-blob.md
     - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Händelsehubb
+    - name: Händelsehubbar
       href: functions-bindings-event-hubs.md
     - name: Extern fil
       href: functions-bindings-external-file.md
@@ -126,6 +128,8 @@
     href: functions-api-definition.md     
 - name: Resurser
   items:
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
   - name: Priser
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Regional tillgänglighet

@@ -1,107 +1,327 @@
+
+
 # [Översikt](active-directory-developers-guide.md)
+
+
 ## [Varför Azure AD](https://azure.microsoft.com/develop/identity/signin/)
+
+
 ## [Grundläggande om Auth](active-directory-authentication-scenarios.md)
+
+
 ## [Apptyper](active-directory-authentication-scenarios.md#application-types-and-scenarios)
+
+
 # Kom igång
+
+
 ## Mobilappar och skrivbordsappar
+
+
 ### [Översikt](active-directory-authentication-scenarios.md#native-application-to-web-api)
+
+
 ### [iOS](active-directory-devquickstarts-ios.md)
+
+
 ### [Android](active-directory-devquickstarts-android.md)
+
+
 ### [.NET](active-directory-devquickstarts-dotnet.md)
+
+
 ### [Windows](active-directory-devquickstarts-windowsstore.md)
+
+
 ### [Xamarin](active-directory-devquickstarts-xamarin.md)
+
+
 ### [Cordova](active-directory-devquickstarts-cordova.md)
+
+
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
+
+
 ## Webbappar
+
+
 ### [Översikt](active-directory-authentication-scenarios.md#web-browser-to-web-application)
+
+
 ### [ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)
+
+
 ### [Java](active-directory-devquickstarts-webapp-java.md)
+
+
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
+
+
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
+
+
 ## Appar med en sida
+
+
 ### [Översikt](active-directory-authentication-scenarios.md#single-page-application-spa)
+
+
 ### [Angular JS](active-directory-devquickstarts-angular.md)
+
+
 ### [Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)
+
+
 ## Webb-API:er
+
+
 ### [Översikt](active-directory-authentication-scenarios.md#web-application-to-web-api)
+
+
 ### [ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)
+
+
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
+
+
 ## Tjänst till tjänst
+
+
 ### [Översikt](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)
+
+
 ### [.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
+
+
 ### [Autentiseringsuppgifter för OAuth 2.0-klient](active-directory-protocols-oauth-service-to-service.md)
+
+
 # Guider
+
+
 ## [Programregistrering](active-directory-integrating-applications.md)
+
+
 ## [Appar för flera klienter](active-directory-devhowto-multi-tenant-overview.md)
+
+
 ## OAuth och OpenID Connect
+
+
 ### [OpenID Connect-protokoll](active-directory-protocols-openid-connect-code.md)
+
+
 ### [Beviljande av OAuth 2.0-auktoriseringkod](active-directory-protocols-oauth-code.md)
+
+
 ### [Implicit beviljande av OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
+
+
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
+
+
 ### [Anpassa anspråk](active-directory-saml-claims-customization.md)
+
+
 ### [Felsöka SAML-baserad enkel inloggning](active-directory-saml-debugging.md)
+
+
 ### [SAML-protokoll för enkel inloggning](active-directory-single-sign-on-protocol-reference.md)
+
+
 ### [SAML-protokoll för enkel utloggning](active-directory-single-sign-out-protocol-reference.md)
+
+
 ### [Skapa en klient](active-directory-howto-tenant.md)
+
+
 ## [Riktlinjer för anpassning](active-directory-branding-guidelines.md)
+
+
 ## Enkel inloggning för mobilappar och skrivbordsappar
+
+
 ### [Aktivera enkel inloggning för Android](active-directory-sso-android.md)
+
+
 ### [Aktivera enkel inloggning för iOS](active-directory-sso-ios.md)
+
+
 ## [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)
+
+
 ## [Användaretablering med SCIM](../active-directory-scim-provisioning.md)
+
+
 ## [Azure AD Graph API](active-directory-graph-api.md)
+
+
 ### [Kom igång med AAD Graph](active-directory-graph-api-quickstart.md)
+
+
 ## [AppSource-certifiering](active-directory-devhowto-appsource-certified.md)
+
+
 ## [Azure AD-appgalleri](active-directory-app-gallery-listing.md)
+
+
 ## [Office 365-instrumentpanel för försäljning](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+
+
 ## Arbeta med Visual Studio
+
+
 ### [Kom igång med Visual Studio-anslutna tjänster](vs-active-directory-dotnet-getting-started.md)
+
+
 ### [Fel vid identifiering av autentisering](vs-active-directory-error.md)
+
+
 ### [Kom igång med WebApi](vs-active-directory-webapi-getting-started.md)
+
+
 ### [Vad hände med mitt projekt för webb-API?](vs-active-directory-webapi-what-happened.md)
+
+
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
+
+
 # Referens
+
+
 ## [Auth-bibliotek (ADAL)](active-directory-authentication-libraries.md)
+
+
 ## [Kodexempel](active-directory-code-samples.md)
+
+
 ## [Ordlista](active-directory-dev-glossary.md)
+
+
 ## [Autentiseringsprotokoll](active-directory-authentication-protocols.md)
+
+
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
+
+
 ### [Oauth](active-directory-protocols-oauth-code.md)
+
+
 ### [Tjänst-till-tjänst-anrop](active-directory-protocols-oauth-service-to-service.md)
+
+
 ### [On-Behalf-Of-flöde](active-directory-protocols-oauth-on-behalf-of.md)
+
+
 ### [Token och anspråkstyper som stöds](active-directory-token-and-claims.md)
+
+
 ### [Förnyelse av signeringsnyckel](active-directory-signing-key-rollover.md)
+
+
 ### [Federationsmetadata](active-directory-federation-metadata.md)
+
+
 ### [Autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md)
+
+
 ## [Programobjekt](active-directory-application-objects.md)
+
+
 ### [Appar och Azure AD](active-directory-how-applications-are-added.md)
+
+
 ## [Programmanifest](active-directory-application-manifest.md)
+
+
 ## [Livslängder för token](../active-directory-configurable-token-lifetimes.md)
+
+
 ## [Tjänstbegränsningar](../active-directory-service-limits-restrictions.md)
+
+
 # v2.0-slutpunkt
+
+
 ## [Översikt](active-directory-appmodel-v2-overview.md)
+
+
 ### [Apptyper](active-directory-v2-flows.md)
+
+
 ### [Begränsningar](active-directory-v2-limitations.md)
+
+
 ### [Jämförelse mellan v1 och v2](active-directory-v2-compare.md)
+
+
 ## Kom igång
+
+
 ### Mobilappar och skrivbordsappar
+
+
 #### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+
+
 #### [Android](guidedsetups/active-directory-android.md)
+
+
 #### [Windows-skrivbord .NET](guidedsetups/active-directory-windesktop.md)
+
+
 ### Webbappar
+
+
 #### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+
+
 #### [ASP.NET-webbserver](guidedsetups/active-directory-aspnetwebapp.md)
+
+
 #### [NodeJS-webbapp](active-directory-v2-devquickstarts-node-web.md)
+
+
 ## Guider
+
+
 ### [Registrera en app](active-directory-v2-app-registration.md)
+
+
 ## Referens
+
+
 ### [Autentiseringsbibliotek](active-directory-v2-libraries.md)
+
+
 ### [v2.0 Autentiseringsprotokoll](active-directory-v2-protocols.md)
+
+
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
+
+
 #### [Beviljande av OAuth 2.0-auktoriseringskod](active-directory-v2-protocols-oauth-code.md)
+
+
 #### [Implicit beviljande av OAuth 2.0](active-directory-v2-protocols-implicit.md)
+
+
 #### [Beviljande av autentiseringsuppgifter för OAuth 2.0-klient](active-directory-v2-protocols-oauth-client-creds.md)
+
+
 #### [On-Behalf-Of-flöde för OAuth 2.0-klient](active-directory-v2-protocols-oauth-on-behalf-of.md)
+
+
 #### [Tokenreferens](active-directory-v2-tokens.md)
+
+
 #### [Autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md)
+
+
 ### [Scope](active-directory-v2-scopes.md)
+
+
+# Resurser
+
+
+## [Azure-översikt](https://azure.microsoft.com/roadmap/)

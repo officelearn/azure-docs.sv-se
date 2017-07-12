@@ -1,102 +1,135 @@
-# <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regioner och tillgänglighet för virtuella datorer i Azure
-Det är viktigt att förstå hur och var dina virtuella datorer körs i Azure och vilka alternativ du har för att maximera prestanda, tillgänglighet och redundans. Azure körs på ett antal datacenter över hela världen. Dessa datacenter är grupperade i geografiska regioner så att du kan välja var du vill bygga dina program. Den här artikeln ger en översikt över funktionerna för tillgänglighet och redundans i Azure.
+<a id="regions-and-availability-for-virtual-machines-in-azure" class="xliff"></a>
 
-## <a name="what-are-azure-regions"></a>Vad är Azure-regioner?
-Med Azure kan du skapa resurser, till exempel virtuella datorer, i definierade geografiska områden som ”USA, västra”, ”Europa, norra” eller ”Asien, sydöstra”. Det finns för närvarande 30 Azure-regioner runtom i världen. Se [listan över regioner och deras platser](https://azure.microsoft.com/regions/). I varje region finns flera datacenter för att skapa förutsättningar för redundans och tillgänglighet. Detta ger dig flexibilitet när du bygger dina program. Du kan skapa virtuella datorer som ligger nära användarna och du kan uppfylla juridiska och skattemässiga krav samt krav på regelefterlevnad.
+# Regions and availability for virtual machines in Azure
+It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. Azure operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. This article provides you with an overview of the availability and redundancy features of Azure.
 
-## <a name="special-azure-regions"></a>Särskilda Azure-regioner
-Det finns några särskilda Azure-regioner för regelefterlevnad och juridiska krav som du kanske vill använda när du bygger dina program. De särskilda regionerna innefattar:
+<a id="what-are-azure-regions" class="xliff"></a>
 
-* **Virginia (USA-förvaltad region)** och **Iowa (USA-förvaltad region)**
-  * En fysisk och logisk nätverksisolerad instans av Azure för amerikanska myndigheter och partner som drivs av säkerhetskontrollerad amerikansk personal. Innefattar ytterligare efterlevnadscertifieringar som [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) och [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Läs mer om [Azure Government](https://azure.microsoft.com/features/gov/).
-* **Östra Kina** och **Norra Kina**
-  * Dessa regioner är tillgängliga via ett unikt partnerskap mellan Microsoft och 21Vianet, vilket innebär att Microsoft inte direkt underhåller dessa datacenter. Läs mer om [Microsoft Azure i Kina](http://www.windowsazure.cn/).
-* **Centrala Tyskland** och **Nordöstra Tyskland**
-  * Dessa regioner är för närvarande tillgängliga via en dataförvaltningsmodell där kundernas data blir kvar i Tyskland och kontrolleras av T-Systems, ett företag som tillhör Deutsche Telekom, som fungerar som den tyska dataförvaltningen.
+## What are Azure regions?
+Azure allows you to create resources, such as VMs, in defined geographic regions like 'West US', 'North Europe', or 'Southeast Asia'. There are currently 30 Azure regions around the world. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). Within each region, multiple datacenters exist to provide for redundancy and availability. This approach gives you flexibility when building your applications to create VMs closest to your users and to meet any legal, compliance, or tax purposes.
 
-## <a name="region-pairs"></a>Regionpar
-Varje Azure-region är kopplad till en annan region inom samma geografiska område (till exempel USA, Europa och Asien). På så sätt kan resurser som VM-lagring replikeras över geografiska områden som inte troligtvis påverkas samtidigt av naturkatastrofer, oroligheter i landet, strömavbrott eller avbrott i fysiska nätverk. Ytterligare fördelar med regionpar:
+<a id="special-azure-regions" class="xliff"></a>
 
-* Vid ett större Azure-avbrott prioriteras en region i varje par för att minska tiden för programåterställning. 
-* Planerade Azure-uppdateringar distribueras en i taget till kopplade regioner för att minimera nedtid och risk för programavbrott.
-* Data finns kvar i samma geografiska region som den andra regionen i paret (med undantag för Södra Brasilien) av skatte- och jurisdiktionsmässiga skäl.
+## Special Azure regions
+There are some special Azure regions for compliance or legal purposes that you may wish to use when building out your applications. These special regions include:
 
-Exempel på regionpar:
+* **US Gov Virginia** and **US Gov Iowa**
+  * A physical and logical network-isolated instance of Azure for US government agencies and partners, operated by screened US persons. Includes additional compliance certifications such as [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) and [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Read more about [Azure Government](https://azure.microsoft.com/features/gov/).
+* **China East** and **China North**
+  * These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters. See more about [Microsoft Azure in China](http://www.windowsazure.cn/).
+* **Germany Central** and **Germany Northeast**
+  * These regions are currently available via a data trustee model whereby customer data remains in Germany under control of T-Systems, a Deutsche Telekom company, acting as the German data trustee.
 
-| Primär | Sekundär |
+<a id="region-pairs" class="xliff"></a>
+
+## Region pairs
+Each Azure region is paired with another region within the same geography (such as US, Europe, or Asia). This approach allows for the replication of resources, such as VM storage, across a geography that should reduce the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once. Additional advantages of region pairs include:
+
+* In the event of a wider Azure outage, one region is prioritized out of every pair to help reduce the time to restore for applications. 
+* Planned Azure updates are rolled out to paired regions one at a time to minimize downtime and risk of application outage.
+* Data continues to reside within the same geography as its pair (except for Brazil South) for tax and law enforcement jurisdiction purposes.
+
+Examples of region pairs include:
+
+| Primary | Secondary |
 |:--- |:--- |
-| Västra USA |Östra USA |
-| Norra Europa |Västra Europa |
-| Sydostasien |Östasien |
+| West US |East US |
+| North Europe |West Europe |
+| Southeast Asia |East Asia |
 
-Se [den fullständiga listan över regionpar](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
+You can see the full [list of regional pairs here](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-## <a name="feature-availability"></a>Funktionstillgänglighet
-Vissa tjänster eller VM-funktioner är endast tillgängliga i vissa regioner, till exempel särskilda VM-storlekar eller lagringstyper. Det finns också vissa globala Azure-tjänster som inte kräver att du väljer en viss region, till exempel [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) och [Azure DNS](../articles/dns/dns-overview.md). När du utformar din programmiljö kan du kontrollera [tillgängligheten av Azure-tjänster för varje region](https://azure.microsoft.com/regions/#services). 
+<a id="feature-availability" class="xliff"></a>
 
-## <a name="storage-availability"></a>Lagringstillgänglighet
-Det är viktigt att förstå Azure-regioner och geografiska områden när du ska välja bland de tillgängliga alternativen för lagringsreplikering. Det finns olika replikeringsalternativ beroende på vilken lagringstyp du har.
+## Feature availability
+Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md), or [Azure DNS](../articles/dns/dns-overview.md). To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://azure.microsoft.com/regions/#services). 
+
+<a id="storage-availability" class="xliff"></a>
+
+## Storage availability
+Understanding Azure regions and geographies becomes important when you consider the available storage replication options. Depending on the storage type, you have different replication options.
 
 **Azure Managed Disks**
-* Lokalt redundant lagring (LRS)
-  * Replikerar data tre gånger inom den region där du skapade ditt lagringskonto.
+* Locally redundant storage (LRS)
+  * Replicates your data three times within the region in which you created your storage account.
 
-**Diskar baserade på lagringskonto**
-* Lokalt redundant lagring (LRS)
-  * Replikerar data tre gånger inom den region där du skapade ditt lagringskonto.
-* Zonredundant lagring (ZRS)
-  * Replikerar data tre gånger mellan två eller tre anläggningar, antingen inom en enda region eller mellan två regioner.
-* Geo-redundant lagring (GRS)
-  * Replikerar data till en sekundär region som ligger hundratals kilometer från den primära regionen.
-* Geo-redundant lagring med läsbehörighet (RA-GRS)
-  * Replikerar data till en sekundär region som med GRS, och ger även skrivskyddad åtkomst till data på den sekundära platsen.
+**Storage account-based disks**
+* Locally redundant storage (LRS)
+  * Replicates your data three times within the region in which you created your storage account.
+* Zone redundant storage (ZRS)
+  * Replicates your data three times across two to three facilities, either within a single region or across two regions.
+* Geo-redundant storage (GRS)
+  * Replicates your data to a secondary region that is hundreds of miles away from the primary region.
+* Read-access geo-redundant storage (RA-GRS)
+  * Replicates your data to a secondary region, as with GRS, but also then provides read-only access to the data in the secondary location.
 
-Följande tabell ger en snabb översikt över skillnaderna mellan lagringsreplikeringstyperna:
+The following table provides a quick overview of the differences between the storage replication types:
 
-| Replikeringsstrategi | LRS | ZRS | GRS | RA-GRS |
+| Replication strategy | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Data replikeras över flera anläggningar. |Nej |Ja |Ja |Ja |
-| Data kan läsas från den sekundära platsen och från den primära platsen. |Nej |Nej |Nej |Ja |
-| Antal kopior av data som finns på olika noder. |3 |3 |6 |6 |
+| Data is replicated across multiple facilities. |No |Yes |Yes |Yes |
+| Data can be read from the secondary location and from the primary location. |No |No |No |Yes |
+| Number of copies of data maintained on separate nodes. |3 |3 |6 |6 |
 
-Du kan läsa mer om [Azure Storage-replikeringsalternativen här](../articles/storage/storage-redundancy.md). Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../articles/storage/storage-managed-disks-overview.md).
+You can read more about [Azure Storage replication options here](../articles/storage/storage-redundancy.md). For more information about managed disks, see [Azure Managed Disks overview](../articles/storage/storage-managed-disks-overview.md).
 
-### <a name="storage-costs"></a>Lagringskostnader
-Priserna varierar beroende på vilken lagringstyp och tillgänglighet du väljer.
+<a id="storage-costs" class="xliff"></a>
+
+### Storage costs
+Prices vary depending on the storage type and availability that you select.
 
 **Azure Managed Disks**
-* Premium Managed Disks använder SSD-enheter och Standard Managed Disks använder vanliga roterande diskar. Både Premium och Standard Managed Disks debiteras baserat på etablerad kapacitet för disken.
+* Premium Managed Disks are backed by Solid State Drives (SSDs) and Standard Managed Disks are backed by regular spinning disks. Both Premium and Standard Managed Disks are charged based on the provisioned capacity for the disk.
 
-**Ohanterade diskar**
-* Premium Storage använder SSD-enheter och debiteras baserat på diskens kapacitet.
-* Standard Storage använder roterande diskar och debiteras baserat på den kapacitet som används och önskad lagringstillgänglighet.
-  * För RA-GRS tillkommer en extra dataöverföringsavgift för geo-replikering för bandbredden som används för att replikera dessa data till en annan Azure-region.
+**Unmanaged disks**
+* Premium storage is backed by Solid State Drives (SSDs) and is charged based on the capacity of the disk.
+* Standard storage is backed by regular spinning disks and is charged based on the in-use capacity and desired storage availability.
+  * For RA-GRS, there is an additional Geo-Replication Data Transfer charge for the bandwidth of replicating that data to another Azure region.
 
-Se [Azure Storage-priser](https://azure.microsoft.com/pricing/details/storage/) för prisinformation för olika lagringstyper och tillgänglighetsalternativ.
+See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different storage types and availability options.
 
-## <a name="azure-images"></a>Azure-avbildningar
-I Azure skapas virtuella datorer från en avbildning. Avbildningar hämtas oftast från [Azure Marketplace](https://azure.microsoft.com/marketplace/) där partners kan tillhandahålla förkonfigurerade fullständiga operativsystem eller programavbildningar.
+<a id="azure-images" class="xliff"></a>
 
-När du skapar en virtuell dator från en avbildning i Azure Marketplace arbetar du i själva verket med mallar. Azure Resource Manager-mallar är deklarativa JSON-filer (JavaScript Object Notation) som kan användas för att skapa komplexa programmiljöer med virtuella datorer, lagring, virtuella nätverk m.m. Läs mer om hur du använder [Azure Resource Manager-mallar](../articles/azure-resource-manager/resource-group-overview.md) och hur du [skapar egna mallar](../articles/resource-group-authoring-templates.md).
+## Azure images
+In Azure, VMs are created from an image. Typically, images are from the [Azure Marketplace](https://azure.microsoft.com/marketplace/) where partners can provide pre-configured complete OS or application images.
 
-Du kan också skapa egna anpassade bilder och överföra dem med hjälp av [Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att snabbt skapa egna virtuella datorer anpassade till dina specifika krav.
+When you create a VM from an image in the Azure Marketplace, you are actually working with templates. Azure Resource Manager templates are declarative JavaScript Object Notation (JSON) files that can be used to create complex application environments comprising VMs, storage, virtual networking, etc. You can read more about using [Azure Resource Manager templates](../articles/azure-resource-manager/resource-group-overview.md), including how to [build your own templates](../articles/resource-group-authoring-templates.md).
 
-## <a name="availability-sets"></a>Tillgänglighetsuppsättningar
-En tillgänglighetsuppsättning är en logisk gruppering av virtuella datorer som gör att Azure kan förstå hur ett program är utformat och kan tillhandahålla redundans och tillgänglighet. Vi rekommenderar att två eller fler virtuella datorer skapas i en tillgänglighetsuppsättning för att ge programmet hög tillgänglighet och uppfylla [99,95 procent drifttid enligt serviceavtalet för Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). När en enskild virtuell dator använder [Azure Premium Storage](../articles/storage/storage-premium-storage.md) gäller serviceavtalet för Azure för oplanerat underhåll. En tillgänglighetsuppsättning består av två ytterligare grupperingar som skyddar mot maskinvarufel och gör att uppdateringar kan utföras på ett säkert sätt: feldomäner och uppdateringsdomäner.
+You can also create your own custom images and upload them using [Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure PowerShell](../articles/virtual-machines/windows/upload-generalized-managed.md) to quickly create custom VMs to your specific build requirements.
 
-![Skiss på en konfiguration med uppdateringsdomäner och feldomäner](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
+<a id="availability-sets" class="xliff"></a>
 
-Läs mer om hur du hanterar tillgänglighet för [virtuella Linux-datorer](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [virtuella Windows-datorer](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## Availability sets
+An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. It is recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](../articles/storage/storage-premium-storage.md), the Azure SLA applies for unplanned maintenance events. An availability set is compromised of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs).
 
-### <a name="fault-domains"></a>Feldomäner
-En feldomän är en logisk grupp av underliggande maskinvara som delar en gemensam strömkälla och nätverksswitch, ungefär som ett rack i ett lokalt datacenter. När du skapar virtuella datorer i en tillgänglighetsuppsättning distribuerar Azure-plattformen automatiskt dina virtuella datorer mellan dessa feldomäner. På så sätt begränsas påverkan av potentiella fel på fysisk maskinvara, nätverksavbrott och strömavbrott.
+![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-#### <a name="managed-disk-fault-domains-and-availability-sets"></a>Feldomäner och tillgänglighetsuppsättningar för hanterad disk
-För virtuella datorer som använder [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md) justeras de virtuella datorerna efter feldomänerna för hanterade diskar när en hanterad tillgänglighetsuppsättning används. På så sätt säkerställs att alla hanterade diskar som är kopplade till en virtuell dator finns i samma feldomän. Endast virtuella datorer med hanterade diskar kan skapas i en hanterad tillgänglighetsuppsättning. Antalet feldomäner kan vara två eller tre, beroende på region.
+You can read more about how to manage the availability of [Linux VMs](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Windows VMs](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### <a name="update-domains"></a>Uppdateringsdomäner
-En uppdateringsdomän är en logisk grupp av underliggande maskinvara som kan underhållas eller startas om samtidigt. När du skapar virtuella datorer i en tillgänglighetsuppsättning distribuerar Azure-plattformen automatiskt de virtuella datorerna mellan dessa uppdateringsdomäner. På så sätt säkerställs att minst en instans av ditt program alltid körs vid ett periodiskt underhåll av Azure-plattformen. Ordningen för de uppdateringsdomäner som startas om kanske inte fortsätter i följd under planerat underhåll, men endast en uppdateringsdomän i taget startas om.
+<a id="fault-domains" class="xliff"></a>
 
-## <a name="next-steps"></a>Nästa steg
-Nu kan du börja använda dessa tillgänglighets- och redundansfunktioner till att bygga din egen Azure-miljö. Metodtips hittar du i [Metodtips för Azure-tillgänglighet](../articles/best-practices-availability-checklist.md).
+### Fault domains
+A fault domain is a logical group of underlying hardware that share a common power source and network switch, similar to a rack within an on-premises datacenter. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these fault domains. This approach limits the impact of potential physical hardware failures, network outages, or power interruptions.
+
+<a id="managed-disk-fault-domains-and-availability-sets" class="xliff"></a>
+
+#### Managed Disk fault domains and availability sets
+For VMs using [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all the managed disks attached to a VM are within the same managed disk fault domain. Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region.
+
+![Managed Disk FDs](./media/virtual-machines-common-manage-availability/md-fd.png)
+
+> [!IMPORTANT]
+> The number of fault domains for managed availability sets varies by region - either two or three per region. The following table shows the number per region
+
+[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+
+<a id="update-domains" class="xliff"></a>
+
+### Update domains
+An update domain is a logical group of underlying hardware that can undergo maintenance or be rebooted at the same time. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these update domains. This approach ensures that at least one instance of your application always remains running as the Azure platform undergoes periodic maintenance. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time.
+
+<a id="next-steps" class="xliff"></a>
+
+## Next steps
+You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](../articles/best-practices-availability-checklist.md).
 

@@ -53,8 +53,8 @@
     href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: App Service-planer
     href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: Apptjänstmiljöer
-    href: app-service-app-service-environment-intro.md
+  - name: App Service Environment
+    href: ../app-service/app-service-environment/intro.md
   - name: Autentisering och auktorisering
     href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Autentisering med lokal AD
@@ -248,6 +248,24 @@
       href: app-service-web-app-azure-resource-manager-powershell.md
     - name: Hantera appar med Azure Automation
       href: automation-manage-web-app.md
+  - name: App Service Environment
+    items:
+    - name: Använd App Service Environment
+      href: ../app-service/app-service-environment/using-an-ase.md
+    - name: Skapa extern App Service Environment
+      href: ../app-service/app-service-environment/create-external-ase.md
+    - name: Skapa med Azure Resource Manager
+      href: ../app-service/app-service-environment/create-from-template.md
+    - name: Skapa med en intern belastningsutjämnare
+      href: ../app-service/app-service-environment/create-ilb-ase.md
+    - name: Nätverksöverväganden
+      href: ../app-service/app-service-environment/network-info.md
+    - name: Konfigurera anpassade inställningar
+      href: ./app-service-app-service-environment-custom-settings.md
+    - name: Integrera med en brandvägg för webbaserade program
+      href: ./app-service-app-service-environment-web-application-firewall.md
+    - name: Geografiskt distribuerad skala
+      href: ./app-service-app-service-environment-geo-distributed-scale.md
 - name: Referens
   items:
   - name: CLI 2.0
@@ -256,8 +274,12 @@
     href: /powershell
   - name: REST API
     href: /rest/api/appservice/
+  - name: App Service Environment
+    href: ../app-service/app-service-environment/readme.md
 - name: Resurser
   items:
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
   - name: Felsökning
     items:
     - name: Felsöka med Visual Studio
@@ -278,7 +300,33 @@
         href: app-service-web-open-source-technologies-faq.md
       - name: Vanliga frågor och svar om konfiguration och hantering
         href: app-service-web-configuration-and-management-faq.md
-  - name: Prissättning
+  - name: App Service Environment v1
+    items:
+    - name: Översikt
+      href: app-service-app-service-environment-intro.md
+    - name: Skapa en apptjänstmiljö
+      href: app-service-web-how-to-create-an-app-service-environment.md
+    - name: Skapa en webbapp i en App Service Environment
+      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+    - name: Använd en intern belastningsutjämnare
+      href: app-service-environment-with-internal-load-balancer.md
+    - name: Konfigurera App Service Environment
+      href: app-service-web-configure-an-app-service-environment.md
+    - name: Skala appar i en App Service Environment
+      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+    - name: Översikt över nätverksarkitektur
+      href: app-service-app-service-environment-network-architecture-overview.md
+    - name: Implementera en arkitektur med flernivåsäkerhet
+      href: app-service-app-service-environment-layered-security.md
+    - name: Så här kontrollerar du inkommande trafik
+      href: app-service-app-service-environment-control-inbound-traffic.md
+    - name: Anslut säkert till serverdelsresurser
+      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+    - name: Nätverkskonfigurationsinformation med ExpressRoute
+      href: app-service-app-service-environment-network-configuration-expressroute.md
+    - name: Skala automatiskt i App Service Environment
+      href: ../app-service/app-service-environment-auto-scale.md
+  - name: Priser
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Kvotinformation
     href: ../azure-subscription-service-limits.md#app-service-limits

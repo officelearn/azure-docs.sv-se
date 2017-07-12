@@ -1,55 +1,70 @@
 
-## <a name="about-vhds"></a>Om virtuella hårddiskar
+<a id="about-vhds" class="xliff"></a>
 
-De virtuella hårddiskarna i Azure är .vhd-filer som lagras som sidblobar i standard- eller premium-lagringskonton i Azure. Mer information om sidblobar finns [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/) (Förstå blockblobar och sidblobar). Mer information om premium-lagring finns i [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md) (Premium-lagring och virtuella Azure-datorer med hög prestanda).
+## About VHDs
 
-Azure stöder det fasta formatet för virtuella hårddiskar (VHD). Det fasta format lägger ut den logiska disken linjärt i filen så att diskförskjutning X lagras vid blob-förskjutning X. En liten sidfot i slutet av bloben beskriver den virtuella hårddiskens egenskaper. Det fasta formatet slösar ofta med utrymme eftersom de flesta diskar har stora utrymmen som är oanvända. Men Azure lagrar .vhd-filer i ett begränsat format så att du kan dra nytta av fördelarna med både fasta och dynamiska diskar på samma gång. Mer information finns i [Komma igång med virtuella hårddiskar](https://technet.microsoft.com/library/dd979539.aspx).
+The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md).
 
-Alla .vhd-filer i Azure som du vill använda som källa för att skapa diskar eller avbildningar är skrivskyddade. När du skapar en disk eller avbildning gör Azure kopior av .vhd-filerna. Dessa kopior kan vara skrivskyddade eller läs och skriv, beroende på hur du använder den virtuella hårddisken.
+Azure supports the fixed disk VHD format. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
 
-När du skapar en virtuell dator från en avbildning skapar Azure en disk för den virtuella datorn som är en kopia av .vhd-filen som används som källa. För att skydda dig mot att du råkar radera dem av misstag placerar Azure en livslängd på alla .vhd-filer som används som källor för att skapa en avbildning, en operativsystemdisk eller en datadisk.
+All .vhd files in Azure that you want to use as a source to create disks or images are read-only. When you create a disk or image, Azure makes copies of the .vhd files. These copies can be read-only or read-and-write, depending on how you use the VHD.
 
-Innan du kan ta bort en .vhd-fil som används som källa måste du ta bort livslängden genom att ta bort disken eller avbildningen. Om du vill ta bort en .vhd-fil som används av en virtuell dator som en operativsystemdisk kan du ta bort den virtuella datorn, operativsystemdisken, och .vhd-filen som används som källa på en gång genom att ta bort den virtuella datorn och alla associerade diskar. Men det krävs att du genomför ett antal steg i en viss ordning för att ta bort en .vhd-fil som är en källa för en datadisk. Först kopplar du bort disken från den virtuella datorn, sedan tar du bort disken och sist tar du bort .vhd-filen.
+When you create a virtual machine from an image, Azure creates a disk for the virtual machine that is a copy of the source .vhd file. To protect against accidental deletion, Azure places a lease on any source .vhd file that’s used to create an image, an operating system disk, or a data disk.
+
+Before you can delete a source .vhd file, you’ll need to remove the lease by deleting the disk or image. To delete a .vhd file that is being used by a virtual machine as an operating system disk, you can delete the virtual machine, the operating system disk, and the source .vhd file all at once by deleting the virtual machine and deleting all associated disks. However, deleting a .vhd file that’s a source for a data disk requires several steps in a set order. First you detach the disk from the virtual machine, then delete the disk, and then delete the .vhd file.
 
 > [!WARNING]
-> Om du tar bort en .vhd-fil som används som källa från lagringen eller tar bort ditt lagringskonto kan Microsoft inte återställa dessa data åt dig.
+> If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
 > 
 
-## <a name="types-of-disks"></a>Typer av diskar 
+<a id="types-of-disks" class="xliff"></a>
 
-Det finns två prestandanivåer för lagring som du kan välja när du skapar diskar – Standard Storage och Premium Storage. Dessutom finns två typer av diskar, ohanterade och hanterade, som kan användas på båda prestandanivåerna.  
+## Types of disks 
 
-### <a name="standard-storage"></a>Standard Storage 
+There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier.  
 
-Standard Storage stöds av hårddiskar och levererar kostnadseffektiv lagring samtidigt som det är högpresterande. Standard Storage kan replikeras lokalt i ett datacenter eller vara geo-redundant med primära och sekundära datacenter. Mer information om lagringsreplikeringsalternativ finns i [Azure Storage-replikering](../articles/storage/storage-redundancy.md). 
+<a id="standard-storage" class="xliff"></a>
 
-Mer information om hur du använder Standard Storage med VM-diskar finns i [Standard Storage and Disks](../articles/storage/storage-standard-storage.md) (Standard Storage och diskar).
+### Standard storage 
 
-### <a name="premium-storage"></a>Premium Storage 
+Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/storage-redundancy.md). 
 
-Premium Storage stöds av solid state-hårddiskar och levererar högpresterande disksupport med låg fördröjning för virtuella datorer som kör I/O-intensiva arbetsbelastningar. Du kan använda Premium Storage med DS, DSv2, GS eller FS-seriens virtuella Azure-datorer. Mer information finns i [Premium Storage](../articles/storage/storage-premium-storage.md).
+For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/storage/storage-standard-storage.md).
 
-### <a name="unmanaged-disks"></a>Ohanterade diskar
+<a id="premium-storage" class="xliff"></a>
 
-Ohanterade diskar är den traditionella typen av diskar som används av virtuella datorer. Med dem kan du skapa ett eget lagringskonto och ange det lagringskontot när du skapar disken. Du måste se till att du inte lägger till för många diskar i samma lagringskonto eftersom du kan överskrida lagringskontots [skalbarhetsmål](../articles/storage/storage-scalability-targets.md) (20 000 IOPS, till exempel), vilket resulterar i att de virtuella datorerna begränsas. Du måste lista ut hur du optimerar användningen av en eller flera lagringskonton för att få ut den bästa prestandan av dina virtuella datorer med ohanterade diskar.
+### Premium storage 
 
-### <a name="managed-disks"></a>Hanterade diskar 
+Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, Ls, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/storage-premium-storage.md).
 
-Managed Disks hanterar skapandet/hanterandet av lagringskontot i bakgrunden och säkerställer att du inte behöver bekymra dig om lagringskontots skalbarhetsgränser. Du anger bara diskens storlek och prestandanivå (Standard/Premium) så skapar och hanterar Azure disken åt dig. Även om du lägger till diskar eller skalar upp eller ned den virtuella datorn behöver du inte oroa dig om lagringsutrymmet som används. 
+<a id="unmanaged-disks" class="xliff"></a>
 
-Du kan även hantera dina anpassade avbildningar i ett lagringskonto per Azure-region och använda dem för att skapa hundratals virtuella datorer i samma prenumeration. Mer information om Managed Disks finns i [Översikt över Azure Managed Disks](../articles/storage/storage-managed-disks-overview.md).
+### Unmanaged disks
 
-Vi rekommenderar att du använder Azure Managed Disks för nya virtuella datorer och att du konverterar tidigare ohanterade diskar till hanterade diskar för att dra nytta av de många funktionerna som finns i Managed Disks.
+Unmanaged disks are the traditional type of disks that have been used by VMs. With these, you create your own storage account and specify that storage account when you create the disk. You have to make sure you don't put too many disks in the same storage account, because you could exceed the [scalability targets](../articles/storage/storage-scalability-targets.md) of the storage account (20,000 IOPS, for example), resulting in the VMs being throttled. With unmanaged disks, you have to figure out how to maximize the use of one or more storage accounts to get the best performance out of your VMs.
 
-### <a name="disk-comparison"></a>Diskjämförelse
+<a id="managed-disks" class="xliff"></a>
 
-Följande tabell innehåller en jämförelse av Premium och Standard för både ohanterade och hanterade diskar, för att hjälpa dig att avgöra vad som passar dig bäst.
+### Managed disks 
 
-|    | Azure Premium-disk | Azure Standard-disk |
+Managed Disks handles the storage account creation/management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard/Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. 
+
+You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../articles/storage/storage-managed-disks-overview.md).
+
+We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks, to take advantage of the many features available in Managed Disks.
+
+<a id="disk-comparison" class="xliff"></a>
+
+### Disk comparison
+
+The following table provides a comparison of Premium vs Standard for both unmanaged and managed disks to help you decide what to use.
+
+|    | Azure Premium Disk | Azure Standard Disk |
 |--- | ------------------ | ------------------- |
-| Disktyp | Solid State-hårddiskar (SSD) | Hårddiskar (HDD)  |
-| Översikt  | SSD-baserad högpresterande disksupport med låg fördröjning för virtuella datorer som kör I/O-intensiva arbetsbelastningar eller är värd för verksamhetskritisk produktionsmiljö | HDD-baserad kostnadseffektiv disksupport för Dev/Test-VM-scenarier |
-| Scenario  | Produktion och prestandakänsliga arbetsbelastningar | Dev/Test, icke-kritiska, <br>Lågfrekvent åtkomst |
-| Diskstorlek | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Ohanterade diskar: 1 GB-1 TB <br><br>Hanterade diskar:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
-| Maxdataflöde per disk | 200 MB/s | 60 MB/s |
-| Max-IOPS per disk | 5000 IOPS | 500 IOPS |
+| Disk Type | Solid State Drives (SSD) | Hard Disk Drives (HDD)  |
+| Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD-based cost effective disk support for Dev/Test VM scenarios |
+| Scenario  | Production and performance sensitive workloads | Dev/Test, non-critical, <br>Infrequent access |
+| Disk Size | P4: 32 GB (Managed Disks only)<br>P6: 64 GB (Managed Disks only)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
+| Max Throughput per Disk | 250 MB/s | 60 MB/s | 
+| Max IOPS per Disk | 7500 IOPS | 500 IOPS | 
+

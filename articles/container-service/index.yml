@@ -1,0 +1,66 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure Container Service
+metadata:
+  document_id: 
+  title: 'Dokumentation om Azure Container Service – Självstudier, API-referens | Microsoft Docs'
+  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster.  Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
+  services: container-service
+  author: carolz
+  manager: carolz
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01-23-2017
+  ms.author: carolz
+abstract:
+  description: 'Med Azure Container Service kan du snabbt distribuera ett produktionsklart Kubernetes-, DC/OS- eller Docker Swarm-kluster.  Lär dig hur du använder Azure Container Service med de här snabbstarterna, självstudierna och exemplen.'
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Lär dig hur du distribuerar Kubernetes-kluster med Azure Container Service:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /media/logos/logo_linux.svg
+      text: Linux
+      href: /azure/container-service/container-service-kubernetes-walkthrough
+    - image: 
+        src: /media/logos/logo_Windows.svg
+      text: Windows
+      href: /azure/container-service/container-service-kubernetes-windows-walkthrough
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: 'Lär dig hur du distribuerar, hanterar och uppdaterar program i ett Azure Container Service Kubernetes-kluster.'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-prepare-app">Skapa behållaravbildningar från ett program (Create container images from an application)</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-prepare-acr">Ladda upp behållaravbildningar till Azure Container Registry (Upload container images to the Azure Container Registry)</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-deploy-cluster">Distribuera ett Kubernetes-kluster i Azure Container Service (Deploy a Kubernetes cluster in Azure Container Service)</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-deploy-application">Kör dina behållaravbildningar i Kubernetes (Run your container images in Kubernetes)</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-scale">Skala ett program och Kubernetes-infrastruktur (Scale an application and Kubernetes infrastructure)</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-app-update">Uppdatera ett program som körs i Kubernetes (Update an application running in Kubernetes)</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-monitor">Övervaka Kubernetes med OMS (Monitor Kubernetes with OMS)</a>
+- title: Exempel
+ 
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/container-service/cli-samples">Azure CLI</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/compute/containerservices">REST API</a></p>

@@ -1,89 +1,276 @@
+
+
 # Översikt
+
+
 ## [Vad är Azure Automation?](automation-intro.md)
+
+
 # Kom igång
+
+
 ## [Kom igång med Azure Automation](automation-offering-get-started.md)
+
+
 ## Självstudie för runbook
+
+
 ### [Skapa grafisk runbook](automation-first-runbook-graphical.md)
+
+
 ### [Skapa PowerShell-runbook](automation-first-runbook-textual-powershell.md)
+
+
 ### [Skapa PowerShell Workflow-runbook](automation-first-runbook-textual.md)
+
+
 # Gör så här för att
+
+
 ## Autentisering och säkerhet
+
+
 ### [Skapa fristående Automation-konto](automation-create-standalone-account.md)
+
+
 ### [Skapa Azure AD-användarkonto](automation-create-aduser-account.md)
+
+
 ### [Konfigurera autentisering med AWS](automation-config-aws-account.md)
+
+
 ### [Skapa kör som-konto för Automation](automation-create-runas-account.md)
+
+
 ### [Validera Automation-kontokonfig](automation-verify-runas-authentication.md)
+
+
 ### [Hantera rollbaserad åtkomstkontroll](automation-role-based-access-control.md)
+
+
 ### [Hantera Automation-konto](automation-manage-account.md)
+
+
 ## Skapa runbooks
+
+
 ### [Runbook-typer](automation-runbook-types.md)
+
+
 ### [Skapa och importera Runbooks](automation-creating-importing-runbook.md)
+
+
 ### [Redigera Runbooks med text](automation-edit-textual-runbook.md)
+
+
 ### [Redigera grafiska Runbooks](automation-graphical-authoring-intro.md)
+
+
 ### [Testa en Runbook](automation-testing-runbook.md)
+
+
 ### [Läs mer om PowerShell-arbetsflödet](automation-powershell-workflow.md)
+
+
 ### [Underordnade Runbooks](automation-child-runbooks.md)
+
+
 ### [Utdata från Runbooks](automation-runbook-output-and-messages.md)
+
+
 ### [Källkontrollsintegrering](automation-source-control-integration.md)
-## Automatisera runbooks
+
+
+## Automatisera
+
+
 ### [Starta en Runbook](automation-starting-a-runbook.md)
+
+
 ### [Starta ett runbook-flöde från en webhook](automation-webhooks.md)
-### [Köra Runbooks i datacentret](automation-hybrid-runbook-worker.md)
+
+
+### [Kör runbook-flöden på Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+
+
 ### [Konfigurera indataparametrar för Runbook](automation-runbook-input-parameters.md)
+
+
 ### [Felhantering i grafiska runbook-flöden](automation-runbook-graphical-error-handling.md)
+
+
 ### [Spåra ett Runbook-jobb](automation-runbook-execution.md)
+
+
 ### [Ändra Runbook-inställningar](automation-runbook-settings.md)
+
+
 ### [Hantera Azure Automation-data](automation-managing-data.md)
+
+
 ### [Anropa Azure Automation Runbook från en Log Analytics-avisering](automation-invoke-runbook-from-omsla-alert.md)
+
+
+### [Skicka ett JSON-objekt till en Azure Automation-runbook](automation-pass-json-string.md)
+
+
 ## Distribuera konfigurationshantering (DSC)
+
+
 ### [Översikt över önskad tillståndskonfiguration (DSC)](automation-dsc-overview.md)
+
+
 ### [Komma igång](automation-dsc-getting-started.md)
+
+
 ### [Konfigurera datorer för hantering](automation-dsc-onboarding.md)
+
+
 ### [Kompilera DSC-konfigurationer](automation-dsc-compile.md)
+
+
 ### [Kontinuerlig distribution med Chocolatey](automation-dsc-cd-chocolatey.md)
+
+
 ### [Vidarebefordra Azure Automation DSC-rapportdata till OMS Log Analytics](automation-dsc-diagnostics.md)
-## Hantera automationstillgångar
+
+
+## Hantera tillgångar
+
+
 ### [Certifikat](automation-certificates.md)
+
+
 ### [Anslutningar](automation-connections.md)
+
+
 ### [Autentiseringsuppgifter](automation-credentials.md)
+
+
 ### [Integreringsmoduler](automation-integration-modules.md)
+
+
 ### [Scheman](automation-schedules.md)
+
+
 ### [Variabler](automation-variables.md)
+
+
 ### [Uppdatera Azure PowerShell-moduler](automation-update-azure-modules.md)
-## Automatisera scenarier
+
+
+## Scenarier
+
+
 ### [Runbook-galleri](automation-runbook-gallery.md)
+
+
 ### [Skapa virtuella Amazon Web Service-datorer](automation-scenario-aws-deployment.md)
+
+
 ### [Åtgärda varning från virtuell Azure-dator](automation-azure-vm-alert-integration.md)
+
+
 ### [Starta/stoppa virtuell dator med JSON-taggar](automation-scenario-start-stop-vm-wjson-tags.md)
+
+
 ### [Ta bort resursgrupp](automation-scenario-remove-resourcegroup.md)
+
+
 ### [Källkontrollsintegrering med GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+
+
 ### [Källkontrollsintegrering med VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+
+
+### [Anropa Azure Automation Runbook från en Log Analytics-avisering](automation-invoke-runbook-from-omsla-alert.md)
+
+
 ## Lösningar
+
+
 ### [Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md)
+
+
 ### [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)
+
+
 ### [Starta/stoppa virtuella datorer utanför arbetstid](automation-solution-vm-management.md)
+
+
 ## Övervaka
+
+
 ### [Vidarebefordra jobbdata från Azure Automation till Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+
+
 ### [Ta bort länk till Azure Automation-konto från Log Analytics](automation-unlink-from-log-analytics.md)
+
+
 ## Migrera
+
+
 ### [Migrera från Orchestrator](automation-orchestrator-migration.md)
+
+
 ### [Flytta Automation-konto](automation-migrate-account-subscription.md)
+
+
 ## Felsöka
+
+
 ### [Felsöka vanliga fel](automation-troubleshooting-automation-errors.md)
+
+
 ### [Felsöka Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
+
+
 # Referens
+
+
 ## [PowerShell](/powershell/module/azurerm.automation)
+
+
 ## [PowerShell (klassisk)](/powershell/module/azure/?view=azuresmps-3.7.0)
+
+
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
+
+
 ## [REST](/rest/api/automation)
+
+
 ## [REST (klassisk)](https://msdn.microsoft.com/library/azure/mt163781)
+
+
 # Resurser
-## [Viktig information](https://azure.microsoft.com/updates/?product=automation)
-## [Prissättning](https://azure.microsoft.com/pricing/details/automation/)  
-## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
-## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=automation)
-## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=automation)
-## [Azure Automation-utbildning](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
-## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/automation/)
+
+
 ## [Introduktionsvideo för Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
+
+
+## [Azure Automation-utbildning](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
+
+
+## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+
+
+## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/automation/)
+
+
+## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+
+
+## [Prissättning](https://azure.microsoft.com/pricing/details/automation/)  
+
+
+## [Viktig information](https://azure.microsoft.com/updates/?product=automation)
+
+
+## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=automation)
+
+
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
+
+
+## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=automation)

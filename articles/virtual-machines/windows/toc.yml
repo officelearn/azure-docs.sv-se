@@ -134,13 +134,13 @@
       href: create-vm-specialized.md
     - name: Skapa en virtuell dator med en mall
       href: ps-template.md
-    - name: 'Skapa en virtuell dator med C#'
+    - name: 'Skapa/hantera virtuella datorer med C#'
       href: csharp.md
     - name: 'Skapa en virtuell dator med C# och en mall'
       href: csharp-template.md
     - name: Skapa en virtuell dator med Chef
       href: chef-automation.md
-    - name: Skapa en virtuell dator med Python
+    - name: Skapa/hantera virtuella datorer med Python
       href: python.md
     - name: Skapa en virtuell dator med Terraform
       items:
@@ -173,8 +173,6 @@
       href: cli-manage.md
     - name: Hantera virtuella datorer med CLI
       href: cli-deploy-templates.md
-    - name: 'Hantera virtuella datorer med C#'
-      href: csharp-manage.md
   - name: Anslut med RDP
     items:
     - name: Logga in på en virtuell dator
@@ -187,6 +185,8 @@
       href: hybrid-use-benefit-licensing.md
     - name: Använda Windows-klientavbildningar
       href: client-images.md
+    - name: Ladda ned en virtuell hårddisk
+      href: download-vhd.md
     - name: Förbered en virtuell hårddisk för uppladdning
       href: prepare-for-upload-vhd-image.md
     - name: Skapa en avbildning av en hanterad disk
@@ -366,15 +366,22 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Återställ RDP-lösenord
       href: reset-rdp.md
+    - name: Återställ NIC
+      href: reset-network-interface.md
     - name: Startdiagnostik
  
       href: boot-diagnostics.md
     - name: Skapa en virtuell dator
       href: troubleshoot-deployment-new-vm.md
+    - name: Distributionsproblem
+ 
+      href: troubleshoot-deploy-vm.md
     - name: Starta om eller ändra storlek på en virtuell dator
       href: restart-resize-error-troubleshooting.md
     - name: Programåtkomst
       href: troubleshoot-app-connection.md
+    - name: Problem med aktivering
+      href: troubleshoot-activation-problems.md
     - name: Allokeringsfel
       href: allocation-failure.md
     - name: Distribuera om en VM
@@ -409,6 +416,8 @@
   items:
   - name: Skapa mallar
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
   - name: Community-mallar
     href: https://azure.microsoft.com/documentation/templates
   - name: Prissättning

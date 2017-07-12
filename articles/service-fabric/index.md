@@ -19,7 +19,9 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/23/2017
 
 ---
-#<a name="service-fabric-documentation"></a>Dokumentation om Service Fabric
+<a id="service-fabric-documentation" class="xliff"></a>
+
+#Dokumentation om Service Fabric
 
 Lär dig hur du använder Service Fabric för att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Självstudier, API-referenser och kodexempel visas hur du använder den här mellanplattformen för att skapa och hantera program i molnskala.
 

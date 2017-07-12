@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/23/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
+ms.translationtype: HT
 ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
 ms.openlocfilehash: 28aede545c738137ff04257214e4a3f42792d85c
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Komma igång med Azure Multi-Factor Authentication och Active Directory Federation Services
+<a id="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services" class="xliff"></a>
+
+# Komma igång med Azure Multi-Factor Authentication och Active Directory Federation Services
 <center>![Moln](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Om din organisation har federerat det lokala Active Directory med Azure Active Directory med hjälp av AD FS finns det två Azure Multi-Factor Authentication-alternativ tillgängliga.
@@ -44,7 +45,9 @@ Varningar med applösenord för federerade användare:
 * Du kan inte använda lokal autentiseringsloggning med applösenord.
 * Inaktiveringen eller borttagningen av konton kan ta upp till tre timmar för katalogsynkronisering, vilket försenar inaktiveringen eller borttagningen av applösenord i molnidentiteten.
 
-## <a name="next-steps"></a>Nästa steg
+<a id="next-steps" class="xliff"></a>
+
+## Nästa steg
 Information om hur du konfigurerar Azure Multi-Factor Authentication eller Azure Multi-Factor Authentication Server med AD FS finns i följande artiklar:
 
 * [Skydda molnresurser med hjälp av Azure Multi-Factor Authentication och AD FS](multi-factor-authentication-get-started-adfs-cloud.md)

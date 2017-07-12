@@ -1,28 +1,28 @@
-**Ohanterade virtuella Premium-datordiskar: gränser per konto**
+**Premium unmanaged virtual machine disks: per account limits**
 
-| Resurs | Standardgräns |
+| Resource | Default Limit |
 | --- | --- |
-| Total diskkapacitet per konto |35 TB |
-| Total kapacitet för ögonblicksbilder per konto |10 TB |
-| Högsta bandbredd per konto (ingående + utgående<sup>1</sup>) |<= 50 Gbit/s |
+| Total disk capacity per account |35 TB |
+| Total snapshot capacity per account |10 TB |
+| Max bandwidth per account (ingress + egress<sup>1</sup>) |<=50 Gbps |
 
-<sup>1</sup>*Ingående* syftar på alla data (förfrågningar) som skickas till ett lagringskonto. *Utgående* syftar på alla data (svar) som tas emot från ett lagringskonto.
+<sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
 
-**Ohanterade virtuella Premium-datordiskar: gränser per disk**
+**Premium unmanaged virtual machine disks: per disk limits**
 
-| Premium Storage-disktyp | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Diskstorlek |128 GiB |512 GiB |1 024 GiB (1 TB) |
-| Högsta IOPS per disk |500 |2 300 |5000 |
-| Högsta dataflöde per disk |100 MB/s | 150 MB/s |200 MB/s |
-| Högsta antal diskar per lagringskonto |280 |70 |35 |
+| Premium Storage Disk Type | P10 | P20 | P30 | P40 | P50 |
+| --- | --- | --- | --- | --- | --- |
+| Disk size |128 GiB |512 GiB |1024 GiB (1 TB) |2048 GiB (2 TB)|4095 GiB (4 TB)|
+| Max IOPS per disk |500 |2300 |5000 |7500 |7500 |
+| Max throughput per disk |100 MB/s | 150 MB/s |200 MB/s |250 MB/s |250 MB/s |
+| Max number of disks per storage account |280 |70 |35 | 17 | 8 |
 
-**Ohanterade virtuella Premium-datordiskar: gränser per virtuell dator**
+**Premium unmanaged virtual machine disks: per VM limits**
 
-| Resurs | Standardgräns |
+| Resource | Default Limit |
 | --- | --- |
-| Högsta IOPS per virtuell dator |80 000 IOPS med virtuell GS5-dator<sup>1</sup> |
-| Högsta dataflöde per virtuell dator |2 000 MB/s med virtuell GS5-dator<sup>1</sup> |
+| Max IOPS Per VM |80,000 IOPS with GS5 VM<sup>1</sup> |
+| Max throughput per VM |2,000 MB/s with GS5 VM<sup>1</sup> |
 
-<sup>1</sup>Information om gränser för andra VM-storlekar finns i avsnittet om [storlekar på virtuella datorer](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+<sup>1</sup>Refer to [VM Size](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for limits on other VM sizes. 
 

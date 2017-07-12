@@ -103,7 +103,9 @@
     href: /cli/azure/mysql
 - name: Resurser
   items:
-  - name: Prissättning
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Priser
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: MSDN-forum
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL

@@ -16,14 +16,15 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: bdb36e6397951d2d3298dbfe9e80a0b678ecfdaf
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 8de3df11a59178b782d50b7662aa5d8cab11a260
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="get-started-with-the-batch-sdk-for-python"></a>Kom igång med Batch SDK för Python
+# Kom igång med Batch SDK för Python
+<a id="get-started-with-the-batch-sdk-for-python" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [NET](batch-dotnet-get-started.md)
@@ -36,24 +37,29 @@ Lär dig grunderna om [Azure Batch][azure_batch] och [Batch Python][py_azure_sdk
 
 ![Arbetsflöde för Batch-lösning (grundläggande)][11]<br/>
 
-## <a name="prerequisites"></a>Krav
+## Krav
+<a id="prerequisites" class="xliff"></a>
 Den här artikeln förutsätter att du har kunskaper om Python och att du är bekant med Linux. Vi förutsätter också att du uppfyller kontokraven som anges nedan för Azure och Batch- och Storage-tjänsterna.
 
-### <a name="accounts"></a>Konton
+### Konton
+<a id="accounts" class="xliff"></a>
 * **Azure-konto**: Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt Azure-konto][azure_free_account].
 * **Batch-konto**: När du har skaffat en Azure-prenumeration [skapar du ett Azure Batch-konto](batch-account-create-portal.md).
 * **Lagringskonto**: Se [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
 
-### <a name="code-sample"></a>Kodexempel
+### Kodexempel
+<a id="code-sample" class="xliff"></a>
 [Kodexemplet][github_article_samples] i Python-självstudiekursen är ett av de många Batch-kodexemplen i [azure-batch-samples][github_samples]-databasen på GitHub. Du kan ladda ned alla exempel genom att klicka på **Klona eller ladda ned > Ladda ned ZIP** på startsidan för databasen eller genom att klicka på direktnedladdningslänken för [azure-batch-samples-master.zip][github_samples_zip]. När du har extraherat innehållet i ZIP-filen hittar du de två skripten för den här självstudiekursen i katalogen `article_samples`:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
-### <a name="python-environment"></a>Python-miljö
+### Python-miljö
+<a id="python-environment" class="xliff"></a>
 För att köra *python_tutorial_client.py*-exempelskriptet på den lokala arbetsstationen behöver du en **Python-tolk** som är kompatibel med version **2.7** eller **3.3+**. Skriptet har testats på både Linux och Windows.
 
-### <a name="cryptography-dependencies"></a>kryptografiberoenden
+### kryptografiberoenden
+<a id="cryptography-dependencies" class="xliff"></a>
 Du måste installera beroendena för det [kryptografibibliotek][crypto] som krävs av Python-paketen `azure-batch` och `azure-storage`. Utför någon av följande åtgärder, beroende på din plattform, eller läs avsnittet med information om [kryptografiinstallationen][crypto_install]:
 
 * Ubuntu
@@ -61,7 +67,7 @@ Du måste installera beroendena för det [kryptografibibliotek][crypto] som krä
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
 
-    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+    `yum update && yum install -y gcc openssl-devel libffi-devel python-devel`
 * SLES/OpenSUSE
 
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
@@ -74,7 +80,8 @@ Du måste installera beroendena för det [kryptografibibliotek][crypto] som krä
 >
 >
 
-### <a name="azure-packages"></a>Azure-paket
+### Azure-paket
+<a id="azure-packages" class="xliff"></a>
 Installera Python-paketen för **Azure Batch** och **Azure Storage**. Du kan installera båda paketen med hjälp av **pip**, och *requirements.txt* hittar du här:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
@@ -93,7 +100,8 @@ Du kan installera Python-paketen [azure batch][pypi_batch] och [azure-lagring][p
 >
 >
 
-## <a name="batch-python-tutorial-code-sample"></a>Kodexempel från självstudiekursen om Python i Batch
+## Kodexempel från självstudiekursen om Python i Batch
+<a id="batch-python-tutorial-code-sample" class="xliff"></a>
 Kodexemplet från självstudiekursen om Python i Batch består av två Python-skript och några datafiler.
 
 * **python_tutorial_client.PY**: Interagerar med Batch- och Storage-tjänsterna för att köra en parallell arbetsbelastning på beräkningsnoder (virtuella datorer). Skriptet *python_tutorial_client.py* körs på den lokala arbetsstationen.
@@ -118,7 +126,8 @@ Följande diagram illustrerar de primära åtgärderna som utförs av klient- oc
 
 Som vi nämnt utför inte alla Batch-lösningar exakt dessa steg, och många kan innehålla fler, men det här exemplet demonstrerar vanliga processer i en Batch-lösning.
 
-## <a name="prepare-client-script"></a>Förbereda klientskriptet
+## Förbereda klientskriptet
+<a id="prepare-client-script" class="xliff"></a>
 Innan du kör exemplet lägger du till autentiseringsuppgifterna för dina Batch- och Storage-konton i *python_tutorial_client.py*. Om du inte redan har gjort det öppnar du filen i din favoritredigerare och uppdaterar följande rader med dina autentiseringsuppgifter.
 
 ```python
@@ -149,7 +158,8 @@ Navigera till följande rad i **python_tutorial_client.py** för att börja med 
 if __name__ == '__main__':
 ```
 
-## <a name="step-1-create-storage-containers"></a>Steg 1: Skapa Storage-behållare
+## Steg 1: Skapa Storage-behållare
+<a id="step-1-create-storage-containers" class="xliff"></a>
 ![Skapa behållare i Azure Storage][1]
 <br/>
 
@@ -187,7 +197,8 @@ När behållarna har skapats kan programmet ladda upp filerna som ska användas 
 >
 >
 
-## <a name="step-2-upload-task-script-and-data-files"></a>Steg 2: Ladda upp aktivitetsskript och datafiler
+## Steg 2: Ladda upp aktivitetsskript och datafiler
+<a id="step-2-upload-task-script-and-data-files" class="xliff"></a>
 ![Ladda upp filer för aktivitetsprogram och indata till behållare][2]
 <br/>
 
@@ -260,7 +271,8 @@ def upload_file_to_container(block_blob_client, container_name, path):
                                     blob_source=sas_url)
 ```
 
-### <a name="resourcefiles"></a>ResourceFiles
+### ResourceFiles
+<a id="resourcefiles" class="xliff"></a>
 En [ResourceFile][py_resource_file] definierar aktiviteter i Batch med URL-adressen till en fil i Azure Storage som laddas ned till en beräkningsnod innan aktiviteten körs. Egenskapen [ResourceFile][py_resource_file].**blob_source** anger den fullständiga URL:en för filen i Azure Storage. URL-adressen kan även innehålla en signatur för delad åtkomst (SAS) som ger säker åtkomst till filen. De flesta aktivitetstyper i Batch har en *ResourceFiles*-egenskap, inklusive:
 
 * [CloudTask][py_task]
@@ -270,7 +282,8 @@ En [ResourceFile][py_resource_file] definierar aktiviteter i Batch med URL-adres
 
 I det här exemplet används inte aktivitetstyperna JobPreparationTask och JobReleaseTask, men du kan läsa mer om dem i [Köra jobbförberedelse- och jobbpubliceringsaktiviteter på Azure Batch-beräkningsnoder](batch-job-prep-release.md).
 
-### <a name="shared-access-signature-sas"></a>Signatur för delad åtkomst (SAS)
+### Signatur för delad åtkomst (SAS)
+<a id="shared-access-signature-sas" class="xliff"></a>
 Signaturer för delad åtkomst är strängar som ger säker åtkomst till behållare och blobbar i Azure Storage. Skriptet *python_tutorial_client.py* använder både signaturer för delad åtkomst för blobbar och behållare och visar hur du skaffar dessa strängar för signaturer för delad åtkomst från Storage-tjänsten.
 
 * **Signaturer för delad åtkomst för blobbar**: Poolens StartTask använder signaturer för delad åtkomst för blobbar när den laddar ned aktivitetsskriptet och indatafilerna från Storage (se [steg 3](#step-3-create-batch-pool) nedan). Funktionen `upload_file_to_container` i *python_tutorial_client.py* innehåller koden som hämtar signaturen för delad åtkomst för varje blobb. Detta sker genom att [BlockBlobService.make_blob_url][py_make_blob_url] anropas i Storage-modulen.
@@ -281,7 +294,8 @@ Signaturer för delad åtkomst är strängar som ger säker åtkomst till behål
 >
 >
 
-## <a name="step-3-create-batch-pool"></a>Steg 3: Skapa en Batch-pool
+## Steg 3: Skapa en Batch-pool
+<a id="step-3-create-batch-pool" class="xliff"></a>
 ![Skapa en Batch-pool][3]
 <br/>
 
@@ -386,7 +400,8 @@ Något annat att notera i kodfragmentet ovan är användningen av två miljövar
 >
 >
 
-## <a name="step-4-create-batch-job"></a>Steg 4: Skapa ett Batch-jobb
+## Steg 4: Skapa ett Batch-jobb
+<a id="step-4-create-batch-job" class="xliff"></a>
 ![Skapa ett Batch-jobb][4]<br/>
 
 Ett Batch-**jobb** är en samling aktiviteter och associeras med en pool av beräkningsnoder. Aktiviteterna i ett jobb körs på den associerade poolens beräkningsnoder.
@@ -420,7 +435,8 @@ def create_job(batch_service_client, job_id, pool_id):
 
 Nu när jobbet har skapats är det dags att lägga till aktiviteterna som ska utföra arbetet.
 
-## <a name="step-5-add-tasks-to-job"></a>Steg 5: Lägga till aktiviteter till ett jobb
+## Steg 5: Lägga till aktiviteter till ett jobb
+<a id="step-5-add-tasks-to-job" class="xliff"></a>
 ![Lägga till aktiviteter till ett jobb][5]<br/>
 *(1) Aktiviteterna läggs till i jobbet, (2) aktiviteterna schemaläggs för att köras på noder och (3) aktiviteterna hämtar datafilerna som ska bearbetas*
 
@@ -493,7 +509,8 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
                                          sas_token=args.sastoken)
 ```
 
-## <a name="step-6-monitor-tasks"></a>Steg 6: Övervaka aktiviteter
+## Steg 6: Övervaka aktiviteter
+<a id="step-6-monitor-tasks" class="xliff"></a>
 ![Övervaka aktiviteter][6]<br/>
 *Skriptet (1) övervakar aktiviteterna tills de slutförts och (2) aktiviteterna överför resultatdata till Azure Storage*
 
@@ -536,7 +553,8 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
                        "timeout period of " + str(timeout))
 ```
 
-## <a name="step-7-download-task-output"></a>Steg 7: Hämta aktivitetsutdata
+## Steg 7: Hämta aktivitetsutdata
+<a id="step-7-download-task-output" class="xliff"></a>
 ![Hämta aktivitetsutdata från Storage][7]<br/>
 
 Nu när jobbet har slutförts kan du hämta aktivietsutdata från Azure Storage. Detta görs med ett anrop till `download_blobs_from_container` i *python_tutorial_client.py*:
@@ -578,7 +596,8 @@ def download_blobs_from_container(block_blob_client,
 >
 >
 
-## <a name="step-8-delete-containers"></a>Steg 8: Ta bort behållare
+## Steg 8: Ta bort behållare
+<a id="step-8-delete-containers" class="xliff"></a>
 Eftersom du debiteras för data som finns i Azure Storage är det alltid en bra idé att ta bort alla blobbar som inte längre behövs för dina Batch-jobb. I *python_tutorial_client.py* görs detta med tre anrop till [BlockBlobService.delete_container][py_delete_container]:
 
 ```python
@@ -589,7 +608,8 @@ blob_client.delete_container(input_container_name)
 blob_client.delete_container(output_container_name)
 ```
 
-## <a name="step-9-delete-the-job-and-the-pool"></a>Steg 9: Ta bort jobbet och poolen
+## Steg 9: Ta bort jobbet och poolen
+<a id="step-9-delete-the-job-and-the-pool" class="xliff"></a>
 I det sista steget uppmanas du att ta bort jobbet och poolen som skapades med *python_tutorial_client.py*-skriptet. Även om du inte debiteras för själva jobben och aktiviteterna debiteras *du* för beräkningsnoder. Vi rekommenderar därför att du endast allokerar noder efter behov. Borttagning av oanvända pooler kan ingå i din underhållsrutin.
 
 BatchServiceClients [JobOperations][py_job] och [PoolOperations][py_pool] har båda tillhörande borttagningsmetoder, som anropas om du bekräftar borttagningen:
@@ -608,7 +628,8 @@ if query_yes_no('Delete pool?') == 'yes':
 >
 >
 
-## <a name="run-the-sample-script"></a>Kör exempelskriptet
+## Kör exempelskriptet
+<a id="run-the-sample-script" class="xliff"></a>
 När du kör *python_tutorial_client.py*-skriptet från [kodexemplet][github_article_samples] i självstudiekursen liknar konsolens utdata följande. Det är en paus vid `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` när poolens beräkningsnoder skapas, startas och när kommandona i poolens startuppgift körs. Använd [Azure Portal][azure_portal] när du vill övervaka poolen, beräkningsnoderna, jobbet och aktiviteterna under och efter körningen. Använd [Azure Portal][azure_portal] eller [Microsoft Azure Storage Explorer][storage_explorer] för att visa de lagringsresurser (behållare och blobar) som skapas av programmet.
 
 > [!TIP]
@@ -646,7 +667,8 @@ Delete pool? [Y/n]
 Press ENTER to exit...
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 Experimentera gärna med olika beräkningsscenarier genom att göra ändringar i *python_tutorial_client.py* och *python_tutorial_task.py*. Prova till exempel att lägga till en körningsfördröjning till *python_tutorial_task.py* för att simulera långvariga aktiviteter och övervaka dem i portalen. Prova att lägga till fler aktiviteter eller att justera antalet beräkningsnoder. Lägg till logik för att söka efter och tillåta användningen av en befintlig pool som kan påskynda körningen.
 
 Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lösning är det dags att titta närmare på de andra funktionerna i Batch-tjänsten.

@@ -1,19 +1,20 @@
-### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Create a TCP endpoint for the virtual machine
-In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
+### Skapa en TCP-slutpunkt för den virtuella datorn
+<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
+För att kunna ansluta till SQL Server via Internet måste den virtuella datorn ha en slutpunkt för att lyssna på inkommande TCP-kommunikation. I det här Azure-konfigurationssteget dirigeras inkommande trafik via TCP-porten till en TCP-port som är tillgänglig på den virtuella datorn.
 
 > [!NOTE]
-> If you are connecting within the same cloud service or virtual network, you do not have to create a publically accessible endpoint. In that case, you could continue to the next step. For more information, see [Connection Scenarios](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
+> Om du ansluter inom samma molntjänst eller virtuella nätverk behöver du inte skapa en offentligt tillgänglig slutpunkt. I så fall kan du fortsätta till nästa steg. Mer information finns i [Connection Scenarios](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios) (Anslutningsscenarier).
 > 
 > 
 
-1. On the Azure Portal, select **Virtual machines (classic)**.
-2. Then select you SQL Server virtual machine.
-3. Select **Endpoints**, and then click the **Add** button at the top of the Endpoints blade.
+1. Välj **Virtuella datorer (klassiska)** i Azure Portal.
+2. Välj sedan den virtuella SQL Server-datorn.
+3. Välj **Slutpunkter** och klicka sedan på **Lägg till** längst upp på bladet Slutpunkter.
    
-    ![Portal Steps for Endpoint Creation](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
-4. On the **Add Endpoint** blade, provide a **Name** such as SQLEndpoint.
-5. Select **TCP** for the **Protocol**.
-6. For **Public port**, specify a port number such as **57500**.
-7. For **Private port**, specify SQL Server's listening port, which defaults to **1433**.
-8. Click **Ok** to create the endpoint.
+    ![Steg för att skapa en slutpunkt i Azure Portal](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
+4. Ange ett **namn**, till exempel SQLSlutpunkt på bladet **Lägg till slutpunkt**.
+5. Välj **TCP** i **Protokoll**.
+6. För **Offentlig port** anger du ett portnummer, till exempel **57500**.
+7. För **Privat port** anger du en lyssningsport för SQL Server. Standardinställningen är **1433**.
+8. Klicka på **OK** för att skapa slutpunkten.
 

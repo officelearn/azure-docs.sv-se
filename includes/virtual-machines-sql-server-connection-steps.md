@@ -1,96 +1,100 @@
-### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Open TCP ports in the Windows firewall for the default instance of the Database Engine
-1. Connect to the virtual machine with Remote Desktop. For detailed instructions on connecting to the VM, see [Open a SQL VM with Remote Desktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
-2. Once logged in, at the Start screen, type **WF.msc**, and then hit ENTER.
+### Öppna TCP-portar i Windows-brandväggen för standardinstansen av databasmotorn
+<a id="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine" class="xliff"></a>
+1. Anslut till den virtuella datorn med Fjärrskrivbord. Detaljerade instruktioner om hur du ansluter till den virtuella datorn finns i [Öppna den virtuella SQL-datorn med Fjärrskrivbord](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
+2. När du är inloggad skriver du **WF.msc** på Startskärmen. Tryck sedan på RETUR.
    
-    ![Start the Firewall Program](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
-3. In the **Windows Firewall with Advanced Security**, in the left pane, right-click **Inbound Rules**, and then click **New Rule** in the action pane.
+    ![Starta brandväggsprogrammet](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
+3. I **Windows-brandväggen med avancerad säkerhet** högerklickar du på **Regler för inkommande trafik** i den vänstra rutan. Klicka sedan på **Ny regel** i åtgärdsfönstret.
    
-    ![New Rule](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
-4. In the **New Inbound Rule Wizard** dialog box, under **Rule Type**, select **Port**, and then click **Next**.
-5. In the **Protocol and Ports** dialog, use the default **TCP**. In the **Specific local ports** box, then type the port number of the instance of the Database Engine (**1433** for the default instance or your choice for the private port in the endpoint step).
+    ![Ny regel](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
+4. I dialogrutan **Guiden Ny inkommande regel** väljer du **Port** under **Regeltyp**. Klicka sedan på **Nästa**.
+5. Använd **TCP-standardporten** i dialogrutan **Protokoll och portar**. I rutan **Specifika lokala portar** anger du sedan portnumret för instansen av databasmotorn (**1433** för standardinstansen eller valet du gjorde för den privata porten i slutpunktssteget).
    
-    ![TCP Port 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
-6. Click **Next**.
-7. In the **Action** dialog box, select **Allow the connection**, and then click **Next**.
+    ![TCP-port 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
+6. Klicka på **Nästa**.
+7. I dialogrutan **Åtgärd** markerar du **Tillåt anslutningen** och klickar på **Nästa**.
    
-    **Security Note:** Selecting **Allow the connection if it is secure** can provide additional security. Select this option if you want to configure additional security options in your environment.
+    **Säkerhetstips:** Du får ytterligare skydd om du markerar **Tillåt anslutningen om den är säker**. Välj det här alternativet om du vill konfigurera ytterligare säkerhetsalternativ i din miljö.
    
-    ![Allow Connections](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
-8. In the **Profile** dialog box, select **Public**, **Private**, and **Domain**. Then click **Next**.
+    ![Tillåta anslutningar](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
+8. Markera **Offentlig**, **Privat** och **Domän** i dialogrutan **Profil**. Klicka sedan på **Nästa**.
    
-    **Security Note:**  Selecting **Public** allows access over the internet. Whenever possible, select a more restrictive profile.
+    **Säkerhetstips:**  Om du väljer **Offentlig** tillåts åtkomst via Internet. Välj alltid en mer restriktiv profil om det är möjligt.
    
-    ![Public Profile](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
-9. In the **Name** dialog box, type a name and description for this rule, and then click **Finish**.
+    ![Offentlig profil](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
+9. Skriv ett namn och en beskrivning för regeln i dialogrutan **Namn** och klicka sedan på **Slutför**.
    
-    ![Rule Name](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
+    ![Regelnamn](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
 
-Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx).
+Öppna ytterligare portar för andra komponenter efter behov. Mer information finns i [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx) (Konfigurera Windows-brandväggen för att tillåta SQL Server-åtkomst).
 
-### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Configure SQL Server to listen on the TCP protocol
-1. While connected to the virtual machine, on the Start page, type **SQL Server Configuration Manager** and hit ENTER.
+### Konfigurera SQL Server för att lyssna på TCP-protokollet
+<a id="configure-sql-server-to-listen-on-the-tcp-protocol" class="xliff"></a>
+1. När du är ansluten till den virtuella datorn skriver du **Konfigurationshanteraren för SQL Server**  på startsidan. Tryck sedan på RETUR.
    
-    ![Open SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. In SQL Server Configuration Manager, in the console pane, expand **SQL Server Network Configuration**.
-3. In the console pane, click **Protocols for MSSQLSERVER** (he default instance name.) In the details pane, right-click **TCP** and click **Enable** if it is not already enabled.
+    ![Öppna SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
+2. Expandera **SQL Server-nätverkskonfiguration** i konsolfönstret i Konfigurationshanteraren för SQL Server.
+3. Klicka på **Protokoll för MSSQLSERVER** (standardinstansnamnet) i konsolfönstret. Högerklicka på **TCP** i informationsfönstret och klicka på **Aktivera** om det inte redan har aktiverats.
    
-    ![Enable TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. In the console pane, click **SQL Server Services**. In the details pane, right-click **SQL Server (*instance name*)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server.
+    ![Aktivera TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
+4. Klicka på **SQL Server-tjänster** i konsolfönstret. Högerklicka på **SQL Server (*instansnamnet*)** (standardinstansen är **SQL Server (MSSQLSERVER)**) i informationsfönstret och klicka sedan på **Starta om** för att stoppa och starta om instansen av SQL Server.
    
-    ![Restart Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. Close SQL Server Configuration Manager.
+    ![Starta om databasmotorn](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
+5. Stäng Konfigurationshanteraren för SQL Server.
 
-For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx).
+Mer information om hur du aktiverar protokoll för SQL Server-databasmotorn finns i [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx) (Aktivera eller inaktivera ett servernätverksprotokoll).
 
-### <a name="configure-sql-server-for-mixed-mode-authentication"></a>Configure SQL Server for mixed mode authentication
-The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication.
+### Konfigurera SQL Server för blandat läge-autentisering
+<a id="configure-sql-server-for-mixed-mode-authentication" class="xliff"></a>
+SQL Server-databasmotorn kan inte använda Windows-autentisering utan domänmiljö. Om du vill ansluta till databasmotorn från en annan dator konfigurerar du SQL Server för blandat läge-autentisering. Med blandat läge-autentisering tillåts både SQL Server-autentisering och Windows-autentisering.
 
 > [!NOTE]
-> Configuring mixed mode authentication might not be necessary if you have configured an Azure Virtual Network with a configured domain environment.
+> Det kanske inte är nödvändigt att konfigurera blandat läge-autentisering om du har konfigurerat ett virtuellt Azure-nätverk med en konfigurerad domänmiljö.
 > 
 > 
 
-1. While connected to the virtual machine, on the Start page, type **SQL Server Management Studio** and click the selected icon.
+1. När du är ansluten till den virtuella datorn skriver du **SQL Server Management Studio** på startsidan och klickar sedan på den valda ikonen.
    
-    The first time you open Management Studio it must create the users Management Studio environment. This may take a few moments.
-2. Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**). Select **Windows Authentication**, and leave ***your_VM_name*\your_local_administrator** in the **User name** box. Click **Connect**.
+    Första gången du öppnar Management Studio måste programmet skapa en Management Studio-miljö för användarna. Det kan ta en stund.
+2. Management Studio presenterar dialogrutan **Anslut till Server**. I rutan **Servernamn** skriver du namnet på den virtuella datorn som ska anslutas till databasmotorn med Object Explorer (i stället för namnet på den virtuella datorn kan du också använda **(lokal)** eller en punkt som **Servernamn**). Välj **Windows-autentisering** och lämna ***ditt_VM_namn*\din_lokala_administratör** i rutan **Användarnamn**. Klicka på **Anslut**.
    
-    ![Connect to Server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
-3. In SQL Server Management Studio Object Explorer, right-click the name of the instance of SQL Server (the virtual machine name), and then click **Properties**.
+    ![Anslut till server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
+3. Högerklicka på instansen av SQL Server (namnet på den virtuella datorn) i Object Explorer i SQL Server Management Studio. Klicka sedan på **Egenskaper**.
    
-    ![Server Properties](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
-4. On the **Security** page, under **Server authentication**, select **SQL Server and Windows Authentication mode**, and then click **OK**.
+    ![Serveregenskaper](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
+4. Markera **Läge för SQL Server- och Windows-autentisering** under **Serverautentisering** på sidan **Säkerhet**. Klicka sedan på **OK**.
    
-    ![Select Authentication Mode](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
-5. In the SQL Server Management Studio dialog box, click **OK** to acknowledge the requirement to restart SQL Server.
-6. In Object Explorer, right-click your server, and then click **Restart**. (If SQL Server Agent is running, it must also be restarted.)
+    ![Välja autentiseringsläge](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
+5. I dialogrutan SQL Server Management Studio klickar du på **OK** för att bekräfta kravet på att starta om SQL Server.
+6. Högerklicka på din server i Object Explorer och klicka sedan på **Starta om**. (Om SQL Server Agent körs måste den också startas om.)
    
-    ![Restart](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
-7. In the SQL Server Management Studio dialog box, click **Yes** to agree that you want to restart SQL Server.
+    ![Starta om](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+7. I dialogrutan SQL Server Management Studio klickar du på **Ja** för att bekräfta att du vill starta om SQL Server.
 
-### <a name="create-sql-server-authentication-logins"></a>Create SQL Server authentication logins
-To connect to the Database Engine from another computer, you must create at least one SQL Server authentication login.
+### Skapa SQL Server-autentiseringsinloggningar
+<a id="create-sql-server-authentication-logins" class="xliff"></a>
+För att kunna ansluta till databasmotorn från en annan dator måste du skapa minst en SQL Server-autentiseringsinloggning.
 
-1. In SQL Server Management Studio Object Explorer, expand the folder of the server instance in which you want to create the new login.
-2. Right-click the **Security** folder, point to **New**, and select **Login...**.
+1. I Object Explorer i SQL Server Management Studio expanderar du mappen för den serverinstans som du vill skapa den nya inloggningen i.
+2. Högerklicka på mappen **Säkerhet**, peka på **Nytt** och välj **Inloggning...**.
    
-    ![New Login](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
-3. In the **Login - New** dialog box, on the **General** page, enter the name of the new user in the **Login name** box.
-4. Select **SQL Server authentication**.
-5. In the **Password** box, enter a password for the new user. Enter that password again into the **Confirm Password** box.
-6. Select the password enforcement options required (**Enforce password policy**, **Enforce password expiration**, and **User must change password at next login**). If you are using this login for yourself, you do not need to require a password change at the next login.
-7. From the **Default database** list, select a default database for the login. **master** is the default for this option. If you have not yet created a user database, leave this set to **master**.
+    ![Ny inloggning](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
+3. På sidan **Allmänt** i dialogrutan **Inloggning – ny** anger du namnet på den nya användaren i rutan **Inloggningsnamn**.
+4. Välj **SQL Server-autentisering**.
+5. Ange ett lösenord för den nya användaren i rutan **Lösenord**. Ange lösenordet på nytt i rutan **Bekräfta lösenord**.
+6. Välj de tvingande alternativ som ska tillämpas för lösenord (**Tillämpa lösenordsprincip**, **Tillämpa giltighetstid för lösenord** och **Användaren måste ändra lösenordet vid nästa inloggning**). Om det är du själv som ska använda den här inloggningen behöver du inte kräva ändring av lösenordet vid nästa inloggning.
+7. Välj en standarddatabas för inloggningen i listan **Standarddatabas**. **Master** är standard för det här alternativet. Om du inte har skapat någon användardatabas ännu använder du standardvärdet **Master**.
    
-    ![Login Properties](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
-8. If this is the first login you are creating, you may want to designate this login as a SQL Server administrator. If so, on the **Server Roles** page, check **sysadmin**.
+    ![Inloggningsegenskaper](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
+8. Om det här är den första inloggningen som du skapar kanske du vill utse inloggningen till SQL Server-administratör. I så fall markerar du **sysadmin** på sidan **Serverroller**.
    
    > [!NOTE]
-   > Members of the sysadmin fixed server role have complete control of the Database Engine. You should carefully restrict membership in this role.
+   > Medlemmar i den fasta serverrollen sysadmin har fullständig kontroll över databasmotorn. Du bör noggrant begränsa medlemskapet i den här rollen.
    > 
    > 
    
    ![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
-9. Click OK.
+9. Klicka på OK.
 
-For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).
+Mer information om SQL Server-inloggningar finns i [Skapa en inloggning](http://msdn.microsoft.com/library/aa337562.aspx).
 

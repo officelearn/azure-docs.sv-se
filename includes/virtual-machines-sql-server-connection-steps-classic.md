@@ -1,23 +1,25 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Determine the DNS name of the virtual machine
-To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
+### Bestämma DNS-namnet på en virtuell dator
+<a id="determine-the-dns-name-of-the-virtual-machine" class="xliff"></a>
+För att kunna ansluta till SQL Server-databasmotorn från en annan dator måste du känna till DNS-namnet (Domain Name System) för den virtuella datorn. (Detta är det namn som används för att identifiera den virtuella datorn på Internet. Du kan använda IP-adressen, men IP-adress kan ändras när Azure flyttar resurser för redundans eller underhåll. DNS-namnet är stabilt eftersom det kan omdirigeras till en ny IP-adress.)  
 
-1. In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.
-2. Select your SQL VM.
-3. On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.
+1. Välj **Virtuella datorer (klassiska)** i Azure Portal (eller från föregående steg).
+2. Välj den virtuella SQL-datorn.
+3. Kopiera **DNS-namnet** för den virtuella datorn på bladet **Virtuell dator**.
    
-    ![DNS name](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
+    ![DNS-namn](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Connect to the Database Engine from another computer
-1. On a computer connected to the internet, open SQL Server Management Studio.
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.cloudapp.net,57500**.
+### Anslut till databasmotorn från en annan dator
+<a id="connect-to-the-database-engine-from-another-computer" class="xliff"></a>
+1. Öppna SQL Server Management Studio på en dator som är ansluten till Internet.
+2. I rutan **Servernamn** i dialogrutan **Anslut till server** eller **Connect to Database Engine** (Anslut till databasmotor) anger du DNS-namnet på den virtuella datorn (som bestämdes i föregående uppgift) och ett portnummer för offentlig slutpunkt i formatet *DNS-namn,portnummer*, till exempel **mysqlvm.cloudapp.net,57500**.
    
-    ![Connect using SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+    ![Ansluta med SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    If you don't remember the public endpoint port number you previously created, you can find it in the **Endpoints** area of the **Virtual machine** blade.
+    Om du inte kommer ihåg portnumret för offentlig slutpunkt, som du skapade tidigare, hittar du det i området **Slutpunkter** på bladet **Virtuell dator**.
    
-    ![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. In the **Authentication** box, select **SQL Server Authentication**.
-4. In the **Login** box, type the name of a login that you created in an earlier task.
-5. In the **Password** box, type the password of the login that you create in an earlier task.
-6. Click **Connect**.
+    ![Offentlig port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+3. I rutan **Autentisering**, markerar du **SQL Server-autentisering**.
+4. I rutan **Inloggning** skriver du namnet på en inloggning som du har skapat i en tidigare uppgift.
+5. I rutan **Lösenord** skriver du lösenordet för den inloggning som du skapade i en tidigare uppgift.
+6. Klicka på **Anslut**.
 

@@ -1,23 +1,24 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-mount-initialize-and-format-a-volume"></a>To mount, initialize, and format a volume
-1. Start the Microsoft iSCSI initiator.
-2. In the **iSCSI Initiator Properties** window, on the **Discovery** tab, click **Discover Portal**.
-3. In the **Discover Target Portal** dialog box, supply the IP address of your iSCSI-enabled network interface, and then click **OK**. 
-4. In the **iSCSI Initiator Properties** window, on the **Targets** tab, locate the **Discovered targets**. The device status should appear as **Inactive**.
-5. Select the target device and then click **Connect**. After the device is connected, the status should change to **Connected**. (For more information about using the Microsoft iSCSI initiator, see [Installing and Configuring Microsoft iSCSI Initiator][1]).
-6. On your Windows host, press the Windows Logo key + X, and then click **Run**. 
-7. In the **Run** dialog box, type **Diskmgmt.msc**. Click **OK**, and the **Disk Management** dialog box will appear. The right pane will show the volumes on your host.
-8. In the **Disk Management** window, the mounted volumes will appear as shown in the following illustration. Right-click the discovered volume (click the disk name), and then click **Online**.
+#### Montera, initiera och formatera en volym
+<a id="to-mount-initialize-and-format-a-volume" class="xliff"></a>
+1. Starta Microsoft iSCSI-initieraren.
+2. I fönstret **Egenskaper för iSCSI-initieraren**, på fliken **Identifiering**, klickar du på **Identifiera portal**.
+3. I dialogrutan **Identifiera målportal**, anger du IP-adressen för ditt iSCSI-aktiverade nätverksgränssnitt och klickar på **OK**. 
+4. I fönstret **Egenskaper för iSCSI-initieraren**, på fliken **Mål**, letar du upp **Upptäckta mål**. Enhetens status borde visas som **Inaktiv**.
+5. Välj målenheten och klicka sedan på **Anslut**. När enheten är ansluten, bör statusen ändras till **Ansluten**. (Mer information om hur du använder Microsofts iSCSI-initierare finns i [Installera och konfigurera Microsoft iSCSI-initieraren][1]).
+6. På din Windows-värd trycker du på Windows-tangenten + X och klickar sedan på **Kör**. 
+7. I dialogrutan **Kör**, skriver du in **diskmgmt.msc**. Klicka på **OK** och dialogrutan **Diskhantering** visas. Den högra panelen visar volymerna som finns på din värd.
+8. I fönstret **Diskhantering** visas de monterade volymerna enligt följande bild. Högerklicka på den identifierade volymen (klicka på diskens namn) och klicka sedan på **Online**.
    
-     ![Initialize format volume](./media/storsimple-8000-mount-initialize-format-volume/step7initializeformatvolume.png) 
-9. Right-click the volume (click the disk name) again, and then click **Initialize**.
-10. To format a simple volume, perform the following steps:
+     ![Initiera formatera volym](./media/storsimple-8000-mount-initialize-format-volume/step7initializeformatvolume.png) 
+9. Högerklicka på volymen (klicka på disknamnet) och klicka sedan på **Initiera**.
+10. Genomför följande steg för att formatera en enkel volym:
     
-    1. Select the volume, right-click it (click the right area), and click **New Simple Volume**.
-    2. In the New Simple Volume wizard, specify the volume size and drive letter and configure the volume as an NTFS file system.
-    3. Specify a 64 KB allocation unit size. This allocation unit size works well with the deduplication algorithms used in the StorSimple solution.
-    4. Perform a quick format.
+    1. Välj volymen genom att högerklicka på den (klicka på rätt område) och klicka på **Ny enkel volym**.
+    2. I guiden Ny enkel volym anger du volymstorlek och enhetsbeteckning och konfigurerar volymen som ett NTFS-filsystem.
+    3. Ange en storlek på allokeringsenheterna på 64 KB. Den här storleken för allokeringsenheter fungerar väl med de dedupliceringsalgoritmer som används av StorSimple-lösningen.
+    4. Utför en snabbformatering.
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx

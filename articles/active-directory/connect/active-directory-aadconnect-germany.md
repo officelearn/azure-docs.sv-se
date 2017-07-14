@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
@@ -21,10 +21,11 @@ ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/04/2017
 
-
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect i Microsoft Cloud Tyskland –offentlig förhandsversion
-## <a name="introduction"></a>Introduktion
+# Azure AD Connect i Microsoft Cloud Tyskland –offentlig förhandsversion
+<a id="azure-ad-connect-in-microsoft-cloud-germany---public-preview" class="xliff"></a>
+## Introduktion
+<a id="introduction" class="xliff"></a>
 Azure AD Connect tillhandahåller synkronisering mellan din lokala Active Directory och Azure Active Directory.
 För närvarande måste många scenarier i [Microsoft Cloud Tyskland](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) utföras av operatören. När du använder Microsoft Cloud Tyskland måste du vara medveten om följande:
 
@@ -38,10 +39,12 @@ För närvarande måste många scenarier i [Microsoft Cloud Tyskland](https://ww
   * Azure AD Connect Health
   * Automatiska uppdateringar
  
-## <a name="download"></a>Ladda ned
+## Ladda ned
+<a id="download" class="xliff"></a>
 Du kan hämta Azure AD Connect från Azure AD Connect-bladet på portalen.  Följ anvisningarna nedan för att hitta Azure AD Connect-bladet.
 
-### <a name="the-azure-ad-connect-blade"></a>Azure AD Connect-bladet
+### Azure AD Connect-bladet
+<a id="the-azure-ad-connect-blade" class="xliff"></a>
 När du har loggat in på Azure-portalen gör du följande:
 
 1. Gå till Bläddra
@@ -60,10 +63,12 @@ I följande tabell beskrivs de funktioner som visas på bladet.
 | SENASTE SYNKRONISERING |Senast tidpunkten då en lyckad synkronisering slutfördes. |
 | FEDERERADE DOMÄNER |Visar antalet federerade domäner som är konfigurerade för tillfället. |
 
-## <a name="installation"></a>Installation
+## Installation
+<a id="installation" class="xliff"></a>
 Du kan använda dokumentationen [här](active-directory-aadconnect.md#install-azure-ad-connect) för att installera Azure AD Connect.
 
-## <a name="advanced-features-and-additional-information"></a>Avancerade funktioner och ytterligare information
+## Avancerade funktioner och ytterligare information
+<a id="advanced-features-and-additional-information" class="xliff"></a>
 För ytterligare information och riktlinjer för anpassade inställningar eller avancerade konfigurationer kan du börja med [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).  Den här sidan innehåller information och länkar till ytterligare vägledning.
 
 

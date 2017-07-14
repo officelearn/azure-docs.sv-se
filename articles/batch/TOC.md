@@ -1,218 +1,149 @@
-
-
 # Översikt
-
 
 ## [Vad är Azure Batch?](batch-technical-overview.md)
 
-
 ## [Översikt över funktioner](batch-api-basics.md)
-
 
 ## [API:er och verktyg](batch-apis-tools.md)
 
-
 ## [Kvoter och begränsningar](batch-quota-limit.md)
-
 
 # Kom igång
 
-
 ## [Skapa ett Batch-konto](batch-account-create-portal.md)
-
 
 ## [Batch .NET-självstudier](batch-dotnet-get-started.md)
 
-
 ## [Batch Python-självstudier](batch-python-tutorial.md)
-
 
 ## [Batch Node.js-självstudier](batch-nodejs-get-started.md)
 
-
 # Gör så här för att
-
 
 ## Utveckla
 
-
 ### [Programpaket](batch-application-packages.md)
-
 
 ### [Automatisk skalning för beräkningsnoder](batch-automatic-scaling.md)
 
-
 ### Azure AD-autentisering
-
 
 #### [Azure AD med Batch-tjänsten](batch-aad-auth.md)
 
-
 #### [Azure AD med Batch Management](batch-aad-auth-management.md)
-
 
 ### [Samtidiga nodaktiviteter](batch-parallel-node-tasks.md)
 
-
 ### [Effektiv lista: frågor](batch-efficient-list-queries.md)
-
 
 ### [Aktiviteter för jobbförberedelse och -slutförande](batch-job-prep-release.md)
 
-
 ### [Linux-beräkningsnoder](batch-linux-nodes.md)
-
 
 ### [Lågprioriterade virtuella datorer](batch-low-pri-vms.md)
 
-
 ### [Hantera Batch-konton med Batch Management .NET](batch-management-dotnet.md)
-
 
 ### [Bevara jobb- och uppgiftsutdata](batch-task-output.md)
 
-
 #### [Spara utdata med Batch-API](batch-task-output-files.md)
-
 
 #### [Spara utdata med File Conventions-bibliotek](batch-task-output-file-conventions.md)
 
-
 ### [Köra MPI-jobb i Batch](batch-mpi.md)
-
 
 ### [Aktivitetsberoenden](batch-task-dependencies.md)
 
-
 ### [Användarkonton för att köra aktiviteter](batch-user-accounts.md)
-
 
 ### [Visual Studio-projektmallar för Batch](batch-visual-studio-templates.md)
 
-
 ## Hantera
-
 
 ### [PowerShell-cmdletar för Batch](batch-powershell-cmdlets-get-started.md)
 
-
 ### [Azure CLI](batch-cli-get-started.md)
-
 
 #### [Skapa ett Batch-konto](./scripts/batch-cli-sample-create-account.md)
 
+#### [Kör batchjobb utan kod](batch-cli-templates.md)
 
 #### [Lägga till ett program](./scripts/batch-cli-sample-add-application.md)
 
-
 #### [Hantera pooler](./scripts/batch-cli-sample-manage-pool.md)
-
 
 #### [Köra ett jobb och aktiviteter](./scripts/batch-cli-sample-run-job.md)
 
 
-
 # Referens
-
 
 ## [PowerShell](/powershell/module/azurerm.batch)
 
-
 ## [Azure CLI](/cli/azure/batch)
-
 
 ## [NET](/dotnet/api/microsoft.azure.batch)
 
-
 ## [Java](/java/api/com.microsoft.azure.batch)
-
 
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
 
-
 ## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
-
 
 ## [REST](/rest/api/batchservice)
 
-
 ## [Batch-diagnostikloggar](batch-diagnostics.md)
-
 
 ## [Batchanalys](batch-analytics.md)
 
-
 ### [Händelse för skapande av pool](batch-pool-create-event.md)
-
 
 ### [Starthändelse för borttagning av pool](batch-pool-delete-start-event.md)
 
-
 ### [Sluthändelse för borttagning av pool](batch-pool-delete-complete-event.md)
-
 
 ### [Starthändelse för storleksändring av pool](batch-pool-resize-start-event.md)
 
-
 ### [Sluthändelse för storleksändring av pool](batch-pool-resize-complete-event.md)
-
 
 ### [Starthändelse för uppgift](batch-task-start-event.md)
 
-
 ### [Sluthändelse för uppgift](batch-task-complete-event.md)
 
-
 ### [Händelse för misslyckad uppgift](batch-task-fail-event.md)
-
 
 ## [Miljövariabler för Azure Batch-beräkningsnod](batch-compute-node-environment-variables.md)
 
 
-
 # Relaterat
-
 
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 
-
 ## [Databearbetning med Batch och Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-
 
 ## [Batch- och HPC-lösningar i Azure-molnet](batch-hpc-solutions.md)
 
 
-
 # Resurser
-
 
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 
-
 ## [Big Compute-resurser](big-compute-resources.md)
-
 
 ## [Blogg](https://blogs.technet.microsoft.com/windowshpc/)
 
-
 ## [C#-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-
 
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 
-
 ## [Prissättning](https://azure.microsoft.com/pricing/details/batch/)
-
 
 ## [Python-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 
-
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-
 
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 
-
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=batch)
+
 
 

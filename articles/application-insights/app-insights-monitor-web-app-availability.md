@@ -11,17 +11,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74cd4dbf74afbf5e7e0e7d0b7aca49b5aa214b83
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
+# Övervaka tillgänglighet och svarstider på valfri webbplats
+<a id="monitor-availability-and-responsiveness-of-any-web-site" class="xliff"></a>
 När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
 
 Du kan konfigurera tillgänglighetstester för valfri HTTP- eller HTTPS-slutpunkt som kan nås från det offentliga Internet. Du behöver inte lägga till något till den webbplats som du testar. Det behöver inte ens vara din webbplats: du kan testa en REST API-tjänst som du är beroende av.
@@ -66,7 +67,8 @@ Klicka på **alla resurser** för att öppna översiktsbladet för den nya resur
 
     Du kan konfigurera en [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) som anropas när en avisering genereras. (Observera dock att frågeparametrar inte skickas som egenskaper för närvarande.)
 
-### <a name="test-more-urls"></a>Testa fler URL:er
+### Testa fler URL:er
+<a id="test-more-urls" class="xliff"></a>
 Lägg till fler test. Förutom att testa din hemsida kan du till exempel kontrollera att din databas körs genom att testa URL:en för en sökning.
 
 
@@ -113,7 +115,8 @@ Från ett tillgänglighetstestresultat kan du:
 
 *Inga relaterade objekt?* Om du har konfigurerat Application Insights för din app på serversidan kan detta bero på att [sampling](app-insights-sampling.md) pågår. 
 
-## <a name="multi-step-web-tests"></a>Webbtester med flera steg
+## Webbtester med flera steg
+<a id="multi-step-web-tests" class="xliff"></a>
 Du kan övervaka ett scenario med en serie URL:er. Om du till exempel övervakar en försäljningswebbplats kan du testa att det går att lägga till objekt i kundvagnen korrekt.
 
 > [!NOTE] 
@@ -126,7 +129,8 @@ Om du vill skapa ett test med flera steg spelar du in scenariot med hjälp av Vi
 > Du kan inte använda kodade funktioner eller loopar i dina tester. Testet måste ingå i .webtest-skriptet. Du kan dock använda standardplugin-program.
 >
 
-#### <a name="1-record-a-scenario"></a>1. Spela in ett scenario
+#### 1. Spela in ett scenario
+<a id="1-record-a-scenario" class="xliff"></a>
 Spela in en webbsession med Visual Studio Enterprise.
 
 1. Skapa ett testprojekt för webbprestanda.
@@ -155,7 +159,8 @@ Spela in en webbsession med Visual Studio Enterprise.
 
     ![Öppna filen .webtest i Visual Studio och klicka på Kör.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-#### <a name="2-upload-the-web-test-to-application-insights"></a>2. Ladda upp webbtestet till Application Insights
+#### 2. Ladda upp webbtestet till Application Insights
+<a id="2-upload-the-web-test-to-application-insights" class="xliff"></a>
 1. Skapa ett webbtest på Application Insights-portalen.
 
     ![Välj Lägg till på bladet Webbtest.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
@@ -165,13 +170,15 @@ Spela in en webbsession med Visual Studio Enterprise.
 
     Ange testplatserna, frekvensen och aviseringsparametrarna på samma sätt som för pingtest.
 
-#### <a name="3-see-the-results"></a>3. Visa resultaten
+#### 3. Visa resultaten
+<a id="3-see-the-results" class="xliff"></a>
 
 Visa testresultat och eventuella fel på samma sätt som för tester med en enskild URL.
 
 Dessutom kan du hämta testresultat och visa dem i Visual Studio.
 
-#### <a name="too-many-failures"></a>För många fel?
+#### För många fel?
+<a id="too-many-failures" class="xliff"></a>
 
 * En vanlig orsak till fel är att testet körs för länge. Det får inte köras längre än två minuter.
 
@@ -179,7 +186,8 @@ Dessutom kan du hämta testresultat och visa dem i Visual Studio.
 
 * Webbtestet måste finnas i .webtest-skriptet: du kan inte använda kodade funktioner i testet.
 
-### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Använda tid och slumptal i flerstegstest
+### Använda tid och slumptal i flerstegstest
+<a id="plugging-time-and-random-numbers-into-your-multi-step-test" class="xliff"></a>
 Anta att du testar ett verktyg som hämtar tidsberoende data, till exempel aktier från ett externt flöde. När du spelar in webbtestet måste du ange specifika tider, men du anger dem som parametrar för testet, StartTime och EndTime.
 
 ![Ett webbtest med parametrar.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -202,18 +210,22 @@ Du kan parameterisera tider med hjälp av webbtest-plugin-program.
 
 Ladda upp testet till portalen. De dynamiska värdena används i varje testkörning.
 
-## <a name="dealing-with-sign-in"></a>Hantera inloggning
+## Hantera inloggning
+<a id="dealing-with-sign-in" class="xliff"></a>
 Om användarna måste logga in i din app kan du välja mellan olika alternativ för att simulera inloggningen, så att du kan testa sidorna bakom inloggningen. Vilken metod du använder beror på vilken typ av säkerhet som tillhandahålls av appen.
 
 I samtliga fall bör du skapa ett konto i ditt program som endast används för testning. Om möjligt begränsar du behörigheterna för det här testkontot så att webbtestningen inte påverkar riktiga användare.
 
-### <a name="simple-username-and-password"></a>Enkelt användarnamn och lösenord
+### Enkelt användarnamn och lösenord
+<a id="simple-username-and-password" class="xliff"></a>
 Spela in ett webbtest som vanligt. Ta bort cookies först.
 
-### <a name="saml-authentication"></a>SAML-autentisering
+### SAML-autentisering
+<a id="saml-authentication" class="xliff"></a>
 Använd SAML-plugin-programmet som är tillgängligt för webbtester.
 
-### <a name="client-secret"></a>Klienthemlighet
+### Klienthemlighet
+<a id="client-secret" class="xliff"></a>
 Om din app kräver inloggning med en klienthemlighet använder du det. Azure Active Directory (AAD) är ett exempel på en tjänst som erbjuder inloggning med klienthemligheter. I AAD är klienthemligheten appnyckeln.
 
 Här är ett exempel på ett webbtest för en Azure-webbapp som använder en appnyckel:
@@ -226,7 +238,8 @@ Här är ett exempel på ett webbtest för en Azure-webbapp som använder en app
 
 Kontrollera att webbtestet är en riktig klient, dvs. att det har en egen app i AAD, och använd dess klient-ID och appnyckel. Tjänsten som testas har också sin egen app i AAD: appID-URI:n för den här appen visas i webbtestet i fältet ”resource”.
 
-### <a name="open-authentication"></a>Öppen autentisering
+### Öppen autentisering
+<a id="open-authentication" class="xliff"></a>
 Ett exempel på öppen autentisering är inloggning med ett Microsoft- eller Google-konto. Många appar som använder OAuth erbjuder möjligheten att använda en klienthemlighet, så det första du bör göra är att ta reda på detta.
 
 Om testet måste logga in med OAuth är den allmänna riktlinjen att:
@@ -239,14 +252,23 @@ Om testet måste logga in med OAuth är den allmänna riktlinjen att:
   (Visual Studio försöker parameterisera testet, men kan inte parameterisera token korrekt.)
 
 
-## <a name="performance-tests"></a>Prestandatester
+## Prestandatester
+<a id="performance-tests" class="xliff"></a>
 Du kan köra ett inläsningstest på din webbplats. Som med tillgänglighetstestet kan du skicka antingen enkla begäranden eller begäranden med flera steg från våra platser runtom i världen. Till skillnad från ett tillgänglighetstest skickas många begäranden, som simulerar flera samtidiga användare.
 
 Öppna **Inställningar**, **Prestandatest** från bladet Översikt. När du skapar ett test uppmanas du att ansluta till eller att skapa ett konto för Visual Studio Team Services.
 
 När testet är klart visas svarstiderna och slutförandefrekvens.
 
-## <a name="automation"></a>Automation
+
+![Prestandatest](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> Om du vill se effekterna av ett prestandatest kan du använda [Live Stream](app-insights-live-stream.md) och [Profilerare](app-insights-profiler.md).
+>
+
+## Automation
+<a id="automation" class="xliff"></a>
 * [Konfigurera ett tillgänglighetstest automatiskt med hjälp av PowerShell-skript](app-insights-powershell.md#add-an-availability-test).
 * Konfigurera en [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) som anropas när en avisering genereras.
 

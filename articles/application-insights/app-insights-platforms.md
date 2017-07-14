@@ -14,27 +14,33 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b78c574e9edf6ce28e8deb80d264858d480f5861
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 7f9b886259c065627055f62a3636ab65434ca57b
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
-# <a name="developer-analytics-languages-platforms-and-integrations"></a>Utvecklaranalys: språk, plattformar och integreringar
+# Utvecklaranalys: språk, plattformar och integreringar
+<a id="developer-analytics-languages-platforms-and-integrations" class="xliff"></a>
 Dessa objekt är implementeringar av [Application Insights](app-insights-overview.md) som vi har hört talas om, inklusive vissa av tredje parter.
 
-## <a name="languages"></a>Språk
+## Språk – som officiellt stöds av Application Insights-teamet
+<a id="languages---officially-supported-by-application-insights-team" class="xliff"></a>
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [JavaScript-webbsidor](app-insights-javascript.md)
-* [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+## Språk – som stöds av vårt community
+<a id="languages---community-supported" class="xliff"></a>
+* [Node.js](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
 * [Annat](#projects)
 
-## <a name="platforms-and-frameworks"></a>Plattformar och ramverk
+## Plattformar och ramverk
+<a id="platforms-and-frameworks" class="xliff"></a>
 * [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET – för appar som redan är live](app-insights-monitor-performance-live-website-now.md)
@@ -59,7 +65,8 @@ Dessa objekt är implementeringar av [Application Insights](app-insights-overvie
 * [Windows-baserade skrivbordsprogram, tjänster och arbetarroller](app-insights-windows-desktop.md)
 * [Annat](#projects)
 
-## <a name="logging-frameworks"></a>Ramverk för loggning
+## Ramverk för loggning
+<a id="logging-frameworks" class="xliff"></a>
 * [Log4Net, NLog eller System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 * [Java, Log4J eller Logback](app-insights-java-trace-logs.md)
 * [Semantisk loggning (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) – integrerar med [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
@@ -68,7 +75,8 @@ Dessa objekt är implementeringar av [Application Insights](app-insights-overvie
 * [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 
-## <a name="content-management-systems"></a>Innehållshanteringssystem
+## Innehållshanteringssystem
+<a id="content-management-systems" class="xliff"></a>
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
@@ -76,7 +84,8 @@ Dessa objekt är implementeringar av [Application Insights](app-insights-overvie
 * [SharePoint](app-insights-sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
-## <a name="export-and-data-analysis"></a>Export- och dataanalys
+## Export- och dataanalys
+<a id="export-and-data-analysis" class="xliff"></a>
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](app-insights-export-power-bi.md)

@@ -14,26 +14,30 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 26f2fba953870564292ef3e986a3151373f6babf
-ms.lasthandoff: 01/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Skapa och distribuera en Java API-app i Azure Apptjänst
+# Skapa och distribuera en Java API-app i Azure Apptjänst
+<a id="build-and-deploy-a-java-api-app-in-azure-app-service" class="xliff"></a>
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 I de här självstudierna får du veta hur du skapar en Java-applikation och distribuerar den till API Apps i Azure Apptjänst med hjälp av [Git]. Anvisningarna i den här kursen kan tillämpas på alla operativsystem som kan köra Java. Koden i självstudierna byggs med [Maven]. [Jax RS] används för att skapa tjänsten RESTful och genereras baserat på [Swagger]-metadataspecifikationerna med hjälp av [Swagger Editor].
 
-## <a name="prerequisites"></a>Krav
+## Krav
+<a id="prerequisites" class="xliff"></a>
 1. [Java Developer's Kit 8] \(eller senare)
 2. [Maven] installerat på utvecklingsdatorn
 3. [Git] installerat på utvecklingsdatorn
 4. En betald eller [kostnadsfri prov]prenumeration på [Microsoft Azure]
 5. Ett program för HTTP-test som [Postman]
 
-## <a name="scaffold-the-api-using-swaggerio"></a>Autogenerera API:et med Swagger.IO
+## Autogenerera API:et med Swagger.IO
+<a id="scaffold-the-api-using-swaggerio" class="xliff"></a>
 Med redigeraren swagger.io online kan du ange Swagger JSON- eller YAML-kod som representerar strukturen för din API. När du har utformat API-ytan kan du exportera kod för olika plattformar och ramverk. Den autogenererade koden kommer att ändras till att inkludera fingerade funktioner i nästa avsnitt. 
 
 Den här demonstrationen börjar med en Swagger JSON-text som du ska klistra in i redigeraren swagger.io. Texten används sedan för att generera kod genom att utnyttja JAX-RS för att komma åt en REST API-slutpunkt. Sedan redigerar du den autogenererade koden för att returnera fingerade data genom att simulera en REST-API som byggts ovanpå en mekanism för datapersistence.  
@@ -147,13 +151,14 @@ Den här demonstrationen börjar med en Swagger JSON-text som du ska klistra in 
    
     När koden har genererats får du en ZIP-fil att hämta. Den här filen innehåller koden som skapats av kodgeneratorn Swagger och alla associerade byggnadsskript. Packa upp hela biblioteket till en katalog på utvecklingsdatorn. 
 
-## <a name="edit-the-code-to-add-api-implementation"></a>Redigera koden för att lägga till API-implementering
+## Redigera koden för att lägga till API-implementering
+<a id="edit-the-code-to-add-api-implementation" class="xliff"></a>
 I det här avsnittet ska du ersätta den genererade Swagger-kodens implementering på serversidan med din anpassade kod. Den nya koden returnerar en ArrayList med kontaktenheter till den anropande klienten. 
 
 1. Öppna modellfilen *Contact.java* som finns i mappen *src/gen/java/io/swagger/model* med [Visual Studio-koden] eller ditt favoritprogram för textredigering. 
    
     ![Öppna modellfilen för kontakter][open-contact-model-file]
-2. Lägg till följande konstruktor för klassen **Kontakt**. 
+2. Lägg till följande konstruktor i klassen **Kontakt**. 
    
         public Contact(Integer id, String name, String email) 
         {
@@ -238,7 +243,8 @@ I det här avsnittet ska du ersätta den genererade Swagger-kodens implementerin
           copy target\ROOT.war deploy\webapps
           cd deploy
 
-## <a name="publish-the-output-to-azure-app-service"></a>Publicera utdata i Azure Apptjänst
+## Publicera utdata i Azure Apptjänst
+<a id="publish-the-output-to-azure-app-service" class="xliff"></a>
 I det här avsnittet får du information om hur du skapar en ny API-App i Azure-portalen, förbereder API-appen för Java-program och distribuerar den nyligen skapade WAR-filen till Azure Apptjänst för att köra din nya API-app. 
 
 1. Skapa en ny API-app i [Azure-portalen] genom att klicka på menyalternativet **Ny -> Webb + Mobil > API-app**, ange information om dina appar och sedan klicka på **Skapa**.
@@ -269,14 +275,16 @@ I det här avsnittet får du information om hur du skapar en ny API-App i Azure-
    
     ![Använda REST API för Java kontakter live i Azure][postman-calling-azure-contacts]
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 I den här artikeln kunde du börja med en Swagger JSON-fil och autogenererad Java-kod som hämtats från redigeraren Swagger.io. Därifrån gjorde dina enkla ändringar och en Git-distributionsprocess att du skapade en fungerande API-app skriven i Java. Nästa självstudiekurs visar hur du [använder API-appar från JavaScript-klienter, med hjälp av CORS][App Service API CORS]. Senare självstudiekurser i serien visar hur du implementerar autentisering och auktorisering.
 
 För att bygga på det här exemplet kan du läsa mer om [Lagrings-SDK för Java] för att bevara JSON-blobbar. Eller så kan du använda [Dokumentet DB Java SDK] för att spara kontaktinformation i Azure-dokumentet DB. 
 
 <a name="see-also"></a>
 
-## <a name="see-also"></a>Se även
+## Se även
+<a id="see-also" class="xliff"></a>
 Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter].
 
 <!-- URL List -->
@@ -291,7 +299,7 @@ Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter
 [Jax RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
-[Swagger-redigeraren online]: http://editor.swagger.io/
+[Swagger-redigeraren online]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
 [Lagrings-SDK för Java]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/

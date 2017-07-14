@@ -1,9 +1,8 @@
-> [!NOTE]
-> En App Service-plan representerar den samling fysiska resurser som dina appar finns i. Alla program som har tilldelats en App Service-plan delar de resurser som definierats av planen. Det innebär att du sparar pengar när du har flera appar i en plan.
->
-> App Service-planer definierar följande:
-> * Region (Europa, norra; USA, östra; Asien, sydöstra m.m.)
-> * Instansstorlek (liten, medel, stor)
-> * Skalningsantal (1 till 20 instanser som standard)
-> * SKU (Kostnadsfri, Delad, Basic, Standard, Premium)
-> 
+En [App Service-plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) anger plats, storlek och funktioner för webbservergruppen som är värd för din app. Du kan spara pengar när du är värd för flera appar genom att konfigurera webbapparna så att de delar en enda App Service-plan.
+
+App Service-planer definierar följande:
+
+* Region (till exempel: Europa, norra; USA, östra; Asien, sydöstra m.m.)
+* Instansstorlek (liten, medel eller stor)
+* Skalningsantal (1 till 20 instanser)
+* SKU (Kostnadsfri, Delad, Basic, Standard eller Premium)

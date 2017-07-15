@@ -16,10 +16,10 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 169c4d1ad8bc7960806f2b504010d792f412c4f3
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---

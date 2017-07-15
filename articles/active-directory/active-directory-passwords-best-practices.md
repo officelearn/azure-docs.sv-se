@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 5f3900aef2b432527454da72f3ff15e533543758
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 928a2a2902f9e10bba64f891e69fdddfa2e9ce60
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---

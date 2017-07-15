@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 426294e0dc3e877565bd57e899fdc79a1bd31c21
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 72a81fa0deb34ace77b8fb9b1a4e6b24ee164b35
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 06/14/2017
 > 
 
 I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en iOS-app.
-Du skapar en tom Xamarin.iOS-app som tar emot push-meddelanden med hjälp av [Apple Push Notification Service (APNS)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html). När du är klar kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör appen. Den färdiga koden finns tillgänglig i exemplet [NotificationHubs-app][GitHub].
+Du skapar en tom Xamarin.iOS-app som tar emot push-meddelanden med hjälp av [Apple Push Notification Service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html). När du är klar kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör appen. Den färdiga koden finns tillgänglig i exemplet [NotificationHubs-app][GitHub].
 
 I den här självstudiekursen visas ett enkelt scenario för sändning av push-meddelanden med Notification Hubs.
 
@@ -304,7 +304,7 @@ I det här enkla exemplet skickade du push-meddelanden till alla dina iOS-enhete
 [Använda Notification Hubs för att skicka push-meddelanden till användare]: /manage/services/notification-hubs/notify-users-aspnet
 [Använda Notification Hubs för att skicka de senaste nyheterna]: /manage/services/notification-hubs/breaking-news-dotnet
 
-[programmeringsguide för lokala meddelanden och push-meddelanden]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[programmeringsguide för lokala meddelanden och push-meddelanden]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/

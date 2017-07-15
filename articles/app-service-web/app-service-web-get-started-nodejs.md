@@ -16,10 +16,10 @@ ms.date: 05/05/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 665f55f79eb6e09bce1b5130efc01c76ccbc9109
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e41c6f544ace374eb1f059c115e585a70265a571
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 # Skapa en Node.js-webbapp i Azure
@@ -144,7 +144,7 @@ Node.js-exempelkoden körs i en Azure App Service-webbapp.
 
 ![Exempelapp som körs i Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-**Grattis!** Du har distribuerat din första PHP-app till App Service.
+**Grattis!** Du har distribuerat din första Node.js-app till App Service.
 
 ## Uppdatera och distribuera om koden
 <a id="update-and-redeploy-the-code" class="xliff"></a>

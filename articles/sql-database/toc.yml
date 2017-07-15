@@ -229,14 +229,6 @@
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Instruktionsguider
   items:
-    - name: Servrar och databaser
-      items:
-        - name: Elastiska pooler – portalen
-          href: sql-database-elastic-pool-manage-portal.md
-        - name: Elastiska pooler – PowerShell
-          href: sql-database-elastic-pool-manage-powershell.md
-        - name: Elastiska pooler – T-SQL
-          href: sql-database-elastic-pool-manage-tsql.md
     - name: Säkerhet
       items:
         - name: Konfigurera Azure AD-autentisering

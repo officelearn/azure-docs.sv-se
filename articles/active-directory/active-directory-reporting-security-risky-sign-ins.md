@@ -1,5 +1,4 @@
 ---
-
 title: Rapporten om riskfyllda inloggningar i Azure Active Directory-portalen | Microsoft Docs
 description: "Lär dig mer om rapporten över riskfyllda inloggningar i Azure Active Directory-portalen"
 services: active-directory
@@ -11,17 +10,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
 ms.contentlocale: sv-se
 ms.lasthandoff: 05/08/2017
 
-
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
+# Rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
+<a id="risky-sign-ins-report-in-the-azure-active-directory-portal" class="xliff"></a>
 
 Med hjälp av säkerhetsrapporterna i Azure Active Directory (Azure AD) kan du bedöma risken för att användarkonton i din miljö har komprometterats. 
 
@@ -38,7 +38,8 @@ I [Azure Portal](https://portal.azure.com) hittar du säkerhetsrapporter på bla
 ![Riskfyllda inloggningar](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory kostnadsfri och grundläggande utgåva
+## Azure Active Directory kostnadsfri och grundläggande utgåva
+<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
 
 Den grundläggande och den kostnadsfria versionen av Azure Active Directory tillhandahåller en lista över riskfyllda inloggningar som har identifierats för dina användare. Rapporten över riskhändelser innehåller följande information:
 
@@ -63,7 +64,8 @@ Baserat på din undersökning av den riskfyllda inloggningen kan du lämna feedb
 
 Mer information finns i [Stänga riskhändelser manuellt](active-directory-identityprotection.md#closing-risk-events-manually).
 
-## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory Premium-versioner
+## Azure Active Directory Premium-versioner
+<a id="azure-active-directory-premium-editions" class="xliff"></a>
 
 Rapporten om riskfyllda inloggningar i Azure Active Directory Premium-versionerna ger dig följande:
 
@@ -112,7 +114,8 @@ Detta öppnar bladet **Information** för den här riskhändelsen. På bladet **
 
 
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 
 - Mer information om Azure Active Directory Identity Protection finns i [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 

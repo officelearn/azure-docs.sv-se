@@ -10,32 +10,39 @@ manager: jhubbard
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/15/2017
+ms.date: 05/26/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 29883e37f1f506f33f44cf02dbf08221274e109d
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: Använd SQL Server Management Studio för att ansluta och skicka frågor till data
+# Azure SQL Database: Använd SQL Server Management Studio för att ansluta och skicka frågor till data
+<a id="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data" class="xliff"></a>
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) är ett hanteringsverktyg som används för att skapa och hantera SQL Server-resurser från användargränssnittet eller i skript. Den här snabbstarten visar hur du använder SSMS för att ansluta till en Azure SQL-databas och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen. 
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) är en integrerad miljö för att hantera all SQL-infrastruktur från SQL Server till SQL-databas för Microsoft Windows. Den här snabbstarten visar hur du använder SSMS för att ansluta till en Azure SQL-databas och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen. 
+
+## Krav
+<a id="prerequisites" class="xliff"></a>
 
 Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter som utgångspunkt:
 
 - [Skapa DB – Portal](sql-database-get-started-portal.md)
 - [Skapa DB – CLI](sql-database-get-started-cli.md)
+- [Skapa DB – PowerShell](sql-database-get-started-powershell.md)
 
 Innan du börjar bör du kontrollera att du har installerat den senaste versionen av [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-## <a name="get-connection-information"></a>Hämta anslutningsinformation
+## Hämta anslutningsinformation
+<a id="get-connection-information" class="xliff"></a>
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet, databasnamnet och inloggningsinformationen i nästa procedurer.
 
@@ -43,11 +50,12 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
 3. Granska serverns fullständiga namn på sidan **Översikt** för databasen, se bilden nedan. Om du hovrar över servernamnet visas alternativet **Kopiera genom att klicka**.
 
-   ![anslutningsinformation](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![anslutningsinformation](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Om du har glömt inloggningsinformationen för Azure SQL Database-server öppnar du serversidan i SQL Database. Där ser du administratörsnamnet för servern och kan återställa lösenordet vid behov. 
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Ansluta till databasen på den logiska SQL Database-servern
+## Ansluta till databasen
+<a id="connect-to-your-database" class="xliff"></a>
 
 Använd SQL Server Management Studio för att upprätta en anslutning till Azure SQL Database-servern. 
 
@@ -58,11 +66,14 @@ Använd SQL Server Management Studio för att upprätta en anslutning till Azure
 1. Öppna SQL Server Management Studio.
 
 2. I dialogrutan **Anslut till server** anger du följande information:
-   - **Servertyp**: Ange databasmotor
-   - **Servernamn**: Ange det fullständigt kvalificerade servernamnet som **mynewserver20170313.database.windows.net**
-   - **Autentisering**: Ange SQL Server-autentisering
-   - **Logga in**: Ange serveradministratörskontot
-   - **Lösenord**: Ange lösenordet för serveradministratörskontot
+
+   | Inställning       | Föreslaget värde | Beskrivning | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Servertyp** | Databasmotor | Det här värdet är obligatoriskt. |
+   | **Servernamn** | Fullständigt kvalificerat servernamn | Namnet ska vara ungefär så här: **mynewserver20170313.database.windows.net**. |
+   | **Autentisering** | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
+   | **Inloggning** | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
+   | **Lösenord** | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
    ![Anslut till server](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -76,7 +87,8 @@ Använd SQL Server Management Studio för att upprätta en anslutning till Azure
 
 5. I Object Explorer expanderar du **Databaser** och sedan **mySampleDatabase** för att visa objekten i exempeldatabasen.
 
-## <a name="query-data"></a>Frågedata
+## Frågedata
+<a id="query-data" class="xliff"></a>
 
 Använd följande kod för att söka efter de 20 främsta produkterna med Transact-SQL-instruktionen [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
@@ -94,7 +106,8 @@ Använd följande kod för att söka efter de 20 främsta produkterna med Transa
 
     ![DocumentDB](./media/sql-database-connect-query-ssms/query.png)
 
-## <a name="insert-data"></a>Infoga data
+## Infoga data
+<a id="insert-data" class="xliff"></a>
 
 Använd följande kod för att infoga en ny produkt i tabellen SalesLT.Product med Transact-SQL-instruktionen [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
@@ -124,7 +137,8 @@ Använd följande kod för att infoga en ny produkt i tabellen SalesLT.Product m
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
-## <a name="update-data"></a>Uppdatera data
+## Uppdatera data
+<a id="update-data" class="xliff"></a>
 
 Med följande kod uppdaterar du den nya produkt du tidigare lade till med Transact-SQL-instruktionen [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
@@ -140,7 +154,8 @@ Med följande kod uppdaterar du den nya produkt du tidigare lade till med Transa
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
-## <a name="delete-data"></a>Ta bort data
+## Ta bort data
+<a id="delete-data" class="xliff"></a>
 
 Med följande kod tar du bort den nya produkt du tidigare lade till med Transact-SQL-instruktionen [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
@@ -155,8 +170,10 @@ Med följande kod tar du bort den nya produkt du tidigare lade till med Transact
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 
+- För mer information om att skapa och hantera servrar och databaser med Transact-SQL, se [Lär dig mer om Azure SQL Database-servrar och -databaser](sql-database-servers-databases.md).
 - Mer information om SSMS finns i [Använda SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Mer information om att ansluta och ställa frågor med Visual Studio Code finns i [Ansluta och fråga med Visual Studio Code](sql-database-connect-query-vscode.md).
 - Mer information om att ansluta och ställa frågor med .NET finns i [Ansluta och fråga med .NET](sql-database-connect-query-dotnet.md).

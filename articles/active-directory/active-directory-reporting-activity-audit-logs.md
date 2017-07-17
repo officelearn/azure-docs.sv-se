@@ -1,5 +1,4 @@
 ---
-
 title: Granska aktivitetsrapporter i Azure Active Directory-portalen | Microsoft Docs
 description: Introduktion till granskning av aktivitetsrapporter i Azure Active Directory-portalen
 services: active-directory
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: 169c4d1ad8bc7960806f2b504010d792f412c4f3
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # Granska aktivitetsrapporter i Azure Active Directory-portalen

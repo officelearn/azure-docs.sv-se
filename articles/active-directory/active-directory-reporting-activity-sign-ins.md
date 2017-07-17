@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: d9cf94252252094218036182c6dc08e8d0779fbe
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen

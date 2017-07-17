@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 07/17/2017
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: cda53c43d4524ddcc8139f60f6b605a1f26c2658
+ms.contentlocale: sv-se
 ms.lasthandoff: 04/27/2017
-
 
 ---
 
-# <a name="virtual-networks-and-windows-virtual-machines-in-azure"></a>Virtuella nätverk och virtuella Windows-datorer i Azure 
+# Virtuella nätverk och virtuella Windows-datorer i Azure
+<a id="virtual-networks-and-windows-virtual-machines-in-azure" class="xliff"></a> 
 
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../../virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../../azure-subscription-service-limits.md#networking-limits).
 
@@ -44,7 +45,8 @@ Utöver dessa grundläggande resurser bör du även överväga dessa valfria res
 - Nätverkssäkerhetsgrupper
 - Belastningsutjämnare 
 
-## <a name="network-interfaces"></a>Nätverksgränssnitt
+## Nätverksgränssnitt
+<a id="network-interfaces" class="xliff"></a>
 
 Ett [nätverksgränssnitt (NIC)](../../virtual-network/virtual-network-network-interface.md) är gränssnittet mellan en virtuell dator och ett virtuellt nätverk (VNet). En virtuell dator måste ha minst ett NIC, men kan ha flera, beroende på storleken på den virtuella dator som du skapar. Lär dig mer om hur många NICs varje virtuell datorstorlek stöder i [Storlekar för virtuella datorer i Azure](sizes.md). 
 
@@ -63,7 +65,8 @@ Den här tabellen anger de metoder som du kan använda för att skapa ett nätve
 | [Azure CLI](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | För att ange identifierare av den offentliga IP-adress som du skapade tidigare använder du [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) med parametern **--public-ip-address**. |
 | [Mall](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) | Använd [Nätverksgränssnitt i ett virtuellt nätverk med offentliga IP-adresser](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) som en vägledning för att distribuera ett nätverksgränssnitt med en mall. |
 
-## <a name="ip-addresses"></a>IP-adresser 
+## IP-adresser
+<a id="ip-addresses" class="xliff"></a> 
 
 Du kan tilldela dessa typer av [IP-adresser](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) till ett NIC i Azure:
 
@@ -87,7 +90,8 @@ Den här tabellen anger de metoder som du kan använda för att skapa en IP-adre
 
 När du skapat en offentlig IP-adress kan du associera den med en virtuell dator genom att tilldela den ett NIC.
 
-## <a name="virtual-network-and-subnets"></a>Virtuellt nätverk och undernät
+## Virtuellt nätverk och undernät
+<a id="virtual-network-and-subnets" class="xliff"></a>
 
 Ett undernät är ett intervall med IP-adresser i VNet. Du kan dela upp ett VNet i flera undernät av organisations- och säkerhetsskäl. Varje NIC i en virtuell Dator är ansluten till ett undernät i ett VNet. NICs som är anslutna till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration.
 
@@ -97,7 +101,7 @@ Om du arbetar inom en organisation där någon annan ansvarar för interna nätv
 
 Som standard finns ingen säkerhetsgräns mellan undernät, så virtuella datorer i vart och ett av dessa undernät kan kommunicera med varandra. Du kan dock konfigurera nätverkssäkerhetsgrupper (NSGs), så att du kan styra trafikflödet till och från undernät och till och från virtuella datorer. 
 
-Den här tabellen anger de metoder som du kan använda för att skapa ett VNet och undernät.    
+Den här tabellen anger de metoder som du kan använda för att skapa ett VNet och undernät. 
 
 | Metod | Beskrivning |
 | ------ | ----------- |
@@ -106,7 +110,8 @@ Den här tabellen anger de metoder som du kan använda för att skapa ett VNet o
 | [Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md) | Undernät och VNet skapas på samma gång. Ange en **--subnet-name**-parameter till [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) med namnet på undernätet. |
 | [Mall](../../virtual-network/virtual-networks-create-vnet-arm-template-click.md) | Det enklaste sättet att skapa ett VNet och undernät är att hämta en befintlig mall, som till exempel [Virtuellt nätverk med två undernät](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), och modifiera den efter dina behov. |
 
-## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
+## Nätverkssäkerhetsgrupper
+<a id="network-security-groups" class="xliff"></a>
 
 En [Nätverkssäkerhetsgrupp (NSG)](../../virtual-network/virtual-networks-nsg.md) innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till undernät, NICs eller både och. NSG:er kan antingen associeras med undernät eller individuella NICs anslutna till ett undernät. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla virtuella datorer i det undernätet. Dessutom kan trafik till en enskild NIC begränsas genom att koppla en NSG direkt till en NIC.
 
@@ -127,7 +132,8 @@ Den här tabellen anger de metoder som du kan använda för att skapa en nätver
 | [Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md) | Använd [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) för att först skapa NSG. Använd [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) för att lägga till regler i NSG. Använd [az network vnet subnet update](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update) för att lägga till NSG i undernätet. |
 | [Mall](../../virtual-network/virtual-networks-create-nsg-arm-template.md) | Använd [Skapa en nätverkssäkerhetsgrupp ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) som en vägledning för att distribuera en säkerhetsgrupp i nätverket med hjälp av en mall. |
 
-## <a name="load-balancers"></a>Belastningsutjämnare
+## Belastningsutjämnare
+<a id="load-balancers" class="xliff"></a>
 
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) levererar hög tillgänglighet och nätverksprestanda till dina program. En belastningsutjämnare kan konfigureras för att [balansera inkommande internettrafik](../../load-balancer/load-balancer-internet-overview.md) till virtuella datorer eller [balansera trafik mellan virtuella datorer i ett VNet](../../load-balancer/load-balancer-internal-overview.md). En belastningsutjämnare kan även balansera trafik mellan lokala datorer och virtuella datorer mellan lokala nätverk eller vidarebefordra extern trafik till en specifik virtuell dator.
 
@@ -159,7 +165,8 @@ Den här tabellen anger de metoder som du kan använda för att skapa en intern 
 | [Azure CLI](../../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Använd kommandot [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) för att skapa den första konfigurationen för belastningsutjämnaren. För att definiera den privata IP-adressen använder du [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) med parametern **--private-ip-address** parameter. Använd [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) att lägga till konfigurationen av backend-adresspoolen. Använd [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) för att lägga till NAT-regler. Använd [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) för att lägga till regler för belastningsutjämnaren. Använd [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) för att lägga till avsökningar.|
 | [Mall](../../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Använd [2 virtuella datorer i en belastningsutjämnare och konfigurera NAT-regler på LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) som en vägledning för att distribuera en belastningsutjämnare med en mall. |
 
-## <a name="vms"></a>Virtuella datorer
+## Virtuella datorer
+<a id="vms" class="xliff"></a>
 
 Virtuella datorer kan skapas i samma VNet och de kan ansluta till varandra med privata IP-adresser. De kan ansluta även om de finns i olika undernät utan att en gateway måste konfigureras eller offentliga IP-adresser användas. För att placera virtuella datorer i ett VNet skapar du detta VNet, och sedan när du skapar varje virtuell dator tilldelar du den till VNet och undernät. Virtuella datorer får sina nätverksinställningar under distributionen eller starten.  
 
@@ -175,7 +182,8 @@ Den här tabellen anger de metoder som du kan använda för att skapa en virtuel
 | [Azure PowerShell](../virtual-machines-windows-ps-create.md) | Inkluderar användningen av [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) för att lägga till det NIC som du skapade tidigare i konfigurationen av den virtuella datorn. |
 | [Mall](ps-template.md) | Använd [Mycket enkel distribution av virtuella Windows-datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) som en vägledning för att distribuera en virtuell dator med hjälp av en mall. |
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 
 - Läs mer om konfigurering av [användardefinierade vägar och IP-vidarebefordring](../../virtual-network/virtual-networks-udr-overview.md). 
 - Läs mer om hur du konfigurerar [VNet-till-VNet-anslutningar](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).

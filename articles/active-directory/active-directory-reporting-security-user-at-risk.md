@@ -1,5 +1,4 @@
 ---
-
 title: "Säkerhetsrapporten Användare i farozonen i Azure Active Directory | Microsoft Docs"
 description: "Lär dig mer om rapporten om användare i farozonen i Azure Active Directory-portalen"
 services: active-directory
@@ -11,17 +10,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
 ms.contentlocale: sv-se
 ms.lasthandoff: 05/08/2017
 
-
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Säkerhetsrapporten Användare i farozonen i portalen Azure Active Directory
+# Säkerhetsrapporten Användare i farozonen i portalen Azure Active Directory
+<a id="users-at-risk-security-report-in-the-azure-active-directory-portal" class="xliff"></a>
 
 Med hjälp av säkerhetsrapporterna i Azure Active Directory (Azure AD) kan du bedöma risken för att användarkonton i din miljö har komprometterats. 
 
@@ -37,7 +37,8 @@ I Azure-portalen hittar du säkerhetsrapporter på bladet **Azure Active Directo
 
 ![Riskfyllda inloggningar](./media/active-directory-reporting-security-user-at-risk/10.png)
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory kostnadsfri och grundläggande utgåva
+## Azure Active Directory kostnadsfri och grundläggande utgåva
+<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
 
 Rapporten om användare i farozonen i den kostnadsfria och grundläggande versionen av Azure Active Directory tillhandahåller en lista över användarkonton som kan ha komprometterats. 
 
@@ -49,7 +50,8 @@ För användare i farozonen går du igenom användarens inloggningshistorik och 
 
 ![Riskfyllda inloggningar](./media/active-directory-reporting-security-user-at-risk/46.png)
 
-## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory Premium-versioner
+## Azure Active Directory Premium-versioner
+<a id="azure-active-directory-premium-editions" class="xliff"></a>
 
 Rapporten om användare i farozonen i Azure Active Directory Premium-versionerna innehåller följande:
 
@@ -86,7 +88,8 @@ Detta öppnar bladet **Information** för den här riskhändelsen. På bladet **
 
 
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 
 - Mer information om Azure Active Directory Identity Protection finns i [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 

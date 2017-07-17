@@ -16,13 +16,15 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 9119a4523c66415925223b5de10ca0fb4a7147b2
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/04/2017
 
 ---
-# <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuera Active Directory Federation Services i Azure
+# Distribuera Active Directory Federation Services i Azure
+<a id="deploying-active-directory-federation-services-in-azure" class="xliff"></a>
 AD FS tillhandahåller förenklad, säker identitetsfederation och funktioner för enkel inloggning (SSO). Federation med Azure AD eller O365 gör att användarna kan autentiseras med lokala autentiseringsuppgifter och få åtkomst till alla resurser i molnet. Därför är det viktigt att du har en AD FS-infrastruktur med hög tillgänglighet för att säkerställa åtkomsten till resurser både lokalt och i molnet. Genom att distribuera AD FS i Azure kan du uppnå den höga tillgänglighet som krävs med minimalt arbete.
 Det finns flera fördelar med att distribuera AD FS i Azure, några av dem anges nedan:
 
@@ -31,7 +33,8 @@ Det finns flera fördelar med att distribuera AD FS i Azure, några av dem anges
 * **Global geo-redundans** – med Azure Geo Redundancy kan du vara säker på att din infrastruktur har hög tillgänglighet i hela världen.
 * **Lätt att hantera** – Med mycket förenklade hanteringsalternativ på Azure-portalen är det väldigt lätt och okomplicerat att hantera infrastrukturen. 
 
-## <a name="design-principles"></a>Designprinciper
+## Designprinciper
+<a id="design-principles" class="xliff"></a>
 ![Distributionsdesign](./media/active-directory-aadconnect-azure-adfs/deployment.png)
 
 Diagrammet ovan illustrerar den rekommenderade grundläggande topologin för distribution av en AD FS-infrastruktur i Azure. Principerna bakom de olika komponenterna i topologin anges nedan:
@@ -44,10 +47,12 @@ Diagrammet ovan illustrerar den rekommenderade grundläggande topologin för dis
 * **Lagringskonton**: Vi rekommenderar att du har två lagringskonton. Om du bara har ett lagringskonto kan det ge upphov till en felkritisk systemdel och göra att distributionen blir otillgänglig i det osannolika scenariot att lagringskontot skulle krascha. Två lagringskonton innebär att ett lagringskonto kan associeras med varje felrad.
 * **Nätverkssegregering**: WAP-servrar bör distribueras i ett separat DMZ-nätverk. Du kan dela upp ett virtuellt nätverk i två undernät och sedan distribuera WAP-servrarna i ett isolerat undernät. Konfigurera bara inställningar för nätverkssäkerhetsgrupper för varje undernät och tillåt endast nödvändig kommunikation mellan de två undernäten. Mer information finns i distributionsscenarierna nedan.
 
-## <a name="steps-to-deploy-ad-fs-in-azure"></a>Steg för att distribuera AD FS i Azure
+## Steg för att distribuera AD FS i Azure
+<a id="steps-to-deploy-ad-fs-in-azure" class="xliff"></a>
 Stegen i det här avsnittet beskriver hur AD FS-infrastrukturen nedan distribueras i Azure.
 
-### <a name="1-deploying-the-network"></a>1. Distribuera nätverket
+### 1. Distribuera nätverket
+<a id="1-deploying-the-network" class="xliff"></a>
 Som vi nämnt ovan kan du antingen skapa två undernät i ett enda virtuellt nätverk eller skapa två olika virtuella nätverk (VNet). I den här artikeln fokuserar vi på distributionen av ett virtuellt nätverk som delas in i två undernät. Den här metoden är enklare eftersom två separata virtuella nätverk kräver en ”VNet till VNet”-gateway för kommunikation.
 
 **1.1 Skapa det virtuella nätverket**
@@ -99,12 +104,14 @@ Vi behöver en anslutning till den lokala infrastrukturen för att distribuera d
 Vi rekommenderar att du använder ExpressRoute. Med ExpressRoute kan du skapa privata anslutningar mellan Azures datacenter och infrastruktur som finns lokalt eller i en samplaceringsmiljö. ExpressRoute-anslutningar går inte via offentligt Internet. De ger bättre tillförlitlighet, snabbare hastigheter, kortare svarstider och högre säkerhet än vanliga anslutningar över Internet.
 Vi rekommenderar att du använder ExpressRoute, men du kan välja valfri anslutningsmetod beroende på vad som passar bäst för din organisation. Om du vill veta mer om ExpressRoute och de olika anslutningsalternativen när du använder ExpressRoute läser du [Teknisk översikt över ExpressRoute](https://aka.ms/Azure/ExpressRoute).
 
-### <a name="2-create-storage-accounts"></a>2. Skapa lagringskonton
+### 2. Skapa lagringskonton
+<a id="2-create-storage-accounts" class="xliff"></a>
 För att upprätthålla hög tillgänglighet och undvika beroende av ett enda lagringskonto kan du skapa två lagringskonton. Dela in datorerna i varje tillgänglighetsuppsättning i två grupper och tilldela sedan varje grupp ett separat lagringskonto.
 
 ![Skapa lagringskonton](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
-### <a name="3-create-availability-sets"></a>3. Skapa tillgänglighetsuppsättningar
+### 3. Skapa tillgänglighetsuppsättningar
+<a id="3-create-availability-sets" class="xliff"></a>
 För varje roll (DC/AD FS och WAP) skapar du tillgänglighetsuppsättningar som ska innehålla minst två datorer var. På så sätt kan du uppnå högre tillgänglighet för varje roll. När du skapar tillgänglighetsuppsättningarna måste du fatta beslut om följande:
 
 * **Feldomäner**: Virtuella datorer i samma feldomän delar samma strömkälla och fysiska nätverksväxel. Minst två feldomäner rekommenderas. Standardvärdet är 3 och du kan lämna det som det är i den här distributionen.
@@ -119,7 +126,8 @@ Skapa följande tillgänglighetsuppsättningar
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4-deploy-virtual-machines"></a>4. Distribuera virtuella datorer
+### 4. Distribuera virtuella datorer
+<a id="4-deploy-virtual-machines" class="xliff"></a>
 Nästa steg är att distribuera virtuella datorer som ska vara värdar för de olika rollerna i infrastrukturen. Minst två datorer rekommenderas i varje tillgänglighetsuppsättning. Skapa fyra virtuella datorer för den grundläggande distributionen.
 
 | Dator | Roll | Undernät | Tillgänglighetsuppsättning | Lagringskonto | IP-adress |
@@ -135,7 +143,8 @@ Fönstret för din virtuella dator bör se ut så här när distributionen är k
 
 ![Distribuerade virtuella datorer](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
-### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5. Konfigurera domänkontrollanten/AD FS-servrar
+### 5. Konfigurera domänkontrollanten/AD FS-servrar
+<a id="5-configuring-the-domain-controller--ad-fs-servers" class="xliff"></a>
  För att kunna autentisera en inkommande begäran måste AD FS kontakta domänkontrollanten. Om du vill spara kostsamma turer från Azure till den lokala domänkontrollanten för autentisering rekommenderar vi att du distribuerar en replik av domänkontrollanten i Azure. För att uppnå hög tillgänglighet rekommenderar vi att du skapar en tillgänglighetsuppsättning på minst två domänkontrollanter.
 
 | Domänkontrollant | Roll | Lagringskonto |
@@ -146,7 +155,8 @@ Fönstret för din virtuella dator bör se ut så här när distributionen är k
 * Flytta upp de två servrarna som replikeringsdomänkontrollanter med DNS
 * Konfigurera AD FS-servrarna genom att installera AD FS-rollen med hjälp av Serverhanteraren.
 
-### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Distribuera en intern belastningsutjämnare (ILB)
+### 6. Distribuera en intern belastningsutjämnare (ILB)
+<a id="6-deploying-internal-load-balancer-ilb" class="xliff"></a>
 **6.1. Skapa den interna belastningsutjämnaren**
 
 Om du vill distribuera en intern belastningsutjämnare väljer du Belastningsutjämning på Azure-portalen och klickar på Lägg till (+).
@@ -162,7 +172,7 @@ Om du vill distribuera en intern belastningsutjämnare väljer du Belastningsutj
 * **Schema**: Eftersom den här belastningsutjämnaren ska placeras framför AD FS-servrarna och är avsedd ENDAST för interna nätverksanslutningar så väljer du ”Intern”.
 * **Virtual Network**: Välj det virtuella nätverket där du distribuerar AD FS.
 * **Undernät**: Välj det interna undernätet.
-* **IP-adresstilldelning**: Dynamisk.
+* **IP-adresstilldelning**: Statisk
 
 ![Intern belastningsutjämnare](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
 
@@ -207,7 +217,8 @@ För att effektivt belastningsutjämna trafiken bör belastningsutjämnaren konf
 Gå till din DNS-server och skapa en CNAME-post för den interna belastningsutjämnaren. CNAME ska anges för federationstjänsten och IP-adressen ska peka på den interna belastningsutjämnarens IP-adress. Om den interna belastningsutjämnarens DIP till exempel är 10.3.0.8 och den installerade federationstjänsten är fs.contoso.com skapar du en CNAME-post för fs.contoso.com som pekar på 10.3.0.8.
 På så sätt säkerställer du att alla kommunikation relaterad till fs.contoso.com kommer till den interna belastningsutjämnaren och dirigeras korrekt.
 
-### <a name="7-configuring-the-web-application-proxy-server"></a>7. Konfigurera WAP-servern (webbprogramproxyserver)
+### 7. Konfigurera WAP-servern (webbprogramproxyserver)
+<a id="7-configuring-the-web-application-proxy-server" class="xliff"></a>
 **7.1. Konfigurera WAP-servrarna så att de kan nå AD FS-servrar**
 
 Säkerställ att WAP-servrarna kan nå AD FS-servarna bakom den interna belastningsutjämnaren genom att skapa en post i %systemroot%\system32\drivers\etc\hosts för den interna belastningsutjämnaren. Observera att det unika namnet (DN) ska vara federationstjänstnamnet, till exempel fs.contoso.com. Och IP-posten ska vara den för den interna belastningsutjämnarens IP-adress (10.3.0.8 som i exemplet).
@@ -217,7 +228,8 @@ Säkerställ att WAP-servrarna kan nå AD FS-servarna bakom den interna belastni
 När du har kontrollerat att WAP-servrarna kan nå AD FS-servarna bakom den interna belastningsutjämnaren kan du gå vidare och installera WAP-servrarna. WAP-servarna ska inte anslutas till domänen. Installera WAP-rollerna på två WAP-servrar genom att välja fjärråtkomstrollen. Serverhanteraren vägleder dig genom WAP-installationen.
 Mer information om hur du distribuerar WAP finns i [Installera och konfigurera WAP (webbprogramproxyserver)](https://technet.microsoft.com/library/dn383662.aspx).
 
-### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Distribuera den Internetuppkopplade (offentliga) belastningsutjämnaren
+### 8.  Distribuera den Internetuppkopplade (offentliga) belastningsutjämnaren
+<a id="8--deploying-the-internet-facing-public-load-balancer" class="xliff"></a>
 **8.1.  Skapa en Internetuppkopplad (offentlig) belastningsutjämnare**
 
 Välj Belastningsutjämning på Azure-portalen och klicka sedan på Lägg till. Ange följande information på panelen Skapa belastningsutjämnare:
@@ -262,7 +274,8 @@ Följ samma steg som när du konfigurerade den interna belastningsutjämnaren f�
 
 ![Konfigurera belastningsutjämningsregler för den Internetuppkopplade belastningsutjämnaren](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9-securing-the-network"></a>9. Skydda nätverket
+### 9. Skydda nätverket
+<a id="9-securing-the-network" class="xliff"></a>
 **9.1. Skydda det interna undernätet**
 
 Du behöver följande regler för att effektivt skydda det interna undernätet (i den ordning som anges nedan)
@@ -292,7 +305,8 @@ Du behöver följande regler för att effektivt skydda det interna undernätet (
 > 
 > 
 
-### <a name="10-test-the-ad-fs-sign-in"></a>10. Testa AD FS-inloggningen
+### 10. Testa AD FS-inloggningen
+<a id="10-test-the-ad-fs-sign-in" class="xliff"></a>
 Det enklaste sättet är att testa AD FS med hjälp av sidan IdpInitiatedSignon.aspx. För att kunna göra det måste IdpInitiatedSignOn vara aktiverat i AD FS-egenskaperna. Kontrollera din AD FS-konfiguration genom att följa stegen nedan.
 
 1. Kör cmdleten nedan på AD FS-servern med hjälp av PowerShell för att aktivera egenskapen.
@@ -306,7 +320,8 @@ Om inloggningen lyckas visas ett meddelande som det nedan:
 
 ![Lyckat test](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
-## <a name="template-for-deploying-ad-fs-in-azure"></a>Mall för att distribuera AD FS i Azure
+## Mall för att distribuera AD FS i Azure
+<a id="template-for-deploying-ad-fs-in-azure" class="xliff"></a>
 Mallen distribuerar en konfiguration för 6 maskiner, 2 vardera för domänkontrollanter, AD FS och WAP.
 
 [Distributionsmall för AD FS i Azure](https://github.com/paulomarquesc/adfs-6vms-regular-template-based)
@@ -341,7 +356,8 @@ Du kan använda ett befintligt virtuellt nätverk eller skapa ett nytt VNET när
 | AdminUserName |Namnet på den lokala administratören för de virtuella datorerna |
 | AdminPassword |Lösenordet för det lokala administratörskontot för de virtuella datorerna |
 
-## <a name="additional-resources"></a>Ytterligare resurser
+## Ytterligare resurser
+<a id="additional-resources" class="xliff"></a>
 * [Tillgänglighetsuppsättningar](https://aka.ms/Azure/Availability) 
 * [Azure Load Balancer](https://aka.ms/Azure/ILB)
 * [Interna belastningsutjämnare](https://aka.ms/Azure/ILB/Internal)
@@ -350,7 +366,8 @@ Du kan använda ett befintligt virtuellt nätverk eller skapa ett nytt VNET när
 * [Azure Virtual Networks](https://aka.ms/Azure/VNet)
 * [AD FS och WAP-länkar (webbprogramproxy)](http://aka.ms/ADFSLinks) 
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
 * [Konfigurera och hantera AD FS med Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [AD FS-distribution med hög tillgänglighet över geografiska områden i Azure med Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)

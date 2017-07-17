@@ -15,17 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: venkatja
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 92e3e64f235e165a6a1772b6e1724789f3ec3049
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 9f2d3b57a42efb7b04566278d3267b3cdbed713a
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/01/2017
 
 ---
-# <a name="send-events-to-a-time-series-insights-environment-via-event-hub"></a>Skicka händelser till en Time Series Insights-miljö via Event Hub
+# Skicka händelser till en Time Series Insights-miljö via Event Hub
+<a id="send-events-to-a-time-series-insights-environment-via-event-hub" class="xliff"></a>
 
-I den här självstudien förklaras hur du skapar och konfigurerar Event Hub och kör ett exempelprogram för att push-överföra händelser. Om du har en befintlig Event Hub som redan innehåller händelser i JSON-format kan du hoppa över den här självstudien och visa din miljö i [time series explorer](https://insights.timeseries.azure.com).
+I den här självstudien förklaras hur du skapar och konfigurerar Event Hub och kör ett exempelprogram för att push-överföra händelser. Om du har en befintlig händelsehubb som innehåller händelser i JSON-format kan du hoppa över den här självstudien och visa din miljö i [time series insights](https://insights.timeseries.azure.com).
 
-## <a name="configure-an-event-hub"></a>Skapa en Event Hub
+## Skapa en Event Hub
+<a id="configure-an-event-hub" class="xliff"></a>
 1. Om du vill skapa en Event Hub följer du instruktionerna från Event Hub[-dokumentationen](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 2. Se till att skapa en konsumentgrupp som enbart används av din Time Series Insights-händelsekälla.
@@ -35,25 +38,27 @@ I den här självstudien förklaras hur du skapar och konfigurerar Event Hub och
 
   ![Välja konsumentgrupp för Event Hub](media/send-events/consumer-group.png)
 
-3. I Event Hub skapar du ”MySendPolicy” som används för att skicka händelser i exemplet nedan.
+3. I Event Hub skapar du ”MySendPolicy” som används för att skicka händelser i c#-exemplet.
 
   ![Välj Policyer för delad åtkomst och klicka på knappen Lägg till](media/send-events/shared-access-policy.png)  
 
   ![Lägg till ny policy för delad åtkomst](media/send-events/shared-access-policy-2.png)  
 
-## <a name="create-time-series-insights-event-source"></a>Skapa händelsekälla för Time Series Insights
+## Skapa händelsekälla för Time Series Insights
+<a id="create-time-series-insights-event-source" class="xliff"></a>
 1. Om du inte har skapat någon händelsekälla följer du instruktionerna [här](time-series-insights-add-event-source.md) för att skapa en händelsekälla.
 
-2. Ange "deviceTimestamp" som egenskapsnamn för tidsstämpeln – den här egenskapen används som den faktiska tidsstämpeln i exemplet nedan. Egenskapsnamnet för tidsstämpeln är skiftlägeskänsligt och värdena ska ha formatet __åååå-MM-ddTHH:mm:ss.FFFFFFFK__ när det skickas som JSON till Event Hub. Om egenskapen inte finns i händelsen används den tid då händelsen stod i Event Hub-kön.
+2. Ange "deviceTimestamp" som egenskapsnamn för tidsstämpeln – den här egenskapen används som den faktiska tidsstämpeln i c#-exemplet. Egenskapsnamnet för tidsstämpeln är skiftlägeskänsligt och värdena ska ha formatet __åååå-MM-ddTHH:mm:ss.FFFFFFFK__ när det skickas som JSON till Event Hub. Om egenskapen inte finns i händelsen används den tid då händelsen stod i Event Hub-kön.
 
   ![Skapa händelsekälla](media/send-events/event-source-1.png)
 
-## <a name="run-sample-code-to-push-events"></a>Köra exempelkod för push-händelser
+## Exempelkod för push-händelser
+<a id="sample-code-to-push-events" class="xliff"></a>
 1. Gå till Event Hub-principen ”MySendPolicy” och kopiera anslutningssträngen med principnyckeln.
 
   ![Kopiera anslutningssträngen MySendPolicy](media/send-events/sample-code-connection-string.png)
 
-2. Kör följande kod som skickar 600 händelser för var och en av de tre enheterna. Uppdatera `eventHubConnectionString` med anslutningssträngen.
+2. Kör följande kod som skickar 600 händelser till var och en av de tre enheterna. Uppdatera `eventHubConnectionString` med anslutningssträngen.
 
 ```csharp
 using System;
@@ -122,51 +127,59 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-## <a name="supported-json-shapes"></a>JSON-former som stöds
-### <a name="sample-1"></a>Exempel 1
+## JSON-former som stöds
+<a id="supported-json-shapes" class="xliff"></a>
+### Exempel 1
+<a id="sample-1" class="xliff"></a>
 
-#### <a name="input"></a>Indata
+#### Indata
+<a id="input" class="xliff"></a>
 
 Ett enda JSON-objekt.
 
 ```json
 {
-    "deviceId":"device1",
-    "deviceTimestamp":"2016-01-08T01:08:00Z"
+    "id":"device1",
+    "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### <a name="output---1-event"></a>Resultat – 1 händelse
+#### Resultat – 1 händelse
+<a id="output---1-event" class="xliff"></a>
 
-|deviceId|deviceTimestamp|
+|id|tidsstämpel|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
-### <a name="sample-2"></a>Exempel 2
+### Exempel 2
+<a id="sample-2" class="xliff"></a>
 
-#### <a name="input"></a>Indata
+#### Indata
+<a id="input" class="xliff"></a>
 En JSON-matris med två JSON-objekt. Varje JSON-objekt konverteras till en händelse.
 ```json
 [
     {
-        "deviceId":"device1",
-        "deviceTimestamp":"2016-01-08T01:08:00Z"
+        "id":"device1",
+        "timestamp":"2016-01-08T01:08:00Z"
     },
     {
-        "deviceId":"device2",
-        "deviceTimestamp":"2016-01-17T01:17:00Z"
+        "id":"device2",
+        "timestamp":"2016-01-17T01:17:00Z"
     }
 ]
 ```
-#### <a name="output---2-events"></a>Resultat – 2 händelser
+#### Resultat – 2 händelser
+<a id="output---2-events" class="xliff"></a>
 
-|deviceId|deviceTimestamp|
+|id|tidsstämpel|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
+### Exempel 3
+<a id="sample-3" class="xliff"></a>
 
-### <a name="sample-3"></a>Exempel 3
-
-#### <a name="input"></a>Indata
+#### Indata
+<a id="input" class="xliff"></a>
 
 Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt.
 ```json
@@ -174,50 +187,55 @@ Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt.
     "location":"WestUs",
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z"
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z"
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z"
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z"
         }
     ]
 }
 
 ```
-#### <a name="output---2-events"></a>Resultat – 2 händelser
+#### Resultat – 2 händelser
+<a id="output---2-events" class="xliff"></a>
 Observera att egenskapen "plats" kopieras till varje händelse.
 
-|location|events.deviceId|events.deviceTimestamp|
+|location|events.id|events.timestamp|
 |--------|---------------|----------------------|
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
 
-### <a name="sample-4"></a>Exempel 4
+### Exempel 4
+<a id="sample-4" class="xliff"></a>
 
-#### <a name="input"></a>Indata
+#### Indata
+<a id="input" class="xliff"></a>
+
+Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt. Denna indata visar att de globala egenskaperna kan representeras av komplexa JSON-objekt.
 
 ```json
 {
     "location":"WestUs",
-    "manufacturerInfo":{
+    "manufacturer":{
         "name":"manufacturer1",
         "location":"EastUs"
     },
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z",
-            "deviceData":{
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z",
+            "data":{
                 "type":"pressure",
                 "units":"psi",
                 "value":108.09
             }
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z",
-            "deviceData":{
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z",
+            "data":{
                 "type":"vibration",
                 "units":"abs G",
                 "value":217.09
@@ -226,14 +244,16 @@ Observera att egenskapen "plats" kopieras till varje händelse.
     ]
 }
 ```
-#### <a name="output---2-events"></a>Resultat – 2 händelser
+#### Resultat – 2 händelser
+<a id="output---2-events" class="xliff"></a>
 
-|location|manufacturerInfo.name|manufacturerInfo.location|events.deviceId|events.deviceTimestamp|events.deviceData.type|events.deviceData.units|events.deviceData.value|
+|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|tryck|psi|108.09|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+|WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 
 * Visa din miljö i [Time Series Insights-portalen](https://insights.timeseries.azure.com)
 

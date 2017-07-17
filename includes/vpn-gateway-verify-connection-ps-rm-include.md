@@ -1,6 +1,6 @@
 Du kan kontrollera att anslutningen har upprättats med cmdleten Get-AzureRmVirtualNetworkGatewayConnection, med eller utan flaggan -Debug. 
 
-1. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Välj A om du uppmanas, för att köra Alla. I exemplet avser -Name namnet på den anslutning du skapade och vill testa.
+1. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Välj A om du uppmanas, för att köra Alla. I exemplet avser '-Name' namnet på den anslutning du vill testa.
 
   ```powershell
   Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG

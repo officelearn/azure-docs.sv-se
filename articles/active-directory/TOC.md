@@ -199,10 +199,6 @@
 
 ### [Riskhändelser](active-directory-reporting-risk-events.md)
 
-### [Kvarhållning](active-directory-reporting-retention.md)
-
-### [Svarstider](active-directory-reporting-latencies-azure-portal.md)
-
 ### [Vanliga frågor och svar](active-directory-reporting-faq.md)
 
 ### Uppgifter
@@ -212,7 +208,15 @@
 #### [Hitta aktivitetsrapporter](active-directory-reporting-migration.md)
 
 #### [Använd innehållspaketet för Azure Active Directory Power BI](active-directory-reporting-power-bi-content-pack-how-to.md)
-  
+
+### Referens
+
+#### [Kvarhållning](active-directory-reporting-retention.md)
+
+#### [Svarstider](active-directory-reporting-latencies-azure-portal.md)
+
+#### [Felkoder för inloggningsaktivitet](active-directory-reporting-activity-sign-ins-errors.md)
+
 ### Felsöka
 
 #### [Granskningsdata som saknas](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -416,6 +420,8 @@
 ##### [Fjärrskrivbord](application-proxy-publish-remote-desktop.md)
 
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
+##### [Microsoft Teams](application-proxy-teams.md)
 
 #### [Felsöka](active-directory-application-proxy-troubleshoot.md)
 

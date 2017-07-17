@@ -13,17 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 07/03/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 14a5da0430b4eaaa61ef875e59454e2b6d88de91
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 8b2fbc230faf01797109114d6ebdffe5ec50e48b
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Vad är skalningsuppsättningar för virtuella datorer i Azure?
+# Vad är skalningsuppsättningar för virtuella datorer i Azure?
+<a id="what-are-virtual-machine-scale-sets-in-azure" class="xliff"></a>
 Skalningsuppsättningar för virtuella datorer är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning identiska virtuella datorer. När alla virtuella datorer har konfigurerats på samma sätt skapas skalningsuppsättningar för att stödja sann autoskalning. Ingen företablering av virtuella datorer krävs. Det gör det enklare att skapa storskaliga tjänster som riktar sig mot Big Compute, stordata och arbetsbelastningar i behållare.
 
 För program som behöver skala beräkningsresurser ut och in är skalningsåtgärderna balanserade implicit i fel- och uppdateringsdomäner. En mer omfattande introduktion till skalningsuppsättningar finns i [Azure-bloggmeddelandet](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -33,16 +35,18 @@ Titta igenom dessa videor för mer information om skalningsuppsättningar:
 * [Mark Russinovich berättar om Azure-skalningsuppsättningar](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 * [Skaluppsättningar för virtuell dator med Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-## <a name="creating-and-managing-scale-sets"></a>Skapa och hantera skalningsuppsättningar
+## Skapa och hantera skalningsuppsättningar
+<a id="creating-and-managing-scale-sets" class="xliff"></a>
 Du kan skapa en skalningsuppsättning i [Azure Portal](https://portal.azure.com) genom att välja **Ny** och skriva in **skalning** i sökfältet. Bland resultaten ser du **Skalningsuppsättning för virtuella datorer**. Därifrån kan du fylla i fälten som krävs för att anpassa och distribuera din skalningsuppsättning. Observera att det även finns alternativ för att ställa in grundläggande regler för automatisk skalning som baseras på processoranvändningen i portalen.
 
 Du kan definiera och distribuera skalningsuppsättningar med hjälp av JSON-mallar och [REST API:er](https://msdn.microsoft.com/library/mt589023.aspx) precis som enskilda virtuella Azure Resource Manager-datorer. Därför går det att använda alla standardmetoder för Azure Resource Manager-distribution. Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Du hittar en uppsättning exempelmappar för skalningsuppsättningar till virtuella datorer på [Azure Quickstart-mallarnas GitHub lagringsplats](https://github.com/Azure/azure-quickstart-templates). (Leta efter mallar med **vmss** i titeln.)
 
-Det finns en knapp som länkar till portalens distributionsfunktion på informationssidorna för dessa mallar. Distribuera skalningsuppsättningen genom att klicka på knappen och sedan fylla i alla parametrar som krävs i portalen. Om du är osäker på om en resurs stöder versaler eller både gemener och versaler är det säkrast att alltid använda parametervärden med gemener och siffror. [Analys av mall för VM-skalningsuppsättning](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player) är en praktisk videoanalys av en skalningsuppsättningsmall.
+För mallexemplen för snabbstart kopplar knappen ”Distribuera till Azure” i readme varje mall till funktionen portaldistribuering. Distribuera skalningsuppsättningen genom att klicka på knappen och sedan fylla i alla parametrar som krävs i portalen. 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>Skala ut eller skala in en skalningsuppsättning
+## Skala ut eller skala in en skalningsuppsättning
+<a id="scaling-a-scale-set-out-and-in" class="xliff"></a>
 Du kan ändra kapaciteten för en skalningsuppsättning i Azure Portal genom att klicka på avsnittet **Skalning** under **Inställningar**. 
 
 Om du vill ändra skalningsuppsättningens kapacitet på kommandoraden använder du kommandot **scale** i [Azure CLI](https://github.com/Azure/azure-cli). Du använder exempelvis följande kommando om du vill ställa in en skalningsuppsättnings kapacitet på 10 virtuella datorer:
@@ -63,7 +67,8 @@ Om du vill öka eller minska antalet virtuella datorer i en skalningsuppsättnin
 
 Om du omdistribuerar en Azure Resource Manager-mall för att ändra kapaciteten kan du definiera en mycket mindre mall som bara innehåller **SKU**-egenskapspaketet och den uppdaterade kapaciteten. [Här är ett exempel](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## <a name="autoscale"></a>Automatisk skalning
+## Automatisk skalning
+<a id="autoscale" class="xliff"></a>
 
 En skalningsuppsättning kan alternativt konfigureras med automatiska skalningsinställningar när den skapas i Azure Portal. Antalet virtuella datorer kan sedan ökas eller minskas utifrån genomsnittlig processoranvändning. 
 
@@ -82,19 +87,21 @@ $profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -
 Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
 ```
 
- Du hittar en lista över giltiga mått för skalning här: [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) (Mått som stöds av Azure Monitor) under rubriken ”Microsoft.Compute/virtualMachineScaleSets”. Mer avancerade alternativ för automatisk skalning finns också, inklusive schemabaserad automatisk skalning och användning av webhook-konfigurationer för att integrera med aviseringssystem.
+Du hittar en lista över giltiga mått för skalning här: [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) (Mått som stöds av Azure Monitor) under rubriken ”Microsoft.Compute/virtualMachineScaleSets”. Mer avancerade alternativ för automatisk skalning finns också, inklusive schemabaserad automatisk skalning och användning av webhook-konfigurationer för att integrera med aviseringssystem.
 
-## <a name="monitoring-your-scale-set"></a>Övervaka din skalningsuppsättning
+## Övervaka din skalningsuppsättning
+<a id="monitoring-your-scale-set" class="xliff"></a>
 I [Azure Portal](https://portal.azure.com) anges skalningsuppsättningar och där visas även deras egenskaper. Portalen har också stöd för hanteringsåtgärder. Du kan utföra hanteringsåtgärder på både skalningsuppsättningar och enskilda virtuella datorer i en skalningsuppsättning. Portalen innehåller också ett anpassningsbart resursanvändningsdiagram. 
 
 Om du behöver visa eller redigera den underliggande JSON-definitionen för en Azure-resurs kan du även använda [Azure Resource Explorer](https://resources.azure.com). Skalningsuppsättningar är en resurs under resursprovidern Microsoft.Compute Azure. Du kan se dem genom att expandera följande länkar från den här platsen:
 
-**Prenumerationer** > **din prenumeration** > **resursgrupper** > **providrar** > **Microsoft.Compute** > **virtualMachineScaleSets** > **din skalningsuppsättning** -> osv.
+**Prenumerationer** > **din prenumeration** > **resursgrupper**  > **providrar** > **Microsoft.Compute** >  **virtualMachineScaleSets** > **din skalningsuppsättning** -> osv.
 
-## <a name="scale-set-scenarios"></a>Scenarier för skalningsuppsättningar
+## Scenarier för skalningsuppsättningar
+<a id="scale-set-scenarios" class="xliff"></a>
 Det här avsnittet innehåller några vanliga scenarier för skalningsuppsättningar. Vissa Azure-tjänster på högre nivåer (som Batch, Service Fabric och Container Service) använder dessa scenarier.
 
-* **Använd RDP eller SSH för att ansluta till skalningsuppsättningsinstanser**: En skalningsuppsättning skapas i ett virtuellt nätverk och enskilda virtuella datorer i skalningsuppsättningen allokeras inte till offentliga IP-adresser. Den här principen undviker utgifts- och administrationskostnader för att allokera separata offentliga IP-adresser för alla noder i rutnätsberäkningen. Du kan ansluta till dessa virtuella datorer från andra resurser i det virtuella nätverket, till exempel belastningsutjämnare och fristående virtuella datorer, som kan allokeras till offentliga IP-adresser.
+* **Använd RDP eller SSH för att ansluta till skalningsuppsättningsinstanser**: En skalningsuppsättning skapas i ett virtuellt nätverk och enskilda virtuella datorer i skalningsuppsättningen allokeras inte till offentliga IP-adresser som standard. Den här principen undviker utgifts- och administrationskostnader för att allokera separata offentliga IP-adresser för alla noder i rutnätsberäkningen. Om du behöver hänvisa externa anslutningar till skaluppsättningen för virtuella datorer kan du konfigurera en skala som automatiskt tilldelar offentliga IP-adresser till nya virtuella datorer. Du kan alternativt ansluta till dessa virtuella datorer från andra resurser i det virtuella nätverket, till exempel belastningsutjämnare och fristående virtuella datorer, som kan allokeras till offentliga IP-adresser. 
 * **Ansluta till virtuella datorer med NAT-regler**: Du kan skapa en offentlig IP-adress, tilldela den en belastningsutjämnare och definiera en inkommande NAT-pool. De här åtgärderna mappar portar på IP-adressen till en port på en virtuell dator i skalningsuppsättningen. Exempel:
   
   | Källa | Källport | Mål | Målport |
@@ -121,13 +128,15 @@ Det här avsnittet innehåller några vanliga scenarier för skalningsuppsättni
   
    I [det här exemplet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) med den här metoden distribuerar [Azure Container Service](https://azure.microsoft.com/services/container-service/) ett kluster baserat på skalningsuppsättningar med en behållardirigerare.
 
-## <a name="scale-set-performance-and-scale-guidance"></a>Prestanda för skalningsuppsättningar och riktlinjer för skalning
+## Prestanda för skalningsuppsättningar och riktlinjer för skalning
+<a id="scale-set-performance-and-scale-guidance" class="xliff"></a>
 * En skalningsuppsättning har stöd för upp till 1 000 virtuella datorer. Om du skapar och laddar upp dina egna anpassade VM-avbildningar är gränsen 100. Faktorer att överväga när du använder stora skalningsuppsättningar finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md).
 * Du behöver inte skapa Azure Storage-konton i förväg för att använda skalningsuppsättningar. Skalningsuppsättningar har stöd för Azure-hanterade diskar, vilket eliminerar prestandaproblem relaterade till antalet diskar per lagringskonto. Mer information finns i [skalningsuppsättningar och hanterade diskar för virtuella datorer i Azure](virtual-machine-scale-sets-managed-disks.md).
 * Överväg att använda Azure Premium Storage i stället för Azure Storage för snabbare, mer förutsägbara etableringstider för virtuella datorer samt förbättrade IO-prestanda.
 * Antalet virtuella datorer som du kan skapa begränsas av kärnkvoten i den region där du distribuerar. Du kan behöva kontakta kundsupporten om du vill öka beräkningskvotgränsen även om du har en hög högsta gräns för kärnor som kan användas med Azure Cloud Services i dag. Om du vill fråga din kvot kör du följande Azure CLI-kommando: `azure vm list-usage`. Eller kör detta PowerShell-kommando: `Get-AzureRmVMUsage`.
 
-## <a name="frequently-asked-questions-for-scale-sets"></a>Vanliga frågor och svar om skalningsuppsättningar
+## Vanliga frågor och svar om skalningsuppsättningar
+<a id="frequently-asked-questions-for-scale-sets" class="xliff"></a>
 **F.** Hur många virtuella datorer kan man ha i en skalningsuppsättning?
 
 **S.** En skalningsuppsättning kan innehålla mellan 0 och 1 000 virtuella datorer baserade på plattformsavbildningar eller 0–100 virtuella datorer baserade på anpassade avbildningar. 
@@ -160,7 +169,7 @@ Det här avsnittet innehåller några vanliga scenarier för skalningsuppsättni
 
 **F.** Kan jag framtvinga en körning av sekvensen när jag använder flera tillägg i en skalningsuppsättning?
 
-**S.** Inte direkt, men för tillägget customScript kan skriptet vänta på att ytterligare ett tillägg slutförs (exempelvis genom att [övervaka tilläggets logg](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Ytterligare hjälp med ordningsföljden för tillägg finns i det här blogginlägget: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Ordningsföljd för tillägg till skalningsuppsättningar för virtuella datorer i Azure).
+**S.** Inte direkt, men för tillägget customScript kan skriptet vänta på att ytterligare ett tillägg slutförs. Ytterligare hjälp med ordningsföljden för tillägg finns i det här blogginlägget: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Ordningsföljd för tillägg till skalningsuppsättningar för virtuella datorer i Azure).
 
 **F.** Fungerar skalningsuppsättningar med Azures tillgänglighetsuppsättningar?
 

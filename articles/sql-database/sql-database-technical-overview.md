@@ -1,10 +1,10 @@
 ---
 title: "Vad är tjänsten Azure SQL Database? | Microsoft Docs"
-description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
+description: "Få en introduktion till SQL Database: teknisk information och funktioner i Microsofts relationella databashanteringssystem (RDBMS) i molnet."
 keywords: "introduktion till sql, sql-introduktion, vad är sql database"
 services: sql-database
 documentationcenter: 
-author: shontnew
+author: CarlRabeler
 manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
@@ -14,53 +14,170 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/17/2017
-ms.author: shkurhek
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a139b97e20685a5ced513c1fd180a74e91c497a7
-ms.lasthandoff: 04/15/2017
+ms.date: 06/30/2017
+ms.author: carlrab
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 0dbe945f619cf3841b5ae72943d51d3931a3f251
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/01/2017
 
 ---
-# <a name="what-is-sql-database-introduction-to-sql-database"></a>Vad är SQL Database? Introduktion till SQL Database
-SQL Database är en relationsdatabastjänst i Microsoft Cloud som är baserad på den marknadsledande Microsoft SQL Server-motorn och som kan hantera verksamhetskritiska arbetsbelastningar. SQL Database levererar förutsägbar prestanda på flera tjänstenivåer, dynamisk skalbarhet utan avbrott, verksamhetskontinuitet och dataskydd – allt med nästan obefintlig administration. Dessa funktioner gör att du kan fokusera på snabb apputveckling och att accelerera din tid till marknaden, istället för att ägna värdefull tid och resurser åt att hantera virtuella datorer och infrastruktur. Eftersom SQL Database är baserad på [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx)-motorn stöder SQL Database befintliga SQL Server-verktyg, bibliotek och API:er. Därför är det enkelt att utveckla nya lösningar, att flytta dina befintliga SQL Server-lösningar och att utöka dina befintliga SQL Server-lösningar till Microsoft Cloud utan att lära dig nya färdigheter.
+# Vad är tjänsten Azure SQL Database?
+<a id="what-is-the-azure-sql-database-service" class="xliff"></a> 
 
-Den här artikeln ger en introduktion till nyckelkoncept och funktioner för SQL Database som relaterar till prestanda, skalbarhet och hanterbarhet, med länkar till mer detaljerad information. Läs följande snabbstarter innan du börjar:
- - [Skapa en SQL-databas i Azure Portal](sql-database-get-started-portal.md)  
- - [Skapa en SQL-databas med Azure CLI](sql-database-get-started-cli.md)
- - [Skapa en SQL Database med PowerShell](sql-database-get-started-powershell.md)
+SQL-databasen är en allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. Ger [dynamiskt skalbar prestanda](sql-database-service-tiers.md) och innehåller alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extremanalys och rapporter, samt [minnesintern OLTP](sql-database-in-memory.md) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen. 
 
-En uppsättning Azure CLI- och PowerShell-exempel finns här:
- - [Azure CLI-exempel för Azure SQL Database](sql-database-cli-samples.md)
- - [Azure PowerShell-exempel för Azure SQL Database](sql-database-powershell-samples.md)
+SQL-databas delar sin kodbas med [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Med Microsofts moln-först-strategi släpps de senaste funktionerna för SQL Server först till SQL-databasen och sedan till SQL-servern. Den här metoden ger de senaste funktionerna för SQL Server utan merkostnader för uppdatering eller uppgradering och med nya funktioner som testas över miljontals databaser. Mer information om nya funktioner efter hand som de tillkännages finns i:
 
-## <a name="adjust-performance-and-scale-without-downtime"></a>Justera prestanda och skalning utan avbrott
-SQL Database-tjänsten har fyra tjänstnivåer: Basic, Standard, Premium och Premium RS. Varje tjänstnivå erbjuder [olika prestandanivåer och funktioner](sql-database-service-tiers.md) för att stödja lätta till tunga arbetsbelastningar för databaser. Du kan skapa din första app på en liten databas för några kronor i månaden och sedan [ändra dess tjänstnivå](sql-database-service-tiers.md) manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan göra detta utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
+- **[Azure-produktöversikt för SQL Database](https://azure.microsoft.com/roadmap/?category=databases)** Här reda på vad som är nytt och vad som är på gång. 
+- **[Azure SQL Database-blogg](https://azure.microsoft.com/blog/topics/database)**: en plats där SQL Server-produktteamet bloggar om nyheter och funktioner om SQL Database. 
 
-## <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
-För många företag och appar räcker det att kunna skapa enkla databaser och reglera prestanda för fristående databaser upp eller ner efter behov, speciellt om användningsmönstren är relativt förutsägbara. Men om du har oförutsägbara användningsmönster, kan det vara svårt att hantera kostnader och din affärsmodell. [Elastiska pooler](sql-database-elastic-pool.md) är utformade för att lösa detta problem. Konceptet är enkelt. Du allokerar prestandaresurser till en pool snarare än till en individuell databas, och betalar för de samlade prestandaresurserna för poolen istället för en enskild databas prestanda. Med elastiska pooler behöver du inte fokusera på att reglera databasprestanda upp och ner när behovet av resurser varierar. Databaserna i poolen förbrukar den elastiska poolens prestandaresurser efter behov. Databaser i poolen förbrukar, men överskrider inte begränsningarna i poolen. Dina kostnader förblir förutsägbara även om den individuella databasanvändningen inte är det. Dessutom kan du [lägga till och ta bort databaser i poolen](sql-database-elastic-pool-manage-portal.md) och därmed skala din app från några få databaser till tusentals, inom en budget som du själv styr över. Slutligen kan du också styra de minimalt och maximalt tillgängliga resurser som är tillgängliga för databaser i poolen, för att säkerställa att ingen databas i poolen använder alla poolresurser och att varje databas i poolen har garanterade resurser. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+SQL Database levererar förutsägbar prestanda på flera servicenivåer som ger dynamisk skalbarhet utan driftstopp, inbyggd intelligent optimering, global skalbarhet och tillgänglighet samt alternativ för avancerad säkerhet – allt detta med nästan obefintlig administration. Dessa funktioner gör att du kan fokusera på snabb apputveckling och att accelerera din tid till marknaden, istället för att ägna värdefull tid och resurser åt att hantera virtuella datorer och infrastruktur. SQL Database-tjänsten används för närvarande i 38 datacenter runtom i världen och många fler datacenter ansluter sig hela tiden, vilket innebär att du kan köra din databas från ett datacenter nära dig.
 
-## <a name="blend-single-databases-with-pooled-databases"></a>Blanda enskilda databaser med databaser i en pool
+> [!NOTE]
+> Besök [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/security/) för information om Azures plattformssäkerhet.
+>
+
+## Skalbar prestanda och pooler
+<a id="scalable-performance-and-pools" class="xliff"></a>
+
+Med SQL-databas måste alla databaser vara isolerade från varandra och portabla, var och en med sin egen [tjänstnivå](sql-database-service-tiers.md) med en garanterad prestandanivå. SQL-databasen innehåller olika prestandanivåer för olika behov och gör att databaserna är poolade för att maximera användningen av resurser och spara pengar.
+
+### Justera prestanda och skalning utan avbrott
+<a id="adjust-performance-and-scale-without-downtime" class="xliff"></a>
+
+SQL-databasen erbjuder fyra tjänstnivåer för att stödja lätta till tunga arbetsbelastningar: Basic, Standard, Premium och Premium RS. Du kan skapa din första app på en liten, enkel databas för en låg månadskostnad och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
+
+   ![skalning](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+
+### Elastiska pooler som maximerar resursutnyttjandet
+<a id="elastic-pools-to-maximize-resource-utilization" class="xliff"></a>
+
+För många företag och appar räcker det att kunna skapa enkla databaser och reglera prestanda för fristående databaser upp eller ner efter behov, speciellt om användningsmönstren är relativt förutsägbara. Men om du har oförutsägbara användningsmönster, kan det vara svårt att hantera kostnader och din affärsmodell. [Elastiska pooler](sql-database-elastic-pool.md) är utformade för att lösa detta problem. Konceptet är enkelt. Du allokerar prestandaresurser till en pool snarare än till en individuell databas, och betalar för de samlade prestandaresurserna för poolen istället för en enskild databas prestanda. 
+
+   ![elastiska pooler](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+
+Med elastiska pooler behöver du inte fokusera på att reglera databasprestanda upp och ner när behovet av resurser varierar. Databaserna i poolen förbrukar den elastiska poolens prestandaresurser efter behov. Databaser i poolen förbrukar, men överskrider inte begränsningarna i poolen. Dina kostnader förblir förutsägbara även om den individuella databasanvändningen inte är det. Dessutom kan du [lägga till och ta bort databaser i poolen](sql-database-elastic-pool-manage-portal.md) och därmed skala din app från några få databaser till tusentals, inom en budget som du själv styr över. Du också styra de minimalt och maximalt tillgängliga resurser som är tillgängliga för databaser i poolen, för att säkerställa att ingen databas i poolen använder alla poolresurser och att varje databas i poolen har garanterade resurser. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+### Blanda enskilda databaser med databaser i en pool
+<a id="blend-single-databases-with-pooled-databases" class="xliff"></a>
+
 Vilken väg du än väljer – enskilda databaser eller elastiska pooler – är du inte låst. Du kan blanda enskilda databaser med elastiska pooler och snabbt och enkelt ändra tjänstnivåerna för enskilda databaser och elastiska pooler efter behov. Med den kraft och räckvidd som Azure har, kan du dessutom blanda andra Azure-tjänster med SQL Database, allt för att möta designbehoven för just din unika app, samt styra kostnader och upptäcka nya affärsmöjligheter.
 
-## <a name="monitoring-and-alerting"></a>Övervakning och avisering
+### Omfattande övervakning och aviseringsfunktioner
+<a id="extensive-monitoring-and-alerting-capabilities" class="xliff"></a>
+
 Men hur kan man jämföra den relativa prestandan för enskilda databaser och elastiska pooler? Hur vet man rätt värden när man reglerar upp eller ner? Du använder den [inbyggda prestandaövervakningen](sql-database-performance.md) och [aviserings](sql-database-insights-alerts-portal.md)verktyg, i kombination med prestandaklassificeringarna baserade på [databastransaktionsenheter (DTU:er) för enskilda databaser och elastiska DTU:er (eDTU:er) för elastiska pooler](sql-database-what-is-a-dtu.md). Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller projekterade prestandakrav. Se [SQL Database, alternativ och prestanda: Förstå vad varje tjänstnivå erbjuder](sql-database-service-tiers.md) för mer information.
 
-## <a name="keep-your-app-and-business-running"></a>Håll igång din app och din verksamhet
-Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/legal/sla/) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. Med varje SQL-databas drar du nytta av inbyggd säkerhet, feltolerans och [dataskydd](sql-database-automated-backups.md) som du annars skulle behöva köpa, utforma, utveckla och hantera. Med SQL Database erbjuder varje tjänstnivå en omfattande uppsättning funktioner för affärskontinuitet och alternativ som du kan använda för att komma igång. Du kan använda [point-in-time-återställning](sql-database-recovery-using-backups.md) för att återställa en databas till ett tidigare skede, så långt tillbaka som 35 dagar. Du kan konfigurera [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md) där säkerhetskopiorna lagras i ett säkert valv i upp till 10 år. Om det uppstår ett avbrott i datacentret som är värd för dina databasmiljöer kan du återställa databaser från [geo-redundanta kopior av säkerhetskopior som nyligen skapats](sql-database-recovery-using-backups.md). Om det behövs kan du också konfigurera [geo-redundanta läsbara repliker](sql-database-geo-replication-overview.md) i en eller flera regioner för snabb redundans vid avbrott i datacentret. Du kan också använda dessa repliker för snabbare inläsningsprestanda i olika geografiska regioner eller för [programuppgraderingar utan driftavbrott](sql-database-manage-application-rolling-upgrade.md). 
+Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metrics-diag-logging.md) för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
 
-![SQL Database Geo-replikering](./media/sql-database-technical-overview/azure_sqldb_map.png)
+- **Azure Storage**: För arkivering av stora mängder telemetri till ett lågt pris
+- **Azure Event Hub**: För integrering av telemetri i SQL-databasen med anpassad övervakningslösning eller heta pipelines
+- **Azure Log Analytics**: För inbyggda övervakningslösningar med rapporteringer, avisering och problemlösningskapacitet
 
-Se [verksamhetskontinuitet](sql-database-business-continuity.md) för mer information om de olika funktionerna för verksamhetskontinuitet som finns för de olika tjänstnivåerna.
+    ![Arkitektur](./media/sql-database-metrics-diag-logging/architecture.png)
 
-## <a name="secure-your-data"></a>Skydda dina data
-SQL Server bygger på en tradition av datasäkerhet som SQL Database upprätthåller med funktioner som begränsar åtkomst, skyddar data och hjälper dig att övervaka aktiviteten. Se [Skydda din SQL-databas](sql-database-security-overview.md) för en snabb genomgång av de säkerhetsalternativ som finns i SQL Database. Se [Security Center för SQL Server Database Engine och SQL Database](https://msdn.microsoft.com/library/bb510589) för en mer genomgående insyn i säkerhetsfunktionerna. Och besök [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/security/) för information om Azures plattformssäkerhet.
+## Kapacitet för tillgänglighet
+<a id="availability-capabilities" class="xliff"></a>
 
-## <a name="next-steps"></a>Nästa steg
-Nu när du har läst en introduktion till SQL Database och besvarat frågan "Vad är SQL Database?", är du redo att:
+Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/legal/sla/) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. SQL Database tillhandahåller dessutom inbyggda funktioner för [kontinuitet för företag och global skalbarhet](sql-database-business-continuity.md), inklusive:
 
-* Se [Prissidan](https://azure.microsoft.com/pricing/details/sql-database/) för en kostnadsjämförelse och kostnadsberäknare för enskilda databaser och elastiska pooler.
-* Läs mer om [elastiska pooler](sql-database-elastic-pool.md).
-* Kom igång genom att [skapa din första databas](sql-database-get-started-portal.md).
-* Skapa din första app i C#, Java, Node.js, PHP, Python eller Ruby: [Anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md)
+- **[Automatisk säkerhetskopiering](sql-database-automated-backups.md)**: SQL-databasen utför automatiskt fullständiga och differentiella säkerhetskopieringar samt säkerhetskopiering av transaktionsloggen.
+- **[Återställning vid tidpunkt](sql-database-recovery-using-backups.md)**: SQL-databasen har stöd för återställning till en valfri tidpunkt inom den automatiska kvarhållningsperioden för säkerhetskopiering.
+- **[Aktiv geo-replikering](sql-database-geo-replication-overview.md)**: Med SQL-databasen kan du konfigurera upp till fyra läsbara sekundära databaser i antingen samma eller globalt distribuerade Azure-datacenter.  Till exempel om du har ett SaaS-program med en katalog-databas som har ett stort antal samtidiga skrivskyddade transaktioner, använder aktiv geo-replikering för att aktivera global skrivskyddsskala och tar bort flaskhalsar på primärorsaken som beror på skrivskyddade arbetsbelastningar. 
+- **[Redundansgrupper](sql-database-geo-replication-overview.md)**: SQL-databasen kan du aktivera hög tillgänglighet och belastningsutjämning på global nivå, inklusive transparent geo-replikering och redundans för stora mängder databaser och elastiska pooler. Redundansgrupper och aktiv geo-replikering kan du skapa globalt distribuerade SaaS-program med minimala administrationsomkostnader, vilket lämnar all komplex övervakning, rutt, och felstyrning till SQL-databasen.
 
+## Inbyggd intelligens
+<a id="built-in-intelligence" class="xliff"></a>
+
+Med SQL-databas får du inbyggd intelligens som hjälper dig att avsevärt minska kostnaderna för att köra och hantera databaser och maximera både prestanda och säkerhet för programmet. Miljontals kundarbetsflöden körs dygnet runt, SQL Database samlar in och bearbetar en omfattande mängd telemetridata, samtidigt som den helt respekterar kundens integritet i bakgrunden. Olika algoritmer utvärderar kontinuerligt telemetridata så att tjänsten kan lära sig och anpassa dem med ditt program. Baserat på den här analysen skapar tjänsten rekommendationer som ökar prestandan på ett sätt som är skräddarsytt för din arbetsbelastning. 
+
+### Automatisk prestandajustering
+<a id="automatic-performance-tuning" class="xliff"></a>
+
+SQL Database ger detaljerad inblick i frågor som du behöver övervaka. SQL-databas lär sig om din databas och du kan anpassa ditt databasschema för din arbetsbelastning. SQL-databasen innehåller rekommendationer för prestandajustering med [SQL Database Advisor](sql-database-advisor.md) där du kan granska prestandajusteringsåtgärder och använda dem. Det kan vara svårt att konstant övervaka databasen, särskilt när vi hanterar flera databaser. Det kan vara svårt att hantera ett stort antal databaser effektivt, även om du har alla verktyg och rapporter i SQL Database och Azure-portalen. I stället för att övervaka och justera databasen manuellt, kan du delegera vissa åtgärder som övervakar och justerar till SQL Database med hjälp av funktionen för automatisk justering. SQL Database tillämpar automatiskt rekommendationer, tester och verifierar var och en av prestandajusteringsåtgärderna för att kontrollera att prestandan ständigt förbättras. På så sätt kan SQL-databasen automatiskt anpassas efter din arbetsbelastning på ett kontrollerat och säkert sätt. Automatisk justering innebär att databasens prestanda övervakas och jämförs noggrant före och efter varje prestandajusteringsåtgärd. Om detta inte förbättrar prestandan återställs justeringsåtgärden.
+
+Idag förlitar sig många av våra samarbetspartners som använder [SaaS appar för flera appar](sql-database-design-patterns-multi-tenancy-saas-applications.md) utöver SQL-databasen på automatisk prestandajustering för att säkerställa att deras program alltid hade stabil och pålitlig prestanda. För dessa minskar funktionen risken för en prestandaincident mitt i natten. Eftersom en del av deras kundbas också använder SQL Server, använder de dessutom samma indexeringsrekommendationer som tillhandahålls av SQL Database för sina SQL Server-kunder.
+
+Det finns två automatiska justeringsaspekter som är tillgängliga i SQL Database:
+
+- **[Automatisk indexhantering](sql-database-automatic-tuning.md#automatic-index-management)**: Identifierar index som bör läggas till i din databas och index som ska tas bort.
+- **[Plan för automatisk korrigering](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**: Identifierar problematiska planer och åtgärdar prestandaproblem i SQL planen (kommer snart, redan finns i SQL Server 2017).
+
+### Anpassningsbar frågebearbetning
+<a id="adaptive-query-processing" class="xliff"></a>
+
+Vi lägger också till funktionen för anpassningsbar frågebearbetning i SQL Database-familjen, inklusive [överlagrad körning för tabellvärdesfunktioner med flera instruktioner, minnesfeedback i batchläge](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-interleaved-execution-for-multi-statement-table-valued-functions/) och [anpassningsbara kopplingar i batchläge](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-batch-mode-adaptive-joins/). De olika funktionerna med anpassningsbar frågebearbetning tillämpar liknande ”Läs och anpassa”-teknik, vilket bidrar till förmågan att hantera prestandaproblem som berör historiskt olösbara optimeringsproblem.
+
+### Intelligent hotidentifiering
+<a id="intelligent-threat-detection" class="xliff"></a>
+
+ [SQL-Hotidentifiering](sql-database-threat-detection.md) utnyttjar [SQL Database auditing](sql-database-auditing.md) för att ständigt övervaka Azure SQL-databaser och förhindra obehöriga försök att komma åt känsliga data. SQL-hotidentifiering ger ett nytt lager av säkerhet som ger kunder möjlighet att identifiera och svara på potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar om avvikande aktiviteter. Användare får aviseringar om misstänkta databasaktiviteter, potentiella svagheter, SQL-filinmatningsattacker och avvikande mönster i databasåtkomst. SQL-hotidentifieringsaviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minska risken. Användare kan utforska misstänkta händelser för att avgöra om händelsen orsakades av ett försök att komma åt, tränga in i eller utnyttja data i databasen. Hotidentifiering gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhetsexpert eller hantera avancerade säkerhetsövervakningssystem.
+
+## Avancerad säkerhet och efterlevnad
+<a id="advanced-security-and-compliance" class="xliff"></a>
+
+SQL-databasen innehåller en uppsättning [inbyggda funktioner för säkerhet och efterlevnad](sql-database-security-overview.md) för att uppfylla olika krav för säkerhet och regelefterlevnad i programmet. 
+
+### Granskning för efterlevnad och säkerhet
+<a id="auditing-for-compliance-and-security" class="xliff"></a>
+
+[SQL-databasgranskning](sql-database-auditing.md) spårar databashändelser och skriver händelserna i en granskningslogg i ditt Azure Storage-konto. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
+
+### Datakryptering i vila
+<a id="data-encryption-at-rest" class="xliff"></a>
+
+SQL Database [transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) skyddar mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering av databas i realtid, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. Från och med kan 2017 skyddas alla nyligen skapade Azure SQL-databaser automatiskt med transparent datakryptering (TDE). TDE är en SQL-beprövad kryptering i vila-teknik som krävs av många efterlevnadsstandarder för att skydda mot stöld av lagringsmedier. Kunder kan hantera TDE-krypteringsnycklar och andra hemligheter säkert och i efterlevnad av krav med Azure Key Vault.
+
+### Datakryptering i rörelse
+<a id="data-encryption-in-motion" class="xliff"></a>
+
+SQL-databasen är det databassystemet som erbjuder skydd av känsliga data i rörelse, i vila och under frågebearbetning med [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted är först i branschen med att erbjuda oslagbar datasäkerhet mot överträdelser, inklusive stöld av viktiga data. Till exempel, med Always Encrypted lagras kunden kreditkortsnummer alltid i databasen i krypterad form, även under frågebearbetning, vilket möjliggör dekryptering vid behov av behörig personal eller program som behöver bearbeta datan.
+
+### Dynamisk datamaskning
+<a id="dynamic-data-masking" class="xliff"></a>
+
+[SQL Database dynamisk datamaskning](sql-database-dynamic-data-masking-get-started.md) begränsar exponering av känsliga data genom att maskera den för icke-privilegierade användare. Dynamisk datamaskning förhindrar obehörig åtkomst till känsliga data genom att låta kunder ange hur mycket av känsliga data som avslöja med minimal påverkan på programnivån. Det är en principbaserad säkerhetsfunktion som fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad.
+
+### Säkerhet på radnivå
+<a id="row-level-security" class="xliff"></a>
+
+[Säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (t.ex. grupmedlemskap eller körningskontext). Säkerheten på radnivå (RLS) förenklar design och kodning av säkerheten i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Därmed får medarbetare endast tillgång till de datarader som är relevanta för deras avdelning, eller kunder får endast dataåtkomst till data som berör deras företag.
+
+### Azure Active Directory-integrering och multifaktorautentisering
+<a id="azure-active-directory-integration-and-multi-factor-authentication" class="xliff"></a>
+
+Med SQL Database kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster med [Azure Active Directory-integrering](sql-database-aad-authentication.md). Den här funktionen förenklar hanteringen av behörighet och ger ökad säkerhet. Azure Active Directory stöder [multifaktorautentisering](sql-database-ssms-mfa-authentication.md) (MFA) för att öka säkerheten för data och program med stöd för en enda rör-process.
+
+### Efterlevnadscertifiering
+<a id="compliance-certification" class="xliff"></a>
+
+SQL Database granskas regelbundet och har certifierats mot flera efterlevnadsstandarder. Mer information finns i [Microsoft Azure säkerhetscenter](https://azure.microsoft.com/support/trust-center/), där du hittar den senaste listan med [SQL Database-kompatibilitetscertifieringar](https://azure.microsoft.com/support/trust-center/services/).
+
+## Lättanvända verktyg
+<a id="easy-to-use-tools" class="xliff"></a>
+
+SQL Database gör byggandet och underhållet av appar enklare och mer produktivt. Med SQL Database kan du fokusera på det du gör väst: bygga bra appar. Du kan hantera och utveckla SQL Database med verktyg och kunskaper som du redan har.
+
+- **[Azure-portalen](https://portal.azure.com/)**: ett webbaserat program för att hantera alla Azure-tjänster 
+- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**: ett kostnadsfritt, nedladdningsbart klientprogram för att hantera all SQL-infrastruktur från SQL Server till SQL Database
+- **[SQL Server Data Tools i Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**: ett kostnadsfritt, nedladdningsbart klientprogram för att utveckla relationsdatabaser i SQL Server, Azure SQL-databaser, Integration Services-paket, datamodeller för Analysis Services och Reporting Services-rapporter.
+- **[Visual Studio Code](https://code.visualstudio.com/docs)** är en kostnadsfri, nedladdningsbar kodredigerare med öppen källkod för Linux, macOS och Windows som stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse.
+
+Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och Windows har stöd för SQL-databas. SQL Database stöder samma [anslutningsbibliotek](sql-database-libraries.md) som SQL Server.
+
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
+
+- Se [Prissidan](https://azure.microsoft.com/pricing/details/sql-database/) för en kostnadsjämförelse och kostnadsberäknare för enskilda databaser och elastiska pooler.
+
+- Läs följande snabbstarter innan du börjar:
+
+  - [Skapa en SQL-databas i Azure Portal](sql-database-get-started-portal.md)  
+  - [Skapa en SQL-databas med Azure CLI](sql-database-get-started-cli.md)
+  - [Skapa en SQL Database med PowerShell](sql-database-get-started-powershell.md)
+
+- En uppsättning Azure CLI- och PowerShell-exempel finns här:
+  - [Azure CLI-exempel för SQL Database](sql-database-cli-samples.md)
+  - [Azure PowerShell-exempel för SQL Database](sql-database-powershell-samples.md)

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: Skapa eller välja ett virtuellt nätverk | Microsoft Docs"
-description: "Komma igång med Azure Active Directory Domain Services"
+description: "Aktivera Azure Active Directory Domain Services med hjälp av den klassiska Azure-portalen"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,20 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: cb372232492e8f98ff1543798b92b4b60fc25021
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 457519b00b65b0157effe2d4aba033a1c99852e8
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Skapa eller välja ett virtuellt nätverk för Azure Active Directory Domain Services
-## <a name="before-you-begin"></a>Innan du börjar
+# Skapa eller välja ett virtuellt nätverk för Azure Active Directory Domain Services
+<a id="create-or-select-a-virtual-network-for-azure-active-directory-domain-services" class="xliff"></a>
+## Innan du börjar
+<a id="before-you-begin" class="xliff"></a>
 Se [Nätverksrelaterade aspekter att tänka på med Azure Active Directory Domain Services](active-directory-ds-networking.md).
 
-## <a name="task-2-create-an-azure-virtual-network"></a>Uppgift 2: Skapa ett virtuellt Azure-nätverk
+## Uppgift 2: Skapa ett virtuellt Azure-nätverk
+<a id="task-2-create-an-azure-virtual-network" class="xliff"></a>
 Nästa konfigurationsåtgärd är att skapa ett virtuellt nätverk för Azure och ett undernät i nätverket. Du aktiverar Azure Active Directory Domain Services i detta undernät inom ditt virtuella nätverk. Du kan hoppa över det här steget om du har ett befintligt virtuellt nätverk som du vill använda.
 
 > [!NOTE]
@@ -45,12 +49,12 @@ Om du vill skapa ett virtuellt Azure-nätverk i vilket du vill aktivera Azure Ac
 
     ![Fönstret Virtuellt nätverk](./media/active-directory-domain-services-getting-started/virtual-networks.png)
 4. Klicka på **Nätverkstjänster** och välj sedan **Virtuellt nätverk**.
-    
+
     ![Virtuellt nätverk – snabbregistrering](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
 5. Klicka på **Snabbregistrering** för att skapa ett virtuellt nätverk.
-    
-6. Ange ett **Namn** för ditt virtuella nätverk och överväg att göra något av följande: 
-    * Du kan välja att konfigurera **Adressutrymme** eller **Maximalt antal virtuella datorer** för det här nätverket. 
+
+6. Ange ett **Namn** för ditt virtuella nätverk och överväg att göra något av följande:
+    * Du kan välja att konfigurera **Adressutrymme** eller **Maximalt antal virtuella datorer** för det här nätverket.
     * Du kan lämna inställningen för **DNS-server** som **Ingen** för tillfället. Du kan uppdatera inställningen när du har aktiverat Azure Active Directory Domain Services.
 7. Välj en Azure-region i den nedrullningsbara listan **Plats**.  
     Se [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services/) för att se i vilka Azure-regioner som Azure Active Directory Domain Services är tillgängligt.
@@ -60,12 +64,14 @@ Om du vill skapa ett virtuellt Azure-nätverk i vilket du vill aktivera Azure Ac
 9. När det virtuella nätverket har skapats väljer du namn för det och klickar på fliken **Konfigurera**.
 
     ![Skapa ett undernät](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
-10. Under **adressutrymmen för virtuella nätverk** klickar du på **lägg till undernät** och anger sedan ett undernät med namnet **AaddsSubnet**. 
+10. Under **adressutrymmen för virtuella nätverk** klickar du på **lägg till undernät** och anger sedan ett undernät med namnet **AaddsSubnet**.
 
     ![Skapa ett undernät för Azure Active Directory Domain Services](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
 
 11. Klicka på **Spara** för att skapa undernätet.
 
-## <a name="next-steps"></a>Nästa steg
-Uppgift 3: [Aktivera Azure Active Directory Domain Services](active-directory-ds-getting-started-enableaadds.md)
+
+## Nästa steg
+<a id="next-step" class="xliff"></a>
+[Uppgift 3: Aktivera Azure Active Directory Domain Services](active-directory-ds-getting-started-enableaadds.md)
 

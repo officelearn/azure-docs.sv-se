@@ -12,27 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+f1_keywords:
+- sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 0a59bc29581b870d8aee07ed4e77df2be576361a
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
-# <a name="about-azure-storage-accounts"></a>Om Azure-lagringskonton
+# Om Azure-lagringskonton
+<a id="about-azure-storage-accounts" class="xliff"></a>
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## <a name="overview"></a>Översikt
+## Översikt
+<a id="overview" class="xliff"></a>
 Ett Azure Storage-konto tillhandahåller en unik namnrymd där du kan lagra och få åtkomst till dina Azure Storage-dataobjekt. Alla objekt i ett lagringskonto faktureras tillsammans som en grupp. Som standard är data i ditt konto endast tillgängliga för dig, kontoägaren.
 
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
-## <a name="storage-account-billing"></a>Fakturering för lagringskonto
+## Fakturering för lagringskonto
+<a id="storage-account-billing" class="xliff"></a>
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -40,7 +45,8 @@ Ett Azure Storage-konto tillhandahåller en unik namnrymd där du kan lagra och 
 > 
 > 
 
-## <a name="storage-account-endpoints"></a>Slutpunkter för lagringskonto
+## Slutpunkter för lagringskonto
+<a id="storage-account-endpoints" class="xliff"></a>
 Alla objekt som du lagrar i Azure Storage har en unik URL-adress. Lagringskontots namn bildar underdomänen i den adressen. Kombinationen av underdomän och domännamn, som är specifika för varje tjänst, utgör en *slutpunkt* för ditt lagringskonto.
 
 Om ditt lagringskonto till exempel heter *mittlagringskonto*, så är standardslutpunkterna för ditt lagringskonto:
@@ -59,7 +65,8 @@ URL:en för att komma åt ett objekt i ett lagringskonto skapas genom att objekt
 
 Du kan också konfigurera ett eget domännamn som ska användas med ditt lagringskonto. Information om klassiska lagringskonton finns i [Konfigurera ett eget domännamn för din slutpunkt för Blob Storage](storage-custom-domain-name.md). För Resource Manager-lagringskonton har den här funktionen inte lagts till på [Azure Portal](https://portal.azure.com) ännu, men du kan konfigurera den med PowerShell. För mer information, se cmdleten [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).  
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## skapar ett lagringskonto
+<a id="create-a-storage-account" class="xliff"></a>
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. På navmenyn väljer du **Nytt** -> **Storage** -> **Lagringskonto**.
 3. Ange ett namn för lagringskontot. Mer information om hur lagringskontots namn används för att adressera dina objekt i Azure Storage finns i [Slutpunkter för lagringskonto](#storage-account-endpoints).
@@ -87,9 +94,11 @@ Du kan också konfigurera ett eget domännamn som ska användas med ditt lagring
 9. Välj den geografiska platsen för ditt lagringskonto. Mer information om vilka tjänster som är tillgängliga i vilken region finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 10. Skapa lagringskontot genom att klicka på **Skapa**.
 
-## <a name="manage-your-storage-account"></a>Hantera ditt lagringskonto
-### <a name="change-your-account-configuration"></a>Ändra kontokonfigurationen
-När du har skapat ditt lagringskonto kan du ändra kontots konfiguration och till exempel ändra replikeringsalternativet som används för kontot eller ändra åtkomstnivån för ett Blob Storage-konto. På [Azure Portal](https://portal.azure.com) navigerar du till ditt lagringskonto, klickar på **Alla inställningar** och klickar sedan på **Konfiguration** för att visa och/eller ändra kontokonfigurationen.
+## Hantera ditt lagringskonto
+<a id="manage-your-storage-account" class="xliff"></a>
+### Ändra kontokonfigurationen
+<a id="change-your-account-configuration" class="xliff"></a>
+När du har skapat ditt lagringskonto kan du ändra kontots konfiguration och till exempel ändra replikeringsalternativet som används för kontot eller ändra åtkomstnivån för ett Blob Storage-konto. På [Azure Portal](https://portal.azure.com) navigerar du till ditt lagringskonto, klickar på **INSTÄLLNINGAR** och klickar sedan på **Konfiguration** för att visa och/eller ändra kontokonfigurationen.
 
 > [!NOTE]
 > Vissa replikeringsalternativ kanske inte är tillgängliga beroende på vilken prestandanivå du valde när du skapade lagringskontot.
@@ -100,18 +109,21 @@ Om du ändrar replikeringsalternativ så ändras ditt pris. Mer information finn
 
 För Blob Storage-konton kan det utgå avgifter för ändringen av åtkomstnivå, förutom prisändringen. Mer information finns i avsnittet om [priser och fakturering för Blob Storage-konton](storage-blob-storage-tiers.md#pricing-and-billing).
 
-### <a name="manage-your-storage-access-keys"></a>Hantera dina åtkomstnycklar för lagring
+### Hantera dina åtkomstnycklar för lagring
+<a id="manage-your-storage-access-keys" class="xliff"></a>
 När du skapar ett lagringskonto genererar Azure två 512-bitars åtkomstnycklar för lagring, som används för autentisering när lagringskontot används. Eftersom två åtkomstnycklar för lagring genereras kan du återskapa nycklarna utan avbrott i lagringstjänsten eller i åtkomsten till den tjänsten.
 
 > [!NOTE]
 > Vi rekommenderar att du inte delar dina åtkomstnycklar för lagring med andra. Du kan ge åtkomst till lagringsresurser utan att lämna ut dina åtkomstnycklar genom att använda en *signatur för delad åtkomst*. En signatur för delad åtkomst ger åtkomst till en resurs i ditt konto under ett intervall som du definierar och med de behörigheter som du anger. Mer information finns i [Använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 > 
 > 
-
-#### <a name="view-and-copy-storage-access-keys"></a>Visa och kopiera åtkomstnycklar för lagring
+<a id="view-and-copy-storage-access-keys"/></a>
+#### Visa och kopiera åtkomstnycklar för lagring
+<a id="view-and-copy-storage-access-keys" class="xliff"></a>
 På [Azure Portal](https://portal.azure.com) navigerar du till ditt lagringskonto, klickar på **Alla inställningar** och sedan på **Åtkomstnycklar** för att visa, kopiera och återskapa åtkomstnycklarna för ditt konto. Bladet **Åtkomstnycklar** innehåller också förkonfigurerade anslutningssträngar med dina primära och sekundära nycklar som du kan kopiera och använda i dina program.
 
-#### <a name="regenerate-storage-access-keys"></a>Återskapa åtkomstnycklar för lagring
+#### Återskapa åtkomstnycklar för lagring
+<a id="regenerate-storage-access-keys" class="xliff"></a>
 Vi rekommenderar att du ändrar åtkomstnycklarna för ditt lagringskonto med jämna mellanrum för att skydda lagringsanslutningarna. Två åtkomstnycklar tilldelas så att du kan upprätthålla anslutningar till lagringskontot med den ena åtkomstnyckeln medan du återskapar den andra.
 
 > [!WARNING]
@@ -132,7 +144,8 @@ Processen för att rotera åtkomstnycklar för lagring ser ut så här:
 3. Uppdatera anslutningssträngarna i koden så att de refererar till den nya primärnyckeln.
 4. Återskapa den sekundära åtkomstnyckeln på samma sätt.
 
-## <a name="delete-a-storage-account"></a>Ta bort ett lagringskonto
+## Ta bort ett lagringskonto
+<a id="delete-a-storage-account" class="xliff"></a>
 Om du vill ta bort ett lagringskonto som du inte längre använder navigerar du till lagringskontot på [Azure Portal](https://portal.azure.com) och klickar på **Ta bort**. Om du tar bort ett lagringskonto tas hela kontot bort, inklusive alla data på kontot.
 
 > [!WARNING]
@@ -154,7 +167,8 @@ Om lagringskontot använder den klassiska distributionsmodellen kan du ta bort d
 
 Mer information finns i [dokumentationen för Azure Virtual Machines](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * [Azure Blob Storage: nivåerna Kall och Het](storage-blob-storage-tiers.md)
 * [Azure Storage-replikering](storage-redundancy.md)

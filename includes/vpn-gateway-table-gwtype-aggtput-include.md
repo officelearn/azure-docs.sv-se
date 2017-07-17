@@ -1,16 +1,15 @@
-Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde efter gateway-SKU. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen. Prissättningen skiljer sig åt mellan gateway-SKU:er. Mer information finns i [Prissättning för VPN-gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
+Azure erbjuder följande SKU: er för VPN-gatewayen:
 
-Observera att UltraPerformance gateway-SKU inte visas i den här tabellen. Information om UltraPerformance SKU finns i [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md)-dokumentationen.
+|**SKU**   | **S2S/VNet-till-VNet<br>tunnlar** | **P2S<br>-anslutningar** | **Sammanställt<br>genomflöde** |
+|---       | ---                             | ---                    | ---                         |
+|**VpnGw1**| Max. 30                         | Max. 128               | 500 Mbit/s                    |
+|**VpnGw2**| Max. 30                         | Max. 128               | 1 Gbit/s                      |
+|**VpnGw3**| Max. 30                         | Max. 128               | 1,25 Gbit/s                   |
+|**Basic** | Max. 10                         | Max. 128               | 100 Mbit/s                    | 
+|          |                                 |                        |                             | 
 
-|  | **VPN Gateway-genomflöde (1)** | **VPN Gateway, max. IPsec-tunnlar (2)** | **ExpressRoute-gateway, genomflöde** | **VPN-gateway och ExpressRoute samexisterar** |
-| --- | --- | --- | --- | --- |
-| **Basic SKU (3)(5)(6)** |100 Mbit/s |10 |500 Mbit/s (6) |Nej |
-| **Standard SKU (4)(5)** |100 Mbit/s |10 |1000 Mbps |Ja |
-| **High Performance SKU (4)** |200 Mbit/s |30 |2000 Mbps |Ja |
+- Genomströmning baseras på mätningar av flera tunnlar som går genom en enda gateway. Det är inte garanterad genomströmning på grund av villkor för Internet-trafik och dina program.
 
-* (1) VPN-genomströmning är en grov uppskattning baserat på mätningar mellan VNet i samma Azure-region. Det här är ingen garanterad genomströmning för anslutningar mellan olika platser via Internet. Värdet utgör dock högsta möjliga genomflöde.
-* (2) Antalet tunnlar refererar till ruttbaserad VPN. En principbaserad VPN stöder bara en VPN-tunnel av typen plats-till-plats.
-* (3) BGP stöds inte för Basic-SKU:n.
-* (4) Principbaserade VPN:er stöds inte för den här SKU:n. De stöds bara för Basic-SKU:n.
-* (5) S2S VPN-Gateway-anslutningar av typen aktiv-aktiv stöds inte för denna SKU. Aktiv-aktiv stöds enbart på HighPerformance SKU.
-* (6) Basic SKU kan inte längre användas med Expressroute.
+- Information om priser finns på sidan [Priser](https://azure.microsoft.com/pricing/details/vpn-gateway).
+
+- Information om SLA (serviceavtal) finns på sidan [SLA](https://azure.microsoft.com/en-us/support/legal/sla/vpn-gateway/).

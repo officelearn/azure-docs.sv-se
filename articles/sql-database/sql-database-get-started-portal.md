@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/30/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1b1852b4182fcadd556dc4c26e65f3eafd0b50e6
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 1571d30890a428fb73d31861c4f1ae395f9de374
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---

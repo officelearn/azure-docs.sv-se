@@ -16,14 +16,15 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: e975c6d8f217bc73948c0c046204b16b1a742bc7
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/20/2017
 
 ---
 
-# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Bevilja åtkomst till en Time Series Insights-miljö med Azure Portal
+# Bevilja åtkomst till en Time Series Insights-miljö med Azure Portal
+<a id="grant-data-access-to-a-time-series-insights-environment-using-azure-portal" class="xliff"></a>
 
 Time Series Insights-miljöer har två oberoende typer av principer för åtkomst.
 
@@ -40,7 +41,8 @@ Principerna för dataåtkomst beviljar behörigheter för att utfärda datafråg
 
 De två typerna av principer möjliggör en tydlig uppdelning mellan åtkomst till hantering av miljön och till data inuti miljön. Det är till exempel möjligt att konfigurera en miljö så att miljöns ägare/skapare tas bort från dataåtkomsten. Användare och tjänster som tillåts läsa data från miljön kan nekas åtkomst till miljöns konfiguration.
 
-## <a name="grant-data-access"></a>Bevilja åtkomst till data
+## Bevilja åtkomst till data
+<a id="grant-data-access" class="xliff"></a>
 I följande steg visas hur du ger åtkomst till data för en användares huvudnamn:
 
 1.    Logga in på [Azure Portal](https://portal.azure.com).
@@ -70,7 +72,8 @@ I följande steg visas hur du ger åtkomst till data för en användares huvudna
 
   ![Hantera Time Series Insights-källan – resultat](media/data-access/getstarted-grant-data-access5.png)
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 
 * [Skapa en händelsekälla](time-series-insights-add-event-source.md)
 * [Skicka händelser](time-series-insights-send-events.md) till händelsekällan

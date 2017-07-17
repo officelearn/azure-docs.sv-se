@@ -16,18 +16,19 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: fd5e1083c65068c7f6b019838586b1bc7e37aa9f
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="connected-factory-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen Ansluten fabrik
+# Genomgång av den förkonfigurerade lösningen Ansluten fabrik
+<a id="connected-factory-preconfigured-solution-walkthrough" class="xliff"></a>
 
 IoT Suites [förkonfigurerade lösning][lnk-preconfigured-solutions] är en implementering av en branschlösning från slutpunkt till slutpunkt som:
 
-* Ansluter till både simulerade industriella enheter som kör OPC UA-servrar i simulerade fabriksproduktionsrader och äkta OPC UA-serverenheter.
+* Ansluter till både simulerade industriella enheter som kör OPC UA-servrar i simulerade fabriksproduktionsrader och äkta OPC UA-serverenheter. Mer information om OPC UA finns i [Vanliga frågor och svar][lnk-faq].
 * Visar KPI:er och OEE:er för drift för enheterna och produktionsraderna.
 * Visar hur ett molnbaserat program kan användas för att interagera med OPC UA-serversystem.
 * Gör att du kan ansluta dina egna OPC UA-serverenheter.
@@ -42,13 +43,15 @@ Den här artikeln beskriver några av de viktigaste elementen i den anslutna fab
 * Planera hur lösningen kan anpassas för att uppfylla dina behov.
 * Utforma en egen IoT-lösning som använder Azure-tjänster.
 
-## <a name="logical-architecture"></a>Logisk arkitektur
+## Logisk arkitektur
+<a id="logical-architecture" class="xliff"></a>
 
 Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade lösningen:
 
 ![Logisk arkitektur för ansluten fabrik][connected-factory-logical]
 
-## <a name="simulation"></a>Simulering
+## Simulering
+<a id="simulation" class="xliff"></a>
 
 De simulerade stationerna och de simulerade tillverkningsverkställningssystemen (MES) bildar en fabriksproduktionsrad. De simulerade enheterna och OPC Publisher-modulen baseras på [OPC UA .NET-standarden][lnk-OPC-UA-NET-Standard] som ges ut av OPC Foundation.
 
@@ -56,23 +59,27 @@ OPC Proxy och OPC Publisher implementeras som moduler baserat på [Azure IoT Edg
 
 Alla simuleringskomponenter körs i Docker-behållare som finns i en virtuell Azure Linux-dator. Simuleringen konfigureras för att köra åtta simulerade produktionsrader som standard.
 
-## <a name="simulated-production-line"></a>Simulerad produktionsrad
+## Simulerad produktionsrad
+<a id="simulated-production-line" class="xliff"></a>
 
 En produktionsrad tillverkar delar. Den består av olika stationer: en sammansättningsstation, en teststation och en förpackningsstation.
 
 Simuleringen körs och uppdaterar data som exponeras via OPC UA-noderna. Alla simulerade produktionsradstationer samordnas av MES via OPC UA.
 
-## <a name="simulated-manufacturing-execution-system"></a>Simulerat körningssystem för tillverkning
+## Simulerat körningssystem för tillverkning
+<a id="simulated-manufacturing-execution-system" class="xliff"></a>
 
 MES övervakar varje station i produktionsraden via OPC UA för att identifiera ändringar i stationens status. Den anropar OPC UA-metoder för att kontrollera stationerna och överför en produkt från en station till en annan tills det är klart.
 
-## <a name="gateway-opc-publisher-module"></a>Gateway OPC Publisher-modul
+## Gateway OPC Publisher-modul
+<a id="gateway-opc-publisher-module" class="xliff"></a>
 
 OPC Publisher-modulen ansluter till stationens OPC UA-servrar och prenumererar på OPC-noder som ska publiceras. Modulen omvandlar noddata till JSON-format, krypterar dem och skickar dem till IoT Hub som OPC UA pub-/sub-meddelanden.
 
 OPC Publisher-modulen kräver endast en utgående https-port (443) och kan arbeta med företagets befintliga infrastruktur.
 
-## <a name="gateway-opc-proxy-module"></a>Gateway OPC Proxy-modul
+## Gateway OPC Proxy-modul
+<a id="gateway-opc-proxy-module" class="xliff"></a>
 
 Gateway OPC UA Proxy-modulen fungerar som en tunnel för binära OPC UA-kommandon och kontrollerar meddelanden och kräver endast en utgående https-port (443). Den kan fungera med befintlig företagsinfrastruktur, inklusive webbproxyservrar.
 
@@ -80,7 +87,8 @@ Den använder IoT Hub-enhetsmetoder för att överföra paketerade TCP/IP-data p
 
 Det binära OPC UA-protokollet som är vidarebefordrande via själva proxyservern använder UA-autentisering och -kryptering.
 
-## <a name="azure-time-series-insights"></a>Azure Time Series Insights
+## Azure Time Series Insights
+<a id="azure-time-series-insights" class="xliff"></a>
 
 Gateway OPC Publisher-modulen prenumererar på OPC UA-servernoder för att identifiera ändringar i datavärdena. Om en dataändring identifieras i någon av noderna kan modulen skicka meddelanden till Azure IoT Hub.
 
@@ -104,20 +112,24 @@ Dessutom beräknas tidsserier för OEE- och KPI-topologi i appen när en visad t
 
 Tidsserievyn för noddata kommer direkt från TSI med en sammansättning för tidsangivelse.
 
-## <a name="iot-hub"></a>IoT Hub
+## IoT Hub
+<a id="iot-hub" class="xliff"></a>
 [IoT Hub][lnk-IoT Hub] tar emot data som skickas från OPC Publisher-modulen till molnet och gör dem tillgängliga för Azure TSI-tjänsten. 
 
 IoT Hub ansvarar även för följande uppgifter i lösningen:
 - Underhåller ett identitetsregister som lagrar ID för alla OPC Publisher-moduler och OPC Proxy-moduler.
 - Det används som en transportkanal för dubbelriktad kommunikation för OPC Proxy-modulen.
 
-## <a name="azure-storage"></a>Azure Storage
+## Azure Storage
+<a id="azure-storage" class="xliff"></a>
 Lösningen använder Azure Blob Storage som disklagring för den virtuella datorn och för att lagra distribueringsdata.
 
-## <a name="web-app"></a>Webbapp
+## Webbapp
+<a id="web-app" class="xliff"></a>
 Webbappen distribueras som en del av den förkonfigurerade lösningen består av en integrerad OPC UA-klient, aviseringsbehandling och telemetrivisualisering.
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 
 Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
 
@@ -130,5 +142,6 @@ Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
-[lnk-Azure-IoT-Gateway]: https://github.com/azure/azure-iot-gateway-sdk
+[lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-faq]: iot-suite-faq.md

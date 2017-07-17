@@ -1,6 +1,6 @@
 Du kan ansluta till en virtuell dator som är distribuerad till ditt VNet genom att skapa en anslutning till fjärrskrivbord till den virtuella datorn. Det bästa sättet att först kontrollera att du kan ansluta till den virtuella datorn är att ansluta via dess privata IP-adress snarare än datornamnet. På så sätt kan du testa om du kan ansluta, men inte om namnmatchningen är korrekt konfigurerad.
 
-1. Leta upp den privata IP-adressen. Du kan hitta privata IP-adressen för en virtuell dator genom att antingen granska egenskaperna för den virtuella datorn i Azure Portal eller med hjälp av PowerShell.
+1. Leta upp den privata IP-adressen. Du hittar den privata IP-adressen för en virtuell dator på flera olika sätt. Nedan visar vi stegen för Azure-portalen och PowerShell.
 
   - Azure Portal – Leta upp din första virtuella dator på Azure Portal. Visa egenskaperna för den virtuella datorn. Den privata IP-adressen är angiven.
 
@@ -23,7 +23,8 @@ Du kan ansluta till en virtuell dator som är distribuerad till ditt VNet genom 
 3. Öppna **fjärrskrivbordsanslutningen** genom att skriva "RDP" eller "Anslutning till fjärrskrivbord" i sökrutan i Aktivitetsfältet och välj sedan Anslutning till fjärrskrivbord. Du kan även öppna Anslutning till fjärrskrivbord med hjälp av kommandot ”mstsc” i PowerShell. 
 4. I fjärrskrivbordsanslutningen anger du den virtuella datorns privata IP-adress. Du kan klicka på "Visa alternativ" för att justera inställningar och sedan ansluta.
 
-### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Felsöka en RDP-anslutning till en virtuell dator
+### Felsöka en RDP-anslutning till en virtuell dator
+<a id="to-troubleshoot-an-rdp-connection-to-a-vm" class="xliff"></a>
 
 Om du har problem med att ansluta till en virtuell dator via VPN-anslutningen kan du kontrollera följande:
 

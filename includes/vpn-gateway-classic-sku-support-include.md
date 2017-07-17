@@ -1,0 +1,2 @@
+> [!NOTE]
+> De nya SKU:erna för VPN-gateway (VpnGw1 VpnGw2 och VpnGw3) stöds endast för Resource Manager-distributionsmodellen. Klassiska virtuella nätverk ska fortsätta att använda gamla SKU: er. Mer information om gamla gatewayen-SKU: er finns i [Arbeta med SKU: er för virtuell nätverksgateway (gamla)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

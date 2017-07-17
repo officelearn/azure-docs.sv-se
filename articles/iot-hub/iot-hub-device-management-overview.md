@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: briz
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ae476dbaf51ae90cc3c5948b0ec8901d7a536da
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="overview-of-device-management-with-iot-hub"></a>Översikt över enhetshantering med IoT Hub
-## <a name="introduction"></a>Introduktion
+# Översikt över enhetshantering med IoT Hub
+<a id="overview-of-device-management-with-iot-hub" class="xliff"></a>
+## Introduktion
+<a id="introduction" class="xliff"></a>
 Azure IoT Hub innehåller funktionerna och en modell för utökningsbarhet som gör det möjligt enhets- och backend-utvecklare att bygga robusta lösningar för enhetshantering. Enheter är allt från begränsade sensorer och enskilda mikrostyrenheter för ett särskilt ändamål till kraftfulla gateways som dirigerar kommunikationen för grupper av enheter.  Dessutom varierar användningsfall och krav för IoT-operatörer avsevärt mellan olika branscher.  Trots variationen ger enhetshantering med IoT Hub funktioner, mönster och kodbibliotek för att serva en mängd olika enheter och slutanvändare.
 
 En viktig del av att skapa en lyckad IoT-lösning för företaget är att tillhandahålla en strategi för hur operatörer kontinuerligt hanterar sin samling med enheter. IoT-operatörer behöver enkla och tillförlitliga verktyg och program som låter dem fokusera på mer strategiska aspekter av sina arbetsuppgifter. Den här artikeln innehåller:
@@ -32,7 +35,8 @@ En viktig del av att skapa en lyckad IoT-lösning för företaget är att tillha
 * En beskrivning av enhetens livscykel.
 * En översikt över vanliga mönster för hantering av enheten.
 
-## <a name="device-management-principles"></a>Principer för enhetshantering
+## Principer för enhetshantering
+<a id="device-management-principles" class="xliff"></a>
 IoT medför en unik uppsättning utmaningar för enhetshantering, och en lösning i företagsklass måste ta hänsyn till följande principer:
 
 ![Bild över principer för enhetshantering][img-dm_principles]
@@ -46,7 +50,8 @@ IoT medför en unik uppsättning utmaningar för enhetshantering, och en lösnin
     * Enhetens geografiska plats
 * **Stöd för många roller**: stöd för IoT-åtgärdernas unika arbetsflöden och processer är avgörande. Driftpersonalen måste arbeta harmoniskt med de givna begränsningarna för interna IT-avdelningar.  De måste också hitta hållbara sätt för att exponera information om enhetsåtgärder i realtid för chefer och andra företagsledarroller. 
 
-## <a name="device-lifecycle"></a>Enhetens livscykel
+## Enhetens livscykel
+<a id="device-lifecycle" class="xliff"></a>
 Det finns en uppsättning av allmänna enhetshanteringsfaser som är gemensamma för alla företags IoT-projekt. Livscykeln för enheter i Azure IoT består av fem faser:
 
 ![De fem Azure IoT-livscyklerna är: planera, etablera, konfigurera, övervaka, dra tillbaka][img-device_lifecycle]
@@ -64,12 +69,13 @@ I var och en av dessa fem faser finns det flera enhetsoperatorskrav som måste u
     *Mer information*:  [Använda direkta metoder][lnk-c2d-methods], [Invoke a direct method on a device][lnk-methods-devguide] (Anropa en direkt metod på en enhet), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [Schemalägga och sända jobb][lnk-jobs], [Schemalägga jobb på flera enheter][lnk-jobs-devguide] (Schemalägga jobb på flera enheter).
 * **Övervaka**: Övervaka enhetssamlingens allmänna funktion samt statusen för pågående åtgärder så att operatörerna blir medvetna om problem som kräver åtgärder.  Använd enhetstvillingen för att tillåta att enheterna rapporterar driftsförhållanden och status för uppdateringsåtgärder i realtid. Skapa kraftfulla instrumentpanelsrapporter som lyfter fram de mest omedelbara problemen genom att använda enhetstvillingsfrågor.
   
-    *Mer information*: [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [IoT Hub query language for device twins and jobs][lnk-query-language] (IoT Hub-frågespråk för enhetstvillingar och jobb).
+    *Mer information*: [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [IoT Hub query language for device twins, jobs and message routing][lnk-query-language] (IoT Hub-frågespråk för enhetstvillingar, jobb och meddelanderuttning).
 * **Inaktivera**: ersätta eller inaktivera enheter efter ett fel, uppgraderingscykel eller efter enhetens funktionstid har löpt ut.  Använd enhetstvillingen för att underhålla enhetsinformation om den fysiska enheten håller på att ersättas eller arkiveras om den har återkallats. Använd IoT Hub-identitetsregistret för att säkert återkalla enhetsidentiteter och autentiseringsuppgifter.
   
     *Mer information*: [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [Hantera enhetsidentiteter][lnk-identity-registry].
 
-## <a name="device-management-patterns"></a>Enhetshanteringsmönster
+## Enhetshanteringsmönster
+<a id="device-management-patterns" class="xliff"></a>
 IoT Hub använder följande uppsättning enhetshanteringsmönster.  [Självstudiekursen om enhetshantering][lnk-get-started] beskriver i mer detalj hur du utökar dessa mönster så att de passar just ditt scenario och hur du designar nya mönster utifrån dessa basmallar.
 
 * **Starta om** – Serverdelsappen informerar enheten via en direkt metod om att en omstart har påbörjats.  Enheten använder de rapporterade egenskaperna för att uppdatera enhetens status för omstart.
@@ -88,7 +94,8 @@ IoT Hub använder följande uppsättning enhetshanteringsmönster.  [Självstudi
   
     ![Bild över mönster för uppdatering av rapporteringsprocess och status][img-report_progress_pattern]
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 Du kan använda de funktioner, mönster och kodbibliotek som ingår i IoT Hub-enhetshanteringen för att skapa IoT-program som uppfyller företagets IoT-operatörskrav i varje enhets livscykelfas.
 
 Om du vill lära dig mer om enhetshanteringsfunktionerna i IoT Hub går du självstudiekursen [Komma igång med enhetshantering][lnk-get-started].

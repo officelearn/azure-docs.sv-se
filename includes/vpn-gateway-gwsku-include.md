@@ -1,17 +1,37 @@
-När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU som du vill använda. När du väljer en högre gateway-SKU allokeras fler processorer och mer nätverksbandbredd till gatewayen så att gatewayen kan hantera ett större nätverksgenomflöde till det virtuella nätverket.
+När du skapar en virtuell nätverksgateway måste du ange vilken gateway-SKU som du vill använda. Välj SKU: er som uppfyller dina krav baserat på typerna av arbetsbelastning, genomflöden, funktioner och servicenivåavtal.
 
-VPN-gateway kan använda följande SKU:er:
+[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-* Basic
-* Standard
-* HighPerformance
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-VPN-gateway använder inte SKU för UltraPerformance-gateway. Information om UltraPerformance SKU finns i [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md)-dokumentationen.
+###  <a name="workloads"></a>Produktion *jämfört med* Arbetsbelastningar för utvecklingstest
 
-När du väljer en SKU bör du överväga följande:
+På grund av skillnader i serviceavtal och funktioner, rekommenderar vi följande SKU: er för produktion *jämfört med* utv-test:
 
-* Om du vill använda en PolicyBased VPN-typ måste du använda Basic SKU:n. PolicyBased VPN (tidigare kallade statisk routning) stöds inte på andra SKU:er.
-* BGP stöds inte på Basic-SKU:n.
-* ExpressRoute VPN-Gateway samexisterande konfigurationer stöds inte på Basic-SKU:n.
-* S2S VPN-gateway-anslutningar av typen aktiv-aktiv kan enbart konfigureras på HighPerformance SKU.
+| **Arbetsbelastning**                       | **SKU: er**               |
+| ---                                | ---                    |
+| **Produktion, kritiska arbetsbelastningar** | VpnGw1 VpnGw2, VpnGw3 |
+| **Utv-test eller konceptbevis**   | Basic                  |
+|                                    |                        |
 
+Om du använder gamla SKU: er är rekommendationerna för produktion-SKU:er Standard och HighPerformance. Mer information om gamla SKU: er finns i [Gateway-SKU: er (gamla)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+
+###  <a name="feature"></a>Funktionsuppsättningarna för gateway-SKU:er
+
+Nya gatewayen SKU: er förenklar funktionsuppsättningarna via gatewayer:
+
+| **SKU**| **Funktioner**|
+| ---    | ---         |
+| VpnGw1<br>VpnGw2<br>VpnGw3|Ruttbaserad VPN upp till 30 tunnlar* <br>P2S BGP, aktiv-aktiv, anpassade IPsec/IKE-principer, samtidig ExpressRoute/VPN <br><br>* Du kan konfigurera ”PolicyBasedTrafficSelectors” för att ansluta en ruttbaserad VPN-gateway (VpnGw1 VpnGw2, VpnGw3) till flera lokala principbaserade brandväggsenheter. Referera till [Ansluta VPN-gatewayer till flera lokala principbaserad VPN-enheter med hjälp av PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) för mer information. |
+|Basic   | Ruttbaserad: 10 tunnlar med P2S<br>Principbaserad (IKEv1): 1 tunnel; ingen P2S|
+|        |             |
+
+###  <a name="resize"></a>Ändra storlek på gateway-SKU: er
+
+1. Du kan ändra storlek mellan VpnGw1, VpnGw2 och VpnGw3 SKU: er.
+2. När du arbetar med gamla gatewayen-SKU: er, kan du ändra storlek mellan Basic, Standard och HighPerformance SKU: er.
+2. Du **kan inte** ändra från HighPerformance-Basic/Standard SKU: er till nya VpnGw3-VpnGw1/VpnGw2 SKU: er. Du måste i stället [migrera](#migrate) till nya SKU: er.
+
+###  <a name="migrate"></a>Migrera från gamla SKU: er till nya SKU: er
+
+[!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]

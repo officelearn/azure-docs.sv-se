@@ -10,34 +10,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 06/20/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: bc43936310c48f4dad54c829c7511cf2ad5f83af
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/21/2017
 
 
 ---
-# <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: Använd Visual Studio Code för att ansluta och skicka frågor till data
+# Azure SQL Database: Använd Visual Studio Code för att ansluta och skicka frågor till data
+<a id="azure-sql-database-use-visual-studio-code-to-connect-and-query-data" class="xliff"></a>
 
 [Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows som stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. Den här snabbstarten visar hur du använder Visual Studio Code för att ansluta till en Azure SQL-databas och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.
+
+## Krav
+<a id="prerequisites" class="xliff"></a>
 
 Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter som utgångspunkt:
 
 - [Skapa DB – Portal](sql-database-get-started-portal.md)
 - [Skapa DB – CLI](sql-database-get-started-cli.md)
+- [Skapa DB – PowerShell](sql-database-get-started-powershell.md)
 
 Innan du börjar bör du kontrollera att du har installerat den senaste versionen av [Visual Studio Code](https://code.visualstudio.com/Download) och har läst in [mssql-tillägget](https://aka.ms/mssql-marketplace). Installationsanvisningar finns i [Installera VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) för mssql-tillägget och [mssql för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
-## <a name="configure-vs-code"></a>Konfigurera VS-kod 
+## Konfigurera VS-kod
+<a id="configure-vs-code" class="xliff"></a> 
 
-### <a name="mac-os"></a>**Mac OS**
+### **Mac OS**
+<a id="mac-os" class="xliff"></a>
 För macOS måste du installera OpenSSL, som är ett förhandskrav för den DotNet Core som används i mssql-tillägget. Ange följande kommandon för att installera **brew** och **OpenSSL**. 
 
 ```bash
@@ -49,15 +57,18 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### **Linux (Ubuntu)**
+<a id="linux-ubuntu" class="xliff"></a>
 
 Ingen särskild konfiguration behövs.
 
-### <a name="windows"></a>**Windows**
+### **Windows**
+<a id="windows" class="xliff"></a>
 
 Ingen särskild konfiguration behövs.
 
-## <a name="get-connection-information"></a>Hämta anslutningsinformation
+## Hämta anslutningsinformation
+<a id="get-connection-information" class="xliff"></a>
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet, databasnamnet och inloggningsinformationen i nästa procedurer.
 
@@ -65,11 +76,12 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
 3. Granska serverns fullständiga namn på sidan **Översikt** för databasen, se bilden nedan. Om du hovrar över servernamnet visas alternativet **Kopiera genom att klicka**.
 
-   ![anslutningsinformation](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![anslutningsinformation](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Om du har glömt inloggningsinformationen för Azure SQL Database-server öppnar du serversidan i SQL Database. Där ser du administratörsnamnet för servern och kan återställa lösenordet vid behov. 
 
-## <a name="set-language-mode-to-sql"></a>Ange språkläge till SQL
+## Ange språkläge till SQL
+<a id="set-language-mode-to-sql" class="xliff"></a>
 
 Ställ in språkläget på **SQL** i Visual Studio Code för att aktivera mssql-kommandon och T-SQL IntelliSense.
 
@@ -80,7 +92,8 @@ Ställ in språkläget på **SQL** i Visual Studio Code för att aktivera mssql-
 
    ![Språkläge för SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Ansluta till databasen på den logiska SQL Database-servern
+## Ansluta till databasen
+<a id="connect-to-your-database" class="xliff"></a>
 
 Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Database-servern.
 
@@ -96,17 +109,15 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
 
 4. Följ anvisningarna för att ange anslutningsegenskaper för den nya anslutningsprofilen. När du har angett ett värde trycker du på **RETUR** för att fortsätta. 
 
-   I följande tabell beskrivs egenskaperna för anslutningsprofilen.
-
-   | Inställning | Beskrivning |
-   |-----|-----|
-   | **Servernamn** | Ange det fullständigt kvalificerade servernamnet som **mynewserver20170313.database.windows.net** |
-   | **Databasnamn** | Ange databasnamnet, t.ex. **mySampleDatabase** |
-   | **Autentisering** | Välj SQL-inloggning |
-   | **Användarnamn** | Ange serveradministratörskontot |
-   | **Lösenord (SQL-inloggning)** | Ange lösenordet för serveradministratörskontot | 
-   | **Spara lösenordet?** | Välj **Ja** eller **Nej** |
-   | **[Valfritt] Ange ett namn för den här profilen** | Ange ett anslutningsprofilnamn, t.ex. **mySampleDatabase**. 
+   | Inställning       | Föreslaget värde | Beskrivning |
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Servernamn | Fullständigt kvalificerat servernamn | Namnet ska vara ungefär så här: **mynewserver20170313.database.windows.net**. |
+   | **Databasnamn** | mySampleDatabase | Namnet på databasen som användaren ska ansluta till. |
+   | **Autentisering** | SQL-inloggning| SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
+   | **Användarnamn** | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
+   | **Lösenord (SQL-inloggning)** | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+   | **Spara lösenordet?** | Ja eller nej | Välj Ja om du inte vill ange lösenordet varje gång. |
+   | **Ange ett namn för den här profilen** | Ett anslutningsprofilnamn, t.ex. **mySampleDatabase** | Ett sparat profilnamn förbättrar anslutningen på efterföljande inloggningar. | 
 
 5. Tryck på tangenten **ESC** för att stänga meddelandet som informerar om att profilen har skapats och anslutits.
 
@@ -114,7 +125,8 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
 
    ![Anslutningsstatus](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
-## <a name="query-data"></a>Frågedata
+## Frågedata
+<a id="query-data" class="xliff"></a>
 
 Använd följande kod för att söka efter de 20 främsta produkterna med Transact-SQL-instruktionen [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
@@ -131,7 +143,8 @@ Använd följande kod för att söka efter de 20 främsta produkterna med Transa
 
     ![Fråga](./media/sql-database-connect-query-vscode/query.png)
 
-## <a name="insert-data"></a>Infoga data
+## Infoga data
+<a id="insert-data" class="xliff"></a>
 
 Använd följande kod för att infoga en ny produkt i tabellen SalesLT.Product med Transact-SQL-instruktionen [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
@@ -159,7 +172,8 @@ Använd följande kod för att infoga en ny produkt i tabellen SalesLT.Product m
 
 2. Tryck på **CTRL+SKIFT+E** för att infoga en ny rad i Product-tabellen.
 
-## <a name="update-data"></a>Uppdatera data
+## Uppdatera data
+<a id="update-data" class="xliff"></a>
 
 Med följande kod uppdaterar du den nya produkt du tidigare lade till med Transact-SQL-instruktionen [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
@@ -173,7 +187,8 @@ Med följande kod uppdaterar du den nya produkt du tidigare lade till med Transa
 
 2. Tryck på **CTRL+SKIFT+E** för att uppdatera angiven rad i Product-tabellen.
 
-## <a name="delete-data"></a>Ta bort data
+## Ta bort data
+<a id="delete-data" class="xliff"></a>
 
 Med följande kod tar du bort den nya produkt du tidigare lade till med Transact-SQL-instruktionen [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
@@ -186,13 +201,9 @@ Med följande kod tar du bort den nya produkt du tidigare lade till med Transact
 
 2. Tryck på **CTRL+SHIFT+E** för att ta bort angiven rad i Product-tabellen.
 
-## <a name="next-steps"></a>Nästa steg
+## Nästa steg
+<a id="next-steps" class="xliff"></a>
 
-- Om du vill ansluta och fråga med SQL Server Management Studio kan du läsa [Anslut och fråga med SSMS](sql-database-connect-query-ssms.md)
-- Mer information om att ansluta och ställa frågor med .NET finns i [Ansluta och fråga med .NET](sql-database-connect-query-dotnet.md).
-- Mer information om att ansluta och ställa frågor med PHP finns i [Ansluta och fråga med PHP](sql-database-connect-query-php.md).
-- Mer information om att ansluta och ställa frågor med Node.js finns i [Ansluta och fråga med Node.js](sql-database-connect-query-nodejs.md).
-- Mer information om att ansluta och ställa frågor med Java finns i [Ansluta och fråga med Java](sql-database-connect-query-java.md).
-- Mer information om att ansluta och ställa frågor med Python finns i [Ansluta och fråga med Python](sql-database-connect-query-python.md).
-- Mer information om att ansluta och ställa frågor med Ruby finns i [Ansluta och fråga med Ruby](sql-database-connect-query-ruby.md).
+- Om du vill ansluta och fråga med SQL Server Management Studio kan du läsa [Anslut och fråga med SSMS](sql-database-connect-query-ssms.md).
+- En artikel från MSDN-magazine om hur du använder Visual Studio Code finns i [Skapa en IDE-databas med MSSQL-tillägget blogginlägg](https://msdn.microsoft.com/magazine/mt809115).
 

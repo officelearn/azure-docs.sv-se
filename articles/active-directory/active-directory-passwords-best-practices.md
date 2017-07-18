@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -21,7 +21,6 @@ ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 928a2a2902f9e10bba64f891e69fdddfa2e9ce60
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # Distribuera lösenordsåterställning till användare

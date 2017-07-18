@@ -20,16 +20,13 @@ ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
 ms.contentlocale: sv-se
 ms.lasthandoff: 06/28/2017
 
-
 ---
-# Skapa en Node.js RESTful-API och distribuera den till en API-app i Azure
-<a id="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure" class="xliff"></a>
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Skapa en Node.js RESTful-API och distribuera den till en API-app i Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 I den här snabbstarten visas hur du skapar ett [Express](http://expressjs.com/)-ramverk med REST API för Node.js från en [Swagger](http://swagger.io/)-definition och distribuerar det som en [API-app](app-service-api-apps-why-best-platform.md) på Azure. Du skapar appen med hjälp av kommandoradsverktyg, konfigurerar resurser med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och distribuerar appen med Git.  När du är klar har du ett fungerande exempel-REST-API som körs på Azure.
 
-## Krav
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Krav
 
 * [Git](https://git-scm.com/)
 * [Node.js och NPM](https://nodejs.org/)
@@ -40,8 +37,7 @@ I den här snabbstarten visas hur du skapar ett [Express](http://expressjs.com/)
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## Förbered din miljö
-<a id="prepare-your-environment" class="xliff"></a>
+## <a name="prepare-your-environment"></a>Förbered din miljö
 
 1. Kör följande kommando i ett terminalfönster för att klona exemplet till den lokala datorn.
 
@@ -62,8 +58,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
     npm install -g generator-swaggerize
     ```
 
-## Generera Node.js-kod
-<a id="generate-nodejs-code" class="xliff"></a> 
+## <a name="generate-nodejs-code"></a>Generera Node.js-kod 
 
 Det här avsnittet av kursen visar ett arbetsflöde för API-utveckling där du först skapar Swagger-metadata och använder dem för att autogenerera en serverkod för API:et. 
 
@@ -85,8 +80,7 @@ Gå till katalogen för mappen *Start* och kör `yo swaggerize`. Swaggerize skap
    ? Your email: frank@fabrikam.net
    ```
    
-## Anpassa projektkoden
-<a id="customize-the-project-code" class="xliff"></a>
+## <a name="customize-the-project-code"></a>Anpassa projektkoden
 
 1. Kopiera mappen *lib* till mappen *Kontaktlista* som skapats av `yo swaggerize` och ändra sedan katalogen till *Kontaktlista*.
 
@@ -144,6 +138,9 @@ Gå till katalogen för mappen *Start* och kör `yo swaggerize`. Swaggerize skap
     var swaggerize = require('swaggerize-express');
     var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
+    var fs = require("fs");
+    
+    fs.existsSync = fs.existsSync || require('path').existsSync;
 
     var app = express();
 
@@ -168,8 +165,7 @@ Gå till katalogen för mappen *Start* och kör `yo swaggerize`. Swaggerize skap
 
     Den här koden gör några små ändringar så att den fungerar med Azure App Service och gör ett interaktivt webbgränssnitt tillgängligt för ditt API.
 
-### Testa API lokalt
-<a id="test-the-api-locally" class="xliff"></a>
+### <a name="test-the-api-locally"></a>Testa API lokalt
 
 1. Starta Node.js-appen
     ```bash
@@ -233,8 +229,7 @@ I det här avsnittet använder du Azure CLI 2.0 för att skapa de resurser som b
 5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
-## Distribuera API med Git
-<a id="deploy-the-api-with-git" class="xliff"></a>
+## <a name="deploy-the-api-with-git"></a>Distribuera API med Git
 
 Distribuera din kod till API-appen genom att skicka incheckningar från din lokala Git-lagringsplats till Azure App Service.
 
@@ -261,8 +256,7 @@ Distribuera din kod till API-appen genom att skicka incheckningar från din loka
 
 5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
-## Testa API:et i Azure
-<a id="test-the-api--in-azure" class="xliff"></a>
+## <a name="test-the-api--in-azure"></a>Testa API:et i Azure
 
 1. Öppna en webbläsare och gå till http://app_name.azurewebsites.net/contacts. Samma JSON returneras som när du gjorde begäran lokalt tidigare i självstudien.
 
@@ -290,8 +284,7 @@ Distribuera din kod till API-appen genom att skicka incheckningar från din loka
 
     Du kan nu distribuera uppdateringar till exempel-API:et till Azure genom att helt enkelt push-överföra incheckningar till Azure Git-lagringsplatsen.
 
-## Rensa
-<a id="clean-up" class="xliff"></a>
+## <a name="clean-up"></a>Rensa
 
 Kör följande Azure CLI-kommando för att rensa resurserna som skapades av den här snabbstarten:
 
@@ -299,8 +292,7 @@ Kör följande Azure CLI-kommando för att rensa resurserna som skapades av den 
 az group delete --name myResourceGroup
 ```
 
-## Nästa steg
-<a id="next-step" class="xliff"></a> 
+## <a name="next-step"></a>Nästa steg 
 > [!div class="nextstepaction"]
 > [Använd API-appar från JavaScript-klienter med CORS](app-service-api-cors-consume-javascript.md)
 

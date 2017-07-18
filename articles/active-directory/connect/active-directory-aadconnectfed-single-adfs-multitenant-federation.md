@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/09/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
@@ -23,8 +23,7 @@ ms.lasthandoff: 04/10/2017
 
 ---
 
-#Federera flera instanser av Azure AD med en enda instans av AD FS
-<a id="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs" class="xliff"></a>
+#<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federera flera instanser av Azure AD med en enda instans av AD FS
 
 En enda AD FS-servergrupp med hög tillgänglighet kan federera flera skogar om de har ett dubbelriktat förtroende. Dessa skogar kan men måste inte vara associerade med samma Azure Active Directory. Den här artikeln beskriver hur du konfigurerar federation mellan en enskild AD FS-distribution och mer än en skog som synkroniserar med en annan Azure AD.
 
@@ -36,18 +35,15 @@ En enda AD FS-servergrupp med hög tillgänglighet kan federera flera skogar om 
 > [!NOTE]
 > Azure AD Connect kan inte användas för att konfigurera federation i det här scenariot eftersom Azure AD Connect kan konfigurera federation för domäner i en enda Azure AD.
 
-##Steg för att federera AD FS med flera Azure AD-instanser
-<a id="steps-for-federating-ad-fs-with-multiple-azure-ad" class="xliff"></a>
+##<a name="steps-for-federating-ad-fs-with-multiple-azure-ad"></a>Steg för att federera AD FS med flera Azure AD-instanser
 
 Tänk på att en contoso.com-domän i Azure Active Directory contoso.onmicrosoft.com redan är federerad med den lokala AD FS-instansen som är installerad i den lokala Active Directory-miljön contoso.com. Fabrikam.com är en domän i Azure Active Directory fabrikam.onmicrosoft.com.
 
-##Steg 1: Upprätta ett dubbelriktat förtroende
-<a id="step-1-establish-a-two-way-trust" class="xliff"></a>
+##<a name="step-1-establish-a-two-way-trust"></a>Steg 1: Upprätta ett dubbelriktat förtroende
  
 För att AD FS i contoso.com ska kunna autentisera användare i fabrikam.com krävs ett dubbelriktat förtroende mellan contoso.com och fabrikam.com. Följ riktlinjerna i den här [artikeln](https://technet.microsoft.com/library/cc816590.aspx) för att skapa det dubbelriktade förtroendet.
  
-##Steg 2: Ändra federationsinställningarna för contoso.com
-<a id="step-2-modify-contosocom-federation-settings" class="xliff"></a> 
+##<a name="step-2-modify-contosocom-federation-settings"></a>Steg 2: Ändra federationsinställningarna för contoso.com 
  
 Standardutfärdaren för en enskild domän som federeras till AD FS är ”http://ADFSServiceFQDN/adfs/services/trust”, t.ex. ”http://fs.contoso.com/adfs/services/trust”. Azure Active Directory kräver en unik utfärdare för varje federerad domän. Eftersom samma AD FS ska federera två domäner måste utfärdarens värde ändras så att det är unikt för varje domän som AD FS federerar med Azure Active Directory. 
  
@@ -57,8 +53,7 @@ Anslut till den Azure Active Directory som innehåller domänen contoso.com Conn
  
 Utfärdaren i inställningen för domänfederation ändras till ”http://contoso.com/adfs/services/trust” och en anspråksregel för utfärdande läggs till så att den förlitande Azure AD-parten kan utfärda rätt issuerId-värde baserat på UPN-suffixet.
  
-##Steg 3: Federera fabrikam.com med AD FS
-<a id="step-3-federate-fabrikamcom-with-ad-fs" class="xliff"></a>
+##<a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Steg 3: Federera fabrikam.com med AD FS
  
 Utför följande steg i Azure AD PowerShell-sessionen: Anslut till Azure Active Directory som innehåller domänen fabrikam.com
 
@@ -69,7 +64,6 @@ Konvertera den hanterade domänen fabrikam.com till federerad:
  
 Åtgärden ovan federerar domänen fabrikam.com med samma AD FS. Du kan kontrollera domäninställningarna genom att använda Get-MsolDomainFederationSettings för båda domänerna.
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 [Ansluta Active Directory med Azure Active Directory](active-directory-aadconnect.md)
 

@@ -1,0 +1,379 @@
+---
+title: "Nätverk för skalningsuppsättningar för virtuella Azure-datorer | Microsoft Docs"
+description: "Konfigurationsnätverksegenskaper för skalningsuppsättningar för virtuella Azure-datorer."
+services: virtual-machine-scale-sets
+documentationcenter: 
+author: gbowerman
+manager: timlt
+editor: 
+tags: azure-resource-manager
+ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+ms.service: virtual-machine-scale-sets
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 07/06/2017
+ms.author: guybo
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 1c9487be5415d05a8699f458259d872591280d3d
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/10/2017
+
+
+---
+# <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
+
+När du distribuerar en skalningsuppsättning för en virtuell Azure-dator via portalen är vissa nätverksegenskaper standard, till exempel en Azure Load Balancer med inkommande NAT-regler. Den här artikeln beskriver hur du använder några mer avancerade nätverksfunktioner som du kan konfigurera med skalningsuppsättningar.
+
+Du kan konfigurera alla funktioner som beskrivs i den här artikeln med hjälp av Azure Resource Manager-mallar. Azure CLI-exempel ingår också i de valda funktionerna. Använd en CLI-version från juli 2017 eller senare. Ytterligare exempel för CLI och PowerShell läggs till snart.
+
+## <a name="accelerated-networking"></a>Accelererat nätverk
+Azure [accelererat nätverk](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-vm-accelerated-networking) förbättrar nätverkets prestanda genom att aktivera SR-I/O-virtualisering till en virtuell dator. Om du vill använda accelererat nätverk med skalningsuppsättningar ställer du in enableAcceleratedNetworking till _sant_ i inställningarna för skalningsuppsättningens networkInterfaceConfigurations. Exempel:
+```json
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+    {
+      "name": "niconfig1",
+      "properties": {
+        "primary": true,
+        "enableAcceleratedNetworking" : true,
+        "ipConfigurations": [
+          ...
+        ]
+      }
+    }
+   ]
+}
+```
+
+## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Skapa en skalningsuppsättning som refererar till en befintlig Azure Load Balancer
+När en skalningsuppsättning skapas med hjälp av Azure Portal skapas en ny belastningsutjämnare för de flesta konfigurationsalternativen. Om du skapar en skalningsuppsättning som måste referera till en befintlig belastningsutjämnare kan du göra detta med hjälp av CLI. Följande exempelskript skapar en belastningsutjämnare och sedan en skalningsuppsättning som refererar till den:
+```bash
+az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
+
+az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool
+
+```
+
+## <a name="configurable-dns-settings"></a>Konfigurera DNS-inställningar
+Som standard tar skalningsuppsättningar över specifika DNS-inställningar från de VNET och undernät som de skapades i. Du kan dock konfigurera DNS-inställningar för en skalningsuppsättning direkt.
+
+### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Skapa en skalningsuppsättning med konfigurerbara DNS-servrar
+Om du vill skapa en skalningsuppsättning med en anpassad DNS-konfiguration med hjälp av CLI 2.0 lägger du till argumentet --dns-servers till kommandot _vmss create_ följt av ip-adresser som avgränsas av ett blanksteg. Exempel:
+```bash
+--dns-servers 10.0.0.6 10.0.0.5
+```
+Om du vill konfigurera anpassade DNS-servrar i en Azure-mall lägger du till en dnsSettings-egenskap till skalningsuppsättningens networkInterfaceConfigurations-avsnitt. Exempel:
+```json
+"dnsSettings":{
+    "dnsServers":["10.0.0.6", "10.0.0.5"]
+}
+```
+
+### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Skapa en skalningsuppsättning med konfigurerbara domännamn för virtuella datorer
+För att skapa en skalningsuppsättning med ett anpassat DNS-namn för virtuella datorer med CLI 2.0 lägger du till argumentet _--vm-domain-name_ till kommandot _vmss create_ följt av en sträng som representerar domännamnet.
+
+Om du vill konfigurera domännamnet i en Azure-mall lägger du till en dnsSettings-egenskap till skalningsuppsättningens networkInterfaceConfigurations-avsnitt. Exempel:
+
+```json
+"networkProfile": {
+  "networkInterfaceConfigurations": [
+    {
+    "name": "nic1",
+    "properties": {
+      "primary": "true",
+      "ipConfigurations": [
+      {
+        "name": "ip1",
+        "properties": {
+          "subnet": {
+            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
+          },
+          "publicIPAddressconfiguration": {
+            "name": "publicip",
+            "properties": {
+            "idleTimeoutInMinutes": 10,
+              "dnsSettings": {
+                "domainNameLabel": "[parameters('vmssDnsName')]"
+              }
+            }
+          }
+        }
+      }
+    ]
+    }
+}
+```
+
+Utdata för en enskild virtuell dator dns-namn anges i följande format: 
+```
+<vmname><vmindex>.<specifiedVmssDomainNameLabel>
+```
+
+## <a name="ipv6-preview-for-public-ips-and-load-balancer-pools"></a>Förhandsversion av IPv6 för offentliga IP-adresser och Load Balancer-pooler
+Du kan konfigurera offentliga IP-adresser för IPv6 på en Azure Load Balancer och dirigera anslutningar till serverdelspooler på skalningsuppsättningar för virtuella datorer. För att använda IPv6, som för närvarande finns som förhandsversion, måste du först skapa en offentlig IPv6-adressresurs. Exempel:
+```json
+{
+    "apiVersion": "2016-03-30",
+    "type": "Microsoft.Network/publicIPAddresses",
+    "name": "[parameters('ipv6PublicIPAddressName')]",
+    "location": "[parameters('location')]",
+    "properties": {
+        "publicIPAddressVersion": "IPv6",
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+            "domainNameLabel": "[parameters('dnsNameforIPv6LbIP')]"
+        }
+    }
+}
+```
+Konfigurera sedan din belastningsutjämnares klientprograms IP-konfigurationer för IPv4 och IPv6 efter behov:
+
+```json
+"frontendIPConfigurations": [
+    {
+        "name": "LoadBalancerFrontEndIPv6",
+        "properties": {
+            "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('ipv6PublicIPAddressName'))]"
+            }
+        }
+    }
+]
+```
+Definiera de nödvändiga serverdelspoolerna:
+```json
+"backendAddressPools": [
+    {
+        "name": "BackendPoolIPv4"
+    },
+    {
+        "name": "BackendPoolIPv6"
+    }
+]
+```
+Definiera alla regler för belastningsutjämnare:
+```json
+{
+    "name": "LBRuleIPv6-46000",
+    "properties": {
+        "frontendIPConfiguration": {
+            "id": "[variables('ipv6FrontEndIPConfigID')]"
+        },
+        "backendAddressPool": {
+            "id": "[variables('ipv6LbBackendPoolID')]"
+        },
+        "protocol": "tcp",
+        "frontendPort": 46000,
+        "backendPort": 60001,
+        "probe": {
+            "id": "[variables('ipv4ipv6lbProbeID')]"
+        }
+    }
+}
+```
+Referera till sist till IPv6-poolen i avsnittet IPConfigurations för skalningsuppsättningens nätverksegenskaper:
+```json
+{
+    "name": "ipv6IPConfig",
+    "properties": {
+        "privateIPAddressVersion": "IPv6",
+        "loadBalancerBackendAddressPools": [
+            {
+                "id": "[variables('ipv6LbBackendPoolID')]"
+            }
+        ]
+    }
+}
+```
+
+## <a name="public-ipv4-per-virtual-machine"></a>Offentlig IPv4 per virtuell dator
+I allmänhet kräver inte skalningsuppsättningar för virtuella Azure-datorer sina egna offentliga IP-adresser. I de flesta fall är det mer ekonomiskt och säkert att associera en offentlig IP-adress till en belastningsutjämnare eller till en enskild virtuell dator (kallas även en jumpbox) som sedan vidarebefordrar inkommande anslutningar till skalningsuppsättningar för virtuella datorer efter behov (till exempel via ingående NAT-regler).
+
+Men vissa scenarier kräver att skalningsuppsättningarna för virtuella datorer har sina egna offentliga IP-adresser. Ett exempel är spel, där en konsol kan behöva ansluta direkt till en virtuell dator i molnet som utför bearbetningen av spelets fysik. Ett annat exempel är när virtuella datorer behöver göra externa anslutningar till varandra över regioner i en distribuerad databas.
+
+### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Skapa en skalningsuppsättning med en offentlig IP per virtuell dator
+För att skapa en skalningsuppsättning som tilldelar varje virtuell dator en offentlig IP-adress med hjälp av CLI 2.0 lägger du till parametern _--public-ip-per-vm_ till kommandot _vmss create_. 
+
+Kontrollera att API-versionen av resursen Microsoft.Compute/virtualMachineScaleSets är minst från 2017-03-30 om du vill skapa en skalningsuppsättning med en Azure-mall och lägg till en _publicIpAddressConfiguration_-JSON-egenskap till skalningsuppsättningens ipConfigurations-avsnitt. Exempel:
+
+```json
+"publicIpAddressConfiguration": {
+    "name": "pub1",
+    "properties": {
+      "idleTimeoutInMinutes": 15
+    }
+}
+```
+Exempelmall: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
+
+### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Ställ frågor till de offentliga IP-adresserna för de virtuella datorerna i en skalningsuppsättning
+Om du vill se en lista över de offentliga IP-adresserna som tilldelats till skalningsuppsättningar för virtuella datorer med hjälp av CLI 2.0 använder du kommandot _az vmss list-instance-public-ips_.
+
+Du kan även fråga de offentliga IP-adresserna som tilldelats till skalningsuppsättningar för virtuella datorer med hjälp av [Azure Resource Explorer](https://resources.azure.com) eller Azure REST-API version _2017-03-30_ eller högre.
+
+Om du vill se de offentliga IP-adresserna för en skalningsuppsättning med Resource Explorer tittar du på avsnittet _publicipaddresses_ under din skalningsuppsättning. Till exempel: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+
+```
+GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
+```
+
+Exempel på utdata:
+```json
+{
+  "value": [
+    {
+      "name": "pub1",
+      "id": "/subscriptions/your-subscription-id/resourceGroups/your-rg/providers/Microsoft.Compute/virtualMachineScaleSets/pipvmss/virtualMachines/0/networkInterfaces/pipvmssnic/ipConfigurations/yourvmssipconfig/publicIPAddresses/pub1",
+      "etag": "W/\"a64060d5-4dea-4379-a11d-b23cd49a3c8d\"",
+      "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "ee8cb20f-af8e-4cd6-892f-441ae2bf701f",
+        "ipAddress": "13.84.190.11",
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Dynamic",
+        "idleTimeoutInMinutes": 15,
+        "ipConfiguration": {
+          "id": "/subscriptions/your-subscription-id/resourceGroups/your-rg/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmss/virtualMachines/0/networkInterfaces/yourvmssnic/ipConfigurations/yourvmssipconfig"
+        }
+      }
+    },
+    {
+      "name": "pub1",
+      "id": "/subscriptions/your-subscription-id/resourceGroups/your-rg/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmss/virtualMachines/3/networkInterfaces/yourvmssnic/ipConfigurations/yourvmssipconfig/publicIPAddresses/pub1",
+      "etag": "W/\"5f6ff30c-a24c-4818-883c-61ebd5f9eee8\"",
+      "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "036ce266-403f-41bd-8578-d446d7397c2f",
+        "ipAddress": "13.84.159.176",
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Dynamic",
+        "idleTimeoutInMinutes": 15,
+        "ipConfiguration": {
+          "id": "/subscriptions/your-subscription-id/resourceGroups/your-rg/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmss/virtualMachines/3/networkInterfaces/yourvmssnic/ipConfigurations/yourvmssipconfig"
+        }
+      }
+    }
+```
+
+## <a name="multiple-ip-addresses-per-nic"></a>Flera IP-adresser per nätverkskort
+Varje nätverkskort som är kopplat till en virtuell dator i en skalningsuppsättning kan ha en eller flera associerade IP-konfigurationer. Varje konfiguration tilldelas en privat IP-adress. Varje konfiguration kan också ha en associerad offentlig IP-adressresurs. För att förstå hur många IP-adresser som kan tilldelas till ett nätverkskort och hur många offentliga IP-adresser du kan använda i en Azure-prenumeration kan du se [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+
+## <a name="multiple-nics-per-virtual-machine"></a>Flera nätverkskort per virtuell dator
+Du kan ha upp till 8 nätverkskort per virtuell dator, beroende på datorns storlek. Det maximala antalet nätverkskort per dator är tillgänglig i [artikeln om VM-storlek](../virtual-machines/windows/sizes.md). Följande exempel är en nätverksprofil för skalningsuppsättningar som visar flera poster för nätverkskort och flera offentliga IP-adresser per virtuell dator:
+```json
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+        {
+        "name": "nic1",
+        "properties": {
+            "primary": "true",
+            "ipConfigurations": [
+            {
+                "name": "ip1",
+                "properties": {
+                "subnet": {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
+                },
+                "publicipaddressconfiguration": {
+                    "name": "pub1",
+                    "properties": {
+                    "idleTimeoutInMinutes": 15
+                    }
+                },
+                "loadBalancerInboundNatPools": [
+                    {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
+                    }
+                ],
+                "loadBalancerBackendAddressPools": [
+                    {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
+                    }
+                ]
+                }
+            }
+            ]
+        }
+        },
+        {
+        "name": "nic2",
+        "properties": {
+            "primary": "false",
+            "ipConfigurations": [
+            {
+                "name": "ip1",
+                "properties": {
+                "subnet": {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
+                },
+                "publicipaddressconfiguration": {
+                    "name": "pub1",
+                    "properties": {
+                    "idleTimeoutInMinutes": 15
+                    }
+                },
+                "loadBalancerInboundNatPools": [
+                    {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
+                    }
+                ],
+                "loadBalancerBackendAddressPools": [
+                    {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
+                    }
+                ]
+                }
+            }
+            ]
+        }
+        }
+    ]
+}
+```
+
+## <a name="nsg-per-scale-set"></a>Nätverkssäkerhetsgrupp per skalningsuppsättning
+Nätverkssäkerhetsgrupper kan tillämpas direkt på en skalningsuppsättning genom att lägga till en referens till konfigurationsavsnittet för nätverksgränssnittet i egenskaperna för skalningsuppsättningen för virtuella datorer.
+
+Exempel: 
+```
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+        {
+            "name": "nic1",
+            "properties": {
+                "primary": "true",
+                "ipConfigurations": [
+                    {
+                        "name": "ip1",
+                        "properties": {
+                            "subnet": {
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
+                            }
+                "loadBalancerInboundNatPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
+                                }
+                            ],
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
+                }
+            }
+        }
+    ]
+}
+```
+
+## <a name="next-steps"></a>Nästa steg
+Mer information om virtuella Azure-nätverk finns i [den här dokumentationen](../virtual-network/virtual-networks-overview.md).
+

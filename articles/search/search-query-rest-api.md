@@ -13,9 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
-ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 1976a514b4469704dcba9381c5fcbe8805a11ecd
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -31,7 +33,7 @@ ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
 
 Den här artikeln beskriver hur du kör frågor mot ett index med hjälp av [REST-API:et för Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
 
-Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Search-index](search-what-is-an-index.md) och [fyllt det med data](search-what-is-data-import.md).
+Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Search-index](search-what-is-an-index.md) och [fyllt det med data](search-what-is-data-import.md). Mer bakgrundsinformation finns i [Hur fullständig textsökning fungerar i Azure Search](search-lucene-query-architecture.md).
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Identifiera API-frågenyckeln för Azure Search-tjänsten
 En viktig del av varje sökåtgärd mot REST-API:et för Azure Search är *API-nyckeln* som genererades för tjänsten som du etablerat. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
@@ -163,9 +165,4 @@ Ett lyckat frågeresultat returnerar statuskoden `200 OK` och sökresultaten ret
 ```
 
 Om du vill veta mer går du till avsnittet ”Svar” i [Söka efter dokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Mer information om andra HTTP-statuskoder som kan returneras om det uppstår fel finns i [HTTP-statuskoder (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

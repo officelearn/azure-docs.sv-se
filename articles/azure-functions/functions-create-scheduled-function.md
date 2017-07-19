@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 1478a2eedad496d3113fef28920d10859d11b1ce
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 4442d0038a0604d3297871907c1d05d8d3916dcf
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
@@ -31,7 +31,9 @@ Lär dig hur du använder Azure Functions till att skapa en funktion som körs e
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+För att slutföra den här självstudien behöver du:
+
++ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -47,18 +49,24 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-a-timer-triggered-function"></a>Skapa en timerutlöst funktion
 
-1. Expandera din funktionsapp, klicka på knappen **+** bredvid **Funktioner** och klicka på mallen **TimerTrigger** för önskat språk. Använd inställningarna som anges i tabellen och klicka på **Skapa**:
+1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar.
 
-| Inställning | Föreslaget värde | Beskrivning |
-|---|---|---|
-| **Namnge din funktion** | TimerTriggerCSharp1 | Det här är namnet på den timerutlösta funktionen. |
-| **[Schema](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Ett [CRON-uttryck](http://en.wikipedia.org/wiki/Cron#CRON_expression) med sex fält som schemalägger att funktionen ska köras varje minut. |
+    ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-scheduled-function/add-first-function.png)
 
-En funktion skapas i valt språk som körs varje minut.
+2. Välj **TimerTrigger**-mallen för språket. Använd inställningarna som anges i tabellen:
 
-1. Kontrollera körningen genom att granska spårningsinformationen som skrivs till loggarna.
+    ![Skapa en timerutlöst funktion i Azure Portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 
-![Funktionsloggvisning i Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+    | Inställning | Föreslaget värde | Beskrivning |
+    |---|---|---|
+    | **Namnge din funktion** | TimerTriggerCSharp1 | Det här är namnet på den timerutlösta funktionen. |
+    | **[Schema](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Ett [CRON-uttryck](http://en.wikipedia.org/wiki/Cron#CRON_expression) med sex fält som schemalägger att funktionen ska köras varje minut. |
+
+2. Klicka på **Skapa**. En funktion skapas i valt språk som körs varje minut.
+
+3. Kontrollera körningen genom att granska spårningsinformationen som skrivs till loggarna.
+
+    ![Funktionsloggvisning i Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
 Du kan nu ändra funktionens schema så att den körs mindre ofta, till exempel en gång i timmen. 
 

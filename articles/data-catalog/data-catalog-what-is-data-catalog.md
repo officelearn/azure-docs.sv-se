@@ -1,6 +1,6 @@
 ---
 title: Introduktion till Azure Data Catalog | Microsoft Docs
-description: "Den här artikeln innehåller en översikt över Microsoft Azure Data Catalog, inklusive funktioner och vilka problem den är tänkt att lösa. Data Catalog innehåller funktioner som gör att alla användare – från analytiker till datavetare och utvecklare – kan registrera, identifiera, förstå och använda datakällor."
+description: "Den här artikeln innehåller en översikt över Microsoft Azure Data Catalog, inklusive funktioner och vilka problem den är tänkt att lösa. Data Catalog låter alla användare registrera, identifiera, förstå och använda datakällor."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -16,33 +16,34 @@ ms.workload: data-catalog
 ms.date: 05/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: fb8f43f5bb5725da30e67cdf5d7b066fe40ed003
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: c0cf2805de958c979def3f21eda59ec97fb91d33
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
 # <a name="what-is-azure-data-catalog"></a>Vad är Azure Data Catalog?
-Azure Data Catalog är en helt hanterad molntjänst som hjälper användarna att identifiera de datakällor de behöver och förstå datakällorna de identifierar, samtidigt som organisationerna får ut mer av sina befintliga investeringar. Data Catalog innehåller funktioner som gör att alla användare – från analytiker till datavetare och utvecklare – kan identifiera, förstå och använda datakällor. Data Catalog innehåller en gemensam modell för metadata och kommentarer så att alla användare kan bidra med sina kunskaper för att skapa en databaserad gemenskap och kultur.
+Azure Data Catalog är en helt hanterad molntjänst vars användare kan identifiera datakällor de behöver och förstå datakällorna de identifierar. På samma gång hjälper Data Catalog organisationer att få ut mer av sina befintliga investeringar. 
+
+Med Data Catalog kan alla användare (analytiker, IT-forskare eller utvecklare) identifiera, förstå och använda datakällor. Data Catalog innehåller en gemensam modell för metadata och kommentarer. Det är en gemensam, central plats där hela organisationens användare kan bidra med sina kunskaper och skapa en databaserad gemenskap och kultur för data.
 
 ## <a name="discovery-challenges-for-data-consumers"></a>Det är svårt för datakonsumenterna att hitta rätt
-Traditionellt har man identifierat företagets datakällor genom en organisk process baserad på gruppens kunskaper. Detta medför stora utmaningar för företag som vill få ut största möjliga värde av sina informationstillgångar.
+Traditionellt har man identifierat företagets datakällor genom en organisk process baserad på gruppens kunskaper. Detta medför stora utmaningar för företag som vill få ut största möjliga värde av sina informationstillgångar:
 
-* Användarna känner inte till att datakällorna finns om de inte stöter på dem som en del i en annan process. Det finns ingen central plats där datakällorna registreras.
-* Såvida inte en användare känner till var en datakälla finns kan han eller hon inte ansluta till den med ett klientprogram. Datakonsumtionen kräver att användarna känner till anslutningssträngen eller sökvägen.
-* Såvida inte en användare känner till var dokumentationen för en datakälla finns kan han eller hon inte förstå hur den är avsedd att användas. Datakällor och dokumentation finns på olika platser och används via olika kanaler.
-* Om en användare har frågor om en informationstillgång måste han eller hon leta rätt på experten eller teamet som ansvarar för den och kontakta dem öga mot öga. Det finns ingen uttrycklig koppling mellan data och personer med expertkunskaper om hur de används.
-* Om en användare inte känner till hur man begär åtkomst till datakällan, kan användaren inte komma åt de data som behövs trots att han eller hon har identifierat datakällan och dess dokumentation.
+* Användare kan vara omedvetna om att en datakälla finns om de stöter på den som en del av en annan process. Det finns ingen central plats där datakällorna registreras.
+* Om användarna vet platsen för en datakälla, kan de inte ansluta till data med hjälp av ett klientprogram. Dataförbrukningsupplevelser gör att användarna måste känner till anslutningssträngen eller sökvägen.
+* Om användarna inte känner till datakällans plats kan de inte förstå dess avsedda användningsområde. Datakällor och dokumentation kanske befinner sig på olika platser och används via en mängd olika upplevelser.
+* Om användare har frågor om en informationsresurs måste de hitta experten eller teamet som ansvarar för data och prata med dem offline. Det finns ingen direkt koppling mellan data och personer med expertkunskaper om hur de används.
+* Om användare inte känner till hur man begär åtkomst till datakällan, kan de inte komma åt de data som behövs trots att de har identifierat datakällan och dess dokumentation.
 
 ## <a name="discovery-challenges-for-data-producers"></a>Det är svårt för dataproducenterna att hitta rätt
-Datakonsumenterna står inför vissa svårigheter, medan användarna som ansvarar för att producera och upprätthålla informationstillgångar står inför andra svårigheter.
+Datakonsumenterna står inför vissa svårigheter, medan användarna som ansvarar för att producera och upprätthålla informationstillgångar står inför andra svårigheter:
 
-* Det är ofta en onödig ansträngning att kommentera datakällor med beskrivande metadata, eftersom klientprogram vanligen ignorerar beskrivningar som lagrats i datakällan.
-* Det är ofta en onödig ansträngning att skapa dokumentation för datakällor. Att se till att dokumentationen är synkroniserad med datakällan är ett kontinuerligt ansvar, och användarna saknar förtroende för dokumentationen eftersom den ofta uppfattas som föråldrad.
+* Det är ofta en onödig ansträngning att kommentera datakällor med beskrivande metadata. Klientprogram ignorerar vanligtvis beskrivningar som lagrats i datakällan.
+* Det är ofta en onödig ansträngning att skapa dokumentation för datakällor. Det är ett ständigt ansvar att synkronisera dokumentationen med datakällorna och användarna saknar förtroende för dokumentation som uppfattas som föråldrad.
+* Det är komplicerat och tidskrävande att skapa och upprätthålla dokumentationen för en datakälla. Det är ofta ännu svårare att göra dokumentationen lättillgänglig för alla som använder datakällan.
 * Det är en ständig utmaning att begränsa tillgången till datakällan och samtidigt se till att datakonsumenterna vet hur de begär tillgång.
-
-Det är komplicerat och tidskrävande att skapa och upprätthålla dokumentationen för en datakälla. Det är ofta ännu svårare att göra dokumentationen lättillgänglig för alla som använder datakällan.
 
 I kombination utgör dessa svårigheter ett stort hinder för företag som vill uppmuntra och främja användning och förståelse av företagsdata.
 
@@ -53,14 +54,11 @@ Data Catalog är en molnbaserad tjänst där du kan registrera datakällor. Dina
 
 När en datakälla har registrerats kan dess metadata utökas, antingen av användaren som registrerade källan eller av andra användare i företaget. Alla användare kan kommentera en datakälla genom att ange beskrivningar, taggar eller andra metadata, till exempel dokumentation och processer för att begära åtkomst till datakällan. Dessa beskrivande metadata kompletterar strukturella metadata (till exempel kolumnnamn och datatyper) som registrerats från datakällan.
 
-Huvudsyftet med registrering av källorna är att identifiera och förstå datakällor och deras användningsområden. När företagsanvändare behöver data i sitt arbete (till exempel affärsanalyser, apputveckling, datavetenskap eller andra uppgifter där rätt data krävs) kan de söka i Data Catalog och snabbt identifiera data som motsvarar deras behov, förstå datakällan för att utvärdera dess lämplighet och använda data genom att öppna datakällan i önskat verktyg. Data Catalog gör det också möjligt för användarna att bidra till katalogen genom att tagga, dokumentera och kommentera datakällor som redan har registrerats och genom att registrera nya datakällor som sedan kan identifieras, förstås och användas av alla kataloganvändare.
+Huvudsyftet med registrering av källorna är att identifiera och förstå datakällor och deras användningsområden. Företagsanvändare behöver data för business intelligence, programutveckling, datavetenskap eller andra uppgifter där rätt data krävs. De kan använda sökfunktionen i Data Catalog för att snabbt hitta data som motsvarar deras behov, förstå datakällan för att utvärdera dess lämplighet och använda data genom att öppna datakällan i önskat verktyg. 
+
+På samma gång kan användarna bidra till katalogen genom att tagga, dokumentera och kommentera datakällor som redan har registrerats. De kan också registrera nya datakällor som kan sedan identifieras, förstås och användas av kataloganvändare.
 
 ![Funktioner i Data Catalog](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
-
-## <a name="get-started-with-data-catalog"></a>Kom igång med Data Catalog
-Kom igång med Data Catalog idag genom att besöka [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
-
-En kom igång-guide finns [här](data-catalog-get-started.md).
 
 ## <a name="learn-more-about-data-catalog"></a>Mer information om Data Catalog
 Här finns mer information om funktionerna i Data Catalog:
@@ -74,4 +72,9 @@ Här finns mer information om funktionerna i Data Catalog:
 * [Hantera datatillgångar](data-catalog-how-to-manage.md)
 * [Så här konfigurerar du företagsordlistan](data-catalog-how-to-business-glossary.md)
 * [Vanliga frågor och svar](data-catalog-frequently-asked-questions.md)
+
+## <a name="next-steps"></a>Nästa steg
+För att komma igång med Data Catalog, gå till:
+* [Microsoft Azure Data Catalog](https://www.azuredatacatalog.com)
+* [Kom igång med Azure Data Catalog](data-catalog-get-started.md)
 

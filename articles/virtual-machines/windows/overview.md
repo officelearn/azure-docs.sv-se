@@ -13,16 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 07/17/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e1e09f4f75da05ca051b78e57979600fd3e36006
-ms.lasthandoff: 04/27/2017
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Översikt över virtuella Windows-datorer i Azure
+
 Virtuella Azure-datorer (Virtual Machines, VM) är en av flera typer av [behovsbaserade och skalbara datorresurser](../../app-service-web/choose-web-site-cloud-service-vm.md) som Azure erbjuder. Normalt använder du en virtuell dator om du behöver mer kontroll över datormiljön än vad de andra alternativen erbjuder. Den här artikeln innehåller information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
 
 En virtuell dator i Azure ger dig virtualiseringsflexibilitet utan att du behöver köpa och underhålla den fysiska maskinvara som den virtuella datorn körs på. Du behöver dock fortfarande underhålla den virtuella datorn genom att utföra uppgifter, som att konfigurera, korrigera och underhålla programvaran som körs på den virtuella datorn.
@@ -49,7 +51,7 @@ Det finns alltid en rad [överväganden vid utformning](infrastructure-virtual-m
 ### <a name="naming"></a>Namngivning
 En virtuell dator har ett tilldelat [namn](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och ett datornamn som konfigurerats som en del av operativsystemet. En virtuell dators namn kan bestå av upp till 15 tecken.
 
-Om du använder Azure för att skapa operativsystemsdisken är datornamnet och namnet på den virtuella datorn detsamma. Om du [laddar upp och använder en egen avbildning](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) som innehåller ett tidigare konfigurerat operativsystem, och du använder den för att skapa en virtuell dator, kan namnen bli olika. Vi rekommenderar att du ger datorn samma namn i operativsystemet som i den virtuella datorn när du laddar upp en egen avbildningsfil.
+Om du använder Azure för att skapa operativsystemsdisken är datornamnet och namnet på den virtuella datorn detsamma. Om du [laddar upp och använder en egen avbildning](upload-generalized-managed.md) som innehåller ett tidigare konfigurerat operativsystem, och du använder den för att skapa en virtuell dator, kan namnen bli olika. Vi rekommenderar att du ger datorn samma namn i operativsystemet som i den virtuella datorn när du laddar upp en egen avbildningsfil.
 
 ### <a name="locations"></a>Platser
 Alla resurser som skapats i Azure fördelas på flera [geografiska områden](https://azure.microsoft.com/regions/) runtom i världen. Vanligtvis kallas regionen **plats** när du skapar en virtuell dator. För en virtuell dator anger platsen var de virtuella hårddiskarna lagras.
@@ -83,7 +85,7 @@ I den här tabellen hittar du några olika sätt för att hitta informationen om
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST API:er |[Lista över avbildningsutgivare](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lista över avbildningserbjudanden](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lista över avbildnings-SKU:er](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
-Du kan välja att [ladda upp och använda en egen avbildning](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Om du gör det används inte utgivarnamn, erbjudande och sku.
+Du kan välja att [ladda upp och använda en egen avbildning](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account). Om du gör det används inte utgivarnamn, erbjudande och sku.
 
 ### <a name="extensions"></a>Tillägg
 [Tillägg](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för virtuella datorer ger din virtuella dator fler funktioner genom konfiguration efter distribution och automatiserade uppgifter.
@@ -130,7 +132,7 @@ I den här tabellen visar vi några exempel på hur du kan få information om en
 | Metod | Beskrivning |
 | --- | --- |
 | Azure Portal |På hubbmenyn klickar du på **Virtuella datorer** och sedan väljer du den virtuella datorn från listan. På bladet för den virtuella datorn har du åtkomst till översikter med information, inställning av värden och övervakning av mått. |
-| Azure PowerShell |Information om hur du använder PowerShell för att hantera virtuella datorer finns i [Hantera Azure Virtual Machines med hjälp av Resource Manager och PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Azure PowerShell |Information om hur du använder PowerShell för att hantera virtuella datorer finns i [Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | REST API |Använd åtgärden [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) (Hämta information om virtuell dator) för att få information om en virtuell dator. |
 | Klient-SDK: er |Information om hur du använder C# för att hantera virtuella datorer finns i [Hantera Azure Virtual Machines med hjälp av Azure Resource Manager och C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 

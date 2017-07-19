@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/06/2017
-ms.author: edmaca
+ms.date: 06/23/2017
+ms.author: saveenr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: cb2da3515cfe5fd460e16b019d3738f4a9a050bb
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 8817b511d779029421491194b50120d51ec9dbad
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
 # <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Översikt över Microsoft Azure Data Lake Analytics
 ## <a name="what-is-azure-data-lake-analytics"></a>Vad är Azure Data Lake Analytics?
-Azure Data Lake Analytics är en tjänst på begäran som gör det enklare att analysera stordata. Fokusera på att skriva, köra och hantera jobb, i stället för att hantera distribuerad infrastruktur. I stället för att distribuera, konfigurera och justera maskinvara, kan du skriva frågor genom vilka du kan omvandla dina data och extrahera värdefulla insikter. Med Analytics-tjänsten kan du hantera jobb av alla skalor direkt bara genom att ange hur mycket kraft du behöver. Du betalar endast för jobbet när tjänsten körs vilket gör den kostnadseffektiv. Analytics-tjänsten stöder Azure Active Directory så att du kan hantera åtkomst och roller, integrerade med ditt lokala identitetssystem. Den omfattar också U-SQL, ett språk som kombinerar fördelarna hos SQL med den direkta kraften hos användarkod. Med U-SQL:s skalbara distribuerade körning kan du effektivt analysera data i arkivet och mellan SQL-servrar i Azure, Azure SQL Database och Azure SQL Data Warehouse.
+Azure Data Lake Analytics är en tjänst på begäran som gör det enklare att analysera stordata. Du kan fokusera på att skriva, köra och hantera jobb, i stället för att hantera distribuerad infrastruktur. I stället för att distribuera, konfigurera och justera maskinvara, kan du skriva frågor genom vilka du kan omvandla dina data och extrahera värdefulla insikter. Med Analytics-tjänsten kan du hantera jobb av alla skalor direkt bara genom att ange hur mycket kraft du behöver. Du betalar endast för jobbet när tjänsten körs vilket gör den kostnadseffektiv. Analytics-tjänsten stöder Azure Active Directory så att du kan hantera åtkomst och roller, integrerade med ditt lokala identitetssystem. Den omfattar också U-SQL, ett språk som kombinerar fördelarna hos SQL med den direkta kraften hos användarkod. Med U-SQL:s skalbara distribuerade körning kan du effektivt analysera data i arkivet och mellan SQL-servrar i Azure, Azure SQL Database och Azure SQL Data Warehouse.
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 * **Dynamisk skalning**
@@ -46,24 +46,9 @@ Azure Data Lake Analytics är en tjänst på begäran som gör det enklare att a
   
     Data Lake Analytics har optimerats för att fungera med Azure Data Lake, och ger högsta prestanda och genomströmning, tillhandahåller parallellisering för dina stordata-arbetsbelastningar.  Data Lake Analytics kan även användas med Azure Blob Storage och Azure SQL-databaser.
 
-## <a name="see-also"></a>Se även
-* Kom igång
-  
-  * [Kom igång med Data Lake Analytics med hjälp av Azure-portalen](data-lake-analytics-get-started-portal.md)
-  * [Kom igång med Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-  * [Kom igång med Data Lake Analytics med hjälp av Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
-  * [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-  * [Kom igång med Azure Data Lake Analytics U-SQL-språk](data-lake-analytics-u-sql-get-started.md)
-
-* Hantering
-  
-  * [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md)
-  * [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-  * [Övervaka och felsök Azure Data Lake Analytics-jobb med hjälp av Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-* Berätta vad du tycker
-  
-  * [Skicka en funktionsbegäran](http://aka.ms/adlafeedback)
-  * [Få hjälp i MSDN-forumen](http://aka.ms/adlaforums)
-
+## <a name="next-steps"></a>Nästa steg
+ 
+  * Komma igång med Data Lake Analytics med hjälp av [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md)
+  * Hantera Azure Data Lake Analytics med hjälp av [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)
+  * [Övervaka och felsök Azure Data Lake Analytics-jobb med hjälp av Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md) 
 

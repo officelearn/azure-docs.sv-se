@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 04/21/2017
+ms.date: 05/22/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 52dcb10495c564c5d8058b9c786b4cd331b6ae18
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 0531b5c3b63a3fa54bb331f3d8d09c8119e789ea
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -59,13 +60,17 @@ Du kan använda antingen en primär eller sekundär administrationsnyckel när d
 ## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Skapa en instans av SearchServiceClient-klassen
 Innan du kan börja använda .NET SDK Azure Search måste du skapa en instans av klassen `SearchServiceClient`. Den här klassen har flera konstruktorer. Den som du vill använda har namnet på din söktjänst och ett `SearchCredentials`-objekt som parametrar. `SearchCredentials` omsluter din API-nyckel.
 
-Koden nedan skapar en ny `SearchServiceClient` med värden för söktjänstens namn och API-nyckel som lagras i programmets konfigurationsfil (`app.config` eller `web.config`):
+Koden nedan skapar en ny `SearchServiceClient` med värden för söktjänstens namn och API-nyckel som lagras i programmets konfigurationsfil (`appsettings.json` i fall med [provprogrammet](http://aka.ms/search-dotnet-howto)):
 
 ```csharp
-string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-string adminApiKey = ConfigurationManager.AppSettings["SearchServiceAdminApiKey"];
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+{
+    string searchServiceName = configuration["SearchServiceName"];
+    string adminApiKey = configuration["SearchServiceAdminApiKey"];
 
-SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+    SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+    return serviceClient;
+}
 ```
 
 `SearchServiceClient` har en `Indexes`-egenskap. Den här egenskapen tillhandahåller alla metoder som du behöver för att skapa, visa, uppdatera eller ta bort Azure Search-index.
@@ -93,13 +98,19 @@ Det är viktigt att du har användarupplevelsen och dina affärsbehov i åtanke 
 I vårt exempel har vi gett indexet namnet ”hotels” och definierat fälten med en modellklass. Varje egenskap i modellklassen har attribut som avgör motsvarande indexfälts sökrelaterade beteende. Modellklassen definieras så här:
 
 ```csharp
+using System;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Microsoft.Spatial;
+using Newtonsoft.Json;
+
 // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
 // It ensures that Pascal-case property names in the model class are mapped to camel-case
 // field names in the index.
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
-    [Key]
+    [System.ComponentModel.DataAnnotations.Key]
     [IsFilterable]
     public string HotelId { get; set; }
 

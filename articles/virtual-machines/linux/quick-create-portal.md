@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ff4bf9c9e3bfbd0e51cdb91be85dec15db6cd758
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -107,13 +108,13 @@ En nätverkssäkerhetsgrupp (NSG) säkrar ingående och utgående trafik. När e
 6. Klicka på **OK**.
 
 
-## <a name="view-the-ngix-welcome-page"></a>Visa NGIX-välkomstsidan
+## <a name="view-the-nginx-welcome-page"></a>Visa NGINX-välkomstsidan
 
-När NGINX är installerat och port 80 är öppen för din VM kan webbservern nu nås från internet. Öppna en webbläsare och ange den virtuella datorns offentliga IP-adress. den offentliga IP-adressen finns på VM-bladet i Azure Portal.
+När NGINX är installerat och port 80 är öppen för din VM kan webbservern nu nås från internet. Öppna en webbläsare och ange den virtuella datorns offentliga IP-adress. Den offentliga IP-adressen finns på VM-bladet i Azure Portal.
 
 ![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png) 
 
-## <a name="delete-virtual-machine"></a>Ta bort en virtuell dator
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra det väljer du resursgruppen på bladet för den virtuella datorn och klickar på **Ta bort**.
 

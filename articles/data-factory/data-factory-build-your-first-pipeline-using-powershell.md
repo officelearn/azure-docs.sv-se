@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c7062721017176b4caacbd48a513c2610058b835
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: d3908e2984889656a70b5295eab19164ad3bfa95
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -34,10 +35,12 @@ ms.lasthandoff: 04/27/2017
 
 I den här artikeln får du lära dig hur du använder Azure PowerShell till att skapa din första Azure-datafabrik. Om du vill gå igenom självstudien med andra verktyg/SDK:er kan du välja något av alternativen i listrutan.
 
+Pipeline i den här självstudiekursen har en aktivitet: **HDInsight Hive-aktivitet**. Aktiviteten kör ett Hive-skript i ett Azure HDInsight-kluster som omvandlar indata för till utdata. Denna pipeline är schemalagd att köras en gång i månaden mellan angivna start- och sluttider. 
+
 > [!NOTE]
 > Datapipelinen i den här självstudien transformerar indata för att generera utdata. Den kopierar inte data från ett källdatalager till ett måldatalager. En självstudiekurs om hur du kopierar data med Azure Data Factory finns i [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Självstudie: Kopiera data från Blob Storage till SQL Database).
 > 
-> Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory). 
+> En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och utförande i Data Factory).
 
 ## <a name="prerequisites"></a>Krav
 * Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen.
@@ -45,7 +48,7 @@ I den här artikeln får du lära dig hur du använder Azure PowerShell till att
 * (valfritt) Den här artikeln beskriver inte alla Data Factory-cmdletar. Se [Cmdlet-referens för Data Factory](/powershell/module/azurerm.datafactories) för omfattande dokumentation om Data Factory-cmdletar.
 
 ## <a name="create-data-factory"></a>Skapa en datafabrik
-I det här steget använder du Azure PowerShell till att skapa en Azure Data Factory med namnet **FirstDataFactoryPSH**. En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Det kan till exempel vara en kopieringsaktivitet som kopierar data från en källa till ett måldatalager och en Hive-aktivitet för HDInsight som kör Hive-skript för att transformera indata. Låt oss börja med att skapa datafabriken i det här steget.
+I det här steget använder du Azure PowerShell till att skapa en Azure Data Factory med namnet **FirstDataFactoryPSH**. En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Till exempel, en kopieringsaktivitet som kopierar data från en källa till en måldatalagring och en HDInsight Hive-aktivitet som kör ett Hive-skript som omvandlar indata. Låt oss börja med att skapa datafabriken i det här steget.
 
 1. Starta Azure PowerShell och kör följande kommando. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
    * Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
@@ -54,7 +57,7 @@ I det här steget använder du Azure PowerShell till att skapa en Azure Data Fac
     ```    
    * Kör följande kommando för att visa alla prenumerationer för det här kontot.
     ```PowerShell
-    Get-AzureRmSubscription    
+    Get-AzureRmSubscription 
     ```
    * Kör följande kommando för att välja den prenumeration som du vill arbeta med. Den här prenumerationen ska vara samma som den du använde i Azure-portalen.
     ```PowerShell
@@ -142,7 +145,6 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "StorageLinkedService"
@@ -154,7 +156,6 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
 
    | Egenskap | Beskrivning |
    |:--- |:--- |
-   | Version |Anger att versionen av HDInsight som skapades är 3.2. |
    | ClusterSize |Anger HDInsight-klustrets storlek. |
    | TimeToLive |Anger inaktivitetstiden för HDInsight-klustret innan det tas bort. |
    | linkedServiceName |Anger lagringskontot som används för att spara loggarna som genereras av HDInsight |
@@ -341,7 +342,7 @@ I det här steget använder du Azure PowerShell till att övervaka vad som händ
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
     ```
-    Observera att StartDateTime som du anger här är samma starttid som angavs i din pipeline-JSON. Du bör se utdata som liknar följande.
+    Observera att StartDateTime som du anger här är samma starttid som angavs i din pipeline-JSON. Här är exempel på utdata:
 
     ```PowerShell
     ResourceGroupName : ADFTutorialResourceGroup
@@ -361,7 +362,7 @@ I det här steget använder du Azure PowerShell till att övervaka vad som händ
     Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
     ```
 
-    Du bör se utdata som liknar följande.
+    Här är exempel på utdata: 
 
     ```PowerShell
     Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput

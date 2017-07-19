@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: e6440522ced33a48925cfabc64da055b8700b253
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -34,8 +36,8 @@ Just nu stöds:
 
 ## <a name="features"></a>Funktioner
 * Kontohantering: skapa, hämta, visa, uppdatera och ta bort.
-* Jobbhantering: skicka, hämta, lista, avbryta.
-* Kataloghantering: hämta, visa, skapa (hemligheter), uppdatera (hemligheter), ta bort (hemligheter).
+* Jobbhantering: skicka, hämta, visa och avbryta.
+* Kataloghantering: hämta och visa.
 
 ## <a name="how-to-install"></a>Så här installerar du
 ```bash
@@ -137,10 +139,5 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 ## <a name="see-also"></a>Se även
 * [Microsoft Azure SDK för Node.js](https://github.com/azure/azure-sdk-for-node)
 * [Microsoft Azure SDK för Node.js – Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

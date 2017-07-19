@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0e2501b0eb218d3c8a62dd4959b08ff85ec565eb
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/26/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
@@ -29,13 +29,11 @@ I Azure Functions kan du använda indata- och utdatabindningar för att ansluta 
 
 ![Visa meddelande i loggarna.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-Det bör ta mindre än fem minuter att slutföra alla steg i det här avsnittet.
-
 ## <a name="prerequisites"></a>Krav 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
-Du måste också hämta och installera [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
+* Installera [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
@@ -43,11 +41,11 @@ Du måste också hämta och installera [Microsoft Azure Storage Explorer](http:/
  
 1. Expandera både din funktionsapp och din funktion.
 
-2. Klicka på **Integrera** och **+ Nya utdata** och klicka sedan på **Azure Queue Storage** och på **Välj**.
+2. Välj **Integrera** och **+ Nya utdata** och klicka sedan på **Azure Queue Storage** och på **Välj**.
     
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Använd inställningarna i tabellen och klicka sedan på **Spara**: 
+3. Använd inställningarna som anges i tabellen och välj **Spara**: 
 
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -61,7 +59,7 @@ Nu när du har definierat en utdatabindning måste du uppdatera koden så att bi
 
 ## <a name="update-the-function-code"></a>Uppdatera funktionskoden
 
-1. Klicka på din funktion för att visa funktionskoden i redigeraren. 
+1. Välj din funktion så att funktionskoden visas i redigeraren. 
 
 2. För en C#-funktion uppdaterar du funktionsdefinitionen på följande sätt för att lägga till lagringsbindningsparametern **outQueueItem**. Hoppa över det här steget om du använder en JavaScript-funktion.
 
@@ -84,13 +82,13 @@ Nu när du har definierat en utdatabindning måste du uppdatera koden så att bi
     outQueueItem.Add("Name passed to the function: " + name);     
     ```
 
-4. Klicka på **Spara** för att spara ändringarna.
+4. Välj **Spara** för att spara ändringarna.
 
 Värdet som skickades till HTTP-utlösaren ingår i ett meddelande som har lagts till i kön.
  
 ## <a name="test-the-function"></a>Testa funktionen 
 
-1. När kodändringarna har sparats klickar du på **Kör**. 
+1. Välj **Kör** när kodändringarna har sparats. 
 
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
@@ -102,7 +100,7 @@ Därefter kan du ansluta till ditt lagringskonto och kontrollera den nya kön oc
 
 Hoppa över de första tre stegen om du redan har installerat Lagringsutforskaren och anslutit den till ditt lagringskonto.    
 
-1. Klicka på **Integrera** i din funktion och sedan på den nya **Azure Queue Storage**-utdatabindningen. Expandera sedan **Dokumentation**. Kopiera både **kontonamnet** och **kontonyckeln**. Du använder dessa autentiseringsuppgifter för att ansluta till lagringskontot.
+1. Välj **Integrera** och ny bindning av utdata för **Azure Queue-storage** och expandera **Dokumentation**. Kopiera både **kontonamnet** och **kontonyckeln**. Du använder dessa autentiseringsuppgifter för att ansluta till lagringskontot.
  
     ![Hämta autentiseringsuppgifterna för att ansluta till lagringskontot.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
@@ -110,9 +108,9 @@ Hoppa över de första tre stegen om du redan har installerat Lagringsutforskare
 
     ![Kör verktyget Storage Account Explorer.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
     
-3. Ange **kontonamnet** och **kontonyckeln** från steg 1, klicka på **Nästa** och sedan på **Anslut**. 
+3. Klistra in **kontonamn** och **kontonyckel** från steg 1 till motsvarande fält och välj sedan **Nästa** och **Anslut**. 
   
-    ![Ange autentiseringsuppgifter för lagringskontot och anslut.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
+    ![Klistra in autentiseringsuppgifter för lagringskontot och anslut.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 4. Expandera det anslutna lagringskontot, högerklicka på **Köer** och kontrollera att det finns en kö med namnet **myqueue-items**. Du bör även se ett meddelande som redan finns i kön.  
  

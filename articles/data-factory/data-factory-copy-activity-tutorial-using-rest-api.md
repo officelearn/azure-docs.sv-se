@@ -1,6 +1,6 @@
 ---
-title: "Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av REST-API:et | Microsoft Docs"
-description: "I den här självstudiekursen ska du skapa en Azure Data Factory-pipeline med en kopieringsaktivitet med hjälp av REST-API:et."
+title: "Självstudier: Använd REST API för att skapa ett Azure Data Factory-pipeline | Microsoft Docs"
+description: "I den här självstudiekursen kommer du att använda REST API för att skapa en Azure-datafabrik och kopiera data från ett Azure-blob till en Azure SQL-databas."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f4d2535e929996101f6e22ffbd0b2105e8fbf2a8
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 08e62dba35a72a4c814b07c93304247227b1635c
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-rest-api"></a>Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av REST-API:et
+# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd REST API för att skapa ett Azure Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
@@ -34,12 +35,16 @@ ms.lasthandoff: 04/27/2017
 > 
 > 
 
-Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabrik med hjälp av REST-API:et. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
+I den här artikeln får du lära dig hur du använder REST API för att skapa en datafabrik med en pipeline som kopierar data från en Azure-bloblagring till en Azure SQL-databas. Om du inte har använt Azure Data Factory, bör du läsa igenom artikeln [Introduktion till Azure Data Factory](data-factory-introduction.md) innan du genomför den här självstudien.   
+
+I den här självstudien får du skapa en pipeline i en aktivitet: kopieringsaktivitet. Kopieringsaktiviteten kopierar data från källans datalager till mottagarens datalager. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.
+
+En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer information finns i [flera aktiviteter i en pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 > [!NOTE]
 > Den här artikeln beskriver inte hela REST-API:et för Data Factory. Omfattande dokumentation om Data Factory-cmdlets finns i [referensen för REST-API:et för Data Factory](/rest/api/datafactory/).
-> 
-> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
+>  
+> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
 ## <a name="prerequisites"></a>Krav
 * Gå igenom [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför de **nödvändiga** stegen.
@@ -96,8 +101,6 @@ Skapa följande JSON-filer i mappen som curl.exe finns i.
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
 > Ersätt **accountname** och **accountkey** med namnet och nyckeln för ditt Azure-lagringskonto. Information om hur du hämtar din lagringsåtkomstnyckel finns i [Visa, kopiera och återskapa lagringsåtkomstnycklar](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
-> 
-> 
 
 ```JSON
 {
@@ -111,11 +114,13 @@ Skapa följande JSON-filer i mappen som curl.exe finns i.
 }
 ```
 
+Mer information om egenskaper som JSON finns i [Azure Storage länkade tjänster](data-factory-azure-blob-connector.md#azure-storage-linked-service).
+
 ### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
 > [!IMPORTANT]
 > Ersätt **servername**, **databasename**, **username** och **password** med namnet på din Azure SQL-server, namnet på SQL-databasen, användarkontot och lösenordet för kontot.  
 > 
-> 
+>
 
 ```JSON
 {
@@ -129,6 +134,8 @@ Skapa följande JSON-filer i mappen som curl.exe finns i.
     }
 }
 ```
+
+Mer information om egenskaper som JSON finns i [Azure SQL länkade tjänster](data-factory-azure-sql-connector.md#linked-service-properties).
 
 ### <a name="inputdatasetjson"></a>inputdataset.json
 
@@ -165,34 +172,20 @@ Skapa följande JSON-filer i mappen som curl.exe finns i.
 }
 ```
 
-JSON-definitionen definierar en datauppsättning med namnet **AzureBlobInput**, som representerar indata för en aktivitet i pipelinen. Dessutom anger den att indata finns i filen **emp.txt** som finns i blobbehållaren **adftutorial**. 
+Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
- Observera följande punkter: 
+| Egenskap | Beskrivning |
+|:--- |:--- |
+| typ | Typegenskapen har angetts till **AzureBlob** eftersom det finns data i Azure Blob-lagringen. |
+| linkedServiceName | Refererar till **AzureStorageLinkedService** som du skapade tidigare. |
+| folderPath | Anger vilken **blobbehållare** och **mapp** som innehåller indatablobbar. I den här självstudiekursen adftutorial är blob-behållaren och -mappen rotmappen. | 
+| fileName | Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I den här självstudiekursen har angetts **emp.txt** som filnamn så att endast den filen hämtas för bearbetning. |
+| format -> typ |Indatafilen är i textformat, så vi använder **TextFormat**. |
+| columnDelimiter | Kolumner i loggfilerna avgränsas med **kommatecken (`,`)**. |
+| frekvens/intervall | Frekvensen är **timme** och intervallet är **1**, vilket innebär att indatasektorerna är tillgängliga en gång i **timmen**. Det betyder att tjänsten Data Factory söker efter indata varje timme i rotmappen för den angivna blobbehållaren (**adftutorial**). Den söker data i pipelinens start- och sluttider och inte före eller efter dessa tider.  |
+| extern | Den här egenskapen anges som **true** om indatan inte skapades av denna pipeline. Inkommande data i den här självstudien finns i filen emp.txt som genereras av denna pipeline, så vi ställer in den här egenskapen på true. |
 
-* datauppsättningens **typ** anges till **AzureBlob**.
-* **linkedServiceName** anges till **AzureStorageLinkedService**. 
-* **folderPath** är **adftutorial**-behållaren och **filename** är **emp.txt**.  
-* formatet **typ** anges till **TextFormat**
-* Det finns två fält i textfilen – **FirstName** och **LastName** – som avgränsas med ett kommatecken (columnDelimiter)    
-* **availability** är inställt på **hourly** (frekvensen är inställd på timme och intervallet på 1). Det betyder att Data Factory söker efter indata varje timme i rotmappen för den angivna blobbehållaren (adftutorial). 
-
-Om du inte anger något **fileName** för en indatauppsättning betraktas alla filer/blobbar från indatamappen (folderPath) som indata. Om du anger ett fileName i JSON betraktas endast den angivna filen/blobben som indata.
-
-Om du inte anger något **fileName** för en **utdatatabell** namnges filerna som genereras i **folderPath** med följande format: Data.&lt;Guid&gt;.txt (exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
-
-Ange **folderPath** och **fileName** dynamiskt utifrån **SliceStart**-tiden med hjälp av **partitionedBy**-egenskapen. I följande exempel använder folderPath Year, Month och Day från SliceStart (starttiden för den sektor som bearbetas) och fileName använder Hour från SliceStart. Om exempelvis en sektor produceras 2014-10-20T08:00:00, anges folderName till wikidatagateway/wikisampledataout/2014/10/20 och fileName anges till 08.csv. 
-
-```JSON
-  "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-"fileName": "{Hour}.csv",
-"partitionedBy": 
-[
-    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-],
-```
+Mer information om de här JSON-egenskaperna finns i artikeln [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
 
@@ -222,16 +215,18 @@ Ange **folderPath** och **fileName** dynamiskt utifrån **SliceStart**-tiden med
   }
 }
 ```
+Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
-JSON-definitionen definierar en datauppsättning med namnet **AzureSqlOutput**, som representerar utdata för en aktivitet i pipelinen. Dessutom anger den att resultaten lagras i tabellen: **emp** i databasen som representeras av AzureSqlLinkedService. Avsnittet **availability** anger att utdatauppsättningen genereras varje timme (frequency: hour och interval: 1).
+| Egenskap | Beskrivning |
+|:--- |:--- |
+| typ | Typegenskapen är **AzureSqlTable** eftersom data kopieras till en tabell i en Azure SQL-databas. |
+| linkedServiceName | Refererar till **AzureSqlLinkedService** som du skapade tidigare. |
+| tableName | Ange **tabellen** dit data kopieras. | 
+| frekvens/intervall | Frekvensen är inställd på **timme** och intervallet är **1**, vilket innebär att utdatasegment produceras **varje timme** mellan pipelinens start- och sluttider, inte före eller efter dessa tider.  |
 
-Observera följande punkter: 
+Det finns tre kolumner – **ID**, **FirstName** och **LastName** – i emp-tabellen i databasen. ID är en identitetskolumn, så du anger bara **FirstName** och **LastName** här.
 
-* datauppsättningens **typ** anges till **AzureSQLTable**.
-* **linkedServiceName** anges till **AzureSqlLinkedService**.
-* **tablename** anges till **emp**.
-* Det finns tre kolumner – **ID**, **FirstName** och **LastName** – i emp-tabellen i databasen. ID är en identitetskolumn, så du anger bara **FirstName** och **LastName** här.
-* **Tillgängligheten** anges till **varje timme** (frekvens inställd på timme och intervall inställd på 1).  Data Factory-tjänsten genererar en utdatasektor varje timme i **emp**-tabellen i Azure SQL-databasen.
+Mer information om de här JSON-egenskaperna finns i artikeln [Azure SQL-anslutningsapp](data-factory-azure-sql-connector.md#dataset-properties).
 
 ### <a name="pipelinejson"></a>pipeline.json
 
@@ -273,30 +268,27 @@ Observera följande punkter:
         }
       }
     ],
-    "start": "2016-08-12T00:00:00Z",
-    "end": "2016-08-13T00:00:00Z"
+    "start": "2017-05-11T00:00:00Z",
+    "end": "2017-05-12T00:00:00Z"
   }
 }
 ```
 
 Observera följande punkter:
 
-* I avsnittet Aktiviteter finns det bara en aktivitet vars **typ** anges till **CopyActivity**.
-* Indata för aktiviteten är inställd på **AzureBlobInput** och utdata för aktiviteten är inställd på **AzureSqlOutput**.
-* I avsnittet för **transformering** har **BlobSource** angetts som källtyp och **SqlSink** har angetts som mottagartyp.
-
-Ersätt värdet i **start**egenskapen med den aktuella dagen och **slut**värdet med nästa dag. Du kan ange endast datumdelen och hoppa över tidsvärdet. Till exempel ”2015-02-03” som motsvarar ”2015-02-03T00:00:00Z”
-
-Både start- och slutdatum måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen. 
-
+- I avsnittet Aktiviteter finns det bara en aktivitet vars **typ** anges till **Kopia**. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten. I Data Factory-lösningar, kan du också använda [datatransformeringsaktiviteter](data-factory-data-transformation-activities.md).
+- Indata för aktiviteten är inställd på **AzureBlobInput** och utdata för aktiviteten är inställd på **AzureSqlOutput**. 
+- I avsnittet för **typeProperties** har **BlobSource** angetts som källtyp och **SqlSink** har angetts som mottagartyp. En fullständig lista över datakällor som stöds av kopieringsaktiviteten som källor och mottagare finns i [Datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Klicka på länken i tabellen om du vill veta hur du använder ett visst datalager som stöds som källa/mottagare.  
+ 
+Ersätt värdet i **start**egenskapen med den aktuella dagen och **slut**värdet med nästa dag. Du kan ange endast datumdelen och hoppa över tidsvärdet. Till exempel ”2017-02-03” som motsvarar ”2017-02-03T00:00:00Z”
+ 
+Både start- och slutdatum måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2016-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen. 
+ 
 Om du inte anger värdet för **slut**egenskapen, beräknas det som ”**start + 48 timmar**”. Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen.
+ 
+I det föregående exemplet finns det 24 datasektorer eftersom varje datasektor skapas varje timme.
 
-I exemplet finns det 24 datasektorer eftersom varje datasektor skapas varje timme.
-
-> [!NOTE]
-> Mer information om JSON-egenskaper som används i exemplet ovan finns i [Uppbyggnad av en pipeline](data-factory-create-pipelines.md).
-> 
-> 
+Beskrivningar av JSON-egenskaper i en pipeline-definition finns i artikeln [skapa pipelines](data-factory-create-pipelines.md). Beskrivningar av JSON-egenskaper i en kopieringsaktivitet-definition finns i artikeln [aktiviteter för dataflyttning](data-factory-data-movement-activities.md). Beskrivningar av JSON-egenskaper som stöds av BlobSource finns i artikeln [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md). Beskrivningar av JSON-egenskaper som stöds av SqlSink finns i artikeln [Azure SQL Database-anslutningsapp](data-factory-azure-sql-connector.md).
 
 ## <a name="set-global-variables"></a>Ange globala variabler
 När du har ersatt värdena med dina egna kör du följande kommandon i Azure PowerShell:
@@ -313,6 +305,11 @@ $tenant = "<Azure tenant ID>";
 $subscription_id="<Azure subscription ID>";
 
 $rg = "ADFTutorialResourceGroup"
+```
+
+Kör följande kommando efter att du har uppdaterat namnet på datafabriken som du använder: 
+
+```
 $adf = "ADFCopyTutorialDF"
 ```
 
@@ -332,10 +329,11 @@ I det här steget ska du skapa en Azure Data Factory med namnet **ADFCopyTutoria
 
 1. Tilldela kommandot till variabeln med namnet **cmd**. 
    
-    Bekräfta att namnet på datafabriken som du anger här (ADFCopyTutorialDF) matchar namnet i **datafactory.json**. 
+    > [!IMPORTANT]
+    > Bekräfta att namnet på datafabriken som du anger här (ADFCopyTutorialDF) matchar namnet i **datafactory.json**. 
    
     ```PowerShell
-    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF?api-version=2015-10-01};
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF0411?api-version=2015-10-01};
     ```
 2. Kör kommandot med **Invoke-Command**.
    
@@ -376,12 +374,14 @@ Observera följande punkter:
 Du måste först skapa några Data Factory-entiteter innan du skapar en pipeline. Först skapar du länkade tjänster för att länka käll- och måldatalager till ditt datalager. Sedan definierar du in- och utdatauppsättningar för att representera data i länkade datalager. Slutligen skapar du pipelinen med en aktivitet som använder dessa datauppsättningar.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. Ett datalager kan vara Azure Storage-lagring, Azure SQL Database eller en lokal SQL Server-databas som innehåller indata eller som lagrar utdata för en Data Factory-pipeline. En beräkningstjänst är en tjänst som bearbetar indata och genererar utdata. 
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här självstudiekursen kommer använder du inte någon beräkningstjänst, till exempel Azure HDInsight eller Azure Data Lake Analytics. Du använder två datalager av typen Azure Storage (källa) och Azure SQL Database (mål). Därför kan du skapa två länkade tjänster som heter AzureStorageLinkedService och AzureSqlLinkedService av typerna: AzureStorage och AzureSqlDatabase.  
 
-I det här steget skapar du två länkade tjänster: **AzureStorageLinkedService** och **AzureSqlLinkedService**. Den länkade AzureStorageLinkedService-tjänsten länkar ett Azure Storage-konto och AzureSqlLinkedService länkar en Azure SQL-databas till datafabriken: **ADFCopyTutorialDF**. Senare i den här självstudien, som beskriver hur du kopierar data från en blobbehållare i AzureStorageLinkedService till en SQL-tabell i AzureSqlLinkedService, ska du skapa en pipeline.
+AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Använd det lagringskonto i vilket du skapade en behållare och laddade upp data under [förberedelsestegen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+
+AzureSqlLinkedService länkar din Azure SQL-databas till datafabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den tomma tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
 
 ### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
-I det här steget länkar du ditt Azure-lagringskonto till datafabriken. I den här självstudiekursen använder du Azure Storage-kontot för att lagra indata. 
+I det här steget länkar du ditt Azure-lagringskonto till datafabriken. Du anger namnet och nyckeln för Azure Storage-kontot i det här avsnittet. Se [Länkad Azure Storage-tjänst](data-factory-azure-blob-connector.md#azure-storage-linked-service) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure Storage-tjänst.  
 
 1. Tilldela kommandot till variabeln med namnet **cmd**. 
 
@@ -389,6 +389,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken. I den h
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
     ```
 2. Kör kommandot med **Invoke-Command**.
+
     ```PowerShell   
     $results = Invoke-Command -scriptblock $cmd;
     ```
@@ -399,7 +400,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken. I den h
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Skapa en länkad Azure SQL-tjänst
-I det här steget länkar du Azure SQL-databasen till din datafabrik. I den här självstudiekursen använder du samma Azure SQL-databas för att lagra utdata.
+I det här steget länkar du Azure SQL-databasen till din datafabrik. Du anger Azure SQL-servernamnet, databasnamnet, användarnamnet och lösenordet i det här avsnittet. Se [Länkad Azure SQL-tjänst](data-factory-azure-sql-connector.md#linked-service-properties) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure SQL-tjänst.
 
 1. Tilldela kommandot till variabeln med namnet **cmd**. 
    
@@ -418,46 +419,14 @@ I det här steget länkar du Azure SQL-databasen till din datafabrik. I den här
     ```
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-I föregående steg skapade du de länkade tjänsterna **AzureStorageLinkedService** och **AzureSqlLinkedService** för att länka ett Azure-lagringskonto och en Azure SQL-databas till datafabriken: **ADFCopyTutorialDF**. I det här steget skapar du datauppsättningar som representerar indata och utdata för kopieringsaktiviteten i pipelinen som du skapar i nästa steg. 
+I det föregående steget skapade du kopplade tjänster för att länka ett Azure-lagringskonto och en Azure SQL-databas till datafabriken. I det här steget definierar du två datauppsättningar, AzureBlobInput och AzureSqlOutput, som visar in- och utdata som lagras i de datalager som refereras till av AzureStorageLinkedService och AzureSqlLinkedService.
 
-Den inkommande datauppsättningen i den här självstudiekursen refererar till en blobbehållare i Azure Storage som AzureStorageLinkedService pekar på. Utdatauppsättningen refererar till en SQL-tabell i Azure SQL-databasen som AzureSqlLinkedService pekar på.  
+Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en Blob-datauppsättning (AzureBlobInput) anger vilken blobbehållare och mapp som innehåller data.  
 
-### <a name="prepare-azure-blob-storage-and-azure-sql-database-for-the-tutorial"></a>Förbereda Azure blobblagring och Azure SQL Database för självstudien
-Förbered Azure-blobblagringen och Azure SQL-databasen för den här självstudiekursen genom att utföra följande steg. 
-
-* Skapa en blobbehållare med namnet **adftutorial** i Azure Blob Storage som **AzureStorageLinkedService** pekar på. 
-* Skapa och ladda upp en textfil, **emp.txt**, som en blobb till behållaren **adftutorial**. 
-* Skapa en tabell med namnet **emp** i Azure SQL Database i Azure SQL-databasen som **AzureSqlLinkedService** pekar på.
-
-1. Öppna Anteckningar. Kopiera följande text och spara det som **emp.txt** i mappen **C:\ADFGetStartedPSH** på hårddisken. 
-
-    ```   
-    John, Doe
-    Jane, Doe
-    ```
-2. Använd verktyg som t.ex. [Azure Lagringsutforskaren](https://azurestorageexplorer.codeplex.com/) till att skapa behållaren **adftutorial** och för att ladda upp filen **emp.txt** till behållaren.
-   
-    ![Azure Lagringsutforskaren](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
-3. Använd följande SQL-skript för att skapa tabellen **emp** i din Azure SQL Database.  
-
-    ```SQL
-    CREATE TABLE dbo.emp 
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50),
-    )
-    GO
-
-    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
-    ```
-
-    Om SQL Server 2014 är installerat på datorn följer du anvisningarna i artikeln [Steg 2: Ansluta till SQL Database i Hantera Azure SQL Database med SQL Server Management Studio][sql-management-studio] för att ansluta till Azure SQL-servern och köra SQL-skriptet.
-
-    Om klienten inte har åtkomst till Azure SQL-servern måste du konfigurera brandväggen för din Azure SQL-server och tillåta åtkomst från din dator (IP-adress). Anvisningar för hur du konfigurerar brandväggen för Azure SQL-servern finns i [den här artikeln](../sql-database/sql-database-configure-firewall-settings.md).
+Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure SQL-databas. Och utdatauppsättningen (OutputDataset) för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen. 
 
 ### <a name="create-input-dataset"></a>Skapa indatauppsättning
-I det här steget skapar du en datauppsättning med namnet **AzureBlobInput** som pekar på en blobbehållare i Azure Storage som representeras av den länkade tjänsten **AzureStorageLinkedService**. Den här blobbehållaren (adftutorial) innehåller indata i filen: **emp.txt**. 
+I det här steget skapar du en datauppsättning med namnet AzureBlobInput som pekar på en blobfil (emp.ext) i rotmappen i en blobbehållare (adftutorial) i Azure Storage som representeras av den länkade tjänsten AzureStorageLinkedService. Om du inte anger ett värde för filnamnet (eller hoppar över det), kommer data från alla blobbar i indatamappen att kopieras till målet. I den här kursen anger du ett värde för filnamnet. 
 
 1. Tilldela kommandot till variabeln med namnet **cmd**. 
 
@@ -476,7 +445,7 @@ I det här steget skapar du en datauppsättning med namnet **AzureBlobInput** so
     ```
 
 ### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
-I det här steget ska du skapa en tabell med namnet **AzureSqlOutput**. Den här datauppsättningen pekar på en SQL-tabell (emp) i Azure SQL-databasen som representeras av **AzureSqlLinkedService**. Pipelinen kopierar data från indatablobben till tabellen **emp**. 
+Den länkade tjänsten Azure SQL Database anger anslutningssträngen som används av tjänsten Data Factory vid körningstiden för att ansluta till din Azure SQL-databas. Och utdatauppsättningen (OutputDataset) för SQL-tabellen som du skapade i det här steget anger tabellen i databasen som data kopieras till från blob-lagringen.
 
 1. Tilldela kommandot till variabeln med namnet **cmd**.
 
@@ -496,6 +465,8 @@ I det här steget ska du skapa en tabell med namnet **AzureSqlOutput**. Den här
 
 ## <a name="create-pipeline"></a>Skapa pipeline
 I det här steget ska du skapa en pipeline med en **kopieringsaktivitet** som använder **AzureBlobInput** som indata och **AzureSqlOutput** som utdata.
+
+Schemat styrs för närvarande av utdatamängd. I den här självstudiekursen är datamängden för utdata konfigurerad för att skapa ett segment en gång i timmen. Pipelinen har en starttid och sluttid som är en dag från varandra, vilket är 24 timmar. Därför produceras 24 segment för utdatauppsättningen av pipeline. 
 
 1. Tilldela kommandot till variabeln med namnet **cmd**.
 
@@ -522,8 +493,11 @@ I det här steget ska du använda REST-API:et för Data Factory för att överva
 $ds ="AzureSqlOutput"
 ```
 
+> [!IMPORTANT] 
+> Kontrollera att start- och sluttider som anges i följande kommando matchar start- och sluttider för pipeline. 
+
 ```PowerShell
-$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=2017-05-11T00%3a00%3a00.0000000Z"&"end=2017-05-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
 ```
 
 ```PowerShell
@@ -538,7 +512,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 }
 ```
 
-Kör dessa kommandon tills du ser en sektor med statusen **Ready** eller **Failed**. När sektorn har statusen Ready tittar du efter utdata i tabellen **emp** i Azure SQL-databasen. 
+Kör Invoke-Command och nästa kommando tills du ser sektorn med tillståndet **Ready** eller **Failed**. När sektorn har statusen Ready tittar du efter utdata i tabellen **emp** i Azure SQL-databasen. 
 
 För varje sektor kopieras två rader med data från källfilen till emp-tabellen i Azure SQL-databasen. Därför finns det 24 nya poster i emp-tabellen när alla sektorer har bearbetats (statusen Ready). 
 
@@ -552,26 +526,9 @@ I den här självstudiekursen använde du REST-API:et för att skapa en Azure-da
 3. Du skapade **datauppsättningar** som beskriver indata och utdata för pipelines.
 4. Du skapade en **pipeline** med en kopieringsaktivitet med BlobSource som källa och SqlSink som mottagare. 
 
-## <a name="see-also"></a>Se även
-| Avsnitt | Beskrivning |
-|:--- |:--- |
-| [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) |Den här artikeln innehåller detaljerad information om kopieringsaktiviteten som du använde i självstudien. |
-| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
-| [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
-| [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
-| [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
+## <a name="next-steps"></a>Nästa steg
+I den här kursen används Azure blob storage som ett datalager för källa och en Azure SQL-databas som ett dataarkiv som mål i en kopieringsåtgärd. Följande tabell innehåller en lista över datalager som stöds som källor och mål av kopieringsaktiviteten: 
 
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[azure-portal]: http://portal.azure.com
-[download-azure-powershell]: /powershell/azureps-cmdlets-docs
-[data-factory-introduction]: data-factory-introduction.md
-
-[image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
-
-[sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
-
+För mer information om hur du kopierar data till/från ett datalager klickar du på länken för datalagret i tabellen.

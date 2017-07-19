@@ -12,15 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: c9f2e3beafd19e0d4d62e409a80da336be17b90b
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dac2b51cb48f76a88fc592c0fac50414da641777
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/14/2017
 
 
 ---
+
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Självstudier: Skapa din första Azure-datafabrik med Azure-portalen
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
@@ -33,10 +35,12 @@ ms.lasthandoff: 02/03/2017
 
 I den här artikeln får du lära dig hur du använder [Azure Portal](https://portal.azure.com/) till att skapa din första Azure Data Factory. Om du vill gå igenom självstudien med andra verktyg/SDK:er kan du välja något av alternativen i listrutan. 
 
+Pipeline i den här självstudiekursen har en aktivitet: **HDInsight Hive-aktivitet**. Aktiviteten kör ett Hive-skript i ett Azure HDInsight-kluster som omvandlar indata för till utdata. Denna pipeline är schemalagd att köras en gång i månaden mellan angivna start- och sluttider. 
+
 > [!NOTE]
-> Datapipelinen i den här självstudien transformerar indata för att generera utdata. Den kopierar inte data från ett källdatalager till ett måldatalager. En självstudiekurs om hur du kopierar data med Azure Data Factory finns i [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Självstudie: Kopiera data från Blob Storage till SQL Database).
+> Datapipelinen i den här självstudien transformerar indata för att generera utdata. En självstudiekurs om hur du kopierar data med Azure Data Factory finns i [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Självstudie: Kopiera data från Blob Storage till SQL Database).
 > 
-> Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory). 
+> En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och utförande i Data Factory).
 
 ## <a name="prerequisites"></a>Krav
 1. Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen.
@@ -61,13 +65,15 @@ En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en ell
    >
 4. Välj den **Azure-prenumeration** där du vill att datafabriken ska skapas.
 5. Välj befintlig **resursgrupp** eller skapa en resursgrupp. Skapa en resursgrupp för självstudien med namnet: **ADFGetStartedRG**.
-6. Klicka på **Skapa** på bladet **Ny datafabrik**.
+6. Välj **plats** för datafabriken. Endast regioner som stöds av tjänsten Data Factory visas i listrutan.
+7. Välj **fäst till instrumentpanelen**. 
+8. Klicka på **Skapa** på bladet **Ny datafabrik**.
 
    > [!IMPORTANT]
    > Om du vill skapa Data Factory-instanser måste du vara medlem i [Data Factory-deltagarrollen](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) på gruppnivå/resursgrupp.
    >
    >
-7. Du ser att datafabriken skapas på **startsidan** i Azure Portal enligt följande:   
+7. På instrumentpanelen visas följande panel med statusen: Distribuerar datafabrik.    
 
    ![Skapar datafabrikstatus](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 8. Grattis! Du har skapat din första datafabrik. När datafabriken har skapats visas datafabrikssidan med innehållet i datafabriken.     
@@ -114,7 +120,6 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "AzureStorageLinkedService"
@@ -127,7 +132,6 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
 
    | Egenskap | Beskrivning |
    |:--- |:--- |
-   | Version |Anger att versionen av HDInsight som skapades är 3.2. |
    | ClusterSize |Anger HDInsight-klustrets storlek. |
    | TimeToLive |Anger inaktivitetstiden för HDInsight-klustret innan det tas bort. |
    | linkedServiceName |Anger lagringskontot som används för att spara loggarna som genereras av HDInsight. |
@@ -184,13 +188,16 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
 
    | Egenskap | Beskrivning |
    |:--- |:--- |
-   | typ |Typegenskapen har angetts till AzureBlob eftersom det finns data i Azure Blob-lagringen. |
-   | linkedServiceName |refererar till AzureStorageLinkedService som du skapade tidigare. |
-   | fileName |Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I det här fallet bearbetas bara input.log. |
-   | typ |Loggfilerna är i textformat, så vi använder TextFormat. |
-   | columnDelimiter |kolumner i loggfilerna avgränsas med kommatecken (,) |
-   | frekvens/intervall |frekvensen är månad och intervallet är 1, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
-   | extern |den här egenskapen anges som true om indatan inte skapades av Data Factory-tjänsten. |
+   | typ |Typegenskapen har angetts till **AzureBlob** eftersom det finns data i Azure Blob-lagringen. |
+   | linkedServiceName |Refererar till **AzureStorageLinkedService** som du skapade tidigare. |
+   | folderPath | Anger vilken **blobbehållare** och **mapp** som innehåller indatablobbar. | 
+   | fileName |Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I det här fallet bearbetas bara **input.log**. |
+   | typ |Loggfilerna är i textformat, så vi använder **TextFormat**. |
+   | columnDelimiter |kolumner i loggfilerna avgränsas med **kommatecken (`,`)** |
+   | frekvens/intervall |frekvensen är **månad** och intervallet är **1**, vilket innebär att indatasektorerna är tillgängliga en gång i månaden. |
+   | extern | Den här egenskapen anges som **true** om indatan inte skapades av denna pipeline. I den här självstudiekursen genereras inte input.log-filen av denna pipeline, så vi ställa in egenskapen på true. |
+
+    Mer information om de här JSON-egenskaperna finns i artikeln [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).
 3. Klicka på **Distribuera** i kommandofältet för att distribuera den nyskapade datauppsättningen. Du bör se datauppsättningen i trädvyn till vänster.
 
 ### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata

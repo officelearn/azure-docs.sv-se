@@ -15,59 +15,61 @@ ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 6985dff332928d704f30e167c3bddb62bcc6cac1
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: faf17bcac66a70fc78bb171e172886fd2dcadca8
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av Azure PowerShell
+# <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Lär dig hur du använder Azure PowerShell för att skapa Azure Data Lake Analytics-konton och sedan skicka och köra U-SQL-jobb. Mer information om Data Lake Analytics finns i [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Krav
+
 Innan du börjar den här självstudiekursen behöver du följande information:
 
-* **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Ett Azure Data Lake Analytics-konto**. Se [Kom igång med Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 * **En arbetsstation med Azure PowerShell**. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
+## <a name="log-in-to-azure"></a>Logga in på Azure
+
+Den här kursen förutsätter att du redan är bekant med Azure PowerShell. Framför allt behöver du veta hur du loggar in på Azure. Läs [Kom igång med Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) om du behöver hjälp.
+
+Logga in med ett prenumerationsnamn:
+
+```
+Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
+```
+
+Du kan också använda ett prenumerations-id för att logga in i stället för prenumerationsnamnet:
+
+```
+Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+Om detta lyckas ser kommandots utdata ut som följande text:
+
+```
+Environment           : AzureCloud
+Account               : joe@contoso.com
+TenantId              : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+SubscriptionId        : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+SubscriptionName      : ContosoSubscription
+CurrentStorageAccount :
+```
+
 ## <a name="preparing-for-the-tutorial"></a>Förbereda för självstudier
-Om du vill skapa ett Data Lake Analytics-konto måste du först definiera:
 
-* **Azure-resursgrupp**: Ett Data Lake Analytics-konto måste skapas i en Azure-resursgrupp.
-* **Data Lake Analytics-kontonamn**: Data Lake Analytics-kontonamnet får bara innehålla gemener och siffror.
-* **Plats**: Ett av de Azure-datacenter som stöder Data Lake Analytics.
-* **Data Lake Store-standardkonto**: varje Data Lake Analytics-konto har ett Data Lake Store-standardkonto. Dessa konton måste vara på samma plats.
-
-PowerShell-kodfragmenten i den här självstudien använder dessa variabler för att lagra informationen
+PowerShell-kodfragmenten i den här självstudien använder dessa variabler för att lagra informationen:
 
 ```
 $rg = "<ResourceGroupName>"
-$adls = "<DataLakeAccountName>"
+$adls = "<DataLakeStoreAccountName>"
 $adla = "<DataLakeAnalyticsAccountName>"
 $location = "East US 2"
-```
-
-## <a name="create-a-data-lake-analytics-account"></a>Skapa ett Data Lake Analytics-konto
-
-Om du inte redan har en resursgrupp skapar du en. 
-
-```
-New-AzureRmResourceGroup -Name  $rg -Location $location
-```
-
-Alla Data Lake Analytics-konton kräver ett Data Lake Store-standardkonto som används för att lagra loggar. Du kan skapa ett nytt konto eller använda ett befintligt konto. 
-
-```
-New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
-```
-
-När en resursgrupp och ett Data Lake Store-konto är tillgängligt skapar du ett Data Lake Analytics-konto.
-
-```
-New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
 ## <a name="get-information-about-a-data-lake-analytics-account"></a>Hämta information om ett Data Lake Analytics-konto
@@ -78,9 +80,10 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 ## <a name="submit-a-u-sql-job"></a>Skicka ett U-SQL-jobb
 
-Skapa en textfil med följande U-SQL-skript.
+Skapa en PowerShell-variabel för att lagra U-SQL-skript.
 
 ```
+$script = @"
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -91,26 +94,29 @@ Skapa en textfil med följande U-SQL-skript.
 OUTPUT @a
     TO "/data.csv"
     USING Outputters.Csv();
+
+"@
 ```
 
 Skicka jobbet.
 
 ```
-Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
+$job = Submit-AdlJob -AccountName $adla –Script $script
 ```
 
-## <a name="monitor-u-sql-jobs"></a>Övervaka U-SQL-jobb
-
-Räkna upp alla jobb för kontot. Resultatet innehåller de jobb som körs för närvarande och de jobb som nyss blev klara.
+Du kan också spara skriptet som en fil och skicka med följande kommando:
 
 ```
-Get-AdlJob -Account $adla
+$filename = "d:\test.usql"
+$script | out-File $filename
+$job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
 ```
 
-Hämta status för ett specifikt jobb.
+
+Hämta status för ett specifikt jobb. Fortsätta att använda denna cmdlet tills jobbet är klart.
 
 ```
-Get-AdlJob -AccountName $adla -JobId $job.JobId
+$job = Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
 Istället för att anropa Get-AdlAnalyticsJob om och om igen tills ett jobb blir klart kan du använda cmdleten Wait-AdlJob.
@@ -119,31 +125,10 @@ Istället för att anropa Get-AdlAnalyticsJob om och om igen tills ett jobb blir
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-När jobbet är klart kontrollerar du om utdatafilen finns genom att lista filerna i en mapp.
+Hämta utdatafilen.
 
 ```
-Get-AdlStoreChildItem -Account $adls -Path "/"
-```
-
-Kontrollera om finns en fil.
-
-```
-Test-AdlStoreItem -Account $adls -Path "/data.csv"
-```
-
-## <a name="uploading-and-downloading-files"></a>Ladda upp och ned filer
-
-Ladda ned utdata från U-SQL-skriptet.
-
-```
-Export-AdlStoreItem -AccountName $adls -Path "/data.csv"  -Destination "D:\data.csv"
-```
-
-
-Ladda upp en fil som ska användas som en utdata till ett U-SQL-skript.
-
-```
-Import-AdlStoreItem -AccountName $adls -Path "D:\data.tsv" -Destination "/data_copy.csv" 
+Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>Se även

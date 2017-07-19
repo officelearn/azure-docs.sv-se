@@ -1,25 +1,25 @@
 ---
 title: Skapa en .NET-app i Azure Cosmos DB med Graph API | Microsoft Docs
 description: "Anger ett .NET kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 07a13c3e9e2baefe0be7ed417ba105dd23a3708d
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 3491aa53a55d988876710c0ac19383e642dda27b
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -37,23 +37,11 @@ Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Vis
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-graph"></a>Lägga till en graf
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
-
-## <a name="add-sample-data"></a>Lägga till exempeldata
-
-Du kan nu lägga till data till din graf med datautforskaren.
-
-1. I datautforskaren expanderar du **sample-database**, **sample-graph**, klickar på **Graph** och sedan på **New Vertex** (Nytt hörn) och på **New Edge** (Ny gräns) för att lägga till objekt till grafen. I Datautforskaren kan du även skala ditt dataflöde och lägga till lagrade procedurer, användardefinierade funktioner och utlösare i behållaren.
-
-    ![Lägga till hörn och gränser till en graf i Datautforskaren](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. När du har lagt till några objekt klickar du på knappen **Apply Filter** (Använd filter) eller högerklickar på **Graph** och klickar på **New Graph Query** (Ny Graph-fråga) för att se dina datas visuella graf. Du kan ändra hur data märks och formateras genom att klicka på knappen **Style** (Stil) och ändra inställningarna. Här följer ett exempelgraf i Datautforskaren. Du kan ändra alla etiketter, färger och data som visas.
-
-    ![Visual Graph Explorer i datautforskaren i Azure Portal](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -73,7 +61,7 @@ Nu ska vi klona en Graph API-app från github, ange anslutningssträngen och kö
 
 Vi gör en snabb genomgång av vad som händer i appen. Öppna filen Program.cs så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
 
-* DocumentClient initieras. I förhandsversionen har vi lagt till en graftillägg-API på DocumentDB-klienten. Vi arbetar på en fristående grafklient som är frikopplad från DocumentDB-klienten och resurserna.
+* DocumentClient initieras. I förhandsversionen har vi lagt till en graftillägg-API på Azure Cosmos DB-klienten. Vi arbetar på en fristående grafklient som är frikopplad från Azure Cosmos DB-klienten och resurserna.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -148,13 +136,13 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 Nu kan du gå tillbaka till datautforskaren i Azure Portal och bläddra bland och ställa frågor mot dina nya grafdata.
 
-* Den nya databasen visas på panelen Samlingar i datautforskaren. Expandera **graphdb**, **graphcoll** och klicka sedan på **Graph**.
+* Den nya databasen visas på panelen Samlingar i datautforskaren. Expandera **graphdb**, **graphcoll** och klicka på **Graph**.
 
     Data som genereras av den här exempelappen visas i fönstret Graphs (Grafer).
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

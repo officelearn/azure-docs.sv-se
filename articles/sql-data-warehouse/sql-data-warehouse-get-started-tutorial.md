@@ -16,10 +16,10 @@ ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
 ms.contentlocale: sv-se
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -577,6 +577,9 @@ Vi ska först skala ned till 100 DWU:er för att få en uppfattning av hur en be
 6. Skala tillbaka informationslagret till 400 DWU. Kom ihåg att varje 100 DWU lägger till en till beräkningsnod till ditt Azure SQL Data Warehouse.
 
 7. Kör frågan igen! Du bör märka en stor skillnad. 
+
+    > [!NOTE]
+    > Eftersom frågan returnerar stora mängder data, kan bandbreddstillgängligheten för den dator som kör SSMS utgöra en prestandaflaskhals. Det kan leda till att du inte ser några prestandaförbättringar!
 
 > [!NOTE]
 > Eftersom SQL Data Warehouse använder massiv parallell bearbetning (MPP). Frågor som skannar eller utför analysfunktioner på miljoner rader utnyttjar den verkliga kraften i Azure SQL Data Warehouse.

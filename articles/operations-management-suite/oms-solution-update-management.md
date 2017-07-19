@@ -12,26 +12,29 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2017
+ms.date: 06/21/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: b4d5ab66db64a50d1b87edd4bf445e49004e67b4
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
 # <a name="update-management-solution-in-oms"></a>Uppdateringshanteringslösning i OMS
-Uppdateringshanteringslösningen i OMS gör att du kan du hantera uppdateringar för dina Windows- och Linux-datorer.  Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och starta processen för att installera nödvändiga uppdateringar för servrar. 
 
-## <a name="solution-components"></a>Lösningskomponenter
+![Symbolen Hantering av uppdateringar](./media/oms-solution-update-management/update-management-symbol.png)
 
-Datorer som hanteras av OMS använder följande för att utföra utvärderingar och uppdatera distribueringar: 
+Uppdateringshanteringslösningen i OMS gör att du kan du hantera uppdateringar för dina Windows- och Linux-datorer.  Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och starta processen för att installera nödvändiga uppdateringar för servrar.
+
+
+## <a name="solution-overview"></a>Lösningsöversikt
+Datorer som hanteras av OMS använder följande för att utföra utvärderingar och uppdatera distribueringar:
 
 * OMS-agent för Windows eller Linux
-* Önskad PowerShell-tillståndskonfiguration (DSC) för Linux 
-* Automation Hybrid Runbook Worker 
+* Önskad PowerShell-tillståndskonfiguration (DSC) för Linux
+* Automation Hybrid Runbook Worker
 * Microsoft Update eller Windows Server Update Services för Windows-datorer
 
 Följande diagram visar en konceptuell vy över beteenden och dataflöde över hur lösningen utvärderar och tillämpar uppdateringar till alla anslutna Windows Server- och Linux-datorer i en arbetsyta.    
@@ -51,10 +54,14 @@ Du kan distribuera och installera programuppdateringar på datorer som kräver u
 Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatorerna distributionen parallellt.  En sökning utförs först för att kontrollera om uppdateringarna fortfarande krävs och installerar dem.  Detta är viktigt att observera för WSUS-klientdatorer – om uppdateringarna inte är godkända i WSUS misslyckas uppdateringsdistributionen.  Resultaten av de tillämpade uppdateringarna vidarebefordras till OMS som ska bearbetas och sammanfattas i instrumentpaneler eller genom att söka efter händelser.     
 
 ## <a name="prerequisites"></a>Krav
-* Lösningen stöder utvärderingar av uppdateringar av Windows Server 2008 eller senare och uppdateringsdistributioner av Windows Server 2012 och högre.  Installationsalternativ för Server Core och Nano Server stöds inte.
+* Lösningen stöder utvärderingar av uppdateringar av Windows Server 2008 eller senare och uppdateringsdistributioner av Windows Server 2008 R2 SP1 och högre.  Installationsalternativ för Server Core och Nano Server stöds inte.
+
+    > [!NOTE]
+    > Stöd för att distribuera uppdateringar till Windows Server 2008 R2 SP1 kräver .NET Framework 4.5 och WMF 5.0 eller senare.
+    >  
 * Windows-klientoperativsystem stöds inte.  
 * Windows-agenter måste antingen konfigureras för att kommunicera med en WSUS-server (Windows Server Update Services) eller ha åtkomst till Microsoft Update.  
-  
+
     > [!NOTE]
     > Windows-agenten kan inte hanteras samtidigt av System Center Configuration Manager.  
     >
@@ -62,19 +69,22 @@ Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatore
 * Red Hat Enterprise 6 (x86/x64) och 7 (x64)
 * SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)
 * Ubuntu 12.04 LTS och senare x86/x64  
+    > [!NOTE]  
+    > Konfigurera om Unattended Upgrade-paketet om du vill inaktivera automatiska uppdateringar för att undvika att uppdateringar tillämpas utanför en underhållsperiod på Ubuntu. Mer information om hur du konfigurerar detta finns i avsnittet [automatiska uppdateringar i handboken för Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
 * Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.  
 
     > [!NOTE]
     > En OMS-agent för Linux som konfigurerats för att rapportera till flera OMS-arbetsytor stöds inte av den här lösningen.  
-    > 
+    >
 
 Mer information om hur du installerar OMS-agenten för Linux och hämtar den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux).  Information om hur du installerar OMS-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agents.md).  
 
 ## <a name="solution-components"></a>Lösningskomponenter
-Lösningen består av följande resurser som läggs till i ditt Automation-konto och ansluter direkt agenter eller Operations Manager-anslutna hanteringsgrupper. 
+Lösningen består av följande resurser som läggs till i ditt Automation-konto och ansluter direkt agenter eller Operations Manager-anslutna hanteringsgrupper.
 
 ### <a name="management-packs"></a>Hanteringspaket
-Om din hanteringsgrupp för System Center Operations Manager är ansluten till din OMS-arbetsytan installeras därefter följande hanteringspaket i Operations Manager.  Dessa hanteringspaket också har installerats på direktanslutna Windows-datorer när du lägger till den här lösningen. Det finns inget att konfigurera eller hantera med dessa hanteringspaket. 
+Om din hanteringsgrupp för System Center Operations Manager är ansluten till din OMS-arbetsytan installeras därefter följande hanteringspaket i Operations Manager.  Dessa hanteringspaket också har installerats på direktanslutna Windows-datorer när du lägger till den här lösningen. Det finns inget att konfigurera eller hantera med dessa hanteringspaket.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -88,7 +98,7 @@ När du har aktiverat den här lösningen konfigureras en Windows-dator direkt s
 Du kan emellertid lägga till Windows-datorer till en Hybrid Runbook Worker-grupp i ditt Automation-konto så att den stöder runbook-flöden för Automation så länge du använder samma konto för både lösningen och Hybrid Runbook Worker-gruppmedlemskapet.  Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.  
 
 ## <a name="configuration"></a>Konfiguration
-Utför följande steg för att lägga till uppdateringshanteringslösningen till din OMS-arbetsyta och bekräfta att agenterna rapporterar. Windows-agenter som redan är anslutna till ditt arbetsområde läggs till automatiskt utan någon ytterligare konfiguration. 
+Utför följande steg för att lägga till uppdateringshanteringslösningen till din OMS-arbetsyta och bekräfta att agenterna rapporterar. Windows-agenter som redan är anslutna till ditt arbetsområde läggs till automatiskt utan någon ytterligare konfiguration.
 
 Du kan distribuera lösningen på följande sätt:
 
@@ -110,9 +120,15 @@ På en Windows-dator kan du läsa följande för att verifiera agentanslutning m
 1.  Öppna Microsoft Monitoring Agent i kontrollpanelen. På fliken **Azure Log Analytics (OMS)** visar agenten ett meddelande där det står: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite).   
 2.  Öppna Windows Event Log, gå till **Program- och tjänstloggar\Operations Manager** och sök efter händelse-ID 3000 och 5002 från källans tjänstanslutning.  Dessa händelser anger att datorn har registrerats med OMS-arbetsytan och tar emot konfigurationen.  
 
-Om agenten inte kan kommunicera med OMS-tjänsten och den är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver kan du bekräfta att brandväggen eller proxyservern har konfigurerats korrekt genom att läsa [Konfigurera inställningar för proxy och brandvägg i Log Analytics](../log-analytics/log-analytics-proxy-firewall.md).
-  
-Nya Linux-agenter visar statusen **Uppdaterad** när en utvärdering har utförts.  Den här processen kan ta upp till 6 timmar. 
+Om agenten inte kan kommunicera med OMS-tjänsten och den är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver kan du bekräfta att brandväggen eller proxyservern har konfigurerats korrekt genom att läsa [Nätverkskonfiguration för Windows-agenten](../log-analytics/log-analytics-windows-agents.md#network) eller [Nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md#network).
+
+> [!NOTE]
+> Om Linux-system har konfigurerats för att kommunicera med en proxy- eller OMS-Gateway och du är i färd med att aktivera den här lösningen ska du uppdatera behörigheten *proxy.conf* för att ge gruppen omiuser läsbehörighet för filen genom att utföra följande kommandon:  
+> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
+
+
+Nya Linux-agenter visar statusen **Uppdaterad** när en utvärdering har utförts.  Den här processen kan ta upp till 6 timmar.
 
 För att bekräfta att en Operations Manager-hanteringsgrupp kommunicerar med OMS läser du [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms) (Verifiera Operations Manager-integrering med OMS).
 
@@ -128,7 +144,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | Azure Storage-konto |Nej |Azure Storage inkluderar inte information om systemuppdateringar. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
-För varje hanterad Windows-dator utförs en genomsökning två gånger per dag. Var 15:e minut anropas Windows API för att fråga efter den senaste uppdateringstiden för att fastställa om statusen har ändrats, och i så fall om en fullständig genomsökning har initierats.  För varje hanterad Linux-dator utförs en sökning var tredje timme. 
+För varje hanterad Windows-dator utförs en genomsökning två gånger per dag. Var 15:e minut anropas Windows API för att fråga efter den senaste uppdateringstiden för att fastställa om statusen har ändrats, och i så fall om en fullständig genomsökning har initierats.  För varje hanterad Linux-dator utförs en sökning var tredje timme.
 
 Det kan ta alltifrån 30 minuter upp till 6 timmar för instrumentpanelen att visa uppdaterade data från hanterade datorer.   
 
@@ -138,14 +154,14 @@ När du lägger till uppdateringshanteringslösningen i OMS-arbetsytan läggs pa
 
 
 ## <a name="viewing-update-assessments"></a>Visning av kontroll av uppdateringar
-Klicka på ikonen **Uppdateringshantering** för att öppna instrumentpanelen **Uppdateringshantering**.<br><br> ![Instrumentpanel för sammanfattning av uppdateringshantering](./media/oms-solution-update-management/update-management-dashboard.png)<br> 
+Klicka på ikonen **Uppdateringshantering** för att öppna instrumentpanelen **Uppdateringshantering**.<br><br> ![Instrumentpanel för sammanfattning av uppdateringshantering](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
 Den här instrumentpanelen innehåller en detaljerad analys av uppdateringsstatus efter typ av operativsystem och uppdateringsklassificering – kritiskt, säkerhet med flera (till exempel definitionsuppdatering). När panelen **Distributioner av uppdateringar** är vald omdirigeras du till sidan Distributioner av uppdateringar där du kan visa scheman, distributioner som för närvarande körs, slutförda distributioner eller schemalägga en ny distribution.  
 
 Du kan köra en loggsökning som returnerar alla poster genom att klicka på den specifika panelen. Om du vill köra en fråga i en viss kategori och för fördefinierade villkor väljer du någon från tillgänglighetslistan under kolumnen **Vanliga frågor om uppdatering**.    
 
 ## <a name="installing-updates"></a>Installera uppdateringar
-När uppdateringar har utvärderats för alla Linux- och Windows-datorer i din arbetsyta kan du installera nödvändiga uppdateringar genom att skapa en *Uppdateringsdistribution*.  En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer.  Du kan ange datum och tid för distributionen förutom den dator eller grupp av datorer som ska inkluderas i distribueringens omfång.  Läs mer om datorgrupper i [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Datorgrupper i Log Analytics).  När du inkluderar datorgrupper i din distribution utvärderas gruppmedlemskap bara en gång när schemat skapas.  Efterföljande ändringar i en grupp visas inte.  Undvik detta genom att ta bort den schemalagda distributionen och återskapa den. 
+När uppdateringar har utvärderats för alla Linux- och Windows-datorer i din arbetsyta kan du installera nödvändiga uppdateringar genom att skapa en *Uppdateringsdistribution*.  En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer.  Du kan ange datum och tid för distributionen förutom den dator eller grupp av datorer som ska inkluderas i distribueringens omfång.  Läs mer om datorgrupper i [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Datorgrupper i Log Analytics).  När du inkluderar datorgrupper i din distribution utvärderas gruppmedlemskap bara en gång när schemat skapas.  Efterföljande ändringar i en grupp visas inte.  Undvik detta genom att ta bort den schemalagda distributionen och återskapa den.
 
 > [!NOTE]
 > Virtuella Windows-datorer som distribueras från Azure Marketplace som standard är inställda på att ta emot automatiska uppdateringar från Windows Update-tjänsten.  Det beteendet ändras inte när du har lagt till lösningen eller virtuella Windows-datorer i arbetsytan.  Om du inte aktivt har hanterat uppdateringar med den här lösningen gäller standardbeteendet (uppdateringar tillämpas automatiskt).  
@@ -175,8 +191,8 @@ Välj en slutförd uppdateringsdistribution för att visa detaljerad information
 | Linux-datorer |Visar antalet Linux-datorer i uppdateringsdistributionen efter status.  Klicka på en status för att köra en loggsökning som returnerar alla uppdaterade poster med denna status för uppdateringsdistributionen. |
 | Installationsstatus för datorer |Visar vilka datorer som ingår i uppdateringsdistributionen och andelen uppdateringar som har installerats i procent. Klicka på någon av posterna för att köra en loggsökning som returnerar alla saknade och kritiska uppdateringar. |
 | **Vy över uppdateringar** | |
-| Windows-uppdateringar |Listar Windows-uppdateringar som ingår i Uppdatera distribution och deras installationsstatus för varje uppdatering.  Välj en uppdatering för att köra en loggsökning som ger alla uppdateringsposter för den specifika uppdateringen, eller klicka på statusen för att köra en loggsökning som ger alla uppdateringsposter för distributionen. | 
-| Linux-uppdateringar |Listar Linux-uppdateringar som ingår i Uppdatera distribution och deras installationsstatus för varje uppdatering.  Välj en uppdatering för att köra en loggsökning som ger alla uppdateringsposter för den specifika uppdateringen, eller klicka på statusen för att köra en loggsökning som ger alla uppdateringsposter för distributionen. | 
+| Windows-uppdateringar |Listar Windows-uppdateringar som ingår i Uppdatera distribution och deras installationsstatus för varje uppdatering.  Välj en uppdatering för att köra en loggsökning som ger alla uppdateringsposter för den specifika uppdateringen, eller klicka på statusen för att köra en loggsökning som ger alla uppdateringsposter för distributionen. |
+| Linux-uppdateringar |Listar Linux-uppdateringar som ingår i Uppdatera distribution och deras installationsstatus för varje uppdatering.  Välj en uppdatering för att köra en loggsökning som ger alla uppdateringsposter för den specifika uppdateringen, eller klicka på statusen för att köra en loggsökning som ger alla uppdateringsposter för distributionen. |
 
 ### <a name="creating-an-update-deployment"></a>Skapa en uppdateringsdistribution
 Skapa en ny uppdateringsdistribution genom att klicka på knappen **Lägg till** längst upp på skärmen för att öppna sidan **Ny uppdateringsdistribution**.  Du måste ange värden för egenskaperna i följande tabell.
@@ -193,7 +209,7 @@ Skapa en ny uppdateringsdistribution genom att klicka på knappen **Lägg till**
 <br><br> ![Ny sida för uppdateringsdistribution](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
 ### <a name="time-range"></a>Tidsintervall
-Som standard är omfånget för de data som analyseras i uppdateringshanteringslösningen från alla anslutna hanteringsgrupper genererade inom den senaste dagen. 
+Som standard är omfånget för de data som analyseras i uppdateringshanteringslösningen från alla anslutna hanteringsgrupper genererade inom den senaste dagen.
 
 Om du vill ändra tidsintervallet för data väljer du **Databaserat för** längst upp på instrumentpanelen. Du kan välja poster som skapats eller uppdaterats under de senaste 7 dagarna, senaste dagen eller 6 timmarna. Du kan även välja **Anpassat** och ange ett eget datumintervall.
 
@@ -229,11 +245,11 @@ En post med typen av **uppdatering** skapas för varje uppdatering som antingen 
 | UpdateID |GUID för unik identifiering av uppdateringen. |
 | UpdateState |Anger om uppdateringen är installerad på den här datorn.<br>Möjliga värden:<br>- Installerad - Uppdateringen är installerad på den här datorn.<br>- Krävs - Uppdateringen är inte installerad och krävs på den här datorn. |
 
-När du utför en loggsökning som returnerar poster med typ av **Uppdatering** kan du välja vyn **Uppdateringar** som visar en uppsättning paneler som sammanfattar de uppdateringar som returneras av sökningen. Du kan klicka på posterna i panelerna **Saknade och tillämpade uppdateringar** och **Nödvändiga och valfria uppdateringar** för att vyn ska omfatta dessa uppdateringar. Välj vyn **Lista** eller **Tabell** för att returnera de enskilda posterna.<br> 
+När du utför en loggsökning som returnerar poster med typ av **Uppdatering** kan du välja vyn **Uppdateringar** som visar en uppsättning paneler som sammanfattar de uppdateringar som returneras av sökningen. Du kan klicka på posterna i panelerna **Saknade och tillämpade uppdateringar** och **Nödvändiga och valfria uppdateringar** för att vyn ska omfatta dessa uppdateringar. Välj vyn **Lista** eller **Tabell** för att returnera de enskilda posterna.<br>
 
 ![En loggsöknings uppdateringsvy med poster över uppdateringstyp](./media/oms-solution-update-management/update-la-view-updates.png)  
 
-I vyn **Tabell** kan du klicka på **KBID** tillhörande en post för att öppna en webbläsare med KB-artikeln. Detta gör att du snabbt kan läsa information om en viss uppdatering.<br> 
+I vyn **Tabell** kan du klicka på **KBID** tillhörande en post för att öppna en webbläsare med KB-artikeln. Detta gör att du snabbt kan läsa information om en viss uppdatering.<br>
 
 ![En loggsöknings tabellvy med paneler med poster över uppdateringstyp](./media/oms-solution-update-management/update-la-view-table.png)
 
@@ -265,33 +281,33 @@ En post med en typ av **UpdateSummary** skapas för varje Windows-agentdator. De
 | WSUSServer |URL för WSUS-servern om datorn är konfigurerad för att använda en sådan. |
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
-Följande tabell innehåller exempel på sökningar i loggen för uppdateringsposter som har samlats in av den här lösningen. 
+Följande tabell innehåller exempel på sökningar i loggen för uppdateringsposter som har samlats in av den här lösningen.
 
 | Fråga | Beskrivning |
 | --- | --- |
-|Datorer Windows-baserade servrar som behöver uppdateras |`Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false | mät antal() efter dator` |
-|Linux-servrar som behöver uppdateringar | `Type:Update OSType=Linux UpdateState!="Not needed" | mät antal() efter dator` |
-| Alla datorer med saknade uppdateringar |`Type=Update UpdateState=Needed Optional=false | välj Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Saknade uppdateringar fören specifik dator (ersätt värdet med namnet på din egen dator) |`Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" | välj Computer,Title,KBID,Product,UpdateSeverity,PublishedDate` |
-| Alla datorer som saknar kritiska uppdateringar eller säkerhetsuppdateringar |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates"`) |
-| Kritiska uppdateringar eller säkerhetsuppdateringar som krävs för datorer där uppdateringarna görs manuellt |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual | Distinct Computer} | Distinct KBID` |
-| Felhändelser för datorer som saknar kritiska uppdateringar eller säkerhetsuppdateringar |`Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false | Distinct Computer}` |
-| Alla datorer med saknade samlade uppdateringar |`Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed| välj Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Separata, saknade uppdateringar bland samtliga datorer |`Type=Update UpdateState=Needed Optional=false | Distinct Title` |
-| Dator med Windows-baserad server med uppdateringar som misslyckades i en uppdateringskörning | `Type:UpdateRunProgress InstallationStatus=failed | mät antal() efter dator, Titel, UpdateRunName` |
-| Linux-server med misslyckade uppdateringar vid en uppdateringskörning |`Type:UpdateRunProgress InstallationStatus=failed | mät antal() efter dator, Produkt, UpdateRunName` |
-| WSUS datormedlemskap |`Type=UpdateSummary | mät antal() efter WSUSServer` |
-| Konfigurering av automatiska uppdateringar |`Type=UpdateSummary | mät antal() efter WindowsUpdateSetting` |
-| Datorer med automatiska uppdateringar inaktiverat |`Type=UpdateSummary WindowsUpdateSetting=Manual` |
-| Lista över alla Linux-datorer som har en tillgänglig paketuppdatering |`Type=Update and OSType=Linux and UpdateState!="Not needed" | mät antal() efter dator` |
-| Lista över alla Linux-datorer som har en tillgänglig paketuppdatering vilken åtgärdar kritiska problem eller säkerhetsproblem |`Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") | mät antal() efter dator` |
-| Lista över alla paket som har en tillgänglig uppdatering |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| Lista över alla paket som har en tillgänglig uppdatering vilken åtgärdar kritiska problem eller säkerhetsproblem |`Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates")` |
-| Lista vilka uppdateringsdistributioner som har ändrade datorer |`Type:UpdateRunProgress | mät antal() efter UpdateRunName` |
-|Datorer som har uppdaterats i den här uppdateringskörningen (ersätt värdet med uppdateringsdistributionens namn |`Type:UpdateRunProgress UpdateRunName="DeploymentName" | mät antal() efter dator` |
-| Lista över alla "Ubuntu"-datorer med en tillgänglig uppdatering |`Type=Update and OSType=Linux and OSName = Ubuntu &| mät antal() efter dator` |
+| Skriv:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false &#124; measure count() by Computer |Datorer Windows-baserade servrar som behöver uppdateras |
+| Skriv:Update OSType=Linux UpdateState!="Not needed" &#124; measure count() by Computer |Linux-servrar som behöver uppdateringar | 
+| Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |Alla datorer med saknade uppdateringar |
+| Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |Saknade uppdateringar fören specifik dator (ersätt värdet med namnet på din egen dator)|
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |Alla datorer som saknar kritiska uppdateringar eller säkerhetsuppdateringar | 
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |Kritiska uppdateringar eller säkerhetsuppdateringar som krävs för datorer där uppdateringarna görs manuellt |
+| Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |Felhändelser för datorer som saknar kritiska uppdateringar eller säkerhetsuppdateringar |
+| Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |Alla datorer med saknade samlade uppdateringar | 
+| Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |Separata, saknade uppdateringar bland samtliga datorer | 
+| Skriv:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Title, UpdateRunName |Dator med Windows-baserad server med uppdateringar som misslyckades i en uppdateringskörning | 
+| Skriv:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Product, UpdateRunName |Linux-server med misslyckade uppdateringar vid en uppdateringskörning | 
+| Type=UpdateSummary &#124; measure count() by WSUSServer |WSUS datormedlemskap | 
+| Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |Konfigurering av automatiska uppdateringar | 
+| Type=UpdateSummary WindowsUpdateSetting=Manual |Datorer med automatiska uppdateringar inaktiverat | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |Lista över alla Linux-datorer som har en tillgänglig paketuppdatering | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |Lista över alla Linux-datorer som har en tillgänglig paketuppdatering vilken åtgärdar kritiska problem eller säkerhetsproblem | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" |Lista över alla paket som har en tillgänglig uppdatering | 
+| Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |Lista över alla paket som har en tillgänglig uppdatering vilken åtgärdar kritiska problem eller säkerhetsproblem | 
+| Skriv:UpdateRunProgress &#124; measure Count() by UpdateRunName |Lista vilka uppdateringsdistributioner som har ändrade datorer | 
+| Skriv:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Datorer som har uppdaterats i den här uppdateringskörningen (ersätt värdet med uppdateringsdistributionens namn | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Lista över alla "Ubuntu"-datorer med en tillgänglig uppdatering | 
 
-## <a name="troubleshooting"></a>Felsökning 
+## <a name="troubleshooting"></a>Felsökning
 
 Det här avsnittet innehåller information för att hjälpa dig att felsöka fel med lösningen Hantering av uppdateringar.  
 
@@ -299,10 +315,9 @@ Det här avsnittet innehåller information för att hjälpa dig att felsöka fel
 Du kan visa resultatet för den runbook som ansvarar för att distribuera uppdateringarna som ingår i den schemalagda distributionen från bladet Jobb i ditt Automation-konto som är länkat till OMS-arbetsytan som stöder lösningen.  Runbooken **Patch-MicrosoftOMSComputer** är en underordnad runbook som har en specifik hanterad dator som mål. Om du granskar den utförliga strömmen visas detaljerad information för den distributionen.  Utdata visar vilka nödvändiga uppdateringar som är tillämpliga, hämtningsstatus, status för installationen och ytterligare information.<br><br> ![Jobbstatus för uppdateringsdistribution](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 Mer information finns i [Automation runbook output and messages](../automation/automation-runbook-output-and-messages.md) (Utdata och meddelanden för Automation-runbook).   
-  
+
 ## <a name="next-steps"></a>Nästa steg
 * Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-searches.md) för att visa detaljerad uppdateringsinformation.
 * [Skapa egna instrumentpaneler](../log-analytics/log-analytics-dashboards.md) som visar uppdateringskompatibilitet för dina hanterade datorer.
 * [Skapa aviseringar](../log-analytics/log-analytics-alerts.md) som visas när viktiga uppdateringar saknas på datorer eller när automatiska uppdateringar är inaktiverade för en dator.  
-
 

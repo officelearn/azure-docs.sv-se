@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: d19956e4964f57251f51eb8ffe5041c6a49da1a7
 ms.contentlocale: sv-se
 ms.lasthandoff: 03/09/2017
-
 
 ---
 # <a name="get-started-with-azure-active-directory-device-registration"></a>Komma igång med enhetsregistrering i Azure Active Directory

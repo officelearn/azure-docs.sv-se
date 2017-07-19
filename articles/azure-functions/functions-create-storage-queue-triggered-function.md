@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: e6cf8797d08609f847e33f88e78fbcd3f3743a08
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: ba8db575c8731e4f9067a6635e745da12c8667dd
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Skapa en funktion som utlöses av Azure Queue Storage
@@ -29,15 +29,11 @@ Lär dig hur du skapar en funktion som utlöses när meddelanden skickas till en
 
 ![Visa meddelande i loggarna.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-Det bör ta mindre än fem minuter att slutföra alla steg i det här avsnittet.
-
 ## <a name="prerequisites"></a>Krav
-
-Innan du kör exemplet måste du ha utfört följande:
 
 - Hämta och installera [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -53,15 +49,21 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-a-queue-triggered-function"></a>Skapa en funktion som utlöses av en kö
 
-Expandera din funktionsapp, klicka på knappen **+** bredvid **Funktioner** och klicka på **QueueTrigger**-mallen för önskat språk. Använd sedan inställningarna i tabellen och klicka på **Skapa**.
+1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar.
 
-![Skapa funktionen som utlöses av lagringskön.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-| Inställning | Föreslaget värde | Beskrivning |
-|---|---|---|
-| **Könamn**   | myqueue-items    | Namnet på den kö som ska anslutas till i ditt Storage-konto. |
-| **Lagringskontoanslutning** | AzureWebJobStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |
-| **Namnge din funktion** | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av kön. |
+2. Välj en mall för **Kö-utlösare** för önskat språk och använd inställningarna som angetts i tabellen.
+
+    ![Skapa funktionen som utlöses av lagringskön.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    
+    | Inställning | Föreslaget värde | Beskrivning |
+    |---|---|---|
+    | **Könamn**   | myqueue-items    | Namnet på den kö som ska anslutas till i ditt Storage-konto. |
+    | **Lagringskontoanslutning** | AzureWebJobStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |
+    | **Namnge din funktion** | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av kön. |
+
+3. Klicka på **Skapa** för att skapa den nya funktionen.
 
 Sedan ansluter du till ditt Azure Storage-konto och skapar lagringskön **myqueue-items**.
 

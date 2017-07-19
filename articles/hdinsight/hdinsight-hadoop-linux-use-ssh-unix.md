@@ -1,32 +1,35 @@
 ---
-title: "Använda SSH med HDInsight (Hadoop) från Windows, Linux, Unix eller OS X | Microsoft Docs"
-description: " Du kan komma åt HDInsight med hjälp av SSH (Secure Shell). Det här dokumentet innehåller information om hur du använder SSH för att ansluta till HDInsight från Windows-, Linux-, Unix- eller OS X-klienter."
+title: "Använda SSH med Hadoop - Azure HDInsight | Microsoft Docs"
+description: "Du kan komma åt HDInsight med hjälp av SSH (Secure Shell). Det här dokumentet innehåller information om hur du ansluter till HDInsight med hjälp av ssh- och scp-kommandon från Windows, Linux, Unix eller macOS klienter."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
+keywords: hadoop-kommandon i linux, hadoop linux-kommandon, hadoop macos, ssh hadoop, ssh hadoop-kluster
 ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
+ms.date: 05/12/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 248e820ccd2c68a8500aab3233c5beea3c8cc868
-ms.lasthandoff: 04/04/2017
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 3eb1d4df7ab87ec692716339eb0ecb9df4c58732
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/16/2017
+
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Ansluta till HDInsight (Hadoop) med hjälp av SSH
 
-Lär dig hur du använder [SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell) för att ansluta till HD Insight på ett säkert sätt. HDInsight kan använda Linux (Ubuntu) som operativsystem för noder i klustret. SSH kan användas för att ansluta till huvud- och kantnoderna i ett Linux-baserat kluster och köra kommandon direkt på dessa noder.
+Lär dig hur du använder [SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell) för att ansluta till Hadoop på Azure HD Insight på ett säkert sätt. 
 
-Följande tabell innehåller adress- och portinformationen som behövs för att ansluta till HDInsight med hjälp av SSH:
+HDInsight kan använda Linux (Ubuntu) som operativsystem för noder i Hadoop-klustret. Följande tabell innehåller adress- och portinformationen som behövs för att ansluta till Linux-baserad HDInsight med hjälp av en SSH-klient:
 
 | Adress | Port | Ansluter till ... |
 | ----- | ----- | ----- |
@@ -38,40 +41,44 @@ Följande tabell innehåller adress- och portinformationen som behövs för att 
 > [!NOTE]
 > Ersätt `<edgenodename>` med namnet på kantnoden.
 >
-> Ersätt `<clustername>` med namnet på HDInsight-klustret.
+> Ersätt `<clustername>` med namnet på klustret.
 >
-> Vi rekommenderar att du __alltid ansluter till kantnoden__ om du har en. Värdtjänster för huvudnoder är viktiga för klustrets hälsotillstånd. Kantnoden kör bara det som du placerar på den.
+> Om klustret innehåller en kantnod, rekommenderar vi att du __alltid ansluter till kantnoden__ via SSH. Värdtjänster för huvudnoder är viktiga för Hadoops hälsotillstånd. Kantnoden kör bara det som du placerar på den.
 >
 > Mer information om hur du använder kantnoder finns i [Använda kantnoder i HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
 ## <a name="ssh-clients"></a>SSH-klienter
 
-De flesta operativsystem tillhandahåller `ssh`-klienten. Microsoft Windows tillhandahåller ingen SSH-klient som standard. En SSH-klient för Windows finns i vart och ett av följande paket:
+Linux, Unix- och macOS system ger kommandon `ssh` och `scp`. Klienten `ssh` används ofta för att skapa en fjärrsession med kommandoradsverktyget med Linux eller Unix-baserade system. Klienten `scp` används för att kopiera filer mellan klienten och fjärrdatorn på ett säkert sätt.
 
-* [Bash i Ubuntu för Windows 10](https://msdn.microsoft.com/commandline/wsl/about): `ssh`-kommandot är tillgängligt via Bash för Windows-kommandoraden.
+Microsoft Windows tillhandahåller ingen SSH-klient som standard. Klienterna `ssh` och `scp` är tillgängliga för Windows via följande paket:
 
-* [Git (https://git-scm.com/)](https://git-scm.com/): `ssh`-kommandot är tillgängligt via GitBash-kommandoraden.
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): Cloud Shell tillhandahåller en Bash-miljö i webbläsaren och tillhandahåller `ssh`, `scp`, och andra vanliga Linux-kommandon.
 
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/): `ssh`-kommandot är tillgängligt via Git Shell-kommandoraden. GitHub Desktop kan konfigureras att använda Bash, Windows-kommandotolken eller PowerShell som kommandorad för Git Shell.
+* [Bash i Ubuntu för Windows 10](https://msdn.microsoft.com/commandline/wsl/about): `ssh`- och `scp`-kommandot är tillgängligt via Bash för Windows-kommandoraden.
+
+* [Git (https://git-scm.com/)](https://git-scm.com/): `ssh` och `scp`-kommandot är tillgängligt via GitBash-kommandoraden.
+
+* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/) `ssh` och `scp`-kommandot är tillgängligt via GitHub Shell-kommandoraden. GitHub Desktop kan konfigureras att använda Bash, Windows-kommandotolken eller PowerShell som kommandorad för Git Shell.
 
 * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): PowerShell-teamet porterar OpenSSH till Windows och tillhandahåller testutgåvor.
 
     > [!WARNING]
     > OpenSSH-paketet innehåller SSH-serverkomponenten, `sshd`. Den här komponenten startar en SSH-server på din dator så att andra kan ansluta till den. Konfigurera inte den här komponenten och öppna inte port 22 om du inte vill ha en SSH-server på din dator. Det krävs inte för att kommunicera med HDInsight.
 
-Det finns också flera grafiska SSH-klienter, till exempel [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) och [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Dessa klienter kan användas för att ansluta till HDInsight, men processen för att ansluta till en server skiljer sig från anslutningsprocessen med `ssh`-verktyget. Mer information finns i dokumentationen för den grafiska klient som du använder.
+Det finns också flera grafiska SSH-klienter, till exempel [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) och [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Dessa klienter kan användas för att ansluta till HDInsight, men processen för att ansluta skiljer sig från anslutningsprocessen med `ssh`-verktyget. Mer information finns i dokumentationen för den grafiska klient som du använder.
 
 ## <a id="sshkey"></a>Autentisering: SSH-nycklar
 
-SSH-nycklar använder [kryptografik med offentliga nycklar](https://en.wikipedia.org/wiki/Public-key_cryptography) för att skydda klustret. SSH-nycklar är säkrare än lösenord och är ett enkelt sätt att skydda HDInsight-klustret.
+SSH-nycklar använder [kryptografik med offentliga nycklar](https://en.wikipedia.org/wiki/Public-key_cryptography) för att autentisera SSH-sessioner. SSH-nycklar är säkrare än lösenord och är ett enkelt sätt att skydda Hadoop-klustret.
 
 Om ditt SSH-konto skyddas med en nyckel måste klienten tillhandahålla den matchande privata nyckeln när du ansluter:
 
 * De flesta klienter kan konfigureras att använda en __standardnyckel__. Exempelvis söker `ssh`-klienten efter en privat nyckel i `~/.ssh/id_rsa` i Linux- och Unix-miljöer.
 
-* Du kan ange __sökvägen till en privat nyckel__. Med `ssh`-klienten används `-i`-parametern för att ange sökvägen till den privata nyckeln. Till exempel `ssh -i ~/.ssh/hdinsight sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
+* Du kan ange __sökvägen till en privat nyckel__. Med `ssh`-klienten används `-i`-parametern för att ange sökvägen till den privata nyckeln. Till exempel `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
 
-* Om du har __flera privata nycklar__ för användning med olika servrar kan verktyg som [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) användas för att automatiskt välja den nyckel som ska användas.
+* Om du har __flera privata nycklar__ för användning med olika servrar kan verktyg som [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) användas. Verktyget `ssh-agent` kan användas för att automatiskt välja nyckeln som ska användas när en SSH-session etableras.
 
 > [!IMPORTANT]
 >
@@ -129,7 +136,7 @@ Mer information finns i avsnittet [Configure domain-joined HDInsight](hdinsight-
 
 ## <a name="connect-to-worker-and-zookeeper-nodes"></a>Ansluta till arbetarnoder och Zookeeper-noder
 
-Arbetarnoderna och Zookeeper-noderna kan inte nås direkt från Internet, men de kan nås från huvudnoderna eller kantnoderna i klustret. Här är de allmänna steg som du följer för att ansluta till andra noder:
+Arbetarnoder och Zookeeper-noder är inte tillgängliga direkt från internet. De kan nås från klustrets huvudnoder eller kantnoder. Här är de allmänna steg som du följer för att ansluta till andra noder:
 
 1. Använd SSH för att ansluta till en huvud- eller kantnod:
 
@@ -139,11 +146,11 @@ Arbetarnoderna och Zookeeper-noderna kan inte nås direkt från Internet, men de
 
         ssh sshuser@wn0-myhdi
 
-    Om du vill hämta en lista över domännamnen för noderna i klustret tittar du på exemplen i [Manage HDInsight by using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) (Hantera HDInsight med hjälp av Ambari REST-API:et).
+    Om du vill hämta en lista över domännamnen för noderna i klustret tittar du på [Manage HDInsight by using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) (Hantera HDInsight med hjälp av Ambari REST-API:et).
 
-Om SSH-kontot skyddas med ett __lösenord__ uppmanas du att ange lösenordet för att upprätta anslutningen.
+Om SSH-kontot är skyddat med ett __lösenord__ anger du lösenordet när du ansluter.
 
-Om SSH-kontot skyddas med __SSH-nycklar__ måste du se till att din lokala miljö har konfigurerats för vidarebefordran med SSH-agenten.
+Om SSH-kontot är säkrad med __SSH-nycklar__ kontrollerar du att SSH-vidarebefordran är aktiverad på klienten.
 
 > [!NOTE]
 > Ett annat sätt att direkt komma åt alla noder i klustret är att installera HDInsight i ett virtuellt Azure-nätverk. Därefter kan du ansluta till din fjärrdatorn i samma virtuella nätverk och direkt komma åt alla noder i klustret.
@@ -153,7 +160,7 @@ Om SSH-kontot skyddas med __SSH-nycklar__ måste du se till att din lokala milj�
 ### <a name="configure-ssh-agent-forwarding"></a>Konfigurera vidarebefordran med SSH-agenten
 
 > [!IMPORTANT]
-> I följande steg förutsätter vi att du har ett Linux-/UNIX-baserat system och att du arbetar med Bash i Windows 10. Om de här stegen inte fungerar på din dator kan du behöva läsa dokumentationen för SSH-klienten.
+> I följande steg förutsätter vi att du har ett Linux- eller UNIX-baserat system och att du arbetar med Bash i Windows 10. Om de här stegen inte fungerar på din dator kan du behöva läsa dokumentationen för SSH-klienten.
 
 1. Använd en textredigerare och öppna `~/.ssh/config`. Om den här filen inte finns kan du skapa den genom att ange `touch ~/.ssh/config` på en kommandorad.
 
@@ -172,7 +179,7 @@ Om SSH-kontot skyddas med __SSH-nycklar__ måste du se till att din lokala milj�
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Om inget returneras så körs inte `ssh-agent`. Läs informationen om skripten för agentstart i [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Använda ssh-agent med ssh) eller läs dokumentationen för din SSH-klient för specifika steg som beskriver hur du installerar och konfigurerar `ssh-agent`.
+    Om inget returneras så körs inte `ssh-agent`. Läs informationen om skripten för agentstart i [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Använda ssh-agent med ssh) eller läs dokumentationen för din SSH-klient för mer information.
 
 4. När du har verifierat att **ssh-agent** körs använder du följande för att lägga till din privata SSH-nyckel till agenten:
 

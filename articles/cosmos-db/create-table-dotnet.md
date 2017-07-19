@@ -1,25 +1,25 @@
 ---
 title: Skapa en .NET-app i Azure Cosmos DB med tabell-API:t | Microsoft Docs
 description: "Kom igång med tabell-API:t i Azure Cosmos DB med hjälp av .NET"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: cba0b278d84e25876a8b73cedb7e35f84500fc5e
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 29e7eebda5177d6e852ef04ad82d9d38a8d30ed8
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/11/2017
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här snabbstarten demonstrerar hur du skapar ett Azure Cosmos DB-konto och en tabell i kontot med hjälp av Azure Portal. Sedan kommer du att skriva kod för att infoga, uppdatera och ta bort entiteter samt köra några frågor. Du kan hämta [förhandsversionen av Azure Storage SDK](https://aka.ms/premiumtablenuget) från NuGet. Den har samma klasser och metodsignaturer som den offentliga versionen av [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), men även funktioner för att ansluta till Azure Cosmos DB-konton via [tabell-API:t](table-introduction.md) (förhandsversion). 
+Den här snabbstarten demonstrerar hur du skapar ett Azure Cosmos DB-konto och en tabell i kontot med hjälp av Azure Portal. Du sedan skriva kod för att infoga, uppdatera och ta bort entiteter och köra några frågor med nya [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (förhandsversion) från NuGet. Det här biblioteket har samma klasser och metodsignaturer som den offentliga versionen av [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), men även funktioner för att ansluta till Azure Cosmos DB-konton via [tabell-API:t](table-introduction.md) (förhandsversion). 
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,26 +37,28 @@ Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Vis
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
-[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmosdb-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
 ## <a name="add-a-table"></a>Lägg till en tabell
 
-[!INCLUDE [cosmosdb-create-table](../../includes/cosmosdb-create-table.md)]
+[!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
 
 ## <a name="add-sample-data"></a>Lägg till exempeldata
 
-Du kan nu lägga till data till den nya tabellen med datautforskaren.
+Du kan nu lägga till data till den nya tabellen med datautforskaren (förhandsversion).
 
-1. Öppna Datautforskaren, expandera **sample-database** och **sample-table**, klicka på **Entiteter** och sedan på **Lägg till entitet**.
+1. Öppna Datautforskaren, expandera **sample-table**, klicka på **Entiteter** och klicka sedan på **Lägg till entitet**.
+
+   ![Skapa nya entiteter i datautforskaren i Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
 2. Lägg till data i värderutorna för egenskaperna PartitionKey (Partitionsnyckel) och RowKey (Radnyckel) och klicka på **Lägg till entitet**.
 
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+   ![Ange partitionsnyckel och radnyckel för en ny entitet](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
     Du kan nu lägga till fler entiteter i din tabell, redigera entiteter eller ställa frågor mot data i Datautforskaren. I Datautforskaren kan du även skala ditt dataflöde och lägga till lagrade procedurer, användardefinierade funktioner och utlösare i tabellen.
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi klona en DocumentDB-API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
+Nu ska vi klona en Table-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
 1. Öppna ett git-terminalfönster, till exempel git bash, och `cd` till en arbetskatalog.  
 
@@ -72,7 +74,7 @@ Nu ska vi klona en DocumentDB-API-app från github, ange anslutningssträngen oc
 
 Vi gör en snabb genomgång av vad som händer i appen. Öppna filen Program.cs så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
 
-* DocumentClient initieras.
+* CloudTableClient har initierats.
 
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
@@ -86,7 +88,7 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna filen Program.cs 
     table.CreateIfNotExists();
     ```
 
-* En ny tabellbehållare skapas. Du märker att den här koden är mycket lik vanliga SDK:er för Azure Table Storage 
+* En ny tabellbehållare skapas. Du märker att den här koden är mycket lik vanliga SDK:er för Azure Table Storage. 
 
     ```csharp
     CustomerEntity item = new CustomerEntity()
@@ -101,26 +103,18 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna filen Program.cs 
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
+Nu ska vi uppdatera informationen i anslutningssträngen så att din app kan kommunicera med Azure Cosmos DB. 
 
-1. Öppna ditt Azure Cosmos DB-konto i [Azure Portal](http://portal.azure.com/), klicka på **Nycklar** och därefter på **Läs- och skrivnycklar**. Använd kopieringsknapparna till höger på skärmen och kopiera URI:n och primärnyckeln till filen app.config i nästa steg.
+1. Öppna filen app.config i Visual Studio. 
 
-    ![Visa och kopiera en åtkomstnyckel i Azure Portal, bladet Nycklar](./media/create-documentdb-dotnet-core/keys.png)
+2. I [Azure-portalen](http://portal.azure.com/), i det vänstra navigeringsfönstret i Azure Cosmos DB klickar du på **Anslutningssträng**. Klicka på kopieringsknappen för anslutningssträngen i den nya rutan. 
 
-2. Öppna filen app.config i Visual Studio. 
+    ![Visa och kopiera slutpunkt och kontonyckel i anslutningssträngfönstret](./media/create-table-dotnet/keys.png)
 
-3. Kopiera kontonamnet för Azure Cosmos DB från portalen och använd det som värde för AccountName i strängvärdet PremiumStorageConnection i app.config. I skärmbilden ovan är kontonamnet cosmos-db-quickstart. Kontonamnet visas överst i portalen.
+3. Klistra in värdet i filen app.config som värde för PremiumStorageConnectionString. 
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
-
-4. Kopiera sedan PRIMÄRNYCKEL-värdet från portalen och använd det som värde för AccountKey i PremiumStorageConnectionString. 
-
-    `AccountKey=AUTHKEY`
-
-5. Kopiera slutligen URI-värdet från sidan Nycklar i portalen (med kopieringsknappen) och använd det som värde för TableEndpoint i PremiumStorageConnectionString.
-
-    `TableEndpoint=https://COSMOSDB.documents.azure.com`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`    
 
     Du kan lämna värdet för StandardStorageConnectionString.
 
@@ -128,21 +122,29 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 ## <a name="run-the-web-app"></a>Kör webbappen
 
-1. I Visual Studio högerklickar du på projektet i **Solution Explorer** och därefter på **Hantera NuGet-paket**. 
+1. I Visual Studio högerklickar du på projektet **PremiumTableGetStarted** i **Solution Explorer** och sedan på **Hantera NuGet-paket**. 
 
-2. I NuGet-rutan **Bläddra** skriver du *WindowsAzure.Storage* och markerar kryssrutan **Include prerelease** (Ta med förhandsversioner). 
+2. I rutan NuGet **Bläddra** skriver du *WindowsAzure.Storage PremiumTable*.
 
-3. Installera biblioteket **WindowsAzure.Storage** från resultaten. Det här installerar förhandsversionen av tabell-API:t i Azure Cosmos DB samt alla beroenden.
+3. Markera rutan **Inkludera förhandsversion**. 
 
-4. Tryck på Ctrl + F5 för att köra programmet.
+4. Installera biblioteket **WindowsAzure.Storage-PremiumTable** från resultaten. Det här installerar förhandsversionen av tabell-API:t i Azure Cosmos DB samt alla beroenden. Observera att detta är ett annat NuGet-paket än Windows Azure Storage-paketet som används av Azure Table-lagring. 
 
-    Data som läggs till i tabellen visas i konsolfönstret. Stäng konsolfönstret när skriptet har körts. 
+5. Tryck på Ctrl + F5 för att köra programmet.
 
-Du kan nu gå tillbaka till datautforskaren och ställa frågor, ändra och arbeta med dessa nya data. 
+    Konsolfönstret visar data som läggs till, hämtas, efterfrågas, ersätts och tas bort från tabellen. Stäng konsolfönstret genom att trycka på valfri tangent när skriptet har körts. 
+    
+    ![Konsolens utdata i snabbstart](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-console-output.png)
+
+6. Om du vill se nya entiteter i Data Explorer ska du kommentera ut rader 188 208 i program.cs så att de inte raderas och köra exemplet igen. 
+
+    Du kan nu gå tillbaka till Data Explorer, klicka på **Uppdatera**, expandera tabellen **personer** och klicka på **Entiteter**, och sedan arbeta med dessa nya data. 
+
+    ![Nya entiteter i Data Explorer](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/11/2017
+ms.date: 05/30/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 1d208f931af4704528309780b45e170627f1753c
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: db851023c8620bec6583184326029d1a3e99ad88
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -37,7 +38,7 @@ Microsoft Azure Redis Cache finns tillgängligt på följande nivåer:
 
 * **Grundläggande** – En nod. Flera storlekar upp till 53 GB.
 * **Standard** – Primär/replik med två noder. Flera storlekar upp till 53 GB. 99,9 % SLA.
-* **Premium** – Primär/replik med två noder och upp till 10 shards. Flera storlekar från 6 GB till 530 GB (kontakta oss för mer information). Alla standardnivåfunktioner med mera, med stöd för [Redis-kluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md) och [Azure Virtual Network](cache-how-to-premium-vnet.md). 99,9 % SLA.
+* **Premium** – Primär/replik med två noder och upp till 10 shards. Flera storlekar från 6 GB till 530 GB. Alla standardnivåfunktioner med mera, med stöd för [Redis-kluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md) och [Azure Virtual Network](cache-how-to-premium-vnet.md). 99,9 % SLA.
 
 Varje nivå har olika funktioner och priser. Mer information om priser finns i [prisinformationen för Cache][Cache Pricing Details].
 
@@ -210,7 +211,7 @@ Nu när du har lärt dig grunderna kan du följa dessa länkar för att lära di
 * Azure Redis Cache kan också användas med tjänster och verktyg från tredje part som Redsmin och Redis Desktop Manager.
   * Mer information om Redsmin finns i [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin] (Hämta en Azure Redis-anslutningssträng och använda den med Redsmin).
   * Komma åt och granska dina data i Azure Redis Cache med ett grafiskt användargränssnitt med hjälp av [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
-* Se [Redis][redis]-dokumentationen, läs om [Redis-datatyper][redis data types] och [få en&15; minuters introduktion till Redis-datatyper][a fifteen minute introduction to Redis data types].
+* Se [Redis][redis]-dokumentationen, läs om [Redis-datatyper][redis data types] och [få en 15 minuters introduktion till Redis-datatyper][a fifteen minute introduction to Redis data types].
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps

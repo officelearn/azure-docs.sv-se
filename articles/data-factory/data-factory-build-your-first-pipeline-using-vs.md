@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 0ceba4142fd7b0e6edc1b7a6c14470d21806004a
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 7ea9988b02bc09626a11efb5e95c2349b378256a
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -36,6 +37,8 @@ Pipeline i den här självstudiekursen har en aktivitet: **HDInsight Hive-aktivi
 
 > [!NOTE]
 > Den här självstudiekursen visar inte hur du kopiera data med hjälp av Azure Data Factory. En självstudiekurs om hur du kopierar data med Azure Data Factory finns i [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Självstudie: Kopiera data från Blob Storage till SQL Database).
+> 
+> En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och utförande i Data Factory).
 
 
 ## <a name="walkthrough-create-and-publish-data-factory-entities"></a>Genomgång: Skapa och publicera datafabriksentiteter
@@ -54,8 +57,8 @@ Här är de steg du utför i självstudiekursen:
 5. När du har publicerat kan du använda bladen på Azure Portal och övervaknings- och hanteringsappen för att övervaka pipelinen. 
   
 ### <a name="prerequisites"></a>Krav
-1. Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen. Du kan också välja alternativet **Översikt och förutsättningar** i listrutan längst upp för att gå till artikeln. När du har slutfört förutsättningarna kan du gå tillbaka till den här artikeln genom att välja alternativet **Visual Studio** i listrutan.  
-2. Du måste vara **administratör för Azure-prenumerationen** för att kunna publicera Data Factory-enheter från Visual Studio till Azure Data Factory. 
+1. Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen. Du kan också välja alternativet **Översikt och förutsättningar** i listrutan längst upp för att gå till artikeln. När du har slutfört förutsättningarna kan du gå tillbaka till den här artikeln genom att välja alternativet **Visual Studio** i listrutan.
+2. Om du vill skapa Data Factory-instanser måste du vara medlem i [Data Factory-deltagarrollen](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) på gruppnivå/resursgrupp.  
 3. Du måste ha följande installerat på datorn:
    * Visual Studio 2013 eller Visual Studio 2015
    * Hämta Azure SDK för Visual Studio 2013 eller Visual Studio 2015. Gå till [Azures hämtningssida](https://azure.microsoft.com/downloads/) och klicka på **VS 2013** eller **VS 2015** i **.NET**-avsnittet.
@@ -101,7 +104,6 @@ Med den länkade tjänsten HDInsight på begäran skapas HDInsight-klustret auto
         "properties": {
         "type": "HDInsightOnDemand",
             "typeProperties": {
-                "version": "3.2",
                 "clusterSize": 1,
                 "timeToLive": "00:30:00",
                 "linkedServiceName": "AzureStorageLinkedService1"
@@ -114,7 +116,6 @@ Med den länkade tjänsten HDInsight på begäran skapas HDInsight-klustret auto
 
     Egenskap | Beskrivning
     -------- | ----------- 
-    Version | Anger versionen för HDInsight Hadoop-klustret som ska skapas.
     ClusterSize | Anger HDInsight Hadoop-klustrets storlek.
     TimeToLive | Anger inaktivitetstiden för HDInsight-klustret innan det tas bort.
     linkedServiceName | Anger lagringskontot som används för att spara loggarna som genereras av HDInsight Hadoop-klustret. 
@@ -201,7 +202,7 @@ Nu skapar du den utdatauppsättning som representerar de utdata som lagras i Azu
     }
     ```
     Det här JSON-kodfragmentet definierar en datauppsättning med namnet **AzureBlobOutput** som representerar utdata för Hive-aktiviteten i pipelinen. Du anger att utdata som genereras av Hive-aktiviteten finns i blobbehållaren `adfgetstarted` och i mappen `partitioneddata`. 
-     
+    
     I avsnittet **tillgänglighet** anges att utdatauppsättningen skapas månadsvis. Utdatauppsättningen styr schemat för pipelinen. Pipelinen körs varje månad mellan dess start- och sluttider. 
 
     Se **Skapa datauppsättning för indata** för beskrivningar av dessa egenskaper. Du anger inte den externa egenskapen för en utdatauppsättning, eftersom datauppsättningen produceras av pipelinen.
@@ -319,7 +320,7 @@ Viktiga saker att observera:
 
 - Om du får felet: **Den här prenumerationen har inte registrerats för användning av namnområdet Microsoft.DataFactory** gör du något av följande och försöker att publicera igen:
     - I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern.
-        ```PowerShell    
+        ```PowerShell   
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad.
@@ -399,7 +400,7 @@ Du kan också använda övervaknings- och hanteringsprogrammet till att övervak
 > Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen laddar du därför upp indatafilen (input.log) till mappen `inputdata` i behållaren`adfgetstarted`.
 
 ### <a name="additional-notes"></a>Ytterligare information
-- En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Det kan till exempel vara en kopieringsaktivitet som kopierar data från en källa till ett måldatalager och en Hive-aktivitet för HDInsight som kör Hive-skript för att transformera indata. I [stödda datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) står alla källor och mottagare som stöds av Kopiera aktivitet. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för att se listan över Compute Services som stöds av Data Factory.
+- En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Till exempel, en kopieringsaktivitet som kopierar data från en källa till en måldatalagring och en HDInsight Hive-aktivitet som kör ett Hive-skript som omvandlar indata. I [stödda datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) står alla källor och mottagare som stöds av Kopiera aktivitet. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för att se listan över Compute Services som stöds av Data Factory.
 - Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-datafabrik. I [stödda datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) står alla källor och mottagare som stöds av Kopiera aktivitet. Se [Länkade tjänster för Compute](data-factory-compute-linked-services.md) för att se listan över Compute Services som stöds av Data Factory och [transformeringsaktiviteter](data-factory-data-transformation-activities.md) som kan köras på dem.
 - Se [Flytta data från/till Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) för mer information om JSON-egenskaper som används i definitionen för den länkade Azure Storage-tjänsten.
 - Du kan använda ditt eget HDInsight-kluster i stället för att använda ett HDInsight-kluster på begäran. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för mer information.

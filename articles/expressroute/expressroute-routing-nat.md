@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2016
+ms.date: 05/12/2017
 ms.author: osamam
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: a97662819acbbbd4c4a331acac4fdec193242d80
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5c039a80b24feda61da0793fa64b48cb4783c3f1
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -82,7 +82,7 @@ Med Azures offentliga peeringsökväg kan du ansluta till alla tjänster som fin
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
-Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som inte stöds via Azures offentliga peeringsökväg. Listan med tjänster innefattar Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och CRM Online. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket.
+Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som inte stöds via Azures offentliga peeringsökväg. Listan med tjänster innefattar Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och Dynamics 365. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket.
 
 Kontrollera att din IP-adress och AS-nummer är registrerade till dig i något av registren nedan.
 
@@ -193,7 +193,7 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | **Exchange** |12076:5010 |
 | **SharePoint** |12076:5020 |
 | **Skype för företag** |12076:5030 |
-| **CRM Online** |12076:5040 |
+| **Dynamics 365** |12076:5040 |
 | **Andra Office 365-tjänster** |12076:5100 |
 
 > [!NOTE]

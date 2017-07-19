@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 74ea95349faa7ee3376050c22b4bb2375837b5c0
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: f637b8617c4a9ed3be1eb0932a94b0ffcc7c8f7e
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -29,7 +29,6 @@ ms.lasthandoff: 05/10/2017
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST-API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
@@ -45,7 +44,7 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://msdn.micro
 
 * **Azure Data Lake Store-konto**. Mer information om hur du skapar ett konto finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
-* **Skapa ett program i Azure Active Directory**. Du kan använda Azure AD-program för att autentisera Data Lake Store-program med Azure AD. Det finns olika sätt att autentisera med Azure AD: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Autentisera med Data Lake Store med Azure Active Directory (Authenticate with Data Lake Store using Azure Active Directory)](data-lake-store-authenticate-using-active-directory.md).
+* **Skapa ett program i Azure Active Directory**. Du kan använda Azure AD-program för att autentisera Data Lake Store-program med Azure AD. Det finns olika sätt att autentisera med Azure AD: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
 1. Öppna Visual Studio och skapa ett konsolprogram.
@@ -248,7 +247,7 @@ I följande fragment visas en `AppendToFile`-metod som du kan använda för att 
 I följande fragment visas en `DownloadFile`-metod som du kan använda för att hämta en fil från ett Data Lake Store-konto.
 
     // Download file
-       public static void DownloadFile(string srcFilePath, string destFilePath)
+    public static void DownloadFile(string srcFilePath, string destFilePath)
     {
          _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath);
     }

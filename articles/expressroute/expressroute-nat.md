@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/12/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: d29cf81747390fe153c3c6dc330ef738de0cd83a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d3de566ff2825ef0c41d88d4a86157dc23d9f46b
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -49,7 +49,7 @@ Det finns inga begränsningar för längden på NAT:s IP-prefix som annonseras v
 > 
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>NAT-krav för Microsoft-peering
-Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som inte stöds via Azures offentliga peeringsökväg. Listan med tjänster innefattar Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och CRM Online. Microsoft förväntas stödja dubbelriktad anslutning i Microsofts peering. Trafik till Microsofts molntjänster måste vara SNATed till giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket. Trafik som är avsedd för ditt nätverk från Microsofts molntjänster måste vara SNATed i din Internet-anslutning för att förhindra [asymmetrisk routning](expressroute-asymmetric-routing.md). I bilden nedan ges en översiktlig bild av hur NAT ska vara konfigurerat för Microsoft-peering.
+Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som inte stöds via Azures offentliga peeringsökväg. Listan med tjänster innefattar Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och Dynamics 365. Microsoft förväntas stödja dubbelriktad anslutning i Microsofts peering. Trafik till Microsofts molntjänster måste vara SNATed till giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket. Trafik som är avsedd för ditt nätverk från Microsofts molntjänster måste vara SNATed i din Internet-anslutning för att förhindra [asymmetrisk routning](expressroute-asymmetric-routing.md). I bilden nedan ges en översiktlig bild av hur NAT ska vara konfigurerat för Microsoft-peering.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 

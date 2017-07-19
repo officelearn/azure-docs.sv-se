@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 834d01a446c77e69c325058fa00ed5860a82d891
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 59d8b23291adb1e680e70898f5bb82bb699be19d
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/14/2017
 
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av .NET-API:et
@@ -32,21 +32,22 @@ ms.lasthandoff: 04/27/2017
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-Den här självstudiekursen visar hur du skapar och övervakar en Azure-datafabrik med hjälp av .NET-API:et. Pipelinen i datafabriken använder en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure SQL Database.
+I den här artikeln får du lära dig hur du använder [.NET API](https://portal.azure.com) för att skapa en datafabrik med en pipeline som kopierar data från en Azure-bloblagring till en Azure SQL-databas. Om du inte har använt Azure Data Factory, bör du läsa igenom artikeln [Introduktion till Azure Data Factory](data-factory-introduction.md) innan du genomför den här självstudien.   
 
-Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.
+I den här självstudien får du skapa en pipeline i en aktivitet: kopieringsaktivitet. Kopieringsaktiviteten kopierar data från källans datalager till mottagarens datalager. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.
 
-> [!NOTE]
-> Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Mer information om Data Factory .NET SDK finns i [referensen för .NET-API:et för Data Factory](https://msdn.microsoft.com/library/mt415893.aspx).
+En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer information finns i [flera aktiviteter i en pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
+
+> [!NOTE] 
+> Fullständig dokumentation för .NET-API för Data Factory finns [Data Factory .NET API-referens](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
 > 
-> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
-
+> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
 ## <a name="prerequisites"></a>Krav
 * Gå igenom [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för att få en översikt av självstudierna och slutför de **nödvändiga** stegen.
 * Visual Studio 2012, 2013 eller 2015
 * Ladda ned och installera [Azure .NET SDK](http://azure.microsoft.com/downloads/)
-* Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.
+* Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](../powershell-install-configure.md) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
 Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för programmet och tilldela det rollen som **Data Factory-deltagare**.
@@ -104,7 +105,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 9. Hämta program-ID:t.
 
     ```PowerShell
-    $azureAdApplication    
+    $azureAdApplication 
     ```
     Anteckna program-ID:t (applicationID) från utdata.
 
@@ -136,7 +137,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
         <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
@@ -204,6 +205,7 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
     );
     ```
 
+    En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Det kan exempelvis vara en kopieringsaktivitet som kopierar data från en källa till ett måldataarkiv och en HDInsight Hive-aktivitet som kör Hive-skript för att transformera indata till produktutdata. Låt oss börja med att skapa datafabriken i det här steget.
 8. Lägg till följande kod som skapar en **länkad Azure Storage-tjänst** till **Main**-metoden.
 
    > [!IMPORTANT]
@@ -227,6 +229,11 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
     );
     ```
 
+    Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här självstudiekursen kommer använder du inte någon beräkningstjänst, till exempel Azure HDInsight eller Azure Data Lake Analytics. Du använder två datalager av typen Azure Storage (källa) och Azure SQL Database (mål). 
+
+    Därför kan du skapa två länkade tjänster som heter AzureStorageLinkedService och AzureSqlLinkedService av typerna: AzureStorage och AzureSqlDatabase.  
+
+    AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Använd det lagringskonto i vilket du skapade en behållare och laddade upp data under [förberedelsestegen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 9. Lägg till följande kod som skapar en **länkad Azure SQL-tjänst** till **Main**-metoden.
 
    > [!IMPORTANT]
@@ -250,13 +257,14 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
     );
     ```
 
+    AzureSqlLinkedService länkar din Azure SQL-databas till datafabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den tomma tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 10. Lägg till följande kod som skapar **in- och utdatauppsättningar** till **Main**-metoden.
 
     ```csharp
     // create input and output datasets
     Console.WriteLine("Creating input and output datasets");
-    string Dataset_Source = "DatasetBlobSource";
-    string Dataset_Destination = "DatasetAzureSqlDestination";
+    string Dataset_Source = "InputDataset";
+    string Dataset_Destination = "OutputDataset";
 
     Console.WriteLine("Creating input dataset of type: Azure Blob");
     client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
@@ -325,14 +333,23 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
             }
         });
     ```
+    
+    I det föregående steget skapade du kopplade tjänster för att länka ett Azure-lagringskonto och en Azure SQL-databas till datafabriken. I det här steget definierar du två datauppsättningar – InputDataset och OutputDataset – som visar in- och utdata som lagras i de datalager som refereras till av AzureStorageLinkedService och AzureSqlLinkedService.
 
-11. Lägg till följande kod som **skapar och aktiverar en pipeline** till **Main**-metoden. Den här pipelinen har en **CopyActivity** som använder **BlobSource** som källa och **BlobSink** som mottagare.
+    Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en indatauppsättning anger vilken blobbehållare och mapp som innehåller indata.  
+
+    Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure SQL-databas. Och utdatauppsättningen (OutputDataset) för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen.
+
+    I det här steget skapar du en datauppsättning med namnet InputDataset som pekar på en blobfil (emp.ext) i rotmappen i en blobbehållare (adftutorial) i Azure Storage som representeras av den länkade tjänsten AzureStorageLinkedService. Om du inte anger ett värde för filnamnet (eller hoppar över det), kommer data från alla blobbar i indatamappen att kopieras till målet. I den här kursen anger du ett värde för filnamnet.    
+
+    I det här steget ska du skapa en utdatauppsättning med namnet **OutputDataset**. Den här datauppsättningen pekar på en SQL-tabell i Azure SQL-databasen som representeras av **AzureSqlLinkedService**.
+11. Lägg till följande kod som **skapar och aktiverar en pipeline** till **Main**-metoden. I det här steget ska du skapa en pipeline med en **kopieringsaktivitet** som använder **InputDataset** som indata och **OutputDataset** som utdata.
 
     ```csharp
     // create a pipeline
     Console.WriteLine("Creating a pipeline");
-    DateTime PipelineActivePeriodStartTime = new DateTime(2016, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
-    DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
+    DateTime PipelineActivePeriodStartTime = new DateTime(2017, 5, 11, 0, 0, 0, 0, DateTimeKind.Utc);
+    DateTime PipelineActivePeriodEndTime = new DateTime(2017, 5, 12, 0, 0, 0, 0, DateTimeKind.Utc);
     string PipelineName = "ADFTutorialPipeline";
 
     client.Pipelines.CreateOrUpdate(resourceGroupName, dataFactoryName,
@@ -383,6 +400,13 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
         });
     ```
 
+    Observera följande punkter:
+   
+    - I avsnittet Aktiviteter finns det bara en aktivitet vars **typ** anges till **Kopia**. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten. I Data Factory-lösningar, kan du också använda [datatransformeringsaktiviteter](data-factory-data-transformation-activities.md).
+    - Indata för aktiviteten är inställd på **InputDataset** och utdata för aktiviteten är inställd på **OutputDataset**. 
+    - I avsnittet för **typeProperties** har **BlobSource** angetts som källtyp och **SqlSink** har angetts som mottagartyp. En fullständig lista över datakällor som stöds av kopieringsaktiviteten som källor och mottagare finns i [Datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Klicka på länken i tabellen om du vill veta hur du använder ett visst datalager som stöds som källa/mottagare.  
+   
+    Schemat styrs för närvarande av utdatamängd. I den här självstudiekursen är datamängden för utdata konfigurerad för att skapa ett segment en gång i timmen. Pipelinen har en starttid och sluttid som är en dag från varandra, vilket är 24 timmar. Därför produceras 24 segment för utdatauppsättningen av pipeline.
 12. Lägg till följande kod till **Main**-metoden för att hämta statusen för en datasektor i utdatauppsättningen. Endast en sektor förväntas i det här exemplet.
 
     ```csharp
@@ -455,6 +479,9 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
 14. Lägg till följande helper-metod som används av **Main**-metoden i **Program**-klassen.
 
+    > [!NOTE] 
+    > När du kopierar och klistrar in följande kod, se till att den kopierade koden är på samma nivå som huvudmetoden.
+
     ```csharp
     public static async Task<string> GetAuthorizationHeader()
     {
@@ -484,15 +511,17 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 18. Kör exemplet genom att klicka på **Felsök** -> **Börja felsöka** på menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
 19. Använd Azure-portalen och kontrollera att datafabriken **APITutorialFactory** har skapats med följande artefakter:
    * Länkad tjänst: **LinkedService_AzureStorage**
-   * Datauppsättning: **DatasetBlobSource** och **DatasetBlobDestination**.
+   * DataSet: **InputDataset** och **OutputDataset**.
    * Pipeline: **PipelineBlobSample**
 20. Kontrollera att de två medarbetarposterna skapas i tabellen **emp** i den angivna Azure SQL-databasen.
 
 ## <a name="next-steps"></a>Nästa steg
-| Avsnitt | Beskrivning |
-|:--- |:--- |
-| [Pipelines](data-factory-create-pipelines.md) |Den här artikeln beskriver pipelines och aktiviteter i Azure Data Factory. |
-| [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
-| [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
-[Referens för .NET-API:et för Data Factory](/dotnet/api/) | Innehåller information om Data Factory .NET SDK (leta efter Microsoft.Azure.Management.DataFactories.Models i trädvyn).
+Fullständig dokumentation för .NET-API för Data Factory finns [Data Factory .NET API-referens](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
+
+I den här kursen används Azure blob storage som ett datalager för källa och en Azure SQL-databas som ett dataarkiv som mål i en kopieringsåtgärd. Följande tabell innehåller en lista över datalager som stöds som källor och mål av kopieringsaktiviteten: 
+
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+För mer information om hur du kopierar data till/från ett datalager klickar du på länken för datalagret i tabellen.
+
 

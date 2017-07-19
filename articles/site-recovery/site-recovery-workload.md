@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 0ce6114073b80c1d9bb719654ab8cebc30dfefac
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -153,9 +153,9 @@ Använd Site Recovery för att skydda dina Citrix XenApp- och XenDesktop-distrib
 * Förenkla molnmigreringen genom att använda Site Recovery för att migrera din Citrix XenApp och XenDesktop SAP-distribution till Azure.
 * Förenkla Citrix XenApp-/XenDesktop-testningen genom att skapa en produktionslik kopia på begäran för testning och felsökning.
 * Den här lösningen gäller endast för Windows Server-operativsystemens virtuella skrivbord och inte för virtuella klientskrivbord eftersom virtuella klientskrivbord fortfarande inte har stöd för licensiering i Azure. 
-[Lär dig mer](https://azure.microsoft.com/en-us/pricing/licensing-faq/) om licensiering för klient/server-datorer i Azure.
+[Lär dig mer](https://azure.microsoft.com/pricing/licensing-faq/) om licensiering för klient/server-datorer i Azure.
 
-[Lär dig mer](https://aka.ms/citrix-xenapp-xendesktop-with-asr) om att skydda Citrix XenApp- och XenDesktop-distributioner.
+[Lär dig mer](site-recovery-citrix-xenapp-and-xendesktop.md) om att skydda Citrix XenApp- och XenDesktop-distributioner. Alternativt kan du läsa ett [whitepaper från Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) med samma information. 
 
 ## <a name="next-steps"></a>Nästa steg
 [Kontrollera krav](site-recovery-prereq.md) 

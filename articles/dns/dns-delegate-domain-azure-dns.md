@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 992b08a1e88062923d0775c59b8baf93fee5364b
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/16/2017
 
 ---
 
@@ -300,7 +301,7 @@ Så här tar du bort alla resurser som skapats i den här artikeln:
 
 1. Klicka på **Alla resurser** i rutan **Favoriter** i Azure Portal. Klicka på resursgruppen **contosorg** på bladet Alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange **contosorg** i rutan **Filtrera efter namn...** när du ska hitta resursgruppen.
 1. Klicka på knappen **Ta bort** i bladet **contosorg**.
-1. Du måste ange namnet på resursgruppen i portalen som bekräftelse på att du vill ta bort den. Klicka på **Ta bort**, skriv *contosorg* som resursgruppnamn och klicka sedan på **Ta bort**. När du tar bort en resursgrupp så tas alla resurser i resursgruppen bort, så du måste alltid kontrollera innehållet i en resursgrupp innan du tar bort den. Portalen tar bort alla resurser som finns i resursgruppen och sedan tas själva resursgruppen bort. Den här processen tar flera minuter.
+1. Du måste ange namnet på resursgruppen i portalen som bekräftelse på att du vill ta bort den. Skriv *contosorg* som resursgruppnamn och klicka sedan på **Ta bort**. När du tar bort en resursgrupp så tas alla resurser i resursgruppen bort, så du måste alltid kontrollera innehållet i en resursgrupp innan du tar bort den. Portalen tar bort alla resurser som finns i resursgruppen och sedan tas själva resursgruppen bort. Den här processen tar flera minuter.
 
 ## <a name="next-steps"></a>Nästa steg
 

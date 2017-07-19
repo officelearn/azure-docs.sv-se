@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 7423ef26a4a1c49245a1f8df79bbcaabea222596
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: accd5c55e7adafd5a387bf420660b808335192e6
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Skapa en funktion som utlöses av en GitHub-webhook
@@ -29,15 +29,10 @@ Lär dig hur du skapar en funktion som utlöses av en HTTP-webhookbegäran med e
 
 ![Github-webhookutlöst funktion i Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-Det bör ta mindre än fem minuter att slutföra alla steg i det här avsnittet.
-
 ## <a name="prerequisites"></a>Krav
 
-Innan du kör exemplet måste du ha följande:
-
-- Ett GitHub-konto med minst ett projekt.
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
++ Ett GitHub-konto med minst ett projekt.
++ En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -53,9 +48,15 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-a-github-webhook-triggered-function"></a>Skapa en webhook-utlöst GitHub-funktion
 
-1. Expandera funktionsappen, klicka på knappen **+** bredvid **Funktioner** och klicka på mallen **GitHubWebHook** för önskat språk. **Namnge funktionen** och klicka på **Skapa**.
+1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar.
 
-1. Klicka på **</> Hämta funktionswebbadress** och kopiera och spara värdena. Gör samma sak för **</> Hämta GitHub-hemlighet**. Du behöver dessa värden när du konfigurerar webhooken i GitHub.
+    ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
+
+2. Välj **GitHubWebHook**-mallen för språket. **Namnge funktionen** och klicka på **Skapa**.
+
+     ![Skapa en funktion som utlöses med en GitHub-webhook i Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+3. Klicka på **</> Hämta funktionswebbadress** och kopiera och spara värdena. Gör samma sak för **</> Hämta GitHub-hemlighet**. Du behöver dessa värden när du konfigurerar webhooken i GitHub.
 
     ![Granska funktionskoden](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: c2a595f07a51223368f00d6a8bf905249a391342
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 01321cb74cce35fc01824d2c6c67211caab33258
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -29,15 +30,11 @@ Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Den här snabbstarten kräver Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="log-in-to-azure"></a>Logga in på Azure 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/#login) och följ anvisningarna på skärmen.
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-```azurecli
-az login
-```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -45,7 +42,7 @@ Skapa en resursgrupp med [az group create](/cli/azure/group#create). En Azure-re
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -55,7 +52,7 @@ Skapa en virtuell dator med [az vm create](/cli/azure/vm#create).
 
 Följande exempel skapar en virtuell dator med namnet *myVM*. Det här exemplet använder *azureuser* som administrativt användarnamn och *myPassword12* som lösenord. Uppdatera dessa värden till något som är lämpligt för din miljö. Dessa värden krävs när du skapar en anslutning med den virtuella datorn.
 
-```azurecli
+```azurecli-interactive 
 az vm create `
   --resource-group myResourceGroup `
   --name myVM --image win2016datacenter `
@@ -65,7 +62,7 @@ az vm create `
 
 När den virtuella datorn har skapats visar Azure CLI information som ser ut ungefär som i följande exempel. Anteckna `publicIpAaddress`. Den här adressen används för att få åtkomst till den virtuella datorn.
 
-```azurecli
+```azurecli-interactive 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -82,7 +79,7 @@ När den virtuella datorn har skapats visar Azure CLI information som ser ut ung
 
 Som standard tillåts enbart RDP-anslutningar i virtuella Windows-datorer som distribueras i Azure. Om den här virtuella datorn kommer att vara en webbserver måste du öppna port 80 från Internet. Använd kommandot [az vm open-port](/cli/azure/vm#open-port) för att öppna önskad port.  
  
- ```azurecli 
+ ```azurecli-interactive  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
@@ -108,11 +105,12 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 Du kan använda en webbläsare som du själv väljer för att visa standardvälkomstsidan för IIS när IIS är installerat och port 80 nu är öppen på den virtuella datorn från Internet. Se till att använda den offentliga IP-adress som du har dokumenterat ovan för att besöka standardsidan. 
 
 ![Standardwebbplatsen i IIS](./media/quick-create-powershell/default-iis-website.png) 
-## <a name="delete-virtual-machine"></a>Ta bort en virtuell dator
+
+## <a name="clean-up-resources"></a>Rensa resurser
 
 När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group#delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

@@ -13,17 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 06/02/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
-ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 0a1e23cd52ab5c10791a11d93753b54eb1c1b71a
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Vanliga frågor och svar om Azure Machine Learning: Fakturering, funktioner, begränsningar och support
 Här får du svar på vanliga frågor om molntjänsten Azure Machine Learning som tillhandahåller förutsägelsemodeller och operationaliseringslösningar genom webbtjänster. Avsnittet ger svar på frågor om hur du använder tjänsten, inklusive faktureringsmodellen, funktioner, begränsningar och support.
+
+**Har en fråga som du inte kan hitta här?**
+
+Azure Machine Learning har även ett forum på MSDN där datatekniker kan ställa frågor om Azure Machine Learning. Forumet övervakas av Azure Machine Learning-teamet. Gå till [Azure Machine Learning-forumet](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)för att söka efter svar eller ställa en ny fråga.
 
 ## <a name="general-questions"></a>Allmänna frågor
 **Vad är Azure Machine Learning?**
@@ -42,7 +47,7 @@ Mer information om Machine Learning Studio finns i [Vad är Machine Learning Stu
 
 Med Machine Learning API kan du distribuera förutsägelsemodeller, som de som skapas i Machine Learning Studio, som skalbara, feltoleranta webbtjänster. Webbtjänsterna som skapas med Machine Learning API-tjänsten är REST-API:er som tillhandahåller ett gränssnitt för kommunikation mellan externa program och dina förutsägelseanalysmodeller.
 
-Mer information finns i [Ansluta till en Machine Learning-webbtjänst](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Mer information finns i [Använda Azure Machine Learning-webbtjänster](machine-learning-consume-web-services.md).
 
 **Var visas mina klassiska webbtjänster? Var visas mina nya Azure Resource Manager-baserade webbtjänster?**
 
@@ -216,7 +221,7 @@ Mer information finns i [Azure-prenumerationsbegränsningar](../azure-subscripti
 ### <a name="use"></a>Användning
 **När ska jag köra min förutsägelsemodell som en batchkörningstjänst (BES) eller som en svar på begäran-tjänst (RRS)?**
 
-RR-tjänsten är en högskalig webbtjänst med korta svarstider som används för att tillhandahålla ett gränssnitt för tillståndslösa modeller som skapas och distribueras från experimentmiljön. BES (Batch Execution Service) är en tjänst som asynkront poängsätter en samling dataposter. Indata för BES är som de indata som används av RRS. Den största skillnaden är att BES läser ett block med poster från olika källor, till exempel Azure Blob Storage, Azure Table Storage, Azure SQL Database, HDInsight (hive-fråga) och HTTP-källor. Mer information finns i [Använda Machine Learning-webbtjänster](machine-learning-consume-web-services.md).
+RR-tjänsten är en högskalig webbtjänst med korta svarstider som används för att tillhandahålla ett gränssnitt för tillståndslösa modeller som skapas och distribueras från experimentmiljön. BES (Batch Execution Service) är en tjänst som asynkront poängsätter en samling dataposter. Indata för BES är som de indata som används av RRS. Den största skillnaden är att BES läser ett block med poster från olika källor, till exempel Azure Blob Storage, Azure Table Storage, Azure SQL Database, HDInsight (hive-fråga) och HTTP-källor. Mer information finns i [Använda Azure Machine Learning-webbtjänster](machine-learning-consume-web-services.md).
 
 **Hur uppdaterar jag modellen för den distribuerade webbtjänsten?**
 
@@ -282,7 +287,7 @@ Nej.
 ## <a name="security-and-availability"></a>Säkerhet och tillgänglighet
 **Vem har tillgång till HTTP-slutpunkten för webbtjänsten som standard? Hur begränsar jag åtkomsten till slutpunkten?**
 
-När en webbtjänst har distribuerats skapas en standardslutpunkt för tjänsten. Standardslutpunkten kan anropas med dess API-nyckel. Du kan lägga till fler slutpunkter med deras egna nycklar från den klassiska Azure-portalen eller via programmering med hjälp av Web Service Management-API:erna. Åtkomstnycklar behövs för att göra anrop till webbtjänsten. Mer information finns i [Ansluta till en Machine Learning-webbtjänst](machine-learning-connect-to-azure-machine-learning-web-service.md).
+När en webbtjänst har distribuerats skapas en standardslutpunkt för tjänsten. Standardslutpunkten kan anropas med dess API-nyckel. Du kan lägga till fler slutpunkter med deras egna nycklar från den klassiska Azure-portalen eller via programmering med hjälp av Web Service Management-API:erna. Åtkomstnycklar behövs för att göra anrop till webbtjänsten. Mer information finns i [Använda Azure Machine Learning-webbtjänster](machine-learning-consume-web-services.md).
 
 **Vad händer om det inte går att hitta mitt Azure-lagringskonto?**
 

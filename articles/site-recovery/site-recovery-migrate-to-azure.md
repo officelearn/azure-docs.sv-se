@@ -8,16 +8,17 @@ manager: jwhit
 editor: 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -80,4 +81,6 @@ Du kan migrera AWS-instanser till virtuella Azure-datorer. I det här scenariot 
 - [Migrera virtuella Hyper-V-datorer utan VMM till Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Migrera virtuella Azure-datorer mellan Azure-regioner](site-recovery-migrate-azure-to-azure.md)
 - [Migrera AWS-instanser till Azure](site-recovery-migrate-aws-to-azure.md)
+- [Förbereda migrerade datorer att aktivera replikering](site-recovery-azure-to-azure-after-migration.md) till en annan region för katastrofåterställning.
+- Börja skydda dina arbetsbelastningar genom att [replikera virtuella Azure datorer.](site-recovery-azure-to-azure.md)
 

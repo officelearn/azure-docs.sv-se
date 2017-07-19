@@ -14,13 +14,14 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: e37a3194bb65ccf3bb6168a2f456902a9c48edc5
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 99bb3db7cc80e8426e1dca14bc3d733ee6c7342c
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Skapa ett privat Dockerbehållarregister med hjälp av Azure CLI 2.0
@@ -45,17 +46,38 @@ Du skapar ett behållarregister genom att köra `az acr create`-kommandot.
 >
 >
 
-Följande kommando använder de minsta nödvändiga parametrarna för att skapa behållarregistret `myRegistry1` i resursgruppen `myResourceGroup` på platsen USA, södra centrala:
+Följande kommando använder de minsta nödvändiga parametrarna för att skapa behållarregistret `myRegistry1` i resursgruppen `myResourceGroup` med sku *Basic*:
 
 ```azurecli
-az acr create -n myRegistry1 -g myResourceGroup -l southcentralus
+az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
 ```
 
 * `--storage-account-name` är valfritt. Om inget annat anges skapas ett lagringskonto med ett namn som består av registrets namn och en tidsstämpel i den angivna resursgruppen.
 
-De utdata som genereras liknar följande:
+När registret har skapats ser utdata ut ungefär så här:
 
-![Utdata från az acr create](./media/container-registry-get-started-azure-cli/acr_create.png)
+```azurecli
+{
+  "adminUserEnabled": false,
+  "creationDate": "2017-06-06T18:36:29.124842+00:00",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
+/registries/myRegistry1",
+  "location": "southcentralus",
+  "loginServer": "myregistry1.azurecr.io",
+  "name": "myRegistry1",
+  "provisioningState": "Succeeded",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "storageAccount": {
+    "name": "myregistry123456789"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+
+```
 
 
 Notera särskilt:

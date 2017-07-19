@@ -1,6 +1,6 @@
 ---
-title: "Snabbstart för Kubernetes-kluster i Azure | Microsoft Docs"
-description: "Distribuera och komma igång med ett Kubernetes-kluster i Azure Container Service"
+title: "Snabbstart - Azure Kubernetes-kluster för Linux | Microsoft Docs"
+description: "Lär dig snabbt att skapa ett Kubernetes-kluster på Linux-behållare i Azure Container Service med Azure CLI."
 services: container-service
 documentationcenter: 
 author: anhowe
@@ -14,191 +14,153 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/31/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2ec155129374c03ba7e0ecaa5d2bf29a1d3111aa
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 25043f6bf5e5ab3def8563bd2c096b79706bfec1
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
-# <a name="get-started-with-a-kubernetes-cluster-in-container-service"></a>Kom igång med ett Kubernetes-kluster i Container Service
+# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Distribuera Kubernets-kluster för Linux-behållare
 
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur Azure CLI används för att distribuera ett [Kubernetes](https://kubernetes.io/docs/home/)-kluster i [Azure Container Service](container-service-intro.md). När klustret distribueras kan du ansluta till det med kommandoradsverktyget för Kubernetes `kubectl` och distribuera din första Linux-behållare.
 
-Den här genomgången visar hur du kan använda Azure CLI 2.0-kommandon för att skapa ett Kubernetes-kluster i Azure Container Service. Därefter kan du använda kommandoradsverktyget `kubectl` för att börja arbeta med behållare i klustret.
+För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Bilden nedan visar arkitekturen för ett Container Service-kluster med en Linux-huvudnod och två Linux-agenter. Kubernetes REST-API:et använder huvudnoden. Agentnoderna är grupperade i en Azure-tillgänglighetsuppsättning och kör dina behållare. Alla virtuella datorer finns i samma privata virtuella nätverk och kan nås av varandra.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Mer bakgrundsinformation finns i [Introduktion till Azure Container Service](container-service-intro.md) och [Kubernetes-dokumentationen](https://kubernetes.io/docs/home/).
+## <a name="log-in-to-azure"></a>Logga in på Azure 
 
-## <a name="prerequisites"></a>Krav
-För att skapa ett Azure Container Service-kluster med hjälp av Azure CLI 2.0 måste du
-* ha ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/))
-* ha installerat och konfigurerat [Azure CLI 2.0](/cli/azure/install-az-cli2)
+Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/#login) och följ anvisningarna på skärmen.
 
-Du behöver också följande (eller kan använda Azure CLI för automatisk generering under klusterdistributionen):
-
-* **Offentlig SSH-RSA-nyckel**: Om du vill skapa SSH (Secure Shell) RSA-nycklar i förväg läser du hjälpartiklarna för [Mac OS och Linux](../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../virtual-machines/linux/ssh-from-windows.md). 
-
-* **Klient-ID och hemlighet för tjänstobjekt**: Anvisningar för hur du skapar ett tjänstobjekt för Azure Active Directory och ytterligare information finns i avsnittet [Om tjänstobjektet för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md).
-
- Kommandoexemplet i den här artikeln genererar automatiskt SSH-nycklar och tjänstens huvudnamn.
-
-## <a name="create-your-kubernetes-cluster"></a>Skapa Kubernetes-klustret
-
-Här är några exempel på Bash shell-kommandon som använder Azure CLI 2.0 för att skapa klustret. 
-
-### <a name="create-a-resource-group"></a>Skapa en resursgrupp
-För att skapa klustret måste du först skapa en resursgrupp på en plats där Azure Container Service är [tillgänglig](https://azure.microsoft.com/regions/services/). Kör kommandon som följande:
-
-```azurecli
-RESOURCE_GROUP=my-resource-group
-LOCATION=westus
-az group create --name=$RESOURCE_GROUP --location=$LOCATION
+```azurecli-interactive
+az login
 ```
 
-### <a name="create-a-cluster"></a>Skapa ett kluster
-Skapa ett Kubernetes-kluster i resursgruppen genom att använda `az acs create`-kommandot med `--orchestrator-type=kubernetes`. Kommandosyntax finns i `az acs create` [hjälp](/cli/azure/acs#create).
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Den här versionen av kommandot genererar automatiskt SSH RSA-nycklar och tjänstens huvudnamn för Kubernetes-klustret.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. 
 
+I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
-
-```azurecli
-DNS_PREFIX=some-unique-value
-CLUSTER_NAME=any-acs-cluster-name
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
 ```
 
-Kommandot har slutförts och du bör ha ett fungerande Kubernetes-kluster efter ett par minuter.
+## <a name="create-kubernetes-cluster"></a>Skapa Kubernetes-kluster
+Skapa ett Kubernetes-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#create). 
 
-> [!IMPORTANT]
-> Om ditt konto inte har behörighet för att skapa Azure AD-tjänstens huvudnamn genererar kommandot ett fel som liknar `Insufficient privileges to complete the operation.` Mer information finns i [Om tjänstens huvudnamn för ett Kubernetes-kluster](container-service-kubernetes-service-principal.md).
-> 
-
+I följande exempel skapas ett kluster med namnet *myK8sCluster* med en Linux master-nod och två noder för Linux-agenten. Det här exemplet skapar SSH-nycklar, om de inte redan finns i standardkatalogen. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. Uppdatera dessa klusternamn till något som är lämpligt för din miljö. 
 
 
-### <a name="connect-to-the-cluster"></a>Anslut till klustret
+
+```azurecli-interactive 
+az acs create --orchestrator-type=kubernetes \
+    --resource-group myResourceGroup \
+    --name=myK8sCluster \
+    --generate-ssh-keys 
+```
+
+Om några minuter har kommandot slutförts och visar information om din distribution.
+
+## <a name="install-kubectl"></a>Installera kubectl
 
 För att ansluta till Kubernetes-klustret från klientdatorn använder du [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), Kubernetes kommandoradsklient. 
 
-Om du inte redan har installerat `kubectl` kan du göra det med `az acs kubernetes install-cli`. (Du kan även hämta det från [Kubernetes-webbplatsen](https://kubernetes.io/docs/tasks/kubectl/install/).)
+Om du använder Azure CloudShell är `kubectl` redan installerad. Om du vill installera det lokalt, kan du använda kommandot [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
 
-```azurecli
-sudo az acs kubernetes install-cli
+I följande exempel för Azure CLI installeras `kubectl` i systemet. Om du använder Azure CLI på macOS- eller Linux behöva du köra kommandot med `sudo`.
+
+```azurecli-interactive 
+az acs kubernetes install-cli 
 ```
 
-> [!TIP]
-> Som standard installerar det här kommandot den här `kubectl` binära filen `/usr/local/bin/kubectl` på ett Linux- eller macOS-system, eller på `C:\Program Files (x86)\kubectl.exe` i Windows. Om du vill ange en annan installationssökväg använder du parametern `--install-location`.
->
-> När `kubectl` är installerat, se till att dess katalog finns i systemsökvägen eller lägg till det i sökvägen. 
->
+## <a name="connect-with-kubectl"></a>Ansluta med kubectl
 
+För att konfigurera `kubectl` för att ansluta till Kubernetes klustret kör du kommandot [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). I följande exempel hämtas klusterkonfigurationen för Kubernetes-klustret.
 
-Sedan kör du följande kommando för att hämta huvudkonfigurationen för Kubernetes till `~/.kube/config`-filen:
-
-```azurecli
-az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
+```azurecli-interactive 
+az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Anvisningar för hur du installerar och konfigurerar `kubectl` finns i [Ansluta till ett Azure Container Service-kluster](container-service-connect.md).
+För att verifiera anslutningen till ditt kluster från din dator, kör:
 
-Nu bör du kunna komma åt ditt kluster från datorn. Prova att köra:
-
-```bash
+```azurecli-interactive
 kubectl get nodes
 ```
 
-Kontrollera att du kan se en lista över datorerna i klustret.
+`kubectl` visar master- och agentnoderna.
 
-## <a name="create-your-first-kubernetes-service"></a>Skapa din första Kubernetes-tjänst
+```azurecli-interactive
+NAME                    STATUS                     AGE       VERSION
+k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
+k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
+k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
-I den här genomgången lär du dig att:
-* distribuera och exponera ett Docker-program
-* använda `kubectl exec` för att köra kommandon i en behållare 
-* komma åt Kubernetes-instrumentpanelen.
-
-### <a name="start-a-container"></a>Starta en behållare
-Du kan köra en behållare (i det här fallet Nginx-webbservern) genom att köra:
-
-```bash
-kubectl run nginx --image nginx
 ```
 
-Det här kommandot startar Docker-behållaren Nginx i en pod på en av noderna.
 
-Visa behållaren som körs genom att köra:
+## <a name="deploy-an-nginx-container"></a>Distribuera en NGINX-behållare
 
-```bash
+Du kan köra en dockerbehållare i en Kubernetes-*pod*, som innehåller en eller flera behållare. 
+
+Det här kommandot startar Docker-behållaren NGINX i en Kubernetes-pod på en av noderna. I det här fallet kör behållaren NGINX-webbservern från en avbildning i [Docker-hubb](https://hub.docker.com/_/nginx/).
+
+```azurecli-interactive
+kubectl run nginx --image nginx
+```
+För att se att behållaren körs, kör du:
+
+```azurecli-interactive
 kubectl get pods
 ```
 
-### <a name="expose-the-service-to-the-world"></a>Exponera tjänsten för världen
-Om du vill exponera tjänsten på Internet skapar du en Kubernetes-`Service` av typen `LoadBalancer`:
+## <a name="view-the-nginx-welcome-page"></a>Visa NGINX-välkomstsidan
+Om du vill exponera NGINX-servern för alla med en offentlig IP-adress skriver du följande kommando:
 
-```bash
+```azurecli-interactive
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-Genom detta kommando skapar Kubernetes en Azure Load Balancer-regel med en offentlig IP-adress. Det tar några minuter för ändringen att distribueras till belastningsutjämnaren. Mer information finns i [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md) (Belastningsutjämna behållare i ett Kubernetes-kluster i Azure Container Service).
+Med detta kommando skapar Kubernetes en tjänst och en [Azure Load Balancer-regel](container-service-kubernetes-load-balancing.md) med en offentlig IP-adress för tjänsten. 
 
-Kör följande kommando för att se hur tjänsten ändras från `pending` till att visa en extern IP-adress:
+Kör följande kommando för att se status för tjänsten.
 
-```bash
-watch 'kubectl get svc'
+```azurecli-interactive
+kubectl get svc
 ```
 
-  ![Bild av övergången från väntande till extern IP-adress](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
-
-När du ser den externa IP-adressen kan du gå till den i webbläsaren:
-
-  ![Bild som visar hur du går till Nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
-
-
-### <a name="browse-the-kubernetes-ui"></a>Navigera i Kubernetes-användargränssnittet
-Du kan visa Kubernetes-webbgränssnittet genom att använda:
-
-```bash
-kubectl proxy
-```
-Det här kommandot kör en autentiserad proxy på localhost, som du kan använda för att visa Kubernetes-webbanvändargränssnittet som körs på [http://localhost:8001/ui](http://localhost:8001/ui). Mer information finns i [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md) (Använda Kubernetes-webbanvändargränssnittet med Azure Container Service).
-
-![Bild av Kubernetes-instrumentpanelen](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
-
-### <a name="remote-sessions-inside-your-containers"></a>Fjärrsessioner i dina behållare
-Med Kubernetes kan du köra kommandon i en fjärransluten Docker-behållare som körs i klustret.
-
-```bash
-# Get the name of your nginx pods
-kubectl get pods
+IP-adressen visas först som `pending`. Efter några minuter har tjänstens externa IP-adress ställts in:
+  
+```azurecli-interactive
+NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
+kubernetes   10.0.0.1       <none>          443/TCP        21h       
+nginx        10.0.111.25    52.179.3.96     80/TCP         22m
 ```
 
-Genom att använda ditt podnamn kan du köra ett fjärrkommando på din pod. Exempel:
+Du kan använda en webbläsare som du väljer för att se NGINX-välkomstsidan på den externa IP-adressen:
 
-```bash
-kubectl exec <pod name> date
+![Bild som visar hur du går till Nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
+
+
+## <a name="delete-cluster"></a>Ta bort klustret
+När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
 ```
-
-Du kan också upprätta en helt interaktiv session med `-it`-flaggorna:
-
-```bash
-kubectl exec <pod name> -it bash
-```
-
-![Fjärrsession i en behållare](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
-
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om fler åtgärder som du kan utföra med ett Kubernetes-kluster finns i följande resurser:
+I den här snabbstartsguide du har distribuerat ett Kubernetes-kluster med `kubectl`, och distribuerat en pod med en NGINX-behållare. Om du vill veta mer om Azure Container Service kan fortsätta till självstudiekursen om Kubernetes-kluster.
 
-* [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) – visar hur du distribuerar, skalar, uppdaterar och felsöker program som använder behållare.
-* [Användarhandboken för Kubernetes](http://kubernetes.io/docs/user-guide/) – innehåller information om hur du kör program i ett befintligt Kubernetes-kluster.
-* [Kubernetes-exempel](https://github.com/kubernetes/kubernetes/tree/master/examples) – innehåller exempel på hur du kör verkliga program med Kubernetes.
+> [!div class="nextstepaction"]
+> [Hantera ett ACS Kubernets-kluster](./container-service-tutorial-kubernetes-prepare-app.md)
 

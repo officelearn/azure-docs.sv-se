@@ -17,19 +17,18 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e74c5428f0e31d9d3cf06b85aa8cefde868e9d67
-ms.lasthandoff: 03/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 2cd5a08cc74473be594fc3c7a4fb934d65ffe0ab
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/12/2017
 
 ---
 
 # <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Skapa ett privat Docker-behållarregister med hjälp av Azure Portal
-Använd Azure Portal för att skapa ett behållarregister och hantera dess inställningar. Du kan också skapa och hantera behållarregister med hjälp av [Azure CLI 2.0-kommandona](container-registry-get-started-azure-cli.md) eller via programmering med [REST-API:et](https://go.microsoft.com/fwlink/p/?linkid=834376) för Container Registry.
+Använd Azure Portal för att skapa ett behållarregister och hantera dess inställningar. Du kan också skapa och hantera behållarregister med hjälp av [Azure CLI 2.0-kommandona](container-registry-get-started-azure-cli.md), [Azure PowerShell](container-registry-get-started-powershell.md) eller via programmering med [REST-API:et](https://go.microsoft.com/fwlink/p/?linkid=834376) för Container Registry.
 
 Bakgrund och koncept beskrivs i [översikten](container-registry-intro.md).
-
-
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
 1. Klicka på **+ Nytt** på [Azure Portal](https://portal.azure.com).

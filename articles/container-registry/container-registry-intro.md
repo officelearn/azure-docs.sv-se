@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f9dff5384838521c309a2d2a5ebb5376c90159fb
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introduktion till privata Docker-behållarregister
@@ -52,6 +52,8 @@ Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsf
 * **Register** – Skapa en eller flera behållarregister i din Azure-prenumeration. Varje register backas upp av ett [Azure-standardlagringskonto](../storage/storage-introduction.md) på samma plats. Dra nytta av lokal, nätverksnära lagring av dina behållaravbildningar genom att skapa ett register på samma Azure-plats som dina distributioner. Ett fullständigt kvalificerat registernamn har formatet `myregistry.azurecr.io`.
 
   Du [styr åtkomsten](container-registry-authentication.md) till en behållare med hjälp av ett Azure Active Directory-kopplat [tjänstobjekt](../active-directory/active-directory-application-objects.md) eller ett angivet administratörskonto. Kör `docker login`-standardkommandot för att autentisera med ett register.
+
+* **Hanterat register** – En nivå som erbjuder ytterligare funktioner för register i tre SKU:er: Basic, Standard och Premium. Avbildningarna i dessa SKU: er lagras i lagringskonton som hanteras av tjänsten Azure Container Registry, vilket förbättrar tillförlitligheten och aktiverar nya funktioner. Nya funktioner innefattar webhook-integrering, databasautentisering med Azure Active Directory och stöd för borttagning. Användarna kan välja mellan hanterade register eller skapa ett register som backas upp av egna lagringskonton när de skapar register.
 
 * **Lagringsplats** – Ett register innehåller en eller flera databaser, som är grupper med behållaravbildningar. Azure Container Registry har stöd för namnområden för lagringsplatser på flera nivåer. Den här funktionen gör att du kan gruppera samlingar med avbildningar relaterade till en viss app, eller en samling appar för specifika utvecklingsgrupper eller operativa team. Exempel:
 

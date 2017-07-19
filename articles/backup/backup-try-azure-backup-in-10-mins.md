@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/23/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c989ca38e2463f8365b55c509e8b2bcf4572b409
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -34,7 +35,7 @@ Innan du kan säkerhetskopiera filer och mappar måste du skapa ett Recovery Ser
 
 ### <a name="to-create-a-recovery-services-vault"></a>Så här skapar du ett Recovery Services-valv
 1. Om du inte redan gjort det loggar du in på [Azure-portalen](https://portal.azure.com/) med din Azure-prenumeration.
-2. På navmenyn klickar du på **Fler tjänster** och skriver **Recovery Services** i listan över resurser och klickar sedan på **Recovery Services-valv**.
+2. På navigeringsmenyn klickar du på **Fler tjänster** och skriver **Recovery Services** i listan över resurser och klickar sedan på **Recovery Services-valv**.
 
     ![Skapa Recovery Services-valv (steg 1)](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -63,7 +64,7 @@ Innan du kan säkerhetskopiera filer och mappar måste du skapa ett Recovery Ser
 
 8. Längst ned på bladet för Recovery Services-valvet klickar du på **Skapa**.
 
-    Det kan ta flera minuter innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena uppe till höger i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valvet efter ett par minuter, klickar du på **Uppdatera**.
+    Det kan ta flera minuter innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena uppe till höger i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valv efter ett par minuter klickar du på **Uppdatera**.
 
     ![Klicka på Uppdatera](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
@@ -79,7 +80,7 @@ När du skapar ett Recovery Services-valv ska du alltid kontrollera att lagrings
     Om du väljer valvet minimeras bladet **Recovery Services-valv** och bladet Inställningar (*som har namnet på valvet överst*) och bladet med valvinformation öppnas.
 
     ![Visa lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
-2. På det nya valvets inställningsblad använder du det lodräta reglaget och bläddrar ned till avsnittet Hantera. Där klickar du på **	Infrastruktur för säkerhetskopiering**.
+2. På det nya valvets inställningsblad använder du det lodräta reglaget och bläddrar ned till avsnittet Hantera. Där klickar du på **Infrastruktur för säkerhetskopiering**.
     Bladet Infrastruktur för säkerhetskopiering öppnas.
 3. På bladet Infrastruktur för säkerhetskopiering klickar du på **Konfiguration av säkerhetskopiering** för att öppna bladet **Konfiguration av säkerhetskopiering**.
 
@@ -163,6 +164,15 @@ Nu när du har skapat ett valv konfigurerar du det för säkerhetskopiering av f
      >
 
 Nu installeras agenten och datorn registreras i valvet. Nu kan du konfigurera och schemalägga säkerhetskopieringen.
+
+## <a name="network-and-connectivity-requirements"></a>Nätverks- och anslutningskrav
+
+Om din dator/proxy har begränsad tillgång till Internet måste du se till att brandväggsinställningarna på mcahine/proxy har konfigurerats för att tillåta följande URL:er: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.ne
 
 ## <a name="back-up-your-files-and-folders"></a>Säkerhetskopiera dina filer och mappar
 Den första säkerhetskopieringen omfattar två viktiga uppgifter:

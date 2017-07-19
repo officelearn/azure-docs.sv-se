@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
-ms.lasthandoff: 12/07/2016
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -46,7 +47,7 @@ I *Azure Apptjänst* körs serverdelskoden för *mobilappar* i samma behållare 
 * (För Node.js) Du kan använda alla bibliotek med endast JavaScript i Node-ekosystemet, även vanliga MVC-bibliotek.
 
 ## <a name="access-on-premises-data-using-vnet"></a>Möjlighet att nå lokala data via VNet
-Med Mobile Services kan du redan idag använda hybridanslutningar och komma åt lokala resurser. Det finns dock tillfällen då det är bäst med VPN-lösning. Med *Azure Apptjänst* kan du använda Azure VNet för serverdelskoden till mobilappar.
+Med Mobile Services kan du redan idag använda hybridanslutningar för att komma åt lokala resurser. Det finns dock tillfällen då det är bäst med VPN-lösning. Med *Azure Apptjänst* kan du använda Azure VNet för serverdelskoden till mobilappar.
 
 ## <a name="use-your-favorite-backend-language"></a>Använd det serverdelsspråk som du gillar bäst
 *Azure Apptjänst* har bredare och bättre stöd för ASP.NET- och Node.js-plattformarna, inklusive tillgång till de senaste körningarna.

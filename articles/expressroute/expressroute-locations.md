@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 07/03/2017
 ms.author: kaanan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 6286e059da7df95303bca00b5910632302bd19b7
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 8fdf343f2d70dce4f9457277affcfd6e5dae3b78
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="expressroute-partners-and-peering-locations" class="xliff"></a>
-
-# ExpressRoute-partners och peeringplatser
+# <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
 > [!div class="op_single_selector"]
 > * [Platser efter leverantör](expressroute-locations.md)
@@ -40,9 +38,7 @@ ExpressRoute stöds i alla Azures regioner och platser. Följande karta innehål
 
 Du har åtkomst till Azure-tjänster i alla regioner inom en geopolitisk region, om du är ansluten till minst en ExpressRoute-plats inom den geopolitiska regionen.
 
-<a id="azure-regions-to-expressroute-locations-within-a-geopolitical-region" class="xliff"></a>
-
-### Azure-regioner till ExpressRoute-platser inom en geopolitisk region.
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Azure-regioner till ExpressRoute-platser inom en geopolitisk region.
 Följande tabell innehåller en karta över Azures regioner till ExpressRoute-platser inom en geopolitisk region.
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
@@ -56,9 +52,7 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Indien** |Västra Indien, centrala Indien, södra Indien |Chennai, Mumbai |
 | **Sydkorea** |Centrala Korea, Sydkorea |Busan, Söul |
 
-<a id="regions-and-geopolitical-boundaries-for-national-clouds" class="xliff"></a>
-
-### Regioner och geopolitiska gränser för nationella moln
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
 Tabellen nedan innehåller information om regioner och geopolitiska gränser för nationella moln.
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
@@ -74,9 +68,7 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillgängliga leverantörer efter plats går du till [Tjänsteleverantörer efter plats](expressroute-locations-providers.md#locations).
 
 
-<a id="production-azure" class="xliff"></a>
-
-### Produktions-Azure
+### <a name="production-azure"></a>Produktions-Azure
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365 och Dynamics 365** | **Platser** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Stöds |Stöds |Melbourne, Sydney |
@@ -111,7 +103,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Nästa datageneration](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Stöds |Stöds |Newport(Wales) |
 | **NEXTDC** |Stöds |Stöds |Melbourne, Sydney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Stöds |Stöds |London, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
-| **NTT SmartConnect** |Kommer snart |Kommer snart |Osaka |
+| **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Stöds |Stöds |Osaka |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Stöds |Stöds |Amsterdam, Hongkong, London, Paris+, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** |Stöds |Stöds |Hongkong |
 | **Sejong Telecom** |Stöds |Stöds |Seoul |
@@ -132,13 +124,9 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 
  **+** kommer snart
 
-<a id="national-cloud-environment" class="xliff"></a>
+### <a name="national-cloud-environment"></a>Nationell molnmiljö
 
-### Nationell molnmiljö
-
-<a id="us-government-cloud" class="xliff"></a>
-
-### U.S. Government-moln
+### <a name="us-government-cloud"></a>U.S. Government-moln
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Stöds |Stöds |Chicago, Washington DC |
@@ -147,18 +135,14 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds | Stöds | Chicago, Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Stöds |Stöds |Chicago, Dallas, New York, Washington DC |
 
-<a id="china" class="xliff"></a>
-
-### Kina
+### <a name="china"></a>Kina
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
 | --- | --- | --- | --- |
 | **China Telecom** |Stöds |Stöds inte |Beijing, Shanghai |
 
 Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expressroute/).
 
-<a id="germany" class="xliff"></a>
-
-### Tyskland
+### <a name="germany"></a>Tyskland
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
 | --- | --- | --- | --- |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Stöds |Stöds inte |Berlin+, Frankfurt |
@@ -167,9 +151,7 @@ Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expres
 | **Interxion** |Stöds |Stöds inte |Frankfurt |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Stöds  | Stöds inte | Berlin |
 
-<a id="connectivity-through-exchange-providers" class="xliff"></a>
-
-## Anslutningar via Exchange-leverantörer
+## <a name="connectivity-through-exchange-providers"></a>Anslutningar via Exchange-leverantörer
 
 Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fortfarande skapa en anslutning.
 
@@ -187,9 +169,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 * Beställ en ExpressRoute-krets med utbyte så att anslutningsleverantören kan ansluta till Microsoft.
   * Följ stegen i [Skapa en ExpressRoute-krets](expressroute-howto-circuit-classic.md) för att konfigurera anslutningen.
 
-<a id="connectivity-through-additional-service-providers" class="xliff"></a>
-
-## Anslutning med ytterligare leverantörer
+## <a name="connectivity-through-additional-service-providers"></a>Anslutning med ytterligare leverantörer
 
 | **Anslutningsleverantör** | **Exchange** | **Platser** |
 | --- | --- | --- |
@@ -199,6 +179,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | London |
+| **[BroadBand Tower, Inc.](http://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tokyo |
 | **[C3ntro Telecom](http://www.c3ntro.com/data/cloud-conectivity/)** | Equinix, Megaport | Dallas |
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)** | Equinix | Dallas, Silicon Valley, Washington DC | 
@@ -226,22 +207,18 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix | Chicago, Silicon Valley, Washington DC |
 | **Zain** |Equinix |London|
 | **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | Madrid |
-| **[Zirro](https://zirro.com/services/)**| Equinix | Toronto, Montreal |
+| **[Zirro](https://zirro.com/services/)**| Equinix | Montreal, Toronto |
 
-<a id="connectivity-through-datacenter-providers" class="xliff"></a>
-
-## Anslutningar via datacenterleverantörer
+## <a name="connectivity-through-datacenter-providers"></a>Anslutningar via datacenterleverantörer
 | **Leverantör** | **Exchange** |
 | --- | --- |
-| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/)** | Megaport |
+| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport |
 | **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport |
 | **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |
 | **[RagingWire Data Centers](http://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | Konsolen |
 | **[T5 Datacenters](http://t5datacenters.com/network-cloud-connect/)** | Konsolen |
 
-<a id="connectivity-through-national-research-and-education-networks-nren" class="xliff"></a>
-
-## Anslutning via NREN (National Research and Education Networks)
+## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Anslutning via NREN (National Research and Education Networks)
 
 | **Leverantör**|
 | --- |
@@ -257,9 +234,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 
 * Om din anslutningsleverantör inte finns med här kan du se om den är ansluten till någon av de ExpressRoute Exchange-partner som anges ovan.
 
-<a id="expressroute-system-integrators" class="xliff"></a>
-
-## ExpressRoute-systemintegratörer
+## <a name="expressroute-system-integrators"></a>ExpressRoute-systemintegratörer
 Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, beroende på hur stort nätverk du har. Du kan använda någon av systemintegratörer som finns i följande tabell. De hjälper dig med integrationen till ExpressRoute.
 
 | **Systemintegrator** | **Kontinent** |
@@ -284,9 +259,7 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Australien |
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 * Kontrollera att alla krav är uppfyllda. Se [ExpressRoute-krav](expressroute-prerequisites.md).
 

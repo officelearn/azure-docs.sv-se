@@ -1,6 +1,6 @@
 ---
 title: "Kom igång med Azure IoT Hub (Node) | Microsoft Docs"
-description: "Så här skickar du ”enhet till molnet”-meddelanden från en enhet till Azure IoT Hub med Azure IoT SDK för Node.js. Du skapar en simulerad enhetsapp för att skicka meddelanden, en tjänstapp för att registrera enheten i identitetsregistret och en tjänstapp för att läsa meddelanden från enheten till molnet från IoT Hub."
+description: "Lär dig hur du skickar ”enhet till molnet”-meddelanden till Azure IoT Hub med IoT SDK:er för Node.js. Skapa appar för simulerade enheter och tjänster för att registrera din enhet, skicka meddelanden och läsa meddelanden från IoT Hub."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: b04fe441cf83ed616b0464eec83a6caf3a449532
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 3df643a517250d85200a887f5c4e62ed6c66c9c4
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Anslut din simulerade enhet till IoT Hub med hjälp av Node
@@ -95,6 +94,8 @@ I det här avsnittet skapar du en Node.js-konsolapp som skapar en enhetsidentite
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. Spara och stäng filen **CreateDeviceIdentity.js**.
 8. Kör programmet **createdeviceidentity** genom att köra följande kommando i Kommandotolken i mappen createdeviceidentity:
    

@@ -16,16 +16,14 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 0120a63ed398cf3e0e91cd4329c4024ba2fbfdca
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 93f80018d71368c800abd3dceb42b2ab51e60659
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-<a id="develop-large-scale-parallel-compute-solutions-with-batch" class="xliff"></a>
-
-# Utveckla storskaliga parallella beräkningslösningar med Batch
+# <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
 I den här översikten över huvudkomponenterna i tjänsten Azure Batch diskuterar vi de viktigaste tjänstfunktionerna och resurserna som Batch-utvecklare kan använda för att skapa storskaliga parallella beräkningslösningar.
 
@@ -36,9 +34,7 @@ Oavsett om du utvecklar ett distribuerat beräkningsprogram eller en tjänst som
 >
 >
 
-<a id="batch-service-workflow" class="xliff"></a>
-
-## Batch-tjänstens arbetsflöde
+## <a name="batch-service-workflow"></a>Batch-tjänstens arbetsflöde
 Följande allmänna arbetsflöde är typiskt i praktiskt taget alla program och tjänster som använder Batch-tjänsten för att bearbeta parallella arbetsbelastningar:
 
 1. Ladda upp **datafilerna** som du vill bearbeta till ett [Azure Storage][azure_storage]-konto. Batch innehåller inbyggt stöd för åtkomst till Azure Blob Storage, och dina aktiviteter kan hämta dessa filer till [beräkningsnoder](#compute-node) när aktiviteterna körs.
@@ -55,9 +51,7 @@ I följande avsnitt beskrivs dessa och andra resurser i Batch som lägger grunde
 >
 >
 
-<a id="batch-service-resources" class="xliff"></a>
-
-## Resurser i Batch-tjänsten
+## <a name="batch-service-resources"></a>Resurser i Batch-tjänsten
 Några av följande resurser – konton, beräkningsnoder, pooler, jobb och aktiviteter – krävs av alla lösningar som använder Batch-tjänsten. Andra, till exempel jobbscheman och programpaket, är användbara men valfria funktioner.
 
 * [Konto](#account)
@@ -75,9 +69,7 @@ Några av följande resurser – konton, beräkningsnoder, pooler, jobb och akti
   * [Aktivitetsberoenden](#task-dependencies)
 * [Programpaket](#application-packages)
 
-<a id="account" class="xliff"></a>
-
-## Konto
+## <a name="account"></a>Konto
 Ett Batch-konto är en unikt identifierad entitet i Batch-tjänsten. All bearbetning är associerad med ett Batch-konto.
 
 Du kan skapa ett Azure Batch-konto med [Azure Portal](batch-account-create-portal.md) eller programmässigt som med [Batch Management .NET-biblioteket](batch-management-dotnet.md). Du kan associera ett Azure Storage-konto när du skapar kontot.
@@ -109,9 +101,7 @@ Välj den kontokonfiguration som passar bäst för ditt scenario:
 >
 
 
-<a id="compute-node" class="xliff"></a>
-
-## Beräkningsnod
+## <a name="compute-node"></a>Beräkningsnod
 En beräkningsnod är en virtuell Azure-dator eller molntjänstdator som är dedikerad för bearbetning av en del av ditt programs arbetsbelastning. Storleken på en nod avgör antalet CPU-kärnor, minneskapaciteten och storleken på det lokala filsystemet som allokeras till noden. Du kan skapa pooler för Windows- eller Linux-noder med antingen Azure Cloud Services eller Marketplace-avbildningar för Virtual Machines. Mer information om dessa alternativ finns i följande [poolavsnitt](#pool).
 
 Noder kan köra alla körbara filer eller skript som stöds av nodens operativsystemmiljö, inklusive \*.exe-, \*.cmd-, \*.bat- och PowerShell-skript för Windows och binär-, shell- och Python-skript för Linux.
@@ -122,9 +112,7 @@ Alla beräkningsnoder i Batch innehåller också:
 * **Brandväggsinställningar** som konfigureras för att styra åtkomsten.
 * [Fjärråtkomst](#connecting-to-compute-nodes) till både Windows-noder (RDP, Remote Desktop Protocol) och Linux-noder (SSH, Secure Shell).
 
-<a id="pool" class="xliff"></a>
-
-## Pool
+## <a name="pool"></a>Pool
 En pool är en samling noder som ditt program körs på. Poolen kan skapas manuellt av dig eller automatiskt av Batch-tjänsten när du anger arbetet som ska utföras. Du kan skapa och hantera en pool som uppfyller resurskraven för ditt program. En pool kan endast användas av det Batch-konto som den skapades under. Ett Batch-konto kan ha mer än en pool.
 
 Azure Batch-pooler baseras på den grundläggande Azure-beräkningsplattformen. De tillhandahåller storskalig allokering, programinstallation, datadistribution, övervakning av hälsotillstånd och flexibel justering av antalet beräkningsnoder i en pool ([skalning](#scaling-compute-resources)).
@@ -150,9 +138,7 @@ Dessa inställningar beskrivs mer ingående i avsnitten nedan.
 >
 >Batch-konton som har skapats med konfigurationen för användarprenumeration tar inte Batch-tjänstkvoterna i beaktande. I stället delar de kärnkvoten för den angivna prenumerationen. Mer information finns i [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) (Gränser för virtuella datorer) i [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Prenumerations- och tjänstgränser, kvoter och begränsningar i Azure).
 
-<a id="compute-node-operating-system-and-version" class="xliff"></a>
-
-### Beräkningsnodens operativsystem och version
+### <a name="compute-node-operating-system-and-version"></a>Beräkningsnodens operativsystem och version
 
 När du skapar en Batch-pool kan du ange en konfiguration för virtuella Azure-datorer och ange på vilket operativsystem som du vill köra varje beräkningsnod i poolen. Det finns två typer av konfigurationer i Batch:
 
@@ -170,9 +156,7 @@ När du skapar en Batch-pool kan du ange en konfiguration för virtuella Azure-d
 
 I avsnittet [Konto](#account) finns information om hur du ställer in poolallokeringsläget när du skapar ett Batch-konto.
 
-<a id="custom-images-for-virtual-machine-pools" class="xliff"></a>
-
-#### Anpassade avbildningar för virtuell datorpooler
+#### <a name="custom-images-for-virtual-machine-pools"></a>Anpassade avbildningar för virtuell datorpooler
 
 Om du vill använda anpassade avbildningar för dina virtuella datorpooler skapar du Batch-kontot med kontokonfigurationen för användarprenumeration. Med den här konfigurationen allokeras Batch-pooler till den prenumeration där kontot finns. I avsnittet [Konto](#account) finns information om hur du ställer in poolallokeringsläget när du skapar ett Batch-konto.
 
@@ -199,9 +183,7 @@ Så här skapar du en pool från en anpassad avbildning med Azure Portal:
 6. Du kan kontrollera om en pool är baserad på en anpassad avbildning genom att se egenskapen **Operativsystem** i resursöversiktsavsnittet på bladet **Pool**. Värdet för den här egenskapen ska vara **Anpassad avbildning av virtuell dator**.
 7. Alla anpassade virtuella hårddiskar med en pool visas på bladet **Egenskaper** för poolen.
 
-<a id="compute-node-type-and-target-number-of-nodes" class="xliff"></a>
-
-### Typ av beräkningsnod och antal målnoder
+### <a name="compute-node-type-and-target-number-of-nodes"></a>Typ av beräkningsnod och antal målnoder
 
 När du skapar en pool kan du ange vilka typer av beräkningsnoder du vill ha och antal målnoder för var och en av dem. Det finns två typer av beräkningsnoder:
 
@@ -219,9 +201,7 @@ Antalet beräkningsnoder kallas *mål* eftersom din pool i vissa fall kanske int
 
 Information om priser för beräkningsnoder med låg prioritet och dedikerade beräkningsnoder finns i [Batch-priser](https://azure.microsoft.com/pricing/details/batch/).
 
-<a id="size-of-the-compute-nodes" class="xliff"></a>
-
-### Beräkningsnodernas storlek
+### <a name="size-of-the-compute-nodes"></a>Beräkningsnodernas storlek
 
 Information om storleken på beräkningsnoder med **Cloud Services-konfiguration** finns i [Storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch stöder alla Cloud Services-storlekar utom `ExtraSmall`, `STANDARD_A1_V2` och `STANDARD_A2_V2`.
 
@@ -231,15 +211,11 @@ När datorns nodstorlek beräknas bör egenskaperna och kraven hos programmen so
 
 Alla noderna i en pool har samma storlek. Om du avser att köra program med olika systemkrav och/eller belastningsnivåer rekommenderar vi att du använder olika pooler.
 
-<a id="scaling-policy" class="xliff"></a>
-
-### Skalningsprincip
+### <a name="scaling-policy"></a>Skalningsprincip
 
 När det gäller dynamiska arbetsbelastningar kan du skriva och använda en [formel för automatisk skalning](#scaling-compute-resources) en pool. Batch-tjänsten utvärderar med jämna mellanrum din formel och justerar antalet noder i poolen baserat på olika pool-, jobb- och aktivitetsparametrar som du kan ange.
 
-<a id="task-scheduling-policy" class="xliff"></a>
-
-### Schemaläggningsprincip för aktiviteter
+### <a name="task-scheduling-policy"></a>Schemaläggningsprincip för aktiviteter
 
 Konfigurationsalternativet för [högsta antal aktiviteter per nod](batch-parallel-node-tasks.md) anger det högsta antal aktiviteter som kan köras parallellt på varje beräkningsnod i poolen.
 
@@ -247,9 +223,7 @@ Standardkonfigurationen specificerar att en aktivitet i taget ska köras på en 
 
 Du kan också ange en *fyllningstyp* som bestämmer om Batch-tjänsten sprider ut aktiviteterna jämnt över alla noder i en pool eller om den distribuerar det högsta antalet aktiviteter till varje nod innan aktiviteter tilldelas till en annan nod.
 
-<a id="communication-status-for-compute-nodes" class="xliff"></a>
-
-### Kommunikationsstatus för beräkningsnoder
+### <a name="communication-status-for-compute-nodes"></a>Kommunikationsstatus för beräkningsnoder
 
 I de flesta fall körs aktiviteterna oberoende av varandra och behöver inte kommunicera med varandra. Det kan dock finnas program där aktiviteterna måste kommunicera (till exempel i [MPI-scenarier](batch-mpi.md)).
 
@@ -257,28 +231,25 @@ Du kan konfigurera en pool att tillåta **internodkommunikation**, så att noder
 
 Observera att nodernas placering i kluster kan påverkas om du aktiverar kommunikation mellan noder, samt att det högsta antalet noder i en pool kan begränsas på grund av distributionsrestriktioner. Om programmet inte kräver kommunikation mellan noder kan Batch-tjänsten allokera ett potentiellt stort antal noder till poolen från många olika kluster och datacenter för ökad parallell bearbetningskapacitet.
 
-<a id="start-tasks-for-compute-nodes" class="xliff"></a>
-
-### Startaktiviteter för beräkningsnoder
+### <a name="start-tasks-for-compute-nodes"></a>Startaktiviteter för beräkningsnoder
 
 Den valfria *startaktiviteten* körs på varje nod när noden ansluter till poolen, samt varje gång noden startas om och varje gång dess avbildning återställs. Startaktiviteten är särskilt användbar för att förbereda beräkningsnoder för körningen av aktiviteter, till exempel installationen av de program som aktiviteterna kör på beräkningsnoderna.
 
-<a id="application-packages" class="xliff"></a>
+### <a name="application-packages"></a>Programpaket
 
-### Programpaket
+Du kan ange [programpaket](#application-packages) som ska distribueras till beräkningsnoderna i poolen. Programpaket underlättar distributionen och versionshanteringen för de program som dina aktiviteter kör. Programpaket som du anger för en pool installeras på varje nod som ansluter till den poolen, samt varje gång en nod startas om och varje gång nodens avbildning återställs.
 
-Du kan ange [programpaket](#application-packages) som ska distribueras till beräkningsnoderna i poolen. Programpaket underlättar distributionen och versionshanteringen för de program som dina aktiviteter kör. Programpaket som du anger för en pool installeras på varje nod som ansluter till den poolen, samt varje gång en nod startas om och varje gång nodens avbildning återställs. Programpaket stöds inte för närvarande på Linux-beräkningsnoder.
+> [!NOTE]
+> Programpaket kan användas för alla Batch-pooler som skapats efter 5 juli 2017. De kan användas för Batch-pooler som skapats mellan 10 mars 2016 och 5 juli 2017, men endast om poolen skapades med en molntjänstkonfiguration. Programpaket kan inte användas för Batch-pooler som har skapats före 10 mars 2016. Mer information om hur du använder programpaket för att distribuera program till dina Batch-noder finns i [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Distribuera program till beräkningsnoder med Batch-programpaket).
+>
+>
 
-<a id="network-configuration" class="xliff"></a>
-
-### Nätverkskonfiguration
+### <a name="network-configuration"></a>Nätverkskonfiguration
 
 Du kan ange undernätet för ett [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) i Azure där poolens beräkningsnoder ska skapas. Mer information finns i avsnittet om [nätverkskonfiguration för pooler](#pool-network-configuration).
 
 
-<a id="job" class="xliff"></a>
-
-## Jobb
+## <a name="job"></a>Jobb
 Ett jobb är en samling aktiviteter. Det hanterar hur beräkningen utförs av dess aktiviteter på beräkningsnoderna i en pool.
 
 * Jobbet anger i vilken **pool** som arbetet ska köras. Du kan skapa en ny pool för varje jobb eller använda en pool för många jobb. Du kan skapa en pool för varje jobb som associeras med ett jobbschema eller för alla jobb som associeras med ett jobbschema.
@@ -293,23 +264,17 @@ Ett jobb är en samling aktiviteter. Det hanterar hur beräkningen utförs av de
 
     Observera att Batch-tjänsten betraktar alla aktiviteter i ett jobb som slutförda om jobbet inte har *några* aktiviteter. Därför används det här alternativet oftast med en [Job Manager-aktivitet](#job-manager-task). Om du vill avsluta jobben automatiskt utan en jobbhanterare börjar du med att ange **onAllTasksComplete**-egenskapen för ett nytt jobb till *noaction* och anger den sedan till *terminatejob* efter att du har lagt till aktiviteterna till jobbet.
 
-<a id="job-priority" class="xliff"></a>
-
-### Jobbprioritet
+### <a name="job-priority"></a>Jobbprioritet
 Du kan tilldela en prioritet till jobb som du skapar i Batch. Batch-tjänsten använder prioritetsvärdet för jobbet för att fastställa ordningen för schemaläggningen av jobb inom ett konto (detta ska inte förväxlas med ett [schemalagt jobb](#scheduled-jobs)). Prioritetsvärdesintervallet är -1 000 till 1 000, där -1 000 är lägst prioritet och 1 000 högst. Om du vill uppdatera ett jobbs prioritet så anropa åtgärden [Uppdatera egenskaperna för ett jobb][rest_update_job] (Batch REST) eller ändra egenskapen [CloudJob.Priority][net_cloudjob_priority] (Batch .NET).
 
 Inom samma konto har jobb med högre prioritet schemaläggningsprioritet framför jobb med lägre prioritet. Ett jobb med ett högre prioritetsvärde i ett konto har inte schemaläggningsprioritet över ett annat jobb med ett lägre prioritetsvärde i ett annat konto.
 
 Schemaläggningen av jobb mellan pooler är oberoende av varandra. Mellan olika pooler är det inte säkert att ett jobb med högre prioritet schemaläggs först om dess associerade pool har ont om inaktiva noder. I samma pool har jobb med samma prioritetsnivå samma chans att schemaläggas.
 
-<a id="scheduled-jobs" class="xliff"></a>
-
-### Schemalagda jobb
+### <a name="scheduled-jobs"></a>Schemalagda jobb
 Med [jobbscheman][rest_job_schedules] kan du skapa återkommande jobb i Batch-tjänsten. Ett jobbschema anger när jobb ska köras och innehåller specifikationerna för jobben som ska köras. Du kan ange schemats varaktighet – hur länge och när schemat gäller – och hur ofta jobb skapas under den schemalagda perioden.
 
-<a id="task" class="xliff"></a>
-
-## Aktivitet
+## <a name="task"></a>Aktivitet
 En aktivitet är en beräkningsenhet som associeras med ett jobb. Den körs på en nod. Aktiviteter tilldelas till en nod för körning eller placeras i kö tills en nod blir ledig. Enkelt beskrivet kör en aktivitet ett eller flera program eller skript på en beräkningsnod för att utföra det arbete som du vill ha gjort.
 
 När du skapar en aktivitet kan du ange:
@@ -336,9 +301,7 @@ Utöver de aktiviteter som du definierar för att utföra beräkningen på en no
 * [Aktiviteter med flera instanser (MPI)](#multi-instance-tasks)
 * [Aktivitetsberoenden](#task-dependencies)
 
-<a id="start-task" class="xliff"></a>
-
-### Startaktivitet
+### <a name="start-task"></a>Startaktivitet
 Genom att associera en **startaktivitet** med en pool kan du förbereda driftsmiljön för dess noder. Du kan t.ex. installera de program som dina aktiviteter ska köra eller starta bakgrundsprocesser. Startaktiviteten körs varje gång en nod startar så länge den finns kvar i poolen – även när noden läggs till i poolen, när den startas om eller när dess avbildning återställs.
 
 En viktig fördel med startaktiviteten är att den kan innehålla all information som krävs för att konfigurera en beräkningsnod och installera de program som krävs för att köra aktiviteterna. Att öka antalet noder i en pool är därför lika enkelt som att ange antalet nya målnoder. Startuppgiften förser batchtjänsten med den information som behövs för att konfigurera nya noder och förbereda dem för att acceptera uppgifter.
@@ -356,16 +319,14 @@ Om du lägger till eller uppdaterar startaktiviteten för en befintlig pool mås
 >[!NOTE]
 > Den totala storleken på en startaktivitet måste vara mindre än eller lika med 32768 tecken, inklusive resursfiler och miljövariabler. Du kan använda en av följande två metoder för att säkerställa att startaktiviteten uppfyller detta krav:
 >
-> 1. Du kan använda programpaket för att distribuera program eller data i varje nod i Batch-poolen. Mer information om programpaket finns i [Programdistribution med Azure Batch-programpaket](batch-application-packages.md).
+> 1. Du kan använda programpaket för att distribuera program eller data i varje nod i Batch-poolen. Mer information om programpaket finns i [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Distribuera program till beräkningsnoder med Batch-programpaket).
 > 2. Du kan manuellt skapa ett zippat arkiv som innehåller dina programfiler. Ladda upp ditt zippade arkiv till Azure Storage som en blob. Ange det zippade arkivet som en resursfil för startaktiviteten. Innan du kör kommandoraden för din startaktivitet packar du upp arkivet från kommandoraden. 
 >
 >    Du kan packa upp arkivet med valfritt arkiveringsverktyg. Du måste ta med ett verktyg för att packa upp arkivet som en resursfil för startaktiviteten.
 >
 >
 
-<a id="job-manager-task" class="xliff"></a>
-
-### Job Manager-aktivitet
+### <a name="job-manager-task"></a>Job Manager-aktivitet
 Du använder vanligtvis en **Job Manager-aktivitet** för att styra och/eller övervaka körningen av jobb, till exempel för att skapa och skicka aktiviteterna för ett jobb, fastställa ytterligare aktiviteter som ska köras samt för att avgöra när arbetet är klart. En Job Manager-aktivitet är dock inte begränsad till dessa aktiviteter. Det är en fullständig aktivitet som kan köra alla åtgärder som krävs för jobbet. Den kan till exempel ladda ned en fil som angetts som en parameter, analysera innehållet i filen och skicka fler aktiviteter baserat på innehållet.
 
 En Job Manager-aktivitet startar innan alla andra aktiviteter. Den tillhandahåller följande funktioner:
@@ -377,9 +338,7 @@ En Job Manager-aktivitet startar innan alla andra aktiviteter. Den tillhandahål
 * En Job Manager-aktivitet får högsta prioritet om den behöver startas om. Om en inaktiv nod inte är tillgänglig kan Batch-tjänsten avsluta någon av de andra aktiviteterna som körs i poolen för att göra plats för Job Manager-aktiviteten så att den kan köras.
 * En Job Manager-aktivitet i ett jobb har inte prioritet över aktiviteter i andra jobb. Mellan jobb gäller endast prioriteringar på jobbnivå.
 
-<a id="job-preparation-and-release-tasks" class="xliff"></a>
-
-### Jobbförberedelse- och jobbpubliceringsaktiviteter
+### <a name="job-preparation-and-release-tasks"></a>Jobbförberedelse- och jobbpubliceringsaktiviteter
 Batch innehåller jobbförberedelseaktiviteter för konfiguration av jobb före körningen. Jobbpubliceringsaktiviteter är avsedda för underhåll och rensning när jobbet har körts.
 
 * **Jobbförberedelseaktivitet**: En jobbförberedelseaktivitet körs på alla beräkningsnoder som schemalagts att köra aktiviteter, innan andra jobbaktiviteter körs. Du kan till exempel använda en jobbförberedelseaktivitet för att kopiera data som delas av alla aktiviteter, men som är unika för jobbet.
@@ -389,16 +348,12 @@ Du kan ange en kommandorad som ska köras när aktiviteten anropas både med job
 
 Mer information om jobbförberedelse- och jobbpubliceringsaktiviteter finns i [Köra jobbförberedelse- och jobbpubliceringsaktiviteter på Azure Batch-beräkningsnoder](batch-job-prep-release.md).
 
-<a id="multi-instance-task" class="xliff"></a>
-
-### Aktivitet med flera instanser
+### <a name="multi-instance-task"></a>Aktivitet med flera instanser
 En [aktivitet med flera instanser](batch-mpi.md) är en aktivitet som är konfigurerad att köras på mer än en beräkningsnod samtidigt. Aktiviteter med flera instanser stöder scenarier för databehandling med höga prestanda som kräver en grupp med beräkningsnoder som allokeras tillsammans för att bearbeta en enskild arbetsbelastning (t.ex. MPI, Message Passing Interface).
 
 Detaljerad information om hur du kör MPI-jobb i Batch med hjälp av Batch .NET-biblioteket finns i [Använda aktiviteter med flera instanser för att köra MPI-program (Message Passing Interface) i Azure Batch](batch-mpi.md).
 
-<a id="task-dependencies" class="xliff"></a>
-
-### Aktivitetsberoenden
+### <a name="task-dependencies"></a>Aktivitetsberoenden
 Med [aktivitetsberoenden](batch-task-dependencies.md) kan du, som namnet antyder, ange att en aktivitet är beroende av att andra aktiviteter slutförs innan den kan köras. Den här funktionen har stöd för situationer där en ”underordnad” aktivitet använder utdata från en ”överordnad” aktivitet, eller där en överordnad aktiviteten utför viss initiering som krävs av en underordnad aktivitet. Innan du kan använda den här funktionen måste du aktivera aktivitetsberoenden i Batch-jobbet. För varje aktivitet som är beroende av en annan (eller flera andra) anger du sedan de aktiviteter som den aktiviteten är beroende av.
 
 Med aktivitetsberoenden kan du konfigurera scenarier som följande:
@@ -409,9 +364,7 @@ Med aktivitetsberoenden kan du konfigurera scenarier som följande:
 
 Mer detaljerad information om den här funktionen finns i [Aktivitetsberoenden i Azure Batch](batch-task-dependencies.md) och i kodexemplet [TaskDependencies][github_sample_taskdeps] i [azure-batch-samples][github_samples]-databasen på GitHub.
 
-<a id="environment-settings-for-tasks" class="xliff"></a>
-
-## Miljöinställningar för aktiviteter
+## <a name="environment-settings-for-tasks"></a>Miljöinställningar för aktiviteter
 Varje aktivitet som utförs av Batch-tjänsten har åtkomst till miljövariabler som anges på datornoder. Detta inkluderar miljövariabler som definieras av Batch-tjänsten ([-definierade][msdn_env_vars]) och anpassade miljövariabler som du kan definiera för dina aktiviteter. Programmen och skripten som dina aktiviteter utför har åtkomst till dessa miljövariabler under körning.
 
 Du kan ange anpassade miljövariabler på aktivitets- eller jobbnivå genom att fylla i egenskapen för *miljöinställningar* för dessa entiteter. Se till exempel åtgärden [Lägg till en aktivitet till ett jobb][rest_add_task] (Batch REST API) eller egenskaperna [CloudTask.EnvironmentSettings][net_cloudtask_env] och [CloudJob.CommonEnvironmentSettings][net_job_env] i Batch .NET.
@@ -420,9 +373,7 @@ Klientprogrammet eller tjänsten kan hämta en aktivitets miljövariabler, både
 
 Du hittar en fullständig lista över alla definierade miljövariabler i [Beräkna nodmiljövariabler][msdn_env_vars].
 
-<a id="files-and-directories" class="xliff"></a>
-
-## Filer och kataloger
+## <a name="files-and-directories"></a>Filer och kataloger
 Varje aktivitet har en *arbetskatalog* där den skapar inga eller flera filer och kataloger. Den här arbetskatalogen kan användas för att lagra programmet som körs av aktiviteten, de data som bearbetas och resultatet från bearbetningen. Alla filer och kataloger för en aktivitet ägs av aktivitetsanvändaren.
 
 Batch-tjänsten exponerar en del av filsystemet på en nod som *rotkatalogen*. Aktiviteter kan komma åt rotkatalogen genom att referera till `AZ_BATCH_NODE_ROOT_DIR`-miljövariabeln. Mer information om hur du använder miljövariabler finns i [Miljöinställningar för aktiviteter](#environment-settings-for-tasks).
@@ -444,25 +395,21 @@ Rotkatalogen innehåller följande katalogstruktur:
 >
 >
 
-<a id="application-packages" class="xliff"></a>
-
-## Programpaket
+## <a name="application-packages"></a>Programpaket
 Funktionen för [programpaket](batch-application-packages.md) gör det enkelt att hantera och distribuera program till beräkningsnoder i dina pooler. Du kan överföra och hantera flera versioner av programmet som körs av dina aktiviteter, inklusive deras binär- och stödfiler. Du kan sedan automatiskt distribuera ett eller flera av dessa program till beräkningsnoderna i poolen.
 
 Du kan ange programpaket på pool- och aktivitetsnivå. När du anger programpaket för pooler distribueras programmet till varje nod i poolen. När du anger programpaket för aktiviteter distribueras programmet endast till noder som är schemalagda att köra minst en av jobbets aktiviteter, precis innan aktivitetens kommandorad körs.
 
 Batch hanterar detaljerna kring lagringen av programpaket i Azure Storage och deras distribution till beräkningsnoder, vilket förenklar både kod- och hanteringsarbetet.
 
-Mer information om funktionen för programpaket finns i [Programdistribution med Azure Batch-programpaket](batch-application-packages.md).
+Mer information om programpaketsfunktionen finns i [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Distribuera program till beräkningsnoder med Batch-programpaket).
 
 > [!NOTE]
 > Om du lägger till programpaket för pooler till en *befintlig* pool måste du starta om dess beräkningsnoder för att programpaketen kan distribueras till noderna.
 >
 >
 
-<a id="pool-and-compute-node-lifetime" class="xliff"></a>
-
-## Livslängd för pooler och beräkningsnoder
+## <a name="pool-and-compute-node-lifetime"></a>Livslängd för pooler och beräkningsnoder
 När du utvecklar din Azure Batch-lösning måste du tänka igenom hur och när pooler ska skapas och hur länge beräkningsnoderna i poolerna ska vara tillgängliga.
 
 Ett alternativ är att skapa en pool för varje jobb som du skickar och sedan ta bort poolen så fort aktiviteterna har slutförts. Med den här metoden maximeras användningen eftersom noderna bara tilldelas när det är absolut nödvändigt och stängs ned så fort de blir inaktiva. Detta innebär visserligen att jobbet måste vänta tills noderna har allokerats, men det är viktigt att notera att aktiviteterna schemaläggs till noder så fort de är individuellt tillgängliga och startuppgiften har slutförts. Batch väntar *inte* tills alla noderna i en pool är tillgängliga innan aktiviteterna tilldelas till noderna. vilket säkerställer maximal användning av alla tillgängliga noder.
@@ -471,9 +418,7 @@ Ett alternativ är att skapa en pool för varje jobb som du skickar och sedan ta
 
 En kombinerad metod, som normalt används för att hantera en varierande men kontinuerlig belastning. är att ha en pool som flera jobb skickas till, men skala upp eller ned antalet noder baserat på arbetsbelastningen (se [Skala beräkningsresurser](#scaling-compute-resources) i avsnittet nedan). Detta kan göras reaktivt baserat på den aktuella belastningen eller proaktivt om det går att förutse belastningen.
 
-<a id="pool-network-configuration" class="xliff"></a>
-
-## Nätverkskonfiguration för pooler
+## <a name="pool-network-configuration"></a>Nätverkskonfiguration för pooler
 
 När du skapar en pool med beräkningsnoder i Azure Batch kan du ange undernäts-ID:t för ett [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) i Azure som poolens beräkningsnoder ska skapas i.
 
@@ -510,9 +455,7 @@ När du skapar en pool med beräkningsnoder i Azure Batch kan du ange undernäts
 
 Ytterligare inställningar för din VNet varierar beroende på Batch-kontots poolallokeringsläge.
 
-<a id="vnets-for-pools-provisioned-in-the-batch-service" class="xliff"></a>
-
-### VNet för pooler etablerade i Batch-tjänsten
+### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>VNet för pooler etablerade i Batch-tjänsten
 
 I allokeringsläget för Batch-tjänster kan bara **Cloud Services-konfigurationspooler** tilldelas en VNet. Dessutom måste angiven VNet vara en **klassisk** VNet. Virtuella nätverk som skapas med Azure Resource Manager-distributionsmodellen stöds inte.
 
@@ -527,17 +470,13 @@ I allokeringsläget för Batch-tjänster kan bara **Cloud Services-konfiguration
 
 
 
-<a id="vnets-for-pools-provisioned-in-a-user-subscription" class="xliff"></a>
-
-### VNet för pooler som tillhandahålls i en användarprenumeration
+### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>VNet för pooler som tillhandahålls i en användarprenumeration
 
 I allokeringsläget för användarprenumeration stöds endast pooler för **konfiguration av virtuell dator** och bara dessa kan tilldelas en VNet. Dessutom måste angiven VNet vara en **Resource Manager**-baserad VNet. VNet som skapas med den klassiska distributionsmodellen stöds inte.
 
 
 
-<a id="scaling-compute-resources" class="xliff"></a>
-
-## Skala beräkningsresurser
+## <a name="scaling-compute-resources"></a>Skala beräkningsresurser
 Med [automatisk skalning](batch-automatic-scaling.md) kan Batch-tjänsten dynamiskt justera antalet beräkningsnoder i en pool baserat på den aktuella arbetsbelastningen och resursanvändningen i beräkningsscenariot. På så sätt kan du sänka den totala kostnaden för programkörning genom att endast använda de resurser som du behöver och frisläppa de som du inte behöver.
 
 Du aktiverar automatisk skalning genom att skriva en [formel för automatisk skalning](batch-automatic-scaling.md#automatic-scaling-formulas) och associera formeln med en pool. Batch-tjänsten använder formeln för att bestämma antalet noder i poolen för nästa skalningsintervall (ett intervall som du kan konfigurera). Du kan ange inställningarna för automatisk skalning för en pool när du skapar den eller aktivera skalning för en pool senare. Du kan också uppdatera skalningsinställningarna för en skalningsaktiverad pool.
@@ -559,23 +498,17 @@ Mer information om automatisk skalning av program finns i [Skala beräkningsnode
 >
 >
 
-<a id="security-with-certificates" class="xliff"></a>
-
-## Säkerhet med certifikat
+## <a name="security-with-certificates"></a>Säkerhet med certifikat
 Vanligtvis måste du använda certifikat när du krypterar eller avkrypterar känslig aktivitetsinformation, till exempel nyckeln för ett [Azure Storage-konto][azure_storage]. För detta ändamål kan du installera certifikat på noderna. Krypterade hemligheter skickas till aktiviteter via kommandoradsparametrar eller bäddas in i någon av aktivitetsresurserna, och de installerade certifikaten kan användas för att dekryptera dem.
 
 Du använder åtgärden [Lägg till certifikat][rest_add_cert] (Batch REST) eller metoden [CertificateOperations.CreateCertificate][net_create_cert] (Batch .NET) för att lägga till ett certifikat till ett Batch-konto. Därefter kan du associera certifikatet med en ny eller befintlig pool. När ett certifikat associeras med en pool installeras certifikatet av Batch-tjänsten på varje nod i poolen. Batch-tjänsten installerar relevanta certifikat när noden startar, innan andra aktiviteter startas (inklusive Job Manager- och startaktiviteter).
 
 Om du lägger till certifikat till en *befintlig* pool måste du starta om dess beräkningsnoder för att certifikaten ska tillämpas på noderna.
 
-<a id="error-handling" class="xliff"></a>
-
-## Felhantering
+## <a name="error-handling"></a>Felhantering
 Du kan behöva hantera både aktivitets- och programfel i din Batch-lösning.
 
-<a id="task-failure-handling" class="xliff"></a>
-
-### Hantering av aktivitetsfel
+### <a name="task-failure-handling"></a>Hantering av aktivitetsfel
 Aktivitetsfel kan delas in i följande kategorier:
 
 * **Förbearbetningsfel**
@@ -602,9 +535,7 @@ Aktivitetsfel kan delas in i följande kategorier:
 
     När den högsta körningstiden överskrids markeras aktiviteten som *slutförd* men slutkoden är `0xC000013A` och fältet *schedulingError* markeras som `{ category:"ServerError", code="TaskEnded"}`.
 
-<a id="debugging-application-failures" class="xliff"></a>
-
-### Felsöka programfel
+### <a name="debugging-application-failures"></a>Felsöka programfel
 * `stderr` och `stdout`
 
     När ett program körs kan det generera diagnostikutdata som du kan använda för att felsöka problem. Som vi nämnde i avsnittet [Filer och kataloger](#files-and-directories) ovan skriver Batch-tjänsten standardutdata och standardfelutdata till `stdout.txt`- och `stderr.txt`-filer i aktivitetskatalogen på beräkningsnoden. Du kan ladda ned dessa filer med hjälp av Azure-portalen eller något av Batch-SDK:erna. Du kan till exempel hämta dessa och andra filer för felsökningsändamål genom att använda [ComputeNode.GetNodeFile][net_getfile_node] och [CloudTask.GetNodeFile][net_getfile_task] i Batch .NET-biblioteket.
@@ -613,16 +544,12 @@ Aktivitetsfel kan delas in i följande kategorier:
 
     Som vi nämnt tidigare markerar Batch-tjänsten processen som misslyckad om processen som körs av aktiviteten returnerar en slutkod som inte är noll. När en aktivitet kör en process lägger Batch till *processens returkod* i aktivitetens slutkodsegenskap. Observera att en uppgifts slutkod **inte** bestäms av Batch-tjänsten. En uppgifts slutkod bestäms av processen i sig eller av det operativsystem där processen körs.
 
-<a id="accounting-for-task-failures-or-interruptions" class="xliff"></a>
-
-### Ta med aktivitetsfel eller avbrott i beräkningen
+### <a name="accounting-for-task-failures-or-interruptions"></a>Ta med aktivitetsfel eller avbrott i beräkningen
 Aktiviteter kan ibland misslyckas eller avbrytas. Själva aktivitetsprogrammet kan få problem, noden som aktiviteten körs på kanske startar om eller måste tas bort från poolen under en storleksändring om poolens avallokeringsprincip är inställd på att ta bort noder direkt utan att vänta tills aktiviteterna har slutförts. I samtliga fall kan aktiviteten placeras i kö igen av Batch för körning på en annan nod.
 
 Det är också möjligt att ett tillfälligt problem gör att en aktivitet slutar svara eller tar för lång tid att köra. Du kan ange maximalt körningsintervall för en uppgift. Om det maximala körningsintervallet har överskridits avbryter batchtjänsten uppgiftsprogrammet.
 
-<a id="connecting-to-compute-nodes" class="xliff"></a>
-
-### Ansluta till beräkningsnoder
+### <a name="connecting-to-compute-nodes"></a>Ansluta till beräkningsnoder
 Du kan utföra ytterligare felsökning genom att logga in till en beräkningsnod via en fjärranslutning. Du kan använda Azure-portalen för att hämta en RDP-fil (Remote Desktop Protocol) för Windows-noder och hämta SSH-anslutningsinformation (Secure Shell) för Linux-noder. Du kan också göra detta med hjälp av Batch-API:er, t.ex. med [Batch .NET][net_rdpfile] eller [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
@@ -630,9 +557,7 @@ Du kan utföra ytterligare felsökning genom att logga in till en beräkningsnod
 >
 >
 
-<a id="troubleshooting-problematic-compute-nodes" class="xliff"></a>
-
-### Felsöka problematiska beräkningsnoder
+### <a name="troubleshooting-problematic-compute-nodes"></a>Felsöka problematiska beräkningsnoder
 Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-tjänsten undersöka de misslyckade aktiviteternas metadata för att identifiera en skadad nod. Varje nod i poolen tilldelas ett unikt ID och den nod som en aktivitet körs på tas med i aktivitetens metadata. När du har identifierat en nod som har problem kan du utföra flera åtgärder:
 
 * **Starta om noden** ([REST][rest_reboot] | [.NET][net_reboot])
@@ -653,9 +578,7 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
 * Gå igenom ett Batch-exempelprogram steg för steg i [Komma igång med Azure Batch-biblioteket för .NET](batch-dotnet-get-started.md). Det finns också en [Python-version](batch-python-tutorial.md) i självstudien som kör en arbetsbelastning på Linux-beräkningsnoder.
 * Ladda ned, skapa och använd [Batch Explorer][github_batchexplorer]-exempelprojektet när du utvecklar dina Batch-lösningar. Med Batch Explorer kan du göra följande och mer:

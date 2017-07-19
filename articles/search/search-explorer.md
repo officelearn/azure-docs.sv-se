@@ -1,5 +1,5 @@
 ---
-title: "Skicka frågor mot ditt Azure Search-index med hjälp av Azure-portalen | Microsoft Docs"
+title: "Köra frågor mot ett index (Portal – Azure Search) | Microsoft Docs"
 description: "Skicka en sökfråga i Sökutforskaren på Azure Portal."
 services: search
 manager: jhubbard
@@ -11,51 +11,61 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 07/10/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: dd68d8ed073bf7b8666ddef35a2f1f84df690b4b
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Skicka frågor mot ditt Azure Search-index med hjälp av Azure Portal
+# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Köra frågor mot ett Azure Search-index med Sökutforskaren i Azure Portal
 > [!div class="op_single_selector"]
 > * [Översikt](search-query-overview.md)
 > * [Portalen](search-explorer.md)
-> * [NET](search-query-dotnet.md)
+> * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
 > 
 > 
 
-Den här guiden beskriver hur du skickar frågor mot ditt Azure Search-index på Azure Portal.
+Den här artikeln beskriver hur du kör frågor mot ett Azure Search-index med hjälp av **Sökutforskaren** i Azure Portal. Med Sökutforskaren kan du skicka enkla frågor eller fullständiga Lucene-frågesträngar till befintliga index i din tjänst.
 
-Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Search-index](search-what-is-an-index.md) och [fyllt det med data](search-what-is-data-import.md).
-
-## <a name="i-go-to-your-azure-search-blade"></a>I. Gå till ditt Azure Search-blad
-1. Klicka på ”Alla resurser” på menyn på vänster sida av [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+## <a name="open-the-service-dashboard"></a>Öppna instrumentpanelen
+1. Klicka på **Alla resurser** i snabbåtkomstfältet på vänster sida av [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 2. Välj din Azure Search-tjänst.
 
-## <a name="ii-select-the-index-you-would-like-to-search"></a>II. Välj det index som du vill söka i
-1. Välj det index som du vill söka i från indexpanelen.
+## <a name="select-an-index"></a>Välj ett index
 
-![](./media/search-explorer/pick-index.png)
+Välj det index som du vill söka i från panelen **Index**.
 
-## <a name="iii-click-on-the-search-explorer-tile"></a>III. Klicka på panelen ”Sökutforskaren”
-![](./media/search-explorer/search-explorer-tile.png)
+   ![](./media/search-explorer/pick-index.png)
 
-## <a name="iii-start-searching"></a>III. Starta sökningen
-1. Börja söka i Azure Search-indexet genom att skriva i fältet ” *Frågesträng* ” och tryck på ”**Sök**”.
+## <a name="open-search-explorer"></a>Öppna Sökutforskaren
+
+Klicka på panelen Sökutforskaren för att öppna sökfältet och resultatfönstret.
+
+   ![](./media/search-explorer/search-explorer-tile.png)
+
+## <a name="start-searching"></a>Starta sökningen
+
+När du använder Sökutforskaren kan du formulera frågan genom att ange valfria [frågeparametrar](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+
+1. Skriv en fråga i **Frågesträng** och tryck sedan på **Sök**. 
+
+   Frågesträngen parsas automatiskt till rätt fråge-URL för att sedan skicka en HTTP-begäran mot REST-API:et för Azure Search.   
    
-   * När du använder Sökutforskaren kan du ange valfria [frågeparametrar](https://msdn.microsoft.com/library/dn798927.aspx)
-2. I avsnittet ” *Resultat* ” visas frågans resultat i samma JSON-rådataformat som du får i en HTTP-svarstext när du skickar sökförfrågningar mot REST-API:et för Azure Search.
-3. Frågesträngen parsas automatiskt till rätt begärande-URL för att sedan skicka en HTTP-begäran mot REST-API:et för Azure Search.
+   Du kan skapa begäran med valfri enkel frågesyntax eller en fullständig Lucene-frågesyntax. Tecknet `*` motsvarar en tom eller ospecificerad sökning som returnerar alla dokument (inte i någon särskild ordning).
 
-![](./media/search-explorer/search-bar.png)
+2. I **Resultat** visas frågeresultat i oformaterad JSON. Dessa data är identiska med nyttolasten som returneras i en HTTP-svarstext när begäranden görs via programmering.
 
+   ![](./media/search-explorer/search-bar.png)
 
+## <a name="next-steps"></a>Nästa steg
 
+Följande resurser innehåller ytterligare information om och exempel på frågesyntax.
 
-<!--HONumber=Nov16_HO2-->
-
-
+ + [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+ + [Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+ + [Exempel på Lucene-frågesyntax](https://docs.microsoft.com/azure/search/search-query-lucene-examples) 
+ + [Syntax för OData-filteruttryck](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) 

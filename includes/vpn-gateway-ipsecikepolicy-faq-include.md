@@ -1,36 +1,35 @@
-### Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
-<a id="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus" class="xliff"></a>
+### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Stöds anpassade IPsec/IKE-principer på alla Azure VPN Gateway-SKU: er?
 Anpassade IPsec/IKE-principer stöds på Azure **VpnGw1, VpnGw2, VpnGw3, Standard** och **HighPerformance** VPN-gatewayer. **Basic** SKU stöds inte.
 
-### Hur många principer kan jag ställa in för en anslutning?
-<a id="how-many-policies-can-i-specify-on-a-connection" class="xliff"></a>
+### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Hur många principer kan jag ställa in för en anslutning?
 Du kan bara ange ***en*** principkombination för en viss anslutning.
 
-### Kan jag ange en partiell princip på en anslutning? (T.ex. endast IKE-algoritmer men inte IPsec)
-<a id="can-i-specify-a-partial-policy-on-a-connection-eg-only-ike-algorithms-but-not-ipsec" class="xliff"></a>
+### <a name="can-i-specify-a-partial-policy-on-a-connection-eg-only-ike-algorithms-but-not-ipsec"></a>Kan jag ange en partiell princip på en anslutning? (T.ex. endast IKE-algoritmer men inte IPsec)
 Nej, du måste ange alla algoritmer och parametrar för både IKE (huvudläge) och IPsec (snabbläge). Partiell principspecifikationen tillåts inte.
 
-### Vilka är de algoritmer och viktiga fördelar som stöds i den anpassade principen?
-<a id="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy" class="xliff"></a>
+### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Vilka är de algoritmer och viktiga fördelar som stöds i den anpassade principen?
 I tabellen nedan visas de kryptografiska algoritmer som stöds och viktiga fördelar som kan konfigureras av kunden. Du måste välja ett alternativ för varje fält.
 
-| **IPsec/IKEv2**  | **Alternativ**                                                                 |
-| ---              | ---                                                                         |
-| IKEv2-kryptering | AES256, AES192, AES128, DES3, DES                                           |
-| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                   |
-| DH-grupp         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
-| IPsec-kryptering | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
-| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
-| PFS-grupp        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, None                     |
-| QM SA-livstid*  | Sekunder (heltal; **min. 300**) och Kbyte (heltal; **min. 1024**)                                      |
-| Trafikväljare | UsePolicyBasedTrafficSelectors ** ($True/$False; standard $False)                             |
-|                  |                                                                             |
+| **IPsec/IKEv2**  | **Alternativ**                                                                   |
+| ---              | ---                                                                           |
+| IKEv2-kryptering | AES256, AES192, AES128, DES3, DES                                             |
+| IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5                                                     |
+| DH-grupp         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None |
+| IPsec-kryptering | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None      |
+| IPsec Integrity  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| PFS-grupp        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                              |
+| QM SA-livstid   | Sekunder (heltal. **min. 300**/standard 27 000 sekunder)<br>Kilobyte (heltal. **min. 1024**/standard 102400000 kilobyte)           |
+| Trafikväljare | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
+|                  |                                                                               |
 
-* (*) IKEv2 Main Mode SA har en livslängd på högst 28 800 sekunder på Azure VPN-gatewayer
-* (**) Läs nästa fråga från vanliga frågor och svar för ”UsePolicyBasedTrafficSelectors”
+> [!IMPORTANT]
+> 1. DHGroup2048 och PFS2048 är samma som Diffie-Hellman-grupp **14** i IKE och IPsec PFS. Se [Diffie-Hellman-grupper](#DH) för fullständiga mappningar.
+> 2. För GCMAES-algoritmer måste du ange samma GCMAES-algoritm och nyckellängd för både IPsec-kryptering och -integritet.
+> 3. IKEv2 Main Mode SA har en livslängd på högst 28 800 sekunder på Azure VPN-gatewayer
+> 4. QM SA-livslängder är valfria parametrar. Om inget har angetts används standardvärdena på 27 000 sekunder (7,5h) och 102 400 000 kilobyte (102 GB).
+> 5. UsePolicyBasedTrafficSelector är en valfri parameter för anslutningen. Läs nästa fråga från vanliga frågor och svar för "UsePolicyBasedTrafficSelectors"
 
-### Behöver allt matcha mellan Azure VPN gateway-principen och mina lokala konfigurationer för VPN-enheter?
-<a id="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations" class="xliff"></a>
+### <a name="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>Behöver allt matcha mellan Azure VPN gateway-principen och mina lokala konfigurationer för VPN-enheter?
 Din lokala konfiguration för VPN-enheten måste stämma överens med eller innehålla följande algoritmer och parametrar som du anger på Azure IPsec/IKE-principen:
 
 * IKE-krypteringsalgoritm
@@ -51,30 +50,38 @@ Om du aktiverar **UsePolicyBasedTrafficSelectors**, måste du se till att din VP
 
 I [Ansluta till flera lokala principbaserade VPN-enheter](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) finns mer information om hur du använder det här alternativet.
 
-### Ersätter den anpassade principen standardprincipuppsättningar för IPsec/IKE för Azure VPN-gatewayer?
-<a id="does-the-custom-policy-replace-the-default-ipsecike-policy-sets-for-azure-vpn-gateways" class="xliff"></a>
+### <a name ="DH"></a>Vilka Diffie-Hellman-grupper stöds?
+Tabellen nedan visar de Diffie-Hellman-grupper som stöds för IKE (DHGroup) och IPsec (PFSGroup):
+
+| **Diffie-Hellman-grupp**  | **DHGroup**              | **PFSGroup** | **Nyckellängd** |
+| ---                       | ---                      | ---          | ---            |
+| 1                         | DHGroup1                 | PFS1         | 768-bitars MODP   |
+| 2                         | DHGroup2                 | PFS2         | 1024-bitars MODP  |
+| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bitars MODP  |
+| 19                        | ECP256                   | ECP256       | 256-bitars ECP    |
+| 20                        | ECP384                   | ECP284       | 384-bitars ECP    |
+| 24                        | DHGroup24                | PFS24        | 2048-bitars MODP  |
+|                           |                          |              |                |
+
+Se [RFC3526](https://tools.ietf.org/html/rfc3526) och [RFC5114](https://tools.ietf.org/html/rfc5114) för mer information.
+
+### <a name="does-the-custom-policy-replace-the-default-ipsecike-policy-sets-for-azure-vpn-gateways"></a>Ersätter den anpassade principen standardprincipuppsättningar för IPsec/IKE för Azure VPN-gatewayer?
 Ja, när en anpassad princip har angetts på en anslutning kommer Azure VPN-gatewayen bara använda principen på anslutningen, både som IKE-initierare och IKE-responder.
 
-### Om jag tar bort en anpassad princip för IPsec/IKE, blir anslutningen mindre säker?
-<a id="if-i-remove-a-custom-ipsecike-policy-does-the-connection-become-unprotected" class="xliff"></a>
+### <a name="if-i-remove-a-custom-ipsecike-policy-does-the-connection-become-unprotected"></a>Om jag tar bort en anpassad princip för IPsec/IKE, blir anslutningen mindre säker?
 Nej, anslutningen kommer att skyddas av IPsec/IKE. När du tar bort den anpassade principen från en anslutning återgår Azure VPN-gatewayen till [standardlistan med IPsec/IKE-förslag](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) och startar om IKE-handskakningen med din lokala VPN-enhet.
 
-### Kan det störa VPN-anslutningen att lägga till eller uppdatera en IPsec/IKE-princip?
-<a id="would-adding-or-updating-an-ipsecike-policy-disrupt-my-vpn-connection" class="xliff"></a>
+### <a name="would-adding-or-updating-an-ipsecike-policy-disrupt-my-vpn-connection"></a>Kan det störa VPN-anslutningen att lägga till eller uppdatera en IPsec/IKE-princip?
 Ja, det kan orsaka ett litet avbrott (några sekunder) när Azure VPN-gatewayen river upp den befintliga anslutningen och startar om IKE-handskakning för att återupprätta IPsec-tunneln med nya krypteringsalgoritmer och parametrar. Kontrollera att din lokala VPN-enhet också konfigureras med matchande algoritmer och viktiga styrkor för att minimera störningar.
 
-### Kan jag använda olika principer för olika anslutningar?
-<a id="can-i-use-different-policies-on-different-connections" class="xliff"></a>
+### <a name="can-i-use-different-policies-on-different-connections"></a>Kan jag använda olika principer för olika anslutningar?
 Ja. Anpassade principer tillämpats på per-anslutningbasis. Du kan skapa och tillämpa olika IPsec/IKE-principer på olika anslutningar. Du kan också välja att använda anpassade principer för en delmängd av anslutningar. De återstående kommer endast att använda Azure standard IPsec/IKE-principuppsättningar.
 
-### Kan jag använda den anpassade principen på VNet-till-VNet-anslutningen?
-<a id="can-i-use-the-custom-policy-on-vnet-to-vnet-connection-as-well" class="xliff"></a>
+### <a name="can-i-use-the-custom-policy-on-vnet-to-vnet-connection-as-well"></a>Kan jag använda den anpassade principen på VNet-till-VNet-anslutningen?
 Ja, du kan använda anpassade principen på både IPSec-anslutningar mellan lokala anslutningar eller VNet-till-VNet-anslutningar.
 
-### Behöver jag ange samma princip på båda resurserna för VNet-till-VNet-anslutningen?
-<a id="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources" class="xliff"></a>
+### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>Behöver jag ange samma princip på båda resurserna för VNet-till-VNet-anslutningen?
 Ja. En VNet-till-VNet-tunnel består av två anslutningsresurser i Azure, en för varje riktning. Du måste se till att båda anslutningsresurserna har samma princip, annars går det inte att upprätta VNet-till-VNet-anslutningen.
 
-### Fungerar en anpassad IPsec/IKE-princip på ExpressRoute-anslutningen?
-<a id="does-custom-ipsecike-policy-work-on-expressroute-connection" class="xliff"></a>
+### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Fungerar en anpassad IPsec/IKE-princip på ExpressRoute-anslutningen?
 Nej. IPSec-/ princip fungerar bara på S2S VPN- och VNet-till-VNet-anslutningar via Azure VPN-gatewayer.

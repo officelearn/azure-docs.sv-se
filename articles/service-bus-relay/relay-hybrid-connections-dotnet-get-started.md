@@ -1,6 +1,6 @@
 ---
 title: "Komma igång med Azure Relay-hybridanslutningar i .NET | Microsoft Docs"
-description: "Så här skriver du ett C#-konsolprogram för hybridanslutningar"
+description: "Skriv ett C#-konsolprogram för Azure Relay-hybridanslutningar."
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: d27016559ede5d810d7efcec2a3abc78334f0f0a
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 1af23bfd46dd7d3781505473f7c1d86e65ea9bc7
 ms.contentlocale: sv-se
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -26,18 +26,21 @@ ms.lasthandoff: 02/28/2017
 # <a name="get-started-with-relay-hybrid-connections"></a>Kom igång med Relay hybridanslutningar
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-I den här självstudien får du en introduktion till [Azure Relay-hybridanslutningar](relay-what-is-it.md#hybrid-connections), och du får se hur du skapar ett klientprogram som skickar meddelanden till ett motsvarande lyssnarprogram. 
+I den här självstudien får du en introduktion till [Azure Relay-hybridanslutningar](relay-what-is-it.md#hybrid-connections), och du får se hur du skapar ett klientprogram med .NET som skickar meddelanden till motsvarande lyssnarprogram. 
 
 ## <a name="what-will-be-accomplished"></a>Detta kommer att utföras
-Eftersom hybridanslutningar kräver både en klient- och en serverkomponent kommer vi att skapa två konsolprogram i den här självstudien. Stegen är:
+Eftersom hybridanslutningar kräver både en klient- och en serverkomponent kommer vi att skapa två konsolprogram i den här självstudien. Här är stegen:
 
 1. Skapa ett Relay-namnområde med Azure Portal.
-2. Skapa en hybridanslutning med Azure Portal.
+2. Skapa en hybridanslutning i det namnområdet med Azure Portal.
 3. Skriva ett serverkonsolprogram (lyssnare) för att ta emot meddelanden.
 4. Skriva ett klientkonsolprogram (avsändare) för att ta emot meddelanden.
 
 ## <a name="prerequisites"></a>Krav
-1. [Visual Studio 2015 eller senare](http://www.visualstudio.com). Exemplen i de här självstudierna använder Visual Studio 2015.
+
+För att kunna slutföra den här självstudien behöver du följande:
+
+1. [Visual Studio 2015 eller senare](http://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
 2. En Azure-prenumeration.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]

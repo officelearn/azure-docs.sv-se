@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 0ce6114073b80c1d9bb719654ab8cebc30dfefac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/19/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -55,7 +55,7 @@ Site Recovery kan replikera alla appar som körs på en dator som stöds. Dessut
 | System Center Operations Manager |Y |Y |Y |Y |
 | Sharepoint |Y |Y |Y |Y |
 | SAP<br/><br/>Replikera en SAP-plats till Azure för icke-kluster |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |
-| Exchange (icke-DAG) |Y |Kommer snart |Y |Y |
+| Exchange (icke-DAG) |Y |Y |Y |Y |
 | Fjärrskrivbord/VDI |Y |Y |Y |Saknas |
 | Linux (operativsystem och appar) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |
 | Dynamics AX |Y |Y |Y |Y |
@@ -138,11 +138,11 @@ Använd Site Recovery för att skydda din IIS-distribution på följande sätt:
 
 Azure Site Recovery erbjuder haveriberedskap genom att replikera viktiga komponenter i din miljö till en fjärrplats eller ett offentligt moln, till exempel Microsoft Azure. Eftersom den virtuella datorn med webbservern och databasen replikeras till återställningsplatsen finns inget behov av separat säkerhetskopiering av konfigurationsfiler eller certifikat. Programmappningar och bindningar som är beroende av miljövariabler som ändras efter redundans kan uppdateras via skript som är integrerade i haveriberedskapsplanerna. Virtuella datorer finns endast på återställningsplatsen i händelse av redundans. Azure Site Recovery hjälper dig även att dirigera redundans från slutpunkt till slutpunkt genom att erbjuda följande funktioner:
 
--    Användning av ordningsföljd för avstängning och start av virtuella datorer i olika nivåer.
--    Tillägg av skript för att tillåta uppdatering av programberoenden och bindningar på de virtuella datorerna efter att de startats. Skripten kan också användas för att uppdatera DNS-servern så att den pekar på återställningsplatsen.
--    Allokering av IP-adresser till virtuella datorer före redundans genom mappning av det primära nätverket och återställningsnätverket. På så sätt används skript som inte behöver uppdateras efter redundans.
--    Möjlighet för redundans med ett klick för flera webbprogram på webbservrarna, vilket minskar risken för förväxling i händelse av ett haveri.
--    Möjlighet att testa återställningsplaner i en isolerad miljö för DR-test.
+-   Användning av ordningsföljd för avstängning och start av virtuella datorer i olika nivåer.
+-   Tillägg av skript för att tillåta uppdatering av programberoenden och bindningar på de virtuella datorerna efter att de startats. Skripten kan också användas för att uppdatera DNS-servern så att den pekar på återställningsplatsen.
+-   Allokering av IP-adresser till virtuella datorer före redundans genom mappning av det primära nätverket och återställningsnätverket. På så sätt används skript som inte behöver uppdateras efter redundans.
+-   Möjlighet för redundans med ett klick för flera webbprogram på webbservrarna, vilket minskar risken för förväxling i händelse av ett haveri.
+-   Möjlighet att testa återställningsplaner i en isolerad miljö för DR-test.
 
 [Läs mer](https://aka.ms/asr-iis) om hur du skyddar en IIS-webbservergrupp.
 

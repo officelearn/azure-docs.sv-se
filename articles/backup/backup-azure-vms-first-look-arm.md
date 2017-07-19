@@ -16,10 +16,11 @@ ms.topic: hero-article
 ms.date: 02/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d39678bb7e7d2263b6b2f8d36da1bd86dcfff271
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: fd923fa711aa0af72e8d81d84fd0adb2e003596a
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -40,7 +41,9 @@ Den här självstudiekursen beskriver steg för steg hur du skapar ett Recovery 
 * Virtuella datorer som har krypterats med Azure Disk Encryption, med BEK och KEK
 * Programkonsekvent säkerhetskopiering av virtuella Windows-datorer med VSS och virtuella Linux-datorer med anpassade skript som körs före och efter ögonblicksbilder
 
-Mer information om hur du skyddar virtuella datorer med Premium Storage finns i artikeln [Säkerhetskopiera och återställa virtuella datorer i Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Mer information om stöd för hanterade virtuella datordiskar finns i [Säkerhetskopiering och återställning av virtuella datorer på hanterade diskar](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Mer information om ramverket för förskript och efterskrift för säkerhetskopiering av virtuella Linux-datorer finns i [Programkonsekvent säkerhetskopiering av virtuella Linux-datorer med förskript och efterskript] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) (på engelska)
+Mer information om hur du skyddar virtuella datorer med Premium Storage finns i artikeln [Säkerhetskopiera och återställa virtuella datorer i Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Mer information om stöd för hanterade virtuella datordiskar finns i [Säkerhetskopiering och återställning av virtuella datorer på hanterade diskar](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Mer information om ramverket för förskript och efterskrift för säkerhetskopiering av virtuella Linux-datorer finns i [Programkonsekvent säkerhetskopiering av virtuella Linux-datorer med förskript och efterskript] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) (på engelska).
+
+Mer information om vad du kan säkerhetskopiera finns [här](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 > [!NOTE]
 > I den här självstudiekursen förutsätter vi att du redan har en virtuell dator i din Azure-prenumeration och att du har utfört nödvändiga åtgärder för att ge säkerhetskopieringstjänsten åtkomst till den virtuella datorn.

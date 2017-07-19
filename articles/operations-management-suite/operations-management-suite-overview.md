@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: a0080a847764d538175d6b22d50d584383bd2054
-ms.openlocfilehash: 3028da79b6a9bfae4c95a8139ecf8bbd7debc56a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Vad är Operations Management Suite (OMS)?
 Den här artikeln ger en introduktion till Operations Management Suite (OMS) med en kort översikt över affärsvärdet, tjänsterna, hanteringslösningarna samt paketerbjudanden med olika tjänster och lösningar.  Det finns också länkar till detaljerad dokumentation om hur du distribuerar och använder varje tjänst och lösning.
 
-## <a name="from-on-premise-to-the-cloud"></a>Från lokalt till molnet
+## <a name="from-on-premises-to-the-cloud"></a>Från lokalt till molnet
 Microsoft har länge erbjudit produkter för att hantera företagsmiljöer.  2007 konsoliderades flera produkter i System Center-sviten.  Till exempel konsoliderades Configuration Manager med funktioner som distribution och inventering av programvara, Operations Manager med proaktiv övervakning av system och program, Orchestrator med runbook-flöden för att automatisera manuella processer och Data Protection Manager med säkerhetskopiering och återställning av viktiga data.
 
 I och med att allt fler datorresurser flyttades till molnet utökades System Center med fler molnfunktioner för att hantera resurser i Azure, till exempel Operations Manager och Orchestrator.  Dessa var fortfarande utformade som lokala lösningar och krävde stora investeringar i distribution och underhåll av en lokal hanteringsmiljö.  För att dra full nytta av molnet och stödja framtidens program krävdes ett nytt tillvägagångssätt.
@@ -40,7 +42,7 @@ Operations Management Suite (även kallat OMS) är en samling hanteringstjänste
 
 ### <a name="is-it-just-for-the-cloud"></a>Är det bara för molnet?
 Bara för att OMS-tjänsterna körs i molnet betyder det inte att de inte kan hantera din lokala miljö på ett effektivt sätt.  Placera en agent i valfri Windows- eller Linux-dator i ditt datacenter så skickar den data till Log Analytics. I Log Analytics kan data analyseras tillsammans med alla andra data som samlats in från molntjänster eller lokala tjänster.  Med Azure Backup och Azure Site Recovery kan du utnyttja molnet för säkerhetskopiering och få hög tillgänglighet för lokala resurser.  
-Runbook-flöden i molnet kan normalt inte komma åt dina lokala resurser, men du kan installera en agent på en eller flera datorer som fungerar som värdar för runbook-flöden i ditt datacenter.  När du startar en runbook anger du om du vill att den ska köras i molnet eller på en lokal arbetsprocess.
+Runbook-flöden i molnet kan normalt inte komma åt dina lokala resurser, men du kan installera en agent på en eller flera datorer som fungerar som värd för runbook-flöden i ditt datacenter.  När du startar en runbook anger du om du vill att den ska köras i molnet eller på en lokal arbetsprocess.
 
 ## <a name="hybrid-management-with-system-center"></a>Hybridhantering med System Center
 Om du har en befintlig installation av System Center kan du integrera dessa komponenter med OMS-tjänsterna och få en hybridlösning för både din lokala miljö och din molnmiljö. På så sätt kan du utnyttja fördelarna med varje produkt.  Anslut din befintliga Operations Manager-hanteringsgrupp till Log Analytics om du vill analysera hanterade agenter i molnet.  Och använd din befintliga säkerhetskopieringsprocess med Data Protection Manager för att säkerhetskopiera dina data till molnet.  
@@ -151,7 +153,7 @@ Site Recovery lagrar metadata i valv som finns i en viss geografisk Azure-region
 ## <a name="management-solutions"></a>Hanteringslösningar
 [Hanteringslösningar](operations-management-suite-solutions.md) är färdiga logikuppsättningar för olika scenarier som utnyttjar en eller flera OMS-tjänster.  Olika lösningar är tillgängliga från Microsoft och partners. Du kan enkelt lägga till dem i din Azure-prenumeration för att öka värdet av din OMS-investering.  Som partner kan du skapa egna lösningar för dina program och tjänster och tillhandahålla dem till användare via Azure Marketplace eller Azure-snabbstartsmallar.
 
-Ett bra exempel på en lösning som utnyttjar flera tjänster för att utöka funktionaliteten är [lösningen Hantering av uppdateringar](oms-solution-update-management.md).  Den lösningen använder Log Analytics-agenten för Windows och Linux för att samla in information om nödvändiga uppdateringar på varje agent.  Dessa data skrivs till Log Analytics-databasen där du kan analysera dem med en instrumentpanel.  När du skapar en distribution används runbook-flöden i Azure Automation för att installera nödvändiga uppdateringar.  Du hanterar hela processen i portalen och du behöver inte tänka på de bakomliggande detaljerna.
+Ett bra exempel på en lösning som utnyttjar flera tjänster för att utöka funktionaliteten är [lösningen Hantering av uppdateringar](oms-solution-update-management.md).  Den lösningen använder Log Analytics-agenten för Windows och Linux för att samla in information om nödvändiga uppdateringar på varje agent.  Dessa data skrivs till Log Analytics-databasen där du kan analysera dem med en instrumentpanel.  När du skapar en distribution används runbook-flöden i Azure Automation för att installera nödvändiga uppdateringar.  Du hanterar hela processen i portalen och behöver inte tänka på de bakomliggande detaljerna.
 
 ![Lösning](media/operations-management-suite-overview/overview-solution.png)
 
@@ -171,10 +173,5 @@ Microsoft och partner lägger med jämna mellanrum till nya lösningar i OMS så
 * Läs mer om [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 * Läs mer om [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
 * Utforska [lösningarna som är tillgängliga](../log-analytics/log-analytics-add-solutions.md) i olika OMS-erbjudanden. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

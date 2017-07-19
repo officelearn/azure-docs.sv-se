@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/8/2017
-ms.author: markgal;trinadhk; anuragm
+ms.date: 6/14/2017
+ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: cd07cfe9663ffe2561f87b76b3eef1a551c9d665
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 629b3c54a35f939845349e6f2ed7743885e41f3b
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -221,10 +221,16 @@ Några vanliga exempel på skyddade instanser är virtuella datorer, programserv
 * En personlig dator, arbetsstation eller bärbar dator som kör Windows-operativsystemet.
 
 
-## <a name="what-is-the-vault-credential-file"></a>Vad är valvautentiseringsfilen?
-Filen med autentiseringsuppgifter för valvet är ett certifikat som genereras av portalen för varje Recovery Services-valv. Portalen överför sedan den offentliga nyckeln till Access Control Service (ACS). Den privata nyckeln får du när du laddar ned autentiseringsuppgifterna. Använd den för att registrera de datorer som du skyddar. Med den privata nyckeln kan du autentisera servrar eller datorer för att skicka säkerhetskopierade data till ett visst Recovery Services-valv.
+## <a name="what-is-a-recovery-services-vault"></a>Vad är ett Recovery Services-valv?
+Ett Recovery Services-valv är en onlinelagringsentitet i Azure som används för att lagra data, som säkerhetskopior, återställningspunkter och principer för säkerhetskopiering. Du kan använda Recovery Services-valv till att lagra säkerhetskopierade data för Azure-tjänster, lokala servrar och arbetsstationer. Med Recovery Services-valv är det enkelt att organisera dina säkerhetskopierade data samtidigt som du minimerar hanteringskostnaden. Du kan skapa hur många Recovery Services-valv du vill inom en prenumeration.
 
-Du använder bara valvautentiseringen för att registrera servrar eller datorer. Men var noga med autentiseringsuppgifter för valv. Om de tappas bort eller hämtas av andra kan autentiseringsuppgifterna användas för att registrera andra datorer mot samma valv. Eftersom säkerhetskopierade data krypteras med en lösenfras som endast du kan få åtkomst till kan inte befintliga säkerhetskopierade data komprometteras. Valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Du kan ladda ned autentiseringsuppgifter för Recovery Services-valvet så ofta du vill, men du kan endast använda de senaste autentiseringsuppgifterna för registrering.
+Säkerhetskopieringsvalv, som baseras på Azure Service Manager, var den första valvversionen. Recovery Services-valv, som lägger till funktioner från Azure Resource Manager-modellen, är den andra versionen. I artikeln [Recovery Services vault overview](backup-azure-recovery-services-vault-overview.md) (Översikt över Recovery Services-valv) ges en fullständig beskrivning av funktionsskillnaderna. Du kan inte längre skapa säkerhetskopieringsvalv i Azure Portal, men säkerhetskopieringsvalv kan fortfarande användas.
+
+> [!IMPORTANT]
+> Nu kan du uppgradera dina säkerhetskopieringsvalv till Recovery Services-valv. Mer information finns i artikeln [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Uppgradera ett säkerhetskopieringsvalv till ett Recovery Services-valv). Microsoft rekommenderar att du uppgraderar dina säkerhetskopieringsvalv till Recovery Services-valv.<br/> **Från den 1 november 2017**:
+>- Alla återstående säkerhetskopieringsvalv uppgraderas automatiskt till Recovery Services-valv.
+>- Du kan inte längre komma åt dina säkerhetskopierade data i den klassiska portalen. Använd i stället Azure Portal till att få åtkomst till dina säkerhetskopierade data i Recovery Services-valv.
+>
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Vad är skillnaden mellan Azure Backup och Azure Site Recovery?
 Azure Backup och Azure Site Recovery är relaterade eftersom båda tjänsterna säkerhetskopierar och återställer data. Dessa tjänster tjänar dock olika syften när det gäller att tillhandahålla affärskontinuitet och haveriberedskap i organisationen. Använd Azure Backup om du vill skydda och återställa data på en mer detaljerad nivå. Om till exempel en presentation på en bärbar dator skadas, använder du Azure Backup för att återställa presentationen. Om du vill replikera konfigurationen och data på en virtuell dator på ett annat datacenter använder du Azure Site Recovery.

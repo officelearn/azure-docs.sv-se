@@ -5,28 +5,29 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/27/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d0e35237b412d4c3bcc26c77d124f3ed2fef6403
-ms.lasthandoff: 03/16/2017
-
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS
-Fjärrskrivbordsgateway använder ofta Network Policy Services (NPS) lokalt för att autentisera användare. I den här artikeln beskrivs hur du dirigerar RADIUS-förfrågningar från Fjärrskrivbordsgateway (via lokal NPS) till Multi-Factor Authentication-servern. Kombinationen Azure MFA och Fjärrskrivbordsgateway innebär att användarna har åtkomst till sina arbetsmiljöer var de än är samtidigt som du har kontroll över företagets resurser genom att du kräver stark autentisering. 
+Fjärrskrivbordsgateway använder ofta Network Policy Services (NPS) lokalt för att autentisera användare. I den här artikeln beskrivs hur du dirigerar RADIUS-förfrågningar från Fjärrskrivbordsgateway (via lokal NPS) till Multi-Factor Authentication-servern. Kombinationen Azure MFA och Fjärrskrivbordsgateway innebär att användarna har åtkomst till sina arbetsmiljöer var de än är samtidigt som du kan kräva stark autentisering. 
 
 Eftersom Windows-autentisering för Terminal Services inte stöds för Server 2012 R2 använder du Fjärrskrivbordsgateway och RADIUS för integrering med MFA-servern. 
 
-Multi-Factor Authentication Server bör installeras på en separat server, som sedan skickar RADIUS-begäran via en proxyanslutning till NPS på RDG-servern. När NPS-servern validerar användarnamnet och lösenordet returnerar den ett svar till Multi-Factor Authentication Server som utför autentiseringen med den andra faktorn innan resultatet returneras till gatewayen.
+Installera Azure Multi-Factor Authentication Server på en separat server, som sedan skickar RADIUS-begäran via en proxyanslutning till NPS på RDG-servern. När NPS har verifierat användarnamnet och lösenordet returneras ett svar till Multi-Factor Authentication-servern. MFA-servern utför sedan den andra delen i autentiseringen och returnerar ett svar till gatewayen.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -49,7 +50,7 @@ Fjärrskrivbordsgateway använder NPS för att skicka RADIUS-begäran till Azure
 1. Öppna menyn för **RADIUS-klienter och RADIUS-server** i den vänstra kolumnen i NPS och klicka på **Fjärr-RADIUS-servergrupper**. 
 2. Välj **TS GATEWAY SERVER GROUP** (TS GATEWAY-SERVERGRUPP). 
 3. Gå till fliken **Belastningsutjämning**. 
-4. Ändra både ”Antal sekunder utan svar innan begäran anses vara förlorad” och ”Antal sekunder mellan begäranden när servern anses vara otillgänglig” till mellan 30 och 60 sekunder. (Om du märker att tidsgränsen ändå nås för servern under autentiseringen kan du gå hit igen och öka antalet sekunder.)
+4. Ändra både **Antal sekunder utan svar innan begäran anses vara förlorad** och **Antal sekunder mellan begäranden när servern anses vara otillgänglig** till mellan 30 och 60 sekunder. (Om du märker att tidsgränsen ändå nås för servern under autentiseringen kan du gå hit igen och öka antalet sekunder.)
 5. Gå till fliken **Autentisering/konto** och kontrollera att de angivna RADIUS-portarna matchar de portar som Multi-Factor Authentication-servern lyssnar på.
 
 ### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>Förbered NPS för att ta emot autentiseringar från MFA-servern

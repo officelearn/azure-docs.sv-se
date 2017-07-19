@@ -6,19 +6,21 @@ keywords: "autentiseringsserver, azure multifaktor autentisering appaktiveringss
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/26/2017
+ms.date: 06/26/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b769f785f67c24b99156dcfc21a42f661cc9da27
-ms.lasthandoff: 03/31/2017
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 4235dfd0e17b9892787dd86d807b8f1f6e360675
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -28,45 +30,27 @@ ms.lasthandoff: 03/31/2017
 
 Nu när vi har bestämt oss för att använda en lokal Multi-Factor Authentication-server, är det dags att sätta igång. Den här sidan innehåller anvisningar för hur du installerar servern och konfigurerar den med ditt lokala Active Directory. Om du redan har installerat MFA-servern och vill uppgradera så kan du läsa artikeln om att [uppgradera till den senaste Azure Multi-Factor Authentication-servern](multi-factor-authentication-server-upgrade.md). Om du vill veta hur du endast installerar webbtjänsten kan du läsa artikeln [Aktivera mobilappautentisering och Azure Multi-Factor Authentication-servern](multi-factor-authentication-get-started-server-webservice.md).
  
+## <a name="plan-your-deployment"></a>Planera distributionen
 
-## <a name="download-the-azure-multi-factor-authentication-server"></a>Ladda ned Azure Multi-Factor Authentication Server
-Du kan ladda ned Azure Multi-Factor Authentication Server på två sätt. Både görs via Azure-portalen. Det första är genom att hantera Multi-Factor Auth-providern direkt. Det andra är via tjänstinställningarna. Det andra alternativet kräver antingen en Multi-Factor Auth-provider eller en Azure MFA-, Azure AD Premium- eller Enterprise Mobility Suite-licens.
+Innan du laddar ned Azure Multi-Factor Authentication-servern måste du överväga dina krav på belastningar och hög tillgänglighet. Använd den här informationen till att bestämma hur och var du ska distribuera servern. 
 
-> [!Important]
-> De här två alternativen kan verka liknande, men det är viktigt att veta vilken som ska användas. Om dina användare har licenser där MFA (Azure MFA, Azure AD Premium eller Enterprise Mobility + Security) ingår skapar du inte en Multi-Factor Authentication-provider för att komma till servernedladdningen. Använd istället alternativ 2 för att hämta servern från tjänstinställningssidan. 
+En tumregel för mängden minne som behövs utgår från antalet användare som förväntas autentisera sig regelbundet. 
 
-### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Alternativ 1: Hämta Azure Multi-Factor Authentication-server från den klassiska Azure-portalen
+| Användare | RAM |
+| ----- | --- |
+| 1-10,000 | 4 GB |
+| 10,001-50,000 | 8 GB |
+| 50,001-100,000 | 12 GB |
+| 100,000-200,001 | 16 GB |
+| 200,001+ | 32 GB |
 
-Använd det här hämtningsalternativet om du redan har en multifaktorautentiseringsprovider, eftersom du betalar för MFA per aktiverad användare eller per autentisering. 
+Behöver du konfigurera flera servrar för hög tillgänglighet eller belastningsutjämning? Det finns ett antal olika sätt att ordna den här konfigurationen med Azure MFA-servern. När du installerar din första Azure MFA-server blir den till huvudserver. Eventuella ytterligare servrar blir underordnade och synkroniserar automatiskt användare och eventuell konfiguration. Sedan kan du konfigurera en primär server och använda resten som reserver, eller så kan du konfigurera belastningsutjämning mellan alla servrarna. 
 
-1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör.
-2. Välj **Active Directory** till vänster.
-3. På Active Directory-sidan klickar du på **Multi-Factor Auth Providers**
-    ![Multi-Factor Auth Providers](./media/multi-factor-authentication-get-started-server/authproviders.png) (Multi-Factor Authentication-providrar)
-4. Klicka på **Hantera** längst ned. En ny sida öppnas.
-5. Klicka på **Hämtningsbara filer**.
-6. Klicka på länken **Ladda ned** ovanför **Skapa autentiseringsuppgifter för aktivering**.
-   ![Ladda ned](./media/multi-factor-authentication-get-started-server/download4.png)
-7. Spara den nedladdade filen.
+När en Azure MFA-huvudserver kopplas från kan de underordnade servrarna fortfarande bearbeta begäranden om tvåstegsverifiering. Du kan dock inte lägga till nya användare, och befintliga användare kan inte uppdatera sina inställningar förrän huvudservern är tillbaka online eller en underordnad server blir befordrad. 
 
-### <a name="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings"></a>Alternativ 2: Hämta Azure Multi-Factor Authentication-server från tjänstinställningarna
+## <a name="prepare-your-environment"></a>Förbered din miljö
 
-Använd det här hämtningsalternativet om du har licenser för Enterprise Mobility Suite, Azure AD Premium eller Enterprise Cloud Suite. 
-
-1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör.
-2. Välj **Active Directory** till vänster.
-3. Dubbelklicka på din instans av Azure AD.
-4. Klicka på **Konfigurera** längst upp.
-5. Rulla ned till avsnittet **Multi-Factor Authentication** och välj **Hantera tjänstinställningar**.
-6. På sidan för tjänstinställningar klickar du på **Gå till portalen** längst ned på sidan. En ny sida öppnas.
-   ![Ladda ned](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-7. Klicka på **Hämtningsbara filer**.
-8. Klicka på länken **Ladda ned** ovanför **Skapa autentiseringsuppgifter för aktivering**.
-    ![Ladda ned](./media/multi-factor-authentication-get-started-server/download4.png)
-9. Spara den nedladdade filen.
-
-## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>Installera och konfigurera Azure Multi-Factor Authentication Server
-Nu när du har laddat ned servern kan du installera och konfigurera den.  Se till att servern som du installerar den på uppfyller följande krav:
+Se till att den server du använder för Azure Multi-Factor Authentication uppfyller följande krav:
 
 | Krav för Azure Multi-Factor Authentication Server | Beskrivning |
 |:--- |:--- |
@@ -74,7 +58,6 @@ Nu när du har laddat ned servern kan du installera och konfigurera den.  Se til
 | Programvara |<li>Windows Server 2008 eller senare om värden är ett serveroperativsystem</li><li>Windows 7 eller senare om värden är ett klientoperativsystem</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li> |
 
 ### <a name="azure-multi-factor-authentication-server-firewall-requirements"></a>Krav för Azure Multi-Factor Authentication Server-brandvägg
-- - -
 Varje MFA-server måste kunna kommunicera på port 443 för utgående trafik till följande adresser:
 
 * https://pfd.phonefactor.net
@@ -97,7 +80,43 @@ Om du inte använder funktionen Händelsebekräftelse och om användarna inte an
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-### <a name="to-install-and-configure-the-azure-multi-factor-authentication-server"></a>Så här installerar du och konfigurerar Azure Multi-Factor Authentication-servern
+## <a name="download-the-azure-multi-factor-authentication-server"></a>Ladda ned Azure Multi-Factor Authentication Server
+Du kan ladda ned Azure Multi-Factor Authentication Server på två sätt. Både görs via Azure-portalen. Det första är genom att hantera Multi-Factor Auth-providern direkt. Det andra är via tjänstinställningarna. Det andra alternativet kräver antingen en Multi-Factor Auth-provider eller en Azure MFA-, Azure AD Premium- eller Enterprise Mobility Suite-licens.
+
+> [!Important]
+> De här två alternativen kan verka liknande, men det är viktigt att veta vilken som ska användas. Om dina användare har licenser där MFA (Azure MFA, Azure AD Premium eller Enterprise Mobility + Security) ingår skapar du inte en Multi-Factor Authentication-provider för att komma till servernedladdningen. Använd istället alternativ 2 för att hämta servern från tjänstinställningssidan. 
+
+### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Alternativ 1: Hämta Azure Multi-Factor Authentication-server från den klassiska Azure-portalen
+
+Använd det här hämtningsalternativet om du redan har en multifaktorautentiseringsprovider, eftersom du betalar för MFA per aktiverad användare eller per autentisering. 
+
+1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör.
+2. Välj **Active Directory** till vänster.
+3. På Active Directory-sidan klickar du på **Multi-Factor Auth Providers** ![Multi-Factor Auth Providers](./media/multi-factor-authentication-get-started-server/authproviders.png) (Multi-Factor Auth-providers)
+4. Klicka på **Hantera** längst ned. En ny sida öppnas.
+5. Klicka på **Hämtningsbara filer**.
+6. Klicka på länken **Ladda ned**.
+   ![Ladda ned](./media/multi-factor-authentication-get-started-server/download4.png)
+7. Spara den nedladdade filen.
+
+### <a name="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings"></a>Alternativ 2: Hämta Azure Multi-Factor Authentication-server från tjänstinställningarna
+
+Använd det här hämtningsalternativet om du har licenser för Enterprise Mobility Suite, Azure AD Premium eller Enterprise Cloud Suite. 
+
+1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör.
+2. Välj **Active Directory** till vänster.
+3. Dubbelklicka på din instans av Azure AD.
+4. Klicka på **Konfigurera** längst upp.
+5. Rulla ned till avsnittet **Multi-Factor Authentication** och välj **Hantera tjänstinställningar**.
+6. På sidan för tjänstinställningar klickar du på **Gå till portalen** längst ned på sidan. En ny sida öppnas.
+   ![Ladda ned](./media/multi-factor-authentication-get-started-server/servicesettings.png)
+7. Klicka på **Hämtningsbara filer**.
+8. Klicka på länken **Ladda ned**.
+    ![Ladda ned](./media/multi-factor-authentication-get-started-server/download4.png)
+9. Spara den nedladdade filen.
+
+## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>Installera och konfigurera Azure Multi-Factor Authentication Server
+Nu när du har laddat ned servern kan du installera och konfigurera den.  Se till att servern du installerar den på uppfyller kraven i planeringsavsnittet. 
 
 I de här stegen görs en snabbinstallation i konfigurationsguiden. Om du inte ser guiden eller om du vill köra den igen så kan du välja den från menyn **Verktyg** på servern.
 
@@ -115,8 +134,7 @@ Nu när servern har installerats och konfigurerats kan du snabbt importera anvä
 2. Välj **Importera från Active Directory** längst ned på sidan.
 3. Nu kan du antingen söka efter enskilda användare eller söka i AD-katalogen efter organisationsenheter som innehåller användare.  I det här exemplet anger vi organisationsenheten för användare.
 4. Markera alla användare till höger och klicka på **Importera**.  Ett popup-meddelande visas som informerar dig om att åtgärden lyckades.  Stäng importfönstret.
-
-![Molnet](./media/multi-factor-authentication-get-started-server/import2.png)
+   ![Molnet](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## <a name="send-users-an-email"></a>Skicka ett e-postmeddelande till användare
 Nu när du har importerat användarna till MFA-servern ska du skicka ett e-postmeddelande om att de har registrerats för tvåstegsverifiering.

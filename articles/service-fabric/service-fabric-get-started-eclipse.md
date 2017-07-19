@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 06/29/2016
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 6f0f6d6399d53ae2ef81454e4d686e6cc59151c2
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -34,16 +35,17 @@ Du kan installera ett Service Fabric-plugin-program i Eclipse. Plugin-programmet
     -   Om du vill söka efter och installera uppdateringar för Eclipse Neon kan du gå till **Help** > **Check for Updates** (Hjälp > Sök efter uppdateringar).
 
 2.  Om du vill installera Service Fabric-plugin-programmet går du till **Help** > **Install New Software** (Hjälp > Installera ny programvara) i Eclipse Neon.
-  1.    I rutan **Work with** (Arbeta med) anger du **http://dl.windowsazure.com/eclipse/servicefabric**.
+  1.    Ange **http://dl.microsoft.com/eclipse** i textrutan **Arbeta med**.
   2.    Klicka på **Lägg till**.
-    ![Service Fabric-plugin-program för Eclipse Neon][sf-eclipse-plugin-install]
+
+         ![Service Fabric-plugin-program för Eclipse Neon][sf-eclipse-plugin-install]
   3.    Välj Service Fabric-plugin-programmet och klicka sedan på **Next** (Nästa).
   4.    Slutför installationsstegen och acceptera licensvillkoren för programvara från Microsoft.
 
 Om du redan har Service Fabric-plugin-programmet installerat kontrollerar du att du har den senaste versionen. Om du vill söka efter uppdateringar går du till **Help** > **Installation Details** (Hjälp > Installationsinformation). Välj Service Fabric i listan över installerade plugin-program och klicka sedan på **Update** (Uppdatera). Tillgängliga uppdateringar installeras.
 
 > [!NOTE]
-> Om installationen eller uppdateringen av Service Fabric-plugin-programmet är långsam kan det bero på en Eclipse-inställning. Eclipse samlar in metadata om alla ändringar på uppdateringsplatser som är registrerade med din Eclipse-instans. Om du vill påskynda sökningen efter och installationen av uppdateringen av Service Fabric-plugin-programmet kan du gå till **Available Software Sites** (Platser med tillgänglig programvara). Avmarkera kryssrutorna för alla platser utom den som pekar på platsen för Service Fabric-plugin-programmet (http://dl.windowsazure.com/eclipse/servicefabric).
+> Om installationen eller uppdateringen av Service Fabric-plugin-programmet är långsam kan det bero på en Eclipse-inställning. Eclipse samlar in metadata om alla ändringar på uppdateringsplatser som är registrerade med din Eclipse-instans. Om du vill påskynda sökningen efter och installationen av uppdateringen av Service Fabric-plugin-programmet kan du gå till **Available Software Sites** (Platser med tillgänglig programvara). Avmarkera kryssrutorna för alla platser utom den som pekar på platsen för Service Fabric-plugin-programmet (http://dl.microsoft.com/eclipse/azure/servicefabric).
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Skapa ett Service Fabric-program i Eclipse
 
@@ -124,6 +126,12 @@ Du kan lägga till en Service Fabric-tjänst till ett befintligt Service Fabric-
 
     ![Service Fabric, lägg till tjänst, sida 4][add-service/p4]
 
+## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Redigera manifestversioner för Service Fabric Java-programmet
+
+Om du vill redigera manifestversioner högerklickar du på projektet, går till **Service Fabric** och väljer **Edit Manifest Versions** (Redigera manifestversioner) från listrutan. I guiden kan du uppdatera manifestversioner för programmanifestet, tjänstmanifestet och versioner för paketen **Kod**, **Konfig** och **Data**.
+
+Om du markerar alternativet **Automatically update application and service versions** (Uppdatera versioner av program och tjänster automatiskt) och sedan uppdaterar en version så uppdateras manifestversionerna automatiskt. Säg att du först markerar kryssrutan och sedan uppdaterar versionen **Kod**-versionen från 0.0.0 till 0.0.1 och klickar på **Slutför**. Då uppdateras tjänstemanifestversionen och programmanifestversionen automatiskt till 0.0.1.
+
 ## <a name="upgrade-your-service-fabric-java-application"></a>Uppgradera ditt Service Fabric Java-program
 
 Anta att du har ett projekt som heter **App1** som du har skapat med Service Fabric-plugin-programmet i Eclipse. För att distribuera projektet skapade du ett program med namnet **fabric:/App1Application** med hjälp av plugin-programmet. Programtypen är **App1AppicationType** och programversionen är 1.0. Nu vill du uppgradera programmet utan att det påverkar tillgängligheten.
@@ -142,7 +150,7 @@ Det tar ett par minuter att uppgradera programmet. Du kan övervaka programuppgr
 
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png

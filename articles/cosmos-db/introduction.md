@@ -1,25 +1,25 @@
 ---
 title: Introduktion till Azure Cosmos DB | Microsoft Docs
 description: "Läs om Azure Cosmos DB. Den här globalt distribuerade databasen med flera modeller har skapats för låg svarstid, elastisk skalbarhet och hög tillgänglighet."
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2017
 ms.author: mimig
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1591a7935b10e22164d26a09c4e923101b517227
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 49eb2e4f7d57de44a3b7a877dfdd138f4c374436
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -29,7 +29,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databas för flera datamode
 
 ![Azure Cosmos DB är Microsofts globalt distribuerade databastjänst med elastisk utskalning, garanterat låga svarstider, fem konsekvensmodeller och omfattande garanterade serviceavtal](./media/introduction/azure-cosmos-db.png)
 
-Azure Cosmos DB innehåller en skrivoptimerad, resursstyrd, schemaoberoende databasmotor som har inbyggt stöd för flera datamodeller: nyckelvärden, dokument, diagram och kolumner. Det stöder även flera API:er för dataåtkomst inklusive [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [DocumentDB SQL](../documentdb/documentdb-introduction.md), [Gremlin](graph-introduction.md) (förhandsgranskning) och [Azure Tables](table-introduction.md) (förhandsgranskning) på ett utökningsbart sätt. 
+Azure Cosmos DB innehåller en skrivoptimerad, resursstyrd, schemaoberoende databasmotor som har inbyggt stöd för flera datamodeller: nyckelvärden, dokument, diagram och kolumner. Det stöder även flera API:er för dataåtkomst inklusive [MongoDB](mongodb-introduction.md), [DocumentDB SQL](documentdb-introduction.md), [Gremlin](graph-introduction.md) (förhandsgranskning) och [Azure Tables](table-introduction.md) (förhandsgranskning) på ett utökningsbart sätt. 
 
 Azure Cosmos DB startade i slutet av 2010 för att komma tillrätta med problem som upplevdes av storskaliga program inom Microsoft. Eftersom att skapa globalt distribuerade program inte är ett unikt problem för Microsoft, har vi gjort tjänsten externt tillgänglig för alla Azure-utvecklare i form av Azure DocumentDB. Azure Cosmos DB är nästa stora steg i utvecklingen av DocumentDB och vi gör det nu tillgängligt för dig att använda. Som en del av den här versionen av Azure Cosmos DB, är DocumentDB-kunder (med sina data) automatiskt Azure DB Cosmos-kunder. Övergången är sömlös och de har nu åtkomst till ett bredare utbud av nya funktioner som erbjuds av Azure Cosmos DB. 
 
@@ -37,7 +37,7 @@ Azure Cosmos DB startade i slutet av 2010 för att komma tillrätta med problem 
 
 Azure Cosmos DB erbjuder de bästa funktionerna för relations- och icke-relationsdatabaser.
 
-| Funktioner | Relations-databaser    | Icke-relationsdatabaser (NoSQL) |     Azure Cosmos DB |
+| Funktioner | Relations-databaser | Icke-relationsdatabaser (NoSQL) |  Azure Cosmos DB |
 | --- | --- | --- | --- |
 | Global distribution | x | x | ✓ Nyckelfärdig, 30+ regioner, flera värdar |
 | Horisontell skalning | x | ✓ | ✓ Oberoende skalning av lagring och dataflöde | 
@@ -59,7 +59,7 @@ Som en globalt distribuerad databastjänst, erbjuder Azure Cosmos DB följande f
     * SQL och Gremlin för frågor. 
 
 * [**Skala elastiskt dataflöde och lagring på begäran, globalt**](#horizontal-scale)
-    * Skala enkelt dataflöde med [sekund-](../documentdb/documentdb-request-units.md) och [minut-](https://aka.ms/acdbrupm)precision och ändra närhelst du vill. 
+    * Skala enkelt dataflöde med [sekund-](request-units.md) och [minut-](https://aka.ms/acdbrupm)precision och ändra närhelst du vill. 
     * Skala lagring [transparent och automatiskt](partition-data.md) för att täcka upp dina storleksbehov nu och för evigt.
 
 * [**Bygg högdynamiska och verksamhetskritiska program**](#low-latency) 
@@ -68,10 +68,10 @@ Som en globalt distribuerad databastjänst, erbjuder Azure Cosmos DB följande f
 * [**Tillse en ”alltid-på”-tillgänglighet**](#high-availability)
     * 99.99 % tillgänglighet inom en region.
     * Distribuera till valfritt antal [Azure-regioner](https://azure.microsoft.com/regions) för högre tillgänglighet.
-    * [Simulera ett fel](../documentdb/documentdb-regional-failovers.md) i en eller flera regioner med garantier om noll dataförlust. 
+    * [Simulera ett fel](regional-failover.md) i en eller flera regioner med garantier om noll dataförlust. 
 
 * [**Skriv globalt distribuerade program, på rätt sätt**](#consistency)
-    * [Fem konsekvensmodeller](../documentdb/documentdb-consistency-levels.md) modeller ger en stark SQL-liknande konsekvens för NoSQL-liknande eventuell konsekvens och allt däremellan. 
+    * [Fem konsekvensmodeller](consistency-levels.md) modeller ger en stark SQL-liknande konsekvens för NoSQL-liknande eventuell konsekvens och allt däremellan. 
   
 * [**Pengarna tillbaka-garanti**](#sla) 
     * Dina data kommer dit de ska snabbt, eller pengarna tillbaka. 
@@ -96,19 +96,17 @@ Azure Cosmos DB-behållare distribueras i två dimensioner:
 
 När lagring och dataflöde behöver skalas, utför Cosmos DB partitionshanteringsåtgärderna på ett transparent sätt över alla regioner. Oberoende av skala, distribution eller fel, fortsätter Cosmos DB att tillhandahålla en enskild systemavbildning av de globalt distribuerade resurserna. 
 
-Global distribution av resurser i Cosmos DB är [nyckelfärdig](../documentdb/documentdb-distribute-data-globally.md). Du kan när som helst, med några knapptryckningar (eller programmässigt med ett enda API-anrop), associera valfritt antal geografiska regioner med ditt databaskonto. 
+Global distribution av resurser i Cosmos DB är [nyckelfärdig](distribute-data-globally.md). Du kan när som helst, med några knapptryckningar (eller programmässigt med ett enda API-anrop), associera valfritt antal geografiska regioner med ditt databaskonto. 
 
 Oavsett hur mycket data eller antalet regioner, garanterar Cosmos DB att varje nyassocierad region börjar bearbeta kundbegäranden på under timmen i den 99:e percentilen. Det åstadkoms genom att parallellisera seedning och kopiering av data från alla källresurspartitioner till den nyassocierade regionen. Kunder kan också ta bort en befintlig region eller ta en region som tidigare varit associerad med deras databaskonto offline.
 
 <a id="data-models"></a>
 ## <a name="multi-model-multi-api-support"></a>Stöd för flera modeller och API:er
  Azure Cosmos DB har inbyggt stöd för flera datamodeller inklusive dokument, nyckel-värde, diagram och kolumnfamiljen. Core-innehållsmodellen av Cosmos DB:s-databasmotor är baserad på en atom-post-sekvens (ARS). Atomer består av små uppsättningar primitiva typer som sträng, bool och siffra. Poster är strukturer bestående av de här typerna. Sekvenser är matriser som består av atomer, poster eller sekvenser. 
-
-![Flera modeller och API:er Cosmos Azure DB](./media/introduction/azure-cosmos-db-multimodel.png) 
  
  Databasmotorn kan effektivt översätta och projicera olika datamodeller på den ARS-baserade datamodellen. Kärndatamodellen för Cosmos DB är internt åtkomlig från dynamiskt skrivet programmeringsspråk och kan visas som det är som JSON. 
  
- Tjänsten stöder också populära databas-API:er för dataåtkomst och frågor. Cosmos DB:s databasmotor stöder för närvarande [DocumentDB SQL](../documentdb/documentdb-introduction.md), [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [Azure Tables](table-introduction.md) (förhandsversion) och [Gremlin](graph-introduction.md) (förhandsversion). Du kan fortsätta att utveckla program med populära OSS API:er och få alla fördelar med en beprövad och fullständigt hanterad, globalt distribuerad databastjänst. 
+ Tjänsten stöder också populära databas-API:er för dataåtkomst och frågor. Cosmos DB:s databasmotor stöder för närvarande [DocumentDB SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), [Azure Tables](table-introduction.md) (förhandsversion) och [Gremlin](graph-introduction.md) (förhandsversion). Du kan fortsätta att utveckla program med populära OSS API:er och få alla fördelar med en beprövad och fullständigt hanterad, globalt distribuerad databastjänst. 
 
 <a id="horizontal-scale"></a>
 ## <a name="horizontal-scaling-of-storage-and-throughput"></a>Horisontell skalning av lagring och dataflöde
@@ -116,9 +114,9 @@ Alla data i en Cosmos-DB-behållare (till exempel dokumentsamling, tabell eller 
  
 ![Azure Cosmos DB är horisontellt skalbar](./media/introduction/azure-cosmos-db-partitioning.png) 
 
-Du kan elastiskt skala dataflödet i en Azure Cosmos DB-behållare genom att programmässigt etablera dataflöde med hjälp av [begärandeenheter per sekund (RU/s)](../documentdb/documentdb-request-units.md). Internt hanterar tjänsten transparent resurspartitioner för att leverera dataflödet i en given behållare. Cosmos DB garanterar att dataflödet finns tillgängligt för användning i alla regioner som associerats med behållaren. Det nya dataflödet är effektivt inom fem sekunder från att ändringen av konfigurerat dataflödesvärde gjorts. 
+Du kan elastiskt skala dataflödet i en Azure Cosmos DB-behållare genom att programmässigt etablera dataflöde med hjälp av [begärandeenheter per sekund (RU/s)](request-units.md). Internt hanterar tjänsten transparent resurspartitioner för att leverera dataflödet i en given behållare. Cosmos DB garanterar att dataflödet finns tillgängligt för användning i alla regioner som associerats med behållaren. Det nya dataflödet är effektivt inom fem sekunder från att ändringen av konfigurerat dataflödesvärde gjorts. 
 
-Du kan etablera dataflöde för en Cosmos DB-behållare med per sekund och [per minut (RU/m)](request-units-per-minute.md) precision. Det etablerade dataflödet på minutprecision används för att hantera oväntade toppar i arbetsbelastning som sker med en per sekund-precision. 
+Du kan etablera dataflöden för en Cosmos DB-behållare både med precisionen per sekund och [per minut (RU/m)](request-units-per-minute.md). Det etablerade dataflödet på minutprecision används för att hantera oväntade toppar i arbetsbelastning som sker med en per sekund-precision. 
 
 <a id="low-latency"></a>
 ## <a name="low-latency-guarantees-at-the-99th-percentile"></a>Låga svarstidsgarantier i 99:e percentilen
@@ -128,7 +126,7 @@ Som en del av sitt serviceavtal, garanterar Cosmos DB sina kunder svarstider fr�
 ## <a name="transparent-multi-homing-and-9999-high-availability"></a>Transparent flera värdar och 99.99% hög tillgänglighet
 Du kan dynamiskt associera "prioriteter" till de områden som är associerade med ditt Azure Cosmos DB-databaskonto. Prioriteter används för att dirigera begäranden till specifika regioner vid regionala fel. Om ett ytterst osannolikt regionalt haveri skulle ske, växlar Cosmos DB automatiskt över i prioritetsordning.
 
-Om du vill testa tillgängligheten från slutpunkt till slutpunkt för programmet, kan du [manuellt utlösa redundans](../documentdb/documentdb-regional-failovers.md) (frekvensbegränsat till två åtgärder inom en timme). Cosmos DB garanterar noll dataförlust vid manuella regionala redundanser. Om ett regionalt haveri skulle inträffa, garanterar Cosmos DB en övre gräns för dataförlust vid den systeminitierade automatiska redundansen. Du behöver inte distribuera om ditt program efter en regional redundans och serviceavtal för tillgänglighet upprätthålls av Azure Cosmos DB. 
+Om du vill testa tillgängligheten från slutpunkt till slutpunkt för programmet, kan du [manuellt utlösa redundans](regional-failover.md) (frekvensbegränsat till två åtgärder inom en timme). Cosmos DB garanterar noll dataförlust vid manuella regionala redundanser. Om ett regionalt haveri skulle inträffa, garanterar Cosmos DB en övre gräns för dataförlust vid den systeminitierade automatiska redundansen. Du behöver inte distribuera om ditt program efter en regional redundans och serviceavtal för tillgänglighet upprätthålls av Azure Cosmos DB. 
 
 I det här scenariot, låter Cosmos DB dig interagera med resurser antingen via logiska (regionsoberoende) eller fysiska (regionsspecifika) slutpunkter. Det tidigare säkerställer att programmet transparent kan ha flera värdar vid redundans. Det senare ger precisionskontroll över programmet för att styra läsningar och skrivningar till specifika regioner. Cosmos DB garanterar ett serviceavtal med 99.99 % tillgänglighet för varje databaskonto. Tillgänglighetsgarantierna är oberoende av skalan (etablerat dataflöde och lagring), antalet regioner eller geografiskt avstånd mellan regionerna som är associerade med en viss databas. 
 
@@ -136,7 +134,7 @@ I det här scenariot, låter Cosmos DB dig interagera med resurser antingen via 
 ## <a name="multiple-well-defined-consistency-models"></a>Flera, väldefinierade konsekvensmodeller
 Kommersiellt distribuerade databaser är indelade i två kategorier: databaser som inte alls erbjuder väldefinierade, beprövade konsekvensval och databaser som erbjuder två extremt programmerbara val (stark kontra eventuell konsekvens). Den tidigare tynger programmerare med detaljerna i sina replikeringsprotokoll och förväntar sig att de ska göra svåra avvägningar mellan konsekvens, tillgänglighet, svarstid och dataflöde. Den senare tvingar en att välja ett av två extremval. Trots mängden forskning och förslag på över 50 konsekvensmodeller, har den distribuerade databascommunityn inte kunna kommersialisera konsekvensnivåer utöver stark och eventuell konsekvens. 
 
-Cosmos DB låter dig välja mellan [fem väldefinierade konsekvensmodeller](../documentdb/documentdb-consistency-levels.md) längs konsekvensspektrumet: stark, begränsad föråldring, [session](http://dl.acm.org/citation.cfm?id=383631), konsekvent prefix och eventuell. 
+Cosmos DB låter dig välja mellan [fem väldefinierade konsekvensmodeller](consistency-levels.md) längs konsekvensspektrumet: stark, begränsad föråldring, [session](http://dl.acm.org/citation.cfm?id=383631), konsekvent prefix och eventuell. 
 
 ![Azure Cosmos DB erbjuder flera väldefinierade (avslappnade) konsekvensmodeller att välja mellan](media/introduction/azure-cosmos-db-consistency-levels.png)
 
@@ -144,13 +142,13 @@ Följande tabell visar de specifika garantier som varje konsekvensnivå erbjuder
  
 **Konsekvensnivåer och garantier**
 
-| Konsekvensnivå    | Garantier |
+| Konsekvensnivå | Garantier |
 | --- | --- |
 | Stark | Lineariserbarhet |
-| Begränsad föråldring    | Konsekvent Prefix. Läsningar släpar efter skrivningar med k-prefix eller t-intervall |
-| Session    | Konsekvent Prefix. Monotoniska läsningar, monotoniska skrivningar, läs-dina-skrivningar, skrivning-följer-läsning |
-| Konsekvent prefix    | De uppdateringar som returneras är något prefix av alla uppdateringar, utan några mellanrum |
-| Eventuell    | Oordnade läsningar |
+| Begränsad föråldring | Konsekvent Prefix. Läsningar släpar efter skrivningar med k-prefix eller t-intervall |
+| Session   | Konsekvent Prefix. Monotoniska läsningar, monotoniska skrivningar, läs-dina-skrivningar, skrivning-följer-läsning |
+| Konsekvent prefix | De uppdateringar som returneras är något prefix av alla uppdateringar, utan några mellanrum |
+| Eventuell  | Oordnade läsningar |
 
 Du kan konfigurera standard-konsekvensnivå på ditt Cosmos DB-konto (och senare åsidosätta konsekvens för en specifik läsbegäran). Internt gäller standardkonsekvensnivån för data inom partitionsuppsättningarna vilket kan innebära span-regioner. 
 

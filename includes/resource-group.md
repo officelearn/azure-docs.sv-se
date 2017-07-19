@@ -1,0 +1,1 @@
+En [resursgrupp](../articles/azure-resource-manager/resource-group-overview.md#terminology) är en logisk behållare som Azure-resurser (t.ex. webbappar, databaser och lagringskonton) distribueras och hanteras i.

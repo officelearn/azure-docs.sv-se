@@ -1,7 +1,7 @@
 ---
-title: "Hadoop-självstudiekurs: Komma igång med Hadoop och Hive i HDInsight | Microsoft Docs"
-description: "Gå den här självstudiekursen om du vill ha hjälp med att komma igång med Hadoop i HDInsight. Lär dig hur du skapar Linux-kluster och kör frågor mot data med Hive."
-keywords: hadoop getting started, hadoop linux, hadoop quick start
+title: "Komma igång med Hadoop och Hive i Azure HDInsight | Microsoft Docs"
+description: "Lär dig hur du skapar HDInsight-kluster och kör frågor mot data med Hive."
+keywords: "hadoop komma igång, hadoop linux, hadoop Snabbstart, komma igång, hive hive-Snabbstart"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -10,18 +10,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 05/12/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0e3be94d661359cb8040c5a5c95952c1b9fac7f2
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: f2a97c32e9f1a286102e0800db57107e041d1990
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -38,7 +38,7 @@ Innan du börjar den här vägledningen måste du ha:
 
 ## <a name="create-cluster"></a>Skapa kluster
 
-De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och tar sedan bort klustret. I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md). Resource Manager-mallen är helt anpassningsbar, vilket gör det enkelt att skapa Azure-resurser som HDInsight. Du behöver inte ha någon erfarenhet av Resource Manager-mallar för att kunna följa de här självstudierna. Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Använd väljaren överst på sidan för att välja alternativ för skapande av kluster.
+De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och tar sedan bort klustret. I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md). Du behöver inte ha någon erfarenhet av Resource Manager-mallar för att kunna följa de här självstudierna. Mer information om andra metoder för att skapa kluster och förstå de egenskaper som tillämpas i de här självstudierna finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Använd väljaren överst på sidan för att välja alternativ för skapande av kluster.
 
 Resource Manager-mallen som används i den här självstudien finns på [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
@@ -47,10 +47,10 @@ Resource Manager-mallen som används i den här självstudien finns på [GitHub]
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Ange eller välj följande värden:
    
-    ![HDInsight Linux – Komma igång med Resource Manager-mallen i portalen](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
+    ![HDInsight Linux komma igång med Resource Manager-mall i portalen](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Distribuera Hadoop-kluster i HDInsigut med hjälp av Azure portal och en resursgrupphanterarmall").
    
     * **Prenumeration**: Välj din Azure-prenumeration.
-    * **Resursgrupp**: Skapa en ny resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en behållare med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. 
+    * **Resursgrupp**: Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en behållare med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. 
     * **Plats**: Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. 
     * **Klustertyp**: Välj **hadoop** för den här självstudien.
     * **Klusternamn**: Ange ett namn för Hadoop-klustret.
@@ -59,22 +59,22 @@ Resource Manager-mallen som används i den här självstudien finns på [GitHub]
      
     Vissa egenskaper har hårdkodats i mallen.  Du kan konfigurera dessa värden från mallen.
 
-    * **Plats**: Både platsen för klustret och det beroende lagringskontot använder samma plats som resursgruppen.
+    * **Plats**: Platsen för klustret och det beroende lagringskontot använder samma plats som resursgruppen.
     * **Klusterversion**: 3.5
     * **OS-typ**: Linux
     * **Antal arbetsnoder**: 2
 
-     Varje kluster är beroende av ett Azure Storage-konto. Det kallas vanligtvis Storage-konto av standardtyp. HDInsight-kluster och Storage-kontot av standardtyp måste finnas i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster. 
+     Varje kluster är beroende av ett Azure Storage-konto. Det kallas Storage-konto av standardtyp. HDInsight-kluster och Storage-kontot av standardtyp måste finnas i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster. 
      
      Fler förklaringar av dessa egenskaper finns i [Skapa Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Välj **Jag godkänner villkoren som anges ovan** och **Fäst på instrumentpanelen** och klicka sedan på **Köp**. Du ska se en ny panel som heter **Skicka malldistribution** på portalens instrumentpanel. Det tar cirka 20 minuter att skapa ett kluster. När klustret skapas, ändras namnet i rubriktexten på panelen till det resursgruppsnamn som du har angett. Då öppnar portalen automatiskt resursgruppen i ett nytt blad. Du kan se både klustret och standardlagringsutrymmet i listan.
    
-    ![Resursgrupp för att komma igång med HDInsight Linux](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png).
+    ![HDInsight Linux komma igång resursgrupp](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight klusterresursgrupp").
 
 4. Klicka på klusternamnet öppna klustret i ett nytt blad.
 
-   ![HDInsight Linux komma igång klusterinställningar](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)
+   ![HDInsight Linux komma igång klusterinställningar](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight-klusteregenskaper")
 
 
 ## <a name="run-hive-queries"></a>Köra Hive-frågor
@@ -84,7 +84,7 @@ Resource Manager-mallen som används i den här självstudien finns på [GitHub]
 2. Ange det Hadoop-användarnamn och -lösenord som du angav i föregående avsnitt. Standardanvändarnamnet är **admin**.
 3. Öppna **Hive-vy** så som det visas på följande skärmbild:
    
-    ![Välja Ambari-vyer](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
+    ![Välja Ambari-vyer](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive Viewer menyn").
 4. I avsnittet **Frågeredigeraren** på sidan klistrar du in följande HiveQL-instruktioner i kalkylbladet:
    
         SHOW TABLES;
@@ -97,7 +97,7 @@ Resource Manager-mallen som används i den här självstudien finns på [GitHub]
    
     När frågan har slutförts visas resultatet av åtgärden i avsnittet **Resultat från frågeprocess**. En tabell med namnet **hivesampletable** bör visas. Detta exempel på en Hive-tabell kommer med alla HDInsight-kluster.
    
-    ![HDInsight Hive-vyer](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png).
+    ![HDInsight Hive-vyer](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png "HDInsight Hive visa frågeredigeraren").
 6. Upprepa steg 4 och 5 för att köra följande fråga:
    
         SELECT * FROM hivesampletable;
@@ -131,7 +131,7 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du fått veta hur du skapar ett Linux-baserat HDInsight-kluster med en Resource Manager-mall och hur du utför grundläggande Hive-frågor.
 
-Mer information om att analysera data med HDInsight finns här:
+Mer information om att analysera data med HDInsight finns i följande artiklar:
 
 * Mer information om att använda Hive med HDInsight, inklusive hur du gör Hive-frågor från Visual Studio, finns i [Använda Hive med HDInsight][hdinsight-use-hive].
 * Du kan läsa mer om Pig, ett språk som används för att omvandla data, i [Använda Pig med HDInsight][hdinsight-use-pig].

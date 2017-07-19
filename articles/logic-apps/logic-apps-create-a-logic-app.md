@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan; estfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services"></a>Skapa ditt första logikapparbetsflöde för att automatisera processer mellan molnappar och molntjänster
 
-Utan att skriva kod kan du automatisera affärsprocesser enklare och snabbare när du skapar och kör arbetsflöden med [Azure Logic Apps](logic-apps-what-are-logic-apps.md). Den här första exemplet visar hur du skapar ett basarbetsflöde för logikappar som kontrollerar ett RSS-flöde för att se om det finns nytt innehåll på en webbplats. När nya objekt visas i webbplatsens flöde skickar logikappen e-post från ett Outlook- eller Gmail-konto.
+Utan att skriva kod kan du automatisera affärsprocesser enklare och snabbare när du skapar och kör arbetsflöden med [Azure Logic Apps](logic-apps-what-are-logic-apps.md). Det här första exemplet visar hur du skapar ett basarbetsflöde för logikappar som kontrollerar ett RSS-flöde för att se om det finns nytt innehåll på en webbplats. När nya objekt visas i webbplatsens flöde skickar logikappen e-post från ett Outlook- eller Gmail-konto.
 
 Du behöver dessa objekt för att skapa och köra en logikapp:
 
@@ -37,9 +38,9 @@ Det här exemplet kräver också dessa objekt:
 * Ett Outlook.com-, Office 365 Outlook- eller Gmail-konto
 
     > [!TIP]
-    > Om du har ett personligt [Microsoft-konto](https://account.microsoft.com/account) har du ett Outlook.com-konto. Om du har en Azure-arbetskonto eller -skolkonto har du annars ett **Office 365 Outlook**-konto.
+    > Om du har ett personligt [Microsoft-konto](https://account.microsoft.com/account) har du ett Outlook.com-konto. Om du har ett Azure-arbetskonto eller -skolkonto har du annars ett **Office 365 Outlook**-konto.
 
-* En länk till RSS-flödet på en webbplats. I det här exemplet används RSS-flödet för [MSDN Channel 9-webbplatsen](https://channel9.msdn.com/):`https://s.ch9.ms/Feeds/RSS`
+* En länk till RSS-flödet på en webbplats. Det här exemplet använder [RSS-feed för de viktigaste berättelserna från webbplatsen CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss):`http://rss.cnn.com/rss/cnn_topstories.rss`
 
 ## <a name="add-a-trigger-that-starts-your-workflow"></a>Lägg till en utlösare som startar arbetsflödet
 
@@ -74,7 +75,7 @@ En [*utlösare*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) är en 
      Du kan också ändra **Frekvens** och **Intervall**. 
      Inställningarna avgör hur ofta logikappen ska söka efter nya objekt och returnera alla objekt som hittas under det angivna tidsintervallet.
 
-     I det här exemplet ska vi kontrollera varje dag om det finns nya objekt upplagda på webbplatsen MSDN Channel 9.
+     I det här exemplet ska vi kontrollera varje dag om det finns nya objekt upplagda på CNN:s webbplats.
 
      ![Konfigurera utlösare med RSS-flöde, frekvens och intervall](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
@@ -136,11 +137,11 @@ En [*åtgärd*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) är en a
       > [!NOTE]
       > Logikappen fortsätter att köra tills du stänger av den. Välj **Översikt** på logikappmenyn om du vill inaktivera din app tillfälligt. Välj **Inaktivera** i kommandofältet.
 
-Gratulerar! Du har precis konfigurerat och kört din första baslogikapp. Du också lära dig hur enkelt du kan skapa arbetsflöden för att automatisera processer och integrera molnappar och molntjänster, och det krävs ingen kod.
+Gratulerar! Du har precis konfigurerat och kört din första baslogikapp. Du fick också lära dig hur enkelt du kan skapa arbetsflöden för att automatisera processer och integrera molnappar och molntjänster – utan att skriva kod.
 
 ## <a name="manage-your-logic-app"></a>Hantera din logikapp
 
-För att hantera din app kan du utföra uppgifter som att kontrollera status, redigera, visa historik, inaktivera eller ta bort din logikapp.
+I din app kan du utföra uppgifter som att kontrollera status, redigera, visa historik, inaktivera eller ta bort din logikapp.
 
 1. Logga in på [Azure Portal](https://portal.azure.com "Azure Portal").
 

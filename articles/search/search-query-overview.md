@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -62,4 +62,10 @@ Mer information om hur du använder sidindelning för sökresultat finns i artik
 ## <a name="hit-highlighting"></a>Träffmarkering
 I Azure Search kan du enkelt framhäva exakt den del av sökresultatet som matchar sökfrågan med hjälp av parametrarna `highlight`, `highlightPreTag` och `highlightPostTag`. Du kan ange vilka *sökbara* fält vars matchade text ska framhävas samt ange de exakta strängtaggarna som ska läggas till i början och slutet av den matchade texten som Azure Search returnerar.
 
+## <a name="try-out-query-syntax"></a>Testa frågesyntax
 
+Det bästa sättet att förstå skillnader i syntaxen är genom att skicka frågor och granska resultatet.
+
++ Använd [Search Explorer](search-explorer.md) i Azure Portal. Genom att distribuera [exempel indexet](search-get-started-portal.md) kan du fråga indexet inom minuter med hjälp av verktyg i portalen.
+
++ Använd [Fiddler](search-fiddler.md) eller Chrome Postman för att skicka frågor till ett index som du har laddat upp till din söktjänst. Båda verktygen stöder REST-anrop till en HTTP-slutpunkt. 

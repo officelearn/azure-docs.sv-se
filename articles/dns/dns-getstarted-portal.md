@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -47,7 +48,7 @@ En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill l
    | **Inställning** | **Värde** | **Detaljer** |
    |---|---|---|
    |**Namn**|contoso.com|Namnet på DNS-zonen|
-   |**Prenumeration**|[Din prenumeration]|Välj den prenumeration där du vill skapa programgatewayen.|
+   |**Prenumeration**|[Din prenumeration]|Välj en prenumeration att skapa DNS-zonen i.|
    |**Resursgrupp**|**Skapa ny:** contosoDNSRG|Skapa en resursgrupp. Resursgruppens namn måste vara unikt inom den prenumeration du valde. Mer information om resursgrupper finns i [översikten över Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Plats**|Västra USA||
 
@@ -70,7 +71,7 @@ Följande exempel visar hur du skapar en ny "A"-post. Information om andra postt
    |**Typ**|A| Den typ av DNS-post som du vill skapa. Godkända värden är A, AAAA, CNAME, MX, NS, SRV, TXT och PTR.  Mer information om posttyper finns i [Översikt över DNS-zoner och poster](dns-zones-records.md)|
    |**TTL**|1|Time-to-live för DNS-begäran.|
    |**TTL-enhet**|Timmar|Tidsmått för TTL-värde.|
-   |**IP-adress**|{ipAddressValue| Det här värdet är den IP-adress som DNS-posten matchar till.|
+   |**IP-adress**|ipAddressValue| Det här värdet är den IP-adress som DNS-posten matchar till.|
 
 ## <a name="view-records"></a>Visa poster
 

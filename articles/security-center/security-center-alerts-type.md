@@ -12,61 +12,36 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 06/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="security-alerts-by-type-in-azure-security-center"></a>Säkerhetsaviseringar per typ i Azure Security Center
-Den här artikeln visar de olika typerna av säkerhetsaviseringar som är tillgängliga i Azure Security Center. Mer information om att hantera aviseringar finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
+# <a name="understanding-security-alerts-in-azure-security-center"></a>Förstå säkerhetsaviseringar i Azure Security Center
+Den här artikeln visar de olika typerna av säkerhetsaviseringar och meddelanden som är tillgängliga i Azure Security Center. Mer information om att hantera aviseringar och händelser finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 > [!NOTE]
 > För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center Standard. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du **Prisnivå** i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 >
->
 
 ## <a name="what-type-of-alerts-are-available"></a>Vilka typer av aviseringar finns?
-Azure Security Center innehåller olika aviseringar för de olika stegen i händelsekedjan. I följande illustration visas olika typer av aviseringar som är relaterade till vissa av dessa steg.
-
-![Händelsekedja](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
-
-**Mål och attack**
-
-* Inkommande RDP/SSH-attacker
-* Program- och DDoS-attacker (WAF-partners)
-* Intrångsidentifiering (NG-brandväggspartners)
-
-**Installera och använda**
-
-* Signaturer för känd skadlig kod (AM-partners)
-* Skadlig InMemory-kod och trojanförsök
-* Körning av misstänkt process
-* Kringgående manövrar för att undvika identifiering
-* Sidorörelse
-* Intern spaning
-* Misstänkt PowerShell-aktivitet
-
-**Efter intrång**  
-
-* Kommunikation till känd skadlig IP-adress (dataexfiltrering eller kommando- och kontroll)
-* Använder komprometterade resurser för att skapa fler attacker (den utgående porten söker i RDP/SSH efter råstyrkeattacker och skräppost)
-
-Olika typer av attacker är associerade med varje steg och de hanterar olika delsystem. För att hantera attacker under dessa faser har Security Center tre kategorier av aviseringar:
+Azure Security Center använder olika [identifieringsfunktioner](security-center-detection-capabilities.md) för att uppmärksamma kunder om eventuella hot mot deras miljöer. Dessa aviseringar innehåller värdefull information om vad som utlöste aviseringen, vilka resurser som berörs och attackens källa. Informationen som ingår i en avisering varierar beroende på vilken typ av analys som används för att identifiera hot. Händelser kan också innehålla ytterligare sammanhangsinformation som kan vara användbart när du utreder ett hot.  Den här artikeln innehåller information om följande aviseringstyper:
 
 * Virtual Machine Behavioral Analysis (VMBA)
 * Nätverksanalys
 * Resursanalys
+* Sammanhangsbaserad information
 
 ## <a name="virtual-machine-behavioral-analysis"></a>Beteendeanalys av virtuell dator
 Azure Security Center kan använda beteendeanalyser för att identifiera resurser som har komprometterats, baserat på analysen av Event Logs i virtuella datorer. Till exempel processgenereringshändelser och inloggningshändelser. Dessutom korreleras data med andra tecken för att hitta bevis på utbredda attacker.
 
 > [!NOTE]
 > Mer information om hur identifieringsfunktionerna i Security Center fungerar finns i [Identifieringsfunktioner i Azure Security Center](security-center-detection-capabilities.md).
->
 >
 
 ### <a name="crash-analysis"></a>Kraschanalys
@@ -258,6 +233,18 @@ Den här aviseringen utlöses när ett programfel hittas på en databas. Aviseri
 Den här aviseringen utlöses när en åtkomsthändelse från en okänd IP-adress har identifierats på servern, och som inte har synts den senaste perioden.
 
 ![Varning om onormal åtkomst](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
+
+## <a name="contextual-information"></a>Sammanhangsbaserad information
+Vid en undersökning måste analytiker tillhandahålla information om sammanhanget så att en bedömning av risken och lämpliga åtgärder kan vidtas.  Till exempel, om en nätverksavvikelse upptäcks är det svårt att bestämma vilka åtgärder som ska vidtas utan att förstå vad som sker på nätverket som helhet eller vilken resurs som är målet för attacken. För att hjälpa med som kan en säkerhetsincident omfatta artefakter, relaterade händelser och information som kan hjälpa utredaren. Tillgängligheten för ytterligare information kan variera beroende på vilken typ av hot som har upptäckts och konfigurationen av din miljö. För vissa säkerhetsincidenter kan sådan information vara otillgänglig.
+
+Om ytterligare information är tillgänglig visas den i säkerhetsincidenten under listan över aviseringar. Detta kan innehålla information som:
+
+- Logga raderingshändelser
+- PNP-enhet ansluten från okänd källa
+- Aviseringar som inte medför åtgärd 
+
+![Varning om onormal åtkomst](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
+
 
 ## <a name="see-also"></a>Se även
 I den här artikeln lär du dig om de olika typerna av säkerhetsaviseringar i Security Center. I följande avsnitt kan du lära dig mer om Security Center:

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: c0d1271bc083688bbc72bd2556546c2f738e7345
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Skapa en funktion som utlöses av Azure Blob Storage
@@ -31,11 +31,8 @@ Lär dig hur du skapar en funktion som utlöses när filer överförs till eller
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du kör exemplet måste du ha utfört följande:
-
-- Hämta och installera [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
++ Hämta och installera [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
++ En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -51,15 +48,21 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Skapa en funktion som utlöses av Blob Storage
 
-Expandera funktionsappen, klicka på knappen **+** bredvid **Funktioner** och klicka på mallen **BlobTrigger** för önskat språk. Använd inställningarna som anges i tabellen och klicka sedan på **Skapa**.
+1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar.
 
-![Skapa funktionen som utlöses av Blob Storage.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-| Inställning | Föreslaget värde | Beskrivning |
-|---|---|---|
-| **Sökväg**   | mycontainer /{namn}    | Platsen i Blob Storage som övervakas. Filnamnet för bloben skickas i bindningen som parametern _namn_.  |
-| **Lagringskontoanslutning** | AzureWebJobStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |
-| **Namnge din funktion** | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av kön. |
+2. Välj en mall för **blob-utlösare** för önskat språk och använd inställningarna som angetts i tabellen.
+
+    ![Skapa funktionen som utlöses av Blob Storage.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+    | Inställning | Föreslaget värde | Beskrivning |
+    |---|---|---|
+    | **Sökväg**   | mycontainer /{namn}    | Platsen i Blob Storage som övervakas. Filnamnet för bloben skickas i bindningen som parametern _namn_.  |
+    | **Lagringskontoanslutning** | AzureWebJobStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |
+    | **Namnge din funktion** | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av blobben. |
+
+3. Klicka på **Skapa** för att skapa den nya funktionen.
 
 Anslut sedan till Azure Storage-kontot och skapa behållaren **mycontainer**.
 
@@ -111,3 +114,4 @@ Du har skapat en funktion som körs när en blob läggs till eller uppdateras i 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Mer information om Blob Storage-utlösare finns i [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md) (Blob Storage-bindningar i Azure Functions).
+

@@ -15,10 +15,10 @@ ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 80fd9d79652e4f0d9c4c524e3a762bcc3462bb53
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -74,7 +74,7 @@ Låt oss börja med en tom mall som endast innehåller de grundläggande delarna
        {
          "name": "string",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-05-01",
+         "apiVersion": "2016-12-01",
          "sku": {
            "name": "string"
          },
@@ -102,6 +102,8 @@ Låt oss börja med en tom mall som endast innehåller de grundläggande delarna
    }
    ```
 
+  VS-kod kan indikera att 2016-12-01 inte är en giltig API-version. Om du använder ett versionsnummer från mallreferensen kan du ignorera den här varningen. Den här varningen visas när schemat inte har uppdaterats med den senaste versionsnumret från resursprovidern. 
+  
   Föregående exempel innehåller många platshållarvärden och vissa egenskaper som kanske inte behövs i ditt lagringskonto.
 
 ## <a name="set-values-for-storage-account"></a>Ange värden för lagringskontot
@@ -117,7 +119,7 @@ Nu är du redo att ange värden för ditt lagringskonto.
      {
        "name": "string",
        "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-05-01",
+       "apiVersion": "2016-12-01",
        "sku": {
          "name": "string"
        },
@@ -156,7 +158,7 @@ Nu ser din mall ut så här:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -199,7 +201,7 @@ Nu ser din mall ut så här:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -328,7 +330,7 @@ När du har slutfört stegen i den här artikeln ser din mall ut så här:
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },

@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: abd508631787ba5f839a4ae2ea82e76c4bfab425
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: f00ca3b8a35c0c49277457bd42fe8a314520d5a5
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -30,8 +31,6 @@ Med Azure Functions kan du köra kod i en serverfri miljö utan att först behö
 ![Skapa en funktionsapp i Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-Det bör ta mindre än fem minuter att slutföra alla steg i det här avsnittet.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -53,7 +52,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. Expandera den nya funktionsappen och klicka på knappen **+** bredvid **Funktioner**.
 
-2.  På sidan **Kom igång snabbt** klickar du på **WebHook + API**. Välj ett språk för funktionen och klicka på **Skapa den här funktionen**. 
+2.  På sidan **Kom igång snabbt** väljer du **WebHook + API**. Välj ett språk för funktionen och klicka på **Skapa den här funktionen**. 
    
     ![Snabbstart för funktioner i Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -61,7 +60,7 @@ En funktion skapas i ditt valda språk med hjälp av mallen för en HTTP-utlöst
 
 ## <a name="test-the-function"></a>Testa funktionen
 
-1. Klicka på **</> Hämta funktionswebbadress** i den nya funktionen och kopiera **funktionswebbadressen**. 
+1. Klicka på den nya funktionen **</> Hämta funktions-URL**, välj **Standard (funktionsnyckel)** och klicka sedan på **Kopiera**. 
 
     ![Kopiera funktionswebbadressen från Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 

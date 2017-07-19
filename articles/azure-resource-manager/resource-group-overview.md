@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: db97edd3c4fbfdbe955c49cc9a58de30c5085305
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -81,39 +82,9 @@ När du skapar en resursgrupp måste du ange en plats för denna resursgrupp. Du
 ## <a name="resource-providers"></a>Resursproviders
 Varje resursprovider tillhandahåller en uppsättning resurser och åtgärder för arbete i en Azure-tjänst. Om du till exempel vill lagra nycklar och hemligheter arbetar du med resursprovidern **Microsoft.KeyVault**. Den här resursprovidern erbjuder en resurstyp som heter **vaults** (valv) för att skapa nyckelvalvet. 
 
-Innan du börjar distribuera dina resurser bör du ha en bra uppfattning om vilka resursprovidrar som finns. Att känna till namnen på resursprovidrar och resurser gör det lättare för dig att definiera resurser som du vill distribuera till Azure.
+Namnet på en resurstyp skrivs i formatet: **{resursprovidern}/{resurstypen}**. Till exempel, nyckelvalvtypen är **Microsoft.KeyVault\vaults**.
 
-Du kan se samtliga resursprovidrar via portalen. Välj **Resursprovidrar** på ditt prenumerationsblad:
-
-![visa resursprovidrar](./media/resource-group-overview/view-resource-providers.png)
-
-Du hämtar alla resursprovidrar med följande PowerShell-cmdlet:
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Alternativt kan du hämta alla resursprovidrar med följande kommando i Azure CLI 2.0:
-
-```azurecli
-az provider list
-```
-
-Du kan söka igenom den returnerade listan efter de resursprovidrar som du behöver använda.
-
-Hämta information om en resursprovider genom att lägga till providerns namnområde i kommandot. Kommandot returnerar de resurstyper som stöds för resursprovidern, och de platser som stöds samt API-versioner för varje resurstyp. Följande PowerShell-cmdlet hämtar information om Microsoft.Compute:
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-```
-
-Alternativt kan du hämta de resurstyper som stöds, platser samt API-versioner för Microsoft.Compute med följande kommando i Azure CLI 2.0:
-
-```azurecli
-az provider show --namespace Microsoft.Compute
-```
-
-Mer information finns i [Providrar, regioner, API-versioner och scheman för Resource Manager](resource-manager-supported-services.md).
+Innan du börjar distribuera dina resurser bör du ha en bra uppfattning om vilka resursprovidrar som finns. Att känna till namnen på resursprovidrar och resurser gör det lättare för dig att definiera resurser som du vill distribuera till Azure. Du måste också känner till giltiga platser och API-versioner för varje resurstyp. Mer information finns i [Resursproviders och typer](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Malldistribution
 Med Resource Manager kan du skapa en mall (i JSON-format) som definierar Azure-lösningens infrastruktur och konfiguration. Genom att använda en mall kan du distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras konsekvent. När du skapar en lösning från portalen innehåller den automatiskt en distributionsmall. Du behöver inte skapa mallen från scratch. I stället kan du börja med mallen för din lösning och anpassa den efter dina specifika behov. Du kan hämta en mall för en befintlig resursgrupp antingen genom att antingen exportera resursgruppens aktuella tillstånd eller genom att visa mallen som används för en viss distribution. Att granska den [exporterade mallen](resource-manager-export-template.md) är ett bra sätt att lära sig mer om mallsyntaxen.

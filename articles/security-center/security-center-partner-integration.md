@@ -12,18 +12,22 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 06/23/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 8dddfc8929ab1a0c44522ed2a2596e2c82e3987d
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: 85460ea37d251b53074de9d832610d253700f2c1
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 06/24/2017
 
 
 ---
 # <a name="partner-integration-in-azure-security-center"></a>Partnerintegration i Azure Security Center
 Det här dokumentet beskriver hur Azure Security Center integrerar med partner för att förbättra den övergripande säkerheten och skapa en integrerad upplevelse i Azure. Tjänsten utnyttjar dessutom Azure Marketplace för partnercertifiering och fakturering.
+
+>[!NOTE] 
+>Från och med tidig juni 2017 använder Security Center Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Centers funktionalitet efter övergången till Microsoft Monitoring Agent.
+>
 
 ## <a name="why-deploy-partners-solutions-from-security-center"></a>Varför ska du distribuera partnerlösningar från Security Center?
 
@@ -36,12 +40,12 @@ De fyra viktigaste skälen till att använda partnerintegrationen i Security Cen
 
 
 ## <a name="what-partners-are-integrated-with-security-center"></a>Vilka partner är integrerade med Security Center?
-För närvarande integrerar Security Center med följande partner:
+För närvarande integrerar Security Center med följande lösning:
 
-- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)) 
-- Web Application Firewall ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [App Gateway WAF](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)) 
+- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, [Microsoft program mot skadlig kod för Azure](https://docs.microsoft.com/azure/security/azure-security-antimalware)) 
+- Web Application Firewall ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [App Gateway WAF](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)) 
 - Nästa generations brandvägg ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) och [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
-- Sårbarhetsbedömning ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) – förhandsversion)  
+- Sårbarhetsbedömning ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
 
 Framöver kommer Security Center att utökas med fler partner inom dessa befintliga kategorier, och nya kategorier kommer att läggas till. 
 
@@ -60,6 +64,9 @@ När en partnerlösning har distribuerats kan du visa information om lösningens
 
 ![Partnerintegration](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
 
+> [!NOTE]
+> Symantec Endpoint Protection-stöd är begränsat till identifiering, men det finns inga hälsoaviseringar.
+>
 
 ## <a name="see-also"></a>Se även
 Det här dokumentet beskriver hur du integrerar partnerlösningar i Azure Security Center. I följande avsnitt kan du lära dig mer om Security Center:

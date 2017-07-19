@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 05/15/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f72a3650de5b1d43c992a801ffce1384774594f2
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 3c7f97b72f3813abe2357ae3202eaba285583bb8
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 03/15/2017
 ## <a name="overview"></a>Översikt
 Under den här kursen får du lära dig hur du skapar ett .NET-program på flera nivåer med en ASP.NET MVC-klientdel, samt att distribuera det till en [Azure-molntjänst](cloud-services-choose-me.md). Programmet använder [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob-tjänsten](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) och [Azure-kötjänsten](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Du kan [hämta Visual Studio-projektet](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) från MSDN Code Gallery.
 
-Under kursen får du lära dig hur du skapar och kör programmet lokalt, hur du distribuerar det till Azure och kör det i molnet, och slutligen hur du skapar det från grunden. Du kan börja med att skapa från grunden och sedan göra test- och distributionsstegen efteråt om du föredrar det.
+Under kursen får du lära dig hur du skapar och kör programmet lokalt, hur du distribuerar det till Azure och kör det i molnet, och hur du skapar det från grunden. Du kan börja med att skapa från grunden och sedan göra test- och distributionsstegen efteråt om du föredrar det.
 
 ## <a name="contoso-ads-application"></a>Contoso Ads-program
 Programmet är en anslagstavla för annonser. Användare skapar en annons genom att skriva in text och ladda upp en bild. De kan se en lista över annonser med miniatyrbilder, och de kan se bilden i full storlek när de markerar en annons för att se detaljerna.
@@ -68,7 +69,7 @@ När en användare laddar upp en bild, lagrar klientdelen som körs i en webbrol
 
 ![Contoso Ads-arkitektur](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[!INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
+[!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
 ## <a name="download-and-run-the-completed-solution"></a>Hämta och köra den färdiga lösningen
 1. Hämta och packa upp den [färdiga lösningen](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
@@ -101,7 +102,7 @@ När en användare laddar upp en bild, lagrar klientdelen som körs i en webbrol
 
 Du har kört programmet helt på din lokala dator utan anslutning till molnet. Lagringsemulatorn lagrar kö- och blobbdata i en SQL Server Express LocalDB-databas, och programmet lagrar annonsdata i en annan LocalDB-databas. Entity Framework Code First skapade automatiskt annonsdatabasen första gången webbappen försökte få tillgång till den.
 
-I följande avsnitt får du konfigurera lösningen så att den använder Azure-molnresurser för köer, blobbar och programdatabasen när den körs i molnet. Om du vill fortsätta att köra lösningen lokalt men använda molnlagring och databasresurser kan du göra det. Det är bara en fråga om att ställa in anslutningssträngar, vilket du får lära dig senare.
+I följande avsnitt får du konfigurera lösningen så att den använder Azure-molnresurser för köer, blobbar och programdatabasen när den körs i molnet. Om du vill fortsätta att köra lösningen lokalt men använda molnet och databasresurser kan du göra det. Det är bara att ställa in anslutningssträngar, vilket du får lära dig här.
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
 Följ dessa steg för att köra programmet i molnet:
@@ -116,65 +117,74 @@ Följ dessa steg för att köra programmet i molnet:
 ### <a name="create-an-azure-cloud-service"></a>Skapa en Azure-molntjänst
 En Azure-molntjänst är den miljö som programmet kommer att köras i.
 
-1. Öppna den [klassiska Azure-portalen](http://manage.windowsazure.com) i webbläsaren.
-2. Klicka på **New > Compute > Cloud Service > Quick Create** (Ny > Compute > Molntjänst > Snabbregistrering).
-3. Ange ett URL-prefix i URL-textrutan.
+1. Öppna [Azure-portalen](https://portal.azure.com) i webbläsaren.
+2. Klicka på **New > Compute > Cloud Service (Ny > Compute > Molntjänst**.
 
-    Den här URL:en måste vara unik.  Du får ett felmeddelande om det prefix du har valt redan används av någon annan.
-4. Välj den region där du vill distribuera programmet.
+3. Ange ett URL-prefix för molntjänsten i textrutan för DNS-namn.
+
+    Den här URL:en måste vara unik.  Du får ett felmeddelande om det prefix du har valt redan används.
+4. Ange en ny resursgrupp för tjänsten. Klicka på **Skapa nytt** och ange ett namn i textrutan för resursgruppen, till exempel CS_contososadsRG.
+
+5. Välj den region där du vill distribuera programmet.
 
     Det här fältet anger vilket datacenter som ska vara värd åt molntjänsten. Om det gäller ett produktionsprogram väljer du den region som ligger närmast dina kunder. Under den här kursen väljer du den region som ligger närmast dig.
-5. Klicka på **Create Cloud Service** (Skapa molntjänst).
+5. Klicka på **Skapa**.
 
-    I följande bild skapas en molntjänst med URL:en contosoads.cloudapp.net.
+    I följande bild skapas en molntjänst med URL:en CSvccontosoads.cloudapp.net.
 
     ![Ny molntjänst](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### <a name="create-an-azure-sql-database"></a>Skapa en Azure SQL Database
 När appen körs i molnet använder den en molnbaserad databas.
 
-1. I den [klassiska Azure-portalen](http://manage.windowsazure.com) klickar du på **New > Data Services > SQL Database > Quick Create** (Ny > Data Services > SQL Database > Snabbregistrering).
+1. I [Azure-portalen](https://portal.azure.com) klickar du på **New > databaser > SQL Database**.
 2. Ange *contosoads* i rutan **Database Name** (Databasnamn).
-3. Välj **New SQL Database server** (Ny SQL Database-server) i listrutan **Server**.
+3. I **resursgruppen** klickar du på **använd befintliga** och markerar den resursgrupp som används för molntjänsten.
+4. I följande bild klickar du på **Server – konfigurera nödvändiga inställningar** och **Skapa en ny server**.
+
+    ![Tunnel till databasservern](./media/cloud-services-dotnet-get-started/newdb.png)
 
     Om din prenumeration redan har en server kan du istället välja den servern i listrutan.
-4. Välj samma **Region** som du valde för molntjänsten.
+5. I rutan **Servernamn** anger du *csvccontosodbserver*.
+
+6. Ange ett **inloggningsnamn** och **lösenord** med administratörsbehörighet.
+
+    Om du har valt **Skapa en ny server** anger du inte ett befintligt namn och lösenord här. Du har angett ett nytt namn och lösenord som du definierar nu för när du vill komma åt databasen i framtiden. Om du valde en server som du har skapat vid ett tidigare tillfälle, uppmanas du att ange lösenordet för det administrativa användarkontot som du redan har skapat.
+7. Välj samma **Plats** som du valde för molntjänsten.
 
     När molntjänsten och databasen är i olika datacenter (olika regioner), ökar svarstiden och du debiteras för bandbredden utanför datacentret. Bandbredd inom ett datacenter är kostnadsfri.
-5. Ange ett **inloggningsnamn** och **lösenord** med administratörsbehörighet.
+8. Markera **Ge Azure-tjänster åtkomst till servern**.
+9. Klicka på **Välj** för den nya servern.
 
-    Om du valde **New SQL Database server** (Ny SQL Database-server) anger du inte ett befintligt namn och lösenord här, utan du anger ett nytt namn och lösenord som ska användas vid ett senare tillfälle när du ska komma åt databasen. Om du valde en server som du har skapat vid ett tidigare tillfälle, uppmanas du att ange lösenordet för det administrativa användarkontot som du redan har skapat.
-6. Klicka på **Create SQL Database** (Skapa SQL Database).
-
-    ![Ny SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)
-7. När Azure har skapat databasen, klickar du på fliken **SQL Databases** i portalens vänstra ruta och klickar sedan på den nya databasens namn.
-8. Klicka på fliken **Dashboard** (Instrumentpanel).
-9. Klicka på **Manage allowed IP addresses** (Hantera tillåtna IP-adresser).
-10. Ändra **Azure Services** (Azure-tjänster) till **Yes** (Ja) under **Allowed Services** (Tillåtna tjänster).
-11. Klicka på **Save** (Spara).
+    ![Ny SQL-databasserver](./media/cloud-services-dotnet-get-started/newdbserver.png)
+10. Klicka på **Skapa**.
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 Ett Azure-lagringskonto tillhandahåller resurser för att lagra kö- och blobbdata i molnet.
 
 I ett riktigt program skapar du vanligtvis separata konton för programdata jämfört med loggningsdata, samt separata konton för testdata jämfört med produktionsdata. Under den här kursen använder du bara ett konto.
 
-1. I den [klassiska Azure-portalen](http://manage.windowsazure.com) klickar du på **New > Data Services > Storage > Quick Create** (Ny > Data Services > Storage > Snabbregistrering).
-2. Ange ett URL-prefix i **URL**-rutan.
+1. I [Azure-portalen](https://portal.azure.com) klickar du på **New > Storage > Storage Account - blob, file, table, queue**.
+2. Ange ett URL-prefix i **Namn**-rutan.
 
     Det här prefixet och texten som du ser under rutan utgör den unika URL:en till ditt lagringskonto. Om det prefix du anger redan har använts av någon annan, måste du välja ett annat prefix.
-3. Välj samma region som du valde för molntjänsten i listrutan **Region**.
+3. Ange **distributionsmodellen** som *Klassisk*.
+
+4. Välj **Locally redundant storage** (Lokalt redundant) i listrutan **Replication** (Replikering).
+
+    När geo-replikering har aktiverats för ett lagringskonto, replikeras det lagrade innehållet till ett sekundärt datacenter för att aktivera redundans om det skulle inträffa en större katastrof på den primära platsen. Geo-replikering kan medföra ytterligare kostnader. När det gäller test- och utvecklingskonton ska du vanligtvis inte betala för geo-replikering. Mer information finns i [Skapa, hantera eller ta bort ett lagringskonto](../storage/storage-create-storage-account.md).
+
+5. I **resursgruppen** klickar du på **använd befintliga** och markerar den resursgrupp som används för molntjänsten.
+6. Ställ in rullgardinsmenyn **Plats** i samma region som du skulle välja för en molntjänst.
 
     När molntjänsten och lagringskontot är i olika datacenter (olika regioner), ökar svarstiden och du debiteras för bandbredden utanför datacentret. Bandbredd inom ett datacenter är kostnadsfri.
 
     Azure-tillhörighetsgrupper tillhandahåller en funktion som minskar avståndet mellan resurser i datacentret, vilket kan förkorta svarstiden. Under den här kursen används inte tillhörighetsgrupper. Mer information finns i [Skapa en tillhörighetsgrupp i Azure](http://msdn.microsoft.com/library/jj156209.aspx).
-4. Välj **Locally redundant** (Lokalt redundant) i listrutan **Replication** (Replikering).
-
-    När geo-replikering har aktiverats för ett lagringskonto, replikeras det lagrade innehållet till ett sekundärt datacenter för att aktivera redundans till den platsen om det skulle inträffa en större katastrof på den primära platsen. Geo-replikering kan medföra ytterligare kostnader. När det gäller test- och utvecklingskonton ska du vanligtvis inte betala för geo-replikering. Mer information finns i [Skapa, hantera eller ta bort ett lagringskonto](../storage/storage-create-storage-account.md).
-5. Klicka på **Create Storage Account** (Skapa lagringskonto).
+7. Klicka på **Skapa**.
 
     ![Nytt lagringskonto](./media/cloud-services-dotnet-get-started/newstorage.png)
 
-    I avbildningen skapas ett lagringskonto med URL:en `contosoads.core.windows.net`.
+    I avbildningen skapas ett lagringskonto med URL:en `csvccontosoads.core.windows.net`.
 
 ### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Konfigurera lösningen så att den använder Azure SQL Database när den körs i Azure
 Webbprojektet och arbetsrollsprojektet har varsin databasanslutningssträng, och båda strängarna måste peka på Azure SQL Database när appen körs i Azure.
@@ -196,14 +206,14 @@ Du kommer att använda en [Web.config-transformering](http://www.asp.net/mvc/tut
     ```
 
     Lämna filen öppen för redigering.
-2. I den [klassiska Azure-portalen](http://manage.windowsazure.com) klickar du på **SQL Databases** i den vänstra rutan, klickar på databasen som du skapade för den här kursen, klickar på fliken **Dashboard** (Instrumentpanel) och sedan på **Show connection strings** (Visa anslutningssträngar).
+2. I den [klassiska Azure-portalen](https://portal.azure.com) klickar du på **SQL Databases** i den vänstra rutan, klickar på databasen som du skapade för den här kursen och sedan på **Show connection strings** (Visa anslutningssträngar).
 
     ![Visa anslutningssträngar](./media/cloud-services-dotnet-get-started/showcs.png)
 
     Portalen visar anslutningssträngar med en platshållare för lösenordet.
 
     ![Anslutningssträngar](./media/cloud-services-dotnet-get-started/connstrings.png)
-3. I transformeringsfilen *Web.Release.config* tar du bort `{connectionstring}` och ersätter den med ADO.NET-anslutningssträngen från den klassiska Azure-portalen.
+3. I transformeringsfilen *Web.Release.config* tar du bort `{connectionstring}` och ersätter den med ADO.NET-anslutningssträngen från Azure-portalen.
 4. I anslutningssträngen som du klistrade in i transformeringsfilen *Web.Release.config* ska du ersätta `{your_password_here}` med lösenordet du skapade för den nya SQL-databasen.
 5. Spara filen.  
 6. Markera och kopiera anslutningssträngen (utan omgivande citattecken) och använd den i följande steg för att konfigurera arbetsrollsprojektet.
@@ -244,7 +254,7 @@ Rollmiljöinställningarna som du har konfigurerat i Visual Studio-gränssnittet
 * *ServiceConfiguration.Cloud.cscfg* – tillhandahåller värden när appen körs i molnet.
 * *ServiceConfiguration.Local.cscfg* – tillhandahåller värden när appen körs lokalt.
 
-ServiceDefinition.csdef innehåller till exempel följande definitioner.
+ServiceDefinition.csdef innehåller till exempel följande definitioner:
 
 ```xml
 <ConfigurationSettings>
@@ -297,7 +307,7 @@ Inställningen `<Instances>` anger det antal virtuella datorer som Azure kommer 
 7. Nu kan du testa appen genom att skapa, visa och redigera vissa annonser, precis som du gjorde när du körde programmet lokalt.
 
 > [!NOTE]
-> När du har gjort dina tester kan du ta bort eller stoppa molntjänsten. Även om du inte använder molntjänsten uppstår avgifter eftersom det finns reserverade virtuella datorresurser som är avsedda för den. Om du låter den köra kan dessutom alla som hittar URL:en skapa och visa annonser. Gå till **instrumentpanelsfliken** för din molntjänst i den [klassiska Azure-portalen](http://manage.windowsazure.com), och klicka sedan på knappen **Delete** (Ta bort) längst ned på sidan. Om du bara tillfälligt vill förhindra andra från att komma åt webbplatsen klickar du på **Stop** (Stoppa) i stället. I så fall fortsätter avgifterna att tillkomma. Du kan följa en liknande procedur om du vill ta bort SQL-databasen och lagringskontot när du inte längre behöver dem.
+> När du har gjort dina tester kan du ta bort eller stoppa molntjänsten. Även om du inte använder molntjänsten uppstår avgifter eftersom det finns reserverade virtuella datorresurser som är avsedda för den. Om du låter den köra kan dessutom alla som hittar URL:en skapa och visa annonser. Gå till **översiktsfliken** för din molntjänst i [Azure-portalen](https://portal.azure.com), och klicka sedan på knappen **Delete** (Ta bort) längst upp på sidan. Om du bara tillfälligt vill förhindra andra från att komma åt webbplatsen klickar du på **Stop** (Stoppa) i stället. I så fall fortsätter avgifterna att tillkomma. Du kan följa en liknande procedur om du vill ta bort SQL-databasen och lagringskontot när du inte längre behöver dem.
 >
 >
 
@@ -374,7 +384,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 4. Klicka på fliken **Settings** (Inställningar) i egenskapsfönstret för  **ContosAdsWeb [roll]**, och klicka sedan på **Add Setting** (Lägg till inställning).
 
     Lämna **Service Configuration** (Tjänstkonfiguration) inställd på **All Configurations** (Alla konfigurationer).
-5. Lägg till en ny inställning med namnet *StorageConnectionString*. Ange **typen** som *ConnectionString*, och ställ in **värdet** till *UseDevelopmentStorage=true*.
+5. Lägg till en inställning med namnet *StorageConnectionString*. Ange **typen** som *ConnectionString*, och ställ in **värdet** till *UseDevelopmentStorage=true*.
 
     ![Ny anslutningssträng](./media/cloud-services-dotnet-get-started/scall.png)
 6. Spara ändringarna.
@@ -473,7 +483,7 @@ public class ContosoAdsContext : DbContext
 }
 ```
 
-Klassen har två konstruktorer. Den första används av webbprojektet och anger namnet på en anslutningssträng som lagras i Web.config-filen. Den andra konstruktorn gör att du kan överföra den faktiska anslutningssträngen. Det krävs av arbetsrollsprojektet eftersom det inte har en Web.config-fil. Du såg tidigare var den här anslutningssträngen lagras, och du kommer längre fram att få se hur koden hämtar anslutningssträngen när den instantierar DbContext-klassen.
+Klassen har två konstruktorer. Den första används av webbprojektet och anger namnet på en anslutningssträng som lagras i Web.config-filen. Den andra konstruktorn gör att du kan överföra den faktiska anslutningssträngen som används av arbetsrollsprojektet, eftersom det inte har en Web.config-fil. Du såg tidigare var den här anslutningssträngen lagras, och du kommer längre fram att få se hur koden hämtar anslutningssträngen när den instantierar DbContext-klassen.
 
 ### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb – Global.asax.cs
 Kod som anropas från metoden `Application_Start` skapar en blobbehållare för *images* och en kö för *images* om dessa inte redan finns. Det innebär att när du börjar använda ett nytt lagringskonto eller börjar använda lagringsemulatorn på en ny dator, skapas den nödvändiga blobbehållaren och kön automatiskt.

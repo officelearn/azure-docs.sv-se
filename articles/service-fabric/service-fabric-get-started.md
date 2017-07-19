@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/17/2017
+ms.date: 06/20/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: dc07c709df84bbfcbf677bc3c2977590e651b194
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 926dfe3de0715f855e6d5b57f10c2366cda8583b
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -63,22 +63,15 @@ För Visual Studio 2015 installeras Service Fabric-verktyg tillsammans med SDK m
 Om du bara behöver SDK kan du installera det här paketet:
 * [Installera Microsoft Azure Service Fabric SDK][core-sdk]
 
-> [!WARNING]
-> Kunder har rapporterat fel under installationen när dessa startlänkar används, eller när länkarna används i webbläsaren Chrome. Dessa fel är kända problem i Web Platform Installer som håller på att åtgärdas.  Prova följande lösningar:
->- Starta de föregående länkarna i Internet Explorer eller Edge-webbläsaren, eller
->- Starta Web Platform Installer från Start-menyn, sök efter ”Service Fabric” och installera SDK
-> 
-> Vi ber om ursäkt för besväret. 
-
 De aktuella versionerna är:
-* Service Fabric SDK 2.6.204
-* Service Fabric Runtime 5.6.204
+* Service Fabric SDK 2.6.220
+* Service Fabric Runtime 5.6.220
 * Visual Studio 2015 Tools 1.6.50508.2
 * Visual Studio 2017 Update 2
 
 De aktuella förhandsversionerna är:
-* Service Fabric SDK 255.255.2709.255
-* Service Fabric Runtime 255.255.5709.255
+* Service Fabric SDK 255.255.2718.255
+* Service Fabric Runtime 255.255.5718.255
 * Visual Studio 2015 Tools 1.6.50509.5
 * Visual Studio 2017 Update 3 Preview 1
 

@@ -10,6 +10,8 @@ Skapa en IoT Hub som din simulerade enhetsapp kan ansluta till. Följande steg v
     ![IoT Hub-bladet][2]
    
    1. I **Namn**-rutan anger du ett namn för din IoT Hub. Om **namnet** är giltigt och tillgängligt, visas en grön kryssmarkering i **Namn**-rutan.
+    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+   
    1. Välj en [pris- och skalningsnivå][lnk-pricing]. Den här guiden kräver inte en specifik nivå. Använd den kostnadsfria F1-nivån för den här guiden.
    1. I **Resursgrupp** skapar du antingen en resursgrupp eller väljer en befintlig. Mer information finns i [Using resource groups to manage your Azure resources][lnk-resource-groups] (Hantera dina Azure-resurser med hjälp av resursgrupper).
    1. I **Plats** väljer du platsen som ska vara som värd för din IoT Hub. Välj den plats som är närmast dig för den här guiden.

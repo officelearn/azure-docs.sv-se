@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 4d7704c03bece51957efa2a56577b8808cc62c79
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/08/2017
 
-
 ---
-# Du kan inte ta dig dit härifrån på en Windows-enhet
-<a id="you-cant-get-there-from-here-on-a-windows-device" class="xliff"></a>
+# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Du kan inte ta dig dit härifrån på en Windows-enhet
 
 Vid ett försök att komma åt exempelvis organisationens SharePoint Online-intranät kan du stöta på en sida som anger att *du kan inte komma hit härifrån*. Du ser den här sidan eftersom administratören har konfigurerat en villkorlig åtkomstprincip som förhindrar åtkomst till organisationens resurser under vissa förhållanden. Det kan vara nödvändigt att kontakta supportavdelningen eller administratören för att lösa det här problemet, men det finns några saker som du kan prova själv först.
 
@@ -40,8 +39,7 @@ Om du använder en **Windows**-enhet ska du kontrollera följande:
 
 
 
-## Webbläsare som stöds
-<a id="supported-browser" class="xliff"></a>
+## <a name="supported-browser"></a>Webbläsare som stöds
 
 Om administratören har konfigurerat en princip för villkorlig åtkomst kan du bara få åtkomst till organisationens resurser genom att använda en webbläsare som stöds. På en Windows-enhet stöds bara **Internet Explorer** och **Edge**.
 
@@ -52,8 +50,7 @@ Du kan enkelt se om du inte åtkomst till en resurs på grund av en webbläsare 
 Det enda du kan göra är att använda en webbläsare som stöds av programmet för din enhetsplattform. En fullständig lista över webbläsare som stöds finns i [webbläsare som stöds](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies).  
 
 
-## Versioner av Windows som stöds
-<a id="supported-versions-of-windows" class="xliff"></a>
+## <a name="supported-versions-of-windows"></a>Versioner av Windows som stöds
 
 Följande villkor måste vara uppfyllda för Windows-operativsystemet på din enhet: 
 
@@ -61,8 +58,7 @@ Följande villkor måste vara uppfyllda för Windows-operativsystemet på din en
 - Om du kör ett Windows server-operativsystem på din enhet måste det måste vara Windows Server 2008 R2 eller senare. 
 
 
-## Kompatibel enhet
-<a id="compliant-device" class="xliff"></a>
+## <a name="compliant-device"></a>Kompatibel enhet
 
 Administratören kan ha konfigurerat en villkorlig åtkomstprincip som tillåter åtkomst till organisationens resurser enbart från kompatibla enheter. För att vara kompatibel måste enheten antingen vara ansluten till din lokala Active Directory eller till din Azure Active Directory.
 
@@ -71,8 +67,7 @@ Du kan enkelt se om du inte åtkomst till en resurs på grund av en enhet som in
 ![Meddelandet ”Du kan inte ta dig dit härifrån” för enheter som inte har registrerats](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
 
 
-### Är enheten ansluten till en lokal Active Directory?
-<a id="is-your-device-joined-to-an-on-premises-active-directory" class="xliff"></a>
+### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>Är enheten ansluten till en lokal Active Directory?
 
 **Om enheten är ansluten till en lokal Active Directory i din organisation:**
 
@@ -84,8 +79,7 @@ Du kan enkelt se om du inte åtkomst till en resurs på grund av en enhet som in
 6. Om samma sida visas, klickar du på länken **Mer information** och kontaktar din administratör och anger informationen.
 
 
-### Är enheten inte ansluten till en lokal Active Directory?
-<a id="is-your-device-not-joined-to-an-on-premises-active-directory" class="xliff"></a>
+### <a name="is-your-device-not-joined-to-an-on-premises-active-directory"></a>Är enheten inte ansluten till en lokal Active Directory?
 
 Om enheten inte är ansluten till en lokal Active Directory och kör Windows 10 har du två alternativ:
 
@@ -100,8 +94,7 @@ Om enheten:
 
 
 
-#### Azure AD Join i Windows 10
-<a id="azure-ad-join-on-windows-10" class="xliff"></a>
+#### <a name="azure-ad-join-on-windows-10"></a>Azure AD Join i Windows 10
 
 Stegen för att ansluta din enhet till Azure AD beror på vilken version av Windows 10 som körs på den. Om du vill kontrollera vilken version av operativsystemet Windows 10 som körs, kör du kommandot **winver**: 
 
@@ -128,8 +121,7 @@ Stegen för att ansluta din enhet till Azure AD beror på vilken version av Wind
 6. Prova att öppna programmet igen.
 
 
-#### Anslut till arbetsplats i Windows 8.1
-<a id="workplace-join-on-windows-81" class="xliff"></a>
+#### <a name="workplace-join-on-windows-81"></a>Anslut till arbetsplats i Windows 8.1
 
 Om enheten inte är domänansluten och kör Windows 8.1 kan du, för att göra en Workplace Join och registrera enheten i Microsoft Intune göra följande steg:
 
@@ -142,8 +134,7 @@ Om enheten inte är domänansluten och kör Windows 8.1 kan du, för att göra e
 
 
 
-#### Lägg till ditt arbets- eller skolkonto till Windows
-<a id="add-your-work-or-school-account-to-windows" class="xliff"></a> 
+#### <a name="add-your-work-or-school-account-to-windows"></a>Lägg till ditt arbets- eller skolkonto till Windows 
 
 
 **Windows 10 Anniversary Update (version 1607):**
@@ -167,8 +158,7 @@ Om enheten inte är domänansluten och kör Windows 8.1 kan du, för att göra e
 
 
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 [Villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access.md)
 
 

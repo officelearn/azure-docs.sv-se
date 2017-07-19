@@ -4,7 +4,7 @@ description: "Det här dokumentet hjälper dig att felsöka problem i Azure Secu
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
@@ -12,16 +12,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 06/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: b9f4a8b185f9fb06f8991b6da35a5d8c94689367
-ms.openlocfilehash: dbbec729c14d0d9dc5781e7a88a1db3f66f7df97
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: fa70dffc2a4bade44e1dec583bdfcf7b5dae6801
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.
+
+>[!NOTE] 
+>Från och med tidig juni 2017 använder Security Center Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Centers funktionalitet efter övergången till Microsoft Monitoring Agent.
+>
 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide
 I den här guiden förklaras hur du felsöker Security Center-relaterade problem. Den mesta felsökningen i Security Center kommer att ske genom att först granska [Granskningslogg](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/)-posterna för den felaktiga komponenten. Via granskningsloggarna kan du fastställa:
@@ -34,47 +40,48 @@ I den här guiden förklaras hur du felsöker Security Center-relaterade problem
 
 Granskningsloggen innehåller alla skrivåtgärder (PUT, POST, DELETE) som utförs på dina resurser, men omfattar inte läsåtgärder (GET).
 
-## <a name="troubleshooting-monitoring-agent-installation-in-windows"></a>Felsöka övervakningsagentinstallation i Windows
-Övervakningsagenten i Security Center används för att samla in data. När datainsamling är aktiverat och agenten är korrekt installerad i måldatorn, ska de här processerna köras:
+## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
+Security Center använder Microsoft Monitoring Agent (samma agent används av Operations Management Suite och Log Analytics-tjänsten) för att samla in säkerhetsdata från dina virtuella Azure-datorer. När datainsamling är aktiverat och agenten är korrekt installerad i måldatorn, ska de här processerna köras:
 
-* ASMAgentLauncher.exe – Azure Monitoring Agent 
-* ASMMonitoringAgent.exe – tillägg för Azure Security Monitoring
-* ASMSoftwareScanner.exe – Azure Scan Manager
+* HealthService.exe
 
-Med tillägget Azure Security Monitoring söks olika säkerhetsrelevanta konfigurationer igenom och säkerhetsloggar från virtuella datorer samlas in. Genomsökningshanteraren används som en genomsökare av korrigeringsfiler.
+Om du öppnar konsolen för tjänsthantering (services.msc) kan du även se att tjänsten Microsoft Monitoring Agent körs enligt nedan:
 
-Om installationen har utförts bör du se en post som liknar den nedan i granskningsloggarna för den virtuella måldatorn:
+![Tjänster](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-![Granskningsloggar](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
+Om du vill se vilken version av agenten du har kan du öppna **Aktivitetshanteraren**i fliken **processer**, leta upp tjänsten **Microsoft Monitoring Agent**, högerklicka på den och klicka på **Egenskaper**. Filversionen visas på fliken **Information** enligt nedan:
 
-Du kan också få mer information om installationsprocessen genom att läsa de agentloggar som finns på *%systemdrive%\windowsazure\logs* (exempel: C:\WindowsAzure\Logs).
+![Fil](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+   
 
-> [!NOTE]
-> Om Azure Security Center-agenten beter sig felaktigt måste du starta om den virtuella måldatorn eftersom det inte finns något kommando för att stoppa och starta agenten.
+## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Scenarier för installation av Microsoft Monitoring Agent
+Det finns två installationsscenarier som kan ge olika resultat när du installerar Microsoft Monitoring Agent på datorn. Scenarier som stöds är:
 
+* **Agent som installeras automatiskt av Security Center**: i det här scenariot kommer du att kunna visa aviseringarna på båda platser, Security Center och Loggsökning. Du får e-postaviseringar till e-postadressen som konfigurerats i säkerhetsprincipen för prenumerationen som resursen hör till.
+.
+* **Agenten installeras manuellt på en virtuell dator i Azure**: i det här scenariot, om du använder agenter som har hämtats och installerats manuellt före februari 2017, kommer du endast att kunna visa aviseringarna i Security Center portal om du filtrerar i prenumerationen som arbetsytan tillhör. Om du filtrerar i prenumerationen som resursen tillhör kommer du inte att kunna se några aviseringar. Du får e-postaviseringar till e-postadressen som konfigurerats i säkerhetsprincipen för prenumerationen som arbetsytan hör till.
 
-Om du fortfarande har problem med insamling av data kan du avinstallera agenten genom att följa stegen nedan:
+>[!NOTE]
+> Kontrollera att du laddar ned den senaste versionen av agenten för att undvika detta problem.
+> 
 
-1. Från **Azure Portal** väljer du den virtuella dator som har problem med datasamling och klickar på **Tillägg**.
-2. Högerklicka i **Microsoft.Azure.Security.Monitoring** och klicka på **Avinstallera**.
+## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Felsöka nätverkskrav för övervakningsagenten
+Agenter att ansluta till och registrera med Security Center, måste de ha åtkomst till nätverksresurser, inklusive portnummer och URL: er för domänen.
 
-![Ta bort agenten](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+- För proxyservrar måste du se till att lämpliga proxy serverresurser konfigureras i agentinställningarna. Mer information om att [ändra proxyinställningarna](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings) finns i den här artikeln.
+- Om du använder en brandvägg för att begränsa åtkomsten till Internet, måste du konfigurera brandväggen att tillåta åtkomst till OMS. Ingen åtgärd krävs i agentinställningarna.
 
-Tillägget Azure Security Monitoring ska återinstalleras automatiskt inom några minuter.
+I följande tabell visas resurser som krävs för kommunikation.
 
-## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Felsöka installationen av övervakningsagenten i Linux
-När du felsöker en VM-agentinstallation i ett Linux-system bör du kontrollera att tillägget har laddats ned till /var/lib/waagent/. Du kan köra kommandot nedan för att kontrollera om det är installerat:
+| Agentresurs | Portar | Kringgå HTTPS-kontroll |
+|---|---|---|
+| *.ods.opinsights.azure.com | 443 | Ja |
+| *.oms.opinsights.azure.com | 443 | Ja |
+| *.blob.core.windows.net | 443 | Ja |
+| *.azure-automation.net | 443 | Ja |
 
-`cat /var/log/waagent.log` 
+Om du får problem med att komma igång med agenten, kan du hitta mer information i artikeln [Felsökning av problem med att komma igång med Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-Andra loggfiler som du kan granska i felsökningssyfte är: 
-
-* /var/log/mdsd.err
-* /var/log/azure/
-
-Du bör se en anslutning till mdsd-processen på TCP 29130 i ett fungerande system. Det här är syslog som kommunicerar med mdsd-processen. Du kan verifiera det här beteendet genom att köra kommandot nedan:
-
-`netstat -plantu | grep 29130`
 
 ## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Felsökning om Endpoint Protection inte fungerar korrekt
 
@@ -108,10 +115,5 @@ I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i A
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

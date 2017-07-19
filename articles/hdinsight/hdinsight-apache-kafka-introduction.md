@@ -1,6 +1,6 @@
 ---
-title: "Introduktion till Apache Kafka på HDInsight | Microsoft Docs"
-description: "Läs mer om Apache Kafka på HDInsight. Vad detta är, vad det används till och var du hittar exempel och information om att komma igång."
+title: "Introduktion till Apache Kafka på HDInsight - Azure | Microsoft Docs"
+description: "Lär dig mer om Apache Kafka på HDInsight: vad det är, dess syfte och var du hittar exempel och kommer igång."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 06/15/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: ca48abcdc9f9d05648a4b03bdb5fec7b4a5b7cce
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introduktion till Apache Kafka på HDInsight (förhandsversion)
@@ -39,6 +39,12 @@ Kafka tillhandahåller följande funktioner:
 * Leverans i ordning: Inom varje partition lagras posterna i strömmen i den ordning som de togs emot. Genom att associera en konsumentprocess per partition bearbetas posterna garanterat i ordning.
 
 * Feltoleranta: Partitioner kan replikeras mellan noder för att ge feltolerans.
+
+* Integrering med Azure hanterade diskar: hanterade diskar ger högre skala och genomströmning för diskar som används av de virtuella datorerna i HDInsight-klustret.
+
+    Hanterade diskar aktiveras som standard för Kafka på HDInsight och antalet diskar som används per nod kan konfigureras i samband med att skapa HDInsight. För mer information om hanterade diskar, se [Hanterade Azure-diskar](../storage/storage-managed-disks-overview.md).
+
+    Se [Ökad skalbalhet med Kafta på HDInsight](hdinsight-apache-kafka-scalability.md) för mer information om att konfigurera hanterade diskar med Kafka på HDInsight.
 
 ## <a name="use-cases"></a>Användningsfall
 

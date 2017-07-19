@@ -4,7 +4,7 @@ description: "I det här avsnittet berättar vi hur du ställer in säkerhetspri
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
@@ -12,60 +12,43 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Ange säkerhetsprinciper i Azure Security Center
 I det här avsnittet får du genom instruktioner hjälp med att ställa in säkerhetsprinciper i Security Center.
 
+>[!NOTE] 
+>Från och med tidig juni 2017 använder Security Center Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Centers funktionalitet efter övergången till Microsoft Monitoring Agent.
+>
+
 ## <a name="what-are-security-policies"></a>Vad är säkerhetsprinciper?
-En säkerhetsprincip är ett antal kontrollfunktioner som rekommenderas för resurser inom en viss prenumeration eller resursgrupp. I Security Center ställer du in principer för dina prenumerationer och resursgrupper i Azure enligt ditt företags behov och typ av program eller efter känslighetsnivån på datauppgifterna i respektive prenumeration.
+En säkerhetsprincip är ett antal kontrollfunktioner som rekommenderas för resurser inom en viss prenumeration. I Security Center ställer du in principer för dina prenumerationer i Azure enligt ditt företags behov och typ av program eller efter känslighetsnivån på datauppgifterna i respektive prenumeration.
 
 De resurser som används för utveckling eller testning har kanske andra säkerhetskrav än de resurser som används för program i produktionen. På samma sätt behövs det kanske en högre säkerhetsnivå för sådant som det finns lagar om, till exempel personuppgifter. Säkerhetsprinciperna i Azure Security Center innehåller säkerhetsrekommendationer och möjlighet till övervakning som gör att du kan upptäcka potentiella säkerhetsrisker och avhjälpa hot. I [Planering- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md) finns mer information om hur du avgör vilket alternativ som passar dig bäst.
 
-## <a name="set-security-policies-for-subscriptions"></a>Ställa in säkerhetsprinciper för prenumerationer
-Det går att ställa in särskilda säkerhetsprinciper för varje prenumeration och resursgrupp. För att kunna ändra en säkerhetsprincip måste du vara ägare eller deltagare i den aktuella prenumerationen. Logga in på Azure-portalen och följ föregående steg för att konfigurera säkerhetsprinciper i Security Center:
+## <a name="set-security-policies"></a>Ange säkerhetsprinciper
+Det går att ställa in särskilda säkerhetsprinciper för varje prenumeration. För att kunna ändra en säkerhetsprincip måste du vara ägare eller deltagare i den aktuella prenumerationen. Logga in på Azure-portalen och följ föregående steg för att konfigurera säkerhetsprinciper i Security Center:
 
 1. Klicka på rutan **Policy** (Princip) i instrumentpanelen i Security Center.
-2. På bladet **Säkerhetsprincip – ange princip för prenumeration eller resursgrupp** markerar du den prenumeration som du vill ställa in en säkerhetsprincip för. Om du vill ställa in en säkerhetsprincip för en resursgrupp i stället för hela prenumerationen går du ned till nästa avsnitt, där vi berättar hur du ställer in säkerhetsprinciper för resursgrupper.
+2. På bladet Säkerhetsprincip markerar du den prenumeration som du vill ställa in en säkerhetsprincip för.
 
     ![Ange princip](./media/security-center-policies/security-center-policies-fig1-ga.png)
-3. Bladet **Säkerhetsprincip** för den valda prenumerationen öppnas med ett antal alternativ som liknar dem på följande skärm:
-
-    ![Aktivera datainsamling](./media/security-center-policies/security-center-policies-fig2-ga.png)
-
-    Alternativen på det här bladet är:
+3. Bladet **Säkerhetsprincip** för den valda prenumerationen öppnas med ett antal alternativ. Alternativen på det här bladet är:
 
    * **Förebyggandeprincip**: Med det här alternativet kan du konfigurera principer per prenumeration eller resursgrupp.  
    * **E-postavisering**: Använd det här alternativet för att konfigurera ett e-postmeddelande som skickas vid den första dagliga förekomsten av en avisering och endast för varningar med hög angelägenhetsgrad. E-postinställningar kan bara konfigureras för prenumerationsprinciper. Mer information om hur du konfigurerar e-postaviseringar finns i [Lägga till säkerhetskontaktuppgifter i Azure Security Center](security-center-provide-security-contact-details.md).
    * **Prisnivå**: Använd det här alternativet för att uppgradera valet av prisnivå. Mer information om prisalternativen finns i [Security Center-prissättning](security-center-pricing.md).
-4. Kontrollera att alternativet **Samla in data från virtuella datorer** är inställt på **På**. Med den här inställningen samlas loggar in automatiskt för befintliga och nya resurser.
+4. Kontrollera att alternativet **Samla in data från virtuella datorer** är inställt på **På**. Det här alternativet möjliggör loggsamling för befintliga och nya resurser med hjälp av Microsoft Monitoring Agent – det här är samma agent används av Operations Management Suite och Log Analytics-tjänsten. Data som samlas in från agenten lagras i befintliga logganalysarbetsytor som är associerade med din Azure-prenumeration eller nya arbetsytor med hänsyn till den virtuella datorns geografiska plats.
 
-   > [!NOTE]
-   > Vi rekommenderar att du aktiverar datainsamling för alla prenumerationer, eftersom du då kan vara säker på att alla befintliga och nya virtuella datorer är säkerhetsövervakade. När du aktiverar datainsamling installeras övervakningsagenten. Om du inte vill aktivera datainsamling här kan du göra det senare i vyerna **Hälsa** och **Rekommendationer**. Du kan även aktivera datainsamling för endast prenumerationen eller för specifika virtuella datorer. I avsnittet med [vanliga frågor och svar om Azure Security Center](security-center-faq.md) kan du läsa om vilka virtuella datorer som stöds.
-   >
-   >
-5. Om ditt lagringskonto inte har konfigurerats än ser du antagligen en varning som i följande bild när du öppnar **Säkerhetsprincip**. Om du inte väljer något lagringskonto för en region skapas ett åt dig.
-
-    ![Val av lagringsutrymme](./media/security-center-policies/security-center-policies-fig2.png)
-6. Om du ser den här varningen klickar du på alternativet och väljer region så som visas på följande skärm:
-
-    ![Val av lagringsutrymme](./media/security-center-policies/security-center-policies-fig3-ga.png)
-7. För varje region där det finns virtuella datorer som körs väljer du på vilket lagringskonto data som samlas in från de datorerna ska lagras. På så sätt kan du behålla data inom samma geografiska område, vilket förenklar sekretess- och datalagstiftningshanteringen. När du har bestämt vilken region som du vill använda markerar du den regionen och väljer lagringskonto.
-8. På bladet **Välj lagringskonton** klickar du på **OK**.
-
-   > [!NOTE]
-   > Om du vill kan du samla ihop data från virtuella datorer i olika regioner på ett enda centralt lagringskonto. Mer information finns i våra [vanliga frågor och svar om Azure Security Center](security-center-faq.md).
-   >
-   >
-9. På bladet **Säkerhetsprincip** klickar du på **På** för de säkerhetsrekommendationer du vill aktivera för aktuell prenumeration. Klicka på **Skyddsprincip** för att se alternativ som de som finns i följande skärmbild:
+5. I bladet **säkerhetsprincip** bladet klickar du på **Skyddsprincip** för att se de tillgängliga alternativen. Klicka på **På** att för aktivera de säkerhetsrekommendationer som är relevanta för den här prenumerationen.
 
     ![Val av säkerhetsprinciper](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
@@ -78,26 +61,17 @@ Använd följande tabell som referens för vad de olika alternativen innebär:
 | Slutpunktsskydd |Rekommendationer går ut om att slutpunktsskydd ska installeras på alla virtuella datorer med Windows så att virus, spionprogram och annan skadlig programvara kan tas bort. |
 | Diskkryptering |Rekommenderar att aktivera diskkryptering på alla virtuella datorer för att förbättra skydd av data i vila. |
 | Nätverkssäkerhetsgrupper |Rekommenderar att [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) ska konfigureras för kontroll av inkommande och utgående trafik till virtuella datorer med offentliga slutpunkter. Nätverkssäkerhetsgrupper som konfigureras för ett undernät ärvs av alla virtuella datorers nätverksgränssnitt om inget annat anges. Den här principen innebär, förutom kontroll av om nätverkssäkerhetsgrupp har konfigurerats, även att inkommande säkerhetsregler kontrolleras för att se om det finns några regler som tillåter inkommande trafik. |
-| Brandvägg för webbaserade program |Rekommenderar att en brandvägg för webbaserade program etableras på virtuella datorer när något av följande stämmer:</br></br>[Offentlig IP på instansnivå](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) används och de inkommande säkerhetsreglerna för den associerade nätverkssäkerhetsgruppen är konfigurerad för att tillåta åtkomst till port 80/443.</br></br>Belastningsutjämnad IP-adress används och associerad nätverksbelastning och inkommande NAT-regler (Network Address Translation) är konfigurerade för att tillåta åtkomst till port 80/443. (Mer information finns i [Azure Resource Manager-stöd för Load Balancer](../load-balancer/load-balancer-arm.md). |
+| Brandvägg för webbaserade program |Rekommenderar att en brandvägg för webbaserade program etableras på virtuella datorer när något av följande stämmer: </br></br>[Offentlig IP på instansnivå](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) används och de inkommande säkerhetsreglerna för den associerade nätverkssäkerhetsgruppen är konfigurerad för att tillåta åtkomst till port 80/443.</br></br>Belastningsutjämnad IP-adress används och associerad nätverksbelastning och inkommande NAT-regler (Network Address Translation) är konfigurerade för att tillåta åtkomst till port 80/443. (Mer information finns i [Azure Resource Manager-stöd för Load Balancer](../load-balancer/load-balancer-arm.md). |
 | Nästa generations brandvägg |Nätverksskyddet utökas utöver nätverkssäkerhetsgrupperna, som är inbyggda i Azure. Distributioner som nästa generations brandvägg rekommenderas för upptäcks av Security Center och du kan göra en virtuell installation. |
 | SQL-granskning och hotidentifiering |Rekommenderar att granskning av åtkomst till Azure-databasen aktiveras för lag- och regelefterlevnad, avancerad hotidentifiering och undersökning. |
-| SQL transparent datakryptering |Rekommenderar att kryptering i vila ska aktiveras för Azure SQL Database, tillhörande säkerhetskopior och transaktionsloggfiler. Även om intrång i datan sker, går den inte att läsa. |
+| SQL-kryptering |Rekommenderar att kryptering i vila ska aktiveras för Azure SQL Database, tillhörande säkerhetskopior och transaktionsloggfiler. Även om intrång i datan sker, går den inte att läsa. |
 | Sårbarhetsbedömning |Rekommenderar att du installerar en lösning för sårbarhetsbedömning på den virtuella datorn. |
 | Lagringskryptering |Den här funktionen är för närvarande tillgänglig för Azure-blobbar och filer. Observera att när du har aktiverat Kryptering av lagringstjänst kommer endast nya data att krypteras. Alla befintliga filer i lagringskontot kommer att förbli okrypterade. |
 
 När du har ställt in alla alternativ klickar du på **OK** i bladet **Säkerhetsprincip** med rekommendationerna och sedan på **Spara** i bladet **Säkerhetsprincip** med grundinställningarna.
 
-## <a name="set-security-policies-for-resource-groups"></a>Ställa in säkerhetsprinciper för resursgrupper
-Om du hellre vill ställa in säkerhetsprinciper för resursgrupper går det till på ungefär samma sätt som när du ställer in säkerhetsprinciper för prenumerationer. Den största skillnaden är att du måste expandera prenumerationsnamnet och markera den resursgrupp som du vill ställa in en unik säkerhetsprincip för:
-
-![Val av resursgrupp](./media/security-center-policies/security-center-policies-fig5-ga.png)
-
-När du har markerat en resursgrupp öppnas bladet **Säkerhetsprincip**. Som standard är alternativet **Arv** aktiverat. Det innebär att alla säkerhetsprinciper för den här resursgruppen ärvs från prenumerationsnivån. Om du vill att den här resursgruppen ska ha en egen säkerhetsprincip kan du ändra den här inställningen. I så fall väljer du **Unik** och gör ändringarna under alternativet **Skyddsprincip**.
-
-![Säkerhetsprincip för resursgrupp](./media/security-center-policies/security-center-policies-fig6-ga.png)
-
 > [!NOTE]
-> Om en princip på prenumerationsnivå motsäger en princip på resursgruppsnivå gäller principen på resursgruppsnivå i första hand.
+> Prisnivån gäller fortfarande för resursgruppsnivån. Mer information finns på sidan med [Priser](https://azure.microsoft.com/pricing/details/security-center/).
 >
 >
 

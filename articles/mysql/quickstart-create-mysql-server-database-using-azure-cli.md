@@ -5,81 +5,75 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.devlang: na
+ms.devlang: azure-cli
 ms.topic: hero-article
-ms.tgt_pltfrm: portal
-ms.workload: 
-ms.date: 05/10/2017
+ms.date: 06/13/2017
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 574299dd64120d75a1a36cb2ded0fdd269292570
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 04fc441aee7a4c8adc4f02d5e51b2d9e64400f55
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Skapa en Azure Database för MySQL-server med Azure CLI
 I den här snabbstarten beskrivs hur du använder Azure CLI till att skapa en Azure Database för MySQL-server i en Azure-resursgrupp på ungefär fem minuter. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript.
 
-Kontrollera att du har installerat den senaste versionen av [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) innan du går igenom den här snabbstarten. 
-
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/#login) och följ anvisningarna på skärmen.
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-```azurecli
-az login
+Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras. Välj en specifik prenumerations-ID under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#set).
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
-Följ kommandoradsanvisningarna och öppna https://aka.ms/devicelog i webbläsaren och ange sedan den kod som genereras i **kommandotolken**.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 Skapa en [Azure-resursgrupp](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) med kommandot [az group create](https://docs.microsoft.com/cli/azure/group#create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras som en grupp.
 
-I följande exempel skapas en resursgrupp med namnet `mycliresource` på platsen `westus`.
+I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på platsen `westus`.
 
-```azurecli
-az group create --name mycliresource --location westus
+```azurecli-interactive
+az group create --name myresourcegroup --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
 Skapa en Azure Database för MySQL-server med kommandot **az sql server create**. En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
-I följande exempel skapas en Azure Database för MySQL-server i `westus` i resursgruppen `mycliresource` med namnet `mycliserver`. Servern har en administratörsinloggning med namnet `myadmin` och lösenordet `Password01!`. Servern skapas med prestandanivån **Basic** och **50** beräkningsenheter som delas mellan alla databaser på servern. Du kan skala beräkning och lagring uppåt eller nedåt beroende på behoven i dina appar.
+I följande exempel skapas en Azure Database för MySQL-server i `westus` i resursgruppen `myresourcegroup` med namnet `myserver4demo`. Servern har en administratörsinloggning med namnet `myadmin` och lösenordet `Password01!`. Servern skapas med prestandanivån **Basic** och **50** beräkningsenheter som delas mellan alla databaser på servern. Du kan skala beräkning och lagring uppåt eller nedåt beroende på behoven i dina appar.
 
-```azurecli
-az mysql server create --resource-group mycliresource --name mycliserver--location westus --user myadmin --password Password01! --performance-tier Basic --compute-units 50
+```azurecli-interactive
+az mysql server create --resource-group myresourcegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
-
-![Skapa en Azure Database för MySQL-server med Azure CLI](./media/quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)
 
 ## <a name="configure-firewall-rule"></a>Konfigurera brandväggsregeln
 Skapa en Azure Database för MySQL-brandväggsregel på servernivå med kommandot **az mysql server firewall-rule create**. En brandväggsregel på servernivå gör att externa program, som kommandoradsverktyget **mysql.exe** eller MySQL Workbench kan ansluta till servern via Azure MySQL-tjänstens brandvägg. 
 
 I följande exempel skapas en brandväggsregel för ett fördefinierat adressintervall, som i det här exemplet är hela det möjliga intervallet med IP-adresser.
 
-```azurecli
-az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 ## <a name="configure-ssl-settings"></a>Konfigurera SSL-inställningar
-Som standard verkställs SSL-anslutningar mellan servern och dina klientprogram.  Detta garanterar säkerheten för data ”i rörelse” genom att dataströmmen över internet krypteras.  Vi gör den här snabbstarten lite enklare genom att inaktivera SSL-anslutningar för servern.  Det här rekommenderas inte för produktionsservrar.  Mer information finns i [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (Konfigurera SSL-anslutning i ditt program för att säkert ansluta till Azure Database för MySQL).
+Som standard verkställs SSL-anslutningar mellan servern och dina klientprogram.  Detta garanterar säkerheten för data ”i rörelse” genom att dataströmmen över internet krypteras.  För att förenkla snabbstarten avaktiverar vi SSL-anslutningar för din server.  Detta rekommenderas inte för produktionsservrar.  Se [Konfigurera SSL-anslutning i din app för säker anslutning till Azure Database för MySQL](./howto-configure-ssl.md) för mer information.
 
 I följande exempel inaktiveras SSL på MySQL-servern.
  
- ```azurecli
- az mysql server update --resource-group mycliresource --name mycliserver -g -n --ssl-enforcement Disabled
+ ```azurecli-interactive
+ az mysql server update --resource-group myresourcegroup --name myserver4demo -g -n --ssl-enforcement Disabled
  ```
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen
 
 För att ansluta till servern måste du ange värddatorinformationen och autentiseringsuppgifterna.
 
-```azurecli
-az mysql server show --resource-group mycliresource --name mycliserver
+```azurecli-interactive
+az mysql server show --resource-group myresourcegroup --name myserver4demo
 ```
 
 Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **administratorLogin**.
@@ -87,11 +81,11 @@ Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **admini
 {
   "administratorLogin": "myadmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mycliserver.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mycliresource/providers/Microsoft.DBforMySQL/servers/mycliserver",
+  "fullyQualifiedDomainName": "myserver4demo.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver4demo",
   "location": "westus",
-  "name": "mycliserver",
-  "resourceGroup": "mycliresource",
+  "name": "myserver4demo",
+  "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 50,
     "family": null,
@@ -108,23 +102,23 @@ Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **admini
 ```
 
 ## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>Anslut till servern med kommandoradsverktyget mysql.exe
-När du ska ansluta till servern med kommandoradsverktyget **mysql.exe** ska du se till att MySQL är installerat i datorn.  Du kan hämta MySQL [här](https://dev.mysql.com/downloads/).
+Anslut till servern med kommandoradverktyget **mysql.exe**. Du kan hämta MySQL [här](https://dev.mysql.com/downloads/) och installera programmet på din dator. Du kan även klicka på knappen **Prova** på kodexemplen eller på `>_`-knappen i det övre högra verktygsfältet i Azure-portalen och starta **Azure Cloud Shell**.
 
-Öppna kommandotolken och ange följande: 
+Skriv nästa kommandon: 
 
 1. Anslut till servern med kommandoradsverktyget **mysql**:
-```dos
- mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+```azurecli-interactive
+ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
 2. Visa status för servern:
-```dos
+```sql
  mysql> status
 ```
-Om allt går bra bör du se följande resultat i kommandoradsverktyget:
+Om allt går väl kommer kommandoradverktyget returnera följande text:
 
 ```dos
-C:\Users\v-chenyh>mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -149,7 +143,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             mycliserver.database.windows.net via TCP/IP
+Connection:             myserver4demo.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -164,38 +158,36 @@ mysql>
 ```
 
 > [!TIP]
-> Fler kommandon finns i [referenshandboken för MySQL 5.6 – kapitel 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
+> För fler kommandon, se [Referensmanual för MySQL 5.7 - kapitel 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Anslut till servern med verktyget MySQL Workbench GUI
-1.    Starta programmet MySQL Workbench på klientdatorn. Du kan ladda ned och installera MySQL Workbench [här](https://dev.mysql.com/downloads/workbench/).
+1.  Starta programmet MySQL Workbench på klientdatorn. Du kan ladda ned och installera MySQL Workbench [här](https://dev.mysql.com/downloads/workbench/).
 
-2.    I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
+2.  I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
 
-| **Parametrar** | **Beskrivning** |
-|----------------|-----------------|
-|    *Anslutningsnamn* | ange ett namn på anslutningen (det kan vara vad som helst) |
-| *Anslutningsmetod* | välj Standard (TCP/IP) |
-| *Värdnamn* | mycliserver.database.windows.net (SERVERNAMNET du antecknade tidigare) |
-| *Port* | 3306 |
-| *Användarnamn* | myadmin@mycliserver (INLOGGNING FÖR SERVERADMINISTRATÖR som du antecknade tidigare) |
-| *Lösenord* | du kan lagra lösenordet för administratörskontot i valvet |
+   ![konfigurera ny anslutning](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
-![konfigurera ny anslutning](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
+| **Inställning** | **Föreslaget värde** | **Beskrivning** |
+|---|---|---|
+|   Anslutningsnamn | Min anslutning | Ange ett namn på anslutningen (det kan vara vad som helst) |
+| Anslutningsmetod | välj Standard (TCP/IP) | Använda TCP/IP-protokollet för att ansluta till Azure Database för MySQL > |
+| Värdnamn | myserver4demo.mysql.database.azure.com | Servernamn som du antecknade tidigare. |
+| Port | 3306 | Standardporten för MySQL används. |
+| Användarnamn | myadmin@myserver4demo | Inloggning för serveradministratör som du antecknade tidigare. |
+| Lösenord | **** | Ange lösenordet som du konfigurerade tidigare. |
 
-3.    Klicka på **Testanslutning** för att testa om alla parametrar är rätt konfigurerade.
-
-4.    Nu kan du klicka på anslutningen du just skapade för att ansluta till servern.
+Klicka på **Testanslutning** för att testa om alla parametrar är rätt konfigurerade.
+Nu kan du klicka på anslutningen för att ansluta till servern.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
+Om du inte behöver de här resurserna för en annan snabbstart/självstudie kan du ta bort dem genom att utföra följande kommando: 
 
-Om du inte behöver de här resurserna för en annan snabbstart/självstudie kan du ta bort dem genom att göra följande: 
-
-```azurecli
-az group delete --name mycliresource
+```azurecli-interactive
+az group delete --name myresourcegroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Utforma en MySQL-databas med Azure CLI](./tutorial-design-database-using-cli.md).
+> [Utforma en MySQL-databas med Azure CLI](./tutorial-design-database-using-cli.md)
 

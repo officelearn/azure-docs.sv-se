@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 06/06/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
-ms.openlocfilehash: 5bbd7088f5d4986a5b1c9f5695a5defb678307a9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 7ab7e693909f807781744ae53eed75d425096590
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -52,36 +54,31 @@ Installationssökvägen hämtas från registret från den tidigare installatione
 
 2. Om webbtjänst-SDK var installerat tidigare installerar du nya webbtjänst-SDK via användargränssnittet för Multi-Factor Authentication Server.
 
-  Standardnamnet för den virtuella katalogen nu är ”MultiFactorAuthWebServiceSdk” i stället för ”PhoneFactorWebServiceSdk”. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder standardnamnet, så måste du ändra URL:en i program som refererar till webbtjänst-SDK, till exempel användarportalen och webbtjänsten Mobile Apps, så att den pekar på rätt plats.
+  Standardnamnet för den virtuella katalogen nu är **MultiFactorAuthWebServiceSdk** i stället för **PhoneFactorWebServiceSdk**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder standardnamnet, så måste du ändra URL:en i program som refererar till webbtjänst-SDK (till exempel användarportalen och webbtjänsten Mobile Apps) så att den pekar på rätt plats.
 
 3. Om användarportalen var installerad tidigare på PhoneFactor Agent-servern installerar du den nya Multi-Factor Authentication-användarportalen via Multi-Factor Authentication Server-användargränssnittet.
 
-  Standardnamnet för den virtuella katalogen nu är ”MultiFactorAuth” i stället för ”PhoneFactor”. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder det nya standardnamnet, klickar du på ikonen för användarportalen i Multi-Factor Authentication Server och uppdaterar URL:en för användarportalen på fliken Inställningar.
+  Standardnamnet för den virtuella katalogen nu är **MultiFactorAuth** i stället för **PhoneFactor**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder det nya standardnamnet, klickar du på ikonen för användarportalen i Multi-Factor Authentication Server och uppdaterar URL:en för användarportalen på fliken Inställningar.
 
 4. Om användarportalen och/eller webbtjänsten Mobile Apps tidigare var installerade på en annan server än PhoneFactor-agenten:
 
-  1. Gå till installationsplatsen (t.ex. C:\Program\Microsoft Files\PhoneFactor) och kopiera relevanta installationsprogram till den andra servern. Det finns 32- och 64-bitars installationsprogram för både användarportalen och webbtjänsten Mobile Apps. De heter MultiFactorAuthenticationUserPortalSetupXX.msi respektive MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.
+  1. Gå till installationsplatsen (t.ex. C:\Program\Microsoft Files\PhoneFactor) och kopiera relevanta installationsprogram till den andra servern. Det finns 32- och 64-bitars installationsprogram för både användarportalen och webbtjänsten Mobile Apps. De heter MultiFactorAuthenticationUserPortalSetupXX.msi och MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.
 
   2. Installera användarportalen på webbservern genom att öppna en kommandotolk som administratör och köra MultiFactorAuthenticationUserPortalSetupXX.msi.
 
-    Standardnamnet för den virtuella katalogen nu är ”MultiFactorAuth” i stället för ”PhoneFactor”. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder det nya standardnamnet, klickar du på ikonen för användarportalen i Multi-Factor Authentication Server och uppdaterar URL:en för användarportalen på fliken Inställningar. Befintliga användare måste informeras om den nya URL:en.
+    Standardnamnet för den virtuella katalogen nu är **MultiFactorAuth** i stället för **PhoneFactor**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder det nya standardnamnet, klickar du på ikonen för användarportalen i Multi-Factor Authentication Server och uppdaterar URL:en för användarportalen på fliken Inställningar. Befintliga användare måste informeras om den nya URL:en.
 
   3. Gå till installationsplatsen för användarportalen (t.ex. C:\inetpub\wwwroot\MultiFactorAuth) och redigera filen web.config. Kopiera värdena i avsnitten appSettings och applicationSettings från den ursprungliga web.config-filen som du säkerhetskopierade före uppgraderingen och klistra in dem i den nya web.config-filen. Om du behöll det nya standardnamnet för den virtuella katalogen när du installerade webbtjänst-SDK ändrar du URL:en i avsnittet applicationSettings så att den pekar på rätt plats. Om du ändrade andra standardvärden i den tidigare web.config-filen tillämpar du samma ändringar i den nya web.config-filen.
 
   4. Installera webbtjänsten Mobile Apps på webbservern genom att öppna en kommandotolk som administratör och köra MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.
 
-    Standardnamnet på den virtuella datorn nu är ”MultiFactorAuthMobileAppWebService” i stället för ”PhoneFactorPhoneAppWebService”. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Du kanske vill välja ett kortare namn så att det blir lättare för slutanvändarna att skriva det på sina mobila enheter. Annars, om du tillåter att installationen använder det nya namnet, klickar du på ikonen Mobilapp i Multi-Factor Authentication Server och uppdaterar URL:en för Mobile App-webbtjänsten.
+    Standardnamnet på den virtuella datorn nu är **MultiFactorAuthMobileAppWebService** i stället för **PhoneFactorPhoneAppWebService**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Du kanske vill välja ett kortare namn så att det blir lättare för slutanvändarna att skriva det på sina mobila enheter. Annars, om du tillåter att installationen använder det nya namnet, klickar du på ikonen Mobilapp i Multi-Factor Authentication Server och uppdaterar URL:en för Mobile App-webbtjänsten.
 
-  5. Gå till installationsplatsen för Mobile App-webbtjänsten  (t.ex. C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) och redigera filen Web.config. Kopiera värdena i avsnitten appSettings och applicationSettings från den ursprungliga web.config-filen som du säkerhetskopierade före uppgraderingen och klistra in dem i den nya web.config-filen. Om du behöll det nya standardnamnet för den virtuella katalogen när du installerade webbtjänst-SDK ändrar du URL:en i avsnittet applicationSettings så att den pekar på rätt plats. Om du ändrade andra standardvärden i den tidigare web.config-filen tillämpar du samma ändringar i den nya web.config-filen.
+  5. Gå till installationsplatsen för Mobile App-webbtjänsten (t.ex. C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) och redigera filen Web.config. Kopiera värdena i avsnitten appSettings och applicationSettings från den ursprungliga web.config-filen som du säkerhetskopierade före uppgraderingen och klistra in dem i den nya web.config-filen. Om du behöll det nya standardnamnet för den virtuella katalogen när du installerade webbtjänst-SDK ändrar du URL:en i avsnittet applicationSettings så att den pekar på rätt plats. Om du ändrade andra standardvärden i den tidigare web.config-filen tillämpar du samma ändringar i den nya web.config-filen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Installera användarportalen](multi-factor-authentication-get-started-portal.md) för Azure Multi-Factor Authentication-servern.
 
 - [Konfigurera Windows-autentisering](multi-factor-authentication-get-started-server-windows.md) för dina program. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

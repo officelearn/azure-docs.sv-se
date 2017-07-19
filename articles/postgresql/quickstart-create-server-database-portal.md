@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/19/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c67ada15c11b81021ff5e6f6e5edc5cb530ece98
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -169,6 +169,6 @@ Om du bara vill ta bort den nyligen skapade servern:
 3.  Kontrollera servernamnet som du vill ta bort och visa de databaser under den som påverkas. Skriv in **mypgserver-20170401** i textrutan och klicka sedan på ta bort.
 
 ## <a name="next-steps"></a>Nästa steg
-- Migrera din databas med hjälp av [exportera och importera](./howto-migrate-using-export-and-import.md) eller [dumpa och återställ](./howto-migrate-using-dump-and-restore.md).
-- Om du vill skapa en Azure Database för PostgreSQL-server med Azure CLI, se [skapa PostgreSQL-server – CLI](./quickstart-create-server-database-azure-cli.md).
-- En teknisk översikt finns i [Om Azure Database för PostgreSQL-tjänsten](./overview.md).
+> [!div class="nextstepaction"]
+> [Migrera din databas med Exportera och importera](./howto-migrate-using-export-and-import.md)
+

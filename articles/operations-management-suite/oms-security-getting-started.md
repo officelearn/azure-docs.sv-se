@@ -4,7 +4,7 @@ description: "Det här dokumentet beskriver hur du kommer igång med funktionern
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -138,6 +139,12 @@ Du kan fortsätta din undersökning genom att klicka på varje dator och granska
 ### <a name="threat-intelligence"></a>Hotinformation
 
 När IT-administratörer använder alternativet Hotinformation som är tillgängligt i OMS Säkerhet och granskning kan de identifiera säkerhetshot mot miljön, till exempel identifiera om en specifik dator är en del av ett botnät. Datorer kan bli noder i ett botnät när angripare installerar otillåten skadlig kod som i hemlighet ansluter datorn till kommando och kontroll. Hotinformation kan också identifiera potentiella hot från kommunikationskanaler under marken, som darknet. Läs mer om hotinformation genom att läsa artikeln [Övervaka och svara på säkerhetsaviseringar i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-responding-alerts.md).
+
+I vissa situationer kan finnas det en potentiellt skadlig IP-adress som öppnas från en övervakad dator:
+
+![hotinformationkarta](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Den här aviseringen och andra inom samma kategori, skapas via OMS Security genom att använda [Microsoft Threat Intelligence](https://youtu.be/O4WtxgUrDc8). Hotinformationsdata samlas in av Microsoft samt köpts från ledande säkerhetsexperter. Dessa data uppdateras ofta och anpassade till snabbföränderliga hot. På grund av sin natur, bör det kombineras med andra säkerhetinformationskällor när du [undersöker](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) en säkerhetsavisering. 
 
 ### <a name="baseline-assessment"></a>Utvärdering av baslinje
 

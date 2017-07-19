@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 08e62dba35a72a4c814b07c93304247227b1635c
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 79f0bc2940a5bcbace12f322607c6f8c98694492
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---

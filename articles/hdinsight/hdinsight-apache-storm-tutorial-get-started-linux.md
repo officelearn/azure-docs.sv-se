@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 5936a45973eb41d2c5b3a1a47c663e393e628f54
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5121861dc9fa11bbde32c12f3987bb60f2dda057
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Kom igång med Apache Storm på HDInsight med storm starter-exempel
@@ -30,7 +30,7 @@ Lär dig att använda Apache Storm på HDInsight med storm starter-exempel.
 Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkningar i realtid för bearbetning av dataströmmar. Du kan skapa ett molnbaserat Storm-kluster som utför analyser av stordata i realtid med Storm på Azure HDInsight.
 
 > [!IMPORTANT]
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Krav
 

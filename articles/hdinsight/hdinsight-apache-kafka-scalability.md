@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/14/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 84c7048bbd608b0b99215d74f71960dc9d1158ef
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 1b3e0d06c8b25158e421f02b587b4ae4836d80ad
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -66,4 +66,4 @@ Se följande dokument för mer information om arbete med Kafka på HDInsight:
 * [Använda Apache Spark med Kafka på HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Ansluta till Kafka via ett trådlöst Azure-nätverk](hdinsight-apache-kafka-connect-vpn-gateway.md)
 
-* [HDInsight-blogg om hanterade diskar med Kafka](https://azure.microsoft.com/blog/announcing-hdinsight-kafka-public-preview-with-azure-managed-disks)
+* [HDInsight-blogg om hanterade diskar med Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)

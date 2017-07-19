@@ -1,6 +1,6 @@
 ---
 title: "Komma igång med Azure IoT Hub (Python) | Microsoft Docs"
-description: "Den här artikeln visar hur du skickar meddelanden från en simulerad enhet till din Azure IoT Hub med Azure IoT SDK:er för Python."
+description: "Lär dig hur du skickar meddelanden från enheten till molnet i Azure IoT Hub med IoT SDK:er för Python. Skapa appar för simulerade enheter och tjänster för att registrera din enhet, skicka meddelanden och läsa meddelanden från IoT Hub."
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -13,16 +13,14 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 05268924a182575b3df66fb6dad6bcac2700ec0c
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# Anslut din simulerade enhet till IoT Hub med hjälp av Python
-<a id="connect-your-simulated-device-to-your-iot-hub-using-python" class="xliff"></a>
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Anslut din simulerade enhet till IoT Hub med hjälp av Python
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 När du är klar med den här självstudiekursen har du två Python-appar:
@@ -54,8 +52,7 @@ Nu har du skapat din IoT Hub. Använd IoT Hub-värdnamnet och IoT Hub-anslutning
 > Du kan också enkelt skapa din IoT Hub på en kommandorad med hjälp av Python- eller Node.js-baserad Azure CLI. Artikeln [Create an IoT hub using the Azure CLI 2.0] [ lnk-azure-cli-hub] (Skapa en IoT Hub med Azure CLI 2.0) innehåller korta instruktioner för hur du gör. 
 > 
 
-## Skapa en enhetsidentitet
-<a id="create-a-device-identity" class="xliff"></a>
+## <a name="create-a-device-identity"></a>Skapa en enhetsidentitet
 Det här avsnittet visar hur du skapar en Python-konsolapp som skapar en enhetsidentitet i identitetsregistret för din IoT Hub. En enhet kan endast ansluta till IoT Hub om den har en post i identitetsregistret. Mer information finns i avsnittet om **identitetsregistret** i [utvecklarhandboken för IoT Hub][lnk-devguide-identity]. När du kör den här konsolappen genererar det ett unikt enhets-ID och en nyckel som din enhet kan använda för att identifiera sig själv när den skickar ”enhet-till-molnet”-meddelanden till IoT Hub.
 
 1. Öppna en kommandotolk och installera **Azure IoT Hub Service SDK för Python**. Stäng kommandotolken när du har installerat SDK.
@@ -80,6 +77,8 @@ Det här avsnittet visar hur du skapar en Python-konsolapp som skapar en enhetsi
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Lägg till följande funktion om du vill skriva ut en del av enhetsinformationen.
 
     ```python
@@ -140,8 +139,7 @@ Det här avsnittet visar hur du skapar en Python-konsolapp som skapar en enhetsi
 > 
 
 
-## Skapa en simulerad enhetsapp
-<a id="create-a-simulated-device-app" class="xliff"></a>
+## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 I det här avsnittet visas hur du skapar en Python-konsolapp som simulerar en enhet och skickar ”enhet-till-molnet”-meddelanden från enheten till din IoT Hub.
 
 1. Öppna en kommandotolk och installera Azure IoT Hub Device SDK för Python enligt följande. Stäng kommandotolken efter installationen.
@@ -258,8 +256,7 @@ I det här avsnittet visas hur du skapar en Python-konsolapp som simulerar en en
 > 
 > 
 
-## Ta emot meddelanden från den simulerade enheten
-<a id="receive-messages-from-your-simulated-device" class="xliff"></a>
+## <a name="receive-messages-from-your-simulated-device"></a>Ta emot meddelanden från den simulerade enheten
 För att kunna ta emot telemetrimeddelanden från enheten måste du använda en [Event Hubs][lnk-event-hubs-overview]-kompatibel slutpunkt som exponeras av IoT Hub, som läser ”enhet-till-molnet”-meddelanden. Läs självstudiekursen [Komma igång med Event Hubs][lnk-eventhubs-tutorial] för information om hur du bearbetar meddelanden från Event Hubs för din IoT Hubs Event Hub-kompatibla slutpunkt. Event Hubs har inte stöd för telemetri i Python ännu, så du kan antingen skapa en [Node.js](iot-hub-node-node-getstarted.md#D2C_node)- eller [.NET](iot-hub-csharp-csharp-getstarted.md#D2C_csharp) Event Hubs-baserad konsolapp för att läsa ”enhet-till-molnet”-meddelanden från IoT Hub. Den här kursen visar hur du kan använda [IoT Hub Explorer-verktyget][lnk-iot-hub-explorer] för att läsa dessa enhetsmeddelanden.
 
 1. Öppna en kommandotolk och installera IoT Hub Explorer. 
@@ -285,8 +282,7 @@ För att kunna ta emot telemetrimeddelanden från enheten måste du använda en 
 
     ![Meddelanden från enheten till molnet (Python)][2]
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du använde den här enhetsidentiteten så att den simulerade enhetsappen kunde skicka ”enhet till molnet”-meddelanden till IoT Hub. Du såg meddelandena som mottogs av IoT Hub med hjälp av IoT Hub Explorer-verktyget. 
 
 Om du vill utforska Python SDK för Azure IoT Hub-användning mer i detalj kan du gå till [denna Git Hub-repo][lnk-python-github]. Om du vill granska meddelandefunktionerna i Azure IoT Hub Service SDK för Python kan du ladda ned och köra [iothub_messaging_sample.py][lnk-messaging-sample]. Om du vill använda simulering på enheten med Azure IoT Hub Device SDK för Python kan du ladda ned och köra [iothub_client_sample.py][lnk-client-sample].

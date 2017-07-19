@@ -1,5 +1,5 @@
 ---
-title: " Skapa ett Azure Media Services-konto med Azure-portalen | Microsoft Docss"
+title: Skapa ett Azure Media Services-konto med Azure-portalen | Microsoft Docs
 description: "Den här självstudien går igenom hur du skapar ett Azure Media Services-konto med Azure-portalen."
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 07/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7ef0383ae88dcb8beb4b30792eaf60dec2911507
-ms.openlocfilehash: 08b8629502f99fc46fbe28ad17cd173f11259721
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9ab5368c173f016f44546d6c8acb360598f5f5ab
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Skapa ett Media Services-konto med Azure-portalen
@@ -40,13 +41,10 @@ Den här artikeln beskriver några vanliga begrepp och visar hur du skapar ett M
 
 * Ett Media Services-konto. Med ditt konto får du åtkomst till en uppsättning molnbaserade Media Services-tjänster som är tillgängliga i Azure. På ett Media Services-konto lagras inget faktiskt medieinnehåll. I stället lagras metadata om medieinnehåll och mediebearbetningsjobb på ditt konto. När du skapar kontot väljer du en tillgänglig Media Services-region. Den regionen som du väljer är ett datacenter som lagrar metadataposterna för ditt konto.
   
-    Tillgängliga Media Services-regioner (AMS) är bland annat följande: Nordeuropa, Västeuropa, västra USA, östra USA, Sydostasien, Östasien samt västra och östra Japan. Media Services använder inte tillhörighetsgrupper.
-  
-    AMS finns nu även i följande datacenter: södra Brasilien, västra Indien, södra Indien och centrala Indien. Nu kan du använda Azure-portalen för att skapa Media Service-konton och utföra olika uppgifter som beskrivs här. Dock är Live Encoding inte aktiverat i dessa datacenter. Dessutom finns inte alla typer av Encoding-reserverade enheter i dessa datacenter.
-  
-  * Södra Brasilien: Endast Encoding-reserverade enheter av grundläggande och standardtyp är tillgängliga.
-  * Västra Indien, södra Indien: 
 * Ett Azure-lagringskonto. Lagringskonton måste finnas i samma geografiska område som Media Services-kontot. När du skapar ett Media Services-konto kan du antingen välja ett befintligt lagringskonto i samma region eller skapa ett nytt lagringskonto i samma region. Om du tar bort ett Media Services-konto raderas inte blobbarna på ditt relaterade lagringskonto.
+
+> [!NOTE]
+> Information om tillgänglighet för Azure Media Services-funktioner i olika regioner finns i [tillgänglighet för AMS-funktioner i datacenter](scenarios-and-availability.md#a-idavailabilitya-availability-of-media-services-features-across-datacenters).
 
 ## <a name="create-an-ams-account"></a>Skapa ett AMS-konto
 Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
@@ -74,35 +72,21 @@ Stegen i det här avsnittet visar hur du skapar ett AMS-konto.
     >[!NOTE]
     >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
    
-    ![Media Services-inställningar](./media/media-services-create-account/media-services-settings.png)
-   
-    För att hantera AMS-kontot (till exempel överföra videor, koda tillgångar och övervaka jobbförlopp) använder du fönstret **Inställningar**.
+## <a name="to-manage-your-ams-account"></a>Hantera AMS-kontot
 
-## <a name="manage-keys"></a>Hantera nycklar
-Du behöver kontonamnet och den primära nyckelinformationen för att genom programmering få åtkomst till Media Services-kontot.
+Om du vill hantera ditt AMS-konto (till exempel ansluta till AMS-API:et via programmering, överföra videoklipp, koda tillgångar, konfigurera innehållsskydd och övervaka jobbförlopp) väljer du **Inställningar** på vänster sida av portalen. I **Inställningar** navigerar du till något av de tillgängliga bladen (till exempel **API-åtkomst**, **Tillgångar**, **Jobb** eller **Innehållsskydd**).
 
-1. Välj ditt konto i Azure-portalen. 
-   
-    Fönstret **Inställningar** visas till höger. 
-2. I fönstret **Inställningar** väljer du **Nycklar**. 
-   
-    I fönstret **Hantera nycklar** visas kontonamnet och de primära och sekundära nycklarna. 
-3. Tryck på kopieringsknappen för att kopiera värdena.
-   
-    ![Media Services-nycklar](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Nästa steg
+
 Du kan nu överföra filer till AMS-kontot. Mer information finns i [Överföra filer](media-services-portal-upload-files.md).
+
+Om du tänker ansluta till AMS-API:et via programmering kan du läsa [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md) (Ansluta API:et för Azure Media Services med Azure AD-autentisering).
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

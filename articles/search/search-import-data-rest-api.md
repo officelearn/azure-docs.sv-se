@@ -1,5 +1,5 @@
 ---
-title: "Överföra data med Azure Search-index med hjälp av REST API | Microsoft Docs"
+title: "Överföra data (REST-API – Azure Search)| Microsoft Docs"
 description: "Lär dig hur du laddar upp data till ett index i Azure Search med hjälp av REST-API:et."
 services: search
 documentationcenter: 
@@ -15,9 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -179,9 +181,4 @@ Mer information om dokumentåtgärder och svar om lyckade/misslyckade åtgärder
 
 ## <a name="next-steps"></a>Nästa steg
 När du har fyllt Azure Search-indexet kan du börja skicka frågor för att söka efter dokument. Mer information finns i [Fråga ditt Azure Search-index](search-query-overview.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

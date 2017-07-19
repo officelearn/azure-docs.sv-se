@@ -15,15 +15,14 @@ ms.topic: hero-article
 ms.date: 05/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 3c7bbb1342d381b2940a9e1ceb56d905fbc33a74
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 9a53216e326e63bd4fe36c0e5d5d5e85b2098d8c
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/10/2017
 
 ---
-# Skapa en PHP-webbapp i Azure
-<a id="create-a-php-web-app-in-azure" class="xliff"></a>
+# <a name="create-a-php-web-app-in-azure"></a>Skapa en PHP-webbapp i Azure
 
 Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera PHP-exempelkoden till webbappen.
 
@@ -31,8 +30,7 @@ Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-servic
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. Det tar cirka fem minuter att slutföra självstudiekursen när de nödvändiga komponenterna har installerats.
 
-## Krav
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -45,8 +43,7 @@ För att slutföra den här snabbstarten behöver du:
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## Hämta exemplet
-<a id="download-the-sample" class="xliff"></a>
+## <a name="download-the-sample"></a>Hämta exemplet
 
 Kör följande kommando i ett terminalfönster för att klona databasen för exempelappen till den lokala datorn.
 
@@ -62,8 +59,7 @@ Du använder det här terminalfönstret för att köra alla kommandon i den här
 cd php-docs-hello-world
 ```
 
-## Köra appen lokalt
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>Köra appen lokalt
 
 Kör programmet lokalt genom att öppna ett terminalfönster och använda kommandot `php` för att starta den inbyggda PHP-webbservern.
 
@@ -73,7 +69,7 @@ php -S localhost:8080
 
 Öppna en webbläsare och navigera till exempelappen på http://localhost:8080.
 
-Nu kan du se **Hello World**-meddelandet från exempelappen på sidan.
+Du ser meddelandet **Hello World!** från exempelappen på sidan.
 
 ![Exempelapp som körs lokalt](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
@@ -122,8 +118,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-## Bläddra till appen
-<a id="browse-to-the-app" class="xliff"></a>
+## <a name="browse-to-the-app"></a>Bläddra till appen
 
 Bläddra till den distribuerade appen via webbläsaren.
 
@@ -137,8 +132,7 @@ PHP-exempelkoden körs i en Azure App Service-webbapp.
 
 **Grattis!** Du har distribuerat din första PHP-app till App Service.
 
-## Uppdatera och distribuera om koden
-<a id="update-and-redeploy-the-code" class="xliff"></a>
+## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
 
 Öppna filen `index.php` i PHP-appen med ett lokalt textredigeringsprogram och gör små ändringar i texten i strängen bredvid `echo`:
 
@@ -157,8 +151,7 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ![Uppdaterad exempelapp som körs i Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
-## Hantera din nya Azure-webbapp
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
+## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
@@ -174,8 +167,7 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [PHP med MySQL](app-service-web-tutorial-php-mysql.md)

@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: b28488ac9037b0f0ff7df892b9c3a61167b1eceb
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/10/2017
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Så här utför du direktsänd strömning med lokala kodare med hjälp av Azure-portalen
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Så här utför du liveuppspelning med lokala kodare med hjälp av Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -43,7 +45,7 @@ Vi rekommenderar att du tittar närmare på följande artiklar:
 * [Översikt över liveuppspelning med Azure Media Services](media-services-manage-channels-overview.md)
 * [Liveuppspelning med lokala kodare som skapar strömmar med flera bithastigheter](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Vanligt scenario för liveuppspelning
+## <a id="scenario"></a>Vanligt scenario för liveuppspelning
 Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för direktsänd strömning som använder kanaler som har konfigurerats för genomströmningsleverans. Den här vägledningen visar hur du skapar och hanterar en genomströmningskanal och direktsända händelser.
 
 >[!NOTE]
@@ -69,7 +71,7 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för dir
 9. Ta bort händelsen eller programmet (och ta eventuellt bort tillgången).     
 
 > [!IMPORTANT]
-> Titta närmare på [Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md) för att lära dig mer om koncept och överväganden som rör direktsänd strömning med lokala kodare och genomströmningskanaler.
+> Titta närmare på [Liveuppspelning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md) för att lära dig mer om koncept och överväganden som rör liveuppspelning med lokala kodare och genomströmningskanaler.
 > 
 > 
 
@@ -100,7 +102,7 @@ Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillg�
 ### <a name="to-use-the-portal-to-create-a-channel"></a>Använda portalen för att skapa en kanal
 Detta avsnitt visar hur du använder alternativet **Snabbregistrering** för att skapa en genomströmningskanal.
 
-Mer information om genomströmningskanaler finns i [Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md).
+Mer information om genomströmningskanaler finns i [Liveuppspelning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md).
 
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
 2. I fönstret **Inställningar** klickar du på **Direktsänd strömning**. 
@@ -134,7 +136,7 @@ För att titta på händelsen klickar du på **Titta på** i Azure-portalen elle
 Direktsända händelser konverteras automatiskt till innehåll på begäran när de stoppas.
 
 ## <a name="clean-up"></a>Rensa
-Mer information om genomströmningskanaler finns i [Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md).
+Mer information om genomströmningskanaler finns i [Liveuppspelning med lokala kodare som skapar dataströmmar i multibithastighet](media-services-live-streaming-with-onprem-encoders.md).
 
 * En kanal kan stoppas endast när alla händelser eller program i kanalen har stoppats.  När kanalen har stoppats medför den inga avgifter. När du vill starta den igen har den samma infognings-URL så att du inte behöver konfigurera om din kodare.
 * En kanal kan bara tas bort när alla direktsända händelser i kanalen har tagits bort.
@@ -153,10 +155,5 @@ Granska sökvägarna för Media Services-utbildning.
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

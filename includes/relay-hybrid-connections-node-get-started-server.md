@@ -1,21 +1,25 @@
 ### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
-* Skapa en ny JavaScript-fil som kallas `listener.js`.
+
+Skapa en ny JavaScript-fil som kallas `listener.js`.
 
 ### <a name="add-the-relay-npm-package"></a>Lägg till Relay NPM-paketet
-* Kör `npm install hyco-ws` från Kommandotolken för en nod i projektmappen.
+
+Kör `npm install hyco-ws` från Kommandotolken för en nod i projektmappen.
 
 ### <a name="write-some-code-to-receive-messages"></a>Skriva kod för att ta emot meddelanden
-1. Lägg till följande `constant` överst i `listener.js`-filen.
+
+1. Lägg till följande konstant överst i filen `listener.js`.
    
     ```js
     const WebSocket = require('hyco-ws');
     ```
-2. Lägg till följande Relay `constants` till `listener.js` för Hybridanslutningens anslutningsinformation. Ersätt platshållare inom hakparentes med rätt värden som erhölls när du skapade Hybridanslutningen.
+2. Lägg till följande konstanter i filen `listener.js` för hybridanslutningsinformationen. Ersätt platshållarna inom hakparentes med de värden du erhöll när du skapade hybridanslutningen.
    
-   1. `const ns` – Relay-namnområdet (använd FQDN – t.ex. `{namespace}.servicebus.windows.net`)
-   2. `const path` – Namnet på Hybridanslutningen
-   3. `const keyrule` – Namnet på SAS-nyckeln
-   4. `const key` – SAS-nyckelvärdet
+   1. `const ns` – Relay-namnområde. Se till att du använder det fullständiga namnområdesnamnet, till exempel `{namespace}.servicebus.windows.net`.
+   2. `const path` – Namnet på hybridanslutningen.
+   3. `const keyrule` – Namnet på SAS-nyckeln.
+   4. `const key` – SAS-nyckelvärdet.
+
 3. Lägg till följande kod i `listener.js`-filen:
    
     ```js
@@ -40,7 +44,7 @@
         console.log('error' + err);
     });
     ```
-    Så här bör din listener.js bör se ut:
+    Så här bör din listener.js-fil se ut:
    
     ```js
     const WebSocket = require('hyco-ws');

@@ -1,5 +1,5 @@
 ---
-title: "Skapa ditt första Azure Search-index i portalen | Microsoft Docs"
+title: "Självstudiekurs: Skapa ditt första Azure Search-index i portalen | Microsoft Docs"
 description: "Använd fördefinierade exempeldata för att generera ett index i Azure Portal. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning, geosearch och mycket annat."
 services: search
 documentationcenter: 
@@ -13,17 +13,16 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 06/26/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="build-and-query-your-first-azure-search-index-in-the-portal"></a>Skapa och avfråga ditt första Azure Search-index i portalen
+# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Självstudiekurs: Skapa ditt första Azure Search-index i portalen
 
 Gå till Azure-portalen och utgå från en fördefinierad exempeldatauppsättning för att snabbt skapa ett index med hjälp av guiden **Importera data**. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning och geosearch med **Sökutforskaren**.  
 

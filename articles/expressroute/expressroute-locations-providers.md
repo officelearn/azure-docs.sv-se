@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 07/04/2017
 ms.author: kaanan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 7fbdecd6fcaa784c5cdeebe46bf1991bfe730017
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 48c7a83515ec43f63fb7ff4e6b2d6b4edf93f7b4
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/13/2017
 
 ---
-<a id="expressroute-partners-and-peering-locations" class="xliff"></a>
-
-# ExpressRoute-partners och peeringplatser
+# <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
 > [!div class="op_single_selector"]
 > * [Platser efter leverantör](expressroute-locations.md)
@@ -39,9 +37,7 @@ ExpressRoute stöds i alla Azures regioner och platser. Följande karta innehål
 
 Du har åtkomst till Azure-tjänster i alla regioner inom en geopolitisk region, om du är ansluten till minst en ExpressRoute-plats inom den geopolitiska regionen. 
 
-<a id="azure-regions-to-expressroute-locations-within-a-geopolitical-region" class="xliff"></a>
-
-### Azure-regioner till ExpressRoute-platser inom en geopolitisk region
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Azure-regioner till ExpressRoute-platser inom en geopolitisk region
 Följande tabell innehåller en karta över Azures regioner till ExpressRoute-platser inom en geopolitisk region.
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
@@ -55,9 +51,7 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Indien** |Västra Indien, centrala Indien, södra Indien |Chennai, Mumbai |
 | **Sydkorea** |Centrala Korea, Sydkorea |Busan, Söul |
 
-<a id="regions-and-geopolitical-boundaries-for-national-clouds" class="xliff"></a>
-
-### Regioner och geopolitiska gränser för nationella moln
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
 Tabellen nedan innehåller information om regioner och geopolitiska gränser för nationella moln.
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
@@ -73,9 +67,7 @@ Anslutningen mellan geopolitiska regioner stöds inte för standard-SKU:er i Exp
 Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för varje plats. Om du vill visa leverantörer och de platser där de kan tillhandahålla service går du till [Platser efter tjänsteleverantör](expressroute-locations.md#locations). 
 
 
-<a id="production-azure" class="xliff"></a>
-
-### Produktions-Azure
+### <a name="production-azure"></a>Produktions-Azure
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Megaport, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo Group |
@@ -96,7 +88,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Mumbai** |AirTel+, Tata Communications |
 | **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport(Wales)** |Nästa generations data |
-| **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect+, Softbank |
+| **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Paris** |Colt, Interxion, Equinix, Orange+ |
 | **Quebec City** | Megaport |
 | **San Antonio** |Megaport |
@@ -112,13 +104,9 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 
  **+** kommer snart
 
-<a id="national-cloud-environments" class="xliff"></a>
+### <a name="national-cloud-environments"></a>Nationella molnmiljöer
 
-### Nationella molnmiljöer
-
-<a id="us-government-cloud" class="xliff"></a>
-
-### U.S. Government-moln
+### <a name="us-government-cloud"></a>U.S. Government-moln
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -128,9 +116,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Seattle** | Equinix |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-<a id="china" class="xliff"></a>
-
-### Kina
+### <a name="china"></a>Kina
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Peking** |China Telecom |
@@ -138,9 +124,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 
 Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expressroute/).
 
-<a id="germany" class="xliff"></a>
-
-### Tyskland
+### <a name="germany"></a>Tyskland
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Berlin** |Colt+, e-shelter, Megaport+ |
@@ -167,7 +151,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **Plats** | **Exchange** | **Anslutningsproviders** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | Eurofiber Fastweb S.p.A, Nianet |
-| **Chicago** | Equinix | Windstream |
+| **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Frankfurt** | Telecity | Nianet, QSC AG |
 | **Hong Kong** | Equinix | Macroview Telecom |
@@ -181,13 +165,11 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **Singapore** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |
 | **Slough** | Equinix | HSO|
 | **Sydney** | Megaport | Macquarie Telecom Group|
-| **Tokyo** | Equinix | ARTERIA Networks Corporation |
+| **Tokyo** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
 | **Toronto** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers, Thinktel, Zirro|
 | **Washington DC** |Equinix | Altice Business, Gtt Communications Inc, Epsilon, Lightower, Masergy, Windstream |
 
-<a id="expressroute-system-integrators" class="xliff"></a>
-
-## ExpressRoute-systemintegratörer
+## <a name="expressroute-system-integrators"></a>ExpressRoute-systemintegratörer
 Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, beroende på hur stort nätverk du har. Du kan använda någon av systemintegratörer som finns i följande tabell. De hjälper dig med integrationen till ExpressRoute.
 
 | **Kontinent** | **Systemintegratörer** |
@@ -197,9 +179,7 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 | **Europa** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **Nordamerika** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
 | **Sydamerika** |Avanade Inc. |
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 * Kontrollera att alla krav är uppfyllda. Se [ExpressRoute-krav](expressroute-prerequisites.md).
 

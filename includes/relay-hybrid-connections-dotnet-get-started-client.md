@@ -1,12 +1,15 @@
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
-* Starta Visual Studio och skapa ett konsolprogram.
+
+Börja med att starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Framework)**.
 
 ### <a name="add-the-relay-nuget-package"></a>Lägg till Relay NuGet-paketet
-1. Högerklicka på det nyskapade projektet och välj **Hantera Nuget-paket**.
+
+1. Högerklicka på det nyskapade projektet och klicka sedan på **Hantera NuGet-paket**.
 2. Klicka på fliken **Bläddra** och sök sedan efter ”Microsoft.Azure.Relay” och markera posten **Microsoft Azure Relay**. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
 
 ### <a name="write-some-code-to-send-messages"></a>Skriva kod för att skicka meddelanden
-1. Ersätt de befintliga `using`-satserna överst i filen Program.cs med följande satser:
+
+1. Ersätt de befintliga `using`-satserna överst i filen Program.cs med följande `using`-satser:
    
     ```csharp
     using System;
@@ -15,7 +18,7 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Lägg till konstanter till `Program`-klassen för Hybridanslutningens anslutningsinformation. Ersätt platshållare inom hakparentes med rätt värden som erhölls när du skapade Hybridanslutningen. Se till att du använder det fullständiga namnområdesnamnet:
+2. Lägg till konstanter i klassen `Program` för hybridanslutningsinformationen. Ersätt platshållarna inom hakparentes med de värden du erhöll när du skapade hybridanslutningen. Se till att du använder det fullständiga namnområdesnamnet:
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -23,7 +26,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Lägg till följande nya metod till `Program`-klassen:
+3. Lägg till följande metod i klassen `Program`:
    
     ```csharp
     private static async Task RunAsync()

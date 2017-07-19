@@ -6,29 +6,26 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 663041285f7b64a8f38ace91bcb3673f46c1218a
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 52f89520fef8fc9ddb6e8e10a59ec35600affb2a
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# Snabbstart: återställning av lösenord för Azure AD-självbetjäning
-<a id="quick-start-azure-ad-self-service-password-reset" class="xliff"></a>
+# <a name="quick-start-azure-ad-self-service-password-reset"></a>Snabbstart: återställning av lösenord för Azure AD-självbetjäning
 
-## Distribuera återställning av lösenord för självbetjäning snabbt
-<a id="rapidly-deploy-self-service-password-reset" class="xliff"></a>
+## <a name="rapidly-deploy-self-service-password-reset"></a>Distribuera återställning av lösenord för självbetjäning snabbt
 
 Återställning av lösenord för självbetjäning (SSPR) erbjuder ett enkelt sätt för IT-administratörer att låta användarna återställa eller låsa upp sina lösenord eller sina konton. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk.
 
@@ -42,21 +39,21 @@ I den här handboken förutsätts att du redan har en aktiv utvärderingsversion
     * Alla – Alla användare med konton i din Azure AD-klient kan använda SSPR-funktionen
 
 3. Från skärmen **"Autentiseringsmetoder"** väljer du
-    * "Antal metoder som krävs för återställning" – Vi stöder minst en eller högst två
-    * "Metoder som finns tillgängliga för användare" – Vi behöver minst en, men det skadar inte att ha ett tillgängligt alternativ
+    * Antal metoder som krävs för återställning – Vi stöder minst en eller högst två
+    * Metoder som finns tillgängliga för användare – Vi behöver minst en, men det skadar inte att ha ett tillgängligt alternativ
         * **E-post** skickar ett e-postmeddelande med en kod till användarens konfigurerade e-postadress för autentisering
         * **Mobiltelefon** ger användaren möjlighet att ta emot ett samtal eller SMS med en kod till hans/hennes konfigurerade mobiltelefonnummer
         * **Arbetstelefon** ringer användaren med en kod till användarens konfigurerade arbetstelefonnummer
         * Med **Säkerhetsfrågor** kan du välja
-            * "Antal frågor som krävs för registrering" är minimum för en lyckad registrering, vilket betyder att en användare kan välja att besvara flera för att skapa en pool med frågor att hämta från. Det här alternativet går att ställa in från 3 till 5 och måste vara större än eller lika med antalet frågor som krävs för att återställa.
-            * "Antal frågor som krävs för återställning" kan ställas in från 3 till 5 frågor som ska besvaras korrekt innan en användares lösenord kan återställas eller låsas upp.
+            * Antal frågor som krävs för registrering – Minimum för en lyckad registrering, vilket betyder att en användare kan välja att besvara flera för att skapa en pool med frågor att hämta från. Det här alternativet går att ställa in från 3 till 5 och måste vara större än eller lika med antalet frågor som krävs för att återställa.
                 * Det går att lägga till anpassade frågor genom att klicka på knappen ”Custom” (Anpassad) när du väljer säkerhetsfrågor
+            * Antal frågor som krävs för återställning – Kan ställas in från 3 till 5 frågor som ska besvaras korrekt innan en användares lösenord kan återställas eller låsas upp.
 
 4. REKOMMENDERAT: **"Anpassning"** gör att du kan ändra länken "Kontakta administratören" så att den pekar på en sida eller e-postadress som du definierar
 
 5. VALFRITT: Skärmen **"Registrering"** ger administratörer alternativ för:
-    * "Kräv att användare registrerar vid inloggning"
-    * "Antal dagar innan användarna uppmanas att bekräfta sin autentiseringsinformation"
+    * Kräv att användare registrerar sig vid inloggning
+    * Antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation
 
 6. VALFRITT: Skärmen **"Meddelande"** ger administratörer alternativ för att:
     * Meddela användare om lösenordsåterställning
@@ -67,22 +64,19 @@ I den här handboken förutsätts att du redan har en aktiv utvärderingsversion
 > [!NOTE]
 > Testa SSPR med en användare och inte en administratör eftersom Microsoft tillämpar starka autentiseringskrav för Azure-konton av administratörstyp. Mer information om lösenordsprinciper för administratörer finns i vår [artikel om lösenordsprinciper](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
-## Konfigurera synkronisering till befintlig identitetskälla
-<a id="configure-synchronization-to-existing-identity-source" class="xliff"></a>
+## <a name="configure-synchronization-to-existing-identity-source"></a>Konfigurera synkronisering till befintlig identitetskälla
 
-För att aktivera lokal identitetssynkronisering till Azure AD måste du installera och konfigurera [Azure AD Connect](./connect/active-directory-aadconnect.md) på en server i din organisation. Det här programmet hanterar synkronisering av användare och grupper från din befintliga identitetskälla till Azure AD-domänen.
+För att aktivera lokal identitetssynkronisering till Azure AD måste du installera och konfigurera [Azure AD Connect](./connect/active-directory-aadconnect.md) på en server i din organisation. Det här programmet hanterar synkronisering av användare och grupper från din befintliga identitetskälla till Azure AD-klienten.
 
 * [Uppgradera från DirSync eller AD Sync till Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Komma igång med Azure AD Connect med standardinställningar](./connect/active-directory-aadconnect-get-started-express.md)
 * [Konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configuring-password-writeback) för att skriva lösenord från Azure AD tillbaka till din lokala katalog.
 
-## Inaktivera självbetjäningsfunktionen för återställning av lösenord
-<a id="disabling-self-service-password-reset" class="xliff"></a>
+## <a name="disabling-self-service-password-reset"></a>Inaktivera självbetjäningsfunktionen för återställning av lösenord
 
-Om du vill inaktivera självbetjäningsfunktionen för återställning av lösenord öppnar du din Azure AD-klient och går till **Återställning av lösenord**, **Egenskaper** och väljer **Ingen** under **Återställning av lösenord via självbetjäning har aktiverats**
+Om du vill inaktivera självbetjäningsfunktionen för återställning av lösenord öppnar du Azure AD-klienten och går till **Återställning av lösenord > Egenskaper** > och väljer **Ingen** under **Återställning av lösenord via självbetjäning har aktiverats**
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 Följande länkar ger ytterligare information om lösenordsåterställning med Azure AD
 
 * [**Licensiering**](active-directory-passwords-licensing.md) – Konfigurera Azure AD-licensiering

@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-translationtype: Human Translation
-ms.sourcegitcommit: 11aa3f74d112244cd96278c2b2e3d701e031aee8
-ms.openlocfilehash: 6415b0e1c7feb744c6c13a0ae19ed434b6e9befc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="what-are-logic-apps"></a>Vad är Logic Apps?
-Logic Apps är ett sätt att förenkla och implementera skalbara integreringar och arbetsflöden i molnet. Tjänsten tillhandahåller ett visuellt designverktyg för modellering och automatisering av processer som en serie steg kallade ett arbetsflöde.  Det finns [många anslutningsappar](../connectors/apis-list.md) för molnet och lokala infrastrukturer för snabb integrering mellan tjänster och protokoll.  En logikapp börjar med en utlösare (t.ex. ”när ett konto läggs till i Dynamics CRM”) och kan när den utlösts starta många kombinationer av åtgärder, konverteringar och villkorslogik.
+Logic Apps är ett sätt att förenkla och implementera skalbara integreringar och arbetsflöden i molnet. Tjänsten tillhandahåller ett visuellt designverktyg för modellering och automatisering av processer som en serie steg kallade ett arbetsflöde.  Det finns [många anslutningsappar](../connectors/apis-list.md) för molnet och lokala infrastrukturer för snabb integrering mellan tjänster och protokoll.  En logikapp börjar med en utlösare (som ”när ett konto läggs till i Dynamics CRM”) och kan när den utlösts starta många kombinationer av åtgärder, konverteringar och villkorslogik.
 
 Här är några exempel på fördelarna med att använda Logic Apps:  
 
@@ -77,9 +79,4 @@ Följande är några av de viktiga punkter som ingår i logikappupplevelsen.
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

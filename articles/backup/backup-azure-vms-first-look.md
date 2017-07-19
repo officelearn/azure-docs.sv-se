@@ -12,12 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 3/10/2017
+ms.date: 6/14/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 8883ff1601c521d05068452b1b58cadaee1a941f
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 61328e32763faea90074fc6d499e660c4109ab6d
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -47,9 +48,11 @@ Följande krav måste vara uppfyllda för att du ska kunna genomföra den här s
 Ett säkerhetskopieringsvalv är en entitet som lagrar alla säkerhetskopior och återställningspunkter som har skapats med tiden. Säkerhetskopieringsvalvet innehåller även säkerhetskopieringspolicyerna som tillämpas på de virtuella datorer som säkerhetskopieras.
 
 > [!IMPORTANT]
-> Från och med mars 2017 kan du inte längre använda den klassiska portalen för att skapa säkerhetskopieringsvalv. Befintliga säkerhetskopieringsvalv stöds fortfarande och går att [använda Azure PowerShell för att skapa säkerhetskopieringsvalv](./backup-client-automation-classic.md#create-a-backup-vault). Microsoft rekommenderar dock starkt att du skapar Recovery Services-valv för alla distributioner eftersom framtida förbättringar endast kommer att gälla för Recovery Services-valv.
-
-
+> Från och med mars 2017 kan du inte längre använda den klassiska portalen för att skapa säkerhetskopieringsvalv.
+> Nu kan du uppgradera dina säkerhetskopieringsvalv till Recovery Services-valv. Mer information finns i artikeln [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Uppgradera ett säkerhetskopieringsvalv till ett Recovery Services-valv). Microsoft rekommenderar att du uppgraderar dina säkerhetskopieringsvalv till Recovery Services-valv.<br/> **Från den 1 november 2017**:
+>- Alla återstående säkerhetskopieringsvalv uppgraderas automatiskt till Recovery Services-valv.
+>- Du kan inte längre komma åt dina säkerhetskopierade data i den klassiska portalen. Använd i stället Azure Portal till att få åtkomst till dina säkerhetskopierade data i Recovery Services-valv.
+>
 
 ## <a name="discover-and-register-azure-virtual-machines"></a>Identifiera och registrera virtuella datorer i Azure
 Innan du registrerar den virtuella datorn med ett valv kör du identifieringsprocessen för att identifiera nya virtuella datorer. När du gör det returneras en lista över virtuella datorer i prenumerationen, jämte ytterligare information som molntjänstens namn och regionen.
@@ -165,7 +168,7 @@ Så här startar du den första säkerhetskopieringen nu:
    >
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har säkerhetskopierat en virtuell dator kan du fortsätta med flera andra intressanta steg. De mest logiska steget är att lära dig hur du återställer data till en virtuell dator. Det finns dock hanteringsaktiviteter som hjälper dig att förstå hur du skyddar dina data och minimerar kostnaderna.
+Nu när du har säkerhetskopierat en virtuell dator kan du fortsätta med flera andra intressanta steg. Det mest logiska steget är att lära dig hur du återställer data till en virtuell dator. Det finns dock hanteringsaktiviteter som hjälper dig att förstå hur du skyddar dina data och minimerar kostnaderna.
 
 * [Hantera och övervaka dina virtuella datorer](backup-azure-manage-vms.md)
 * [Återställa virtuella datorer](backup-azure-restore-vms.md)

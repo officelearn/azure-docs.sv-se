@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.contentlocale: sv-se
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Skapa BizTalk Services med Azure-portalen
 
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+
 > [!TIP]
 > Om du vill logga in på Azure-portalen behöver du ett Azure-konto och en Azure-prenumeration. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se [Kostnadsfri utvärderingsversion av Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
-> 
-> 
+
 
 ## <a name="create-a-biztalk-service"></a>Skapa en BizTalk-tjänst
 Beroende på vilken utgåva du har är det inte säkert att alla BizTalk Services-inställningar finns tillgängliga.
@@ -65,10 +69,8 @@ Beroende på vilken utgåva du har är det inte säkert att alla BizTalk Service
     </td>
     </tr>
     </table>
-   Välj pilen NÄSTA.
-5. Ange inställningar för lagring och databas:
-   
-    <table border="1">
+Välj pilen NÄSTA.
+5. Ange inställningar för lagring och databas:  <table border="1">
     <tr>
     <td><strong>Övervaka/arkivera lagringskontot</strong></td>
     <td>Välj ett befintligt lagringskonto eller skapa ett nytt lagringskonto. <br/><br/>Om du skapar ett nytt lagringskonto anger du <strong>lagringskontonamnet</strong>.</td>
@@ -78,21 +80,19 @@ Beroende på vilken utgåva du har är det inte säkert att alla BizTalk Service
     <td>Om du använder en befintlig Azure SQL Database kan den inte användas av en annan BizTalk-tjänst. Du måste ha det inloggningsnamn och lösenord som angavs när Azure SQL Database-servern skapades.<br/><br/><strong>Tips</strong> Skapa spårning av databasen och övervakning/arkivering av lagringskontot i samma region som BizTalk-tjänsten.</td>
     </tr>
     </table>
-   Välj pilen NÄSTA.
-6. Ange inställningar för databasen:
-   
-    <table border="1">
+Välj pilen NÄSTA.
+6. Ange inställningar för databasen:  <table border="1">
     <tr>
     <td><strong>Namn</strong></td>
     <td>Tillgängligt om <strong>Skapa en ny SQL Database-instans</strong> valdes i den föregående skärmbilden.
     <br/><br/>
-    Ange ett namn för SQL Database som ska användas av din BizTalk-tjänst.</td>
+Ange ett namn för SQL Database som ska användas av din BizTalk-tjänst.</td>
     </tr>
     <tr>
     <td><strong>Server</strong></td>
     <td>Tillgängligt om <strong>Skapa en ny SQL Database-instans</strong> valdes i den föregående skärmbilden.
     <br/><br/>
-    Välj en befintlig SQL Database-server eller skapa en ny SQL Database-server.</td>
+Välj en befintlig SQL Database-server eller skapa en ny SQL Database-server.</td>
     </tr>
     <tr>
     <td><strong>Serverns inloggningsnamn</strong></td>
@@ -120,7 +120,7 @@ Det finns vissa åtgärder som inte går att slutföra beroende på status för 
 * [Lägg till ett produktionsklart certifikat](#AddCert)
 * [Hämta namnområdet Access Control](#ACS)
 
-#### <a name="a-nameinstallcertainstall-the-certificate-on-a-local-computer"></a><a name="InstallCert"></a>Installera certifikatet på en lokal dator
+#### <a name="InstallCert"></a>Installera certifikatet på en lokal dator
 Som en del av etableringen av BizTalk-tjänsten skapas ett självsignerat certifikat som associeras med prenumerationen på BizTalk-tjänsten. Du måste hämta certifikatet och installera det på de datorer som du antingen distribuerar BizTalk-tjänstprogram eller skickar meddelanden till en BizTalk-tjänstslutpunkt ifrån.
 
 1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -130,13 +130,13 @@ Som en del av etableringen av BizTalk-tjänsten skapas ett självsignerat certif
    ![Ändra SSL-certifikat][QuickGlance]
 5. Dubbelklicka på certifikatet och använd guiden för att installera det. Kontrollera att du installerar certifikatet under arkivet **Betrodda rotcertifikatutfärdare**.
 
-#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Lägg till ett produktionsklart certifikat
+#### <a name="AddCert"></a>Lägg till ett produktionsklart certifikat
 Det självsignerade certifikat som skapas automatiskt när du skapar BizTalk Services är endast avsett att användas i utvecklingsmiljöer. I produktionsscenarier ersätter du det med ett produktionsklart certifikat.
 
 1. På fliken **Instrumentpanel** väljer du **Uppdatera SSL-certifikat**.
 2. Bläddra till ditt privata SSL-certifikat (*CertificateName*.pfx) som innehåller namnet på din BizTalk-tjänst, ange lösenordet och klicka sedan på bockmarkeringen.
 
-#### <a name="a-nameacsaget-the-access-control-namespace"></a><a name="ACS"></a>Hämta namnområdet Access Control
+#### <a name="ACS"></a>Hämta namnområdet Access Control
 1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Välj **BIZTALK SERVICES** i den vänstra navigeringsrutan och sedan din BizTalk-tjänst.
 3. I aktivitetsfältet väljer du **Anslutningsinformation**:  
@@ -171,7 +171,7 @@ Dessa krav gäller inte för Free-utgåvan.
 <td>Azure-prenumeration</td>
 <td>Prenumerationen styr vem som kan logga in på Azure-portalen. Kontoinnehavaren skapar prenumerationen i <a HREF="https://account.windowsazure.com/Subscriptions"> Azure-prenumerationer</a>.
 <br/><br/>
-Azure-kontot kan ha flera prenumerationer och kan hanteras av vem som helst som är behörig. Till exempel kan din Azure-kontoinnehavare skapa en prenumeration med namnet <em>BizTalkServiceSubscription</em> och ge BizTalk-administratörerna i företaget (till exempel ContosoBTSAdmins@live.com)) åtkomst till prenumerationen. I det här scenariot loggar BizTalk-administratörerna in på Azure-portalen och har fullständiga administratörsbehörigheter till alla värdtjänster i prenumerationen, inklusive Azure BizTalk Services. BizTalk-administratörerna är inte Azure-kontoinnehavare och har därför inte tillgång till någon faktureringsinformation.
+Azure-kontot kan ha flera prenumerationer och kan hanteras av vem som helst som är behörig. Till exempel kan din Azure-kontoinnehavare skapa en prenumeration med namnet <em>BizTalkServiceSubscription</em> och ge BizTalk-administratörerna i företaget (till exempel ContosoBTSAdmins@live.com) åtkomst till prenumerationen. I det här scenariot loggar BizTalk-administratörerna in på Azure-portalen och har fullständiga administratörsbehörigheter till alla värdtjänster i prenumerationen, inklusive Azure BizTalk Services. BizTalk-administratörerna är inte Azure-kontoinnehavare och har därför inte tillgång till någon faktureringsinformation.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Hantera prenumerationer och lagringskonton i Azure-portalen</a> innehåller mer information.
 </td>
@@ -271,9 +271,4 @@ Nu när en BizTalk-tjänst har skapats kan du bekanta dig med [BizTalk Services:
 [QuickGlance]: ./media/biztalk-provision-services/WABS_QuickGlance.png
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

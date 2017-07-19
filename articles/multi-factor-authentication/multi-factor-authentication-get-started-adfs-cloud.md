@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 05/29/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
-ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -29,7 +31,7 @@ Ställ in en anspråksregel så att Active Directory Federation Services generer
 
 1. Öppna AD FS-hantering.
 2. Välj **Förlitande partsförtroenden** till vänster.
-3. Högerklicka på **Microsoft Office 365 Identity Platform** och välj **Redigera anspråksregler...**
+3. Högerklicka på **Microsoft Office 365 Identity Platform** och välj **Redigera anspråksregler**.
 
    ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
@@ -88,15 +90,12 @@ När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 3. Under Katalog väljer du den katalog där du vill ställa in tillförlitliga IP-adresser.
 4. Klicka på **Konfigurera** för den katalog som du har valt.
 5. Klicka på **Hantera tjänstinställningar** i avsnittet Multi-Factor Authentication.
-6. På sidan Tjänstinställningar väljer du **Hoppa över multi-factor authentication för förfrågningar från federerade användare som kommer från mitt intranät.**
+6. På sidan Tjänstinställningar väljer du **Hoppa över multi-factor authentication för förfrågningar från federerade användare som kommer från mitt intranät**.  
+
    ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+   
 7. Klicka på **Spara**.
 8. Klicka på **Stäng**när uppdateringarna har tillämpats.
 
 Klart! I det här läget behöver federerade Office 365-användare endast  använda MFA när ett anspråk kommer utifrån företagets intranät.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

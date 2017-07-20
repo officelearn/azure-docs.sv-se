@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/7/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: a226bdfeb1e1e70f31b2728db594042578e5f21f
-ms.openlocfilehash: 7ccb76695a6ca0d9f1ff79f05de6a5c071510a43
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
@@ -85,14 +86,5 @@ Om du vill göra det möjligt för en befintlig skalningsuppsättning för virtu
 >[!NOTE] 
 Du kan ändra så att en skalningsuppsättning går från att endast stödja en enda placeringsgrupp (standardinställningen) till att stödja flera placeringsgrupper, men du kan inte konvertera åt det andra hållet. Se därför till att du förstår egenskaperna för stora skalningsuppsättningar innan du konverterar. Kontrollera i synnerhet att du inte behöver layer-4-belastningsutjämning med Azure Load Balancer.
 
-## <a name="additional-notes"></a>Ytterligare information
-Stöd för stora skalningsuppsättningar, skalningsuppsättningar med anslutna datadiskar och Azure Managed Disks lades till i [_förhandversionen&2016;-04-30-_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) av Microsoft.Compute-API:t. Du kan använda vilken SDK eller vilket kommandoradsverktyg som helst som skapats med den här versionen eller senare av API:et.
-
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

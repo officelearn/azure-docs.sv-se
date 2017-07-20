@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: 240475240be76265c2a2f150a4a6d8f4aa0d3664
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Komma igång med Azure AD Connect med standardinställningar
@@ -35,9 +36,9 @@ Du kan se dessa steg i praktiken i avsnittet med [videoklipp](#videos).
 3. På välkomstskärmen markerar du kryssrutan för att acceptera licensvillkoren och klickar sedan på **Fortsätt**.  
 4. På skärmen Standardinställningar klickar du på **Använd standardinställningar**.  
    ![Välkommen till Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
-5. På sidan Anslut till Azure AD anger du användarnamnet och lösenordet för en global administratör för din Azure AD. Klicka på **Next**.  
+5. På sidan Anslut till Azure AD anger du användarnamnet och lösenordet för en global administratör för din Azure AD. Klicka på **Nästa**.  
    ![Anslut till Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutningsproblem](active-directory-aadconnect-troubleshoot-connectivity.md).
-6. På skärmen Anslut till AD DS anger du användarnamnet och lösenordet för ett företagsadministratörskonto. Du kan ange domändelen i NetBios- eller FQDN-format, d.v.s. FABRIKAM\administrator eller fabrikam.com\administrator. Klicka på **Next**.  
+6. På skärmen Anslut till AD DS anger du användarnamnet och lösenordet för ett företagsadministratörskonto. Du kan ange domändelen i NetBios- eller FQDN-format, d.v.s. FABRIKAM\administrator eller fabrikam.com\administrator. Klicka på **Nästa**.  
    ![Anslut till AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. Sidan [**Konfigurera Azure AD-inloggning**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) visas bara om du inte slutförde [domänverifieringen](../active-directory-add-domain.md) under [kravfasen](active-directory-aadconnect-prerequisites.md).
    ![Overifierade domäner](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
@@ -72,10 +73,5 @@ Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Director
 | Installera med anpassade inställningar |
 | Uppgradera från DirSync |
 | Konton som används för installation |
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

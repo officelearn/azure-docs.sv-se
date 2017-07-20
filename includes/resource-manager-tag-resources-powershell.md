@@ -1,10 +1,10 @@
-Version 3.0 av modulen AzureRm.Resources innehåller viktiga ändringar när det gäller hur du arbetar med taggar. Kontrollera vilken version du har innan du fortsätter:
+Version 3.0 of the AzureRm.Resources module included significant changes in how you work with tags. Before proceeding, check your version:
 
 ```powershell
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-Om resultatet visar version 3.0 eller senare fungerar exemplen i det här avsnittet med din miljö. Om du inte har version 3.0 eller senare måste du [uppdatera din version](/powershell/azureps-cmdlets-docs/) med hjälp av PowerShell-galleriet eller installationsprogrammet för webbplattform innan du fortsätter med det här avsnittet.
+If your results show version 3.0 or later, the examples in this topic work with your environment. If you do not have version 3.0 or later, [update your version](/powershell/azureps-cmdlets-docs/) by using PowerShell Gallery or Web Platform Installer before proceeding with this topic.
 
 ```powershell
 Version
@@ -12,37 +12,76 @@ Version
 3.5.0
 ```
 
-Varje gång du använder taggar i en resurs eller resursgrupp skriver du över de befintliga taggarna för den resursen eller resursgruppen. Därför måste du använda ett annat tillvägagångssätt beroende på om resursen eller resursgruppen har taggar som du vill behålla. Så här lägger du till taggar till en
+To see the existing tags for a **resource group**, use:
 
-* resursgrupp utan befintliga taggar.
+```powershell
+(Get-AzureRmResourceGroup -Name examplegroup).Tags
+```
 
-  ```powershell
-  Set-AzureRmResourceGroup -Name TagTestGroup -Tag @{ Dept="IT"; Environment="Test" }
-  ```
+Which returns the following format:
 
-* resursgrupp med befintliga taggar.
+```powershell
+Name                           Value
+----                           -----
+Dept                           IT
+Environment                    Test
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResourceGroup -Name TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResourceGroup -Tag $tags -Name TagTestGroup
-  ```
+To see the existing tags for a **resource with a specified resource ID**, use:
 
-* resurs utan befintliga taggar.
+```powershell
+(Get-AzureRmResource -ResourceId {resource-id}).Tags
+```
 
-  ```powershell
-  Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+Or, to see the existing tags for a **resource with a specified name, and resource group**, use:
 
-* resurs med befintliga taggar.
+```powershell
+(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResource -ResourceName storageexample -ResourceGroupName TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+To get **resource groups with a specific tag**, use:
 
-Om du vill tillämpa alla taggar från en resursgrupp på dess resurser **utan att behålla någon av de befintliga taggarna för resurserna** kan du använda följande skript:
+```powershell
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
+```
+
+To get **resources with a specific tag**, use:
+
+```powershell
+(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+```
+
+Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags. 
+
+To add tags to a **resource group without existing tags**, use:
+
+```powershell
+Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+```
+
+To add tags to a **resource group with existing tags**, retrieve the existing tags, add the new tag, and reapply the tags:
+
+```powershell
+$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+```
+
+To add tags to a **resource without existing tags**, use:
+
+```powershell
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName exampleroup
+```
+
+To add tags to a **resource with existing tags**.
+
+```powershell
+$tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
+```
+
+To apply all tags from a resource group to its resources, and **not retain existing tags on the resources**, use the following script:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
@@ -52,7 +91,7 @@ foreach ($g in $groups)
 }
 ```
 
-Om du vill tillämpa alla taggar från en resursgrupp på dess resurser och **behålla de befintliga taggarna på resurser som inte är dubbletter** kan du använda följande skript:
+To apply all tags from a resource group to its resources, and **retain existing tags on resources that are not duplicates**, use the following script:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
@@ -74,26 +113,11 @@ foreach ($g in $groups)
 }
 ```
 
-Om du vill ta bort alla taggar skickar du en tom hash-tabell.
+To remove all tags, pass an empty hash table.
 
 ```powershell
-Set-AzureRmResourceGroup -Tag @{} -Name TagTestGgroup
+Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
 
-Om du vill hämta resursgrupper med en viss tagg använder du cmdlet:en `Find-AzureRmResourceGroup`.
-
-```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
-```
-
-Om du vill hämta alla resurser med en viss tagg och ett visst värde använder du cmdlet:en `Find-AzureRmResource`.
-
-```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
-```
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "Kom igång med Azure Apptjänst Mobile Apps för Xamarin.iOS-appar | Mic
 description: "I den här kursen får du hjälp att komma igång med Mobile Apps för Xamarin.iOS-utveckling."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
+ms.contentlocale: sv-se
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinios-app"></a>Skapa en Xamarin.iOS-app
@@ -38,8 +38,8 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 
 > [!NOTE]
 > Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/mobile/). Där kan du direkt skapa en tillfällig startmobilapp i App Service. Det krävs inget kreditkort och du gör inga åtaganden.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Skapa en mobilapp-serverdel i Azure
 Följ de här stegen för att skapa en mobilapp-serverdel.
@@ -56,24 +56,24 @@ Följ följande steg för att konfigurera serverprojektet att använda sig av an
 ## <a name="download-and-run-the-xamarinios-app"></a>Hämta och kör Xamarin.iOS-appen
 1. Öppna [Azure-portalen] i ett webbläsarfönster.
 2. På inställningsbladet för mobilappen klickar du på **Kom igång** > **Xamarin.iOS**. Vid steg 3, klickar du på **Skapa en ny app** om det inte redan är valt.  Klicka sedan på **Hämta**.
-   
+
       Ett klientprogram som ansluter till din mobila serverdel hämtas. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
 3. Extrahera projektet som du laddade ned och öppna det i Xamarin Studio (eller Visual Studio).
-   
+
     ![][9]
-   
+
     ![][8]
 4. Tryck på F5 för att skapa projektet och starta appen i iPhone-emulatorn.
 5. Ange en beskrivande text i appen, till exempel  *Läs om Xamarin*, och klicka sedan på **+**.
-   
+
     ![][10]
-   
+
     Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobilappsserverdelen och data visas i listan.
 
 > [!NOTE]
 > Du kan se koden som ansluter till mobilappsserverdelen för att fråga efter och infoga data i C#-filen QSTodoService.cs.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lägg till offlinesynkronisering till din app](app-service-mobile-xamarin-ios-get-started-offline-data.md)

@@ -12,26 +12,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 698c481e2eff5e0a3b893a0377d9f4cd2f052eb4
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/13/2017
 
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
-Med det plattformsoberoende Azure-kommandoradsgränssnittet (Azure CLI) kan du hantera Batch-konton och resurser, till exempel pooler, jobb och aktiviteter i Linux-, Mac- och Windows-kommandogränssnitt. Med Azure CLI kan du genomföra och skriva många av de uppgifter som du utför med Batch-API:erna, Azure-portalen och Batch PowerShell-cmdletarna.
+Azure CLI 2.0 är Azures nya kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Azure CLI 2.0 är optimerat för att hantera och administrera Azure-resurser från kommandoraden. Du kan använda Azure CLI till att hantera Azure Batch-konton och hantera resurser, som pooler, jobb och aktiviteter. Med Azure CLI kan du skripta många av de uppgifter som du utför med Batch-API:erna, Azure Portal och Batch PowerShell-cmdletarna.
 
-Den här artikeln är baserad på Azure CLI version 0.10.5.
+Den här artikeln innehåller en översikt över hur du använder [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview) med Batch. I [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ges en översikt över hur du använder CLI:t med Azure.
 
-## <a name="prerequisites"></a>Krav
-* [Installera Azure CLI](../cli-install-nodejs.md)
-* [Ansluta Azure CLI till din Azure-prenumeration](../xplat-cli-connect.md)
-* Växla till **Resource Manager-läge**:`azure config mode arm`
+Microsoft rekommenderar att du använder den senaste versionen av Azure CLI, version 2.0. Mer information om version 2.0 finns i [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/) (på engelska).
+
+## <a name="set-up-the-azure-cli"></a>Konfigurera Azure CLI
+
+När du ska installera Azure CLI följer du stegen som beskrivs i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
 
 > [!TIP]
 > Vi rekommenderar att du uppdaterar Azure CLI-installationen ofta för att dra nytta av tjänstuppdateringar och förbättringar.
@@ -39,237 +41,154 @@ Den här artikeln är baserad på Azure CLI version 0.10.5.
 > 
 
 ## <a name="command-help"></a>Kommandohjälp
-Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` som det enda alternativet efter kommandot. Exempel:
 
-* Om du vill få hjälp med `azure`-kommandot anger du: `azure -h`
-* Om du vill hämta en lista över alla Batch-kommandon i CLI använder du: `azure batch -h`
-* Om du vill ha hjälp med att skapa ett Batch-konto anger du: `azure batch account create -h`
+Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Exempel:
+
+* Om du vill få hjälp med `az`-kommandot anger du: `az -h`
+* Om du vill hämta en lista över alla Batch-kommandon i CLI använder du: `az batch -h`
+* Om du vill ha hjälp med att skapa ett Batch-konto anger du: `az batch account create -h`
 
 Om du är tveksam ska du använda kommandoradsalternativet `-h` för att få hjälp med samtliga Azure CLI-kommandon.
 
-## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
-Användning:
+> [!NOTE]
+> I tidigare versioner av Azure CLI användes `azure` som prefix till ett CLI-kommando. I version 2.0 har alla kommandon nu `az` som prefix. Glöm inte att uppdatera dina skript med den nya syntaxen i version 2.0.
+>
+>  
 
-    azure batch account create [options] <name>
+Dessutom kan du läsa mer om [Azure CLI-kommandon för Batch](https://docs.microsoft.com/cli/azure/batch) i referensdokumentationen för Azure CLI. 
 
-Exempel:
+## <a name="log-in-and-authenticate"></a>Logga in och autentisera
 
-    azure batch account create --location "West US"  --resource-group "resgroup001" "batchaccount001"
+När du ska använda Azure CLI med Batch måste du logga in och autentisera. Det gör du i två enkla steg:
 
-Skapar ett nytt Batch-konto med de angivna parametrarna. Du måste ange minst en plats, en resursgrupp och ett kontonamn. Om du inte redan har en resursgrupp skapar du en genom att köra `azure group create` och ange en av Azure-regionerna (till exempel ”USA, västra”) för alternativet `--location`. Några exempel:
+1. **Logga in på Azure.** När du loggar in på Azure får du tillgång till Azure Resource Manager-kommandon, inklusive kommandon för [Batch Management-tjänsten](batch-management-dotnet.md).  
+2. **Logga in på Batch-kontot**. När du loggar in på ditt Batch-konto får du tillgång till kommandon för Batch-tjänsten.   
 
-    azure group create --name "resgroup001" --location "West US"
+### <a name="log-in-to-azure"></a>Logga in på Azure
+
+Det finns några olika sätt att logga in på Azure, läs mer i [Logga in med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
+
+1. [Logga in interaktivt](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Logga in interaktivt när du själv kör Azure CLI-kommandon från kommandoraden.
+2. [Logga in med ett huvudnamn för tjänsten](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal). Logga in med ett huvudnamn för tjänsten när du använder Azure CLI-kommandon från ett skript eller ett program.
+
+I den här artikeln beskrivs hur du loggar in på Azure interaktivt. Skriv [az login](https://docs.microsoft.com/cli/azure/#login) på kommandoraden:
+
+```azurecli
+# Log in to Azure and authenticate interactively.
+az login
+```
+
+Kommandot `az login` returnerar en token som du använder för autentisering, vilket visas här. Följ anvisningarna för att öppna en webbsida och skicka denna token till Azure:
+
+![Logga in på Azure](./media/batch-cli-get-started/az-login.png)
+
+I exemplen i avsnittet [Exempel på kommandoskript](#sample-shell-scripts) visas också hur du startar Azure CLI-sessionen genom att logga in på Azure interaktivt. När du har loggat in kan du anropa kommandon för att arbeta med Batch Management-resurser, som Batch-konton, nycklar, programpaket och kvoter.  
+
+### <a name="log-in-to-your-batch-account"></a>Logga in på Batch-kontot
+
+Om du vill använda Azure CLI till att hantera Batch-resurser, som pooler, jobb och aktiviteter, måste du logga in på Batch-kontot och autentisera. Du loggar in på Batch-tjänsten med kommandot [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login). 
+
+Det finns två alternativ för att autentisera mot Batch-kontot:
+
+- **Med autentisering via Azure Active Directory (Azure AD).** 
+
+    Autentisering med Azure AD är standard när du använder Azure CLI med Batch, och rekommenderas i de flesta situationer. 
+    
+    När du loggar in på Azure interaktivt enligt beskrivningen i föregående avsnitt cachelagras dina autentiseringsuppgifter så att Azure CLI kan logga in dig på Batch-kontot med samma autentiseringsuppgifter. Om du loggar in på Azure med hjälp av ett huvudnamn för tjänsten används också dessa autentiseringsuppgifter till att logga in på ditt Batch-konto.
+
+    En fördel med Azure AD är att den innehåller rollbaserad åtkomstkontroll (RBAC). Med RBAC beror en användares behörighet på den tilldelade rollen snarare än om de har nycklar för kontot. Du kan hantera RBAC-roller och låta Azure AD hantera åtkomst och autentisering i stället för att hantera nycklar.  
+
+    Du måste autentisera med Azure AD om du har skapat ditt Azure Batch-konto med poolallokeringsläget Användarprenumeration. 
+
+    Du loggar in på Batch-kontot med hjälp av Azure AD med kommandot [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login): 
+
+    ```azurecli
+    az batch account login -g myresource group -n mybatchaccount
+    ```
+
+- **Autentisering med delad nyckel.**
+
+    Vid [autentisering med delad nyckel](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) används dina åtkomstnycklar för kontot till att autentisera Azure CLI-kommandon för Batch-tjänsten.
+
+    Om du skapar Azure CLI-skript för att automatisera anrop av Batch-kommandon kan du använda antingen autentisering med delad nyckel eller ett huvudnamn för tjänsten i Azure AD. I vissa situationer kan det vara enklare att använda autentisering med delad nyckel än att skapa ett huvudnamn för tjänsten.  
+
+    När du ska logga in med hjälp av autentisering med delad nyckel ska du ta med alternativet `--shared-key-auth` på kommandoraden:
+
+    ```azurecli
+    az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
+    ```
+
+I exemplen i avsnittet [Exempel på kommandoskript](#sample-shell-scripts) visas hur du loggar in på ditt Batch-konto med Azure CLI, både med Azure AD och med delad nyckel.
+
+## <a name="sample-shell-scripts"></a>Exempel på kommandoskript
+
+I exempelskripten i följande tabell visas hur du använder Azure CLI-kommandon med Batch-tjänsten och Batch Management-tjänsten för att utföra vanliga uppgifter. Dessa exempelskript omfattar många av de kommandon som är tillgängliga i Azure CLI för Batch. 
+
+| Skript | Anteckningar |
+|---|---|
+| [Skapa ett Batch-konto](./scripts/batch-cli-sample-create-account.md) | Skapar ett Batch-konto och kopplar det till ett lagringskonto. |
+| [Lägga till ett program](./scripts/batch-cli-sample-add-application.md) | Lägger till ett program och laddar upp paketerade binärfiler.|
+| [Hantera Batch-pooler](./scripts/batch-cli-sample-manage-pool.md) | Visar hur du skapar, ändrar storlek på och hanterar pooler. |
+| [Köra ett jobb och aktiviteter med Batch](./scripts/batch-cli-sample-run-job.md) | Visar hur du kör ett jobb och lägger till aktiviteter. |
+
+## <a name="json-files-for-resource-creation"></a>JSON-filer för resursskapande
+
+När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Exempel:
+
+```azurecli
+az batch pool create my_batch_pool.json
+```
+
+Du kan skapa de flesta Batch-resurser enbart med kommandoradsalternativ, men vissa funktioner kräver att du anger en JSON-formaterad fil som innehåller information om resursen. Du måste till exempel använda en JSON-fil om du vill ange resursfiler för en startuppgift.
+
+Du kan läsa vilken JSON-syntax som krävs för att skapa en resurs i dokumentationen [Batch REST API reference][rest_api] (REST API-referens för Batch). Varje ämne om att *lägga till resurstyper* i REST API-referensen innehåller exempel på JSON-skript för att skapa den aktuella resursen. Du kan använda dessa JSON-exempelskript som en mall för JSON-filer att använda med Azure CLI. Om du till exempel vill se JSON-syntaxen för att skapa en pool läser du [Add a pool to an account][rest_add_pool] (Lägga till en pool för ett konto).
+
+Ett exempelskript som anger en JSON-fil finns i [Köra ett jobb och aktiviteter med Batch](./scripts/batch-cli-sample-run-job.md).
 
 > [!NOTE]
-> Batch-kontonamnet måste vara unikt i den Azure-region som kontot skapas i. Det får bara innehålla gemena alfanumeriska tecken och måste vara mellan 3 och 24 tecken långt. Du kan inte använda specialtecken som `-` eller `_` i Batch-kontonamn.
+> Om du anger en JSON-fil när du skapar en resurs ignoreras alla andra parametrar du anger på kommandoraden för den resursen.
 > 
 > 
 
-### <a name="linked-storage-account-autostorage"></a>Länkat lagringskonto (autostorage)
-Du kan (om du vill) länka ett **allmänt** lagringskonto till ditt Batch-konto när du skapar det. [Programpaketfunktionen](batch-application-packages.md) i Batch använder blobblagring i ett länkat allmänt Storage-konto, precis som [.NET-biblioteket för filkonventioner i Batch](batch-task-output.md). Med dessa valfria funktioner kan du distribuera de program som körs av Batch-aktiviteterna och spara de data som de genererar.
+## <a name="efficient-queries-for-batch-resources"></a>Effektiva frågor för Batch-resurser
 
-För att länka ett befintligt Azure Storage-konto till ett nytt Batch-konto när du skapar det anger du `--autostorage-account-id`-alternativet. Det här alternativet kräver det fullständigt kvalificerade resurs-ID:t för lagringskontot.
-
-Först ska du visa dina lagringskontouppgifter:
-
-    azure storage account show --resource-group "resgroup001" "storageaccount001"
-
-Använd sedan **Url**-värdet för `--autostorage-account-id`alternativet. Url-värdet börjar med "/subscriptions/" och innehåller ditt prenumerations-ID och resurssökvägen till lagringskontot:
-
-    azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"
-
-## <a name="delete-a-batch-account"></a>Ta bort ett Batch-konto
-Användning:
-
-    azure batch account delete [options] <name>
-
-Exempel:
-
-    azure batch account delete --resource-group "resgroup001" "batchaccount001"
-
-Tar bort det angivna Batch-kontot. När du uppmanas till det, bekräftar du att du vill ta bort kontot (det kan ta lite tid att ta bort kontot).
-
-## <a name="manage-account-access-keys"></a>Hantera kontots åtkomstnycklar
-Du behöver en åtkomstnyckel för att [skapa och ändra resurser](#create-and-modify-batch-resources) i ditt Batch-konto.
-
-### <a name="list-access-keys"></a>Lista åtkomstnycklar
-Användning:
-
-    azure batch account keys list [options] <name>
-
-Exempel:
-
-    azure batch account keys list --resource-group "resgroup001" "batchaccount001"
-
-Listar kontonycklarna för det givna Batch-kontot.
-
-### <a name="generate-a-new-access-key"></a>Generera en ny åtkomstnyckel
-Användning:
-
-    azure batch account keys renew [options] --<primary|secondary> <name>
-
-Exempel:
-
-    azure batch account keys renew --resource-group "resgroup001" --primary "batchaccount001"
-
-Återskapar den angivna kontonyckeln för det angivna Batch-kontot.
-
-## <a name="create-and-modify-batch-resources"></a>Skapa och ändra Batch-resurser
-Du kan använda Azure CLI för att skapa, läsa, uppdatera och ta bort (CRUD) Batch-resurser som pooler, beräkningsnoder, jobb och uppgifter. Dessa CRUD-åtgärder kräver Batch-kontonamn, åtkomstnyckel och slutpunkt. Du kan ange dem med alternativen `-a`, `-k` och `-u` eller ange [miljövariabler](#credential-environment-variables) som CLI använder automatiskt (om de fyllts i).
-
-### <a name="credential-environment-variables"></a>Miljövariabler för autentiseringsuppgifter
-Du kan ställa in miljövariablerna `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY` och `AZURE_BATCH_ENDPOINT` i stället för att ange alternativen `-a`, `-k` och `-u` på kommandoraden för alla kommandon som du kör. Batch CLI använder dessa variabler (om de har angetts) så att du kan hoppa över alternativen `-a`, `-k`, och `-u`. Resten av den här artikeln förutsätter att du använder dig av dessa miljövariabler.
-
-> [!TIP]
-> Visa en lista med dina nycklar med `azure batch account keys list` och visa kontots slutpunkt med `azure batch account show`.
-> 
-> 
-
-### <a name="json-files"></a>JSON-filer
-När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Några exempel:
-
-`azure batch pool create my_batch_pool.json`
-
-Du kan utföra många resursskapande åtgärder med endast kommandoradsalternativ, men vissa funktioner kräver en JSON-formaterad fil som innehåller information om resursen. Du måste till exempel använda en JSON-fil om du vill ange resursfiler för en startuppgift.
-
-Om du vill hitta den JSON som krävs för att skapa en resurs bör du läsa dokumentationen [Referens för Batch REST API][rest_api] på MSDN. Varje avsnitt med ”Lägg till *resurstyp*” innehåller exempel på JSON-filer för att skapa en resurs, som du kan använda som en mall för JSON-filer. Det finns t.ex. en JSON-fil för att skapa en pool i [Lägga till en pool till ett konto][rest_add_pool].
-
-> [!NOTE]
-> Om du anger en JSON-fil när du skapar en resurs ignoreras alla andra parametrar som du anger på kommandoraden för den resursen.
-> 
-> 
-
-## <a name="create-a-pool"></a>Skapa en pool
-Användning:
-
-    azure batch pool create [options] [json-file]
-
-Exempel (konfiguration av virtuell dator):
-
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"
-
-Exempel (Cloud Services-konfiguration):
-
-    azure batch pool create --id "pool002" --target-dedicated 1 --vm-size "small" --os-family "4"
-
-Skapar en pool av beräkningsnoder i Batch-tjänsten.
-
-Som vi nämnde i [Funktionsöversikt över Batch](batch-api-basics.md#pool) har du två alternativ när du väljer operativsystem för noderna i en pool: **konfiguration av virtuell dator** (VM-konfiguration) och **Cloud Services-konfiguration**. Använd `--image-*`-alternativen för att skapa virtuella datorkonfigurationspooler och `--os-family` för att skapa Cloud Services-konfigurationspooler. Du kan inte ange både `--os-family`- och `--image-*`-alternativ.
-
-Du kan ange [poolprogrampaket](batch-application-packages.md) och kommandoraden för en [startuppgift](batch-api-basics.md#start-task). Om du vill ange resursfiler för startuppgiften måste du i stället använda en [JSON-fil](#json-files).
-
-Ta bort en pool med:
-
-    azure batch pool delete [pool-id]
-
-> [!TIP]
-> Kontrollera [listan med virtuella datoravbildningar](batch-linux-nodes.md#list-of-virtual-machine-images) för värden som är lämpliga för `--image-*`-alternativen.
-> 
-> 
-
-## <a name="create-a-job"></a>Skapa ett jobb
-Användning:
-
-    azure batch job create [options] [json-file]
-
-Exempel:
-
-    azure batch job create --id "job001" --pool-id "pool001"
-
-Lägger till ett jobb till Batch-kontot och anger den pool där uppgifterna utförs.
-
-Ta bort ett jobb med:
-
-    azure batch job delete [job-id]
-
-## <a name="list-pools-jobs-tasks-and-other-resources"></a>Lista pooler, jobb, uppgifter och andra resurser
 Varje Batch-resurstyp stöder ett `list`-kommando som frågar Batch-kontot och visar en lista över resurser av den typen. Du kan till exempel ange poolerna i ditt konto och aktiviteterna i ett jobb:
 
-    azure batch pool list
-    azure batch task list --job-id "job001"
+```azurecli
+az batch pool list
+az batch task list --job-id job001
+```
 
-### <a name="listing-resources-efficiently"></a>Visa en lista över resurser på ett effektivt sätt
-För snabbare frågor kan du ange satsalternativen **välj**, **filtrera** och **expandera** för `list`-åtgärder. Med dessa alternativ kan du begränsa mängden data som returneras av Batch-tjänsten. Eftersom all filtrering utförs på serversidan överförs endast de data som du är intresserad av. Använd dessa satser för att spara bandbredd (och därmed tid) när du utför liståtgärder.
+När du ställer frågor mot Batch-tjänsten med en `list`-åtgärd kan du ange en OData-sats som begränsar mängden data som returneras. Eftersom all filtrering utförs på serversidan överförs endast de data du begär. Använd dessa satser för att spara bandbredd (och därmed tid) när du utför liståtgärder.
 
-Exempelvis returnerar detta endast pooler vars ID-nummer som börjar med ”renderTask”:
+I följande tabell beskrivs de OData-satser som stöds av Batch-tjänsten:
 
-    azure batch task list --job-id "job001" --filter-clause "startswith(id, 'renderTask')"
+| Sats | Beskrivning |
+|---|---|
+| `--select-clause [select-clause]` | Returnerar en delmängd av egenskaperna för varje entitet. |
+| `--filter-clause [filter-clause]` | Returnerar endast de enheter som matchar det angivna OData-uttrycket. |
+| `--expand-clause [expand-clause]` | Hämtar entitetsinformationen i ett enda underliggande REST-anrop. expand-satsen har för närvarande bara stöd för egenskapen `stats`. |
 
-Batch-CLI stöder alla tre satser som stöds av Batch-tjänsten:
+Ett exempelskript som visar hur du använder en OData-sats finns i [Köra ett jobb och aktiviteter med Batch](./scripts/batch-cli-sample-run-job.md).
 
-* `--select-clause [select-clause]` Returnera en delmängd av egenskaperna för varje entitet
-* `--filter-clause [filter-clause]` Returnera endast de enheter som matchar det angivna OData-uttrycket
-* `--expand-clause [expand-clause]` Hämta entitetsinformationen i ett enda underliggande REST-anrop. Expandera-satsen stöder endast `stats`-egenskapen för tillfället.
-
-Mer information om de tre satserna och hur man utför listfrågor med dem finns i [Skicka effektiva frågor till Azure Batch-tjänsten](batch-efficient-list-queries.md).
-
-## <a name="application-package-management"></a>Hantera programpaket
-Programpaket är ett förenklat sätt att distribuera program till beräkningsnoder i dina pooler. Med Azure-CLI kan du överföra programpaket, hantera paketversioner och ta bort paket.
-
-Så här skapar du ett nytt program och lägger till en paketversion:
-
-**Skapa** ett program:
-
-    azure batch application create "resgroup001" "batchaccount001" "MyTaskApplication"
-
-**Lägg till** ett programpaket:
-
-    azure batch application package create "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" package001.zip
-
-**Aktivera** paketet:
-
-    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
-
-Ange **standardversionen** för programmet:
-
-    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
-
-### <a name="deploy-an-application-package"></a>Distribuera ett programpaket
-Du kan ange ett eller flera programpaket för distribution när du skapar en ny pool. När du anger ett paket när poolen skapas distribueras den till varje nod när noden ansluter till poolen. Paket distribueras också när en nod startas om eller när en avbildning återställs.
-
-Ange alternativet `--app-package-ref` när du skapar en pool för att distribuera ett programpaket till poolen noder efterhand som de ansluts till poolen. Alternativet `--app-package-ref` accepterar en semikolonavgränsad lista med program-ID för distribution till datornoder.
-
-    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
-
-När du skapar en pool med hjälp av kommandoradsalternativen kan du för närvarande inte ange *vilken* version av programpaketet som ska distribueras till datornoder, till exempel ”1.10-beta3”. Därför måste du ange en standardversion för program med `azure batch application set [options] --default-version <version-id>` innan du skapar poolen (se ovan). Du kan dock ange versioner för poolen om du använder en [JSON-fil](#json-files) i stället för kommandoradsalternativ när du skapar poolen.
-
-Du hittar mer information om programpaket i [programdistribution med Azure Batch-programpaket](batch-application-packages.md).
-
-> [!IMPORTANT]
-> Du måste [koppla ett Azure Storage-konto](#linked-storage-account-autostorage) till Batch-kontot för att använda programpaket.
-> 
-> 
-
-### <a name="update-a-pools-application-packages"></a>Uppdatera programpaket för en pool
-Om du vill uppdatera program som är tilldelade till en befintlig pool använder du kommandot `azure batch pool set` med alternativet `--app-package-ref`:
-
-    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
-
-Du måste starta om eller återavbilda noderna för att distribuera nya programpaket för datornoder som redan befinner sig i en befintlig pool:
-
-    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
-
-> [!TIP]
-> Du kan hämta en lista över noder i poolen tillsammans med deras nod-ID med `azure batch node list`.
-> 
-> 
-
-Tänk på att du måste ha konfigurerat programmet med en standardversion innan den distribueras (`azure batch application set [options] --default-version <version-id>`).
+Mer information om effektiva listfrågor med OData-satser finns i [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) (Fråga Azure Batch-tjänsten effektivt).
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
-I det här avsnittet finns resurser som du kan använda när du felsöker problem med Azure CLI. Det kanske inte finns lösningar på alla problem, men du kan få hjälp med att begränsa orsaken och tips om hjälpresurser.
+
+Följande tips kan vara till hjälp när du felsöker problem med Azure CLI:
 
 * Använd `-h` för att hämta **hjälptext** för alla CLI-kommandon
-* Använd `-v` och `-vv` för att visa **utförliga** kommandoutdata; `-vv` är ”extra” utförliga och visar faktiska REST-begäranden och -svar. Växlarna är användbara för att visa fullständiga utdata vid fel.
-* Du kan visa **-kommandoutdata som JSON-** med `--json`-alternativet. Till exempel visar `azure batch pool show "pool001" --json` pool001:s egenskaper i JSON-format. Du kan sedan kopiera och ändra dessa utdata och använda dem i en `--json-file` (se [JSON-filer](#json-files) tidigare i den här artikeln).
-* [Batch-forumet på MSDN][batch_forum] är en bra hjälpresurs och följs nära av Batch-gruppmedlemmar. Skicka dina frågor dit om du får problem eller behöver hjälp med en viss åtgärd.
-* Azure CLI stöder för närvarande inte alla Batch-resursåtgärder. För tillfället kan du till exempel inte ange ett programpakets *version* för en pool, bara paketets ID. I sådana fall kanske du måste ange en `--json-file` för ett kommando i stället för att använda kommandoradsalternativ. Se till att hålla dig uppdaterad med den senaste CLI-versionen för framtida förbättringar.
+* Använd `-v` och `-vv` till att visa **utförliga** utdata från kommandon. När du tar med flaggan `-vv` visas faktiska REST-begäranden och -svar i Azure CLI. Växlarna är användbara för att visa fullständiga utdata vid fel.
+* Du kan visa **-kommandoutdata som JSON-** med `--json`-alternativet. Till exempel visar `az batch pool show pool001 --json` pool001:s egenskaper i JSON-format. Du kan sedan kopiera och ändra dessa utdata och använda dem i en `--json-file` (se [JSON-filer](#json-files) tidigare i den här artikeln).
+* [Batch-forumet][batch_forum] övervakas av medlemmar i Batch-teamet. Du kan ställa frågor där om du får problem eller behöver hjälp med en viss åtgärd.
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [Programdistribution med Azure Batch-programpaket](batch-application-packages.md) för att lära dig hur du använder den här funktionen för att hantera och distribuera de program som du kör på Batch-beräkningsnoder.
-* Mer information om hur du minskar antalet objekt och vilken typ av information som returneras för frågor till Batch finns i [Skicka effektiva frågor till Batch-tjänsten](batch-efficient-list-queries.md).
 
-[batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+* Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
+* Mer information om Batch-resurser finns i [Utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).
+* Se [Programdistribution med Azure Batch-programpaket](batch-application-packages.md) för att lära dig hur du använder den här funktionen för att hantera och distribuera de program som du kör på Batch-beräkningsnoder.
+
+[batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx

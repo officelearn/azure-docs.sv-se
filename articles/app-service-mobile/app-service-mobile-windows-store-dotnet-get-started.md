@@ -3,7 +3,7 @@ title: "Skapa en universell Windowsplattform (UWP) som använder Mobile Apps | M
 description: "Följ den här kursen och kom igång med att använda serverdelar för mobilappar i Azure för utveckling av appar med den universella Windowsplattformen (UWP) i C#, Visual Basic eller JavaScript."
 services: app-service\mobile
 documentationcenter: windows
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 1a031c4858bcbc75ee807ba520e1b22c89471498
+ms.contentlocale: sv-se
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-windows-app"></a>Skapa en Windows-app
@@ -28,12 +28,12 @@ ms.lasthandoff: 01/20/2017
 I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en app i den universella Windowsplattformen (UWP). Mer information om Mobile Apps finns [här](app-service-mobile-value-prop.md). Nedan visas skärmdumpar från den färdiga appen:
 
 ![Färdig skrivbordsapp](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
-Visad på ett skrivbord 
+Visad på ett skrivbord
 
 ![Färdig mobilapp](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)  
 Visad på en telefon
 
-Du måste slutföra den här kursen innan du går någon annan kurs om Mobilappar för UWP-appar. 
+Du måste slutföra den här kursen innan du går någon annan kurs om Mobilappar för UWP-appar.
 
 ## <a name="prerequisites"></a>Krav
 För att kunna genomföra den här kursen behöver du följande:
@@ -43,8 +43,8 @@ För att kunna genomföra den här kursen behöver du följande:
 
 > [!NOTE]
 > Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/mobile/). Där kan du direkt skapa en tillfällig startmobilapp i Apptjänst. Inget kreditkort behövs och du gör inga åtaganden.
-> 
-> 
+>
+>
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Skapa en ny mobilappsserverdel i Azure
 Skapa en ny mobilappsserverdel genom att följa instruktionerna nedan.
@@ -60,20 +60,20 @@ Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilk
 När du har konfigurerat serverdelen för mobilappen kan du antingen skapa en ny klientapp eller modifiera en befintlig app som ansluts till Azure. I det här avsnittet får du ladda du ned en UWP-appsmall som är särskilt anpassad för att ansluta till din mobilappsserverdel.
 
 1. Gå tillbaka till bladet **Snabbstart** för din mobilappsserverdel och klicka på **Skapa ny app** > **Hämta**. Extrahera sedan den komprimerade filen lokalt på din dator.
-   
+
     ![Hämta ett snabbstartsprojekt för Windows](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
 2. (Valfritt) Lägg UWP-appsprojektet i samma lösning som serverprojektet. På så sätt blir det enklare att felsöka och testa både appen och serverdelen i samma Visual Studio-lösning om du skulle vilja det. För att kunna lägga in ett UWP-appsprojekt i lösningen måste du ha Visual Studio 2015 eller en senare version.
 3. Med UWP-appen som startprojekt trycker du på F5-tangenten för att distribuera och köra appen.
 4. I appen anger du en beskrivande text i textrutan **Infoga TodoItem**, till exempel *Slutför kursen* och sedan klickar du på **Spara**.
-   
+
     ![Färdig Windows-snabbstartsapp på skrivbord](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
-   
+
     En POST-begäran skickas till den nya appserverdelen som finns på Azure.
 5. (Valfritt) Stäng av appen och starta om den på en annan enhet eller mobilemulator.
-   
+
     ![Färdig Windows-snabbstartsapp på telefon](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
-   
-    Observera att data som sparades i föregående steg läses in från Azure när UWP-appen startar. 
+
+    Observera att data som sparades i föregående steg läses in från Azure när UWP-appen startar.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lägg till autentisering i appen](app-service-mobile-windows-store-dotnet-get-started-users.md)  

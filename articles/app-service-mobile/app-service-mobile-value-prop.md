@@ -3,7 +3,7 @@ title: "Vad är Mobilappar?"
 description: "Läs om vilken nytta du har av Apptjänst i dina företagsmobilappar."
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
+author: dhei
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.contentlocale: sv-se
 ms.lasthandoff: 04/29/2017
-
 
 ---
 # <a name="getting-started"> </a>Vad är Mobile Apps?
@@ -38,14 +38,14 @@ Azure Apptjänst är en helt hanterad [plattform som en tjänst](https://azure.m
 Följande funktioner är viktiga för molnkompatibel mobilutveckling:
 
 * **Autentisering och auktorisering** –  Du kan välja mellan ett ständigt växande antal identitetsleverantörer, inklusive Azure Active Directory för företagsautentisering, och även leverantörer via sociala nätverk såsom Facebook, Google, Twitter eller Microsoftkonto.  Med Azure Mobile Apps möjliggörs en OAuth 2.0-tjänst för varje leverantör.  Du kan även integrera SDK:n för identitetsleverantören för leverantörsspecifika funktioner.
-  
+
   Läs mer om våra [autentiseringsfunktioner].
 * **Dataåtkomst** – Azure Mobile Apps erbjuder en mobilvänlig OData v3-datakälla kopplad till SQL Azure eller en lokal SQL Server.  Den här tjänsten kan byggas på Entity Framework, så att du lätt kan integrera med andra NoSQL- och SQL-dataleverantörer, inklusive [Azure Table Storage], MongoDB, [DocumentDB] och SaaS-API-leverantörer såsom Office 365 och Salesforce.com.
 * **Synkronisering offline** – Med våra klient-SDK:er är det lätt att bygga robusta och snabba mobilappar som fungerar med offlinedata som kan synkroniseras med serverdata automatiskt, även med stöd för konfliktlösning.
-  
+
   Läs mer om våra [datafunktioner].
 * **Push-meddelanden** – Våra klient-SDK:er integreras sömlöst med registreringsfunktionerna i Azure Notification Hubs, vilket innebär att du kan skicka push-meddelanden till miljontals mottagare samtidigt.
-  
+
   Läs mer om våra [push-meddelandefunktioner].
 * **Klient-SDK:er** – Vi erbjuder en komplett uppsättning klient-SDK:er för utveckling av plattformsspecifika appar ([iOS], [Android] och [Windows]), plattformsoberoende appar ([Xamarin för iOS och Android], [Xamarin Forms]) och hybridappar ([Apache Cordova]).  Alla klient-SDK:er fås med MIT-licens och har öppen källkod.
 
@@ -53,19 +53,19 @@ Följande funktioner är viktiga för molnkompatibel mobilutveckling:
 Följande plattformsfunktioner brukar vara användbara i produktionsmiljöer för mobilappar:
 
 * **Automatisk skalning** – Med Apptjänst kan du snabbt skala upp eller ut för att hantera inkommande kundbelastning. Du kan manuellt välja antal och storleken på virtuella datorer eller ställa in automatisk skalning av mobilappsservern utifrån belastning eller schema.
-  
+
   Läs mer om [automatisk skalning].
 * **Mellanlagringsmiljöer** – Med Apptjänst kan du köra flera olika versioner av webbplatsen så att du kan genomföra A- och B-testning, testa i produktionsmiljö som en del i en större DevOps-plan och mellanlagra en ny serverdel direkt på plats.
-  
+
   Läs mer om [mellanlagringsmiljöer].
 * **Kontinuerlig distribution** – Apptjänst kan integreras med vanliga SCM-system, så att du kan distribuera en ny version av en serverdel automatiskt genom att skicka ut den till en gren i SCM-systemet.
-  
+
   Läs mer om [distributionsalternativ].
 * **Virtuella nätverk** – App Service kan ansluta till lokala resurser genom virtuella nätverk, ExpressRoute eller hybridanslutningar.
-  
+
   Läs mer om [hybridanslutningar], [virtuella nätverk] och [ExpressRoute].
 * **Isolerade/dedikerade miljöer** – Apptjänst kan köras i en helt isolerad och dedikerad miljö för säker körning av storskaliga Azure Apptjänst-appar.  Det är perfekt för programarbetsbelastningar som kräver storskalighet, isolering eller säker nätverksåtkomst.
-  
+
   Läs mer om [Apptjänstmiljöer].
 
 ## <a name="getting-started"></a>Komma igång
@@ -76,8 +76,8 @@ Mer information om Azure Apptjänst-plattformen finns på [Azure Apptjänst].
 
 > [!NOTE]
 > Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/mobile/). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
-> 
-> 
+>
+>
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md

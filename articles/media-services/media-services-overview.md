@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 42baa7a6e80468e47dda1e652fc2bbd20e5a4ee6
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -51,7 +52,6 @@ Klicka på bilden för att visa den i full storlek.
 
 Du kan visa hela modellen [här](https://media.windows.net/API/$metadata?api-version=2.15).  
 
-
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 Du kan visa sökvägar för AMS-utbildning här:
 
@@ -72,9 +72,9 @@ Om du vill börja använda Azure Media Services ska du ha följande:
 ## <a name="concepts-and-overview"></a>Koncept och översikt
 Azure Media Services-koncepten finns i [Koncept](media-services-concepts.md).
 
-En instruktionsserie som ger en introduktion till huvudkomponenterna i Azure Media Services finns i [Azure Media Services stegvisa självstudier](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Den här serien ger en bra översikt över koncepten och använder verktyget AMSE för att demonstrera AMS-uppgifter. Observera att AMSE-verktyget är ett verktyg i Windows. Det här verktyget stöder de flesta av de uppgifter som du kan göra programmässigt med [AMS SDK för .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java) eller  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
+En instruktionsserie som ger en introduktion till huvudkomponenterna i Azure Media Services finns i [Azure Media Services stegvisa självstudier](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Den här serien ger en bra översikt över koncepten och använder verktyget AMSE för att demonstrera AMS-uppgifter. AMSE-verktyget är ett verktyg i Windows. Det här verktyget stöder de flesta av de uppgifter som du kan göra programmässigt med [AMS SDK för .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java) eller  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Leverera media på begäran med Azure Media Services: vanliga scenarier och uppgifter
+## <a id="vod_scenarios"></a>Leverera media på begäran med Azure Media Services: vanliga scenarier och uppgifter
 Det här avsnittet beskriver vanliga scenarier och innehåller länkar till relevanta avsnitt. I följande diagram visas de huvudsakliga delarna i plattformen Media Services som är inblandade i att leverera innehåll på begäran.
 
 ![VoD-arbetsflöde](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
@@ -126,13 +126,13 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
     Om du använder en SAS-positionerare hämtas innehåll från Azure Blob Storage. I så fall behöver du inte ha slutpunkter för direktuppspelning med tillståndet Startad.
 4. Progressivt hämtat innehåll
 
-## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Leverera liveuppspelningshändelser med Azure Media Services
+## <a id="live_scenarios"></a>Leverera liveuppspelningshändelser med Azure Media Services
 När du arbetar med liveuppspelning ingår oftast följande komponenter:
 
 * En kamera som används för att sända en händelse.
 * En live-videokodare som konverterar signaler från kameran till dataströmmar som skickas till en tjänst för liveuppspelning.
 
-Du kan också välja flera kodare som synkroniserar tiden live. För vissa viktiga live-händelser som kräver mycket hög tillgänglighet och kvalitet rekommenderar vi att du använder redundanta aktiv/aktiv-kodare med tidssynkronisering för sömlös redundans utan att förlora data.
+Du kan också välja flera kodare som synkroniserar tiden live. För vissa viktiga live-händelser som kräver mycket hög tillgänglighet och kvalitet rekommenderar vi att du använder redundanta aktiv/aktiv-kodare med tidssynkronisering för problemfri sömlös redundans utan att förlora data.
 
 * En liveuppspelningstjänst som ger dig möjlighet att göra följande:
 * infoga innehållet via olika protokoll för liveuppspelning (till exempel RTMP eller Smooth Streaming)
@@ -172,6 +172,22 @@ I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i
 
 Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
+## <a name="supported-media-processors"></a>Mediebearbetare som stöds
+
+|Namn|Status|Datacenter
+|---|---|---|
+|Azure Media Face Detector|Förhandsversion|Alla|
+|Azure Media Hyperlapse|Förhandsversion|Alla|
+|Azure Media Indexer|Allmän tillgänglighet (GA)|Alla|
+|Azure Media Motion Detector|Förhandsversion|Alla|
+|Azure Media OCR|Förhandsversion|Alla|
+|Azure Media Redactor|Förhandsversion|Alla|
+|Azure Media Stabilizer|Förhandsversion|Alla|
+|Azure Media Video Thumbnails|Förhandsversion|Alla|
+|Media Encoder Standard|Allmän tillgänglighet (GA)|Alla|
+|Media Indexer v2|Förhandsversion|Alla utom Kina och federala myndigheter|
+|Arbetsflöde för Media Encoder Premium|Allmän tillgänglighet (GA)|Alla utom Kina|
+
 ## <a name="consuming-content"></a>Konsumera innehåll
 Azure Media Services innehåller de verktyg du behöver för att skapa innehållsrika och dynamiska klientprogram för uppspelare för de flesta plattformar, bland annat: iOS-enheter, Android-enheter, Windows, Windows Phone, Xbox och digitalboxar. Följande avsnitt innehåller länkar till SDK:er och spelarramverk som du kan använda för att utveckla egna klientprogram som kan använda strömmande media från Media Services.
 
@@ -185,8 +201,7 @@ Media Services stöder integration med Azure CDN. Information om hur du aktivera
 Du kan skala **Media Services** genom att ange antalet **enheter som är reserverade för strömning** och **enheter som är reserverade för kodning** och som du vill att ditt konto ska etableras med.
 
 Du kan även skala ditt Media Services-konto genom att lägga till lagringskonton. Varje lagringskonto är begränsat till 500 TB. Du kan välja att koppla flera lagringskonton för till ett enda Media Services-konto om du vill expandera din lagring utöver standardbegränsningarna.
-Media Services-kunder väljer antingen en **Standard**-slutpunkt för direktuppspelning eller en eller flera **Premium**-slutpunkter för direktuppspelning, utifrån behov. Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Den innehåller samma funktioner som Premium-enheter för direktuppspelning.
-Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Om du har en avancerad arbetsbelastning, om dina kapacitetskrav för direktuppspelning inte passar genomflödesmål för standard-slutpunkter för direktuppspelning eller om du vill styra StreamingEndpoint-tjänstens kapacitet för att hantera växande bandbreddsbehov genom att justera skalningsenheter (kallas även premium-enheter för direktuppspelning) rekommenderas du att allokera skalningsenheter.
+Media Services-kunder väljer antingen en **Standard**-slutpunkt för direktuppspelning eller en eller flera **Premium**-slutpunkter för direktuppspelning, utifrån behov. Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Den innehåller samma funktioner som Premium-enheter för direktuppspelning. Om du har en avancerad arbetsbelastning, om dina kapacitetskrav för direktuppspelning inte passar genomflödesmål för standard-slutpunkter för direktuppspelning eller om du vill styra StreamingEndpoint-tjänstens kapacitet för att hantera växande bandbreddsbehov genom att justera skalningsenheter (kallas även premium-enheter för direktuppspelning) rekommenderas du att allokera skalningsenheter.
 
 [Denna](media-services-portal-scale-streaming-endpoints.md) artikel länkar till relevanta avsnitt.
 

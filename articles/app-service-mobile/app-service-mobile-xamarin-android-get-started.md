@@ -3,7 +3,7 @@ title: "Kom igång med Azure Mobile Apps för Xamarin.Android-appar"
 description: "I den här kursen får du hjälp att komma igång med Azure Mobile Apps för Xamarin Android-utveckling"
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
+ms.contentlocale: sv-se
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinandroid-app"></a>Skapa en Xamarin.Android-app
@@ -41,8 +41,8 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto, kan du gå till [Testa App Service](https://azure.microsoft.com/try/app-service/mobile/).  Du kan skapa en kortvarig startmobilapp omedelbart i App Service. Inget kreditkort krävs, och du gör inga åtaganden.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Skapa en mobilapp-serverdel i Azure
 Följ de här stegen för att skapa en mobilapp-serverdel.
@@ -56,19 +56,19 @@ Du har nu skapat en mobilsappsserverdel i Azure som kan användas av dina mobilk
 
 ## <a name="download-and-run-the-xamarinandroid-app"></a>Hämta och kör Xamarin.Android-appen
 1. Under **Hämta och kör ditt Xamarin.Android-projekt** klickar du på **Hämta**.
-   
+
       Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
 2. Tryck på **F5** för att skapa projektet och starta appen.
 3. Ange en beskrivande text i appen, till exempel *Slutför kursen*, och klicka sedan på **Lägg till**.
-   
+
     ![][10]
-   
+
     Data från begäran infogas i tabellen TodoItem. Objekt som lagras i tabellen returneras av mobilappsserverdelen och data visas i listan.
-   
+
    > [!NOTE]
    > Du kan se koden som ansluter till mobilappsserverdelen för att fråga efter och infoga data i C#-filen ToDoActivity.cs.
-   > 
-   > 
+   >
+   >
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lägg till offlinesynkronisering till din app](app-service-mobile-xamarin-android-get-started-offline-data.md)

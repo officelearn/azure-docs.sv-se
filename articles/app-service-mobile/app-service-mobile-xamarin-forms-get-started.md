@@ -3,7 +3,7 @@ title: "Kom igång med Mobilappar med hjälp av Xamarin.Forms"
 description: "I den här kursen får du hjälp att komma igång med Azure Mobilappar för Xamarin.Forms-utveckling"
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 6b8c5c2ac2e721c4d6f73c7c17f34eadc041e0c9
+ms.contentlocale: sv-se
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinforms-app"></a>Skapa en Xamarin.Forms-app
@@ -33,13 +33,13 @@ Du måste slutföra den här kursen innan du börjar någon annan kurs om Mobila
 För att kunna genomföra den här kursen behöver du följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
+* Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 * En Mac med Xcode v7.0 eller senare och Xamarin Studio Community installerat. Se avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) och om [konfiguration, installation och verifieringar för Mac-användare](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 > [!NOTE]
 > Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/mobile/). Där kan du direkt skapa en tillfällig startmobilapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
-> 
-> 
+>
+>
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Skapa en ny mobilappsserverdel i Azure
 Skapa en ny mobilappsserverdel genom att följa instruktionerna nedan.
@@ -60,12 +60,12 @@ Då går vi vidare:
 
 1. Öppna [Azure Portal] i ett webbläsarfönster på Mac- eller Windowsdatorn.
 2. På inställningsbladet för mobilappen klickar du på **Kom igång** (under Mobilt) > **Xamarin.Forms**. I steg 3 klickar du på **Skapa ny app** om det alternativet inte redan är förvalt.  Klicka sedan på **Hämta**.
-   
+
    Ett projekt laddas ned med ett klientprogram som är kopplat till din mobilapp. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
 3. Extrahera projektet som du laddade ned och öppna det i Xamarin Studio eller Visual Studio.
-   
+
    ![][9]
-   
+
    ![][8]
 
 ## <a name="optional-run-the-ios-project"></a>(Valfritt) Kör iOS-projektet
@@ -80,11 +80,11 @@ Det här avsnittet handlar om att köra Xamarin iOS-projektet för iOS-enheter. 
 2. Gå till menyn **Build** och klicka på **Configuration Manager**.
 3. I dialogrutan **Configuration Manager** markerar du kryssrutorna **Build** och **Deploy** för iOS-projektet.
 4. Tryck på **F5** för att skapa projektet och starta appen i iPhone-emulatorn.
-   
+
    > [!NOTE]
    > Om du får problem i bygget kör du NuGet Package Manager och uppdaterar till den senaste versionen av stödpaketen till Xamarin. Ibland dröjer det innan snabbstartsprojekt uppdateras till den senaste versionen.    
-   > 
-   > 
+   >
+   >
 
 Ange en beskrivande text i appen, till exempel  *Läs om Xamarin*, och klicka sedan på **+**.
 
@@ -94,8 +94,8 @@ En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. D
 
 > [!NOTE]
 > Du hittar koden som ansluter till mobilappsserverdelen i C#-filen TodoItemManager.cs i det portabla klassbiblioteksprojektet i lösningen.
-> 
-> 
+>
+>
 
 ## <a name="optional-run-the-android-project"></a>(Valfritt) Kör Androidprojektet
 Det här avsnittet handlar om att köra Xamarin droid-projektet för Android. Du kan hoppa över det här avsnittet om du inte arbetar med Androidenheter.
@@ -109,11 +109,11 @@ Det här avsnittet handlar om att köra Xamarin droid-projektet för Android. Du
 2. Gå till menyn **Build** och klicka på **Configuration Manager**.
 3. I dialogrutan **Configuration Manager** markerar du kryssrutorna **Build** och **Deploy** för Androidprojektet.
 4. Tryck på **F5** för att skapa projektet och starta appen i en Androidemulator.
-   
+
    > [!NOTE]
    > Om du får problem i bygget kör du NuGet Package Manager och uppdaterar till den senaste versionen av stödpaketen till Xamarin. Ibland dröjer det innan snabbstartsprojekt uppdateras till den senaste versionen.    
-   > 
-   > 
+   >
+   >
 
 Ange en beskrivande text i appen, till exempel  *Läs om Xamarin*, och klicka sedan på **+**.
 
@@ -123,8 +123,8 @@ En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. D
 
 > [!NOTE]
 > Du hittar koden som ansluter till mobilappsserverdelen i C#-filen TodoItemManager.cs i det portabla klassbiblioteksprojektet i lösningen.
-> 
-> 
+>
+>
 
 ## <a name="optional-run-the-windows-project"></a>(Valfritt) Kör Windowsprojektet
 Det här avsnittet handlar om att köra Xamarin WinApp-projektet för Windowsenheter. Du kan hoppa över det här avsnittet om du inte arbetar med Windowsenheter.
@@ -134,11 +134,11 @@ Det här avsnittet handlar om att köra Xamarin WinApp-projektet för Windowsenh
 2. Gå till menyn **Build** och klicka på **Configuration Manager**.
 3. I dialogrutan **Configuration Manager** markerar du kryssrutorna **Build** och **Deploy** för Windowsprojektet som du valde.
 4. Tryck på **F5** för att skapa projektet och starta appen i en Windowsemulator.
-   
+
    > [!NOTE]
    > Om du får problem i bygget kör du NuGet Package Manager och uppdaterar till den senaste versionen av stödpaketen till Xamarin. Ibland dröjer det innan snabbstartsprojekt uppdateras till den senaste versionen.    
-   > 
-   > 
+   >
+   >
 
 Ange en beskrivande text i appen, till exempel  *Läs om Xamarin*, och klicka sedan på **+**.
 
@@ -148,8 +148,8 @@ En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. D
 
 > [!NOTE]
 > Du hittar koden som ansluter till mobilappsserverdelen i C#-filen TodoItemManager.cs i det portabla klassbiblioteksprojektet i lösningen.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lägg till autentisering i appen](app-service-mobile-xamarin-forms-get-started-users.md)  
@@ -159,7 +159,7 @@ En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. D
 * [Aktivera offlinesynkronisering av appen](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Läs om hur du lägger till offlinestöd i appen genom en mobilappsserverdel. Med offlinesynkronisering kan slutanvändarna interagera med mobilappen och &mdash;se, lägga till och ändra data&mdash; även när det inte finns någon nätverksanslutning.
 * [Så här använder du den hanterade klienten för Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
-  Läs om hur du arbetar med den hanterade klient-SDK:n i Xamarin-appen. 
+  Läs om hur du arbetar med den hanterade klient-SDK:n i Xamarin-appen.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started
@@ -180,5 +180,4 @@ En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. D
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-
 

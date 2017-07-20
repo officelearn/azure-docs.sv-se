@@ -3,7 +3,7 @@ title: "Jag använder Mobile Services. Vad bidrar Apptjänst med?"
 description: "Läs om vilken nytta du har av Apptjänst i dina befintliga Mobile Services-projekt."
 services: app-service\mobile
 documentationcenter: ios
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
@@ -19,7 +19,6 @@ ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/10/2017
-
 
 ---
 # <a name="getting-started"> </a>Jag använder Mobile Services. Vad bidrar Apptjänst med?
@@ -65,5 +64,4 @@ Serverdelen och databasen kan säkerhetskopieras automatiskt. Kod och data är s
 Med *Azure Apptjänst* kan du nu skapa flera olika privata testnings- och mellanlagringsmiljöer för dina mobilappar. I de här miljöerna kan du testa apparna innan du distribuerar ut dem. Du kan växla till produktionsmiljö utan avbrott. Webbappar är förinstallerade, vilket ger bästa möjliga kundupplevelse.
 
 Du kan komma igång och utnyttja alla fördelarna med *Apptjänst* för din befintliga mobiltjänst genom att gå igenom den här [kursen](app-service-mobile-migrating-from-mobile-services.md).
-
 

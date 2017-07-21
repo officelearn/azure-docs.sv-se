@@ -16,10 +16,10 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -180,13 +180,14 @@ Följande tips kan vara till hjälp när du felsöker problem med Azure CLI:
 * Använd `-h` för att hämta **hjälptext** för alla CLI-kommandon
 * Använd `-v` och `-vv` till att visa **utförliga** utdata från kommandon. När du tar med flaggan `-vv` visas faktiska REST-begäranden och -svar i Azure CLI. Växlarna är användbara för att visa fullständiga utdata vid fel.
 * Du kan visa **-kommandoutdata som JSON-** med `--json`-alternativet. Till exempel visar `az batch pool show pool001 --json` pool001:s egenskaper i JSON-format. Du kan sedan kopiera och ändra dessa utdata och använda dem i en `--json-file` (se [JSON-filer](#json-files) tidigare i den här artikeln).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * [Batch-forumet][batch_forum] övervakas av medlemmar i Batch-teamet. Du kan ställa frågor där om du får problem eller behöver hjälp med en viss åtgärd.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
 * Mer information om Batch-resurser finns i [Utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).
-* Se [Programdistribution med Azure Batch-programpaket](batch-application-packages.md) för att lära dig hur du använder den här funktionen för att hantera och distribuera de program som du kör på Batch-beräkningsnoder.
+* Se [distribuera program till compute-noder med batch-programpaket](batch-application-packages.md) för att läsa hur man använder den här funktionen för att hantera och distribuera de program du kör på Batch compute-noder.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

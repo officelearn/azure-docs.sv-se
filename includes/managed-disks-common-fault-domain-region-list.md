@@ -18,12 +18,15 @@
 | Storbritannien, södra            | 2                       |
 | Storbritannien, västra             | 2                       |
 |                     |                         |
-| Östasien           | 3                       |
+| Östasien           | 2                       |
 | Sydostasien     | 2                       |
 | Östra Japan          | 2                       |
 | Västra Japan          | 2                       |
 | Södra Indien         | 2                       |
 | Indien, centrala       | 2                       |
+| Indien, västra          | 2                       |
+| Centrala Korea       | 2                       |
+| Sydkorea         | 2                       |
 |                     |                         |
 | Östra Australien      | 2                       |
 | Sydöstra Australien | 2                       |

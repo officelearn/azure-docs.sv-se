@@ -1,5 +1,5 @@
 ---
-title: "Skicka frågor mot ditt Azure Search-index med hjälp av REST API | Microsoft Docs"
+title: "Fråga ett index (REST-API – Azure Search)| Microsoft Docs"
 description: "Skapa en sökfråga i Azure Search och använd sökparametrar för att filtrera och sortera sökresultat."
 services: search
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1976a514b4469704dcba9381c5fcbe8805a11ecd
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 

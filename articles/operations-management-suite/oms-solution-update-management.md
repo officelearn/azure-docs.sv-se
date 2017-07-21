@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/21/2017
+ms.date: 07/09/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: b4d5ab66db64a50d1b87edd4bf445e49004e67b4
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 06/22/2017
 
 ![Symbolen Hantering av uppdateringar](./media/oms-solution-update-management/update-management-symbol.png)
 
-Uppdateringshanteringslösningen i OMS gör att du kan du hantera uppdateringar för dina Windows- och Linux-datorer.  Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och starta processen för att installera nödvändiga uppdateringar för servrar.
+Lösningen för hantering av uppdateringar i OMS låter dig hantera säkerhetsuppdateringar av operativsystemet för dina Windows- och Linux-datorer som distribueras via Azure, via lokala miljöer eller via andra molnleverantörer.  Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
 
 ## <a name="solution-overview"></a>Lösningsöversikt
@@ -37,7 +37,7 @@ Datorer som hanteras av OMS använder följande för att utföra utvärderingar 
 * Automation Hybrid Runbook Worker
 * Microsoft Update eller Windows Server Update Services för Windows-datorer
 
-Följande diagram visar en konceptuell vy över beteenden och dataflöde över hur lösningen utvärderar och tillämpar uppdateringar till alla anslutna Windows Server- och Linux-datorer i en arbetsyta.    
+Följande diagram visar en konceptuell vy över beteende och dataflöde över hur lösningen utvärderar och tillämpar säkerhetsuppdateringar till alla anslutna Windows Server- och Linux-datorer i en arbetsyta.    
 
 #### <a name="windows-server"></a>Windows Server
 ![Processflöde för hantering av Windows Server-uppdateringar](media/oms-solution-update-management/update-mgmt-windows-updateworkflow.png)

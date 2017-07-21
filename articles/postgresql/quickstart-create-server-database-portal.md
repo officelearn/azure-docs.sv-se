@@ -10,11 +10,11 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 06/19/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 2b81b9e1ae2abfd332bd6048b7643b4245ca374b
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -104,12 +104,12 @@ Nu använder vi psql-kommandoradsverktyget för att ansluta till Azure Database 
 
    ![Azure Database för PostgreSQL – Azure Shell Bash-prompten](./media/quickstart-create-database-portal/8-bash.png)
 
-3. I Cloud Shell-prompten ansluter du till din Azure Database för PostgreSQL-server med psql-kommandona. Följande format används för att ansluta till en Azure Database för PostgreSQL-server med [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget:
+3. I Cloud Shell-prompten, ansluter du till din Azure Database för PostgreSQL-server genom att skriva in psql-kommandoraden i prompten. Följande format används för att ansluta till en Azure Database för PostgreSQL-server med [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget:
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   Följande kommando till exempel, ansluter till standarddatabasen som heter **postgres** på din PostgreSQL-server **mypgserver-20170401.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Ange ditt lösenord för serveradministratören när du uppmanas till detta.
+   Följande kommando till exempel, ansluter till standarddatabasen som heter **postgres** på din PostgreSQL-server **mypgserver-20170401.postgres.database.azure.com** med hjälp av autentiseringsuppgifter. Använd alltid port **5432** när du ansluter. Ange ditt lösenord för serveradministratören när du uppmanas till detta. Använd blanksteg ange mellan -- växlarna i kommandot som det visas, men använd inte blanksteg mellan likhetstecknen och parametervärdena.
 
    ```bash
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres

@@ -1,6 +1,6 @@
 ---
 title: "Komma igång med IoT Hub (Java) | Microsoft Docs"
-description: "Så här skickar du ”enhet till molnet”-meddelanden från en enhet till Azure IoT Hub med Azure IoT SDK för Java. Du skapar en simulerad enhetsapp för att skicka meddelanden, en tjänstapp för att registrera enheten i identitetsregistret och en tjänstapp för att läsa meddelanden från enheten till molnet från IoT Hub."
+description: "Läs hur man skickar meddelanden från enheten till molnet i Azure IoT Hub med hjälp av IoT SDK:er för Java. Skapa appar för simulerade enheter och tjänster för att registrera din enhet, skicka meddelanden och läsa meddelanden från IoT Hub."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 7b44762ffea876d628886192376b6275bbc0b83b
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 7d95ba163712c8a3610839029fe3453bd5c308a8
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-java"></a>Anslut din simulerade enhet till IoT Hub med Java

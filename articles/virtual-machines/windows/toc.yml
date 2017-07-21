@@ -85,8 +85,6 @@
           href: preserving-maintenance.md
         - name: Starta om underhåll
           href: impactful-maintenance.md
-        - name: Schema
-          href: planned-maintenance-schedule.md
     - name: VM-storlekar
       href: sizes.md
       items:
@@ -409,6 +407,8 @@
               href: troubleshoot-recovery-disks.md
             - name: Azure Portal
               href: troubleshoot-recovery-disks-portal.md
+        - name: Använda PerfInsights för att felsöka prestandaproblem
+          href: how-to-use-perfInsights.md
 - name: Referens
   items:
     - name: Azure CLI

@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/08/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 785bd144805a472ae457f9a3323d512b5cbf055d
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/10/2017
 
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Lagra ostrukturerade data i Azure Cosmos-databasen med hjälp av funktioner
@@ -159,9 +159,7 @@ Om dina data finns i dokumentet har du skapat en Azure-funktion som lagrar ostru
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Functions finns i följande ämnen:
-
-[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
+
+Mer information om att binda till en Cosmos DB-databas finns i [Azure Functions Cosmos DB-bindningar](functions-bindings-documentdb.md).
 

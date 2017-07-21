@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 06/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: f00ca3b8a35c0c49277457bd42fe8a314520d5a5
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 01b23996a9cd3a8368a78085dec905d020612b48
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Skapa din första funktion i Azure Portal
@@ -64,7 +63,7 @@ En funktion skapas i ditt valda språk med hjälp av mallen för en HTTP-utlöst
 
     ![Kopiera funktionswebbadressen från Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Lägg till frågesträngen `&name=<yourname>` i webbadressen och kör din begäran. Nedan visas svaret på GET-begäran som returnerades av funktionen i webbläsaren:
+2. Klistra in funktionens URL i adressfältet för din webbläsare. Lägg till frågesträngen `&name=<yourname>` till den här URL:en och tryck på knappen `Enter` på tangentbordet för att utföra begäran. Följande är ett exempel på svaret som returnerades av funktionen i Edge-webbläsaren:
 
     ![Funktionssvar i webbläsaren.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 

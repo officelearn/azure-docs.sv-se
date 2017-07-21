@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/16/2017
+ms.date: 07/12/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: eb7d58c71f6d0daf072045797e30208ffe966ee0
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 0e80e0a1c334bcca0bb15dd16c54306a60f2486e
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -84,6 +84,8 @@ Alla automatiseringsaktiviteter som du utför mot resurser med hjälp av Azure-c
 * **Integreringsmoduler** – är PowerShell-moduler som ingår i ett Azure Automation-konto för användning av cmdlets i runbooks och DSC-konfigurationer.
 * **Scheman** – innehåller scheman som startar eller stoppar en runbook vid en angiven tidpunkt, även med återkommande frekvens.
 * **Variabler** – innehåller värden som är tillgängliga från en runbook eller DSC-konfiguration.
+* **DSC-konfigurationer** – är PowerShell-skript som beskriver hur du konfigurerar en funktion eller inställning för operativsystem eller installerar ett program på en Windows- eller Linux-dator.  
+* **Runbooks** – är en uppsättning uppgifter som kör automatiserade processer i Azure Automation baserat på Windows PowerShell.    
 
 Automation-resurserna för varje Automation-konto associeras med en enda Azure-region, men Automation-konton kan hantera alla resurser i din prenumeration. Skapa Automation-konton i olika regioner om du har principer som kräver att data och resurser är isolerade i en specifik region.
 

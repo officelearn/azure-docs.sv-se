@@ -10,12 +10,12 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 06/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 0027d25bcaa3376c5a29299f3ec88809ebf1d2d8
+ms.date: 07/07/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 3cd090b02887857a68271f021e3580e05660d1dc
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda Python för att ansluta och fråga efter data
@@ -47,7 +47,14 @@ Hämta den information som du behöver för att ansluta till Azure Database för
 4. Välj serverns **översikt**-sida. Anteckna **servernamn** och **inloggningsnamnet för serveradministratören**.
  ![Azure Database för PostgreSQL – inloggning för serveradministratör](./media/connect-python/1-connection-string.png)
 5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
-   
+
+## <a name="how-to-run-python-code"></a>Så här kör du Python-kod
+- Skapa en ny fil med namnet postgres.py i valfri textredigerare och spara den till en projektmapp. Kopiera och klistra in ett kodexempel som visas nedan i textfilen och spara den. Se till att markera UTF-8-kodning när du sparar filen i Windows-operativsystemet. 
+- Om du vill köra koden startar du kommandotolken eller bash-gränssnittet. Ändra katalogen till din projektmapp, till exempel `cd postgresql`. Skriv därefter in python-kommandot följt av filnamnet, till exempel `python postgresql.py`.
+
+> [!NOTE]
+> Från och med Python version 3, kan du se felet `SyntaxError: Missing parentheses in call to 'print'` när du kör kodblocken nedan. Om detta händer, ersätter du varje anrop till kommandot `print "string"` med ett funktionsanrop med parenteser, till exempel `print("string")`.
+
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
 Använd följande kod för att ansluta och läsa in data med hjälp av funktionen [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) med en **INSERT**-SQL-instruktion. Funktionen [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) används för att köra SQL-frågor mot en PostgreSQL-databas. Ersätt parametrarna host, dbname,user och password med de värden som du angav när du skapade servern och databasen.
 
@@ -59,9 +66,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -81,7 +89,10 @@ cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("oran
 cursor.execute("INSERT INTO inventory (name, quantity) VALUES (%s, %s);", ("apple", 100))
 print "Inserted 3 rows of data"
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## <a name="read-data"></a>Läsa data
@@ -95,9 +106,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -111,7 +123,10 @@ rows = cursor.fetchall()
 for row in rows:
     print "Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2]))
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## <a name="update-data"></a>Uppdatera data
@@ -125,9 +140,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -137,7 +153,10 @@ cursor = conn.cursor()
 cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
 print "Updated 1 row of data"
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## <a name="delete-data"></a>Ta bort data
@@ -151,9 +170,10 @@ host = "mypgserver-20170401.postgres.database.azure.com"
 user = "mylogin@mypgserver-20170401"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
+sslmode = "require"
 
 # Construct connection string
-conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
 conn = psycopg2.connect(conn_string) 
 print "Connection established"
 
@@ -161,9 +181,12 @@ cursor = conn.cursor()
 
 # Delete data row from table
 cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
-print ("Deleted 1 row of data")
+print "Deleted 1 row of data"
 
+# Cleanup
 conn.commit()
+cursor.close()
+conn.close()
 ```
 
 ## <a name="next-steps"></a>Nästa steg

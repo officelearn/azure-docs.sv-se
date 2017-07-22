@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/07/2017
+ms.date: 07/19/2017
 ms.author: cabailey
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f9dba42681f69406f9066a63140f74e3f5ec41dd
-
+ms.contentlocale: sv-se
+ms.lasthandoff: 12/07/2016
 
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
@@ -59,9 +60,4 @@ Mer information om hur du använder nycklar och hemligheter med Azure Key Vault 
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

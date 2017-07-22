@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.reviewer: jesakowi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
 ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
+ms.contentlocale: sv-se
+ms.lasthandoff: 12/06/2016
 
 ---
 
@@ -215,10 +217,5 @@ I exemplet med FabrikamMail ser det ut ungefär så här:
 (**ClientId** är ID:t för FabrikamMails ServicePrincipal-objekt (det som precis skapades), **PrincipalId** är ID:t för användarobjektet (för användaren som godkänt) och **ResourceId** är ID:t för Exchanges ServicePrincipal-objekt (Scope är behörigheten i Exchange som godkänts).
 
 Om användarna inte har tillåtelse att ge sitt godkännande visas en skärm som anger att behörighet krävs.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

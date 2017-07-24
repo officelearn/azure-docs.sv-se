@@ -400,6 +400,10 @@
           href: migration-classic-resource-manager-faq.md
     - name: Felsöka
       items:
+        - name: >-
+            Support för att lägga till virtuella Azure-datorer i en befintlig
+            tillgänglighetsuppsättning
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Återställ lösenord för virtuell Linux-dator
           href: virtual-machines-linux-reset-password.md
         - name: Förstå en omstart av systemet

@@ -290,7 +290,8 @@
 ## Övervaka och diagnostisera
 ### [Övervaka och diagnostisera program](service-fabric-diagnostics-overview.md)
 ### Generera händelser
-#### [Generera händelser på infrastrukturnivå](service-fabric-diagnostics-event-generation-infra.md)
+#### [Generera händelser på plattformsnivå](service-fabric-diagnostics-event-generation-infra.md)
+##### [Användningskanal](service-fabric-diagnostics-event-generation-operational.md)
 ##### [Reliable Services-händelser](service-fabric-reliable-services-diagnostics.md)
 ##### [Reliable Actors-händelser](service-fabric-reliable-actors-diagnostics.md)
 ##### [Prestandamått](service-fabric-diagnostics-event-generation-perf.md)

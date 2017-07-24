@@ -1,325 +1,114 @@
-
-
 # Översikt
-
-
 ## [Introduktion till Azure Data Factory](data-factory-introduction.md)
-
-
 ## Koncept
-
-
 ### [Pipelines och aktiviteter](data-factory-create-pipelines.md)
-
-
 ### [Datauppsättningar](data-factory-create-datasets.md)
-
-
 ### [Schemaläggning och körning](data-factory-scheduling-and-execution.md)
 
-
-
 # Kom igång
-
-
 ## [Självstudier: Skapa en pipeline för att kopiera data](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-
-
 ### [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
-
-
 ### [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
-
-
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-
-
 ### [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-
-
 ### [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-
-
 ### [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-
-
 ### [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-
-
 ## [Självstudier: Skapa en pipeline för att omvandla data](data-factory-build-your-first-pipeline.md)
-
-
 ### [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
-
-
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-
-
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-
-
 ### [Azure Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-
-
 ### [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
-
-
 ## [Självstudie: Flytta data mellan lokalt system och molnet](data-factory-move-data-between-onprem-and-cloud.md)
-
-
 ## [Vanliga frågor och svar](data-factory-faq.md)
 
-
-
 # Gör så här för att
-
-
 ## Flytta data
-
-
 ### [Översikt över kopieringsaktivitet](data-factory-data-movement-activities.md)
-
-
 ### [Data Factory-kopieringsguide](data-factory-azure-copy-wizard.md)
-
-
 #### [Läs in 1 TB på 15 minuter](data-factory-load-sql-data-warehouse.md)
-
-
 ### [Prestanda- och justeringsguide](data-factory-copy-activity-performance.md)
-
-
+### [Feltolerans](data-factory-copy-activity-fault-tolerance.md)
 ### [Säkerhetsöverväganden](data-factory-data-movement-security-considerations.md)
-
-
 ### Anslutningar
-
-
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
-
-
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
-
-
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
-
-
 #### [Azure Cosmos DB](data-factory-azure-documentdb-connector.md)
-
-
 #### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
-
-
 #### [Azure Search](data-factory-azure-search-connector.md)
-
-
 #### [Azure SQL Database](data-factory-azure-sql-connector.md)
-
-
 #### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
-
-
 #### [Azure Table Storage](data-factory-azure-table-connector.md)
-
-
 #### [Cassandra](data-factory-onprem-cassandra-connector.md)
-
-
 #### [DB2](data-factory-onprem-db2-connector.md)
-
-
 #### [Filsystem](data-factory-onprem-file-system-connector.md)
-
-
 #### [FTP](data-factory-ftp-connector.md)
-
-
 #### [HDFS](data-factory-hdfs-connector.md)
-
-
 #### [HTTP](data-factory-http-connector.md)
-
-
 #### [MongoDB](data-factory-on-premises-mongodb-connector.md)
-
-
 #### [MySQL](data-factory-onprem-mysql-connector.md)
-
-
 #### [OData](data-factory-odata-connector.md)
-
-
 #### [ODBC](data-factory-odbc-connector.md)
-
-
 #### [Oracle](data-factory-onprem-oracle-connector.md)
-
-
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
-
-
 #### [Salesforce](data-factory-salesforce-connector.md)
-
-
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
-
-
 #### [SAP HANA](data-factory-sap-hana-connector.md)
-
-
 #### [SFTP](data-factory-sftp-connector.md)
-
-
 #### [SQL Server](data-factory-sqlserver-connector.md)
-
-
 #### [Sybase](data-factory-onprem-sybase-connector.md)
-
-
 #### [Teradata](data-factory-onprem-teradata-connector.md)
-
-
 #### [Webbtabell](data-factory-web-table-connector.md)
-
-
 ### [Gateway för datahantering](data-factory-data-management-gateway.md)
 
 
-
-
 ## [Omvandla data](data-factory-data-transformation-activities.md)
-
-
 ### [HDInsight Hive-aktivitet](data-factory-hive-activity.md)
-
-
 ### [HDInsight-piggningsåtgärd](data-factory-pig-activity.md)
-
-
 ### [HDInsight MapReduce-aktivitet](data-factory-map-reduce.md)
-
-
 ### [HDInsight-strömningsaktivitet](data-factory-hadoop-streaming-activity.md)
-
-
 ### [HDInsight Spark-aktivitet](data-factory-spark.md)
-
-
 ### [Machine Learning Batch-körningsaktivitet](data-factory-azure-ml-batch-execution-activity.md)
-
-
 ### [Machine Learning-uppdateringsresursaktivitet](data-factory-azure-ml-update-resource-activity.md)
-
-
 ### [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
-
-
 ### [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
-
-
 ### [.NET-anpassad aktivitet](data-factory-use-custom-activities.md)
-
-
 ### [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
-
 ### [Bearbeta modeller på nytt i Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
-
-
 ### [Länkade tjänster för Compute](data-factory-compute-linked-services.md)
 
-
-
 ## Utveckla
-
-
 ### [Azure Resource Manager-mall](data-factory-how-to-use-resource-manager-templates.md)
-
-
 ### [Exempel](data-factory-samples.md)
-
-
 ### [Funktioner och systemvariabler](data-factory-functions-variables.md)
-
-
 ### [Namngivningsregler](data-factory-naming-rules.md)
-
-
 ### [.NET API-ändringslogg](data-factory-api-change-log.md)
-
-
 ## Övervaka och hantera
-
-
 ### [Övervaknings- och hanteringsapp](data-factory-monitor-manage-app.md)
-
-
 ### [Azure Data Factory-pipelines](data-factory-monitor-manage-pipelines.md)
-
-
 ### [Använda .NET SDK](data-factory-create-data-factories-programmatically.md)
-
-
 ### [Felsök Data Factory-problem](data-factory-troubleshoot.md)
-
-
 ### [Felsöka problem med gateway för datahantering](data-factory-troubleshoot-gateway-issues.md)
 
-
-
 # Referens
-
-
 ## [PowerShell](/powershell/module/azurerm.datafactories)
-
-
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-
-
 ## [REST](/rest/api/datafactory/)
-
-
 ## [JSON](data-factory-json-scripting-reference.md)
 
-
-
 # Resurser
-
-
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
-
-
 ## [Fallstudier](data-factory-customer-case-studies.md)
-
-
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/data-factory)
-
-
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
-
-
 ## [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)
-
-
 ## [Viktig information för gateway för datahantering](data-factory-gateway-release-notes.md)
-
-
 ## [Begär en funktion](https://feedback.azure.com/forums/270578-azure-data-factory)
-
-
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=data-factory)
-
-
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
-
-
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
-
-
 ### [Kundprofilering](data-factory-customer-profiling-usecase.md)
-
-
 ### [Bearbeta datauppsättningar i stor skala med Data Factory och Batch](data-factory-data-processing-using-batch.md)
-
-
 ### [Produktrekommendationer](data-factory-product-reco-usecase.md)

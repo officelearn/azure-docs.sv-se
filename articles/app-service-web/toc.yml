@@ -257,6 +257,11 @@
           href: app-service-web-app-azure-resource-manager-powershell.md
         - name: Hantera appar med Azure Automation
           href: automation-manage-web-app.md
+    - name: Integrera
+      items:
+        - name: Exportera till PowerApps och Microsoft Flow
+          href: >-
+            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service Environment
       items:
         - name: Använd App Service Environment

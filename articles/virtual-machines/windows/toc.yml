@@ -370,6 +370,10 @@
               href: migration-classic-resource-manager-faq.md
     - name: Felsöka
       items:
+        - name: >-
+            Support för att lägga till virtuella Azure-datorer i en befintlig
+            tillgänglighetsuppsättning
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Förstå en omstart av systemet
           href: understand-vm-reboot.md
         - name: Anslutningar till fjärrskrivbord

@@ -6,7 +6,6 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
-## [U-SQL-programmeringsguide](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Gör så här för att
 
@@ -37,6 +36,7 @@
 ### [Använd jobbwebbläsare och jobbvy](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Använda körningsvy för brytpunkter](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 ### [Lokal körning och lokal felsökning i VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
+### [U-SQL-programmeringsguide](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Referens
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)

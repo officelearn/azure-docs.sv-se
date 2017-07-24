@@ -29,16 +29,6 @@ abstract:
     verksamhetskritiska, krävande arbetsbelastningar som är skalbara,
     tillförlitliga och hanterbara. Lär dig hur du använder Azure Service Fabric
     med hjälp av våra snabbstarter, självstudier och exempel.
-  aside:
-    image:
-      alt: null
-      height: 140
-      src: >-
-        https://sec.ch9.ms/ch9/cf61/aa41e58e-ec9f-4f7b-982d-40daaaeacf61/IntroAzureServiceFabric_960.jpg
-      width: 250
-    title: 'Introduktion till Service Fabric (3:53)'
-    href: 'https://azure.microsoft.com/en-us/resources/videos/azure-service-fabric/'
-    width: 250
 sections:
   - title: Snabbstarter på 5 minuter
     items:

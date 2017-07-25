@@ -15,16 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# Skalningsuppsättningar för virtuella Azure-datorer och hanterade diskar
-<a id="azure-vm-scale-sets-and-managed-disks" class="xliff"></a>
+# <a name="azure-vm-scale-sets-and-managed-disks"></a>Skalningsuppsättningar för virtuella Azure-datorer och hanterade diskar
 
 [Skalningsuppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) stöder nu virtuella datorer med hanterade diskar. Det finns många fördelar med att använda hanterade diskar med skalningsuppsättningar, däribland:
 
@@ -34,8 +32,7 @@ ms.lasthandoff: 06/01/2017
 
 * En skalningsuppsättning med en hanterad disk kan ha en kapacitet så hög som 1 000 virtuella datorer om den är baserad på en plattformsavbildning eller 100 virtuella datorer om den är baserad på en anpassad avbildning.
 
-## Kom igång
-<a id="get-started" class="xliff"></a>
+## <a name="get-started"></a>Kom igång
 
 Ett enkelt sätt att komma igång med skalningsuppsättningar med hanterade diskar är att distribuera en från Azure Portal. Mer information finns i [den här artikeln](./virtual-machine-scale-sets-portal-create.md). Ett annat enkelt sätt att komma igång är att använda [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) för att distribuera en skalningsuppsättning. Följande exempel visar hur du skapar en Ubuntu-baserad skalningsuppsättning med 10 virtuella datorer, där var och en har en datadisk på 50 och 100 GB:
 
@@ -46,13 +43,7 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 Alternativt kan du titta i [GitHub-databasen för Azure-snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates) och leta efter mappar som innehåller `vmss` för att se fördefinierade exempel på mallar som distribuerar skalningsuppsättningar. Om du vill se vilka mallar som redan använder hanterade diskar kan du referera till [den här listan](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
-## API-versioner
-<a id="api-versions" class="xliff"></a>
-
-Skaluppsättningar för hanterade diskar kräver en Microsoft.Compute APi-version av `2016-04-30-preview` eller senare. Skalningsuppsättningar med ohanterade diskar fortsätter att fungera som de gör för närvarande, även i nya API-versioner som har stöd för hanterade diskar. Skalningsuppsättningar med ohanterade diskar kan inte dra nytta av fördelarna med hanterade diskar, även i de nya API-versionerna.
-
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 Du hittar mer information om hanterade diskar i allmänhet i [den här artikeln](../storage/storage-managed-disks-overview.md).
 

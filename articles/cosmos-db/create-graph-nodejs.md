@@ -3,7 +3,7 @@ title: Skapa en Node.js-app i Azure Cosmos DB med Graph API | Microsoft Docs
 description: "Presenterar ett Node.js-kodexempel som du kan använda för att ansluta till och ställa frågor mot Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,14 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b9e8c46ba2f029f8dae2b357f05a806d769d0920
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 153b4cc668fdebd28cec5f3d95093a595064202a
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Skapa en Node.js-app med Graph API
@@ -96,19 +95,23 @@ Vi gör en snabb genomgång av vad som händer i appen. Om du öppnar filen `app
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
+1. Uppdatera filen config.js. 
 
-1. I [Azure Portal](http://portal.azure.com/) går du till ditt Azure Cosmos DB-konto. Klicka på **Nycklar** i den vänstra navigeringsmenyn och sedan på **läs- och skrivnycklar**. Använd kopieringsknapparna till höger och kopiera URI:n och primärnyckeln till filen `app.js` i nästa steg.
-
-    ![Bladet Azure Portal-nycklar](./media/create-graph-nodejs/keys.png)
-
-2. Kopiera ditt Gremlin-URI-värde från portalen (med kopieringsknappen) och gör det till värdet för `config.endpoint`-nyckeln i config.js. Gremlin-slutpunkten måste vara värddatorns namn utan port och protocol-nummer, till exempel `mygraphdb.graphs.azure.com` (inte `https://mygraphdb.graphs.azure.com` eller `mygraphdb.graphs.azure.com:433`).
+2. I config.js, fyller du i config.endpoint-nyckeln med **Gremlin URI**-värdet från sidan **Översikt** i Azure-portalen. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-3. Kopiera sedan värdet för primärnyckeln från portalen och gör det till värdet för config.primaryKey i config.js. Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
+    ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-graph-nodejs/gremlin-uri.png)
+
+   Om värdet **Gremlin URI** är tomt kan du skapa värdet från sidan **Nycklar** i portalen med **URI**-värdet, utan https:// och genom att ändra dokument till diagram.
+
+   Gremlin-slutpunkten måste vara värddatorns namn utan port och protocol-nummer, till exempel `mygraphdb.graphs.azure.com` (inte `https://mygraphdb.graphs.azure.com` eller `mygraphdb.graphs.azure.com:433`).
+
+3. I config.js, fyller du i config-primaryKey-värdet med **Primärnyckelvärdet** från sidan **Nycklar** i Azure-portalen. 
 
     `config.primaryKey = "PRIMARYKEY";`
+
+   ![Bladet Azure Portal-nycklar](./media/create-graph-nodejs/keys.png)
 
 4. Ange databasens namn och grafvärdet (behållaren) för config.database och config.collection. 
 
@@ -118,8 +121,8 @@ Här är ett exempel på hur din färdiga config.js-fil ska se ut:
 var config = {}
 
 // Note that this must not have HTTPS or the port number
-config.endpoint = "mygraphdb.graphs.azure.com";
-config.primaryKey = "OjlhK6tjxfSXyKtrmCiM9O6gQQgu5DmgAoauzD1PdPIq1LZJmILTarHvrolyUYOB0whGQ4j21rdAFwoYep7Kkw==";
+config.endpoint = "testgraphacct.graphs.azure.com";
+config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"
 

@@ -16,10 +16,6 @@ I dialogrutan **Create App Service** (Skapa App Service) använder du värdinst�
 | **[App Service-plan](../articles/azure-functions/functions-scale.md)** | Förbrukningsplan | Se till att du väljer **Förbrukning** under **Storlek** när du skapar en ny plan.  |
 | **[Lagringskonto](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Globalt unikt namn | Använd ett befintligt lagringskonto eller skapa ett nytt.   |
 
-Klicka på **Skapa** för att skapa en funktionsapp i Azure med de här inställningarna. 
-
-När etableringen är klar klickar du på **Publicera** för att distribuera projektkoden till den nya funktionsappen. 
+Klicka på **Skapa** för att skapa en funktionsapp i Azure med de här inställningarna. Anteckna värdet för **Plats-URL** när etableringen är slutförd. Det är adressen till funktionsappen i Azure. 
 
 ![Lokal Azure-körningsmiljö](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
-
-Anteckna värdet för **Plats-URL**. Det är adressen till funktionsappen i Azure. 

@@ -1,30 +1,33 @@
 ---
 title: "Skapa en Azure Service Fabric-behållarapp | Microsoft Docs"
-description: "Skapa din första behållarapp på Azure Service Fabric.  Skapa en Docker-avbildning med din app, överför avbildningen till ett behållarregister och skapa och distribuera en Service Fabric-behållarapp."
+description: "Skapa din första Windows-behållarapp på Azure Service Fabric.  Skapa en Docker-avbildning med en Python-app, överför avbildningen till ett behållarregister och skapa och distribuera en Service Fabric-behållarapp."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: vturecek
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/08/2017
+ms.date: 06/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: acb68b274228aa647dc7be5d36b2b077bd213c1b
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 8c9d6c65666b5ffedf058e0a83d4fc41fff80235
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 
-# <a name="create-your-first-service-fabric-container-app"></a>Skapa din första Service Fabric-behållarapp
-Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-behållare i ett Service Fabric-kluster. Den här snabbstarten visar hur du skapar en Docker-avbildning som innehåller en webbapp, överför den nya avbildningen till Azure Container Registry, skapar en Service Fabric-behållarapp och distribuerar behållarappen till ett Service Fabric-kluster.  Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
+# <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-behållarapp i Windows
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-get-started-containers.md)
+> * [Linux](service-fabric-get-started-containers-linux.md)
+
+Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-behållare i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster.  Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/).  Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
 
 ## <a name="prerequisites"></a>Krav
 En utvecklingsdator som kör:
@@ -32,121 +35,134 @@ En utvecklingsdator som kör:
 * [Service Fabric SDK och verktyg](service-fabric-get-started.md).
 *  Docker för Windows.  [Hämta Docker CE för Windows (stabil)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta krävs för att köra Docker-avbildningar baserade på Windows.
 
-Ett Windows-kluster med tre eller fler noder som kör Windows Server 2016 med behållare – [Skapa ett kluster](service-fabric-get-started-azure-cluster.md) eller [prova Service Fabric utan kostnad](http://tryazureservicefabric.westus.cloudapp.azure.com/). 
+Ett Windows-kluster med tre eller fler noder som kör Windows Server 2016 med behållare – [Skapa ett kluster](service-fabric-cluster-creation-via-portal.md) eller [prova Service Fabric utan kostnad](https://aka.ms/tryservicefabric). 
 
 Ett register i Azure Container Registry – [Skapa ett behållarregister](../container-registry/container-registry-get-started-portal.md) i din Azure-prenumeration. 
 
-## <a name="create-a-simple-web-app"></a>Skapa en enkel webbapp
-Samla alla resurser som du behöver för Docker-avbildningen (för inläsning) på en plats. I den här snabbstarten skapar du en ”Hello World”-webbapp på din utvecklingsdator.
+## <a name="define-the-docker-container"></a>Definiera dockerbehållare
+Skapa en avbildning baserat på [Python-avbildningen](https://hub.docker.com/_/python/) på Docker Hub. 
 
-1. Skapa en katalog, t.ex. *c:\temp\helloworldapp*.
-2. Skapa en underkatalog, t.ex. *c:\temp\helloworldapp\content*.
-3. Skapa filen *index.html* i *c:\temp\helloworldapp\content*.
-4. Redigera *index.html* och lägg till följande rad:
-    ```
-    <h1>Hello World!</h1>
-    ```
-5. Spara ändringarna i *index.html*.
+Definiera Docker-behållaren i en Dockerfile. Dockerfile innehåller instruktioner för att ställa in miljön i di behållare, läsa in programmet som du vill köra och mappa portar. Dockerfile är indata för kommandot `docker build` som skapar avbildningen. 
 
-## <a name="build-the-docker-image"></a>Skapa Docker-avbildningen
-Skapa en avbildning baserat på [microsft/iis-avbildningen](https://hub.docker.com/r/microsoft/iis/) på Docker Hub. Microsoft/iis-avbildningen kommer från avbildningen för basoperativsystemet Windows Server Core och innehåller Internet Information Services (IIS).  När du kör den här avbildningen i behållaren startas IIS och installerade webbplatser automatiskt.
+Skapa en tom katalog och skapa filen *Dockerfile* (utan filtillägget). Lägg till följande i *Dockerfile* och spara dina ändringar:
 
-Definiera Docker-avbildningen i en Dockerfile. En Dockerfile innehåller instruktioner för att skapa avbildningen och läsa in den app som du vill köra. Dockerfile är indata för kommandot ```docker build``` som skapar avbildningen. 
+```
+# Use an official Python runtime as a base image
+FROM python:2.7-windowsservercore
 
-1. Skapa en *Dockerfile* (utan filtillägg) i *c:\temp\helloworldapp* och lägg till följande:
+# Set the working directory to /app
+WORKDIR /app
 
-    ```
-    # The `FROM` instruction specifies the base image. You are
-    # extending the `microsoft/iis` image.
-    FROM microsoft/iis
+# Copy the current directory contents into the container at /app
+ADD . /app
 
-    # Create a directory to hold the web app in the container.
-    RUN mkdir C:\site
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
 
-    # Create a new IIS site.
-    RUN powershell -NoProfile -Command \
-        Import-module IISAdministration; \
-        New-IISSite -Name "Site" -PhysicalPath C:\site -BindingInformation "*:8000:"
+# Make port 80 available to the world outside this container
+EXPOSE 80
 
-    # Opens port 8000 on the container.
-    EXPOSE 8000
+# Define environment variable
+ENV NAME World
 
-    # The final instruction copies the web app you created earlier into the container.
-    ADD content/ /site
-    ```
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+```
 
-    Det finns inget ```ENTRYPOINT```-kommando i denna Dockerfile. Du behöver inte kommandot. När du kör Windows Server med IIS är IIS-processen startpunkten, och den är konfigurerad att starta i basavbildningen.
+Läs [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/) för mer information.
 
-    Läs [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/) för mer information.
+## <a name="create-a-simple-web-application"></a>Skapa en enkel webbapp
+Skapa en flask-webbapplikation som lyssnar på port 80 och returnerar ”Hello World”!.  Skapa filen *requirements.txt* i samma katalog.  Lägg till följande och spara dina ändringar:
+```
+Flask
+```
 
-2. Kör kommandot ```docker build``` för att skapa avbildningen som kör webbappen. Öppna ett PowerShell-fönster och gå till *c:\temp\helloworldapp*. Kör följande kommando:
+Skapa även filen *app.py* och lägg till följande:
 
-    ```
-    docker build -t helloworldapp .
-    ```
-    Med det här kommandot skapas den nya avbildningen med hjälp av instruktionerna i din Dockerfile och avbildningen får namnet "helloworldapp" (-t-taggning). När en avbildning skapas hämtas basavbildningen från Docker Hub och en ny avbildning skapas som lägger till din app ovanpå basavbildningen.  [Microsft/iis-avbildningen](https://hub.docker.com/r/microsoft/iis/) och operativsystemavbildningarna är 10,5 GB och tar lång tid att ladda ned och extrahera till din utvecklingsdator.  Det kan vara en god idé att göra detta när du går på lunch eller tar en kaffepaus.  Hämtningen går snabbare om du redan har hämtat avbildningen av basoperativsystemet till utvecklingsdatorn.
+```python
+from flask import Flask
 
-3. När build-kommandot har slutförts kör du `docker images`-kommandot för att se information om den nya avbildningen:
+app = Flask(__name__)
 
-    ```
-    docker images
+@app.route("/")
+def hello():
     
-    REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
-    helloworldapp              latest              86838648aab6        2 minutes ago       10.1 GB
-    ```
+    return 'Hello World!'
 
-## <a name="verify-the-image-runs-locally"></a>Kontrollera avbildningen lokalt
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80)
+```
+
+## <a name="build-the-image"></a>Skapa avbildningen
+Kör kommandot `docker build` för att skapa avbildningen som kör ditt webbprogram. Öppna ett PowerShell-fönster och navigera till den katalog som innehåller din Dockerfile. Kör följande kommando:
+
+```
+docker build -t helloworldapp .
+```
+
+Med det här kommandot skapas den nya avbildningen med hjälp av instruktionerna i din Dockerfile och avbildningen får namnet "helloworldapp" (-t-taggning). Genom att skapa en avbildning hämtas basavbildningen från Docker Hub och en ny avbildning skapas som lägger till ditt program ovanpå basavbildningen.  
+
+När build-kommandot har slutförts kör du `docker images`-kommandot för att se information om den nya avbildningen:
+
+```
+$ docker images
+    
+REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+helloworldapp                 latest              8ce25f5d6a79        2 minutes ago       10.4 GB
+```
+
+## <a name="run-the-application-locally"></a>Kör programmet lokalt
 Kontrollera avbildningen lokalt innan du överför den till behållarregistret.  
 
-1. Starta behållaren med ```docker run```:
+Kör programmet:
 
-    ```
-    docker run -d -p 8000:8000 --name my-web-site helloworldapp
-    ```
+```
+docker run -d --name my-web-site helloworldapp
+```
 
-    *name* namnger den behållare som körs (i stället för behållar-ID:t).
+*name* namnger den behållare som körs (i stället för behållar-ID:t).
 
-2. När behållaren har startat letar du reda på dess IP-adress så att du kan ansluta till den behållare som körs via en webbläsare:
-    ```
-    docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
-    ```
+När behållaren har startat letar du reda på dess IP-adress så att du kan ansluta till den behållare som körs via en webbläsare:
+```
+docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
+```
 
-3. Anslut till den behållare som körs.  Öppna en webbläsare med den IP-adress som returnerades på port 8000, till exempel "http://172.31.194.61:8000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den behållare som körs.  Öppna en webbläsare som pekar på den returnerade IP-adressen, till exempel ”http://172.31.194.61”. Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
-4. Om du vill stoppa behållaren kör du:
+Om du vill stoppa behållaren kör du:
 
-    ```
-    docker stop my-web-site
-    ```
+```
+docker stop my-web-site
+```
 
-5. Ta bort behållaren från utvecklingsdatorn:
+Ta bort behållaren från utvecklingsdatorn:
 
-    ```
-    docker rm my-web-site
-    ```
+```
+docker rm my-web-site
+```
 
 ## <a name="push-the-image-to-the-container-registry"></a>Överför avbildningen till behållarregistret
 När du har kontrollerat att behållaren körs på utvecklingsdatorn överför du avbildningen till registret i Azure Container Registry.
 
-1. Kör ``docker login`` för att logga in till behållarregistret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
+Kör ``docker login`` för att logga in till behållarregistret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
 
-    I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/active-directory-application-objects.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario.
+I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/active-directory-application-objects.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario. Du kan också logga in med ditt användarnamn och lösenord för registret.
 
-    ```
-    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
-    ```
+```
+docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+```
 
-2. Följande kommando skapar en tagg, eller ett alias, för avbildningen, med en fullständigt kvalificerad sökväg till registret. I det här exemplet placeras avbildningen i ```samples```-namnområdet för att undvika oreda i registrets rot.
+Följande kommando skapar en tagg, eller ett alias, för avbildningen, med en fullständigt kvalificerad sökväg till registret. I det här exemplet placeras avbildningen i ```samples```-namnområdet för att undvika oreda i registrets rot.
 
-    ```
-    docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
-    ```
+```
+docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
+```
 
-3.  Överför avbildningen till behållarregistret:
+Överför avbildningen till behållarregistret:
 
-    ```
-    docker push myregistry.azurecr.io/samples/helloworldapp
-    ```
+```
+docker push myregistry.azurecr.io/samples/helloworldapp
+```
 
 ## <a name="create-and-package-the-containerized-service-in-visual-studio"></a>Skapa och paketera en tjänst som använder behållare i Visual Studio
 Service Fabric SDK och verktygen innehåller en tjänstmall som hjälper dig att distribuera en behållare till ett Service Fabric-kluster.
@@ -156,19 +172,19 @@ Service Fabric SDK och verktygen innehåller en tjänstmall som hjälper dig att
 3. Välj **Guest Container** (Gästbehållare) i listan med **tjänstmallar**.
 4. I **Avbildningsnamn** skriver du "myregistry.azurecr.io/samples/helloworldapp" (den avbildning som du skickade till lagringsplatsen för behållaren). 
 5. Namnge tjänsten och klicka på **OK**.
-6. Om tjänsten behöver en slutpunkt för kommunikation kan du nu lägga till protokollet, porten och typen i en ```Endpoint``` i filen ServiceManifest.xml. I den här snabbstarten lyssnar tjänsten på port 80: 
+6. Om tjänsten behöver en slutpunkt för kommunikation kan du nu lägga till protokollet, porten och typen i en ```Endpoint``` i filen ServiceManifest.xml. Behållartjänsten för den här artikeln lyssnar på port 80: 
 
     ```xml
-    <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+    <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     ```
     Genom att tillhandahålla ```UriScheme``` registreras automatiskt behållarslutpunkten med namngivningstjänsten för Service Fabric för identifiering. En fullständig ServiceManifest.xml-exempelfil finns i slutet av den här artikeln. 
-7. Konfigurera behållarens portmappning (port till värd) genom att ange en ```PortBinding```-princip i ```ContainerHostPolicies``` för filen ApplicationManifest.xml.  I den här snabbstarten är ```ContainerPort``` 8000 (behållaren exponerar port 8000, såsom har angetts i Dockerfile) och ```EndpointRef``` är "Guest1TypeEndpoint" (slutpunkten som har definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 80 mappas till port 8000 för behållaren.  Om behållaren behöver autentiseras med en privat lagringsplats lägger du till ```RepositoryCredentials```.  I den här snabbstarten lägger du till kontonamnet och lösenordet för behållarregistret myregistry.azurecr.io. 
+7. Konfigurera behållarens portmappning (port till värd) genom att ange en ```PortBinding```-princip i ```ContainerHostPolicies``` för filen ApplicationManifest.xml.  I den här artikeln är ```ContainerPort``` 8081 (behållaren exponerar port 80, som anges i Dockerfile) och ```EndpointRef``` är ”Guest1TypeEndpoint” (slutpunkt som definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 8081 mappas till port 80 på behållaren.  Om behållaren behöver autentiseras med en privat lagringsplats lägger du till ```RepositoryCredentials```.  I den här artikeln lägger du till kontonamnet och lösenordet för behållarregistret myregistry.azurecr.io. 
 
     ```xml
     <Policies>
         <ContainerHostPolicies CodePackageRef="Code">
             <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-            <PortBinding ContainerPort="8000" EndpointRef="Guest1TypeEndpoint"/>
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
         </ContainerHostPolicies>
     </Policies>
     ```
@@ -183,14 +199,14 @@ Service Fabric SDK och verktygen innehåller en tjänstmall som hjälper dig att
 
 10. Om du vill paketera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Package** (Paketera). 
 
-## <a name="deploy-the-container-app"></a>Distribuera behållarappen
-1. Om du vill publicera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Publish** (Publicera).
+## <a name="deploy-the-container-application"></a>Distribuera behållarappen
+Om du vill publicera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Publish** (Publicera).
 
-2. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett webbaserat verktyg för att granska och hantera appar och noder i ett Service Fabric-kluster. Öppna en webbläsare och navigera till http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ och följ anvisningarna för att distribuera appen.  Appen distribueras men är i ett feltillstånd tills avbildningen har laddats ned på klusternoderna (vilket kan ta en stund beroende på avbildningens storlek):  ![Fel][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett webbaserat verktyg för att granska och hantera appar och noder i ett Service Fabric-kluster. Öppna en webbläsare och gå till http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ och följ programdistributionen.  Appen distribueras men är i ett feltillstånd tills avbildningen har laddats ned på klusternoderna (vilket kan ta en stund beroende på avbildningens storlek): ![Fel][1]
 
-3. Appen är klar när den har status ```Ready```  ![Ready][2] (Klar):
+Appen är klar när den har ```Ready```status: ![Ready][2] (Klar)
 
-4. Öppna en webbläsare och navigera till http://containercluster.westus2.cloudapp.azure.com. Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Öppna en webbläsare och navigera till http://containercluster.westus2.cloudapp.azure.com:8081. Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
 Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party-kluster](http://tryazureservicefabric.westus.cloudapp.azure.com/) tas bort automatiskt efter ett par timmar.
@@ -203,7 +219,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Komplett exempel på Service Fabric-app och tjänstmanifest
-Här är de fullständiga tjänst- och appmanifesten som används i den här snabbstarten.
+Här är de fullständiga tjänst- och appmanifesten som används i den här artikeln.
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -244,7 +260,7 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här sna
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+      <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -269,7 +285,7 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här sna
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="8000" EndpointRef="Guest1TypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
@@ -290,6 +306,7 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här sna
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om hur du kör [behållare i Service Fabric](service-fabric-containers-overview.md).
+* Läs kursen [Distribuera ett .NET-program i en behållare](service-fabric-host-app-in-a-container.md).
 * Läs om Service Fabric-[applivscykeln](service-fabric-application-lifecycle.md).
 * Se [kodexempel för Service Fabric-behållare](https://github.com/Azure-Samples/service-fabric-dotnet-containers) på GitHub.
 

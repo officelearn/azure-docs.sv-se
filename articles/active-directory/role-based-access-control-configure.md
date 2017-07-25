@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
-ms.lasthandoff: 04/07/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Använda rollbaserad åtkomstkontroll för att hantera åtkomsten till dina Azure-prenumerationsresurser
@@ -41,7 +41,7 @@ Du kan se vem som har åtkomst till en resurs, resursgrupp eller prenumeration f
    
     ![Skärmbild av bladet Användare – ärvd eller tilldelad åtkomst](./media/role-based-access-control-configure/view-access.png)
 
-Observera att vissa användare har **tilldelats** åtkomst medan andra har **ärvt** den. Åtkomst tilldelas antingen specifikt till resursgruppen eller ärvs från en tilldelning till den överordnade prenumerationen.
+Observera att vissa roller är begränsade till **resursen** medan andra **ärver** den från ett annat omfång. Åtkomst tilldelas antingen specifikt till resursgruppen eller ärvs från en tilldelning till den överordnade prenumerationen.
 
 > [!NOTE]
 > Administratörer och medadministratörer för klassiska prenumerationer betraktas som ägare till prenumerationen i den nya RBAC-modellen.
@@ -60,9 +60,10 @@ Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som 
 När du har lagt till en rolltilldelning visas den på bladet **Användare**.
 
 ## <a name="remove-access"></a>Ta bort åtkomst
-1. Använd kryssrutorna på bladet Access control för att välja en eller flera rolltilldelningar.
+1. Håll markören över namnet på tilldelningen som du vill ta bort. En kryssruta visas bredvid namnet.
+2. Använd kryssrutorna på för att välja en eller flera rolltilldelningar.
 2. Välj **Ta bort**.  
-3. En ruta visas där du uppmanas att bekräfta åtgärden. Välj **Ja** för att ta bort rolltilldelningarna.
+3. Bekräfta borttagningen genom att välja **Ja**.
 
 Ärvda tilldelningar kan inte tas bort. Om du behöver ta bort en ärvd tilldelning så måste du göra det i samma omfång som där rolltilldelningen skapades. I kolumnen **Omfång** bredvid **Ärvd** finns en länk som leder till resurserna där den här rollen har tilldelats. Gå till resursen som visas där om du vill ta bort rolltilldelningen.
 

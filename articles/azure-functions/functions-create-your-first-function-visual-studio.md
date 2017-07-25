@@ -16,17 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: rachelap, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d539dd51834e935f9c5f7a6be42011ffe9e0870
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: be7a9979ba7e6aa26c60b24bcc892ca35af3c1fc
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="create-your-first-function-using-visual-studio"></a>Skapa din första funktion med Visual Studio 
+# <a name="create-your-first-function-using-visual-studio"></a>Skapa din första funktion med Visual Studio
 
-Med Azure Functions kan du köra kod i en serverfri miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. 
+Med Azure Functions kan du köra kod i en serverfri miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp.
+
+> [!IMPORTANT]
+> Det här avsnittet använder vi en förhandsversion av Visual Studio för att kunna slutföra dessa steg. Se till att du har installerat [förhandsversionen av Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/) innan du fortsätter.
 
 I det här avsnittet lär du dig hur du använder Azure Functions Tools för Visual Studio 2017 för att skapa och testa en "hello world"-funktion lokalt. Du publicerar sedan funktionskoden till Azure.
 
@@ -37,7 +39,7 @@ I det här avsnittet lär du dig hur du använder Azure Functions Tools för Vis
 För att slutföra den här självstudien installerar du:
 
 * [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/) (Förhandsversion 15.3 av Visual Studio 2017) inklusive arbetsbelastningen **Azure Development**.
-    
+
     ![Installera Visual Studio 2017 med arbetsbelastningen Azure Development](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

@@ -1,9 +1,11 @@
-You can deploy the preceding template by following the [Azure Resource Manager documentation](../articles/azure-resource-manager/resource-group-template-deploy.md).
+Du kan distribuera föregående mall genom att följa [Azure Resource Manager-dokumentationen](../articles/azure-resource-manager/resource-group-template-deploy.md).
 
-You can start this tutorial series from the [minimum viable scale set template article](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md).
+Du kan starta den här självstudiekursen serien från artikeln [Minsta lönsamma skaluppsättningsmall](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md).
 
-You can see how to modify the [minimum viable scale set template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) to [deploy the scale set into an existing virtual network](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
+Du kan se hur du ändrar [Minsta lönsamma skaluppsättningsmall](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) för att [distribuera skaluppsättningen i ett befintligt virtuellt nätverk](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
 
-You can see how to modify the [minimum viable scale set template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) to [deploy the scale set with a custom image](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
+Du kan se hur du ändrar [Minsta lönsamma skaluppsättningsmall](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) för att [distribuera skaluppsättningen med en standardavbildning](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
 
-For more general information about scale sets, refer to the [scale set overview page](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+Du kan se hur du ändrar [Minsta lönsamma skaluppsättningsmall](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) för att [distribuera en Linux-skaluppsättning med en gästbaserad autoskala](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md).
+
+Mer allmän information om skaluppsättningar finns i [översiktssidan Skaluppsättning](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).

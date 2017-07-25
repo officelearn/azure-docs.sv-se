@@ -1,7 +1,8 @@
 
 1. Besök [Azure Portal].
-2. Klicka på **Bläddra alla** > **Mobile Apps** > serverdelen som du har skapat.
+2. Klicka på **Apptjänster** > serverdelen som du skapade.
 3. I inställningarna för mobilappar, klickar du på **Snabbstart** > **Cordova**.
+![Azure-portalen med snabbstart för mobila appar markerad][quickstart]
 4. Under **Konfigurera klientprogrammet**, väljer du **Skapa en ny app**, och klickar sedan på **Hämta**.
 2. Packa upp den hämtade ZIP-filen i en katalog på hårddisken, navigera till lösningsfilen (.sln) och öppna den med hjälp av Visual Studio.
 3. I Visual Studio väljer du lösningsplattform (Android, iOS eller Windows) från listrutan bredvid startpilen. Välj en viss distributionsenhet eller emulator genom att klicka på den gröna pilen i listrutan. Du kan använda Android-plattformen och Ripple-emulatorn av standardtyp. För mer avancerade självstudier (t.ex, push-meddelanden) krävs att du väljer en enhet eller emulator som stöds.
@@ -10,13 +11,10 @@
 
 Serverdelen infogar data från begäran i TodoItem-tabellen i SQL Database och returnerar information om det nyligen lagrade objekten tillbaka till mobilappen. Mobilappen visar dessa data i listan.
 
-![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
-
 Du kan upprepa steg 3 till 5 för andra plattformar.
 
+<!-- Images. -->
+[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
+
+<!-- URLs -->
 [Azure Portal]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

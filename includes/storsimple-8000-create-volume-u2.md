@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/2017-->
+<!--author=alkohli last changed: 07/19/2017-->
 
 #### <a name="to-create-a-volume"></a>Skapa en volym
 1. Välj din enhet i tabellistan med enheter på bladet **Enheter**. Klicka på **+ Lägg till volymen**.
@@ -11,7 +11,7 @@
 
    2. I listrutan väljer du den volymbehållare som du vill lägga till en volym i. 
 
-   3.  Anger du ett **namn** för volymen.
+   3.  Anger du ett **namn** för volymen. Du kan byta namn på en volym när den har skapats.
 
    4. Välj **Typ** för volymen i listrutan. För arbetsbelastningar som kräver lokala garantier, låg latens och hög prestanda, väljer du en **lokalt fäst** volym. För all övrig data, väljer du en **nivåindelad** volym. Om du använder volymen för arkiveringsdata, markerar du **Använd volymen för arkiveringsdata med låg åtkomstfrekvens**.
       

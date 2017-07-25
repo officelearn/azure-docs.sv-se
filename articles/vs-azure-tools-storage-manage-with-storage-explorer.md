@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 7/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 83a6543a8fd95139fdcb6c031979382b4736a4ad
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Kom igång med Lagringsutforskaren (förhandsversion)
@@ -68,80 +68,7 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Ansluta till en Azure Stack-prenumeration
 
-Du behöver en VPN-anslutning så att Lagringsutforskaren kan komma åt Azure Stack-prenumerationen via fjärranslutning. Information om hur du konfigurerar en VPN-anslutning till Azure Stack finns i [Connect to Azure Stack with VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn) (Anslut till Azure Stack via VPN).
-
-För Azure Stack POC (Proof of Concept) måste du exportera rotcertifikatet för Azure Stack-behörighet. Gör så här:
-
-1. Öppna `mmc.exe` på MAS-CON01, en värddator för Azure Stack eller en lokal dator med VPN-anslutning till Azure Stack. 
-
-2. Under **Arkiv** väljer du **Lägg till/ta bort snapin-modul** och lägger till **certifikat** för hantering av **datorkontot** **Lokal dator**.
-
-    ![Läsa in rotcertifikatet för Azure Stack via mmc.exe][25]   
-
-3. Leta rätt på **AzureStackCertificationAuthority** under **[konsolrot]\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. 
-
-4. Högerklicka på objektet, välj **Alla aktiviteter** > **Exportera** och följ sedan instruktionerna för att exportera certifikatet med **Base 64-kodad X.509 (.cer)**.  
-
-    Det exporterade certifikatet ska användas i nästa steg.   
-
-    ![Exportera rotcertifikatet för Azure Stack-behörighet][26]   
-
-5. I Lagringsutforskaren (förhandsversion) pekar du på **SSL-certifikat** på **Redigera**-menyn och väljer sedan **Importera certifikat**. Använd filväljaren till att leta rätt på och öppna certifikatet du exporterade i föregående steg.  
-
-    Efter importen uppmanas du att starta om Lagringsutforskaren.
-
-    ![Importera certifikatet till Lagringsutforskaren (förhandsversion)][27]
-
-6. När Lagringsutforskaren (förhandsversion) startats om väljer du **Redigera**-menyn och ser till att **Target Azure Stack** (Använd Azure Stack som mål) är markerat. Om alternativet inte är markerat markerar du det och startar om Lagringsutforskaren så att ändringen börjar gälla. Denna konfiguration krävs för kompatibilitet med Azure Stack-miljön.
-
-    ![Se till att Target Azure Stack (Använd Azure Stack som mål) är markerat][28]
-
-7. Välj **Hantera konton** i den vänstra rutan.  
-    Alla Microsoft-konton som du är inloggad på visas.
-
-8. Om du vill ansluta till Azure Stack-kontot väljer du **Lägg till ett konto**.
-
-    ![Lägga till ett Azure Stack-konto][29]
-
-9. Välj **Create Custom Environment** (Skapa anpassad miljö) under **Azure-miljö** i dialogrutan **Lägg till nytt konto** och klicka på **Nästa**.
-
-10. Ange all nödvändig information om den anpassade Azure Stack-miljön och klicka på **Logga in**. 
-
-11. Logga in med ett Azure Stack-konto som är associerat med minst en aktiv Stack Azure-prenumeration genom att fylla i dialogrutan **Sign in to a Custom Cloud environment** (Logga in i en anpassad molnmiljö).  
-
-    Information om de olika fälten:
-
-    * **Miljönamn**: fältet kan anpassas av användaren.
-    * **Myndighet**: värdet ska vara https://login.microsoftonline.com. Använd https://login.chinacloudapi.cn för Azure China.
-    * **Sign in resource id** (Id för inloggningsresurs): hämta värdet genom att köra följande PowerShell-skript:
-
-        Om du är molnadministratör:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-        Om du är en klient:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-    * **Graph endpoint** (Graph-slutpunkt): värdet ska vara https://graph.windows.net. Använd https://graph.chinacloudapi.cn för Azure China.
-    * **ARM resource id** (Id för ARM-resurs): använd samma värde som **id:t för inloggningsresursen**.
-    * **ARM resurs endpoint** (Slutpunkt för ARM-resurs): exempel på slutpunkter för Azure Resource Manager-resursen:
-
-        * För molnadministratörer: https://adminmanagement.local.azurestack.external   
-        * För klienter: https://management.local.azurestack.external
- 
-    * **Tenant Ids** (Klient-id:n): valfritt. Värdet anges bara när du måste ange katalogen.
-
-12. När du har loggat in med ett Azure Stack-konto fylls den vänstra rutan i med de Azure Stack-prenumerationer som är kopplade till kontot. Välj de Azure Stack-prenumerationer som du vill arbeta med och välj sedan **Använd**. (Om du markerar eller avmarkerar kryssrutan **Alla prenumerationer** växlar du mellan att välja alla eller inga av de Azure Stack-prenumerationer som visas.)
-
-    ![Välj Azure Stack-prenumerationer när du har fyllt i dialogrutan Custom Cloud Environment (Anpassad molnmiljö)][30]  
-    I den vänstra rutan visas de lagringskonton som är kopplade till de valda Azure Stack-prenumerationerna.
-
-    ![Lista med lagringskonton inklusive konton för Azure Stack-prenumerationer][31]
+Information om hur du ansluter till en Azure Stackprenumeration finns i [Ansluta Storage Explorer till en prenumeration på Azure Stack](azure-stack/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Arbeta med lokal utvecklingslagring
 Med Lagringsutforskaren (förhandsversion) kan du arbeta mot lokal lagring med hjälp av Azure Storage-emulatorn. På så sätt kan du skriva kod mot och testa lagring utan att nödvändigtvis ha distribuerat ett lagringskonto i Azure (eftersom lagringskontot emuleras av Azure Storage-emulatorn).

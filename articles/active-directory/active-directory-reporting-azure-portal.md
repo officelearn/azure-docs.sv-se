@@ -1,7 +1,6 @@
 ---
-
 title: Azure Active Directory-rapportering | Microsoft Docs
-description: "Visar de olika tillgängliga rapporterna i Azure Active Directory"
+description: "En allmän översikt över Azure Active Directory-rapportering."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,190 +12,110 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-active-directory-reporting"></a>Azure Active Directory-rapportering
 
+Med Azure Active Directory-rapportering kan du få insikter om din miljös prestanda.  
+Med dessa data kan du:
 
-*Den här dokumentationen är en del av [Azure Active Directory Reporting-guiden](active-directory-reporting-guide.md).*
+- Avgör hur din app och dina tjänster används av dina användare
+- Identifiera potentiella risker som påverkar hälsotillståndet för din miljö
+- Felsöka problem som hindrar användare från att uträtta sitt arbete  
 
-Med rapportering i Azure Active Directory (Azure AD) får du all information du behöver för att ta reda på hur din miljö klarar sig.
+Rapportarkitekturen förlitar sig på två huvudsakliga pelare:
 
-Det finns två huvudområden för rapportering:
+- Säkerhetsrapporter
+- Aktivitetsrapporter
 
-* **Inloggningsaktiviteter** – Information om användningen av hanterade program och användares inloggningsaktiviteter
-* **Granskningsloggar** – Granska information om systemaktivitet för användare och grupphantering, dina hanterade program och katalogaktiviteter
+![Rapportering](./media/active-directory-reporting-azure-portal/01.png)
 
-Beroende på omfånget för de data som du söker har du åtkomst till dessa rapporter antingen genom att klicka på **Användare och grupper** eller **Företagsprogram** i listan över tjänster i [Azure-portalen](https://portal.azure.com).
 
-## <a name="sign-in-activities"></a>Inloggningsaktiviteter
-### <a name="user-sign-in-activities"></a>Användarinloggningsaktiviteter
-Med den information som tillhandahålls av rapporten över användarinloggningsaktiviteter får du svar på frågor som:
 
-* Vilket inloggningsmönster har en användare?
-* Hur många användare har en användare loggat in under en vecka?
-* Vad är status för dessa inloggningar?
+## <a name="security-reports"></a>Säkerhetsrapporter
 
-Din startpunkt för denna data är användarinloggnings-diagrammet i avsnittet **Översikt** under **Användare och grupper**.
+Säkerhetsrapporter i Azure Active Directory hjälpa dig att skydda din organisations identiteter.  
+Det finns två typer av säkerhetsrapporter i Azure Active Directory:
 
- ![Rapportering](./media/active-directory-reporting-azure-portal/05.png "Rapportering")
+- **Användare som har flaggats för risk** - Från [användare som har flaggats för risksäkerhetsrapporten](active-directory-reporting-security-user-at-risk.md) får du en översikt över användarkonton som kan ha drabbats.
 
-Diagrammet med användarinloggningar visar veckovisa sammanställningar av inloggningar för alla användare under en viss tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
+- **Riskfyllda inloggningar** – med [ säkerhetsrapporten för riskfyllda inloggningar](active-directory-reporting-security-risky-sign-ins.md) får du en indikator för inloggningsförsök som kan ha utförts av någon som inte är tillförlitligt ägare för ett användarkonto. 
 
-![Rapportering](./media/active-directory-reporting-azure-portal/02.png "Rapportering")
+**Vilka Azure AD-licens behöver komma åt en säkerhetsrapport?**  
+Alla utgåvor av Azure Active Directory ger rapporter över användare som har flaggats för risk och riskfyllda inloggningar.  
+Nivån av rapportens detaljrikedom varierar dock mellan versionerna: 
 
-När du klickar på en dag i inloggningsdiagrammet kan du få en detaljerad lista över inloggningsaktiviteterna.
+- I **versionerna Azure Active Directory Free och Basic** har du redan en lista över användare som har flaggats för risk och riskfyllda inloggningar. 
 
-![Rapportering](./media/active-directory-reporting-azure-portal/03.png "Rapportering")
+- Utgåvan **Azure Active Directory Premium 1** har en utökad modell där du även kan utforska några av de underliggande riskhändelser som har identifierats för varje rapport. 
 
-Varje rad i aktivitetslistan över inloggningar ger dig detaljerad information om den valda inloggningen som:
+- Utgåvan **Azure Active Directory Premium 2** ger den mest detaljerade informationen om de underliggande riskhändelser och du kan konfigurera säkerhetsprinciper som automatiskt svarar på konfigurerade risknivåer.
 
-* Vem har loggat in?
-* Vad var relaterad UPN?
-* Vilket program var målet för inloggningen?
-* Vilken IP-adress hade inloggningen?
-* Vad var status för inloggningen?
 
-### <a name="usage-of-managed-applications"></a>Användning av hanterade program
-Med en programcentrerad vy över dina inloggningsuppgifter kan du få svar på frågor som:
+## <a name="activity-reports"></a>Aktivitetsrapporter
 
-* Vem använder mina program?
-* Vilka är de tre främsta programmen i organisationen?
-* Jag har nyligen distribuerat ett program. Hur går det för det?
+Det finns två typer av aktivitetsrapporter i Azure Active Directory:
 
-Din startpunkt för denna data är rapporten över de tre främsta programmen i organisationen under de senaste 30 dagarna avsnittet **Översikt**, under **Företagsprogram**.
+- **Granskningsloggar** – [aktivitetsrapport för granskningsloggar ](active-directory-reporting-activity-audit-logs.md) ger dig tillgång till historiken för varje aktivitet i din klient.
 
- ![Rapportering](./media/active-directory-reporting-azure-portal/06.png "Rapportering")
+- **Inloggningar** – med [aktivitetsrapport för inloggningar ](active-directory-reporting-activity-sign-ins.md) kan du bestämma vem som har utfört de uppgifter som rapporteras i granskningsloggarna.
 
-Diagram över programanvändning visar veckovisa sammanställning av inloggningar för dina tre främsta program under en given tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
 
-![Rapportering](./media/active-directory-reporting-azure-portal/78.png "Rapportering")
 
-Om du vill kan du ange att fokusera på ett visst program.
+**Granskningsloggarna** ger dokumentation över systemaktiviteter för kontroll av överensstämmelse.
+Dessa data gör att det möjligt att hantera vanliga scenarier, till exempel:
 
-![Rapportering](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Rapportering")
+- Någon i min klient har fått tillgång till en administratörsgrupp. Vem som gav användaren åtkomst? 
 
-När du klickar på en dag i programanvändningsdiagrammet kan du få en detaljerad lista över inloggningsaktiviteterna.
+- Jag vill ha en lista över användare som loggar in på en viss app eftersom jag nyss publicerade appen och vill veta om den fungerar bra
 
-![Rapportering](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Rapportering")
+- Jag vill veta hur många lösenordsåterställningar som sker i min klient
 
-Alternativet **Inloggningar** ger dig en fullständig översikt över alla inloggningshändelser för dina program.
 
-![Rapportering](./media/active-directory-reporting-azure-portal/85.png "Rapportering")
+**Vilken Azure AD-licens behöver du för att komma åt granskningsloggar?**  
+Granskningsloggarna är tillgängliga för funktioner som du har licenser för. Om du har en licens för en specifik funktion har du också åtkomst till dess granskningslogg.
 
-Med hjälp av kolumnväljaren kan du välja datafält som du vill visa.
+Mer information finns i **Jämför allmänt tillgängliga funktioner i Free, Basic och Premium-utgåvorna** i [Azure Active Directory-funktioner](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
 
-![Rapportering](./media/active-directory-reporting-azure-portal/column_chooser.png "Rapportering")
 
-### <a name="filtering-sign-ins"></a>Filtrera inloggningar
-Du kan filtrera inloggningar efter ett tidsintervall som begränsar mängden visad data:
 
-* Datum och tid 
-* Användarens huvudnamn
-* Programnamn
-* Klientnamn
-* Inloggningsstatus
+**Aktivitetsrapport för inloggningar**  gör det möjligt för att få svar på frågor som:
 
-![Rapportering](./media/active-directory-reporting-azure-portal/293.png "Rapportering")
+- Vilket inloggningsmönster har en användare?
+- Hur många användare har en användare loggat in under en vecka?
+- Vad är status för dessa inloggningar?
 
-En annan metod för att filtrera inloggningsaktivitetsposterna är att söka efter specifika poster.
-Sökmetoden gör att du kan definiera omfattningen av din inloggningar runt specifika **Användare**, **Grupper** eller **Program**.
 
-![Rapportering](./media/active-directory-reporting-azure-portal/84.png "Rapportering")
+**Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?**  
+Din klient måste ha en associerad Azure AD Premium-licens för att det ska gå att se alla rapporter om inloggningsaktiviteter.
 
-## <a name="audit-logs"></a>Granskningsloggar
-Granskningsloggarna i Azure Active Directory ger dokumentation över systemaktiviteter för kontroll av överensstämmelse.
 
-Det finns tre huvudkategorier för granskningsrelaterade aktiviteter i Azure-portalen:
+## <a name="programmatic-access"></a>Programmässig åtkomst
 
-* Användare och grupper   
-* Program
-* Katalog   
+Utöver användargränssnittet, ger Azure Active Directory-rapportering också [programmässig åtkomst](active-directory-reporting-api-getting-started-azure-portal.md) till rapporteringsdata. Data för de här rapporterna kan vara användbara för dina program, till exempel SIEM-system, gransknings- och business intelligence-verktyg. Azure AD reporting API: er ger programmässig åtkomst till data via en uppsättning REST-baserade API: er. Du kan anropa API: erna från en mängd olika programmeringsspråk och verktyg. 
 
-En fullständig lista över granskningsrapporteringsaktiviteter finns i [lista över granskningsrapporthändelser](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
-Din startpunkt för all granskningsdata är **Granskningsloggar** i avsnittet **Aktivitet** i **Azure Active Directory**.
-
-![Granskning](./media/active-directory-reporting-azure-portal/61.png "Granskning")
-
-En granskningslogg har en listvy som visar aktörer (vem) aktiviteter (vad) och målen.
-
-![Granskning](./media/active-directory-reporting-azure-portal/345.png "Granskning")
-
-Genom att klicka på ett objekt i listvyn kan du få mer information.
-
-![Granskning](./media/active-directory-reporting-azure-portal/873.png "Granskning")
-
-### <a name="users-and-groups-audit-logs"></a>Granskningsloggar för användare och grupper
-Med användar- och gruppbaserade granskningsrapporter kan du få svar på frågor som:
-
-* Vilka typer av uppdateringar har getts användare?
-* Hur många användare ändrades?
-* Hur många lösenord ändrades?
-* Vad har en administratör gjort i en katalog?
-* Vilka grupper har lagts till?
-* Finns det grupper med ändringar i medlemskap?
-* Har ägare av en grupp ändrats?
-* Vilka licenser har tilldelats en grupp eller en användare?
-
-Om du bara vill kontrollera granskningsdata som relateras till användare och grupper kan du hitta en filtrerad vy under **Granskningsloggar** i avsnittet **Aktivitet** i **Användare och grupper**.
-
-![Granskning](./media/active-directory-reporting-azure-portal/93.png "Granskning")
-
-### <a name="application-audit-logs"></a>Granskningsloggar för program
-Med programbaserade granskningsrapporter kan du få svar på frågor som:
-
-* Vilka program har lagts till eller uppdaterats?
-* Vilka program har tagits bort?
-* Har tjänstprincipen för ett program ändrats?
-* Har namnen på program ändrats?
-* Vem gav tillstånd till ett program?
-
-Om du bara vill kontrollera granskningsdata som relateras till program kan du hitta en filtrerad vy under **Granskningsloggar** i avsnittet **Aktivitet** i **Företagsprogram**.
-
-![Granskning](./media/active-directory-reporting-azure-portal/134.png "Granskning")
-
-### <a name="filtering-audit-logs"></a>Filtrera granskningsloggar
-Du kan filtrera inloggningar efter ett tidsintervall som begränsar mängden visad data:
-
-* Datum och tid
-* Användarens huvudnamn
-* Aktivitetstyp
-* Aktivitet
-
-![Granskning](./media/active-directory-reporting-azure-portal/356.png "Granskning")
-
-Innehållet i **aktivitetstypslistan** är knutet till din åtkomstpunkt för det här bladet.  
-Om din startpunkt är Azure Active Directory innehåller den här listan alla möjliga aktivitetstyper:
-
-* Program 
-* Grupp 
-* Användare
-* Enhet
-* Katalog
-* Princip
-* Annat
-
-![Granskning](./media/active-directory-reporting-azure-portal/825.png "Granskning")
-
-De angivna aktiviteterna omfattas av aktivitetstypen.
-Om du har till exempel valt en **grupp** som **aktivitetstyp**, innehåller listan **aktivitet** endast gruppaktiviteter.   
-
-![Granskning](./media/active-directory-reporting-azure-portal/654.png "Granskning")
-
-En annan metod för att filtrera posterna i en granskningslogg är att söka efter specifika poster.
-
-![Granskning](./media/active-directory-reporting-azure-portal/237.png "Granskning")
 
 ## <a name="next-steps"></a>Nästa steg
-Se guiden [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+
+Om du vill veta mer om de olika rapporttyperna i Azure Active Directory, se:
+
+- [Användare som har flaggats för risk](active-directory-reporting-security-user-at-risk.md)
+- [Rapport över riskfyllda inloggningar](active-directory-reporting-security-risky-sign-ins.md)
+- [Granskningsloggar](active-directory-reporting-activity-audit-logs.md)
+- [Inloggningsrapport](active-directory-reporting-activity-sign-ins.md)
+
+Om du vill veta mer om åtkomst till rapporteringsdata med rapporterings-API, se: 
+
+- [Kom igång med Azure Active Directory Reporting API:n](active-directory-reporting-api-getting-started-azure-portal.md)
 
 
+<!--Image references-->
+[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentera webbappar vid körning med Application Insights
@@ -42,10 +41,10 @@ Här är en sammanfattning av vad du får med respektive väg:
 | [Mer detaljerade undantag](app-insights-asp-net-exceptions.md) | |Ja |
 | [Beroendediagnostik](app-insights-asp-net-dependencies.md) |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
 | [Systemprestandaräknare](app-insights-performance-counters.md) |Ja |Ja |
-| [API för anpassad telemetri][api] |Ja | |
-| [Spårningsloggsintegrering](app-insights-asp-net-trace-logs.md) |Ja | |
-| [Sidvy och användardata](app-insights-javascript.md) |Ja | |
-| Du behöver inte återskapa kod |Nej | |
+| [API för anpassad telemetri][api] |Ja |Nej |
+| [Spårningsloggsintegrering](app-insights-asp-net-trace-logs.md) |Ja |Nej |
+| [Sidvy och användardata](app-insights-javascript.md) |Ja |Nej |
+| Du måste återskapa koden |Ja | Nej |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Övervaka en Azure-livewebbapp

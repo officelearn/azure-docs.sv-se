@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a05c878f876eadc5160ef9765f764595cade76a9
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: cad933cc453f1bfdbf29914ca3a9a6029108e70f
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-# Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
-<a id="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli" class="xliff"></a>
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
 
-Den här artikeln visar hur du skapar en VPN-gatewayanslutning mellan virtuella nätverk. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av Azure CLI. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
+Den här artikeln visar hur du skapar en VPN-gatewayanslutning mellan virtuella nätverk. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. När du ansluter virtuella nätverk från olika prenumerationer, behöver inte prenumerationerna vara associerade med samma Active Directory-klient. Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av Azure CLI. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -44,8 +42,7 @@ VNet-till-VNet-kommunikation kan kombineras med konfigurationer för flera plats
 
 ![Om anslutningar](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### Varför ska man ansluta virtuella nätverk?
-<a id="why-connect-virtual-networks" class="xliff"></a>
+### <a name="why-connect-virtual-networks"></a>Varför ska man ansluta virtuella nätverk?
 
 Du kan vilja ansluta virtuella nätverk av följande skäl:
 
@@ -59,8 +56,7 @@ Du kan vilja ansluta virtuella nätverk av följande skäl:
 
 Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga frågor om VNet-till-VNet](#faq) i slutet av den här artikeln.
 
-### Vilka steg ska jag använda?
-<a id="which-set-of-steps-should-i-use" class="xliff"></a>
+### <a name="which-set-of-steps-should-i-use"></a>Vilka steg ska jag använda?
 
 I den här artikeln beskrivs två uppsättningar med steg. En uppsättning steg för [virtuella nätverk som finns i samma prenumeration](#samesub) och en annan för [virtuella nätverk som finns i olika prenumerationer](#difsub).
 
@@ -68,8 +64,7 @@ I den här artikeln beskrivs två uppsättningar med steg. En uppsättning steg 
 
 ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-### Innan du börjar
-<a id="before-you-begin" class="xliff"></a>
+### <a name="before-you-begin"></a>Innan du börjar
 
 Innan du börjar ska du installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om att installera CLI-kommandona finns i [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
 
@@ -188,13 +183,11 @@ Vi använder följande värden i exemplen:
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### Steg 4 – Skapa anslutningarna
-<a id="step-4---create-the-connections" class="xliff"></a>
+### <a name="step-4---create-the-connections"></a>Steg 4 – Skapa anslutningarna
 
 Nu har du två VNets med VPN-gatewayer. Nästa steg är att skapa VPN-gateway-anslutningar mellan de virtuella nätverksgatewayerna. Om du har använt exemplen ovan är VNet-gatewayerna i olika resursgrupper. När gatewayer finns i olika resursgrupper, måste du identifiera och ange resurs-ID för varje gateway när en anslutning upprättas. Om dina Vnets är i samma resursgrupp kan du använda den [andra uppsättningen anvisningar](#samerg) eftersom du inte behöver ange resurs-ID.
 
-### För att ansluta Vnets som finns i olika resursgrupper
-<a id="to-connect-vnets-that-reside-in-different-resource-groups" class="xliff"></a>
+### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>För att ansluta Vnets som finns i olika resursgrupper
 
 1. Hämta resurs-ID för VNet1GW från utdata från följande kommando:
 
@@ -263,7 +256,7 @@ Nu har du två VNets med VPN-gatewayer. Nästa steg är att skapa VPN-gateway-an
 
 ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-I det här scenariot ansluter vi TestVNet1 och TestVNet5. VNets finns i olika prenumerationer. I stegen för den här konfigurationen lägger vi till ytterligare en VNet-till-VNet-anslutning för att kunna ansluta TestVNet1 till TestVNet5.
+I det här scenariot ansluter vi TestVNet1 och TestVNet5. VNets finns i olika prenumerationer. Prenumerationerna behöver inte vara associerade med samma Active Directory-klient. I stegen för den här konfigurationen lägger vi till ytterligare en VNet-till-VNet-anslutning för att kunna ansluta TestVNet1 till TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Steg 5 – Skapa och konfigurera TestVNet1
 
@@ -327,8 +320,7 @@ Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den 
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### Steg 8 – Skapa anslutningarna
-<a id="step-8---create-the-connections" class="xliff"></a>
+### <a name="step-8---create-the-connections"></a>Steg 8 – Skapa anslutningarna
 
 Vi har upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och **[Prenumeration 5]** eftersom gatewayerna finns i olika prenumerationer. För att växla mellan prenumerationer använder du ' az account list --all' för att visa en lista över prenumerationer som är tillgängliga för ditt konto. Använd sedan ' az account set--subscription <subscriptionID>' för att växla till den prenumeration som du vill använda.
 
@@ -374,8 +366,7 @@ Vi har upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och
 ## <a name="faq"></a>Vanliga frågor och svar om VNet-till-VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 * När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Dokumentationen för virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Information om BGP finns i [BGP-översikt](vpn-gateway-bgp-overview.md) och [Så här konfigurerar du BGP](vpn-gateway-bgp-resource-manager-ps.md).

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/03/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -38,7 +38,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 
-2. Välj**Beräkna**, sedan **Windows Server 2016 Datacenter** och se till att **Resource Manager** är vald som distributionsmodell. Klicka på knappen **Skapa**. 
+2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
 
 3. Ange informationen för den virtuella datorn. Användarnamnet och lösenordet som anges här används för att logga in på den virtuella datorn. När du är klar klickar du på **OK**.
 
@@ -48,7 +48,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
     ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. På inställningsbladet väljer du **Ja** under **Use managed disks** (Använd hanterade diskar), låter standardinställningarna vara kvar för resten och klickar på **OK**.
+5. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
 
 6. På sammanfattningssidan klickar du på **Ok** för att starta distributionen av den virtuella datorn.
 

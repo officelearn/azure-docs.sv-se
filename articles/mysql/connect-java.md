@@ -11,22 +11,18 @@ ms.custom: mvc
 ms.topic: hero-article
 ms.devlang: java
 ms.date: 06/20/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7b9048731fed94a71dc8fb7125961265232fb65c
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 0190fb5a88f766369e6462965e47686c5f289551
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="azure-database-for-mysql-use-java-to-connect-and-query-data" class="xliff"></a>
-
-# Azure-databas för MySQL: Använd Java för att ansluta och fråga efter data
+# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure-databas för MySQL: Använd Java för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett Java-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Java och att du inte har arbetat med Azure Database för MySQL tidigare.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Krav
+## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -36,21 +32,17 @@ Du måste också:
 - Ta med JDBC jar-filen (till exempel mysql-connector-java-5.1.42-bin.jar) i klassökvägen i programmet.
 - Se till att säkerhetsinställningarna för Azure Database för MySQL-anslutning konfigureras med brandväggen öppen och att SSL-inställningarna justeras så att programmet kan ansluta.
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Hämta anslutningsinformation
+## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser** och söker efter den server som du nyss skapade, till exempel **myserver4demo**.
+2. I den vänstra rutan klickar du på **alla resurser** och söker sedan efter servern som du skapade (till exempel **myserver4demo**).
 3. Klicka på servernamnet.
 4. Välj sidan **Egenskaper** för servern. Anteckna **servernamn** och **inloggningsnamnet för serveradministratören**.
  ![Azure Database för MySQL-servernamn](./media/connect-java/1_server-properties-name-login.png)
 5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
 
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
-
-## Ansluta, skapa tabell och infoga data
+## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
 Använd följande kod för att ansluta och läsa in data med hjälp av en funktion med en **INSERT**-SQL-instruktion. Metoden [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) används för att ansluta till MySQL. Metoderna [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) och execute() används för att släppa och skapa tabellen. Objektet prepareStatement används för att skapa infogningskommandon och setString() och setInt() används för att binda parametervärdena. Metoden executeUpdate() infogar värdena genom att kommandot körs för varje uppsättning parametrar. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
@@ -152,9 +144,7 @@ public class CreateTableInsertRows {
 
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Läsa data
+## <a name="read-data"></a>Läsa data
 Använd följande kod för att läsa in data med en **SELECT**-SQL-instruktion. Metoden [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) används för att ansluta till MySQL. Metoderna [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) och executeQuery() används för att ansluta och köra select-instruktionen. Resultaten bearbetas med ett [ResultSet](https://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html)-objekt. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
@@ -241,9 +231,7 @@ public class ReadTable {
 }
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Uppdatera data
+## <a name="update-data"></a>Uppdatera data
 Använd följande kod för att ändra data med en **UPDATE**-SQL-instruktion. Metoden [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) används för att ansluta till MySQL. Metoderna [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) och executeUpdate() används för att förbereda och köra update-instruktionen. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
@@ -324,9 +312,7 @@ public class UpdateTable {
 }
 ```
 
-<a id="delete-data" class="xliff"></a>
-
-## Ta bort data
+## <a name="delete-data"></a>Ta bort data
 Använd följande kod för att ta bort data med en **DELETE**-SQL-instruktion. Metoden [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) används för att ansluta till MySQL.  Metoderna [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) och executeUpdate() används för att förbereda och köra update-instruktionen. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
@@ -407,9 +393,7 @@ public class DeleteTable {
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Migrera MySQL-databasen till Azure Database för MySQL med säkerhetskopiering och återställning](concepts-migrate-dump-restore.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Skapa din första Azure-mikrotjänstapp i Linux med hjälp av Java | Microsoft Docs"
-description: Skapa och distribuera ett Service Fabric-program med Java
+title: "Skapa ett Azure Service Fabric tillförlitliga aktörer Java-program på Linux | Microsoft Docs"
+description: "Lär dig hur du skapar och distribuerar err Java Service Fabric tillförlitliga aktörer-program på fem minuter."
 services: service-fabric
 documentationcenter: java
 author: rwike77
@@ -12,25 +12,18 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/02/2017
+ms.date: 06/29/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: e229602b4bfa72977c9b15e854d796ed09fa55d2
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 254f38a600ea4026120bc411368eeb01310e56b2
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
-# <a name="create-your-first-service-fabric-java-application-on-linux"></a>Skapa ditt första Service Fabric Java-program för Linux
-> [!div class="op_single_selector"]
-> * [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# – Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
->
->
+# <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Skapa ditt första Java Service Fabric tillförlitliga aktörer program på Linux
 
-Den här snabbstartsguiden hjälper dig att skapa ditt första Azure Service Fabric Java-program i en Linux-utvecklingsmiljö på bara några minuter.  När du är färdig har du ett enkelt Java-program med en tjänst som körs i det lokala utvecklingsklustret.  
+Den här snabbstarten hjälper dig att skapa ditt första Azure Service Fabric Java-program i en Linux-utvecklingsmiljö på bara några minuter.  När du är klar har du ett enkelt Java-program för en tjänst som körs i klustret för lokal utveckling.  
 
 ## <a name="prerequisites"></a>Krav
 Innan du börjar ska du installera Service Fabric SDK, Azure CLI och konfigurera ett utvecklingskluster i [Linux-utvecklingsmiljön](service-fabric-get-started-linux.md). Om du använder Mac OS X kan du [konfigurera en Linux-utvecklingsmiljö på en virtuell dator med hjälp av Vagrant](service-fabric-get-started-mac.md).
@@ -46,7 +39,7 @@ Ett Service Fabric-program innehåller en eller flera tjänster, som var och en 
    ![Service Fabric Yeoman-generator för Java][sf-yeoman]
 
 ## <a name="build-the-application"></a>Skapa programmet
-I Service Fabric Yeoman-mallarna ingår ett byggskript för [Gradle](https://gradle.org/), som du kan använda för att skapa programmet från terminalen. När du ska bygga och paketera programmet kör du följande:
+I Service Fabric Yeoman-mallarna ingår ett byggskript för [Gradle](https://gradle.org/) som du kan använda för att skapa programmet från terminalen. När du ska bygga och paketera programmet kör du följande:
 
   ```bash
   cd myapp
@@ -94,12 +87,6 @@ Aktörer gör ingenting på egen hand, det behövs en annan tjänst eller klient
     ![Hitta den primära repliken i Service Fabric Explorer][sfx-primary]
 
 3. Klicka på noden du hittade i föregående steg under **Noder** och välj sedan **Inaktivera (starta om)** på menyn Åtgärder. Den här åtgärden startar om noden som kör den primära tjänsterepliken och tvingar fram en redundansväxling till en av de sekundära replikerna som körs på en annan nod.  Den sekundära repliken befordras till primär, en annan sekundär replik skapas på en annan nod och den primära repliken börjar hantera läs- och skrivåtgärder. Titta på resultatet från testklienten när noden startas om, och observera att räknaren fortsätter att räkna upp trots redundansväxlingen.
-
-## <a name="add-another-service-to-the-application"></a>Lägga till en annan tjänst i programmet
-Om du vill lägga till en till tjänst i ett befintligt program som har skapats med hjälp av `yo` utför du följande steg:
-1. Ändra katalogen till roten för det befintliga programmet.  Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
-2. Kör `yo azuresfjava:AddService`
-3. Skapa och distribuera programmet som i föregående steg.
 
 ## <a name="remove-the-application"></a>Ta bort programmet
 Använd installationsskriptet som medföljer mallen för att ta bort programinstansen, avregistrera programpaketet och ta bort programpaketet från klustrets avbildningslager.

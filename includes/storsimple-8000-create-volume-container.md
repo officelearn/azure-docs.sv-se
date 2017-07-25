@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 06/22/17-->
 
-#### Skapa en volymbehållare
-<a id="to-create-a-volume-container" class="xliff"></a>
+#### <a name="to-create-a-volume-container"></a>Skapa en volymbehållare
 1. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**. Markera och klicka på en enhet i tabellistan med enheter. 
 
     ![Blad för volymbehållare](./media/storsimple-8000-create-volume-container/createvolumecontainer1.png)
@@ -13,7 +12,7 @@
 3. På bladet **Lägg till volymbehållare**:
    
    1. Enheten markeras automatiskt.
-   2. Ange ett **namn** för din volymbehållare. Namnet måste vara mellan 3 och 32 tecken.
+   2. Ange ett **namn** för din volymbehållare. Namnet måste vara mellan 3 och 32 tecken. Du kan byta namn på en volymbehållare när den har skapats.
    3. Välj **Aktivera kryptering av molnlagring** för att aktivera kryptering av data som skickas från enheten till molnet.
    4. Ange och bekräfta en **krypteringsnyckel för molnlagring** som är 8 till 32 tecken. Nyckeln används av enheten för att få åtkomst till krypterad data.
    5. Ange ett **lagringskonto** att associera med volymbehållaren. Du kan välja ett befintligt lagringskonto eller standardkontot som genereras när tjänsten skapas. Du kan också använda alternativet **Lägg till ny** för att ange ett lagringskonto som inte är länkad till den här tjänstprenumerationen.

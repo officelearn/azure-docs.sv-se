@@ -12,12 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-ms.date: 10/05/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1dc9885e4cdbad1153ac476e3f0c0068ec391374
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 1b87a2ebb35b31ee3d3139ecead6267e62eb1033
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-objective-c"></a>Komma igång med Azure Mobile Engagement för iOS-appar i Objective C
@@ -35,13 +36,13 @@ Du måste slutföra den här självstudiekursen innan du påbörjar någon annan
 
 > [!NOTE]
 > Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started).
-> 
-> 
+>
+>
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Konfigurera Mobile Engagement för din iOS-app
+## <a id="setup-azme"></a>Konfigurera Mobile Engagement för din iOS-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
+## <a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 I den här kursen behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. Den fullständiga integrationsdokumentationen finns i [Mobile Engagement iOS SDK-integration](mobile-engagement-ios-sdk-overview.md)
 
 Vi skapar en grundläggande app i XCode för att demonstrera integrationen.
@@ -53,44 +54,44 @@ Vi skapar en grundläggande app i XCode för att demonstrera integrationen.
 1. Ladda ned [Mobile Engagement iOS SDK].
 2. Extrahera .tar.gz-filen till en mapp på datorn.
 3. Högerklicka på projektet och välj sedan **Lägg till filer i**.
-   
+
     ![][1]
-4. Navigera till mappen dit du extraherade SDK, markera mappen `EngagementSDK` och klicka sedan på **OK**.
-   
+4. Navigera till mappen där du extraherade SDK, markera mappen `EngagementSDK`, klicka på **Alternativ** i det nedre vänstra hörnet och se till att kryssrutan **kopiera objekt vid behov** och kryssrutan för ditt mål är markerade. Tryck sedan på **OK**.
+
     ![][2]
 5. Öppna fliken **Build Phases** (Byggfaser) och gå till menyn **Link Binary With Libraries** (Länka binära värden till bibliotek) och lägg till ramverk enligt nedan:
-   
+
     ![][3]
 6. Gå tillbaka till Azure-portalen via appsidan **Anslutningsinformation** och kopiera anslutningssträngen.
-   
+
     ![][4]
 7. Lägg till följande rad med kod i filen **AppDelegate.m**.
-   
+
         #import "EngagementAgent.h"
 8. Klistra in anslutningssträngen i delegaten `didFinishLaunchingWithOptions`.
-   
+
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
               [...]   
               [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
               [...]
         }
-9. `setTestLogEnabled` är ett valfritt uttryck som aktiverar SDK-loggar som sedan kan användas till att identifiera problem. 
+9. `setTestLogEnabled` är ett valfritt uttryck som aktiverar SDK-loggar som sedan kan användas till att identifiera problem.
 
-## <a name="a-idmonitoraenable-realtime-monitoring"></a><a id="monitor"></a>Aktivera realtidsövervakning
+## <a id="monitor"></a>Aktivera realtidsövervakning
 För att kunna börja skicka data och försäkra dig om att användarna är aktiva måste du skicka minst en skärm (aktivitet) till Mobile Engagement-serverdelen.
 
 1. Öppna filen **ViewController.h** och importera **EngagementViewController.h**:
-   
-    `# import "EngagementViewController.h"`
+
+    `#import "EngagementViewController.h"`
 2. Ersätt superklassen för **ViewController**-gränssnittet med `EngagementViewController`:
-   
+
     `@interface ViewController : EngagementViewController`
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
 I följande avsnitt konfigurerar du appen för att ta emot dem.
 
@@ -106,11 +107,11 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 ### <a name="modify-your-application-delegate"></a>Ändra programdelegaten
 1. I filen **AppDeletegate.m** importerar du räckviddsmodulen för Engagement.
-   
+
         #import "AEReachModule.h"
         #import <UserNotifications/UserNotifications.h>
 2. Inifrån metoden `application:didFinishLaunchingWithOptions` skapar du en räckviddsmodul och skickar den till din befintliga initieringsrad för Engagement:
-   
+
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
             AEReachModule * reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
             [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
@@ -120,7 +121,7 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 
 ### <a name="enable-your-app-to-receive-apns-push-notifications"></a>Konfigurera appen för att ta emot push-meddelanden med APNS
 1. Lägg till följande rad i metoden `application:didFinishLaunchingWithOptions`:
-   
+
         if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
         {
             if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
@@ -137,21 +138,20 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 2. Lägg till `application:didRegisterForRemoteNotificationsWithDeviceToken`-metoden på följande sätt:
-   
+
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
         {
              [[EngagementAgent shared] registerDeviceToken:deviceToken];
             NSLog(@"Registered Token: %@", deviceToken);
         }
 3. Lägg till `didFailToRegisterForRemoteNotificationsWithError`-metoden på följande sätt:
-   
+
         - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
         {
-   
            NSLog(@"Failed to get token, error: %@", error);
         }
 4. Lägg till `didReceiveRemoteNotification:fetchCompletionHandler`-metoden på följande sätt:
-   
+
         - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
         {
             [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
@@ -167,10 +167,4 @@ I följande avsnitt konfigurerar du appen för att ta emot dem.
 [2]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

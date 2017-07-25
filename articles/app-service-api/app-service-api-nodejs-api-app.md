@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 49f6a49f3f97841e896ff2d497555c42a1ec8e0d
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Skapa en Node.js RESTful-API och distribuera den till en API-app i Azure

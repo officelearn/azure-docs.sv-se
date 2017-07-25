@@ -13,14 +13,13 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/28/2017
+ms.date: 07/13/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a42138ae234313c7c6cbfcaa8b851ad47f82133b
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: ee4298b91f4e2b215b5faabaad96323f4ef234b8
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Kom igång med R Server på HDInsight
@@ -643,10 +642,15 @@ Först ssh till kantnoden. Exempel:
 
     ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-När du har använt ssh byter du katalog till följande katalog och använder sudo för dotnet-dll-filen:
+När du har använt ssh byter du katalog till rätt version och använder sudo för dotnet-dll-filen: 
 
-    cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
-    sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
+- Microsoft R-server 9.1:
+
+    cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0   sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
+
+- Microsoft R-server 9.0:
+
+    cd /usr/lib64/microsoft-deployr/9.0.1   sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
 Gör så här när du ska konfigurera en Microsoft R Server-driftsättning i en enda konfiguration:
 

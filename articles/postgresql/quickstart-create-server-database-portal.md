@@ -9,10 +9,10 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 06/19/2017
+ms.date: 07/12/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 2b81b9e1ae2abfd332bd6048b7643b4245ca374b
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: c065d692d2a4ac369cb13a70d09b30498e6c9106
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/13/2017
 
@@ -38,12 +38,12 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
  ![Azure Database för PostgreSQL – Skapa databasen](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.  Fyll i detaljformuläret för den nya server med följande information, som det visas i föregående bil:
-    - Servernamn: **mypgserver-20170401** (namnet på en server mappar till DNS-namnet och behöver därför vara globalt unikt) 
+    - Servernamn: **mypgserver 20170401** (Välj ett globalt unikt servernamn, eftersom det här namnet mappar till DNS-namn)
     - Prenumeration: Om du har flera prenumerationer, väljer du lämplig prenumeration där resursen ska finnas eller debiteras till.
     - Resursgrupp: **myresourcegroup**
     - Valfritt inloggningsnamn och lösenord för serveradministratören
-    - Plats
-    - PostgreSQL-version
+    - Plats: Välj en plats nära dig.
+    - PostgreSQL-Version: Välj den senaste versionen.
 
   > [!IMPORTANT]
   > Det användarnamn och lösenord för serveradministration du anger här krävs för inloggning på servern och databaserna senare i den här snabbstarten. Kom ihåg eller skriv ned den här informationen så att du kan använda den senare.

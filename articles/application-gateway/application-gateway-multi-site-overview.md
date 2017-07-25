@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 722ab9e8a13ee28342bb30f6810fa503b1aa29f2
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 645f68d836babf11f32fc391e6dacc9430f0070c
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-# Flera webbplatser i Application Gateway
-<a id="application-gateway-multiple-site-hosting" class="xliff"></a>
+# <a name="application-gateway-multiple-site-hosting"></a>Flera webbplatser i Application Gateway
 
 Om du har flera webbplatser så kan du konfigurera fler än ett webbprogram inom samma programgateway-instans. Den här funktionen låter dig konfigurera en mer effektiv topologi för dina distributioner genom att lägga till upp till 20 webbplatser till en programgateway. Varje webbplats kan dirigeras till en egen serverdelspool. I följande exempel servar Application Gateway trafik åt contoso.com och fabrikam.com från två serverdels-serverpooler som heter ContosoServerPool och FabrikamServerPool.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
+> [!IMPORTANT]
+> Regler bearbetas i den ordning de visas i portalen. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.
+
 Begäranden för http://contoso.com dirigeras till ContosoServerPool och http://fabrikam.com dirigeras till FabrikamServerPool.
 
 På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara http://blog.contoso.com och http://app.contoso.com på samma distribution av en programgateway.
 
-## Värdhuvuden och servernamnsindikator (SNI)
-<a id="host-headers-and-server-name-indication-sni" class="xliff"></a>
+## <a name="host-headers-and-server-name-indication-sni"></a>Värdhuvuden och servernamnsindikator (SNI)
 
 Det finns tre vanliga mekanismer för att aktivera flera platser inom samma infrastruktur.
 
@@ -44,8 +44,7 @@ Det finns tre vanliga mekanismer för att aktivera flera platser inom samma infr
 
 För tillfället får en Application Gateway en enda IP-adress som den lyssnar på trafik från. Därför stöds inte alternativet där varje program har sin egen IP-adress för tillfället. Application Gateway stöder att ha flera program som alla lyssnar på olika portar, men det här scenariot kräver att programmen accepterar trafik på icke-standardportar och det är ofta en oönskad konfiguration. Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att ha mer än en webbplats på samma offentliga IP-adress och port. Webbplatserna i Application Gateway kan också stödja SSL-avlastning med servernamnsindikator (SNI) TLS-tillägget. Det här scenariot innebär att klientens webbläsare och serverdels-webbservergrupp måste ha stöd för HTTP/1.1 och TLS-tillägg som det definieras i RFC 6066.
 
-## Listener-konfigurationselementet
-<a id="listener-configuration-element" class="xliff"></a>
+## <a name="listener-configuration-element"></a>Listener-konfigurationselementet
 
 Det befintliga HTTPListener-konfigurationselement utökas till att stödja värdnamn och servernamnsindikator-element, som används av Application Gateway för att dirigera trafik till korrekta serverdels-pooler. Följande kodexempel är ett utdrag från HttpListeners-elementet från mallfilen.
 
@@ -87,8 +86,7 @@ Det befintliga HTTPListener-konfigurationselement utökas till att stödja värd
 
 Du kan besöka [Resource Manager-mallen för flera webbplatser](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) för en slutpunkt-till-slutpunkts mallbaserad distribution.
 
-## Routingregeln
-<a id="routing-rule" class="xliff"></a>
+## <a name="routing-rule"></a>Routingregeln
 
 Inga ändringar behövs i routingregeln. Routingregeln Basic ska fortfarande väljas för att knyta rätt webbplats-lyssnare till motsvarande serverdels-adresspool.
 
@@ -129,8 +127,7 @@ Inga ändringar behövs i routingregeln. Routingregeln Basic ska fortfarande vä
 ]
 ```
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 När du har lärt dig om flera webbplatser, kan du gå till [skapa en programgateway med flera webbplatser](application-gateway-create-multisite-azureresourcemanager-powershell.md) för att skapa en programgateway som stöder flera en ett webbprogram.
 

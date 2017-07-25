@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -48,7 +48,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 
-2. Välj**Beräkna**, sedan **Ubuntu Server 16.04 LTS** och se till att **Resource Manager** är vald som distributionsmodell. Klicka på knappen **Skapa**. 
+2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**. 
 
 3. Ange informationen för den virtuella datorn. Välj **Offentlig SSH-nyckel** som **Autentiseringstyp**. När du klistrar in den offentliga SSH-nyckeln ska du tänka på att ta bort eventuella inledande eller avslutande blanksteg. När du är klar klickar du på **OK**.
 
@@ -58,7 +58,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
     ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. På inställningsbladet väljer du **Ja** under **Use managed disks** (Använd hanterade diskar), låter standardinställningarna vara kvar för resten och klickar på **OK**.
+5. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
 
 6. På sammanfattningssidan klickar du på **Ok** för att starta distributionen av den virtuella datorn.
 

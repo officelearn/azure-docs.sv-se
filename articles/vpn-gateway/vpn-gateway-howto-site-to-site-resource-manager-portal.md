@@ -15,16 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: fb175fc178e1b54648349c25d376972b6d1855b3
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: cc0715b9f2c531ad493beec854202d2211a84daa
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
-# Skapa en plats-till-plats-anslutning på Azure Portal
-<a id="create-a-site-to-site-connection-in-the-azure-portal" class="xliff"></a>
+# <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Skapa en plats-till-plats-anslutning på Azure Portal
 
 Den här artikeln visar hur du kan använda Azure Portal för att skapa en VPN-gatewayanslutning från plats till plats från ditt lokala nätverk till det virtuella nätverket. Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
@@ -42,14 +40,12 @@ En VPN-gatewayanslutning från plats till plats används för att ansluta ditt l
 
 ![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
-## Innan du börjar
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>Innan du börjar
 
 Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
-* Verifiera att du vill arbeta med distributionsmodellen i Resource Manager. [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-rm-include.md)] 
-* En kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter och enhetskonfiguration.
-* En extern offentlig IPv4 IP-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
+* Kontrollera att du har en kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter och enhetskonfiguration.
+* Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
 * Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen. När du skapar den här konfigurationen måste du ange prefix för IP-adressintervall som Azure dirigerar till den lokala platsen. Inget av undernäten i ditt lokala nätverk kan överlappa de virtuella nätverksundernät du vill ansluta till. 
 
 ### <a name="values"></a>Exempelvärden
@@ -127,8 +123,7 @@ Skapa VPN-anslutningen för plats-till-plats mellan din virtuella nätverksgatew
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 *  Information om BGP finns i [BGP-översikt](vpn-gateway-bgp-overview.md) och [Så här konfigurerar du BGP](vpn-gateway-bgp-resource-manager-ps.md).
 *  Information om tvingad tunneltrafik finns i [Om forcerade tunnlar](vpn-gateway-forced-tunneling-rm.md)

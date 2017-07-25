@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 169c4d1ad8bc7960806f2b504010d792f412c4f3
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Granska aktivitetsrapporter i Azure Active Directory-portalen
-<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a> 
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
 Med rapportering i Azure Active Directory (Azure AD) får du all information du behöver för att ta reda på hur din miljö klarar sig.
 
@@ -38,15 +37,13 @@ Rapporteringsarkitekturen i Azure AD består av följande komponenter:
 
 I det här ämnet får du en översikt över granskningsaktiviteterna.
  
-## Vem kan komma åt dessa data?
-<a id="who-can-access-the-data" class="xliff"></a>
+## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 * Användare i rollen säkerhetsadministratör eller säkerhetsläsare
 * Globala administratörer
 * Enskilda användare (icke-administratörer) kan se sina egna aktiviteter
 
 
-## Granskningsloggar
-<a id="audit-logs" class="xliff"></a>
+## <a name="audit-logs"></a>Granskningsloggar
 
 Granskningsloggarna i Azure Active Directory ger dokumentation över systemaktiviteter för kontroll av överensstämmelse.  
 Din startpunkt för alla granskningsdata är **Granskningsloggar** i avsnittet **Aktivitet** i **Azure Active Directory**.
@@ -76,8 +73,7 @@ När du klickar på ett objekt i listvyn visas all tillgänglig information om d
 ![Granskningsloggar](./media/active-directory-reporting-activity-audit-logs/22.png "Granskningsloggar")
 
 
-## Filtrera granskningsloggar
-<a id="filtering-audit-logs" class="xliff"></a>
+## <a name="filtering-audit-logs"></a>Filtrera granskningsloggar
 
 Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du filtrera granskningsdata med hjälp av följande fält:
 
@@ -134,19 +130,17 @@ När du väljer **Grupp** som **aktivitetsresurstyp** får du tillgång till ytt
 
 Filtret **aktivitet** baseras på kategorin och den aktivitetsresurstyp som du väljer. Du kan välja en specifik aktivitet som du vill visa eller välja alla. 
 
-Du kan hämta listan över alla granskningsaktiviteter med Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, där $tenantdomain = ditt domännamn eller refererar till artikeln [Granska rapporthändelser](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+Du kan hämta listan över alla granskningsaktiviteter med Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, där $tenantdomain = ditt domännamn eller refererar till artikeln [Granska rapporthändelser](active-directory-reporting-audit-events.md).
 
 
-## Genvägar till granskningsloggar
-<a id="audit-logs-shortcuts" class="xliff"></a>
+## <a name="audit-logs-shortcuts"></a>Genvägar till granskningsloggar
 
 Förutom **Azure Active Directory** finns det ytterligare två ställen på Azure Portal där du kan granska data:
 
 - Användare och grupper
 - Företagsprogram
 
-### Granskningsloggar för användare och grupper
-<a id="users-and-groups-audit-logs" class="xliff"></a>
+### <a name="users-and-groups-audit-logs"></a>Granskningsloggar för användare och grupper
 
 Med användar- och gruppbaserade granskningsrapporter kan du få svar på frågor som:
 
@@ -170,8 +164,7 @@ Om du bara vill kontrollera granskningsdata relaterade till användare och grupp
 
 ![Granskningsloggar](./media/active-directory-reporting-activity-audit-logs/93.png "Granskningsloggar")
 
-### Granskningsloggar för företagsprogram
-<a id="enterprise-applications-audit-logs" class="xliff"></a>
+### <a name="enterprise-applications-audit-logs"></a>Granskningsloggar för företagsprogram
 
 Med programbaserade granskningsrapporter kan du få svar på frågor som:
 
@@ -190,8 +183,8 @@ Du kan filtrera den här vyn ytterligare till bara **grupper** eller bara **anv�
 ![Granskningsloggar](./media/active-directory-reporting-activity-audit-logs/25.png "Granskningsloggar")
 
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
-Se guiden [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+## <a name="next-steps"></a>Nästa steg
+
+En översikt över rapportering finns i [Azure Active Directory-rapportering](active-directory-reporting-azure-portal.md).
 
 

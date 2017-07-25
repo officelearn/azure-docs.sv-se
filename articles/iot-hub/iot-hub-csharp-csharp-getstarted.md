@@ -16,19 +16,19 @@ ms.date: 05/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 103d64ea73c309f387ff90d181f472ad246d3026
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 2734a90284432ee218efb4fea68684de4b069dd6
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-net"></a>Anslut din simulerade enhet till IoT Hub med hjälp av .NET
+# <a name="connect-your-device-to-your-iot-hub-using-net"></a>Anslut din enhet till IoT Hub med hjälp av .NET
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 I slutet av den här självstudiekursen har du tre .NET-konsolappar:
 
-* **CreateDeviceIdentity**, som skapar en enhetsidentitet och en associerad säkerhetsnyckel för att ansluta din app för simulerade enheter.
-* **ReadDeviceToCloudMessages**, som visar telemetri som skickas av appen för simulerade enheter.
+* **CreateDeviceIdentity**, som skapar en enhetsidentitet och en associerad säkerhetsnyckel för att ansluta din app för enheter.
+* **ReadDeviceToCloudMessages**, som visar telemetri som skickas av appen för enheter.
 * **SimulatedDevice**, som ansluter till din IoT Hub med enhetsidentiteten som skapades tidigare och som skickar ett telemetrimeddelande varje sekund med hjälp av MQTT-protokollet.
 
 Du kan hämta eller klona Visual Studio-lösningen som innehåller de tre apparna från Github.
@@ -125,7 +125,7 @@ I det här avsnittet ska du skapa en .NET-konsolapp som läser ”enhet till mol
     Task.WaitAll(tasks.ToArray());
    ```
 
-## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
+## <a name="create-a-device-app"></a>Skapa en enhetsapp
 I det här avsnittet ska du skapa en .NET-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT Hub.
 
 1. I Visual Studio lägger du till ett Visual C# Classic Desktop-projekt i den aktuella lösningen med hjälp av projektmallen **Console App (.NET Framework)**. Kontrollera att .NET Framework-versionen är 4.5.1 eller senare. Ge projektet namnet **SimulatedDevice**.
@@ -193,7 +193,7 @@ I det här avsnittet ska du skapa en .NET-konsolapp som simulerar en enhet som s
    
    Som standard skapar metoden **Create** i en NET Framework-app en **DeviceClient**-instans som använder AMQP-protokollet för att kommunicera med IoT Hub (klienter med UWP och PCL använder HTTP som standard). Om du vill använda MQTT eller HTTP-protokollet använder du åsidosättandet av **Create**-metoden som gör att du kan ange protokollet. Om du använder HTTP-protokollet bör du också ta med namnområdet **System.Net.Http.Formatting** genom att lägga till NuGet-paketet **Microsoft.AspNet.WebApi.Client** till ditt projekt.
 
-Den här självstudiekursen beskriver steg för steg hur du skapar en IoT Hub-simulerad enhetsapp. Du kan också lägga till nödvändig kod i enhetsprogrammet med hjälp av Visual Studio-tillägget [Ansluten tjänst för Azure IoT Hub][lnk-connected-service].
+Den här självstudiekursen beskriver steg för steg hur du skapar en IoT Hub-app. Du kan också lägga till nödvändig kod i enhetsprogrammet med hjälp av Visual Studio-tillägget [Ansluten tjänst för Azure IoT Hub][lnk-connected-service].
 
 > [!NOTE]
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktionskoden bör du implementera principer för omförsök (till exempel en exponentiell backoff), vilket rekommenderas i MSDN-artikeln om [hantering av tillfälliga fel][lnk-transient-faults].
@@ -206,7 +206,7 @@ Nu är det dags att köra apparna.
 1. Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt**. Välj **Flera startprojekt** och välj sedan **Start** som åtgärden för både **ReadDeviceToCloudMessages**- och **SimulatedDevice**-projektet.
    
     ![Egenskaper för startprojekt][41]
-2. Starta båda apparna genom att trycka på **F5**. Konsolens utdata från appen **SimulatedDevice** visar meddelandena som din simulerade enhetsapp skickar till IoT Hub. Konsolens utdata från appen **ReadDeviceToCloudMessages** visar meddelandena som din IoT Hub tar emot.
+2. Starta båda apparna genom att trycka på **F5**. Konsolens utdata från appen **SimulatedDevice** visar meddelandena som din enhetsapp skickar till IoT Hub. Konsolens utdata från appen **ReadDeviceToCloudMessages** visar meddelandena som din IoT Hub tar emot.
    
     ![Konsolens utdata från appar][42]
 3. På panelen **Användning** på [Azure Portal][lnk-portal] kan du se hur många meddelanden som har skickats till IoT Hub:
@@ -214,7 +214,7 @@ Nu är det dags att köra apparna.
     ![Panelen Användning på Azure Portal][43]
 
 ## <a name="next-steps"></a>Nästa steg
-I de här självstudierna konfigurerade du en IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du använde den här enhetsidentiteten så att den simulerade enhetsappen kunde skicka ”enhet till molnet”-meddelanden till IoT Hub. Du skapade också en app som visar meddelandena som tagits emot av IoT Hub. 
+I de här självstudierna konfigurerade du en IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du använde den här enhetsidentiteten så att enhetsappen kunde skicka ”enhet till molnet”-meddelanden till IoT Hub. Du skapade också en app som visar meddelandena som tagits emot av IoT Hub. 
 
 Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-scenarier finns här:
 

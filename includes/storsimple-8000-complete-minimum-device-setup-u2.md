@@ -1,9 +1,10 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Slutför den minimala StorSimple-enhetsinställningen
 
-#### Slutför den minimala StorSimple-enhetsinställningen
-
+   > [!NOTE]
+   > Du kan inte ändra namnet på en enhet när den minimala enhetsinstallationen har slutförts.
+   
 1. Markera och klicka på din enhet i tabellistan med enheter på bladet **Enheter**. Enheten har statusen **Redo för installation**. Bladet **Konfigurera enhet** öppnas.
 
      ![Nätverksgränssnitt för minimala StorSimple-enhetsinställningar](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
@@ -27,9 +28,6 @@
 1. Klicka på **OK**. Enhetskonfigurationen startar. Du meddelas när enhetskonfigurationen är klar. Enhetens status ändras till **Online** på bladet **Enheter**.
 
     ![Nätverksgränssnitt för minimala StorSimple-enhetsinställningar](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
-
-   > [!NOTE]
-   > Du kan ändra alla andra enhetsinställningar när du vill på bladet **Enhetsinställningar**.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

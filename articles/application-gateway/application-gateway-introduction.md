@@ -13,14 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 07/10/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e9dfb5a744a7c63ef9805b1341236c4f3c57ec4d
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 17fc7e6a19b835e08360d1bf638d69aabb14e121
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Översikt över Application Gateway
@@ -43,6 +42,7 @@ Application Gateway stöder för närvarande följande funktioner:
 * **[Routing till flera platser](application-gateway-multi-site-overview.md)** –Application gateway låter dig konsolidera upp till 20 webbplatser på en enda Application Gateway.
 * **[Websocket-stöd](application-gateway-websocket.md)** – En annan bra funktion i Application Gateway är inbyggt stöd för Websocket.
 * **[Övervakning av hälsotillstånd](application-gateway-probe-overview.md)** –Application gateway övervakar standard hälsotillstånd för serverdelsresurser och anpassade avsökningar för att övervaka mer specifika scenarier.
+* **[Begäran om omdirigering](application-gateway-redirect-overview.md)** -med den här funktionen kan du dirigera HTTP-anrop till en HTTPS-lyssnare.
 * **[Avancerad diagnostik](application-gateway-diagnostics.md)** – Application gateway ger fullständig diagnostik och åtkomst till loggar. Brandväggsloggar är tillgängliga för Application Gateway-resurser som har WAF aktiverat.
 
 ## <a name="benefits"></a>Fördelar

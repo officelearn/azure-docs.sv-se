@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: d9cf94252252094218036182c6dc08e8d0779fbe
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: b9e61950654ba427b09dd608d354589a0804aaa5
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
-<a id="sign-in-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
 Med rapportering i Azure Active Directory (Azure AD) i [Azure Portal](https://portal.azure.com) får du all information du behöver för att ta reda på hur din miljö klarar sig.
 
@@ -38,22 +37,18 @@ Rapporteringsarkitekturen i Azure Active Directory består av följande komponen
 
 I det här ämnet får du en översikt över inloggningsaktiviteterna.
 
-## Förhandskrav
-<a id="pre-requisite" class="xliff"></a>
+## <a name="pre-requisite"></a>Förhandskrav
 
-### Vem kan komma åt dessa data?
-<a id="who-can-access-the-data" class="xliff"></a>
+### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 * Användare i rollen säkerhetsadministratör eller säkerhetsläsare
 * Globala administratörer
 * Alla användare (icke-administratörer) kan komma åt sina egna inloggningar 
 
-### Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?
-<a id="what-azure-ad-license-do-you-need-to-access-sign-in-activity" class="xliff"></a>
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?
 * Din klient måste ha en associerad Azure AD Premium-licens för att det ska gå att se alla rapporter om inloggningsaktiviteter
 
 
-## Inloggningsaktiviteter
-<a id="signs-in-activities" class="xliff"></a>
+## <a name="signs-in-activities"></a>Inloggningsaktiviteter
 
 Med den information som tillhandahålls av rapporten över användarinloggningsaktiviteter får du svar på frågor som:
 
@@ -89,8 +84,7 @@ När du klickar på ett objekt i listvyn visas all tillgänglig information om d
 ![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/43.png "Inloggningsaktivitet")
 
 
-## Filtrerar inloggningsaktiviteter
-<a id="filtering-sign-in-activities" class="xliff"></a>
+## <a name="filtering-sign-in-activities"></a>Filtrerar inloggningsaktiviteter
 
 Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du filtrera inloggningsdata med hjälp av följande fält:
 
@@ -126,8 +120,7 @@ Med filtret **inloggningsstatus** kan du välja något av följande filter:
 - Fel
 
 
-## Genvägar till inloggningsaktiviteter
-<a id="sign-in-activities-shortcuts" class="xliff"></a>
+## <a name="sign-in-activities-shortcuts"></a>Genvägar till inloggningsaktiviteter
 
 Förutom Azure Active Directory finns det ytterligare två ställen på Azure Portal där du kan granska data om inloggning:
 
@@ -135,8 +128,7 @@ Förutom Azure Active Directory finns det ytterligare två ställen på Azure Po
 - Företagsprogram
 
 
-### Inloggningsaktivitet för användare och grupper
-<a id="users-and-groups-sign-ins-activities" class="xliff"></a>
+### <a name="users-and-groups-sign-ins-activities"></a>Inloggningsaktivitet för användare och grupper
 
 Med den information som tillhandahålls av rapporten över användarinloggningsaktiviteter får du svar på frågor som:
 
@@ -172,8 +164,7 @@ Alternativet **Inloggningar** ger dig en fullständig översikt över alla anvä
 
 
 
-## Användning av hanterade program
-<a id="usage-of-managed-applications" class="xliff"></a>
+## <a name="usage-of-managed-applications"></a>Användning av hanterade program
 
 Med en programcentrerad vy över dina inloggningsuppgifter kan du få svar på frågor som:
 
@@ -206,8 +197,8 @@ Alternativet **Inloggningar** ger dig en fullständig översikt över alla inlog
 
 
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
-Se guiden [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+## <a name="next-steps"></a>Nästa steg
+
+Om du vill veta mer om inloggningsaktivitetsfelkoder finns på [Felkoder inloggningsaktivitetsrapporten i Azure Active Directory-portalen](active-directory-reporting-activity-sign-ins-errors.md).
 
 

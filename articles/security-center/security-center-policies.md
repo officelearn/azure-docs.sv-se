@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: aefec15c72c6cf8389a29b03be70abb4c7f020b9
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Ange säkerhetsprinciper i Azure Security Center
@@ -43,7 +42,7 @@ Det går att ställa in särskilda säkerhetsprinciper för varje prenumeration.
     ![Ange princip](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. Bladet **Säkerhetsprincip** för den valda prenumerationen öppnas med ett antal alternativ. Alternativen på det här bladet är:
 
-   * **Förebyggandeprincip**: Med det här alternativet kan du konfigurera principer per prenumeration eller resursgrupp.  
+   * **Förebyggandeprincip**: Med det här alternativet kan du konfigurera principer per prenumeration.  
    * **E-postavisering**: Använd det här alternativet för att konfigurera ett e-postmeddelande som skickas vid den första dagliga förekomsten av en avisering och endast för varningar med hög angelägenhetsgrad. E-postinställningar kan bara konfigureras för prenumerationsprinciper. Mer information om hur du konfigurerar e-postaviseringar finns i [Lägga till säkerhetskontaktuppgifter i Azure Security Center](security-center-provide-security-contact-details.md).
    * **Prisnivå**: Använd det här alternativet för att uppgradera valet av prisnivå. Mer information om prisalternativen finns i [Security Center-prissättning](security-center-pricing.md).
 4. Kontrollera att alternativet **Samla in data från virtuella datorer** är inställt på **På**. Det här alternativet möjliggör loggsamling för befintliga och nya resurser med hjälp av Microsoft Monitoring Agent – det här är samma agent används av Operations Management Suite och Log Analytics-tjänsten. Data som samlas in från agenten lagras i befintliga logganalysarbetsytor som är associerade med din Azure-prenumeration eller nya arbetsytor med hänsyn till den virtuella datorns geografiska plats.

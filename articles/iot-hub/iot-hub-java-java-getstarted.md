@@ -16,19 +16,19 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 7d95ba163712c8a3610839029fe3453bd5c308a8
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 7f0fbaf5d8e0379fc67ad62ea7c9ab63c6737150
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-java"></a>Anslut din simulerade enhet till IoT Hub med Java
+# <a name="connect-your-device-to-your-iot-hub-using-java"></a>Anslut din enhet till IoT Hub med hjälp av Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 I slutet av den här självstudiekursen har du tre Java-konsolappar:
 
-* **create-device-identity**, som skapar en enhetsidentitet och en associerad säkerhetsnyckel för att ansluta din simulerade enhetsapp.
-* **read-d2c-messages**, som visar telemetri som skickas av din simulerade enhetsapp.
+* **create-device-identity**, som skapar en enhetsidentitet och en associerad säkerhetsnyckel för att ansluta din enhetsapp.
+* **read-d2c-messages**, som visar telemetri som skickas av din enhetsapp.
 * **simulated-device**, som ansluter till din IoT Hub med enhetsidentiteten som skapades tidigare och som skickar ett telemetrimeddelande varje sekund med hjälp av MQTT-protokollet.
 
 > [!NOTE]
@@ -93,6 +93,7 @@ I det här avsnittet ska du skapa en Java-konsolapp som skapar en enhetsidentite
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "myFirstJavaDevice";
     ```
+[!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
 8. Ändra signaturen för **main**-metoden och ta med undantagen som visas nedan:
 
@@ -302,9 +303,12 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
     mvn clean package -DskipTests
     ```
 
+<<<<<<< HEAD
+## <a name="create-a-device-app"></a>Skapa en enhetsapp
+=======
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 
-I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT Hub.
+>>>>>>> master I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT Hub.
 
 1. I mappen iot-java-get-started som du skapade i avsnittet *Skapa en enhetsidentitet* skapar du ett Maven-projekt med namnet **simulated-device** genom att köra följande kommando i Kommandotolken. Observera att detta är ett enda långt kommando:
 
@@ -374,11 +378,19 @@ I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som s
       }
     }
     ```
+<<<<<<< HEAD
+9. Lägg till följande kapslade **EventCallback**-klass inuti klassen **App** för att visa bekräftelsestatusen som IoT Hub returnerar när den bearbetar ett meddelande från enhetsappen. Den här metoden meddelar även huvudtråden i appen när meddelandet har bearbetats:
+   
+    ```
+    private static class EventCallback implements IotHubEventCallback
+    {
+=======
 
-9. Lägg till följande kapslade **EventCallback**-klass inuti klassen **App** för att visa bekräftelsestatusen som IoT Hub returnerar när den bearbetar ett meddelande från den simulerade enhetsappen. Den här metoden meddelar även huvudtråden i appen när meddelandet har bearbetats:
+9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
 
     ```java
     private static class EventCallback implements IotHubEventCallback {
+>>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -488,8 +500,11 @@ Nu är det dags att köra apparna.
     ![Azure-portal Användningspanel som visar antalet meddelanden som har skickats till IoT Hub][43]
 
 ## <a name="next-steps"></a>Nästa steg
+<<<<<<< HEAD I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du använde den här enhetsidentiteten så att enhetsappen kunde skicka ”enhet till molnet”-meddelanden till IoT Hub. Du skapade också en app som visar meddelandena som tagits emot av IoT Hub. 
+=======
 
 I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du använde den här enhetsidentiteten så att den simulerade enhetsappen kunde skicka ”enhet till molnet”-meddelanden till IoT Hub. Du skapade också en app som visar meddelandena som tagits emot av IoT Hub.
+>>>>>>> master
 
 Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-scenarier finns här:
 

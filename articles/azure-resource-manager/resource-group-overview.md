@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 07/19/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: db97edd3c4fbfdbe955c49cc9a58de30c5085305
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: b382225b9e355148279181fbf6238eb1e08f382d
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
@@ -258,49 +257,28 @@ I följande exempel visas en princip som säkerställer taggkonsekvens genom att
 Det finns många fler typer av principer som du kan skapa. Mer information finns i [Hantera resurser och kontrollera åtkomsten med hjälp av principer](resource-manager-policy.md).
 
 ## <a name="sdks"></a>SDK:er
-Azure-SDK:er är tillgängliga för flera språk och plattformar.
-Var och en av dessa språkimplementeringar är tillgängliga via pakethanteraren i respektive implementerings ekosystem och på GitHub.
-
-Koden i var och en av dessa SDK:er genereras från Azure RESTful-API-specifikationer.
-Dessa specifikationer är öppen källkod och baseras på Swagger 2.0-specifikationen.
-SDK-koden genereras via ett projekt för öppen källkod kallat AutoRest.
-AutoRest omvandlar dessa RESTful-API-specifikationer till klientbibliotek på flera språk.
-Om du vill kan du förbättra olika aspekter av den genererade koden i SDK:erna. Hela uppsättningen verktyg för att skapa SDK:erna är öppen, kostnadsfri och baserad på ett populärt API-specifikationsformat.
+Azure-SDK:er är tillgängliga för flera språk och plattformar. Var och en av dessa språkimplementeringar är tillgängliga via pakethanteraren i respektive implementerings ekosystem och på GitHub.
 
 Här är våra databaser för SDK med öppen källkod. Vi tar gärna emot feedback, information om problem och pull-förfrågningar.
 
-[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
+* [Azure SDK för .NET](https://github.com/Azure/azure-sdk-for-net)
+* [Azures hanteringsbibliotek för Java](https://github.com/Azure/azure-sdk-for-java)
+* [Azure SDK för Node.js](https://github.com/Azure/azure-sdk-for-node)
+* [Azure SDK för PHP](https://github.com/Azure/azure-sdk-for-php)
+* [Azure SDK för Python](https://github.com/Azure/azure-sdk-for-python)
+* [Azure SDK för Ruby](https://github.com/Azure/azure-sdk-for-ruby)
+
+Information om hur du använder dessa språk med dina resurser finns i:
+
+* [Azure för .NET-utvecklare](/dotnet/azure/?view=azure-dotnet)
+* [Azure för Java-utvecklare](/java/azure/)
+* [Azure för Node.js-utvecklare](/nodejs/azure/)
+* [Azure för Python-utvecklare](/python/azure/)
 
 > [!NOTE]
 > Om ett SDK inte tillhandahåller de funktioner som du behöver kan du även anropa [Azure REST-API](https://docs.microsoft.com/rest/api/resources/) direkt.
 > 
 > 
-
-## <a name="samples"></a>Exempel
-### <a name="net"></a>.NET
-* [Hantera resurser och resursgrupper i Azure](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-* [Distribuera en SSH-aktiverad virtuell dator med en mall](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-
-### <a name="java"></a>Java
-* [Hantera Azure-resurser](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
-* [Hantera Azure-resursgrupper](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-* [Distribuera en SSH-aktiverad virtuell dator med en mall](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-
-### <a name="nodejs"></a>Node.js
-* [Hantera resurser och resursgrupper i Azure](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-* [Distribuera en SSH-aktiverad virtuell dator med en mall](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-
-### <a name="python"></a>Python
-* [Hantera resurser och resursgrupper i Azure](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-* [Distribuera en SSH-aktiverad virtuell dator med en mall](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-
-### <a name="ruby"></a>Ruby
-* [Hantera resurser och resursgrupper i Azure](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-* [Distribuera en SSH-aktiverad virtuell dator med en mall](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
-Förutom dessa exempel kan du söka igenom galleriexemplen.
-
-[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## <a name="next-steps"></a>Nästa steg
 * En enkel introduktion till mallar finns i [Exportera en Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).

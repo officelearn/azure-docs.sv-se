@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 08ba157ba783d00069750cdc1c80d13111b6a670
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -134,7 +136,7 @@ Om du har färre än 50 000 objekt, men ändå vill utföra en parallell distri
 1. Kör Azure AD Connect-installationsprogrammet (MSI).
 2. När du ser skärmen **Välkommen till Azure AD Connect** avslutar du installationsguiden genom att klicka på ”X” i det övre högra hörnet i fönstret.
 3. Öppna en kommandotolk.
-4. Kör följande kommando från installationsplatsen för Azure AD Connect (som standard C:\Program Files\Microsoft Azure Active Directory Connect):  `AzureADConnect.exe /ForceExport`.
+4. Kör följande kommando från installationsplatsen för Azure AD Connect (som standard C:\Program Files\Microsoft Azure Active Directory Connect): `AzureADConnect.exe /ForceExport`.
 5. Klicka på knappen **Exportera inställningar**. När du installerar Azure AD Connect på en separat server migreras dessa inställningar från din aktuella DirSync till den nya Azure AD Connect-installationen.
 
 ![Analysen är klar](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
@@ -147,7 +149,7 @@ När du installerar Azure AD Connect på en ny server antas det att du vill utf�
 1. Kör Azure AD Connect-installationsprogrammet (MSI).
 2. När du ser skärmen **Välkommen till Azure AD Connect** avslutar du installationsguiden genom att klicka på ”X” i det övre högra hörnet i fönstret.
 3. Öppna en kommandotolk.
-4. Kör följande kommando från installationsplatsen för Azure AD Connect (som standard C:\Program Files\Microsoft Azure Active Directory Connect):  `AzureADConnect.exe /migrate`.
+4. Kör följande kommando från installationsplatsen för Azure AD Connect (som standard C:\Program Files\Microsoft Azure Active Directory Connect): `AzureADConnect.exe /migrate`.
    Installationsguiden för Azure AD Connect startar och följande skärm visas:  
    ![Ange dina autentiseringsuppgifter för Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
 5. Välj inställningsfilen som exporterades från DirSync-installationen.
@@ -157,7 +159,7 @@ När du installerar Azure AD Connect på en ny server antas det att du vill utf�
    * Ett tjänstkonto som används för att ansluta till SQL Server (om SQL Server-databasen är en fjärrplats måste det här kontot vara ett domäntjänstkonto).
      Följande alternativ visas på skärmen:  
      ![Ange dina autentiseringsuppgifter för Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
-7. Klicka på **Next**.
+7. Klicka på **Nästa**.
 8. På sidan **Klart att konfigurera** lämnar du kryssrutan **Starta synkroniseringsprocessen så snart som konfigurationen är klar** markerad. Nu är servern i [mellanlagringsläge](active-directory-aadconnectsync-operations.md#staging-mode) och ändringarna exporteras inte till Azure AD.
 9. Klicka på **Installera**.
 10. När installationen är klar loggar du ut och loggar sedan in igen i Windows innan du använder Synchronization Service Manager eller Synchronization Rule Editor eller innan du försöker göra andra konfigurationsändringar.
@@ -216,9 +218,4 @@ Lär dig mer om dessa nya funktioner, som aktiverades med installationen: [Autom
 Läs mer om [schemaläggaren och hur du utlöser synkronisering](active-directory-aadconnectsync-feature-scheduler.md).
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

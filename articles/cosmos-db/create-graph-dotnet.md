@@ -3,7 +3,7 @@ title: Skapa en .NET-app i Azure Cosmos DB med Graph API | Microsoft Docs
 description: "Anger ett .NET kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,14 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 3491aa53a55d988876710c0ac19383e642dda27b
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 1794341ed0d4519eef7f065d04ccf86a7e48a4a4
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa en .NET-app med Graph API
@@ -104,19 +103,23 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna filen Program.cs 
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. I [Azure Portal](http://portal.azure.com/) går du till ditt Azure Cosmos DB-konto. Klicka på **Nycklar** i det västra navigeringsfönstret och sedan på **läs- och skrivnycklar**. Du använder kopiera-knapparna till höger på skärmen för att kopiera URI:n och primärnyckeln i `App.config`-filen i nästa steg.
+1. I Azure Portal går du till ditt Azure Cosmos DB-konto. Klicka på **Översikt** i det vänstra navigeringsfönstret. Du kommer att kopiera värdet **Gremlin URI** i filen App.config i nästa steg. 
 
-    ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-graph-dotnet/keys.png)
+    ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-graph-dotnet/gremlin-uri.png)
 
-2. I Visual Studio 2017 öppnar du filen `App.config`. 
+    Om värdet **Gremlin URI** är tomt kan du skapa värdet från sidan **Nycklar** i portalen med **URI**-värdet, utan https:// och genom att ändra dokument till diagram. 
 
-3. Kopiera ditt URI-värde från portalen (med kopieringsknappen) och gör det till värdet för slutpunktsnyckeln i `App.config`. 
+2. Öppna filen App.config i Visual Studio 2017. 
 
-    `<add key="Endpoint" value="FILLME.documents.azure.com:443" />`
+3. Kopiera ditt **Gremlin URI**-värde från portalen och gör det till värdet för slutpunktsnyckeln i App.config. 
 
-4. Kopiera sedan värdet för primärnyckeln från portalen och gör det till värdet för authKey i `App.config`. 
+    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
+
+4. Tillbaka i Azure-portalen klickar du på **Nycklar** på den vänstra navigeringsmenyn och kopierar ditt **PRIMÄRNYCKEL**-värde från portalen och använd värdet för AuthKey-nyckel i App.config. Spara sedan ändringarna. 
 
     `<add key="AuthKey" value="FILLME" />`
+
+    ![Visa och kopiera en primärnyckel i Azure-portalen på sidan nycklar](./media/create-graph-dotnet/keys.png)
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 

@@ -13,22 +13,20 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: ab95f61e2d88f82bf2b24aea786c7dbadfb9c0fe
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 5c642bb814a279756e8391f12fdc86b6ec0b4a8f
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Så här använder du innehållspaketet för Azure Active Directory Power BI
-<a id="how-to-use-the-azure-active-directory-power-bi-content-pack" class="xliff"></a>
+# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Så här använder du innehållspaketet för Azure Active Directory Power BI
 
 Det är viktigt för dig som IT-administratör att förstå hur dina användare anpassar sig till och använder Azure Active Directory-funktioner. Då kan du planera IT-infrastrukturen och kommunikationen för att öka användningen och för att få ut det mesta av AAD-funktionerna. Med Power BI-innehållspaketet för Azure Active Directory kan du ytterligare analysera dina data för att förstå hur du kan använda informationen och bättre tolka vad som händer med Azure Active Directory för de olika funktionerna som används ofta.  Du kan enkelt ladda ned det förskapade innehållspaketet och få information om alla aktiviteter i din Azure Active Directory med den omfattande visualiseringsupplevelsen som Power BI erbjuder med hjälp av integreringen av Azure Active Directory-API:er i Power BI. Du kan skapa en egen instrumentpanel och enkelt dela den med andra i din organisation. 
 
 Det här avsnittet innehåller stegvisa instruktioner för hur du installerar och använder innehållspaketet i din miljö.
 
-## Installation
-<a id="installation" class="xliff"></a>  
+## <a name="installation"></a>Installation  
 
 **Så här installerar du Power BI-innehållspaketet:**
 
@@ -69,13 +67,11 @@ Det här avsnittet innehåller stegvisa instruktioner för hur du installerar oc
  
     ![Innehållspaketet för Azure Active Directory Power BI](./media/active-directory-reporting-power-bi-content-pack-how-to/08.png) 
 
-## Vad kan jag göra med det här innehållspaketet?
-<a id="what-can-i-do-with-this-content-pack" class="xliff"></a>
+## <a name="what-can-i-do-with-this-content-pack"></a>Vad kan jag göra med det här innehållspaketet?
 
 Här är en snabb genomgång av olika rapporter i innehållspaketet innan vi går in på det du kan göra med innehållspaketet. Rapportdata finns för de **senaste 30 dagarna**.
 
-### Rapporter som ingår i den här versionen av innehållspaketet för Azure Active Directory-loggar
-<a id="reports-included-in-this-version-of-azure-active-directory-logs-content-pack" class="xliff"></a>
+### <a name="reports-included-in-this-version-of-azure-active-directory-logs-content-pack"></a>Rapporter som ingår i den här versionen av innehållspaketet för Azure Active Directory-loggar
 
 **Appanvändning och trendrapporter**: Få insikter om de appar som används i din organisation, vilka som används mest och när de används. Du kan använda den här rapporten för att samla in insikter om hur en app som du nyligen distribuerade i organisationen används eller ta reda på vilka appar som är populära. På så sätt kan du förbättra användningen om du ser att en app inte används.
 
@@ -100,8 +96,7 @@ Med den här rapporten kan du förstå de olika enhetsprofiler som används inom
 
 **SSPR-tratt**: Få förståelse för hur lösenordsåterställning fungerar i din organisation. Ta en förhandstitt på hur många lösenordsåterställningar som försökte utföras via SSPR-verktyget och hur många av dem som genomfördes. Lär dig mer om fel vid lösenordsåterställning med SSPR-tratten och förstå varför vissa fel uppstod. Den här rapporten ger en bättre förståelse för hur SSPR-verktyget används inom organisationen så att du kan fatta rätt beslut.
 
-## Anpassa innehållspaketet för Azure AD Activity
-<a id="customizing-azure-ad-activity-content-pack" class="xliff"></a>
+## <a name="customizing-azure-ad-activity-content-pack"></a>Anpassa innehållspaketet för Azure AD Activity
 
 **Ändra visualisering**: Du kan ändra ett visuellt objekt i en rapport genom att klicka på **Redigera rapport** och välja det önskade visuella objektet.
  
@@ -129,15 +124,13 @@ Med den här rapporten kan du förstå de olika enhetsprofiler som används inom
 
 
 
-## Schemalägga en daglig uppdatering av Power BI-rapporter
-<a id="scheduling-a-daily-refresh-of-your-power-bi-report" class="xliff"></a>
+## <a name="scheduling-a-daily-refresh-of-your-power-bi-report"></a>Schemalägga en daglig uppdatering av Power BI-rapporter
 
 Om du vill schemalägga en daglig uppdatering av en Power BI-rapport går du till **Datauppsättningar > Inställningar > Schemalägg uppdatering** och konfigurerar det enligt nedan.
  
 ![Innehållspaketet för Azure Active Directory Power BI](./media/active-directory-reporting-power-bi-content-pack-how-to/15.png) 
 
-## Uppdatera till en nyare version av innehållspaketet
-<a id="updating-to-newer-version-of-content-pack" class="xliff"></a>
+## <a name="updating-to-newer-version-of-content-pack"></a>Uppdatera till en nyare version av innehållspaketet
 
 Om du vill uppdatera ditt innehållspaket för att få en nyare version:
 
@@ -149,11 +142,12 @@ Om du vill uppdatera ditt innehållspaket för att få en nyare version:
 
 När den nya versionen av innehållspaketet fungerar kan du ta bort den gamla versionen vid behov genom att ta bort de underliggande rapporterna och de datauppsättningar som är associerade med innehållspaketet.
 
-## Har du fortfarande problem?
-<a id="still-having-issues" class="xliff"></a> 
+## <a name="still-having-issues"></a>Har du fortfarande problem? 
 
 Läs vår [felsökningsguide](active-directory-reporting-troubleshoot-content-pack.md). Läs de här [hjälpartiklarna](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/) för allmän hjälp med Power BI.
  
 
+## <a name="next-steps"></a>Nästa steg
 
+En översikt över rapportering finns i [Azure Active Directory-rapportering](active-directory-reporting-azure-portal.md).
 

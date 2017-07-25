@@ -9,65 +9,49 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 06/26/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e3ac0e1813022d1b3544fc2c784719d6c98a0cf3
+ms.date: 07/12/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 59da1ab9e76685d7ed0c4415ef99578c982e956c
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/14/2017
 
 ---
 
-<a id="azure-database-for-mysql-use-php-to-connect-and-query-data" class="xliff"></a>
-
-# Azure Database för MySQL: Använda PHP för att ansluta och fråga efter data
+# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database för MySQL: Använda PHP för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [PHP](http://php.net/manual/intro-whatis.php)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Den här artikeln förutsätter att du är van att utveckla i PHP, men saknar erfarenhet av Azure Database för MySQL.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Krav
+## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-<a id="install-php" class="xliff"></a>
-
-## Installera PHP
+## <a name="install-php"></a>Installera PHP
 Installera PHP på din server, eller skapa en Azure-[webbapp](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) som innehåller PHP.
 
-<a id="macos" class="xliff"></a>
-
-### MacOS
+### <a name="macos"></a>MacOS
 - Hämta [PHP 7.1.4](http://php.net/downloads.php)
 - Installera PHP och se [PHP-handboken](http://php.net/manual/install.macosx.php) för ytterligare konfiguration
 
-<a id="linux-ubuntu" class="xliff"></a>
-
-### Linux (Ubuntu)
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 - Hämta [PHP 7.1.4 (x64), ej trådsäker version](http://php.net/downloads.php)
 - Installera PHP och se [PHP-handboken](http://php.net/manual/install.unix.php) för ytterligare konfiguration
 
-<a id="windows" class="xliff"></a>
-
-### Windows
+### <a name="windows"></a>Windows
 - Hämta [PHP 7.1.4 (x64), ej trådsäker version](http://windows.php.net/download#php-7.1)
 - Installera PHP och se [PHP-handboken](http://php.net/manual/install.windows.php) för ytterligare konfiguration
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Hämta anslutningsinformation
+## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser** och söker efter den server som du nyss skapade, till exempel **myserver4demo**.
+2. I den vänstra rutan klickar du på **alla resurser** och söker sedan efter servern som du skapade (till exempel **myserver4demo**).
 3. Klicka på servernamnet.
 4. Välj sidan **Egenskaper** för servern. Anteckna **servernamn** och **inloggningsnamnet för serveradministratören**.
  ![Azure Database för MySQL-servernamn](./media/connect-php/1_server-properties-name-login.png)
 5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
 
-<a id="connect-and-create-a-table" class="xliff"></a>
-
-## Ansluta och skapa en tabell
+## <a name="connect-and-create-a-table"></a>Ansluta och skapa en tabell
 Använd följande kod för att ansluta och skapa en tabell med hjälp av SQL-instruktionen **CREATE TABLE**. 
 
 Koden använder klassen **MySQL Improved extension** (mysqli) som ingår i PHP. Metoderna [mysqli_init](http://php.net/manual/mysqli.init.php) och [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) anropas för att ansluta till MySQL. Sedan anropas metoden [mysqli_query](http://php.net/manual/mysqli.query.php) för att köra frågan. Sedan anropas metoden [mysqli_close](http://php.net/manual/mysqli.close.php) för att stänga anslutningen.
@@ -106,9 +90,7 @@ mysqli_close($conn);
 ?>
 ```
 
-<a id="insert-data" class="xliff"></a>
-
-## Infoga data
+## <a name="insert-data"></a>Infoga data
 Använd följande kod för att ansluta och infoga data med en **INSERT**-SQL-instruktion.
 
 Koden använder klassen **MySQL Improved extension** (mysqli) som ingår i PHP. I koden används metoden [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) för att skapa en förberedd insert-instruktion och sedan binds parametrarna för varje infogat kolumnvärde med metoden [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Sedan körs instruktionen med metoden [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) och efteråt stängs instruktionen med metoden [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
@@ -145,9 +127,7 @@ mysqli_close($conn);
 ?>
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Läsa data
+## <a name="read-data"></a>Läsa data
 Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion.  Koden använder klassen **MySQL Improved extension** (mysqli) som ingår i PHP. Metoden [mysqli_query](http://php.net/manual/mysqli.query.php) används för att utföra sql-frågan och metoden [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) används för att hämta de resulterande raderna.
 
 Ersätt parametrarna host, username, password och db_name med dina egna värden. 
@@ -178,9 +158,7 @@ mysqli_close($conn);
 ?>
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Uppdatera data
+## <a name="update-data"></a>Uppdatera data
 Använd följande kod för att ansluta och uppdatera data med en **UPDATE**-SQL-instruktion.
 
 Koden använder klassen **MySQL Improved extension** (mysqli) som ingår i PHP. Metoden [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) används för att skapa en förberedd update-instruktion och sedan binds parametrarna för varje uppdaterat kolumnvärde med metoden [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Sedan körs instruktionen med metoden [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) och efteråt stängs instruktionen med metoden [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
@@ -218,9 +196,7 @@ mysqli_close($conn);
 ```
 
 
-<a id="delete-data" class="xliff"></a>
-
-## Ta bort data
+## <a name="delete-data"></a>Ta bort data
 Använd följande kod för att ansluta och läsa data med en **DELETE**-SQL-instruktion. 
 
 Koden använder klassen **MySQL Improved extension** (mysqli) som ingår i PHP. Metoden [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) används för att skapa en förberedd delete-instruktion och sedan binds parametrarna för where-satsen med metoden [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Sedan körs instruktionen med metoden [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) och efteråt stängs instruktionen med metoden [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
@@ -255,9 +231,7 @@ mysqli_close($conn);
 ?>
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Skapa en PHP- och MySQL-webbapp i Azure](../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
 

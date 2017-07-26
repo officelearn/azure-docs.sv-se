@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/18/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 8c9d6c65666b5ffedf058e0a83d4fc41fff80235
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 0c0b567d353fd77f72170a4bf807ec0d2585e357
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
@@ -164,43 +164,155 @@ docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="create-and-package-the-containerized-service-in-visual-studio"></a>Skapa och paketera en tjänst som använder behållare i Visual Studio
-Service Fabric SDK och verktygen innehåller en tjänstmall som hjälper dig att distribuera en behållare till ett Service Fabric-kluster.
+## <a name="create-the-containerized-service-in-visual-studio"></a>Skapa behållartjänsten i Visual Studio
+SDK:en och verktygen för Service Fabric innehåller en tjänstmall som hjälper dig att skapa ett behållarprogram.
 
 1. Starta Visual Studio.  Välj **Arkiv** > **Nytt** > **Projekt**.
 2. Välj **Service Fabric-programmet**, ge det namnet "MyFirstContainer" och klicka på **OK**.
 3. Välj **Guest Container** (Gästbehållare) i listan med **tjänstmallar**.
 4. I **Avbildningsnamn** skriver du "myregistry.azurecr.io/samples/helloworldapp" (den avbildning som du skickade till lagringsplatsen för behållaren). 
 5. Namnge tjänsten och klicka på **OK**.
-6. Om tjänsten behöver en slutpunkt för kommunikation kan du nu lägga till protokollet, porten och typen i en ```Endpoint``` i filen ServiceManifest.xml. Behållartjänsten för den här artikeln lyssnar på port 80: 
 
-    ```xml
+## <a name="configure-communication"></a>Konfigurera kommunikation
+Behållartjänsten behöver en slutpunkt för kommunikation. Lägg till ett `Endpoint`-element med protokollet, porten och typen i filen ServiceManifest.xml. Behållartjänsten för den här artikeln lyssnar på port 8081.  I det här exemplet används en fast port, 8081.  Om ingen port har angetts väljs en port slumpmässigt från portintervallet för programmet.  
+
+```xml
+<Resources>
+  <Endpoints>
     <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
-    ```
-    Genom att tillhandahålla ```UriScheme``` registreras automatiskt behållarslutpunkten med namngivningstjänsten för Service Fabric för identifiering. En fullständig ServiceManifest.xml-exempelfil finns i slutet av den här artikeln. 
-7. Konfigurera behållarens portmappning (port till värd) genom att ange en ```PortBinding```-princip i ```ContainerHostPolicies``` för filen ApplicationManifest.xml.  I den här artikeln är ```ContainerPort``` 8081 (behållaren exponerar port 80, som anges i Dockerfile) och ```EndpointRef``` är ”Guest1TypeEndpoint” (slutpunkt som definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 8081 mappas till port 80 på behållaren.  Om behållaren behöver autentiseras med en privat lagringsplats lägger du till ```RepositoryCredentials```.  I den här artikeln lägger du till kontonamnet och lösenordet för behållarregistret myregistry.azurecr.io. 
-
-    ```xml
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-            <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ```
-
-    En fullständig ApplicationManifest.xml -exempelfil finns i slutet av den här artikeln.
-8. Konfigurera slutpunkten för klusteranslutningen så att du kan publicera appen i klustret.  Slutpunkten för klientanslutningen finns på översiktsbladet för ditt kluster i [Azure Portal](https://portal.azure.com). I Solution Explorer öppnar du *Cloud.xml* under **MyFirstContainer**->**PublishProfiles**.  Lägg till klusternamnet och anslutningsporten i **ClusterConnectionParameters**.  Exempel:
-    ```xml
-    <ClusterConnectionParameters ConnectionEndpoint="containercluster.westus2.cloudapp.azure.com:19000" />
-    ```
+  </Endpoints>
+</Resources>
+```
     
-9. Spara alla filer och bygg projektet.  
+Genom att definiera en slutpunkt publicerar Service Fabric slutpunkten i namngivningstjänsten.  Andra tjänster som körs i klustret kan lösa den här behållaren.  Du kan också utföra kommunikation mellan behållare med hjälp av den [omvända proxyn](service-fabric-reverseproxy.md).  Du utför kommunikation genom att tillhandahålla HTTP-lyssningsporten för den omvända proxyn och namnet på de tjänster som du vill kommunicera med som miljövariabler. 
 
-10. Om du vill paketera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Package** (Paketera). 
+## <a name="configure-and-set-environment-variables"></a>Konfigurera och ange miljövariabler
+Miljövariabler kan anges för varje kodpaketet i tjänstmanifestet. Den här funktionen är tillgänglig för alla tjänster oavsett om de har distribueras som behållare eller processer, eller körbara gäster. Du kan åsidosätta värden för miljövariabler i applikationsmanifestet eller ange dem under distributionen som programparametrar.
+
+Följande XML-kodfragment i tjänstmanifestet visar ett exempel på hur du anger miljövariabler för ett kodpaket:
+```xml
+<CodePackage Name="Code" Version="1.0.0">
+  ...
+  <EnvironmentVariables>
+    <EnvironmentVariable Name="HttpGatewayPort" Value=""/>    
+  </EnvironmentVariables>
+</CodePackage>
+```
+
+Dessa miljövariabler kan åsidosättas i applikationsmanifestet:
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+  </EnvironmentOverrides>
+  ...
+</ServiceManifestImport>
+```
+
+## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Konfigurera mappning mellan behållarport och värdport och identifiering mellan behållare
+Konfigurera en värdport som används för att kommunicera med behållaren. Portbindningen mappar porten där tjänsten lyssnar inuti behållaren till en port på värden. Lägg till ett `PortBinding`-element i `ContainerHostPolicies`-elementet i filen ApplicationManifest.xml.  I den här artikeln är `ContainerPort` 80 (behållaren exponerar port 80, som anges i Dockerfile) och `EndpointRef` är ”Guest1TypeEndpoint” (slutpunkten som tidigare definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 8081 mappas till port 80 på behållaren. 
+
+```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+```
+
+## <a name="configure-container-registry-authentication"></a>Konfigurera autentisering av behållarregister
+Konfigurera autentisering av behållarregister genom att lägga till `RepositoryCredentials` i `ContainerHostPolicies` filen ApplicationManifest.xml. Lägg till kontot och lösenordet för behållarregistret myregistry.azurecr.io, så att tjänsten kan ladda ned behållaravbildningen från centrallagret.
+
+```xml
+<Policies>
+    <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+    </ContainerHostPolicies>
+</Policies>
+```
+
+Vi rekommenderar att du krypterar centrallagrets lösenord genom att använda ett chiffreringscertifikat som distribueras till alla noder i klustret. När Service Fabric distribuerar tjänstpaketet till klustret används chiffreringscertifikatet för att avkryptera chiffertexten.  Cmdleten Invoke-ServiceFabricEncryptText används för att skapa chiffertexten för lösenordet, som läggs till i filen ApplicationManifest.xml.
+
+Följande skript skapar ett nytt självsignerat certifikat och exporterar det till en PFX-fil.  Certifikatet importeras till ett befintligt nyckelvalv och distribueras sedan till Service Fabric-klustret.
+
+```powershell
+# Variables.
+$certpwd = ConvertTo-SecureString -String "Pa$$word321!" -Force -AsPlainText
+$filepath = "C:\MyCertificates\dataenciphermentcert.pfx"
+$subjectname = "dataencipherment"
+$vaultname = "mykeyvault"
+$certificateName = "dataenciphermentcert"
+$groupname="myclustergroup"
+$clustername = "mycluster"
+
+$subscriptionId = "subscription ID"
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+
+# Create a self signed cert, export to PFX file.
+New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
+| Export-PfxCertificate -FilePath $filepath -Password $certpwd
+
+# Import the certificate to an existing key vault.  The key vault must be enabled for deployment.
+$cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
+
+# Add the certificate to all the VMs in the cluster.
+Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
+```
+Kryptera lösenordet med cmdleten [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps).
+
+```powershell
+$text = "=P==/==/=8=/=+u4lyOB=+=nWzEeRfF="
+Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text $text -StoreLocation Local -StoreName My
+```
+
+Ersätt lösenordet med chiffertexten som returneras av cmdleten [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) och ange `PasswordEncrypted` ”true”.
+
+```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
+gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
+gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
+yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
+NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
+    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+```
+
+## <a name="configure-isolation-mode"></a>Konfigurera isoleringsläge
+Windows stöder två isoleringslägen för behållare: process och Hyper-V. Om processisoleringsläget används delar alla behållare som körs på samma värddator kärna med värden. Om Hyper-V-isoleringsläget används isoleras kärnorna mellan varje Hyper-V-behållare och behållarvärden. Isoleringsläget anges i `ContainerHostPolicies`-elementet i applikationsmanifestfilen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardinställningen för standardisoleringsläget är `process` på Windows Server-värddatorer och `hyperv` på Windows 10-värddatorer. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
+
+```xml
+<ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+```
+
+## <a name="configure-resource-governance"></a>Konfigurera resursstyrning
+Med [resursstyrning](service-fabric-resource-governance.md) begränsas resurserna som behållaren kan använda på värddatorn. `ResourceGovernancePolicy`-elementet som anges i applikationsmanifestet, används för att deklarera resursgränser för ett tjänstkodpaket. Resursgränser kan anges för följande resurser: Memory, MemorySwap, CpuShares (relativ processorvikt), MemoryReservationInMB, BlkioWeight (relativ BlockIO-vikt).  I det här exemplet hämtar tjänstpaketet Guest1Pkg en kärna på klusternoderna där det är placerat.  Minnesgränser är absoluta, så kodpaketet är begränsat till 1024 MB minne (med samma reservation). Kodpaket (behållare eller processer) kan inte tilldela mer minne än den här gränsen, och försök att göra detta leder till undantag utanför minnet. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <Policies>
+    <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+    <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
+  </Policies>
+</ServiceManifestImport>
+```
 
 ## <a name="deploy-the-container-application"></a>Distribuera behållarappen
-Om du vill publicera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Publish** (Publicera).
+Spara alla dina ändringar och skapa programmet. Om du vill publicera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Publish** (Publicera).
+
+I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret.  Till exempel "containercluster.westus2.cloudapp.azure.com:19000". Slutpunkten för klientanslutningen finns på översiktsbladet för ditt kluster i [Azure Portal](https://portal.azure.com).
+
+Klicka på **Publicera**. 
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett webbaserat verktyg för att granska och hantera appar och noder i ett Service Fabric-kluster. Öppna en webbläsare och gå till http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ och följ programdistributionen.  Appen distribueras men är i ett feltillstånd tills avbildningen har laddats ned på klusternoderna (vilket kan ta en stund beroende på avbildningens storlek): ![Fel][1]
 
@@ -243,12 +355,12 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här art
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
       </ContainerHost>
     </EntryPoint>
-    <!-- Pass environment variables to your container: -->
-    <!--
+    <!-- Pass environment variables to your container: -->    
     <EnvironmentVariables>
-      <EnvironmentVariable Name="VariableName" Value="VariableValue"/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
+      <EnvironmentVariable Name="BackendServiceName" Value=""/>
     </EnvironmentVariables>
-    -->
+    
   </CodePackage>
 
   <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
@@ -281,12 +393,21 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här art
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentOverrides CodePackageRef="FrontendService.Code">
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentOverrides>
     <ConfigOverrides />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
+gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
+gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
+yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
+NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
         <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
       </ContainerHostPolicies>
+      <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+      <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>

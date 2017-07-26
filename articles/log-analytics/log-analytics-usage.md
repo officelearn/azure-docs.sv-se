@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 46766e29287ca130e68aa0f027cbb1ded2526af3
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
@@ -110,13 +110,15 @@ Diagrammet *Datavolym över tid* visar den totala mängden data som skickas och 
 
 Diagrammet *datavolym per lösning* visar mängden data som skickas av varje lösning och lösningar som skickar mest data. Diagrammet längst upp visar den totala mängden data som skickas av varje lösning över tid. Med den här informationen kan du identifiera om en lösning skickar mer data, samma datamängd eller mindre data över en längre tid. Listan med lösningar visar de 10 lösningar som skickar mest data. 
 
+I de här två diagrammen visas alla data. Vissa data är fakturerbara och andra är kostnadsfria. Om du vill fokusera endast på data som fakturerbara ändrar du frågan på söksidan och tar med `IsBillable=true`.  
+
 ![datavolymdiagram](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
 
 Titta på diagrammet *Datavolym över tid*. Klicka på namnet på datorn för att visa de lösningar och datatyper som skickar de mest data för en specifik dator. Klicka på namnet på den första datorn i listan.
 
 I följande skärmbild skickar datatypen *Log Management/Perf* mest data för datorn. 
-![datavolymen för en dator](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
+![datavolym för en dator](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
 Gå sedan tillbaka till instrumentpanelen *Användning* och titta på diagrammet *Datavolym per lösning*. Klicka på namnet på lösningen i listan om du vill se de datorer som skickar mest data för en lösning. Klicka på namnet på den första lösningen i listan. 
 
@@ -124,16 +126,31 @@ I följande skärmbild bekräftas att datorn *acmetomcat* skickar mest data för
 
 ![datavolymen för en lösning](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
 
+Vid behov kan du utföra ytterligare analyser för att identifiera stora volymer inom en lösning eller datatyp. Exempelfrågor omfattar:
+
++ **Security**-lösningen
+  - `Type=SecurityEvent | measure count() by EventID`
++ **Log Management**-lösningen
+  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
++ **Perf**-datatypen
+  - `Type=Perf | measure count() by CounterPath`
+  - `Type=Perf | measure count() by CounterName`
++ **Event**-datatypen
+  - `Type=Event | measure count() by EventID`
+  - `Type=Event | measure count() by EventLog, EventLevelName`
++ **Syslog**-datatypen
+  - `Type=Syslog | measure count() by Facility, SeverityLevel`
+  - `Type=Syslog | measure count() by ProcessName`
 
 Använd följande steg för att minska mängden på de loggar som samlats in:
 
 | Källan för hög datavolym | Hur du minskar datavolym |
 | -------------------------- | ------------------------- |
-| Säkerhetshändelser            | Välj [vanliga eller minimala säkerhetshändelser](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Ändra säkerhetsgranskningsprincip. Till exempel, inaktivera händelser för [granska filtreringsplattform](https://technet.microsoft.com/library/dd772749(WS.10).aspx). |
+| Säkerhetshändelser            | Välj [vanliga eller minimala säkerhetshändelser](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Ändra principen för säkerhetsgranskning för att endast samla in händelser som behövs. Du kan särskilt se över behovet att samla in händelser för att <br> - [granska filtreringplattform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [granska register](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [granska filsystem](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [granska kernelobjekt](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [granska hantering av manipulering](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [granska flyttbara lagringsmedia](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
 | Prestandaräknare       | Ändra [prestandaräknarens konfiguration](log-analytics-data-sources-performance-counters.md) för att: <br> - Minska insamlingsfrekvensen <br> - Minska antalet prestandaräknare |
 | Händelseloggar                 | Ändra [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md) för att: <br> - Minska antalet händelseloggar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informationsnivå* |
 | Syslog                     | Ändra [systemloggkonfigurationen](log-analytics-data-sources-syslog.md) för att: <br> - Minska antalet anläggningar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informations-* eller *Felsökningsnivå* |
-| Lösningsdata från datorer som inte behöver lösningen | Använd [lösningsriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
+| Lösningsdata från datorer som inte behöver lösningen | Använd [lösningsriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Kontrollera om det finns fler noder än förväntat
 Om du har prisnivån *per nod (OMS)* debiteras du därefter baserat på antalet noder och lösningar som du använder. Du kan se hur många noder i varje erbjudande som används i avsnittet *erbjudanden* på instrumentpanelen för användning.
@@ -148,4 +165,9 @@ Använd [lösningsriktning](../operations-management-suite/operations-management
 ## <a name="next-steps"></a>Nästa steg
 * Se [Loggsökningar i Log analytics](log-analytics-log-searches.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
 * Använd stegen som beskrivs i [Skapa en aviseringsregel](log-analytics-alerts-creating.md#create-an-alert-rule) om du vill meddelas när ett sökvillkor har uppfyllts
+* Använd [lösningsmål](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer
+* Välj [vanliga eller minimala säkerhetshändelser](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/)
+* Ändra [prestandaräknarens konfiguration](log-analytics-data-sources-performance-counters.md)
+* Ändra [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md)
+* Ändra [systemloggens konfiguration](log-analytics-data-sources-syslog.md)
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 17fc7e6a19b835e08360d1bf638d69aabb14e121
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c9aafa13ebdeeb84a35e55e25650f334ddc71af5
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Översikt över Application Gateway
@@ -103,4 +103,6 @@ Vanliga frågor om Application Gateway finns i [Vanliga frågor och svar om Appl
 När du läst om Application Gateway så kan du [skapa en application gateway](application-gateway-create-gateway-portal.md), eller så kan du [skapa en SSL-avlastning för Application Gateway](application-gateway-ssl-arm.md) för att belastningsutjämna HTTPS-anslutningar.
 
 För att läsa hur man skapar en Application Gateway med hjälp av URL-baserad innehållsroutning, kan du gå till [Skapa en Application Gateway med hjälp av URL-baserad routning](application-gateway-create-url-route-arm-ps.md).
+
+Information om några av de andra viktiga nätverksfunktionerna i Azure finns i [Azure Networking]((../networking/networking-overview.md).
 

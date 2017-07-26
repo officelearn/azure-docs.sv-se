@@ -5,7 +5,7 @@
     ![Skapa StorSimple-molninstallation](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. Ange följande information på bladet **Skapa molninstallation**.
    
-    ![Skapa StorSimple-molninstallation](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2.png)
+    ![Skapa StorSimple-molninstallation](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Namn** – Ett unikt namn för molninstallationen.
    2. **Modell** – Välj modell för molninstallationen. En 8010-enhet erbjuder 30 TB standardlagring, medan 8020 har 64 TB Premium Storage. Välj 8010 om du vill distribuera scenarier för hämtning på objektnivå från säkerhetskopior. Välj 8020 om du vill distribuera högpresterande arbetsbelastningar med korta svarstider, eller för användning som en sekundär enhet för haveriberedskap.

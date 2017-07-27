@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 7676262b7bca47444aee7b10a131c01e6b697e7b
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Ladda upp data till Azure Search med hjälp av .NET SDK
@@ -34,7 +34,8 @@ Den här artikeln visar hur du använder [Azure Search .NET SDK](https://aka.ms/
 
 Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Search-index](search-what-is-an-index.md). I den här artikeln förutsätter vi också att du redan har skapat ett `SearchServiceClient`-objekt. Mer information finns i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
 
-Observera att all exempelkod i den här artikeln är skriven i C#. Du hittar den fullständiga källkoden [på GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> All exempelkod i den här artikeln är skriven i C#. Du hittar den fullständiga källkoden [på GitHub](http://aka.ms/search-dotnet-howto). Du kan läsa om [Azure Search .NET SDK](search-howto-dotnet-sdk.md) och få en mer detaljerad genomgång av exempelkoden.
 
 För att kunna skicka dokument till ditt index med .NET SDK måste du:
 

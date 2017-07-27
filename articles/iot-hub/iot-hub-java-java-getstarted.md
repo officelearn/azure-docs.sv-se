@@ -16,10 +16,10 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 7f0fbaf5d8e0379fc67ad62ea7c9ab63c6737150
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 0c8a4b518c6946781c2340f79ab479612b595c74
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>Anslut din enhet till IoT Hub med hjälp av Java
@@ -303,12 +303,8 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
     mvn clean package -DskipTests
     ```
 
-<<<<<<< HEAD
 ## <a name="create-a-device-app"></a>Skapa en enhetsapp
-=======
-## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
-
->>>>>>> master I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT Hub.
+I det här avsnittet ska du skapa en Java-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT Hub.
 
 1. I mappen iot-java-get-started som du skapade i avsnittet *Skapa en enhetsidentitet* skapar du ett Maven-projekt med namnet **simulated-device** genom att köra följande kommando i Kommandotolken. Observera att detta är ett enda långt kommando:
 
@@ -378,19 +374,10 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
       }
     }
     ```
-<<<<<<< HEAD
 9. Lägg till följande kapslade **EventCallback**-klass inuti klassen **App** för att visa bekräftelsestatusen som IoT Hub returnerar när den bearbetar ett meddelande från enhetsappen. Den här metoden meddelar även huvudtråden i appen när meddelandet har bearbetats:
    
-    ```
-    private static class EventCallback implements IotHubEventCallback
-    {
-=======
-
-9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
-
     ```java
     private static class EventCallback implements IotHubEventCallback {
->>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -500,11 +487,7 @@ Nu är det dags att köra apparna.
     ![Azure-portal Användningspanel som visar antalet meddelanden som har skickats till IoT Hub][43]
 
 ## <a name="next-steps"></a>Nästa steg
-<<<<<<< HEAD I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du använde den här enhetsidentiteten så att enhetsappen kunde skicka ”enhet till molnet”-meddelanden till IoT Hub. Du skapade också en app som visar meddelandena som tagits emot av IoT Hub. 
-=======
-
-I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du använde den här enhetsidentiteten så att den simulerade enhetsappen kunde skicka ”enhet till molnet”-meddelanden till IoT Hub. Du skapade också en app som visar meddelandena som tagits emot av IoT Hub.
->>>>>>> master
+I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal och skapade sedan en enhetsidentitet i IoT-hubbens identitetsregister. Du använde den här enhetsidentiteten så att enhetsappen kunde skicka ”enhet till molnet”-meddelanden till IoT Hub. Du skapade också en app som visar meddelandena som tagits emot av IoT Hub.
 
 Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-scenarier finns här:
 

@@ -67,7 +67,7 @@
 ## [Belastningsutjämnare](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # Resurser
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=networking)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=application-gateway)

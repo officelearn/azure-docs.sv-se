@@ -50,4 +50,4 @@
 ### [Ställ en fråga](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Fel i NPS-tillägg](multi-factor-authentication-nps-errors.md)
 # Resurser
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)

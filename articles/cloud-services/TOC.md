@@ -112,7 +112,7 @@
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Resurser
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/cloud-services/)

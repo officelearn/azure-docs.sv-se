@@ -81,7 +81,8 @@
 ### [Åtkomst till ett program](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Problem med att skapa en ny virtuell dator med den klassiska distributionen](troubleshoot-deployment-new-vm.md)
 ### [Problem med att starta om eller ändra storlek på en befintlig virtuell dator med den klassiska distributionen](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Återställ RDP-lösenord](reset-rdp.md)
+### [Återställ RDP-lösenord](reset-rdp.md)
+### [Ansluta en virtuell hårddisk till felsöknings-VM](troubleshoot-recovery-disks-portal.md)
 
 # Referens
 ## [PowerShell](/powershell/azure/overview)
@@ -95,7 +96,7 @@
 ## [Storage REST](/rest/api/storageservices)
 
 # Resurser
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Regional tillgänglighet](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

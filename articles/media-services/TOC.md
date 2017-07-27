@@ -222,7 +222,7 @@
 
 # Resurser
 ## [Azure Media Services-community](media-services-community.md)
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Viktig information](media-services-release-notes.md)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=media-services)

@@ -16,7 +16,8 @@
 ### [2- Distribuera ett .NET-program med Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Exempel
-## [PowerShell](service-fabric-powershell-samples.md) 
+## [PowerShell](service-fabric-powershell-samples.md)
+## [Azure CLI](samples-cli.md)
 # Koncept
 ## [Förstå mikrotjänster](service-fabric-overview-microservices.md)
 ## [Helhetsbild](service-fabric-content-roadmap.md)

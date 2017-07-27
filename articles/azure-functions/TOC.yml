@@ -94,8 +94,7 @@
         - name: Skapa en definition för Open API 2.0
           href: functions-api-definition-getting-started.md
         - name: Exportera till PowerApps och Microsoft Flow
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Referens
   items:
     - name: Bindningar
@@ -131,7 +130,7 @@
 - name: Resurser
   items:
     - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Regional tillgänglighet
@@ -145,5 +144,4 @@
     - name: Azure Functions GitHub-lagringsplats
       href: 'https://github.com/Azure/Azure-Functions/'
     - name: Tjänstuppdateringar
-      href: >-
-        https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+      href: 'https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform='

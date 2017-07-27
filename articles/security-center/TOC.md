@@ -72,7 +72,7 @@
 ## [Säkerhet i Azure](/azure/security/)
 
 # Resurser
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blogg om säkerhet, sekretess och efterlevnad i Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Prissättning](security-center-pricing.md)
 ## [Tjänstöversikt](https://azure.microsoft.com/services/security-center/)

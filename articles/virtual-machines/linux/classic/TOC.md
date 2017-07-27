@@ -66,6 +66,7 @@
 ## Felsöka
 ### [VM-distributioner](troubleshoot-deployment-new-vm.md)
 ### [Starta om eller ändra storlek på en virtuell dator](restart-resize-error-troubleshooting.md)
+### [Ansluta en virtuell hårddisk till felsöknings-VM](troubleshoot-recovery-disks-portal.md)
 
 # Referens
 ## [PowerShell](/powershell/azure/overview)
@@ -79,7 +80,7 @@
 
 
 # Resurser
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Regional tillgänglighet](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

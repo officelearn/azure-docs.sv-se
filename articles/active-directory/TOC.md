@@ -384,7 +384,7 @@
 
 # Resurser
 ## [Azures feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=active-directory)

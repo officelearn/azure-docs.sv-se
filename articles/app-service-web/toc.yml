@@ -48,16 +48,13 @@
 - name: Koncept
   items:
     - name: Så här fungerar App Service
-      href: >-
-        ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service-planer
-      href: >-
-        ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service Environment
       href: ../app-service/app-service-environment/intro.md
     - name: Autentisering och auktorisering
-      href: >-
-        ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Autentisering med lokal AD
       href: web-sites-authentication-authorization.md
 - name: Instruktionsguider
@@ -161,8 +158,6 @@
               href: custom-dns-web-site-buydomains-web-app.md
             - name: Mappa domäner med Traffic Manager
               href: web-sites-traffic-manager-custom-domain-name.md
-            - name: Mappa GoDaddy-domäner
-              href: web-sites-godaddy-custom-domain-name.md
             - name: Migrera en aktiv domän
               href: app-service-custom-domain-name-migrate.md
         - name: Migrera från IIS
@@ -186,20 +181,15 @@
         - name: Autentisera användare
           items:
             - name: Autentisera med Azure AD
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Autentisera med Facebook
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Autentisera med Google
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Autentisera med Microsoft-konto
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Autentisera med Twitter
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Autentisera med lokal AD
               href: web-sites-authentication-authorization.md
             - name: App med en databas för flera innehavare
@@ -213,20 +203,17 @@
         - name: Skala upp
           href: web-sites-scale.md
         - name: Skala ut
-          href: >-
-            ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Belastningsutjämna med Traffic Manager
           href: web-sites-traffic-manager.md
         - name: Hög skalbarhet med App Service-miljöer
-          href: >-
-            ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Använda Azure CDN för global räckvidd
           href: cdn-websites-with-cdn.md
         - name: Ansluta till Redis Cache via Memcache
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Skapa en Redis-cache
-          href: >-
-            ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Hantera sessionstillstånd med Azure Redis Cache
           href: web-sites-dotnet-session-state-caching.md
     - name: Övervaka
@@ -260,8 +247,7 @@
     - name: Integrera
       items:
         - name: Exportera till PowerApps och Microsoft Flow
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service Environment
       items:
         - name: Använd App Service Environment
@@ -309,8 +295,7 @@
         - name: VANLIGA FRÅGOR OCH SVAR
           items:
             - name: 'Vanliga frågor och svar om tillgänglighet, prestanda och program'
-              href: >-
-                app-service-web-availability-performance-application-issues-faq.md
+              href: app-service-web-availability-performance-application-issues-faq.md
             - name: Vanliga frågor och svar om distribution
               href: app-service-web-deployment-faq.md
             - name: Vanliga frågor och svar om tekniker med öppen källkod
@@ -338,11 +323,9 @@
         - name: Så här kontrollerar du inkommande trafik
           href: app-service-app-service-environment-control-inbound-traffic.md
         - name: Anslut säkert till serverdelsresurser
-          href: >-
-            app-service-app-service-environment-securely-connecting-to-backend-resources.md
+          href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: Nätverkskonfigurationsinformation med ExpressRoute
-          href: >-
-            app-service-app-service-environment-network-configuration-expressroute.md
+          href: app-service-app-service-environment-network-configuration-expressroute.md
         - name: Skala automatiskt i App Service Environment
           href: ../app-service/app-service-environment-auto-scale.md
     - name: Priser

@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: ba82a5e25750fc6d9bd047ace3abb087e5dedfb3
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4eb32dd18c57af8d46e7afb63047c0985458705d
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introduktion till privata Docker-behållarregister
@@ -72,6 +72,6 @@ Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsf
 * [Skapa ett behållarregister med hjälp av Azure Portal](container-registry-get-started-portal.md)
 * [Skapa ett behållarregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md)
 * [Skicka din första avbildning med hjälp av Docker CLI](container-registry-get-started-docker-cli.md)
-* Om du vill skapa ett kontinuerligt arbetsflöde för integrering och distribution med Visual Studio Team Services, Azure Container Service och Azure Container Registry kan du kika på den här [självstudiekursen](../container-service/container-service-docker-swarm-setup-ci-cd.md).
+* Om du vill skapa ett kontinuerligt arbetsflöde för integrering och distribution med Visual Studio Team Services, Azure Container Service och Azure Container Registry kan du kika på den här [självstudiekursen](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).
 * Information om hur du ställer in ett privat Docker-register i Azure (utan en offentlig slutpunkt) finns i [Distribuera ditt egna privata Docker-register på Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 

@@ -12,14 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 7/27/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 4baf144cc28eeff0ab8f8b60e837f8a2bad903af
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/01/2017
-
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program

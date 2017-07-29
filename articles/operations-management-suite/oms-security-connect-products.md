@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/18/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.contentlocale: sv-se
 ms.lasthandoff: 12/06/2016
-
 
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Ansluta säkerhetsprodukter till säkerhets- och granskningslösningen i Operations Management Suite (OMS) 
@@ -90,11 +90,13 @@ På agentdatorn måste händelserna skickas från syslog-daemon till den lokala 
     ```
 6. Skriv kommandot nedan och granska resultatet för att bekräfta att det inte finns några fel i OMS-agentloggen:
 
-    ```    
+    ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
 ## <a name="reviewing-collected-security-events"></a>Gå igenom de insamlade säkerhetshändelserna
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 När konfigurationen är klar börjar säkerhetshändelsen att matas in av OMS-säkerhetslösningen. Du kan visualisera dessa händelser genom att öppna Loggsökning, skriva kommandot *Type=CommonSecurityLog* i sökfältet och trycka på Retur. Följande exempel visar resultatet av det här kommandot. Observera att i det här fallet har säkerhetsloggar från flera leverantörer redan matats in i OMS-säkerhetslösningen:
    

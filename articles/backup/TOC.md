@@ -17,7 +17,7 @@
 ### Säkerhetskopiera virtuella datorer
 #### [Säkerhetskopiera virtuella Azure-datorer till ett Recovery Services-valv](backup-azure-arm-vms.md)
 #### [Säkerhetskopiera krypterade virtuella datorer](backup-azure-vms-encryption.md)
-#### [Säkerhetskopiera virtuella Azure-datorer till säkerhetskopieringsvalvet](backup-azure-vms.md)
+#### [Säkerhetskopiera virtuella Azure-datorer](backup-azure-vms.md)
 ### Hantera och övervaka virtuella datorer
 #### [Hantera virtuella Azure-säkerhetskopieringar i Azure Portal](backup-azure-manage-vms.md)
 #### [Övervaka varningar om virtuella Azure-säkerhetskopieringar i Azure Portal](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [Förbereda DPM-arbetsbelastningar i Azure Portal](backup-azure-dpm-introduction.md)
 ### [Förbereda DPM-arbetsbelastningar i den klassiska portalen](backup-azure-dpm-introduction-classic.md)
 ### [Använd System Center DPM för att säkerhetskopiera Exchange-server](backup-azure-backup-exchange-server.md)
-### [Återställa data i säkerhetskopieringsvalvet till en annan DPM-server](backup-azure-alternate-dpm-server.md)
+### [Återställa data till en annan DPM-server](backup-azure-alternate-dpm-server.md)
 ### [Använda DPM för att säkerhetskopiera SQL Server-arbetsbelastningar](backup-azure-backup-sql.md)
 ### [Använda DPM för att säkerhetskopiera en SharePoint-servergrupp](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +90,12 @@
 # Koncept
 ## [Översikt över Recovery Services-valv](backup-azure-recovery-services-vault-overview.md)
 ## [Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Radera ett Azure Backup-valv](backup-azure-delete-vault.md)
+## [Ta bort ett Recovery Services-valv](backup-azure-delete-vault.md)
 ## [Rollbaserad åtkomstkontroll](backup-rbac-rs-vault.md)
 ## [Säkerhet för hybridsäkerhetskopieringar](backup-azure-security-feature.md)
 ## [Konfigurera Azure Backup-rapporter](backup-azure-configure-reports.md)
 ## [Datamodell för Azure Backup-rapporter](backup-azure-reports-data-model.md)
+## [Log Analytics-datamodell för Azure Backup](backup-azure-log-analytics-data-model.md)
 ## [Konfigurera säkerhetskopiering offline](backup-azure-backup-import-export.md)
 ## [Ersätt ditt bandbibliotek](backup-azure-backup-cloud-as-tape.md)
 ## [Programkonsekventa säkerhetskopior av virtuella Linux-datorer](backup-azure-linux-app-consistent.md)

@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure Container Instances
+metadata:
+  title: Dokumentation om Azure Container Instances – självstudier | Microsoft Docs
+  description: 'Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå.'
+  services: container-instances
+  author: carolz
+  manager: carolz
+  ms.service: container-instances
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå. Om du behöver en fullständig lösning för behållarorkestrering kan du läsa dokumentationen om <a href="/azure/container-service/kubernetes/">Kubernetes på Azure Container Service</a>. Lär dig hur du skapar och hanterar behållarinstanser med våra snabbstarter, självstudier och exempel.'
+sections:
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: Lär dig att distribuera behållaravbildningar med Azure Container Instances.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/container-instances/media/container-instances.png
+            text: Skapa en behållarinstans
+            href: /azure/container-instances/container-instances-quickstart
+  - title: Steg för steg-självstudier
+    items:
+      - type: paragraph
+        text: Lär dig hur du paketerar kod i en behållaravbildning och kör den i en Azure-behållarinstans.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Paketera ett program i en behållaravbildning</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Skapa ett register med Azure Container Registry och ladda upp behållaravbildningen</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Distribuera behållaravbildningen till en Azure-behållarinstans</a>

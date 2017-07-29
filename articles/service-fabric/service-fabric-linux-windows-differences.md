@@ -12,14 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 7/27/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 68c7e1f3f51ca5bec30a0f71aaccbafa58078e69
 ms.contentlocale: sv-se
 ms.lasthandoff: 06/30/2017
-
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Skillnader mellan Service Fabric i Linux (förhandsversion) och Windows (allmänt tillgänglig)

@@ -1,0 +1,85 @@
+- name: ACS med DC/OS och Swarm
+  href: ./index.yml
+- name: Översikt
+  items:
+    - name: Om Container Service
+      href: container-service-intro.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: DC/OS – Linux
+      href: container-service-dcos-quickstart.md
+- name: Självstudier
+  items:
+    - name: 1 – Skapa/hantera kluster
+      href: container-service-dcos-manage-tutorial.md
+    - name: 2 – Belastningsutjämna program
+      href: container-service-load-balancing.md
+    - name: 3 – Hantera datavolymer
+      href: container-service-dcos-fileshare.md
+    - name: 4 – Integrera med ACR
+      href: container-service-dcos-acr.md
+- name: Koncept
+  items:
+    - name: Säkra behållare
+      href: container-service-security.md
+- name: Instruktionsguider
+  items:
+    - name: Anslut med ett ACS-kluster
+      href: container-service-connect.md
+    - name: Skala ett ACS-kluster
+      href: container-service-scale.md
+    - name: Hantera med DC/OS
+      items:
+        - name: Hantering av behållare – UI för DC/OS
+          href: container-service-mesos-marathon-ui.md
+        - name: Hantering av behållare – REST API för DC/OS
+          href: container-service-mesos-marathon-rest.md
+        - name: DC/OS-agentpooler
+          href: container-service-dcos-agents.md
+        - name: Aktivera offentlig åtkomst till DC/OS
+          href: container-service-enable-public-access.md
+        - name: App-/användarspecifik initierare i DC/OS
+          href: container-service-application-specific-marathon.md
+        - name: Canary Release med Vamp
+          href: container-service-dcos-vamp-canary-release.md
+        - name: Övervaka DC/OS
+          items:
+            - name: Övervaka med ELK
+              href: container-service-monitoring-elk.md
+            - name: Övervaka med OMS
+              href: container-service-monitoring-oms.md
+            - name: Övervaka med Datadog
+              href: container-service-monitoring.md
+            - name: Övervaka med Sysdig
+              href: container-service-monitoring-sysdig.md
+            - name: Övervaka med Dynatrace
+              href: container-service-monitoring-dynatrace.md
+    - name: Hantera med Docker Swarm
+      items:
+        - name: Docker och Docker Compose
+          href: container-service-docker-swarm.md
+        - name: Kontinuerlig integrering och kontinuerlig leverans (CI/CD) med Docker Swarm och VSTS
+          href: container-service-docker-swarm-setup-ci-cd.md
+- name: Referens
+  items:
+    - name: Azure CLI 2.0
+      href: /cli/azure/acs
+    - name: REST
+      href: /rest/api/compute/containerservices
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: container-service-faq.md
+    - name: Mallar – ACS-motor
+      href: 'https://github.com/Azure/acs-engine'
+    - name: Priser
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

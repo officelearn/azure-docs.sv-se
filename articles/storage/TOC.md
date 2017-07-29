@@ -135,9 +135,7 @@
 #### [Aktivera och visa mått](storage-enable-and-view-metrics.md)
 #### [Övervaka, diagnostisera och felsöka](storage-monitoring-diagnosing-troubleshooting.md)
 #### [Självstudie om felsökning](storage-e2e-troubleshooting.md)
-### Felsöka diskborttagningsfel
-#### [I en Resource Manager-distribution](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [I en klassisk distribution](storage-cannot-delete-storage-account-container-vhd.md)
+### [Felsöka diskborttagningsfel](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [Felsöka File Storage](storage-troubleshoot-file-connection-problems.md)
 ## Överföra data
 ### [Flytta data till och från Storage](storage-moving-data.md)
@@ -208,7 +206,7 @@
 ### [Självstudie om felsökning](storage-e2e-troubleshooting-classic-portal.md)
 
 # Resurser
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Azure Storage-klientverktyg](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/)

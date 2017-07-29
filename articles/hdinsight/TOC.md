@@ -13,7 +13,12 @@
 
 # Kom igång
 ## [Börja med Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Börja med Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Börja med Spark
+### [Skapa ett Spark-kluster](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [Köra frågor i ett Spark-kluster](hdinsight-apache-spark-load-data-run-query.md)
+### [Analysera data med BI-verktyg](hdinsight-apache-spark-use-bi-tools.md)
+### [Hantera klusterresurser](hdinsight-apache-spark-resource-manager.md)
+### [Felsöka Spark-jobb](hdinsight-apache-spark-job-debugging.md)
 ## [Börja med R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Börja med HBase och NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Börja med Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
@@ -59,7 +64,6 @@
 ### [ScaleR och SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Använda Spark för minnesintern bearbetning
 ### [Med Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Med BI-verktyg](hdinsight-apache-spark-use-bi-tools.md)
 ### [Skapa fristående app](hdinsight-apache-spark-create-standalone-application.md)
 ### [Skapa appar med Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Skapa appar med IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -76,8 +80,6 @@
 ### [Använda en lokal Jupyter-anteckningsbok](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Fjärrstyrda jobb med Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Felsöka jobb via en fjärranslutning med IntelliJ genom VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [Hantera resurser](hdinsight-apache-spark-resource-manager.md)
-### [Spåra och felsöka jobb](hdinsight-apache-spark-job-debugging.md)
 ### [Kända problem](hdinsight-apache-spark-known-issues.md)
 ## Använda HBase
 ### [Använda Phoenix och SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
@@ -234,7 +236,7 @@
 ### [Övervaka kluster med Ambari-API](hdinsight-monitor-use-ambari-api.md)
 
 # Resurser
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Få hjälp i forumet](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Microsoft Professional Program för stordata](https://academy.microsoft.com/en-us/professional-program/big-data/)

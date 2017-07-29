@@ -59,8 +59,9 @@
 ### [Felsökning](azure-diagnostics-troubleshooting.md)
 
 # Referens
-## [Lista över mått som stöds](monitoring-supported-metrics.md)
 ## [Källor för övervakningsdata](monitoring-data-sources.md)
+## [Lista över mått som stöds](monitoring-supported-metrics.md)
+## [Händelseschema för aktivitetslogg](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
@@ -71,7 +72,7 @@
 
 # Resurser
 ## [Azure CLI 1.0-exempel](insights-cli-samples.md)
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell-exempel](insights-powershell-samples.md)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Snabbstartsmallar](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

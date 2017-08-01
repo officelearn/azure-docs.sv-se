@@ -22,9 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-6-create-measures" class="xliff"></a>
-
-# Lektion 6: Skapa mått
+# <a name="lesson-6-create-measures"></a>Lektion 6: Skapa mått
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -38,18 +36,12 @@ Under den här lektionen skapar du mått både genom att ange en DAX-formel i fo
   
 Uppskattad tidsåtgång för den här lektionen: **30 minuter**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Krav  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 5: Skapa beräknade kolumner](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
-<a id="create-measures" class="xliff"></a>
-
-## Skapa mått  
+## <a name="create-measures"></a>Skapa mått  
   
-<a id="to-create-a-dayscurrentquartertodate-measure-in-the-dimdate-table" class="xliff"></a>
-
-#### Så här skapar du ett DaysCurrentQuarterToDate-mått i DimDate-tabellen  
+#### <a name="to-create-a-dayscurrentquartertodate-measure-in-the-dimdate-table"></a>Så här skapar du ett DaysCurrentQuarterToDate-mått i DimDate-tabellen  
   
 1.  Klicka på tabellen **DimDate** i modelldesignern.  
   
@@ -68,9 +60,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
     Till skillnad från beräknade kolumner kan du med måttformler ange måttnamnet följt av ett kolon och sedan följt av formeluttrycket.
 
   
-<a id="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table" class="xliff"></a>
-
-#### Så här skapar du ett DaysInCurrentQuarter-mått i DimDate-tabellen  
+#### <a name="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table"></a>Så här skapar du ett DaysInCurrentQuarter-mått i DimDate-tabellen  
   
 1.  När **DimDate**-tabellen fortfarande är aktiv i modelldesignern klickar du på den tomma cellen under det mått som du skapade i rutnätet för mått.  
   
@@ -82,9 +72,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
     När du skapar ett jämförelseförhållande mellan en ofullständig period och den föregående perioden. Formeln måste beräkna andelen av perioden som har förflutit och jämföra den med samma andel i den föregående period. I detta fall ger [DaysCurrentQuarterToDate]/[DaysInCurrentQuarter] andelen förfluten tid i den aktuella perioden.  
   
-<a id="to-create-an-internetdistinctcountsalesorder-measure-in-the-factinternetsales-table" class="xliff"></a>
-
-#### Så här skapar du ett InternetDistinctCountSalesOrder-mått i tabellen FactInternetSales  
+#### <a name="to-create-an-internetdistinctcountsalesorder-measure-in-the-factinternetsales-table"></a>Så här skapar du ett InternetDistinctCountSalesOrder-mått i tabellen FactInternetSales  
   
 1.  Klicka på tabellen **FactInternetSales**.   
   
@@ -99,9 +87,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
 4.  Klicka på det nya måttet i rutnätet för mått och klicka sedan på fönstret **Egenskaper** och byt namn på måttet i **Måttnamn** till **InternetDistinctCountSalesOrder**. 
  
   
-<a id="to-create-additional-measures-in-the-factinternetsales-table" class="xliff"></a>
-
-#### Skapa ytterligare mått i tabellen FactInternetSales  
+#### <a name="to-create-additional-measures-in-the-factinternetsales-table"></a>Skapa ytterligare mått i tabellen FactInternetSales  
   
 1.  Skapa och namnge följande åtgärder med hjälp av funktionen Autosumma:  
 
@@ -144,9 +130,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
 Mått som skapats för tabellen FactInternetSales kan användas för att analysera viktiga ekonomiska data som försäljning, kostnader och vinstmarginaler för objekt som definieras av filtret som valts av användaren.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Nästa steg
+## <a name="whats-next"></a>Nästa steg
 [Lektion 7: Skapa KPI:er](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   

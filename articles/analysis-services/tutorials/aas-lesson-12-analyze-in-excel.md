@@ -22,9 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-12-analyze-in-excel" class="xliff"></a>
-
-# Lektion 12: Analysera i Excel
+# <a name="lesson-12-analyze-in-excel"></a>Lektion 12: Analysera i Excel
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -34,19 +32,13 @@ För att slutföra den här lektionen måste Excel vara installerat på samma da
   
 Uppskattad tidsåtgång för den här lektionen: **Fem minuter**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Krav  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 11: Skapa roller](../tutorials/aas-lesson-11-create-roles.md).  
   
-<a id="browse-using-the-default-and-internet-sales-perspectives" class="xliff"></a>
-
-## Bläddra med hjälp av standard- och Internet-försäljningsperspektiven  
+## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Bläddra med hjälp av standard- och Internet-försäljningsperspektiven  
 I de första uppgifterna bläddrar du till modellen genom att använda både standardperspektivet, som omfattar alla modellobjekt, och genom att använda Internet-försäljningsperspektivet. Internet-försäljningsperspektivet exkluderar kundtabellobjekt.  
   
-<a id="to-browse-by-using-the-default-perspective" class="xliff"></a>
-
-#### Så här bläddrar du med hjälp av standardperspektivet  
+#### <a name="to-browse-by-using-the-default-perspective"></a>Så här bläddrar du med hjälp av standardperspektivet  
   
 1.  Klicka på menyn **Modell** > **Analysera i Excel**.  
   
@@ -58,9 +50,7 @@ I de första uppgifterna bläddrar du till modellen genom att använda både sta
   
 4.  Stäng Excel utan att spara arbetsboken.  
   
-<a id="to-browse-by-using-the-internet-sales-perspective" class="xliff"></a>
-
-#### Så här bläddrar du med hjälp av Internet-försäljningsperspektivet  
+#### <a name="to-browse-by-using-the-internet-sales-perspective"></a>Så här bläddrar du med hjälp av Internet-försäljningsperspektivet  
   
 1.  Klicka på menyn **Modell** och klicka sedan på **Analysera i Excel**.  
   
@@ -74,14 +64,10 @@ I de första uppgifterna bläddrar du till modellen genom att använda både sta
     
 4.  Stäng Excel utan att spara arbetsboken.  
   
-<a id="browse-by-using-roles" class="xliff"></a>
-
-## Bläddra med hjälp av roller  
+## <a name="browse-by-using-roles"></a>Bläddra med hjälp av roller  
 Roller är en viktig del av alla tabellmodeller. Utan minst en roll där användarna läggs till som medlemmar kan användarna inte komma åt och analysera data med hjälp av modellen. Funktionen Analysera i Excel ger dig ett sätt att testa de roller som du har definierat.  
   
-<a id="to-browse-by-using-the-sales-manager-user-role" class="xliff"></a>
-
-#### Bläddra med hjälp av användarrollen Säljchef  
+#### <a name="to-browse-by-using-the-sales-manager-user-role"></a>Bläddra med hjälp av användarrollen Säljchef  
   
 1.  Klicka på menyn **Modell** i SSDT och klicka sedan på **Analysera i Excel**.  
   
@@ -91,9 +77,7 @@ Roller är en viktig del av alla tabellmodeller. Utan minst en roll där använd
       
 3.  Stäng Excel utan att spara arbetsboken.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Nästa steg
+## <a name="whats-next"></a>Nästa steg
 Gå till nästa lektion: [Lektion 13: Distribuera](../tutorials/aas-lesson-13-deploy.md).
 
   

@@ -20,16 +20,14 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 05/19/2017
 
 ---
-# Vad är Application Insights?
-<a id="what-is-application-insights" class="xliff"></a>
+# <a name="what-is-application-insights"></a>Vad är Application Insights?
 Application Insights är en utökningsbar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar automatiskt prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app.  Den hjälper dig att kontinuerligt förbättra prestanda och användbarhet. Den fungerar för appar på en rad olika plattformar, däribland .NET, Node.js och J2EE som finns lokalt eller i molnet. Den integrerar med din devOps-process och kan användas med en rad olika utvecklingsverktyg.
 
 ![Skapa diagram med statistik över användaraktivitet eller visa detaljer om specifika händelser.](./media/app-insights-overview/00-sample.png)
 
 [Titta på introduktionsanimeringen](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
-## Hur fungerar Application Insights?
-<a id="how-does-application-insights-work" class="xliff"></a>
+## <a name="how-does-application-insights-work"></a>Hur fungerar Application Insights?
 Du installerar ett litet instrumentationspaket i ditt program och konfigurerar en Application Insights-resurs på Microsoft Azure Portal. Instrumentationen övervakar din app och skickar telemetridata till portalen. (Programmet kan köras överallt – det behöver inte finnas i Azure.)
 
 Förutom att instrumentera webbtjänstprogrammet kan du även instrumentera bakgrundskomponenter och JavaScript-koden på själva webbsidorna. 
@@ -42,12 +40,10 @@ Du kan också hämta telemetri från värdmiljöerna, t.ex. prestandaräknare, A
 Alla dessa telemetriströmmar är integrerade på Azure Portal, där du kan använda kraftfulla analys- och sökverktyg med dina rådata.
 
 
-### Hur påverkas prestanda?
-<a id="whats-the-overhead" class="xliff"></a>
+### <a name="whats-the-overhead"></a>Hur påverkas prestanda?
 Effekten på din apps prestanda är mycket liten. Anropsspårning är icke-blockerande, och grupperas och skickas i en separat tråd.
 
-## Vad övervakar Application Insights?
-<a id="what-does-application-insights-monitor" class="xliff"></a>
+## <a name="what-does-application-insights-monitor"></a>Vad övervakar Application Insights?
 
 Application Insights är avsett för utvecklingsteamet och gör det lättare att förstå hur appen fungerar och hur den används. Tjänsten övervakar:
 
@@ -62,8 +58,7 @@ Application Insights är avsett för utvecklingsteamet och gör det lättare att
 * **Diagnostikspårningsloggar** från din app – så att du kan jämföra spårningshändelser med begäranden.
 * **Anpassade händelser och mätvärden** som du skriver själv i klient- eller serverkoden för att spåra affärshändelser, t.ex. sålda artiklar eller vunna spel.
 
-## Var ser jag min telemetri?
-<a id="where-do-i-see-my-telemetry" class="xliff"></a>
+## <a name="where-do-i-see-my-telemetry"></a>Var ser jag min telemetri?
 
 Du kan utforska dina data på många sätt. Läs dessa artiklar:
 
@@ -84,35 +79,30 @@ Du kan utforska dina data på många sätt. Läs dessa artiklar:
 | [**REST API**](https://dev.applicationinsights.io/)<br/>Skriv kod för att köra frågor mot dina mätvärden och rådata.| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**Löpande export**](app-insights-export-telemetry.md)<br/>Massexportera rådata till lagring så fort de anländer. |![Exportera](./media/app-insights-overview/export-tn.png) |
 
-## Hur använder jag Application Insights?
-<a id="how-do-i-use-application-insights" class="xliff"></a>
+## <a name="how-do-i-use-application-insights"></a>Hur använder jag Application Insights?
 
-### Övervaka
-<a id="monitor" class="xliff"></a>
+### <a name="monitor"></a>Övervaka
 Installera Application Insights i din app, konfigurera [webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md) och:
 
 * Konfigurera en [instrumentpanel](app-insights-dashboards.md) för ditt teamutrymme för att hålla ett öga på belastning, tillgänglighet och prestanda för dina beroenden, sidinläsningar och AJAX-anrop.
 * Identifiera de begäranden som är långsammast och som misslyckas oftast.
 * Titta på [Live Stream](app-insights-live-stream.md) när du distribuerar en ny version så att du genast kan upptäcka en eventuell försämring.
 
-### Identifiera och diagnostisera
-<a id="detect-diagnose" class="xliff"></a>
+### <a name="detect-diagnose"></a>Identifiera och diagnostisera
 När du får en avisering eller identifierar ett problem:
 
 * Utvärdera hur många användare som påverkas.
 * Korrelera fel med undantag, beroendeanrop och spårningar.
 * Undersök profilerare, ögonblicksbilder, stackdumpar och spårningsloggar.
 
-### Bygg, mät och lär
-<a id="build-measure-learn" class="xliff"></a>
+### <a name="build-measure-learn"></a>Bygg, mät och lär
 [Mät effektiviteten](app-insights-usage-overview.md) i varje ny funktion som du distribuerar.
 
 * Mät hur kunder använder nya användargränssnitts- eller företagsfunktioner.
 * Skriv in anpassad telemetri i din kod.
 * Basera nästa utvecklingscykel på fakta från din telemetri.
 
-## Kom igång
-<a id="get-started" class="xliff"></a>
+## <a name="get-started"></a>Kom igång
 Application Insights är en av de många tjänsterna som finns i Microsoft Azure, och telemetri skickas dit för analys och visning. Innan du gör något annat behöver du alltså en prenumeration på [Microsoft Azure](http://azure.com). Registreringen är gratis och om du väljer den grundläggande [prisplanen](https://azure.microsoft.com/pricing/details/application-insights/) för Application Insights betalar du inget förrän programmet har växt så pass mycket att det har en betydande användning. Om din organisation redan har en prenumeration kan du lägga till ditt Microsoft-konto till den.
 
 Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäst. Du kan fortsätta med de andra senare.
@@ -130,8 +120,7 @@ Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäs
 * **[Tillgänglighetstester](app-insights-monitor-web-app-availability.md)** –pinga din webbplats regelbundet från våra servrar.
 
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 Kom igång under körningsfasen med:
 
 * [IIS-server](app-insights-monitor-performance-live-website-now.md)
@@ -143,8 +132,7 @@ Kom igång under utvecklingsfasen med:
 * [Java](app-insights-java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
-## Support och feedback
-<a id="support-and-feedback" class="xliff"></a>
+## <a name="support-and-feedback"></a>Support och feedback
 * Frågor och problem:
   * [Felsökning][qna]
   * [MSDN-forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
@@ -154,8 +142,7 @@ Kom igång under utvecklingsfasen med:
 * Blogg:
   * [Application Insights-blogg](https://azure.microsoft.com/blog/tag/application-insights)
 
-## Videoklipp
-<a id="videos" class="xliff"></a>
+## <a name="videos"></a>Videoklipp
 
 [![Animerad introduktion](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 

@@ -23,15 +23,13 @@ ms.lasthandoff: 06/01/2017
 
 
 ---
-# Azure Cosmos DB: skapa en DocumentDB-API-app med Python och Azure Portal
-<a id="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal" class="xliff"></a>
+# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: skapa en DocumentDB-API-app med Python och Azure Portal
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
 I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokumentdatabas och en samling med hjälp av Azure Portal. Sedan skapar du och kör en konsolapp som är byggd med [DocumentDB Python API](documentdb-sdk-python.md).
 
-## Krav
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Krav
 
 * Innan du kan köra det här exemplet måste du uppfylla följande krav:
     * [Visual Studio 2015](http://www.visualstudio.com/) eller senare.
@@ -40,18 +38,15 @@ I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokume
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Skapa ett databaskonto
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## Lägga till en samling
-<a id="add-a-collection" class="xliff"></a>
+## <a name="add-a-collection"></a>Lägga till en samling
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## Klona exempelprogrammet
-<a id="clone-the-sample-application" class="xliff"></a>
+## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
 Nu ska vi klona en DocumentDB-API-app från github, ange anslutningssträngen och köra den. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
@@ -62,8 +57,7 @@ Nu ska vi klona en DocumentDB-API-app från github, ange anslutningssträngen oc
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
     ```  
-## Granska koden
-<a id="review-the-code" class="xliff"></a>
+## <a name="review-the-code"></a>Granska koden
 
 Vi gör en snabb genomgång av vad som händer i appen. Öppna filen DocumentDBGetStarted.py så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
 
@@ -126,8 +120,7 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna filen DocumentDBG
     print(results)
     ```
 
-## Uppdatera din anslutningssträng
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
@@ -145,8 +138,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     `config.MASTERKEY : "FILLME"`
     
-## Kör appen
-<a id="run-the-app" class="xliff"></a>
+## <a name="run-the-app"></a>Kör appen
 1. I Visual Studio högerklickar du på projektet i **Solution Explorer**, väljer den aktuella Python-miljön och högerklickar.
 
 2. Välj alternativet för att installera Python Package och skriv **pydocumentdb**
@@ -155,21 +147,18 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 Du kan nu gå tillbaka till datautforskaren och se frågan, ändra och arbeta med dessa nya data. 
 
-## Granska serviceavtal i Azure Portal
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## Rensa resurser
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte planerar att fortsätta använda den här appen tar du bort alla resurser som skapades i snabbstarten i Azure Portal med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade. 
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 I den här snabbstarten har du lärt dig hur man skapar ett Azure Cosmos DB-konto, skapar en samling med datautforskaren och kör en app. Du kan nu importera ytterligare data till ditt Cosmos DB-konto. 
 

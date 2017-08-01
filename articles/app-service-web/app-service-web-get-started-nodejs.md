@@ -22,8 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 07/06/2017
 
 ---
-# Skapa en Node.js-webbapp i Azure
-<a id="create-a-nodejs-web-app-in-azure" class="xliff"></a>
+# <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
 Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera Node.js-exempelkoden till webbappen.
 
@@ -31,8 +30,7 @@ Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-servic
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. Det tar cirka fem minuter att slutföra självstudiekursen när de nödvändiga komponenterna har installerats.
 
-## Krav
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -45,8 +43,7 @@ För att slutföra den här snabbstarten behöver du:
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## Hämta exemplet
-<a id="download-the-sample" class="xliff"></a>
+## <a name="download-the-sample"></a>Hämta exemplet
 
 Kör följande kommando i ett terminalfönster för att klona databasen för exempelappen till den lokala datorn.
 
@@ -62,8 +59,7 @@ Du använder det här terminalfönstret för att köra alla kommandon i den här
 cd nodejs-docs-hello-world
 ```
 
-## Köra appen lokalt
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>Köra appen lokalt
 
 Kör programmet lokalt genom att öppna ett terminalfönster och använda `npm start`-skriptet för att starta den inbyggda Node.js HTTP-servern.
 
@@ -131,8 +127,7 @@ To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## Bläddra till appen
-<a id="browse-to-the-app" class="xliff"></a>
+## <a name="browse-to-the-app"></a>Bläddra till appen
 
 Bläddra till den distribuerade appen via webbläsaren.
 
@@ -146,8 +141,7 @@ Node.js-exempelkoden körs i en Azure App Service-webbapp.
 
 **Grattis!** Du har distribuerat din första Node.js-app till App Service.
 
-## Uppdatera och distribuera om koden
-<a id="update-and-redeploy-the-code" class="xliff"></a>
+## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
 
 Öppna filen `index.js` i Node.js-appen med ett textredigeringsprogram och gör små ändringar i texten i anropet till `response.end`:
 
@@ -166,8 +160,7 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ![Uppdaterad exempelapp som körs i Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-## Hantera din nya Azure-webbapp
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
+## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
@@ -183,8 +176,7 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Node.js med MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)

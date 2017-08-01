@@ -23,17 +23,13 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal" class="xliff"></a>
-
-# Azure Cosmos DB: skapa en DocumentDB-API-app med Java och Azure Portal
+# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: skapa en DocumentDB-API-app med Java och Azure Portal
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
 I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokumentdatabas och en samling med hjälp av Azure Portal. Sedan skapar du och kör en konsolapp som är byggd med [DocumentDB Java API](documentdb-sdk-java.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Krav
+## <a name="prerequisites"></a>Krav
 
 * Innan du kan köra det här exemplet måste du uppfylla följande krav:
    * JDK 1.7+ (Kör `apt-get install default-jdk` om du inte har JDK)
@@ -41,21 +37,15 @@ I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokume
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-database-account" class="xliff"></a>
-
-## Skapa ett databaskonto
+## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="add-a-collection" class="xliff"></a>
-
-## Lägga till en samling
+## <a name="add-a-collection"></a>Lägga till en samling
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## Klona exempelprogrammet
+## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
 Nu ska vi klona en DocumentDB-API-app från github, ange anslutningssträngen och köra den. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
@@ -67,9 +57,7 @@ Nu ska vi klona en DocumentDB-API-app från github, ange anslutningssträngen oc
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
-<a id="review-the-code" class="xliff"></a>
-
-## Granska koden
+## <a name="review-the-code"></a>Granska koden
 
 Vi gör en snabb genomgång av vad som händer i appen. Öppna filen `Program.java` så ser du att de här kodraderna som skapar Azure Cosmos DB-resurserna. 
 
@@ -138,9 +126,7 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna filen `Program.ja
     }
     ```    
 
-<a id="update-your-connection-string" class="xliff"></a>
-
-## Uppdatera din anslutningssträng
+## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
@@ -156,9 +142,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 4. Kopiera sedan ditt PRIMARY KEY-värde från portalen och ersätt den andra parametern FILL ME med nyckeln i DocumentClient-konstruktorn i ”Program.java”. Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
     
-<a id="run-the-app" class="xliff"></a>
-
-## Kör appen
+## <a name="run-the-app"></a>Kör appen
 
 1. Kör `mvn package` i en terminal för att installera de Java-paket som krävs.
 
@@ -166,24 +150,18 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 Du kan nu gå tillbaka till datautforskaren och se frågan, ändra och arbeta med dessa nya data. 
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Rensa resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte planerar att fortsätta använda den här appen tar du bort alla resurser som skapades i snabbstarten i Azure Portal med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade. 
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 I den här snabbstarten har du lärt dig hur man skapar ett Azure Cosmos DB-konto, skapar en samling med datautforskaren och kör en app. Du kan nu importera ytterligare data till ditt Cosmos DB-konto. 
 

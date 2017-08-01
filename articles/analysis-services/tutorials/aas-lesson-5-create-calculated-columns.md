@@ -22,9 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-5-create-calculated-columns" class="xliff"></a>
-
-# Lektion 5: Skapa beräknade kolumner
+# <a name="lesson-5-create-calculated-columns"></a>Lektion 5: Skapa beräknade kolumner
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -36,18 +34,12 @@ Det är även den här lektionen där du först använder dataanalysuttryck (DAX
   
 Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Krav  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 4: Skapa relationer](../tutorials/aas-lesson-4-create-relationships.md). 
   
-<a id="create-calculated-columns" class="xliff"></a>
-
-## Skapa beräknade kolumner  
+## <a name="create-calculated-columns"></a>Skapa beräknade kolumner  
   
-<a id="create-a-monthcalendar-calculated-column-in-the-dimdate-table" class="xliff"></a>
-
-#### Skapa en beräknad MonthCalendar-kolumn i DimDate-tabellen  
+#### <a name="create-a-monthcalendar-calculated-column-in-the-dimdate-table"></a>Skapa en beräknad MonthCalendar-kolumn i DimDate-tabellen  
   
 1.  Klicka på menyn **Modell** > **Modellvy** > **Datavy**.  
   
@@ -73,9 +65,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
 Den beräknade MonthCalendar-kolumnen innehåller ett sorterbart namn för Månad.  
   
-<a id="create-a-dayofweek-calculated-column-in-the-dimdate-table" class="xliff"></a>
-
-#### Skapa en beräknad DayOfWeek-kolumn i DimDate-tabellen  
+#### <a name="create-a-dayofweek-calculated-column-in-the-dimdate-table"></a>Skapa en beräknad DayOfWeek-kolumn i DimDate-tabellen  
   
 1.  När **DimDate**-tabellen fortfarande är aktiv klickar du på menyn **Kolumn** och sedan på **Lägg till kolumn**.  
   
@@ -96,9 +86,7 @@ Den beräknade MonthCalendar-kolumnen innehåller ett sorterbart namn för Måna
   
 Den beräknade DayOfWeek-kolumnen innehåller ett sorterbart namn för veckodagen.  
   
-<a id="create-a-productsubcategoryname-calculated-column-in-the-dimproduct-table" class="xliff"></a>
-
-#### Skapa en beräknad ProductSubcategoryName-kolumn i tabellen DimProduct  
+#### <a name="create-a-productsubcategoryname-calculated-column-in-the-dimproduct-table"></a>Skapa en beräknad ProductSubcategoryName-kolumn i tabellen DimProduct  
   
   
 1.  I tabellen **DimProduct** bläddrar du längst till höger i tabellen. Observera att kolumnen längst till höger heter **Lägg till kolumn** (kursiv) och klicka på kolumnens rubrik.  
@@ -113,9 +101,7 @@ Den beräknade DayOfWeek-kolumnen innehåller ett sorterbart namn för veckodage
   
 Den beräknade kolumnen ProductSubcategoryName används för att skapa en hierarki i tabellen DimProduct som innehåller data från kolumnen EnglishProductSubcategoryName i tabellen DimProductSubcategory. Hierarkier kan inte finnas i mer än en tabell. Du kan skapa hierarkier senare i lektion 9.  
   
-<a id="create-a-productcategoryname-calculated-column-in-the-dimproduct-table" class="xliff"></a>
-
-#### Skapa en beräknad ProductCategoryName-kolumn i tabellen DimProduct  
+#### <a name="create-a-productcategoryname-calculated-column-in-the-dimproduct-table"></a>Skapa en beräknad ProductCategoryName-kolumn i tabellen DimProduct  
   
 1.  När **DimProduct**-tabellen fortfarande är aktiv klickar du på menyn **Kolumn** och sedan på **Lägg till kolumn**.  
   
@@ -129,9 +115,7 @@ Den beräknade kolumnen ProductSubcategoryName används för att skapa en hierar
   
 Den beräknade kolumnen ProductCategoryName används för att skapa en hierarki i tabellen DimProduct som innehåller data från kolumnen EnglishProductCategoryName i tabellen DimProductCategory. Hierarkier kan inte finnas i mer än en tabell.  
   
-<a id="create-a-margin-calculated-column-in-the-factinternetsales-table" class="xliff"></a>
-
-#### Skapa en beräknad kolumn för marginaler i tabellen FactInternetSales  
+#### <a name="create-a-margin-calculated-column-in-the-factinternetsales-table"></a>Skapa en beräknad kolumn för marginaler i tabellen FactInternetSales  
   
 1.  Välj tabellen **FactInternetSales** i modelldesignern.  
   
@@ -149,9 +133,7 @@ Den beräknade kolumnen ProductCategoryName används för att skapa en hierarki 
       
     Den beräknade marginal-kolumnen används för att analysera vinstmarginaler för varje försäljning.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Nästa steg
+## <a name="whats-next"></a>Nästa steg
 [Lektion 6: Skapa mått](../tutorials/aas-lesson-6-create-measures.md).
   
   

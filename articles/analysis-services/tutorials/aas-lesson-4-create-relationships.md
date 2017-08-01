@@ -22,8 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-# Lektion 4: Skapa relationer
-<a id="lesson-4-create-relationships" class="xliff"></a>
+# <a name="lesson-4-create-relationships"></a>Lektion 4: Skapa relationer
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -31,16 +30,13 @@ I den här lektionen verifierar du relationerna som skapades automatiskt när du
   
 Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
   
-## Krav
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna i den här lektionen måste du ha slutfört föregående lektion: [Lektion 3: Markera som datumtabell](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
-## Granska befintliga relationer och lägga till nya relationer
-<a id="review-existing-relationships-and-add-new-relationships" class="xliff"></a>  
+## <a name="review-existing-relationships-and-add-new-relationships"></a>Granska befintliga relationer och lägga till nya relationer  
 När du importerade data med Hämta data fick du sju tabeller från databasen AdventureWorksDW2014. Vanligtvis när du importerar data från en relationell källa importeras befintliga relationer automatiskt tillsammans med data. Men innan du börjar redigera din modell bör du kontrollera att relationerna mellan tabellerna har skapats på korrekt sätt. I den här självstudiekursen lägger du till tre nya relationer.  
   
-#### Granska befintliga relationer
-<a id="to-review-existing-relationships" class="xliff"></a>  
+#### <a name="to-review-existing-relationships"></a>Granska befintliga relationer  
   
 1.  Klicka på menyn **Modell** > **Modellvy** > **Diagramvy**.  
 
@@ -69,8 +65,7 @@ När du importerade data med Hämta data fick du sju tabeller från databasen Ad
   
     Om någon av relationerna saknas kontrollerar du att modellen innehåller följande tabeller: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory och FactInternetSales. Om tabeller från samma datakällsanslutning importeras vid olika tidpunkter skapas inte relationer mellan dessa tabeller. I så fall måste du skapa dem manuellt.  
 
-### Ta en närmare titt
-<a id="take-a-closer-look" class="xliff"></a>
+### <a name="take-a-closer-look"></a>Ta en närmare titt
 Observera att det finns en pil, en asterisk och ett nummer på de linjer som visar relationen mellan tabeller i diagramvyn.
 
 ![aas-lesson4-line](../tutorials/media/aas-lesson4-line.png)
@@ -83,8 +78,7 @@ Dessa funktioner är avsedda för avancerad datamodellering och ligger utanför 
 
 I vissa fall kan du behöva skapa ytterligare relationer mellan tabeller i modellen som stöd för en viss affärslogik. I den här självstudiekursen måste du skapa tre ytterligare relationer mellan tabellen FactInternetSales och tabellen DimDate.  
   
-#### Så här lägger du till nya relationer mellan tabeller
-<a id="to-add-new-relationships-between-tables" class="xliff"></a>  
+#### <a name="to-add-new-relationships-between-tables"></a>Så här lägger du till nya relationer mellan tabeller  
   
 1.  Klicka på och håll ned kolumnen **OrderDate** i tabellen **FactInternetSales** i modelldesignern och dra sedan markören till kolumnen **Date** i tabellen **DimDate** och släpp.  
 
@@ -103,8 +97,7 @@ I vissa fall kan du behöva skapa ytterligare relationer mellan tabeller i model
     
      ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
   
-## Nästa steg
-<a id="whats-next" class="xliff"></a>
+## <a name="whats-next"></a>Nästa steg
 [Lektion 5: Skapa beräknade kolumner](../tutorials/aas-lesson-5-create-calculated-columns.md).
   
   

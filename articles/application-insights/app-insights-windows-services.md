@@ -21,15 +21,13 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# Konfigurera Application Insights för .NET manuellt
-<a id="manually-configure-application-insights-for-net-applications" class="xliff"></a>
+# <a name="manually-configure-application-insights-for-net-applications"></a>Konfigurera Application Insights för .NET manuellt
 
 Du kan konfigurera [Application Insights](app-insights-overview.md) för att övervaka en mängd olika program, programroller, komponenter eller mikrotjänster. Visual Studio erbjuder [enstegskonfiguration](app-insights-asp-net.md) för webbappar och tjänster. För andra typer av .NET-program, som till exempel roller för serverdelar eller skrivbordsprogram, kan du konfigurera Application Insights manuellt.
 
 ![Exempel på prestandaövervakningsdiagram](./media/app-insights-windows-services/10-perf.png)
 
-#### Innan du börjar
-<a id="before-you-start" class="xliff"></a>
+#### <a name="before-you-start"></a>Innan du börjar
 
 Du behöver:
 
@@ -40,8 +38,7 @@ Du behöver:
 
 Resursen är platsen där dina data samlas in och visas i Azure Portal. Du måste bestämma om du vill skapa en ny eller dela en befintlig.
 
-### En del av en större app: Använd en befintlig resurs
-<a id="part-of-a-larger-app-use-existing-resource" class="xliff"></a>
+### <a name="part-of-a-larger-app-use-existing-resource"></a>En del av en större app: Använd en befintlig resurs
 
 Om din webbapp har flera komponenter, till exempel en klientwebbapp och en eller flera serverdelstjänster så bör du skicka telemetri från alla komponenter till samma resurs. Detta gör det möjligt för dem att visas på en enda programavbildning och gör det möjligt att spåra en begäran från en komponent till en annan.
 
@@ -49,8 +46,7 @@ Så om du redan övervakar andra komponenter i den här appen så är det bara a
 
 Öppna resursen i [Azure Portal](https://portal.azure.com/). 
 
-### Fristående app: Skapa en ny resurs
-<a id="self-contained-app-create-a-new-resource" class="xliff"></a>
+### <a name="self-contained-app-create-a-new-resource"></a>Fristående app: Skapa en ny resurs
 
 Om den nya appen inte är relaterad till andra program bör den ha en egen resurs.
 
@@ -60,8 +56,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/) och skapa en ny Applica
 
 Valet av programtyp anger standardinnehållet i resursbladen.
 
-## 2. Kopiera instrumenteringsnyckeln
-<a id="2-copy-the-instrumentation-key" class="xliff"></a>
+## <a name="2-copy-the-instrumentation-key"></a>2. Kopiera instrumenteringsnyckeln
 Nyckeln identifierar resursen. Snart installerar du den i SDK:n för att dirigera data till resursen.
 
 ![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C.](./media/app-insights-windows-services/02-props-asp.png)
@@ -84,16 +79,14 @@ Hur du installerar och konfigurerar Application Insights-paketet varierar beroen
    
     Ja. Välj "Microsoft.Application Insights" om du vill använda API:et för att skicka din egen telemetri. Windows Server-paketet omfattar API:et plus ett antal andra paket som till exempel en samling med prestandaräknare och beroendeövervakning. 
 
-### Så här uppgraderar du till framtida paketversioner
-<a id="to-upgrade-to-future-package-versions" class="xliff"></a>
+### <a name="to-upgrade-to-future-package-versions"></a>Så här uppgraderar du till framtida paketversioner
 Då och då ger vi ut en ny version av SDK.
 
 Om du vill uppgradera till en [ny paketversion](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/) öppnar du NuGet-pakethanteraren igen och filtrerar på installerade paket. Markera **Microsoft.ApplicationInsights.WindowsServer** och välj **Uppgradera**.
 
 Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av filen innan du uppgraderar och sammanfogar sedan dina ändringar i den nya versionen.
 
-## 4. Skicka telemetri
-<a id="4-send-telemetry" class="xliff"></a>
+## <a name="4-send-telemetry"></a>4. Skicka telemetri
 **Om du endast har installerat API-paketet:**
 
 * Ange instrumenteringsnyckeln i kod, till exempel i `main()`: 
@@ -126,27 +119,23 @@ Titta efter data i översiktsdiagrammet. Först ser du bara en eller två punkte
 
 Klicka dig vidare i diagrammet om du vill visa mer detaljerade mätvärden. [Lär dig mer om mätvärden.](app-insights-web-monitor-performance.md)
 
-### Ser du inga data?
-<a id="no-data" class="xliff"></a>
+### <a name="no-data"></a>Ser du inga data?
 * Använd programmet och öppna olika sidor så att det genererar telemetri.
 * Öppna panelen [Sök](app-insights-diagnostic-search.md) om du vill visa enskilda händelser. Ibland tar det lite längre tid för händelser att passera genom pipelinen för mätvärden.
 * Vänta några sekunder och klicka på **Uppdatera**. Diagrammen uppdateras automatiskt med jämna mellanrum, men du kan uppdatera dem manuellt om du väntar på att vissa data ska visas.
 * Mer information finns i [Felsökning](app-insights-troubleshoot-faq.md).
 
-## Publicera appen
-<a id="publish-your-app" class="xliff"></a>
+## <a name="publish-your-app"></a>Publicera appen
 Distribuera ditt program till din server eller Azure och se hur data ackumuleras.
 
 ![Använda Visual Studio för att publicera din app](./media/app-insights-windows-services/15-publish.png)
 
 När du kör i felsökningsläge skickas telemetrin genom pipelinen och du bör se data inom några sekunder. När du distribuerar appen i en publiceringskonfiguration ackumuleras data långsammare.
 
-### Visas inga data efter att du har publicerat till servern?
-<a id="no-data-after-you-publish-to-your-server" class="xliff"></a>
+### <a name="no-data-after-you-publish-to-your-server"></a>Visas inga data efter att du har publicerat till servern?
 Öppna portar för utgående trafik i serverns brandvägg. På [den här sidan](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) kan du se listan med begärda adresser 
 
-### Har du problem på build-servern?
-<a id="trouble-on-your-build-server" class="xliff"></a>
+### <a name="trouble-on-your-build-server"></a>Har du problem på build-servern?
 Mer information finns i [det här felsökningsavsnittet](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
@@ -155,13 +144,11 @@ Mer information finns i [det här felsökningsavsnittet](app-insights-asp-net-tr
 > 
 > 
 
-## Video
-<a id="video" class="xliff"></a>
+## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 * [Lägg till mer telemetri](app-insights-asp-net-more.md)för att få en heltäckande bild av ditt program.
 
 

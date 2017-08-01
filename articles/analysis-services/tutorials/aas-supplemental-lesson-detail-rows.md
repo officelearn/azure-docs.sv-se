@@ -22,8 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-# Kompletterande lektion – Detaljrader
-<a id="supplemental-lesson---detail-rows" class="xliff"></a>
+# <a name="supplemental-lesson---detail-rows"></a>Kompletterande lektion – Detaljrader
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -31,12 +30,10 @@ I den här kompletterande lektionen använder du DAX-redigeraren för att defini
   
 Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
   
-## Krav
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Krav  
 Den här kompletterande lektionen ingår i en självstudiekurs om tabellmodeller. Innan du utför uppgifterna i den här kompletterande lektionen måste du ha slutfört alla föregående lektioner eller ha ett slutfört Adventure Works Internet Sales-exempelmodellprojekt.  
   
-## Vad behöver vi lösa?
-<a id="what-do-we-need-to-solve" class="xliff"></a>
+## <a name="what-do-we-need-to-solve"></a>Vad behöver vi lösa?
 Låt oss titta på informationen för vårt InternetTotalSales-mått innan vi lägger till ett uttryck för rader med detaljerad information.
 
 1.  Klicka på menyn **Modell** > **Analysera i Excel** i SSDT för att öppna Excel och skapa en tom pivottabell.
@@ -51,11 +48,9 @@ Låt oss titta på informationen för vårt InternetTotalSales-mått innan vi l�
   
 Det vi vill se här är en tabell med kolumner och rader med data som bidrar till det aggregerade resultatet av vårt InternetTotalSales-mått. Det ordnar vi genom att lägga till ett uttryck för rader med detaljerad information som en egenskap för måttet.
 
-## Lägga till ett uttryck för rader med detaljerad information
-<a id="add-a-detail-rows-expression" class="xliff"></a>
+## <a name="add-a-detail-rows-expression"></a>Lägga till ett uttryck för rader med detaljerad information
 
-#### Så här skapar du ett uttryck för rader med detaljerad information
-<a id="to-create-a-detail-rows-expression" class="xliff"></a> 
+#### <a name="to-create-a-detail-rows-expression"></a>Så här skapar du ett uttryck för rader med detaljerad information 
   
 1. Klicka på måttet **InternetTotalSales** i FactInternetSales-tabellens rutnät för mått i SSDT. 
 
@@ -87,8 +82,7 @@ Det vi vill se här är en tabell med kolumner och rader med data som bidrar til
 5. Distribuera om din modell.
 
   
-## Se även
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>Se även  
 [Funktionen SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
 [Kompletterande lektion – Dynamisk säkerhet](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Kompletterande lektion – Ojämna hierarkier](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

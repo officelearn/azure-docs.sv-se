@@ -23,8 +23,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-# Användardefinierade vägar och IP-vidarebefordran
-<a id="user-defined-routes-and-ip-forwarding" class="xliff"></a>
+# <a name="user-defined-routes-and-ip-forwarding"></a>Användardefinierade vägar och IP-vidarebefordran
 
 När du lägger till virtuella datorer (VM:ar) till ett virtuellt nätverk (VNet) i Azure, märker du att VM:arna kan kommunicera automatiskt med varandra över nätverket. Du behöver inte ange någon gateway, även om VM:arna befinner sig på olika undernät. Samma sak gäller för kommunikation från VM:arna till det offentliga Internet samt till ditt lokala nätverk när det finns en hybridanslutning från Azure till ditt eget datacenter.
 
@@ -52,8 +51,7 @@ Bilden nedan visar ett exempel på användardefinierade vägar och IP-vidarebefo
 > 
 > 
 
-## Routeresurs
-<a id="route-resource" class="xliff"></a>
+## <a name="route-resource"></a>Routeresurs
 Paketen dirigeras över ett TCP/IP-nätverk som baseras på en routingtabell som definierats vid varje nod på det fysiska nätverket. En routingtabell är en samling individuella vägare som används för att bestämma var paket ska vidarebefordras baserat på mål-IP-adress. En väg består av följande:
 
 | Egenskap | Beskrivning | Villkor | Överväganden |
@@ -70,16 +68,14 @@ I Azure PowerShell har vissa "NextHopType"-värden har olika namn:
 * Internet är Internet
 * Ingen är Ingen
 
-### Systemvägar
-<a id="system-routes" class="xliff"></a>
+### <a name="system-routes"></a>Systemvägar
 Varje undernät som skapats i ett virtuellt nätverk, kopplas automatiskt till en routingtabell som innehåller följande regler för systemvägar:
 
 * **Lokal VNet-regel**: Den här regeln skapas automatiskt för varje undernät i ett virtuellt nätverk. Det anger att det finns en direktlänk mellan VM:arna på VNet och att det inte finns något mellanliggande nexthop.
 * **Lokal regel**: Den här regeln gäller för all trafik till det lokala adressintervallet och använder VPN-gatewayer som nexthop-mål.
 * **Internetregel**: Den här regeln hanterar all trafik mot det offentliga Internet (address prefix 0.0.0.0/0) och använder sig av infrastrukturens Internet-gateway som nexthop för all trafik mot Internet.
 
-### Användardefinierade vägar
-<a id="user-defined-routes" class="xliff"></a>
+### <a name="user-defined-routes"></a>Användardefinierade vägar
 För de flesta miljöer behöver du bara systemvägarna som definierats i Azure. Du kan dock behöva skapa en routingtabell och lägga till en eller flera vägar i vissa fall, som när du vill:
 
 * Tvinga tunneling till Internet via ditt lokala nätverk.
@@ -100,8 +96,7 @@ Information om hur man skapar användardefinierade vägar finns i [Så här skap
 > 
 > 
 
-### BGP-vägar
-<a id="bgp-routes" class="xliff"></a>
+### <a name="bgp-routes"></a>BGP-vägar
 Om du har en ExpressRoute-anslutning mellan ditt lokala nätverk och Azure, kan du aktivera BGP för att sprida väga från ditt lokala nätverk till Azure. BGP-vägarna används på samma sätt som systemvägar och användardefinierade vägar på varje Azure-undernät. Mer information finns i [Introduktion till ExpressRoute](../expressroute/expressroute-introduction.md).
 
 > [!IMPORTANT]
@@ -109,14 +104,12 @@ Om du har en ExpressRoute-anslutning mellan ditt lokala nätverk och Azure, kan 
 > 
 > 
 
-## IP-vidarebefordran
-<a id="ip-forwarding" class="xliff"></a>
+## <a name="ip-forwarding"></a>IP-vidarebefordran
 Som det beskrivs ovan, är en av de huvudsakliga skälen att skapa en användardefinierad väg att vidarebefordra trafik till en virtuell installation. En virtuell installation är helt enkelt en VM som kör ett program som används för att hantera nätverkstrafik på något sätt, som en brandvägg eller en NAT-enhet.
 
 Den här virtuella installations-VM:en måste kunna ta emot inkommande trafik som inte är adresserad till den. För att låta en VM ta emot trafik som är adresserad till andra mål, behöver du aktivera IP-vidarebefordran för VM:en. Det är en Azure-inställning, inte en inställning i gästoperativsystemet.
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [skapar vägar i Resource Manager-distributionsmodellen](virtual-network-create-udr-arm-template.md) och kopplar dem till undernät. 
 * Lär dig hur du [skapar vägar i den klassiska distributionsmodellen](virtual-network-create-udr-classic-ps.md) och kopplar dem till undernät.
 

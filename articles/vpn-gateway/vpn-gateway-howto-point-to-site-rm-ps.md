@@ -23,8 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-# Konfigurera en punkt-till-plats-anslutning till ett VNet med hjälp av PowerShell
-<a id="configure-a-point-to-site-connection-to-a-vnet-using-powershell" class="xliff"></a>
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med hjälp av PowerShell
 
 
 Den här artikeln visar dig hur du skapar ett virtuellt nätverk med en punkt-till-plats-anslutning i Resource Manager-distributionsmodellen med PowerShell. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
@@ -50,8 +49,7 @@ P2S-anslutningar kräver följande:
 * Ett konfigurationspaket för VPN-klienter måste skapas och installeras på varje klientdator som ansluter. Klientkonfigurationspaketet konfigurerar den interna VPN-klienten som redan finns i operativsystemet med den information som krävs för att ansluta till det virtuella nätverket.
 
 
-## Innan du börjar
-<a id="before-beginning" class="xliff"></a>
+## <a name="before-beginning"></a>Innan du börjar
 
 * Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial).
 * Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar. Mer information om hur du installerar PowerShell-cmdlets finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
@@ -262,8 +260,7 @@ Om du har problem med att ansluta kontrollerar du följande:
 
 Du kan lägga till och ta bort betrodda rotcertifikat från Azure. När du tar bort ett rotcertifikat kommer klienter som har ett certifikat som genereras från den roten inte att kunna autentisera, och därmed kommer de inte heller att kunna ansluta. Om du vill att en klient ska kunna autentisera och ansluta måste du installera ett nytt klientcertifikat som genererats från ett rotcertifikat som är betrott (uppladdat) i Azure.
 
-### Lägga till ett betrott rotcertifikat
-<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
+### <a name="to-add-a-trusted-root-certificate"></a>Lägga till ett betrott rotcertifikat
 
 Du kan lägga till upp till 20 CER-filer för rotcertifikat i Azure. Följande steg beskriver hur du lägger till ett rotcertifikat:
 
@@ -294,8 +291,7 @@ Du kan lägga till upp till 20 CER-filer för rotcertifikat i Azure. Följande s
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
-### Ta bort ett rotcertifikat
-<a id="to-remove-a-root-certificate" class="xliff"></a>
+### <a name="to-remove-a-root-certificate"></a>Ta bort ett rotcertifikat
 
 1. Deklarera variablerna.
 
@@ -323,8 +319,7 @@ Du kan återkalla certifikat. Du kan använda listan över återkallade certifik
 
 Den vanligaste metoden är att använda rotcertifikatet för att hantera åtkomst på grupp- eller organisationsnivå, och att återkalla klientcertifikat för mer detaljerad åtkomstkontroll för enskilda användare.
 
-### Återkalla du ett klientcertifikat
-<a id="to-revoke-a-client-certificate" class="xliff"></a>
+### <a name="to-revoke-a-client-certificate"></a>Återkalla du ett klientcertifikat
 
 1. Hämta klientcertifikatets tumavtryck. Mer information finns i [Gör så här: Hämta tumavtrycket för ett certifikat](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Kopiera informationen till en textredigerare och ta bort alla blanksteg så att strängen är i ett stycke. Detta deklareras som en variabel i nästa steg.
@@ -350,8 +345,7 @@ Den vanligaste metoden är att använda rotcertifikatet för att hantera åtkoms
   ```
 6. När tumavtrycket har lagts till kan certifikatet inte längre användas för anslutning. Klienter som försöker ansluta med det här certifikatet får ett meddelande om att certifikatet inte längre är giltigt.
 
-### Så här återställer du ett klientcertifikat
-<a id="to-reinstate-a-client-certificate" class="xliff"></a>
+### <a name="to-reinstate-a-client-certificate"></a>Så här återställer du ett klientcertifikat
 
 Du kan återställa ett klientcertifikat genom att ta bort tumavtrycket från listan över återkallade klientcertifikat.
 
@@ -379,7 +373,6 @@ Du kan återställa ett klientcertifikat genom att ta bort tumavtrycket från li
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
 

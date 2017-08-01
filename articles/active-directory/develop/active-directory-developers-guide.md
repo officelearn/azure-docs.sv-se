@@ -21,8 +21,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/21/2017
 
 ---
-# Azure Active Directory för utvecklare
-<a id="azure-active-directory-for-developers" class="xliff"></a>
+# <a name="azure-active-directory-for-developers"></a>Azure Active Directory för utvecklare
 Azure Active Directory är en molnbaserad identitetstjänst som utvecklarna kan använda för att på ett säkert sätt logga in alla användare som har ett arbets- eller skolkonto hos Microsoft.  Den här dokumentationen innehåller information om hur du lägger till stöd för Azure AD i ditt program med hjälp av autentiseringsprotokoll av branschstandardtyp, OAuth och OpenID Connect.
 
 | | |
@@ -30,8 +29,7 @@ Azure Active Directory är en molnbaserad identitetstjänst som utvecklarna kan 
 |[Grundläggande om Auth](active-directory-authentication-scenarios.md) | En introduktion till autentisering med Azure AD |
 |[Typer av program](active-directory-authentication-scenarios.md#application-types-and-scenarios) | En översikt över de autentiseringscenarier som stöds av Azure AD |                                
                                                                               
-## Kom igång
-<a id="get-started" class="xliff"></a>
+## <a name="get-started"></a>Kom igång
 Våra guider vägleder dig genom användningen av våra autentiseringsbibliotek för inloggning av Azure Active Directory-användare.
 
 |  |  |  |  |
@@ -42,8 +40,7 @@ Våra guider vägleder dig genom användningen av våra autentiseringsbibliotek 
 | <center>![Webb-API:er](./media/active-directory-developers-guide/Web_API.png)<br />Webb-API:er</center> | [Översikt](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[NodeJS](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
 | <center>![Tjänst-till-tjänst](./media/active-directory-developers-guide/Service_App.png)<br />Tjänst-till-tjänst</center> | [Översikt](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Autentiseringsuppgifter för OAuth 2.0-klient](active-directory-protocols-oauth-service-to-service.md) |  |
 
-## Guider
-<a id="guides" class="xliff"></a>
+## <a name="guides"></a>Guider
 De här artiklarna innehåller information om hur du utför vanliga uppgifter med hjälp av Azure Active Directory.
 
 |                                                                           |  |
@@ -53,8 +50,7 @@ De här artiklarna innehåller information om hur du utför vanliga uppgifter me
 |[OAuth och OpenID Connect](active-directory-protocols-openid-connect-code.md)| Så här loggar du in användare och anropar webb-API:er med våra moderna autentiseringsprotokoll |
 |[Fler guider ...](active-directory-developers-guide-index.md#guides)        |     |
 
-## Referens
-<a id="reference" class="xliff"></a>
+## <a name="reference"></a>Referens
 De här artiklarna innehåller detaljerad information om API:er, protokollmeddelanden och de termer som används i Azure Active Directory.
 
 |                                                                                   | |
@@ -64,8 +60,7 @@ De här artiklarna innehåller detaljerad information om API:er, protokollmeddel
 | [Ordlista](active-directory-dev-glossary.md)                                      | Termer och definitioner av ord som används i den här dokumentationen |
 | [Mer referensmaterial ...](active-directory-developers-guide-index.md#reference)|     |
 
-## Hjälp och support
-<a id="help--support" class="xliff"></a>
+## <a name="help--support"></a>Hjälp och support
 Det här är ett bra sätt att få hjälp med utveckling i Azure Active Directory.
 
 |  |  

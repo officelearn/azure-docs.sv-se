@@ -22,9 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-1-create-a-new-tabular-model-project" class="xliff"></a>
-
-# Lektion 1: Skapa ett nytt projekt för tabellmodeller
+# <a name="lesson-1-create-a-new-tabular-model-project"></a>Lektion 1: Skapa ett nytt projekt för tabellmodeller
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,18 +30,12 @@ Under den här lektionen använder du SQL Server Data Tools (SSDT) för att skap
   
 Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Krav  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet är den första lektionen i en självstudie om redigering av tabellmodeller. Det finns flera förutsättningar som måste uppfyllas för att slutföra den här lektionen. Läs mer i [Azure Analysis Services – Självstudiekurs för Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  
   
-<a id="create-a-new-tabular-model-project" class="xliff"></a>
-
-## Skapa ett nytt projekt för tabellmodeller  
+## <a name="create-a-new-tabular-model-project"></a>Skapa ett nytt projekt för tabellmodeller  
   
-<a id="to-create-a-new-tabular-model-project" class="xliff"></a>
-
-#### Så här skapar du ett nytt projekt för tabellmodeller  
+#### <a name="to-create-a-new-tabular-model-project"></a>Så här skapar du ett nytt projekt för tabellmodeller  
   
 1.  På **Arkiv**-menyn i SSDT klickar du på **Nytt** > **Projekt**.  
   
@@ -66,9 +58,7 @@ Det här avsnittet är den första lektionen i en självstudie om redigering av 
     Om du inte ser SQL Server 2017 / Azure Analysis Services (1400) i listrutan Kompatibilitetsnivå så använder du inte den senaste versionen av SQL Server Data Tools. För att hämta den senaste versionen går du till [Installera SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
       
   
-<a id="understanding-the-ssdt-tabular-model-authoring-environment" class="xliff"></a>
-
-## Tolka redigeringsmiljön för SSDT-tabellmodellen  
+## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Tolka redigeringsmiljön för SSDT-tabellmodellen  
 Nu när du har skapat ett nytt projekt för tabellmodeller kan vi börja utforska redigeringsmiljön för tabellmodellen i SSDT.  
   
 När projektet har skapats öppnas det i SSDT. Till höger i **Tabellmodellutforskaren** visas en trädvy över objekten i modellen. Eftersom du inte har importerat data ännu är mapparna tomma. Du kan högerklicka på en mapp för objekt för att utföra åtgärder, precis som på menyraden. När du går igenom den här självstudien kan du använda tabellmodellutforskaren för att navigera mellan olika objekt i ditt modellprojekt.
@@ -92,9 +82,7 @@ När du installerade SSDT lades flera nya menyalternativ till i Visual Studio-mi
 Utforska några dialogrutor och platser för olika funktioner som är specifika för redigering av tabellmodeller. Även om vissa objekt inte är aktiva ännu så får du en bra uppfattning om redigeringsmiljön för tabellmodeller.  
   
 
-<a id="whats-next" class="xliff"></a>
-
-## Nästa steg
+## <a name="whats-next"></a>Nästa steg
 [Lektion 2: Hämta data](../tutorials/aas-lesson-2-get-data.md).
 
   

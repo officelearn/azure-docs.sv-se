@@ -22,11 +22,9 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-# Aktivera Azure Active Directory Domain Services med hjälp av den klassiska Azure-portalen
-<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Aktivera Azure Active Directory Domain Services med hjälp av den klassiska Azure-portalen
 
-## Uppgift 3: aktivera Azure Active Directory Domain Services
-<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
+## <a name="task-3-enable-azure-active-directory-domain-services"></a>Uppgift 3: aktivera Azure Active Directory Domain Services
 I den här uppgiften ska du aktivera Azure Active Directory Domain Services (Azure AD DS) för din katalog genom att göra följande:
 
 1. Gå till den [klassiska Azure-portalen](https://manage.windowsazure.com).
@@ -97,7 +95,6 @@ I den här uppgiften ska du aktivera Azure Active Directory Domain Services (Azu
 >
 >
 
-## Nästa steg
-<a id="next-step" class="xliff"></a>
+## <a name="next-step"></a>Nästa steg
 Uppgift 4: [uppdatera DNS-inställningarna för det virtuella Azure-nätverket](active-directory-ds-getting-started-update-dns.md)
 

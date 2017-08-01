@@ -22,8 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-# Lektion 9: Skapa hierarkier
-<a id="lesson-9-create-hierarchies" class="xliff"></a>
+# <a name="lesson-9-create-hierarchies"></a>Lektion 9: Skapa hierarkier
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -33,15 +32,12 @@ Du kan skapa hierarkier med modelldesignern i *diagramvyn*. Skapa och hantera hi
   
 Uppskattad tidsåtgång för den här lektionen: **20 minuter**  
   
-## Krav
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna i den här lektionen måste du ha slutfört föregående lektion: [Lektion 8: Skapa perspektiv](../tutorials/aas-lesson-8-create-perspectives.md).  
   
-## Skapa hierarkier
-<a id="create-hierarchies" class="xliff"></a>  
+## <a name="create-hierarchies"></a>Skapa hierarkier  
   
-#### Så här skapar du en kategorihierarki i tabellen DimProduct
-<a id="to-create-a-category-hierarchy-in-the-dimproduct-table" class="xliff"></a>  
+#### <a name="to-create-a-category-hierarchy-in-the-dimproduct-table"></a>Så här skapar du en kategorihierarki i tabellen DimProduct  
   
 1.  I modelldesignern (diagramvyn) högerklickar du på **DimProduct**-tabellen > **Skapa hierarki**. En ny hierarki visas längst ned i tabellfönstret. Byt namn på hierarkin till **Kategori**.  
   
@@ -60,8 +56,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
 
     ![aas-lesson9-category](../tutorials/media/aas-lesson9-category.png)
   
-#### Så här skapar du hierarkier i tabellen DimDate
-<a id="to-create-hierarchies-in-the-dimdate-table" class="xliff"></a>  
+#### <a name="to-create-hierarchies-in-the-dimdate-table"></a>Så här skapar du hierarkier i tabellen DimDate  
   
 1.  Skapa en hierarki med namnet **Kalender** i tabellen **DimDate**.  
   
@@ -86,8 +81,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
     *  WeekNumberOfYear
     *  DayNumberOfWeek
   
- ## Nästa steg
-<a id="whats-next" class="xliff"></a>
+ ## <a name="whats-next"></a>Nästa steg
 [Lektion 10: Skapa partitioner](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

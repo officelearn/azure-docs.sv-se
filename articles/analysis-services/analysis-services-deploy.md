@@ -23,12 +23,10 @@ ms.lasthandoff: 06/03/2017
 
 
 ---
-# Distribuera en modell från SSDT
-<a id="deploy-a-model-from-ssdt" class="xliff"></a>
+# <a name="deploy-a-model-from-ssdt"></a>Distribuera en modell från SSDT
 När du har skapat en server i din Azure-prenumeration är du redo att distribuera en tabellmodelldatabas till den. Du kan använda SQL Server Data Tools (SSDT) för att skapa och distribuera ett tabellmodellprojekt som du arbetar med. 
 
-## Innan du börjar
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>Innan du börjar
 Du behöver följande för att komma igång:
 
 * **Analysis Services-server** i Azure. Läs mer i [Skapa en Azure Analysis Services-server](analysis-services-create-server.md).
@@ -40,8 +38,7 @@ Du behöver följande för att komma igång:
 > 
 > 
 
-## Så här distribuerar du en tabellmodell från SSDT
-<a id="to-deploy-a-tabular-model-from-ssdt" class="xliff"></a>
+## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Så här distribuerar du en tabellmodell från SSDT
 
 1. Innan du distribuerar måste du hämta servernamnet. Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera servernamnet.
    
@@ -60,14 +57,12 @@ Du behöver följande för att komma igång:
 Det var allt!
 
 
-## Men, något gick fel
-<a id="but-something-went-wrong" class="xliff"></a>
+## <a name="but-something-went-wrong"></a>Men, något gick fel
 Om distributionen misslyckas när du distribuerar metadata beror det förmodligen på att SSDT inte kunde ansluta till servern. Kontrollera att du kan ansluta till servern med hjälp av SSMS. Kontrollera egenskapen Distributionsserver för projektet är korrekt.
 
 Om distributionen misslyckas för en tabell beror det förmodligen på att servern inte kunde ansluta till en datakälla. Om datakällan finns lokalt i din organisations nätverk måste du installera en [lokal datagateway](analysis-services-gateway.md).
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 Nu när du har distribuerat en tabellmodell till servern är du redo att ansluta till den. Du kan [ansluta till den med SSMS](analysis-services-manage.md) om du vill hantera den. Och du kan [ansluta till den med ett klientverktyg](analysis-services-connect.md), till exempel Power BI, Power BI Desktop eller Excel, och börja skapa rapporter.
 
 

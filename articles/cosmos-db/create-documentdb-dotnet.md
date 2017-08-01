@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal" class="xliff"></a>
-
-# Azure Cosmos DB: skapa en DocumentDB-API-webbapp med .NET och Azure-portalen
+# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: skapa en DocumentDB-API-webbapp med .NET och Azure-portalen
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
@@ -33,32 +31,24 @@ Den här snabbstarten demonstrerar hur man skapar ett Azure Cosmos DB-konto, en 
 
 ![Att göra-app med exempeldata](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Krav
+## <a name="prerequisites"></a>Krav
 
 Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 <a id="create-account"></a>
-<a id="create-a-database-account" class="xliff"></a>
-
-## Skapa ett databaskonto
+## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-collection"></a>
-<a id="add-a-collection" class="xliff"></a>
-
-## Lägga till en samling
+## <a name="add-a-collection"></a>Lägga till en samling
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 <a id="add-sample-data"></a>
-<a id="add-sample-data" class="xliff"></a>
-
-## Lägg till exempeldata
+## <a name="add-sample-data"></a>Lägg till exempeldata
 
 Du kan nu lägga till data till din nya samling med datautforskaren.
 
@@ -86,9 +76,7 @@ Du kan nu lägga till data till din nya samling med datautforskaren.
  
      Du kan även använda datautforskaren för att skapa lagrade procedurer, UDF:er och utlösare för att utföra affärslogik på serversidan såväl som att skala genomflödet. Datautforskaren visar all den inbyggda programmässiga dataåtkomsten som finns tillgänglig i API:erna, men ger enkel åtkomst till dina data i Azure-portalen.
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## Klona exempelprogrammet
+## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
 Nu ska vi klona en DocumentDB-API-app från github, ange anslutningssträngen och köra den. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
@@ -102,9 +90,7 @@ Nu ska vi klona en DocumentDB-API-app från github, ange anslutningssträngen oc
 
 3. Öppna därefter att göra-lösningsfilen i Visual Studio. 
 
-<a id="review-the-code" class="xliff"></a>
-
-## Granska koden
+## <a name="review-the-code"></a>Granska koden
 
 Vi gör en snabb genomgång av vad som händer i appen. Öppna filen DocumentDBRepository.cs så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
 
@@ -129,9 +115,7 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna filen DocumentDBR
         new RequestOptions { OfferThroughput = 1000 });
     ```
 
-<a id="update-your-connection-string" class="xliff"></a>
-
-## Uppdatera din anslutningssträng
+## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
@@ -149,9 +133,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     `<add key="authKey" value="FILLME" />`
     
-<a id="run-the-web-app" class="xliff"></a>
-
-## Kör webbappen
+## <a name="run-the-web-app"></a>Kör webbappen
 1. I Visual Studio högerklickar du på projektet i **Solution Explorer** och därefter på **Hantera NuGet-paket**. 
 
 2. I NuGet-rutan **Bläddra**, skriver du in *DocumentDB*.
@@ -166,24 +148,18 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 Du kan nu gå tillbaka till datautforskaren och se frågan, ändra och arbeta med dessa nya data. 
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Rensa resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte planerar att fortsätta använda den här appen tar du bort alla resurser som skapades i snabbstarten i Azure Portal med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade. 
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 I den här snabbstarten har du lärt dig hur man skapar ett Azure Cosmos DB-konto, skapar en samling med datautforskaren och kör en webbapp. Du kan nu importera ytterligare data till ditt Cosmos DB-konto. 
 

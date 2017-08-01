@@ -22,8 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/21/2017
 
 ---
-# Skapa en statisk HTML-webbapp i Azure
-<a id="create-a-static-html-web-app-in-azure" class="xliff"></a>
+# <a name="create-a-static-html-web-app-in-azure"></a>Skapa en statisk HTML-webbapp i Azure
 
 Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar en enkel HTML+CSS-webbplats till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera HTML-innehåll till webbappen.
 
@@ -31,8 +30,7 @@ Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-servic
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. Det tar cirka fem minuter att slutföra självstudiekursen när de nödvändiga komponenterna har installerats.
 
-## Krav
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -43,8 +41,7 @@ För att slutföra den här snabbstarten behöver du:
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## Hämta exemplet
-<a id="download-the-sample" class="xliff"></a>
+## <a name="download-the-sample"></a>Hämta exemplet
 
 Kör följande kommando i ett terminalfönster för att klona databasen för exempelappen till den lokala datorn.
 
@@ -54,8 +51,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 Du använder det här terminalfönstret för att köra alla kommandon i den här snabbstarten.
 
-## Visa HTML
-<a id="view-the-html" class="xliff"></a>
+## <a name="view-the-html"></a>Visa HTML
 
 Navigera till den katalog som innehåller HTML-exemplet. Öppna filen *index.html* i webbläsaren.
 
@@ -105,8 +101,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## Bläddra till appen
-<a id="browse-to-the-app" class="xliff"></a>
+## <a name="browse-to-the-app"></a>Bläddra till appen
 
 Gå till Azure-webbappens URL i en webbläsare:
 
@@ -120,8 +115,7 @@ Sidan körs som en Azure App Service-webbapp.
 
 **Grattis!** Du har distribuerat din första HTML-app till App Service.
 
-## Uppdatera och distribuera om appen
-<a id="update-and-redeploy-the-app" class="xliff"></a>
+## <a name="update-and-redeploy-the-app"></a>Uppdatera och distribuera om appen
 
 Öppna filen *index.html* i en textredigerare och gör en ändring i koden. Ändra till exempel H1-rubriken från "Azure App Service - Sample Static HTML Site" till endast "Azure App Service".
 
@@ -136,8 +130,7 @@ När distributionen är klar väljer du att uppdatera i webbläsaren så att än
 
 ![Uppdaterad exempelstartsida för app](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-## Hantera din nya Azure-webbapp
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
+## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
@@ -153,8 +146,7 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Mappa anpassad domän](app-service-web-tutorial-custom-domain.md)

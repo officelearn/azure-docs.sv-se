@@ -22,15 +22,13 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/20/2017
 
 ---
-# Skapa din första Java-webbapp i Azure
-<a id="create-your-first-java-web-app-in-azure" class="xliff"></a>
+# <a name="create-your-first-java-web-app-in-azure"></a>Skapa din första Java-webbapp i Azure
 
 [Webb Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview)-funktionen i [Azure App Service](../app-service/app-service-value-prop-what-is.md) tillhandahåller en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av [Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/).
 
 !["Hello Azure!" exempelwebbapp](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## Krav
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Krav
 
 Installera följande för att slutföra den här snabbstarten:
 
@@ -39,8 +37,7 @@ Installera följande för att slutföra den här snabbstarten:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Skapa ett dynamiskt webbprojekt i Eclipse
-<a id="create-a-dynamic-web-project-in-eclipse" class="xliff"></a>
+## <a name="create-a-dynamic-web-project-in-eclipse"></a>Skapa ett dynamiskt webbprojekt i Eclipse
 
 Välj **Arkiv** > **Nytt** > **Dynamic Web Project** (Dynamiskt webbprojekt) Eclipse.
 
@@ -48,8 +45,7 @@ I dialogrutan **New Dynamic Web Project** (Nytt dynamiskt webbprojekt) ger du pr
    
 ![Dialogrutan för nytt dynamiskt webbprojekt](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
-### Lägg till en JSP-sida
-<a id="add-a-jsp-page" class="xliff"></a>
+### <a name="add-a-jsp-page"></a>Lägg till en JSP-sida
 
 Om projektutforskaren inte visas kan du återställa den.
 
@@ -77,8 +73,7 @@ I filen index.jsp ersätter du elementet `<body></body>` med följande kod:
 
 Spara ändringarna.
 
-## Publicera webbappen i Azure
-<a id="publish-the-web-app-to-azure" class="xliff"></a>
+## <a name="publish-the-web-app-to-azure"></a>Publicera webbappen i Azure
 
 Högerklicka på projektet i projektutforskaren och välj sedan **Azure** > **Publicera som Azure Web App**.
 
@@ -88,8 +83,7 @@ I dialogrutan för **Azure-inloggning** behåller du alternativet **Interaktiv**
 
 Följ anvisningarna för inloggning.
 
-### Dialogrutan Distribuera webbapp
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
+### <a name="deploy-web-app-dialog-box"></a>Dialogrutan Distribuera webbapp
 
 När du har loggats in på Azure-kontot visas dialogrutan **Distribuera webbapp**.
 
@@ -97,8 +91,7 @@ Välj **Skapa**.
 
 ![Dialogrutan Distribuera webbapp](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
-### Dialogrutan Skapa App Service
-<a id="create-app-service-dialog-box" class="xliff"></a>
+### <a name="create-app-service-dialog-box"></a>Dialogrutan Skapa App Service
 
 Dialogrutan **Skapa App Service** visas med standardvärden. Numret **170602185241** som visas i följande bild skiljer sig från vad som visas i din dialogruta.
 
@@ -119,8 +112,7 @@ I dialogrutan **Skapa App Service**:
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-### Flik för resursgrupp
-<a id="resource-group-tab" class="xliff"></a>
+### <a name="resource-group-tab"></a>Flik för resursgrupp
 
 Välj fliken **Resursgrupp**. Behåll det genererade standardvärdet för resursgruppen.
 
@@ -142,8 +134,7 @@ Webbappen skapas av Azure Toolkit och en dialogruta med en förloppsindikator vi
 
 ![Dialogruta med förloppsindikator för hur apptjänsten skapas](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
-### Dialogrutan Distribuera webbapp
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
+### <a name="deploy-web-app-dialog-box"></a>Dialogrutan Distribuera webbapp
 
 I dialogrutan **Distribuera webbapp** väljer du **Distribuera till rot**. Om du har en apptjänst på *wingtiptoys.azurewebsites.net* och inte distribuerar webbappen till roten så distribueras webbappen med namnet **MyFirstJavaOnAzureWebApp** till *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
@@ -161,8 +152,7 @@ Grattis! Din webbapp har distribuerats till Azure.
 
 !["Hello Azure!" exempelwebbapp](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## Uppdatera webbappen
-<a id="update-the-web-app" class="xliff"></a>
+## <a name="update-the-web-app"></a>Uppdatera webbappen
 
 Ändra JSP-exempelkod till ett annat meddelande.
 
@@ -186,8 +176,7 @@ Välj webbappen och sedan **Distribuera**. Då publiceras ändringarna.
 
 När länken **Publicering** visas väljer du den för att bläddra till webbappen och se ändringarna.
 
-## Hantera webbappen
-<a id="manage-the-web-app" class="xliff"></a>
+## <a name="manage-the-web-app"></a>Hantera webbappen
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att se den webbapp som du skapade.
 
@@ -207,8 +196,7 @@ Sidan **Översikt** visas. Den här sidan ger dig en översikt över hur det gå
 
 [!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Mappa anpassad domän](app-service-web-tutorial-custom-domain.md)

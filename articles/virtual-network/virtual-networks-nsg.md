@@ -22,16 +22,14 @@ ms.lasthandoff: 06/01/2017
 
 
 ---
-# Filtrera nätverkstrafik med nätverkssäkerhetsgrupper
-<a id="filter-network-traffic-with-network-security-groups" class="xliff"></a>
+# <a name="filter-network-traffic-with-network-security-groups"></a>Filtrera nätverkstrafik med nätverkssäkerhetsgrupper
 
 En nätverkssäkerhetsgrupp (NSG) innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk (VNet). Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager). När en nätverkssäkerhetsgrupp är kopplad till ett undernät gäller reglerna för alla resurser som är anslutna till undernätet. Trafiken kan begränsas ytterligare genom att en nätverkssäkerhetsgrupp associeras med en virtuell dator eller ett nätverkskort.
 
 > [!NOTE]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md). Den här artikeln täcker bägge modellerna, men Microsoft rekommenderar de flesta nya distributioner att använda Resource Manager-modellen.
 
-## NSG-resurs
-<a id="nsg-resource" class="xliff"></a>
+## <a name="nsg-resource"></a>NSG-resurs
 Nätverkssäkerhetsgrupper har följande egenskaper:
 
 | Egenskap | Beskrivning | Villkor | Överväganden |
@@ -45,8 +43,7 @@ Nätverkssäkerhetsgrupper har följande egenskaper:
 > Slutpunktsbaserade ACL:er och nätverkssäkerhetsgrupper stöds inte på samma VM-instans. Om du vill använda en NSG och redan har en slutpunkts-ACL på plats så kan du först ta bort slutpunkts-ACL:n. Information om hur du tar bort en åtkomstkontrollista finns i artikeln [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md) (Hantera åtkomstkontrollistor (ACL:er) för slutpunkter med hjälp av PowerShell).
 > 
 
-### NSG-regler
-<a id="nsg-rules" class="xliff"></a>
+### <a name="nsg-rules"></a>NSG-regler
 NSG-regler har följande egenskaper:
 
 | Egenskap | Beskrivning | Villkor | Överväganden |
@@ -67,16 +64,14 @@ Nätverkssäkerhetsgrupper innehåller två regeluppsättningar: inkommande och 
 
 Föregående bild visar hur NSG-regler bearbetas.
 
-### Standardtaggar
-<a id="default-tags" class="xliff"></a>
+### <a name="default-tags"></a>Standardtaggar
 Standardtaggar är systemdefinierade identifierare för en viss kategori av IP-adresser. Du kan använda standardtaggar i egenskaperna för **källadress-prefix** och **måladress-prefix** för alla regler. Det finns tre standardtaggar som du kan använda:
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adressutrymmet för det virtuella nätverket (CIDR-intervall definierade i Azure), alla anslutna lokala adressutrymmen och anslutna virtuella Azure-nätverk (lokala nätverk).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger belastningsutjämnaren för Azures infrastruktur. Taggen översätts till en IP-adress för Azure-datacentret som Azures hälsoavsökning kommer från.
 * **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen anger IP-adressutrymmet som är utanför det virtuella nätverket och som kan nås av det offentliga Internet. Intervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### Standardregler
-<a id="default-rules" class="xliff"></a>
+### <a name="default-rules"></a>Standardregler
 Alla NSG:er har en uppsättning standardregler. Standardreglerna kan inte tas bort, men eftersom de tilldelas lägst prioritet så kan de överskridas av de reglerna du själv skapar. 
 
 Standardreglerna tillåter och nekar trafik på följande sätt:
@@ -100,8 +95,7 @@ Standardreglerna tillåter och nekar trafik på följande sätt:
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | Tillåt |
 | DenyAllOutBound | 65500 | * | * | * | * | * | Neka |
 
-## Koppla NSG:er
-<a id="associating-nsgs" class="xliff"></a>
+## <a name="associating-nsgs"></a>Koppla NSG:er
 Du kan koppla en nätverkssäkerhetsgrupp till virtuella datorer, nätverkskort och undernät, beroende på vilken distributionsmodell du använder, enligt följande:
 
 * **VM (endast klassisk):** Säkerhetsregler används för all trafik till/från den virtuella datorn. 
@@ -126,8 +120,7 @@ Du kan koppla olika nätverkssäkerhetsgrupper till en virtuell dator (eller ett
 > Även om du kan bara koppla en enda NSG till ett undernät, VM eller NIC så kan du koppla samma NSG till hur många resurser du vill.
 >
 
-## Implementering
-<a id="implementation" class="xliff"></a>
+## <a name="implementation"></a>Implementering
 Du kan implementera nätverkssäkerhetsgrupper i Resource Manager-distributionsmodellen eller i den klassiska distributionsmodellen med hjälp av följande verktyg:
 
 | Distributionsverktyg | Klassisk | Resource Manager |
@@ -138,8 +131,7 @@ Du kan implementera nätverkssäkerhetsgrupper i Resource Manager-distributionsm
 | Azure CLI **V2**   | Nej | [Ja](virtual-networks-create-nsg-arm-cli.md) |
 | Azure Resource Manager-mall   | Nej  | [Ja](virtual-networks-create-nsg-arm-template.md) |
 
-## Planering
-<a id="planning" class="xliff"></a>
+## <a name="planning"></a>Planering
 Innan du implementerar nätverkssäkerhetsgrupper måste du besvara följande frågor:
 
 1. Vilka typer av resurser vill du filtrera trafik till och från? Du kan ansluta resurser, t.ex nätverkskort (Resource Manager), virtuella datorer (klassisk), molntjänster, programtjänstmiljöer och skalningsuppsättningar för virtuella datorer. 
@@ -147,50 +139,41 @@ Innan du implementerar nätverkssäkerhetsgrupper måste du besvara följande fr
 
 Mer information om hur du planerar nätverkssäkerheten i Azure finns i artikeln om [molntjänster och nätverkssäkerhet](../best-practices-network-security.md). 
 
-## Designöverväganden
-<a id="design-considerations" class="xliff"></a>
+## <a name="design-considerations"></a>Designöverväganden
 När du vet svaren på frågorna i avsnittet [Planering](#Planning) går du igenom följande avsnitt innan du definierar dina nätverkssäkerhetsgrupper:
 
-### Begränsningar
-<a id="limits" class="xliff"></a>
+### <a name="limits"></a>Begränsningar
 Det finns gränser för hur många nätverkssäkerhetsgrupper du kan ha i en prenumeration och antalet regler per NSG. Mer information om gränserna finns i artikeln om [Azure-begränsningar](../azure-subscription-service-limits.md#networking-limits).
 
-### Utformning av VNet och undernät
-<a id="vnet-and-subnet-design" class="xliff"></a>
+### <a name="vnet-and-subnet-design"></a>Utformning av VNet och undernät
 Eftersom NSG:er kan tillämpas på undernät, kan du minimera antalet NSG:er genom att gruppera dina resurser efter undernät och tillämpa NSG:er på undernätet.  Om du bestämmer dig att tillämpa NSG:er på undernät kan du upptäcka att befintliga VNet och undernät inte har definierats med NSG:er i åtanke. Du kan behöva definiera nya virtuella datorer och undernät beroende på nätverkssäkerhetsgruppens design och distribuera nya resurser till dina nya undernät. Sedan kan du definiera en migreringsstrategi för att flytta befintliga resurser till de nya undernäten. 
 
-### Särskilda regler
-<a id="special-rules" class="xliff"></a>
+### <a name="special-rules"></a>Särskilda regler
 Om du blockerar trafik som tillåts av följande regler kan din infrastruktur inte kommunicera med viktiga Azure-tjänster:
 
 * **Värdnodens virtuella IP-adress:** Grundläggande infrastrukturtjänster som DHCP, DNS och hälsoövervakning tillhandahålls via den virtualiserade värd-IP-adressen 168.63.129.16. Den här offentliga IP-adressen tillhör Microsoft och är den enda virtualiserade IP-adressen som används i alla regioner för det här ändamålet. Den här IP-adressen mappar till den fysiska IP-adressen för serverdatorn (värdnoden) som är värd för den virtuella datorn. Värdnoden agerar som ett DHCP-relä, rekursiv DNS-matchare och avsökningskälla för belastningsutjämnaren, hälsoavsökningen och datorhälsoavsökningen. Kommunikation till den här IP-adressen är inte ett angrepp.
 * **Licensiering (nyckelhanteringstjänst):** Windows-avbildningar som körs på virtuella datorer måste vara licensierade. Licensieringen kontrolleras genom att en begäran skickas till nyckelhanteringstjänstens värdservrar som hanterar sådana frågor. Begäran är en utgående begäran via port 1688.
 
-### ICMP-trafik
-<a id="icmp-traffic" class="xliff"></a>
+### <a name="icmp-traffic"></a>ICMP-trafik
 De nuvarande NSG-reglerna tillåter bara protokollen *TCP* eller *UDP*. Det finns ingen specifik tagg för *ICMP*. ICMP-trafik tillåts dock inom ett virtuellt nätverk av standardregeln AllowVNetInBound, som tillåter trafik till och från alla portar och protokoll i det virtuella nätverket.
 
-### Undernät
-<a id="subnets" class="xliff"></a>
+### <a name="subnets"></a>Undernät
 * Tänk över hur många nivåer din arbetsbelastning behöver. Varje nivå kan isoleras med ett undernät, med en NSG tillämpad på undernätet. 
 * Om du behöver implementera ett undernät för en VPN-gateway, eller en ExpressRoute-krets, tilldelar du **inte** en nätverkssäkerhetsgrupp till det undernätet. Om du gör det kan anslutningar mellan virtuella nätverk eller i det lokala systemet misslyckas. 
 * Om du behöver implementera en virtuell nätverksenhet (NVA) ansluter du den till dess eget undernät och skapar användardefinierade vägar (UDR) till och från enheten. Du kan implementera en NSG på undernätsnivå för att filtrera trafik in eller ut från det undernätet. Mer information om UDR:er finns i artikeln om [användardefinierade vägar](virtual-networks-udr-overview.md).
 
-### Belastningsutjämnare
-<a id="load-balancers" class="xliff"></a>
+### <a name="load-balancers"></a>Belastningsutjämnare
 * Ha i åtanke belastningsutjämnings- och NAT-reglerna (Network Address Translation) för varje belastningsutjämnare som används av var och en av dina arbetsbelastningar. NAT-regler är bundna till en backend-pool som innehåller nätverkskort (Resource Manager) eller rollinstanser för virtuella datorer/molntjänster (klassisk). Överväg att skapa en nätverkssäkerhetsgrupp för varje serverdelspool så att endast trafik som mappas genom regeln implementeras i belastningsutjämnarna. Genom att skapa en nätverkssäkerhetsgrupp för varje serverdelspool ser du till att trafik som kommer direkt till serverdelspoolen (i stället för via belastningsutjämnaren) filtreras.
 * I klassiska distributioner skapar du slutpunkter som mappar portar på en belastningsutjämnare till portar på dina VM:ar eller rollinstanser. Du kan också skapa din egen separata offentliga belastningsutjämnare via Resource Manager. Målporten för inkommande trafik är själva porten på den virtuella datorn eller rollinstansen, inte porten som exponeras av en belastningsutjämnare. Källporten och adressen för anslutningen till den virtuella datorn är en port och en adress på fjärrdatorn på Internet, inte porten och adressen som exponeras av belastningsutjämnaren.
 * När du skapar nätverkssäkerhetsgrupper för att filtrera trafik via en intern belastningsutjämnare (ILB) kommer källporten och källadressintervallet som tillämpas från den ursprungliga datorn, inte belastningsutjämnaren. Målporten och måladressutrymmet kommer från måldatorn, inte belastningsutjämnaren.
 
-### Annat
-<a id="other" class="xliff"></a>
+### <a name="other"></a>Annat
 * Slutpunktsbaserade åtkomstkontrollistor (ACL) och nätverkssäkerhetsgrupper stöds inte på samma VM-instans. Om du vill använda en NSG och redan har en slutpunkts-ACL på plats så kan du först ta bort slutpunkts-ACL:n. Information om hur du tar bort en slutpunkts-ACL finns i artikeln [Manage endpoint ACLs](virtual-networks-acl-powershell.md) (Hantera slutpunkts-ACL:er).
 * I Resource Manager kan du använda en nätverkssäkerhetsgrupp som är kopplad till ett nätverkskort för virtuella datorer med flera nätverkskort för att aktivera hantering (fjärråtkomst) för varje enskilt nätverkskort. Genom att koppla unika nätverkssäkerhetsgrupper till varje nätverkskort kan du avgränsa trafiktyperna mellan nätverkskort.
 * Precis som med belastningsutjämnare, när du filtrerar trafik från andra VNet, måste du använda källadressintervallet från fjärrdatorn och inte gatewayen som ansluter till VNet:en.
 * Många Azure-tjänster kan inte anslutas till virtuella nätverk. Om en Azure-resurs inte är ansluten till ett virtuellt nätverk kan du inte använda en nätverkssäkerhetsgrupp för att filtrera trafik till resursen.  Läs dokumentationen för de tjänster som du använder för att avgöra om tjänsten kan anslutas till ett virtuellt nätverk.
 
-## Exempeldistribution
-<a id="sample-deployment" class="xliff"></a>
+## <a name="sample-deployment"></a>Exempeldistribution
 I den här artikeln ska vi illustrera hur informationen används med hjälp av ett vanligt scenario med ett program med två nivåer, som du ser i följande bild:
 
 ![NSG:er](./media/virtual-network-nsg-overview/figure1.png)
@@ -209,8 +192,7 @@ Som du ser i diagrammet är de virtuella datorerna *Web1* och *Web2* anslutna ti
 
 Krav 1–6 (utom krav 3 och 4) är alla begränsade till undernätsutrymmen. Följande nätverkssäkerhetsgrupper uppfyller föregående krav och minimerar antalet nätverkssäkerhetsgrupper som krävs:
 
-### FrontEnd
-<a id="frontend" class="xliff"></a>
+### <a name="frontend"></a>FrontEnd
 **Regler för inkommande trafik**
 
 | Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
@@ -225,8 +207,7 @@ Krav 1–6 (utom krav 3 och 4) är alla begränsade till undernätsutrymmen. Fö
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Internet-All |Neka |100 | * | * | Internet | * | * |
 
-### BackEnd
-<a id="backend" class="xliff"></a>
+### <a name="backend"></a>BackEnd
 **Regler för inkommande trafik**
 
 | Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
@@ -241,8 +222,7 @@ Krav 1–6 (utom krav 3 och 4) är alla begränsade till undernätsutrymmen. Fö
 
 Följande nätverkssäkerhetsgrupper skapas och associeras med nätverkskort på följande virtuella datorer:
 
-### WEB1
-<a id="web1" class="xliff"></a>
+### <a name="web1"></a>WEB1
 **Regler för inkommande trafik**
 
 | Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
@@ -255,8 +235,7 @@ Följande nätverkssäkerhetsgrupper skapas och associeras med nätverkskort på
 > 
 > 
 
-### WEB2
-<a id="web2" class="xliff"></a>
+### <a name="web2"></a>WEB2
 **Regler för inkommande trafik**
 
 | Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
@@ -264,16 +243,14 @@ Följande nätverkssäkerhetsgrupper skapas och associeras med nätverkskort på
 | Deny-Inbound-RDP-Internet | Neka | 100 | Internet | * | * | 3389 | TCP |
 | Allow-Inbound-HTTP-Internet | Tillåt | 200 | Internet | * | * | 80 | TCP |
 
-### DB-servrar (nätverkskort för hantering)
-<a id="db-servers-management-nic" class="xliff"></a>
+### <a name="db-servers-management-nic"></a>DB-servrar (nätverkskort för hantering)
 **Regler för inkommande trafik**
 
 | Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-RDP-Front-end | Tillåt | 100 | 192.168.1.0/24 | * | * | 3389 | TCP |
 
-### DB-servrar (nätverkskort för databastrafik)
-<a id="db-servers-database-traffic-nic" class="xliff"></a>
+### <a name="db-servers-database-traffic-nic"></a>DB-servrar (nätverkskort för databastrafik)
 **Regler för inkommande trafik**
 
 | Regel | Åtkomst | Prioritet | Källadress-intervall | Källport | Måladress-intervall | Målport | Protokoll |
@@ -282,8 +259,7 @@ Följande nätverkssäkerhetsgrupper skapas och associeras med nätverkskort på
 
 Eftersom vissa nätverkssäkerhetsgrupper är kopplade till enskilda nätverkskort är reglerna avsedda för resurser som distribueras via Resource Manager. Regler kombineras för undernät och nätverkskort, beroende på hur de är associerade. 
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 * [Distribuera nätverkssäkerhetsgrupper (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md).
 * [Distribuera nätverkssäkerhetsgrupper (klassisk)](virtual-networks-create-nsg-classic-ps.md).
 * [Hantera NSG-loggar](virtual-network-nsg-manage-log.md).

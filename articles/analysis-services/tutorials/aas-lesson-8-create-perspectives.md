@@ -22,8 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-# Lektion 8: Skapa perspektiv
-<a id="lesson-8-create-perspectives" class="xliff"></a>
+# <a name="lesson-8-create-perspectives"></a>Lektion 8: Skapa perspektiv
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -35,15 +34,12 @@ I den här lektionen visar vi hur du skapar perspektiv och du får bekanta dig m
   
 Uppskattad tidsåtgång för den här lektionen: **Fem minuter**  
   
-## Krav
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen måste du ha slutfört föregående lektion: [Lektion 7: Skapa KPI:er](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
-## Skapa perspektiv
-<a id="create-perspectives" class="xliff"></a>  
+## <a name="create-perspectives"></a>Skapa perspektiv  
   
-#### Så här skapar du ett perspektiv för Internetförsäljning
-<a id="to-create-an-internet-sales-perspective" class="xliff"></a>  
+#### <a name="to-create-an-internet-sales-perspective"></a>Så här skapar du ett perspektiv för Internetförsäljning  
   
 1.  Klicka på **Modell**-menyn > **Perspektiv** > **Skapa och hantera**.  
   
@@ -57,8 +53,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
     I en senare lektion använder du funktionen Analysera i Excel för att testa perspektivet. Fältlistan för pivottabell i Excel innehåller alla tabeller utom tabellen DimCustomer.  
 
-## Nästa steg
-<a id="whats-next" class="xliff"></a>
+## <a name="whats-next"></a>Nästa steg
 [Lektion 9: Skapa hierarkier](../tutorials/aas-lesson-9-create-hierarchies.md).
   
   

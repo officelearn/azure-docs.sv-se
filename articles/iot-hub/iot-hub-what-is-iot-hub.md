@@ -23,8 +23,7 @@ ms.lasthandoff: 06/20/2017
 
 
 ---
-# Översikt över tjänsten Azure IoT Hub
-<a id="overview-of-the-azure-iot-hub-service" class="xliff"></a>
+# <a name="overview-of-the-azure-iot-hub-service"></a>Översikt över tjänsten Azure IoT Hub
 
 Välkommen till Azure IoT Hub. Den här artikeln innehåller en översikt över Azure IoT Hub och beskriver varför du bör använda den här tjänsten när du implementerar en IoT-lösning (Internet of Things). Azure IoT Hub är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och som tillhandahåller serverdelen för lösningar av den här typen. Azure IoT Hub:
 
@@ -44,8 +43,7 @@ Mer information om hur Azure och IoT Hub hjälper dig att skydda din IoT-lösnin
 > [!NOTE]
 > En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Referensarkitektur för Microsoft Azure IoT).
 
-## Utmaningar med IoT-enhetsanslutningar
-<a id="iot-device-connectivity-challenges" class="xliff"></a>
+## <a name="iot-device-connectivity-challenges"></a>Utmaningar med IoT-enhetsanslutningar
 
 IoT Hub och enhetsbiblioteken hjälper dig att på ett tillförlitligt och säkert sätt ansluta enheter till serverdelen i lösningen. IoT-enheter:
 
@@ -59,8 +57,7 @@ IoT Hub och enhetsbiblioteken hjälper dig att på ett tillförlitligt och säke
 
 Förutom kraven ovan behöver alla IoT-lösningar också erbjuda skalbarhet, säkerhet och tillförlitlighet. Den resulterande uppsättningen anslutningskrav är svår och tidskrävande att implementera med traditionella tekniker, till exempel webbehållare och asynkrona meddelandeköer.
 
-## Varför ska du använda Azure IoT Hub?
-<a id="why-use-azure-iot-hub" class="xliff"></a>
+## <a name="why-use-azure-iot-hub"></a>Varför ska du använda Azure IoT Hub?
 
 Förutom ett flertal alternativ för kommunikation [från enhet till moln][lnk-d2c-guidance] och [från moln till enhet][lnk-c2d-guidance], inklusive meddelanden, filöverföringar och begäran/svar-metoder, kan Azure IoT Hub hantera enhetsanslutningar på följande sätt:
 
@@ -81,8 +78,7 @@ Förutom ett flertal alternativ för kommunikation [från enhet till moln][lnk-d
 
 * **Skalning**. Azure IoT Hub kan skalas till flera miljoner samtidiga anslutna enheter och flera miljoner händelser per sekund.
 
-## Gateways
-<a id="gateways" class="xliff"></a>
+## <a name="gateways"></a>Gateways
 
 En gateway i en IoT-lösning är vanligtvis antingen en [protokoll-gateway][lnk-iotedge] som har distribuerats i molnet eller en [fält-gateway][lnk-field-gateway] som har distribuerats lokalt med dina enheter. En protokoll-gateway utför protokollöversättning, t.ex. MQTT till AMQP. En fält-gateway kan köra analyser i gränsnätverket, fatta tidskänsliga beslut för att minska svarstiderna, tillhandahålla enhetshanteringstjänster, genomdriva säkerhets- och sekretessbegränsningar samt även utföra protokollöversättning. Båda typerna av gateways fungerar som en mellanhand mellan dina enheter och IoT Hub.
 
@@ -90,8 +86,7 @@ En fält-gateway skiljer sig från en enkel trafikroutningsenhet (till exempel e
 
 En lösning kan omfatta både protokoll- och fält-gateways.
 
-## Hur fungerar IoT Hub?
-<a id="how-does-iot-hub-work" class="xliff"></a>
+## <a name="how-does-iot-hub-work"></a>Hur fungerar IoT Hub?
 
 Azure IoT Hub implementerar [tjänstassisterad kommunikation][lnk-service-assisted-pattern] för att hantera interaktionen mellan dina enheter och serverdelen i lösningen. Målet med tjänstassisterad kommunikation är att upprätta tillförlitliga, dubbelriktade kommunikationsvägar mellan ett kontrollsystem, t.ex IoT Hub, och enheter för särskilda ändamål som har distribuerats i ett icke betrott fysiskt utrymme. Mönstret tillämpar följande principer:
 
@@ -113,8 +108,7 @@ Mobilbranschen har använt tjänstassisterad kommunikation i extremt hög skala 
 
 IoT Hub stöds över ExpressRoutes offentliga peering-sökväg.
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 Information om hur du skickar meddelanden från en enhet och tar emot dem från IoT Hub och hur du konfigurerar meddelandevägar finns i [Skicka och ta emot meddelanden med IoT Hub][lnk-send-messages].
 

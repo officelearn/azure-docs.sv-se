@@ -22,9 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-3-mark-as-date-table" class="xliff"></a>
-
-# Lektion 3: Markera som datumtabell
+# <a name="lesson-3-mark-as-date-table"></a>Lektion 3: Markera som datumtabell
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -38,23 +36,17 @@ Innan du markerar datumtabellen och datumkolumnen är det dags att göra några 
   
 Uppskattad tidsåtgång för den här lektionen: **Tre minuter**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Krav  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 2: Hämta data](../tutorials/aas-lesson-2-get-data.md). 
 
-<a id="to-rename-the-fulldatealternatekey-column" class="xliff"></a>
-
-### Byta namn på kolumnen FullDateAlternateKey
+### <a name="to-rename-the-fulldatealternatekey-column"></a>Byta namn på kolumnen FullDateAlternateKey
 
 1.  Klicka på tabellen **DimDate** i modelldesignern.
 
 2.  Dubbelklicka på rubriken för kolumnen **FullDateAlternateKey** och byt sedan namn till **Datum**.
 
   
-<a id="to-set-mark-as-date-table" class="xliff"></a>
-
-### Markera som datumtabell  
+### <a name="to-set-mark-as-date-table"></a>Markera som datumtabell  
   
 1.  Välj kolumnen **Datum** och kontrollera sedan att **Datum** är markerat under **Datatyp** i fönstret **Egenskaper**.  
   
@@ -65,9 +57,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
     ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
   
 
-<a id="whats-next" class="xliff"></a>
-
-## Nästa steg
+## <a name="whats-next"></a>Nästa steg
 [Lektion 4: Skapa relationer](../tutorials/aas-lesson-4-create-relationships.md).
   
 

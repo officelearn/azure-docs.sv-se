@@ -23,8 +23,7 @@ ms.lasthandoff: 05/26/2017
 
 
 ---
-# Genomgång av den förkonfigurerade lösningen Ansluten fabrik
-<a id="connected-factory-preconfigured-solution-walkthrough" class="xliff"></a>
+# <a name="connected-factory-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen Ansluten fabrik
 
 IoT Suites [förkonfigurerade lösning][lnk-preconfigured-solutions] är en implementering av en branschlösning från slutpunkt till slutpunkt som:
 
@@ -43,15 +42,13 @@ Den här artikeln beskriver några av de viktigaste elementen i den anslutna fab
 * Planera hur lösningen kan anpassas för att uppfylla dina behov.
 * Utforma en egen IoT-lösning som använder Azure-tjänster.
 
-## Logisk arkitektur
-<a id="logical-architecture" class="xliff"></a>
+## <a name="logical-architecture"></a>Logisk arkitektur
 
 Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade lösningen:
 
 ![Logisk arkitektur för ansluten fabrik][connected-factory-logical]
 
-## Simulering
-<a id="simulation" class="xliff"></a>
+## <a name="simulation"></a>Simulering
 
 De simulerade stationerna och de simulerade tillverkningsverkställningssystemen (MES) bildar en fabriksproduktionsrad. De simulerade enheterna och OPC Publisher-modulen baseras på [OPC UA .NET-standarden][lnk-OPC-UA-NET-Standard] som ges ut av OPC Foundation.
 
@@ -59,27 +56,23 @@ OPC Proxy och OPC Publisher implementeras som moduler baserat på [Azure IoT Edg
 
 Alla simuleringskomponenter körs i Docker-behållare som finns i en virtuell Azure Linux-dator. Simuleringen konfigureras för att köra åtta simulerade produktionsrader som standard.
 
-## Simulerad produktionsrad
-<a id="simulated-production-line" class="xliff"></a>
+## <a name="simulated-production-line"></a>Simulerad produktionsrad
 
 En produktionsrad tillverkar delar. Den består av olika stationer: en sammansättningsstation, en teststation och en förpackningsstation.
 
 Simuleringen körs och uppdaterar data som exponeras via OPC UA-noderna. Alla simulerade produktionsradstationer samordnas av MES via OPC UA.
 
-## Simulerat körningssystem för tillverkning
-<a id="simulated-manufacturing-execution-system" class="xliff"></a>
+## <a name="simulated-manufacturing-execution-system"></a>Simulerat körningssystem för tillverkning
 
 MES övervakar varje station i produktionsraden via OPC UA för att identifiera ändringar i stationens status. Den anropar OPC UA-metoder för att kontrollera stationerna och överför en produkt från en station till en annan tills det är klart.
 
-## Gateway OPC Publisher-modul
-<a id="gateway-opc-publisher-module" class="xliff"></a>
+## <a name="gateway-opc-publisher-module"></a>Gateway OPC Publisher-modul
 
 OPC Publisher-modulen ansluter till stationens OPC UA-servrar och prenumererar på OPC-noder som ska publiceras. Modulen omvandlar noddata till JSON-format, krypterar dem och skickar dem till IoT Hub som OPC UA pub-/sub-meddelanden.
 
 OPC Publisher-modulen kräver endast en utgående https-port (443) och kan arbeta med företagets befintliga infrastruktur.
 
-## Gateway OPC Proxy-modul
-<a id="gateway-opc-proxy-module" class="xliff"></a>
+## <a name="gateway-opc-proxy-module"></a>Gateway OPC Proxy-modul
 
 Gateway OPC UA Proxy-modulen fungerar som en tunnel för binära OPC UA-kommandon och kontrollerar meddelanden och kräver endast en utgående https-port (443). Den kan fungera med befintlig företagsinfrastruktur, inklusive webbproxyservrar.
 
@@ -87,8 +80,7 @@ Den använder IoT Hub-enhetsmetoder för att överföra paketerade TCP/IP-data p
 
 Det binära OPC UA-protokollet som är vidarebefordrande via själva proxyservern använder UA-autentisering och -kryptering.
 
-## Azure Time Series Insights
-<a id="azure-time-series-insights" class="xliff"></a>
+## <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
 Gateway OPC Publisher-modulen prenumererar på OPC UA-servernoder för att identifiera ändringar i datavärdena. Om en dataändring identifieras i någon av noderna kan modulen skicka meddelanden till Azure IoT Hub.
 
@@ -112,24 +104,20 @@ Dessutom beräknas tidsserier för OEE- och KPI-topologi i appen när en visad t
 
 Tidsserievyn för noddata kommer direkt från TSI med en sammansättning för tidsangivelse.
 
-## IoT Hub
-<a id="iot-hub" class="xliff"></a>
+## <a name="iot-hub"></a>IoT Hub
 [IoT Hub][lnk-IoT Hub] tar emot data som skickas från OPC Publisher-modulen till molnet och gör dem tillgängliga för Azure TSI-tjänsten. 
 
 IoT Hub ansvarar även för följande uppgifter i lösningen:
 - Underhåller ett identitetsregister som lagrar ID för alla OPC Publisher-moduler och OPC Proxy-moduler.
 - Det används som en transportkanal för dubbelriktad kommunikation för OPC Proxy-modulen.
 
-## Azure Storage
-<a id="azure-storage" class="xliff"></a>
+## <a name="azure-storage"></a>Azure Storage
 Lösningen använder Azure Blob Storage som disklagring för den virtuella datorn och för att lagra distribueringsdata.
 
-## Webbapp
-<a id="web-app" class="xliff"></a>
+## <a name="web-app"></a>Webbapp
 Webbappen distribueras som en del av den förkonfigurerade lösningen består av en integrerad OPC UA-klient, aviseringsbehandling och telemetrivisualisering.
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
 

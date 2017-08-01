@@ -22,8 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-# Kompletterande lektion – Ojämna hierarkier
-<a id="supplemental-lesson---ragged-hierarchies" class="xliff"></a>
+# <a name="supplemental-lesson---ragged-hierarchies"></a>Kompletterande lektion – Ojämna hierarkier
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -35,17 +34,14 @@ Tabellmodeller på kompatibilitetsnivån 1400 har en extra **Dölj medlemmar**-e
   
 Uppskattad tidsåtgång för den här lektionen: **20 minuter**  
   
-## Krav
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Krav  
 Den här kompletterande lektionen ingår i en självstudiekurs om tabellmodeller. Innan du utför uppgifterna i den här kompletterande lektionen måste du ha slutfört alla föregående lektioner eller ha ett slutfört Adventure Works Internet Sales-exempelmodellprojekt. 
 
 Om du har skapat projektet AW Internet Sales som en del i självstudiekursen innehåller inte din modell några data eller ojämna hierarkier ännu. För att slutföra den här kompletterande lektionen måste du först skapa problemet genom att lägga till ytterligare tabeller, skapa relationer, beräknade kolumner, ett mått och en ny organisationshierarki. Det tar cirka 15 minuter. Sedan tar det bara några minuter att lösa problemet.  
 
-## Lägga till tabeller och objekt
-<a id="add-tables-and-objects" class="xliff"></a>
+## <a name="add-tables-and-objects"></a>Lägga till tabeller och objekt
   
-### Så här lägger du till nya tabeller i din modell
-<a id="to-add-new-tables-to-your-model" class="xliff"></a>
+### <a name="to-add-new-tables-to-your-model"></a>Så här lägger du till nya tabeller i din modell
   
 1.  I tabellmodellutforskaren expanderar du **Datakällor**. Sedan högerklickar du på din anslutning och väljer **Importera nya tabeller**.
   
@@ -116,8 +112,7 @@ Om du har skapat projektet AW Internet Sales som en del i självstudiekursen inn
 
     Som du ser i pivottabellen visas ojämna rader i hierarkin. Det finns flera rader med tomma medlemmar.
 
-## Åtgärda den ojämna hierarkin genom att ange egenskapen Dölj medlemmar
-<a id="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property" class="xliff"></a>
+## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>Åtgärda den ojämna hierarkin genom att ange egenskapen Dölj medlemmar
 
 1.  I **tabellmodellutforskaren** expanderar du **Tabeller** > **DimEmployee** > **Hierarkier** > **Organisation**.
 
@@ -131,8 +126,7 @@ Om du har skapat projektet AW Internet Sales som en del i självstudiekursen inn
 
     Nu ser det betydligt bättre ut!
 
-## Se även
-<a id="see-also" class="xliff"></a>   
+## <a name="see-also"></a>Se även   
 [Lektion 9: Skapa hierarkier](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Kompletterande lektion – Dynamisk säkerhet](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Kompletterande lektion – Detaljrader](../tutorials/aas-supplemental-lesson-detail-rows.md)  

@@ -17,27 +17,24 @@ ms.topic: hero-article
 ms.date: 05/30/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 1571d30890a428fb73d31861c4f1ae395f9de374
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1b1852b4182fcadd556dc4c26e65f3eafd0b50e6
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# Skapa en Azure SQL-databas på Azure Portal
-<a id="create-an-azure-sql-database-in-the-azure-portal" class="xliff"></a>
+# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Skapa en Azure SQL-databas på Azure Portal
 
 Den här snabbstarten visar hur du skapar en SQL-databas i Azure. Azure SQL Database är en ”databas som erbjuds som en tjänst”. Tjänsten innebär att du kan köra och skala SQL Server-databaser med hög tillgänglighet i molnet. Snabbstarten visar hur du kommer igång genom att skapa en SQL-databas med Azure Portal.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## Logga in på Azure Portal
-<a id="log-in-to-the-azure-portal" class="xliff"></a>
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## Skapa en SQL-databas
-<a id="create-a-sql-database" class="xliff"></a>
+## <a name="create-a-sql-database"></a>Skapa en SQL-databas
 
 Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagringsresurser](sql-database-service-tiers.md). Databasen skapas i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL Database-server](sql-database-features.md). 
 
@@ -93,8 +90,7 @@ Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure W
 
    ![avisering](./media/sql-database-get-started-portal/notification.png)
 
-## Skapa en brandväggsregel på servernivå
-<a id="create-a-server-level-firewall-rule" class="xliff"></a>
+## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
 SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa program och verktyg från att ansluta till servern eller databaser på servern, såvida inte en brandväggsregel konfigureras som öppnar brandväggen för specifika IP-adresser. Följ de här stegen om du vill skapa en [brandväggsregel på SQL Database-servernivå](sql-database-firewall-configure.md) för din klients IP-adress och aktivera extern anslutning genom SQL Database-brandväggen endast för din IP-adress. 
 
@@ -128,8 +124,7 @@ Nu kan du ansluta till SQL Server Database-servern och dess databaser med SQL Se
 > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
 >
 
-## Söka i SQL-databasen
-<a id="query-the-sql-database" class="xliff"></a>
+## <a name="query-the-sql-database"></a>Söka i SQL-databasen
 
 Nu när du har skapat en exempeldatabas i Azure kan vi använda det inbyggda frågeverktyget på Azure Portal till att bekräfta att du kan ansluta till databasen och fråga efter data. 
 
@@ -160,8 +155,7 @@ Nu när du har skapat en exempeldatabas i Azure kan vi använda det inbyggda fr�
 
 7. Stäng sidan **Frågeredigerare** och sidan **Verktyg**.
 
-## Rensa resurser
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte behöver de här resurserna för en annan snabbstart/självstudie (se [Nästa steg](#next-steps)) så kan du ta bort dem genom att göra följande:
 
@@ -169,8 +163,7 @@ Om du inte behöver de här resurserna för en annan snabbstart/självstudie (se
 1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**. 
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver **myResourceGroup** i textrutan och klickar sedan på **Ta bort**.
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 Nu när du har en databas kan du ansluta och söka med dina favoritverktyg. Lär dig mer genom att välja verktyg nedan:
 

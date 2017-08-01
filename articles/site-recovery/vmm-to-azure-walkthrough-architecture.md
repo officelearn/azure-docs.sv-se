@@ -1,6 +1,6 @@
 ---
-title: "Granska arkitekturen för Hyper-V-replikering (utan System Center VMM) till Azure med Azure Site Recovery | Microsoft Docs"
-description: "Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala virtuella datorer med Hyper-V (utan VMM) till Azure med tjänsten Azure Site Recovery."
+title: "Granska arkitekturen för Hyper-V-replikering (med System Center VMM) till Azure med Azure Site Recovery | Microsoft Docs"
+description: "Den här artikeln innehåller en översikt över de komponenter och den arkitektur som används för att replikera lokala virtuella Hyper-V-datorer i VMM-moln till Azure med tjänsten Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,21 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
 ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
+ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/26/2017
 
 ---
 
 
-# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Steg 1: Granska arkitekturen för Hyper-V-replikering till Azure
+# <a name="step-1-review-the-architecture"></a>Steg 1: Granska arkitekturen
 
 
-Den här artikeln beskriver de komponenter och processer som är inblandade vid replikering av lokala virtuella datorer med Hyper-V till Azure med hjälp av tjänsten [Azure Site Recovery](site-recovery-overview.md).
+Den här artikeln beskriver de komponenter och processer som du använder för att replikera lokala virtuella Hyper-V-datorer i System Center Virtual Machine Manager-moln (VMM) till Azure med hjälp av tjänsten [Azure Site Recovery](site-recovery-overview.md).
 
 Skriv dina kommentarer längst ned i den här artikeln eller i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -34,26 +34,29 @@ Skriv dina kommentarer längst ned i den här artikeln eller i [Azure Recovery S
 
 ## <a name="architectural-components"></a>Arkitekturkomponenter
 
-Det finns ett antal komponenter ingår vid replikering av virtuella Hyper-V-datorer till Azure utan VMM.
+Flera komponenter används för att replikera virtuella Hyper-V-datorer i VMM-moln till Azure.
 
-**Komponent** | **Plats** | **Detaljer**
+**Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
 **Azure** | I Azure behöver du ett Microsoft Azure-konto, ett Azure-lagringskonto och ett Azure-nätverk. | Replikerade data lagras i lagringskontot och virtuella Azure-datorer skapas med replikerad data när redundansväxling uppstår från din lokala plats.<br/><br/> Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
-**Hyper-V** | Hyper-V-värdar och kluster har samlats i Hyper-V-platser. Site Recovery-providern och Recovery Services-agenten är installerade på varje Hyper-V-värd. | Providern samordnar replikeringen med Site Recovery-tjänsten via Internet. Recovery Services-agenten hanterar datareplikeringen.<br/><br/> Kommunikation från både providern och agenten är säker och krypterad. Replikerade data i Azure-lagring krypteras också.
-**Virtuella Hyper-V-datorer** | Du behöver en eller flera virtuella datorer på Hyper-V-värdservern. | Du behöver inte installera något på de virtuella datorerna.
+**VMM-server** | VMM-servern har ett eller flera moln som innehåller Hyper-V-värdar. | Du installerar Site Recovery-providern på VMM-servern för att orkestrera replikeringen med Site Recovery, och registrerar servern i Recovery Services-valvet.
+**Hyper-V-värd** | En eller flera Hyper-V-värdar eller Hyper-V-kluster som hanteras av VMM. |  Du installerar Recovery Services-agenten på varje värd eller klustermedlem.
+**Virtuella Hyper-V-datorer** | En eller flera virtuella datorer som körs på en Hyper-V-värdserver. | Du behöver inte installera något på de virtuella datorerna.
+**Nätverk** |Logiska och virtuella datornätverk som konfigurerats på VMM-servern. Ett nätverk för virtuella datorer bör vara kopplat till ett logiskt nätverk som är associerat med molnet. | Virtuella datornätverk mappas till virtuella Azure-nätverk, så att virtuella Azure-datorer finns i ett nätverk när de skapas efter en redundansväxling.
 
 Lär dig mer om kraven för distribution och krav för var och en av komponenterna i [supportmatrisen](site-recovery-support-matrix-to-azure.md).
 
-**Bild 1: Replikering från Hyper-V-plats till Azure**
 
-![Komponenter](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
+**Bild 1: Replikera virtuella datorer på Hyper-V-värdar i VMM-moln till Azure**
+
+![Komponenter](./media/vmm-to-azure-walkthrough-architecture/arch-onprem-onprem-azure-vmm.png)
 
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 
 **Bild 2: Replikering och återställningsprocess för Hyper-V-replikering till Azure**
 
-![arbetsflöde](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
+![arbetsflöde](./media/vmm-to-azure-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
 ### <a name="enable-protection"></a>Aktivera skydd
 
@@ -61,7 +64,8 @@ Lär dig mer om kraven för distribution och krav för var och en av komponenter
 2. Jobbet kontrollerar att datorn uppfyller kraven och anropar sedan metoden [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) som konfigurerar replikering med de inställningar som du har konfigurerat.
 3. Jobbet startar den initiala replikeringen genom att aktivera metoden [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) för att initiera en fullständig VM-replikering och skicka de virtuella datorernas diskar till Azure.
 4. Du kan övervaka jobbet på fliken **Jobs** (Jobb).
- 
+        ![Lista över jobb](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Detaljnivå för Aktivera skydd](media/vmm-to-azure-walkthrough-architecture/image2.png)
+
 ### <a name="replicate-the-initial-data"></a>Replikera ursprungliga data
 
 1. En [ögonblicksbild av en virtuell Hyper-V-dator](https://technet.microsoft.com/library/dd560637.aspx) tas när den initiala replikeringen utlöses.
@@ -74,6 +78,7 @@ Lär dig mer om kraven för distribution och krav för var och en av komponenter
 ### <a name="finalize-protection"></a>Slutför skyddet
 
 1. När replikeringen har slutförts konfigurerar jobbet **Slutför skydd på den virtuella datorn** nätverksinställningar och andra inställningar som krävs efter replikeringen så att den virtuella datorn är skyddad.
+    ![Slutför skyddet](media/vmm-to-azure-walkthrough-architecture/image3.png)
 2. Om du replikerar till Azure kan du behöva justera inställningarna för den virtuella datorn så att den är redo för redundans. Nu kan du köra ett redundanstest för att kontrollera att allt fungerar som förväntat.
 
 ### <a name="replicate-the-delta"></a>Replikera delta
@@ -88,7 +93,7 @@ Lär dig mer om kraven för distribution och krav för var och en av komponenter
 2.  Vid en omsynkronisering minimeras mängden data som skickas genom att kontrollsummor beräknas för de virtuella käll- och måldatorerna varefter endast deltadata skickas. Omsynkronisering använder en segmenteringsalgoritm med fasta block där käll- och målfiler delas in i fasta segment. Kontrollsummor skapas för varje segment skapas och jämförs sedan för att avgöra vilka block från källan som ska tillämpas på målet.
 3. När omsynkroniseringen är klar ska den normala deltareplikeringen återupptas. Omsynkroniseringen schemaläggs som standard för automatisk körning utanför kontorstid, men du kan synkronisera om en virtuell dator manuellt. Du kan till exempel återuppta omsynkroniseringen om ett nätverksavbrott eller något annat avbrott inträffar. Det gör du genom att välja den virtuella datorn i portalen > **Resynchronize** (Omsynkronisera).
 
-    ![Manuell omsynkronisering](./media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![Manuell omsynkronisering](media/vmm-to-azure-walkthrough-architecture/image4.png)
 
 
 ### <a name="retry-logic"></a>Logik för omprövning
@@ -115,5 +120,5 @@ Om det uppstår ett replikeringsfel finns det en inbyggd funktion som gör ett n
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå till [Steg 2: granska kraven för distribution](hyper-v-site-walkthrough-prerequisites.md)
+Gå till [Steg 2: granska kraven för distribution](vmm-to-azure-walkthrough-prerequisites.md)
 

@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5e1819a9f081284fa03e9355730689629166006f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 015096a48e5287af6b225f16a38fac328ed28630
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Hantera Batch-resurser med PowerShell-cmdletar
@@ -101,7 +100,7 @@ Skapa resurser under ett Batch-konto genom att använda cmdletar som **New-Azure
 När du använder många av dessa cmdletar måste du, förutom att skicka ett BatchContext-objekt, skapa eller skicka objekt som innehåller detaljerade resursinställningar, så som visas i följande exempel. Visa den detaljerade hjälpinformationen för respektive cmdlet om du vill ha fler exempel.
 
 ### <a name="create-a-batch-pool"></a>Skapa en Batch-pool
-När du skapar eller uppdaterar en Batch-pool väljer du en molntjänstkonfiguration eller en konfiguration för virtuell dator för beräkningsnodernas operativsystem (se [Översikt över Batch-funktioner](batch-api-basics.md#pool)). Ditt val avgör om dina beräkningsnoder utrustas med någon av [Azure Guest OS-versionerna](../cloud-services/cloud-services-guestos-update-matrix.md#releases) eller någon av VM-avbildningarna för Linux eller Windows VM som stöds i Azure Marketplace.
+När du skapar eller uppdaterar en Batch-pool väljer du antingen en molntjänstkonfiguration eller en konfiguration för virtuell dator för beräkningsnodernas operativsystem (se [Översikt över Batch-funktioner](batch-api-basics.md#pool)). Om du anger konfigurationen för molntjänsten avbildas dina beräkningsnoder med någon av [versionerna av Azures gäst-OS](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Om du anger konfigurationen för den virtuella datorn kan du antingen ange någon av VM-avbildningarna som stöds av Linux eller Windows som anges på [Azure Virtual Machines Marketplace][vm_marketplace] eller ange en anpassad avbildning som du har förberett.
 
 När du kör **New-AzureBatchPool**, så överför operativsystemsinställningarna i en PSCloudServiceConfiguration eller ett PSVirtualMachineConfiguration-objekt. Följande cmdlet skapar t.ex. en ny Batch-pool med små beräkningsnoder i molntjänstkonfigurationen, avbildade med den senaste operativsystemsversionen för familj 3 (Windows Server 2012). Här anger parametern **CloudServiceConfiguration** variabeln *$configuration* som PSCloudServiceConfiguration-objektet. Parametern **BatchContext** anger en tidigare definierad variabel, *$context*, som BatchAccountContext-objektet.
 
@@ -241,4 +240,4 @@ Poolens egenskaper i Batch-tjänsten har nu uppdaterats. Du måste starta om ell
 * Detaljerad cmdlet-syntax och exempel finns i [Cmdlet-referens för Azure Batch](/powershell/module/azurerm.batch/#batch).
 * Mer information om program och programpaket i Batch finns i [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Distribuera program till beräkningsnoder med Batch-programpaket).
 
-
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

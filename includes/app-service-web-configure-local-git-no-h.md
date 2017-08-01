@@ -16,4 +16,4 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 `<username>` är [distributionsanvändaren](#configure-a-deployment-user) som du skapade i ett tidigare steg.
 
-Spara den URI som visas. Du ska använda den i nästa steg. 
+Kopiera den URI som visas. Du ska använda den i nästa steg.

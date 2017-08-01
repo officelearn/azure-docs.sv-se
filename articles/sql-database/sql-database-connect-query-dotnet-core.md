@@ -1,6 +1,6 @@
 ---
-title: "Fråga Azure SQL Database med .NET Core | Microsoft Docs"
-description: "Det här avsnittet visar hur du använder .NET Core för att skapa ett program som ansluter till en Azure SQL Database och frågar den med hjälp av Transact-SQL-uttryck."
+title: "Köra frågor mot Azure SQL Database med hjälp av .NET Core | Microsoft Docs"
+description: "Det här avsnittet beskriver hur du använder .NET Core för att skapa ett program som ansluter till en Azure SQL-databas och hur du kör frågor mot databasen med hjälp av Transact-SQL-uttryck."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,21 +16,21 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 4b44064f05a24a25c3ac8157e4aa68a8a8d9856a
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 708c2d2f40138572c7e65938da6e863cab089cdf
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Fråga Azure SQL Database med .NET Core (C#)
+# <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Köra frågor mot Azure SQL Database med hjälp av .NET Core (C#)
 
-Den här snabbstartskursen visar hur du använder [.NET Core](https://www.microsoft.com/net/) i Windows/Linux/macOS för att skapa ett #C-program som ansluter till en Azure SQL Database och använder Transact-SQL-uttryck för att fråga efter data.
+Den här snabbstartskursen beskriver hur du använder [.NET Core](https://www.microsoft.com/net/) i Windows/Linux/Mac OS för att skapa ett #C-program som ansluter till en Azure SQL-databas och hur du kör frågor mot databasen med hjälp av Transact-SQL-uttryck.
 
 ## <a name="prerequisites"></a>Krav
 
-För att kunna slutföra den här snabbstartskursen behöver du följande:
+Kontrollera att du har följande för att slutföra den här snabbstartskursen:
 
-- En Azure SQL Database. Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter: 
+- En Azure SQL-databas. Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter: 
 
    - [Skapa DB – Portal](sql-database-get-started-portal.md)
    - [Skapa DB – CLI](sql-database-get-started-cli.md)
@@ -139,7 +139,7 @@ namespace sqltest
 
 ## <a name="run-the-code"></a>Kör koden
 
-1. Kör följande kommandon vid kommandotolken:
+1. Kör följande kommandon i kommandotolken:
 
    ```csharp
    dotnet restore

@@ -15,15 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 4e97a558ae1a2601b5275a73164b483351f03857
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/26/2017
 
 ---
-# Kompletterande lektion – Dynamisk säkerhet
-<a id="supplemental-lesson---dynamic-security" class="xliff"></a>
+# <a name="supplemental-lesson---dynamic-security"></a>Kompletterande lektion – Dynamisk säkerhet
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -37,16 +36,13 @@ De aktiviteter som är unika för det här Adventure Works-tabellmodellscenariot
   
 Uppskattad tidsåtgång för den här lektionen: **30 minuter**  
   
-## Krav
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Krav  
 Den här kompletterande lektionen ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför aktiviteterna i den här kompletterande lektionen måste du ha slutfört alla föregående lektioner.  
   
-## Lägga till tabellen DimSalesTerritory i AW Internet Sales-tabellmodellprojektet
-<a id="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project" class="xliff"></a>  
+## <a name="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project"></a>Lägga till tabellen DimSalesTerritory i AW Internet Sales-tabellmodellprojektet  
 Om du vill implementera dynamisk säkerhet för det här Adventure Works-scenariot måste du lägga till ytterligare två tabeller i modellen. Först lägger du till tabellen DimSalesTerritory (som försäljningsområde) från samma AdventureWorksDW-databas. Sedan tillämpar du ett radfilter för tabellen SalesTerritory som definierar vilka data som den inloggade användaren kan visa.  
   
-#### Lägga till tabellen DimSalesTerritory
-<a id="to-add-the-dimsalesterritory-table" class="xliff"></a>  
+#### <a name="to-add-the-dimsalesterritory-table"></a>Lägga till tabellen DimSalesTerritory  
   
 1.  I tabellmodellutforskaren > **Datakällor** högerklickar du på din anslutning och sedan på **Importera nya tabeller**.  
 
@@ -62,12 +58,10 @@ Om du vill implementera dynamisk säkerhet för det här Adventure Works-scenari
   
 9. När tabellen har importerats klickar du på **Stäng**.  
 
-## Lägga till en tabell med användarnamndata
-<a id="add-a-table-with-user-name-data" class="xliff"></a>  
+## <a name="add-a-table-with-user-name-data"></a>Lägga till en tabell med användarnamndata  
 Tabellen DimEmployee i AdventureWorksDW-exempeldatabasen innehåller användare från AdventureWorks-domänen. Dessa användarnamn finns inte i din egen miljö. Du måste skapa en tabell i din modell som innehåller ett litet antal (minst tre) faktiska användare från din organisation. Sedan lägger du till dessa användare som medlemmar i den nya rollen. Du behöver inte lösenorden för exempelanvändarnamnen, men du behöver de faktiska Windows-användarnamnen från din domän.  
   
-#### Så här lägger du till en EmployeeSecurity-tabell
-<a id="to-add-an-employeesecurity-table" class="xliff"></a>  
+#### <a name="to-add-an-employeesecurity-table"></a>Så här lägger du till en EmployeeSecurity-tabell  
   
 1.  Öppna Microsoft Excel och skapa ett kalkylblad.  
   
@@ -100,12 +94,10 @@ Tabellen DimEmployee i AdventureWorksDW-exempeldatabasen innehåller användare 
   
     En ny tabell med namnet EmployeeSecurity skapas med information om anställda som kopieras från kalkylbladet SampleEmployee.  
   
-## Skapa relationer mellan tabellerna FactInternetSales, DimGeography och DimSalesTerritory
-<a id="create-relationships-between-factinternetsales-dimgeography-and-dimsalesterritory-table" class="xliff"></a>  
+## <a name="create-relationships-between-factinternetsales-dimgeography-and-dimsalesterritory-table"></a>Skapa relationer mellan tabellerna FactInternetSales, DimGeography och DimSalesTerritory  
 Tabellerna FactInternetSales, DimGeography och DimSalesTerritory innehåller var och en kolumnen SalesTerritoryId. Kolumnen SalesTerritoryId i tabellen DimSalesTerritory innehåller värden med olika id för varje försäljningsområde.  
   
-#### Så här skapar du relationer mellan tabellerna FactInternetSales, DimGeography och DimSalesTerritory
-<a id="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table" class="xliff"></a>  
+#### <a name="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table"></a>Så här skapar du relationer mellan tabellerna FactInternetSales, DimGeography och DimSalesTerritory  
   
 1.  Klicka på och håll ned kolumnen **SalesTerritoryId** i tabellen **DimGeography** i diagramvyn och dra sedan markören till kolumnen **SalesTerritoryId** i tabellen **DimSalesTerritory** och släpp.  
   
@@ -113,24 +105,20 @@ Tabellerna FactInternetSales, DimGeography och DimSalesTerritory innehåller var
   
     Observera att egenskapen Active för den här relationen är False (falsk), vilket innebär att relationen är inaktiv. Det finns redan en annan aktiv relation för tabellen FactInternetSales.  
   
-## Dölja tabellen EmployeeSecurity för klientprogram
-<a id="hide-the-employeesecurity-table-from-client-applications" class="xliff"></a>  
+## <a name="hide-the-employeesecurity-table-from-client-applications"></a>Dölja tabellen EmployeeSecurity för klientprogram  
 I den här aktiviteten döljer du tabellen EmployeeSecurity så att den inte visas i fältlistan i klientprogram. Tänk på att du inte skyddar tabellen genom att dölja den. Användare kan fortfarande fråga på EmployeeSecurity-tabelldata om de vet hur man gör. Om du vill skydda data i tabellen EmployeeSecurity och hindra användare från att kunna fråga på data i tabellen använder du ett filter (se senare aktivitet).  
   
-#### Så här döljer du tabellen EmployeeSecurity för klientprogram
-<a id="to-hide-the-employeesecurity-table-from-client-applications" class="xliff"></a>  
+#### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>Så här döljer du tabellen EmployeeSecurity för klientprogram  
   
 -   Högerklicka på tabellrubriken **Employee** (Anställd) i diagramvyn i modelldesignern och klicka sedan på **Dölj för klientverktyg**.  
   
-## Skapa användarrollen Säljpersonal per område
-<a id="create-a-sales-employees-by-territory-user-role" class="xliff"></a>  
+## <a name="create-a-sales-employees-by-territory-user-role"></a>Skapa användarrollen Säljpersonal per område  
 I den här aktiviteten skapar du en användarroll. Rollen innefattar ett radfilter som definierar vilka rader i tabellen DimSalesTerritory som ska vara synliga för användare. Filtret tillämpas sedan i relationsriktningen en-till-flera för alla andra tabeller som är relaterade till DimSalesTerritory. Du kan också tillämpa ett filter som skyddar hela EmployeeSecurity-tabellen så att ingen användare som är medlem i rollen kan fråga på data i tabellen.  
   
 > [!NOTE]  
 > Rollen Säljpersonal per område som du skapar i den här lektionen begränsar medlemmarna så att de bara kan visa (eller fråga på) försäljningsdata för det försäljningsområde som de tillhör. Om du lägger till en användare som medlem i rollen Säljpersonal per område och användaren även är medlem i en roll som skapats i [Lektion 11: Skapa roller](../tutorials/aas-lesson-11-create-roles.md) får du en kombination av behörigheter. När en användare är medlem i flera roller ackumuleras behörigheterna och radfitren som definierats för varje roll. Det vill säga att användaren får högre behörighet som bestäms av kombinationen av rollerna.  
   
-#### Så här skapar du användarrollen Säljpersonal per område
-<a id="to-create-a-sales-employees-by-territory-user-role" class="xliff"></a>  
+#### <a name="to-create-a-sales-employees-by-territory-user-role"></a>Så här skapar du användarrollen Säljpersonal per område  
   
 1.  Klicka på **Modell**-menyn i SSDT och klicka sedan på **Roller**.  
   
@@ -173,12 +161,10 @@ I den här aktiviteten skapar du en användarroll. Rollen innefattar ett radfilt
   
 10. Klicka på **Ok** i rollhanteraren.  
   
-## Testa användarrollen Säljpersonal per område
-<a id="test-the-sales-employees-by-territory-user-role" class="xliff"></a>  
+## <a name="test-the-sales-employees-by-territory-user-role"></a>Testa användarrollen Säljpersonal per område  
 I den här uppgiften använder du funktionen Analysera i Excel i SSDT för att testa effektiviteten hos användarrollen Säljpersonal per område. Du anger något av de användarnamn som du har lagt till i tabellen EmployeeSecurity som medlem i rollen. Det här användarnamnet används sedan som gällande användarnamn i anslutningen som skapas mellan Excel och modellen.  
   
-#### Så här testar du användarrollen Säljpersonal per område
-<a id="to-test-the-sales-employees-by-territory-user-role" class="xliff"></a>  
+#### <a name="to-test-the-sales-employees-by-territory-user-role"></a>Så här testar du användarrollen Säljpersonal per område  
   
 1.  Klicka på **Modell**-menyn i SSDT och klicka sedan på **Analysera i Excel**.  
   
@@ -200,8 +186,7 @@ I den här uppgiften använder du funktionen Analysera i Excel i SSDT för att t
   
     Den här användaren kan inte visa eller fråga på Internetförsäljningsdata för andra områden än det som han eller hon tillhör. Den här begränsningen beror på att radfiltret som definierats för tabellen DimSalesTerritory i användarrollen Säljpersonal per område skyddar alla data för andra försäljningsområden.  
   
-## Se även
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>Se även  
 [Funktionen USERNAME (DAX)](https://msdn.microsoft.com/library/hh230954.aspx)  
 [Funktionen LOOKUPVALUE (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [Funktionen CUSTOMDATA (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)  

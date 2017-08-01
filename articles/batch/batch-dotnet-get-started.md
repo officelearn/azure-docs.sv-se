@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1dc728cf6497d8ba0d35a7e41e51a52c5ca6d7df
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Börja utveckla lösningar med Batch-klientbibliotek för .NET
@@ -45,7 +44,7 @@ I den här artikeln förutsätter vi att du har erfarenhet av att arbeta med C# 
 * **Lagringskonto**: Se [skapar ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Batch stöder för närvarande *endast* den **allmänna** lagringskontotypen, vilket förklaras i steg 5, [skapar ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account), i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
+> Batch stöder för närvarande *endast* den **allmänna** lagringskontotypen, vilket förklaras i steg 5 [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -105,7 +104,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Som vi redan nämnt måste du för närvarande ange autentiseringsuppgifterna för ett **allmänt** lagringskontot i Azure Storage. Dina Batch-program använder Blob Storage i det **allmänna** lagringskontot. Ange inte autentiseringsuppgifterna för ett Storage-konto som skapats med kontotypen *Blob Storage*.
+> Som vi redan nämnt måste du för närvarande ange autentiseringsuppgifterna för ett **allmänt** lagringskonto i Azure Storage. Dina Batch-program använder Blob Storage i det **allmänna** lagringskontot. Ange inte autentiseringsuppgifterna för ett Storage-konto som skapats med kontotypen *Blob Storage*.
 >
 >
 
@@ -363,7 +362,12 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-När du skapar en pool med [CreatePool][net_pool_create] anger du flera parametrar, t.ex. antalet beräkningsnoder, [storleken på noderna](../cloud-services/cloud-services-sizes-specs.md) och nodernas operativsystem. I *DotNetTutorial* använder vi [CloudServiceConfiguration][net_cloudserviceconfiguration] för att ange Windows Server 2012 R2 från [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). Men om du i stället anger en [VirtualMachineConfiguration][net_virtualmachineconfiguration] kan du skapa pooler med noder som skapats från Marketplace-avbildningar, som innehåller både Windows- och Linux-avbildningar. Mer information finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md).
+När du skapar en pool med [CreatePool][net_pool_create] anger du flera parametrar, t.ex. antalet beräkningsnoder, [storleken på noderna](../cloud-services/cloud-services-sizes-specs.md) och nodernas operativsystem. I *DotNetTutorial* använder vi [CloudServiceConfiguration][net_cloudserviceconfiguration] för att ange Windows Server 2012 R2 från [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). 
+
+Du kan också skapa pooler med beräkningsnoder som är virtuella Azure-datorer genom att ange [VirtualMachineConfiguration][net_virtualmachineconfiguration] för din pool. Du kan skapa en pool med VM-beräkningsnoder från antingen Windows- eller [Linux-avbildningar](batch-linux-nodes.md). Källan för dina VM-avbildningar kan vara antingen:
+
+- [Azure Virtual Machines Marketplace][vm_marketplace], som erbjuder både Windows- och Linux-avbildningar som är klara att använda. 
+- En anpassad avbildning som du förbereder och tillhandahåller. Mer information om anpassade avbildningar finns i [Utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
 > Du debiteras för beräkningsresurser i Batch. Du kan minimera kostnaderna genom att sänka `targetDedicatedComputeNodes` till 1 innan du kör exemplet.
@@ -788,6 +792,7 @@ Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lös
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Skapa behållare i Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Ladda upp filer för aktivitetsprogram och indata till behållare"

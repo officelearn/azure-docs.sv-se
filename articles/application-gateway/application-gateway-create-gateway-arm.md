@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Skapa, starta eller ta bort en programgateway med Azure Resource Manager
@@ -171,10 +170,10 @@ I det här exemplet finns det två serverdelspooler för dirigering av nätverks
 
 ### <a name="step-3"></a>Steg 3
 
-Konfigurera inställningen **poolsetting01** för programgatewayen för den belastningsutjämnade nätverkstrafiken i backend-poolen. Varje serverdelspool kan ha sin egen serverdelspoolinställning.  Serverdelens HTTP-inställningar används av regler för att dirigera trafik till rätt medlemmar i serverdelspoolen. Serverdelens HTTP-inställningar avgör vilket protokoll och vilken port som används när trafik skickas till medlemmarna i serverdelspoolen. Cookie-baserade sessioner bestäms också av serverdelens HTTP-inställningar.  Om cookie-baserad sessionstillhörighet är aktiverat skickas trafiken till samma serverdel som tidigare begäranden för varje paket.
+Konfigurera inställningen **poolsetting** för programgatewayen för den belastningsutjämnade nätverkstrafiken i serverdelspoolen. Varje serverdelspool kan ha sin egen serverdelspoolinställning.  Serverdelens HTTP-inställningar används av regler för att dirigera trafik till rätt medlemmar i serverdelspoolen. Serverdelens HTTP-inställningar avgör vilket protokoll och vilken port som används när trafik skickas till medlemmarna i serverdelspoolen. Cookie-baserade sessioner bestäms också av serverdelens HTTP-inställningar.  Om cookie-baserad sessionstillhörighet är aktiverat skickas trafiken till samma serverdel som tidigare begäranden för varje paket.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>Steg 4
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Skapa en hanteringsregel för belastningsutjämnaren med namnet **rule01** som konfigurerar belastningsutjämnarens beteende. Inställningarna för serverdelspoolen, lyssnaren och serverdelspoolen som skapades i föregående steg bildar tillsammans regeln. Baserat på kriterierna som definierats dirigeras trafiken till lämplig serverdel.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>Steg 8

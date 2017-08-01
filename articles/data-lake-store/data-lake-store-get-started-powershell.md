@@ -22,9 +22,7 @@ ms.lasthandoff: 07/01/2017
 
 
 ---
-<a id="get-started-with-azure-data-lake-store-using-azure-powershell" class="xliff"></a>
-
-# Kom igång med Azure Data Lake Store med hjälp av Azure PowerShell
+# <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Kom igång med Azure Data Lake Store med hjälp av Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -39,22 +37,16 @@ ms.lasthandoff: 07/01/2017
 
 Lär dig mer om att använda Azure PowerShell för att skapa ett Azure Data Lake Store-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta filer, ta bort ditt konto, osv. Mer information om Data Lake Store finns i [Översikt över Data Lake Store](data-lake-store-overview.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Krav
+## <a name="prerequisites"></a>Krav
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Installera Azure PowerShell 1.0 eller senare**. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
-<a id="authentication" class="xliff"></a>
-
-## Autentisering
+## <a name="authentication"></a>Autentisering
 Den här artikeln använder en enklare metod för autentisering med Data Lake Store där du uppmanas att ange autentiseringsuppgifterna för ditt Azure-konto. Åtkomstnivå till Data Lake Store-kontot och filsystemet styrs av åtkomstnivån för den inloggade användaren. Det finns dock olika sätt att autentisera med Data Lake Store: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
 
-<a id="create-an-azure-data-lake-store-account" class="xliff"></a>
-
-## Skapa ett Azure Data Lake Store-konto
+## <a name="create-an-azure-data-lake-store-account"></a>Skapa ett Azure Data Lake Store-konto
 1. Öppna ett nytt Windows PowerShell-fönster på skrivbordet och ange följande fragment för att logga in på kontot, ställ in prenumerationen och registrera Data Lake Store-providern. När du uppmanas att logga in, se till att logga in som en av prenumerationens admininistratörer/ägare:
 
         # Log in to your Azure account
@@ -86,9 +78,7 @@ Den här artikeln använder en enklare metod för autentisering med Data Lake St
 
     Utdata för detta ska vara **Sant**.
 
-<a id="create-directory-structures-in-your-azure-data-lake-store" class="xliff"></a>
-
-## Skapa katalogstrukturer i din Azure Data Lake Store
+## <a name="create-directory-structures-in-your-azure-data-lake-store"></a>Skapa katalogstrukturer i din Azure Data Lake Store
 Du kan skapa kataloger under Azure Data Lake Store-kontot för att hantera och lagra data.
 
 1. Ange en rotkatalog.
@@ -105,9 +95,7 @@ Du kan skapa kataloger under Azure Data Lake Store-kontot för att hantera och l
 
     ![Verifiera katalog](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verifiera katalog")
 
-<a id="upload-data-to-your-azure-data-lake-store" class="xliff"></a>
-
-## Ladda upp data till din Azure Data Lake Store
+## <a name="upload-data-to-your-azure-data-lake-store"></a>Ladda upp data till din Azure Data Lake Store
 Du kan ladda upp data till Data Lake Store direkt på rotnivå eller till en katalog som du har skapat i kontot. Fragmenten nedan visar hur du kan ladda upp exempeldata till katalogen (**mynewdirectory**) som du skapade i föregående avsnitt.
 
 Om du behöver exempeldata att ladda upp, kan du hämta mappen **Ambulansdata** från [Azure Data Lake Git-lagringsplatsen](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Hämta filen och lagra den i en lokal katalog på datorn, till exempel C:\sampledata\.
@@ -115,9 +103,7 @@ Om du behöver exempeldata att ladda upp, kan du hämta mappen **Ambulansdata** 
     Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
 
-<a id="rename-download-and-delete-data-from-your-data-lake-store" class="xliff"></a>
-
-## Byt namn, hämta och ta bort data från din Data Lake Store
+## <a name="rename-download-and-delete-data-from-your-data-lake-store"></a>Byt namn, hämta och ta bort data från din Data Lake Store
 Om du vill byta namn på en fil, använder du följande kommando:
 
     Move-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
@@ -134,18 +120,14 @@ När du uppmanas, trycker du på **Y** för att ta bort objektet. Om du har fler
 
     Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 
-<a id="delete-your-azure-data-lake-store-account" class="xliff"></a>
-
-## Ta bort ditt Azure Data Lake Store-konto
+## <a name="delete-your-azure-data-lake-store-account"></a>Ta bort ditt Azure Data Lake Store-konto
 Använd följande kommando för att ta bort ditt Data Lake Store-konto.
 
     Remove-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
 När du uppmanas, anger du **Y** för att ta bort kontot.
 
-<a id="performance-guidance-while-using-powershell" class="xliff"></a>
-
-## Prestandavägledning när du använder PowerShell
+## <a name="performance-guidance-while-using-powershell"></a>Prestandavägledning när du använder PowerShell
 
 Nedan visas de viktigaste inställningar som du kan ställa in för att få bästa prestanda när du använder PowerShell för att arbeta med Data Lake Store:
 
@@ -160,9 +142,7 @@ Det här kommandot laddar ned filer från Azure Data Lake Store till användaren
 
     Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
-<a id="how-do-i-determine-the-value-to-set-for-these-parameters" class="xliff"></a>
-
-### Hur tar jag reda på värdet som angetts för dessa parametrar?
+### <a name="how-do-i-determine-the-value-to-set-for-these-parameters"></a>Hur tar jag reda på värdet som angetts för dessa parametrar?
 
 Här är några riktlinjer som du kan använda.
 
@@ -199,9 +179,7 @@ Här är några riktlinjer som du kan använda.
 
     Så, **ConcurrentFileCount** är **2,4**, vilket vi kan runda av till **2**.
 
-<a id="further-tuning" class="xliff"></a>
-
-### Ytterligare justering
+### <a name="further-tuning"></a>Ytterligare justering
 
 Du kan behöva justera ytterligare eftersom det finns en mängd filstorlekar att arbeta med. Beräkningen ovan fungerar bra om alla eller de flesta av filerna är större och närmare intervallet 10 GB. Om det finns i stället många olika filstorlekar med många filer som är mindre kan du minska PerFileThreadCount. Du kan öka ConcurrentFileCount genom att minska PerFileThreadCount. Så om vi förutsätter att de flesta av våra filer är mindre än intervallet 5 GB kan vi göra om vår beräkning:
 
@@ -211,9 +189,7 @@ Alltså blir **ConcurrentFileCount** nu 96/20, vilket är 4,8, avrundat till **4
 
 Du kan fortsätta att finjustera inställningarna genom att ändra **PerFileThreadCount** upp och ned beroende på distributionen av din filstorlek.
 
-<a id="limitation" class="xliff"></a>
-
-### Begränsning
+### <a name="limitation"></a>Begränsning
 
 * **Antalet filer är mindre än ConcurrentFileCount**: Om antalet filer som du laddar upp är mindre än **ConcurrentFileCount** du har beräknat ska du minska **ConcurrentFileCount** så att det motsvarar antalet filer. Du kan använda eventuella återstående trådar för att öka **PerFileThreadCount**.
 
@@ -223,9 +199,7 @@ Du kan fortsätta att finjustera inställningarna genom att ändra **PerFileThre
 
 * **Begränsningsfel**: Om konkurrensen är för hög kan det leda till begränsningsfel. Om du råkar ut för begränsningsfel ska du antingen minska samtidigheten eller kontakta oss.
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
 * [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Använd Azure HDInsight med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

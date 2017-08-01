@@ -22,13 +22,11 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-# Vad är Site Recovery?
-<a id="what-is-site-recovery" class="xliff"></a>
+# <a name="what-is-site-recovery"></a>Vad är Site Recovery?
 
 Välkommen till Azure Site Recovery-tjänsten! Den här artikeln innehåller en snabb översikt över tjänsten.
 
-## Verksamhetskontinuitet och haveriberedskap (BDCR) med Azure Recovery Services
-<a id="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services" class="xliff"></a>
+## <a name="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services"></a>Verksamhetskontinuitet och haveriberedskap (BDCR) med Azure Recovery Services
 
 Som organisation behöver ni veta hur ni ska skydda data och appar/arbetsbelastningar som körs när planerade och oplanerade avbrott inträffar.
 
@@ -43,8 +41,7 @@ Site Recovery kan hantera replikering för:
 - Lokala virtuella datorer och fysiska servrar replikerar till Azure eller till en sekundär plats.
 
 
-## Vad tillhandahåller Site Recovery?
-<a id="what-does-site-recovery-provide" class="xliff"></a>
+## <a name="what-does-site-recovery-provide"></a>Vad tillhandahåller Site Recovery?
 
 **Funktion** | **Detaljer**
 --- | ---
@@ -63,8 +60,7 @@ Site Recovery kan hantera replikering för:
 **Hantera nätverksinställningar** | Site Recovery och Azure förenklar nätverkskraven för program, inklusive reservation av IP-adresser, konfiguration av belastningsutjämnare och integration av Azure Traffic Manager för effektiv nätverksväxling.
 
 
-## Vad kan jag replikera?
-<a id="what-can-i-replicate" class="xliff"></a>
+## <a name="what-can-i-replicate"></a>Vad kan jag replikera?
 
 **Stöds** | **Detaljer**
 --- | ---
@@ -75,15 +71,13 @@ Site Recovery kan hantera replikering för:
 **Vilka arbetsbelastningar kan jag replikera?** | Du kan replikera alla arbetsbelastningar som körs på en dator det finns replikeringsstöd för. Dessutom har Site Recovery-teamet utfört appspecifika tester för ett [antal appar](site-recovery-workload.md#workload-summary).
 
 
-## Att tänka på om Azure portal
-<a id="azure-portal-considerations" class="xliff"></a>
+## <a name="azure-portal-considerations"></a>Att tänka på om Azure portal
 
 * Site Recovery kan distribueras i [Azure-portalen](https://portal.azure.com).
 * På den klassiska Azure-portalen kan du använda Site Recovery med den klassiska tjänsthanteringsmodellen.
 - Du bör bara använda den klassiska portalen till att underhålla befintliga Site Recovery-distributioner. Du kan inte skapa nya valv i den klassiska portalen.
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 * Läs mer om [stöd för arbetsbelastning](site-recovery-workload.md)
 * Kom igång med [Azure VM replikering mellan regioner](site-recovery-azure-to-azure.md), [VMware-replikering till Azure](vmware-walkthrough-overview.md) eller [Hyper-V-replikering till Azure](hyper-v-site-walkthrough-overview.md).
 

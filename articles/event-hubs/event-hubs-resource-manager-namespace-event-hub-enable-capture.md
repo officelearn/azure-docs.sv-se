@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template" class="xliff"></a>
-
-# Skapa ett namnområde för Event Hubs med en händelsehubb och aktivera avbildning med hjälp av en Azure Resource Manager-mall
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Skapa ett namnområde för Event Hubs med en händelsehubb och aktivera avbildning med hjälp av en Azure Resource Manager-mall
 Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett namnområde för Event Hubs med en händelsehubbinstans och även aktiverar avbildningsfunktionen på händelsehubben. Artikeln beskriver hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav
 
 Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
@@ -38,9 +36,7 @@ Den fullständiga mallen finns i [mallen för händelsehubbar och för att aktiv
 > 
 > 
 
-<a id="what-will-you-deploy" class="xliff"></a>
-
-## Vad vill du distribuera?
+## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
 Med den här mallen distribuerar du ett namnområde för Event Hubs med en händelsehubb och aktiverar även [Event Hubs Capture](event-hubs-capture-overview.md).
 
 [Event Hubs](event-hubs-what-is-event-hubs.md) är en tjänst för händelsebearbetning som används för att tillhandahålla en händelse- och telemetriingång till Azure i massiv skala med kort svarstid och hög tillförlitlighet. Med Event Hubs Capture kan du automatiskt leverera strömmande data i dina Event Hubs till Azure Blob Storage inom en angiven tid eller ett visst storleksintervall som du kan välja själv.
@@ -49,16 +45,12 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 
 [![Distribuera till Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
-<a id="parameters" class="xliff"></a>
-
-## Parametrar
+## <a name="parameters"></a>Parametrar
 Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` och som innehåller alla parametervärden. Du bör definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
 Mallen definierar följande parametrar.
 
-<a id="eventhubnamespacename" class="xliff"></a>
-
-### eventHubNamespaceName
+### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 Namnet på namnområdet för Event Hubs som ska skapas.
 
 ```json
@@ -70,9 +62,7 @@ Namnet på namnområdet för Event Hubs som ska skapas.
 }
 ```
 
-<a id="eventhubname" class="xliff"></a>
-
-### eventHubName
+### <a name="eventhubname"></a>eventHubName
 Namnet på händelsehubben som skapats i namnområdet för Event Hubs.
 
 ```json
@@ -84,9 +74,7 @@ Namnet på händelsehubben som skapats i namnområdet för Event Hubs.
 }
 ```
 
-<a id="messageretentionindays" class="xliff"></a>
-
-### messageRetentionInDays
+### <a name="messageretentionindays"></a>messageRetentionInDays
 Antalet dagar som meddelanden lagras i händelsehubben. 
 
 ```json
@@ -101,9 +89,7 @@ Antalet dagar som meddelanden lagras i händelsehubben.
  }
 ```
 
-<a id="partitioncount" class="xliff"></a>
-
-### partitionCount
+### <a name="partitioncount"></a>partitionCount
 Antalet partitioner som ska skapas i händelsehubben.
 
 ```json
@@ -118,9 +104,7 @@ Antalet partitioner som ska skapas i händelsehubben.
  }
 ```
 
-<a id="captureenabled" class="xliff"></a>
-
-### captureEnabled
+### <a name="captureenabled"></a>captureEnabled
 Aktiverar avbildning på händelsehubben.
 
 ```json
@@ -135,9 +119,7 @@ Aktiverar avbildning på händelsehubben.
     }
  }
 ```
-<a id="captureencodingformat" class="xliff"></a>
-
-### captureEncodingFormat
+### <a name="captureencodingformat"></a>captureEncodingFormat
 Kodningsformatet som du anger för att serialisera händelsedata.
 
 ```json
@@ -152,9 +134,7 @@ Kodningsformatet som du anger för att serialisera händelsedata.
 }
 ```
 
-<a id="capturetime" class="xliff"></a>
-
-### captureTime
+### <a name="capturetime"></a>captureTime
 Det tidsintervall inom vilket Event Hubs Capture börjar samla in data till Azure Blob Storage.
 
 ```json
@@ -169,9 +149,7 @@ Det tidsintervall inom vilket Event Hubs Capture börjar samla in data till Azur
 }
 ```
 
-<a id="capturesize" class="xliff"></a>
-
-### captureSize
+### <a name="capturesize"></a>captureSize
 Det storleksintervall inom vilket avbildningsfunktionen börjar samla in data till Azure Blob Storage.
 
 ```json
@@ -186,9 +164,7 @@ Det storleksintervall inom vilket avbildningsfunktionen börjar samla in data ti
 }
 ```
 
-<a id="destinationstorageaccountresourceid" class="xliff"></a>
-
-### destinationStorageAccountResourceId
+### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
 För avbildningsfunktionen krävs ett resurs-ID för ett Azure Storage-konto för att aktivera avbildning till ditt önskade Storage-konto.
 
 ```json
@@ -200,9 +176,7 @@ För avbildningsfunktionen krävs ett resurs-ID för ett Azure Storage-konto fö
  }
 ```
 
-<a id="blobcontainername" class="xliff"></a>
-
-### blobContainerName
+### <a name="blobcontainername"></a>blobContainerName
 Blob-behållaren dit du kan avbilda dina händelsedata.
 
 ```json
@@ -215,9 +189,7 @@ Blob-behållaren dit du kan avbilda dina händelsedata.
 ```
 
 
-<a id="apiversion" class="xliff"></a>
-
-### apiVersion
+### <a name="apiversion"></a>apiVersion
 API-versionen av mallen.
 
 ```json
@@ -230,9 +202,7 @@ API-versionen av mallen.
  }
 ```
 
-<a id="resources-to-deploy" class="xliff"></a>
-
-## Resurser som ska distribueras
+## <a name="resources-to-deploy"></a>Resurser som ska distribueras
 Skapar ett namnområde av typen **EventHubs** med en händelsehubb och möjliggör avbildning.
 
 ```json
@@ -280,29 +250,21 @@ Skapar ett namnområde av typen **EventHubs** med en händelsehubb och möjligg�
    ]
 ```
 
-<a id="commands-to-run-deployment" class="xliff"></a>
-
-## Kommandon för att köra distributionen
+## <a name="commands-to-run-deployment"></a>Kommandon för att köra distributionen
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-<a id="powershell" class="xliff"></a>
-
-## PowerShell
+## <a name="powershell"></a>PowerShell
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
-<a id="azure-cli" class="xliff"></a>
-
-## Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 ```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Du kan även konfigurera Event Hubs Capture via [Azure Portal](https://portal.azure.com). Mer information finns i [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md) (Aktivera Event Hubs Capture med hjälp av Azure Portal).
 

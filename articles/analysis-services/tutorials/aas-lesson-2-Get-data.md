@@ -23,8 +23,7 @@ ms.lasthandoff: 06/03/2017
 
 ---
 
-# Lektion 2: Hämta data
-<a id="lesson-2-get-data" class="xliff"></a>
+# <a name="lesson-2-get-data"></a>Lektion 2: Hämta data
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -34,15 +33,12 @@ Med Hämta data kan du importera data från en mängd olika datakällor: Azure S
   
 Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
   
-## Krav
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna i den här lektionen bör du ha slutfört föregående lektion: [Lektion 1: Skapa ett nytt tabellmodellprojekt](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
-## Skapa en anslutning
-<a id="create-a-connection" class="xliff"></a>  
+## <a name="create-a-connection"></a>Skapa en anslutning  
   
-#### Att skapa en anslutning till databasen AdventureWorksDW2014
-<a id="to-create-a-connection-to-the-adventureworksdw2014-database" class="xliff"></a>  
+#### <a name="to-create-a-connection-to-the-adventureworksdw2014-database"></a>Att skapa en anslutning till databasen AdventureWorksDW2014  
   
 1.  Högerklicka på **Datakällor** > **Importera från datakälla** i tabellmodellutforskaren.  
   
@@ -70,12 +66,10 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
 När du klickar på OK öppnas frågeredigeraren. I nästa avsnitt väljer du endast de data som du vill importera.
 
   
-## Filtrera tabelldata
-<a id="filter-the-table-data" class="xliff"></a>  
+## <a name="filter-the-table-data"></a>Filtrera tabelldata  
 Tabeller i exempeldatabasen AdventureWorksDW2014 har data som inte är nödvändiga att ta med i modellen. Om det är möjligt filtrerar du bort onödiga data för att spara på minnesutrymmet som används av modellen. Du kan filtrera bort vissa kolumner från tabeller så att de inte importeras till arbetsytedatabasen eller modelldatabasen när den har distribuerats. 
   
-#### Filtrera tabelldata innan du importerar
-<a id="to-filter-the-table-data-before-importing" class="xliff"></a>  
+#### <a name="to-filter-the-table-data-before-importing"></a>Filtrera tabelldata innan du importerar  
   
 1.  Markera tabellen **DimCustomer** i frågeredigeraren. En vy av tabellen DimCustomer i datakällan (exempeldatabasen AdventureWorksDWQ2014) visas. 
   
@@ -145,8 +139,7 @@ Tabeller i exempeldatabasen AdventureWorksDW2014 har data som inte är nödvänd
 ## <a name="Import"></a>Importera de markerade tabellerna och kolumndata  
 Nu när du har förhandsgranskat och filtrerat bort onödiga data kan du importera resten av de data som du behöver. Med guiden importeras tabelldata och eventuella relationer mellan tabellerna. Nya tabeller och kolumner skapas i modellen och data som du filtrerat ut importeras inte.  
   
-#### Så här importerar du de markerade tabellerna och kolumndata
-<a id="to-import-the-selected-tables-and-column-data" class="xliff"></a>  
+#### <a name="to-import-the-selected-tables-and-column-data"></a>Så här importerar du de markerade tabellerna och kolumndata  
   
 1.  Granska dina val. Om allt ser bra ut klickar du på **Importera**. I dialogrutan Databearbetning visas status för data som importeras från din datakälla till arbetsytedatabasen.
   
@@ -155,17 +148,14 @@ Nu när du har förhandsgranskat och filtrerat bort onödiga data kan du importe
 2.  Klicka på **Stäng**.  
 
   
-## Spara modellprojektet
-<a id="save-your-model-project" class="xliff"></a>  
+## <a name="save-your-model-project"></a>Spara modellprojektet  
 Det är viktigt att spara modellprojektet ofta.  
   
-#### Så här sparar du modellprojektet
-<a id="to-save-the-model-project" class="xliff"></a>  
+#### <a name="to-save-the-model-project"></a>Så här sparar du modellprojektet  
   
 -   Klicka på **Arkiv** > **Spara alla**.  
   
-## Nästa steg
-<a id="whats-next" class="xliff"></a>
+## <a name="whats-next"></a>Nästa steg
 [Lektion 3: Markera som datumtabell](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
   

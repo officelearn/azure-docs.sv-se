@@ -22,8 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-# Azure Analysis Services – Självstudiekurs för Adventure Works
-<a id="azure-analysis-services---adventure-works-tutorial" class="xliff"></a>
+# <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – Självstudiekurs för Adventure Works
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -31,8 +30,7 @@ Den här självstudien tillhandahåller lektioner om hur du skapar och distribue
 
 Om du inte har använt Analysis Services eller tabellmodellering tidigare är den här självstudien det snabbaste sättet att lära dig hur du skapar och distribuerar en grundläggande tabellmodell. Om du uppfyller förhandskraven bör det ta mellan två och tre timmar att slutföra självstudien.  
   
-## Detta får du får lära dig
-<a id="what-you-learn" class="xliff"></a>   
+## <a name="what-you-learn"></a>Detta får du får lära dig   
   
 -   Hur du skapar ett nytt projekt för tabellmodeller på **kompatibilitetsnivån 1400** i SSDT.
   
@@ -50,8 +48,7 @@ Om du inte har använt Analysis Services eller tabellmodellering tidigare är de
   
 -   Hur du distribuerar en tabellmodell till en **Azure Analysis Services**-server eller en lokal SQL Server 2017 Analysis Services-server.  
   
-## Krav
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Krav  
 För att slutföra den här kursen behöver du:  
   
 -   En Azure Analysis Services- eller SQL Server 2017 Analysis Services-instans att distribuera modellen till. Registrera dig för en kostnadsfri [utvärderingsversion av Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) och [skapa en server](../analysis-services-create-server.md). Eller registrera dig och ladda ned [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
@@ -66,8 +63,7 @@ För att slutföra den här kursen behöver du:
 
 -   Ett klientprogram som till exempel [Power BI Desktop](https://powerbi.microsoft.com/desktop/) eller Excel. 
 
-## Scenario
-<a id="scenario" class="xliff"></a>  
+## <a name="scenario"></a>Scenario  
 Den här självstudien är baserad på Adventure Works Cycles, ett fiktivt företag. Adventure Works är ett stort, multinationellt företag som tillverkar och distribuerar metallcyklar och komposita cyklar till kommersiella marknader i Nordamerika, Europa och Asien. Företaget har 500 anställda. Dessutom har Adventure Works flera regionala försäljningsteam inom sitt marknadsområde. Ditt projekt är att skapa en tabellmodell för försäljnings- och marknadsföringsanvändare som analyserar Internetförsäljningsdata i AdventureWorksDW-databasen.  
   
 För att slutföra den här självstudien måste du slutföra ett antal lektioner. Varje lektion innehåller olika uppgifter. Du måste slutföra alla uppgifter i rätt ordning för att slutföra lektionen. En viss lektion kan innehålla flera uppgifter som leder till samma resultat, men tillvägagångssättet för att slutföra uppgifterna skiljer sig åt. Den här metoden visar att det ofta finns fler än ett sätt att slutföra en uppgift och fungerar även som en utmaning eftersom du måste använda kunskaper som du har lärt dig under tidigare lektioner och uppgifter.  
@@ -77,8 +73,7 @@ Syftet med lektionerna är att lära dig att redigera en grundläggande tabellmo
 Den här självstudiekursen innehåller inte lektioner om att hantera en server i Azure Portal, hantera en server eller databas med hjälp av SSMS eller att använda ett klientprogram för att bläddra i modelldata. 
 
 
-## Lektioner
-<a id="lessons" class="xliff"></a>  
+## <a name="lessons"></a>Lektioner  
 Den här självstudien innehåller följande uppgifter:  
   
 |Lektion|Uppskattad tidsåtgång|  
@@ -97,8 +92,7 @@ Den här självstudien innehåller följande uppgifter:
 |[Lektion 12: Analysera i Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)|5 minuter| 
 |[Lektion 13: Distribuera](../tutorials/aas-lesson-13-deploy.md)|5 minuter|  
   
-## Kompletterande lektioner
-<a id="supplemental-lessons" class="xliff"></a>  
+## <a name="supplemental-lessons"></a>Kompletterande lektioner  
 Du måste inte slutföra de här lektionerna för att slutföra självstudien, men de kan hjälpa dig att bättre förstå avancerade funktioner för redigering av tabellmodeller.  
   
 |Lektion|Uppskattad tidsåtgång|  
@@ -108,8 +102,7 @@ Du måste inte slutföra de här lektionerna för att slutföra självstudien, m
 |[Ojämna hierarkier](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)|20 minuter| 
 
   
-## Nästa steg
-<a id="next-steps" class="xliff"></a>  
+## <a name="next-steps"></a>Nästa steg  
 Gå till [Lektion 1: Skapa ett nytt projekt för tabellmodeller](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md) för att komma igång.  
   
   

@@ -23,8 +23,7 @@ Du kan ansluta till en virtuell dator som är distribuerad till ditt VNet genom 
 3. Öppna **fjärrskrivbordsanslutningen** genom att skriva "RDP" eller "Anslutning till fjärrskrivbord" i sökrutan i Aktivitetsfältet och välj sedan Anslutning till fjärrskrivbord. Du kan även öppna Anslutning till fjärrskrivbord med hjälp av kommandot ”mstsc” i PowerShell. 
 4. I fjärrskrivbordsanslutningen anger du den virtuella datorns privata IP-adress. Du kan klicka på "Visa alternativ" för att justera inställningar och sedan ansluta.
 
-### Felsöka en RDP-anslutning till en virtuell dator
-<a id="to-troubleshoot-an-rdp-connection-to-a-vm" class="xliff"></a>
+### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Felsöka en RDP-anslutning till en virtuell dator
 
 Om du har problem med att ansluta till en virtuell dator via VPN-anslutningen kan du kontrollera följande:
 

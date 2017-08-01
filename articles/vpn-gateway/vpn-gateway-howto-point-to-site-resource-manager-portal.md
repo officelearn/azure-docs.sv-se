@@ -23,8 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-# Konfigurera en punkt-till-plats-anslutning till ett VNet med Azure Portal
-<a id="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal" class="xliff"></a>
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med Azure Portal
 
 Den här artikeln visar dig hur du skapar ett virtuellt nätverk med en punkt-till-plats-anslutning i Resource Manager-distributionsmodellen med Azure Portal. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
@@ -86,8 +85,7 @@ Innan du ansluter det virtuella nätverket till en gateway, måste du skapa gate
 
 Skärmbilderna i det här avsnittet är avsedda som referensexempel. Se till att använda GatewaySubnet-adressintervallet som motsvarar de värden som krävs för konfigurationen.
 
-### Så här skapar du ett gateway-undernät
-<a id="to-create-a-gateway-subnet" class="xliff"></a>
+### <a name="to-create-a-gateway-subnet"></a>Så här skapar du ett gateway-undernät
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
@@ -104,8 +102,7 @@ Punkt-till-plats-anslutningar kräver följande inställningar:
 * Gateway-typ: VPN
 * VPN-typ: Routningsbaserad
 
-### Så här skapar du en virtuell nätverksgateway
-<a id="to-create-a-virtual-network-gateway" class="xliff"></a>
+### <a name="to-create-a-virtual-network-gateway"></a>Så här skapar du en virtuell nätverksgateway
 
 [!INCLUDE [create a vnet gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -153,8 +150,7 @@ För att ansluta till ett virtuellt nätverk med hjälp av ett VPN för punkt-ti
 
 Du kan använda samma VPN-klientkonfigurationspaket på varje klientdator, förutsatt att versionen matchar arkitekturen för klienten. En lista över klientoperativsystem som stöds finns i [Vanliga frågor och svar om punkt-till-plats](#faq) i slutet av den här artikeln.
 
-### Del 1 – Hämta klientkonfigurationspaketet
-<a id="step-1---download-the-client-configuration-package" class="xliff"></a>
+### <a name="step-1---download-the-client-configuration-package"></a>Del 1 – Hämta klientkonfigurationspaketet
 
 1. På bladet **Punkt-till-plats-konfiguration** klickar du på **Hämta VPN-klient** för att öppna bladet **Hämta VPN-klient**. Det tar en minut eller två att skapa paketet.
 
@@ -163,8 +159,7 @@ Du kan använda samma VPN-klientkonfigurationspaket på varje klientdator, föru
 
   ![Hämtning av VPN-klient 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-### Del 2 – Installera klientkonfigurationspaketet
-<a id="step-2---install-the-client-configuration-package" class="xliff"></a>
+### <a name="step-2---install-the-client-configuration-package"></a>Del 2 – Installera klientkonfigurationspaketet
 
 1. Kopiera konfigurationsfilen lokalt till den dator som du vill ansluta till det virtuella nätverket. 
 2. Installera paketet på klientdatorn genom att dubbelklicka på EXE-filen. Konfigurationspaketet är inte signerat eftersom du har skapat det och en varning om detta kan visas. Om ett Windows SmartScreen-fönster öppnas klickar du på **Mer info** (till vänster) och sedan på **Kör ändå**  för att kunna installera paketet.
@@ -220,13 +215,11 @@ Om du har problem med att ansluta till en virtuell dator via P2S kan du använda
 
 Du kan lägga till och ta bort betrodda rotcertifikat från Azure. När du tar bort ett rotcertifikat kommer klienter som har ett certifikat som genereras från den roten inte att kunna autentisera, och därmed kommer de inte heller att kunna ansluta. Om du vill att en klient ska kunna autentisera och ansluta måste du installera ett nytt klientcertifikat som genererats från ett rotcertifikat som är betrott (uppladdat) i Azure.
 
-### Lägga till ett betrott rotcertifikat
-<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
+### <a name="to-add-a-trusted-root-certificate"></a>Lägga till ett betrott rotcertifikat
 
 Du kan lägga till upp till 20 betrodda CER-filer för rotcertifikat i Azure. Mer information finns i avsnittet [Ladda upp ett betrott rotcertifikat](#uploadfile) i den här artikeln.
 
-### Så här tar du bort ett betrott rotcertifikat
-<a id="to-remove-a-trusted-root-certificate" class="xliff"></a>
+### <a name="to-remove-a-trusted-root-certificate"></a>Så här tar du bort ett betrott rotcertifikat
 
 1. Om du vill ta bort ett betrott rotcertifikat navigerar du till bladet **Punkt-till-plats-konfiguration** för din virtuella nätverksgateway.
 2. I avsnittet **Rotcertifikat** på bladet letar du upp det certifikat som du vill ta bort.
@@ -238,8 +231,7 @@ Du kan återkalla certifikat. Du kan använda listan över återkallade certifik
 
 Den vanligaste metoden är att använda rotcertifikatet för att hantera åtkomst på grupp- eller organisationsnivå, och att återkalla klientcertifikat för mer detaljerad åtkomstkontroll för enskilda användare.
 
-### Återkalla ett klientcertifikat
-<a id="to-revoke-a-client-certificate" class="xliff"></a>
+### <a name="to-revoke-a-client-certificate"></a>Återkalla ett klientcertifikat
 
 Du kan återkalla ett klientcertifikat genom att lägga till tumavtrycket i listan över återkallade certifikat.
 
@@ -255,7 +247,6 @@ Du kan återkalla ett klientcertifikat genom att lägga till tumavtrycket i list
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).
 

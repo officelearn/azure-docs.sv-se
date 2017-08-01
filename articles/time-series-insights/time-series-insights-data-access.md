@@ -23,8 +23,7 @@ ms.lasthandoff: 05/20/2017
 
 ---
 
-# Bevilja åtkomst till en Time Series Insights-miljö med Azure Portal
-<a id="grant-data-access-to-a-time-series-insights-environment-using-azure-portal" class="xliff"></a>
+# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Bevilja åtkomst till en Time Series Insights-miljö med Azure Portal
 
 Time Series Insights-miljöer har två oberoende typer av principer för åtkomst.
 
@@ -41,8 +40,7 @@ Principerna för dataåtkomst beviljar behörigheter för att utfärda datafråg
 
 De två typerna av principer möjliggör en tydlig uppdelning mellan åtkomst till hantering av miljön och till data inuti miljön. Det är till exempel möjligt att konfigurera en miljö så att miljöns ägare/skapare tas bort från dataåtkomsten. Användare och tjänster som tillåts läsa data från miljön kan nekas åtkomst till miljöns konfiguration.
 
-## Bevilja åtkomst till data
-<a id="grant-data-access" class="xliff"></a>
+## <a name="grant-data-access"></a>Bevilja åtkomst till data
 I följande steg visas hur du ger åtkomst till data för en användares huvudnamn:
 
 1.    Logga in på [Azure Portal](https://portal.azure.com).
@@ -72,8 +70,7 @@ I följande steg visas hur du ger åtkomst till data för en användares huvudna
 
   ![Hantera Time Series Insights-källan – resultat](media/data-access/getstarted-grant-data-access5.png)
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 * [Skapa en händelsekälla](time-series-insights-add-event-source.md)
 * [Skicka händelser](time-series-insights-send-events.md) till händelsekällan

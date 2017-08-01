@@ -23,12 +23,10 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-# iOS-pushmeddelanden med Notification Hubs för Xamarin-appar
-<a id="ios-push-notifications-with-notification-hubs-for-xamarin-apps" class="xliff"></a>
+# <a name="ios-push-notifications-with-notification-hubs-for-xamarin-apps"></a>iOS-pushmeddelanden med Notification Hubs för Xamarin-appar
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Översikt
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Översikt
 > [!IMPORTANT]
 > Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
@@ -39,8 +37,7 @@ Du skapar en tom Xamarin.iOS-app som tar emot push-meddelanden med hjälp av [Ap
 
 I den här självstudiekursen visas ett enkelt scenario för sändning av push-meddelanden med Notification Hubs.
 
-## Krav
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Krav
 För den här kursen behöver du följande:
 
 * [Xcode 6.0][Install Xcode]
@@ -57,8 +54,7 @@ Du måste slutföra den här självstudiekursen innan du påbörjar någon annan
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## Konfigurera meddelandehubben
-<a id="configure-your-notification-hub" class="xliff"></a>
+## <a name="configure-your-notification-hub"></a>Konfigurera meddelandehubben
 I det här avsnittet går vi igenom hur du skapar en ny meddelandehubb och konfigurerar autentisering med APNS med **.p12**-pushcertifikatet som du skapade. Om du vill använda en meddelandehubb som du redan har skapat går du vidare till steg 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -78,10 +74,8 @@ I det här avsnittet går vi igenom hur du skapar en ny meddelandehubb och konfi
 
 Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har anslutningssträngar för att registrera din app och skicka push-meddelanden.
 
-## Anslut appen till meddelandehubben
-<a id="connect-your-app-to-the-notification-hub" class="xliff"></a>
-#### Skapa ett nytt projekt
-<a id="create-a-new-project" class="xliff"></a>
+## <a name="connect-your-app-to-the-notification-hub"></a>Anslut appen till meddelandehubben
+#### <a name="create-a-new-project"></a>Skapa ett nytt projekt
 1. Skapa ett nytt iOS-projekt i Xamarin Studio och välj mallen **Enhetligt API** > **App enkel vy**.
    
      ![Xamarin Studio – Välj apptyp][31]
@@ -183,8 +177,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
    > 
 10. Kör appen på enheten.
 
-## Skicka push-meddelanden
-<a id="sending-push-notifications" class="xliff"></a>
+## <a name="sending-push-notifications"></a>Skicka push-meddelanden
 Du kan testa att ta emot push-meddelanden i appen genom att skicka meddelanden i [Azure-portalen] via funktionen **Prova att skicka** i verktygsuppsättningen **Felsökning** till höger på sidan för meddelandehubben, så som visas på skärmen nedan.
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-test-send.png)
@@ -201,8 +194,7 @@ I den här enkla självstudiekursen visas hur du testar klientappen genom att sk
 
 * **Java/PHP**: Ett exempel på hur du skickar push-meddelanden med hjälp av REST-API:er finns i avsnittet Använda Notification Hubs från Java/PHP ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
-#### (Valfritt) Skicka push-meddelanden från en .NET-konsolapp
-<a id="optional-send-push-notifications-from-a-net-console-app" class="xliff"></a>
+#### <a name="optional-send-push-notifications-from-a-net-console-app"></a>(Valfritt) Skicka push-meddelanden från en .NET-konsolapp
 I det här avsnittet skickar du meddelanden med en .NET-konsolapp. I det här exemplet växlar vi till en Windows-utvecklingsmiljö där Visual Studio redan har installerats.
 
 1. Skapa en ny Visual C#-konsolapp i Visual Studio:
@@ -237,8 +229,7 @@ I det här avsnittet skickar du meddelanden med en .NET-konsolapp. I det här ex
 
 Du hittar alla möjliga nyttolaster i Apples [programmeringsguide för lokala meddelanden och push-meddelanden].
 
-#### (Valfritt) Skicka meddelanden med en mobiltjänst
-<a id="optional-send-notifications-from-a-mobile-service" class="xliff"></a>
+#### <a name="optional-send-notifications-from-a-mobile-service"></a>(Valfritt) Skicka meddelanden med en mobiltjänst
 I det här avsnittet skickar du push-meddelanden med en mobiltjänst via ett nodskript.
 
 Följ [Komma igång med Mobile Services] för att skicka ett meddelande med en mobiltjänst. Gör sedan följande:
@@ -271,8 +262,7 @@ Följ [Komma igång med Mobile Services] för att skicka ett meddelande med en m
         );
 6. Klicka på **Kör en gång** i det nedre fältet. Du bör få en avisering på enheten.
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 I det här enkla exemplet skickade du push-meddelanden till alla dina iOS-enheter. Mer information om hur du riktar in dig på specifika användare finns i självstudiekursen [Använda Notification Hubs för att skicka push-meddelanden till användare]. Om du vill dela in användarna efter intressegrupper läser du [Använda Notification Hubs för att skicka de senaste nyheterna]. Mer information om hur du använder Notification Hubs finns i [Riktlinjer för Notification Hubs] och i [Notification Hubs-instruktioner för iOS].
 
 <!-- Images. -->

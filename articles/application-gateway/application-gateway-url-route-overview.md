@@ -22,8 +22,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-# Översikt över URL-sökvägsbaserad routning
-<a id="url-path-based-routing-overview" class="xliff"></a>
+# <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
 
 URL-sökvägsbaserad routning låter dig routa trafik till serverdels-serverpooler baserat på URL-sökvägen till begäranden. 
 
@@ -35,8 +34,7 @@ I följande exempel servar Application Gateway trafik åt contoso.com från tre 
 
 Begäranden för http://contoso.com/video* dirigeras till VideoServerPool och http://contoso.com/images* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
     
-## UrlPathMap-konfigurationselementet
-<a id="urlpathmap-configuration-element" class="xliff"></a>
+## <a name="urlpathmap-configuration-element"></a>UrlPathMap-konfigurationselementet
 
 UrlPathMap-elementet används för att ange sökvägsmönster till mappningar för serverdelen och serverpoolen. Följande kodexempel är utdrag av urlPathMap-element från mallfilen.
 
@@ -74,8 +72,7 @@ UrlPathMap-elementet används för att ange sökvägsmönster till mappningar f�
 
 Du kan kolla en [Resource Manager-mall med URL-baserad routning](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) för mer information.
 
-## PathBasedRouting-regeln
-<a id="pathbasedrouting-rule" class="xliff"></a>
+## <a name="pathbasedrouting-rule"></a>PathBasedRouting-regeln
 
 RequestRoutingRule av typen PathBasedRouting används för att binda en lyssnare till en urlPathMap. Alla begäranden som tas emot för den här lyssnaren dirigeras baserat på principen som anges i urlPathMap.
 Utdrag från PathBasedRouting-regeln:
@@ -100,8 +97,7 @@ Utdrag från PathBasedRouting-regeln:
 ]
 ```
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 När du läst om URL-baserad innehållsroutning, kan du gå till [skapa en Application Gateway med URL-baserad routing](application-gateway-create-url-route-portal.md) för att skapa en Application Gateway med regler för URL-routning.
 

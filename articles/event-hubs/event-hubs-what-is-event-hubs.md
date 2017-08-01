@@ -22,15 +22,11 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="what-is-event-hubs" class="xliff"></a>
-
-# Vad är Event Hubs?
+# <a name="what-is-event-hubs"></a>Vad är Event Hubs?
 
 Azure Event Hubs är en mycket skalbar dataströmningsplattform och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. Event Hubs har [funktioner för att publicera och prenumerera](https://msdn.microsoft.com/library/aa560414.aspx) med kort svarstid och i massiv skala och tjänar därmed som inkörsvägen för stordata.
 
-<a id="why-use-event-hubs" class="xliff"></a>
-
-## Varför ska jag använda Event Hubs?
+## <a name="why-use-event-hubs"></a>Varför ska jag använda Event Hubs?
 
 Händelse- och telemetrihanteringsfunktionerna gör Event Hubs särskilt lämpligt för:
 
@@ -40,9 +36,7 @@ Händelse- och telemetrihanteringsfunktionerna gör Event Hubs särskilt lämpli
 
 Andra funktioner i Event Hubs är till exempel beteendespårning i mobilappar, trafikinformation från webbservergrupper, inspelning av spelhändelser i konsolspel eller telemetri som samlats in från industriella datorer, anslutna fordon eller andra enheter.
 
-<a id="azure-event-hubs-overview" class="xliff"></a>
-
-## Översikt av händelsehubbar i Azure
+## <a name="azure-event-hubs-overview"></a>Översikt av händelsehubbar i Azure
 
 I lösningsarkitekturer fungerar händelsehubbar ofta som ”dörren” för en händelsepipeline, ofta kallad en *händelseinmatare*. En händelseinmatare är en komponent eller tjänst som placeras mellan händelseutgivare och -konsumenter och frikopplar produktion av en händelseström från användningen av de händelserna. Arkitekturen visas på följande bild:
 
@@ -50,9 +44,7 @@ I lösningsarkitekturer fungerar händelsehubbar ofta som ”dörren” för en 
 
 Event Hubs tillhandahåller funktioner för hantering av meddelandeströmmar men har egenskaper som skiljer sig från traditionell meddelandehantering för företag. Funktionerna i Event Hubs är byggda för scenarier med högt genomflöde och intensiv händelsebearbetning. Event Hubs skiljer sig därmed från [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)-meddelanden och implementerar inte vissa av de funktioner som är tillgängliga för [Service Bus](/azure/service-bus-messaging/)-meddelandeentiteter, till exempel avsnitt.
 
-<a id="event-hubs-features" class="xliff"></a>
-
-## Event Hubs-funktioner
+## <a name="event-hubs-features"></a>Event Hubs-funktioner
 
 Event Hubs innehåller följande viktiga element:
 
@@ -66,9 +58,7 @@ Event Hubs innehåller följande viktiga element:
 
 Teknisk information om de här och andra Event Hubs-funktioner finns i [översikten över Event Hubs-funktioner](event-hubs-features.md). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Utförlig prisinformation för Event Hubs finns i [Priser för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 

@@ -24,17 +24,14 @@ ms.lasthandoff: 06/09/2017
 
 ---
 
-# Distribuera en app för automatisk skalning med en mall
-<a id="deploy-an-autoscaling-app-using-a-template" class="xliff"></a>
+# <a name="deploy-an-autoscaling-app-using-a-template"></a>Distribuera en app för automatisk skalning med en mall
 
 [Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) är ett bra sätt att distribuera grupper av relaterade resurser. Den här kursen bygger på [Distribuera en enkel skaluppsättning](virtual-machine-scale-sets-mvss-start.md) och beskriver hur du distribuerar ett enkelt program med autoskalning på en skaluppsättning med en Azure Resource Manager-mall.  Du kan också ställa in autoskalning med PowerShell, CLI eller portalen. Mer information finns i [Översikt för autoskala](virtual-machine-scale-sets-autoscale-overview.md).
 
-## Två snabbstartmallar
-<a id="two-quickstart-templates" class="xliff"></a>
+## <a name="two-quickstart-templates"></a>Två snabbstartmallar
 När du distribuerar en skaluppsättning du kan installera ny programvara på en plattformbild med ett [VM-tillägg](../virtual-machines/virtual-machines-windows-extensions-features.md). Ett VM-tilläggt är ett litet program som innehåller en färdig konfiguration och automatisering av uppgifter på virtuella Azure-datorer, till exempel att distribuera en app. Två olika exempelmallar finns i [Azure/azure-snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates) som visar hur du distribuerar ett autoskalningsprogram på en skaluppsättning som anges med VM-tillägg.
 
-### Python-HTTP-servern på Linux
-<a id="python-http-server-on-linux" class="xliff"></a>
+### <a name="python-http-server-on-linux"></a>Python-HTTP-servern på Linux
 Exempelmallen [Python HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) distribuerar ett enkelt autoskalningsprogram som körs på en Linux-skaluppsättning.  [Bottle](http://bottlepy.org/docs/dev/), ett Python webwramverk och en enkel HTTP-server distribueras på varje virtuell dator i skaluppsättningen med ett anpassat skript för VM-tillägget. Skaluppsättningen skalar upp när den genomsnittliga CPU-användningen över alla virtuella datorer är större än 60 % och skalar ner när den genomsnittliga CPU-användningen är mindre än 30 %.
 
 Förutom skaluppsättningsresursen deklarerar exempelmallen *azuredeploy.json* också virtuella nätverk, offentlig IP-adress, belastningsutjämnare och resurser för inställning av autoskala.  Mer information om hur du skapar dessa resurser i en mall finns i [Linux-skala med autoskala](virtual-machine-scale-sets-linux-autoscale.md).
@@ -64,8 +61,7 @@ I mallen *azuredeploy.json* anger `extensionProfile`-egenskapen för `Microsoft.
           }
 ```
 
-### ASP.NET MVC-appen i Windows
-<a id="aspnet-mvc-application-on-windows" class="xliff"></a>
+### <a name="aspnet-mvc-application-on-windows"></a>ASP.NET MVC-appen i Windows
 Exempelmallen [ASP.NET MVC-appen i Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) distribuerar en enkel ASP.NET MVC-app som körs i IIS på Windows-skaluppsättning.  IIS och MVC-appen distribueras med VM-tillägget [PowerShell önskad tillståndskonfiguration (DSC)](virtual-machine-scale-sets-dsc.md).  Skaluppsättningen skalar upp (en VM-instans i taget) när CPU-användning är större än 50 % under 5 minuter. 
 
 Förutom skaluppsättningsresursen deklarerar exempelmallen *azuredeploy.json* också virtuella nätverk, offentlig IP-adress, belastningsutjämnare och resurser för inställning av autoskala. Den här mallen visas också uppgradering av programmet.  Mer information om hur du skapar dessa resurser i en mall finns i [Windows-skala med autoskala](virtual-machine-scale-sets-windows-autoscale.md).
@@ -100,12 +96,10 @@ I mallen *azuredeploy.json* anger resursen `extensionProfile` egenskapen för `M
           }
 ```
 
-## Distribuera mallen
-<a id="deploy-the-template" class="xliff"></a>
+## <a name="deploy-the-template"></a>Distribuera mallen
 Det enklaste sättet att distribuera [Python HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) eller mallen [ASP.NET MVC-program på Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) är att använda knappen **Distribuera till Azure** som finns i readme-filerna i GitHub.  Du kan också använda PowerShell eller Azure CLI för att distribuera exempelmallarna.
 
-### PowerShell
-<a id="powershell" class="xliff"></a>
+### <a name="powershell"></a>PowerShell
 Kopiera [Python HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) eller filerna [ASP.NET MVC-appen i Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) från GitHub-lagringsplatsen till en mapp på den lokala datorn.  Öppna filen *azuredeploy.parameters.json* och uppdatera standardvärdena för parametrarna `vmssName`, `adminUsername` och `adminPassword`. Spara följande PowerShell-skript till *deploy.ps1* i samma mapp som mallen *azuredeploy.json*. För att distribuera exempelmallen, kör skriptet *deploy.ps1* från en PowerShell-kommandotolk.
 
 ```powershell
@@ -192,8 +186,7 @@ if(Test-Path $parametersFilePath) {
 }
 ```
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 

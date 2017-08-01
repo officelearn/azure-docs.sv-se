@@ -22,11 +22,9 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-# Aktivera Azure Active Directory Domain Services (förhandsversion)
-<a id="enable-azure-active-directory-domain-services-preview" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-preview"></a>Aktivera Azure Active Directory Domain Services (förhandsversion)
 
-## Uppgift 4 – uppdatera DNS-inställningarna för det virtuella Azure-nätverket
-<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Uppgift 4 – uppdatera DNS-inställningarna för det virtuella Azure-nätverket
 I de tidigare konfigurationsuppgifterna har du aktiverat Azure Active Directory Domain Services för katalogen. Härnäst ska du se till att datorerna i det virtuella nätverket kan ansluta och använda tjänsterna. I den här artikeln får du uppdatera DNS-serverinställningarna för det virtuella nätverket så att de pekar på de bägge IP-adresserna där Azure Active Directory Domain Services är tillgängliga i det virtuella nätverket.
 
 Utför följande konfigurationssteg för att uppdatera DNS-serverinställningen för det virtuella nätverket där Azure Active Directory Domain Services har aktiverats:
@@ -50,7 +48,6 @@ Utför följande konfigurationssteg för att uppdatera DNS-serverinställningen 
 >
 >
 
-## Nästa steg
-<a id="next-step" class="xliff"></a>
+## <a name="next-step"></a>Nästa steg
 Uppgift 5: [aktivera lösenordssynkronisering med Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
 

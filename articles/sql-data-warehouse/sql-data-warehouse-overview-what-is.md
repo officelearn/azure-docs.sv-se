@@ -23,8 +23,7 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-# Vad är Azure SQL Data Warehouse?
-<a id="what-is-azure-sql-data-warehouse" class="xliff"></a>
+# <a name="what-is-azure-sql-data-warehouse"></a>Vad är Azure SQL Data Warehouse?
 Azure SQL Data Warehouse är en molnbaserad, skalbar, relationell databas med Massivt Parallell Bearbetning (MPP) som kan bearbeta massiva mängder data. 
 
 SQL Data Warehouse:
@@ -38,8 +37,7 @@ SQL Data Warehouse:
 
 Den här artikeln beskriver de viktigaste funktionerna i SQL Data Warehouse.
 
-## MPP-arkitektur (Massively Parallel Processing)
-<a id="massively-parallel-processing-architecture" class="xliff"></a>
+## <a name="massively-parallel-processing-architecture"></a>MPP-arkitektur (Massively Parallel Processing)
 SQL Data Warehouse är ett distribuerat MPP-databassystem. I bakgrunden sprider SQL Data Warehouse dina data mellan många SN-baserade (shared-nothing) lagrings- och bearbetningsenheter. Data lagras i ett lokalt redundant Premium-lagringslager ovanpå, på vilket dynamiskt länkade Compute-noder kör frågor. SQL Data Warehouse bygger på en D&C-modell (”divide and conquer”) för belastningar som körs och komplexa frågor. Begäranden tas emot av kontrollnoden, optimeras för distribution och skickas sedan till Compute-noder som utför arbetet parallellt.
 
 Med fristående lagringsutrymme och databearbetning kan SQL Data Warehouse:
@@ -61,8 +59,7 @@ Följande diagram illustrerar arkitekturen i detalj.
 
 **DMS (Data Movement Service):** DMS-tjänsten flyttar data mellan noderna. DMS ger Compute-noderna åtkomst till de data de behöver för kopplingar och aggregeringar. DMS är inte en Azure-tjänst. Det är en Windows-tjänst som körs samtidigt som SQL Database på alla noderna. DMS är en bakgrundsprocess som inte går att interagera med direkt. När du tittar på frågeplaner kommer du dock att se när DMS-åtgärder sker eftersom det är nödvändigt att flytta data för att köra varje fråga parallellt.
 
-## Optimerad för arbetsbelastningar i informationslager
-<a id="optimized-for-data-warehouse-workloads" class="xliff"></a>
+## <a name="optimized-for-data-warehouse-workloads"></a>Optimerad för arbetsbelastningar i informationslager
 MPP-modellen har ett antal prestandaoptimeringar som är särskilt utformade för hantering av informationslager, t.ex.:
 
 * En distribuerad frågeoptimerare och en uppsättning komplex statistik för alla data. Med information om datastorlek och distribution kan tjänsten optimera frågor genom att uppskatta kostnaden för specifika distribuerade frågeåtgärder.
@@ -70,8 +67,7 @@ MPP-modellen har ett antal prestandaoptimeringar som är särskilt utformade fö
 * Grupperade **columnstore**-index (kolumnlagringsindex) som standard. Genom att använda kolumnbaserad lagring får SQL Data Warehouse ut upp till i genomsnitt 5 gånger så hög komprimering jämfört med traditionell, radbaserad lagring och upp till minst 10 gånger så höga frågeprestanda. Analytics-frågor som behöver skanna ett stort antal rader fungerar bättre på kolumnlagringsindex.
 
 
-## Förutsägbara och skalbara prestanda med informationslagerenheter
-<a id="predictable-and-scalable-performance-with-data-warehouse-units" class="xliff"></a>
+## <a name="predictable-and-scalable-performance-with-data-warehouse-units"></a>Förutsägbara och skalbara prestanda med informationslagerenheter
 SQL Data Warehouse är byggt med liknande teknik som SQL Database, vilket innebär att experter kan förvänta sig konsekventa och förutsägbara prestanda för analytiska frågor. Användarna kan förvänta sig att se prestanda skalas linjärt när de lägger till eller tar bort Compute-noder. Allokeringen av resurser till SQL Data Warehouse mäts i informationslagerenheter (DWU, Data Warehouse Unit). DWU är ett mått på underliggande resurser, t.ex. CPU, minne och IOPS, som allokeras till SQL Data Warehouse. Om antalet DWU-enheter ökar, ökar resurserna och prestanda. Mer specifikt ser DWU-enheterna till att:
 
 * Du kan skala informationslagret utan att behöva bry dig om underliggande maskinvara eller programvara.
@@ -88,8 +84,7 @@ DWU-enheter ger ett mått på tre mätvärden med stark korrelation till informa
 
 **CTAS (Create Table As Select):** CTAS mäter möjligheten att kopiera en tabell. Den här processen läser data från lagring, distribuerar dessa data till enhetens noder och skriver dem till lagringen igen. Det här är en processor-, I/O- och nätverksintensiv åtgärd.
 
-## Bygger på SQL Server
-<a id="built-on-sql-server" class="xliff"></a>
+## <a name="built-on-sql-server"></a>Bygger på SQL Server
 SQL Data Warehouse baseras på SQL Servers relationsdatabasmotor och innehåller flera av de funktioner som du förväntar dig från ett informationslager i företagsklass. Om du redan har erfarenhet av T-SQL är det lätt att överföra din kunskap till SQL Data Warehouse. Oavsett om du har avancerade kunskaper eller bara precis kommit igång, så kommer exemplen i dokumentationen att hjälpa dig på traven. Generellt sett så kan du tänka på sättet som vi byggt de språkliga elementen i SQL Data Warehouse på följande vis:
 
 * SQL Data Warehouse använder T-SQL-syntaxen för många åtgärder. Det finns också stöd för en omfattande uppsättning traditionella SQL-konstruktioner som lagrade procedurer, användardefinierade funktioner, tabellpartitionering, index och sortering.
@@ -98,12 +93,10 @@ SQL Data Warehouse baseras på SQL Servers relationsdatabasmotor och innehåller
 
 Med Transact-SQL och funktionslikheterna mellan SQL Server, SQL Data Warehouse, SQL Database och Analytics Platform System, kan du utveckla en lösning som passar dina databehov. Du kan själv välja var du vill ha dina data, baserat på prestanda-, säkerhets- och skalningskrav och kan sedan överföra dina data vid behov mellan olika system.
 
-## Dataskydd
-<a id="data-protection" class="xliff"></a>
+## <a name="data-protection"></a>Dataskydd
 SQL Data Warehouse lagrar alla data i lokalt redundant Azure Premium-lagring. Flera synkrona kopior av data bevaras i det lokala datacentret för att garantera transparent dataskydd vid lokaliserade fel. Dessutom säkerhetskopierar SQL Data Warehouse automatiskt dina aktiva (inte pausade) databaser med jämna mellanrum med hjälp av Azure Storage-ögonblicksbilder. Mer information om hur du säkerhetskopierar och återställer arbete finns i [Översikt över säkerhetskopiering och återställning][Backup and restore overview].
 
-## Integrerat med Microsoft-verktyg
-<a id="integrated-with-microsoft-tools" class="xliff"></a>
+## <a name="integrated-with-microsoft-tools"></a>Integrerat med Microsoft-verktyg
 SQL Data Warehouse integrerar även många av verktygen som SQL Server-användare är bekanta med. Dessa verktyg innefattar:
 
 **Traditionella SQL Server-verktyg:** SQL Data Warehouse är helt integrerat med SQL Server Analysis Services, Integration Services och Reporting Services.
@@ -112,20 +105,17 @@ SQL Data Warehouse integrerar även många av verktygen som SQL Server-användar
 
 **Verktyg från tredje part:** Många leverantörer av tredjepartsverktyg har certifierad integrering av sina verktyg med SQL Data Warehouse. En fullständig lista finns i [SQL Data Warehouse-samarbetspartner][SQL Data Warehouse solution partners].
 
-## Scenarier för hybriddatakällor
-<a id="hybrid-data-sources-scenarios" class="xliff"></a>
+## <a name="hybrid-data-sources-scenarios"></a>Scenarier för hybriddatakällor
 Med PolyBase kan du utnyttja data från olika källor med hjälp av välbekanta T-SQL-kommandon. Med PolyBase kan du skicka frågor mot icke-relationella data som finns i Azure Blob Storage precis som om det var en vanlig tabell. Använd Polybase för att fråga icke-relationella data, eller importera dina icke-relationella data till SQL Data Warehouse.
 
 * PolyBase använder sig av externa tabeller för att få åtkomst till icke-relationella data. Tabelldefinitionerna lagras i SQL Data Warehouse och du kan komma åt dem med hjälp av SQL och verktyg på samma sätt som du kommer åt normala relationsdata.
 * Polybase är integreringsneutralt. Det visar samma funktioner och egenskaper för alla källor som det stöder. Data läses av Polybase kan vara i en rad olika format, inklusive avgränsade eller ORC-filer.
 * PolyBase kan användas för att få åtkomst till Blob Storage som också används som lagringsplats för ett HDInsight-kluster. På så sätt kan du komma åt samma data med verktyg för både relationella och icke-relationella data.
 
-## SLA
-<a id="sla" class="xliff"></a>
+## <a name="sla"></a>SLA
 SQL Data Warehouse erbjuder ett servicenivåavtal (SLA) på produktnivå som en del av serviceavtalet för Microsoft Online Services. Mer information finns på sidan om [SLA för SQL Data Warehouse][SLA for SQL Data Warehouse]. SLA-information om övriga produkter finns på Azure-sidan med [serviceavtal]. Du kan även hämta dem på sidan med [volymlicensiering][Volume Licensing]. 
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt [skapar ett SQL Data Warehouse][create a SQL Data Warehouse] och [läsa in exempeldata][load sample data]. Om du inte har erfarenhet av Azure kan [Azure-ordlistan][Azure glossary] vara till hjälp om du stöter på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
 
 * [Kundernas framgångsberättelser]

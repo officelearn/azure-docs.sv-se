@@ -23,9 +23,7 @@ ms.lasthandoff: 07/01/2017
 
 ---
 
-<a id="get-started-with-azure-data-lake-store-using-python" class="xliff"></a>
-
-# Komma igång med Azure Data Lake Store med hjälp av Python
+# <a name="get-started-with-azure-data-lake-store-using-python"></a>Komma igång med Azure Data Lake Store med hjälp av Python
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
@@ -41,9 +39,7 @@ ms.lasthandoff: 07/01/2017
 
 Lär dig hur du använder Python SDK för Azure och Azure Data Lake Store för att utföra grundläggande åtgärder som att skapa mappar, överföra och hämta datafiler osv. Mer information om Data Lake finns i [Azure Data Lake Store](data-lake-store-overview.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Krav
+## <a name="prerequisites"></a>Krav
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.5.2.
 
@@ -51,9 +47,7 @@ Lär dig hur du använder Python SDK för Azure och Azure Data Lake Store för a
 
 * **Skapa ett program i Azure Active Directory**. Du kan använda Azure AD-program för att autentisera Data Lake Store-program med Azure AD. Det finns olika sätt att autentisera med Azure AD: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
 
-<a id="install-the-modules" class="xliff"></a>
-
-## Installera modulerna
+## <a name="install-the-modules"></a>Installera modulerna
 
 Du måste installera tre moduler för att kunna arbeta med Data Lake Store med hjälp av Python.
 
@@ -69,9 +63,7 @@ pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
 ```
 
-<a id="create-a-new-python-application" class="xliff"></a>
-
-## Skapa ett nytt Python-program
+## <a name="create-a-new-python-application"></a>Skapa ett nytt Python-program
 
 1. Skapa ett nytt Python-program i valfritt IDE, t.ex. **mysample.py**.
 
@@ -104,9 +96,7 @@ pip install azure-datalake-store
 
 3. Spara ändringarna i mysample.py.
 
-<a id="authentication" class="xliff"></a>
-
-## Autentisering
+## <a name="authentication"></a>Autentisering
 
 I det här avsnittet tittar vi på hur du kan autentisera med Azure AD på olika sätt. De tillgängliga alternativen är:
 
@@ -116,9 +106,7 @@ I det här avsnittet tittar vi på hur du kan autentisera med Azure AD på olika
 
 Du måste använda dessa autentiseringsalternativ för både kontohanterings- och filsystemhanteringsmoduler.
 
-<a id="end-user-authentication-for-account-management" class="xliff"></a>
-
-### Slutanvändarautentisering för kontohantering
+### <a name="end-user-authentication-for-account-management"></a>Slutanvändarautentisering för kontohantering
 
 Använd den här metoden om du vill autentisera med Azure AD för kontohanteringsåtgärder (skapa/ta bort Data Lake Store-konto osv.). Du måste ange användarnamn och lösenord för en Azure AD-användare. Observera att användaren inte bör konfigureras för multifaktorautentisering.
 
@@ -127,9 +115,7 @@ Använd den här metoden om du vill autentisera med Azure AD för kontohantering
 
     credentials = UserPassCredentials(user, password)
 
-<a id="end-user-authentication-for-filesystem-operations" class="xliff"></a>
-
-### Slutanvändarautentisering för filsystemsåtgärder
+### <a name="end-user-authentication-for-filesystem-operations"></a>Slutanvändarautentisering för filsystemsåtgärder
 
 Använd den här metoden om du vill autentisera med Azure AD för filsystemsåtgärder (skapa mapp, överför fil osv.). Använd den här metoden med ett befintligt **inbyggt Azure AD-klientprogram**. Den Azure AD-användare som du anger autentiseringsuppgifter för bör inte konfigureras för multifaktorautentisering.
 
@@ -140,25 +126,19 @@ Använd den här metoden om du vill autentisera med Azure AD för filsystemsåtg
 
     token = lib.auth(tenant_id, user, password, client_id)
 
-<a id="service-to-service-authentication-with-client-secret-for-account-management" class="xliff"></a>
-
-### ”Tjänst till tjänst”-autentisering med klienthemlighet för kontohantering
+### <a name="service-to-service-authentication-with-client-secret-for-account-management"></a>”Tjänst till tjänst”-autentisering med klienthemlighet för kontohantering
 
 Använd den här metoden om du vill autentisera med Azure AD för kontohanteringsåtgärder (skapa/ta bort Data Lake Store-konto osv.). Du kan använda följande kodfragment för att autentisera ditt program icke-interaktivt, med hjälp av klienthemligheten för ett program/tjänstobjekt. Använd detta med ett befintligt Azure AD-webbappsprogram.
 
     credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
 
-<a id="service-to-service-authentication-with-client-secret-for-filesystem-operations" class="xliff"></a>
-
-### Tjänst-till-tjänst-autentisering med klienthemlighet för filsystemsåtgärder
+### <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>Tjänst-till-tjänst-autentisering med klienthemlighet för filsystemsåtgärder
 
 Använd den här metoden om du vill autentisera med Azure AD för filsystemsåtgärder (skapa mapp, överför fil osv.). Du kan använda följande kodfragment för att autentisera ditt program icke-interaktivt, med hjälp av klienthemligheten för ett program/tjänstobjekt. Använd detta med ett befintligt Azure AD-webbappsprogram.
 
     token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
 
-<a id="multi-factor-authentication-for-account-management" class="xliff"></a>
-
-### Multifaktorautentisering för kontohantering
+### <a name="multi-factor-authentication-for-account-management"></a>Multifaktorautentisering för kontohantering
 
 Använd den här metoden om du vill autentisera med Azure AD för kontohanteringsåtgärder (skapa/ta bort Data Lake Store-konto osv.). Följande kodfragment kan användas för att autentisera ditt program med multifaktorautentisering. Använd detta med ett befintligt Azure AD-webbappsprogram.
 
@@ -175,17 +155,13 @@ Använd den här metoden om du vill autentisera med Azure AD för kontohantering
     mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
     credentials = AADTokenCredentials(mgmt_token, client_id)
 
-<a id="multi-factor-authentication-for-filesystem-management" class="xliff"></a>
-
-### Multifaktorautentisering för hantering av filsystem
+### <a name="multi-factor-authentication-for-filesystem-management"></a>Multifaktorautentisering för hantering av filsystem
 
 Använd den här metoden om du vill autentisera med Azure AD för filsystemsåtgärder (skapa mapp, överför fil osv.). Följande kodfragment kan användas för att autentisera ditt program med multifaktorautentisering. Använd detta med ett befintligt Azure AD-webbappsprogram.
 
     token = lib.auth(tenant_id='FILL-IN-HERE')
 
-<a id="create-an-azure-resource-group" class="xliff"></a>
-
-## Skapa en Azure-resursgrupp
+## <a name="create-an-azure-resource-group"></a>Skapa en Azure-resursgrupp
 
 Använd följande kodfragment för att skapa en Azure-resursgrupp:
 
@@ -208,9 +184,7 @@ Använd följande kodfragment för att skapa en Azure-resursgrupp:
         )
     )
 
-<a id="create-clients-and-data-lake-store-account" class="xliff"></a>
-
-## Skapa klienter och Data Lake Store-konto
+## <a name="create-clients-and-data-lake-store-account"></a>Skapa klienter och Data Lake Store-konto
 
 Följande kodfragment skapar först Data Lake Store-klienten. Klientobjektet används för att skapa ett Data Lake Store-konto. Slutligen skapar kodfragmentet ett klientobjekt för filsystemet.
 
@@ -233,9 +207,7 @@ Följande kodfragment skapar först Data Lake Store-klienten. Klientobjektet anv
     ## Create a filesystem client object
     adlsFileSystemClient = core.AzureDLFileSystem(token, store_name=adlsAccountName)
 
-<a id="list-the-data-lake-store-accounts" class="xliff"></a>
-
-## Visa en lista med Data Lake Store-konton
+## <a name="list-the-data-lake-store-accounts"></a>Visa en lista med Data Lake Store-konton
 
     ## List the existing Data Lake Store accounts
     result_list_response = adlsAcctClient.account.list()
@@ -243,39 +215,29 @@ Följande kodfragment skapar först Data Lake Store-klienten. Klientobjektet anv
     for items in result_list:
         print(items)
 
-<a id="create-a-directory" class="xliff"></a>
-
-## Skapa en katalog
+## <a name="create-a-directory"></a>Skapa en katalog
 
     ## Create a directory
     adlsFileSystemClient.mkdir('/mysampledirectory')
 
-<a id="upload-a-file" class="xliff"></a>
-
-## Överför en fil
+## <a name="upload-a-file"></a>Överför en fil
 
 
     ## Upload a file
     multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
 
 
-<a id="download-a-file" class="xliff"></a>
-
-## Hämta en fil
+## <a name="download-a-file"></a>Hämta en fil
 
     ## Download a file
     multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
 
-<a id="delete-a-directory" class="xliff"></a>
-
-## Ta bort en katalog
+## <a name="delete-a-directory"></a>Ta bort en katalog
 
     ## Delete a directory
     adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
-<a id="see-also" class="xliff"></a>
-
-## Se även
+## <a name="see-also"></a>Se även
 
 - [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
 - [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

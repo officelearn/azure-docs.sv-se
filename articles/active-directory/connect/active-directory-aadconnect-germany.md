@@ -22,10 +22,8 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 07/04/2017
 
 ---
-# Azure AD Connect i Microsoft Cloud Tyskland –offentlig förhandsversion
-<a id="azure-ad-connect-in-microsoft-cloud-germany---public-preview" class="xliff"></a>
-## Introduktion
-<a id="introduction" class="xliff"></a>
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect i Microsoft Cloud Tyskland –offentlig förhandsversion
+## <a name="introduction"></a>Introduktion
 Azure AD Connect tillhandahåller synkronisering mellan din lokala Active Directory och Azure Active Directory.
 För närvarande måste många scenarier i [Microsoft Cloud Tyskland](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) utföras av operatören. När du använder Microsoft Cloud Tyskland måste du vara medveten om följande:
 
@@ -39,12 +37,10 @@ För närvarande måste många scenarier i [Microsoft Cloud Tyskland](https://ww
   * Azure AD Connect Health
   * Automatiska uppdateringar
  
-## Ladda ned
-<a id="download" class="xliff"></a>
+## <a name="download"></a>Ladda ned
 Du kan hämta Azure AD Connect från Azure AD Connect-bladet på portalen.  Följ anvisningarna nedan för att hitta Azure AD Connect-bladet.
 
-### Azure AD Connect-bladet
-<a id="the-azure-ad-connect-blade" class="xliff"></a>
+### <a name="the-azure-ad-connect-blade"></a>Azure AD Connect-bladet
 När du har loggat in på Azure-portalen gör du följande:
 
 1. Gå till Bläddra
@@ -63,12 +59,10 @@ I följande tabell beskrivs de funktioner som visas på bladet.
 | SENASTE SYNKRONISERING |Senast tidpunkten då en lyckad synkronisering slutfördes. |
 | FEDERERADE DOMÄNER |Visar antalet federerade domäner som är konfigurerade för tillfället. |
 
-## Installation
-<a id="installation" class="xliff"></a>
+## <a name="installation"></a>Installation
 Du kan använda dokumentationen [här](active-directory-aadconnect.md#install-azure-ad-connect) för att installera Azure AD Connect.
 
-## Avancerade funktioner och ytterligare information
-<a id="advanced-features-and-additional-information" class="xliff"></a>
+## <a name="advanced-features-and-additional-information"></a>Avancerade funktioner och ytterligare information
 För ytterligare information och riktlinjer för anpassade inställningar eller avancerade konfigurationer kan du börja med [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).  Den här sidan innehåller information och länkar till ytterligare vägledning.
 
 

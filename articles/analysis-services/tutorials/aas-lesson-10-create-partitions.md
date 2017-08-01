@@ -22,9 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-10-create-partitions" class="xliff"></a>
-
-# Lektion 10: Skapa partitioner
+# <a name="lesson-10-create-partitions"></a>Lektion 10: Skapa partitioner
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,18 +30,12 @@ Under den här lektionen skapar du partitioner för att dela upp tabellen FactIn
   
 Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Krav  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 9: Skapa hierarkier](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
-<a id="create-partitions" class="xliff"></a>
-
-## Skapa partitioner  
+## <a name="create-partitions"></a>Skapa partitioner  
   
-<a id="to-create-partitions-in-the-factinternetsales-table" class="xliff"></a>
-
-#### Skapa ytterligare partitioner i tabellen FactInternetSales  
+#### <a name="to-create-partitions-in-the-factinternetsales-table"></a>Skapa ytterligare partitioner i tabellen FactInternetSales  
   
 1.  Expandera **Tabeller** i tabellmodellutforskaren och högerklicka på **FactInternetSales** > **Partitioner**.  
   
@@ -72,9 +64,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
     Åtgärdssatsen anger att den här partitionen endast ska ta med data i de rader där OrderDate är i kalenderåret 2010 i enlighet med filtrerade rader-satsen.  
   
   
-<a id="to-create-a-partition-for-the-2011-year" class="xliff"></a>
-
-#### Så här skapar du en partition för år 2011  
+#### <a name="to-create-a-partition-for-the-2011-year"></a>Så här skapar du en partition för år 2011  
   
 1.  I listan över partitioner klickar du på partitionen **FactInternetSales2010** som du skapade och sedan på **Kopiera**.  Ändra partitionsnamnet till **FactInternetSales2011**. 
 
@@ -93,33 +83,23 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
    
     ```  
   
-<a id="to-create-partitions-for-2012-2013-and-2014" class="xliff"></a>
-
-#### Så här skapar du partitioner för 2012, 2013 och 2014.  
+#### <a name="to-create-partitions-for-2012-2013-and-2014"></a>Så här skapar du partitioner för 2012, 2013 och 2014.  
   
 - Följ de tidigare stegen och skapa partitioner för 2012, 2013 och 2014 genom att ändra åren i filtrerade rader-satsen så att den endast tar med rader för det aktuella året. 
   
 
-<a id="delete-the-factinternetsales-partition" class="xliff"></a>
-
-## Ta bort partitionen FactInternetSales
+## <a name="delete-the-factinternetsales-partition"></a>Ta bort partitionen FactInternetSales
 Nu när du har partitioner för varje år kan du ta bort partitionen FactInternetSales, vilket förhindrar överlappning när du väljer Bearbeta alla när du bearbetar partitioner.
 
-<a id="to-delete-the-factinternetsales-partition" class="xliff"></a>
-
-#### Så här gör du för att ta bort partitionen FactInternetSales
+#### <a name="to-delete-the-factinternetsales-partition"></a>Så här gör du för att ta bort partitionen FactInternetSales
 -  Klicka på partitionen FactInternetSales och sedan på **Ta bort**.
 
 
 
-<a id="process-partitions" class="xliff"></a>
-
-## Bearbeta partitioner  
+## <a name="process-partitions"></a>Bearbeta partitioner  
 Observera att varje ny partition du skapat inte har bearbetats, vilket visas i kolumnen **Senast bearbetad** i partitionshanteraren. När du skapar partitioner bör du köra en Bearbeta partitioner- eller Bearbeta tabell-åtgärd för att uppdatera data i dessa partitioner.  
   
-<a id="to-process-the-factinternetsales-partitions" class="xliff"></a>
-
-#### Så här gör du för att bearbeta FactInternetSales-partitionerna  
+#### <a name="to-process-the-factinternetsales-partitions"></a>Så här gör du för att bearbeta FactInternetSales-partitionerna  
   
 1.  Stäng partitionshanteraren genom att klicka på **OK**.  
   
@@ -137,8 +117,6 @@ Observera att varje ny partition du skapat inte har bearbetats, vilket visas i k
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
-<a id="whats-next" class="xliff"></a>
-
- ## Nästa steg
+ ## <a name="whats-next"></a>Nästa steg
 Gå till nästa lektion: [Lektion 11: Skapa roller](../tutorials/aas-lesson-11-create-roles.md). 
 

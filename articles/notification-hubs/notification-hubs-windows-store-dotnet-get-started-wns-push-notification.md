@@ -22,24 +22,20 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-# Komma igång med Notification Hubs för Windows Universal-plattformsappar
-<a id="getting-started-with-notification-hubs-for-windows-universal-platform-apps" class="xliff"></a>
+# <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Komma igång med Notification Hubs för Windows Universal-plattformsappar
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Översikt
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Översikt
 I de här självstudierna beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Windows Universal-plattformsapp.
 
 I denna självstudiekurs skapar du en tom Windows Store-app som tar emot push-meddelanden med hjälp av Windows Push Notification Service (WNS). När du är klar kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör appen.
 
-## Innan du börjar
-<a id="before-you-begin" class="xliff"></a>
+## <a name="before-you-begin"></a>Innan du börjar
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
 Den färdiga koden för den här självstudiekursen hittar du på GitHub [här](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
-## Krav
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Krav
 För den här kursen behöver du följande:
 
 * [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) eller senare
@@ -49,8 +45,7 @@ För den här kursen behöver du följande:
 
 Du måste slutföra de här självstudierna innan du påbörjar någon annan kurs om Notification Hubs för Windows Universal-plattformsappar.
 
-## Registrera din app för Windows Store
-<a id="register-your-app-for-the-windows-store" class="xliff"></a>
+## <a name="register-your-app-for-the-windows-store"></a>Registrera din app för Windows Store
 Om du vill skicka push-meddelanden till UWP-appar, måste du associera din app med Windows Store. Sedan måste du konfigurera meddelandehubben för att integrera den med WNS.
 
 1. Om du inte redan har registrerat appen navigerar du till [Windows Dev Center](https://dev.windows.com/overview), loggar in med ditt Microsoft-konto och klickar sedan på **Skapa en ny app**.
@@ -85,8 +80,7 @@ Om du vill skicka push-meddelanden till UWP-appar, måste du associera din app m
      > [AZURE.WARNING]
     Programhemligheten och paket-SID:et är viktiga säkerhetsuppgifter. Lämna aldrig ut dessa uppgifter till någon och distribuera dem inte tillsammans med din app.
 
-## Konfigurera meddelandehubben
-<a id="configure-your-notification-hub" class="xliff"></a>
+## <a name="configure-your-notification-hub"></a>Konfigurera meddelandehubben
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
@@ -98,8 +92,7 @@ Om du vill skicka push-meddelanden till UWP-appar, måste du associera din app m
 
 Din meddelandehubb har nu konfigurerats för att fungera med WNS och du har anslutningssträngar för att registrera din app och skicka meddelanden.
 
-## Anslut appen till meddelandehubben
-<a id="connect-your-app-to-the-notification-hub" class="xliff"></a>
+## <a name="connect-your-app-to-the-notification-hub"></a>Anslut appen till meddelandehubben
 1. Högerklicka på lösningen i Vision Studio och klicka sedan på **Hantera NuGet-paket**.
    
     Dialogrutan **Hantera NuGet-paket** öppnas.
@@ -149,8 +142,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med WNS och du har ansl
 
 Appen är nu redo att ta emot popup-meddelanden.
 
-## Skicka meddelanden
-<a id="send-notifications" class="xliff"></a>
+## <a name="send-notifications"></a>Skicka meddelanden
 Du kan snabbt testa att ta emot meddelanden i appen genom att skicka meddelanden [Azure Portal](https://portal.azure.com/) med knappen **Testsänd** i meddelandehubben, så som visas på skärmen nedan.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
@@ -165,8 +157,7 @@ I den här enkla självstudiekursen visar vi hur du testar klientappen genom att
 * **Azure Mobile Apps**: För ett exempel på hur man skickar meddelanden från en Azure Mobile App som är integrerad med Notification Hubs, kan du gå till [Lägg till Push-meddelanden för Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 * **Java/PHP**: Ett exempel på hur du skickar meddelanden med hjälp av REST-API finns i avsnittet Använda Notification Hubs från Java/PHP ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
-## (Valfritt) Skicka meddelanden från en konsolapp
-<a id="optional-send-notifications-from-a-console-app" class="xliff"></a>
+## <a name="optional-send-notifications-from-a-console-app"></a>(Valfritt) Skicka meddelanden från en konsolapp
 Följ anvisningarna nedan om du vill skicka meddelanden med hjälp av ett .NET-konsolprogram. 
 
 1. Högerklicka på lösningen, välj **Lägg till** och **Nytt projekt...** och klicka sedan på **Windows** och **Konsolprogram** under **Visual C#**. Slutligen klickar du på **OK**.
@@ -215,8 +206,7 @@ Följ anvisningarna nedan om du vill skicka meddelanden med hjälp av ett .NET-k
 
 Du hittar alla nyttolaster som stöds under ämnena [toast catalog] (katalog över popup-meddelanden), [tile catalog] (katalog över paneler) och [badge overview] (översikt över aktivitetsikoner) på MSDN.
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 I det här enkla exemplet skickar du broadcast-meddelanden till alla dina Windows-enheter med hjälp av portalen eller ett konsolprogram. Vi rekommenderar att du går vidare med självstudiekursen [Använda Notification Hubs för att skicka push-meddelanden till användare] som nästa steg. Den visar hur du skickar meddelanden från en ASP.NET-backend med hjälp av taggar för att rikta in dig på vissa specifika användare.
 
 Om du vill dela in användarna efter intressegrupper, kan du gå till [Använda Notification Hubs för att skicka de senaste nyheterna]. 

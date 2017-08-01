@@ -22,8 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-# Lektion 7: Skapa KPI:er
-<a id="lesson-7-create-key-performance-indicators" class="xliff"></a>
+# <a name="lesson-7-create-key-performance-indicators"></a>Lektion 7: Skapa KPI:er
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -31,15 +30,12 @@ I den här lektionen skapar du KPI:er. KPI: er används för att mäta prestanda
   
 Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
   
-## Krav
-<a id="prerequisites" class="xliff"></a>  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna i den här lektionen måste du ha slutfört den föregående lektionen: [Lektion 6: Skapa mått](../tutorials/aas-lesson-6-create-measures.md).   
   
-## Skapa KPI:er
-<a id="create-key-performance-indicators" class="xliff"></a>  
+## <a name="create-key-performance-indicators"></a>Skapa KPI:er  
   
-#### Så här skapar du en InternetCurrentQuarterSalesPerformance-KPI
-<a id="to-create-an-internetcurrentquartersalesperformance-kpi" class="xliff"></a>  
+#### <a name="to-create-an-internetcurrentquartersalesperformance-kpi"></a>Så här skapar du en InternetCurrentQuarterSalesPerformance-KPI  
   
 1.  Klicka på tabellen **FactInternetSales** i modelldesignern.  
   
@@ -70,8 +66,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
     Observera ikonen bredvid måttet **InternetCurrentQuarterSalesPerformance** i rutnätet för mått. Den här ikonen anger att det här måttet är basvärdet för en KPI.  
   
-#### Så här skapar du en InternetCurrentQuarterMarginPerformance-KPI
-<a id="to-create-an-internetcurrentquartermarginperformance-kpi" class="xliff"></a>  
+#### <a name="to-create-an-internetcurrentquartermarginperformance-kpi"></a>Så här skapar du en InternetCurrentQuarterMarginPerformance-KPI  
   
 1.  Klicka på en tom cell i rutnätet för mått för tabellen **FactInternetSales**.  
   
@@ -89,8 +84,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
 6.  I **Välj ikonformat** väljer du ikontypen romb (röd), triangel (gul), cirkel (grön). Klicka sedan på **OK**.  
   
-## Nästa steg
-<a id="whats-next" class="xliff"></a>
+## <a name="whats-next"></a>Nästa steg
 [Lektion 8: Skapa perspektiv](../tutorials/aas-lesson-8-create-perspectives.md).
   
   

@@ -23,8 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-# Lista över anslutningsappar
-<a id="connectors-list" class="xliff"></a>
+# <a name="connectors-list"></a>Lista över anslutningsappar
 > [!TIP]
 > I den [fullständiga A-Z-listan](#az) (i det här avsnittet) listas alla tillgängliga anslutningsappar du kan använda i Logic Apps. [Information om anslutningen](/connectors/) visar en lista över alla utlösare och åtgärder som definierats i swagger och visar också eventuella gränser för varje anslutning.
 
@@ -40,8 +39,7 @@ Anslutningsappar är en viktig del när du skapar logikappar. Med sådana anslut
 
 I informationen om [Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps/) och [prismodellen](../logic-apps/logic-apps-pricing.md) kan du läsa mer om kostnaderna. 
 
-## Populära anslutningsappar
-<a id="popular-connectors" class="xliff"></a>
+## <a name="popular-connectors"></a>Populära anslutningsappar
 Det finns tusentals program och miljontals körningar som bearbetar data och information med hjälp av dessa anslutningsappar. I följande tabell anges de populäraste och några favoriter hos våra användare:
 
 | |  |  |  |
@@ -54,8 +52,7 @@ Det finns tusentals program och miljontals körningar som bearbetar data och inf
 |  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Om du gör något med SharePoint och kan dra nytta av automatisering rekommenderar vi att du tittar på den här anslutningsappen. Kan användas med lokal SharePoint och SharePoint Online. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | En av de mest använda anslutningsapparna. Den kan ansluta till en lokal SQL Server och en Azure SQL Database. | 
 | [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Logga enkelt in med ett Twitter-konto, och påbörja sedan ett arbetsflöde när en ny tweet postas. Spara sedan dessa tweets till en SQL Database eller SharePoint-lista. | | | 
 
-## Anslutningar för integrationskonton
-<a id="integration-account-connectors" class="xliff"></a> 
+## <a name="integration-account-connectors"></a>Anslutningar för integrationskonton 
 
 Enterprise-integrationspaketet (EIP) innehåller anslutningsappar som är välkända för BizTalk Server-communityn. När du köper ett [integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) får du också följande anslutningsappar: 
 
@@ -65,8 +62,7 @@ Enterprise-integrationspaketet (EIP) innehåller anslutningsappar som är välk�
 [![API Icon][flatfileicon]<br/>**Flatfils</br>kodning**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Flatfils</br>avkodning**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Integrations<br/>konto**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**Omvandla<br/>XML**][xmltransformdoc] |
 | [![API Icon][x12icon]<br/>**X12-</br>avkodning**][x12decode] | [![API Icon][x12icon]<br/>**X12-</br>kodning**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML-<br/>verifiering**][xmlvalidatedoc] | |
 
-## Enterprise-anslutningsappar
-<a id="enterprise-connectors" class="xliff"></a>
+## <a name="enterprise-connectors"></a>Enterprise-anslutningsappar
 
 Anslut dina företagsprogram med dina logikappar.
 
@@ -91,8 +87,7 @@ Anslut dina företagsprogram med dina logikappar.
 > [!TIP]
 > För att komma igång med Azure Logic Apps innan du registrerar dig för ett Azure-konto går du till [Prova Logic Apps](https://tryappservice.azure.com/?appservice=logic). Du kan skapa en kortvarig startlogikapp omedelbart. Inget kreditkort krävs, och du gör inga åtaganden.
 
-## Anslutningsappar som utlösare och åtgärder
-<a id="connectors-as-triggers-and-actions" class="xliff"></a>
+## <a name="connectors-as-triggers-and-actions"></a>Anslutningsappar som utlösare och åtgärder
 
 En **utlösare** startar eller kör en instans på din logikapp. Flera anslutningsappar innehåller utlösare som kan meddela din app när specifika händelser äger rum. FTP-anslutningsappen har till exempel utlösaren `OnUpdatedFile` som meddelar din logikapp när en fil har uppdaterats. 
 
@@ -112,8 +107,7 @@ Anslutningsapparna tillhandahåller också **åtgärder** som du kan använda i 
 > I [översikten över anslutningsappar](connectors-overview.md) finns mer information om utlösare och åtgärder. 
 
 
-## Åtgärder för att manipulera meddelanden
-<a id="message-manipulation-actions" class="xliff"></a>
+## <a name="message-manipulation-actions"></a>Åtgärder för att manipulera meddelanden
 
 Logikappar innehåller inbyggda åtgärder som kan ändra eller manipulera nyttolastdata. Den inbyggda anslutningsappen **Dataåtgärder** innehåller följande åtgärder: 
 
@@ -126,15 +120,13 @@ Logikappar innehåller inbyggda åtgärder som kan ändra eller manipulera nytto
 | **Parsa JSON** | Parsa ut och få åtkomst till värden från ett JSON-objekt i designern. Om till exempel Azure-funktionen returnerar en JSON-nyttolast kan du parsa den för att få åtkomst till JSON-egenskaperna senare i ett annat steg. Åtgärden validerar också att JSON matchar det angivna schemat vid körning. | 
 | **Välj** | Välj vissa egenskaper i en matris för vidare bearbetning. Om du ”listar poster” från SQL och den returnerar 15 kolumner ska du bara välja några av kolumnerna för ytterligare bearbetning. Utdata är en matris som endast innehåller de egenskaper du väljer. |
 
-## Anpassade anslutningsappar och Azure-certifiering
-<a id="custom-connectors-and-azure-certification" class="xliff"></a> 
+## <a name="custom-connectors-and-azure-certification"></a>Anpassade anslutningsappar och Azure-certifiering 
 
 För att anropa API:er som kör anpassad kod eller som inte är tillgängliga som kopplingar kan du [utöka plattformen Logic Apps](../logic-apps/logic-apps-create-api-app.md) genom att skapa REST-baserade API Apps som anpassade kopplingar. 
 
 Om du vill göra dina anpassade API Apps offentliga och använda dem i Azure ska du skicka dina nomineringar till [programmet Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
-## Få hjälp
-<a id="get-help" class="xliff"></a>
+## <a name="get-help"></a>Få hjälp
 
 I [Azure Logic Apps-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) kan du ställa frågor, besvara frågor och sedan vad andra Azure Logic Apps-användare håller på med.
 
@@ -142,8 +134,7 @@ På [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish
 
 Saknar vi ett avsnitt om anslutningsprogram eller någon annan viktig information? Om Ja, hjälpa oss genom att bidra till våra befintliga avsnitt eller skriv ett nytt. Vår dokumentation är öppen källkod och finns på GitHub. Kom igång på vår [GitHub-lagringsplats](https://github.com/Microsoft/azure-docs). 
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 * [Skapa din första logiska app](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Skapa anpassade API:er för logikappar](../logic-apps/logic-apps-create-api-app.md)
 * [Övervaka dina logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md)

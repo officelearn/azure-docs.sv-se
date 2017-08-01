@@ -21,15 +21,13 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-# Konfigurera Application Insights för din ASP.NET-webbplats
-<a id="set-up-application-insights-for-your-aspnet-website" class="xliff"></a>
+# <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
 Den här proceduren konfigurerar din ASP.NET-webbapp för att skicka telemetri till tjänsten [Azure Application Insights](app-insights-overview.md). Den fungerar för ASP.NET-appar som finns i din IIS-server eller i molnet. Du får tillgång till diagram och ett kraftfullt frågespråket som hjälper dig att förstå hur din app presterar och hur människor använder den, plus automatiska aviseringar om fel eller prestandaproblem. Många utvecklare tycker att de här funktionerna är mycket bra som de är, men du kan också utöka och anpassa telemetrin om du behöver.
 
 Installationen kräver bara några klick i Visual Studio. Du har möjlighet att undvika kostnader genom att begränsa mängden telemetri. På så sätt kan du experimentera och felsöka eller övervaka en plats som har få användare. Om du sedan vill gå vidare och övervaka din produktionsplats, är det lätt att höja gränsen vid ett senare tillfälle.
 
-## Innan du börjar
-<a id="before-you-start" class="xliff"></a>
+## <a name="before-you-start"></a>Innan du börjar
 Du behöver:
 
 * Visual Studio 2013 Update 3 eller senare. Senare versioner är att föredra.
@@ -75,12 +73,10 @@ Du ser hur många händelser som har loggats i Visual Studio.
 
 ![Skärmbild av Visual Studio. Knappen Application Insights visas under felsökning.](./media/app-insights-asp-net/54.png)
 
-## Steg 3: Visa din telemetri
-<a id="step-3-see-your-telemetry" class="xliff"></a>
+## <a name="step-3-see-your-telemetry"></a>Steg 3: Visa din telemetri
 Du kan se din telemetri antingen i Visual Studio eller i Application Insights-webbportalen. Sök telemetri i Visual Studio för att felsöka din app. Övervaka prestanda och användning i webbportalen när systemet är aktivt. 
 
-### Visa din telemetri i Visual Studio
-<a id="see-your-telemetry-in-visual-studio" class="xliff"></a>
+### <a name="see-your-telemetry-in-visual-studio"></a>Visa din telemetri i Visual Studio
 
 Öppna fönstret Application Insights i Visual Studio. Klicka antingen på **Application Insights** eller högerklicka på projektet i Solution Explorer, välj **Application Insights** och klicka sedan på alternativet för att **söka i realtidstelemetri**.
 
@@ -94,8 +90,7 @@ I Visual Studio Application Insights-sökfönstret visas vyn **Data från felsö
 [Lär dig mer om Application Insights-verktygen i Visual Studio](app-insights-visual-studio.md).
 
 <a name="monitor"></a>
-### Visa telemetri i webbportalen
-<a id="see-telemetry-in-web-portal" class="xliff"></a>
+### <a name="see-telemetry-in-web-portal"></a>Visa telemetri i webbportalen
 
 Du kan även visa telemetrin i Application Insights-webbportalen (såvida du inte väljer att installera enbart SDK:n). Portalen innehåller fler diagram, analysverktyg och komponentöverskridande vyer än Visual Studio. Portalen visar även aviseringar.
 
@@ -114,8 +109,7 @@ Klicka på valfri ikon eller valfritt diagram i portalen för att visa mer infor
 
 [Läs mer om hur du använder Application Insights på Azure Portal](app-insights-dashboards.md).
 
-## Steg 4: Publicera appen
-<a id="step-4-publish-your-app" class="xliff"></a>
+## <a name="step-4-publish-your-app"></a>Steg 4: Publicera appen
 Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) och se om allt fungerar som det ska.
 
 Du ser din telemetri byggas upp i Application Insights-portalen, där du kan övervaka mått, söka i telemetrin och konfigurera [instrumentpaneler](app-insights-dashboards.md). Du kan också använda det kraftfulla [Analytics-frågespråket](app-insights-analytics.md) för att analysera användning och prestanda eller söka efter specifika händelser.
@@ -136,44 +130,37 @@ Grattis! Du har installerat Application Insights-paketet i din app och konfigure
 Azure-resursen som tar emot din apps telemetri identifieras med en *instrumenteringsnyckel*. Du hittar den här nyckeln i filen ApplicationInsights.config.config.
 
 
-## Uppgradera till framtida SDK-versioner
-<a id="upgrade-to-future-sdk-versions" class="xliff"></a>
+## <a name="upgrade-to-future-sdk-versions"></a>Uppgradera till framtida SDK-versioner
 Om du vill uppgradera till en [ny SDK-version](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) öppnar du **NuGet-pakethanteraren** igen och filtrerar på installerade paket. Markera **Microsoft.ApplicationInsights.Web** och välj **Uppgradera**.
 
 Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av den innan du uppgraderar. Sammanfogar sedan dina ändringar i den nya versionen.
 
-## Video
-<a id="video" class="xliff"></a>
+## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
-### Mer telemetri
-<a id="more-telemetry" class="xliff"></a>
+### <a name="more-telemetry"></a>Mer telemetri
 
 * **[Webbläsare och webbsidesinläsning](app-insights-javascript.md)**  – Infoga ett kodfragment på dina webbsidor.
 * **[Få mer detaljerad beroende- och undantagsövervakning](app-insights-monitor-performance-live-website-now.md)**  – Installera Status Monitor på servern.
 * **[Koda anpassade händelser](app-insights-api-custom-events-metrics.md)** för att räkna, ta tid på eller mäta användaråtgärder.
 * **[Hämta loggdata](app-insights-asp-net-trace-logs.md)**  – Korrelera loggdata med din telemetri.
 
-### Analys
-<a id="analysis" class="xliff"></a>
+### <a name="analysis"></a>Analys
 
 * **[Arbeta med Application Insights i Visual Studio](app-insights-visual-studio.md)**<br/>Innehåller information om att felsöka med telemetri, köra diagnostiksökningar och gå igenom koden.
 * **[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/> Innehåller information om instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, realtidsmappning av beroenden för din app och telemetriexport.
 * **[Analytics](app-insights-analytics-tour.md)** – Kraftfullt frågespråk.
 
-### Aviseringar
-<a id="alerts" class="xliff"></a>
+### <a name="alerts"></a>Aviseringar
 
 * [Tillgänglighetstester](app-insights-monitor-web-app-availability.md): Skapa tester som kan användas för att kontrollera att webbplatsen visas på webben.
 * [Smart diagnostik](app-insights-proactive-diagnostics.md): De här testerna körs automatiskt, så du behöver inte göra något för att konfigurera dem. De berättar om din app har ett ovanligt antal misslyckade begäranden.
 * [Måttaviseringar](app-insights-alerts.md): Används för att varna dig om ett mått överskrider ett tröskelvärde. Du kan ställa in dem för anpassade mätningar som du kodar i din app.
 
-### Automation
-<a id="automation" class="xliff"></a>
+### <a name="automation"></a>Automation
 
 * [Automatisera skapandet av en Application Insights-resurs](app-insights-powershell.md)
 

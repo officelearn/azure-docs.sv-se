@@ -22,9 +22,7 @@ ms.contentlocale: sv-se
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-11-create-roles" class="xliff"></a>
-
-# Lektion 11: Skapa roller
+# <a name="lesson-11-create-roles"></a>Lektion 11: Skapa roller
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -45,18 +43,12 @@ Eftersom Windows-användarkonton och -gruppkonton i din organisation är unika k
   
 Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Krav  
+## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 10: Skapa partitioner](../tutorials/aas-lesson-10-create-partitions.md).  
   
-<a id="create-roles" class="xliff"></a>
-
-## Skapa roller  
+## <a name="create-roles"></a>Skapa roller  
   
-<a id="to-create-a-sales-manager-user-role" class="xliff"></a>
-
-#### Så här skapar du användarrollen Säljchef  
+#### <a name="to-create-a-sales-manager-user-role"></a>Så här skapar du användarrollen Säljchef  
   
 1.  Högerklicka på **Roller** > **Roller** i tabellmodellutforskaren.  
   
@@ -70,9 +62,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
 5.  Valfritt: Klicka på fliken **Medlemmar** och sedan på **Lägg till**. I dialogrutan **Välj användare eller grupper** anger du de Windows-användare eller grupper från din organisation som du vill ska ingå i rollen.  
   
-<a id="to-create-a-sales-analyst-us-user-role" class="xliff"></a>
-
-#### Så här skapar du användarrollen Försäljningsanalytiker, USA  
+#### <a name="to-create-a-sales-analyst-us-user-role"></a>Så här skapar du användarrollen Försäljningsanalytiker, USA  
   
 1.  Klicka på **Ny** i rollhanteraren.    
   
@@ -91,9 +81,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
 6.  Valfritt: Klicka på fliken **Medlemmar** och sedan på **Lägg till**. I dialogrutan **Välj användare eller grupper** anger du de Windows-användare eller grupper från din organisation som du vill ska ingå i rollen.  
   
-<a id="to-create-an-administrator-user-role" class="xliff"></a>
-
-#### Så här skapar du användarrollen Administratör  
+#### <a name="to-create-an-administrator-user-role"></a>Så här skapar du användarrollen Administratör  
   
 1.  Klicka på **Ny**.  
   
@@ -104,9 +92,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
 4.  Valfritt: Klicka på fliken **Medlemmar** och sedan på **Lägg till**. I dialogrutan **Välj användare eller grupper** anger du de Windows-användare eller grupper från din organisation som du vill ska ingå i rollen. 
   
   
-<a id="whats-next" class="xliff"></a>
-
-## Nästa steg
+## <a name="whats-next"></a>Nästa steg
 [Lektion 12: Analysera i Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).
 
   

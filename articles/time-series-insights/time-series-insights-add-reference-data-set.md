@@ -23,13 +23,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-# Skapa en referensdatauppsättning för miljön för Time Series Insights med Ibiza Portal
-<a id="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Skapa en referensdatauppsättning för miljön för Time Series Insights med Ibiza Portal
 
 En referensdatauppsättning är en samling objekt som är förstärkta med händelser från din händelsekälla. Bearbetningsmotorn för tidsserieinsikter kopplar en händelse från din händelsekälla till ett objekt i referensdatauppsättningen. Den här förhöjda händelsen är sedan tillgängliga för frågor. Den här kopplingen baseras på de nycklar som definierats i referensdatauppsättningen.
 
-## Steg för att lägga till en referensdatauppsättning i din miljö
-<a id="steps-to-add-a-reference-data-set-to-your-environment" class="xliff"></a>
+## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Steg för att lägga till en referensdatauppsättning i din miljö
 
 1. Logga in på [Ibiza portal](https://portal.azure.com).
 2. Klicka på ”Alla resurser” på menyn på vänster sida av Ibiza Portal.
@@ -48,8 +46,7 @@ En referensdatauppsättning är en samling objekt som är förstärkta med händ
 
 7. Klicka på ”Skapa”.
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 * [Hantera referensdata](time-series-insights-manage-reference-data-csharp.md) programmässigt.
 * En fullständig API-referens, se dokumentet [Referensdata-API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) .

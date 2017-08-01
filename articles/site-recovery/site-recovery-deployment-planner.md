@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/29/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Kapacitetsplaneraren i Azure Site Recovery
@@ -456,7 +455,9 @@ På sidan Input (Indata) visas en översikt över den profilerade VMware-miljön
 **VM-kompatibilitet**: Värdena är **Ja** och **Ja**\*. **Ja**\* för instanser där den virtuella datorn är en anpassning för [Azure Premium Storage](https://aka.ms/premium-storage-workload). Här passar den profilerade högomsättnings- eller IOPS-disken i kategorin P20 eller P30, men storleken på disken gör att den mappas ned till en P10 eller P20. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek. Exempel:
 * < 128 GB är en P10.
 * 128 till 512 GB är en P20.
-* 512 till 1 023 GB är en P30.
+* 512 till 1 024 GB är en P30.
+* 1 025 till 2 048 GB är en P40.
+* 2 049 till 4 095 GB är en P50.
 
 Om arbetsbelastningsegenskaperna för en disk placerar den i kategorin P20 eller P30, men storleken mappar den till en lägre Premium Storage-disktyp, markerar verktyget den här virtuella datorn som **Ja**\*. Verktyget rekommenderar också att du antingen ändrar källdiskens storlek så att den passar den rekommenderade Premium Storage-disktypen eller ändrar måldisktypen efter redundansväxling.
 
@@ -494,7 +495,8 @@ Om arbetsbelastningsegenskaperna för en disk placerar den i kategorin P20 eller
 
 **VM Compatibility** (VM-kompatibilitet): Anger varför den här virtuella datorn inte kan skyddas med Site Recovery. Anledningarna beskrivs för varje inkompatibel disk av den virtuella datorn och kan, baserat på publicerade [lagringsgränser](https://aka.ms/azure-storage-scalbility-performance), vara något av följande:
 
-* Diskstorleken är > 1 023 GB. Azure Storage har för närvarande inte stöd för diskar som är större än 1 TB.
+* Diskstorleken är > 4 095 GB. Azure Storage har för närvarande inte stöd för diskar som är större än 4 095 GB.
+* Operativsystemets disk är > 2 048 GB. Azure Storage har för närvarande inte stöd för operativsystemdiskar som är större än 2 048 GB.
 * Starttypen är EFI. Azure Site Recovery stöder för närvarande endast starttypen BIOS för virtuella datorer.
 
 * Total storlek för den virtuella datorn (replikering + TFO) överskrider den gräns för lagringskontostorlek som stöds (35 TB). Den här inkompatibiliteten uppstår vanligen när en enskild disk i den virtuella datorn har en prestandaegenskap som överskrider den maxgräns som stöds av Azure- eller Site Recovery-gränserna för standardlagring. Denna instans skickar den virtuella datorn till Premium Storage-zonen. Maxgränsen för ett lagringskonto av premiumtyp är däremot 35 TB, och det går inte att skydda en enda virtuell dator över flera lagringskonton. Tänk också på att när ett redundanstest körs på en skyddad virtuell dator körs det på samma lagringskonto där replikeringen körs. I den här instansen ställer du in 2 ggr storleken på disken för att replikeringen ska fortskrida samtidigt som redundanstestningen genomförs.
@@ -560,6 +562,15 @@ Så här gör du om du vill uppdatera kapacitetsplaneraren:
 
 
 ## <a name="version-history"></a>Versionshistorik
+
+### <a name="131"></a>1.3.1
+Senast uppdaterad: 19 juli 2017
+
+En ny funktion har lagts till:
+
+* Tillagt stöd för stora diskar (> 1 TB) under rapportgenerering. Nu kan du använda distributionsplaneraren för att planera replikering av virtuella datorer som har diskstorlekar större än 1 TB (upp till 4 095 GB).
+Läs mer om [stöd för stora diskar i Azure Site Recovery](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)
+
 
 ### <a name="13"></a>1.3
 Uppdaterad: 9 maj 2017

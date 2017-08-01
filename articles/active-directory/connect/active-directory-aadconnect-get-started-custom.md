@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 669ed9465e4ce4539b8aa642b4dc0eca6bad128a
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
@@ -127,10 +127,10 @@ Med funktionen Matchande mellan skogar kan du definiera hur användare från AD 
 | Inställning | Beskrivning |
 | --- | --- |
 | [Dina användare representeras endast en gång över alla skogar](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Alla användare skapas som enskilda objekt i Azure AD. Objekten är inte anslutna i metaversum. |
-| [E-postattribut](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Det här alternativet kopplar ihop användare och kontakter om e-postattributet har samma värde i olika skogar. Använd det här alternativet om dina kontakter har skapats med hjälp av GALSync. |
+| [E-postattribut](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Det här alternativet kopplar ihop användare och kontakter om e-postattributet har samma värde i olika skogar. Använd det här alternativet om dina kontakter har skapats med hjälp av GALSync. Om du väljer det här alternativet synkroniseras inte användarobjekt vars e-postattribut inte har fyllts i till Azure AD. |
 | [ObjectSID och msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Det här alternativet kopplar ihop en aktiverad användare i en kontoskog med en inaktiverad användare i en resursskog. I Exchange kallas den här konfigurationen för en länkad postlåda. Det här alternativet kan också användas om du bara använder Lync och Exchange inte finns i resursskogen. |
 | sAMAccountName och MailNickName |Det här alternativet kopplar ihop attribut om det förväntas att inloggnings-ID:t för användaren kan hittas. |
-| Ett specifikt attribut |Med det här alternativet kan du välja ett eget attribut. **Begränsning:** Se till att välja ett attribut som redan finns i metaversum. Om du väljer ett anpassat attribut (inte i metaversum) kan guiden inte slutföras. |
+| Ett specifikt attribut |Med det här alternativet kan du välja ett eget attribut. Om du väljer det här alternativet synkroniseras inte användarobjekt vars (markerade) attributet inte har fyllts i till Azure AD. **Begränsning:** Se till att välja ett attribut som redan finns i metaversum. Om du väljer ett anpassat attribut (inte i metaversum) kan guiden inte slutföras. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Välj hur användare ska identifieras med Azure AD – källfästpunkt
 Attributet sourceAnchor är ett attribut som inte kan ändras under ett användarobjekts livslängd. Det är den primära nyckeln som länkar den lokala användaren med användaren i Azure AD.

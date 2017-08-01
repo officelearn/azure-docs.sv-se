@@ -4,7 +4,6 @@ description: "I den här artikeln lär du dig vad en Azure AD-klient är och hur
 services: active-directory
 documentationcenter: 
 author: curtand
-writer: markvi
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -12,13 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 07/20/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
-ms.lasthandoff: 12/07/2016
-
+ms.reviewer: jeffsta
+ms.custom: it-pro;oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Administrera Azure AD-katalogen
@@ -55,7 +56,7 @@ Om du ursprungligen registrerade dig för en Microsoft Intune-prenumeration och 
 Mer information om hur du integrerar din lokala katalog med Azure AD finns i [Katalogintegrering](active-directory-aadconnect.md).
 
 ### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>Associera en Azure AD-katalog med en ny Azure-prenumeration
-Du kan associera en ny Azure-prenumeration med samma katalog som autentiserar inloggningen för en befintlig Office 365- eller Microsoft Intune-prenumeration. Logga in på Azure-hanteringsportalen med ditt arbets- eller skolkonto. Hanteringsportalen returnerar ett meddelande om att det inte gick att hitta några prenumerationer för kontot. Välj **Registrera dig för Azure** så är din katalog tillgänglig för administration på portalen. Mer information finns i [Hantera katalogen för din Office 365-prenumeration i Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
+Du kan associera en ny Azure-prenumeration med samma katalog som autentiserar inloggningen för en befintlig Office 365- eller Microsoft Intune-prenumeration. Logga in på Azure Portal med ditt arbets- eller skolkonto. Portalen returnerar ett meddelande om att det inte gick att hitta några prenumerationer för kontot. Välj **Registrera dig för Azure** så är din katalog tillgänglig för administration på portalen. Mer information finns i [Hantera katalogen för din Office 365-prenumeration i Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 En video om vanliga användningsfrågor för Azure AD finns i [Azure Active Directory – Vanliga frågor om registrering, inloggning och användning](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
 
@@ -76,7 +77,7 @@ Det kostar inget att använda Azure AD. Katalogen är en kostnadsfri resurs. Det
 Om du vill byta katalogens visningsnamn klickar du på katalogen på portalen och sedan på **Konfigurera**. Som du ser senare i det här avsnittet kan du lägga till en ny katalog eller ta bort en katalog som du inte längre behöver. Om du vill associera prenumerationen med en annan katalog klickar du på tillägget **Inställningar** i det vänstra navigeringsfönstret och sedan på **Redigera katalog** längst ned på sidan **Prenumerationer**. Du kan också skapa en anpassad domän med DNS-namnet som du har registrerat i stället för standarddomänen *.onmicrosoft.com, som kan vara bättre med en tjänst som SharePoint Online.
 
 ## <a name="how-can-i-manage-directory-data"></a>Hur hanterar jag katalogdata?
-Som administratör för en eller flera Microsoft-molntjänstprenumerationer kan du antingen använda Azure-hanteringsportalen, Microsoft Intune-kontoportalen eller administrationscenter för Office 365 för att hantera organisationens katalogdata. Du kan också ladda ned och köra [Microsoft Azure Active Directory-modulen för Windows PowerShell-cmdlets](https://msdn.microsoft.com/library/azure/jj151815.aspx) för att hantera data som lagras i Azure AD.
+Som administratör för en eller flera Microsoft-molntjänstprenumerationer kan du antingen använda [Azure-administrationscentret](https://aad.portal.azure.com), Microsoft Intune-kontoportalen eller administrationscentret för Office 365 för att hantera organisationens katalogdata. Du kan också ladda ned och köra [Microsoft Azure Active Directory-modulen för Windows PowerShell-cmdlets](https://msdn.microsoft.com/library/azure/jj151815.aspx) för att hantera data som lagras i Azure AD.
 
 Från någon av dessa portaler (eller cmdlets) kan du:
 
@@ -84,7 +85,7 @@ Från någon av dessa portaler (eller cmdlets) kan du:
 * Hantera relaterade molntjänster som din organisation prenumererar på
 * Konfigurera lokal integrering med din katalogtjänst
 
-Azure-hanteringsportalen, administrationscenter för Office 365, Microsoft Intune-kontoportalen och Azure AD-cmdlets läser alla från och skriver till en enda delad instans av Azure AD som associeras med din organisations katalog, som du ser i följande bild. På så vis fungerar portaler (eller cmdlets) som ett frontend-gränssnitt som hämtar in och/eller ändrar dina katalogdata.
+[Azure AD-administrationscentret](https://aad.portal.azure.com), administrationscenter för Office 365, Microsoft Intune-kontoportalen och Azure AD-cmdletar läser alla från och skriver till en enda delad instans av Azure AD som associeras med din organisations katalog, som du ser på följande bild. På så vis fungerar portaler (eller cmdletar) som ett klientdelsgränssnitt som hämtar in eller ändrar dina katalogdata.
 
 ![][2]
 
@@ -94,7 +95,7 @@ Om du gör en ändring i organisationens data med hjälp av någon av portalerna
 Om du till exempel blockerar en användare via administrationscenter för Office 365 så kan användaren inte heller logga in till någon annan tjänst som din organisation prenumererar på. Om du visar samma användares konto på Microsoft Intune-kontoportalen ser du att användaren är blockerad.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>Hur kan jag lägga till och hantera flera kataloger?
-Du kan lägga till en Azure AD-katalog på Azure-hanteringsportalen. Välj tillägget **Active Directory** till vänster och klicka på **Lägg till**.
+Du kan lägga till en Azure AD-katalog på den klassiska [Azure AD-portalen](https://manage.windowsazure.com). Gå till fönstret **Översikt** och välj tillägget **Active Directory** till vänster och klicka sedan på **Ny**.
 
 Du kan hantera alla kataloger som helt oberoende resurser. Varje katalog är en peer med en fullständig funktionsuppsättning som är logiskt oberoende av andra kataloger som du hanterar. Det finns ingen överordnad-underordnad-relation mellan kataloger. Detta oberoende mellan kataloger gäller resursoberoende, administrativt oberoende och synkroniseringsoberoende.
 
@@ -116,7 +117,7 @@ Observera att dina kataloger, till skillnad från andra Azure-resurser, inte är
 En global administratör kan ta bort en Azure AD-katalog från portalen. När en katalog tas bort tas även alla resurser som ingår i katalogen bort. Därför är det viktigt att du är helt säker på att du inte behöver katalogen innan du tar bort den.
 
 > [!NOTE]
-> Om användaren har loggat in med ett arbets- eller skolkonto kan han eller hon inte ta bort sin hemkatalog. Om användaren till exempel är inloggad som joe@contoso.onmicrosoft.com, kan denna användare inte ta bort katalogen som har contoso.onmicrosoft.com som standarddomän.
+> Om användaren har loggat in med ett arbets- eller skolkonto kan han eller hon inte ta bort sin hemkatalog. Om användaren till exempel är inloggad som joe@contoso.onmicrosoft.com kan denna användare inte ta bort katalogen som har contoso.onmicrosoft.com som standarddomän.
 > 
 > 
 
@@ -130,7 +131,7 @@ Följande villkor kontrolleras:
 * Det får inte finnas några prenumerationer för Microsoft Online Services, till exempel Microsoft Azure, Office 365 eller Azure AD Premium, som är kopplade till katalogen. Om en standardkatalog skapades för dig i Azure kan du inte ta bort den katalogen om din Azure-prenumeration fortfarande är beroende av den här katalogen för autentisering. På liknande sätt kan du inte ta bort en katalog om en annan användare har associerat en prenumeration med den. Om du vill associera din prenumeration med en annan katalog loggar du in på Azure-hanteringsportalen och klickar på **Inställningar** i det vänstra navigeringsfönstret. Klicka sedan på **Redigera katalog** längst ned på sidan **Prenumerationer**. Mer information om Azure-prenumerationer finns i [Hur Azure-prenumerationer är kopplade till Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 > [!NOTE]
-> Om användaren har loggat in med ett arbets- eller skolkonto kan han eller hon inte ta bort sin hemkatalog. Om användaren till exempel är inloggad som joe@contoso.onmicrosoft.com, kan denna användare inte ta bort katalogen som har contoso.onmicrosoft.com som standarddomän.
+> Om användaren har loggat in med ett arbets- eller skolkonto kan han eller hon inte ta bort sin hemkatalog. Om användaren till exempel är inloggad som joe@contoso.onmicrosoft.com kan denna användare inte ta bort katalogen som har contoso.onmicrosoft.com som standarddomän.
 > 
 > 
 

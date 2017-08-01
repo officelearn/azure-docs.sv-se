@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: e420d192b6c60aad7523948762ff2762970583ed
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: c67169f296f2f13b9ee87180f126fb1dcf10fbea
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa din första Azure-datafabrik med hjälp av en Azure Resource Manager-mall
@@ -144,9 +143,10 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFGetStarted
             "properties": {
                   "type": "HDInsightOnDemand",
                   "typeProperties": {
+                    "version": "3.5",
                     "clusterSize": 1,
                     "timeToLive": "00:05:00",
-                    "osType": "windows",
+                    "osType": "Linux",
                     "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
                   }
             }
@@ -247,8 +247,8 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFGetStarted
                       "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
                 }
                   ],
-                  "start": "2016-10-01T00:00:00Z",
-                  "end": "2016-10-02T00:00:00Z",
+                  "start": "2017-07-01T00:00:00Z",
+                  "end": "2017-07-02T00:00:00Z",
                   "isPaused": false
               }
           }
@@ -421,9 +421,10 @@ Läs mer i artikeln [Beräkna länkade tjänster](data-factory-compute-linked-se
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
+            "version": "3.5",
             "clusterSize": 1,
             "timeToLive": "00:05:00",
-            "osType": "windows",
+            "osType": "Linux",
             "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
         }
     }
@@ -431,7 +432,7 @@ Läs mer i artikeln [Beräkna länkade tjänster](data-factory-compute-linked-se
 ```
 Observera följande punkter: 
 
-* Data Factory skapar ett **Windows-baserat** HDInsight-kluster med ovanstående JSON. Du hade också kunnat skapa ett **Linux-baserat** HDInsight-kluster. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information. 
+* Data Factory skapar ett **Linux-baserat** HDInsight-kluster med ovanstående JSON. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information. 
 * Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
 * HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar.
   
@@ -554,8 +555,8 @@ Du definierar en pipeline som transformerar data genom att köra ett registrerin
             "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
         }
         ],
-        "start": "2016-10-01T00:00:00Z",
-        "end": "2016-10-02T00:00:00Z",
+        "start": "2017-07-01T00:00:00Z",
+        "end": "2017-07-02T00:00:00Z",
         "isPaused": false
     }
 }

@@ -15,11 +15,10 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 891893e5ff8f4ed0aab56e131dc6889613b953de
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 51f24bf75631206d7480eec8b871dee95726b0a8
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -116,15 +115,17 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
 
     ```JSON
     {
-      "name": "HDInsightOnDemandLinkedService",
-      "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-          "clusterSize": 1,
-          "timeToLive": "00:30:00",
-          "linkedServiceName": "AzureStorageLinkedService"
+        "name": "HDInsightOnDemandLinkedService",
+        "properties": {
+            "type": "HDInsightOnDemand",
+            "typeProperties": {
+                "version": "3.5",
+                "clusterSize": 1,
+                "timeToLive": "00:05:00",
+                "osType": "Linux",
+                "linkedServiceName": "AzureStorageLinkedService"
+            }
         }
-      }
     }
     ```
 
@@ -133,12 +134,12 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
    | Egenskap | Beskrivning |
    |:--- |:--- |
    | ClusterSize |Anger HDInsight-klustrets storlek. |
-   | TimeToLive |Anger inaktivitetstiden för HDInsight-klustret innan det tas bort. |
-   | linkedServiceName |Anger lagringskontot som används för att spara loggarna som genereras av HDInsight. |
+   | TimeToLive | Anger inaktivitetstiden för HDInsight-klustret innan det tas bort. |
+   | linkedServiceName | Anger lagringskontot som används för att spara loggarna som genereras av HDInsight. |
 
     Observera följande punkter:
 
-   * Data Factory skapar ett **Windows-baserat** HDInsight-kluster åt dig med JSON. Du hade också kunnat skapa ett **Linux-baserat** HDInsight-kluster. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
+   * Data Factory skapar ett **Linux-baserat** HDInsight-kluster åt dig med JSON. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
    * Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
    * HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt live-kluster (**timeToLive**). Klustret tas bort automatiskt när bearbetningen är klar.
 
@@ -283,8 +284,8 @@ I det här steget ska du skapa din första pipeline med en **HDInsightHive**-akt
                     "linkedServiceName": "HDInsightOnDemandLinkedService"
                 }
             ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
+            "start": "2017-07-01T00:00:00Z",
+            "end": "2017-07-02T00:00:00Z",
             "isPaused": false
         }
     }
@@ -371,7 +372,7 @@ Du kan också använda övervaknings- och hanteringsprogrammet till att övervak
 1. Klicka på ikonen **Övervaka och hantera** på datafabrikens startsida.
 
     ![Ikonen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
-2. Du bör se **Övervakaren och hantera program**. Ändra **Starttid** och **Sluttid** till att matcha starttid (04-01-2016 12:00:00) och sluttid (04-02-2016 12:00:00) i pipelinen. Klicka sedan på **Tillämpa**.
+2. Du bör se **Övervakaren och hantera program**. Ändra **Starttid** och **Sluttid** så att de matchar starttid och sluttid i pipelinen. Klicka sedan på **Tillämpa**.
 
     ![Appen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 3. Välj ett aktivitetsfönster i listan **Aktivitetsfönster** om du vill se information om det.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 168704acc3ef1fadad2ab17abbc3cc0ddd2f389c
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 197d75a06cce6ffc9111de6351f6a217073423c6
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Självstudier: Skapa din första Azure-datafabrik med hjälp av REST-API:et för Data Factory
@@ -107,8 +106,10 @@ Skapa följande JSON-filer i mappen som curl.exe finns i.
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
+            "version": "3.5",
             "clusterSize": 1,
-            "timeToLive": "00:30:00",
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
@@ -125,7 +126,7 @@ Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i
 
 Observera följande punkter:
 
-* Data Factory skapar ett **Windows-baserat** HDInsight-kluster med ovanstående JSON. Du hade också kunnat skapa ett **Linux-baserat** HDInsight-kluster. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
+* Data Factory skapar ett **Linux-baserat** HDInsight-kluster med ovanstående JSON. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
 * Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
 * HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt live-kluster (**timeToLive**). Det raderas när bearbetningen är klar.
 
@@ -236,8 +237,8 @@ JSON definierar en datauppsättning med namnet **AzureBlobOutput**, som represen
             "name": "RunSampleHiveActivity",
             "linkedServiceName": "HDInsightOnDemandLinkedService"
         }],
-        "start": "2016-07-10T00:00:00Z",
-        "end": "2016-07-11T00:00:00Z",
+        "start": "2017-07-10T00:00:00Z",
+        "end": "2017-07-11T00:00:00Z",
         "isPaused": false
     }
 }

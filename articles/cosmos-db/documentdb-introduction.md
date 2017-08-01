@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 79156c0b511dafcb43ed91800f01338dbb7ee5f3
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: dba483c21afc46b1b9f0a74ebfb24ed644080e09
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Introduktion till DocumentDB-API:et för Azure Cosmos DB
@@ -51,7 +50,7 @@ Azure Cosmos DB erbjuder, via DocumentDB-API:et, följande funktioner och förde
 * **Automatisk indexering:** Som standard indexerar Azure Cosmos DB automatiskt alla dokument i databasen och varken förväntar sig eller kräver något schema eller att sekundära index skapas. Vill du inte indexera allt? Oroa dig inte, du kan även [välja bort sökvägar i JSON-filer](indexing-policies.md).
 
 ## <a name="data-management"></a>Hur hanteras data med DocumentDB-API?
-Med DocumentDB-API:et hanteras JSON-data med hjälp av väldefinierade databasresurser. Dessa resurser replikeras för hög tillgänglighet och är unikt adresserbara genom sina logiska URI:er. DocumentDB erbjuder en enkel HTTP-baserad RESTful-programmeringsmiljö för alla resurser. 
+Med DocumentDB-API:et hanteras JSON-data med hjälp av väldefinierade databasresurser. Dessa resurser replikeras för hög tillgänglighet och är unikt adresserbara genom sina logiska URI:er. DocumentDB-API:et erbjuder en enkel HTTP-baserad RESTful-programmeringsmiljö för alla resurser. 
 
 
 Azure Cosmos DB-databaskontot är ett unikt namnområde som ger dig åtkomst till Azure Cosmos DB. Innan du kan skapa ett databaskonto måste du ha en Azure-prenumeration, som ger dig tillgång till en mängd olika Azure-tjänster. 
@@ -87,16 +86,16 @@ Med [Azure Cosmos DB-emulatorn](local-emulator.md) kan du utveckla och testa dit
 DocumentDB-API:et tillhandahåller inte bara grundläggande åtgärder för generering, läsning, uppdatering och borttagning, utan även ett omfattande SQL-gränssnitt för hämtning av JSON-dokument och stöd på serversidan för transaktionell körning av JavaScript-programlogik. Gränssnitten för fråge- och skriptkörning finns tillgängliga via alla plattformsbibliotek samt REST-API:erna. 
 
 ### <a name="sql-query"></a>SQL-fråga
-DocumentDB-API:et stöder frågekörning mot dokument med ett SQL-språk, som bygger på JavaScript-typsystemet, och uttryck med stöd för relations-, hierarki- och spatialfrågor. Frågespråket i DocumentDB är ett enkelt men kraftfullt gränssnitt för förfrågningar till JSON-dokument. Språket har stöd för en delmängd av ANSI SQL-grammatiken och dessutom djupgående integration av objekt, matriser, objektkonstruktion och funktionsanrop i JavaScript. Frågemodellen i DocumentDB erbjuds utan uttryckliga scheman eller indexeringstips från utvecklaren.
+DocumentDB-API:et stöder frågekörning mot dokument med ett SQL-språk, som bygger på JavaScript-typsystemet, och uttryck med stöd för relations-, hierarki- och spatialfrågor. Frågespråket i DocumentDB är ett enkelt men kraftfullt gränssnitt för förfrågningar till JSON-dokument. Språket har stöd för en delmängd av ANSI SQL-grammatiken och dessutom djupgående integration av objekt, matriser, objektkonstruktion och funktionsanrop i JavaScript. Frågemodellen i DocumentDB-API:et erbjuds utan uttryckliga scheman eller indexeringstips från utvecklaren.
 
 Användardefinierade funktioner (UDF:er) kan registreras med DocumentDB-API:et och refereras till som en del av en SQL-fråga, vilket innebär att grammatiken även stöder anpassad programlogik. Dessa UDF:er skrivs som JavaScript-program och körs i databasen. 
 
-För .NET-utvecklare erbjuder DocumentDB [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) även en LINQ-frågeprovider. 
+För .NET-utvecklare erbjuder DocumentDB-API:et [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) även en LINQ-frågeprovider. 
 
 ### <a name="transactions-and-javascript-execution"></a>Transaktioner och JavaScript-körning
 Med DocumentDB-API:et kan du skriva programlogiken som namngivna program helt skrivna i JavaScript. Programmen registreras i en samling och kan utfärda databasåtgärder i dokumenten inom en angiven samling. JavaScript kan registreras för körning som en utlösare, lagrad procedur eller användardefinierad funktion. Utlösare och lagrade procedurer kan skapa, läsa, uppdatera och ta bort dokument medan användardefinierade funktioner körs som en del av frågans körningslogik utan skrivåtkomst till samlingen.
 
-JavaScript-körning inom DocumentDB-API:et modelleras efter begrepp som stöds av relationsdatabassystem, med JavaScript som en modern ersättning för Transact-SQL. All JavaScript-logik körs inom en omgivande ACID-transaktion med ögonblicksbildisolering. Om JavaScript genererar ett undantag under körningen avbryts hela transaktionen.
+JavaScript-körning inom Cosmos DB modelleras efter begrepp som stöds av relationsdatabassystem, med JavaScript som en modern ersättning för Transact-SQL. All JavaScript-logik körs inom en omgivande ACID-transaktion med ögonblicksbildisolering. Om JavaScript genererar ett undantag under körningen avbryts hela transaktionen.
 
 ## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Finns det några onlinekurser om Azure Cosmos DB?
 

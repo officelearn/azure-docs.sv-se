@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen för förebyggande underhåll
 
-## <a name="introduction"></a>Introduktion
-
-Den förkonfigurerade lösningen för förebyggande underhåll i IoT Suite är en lösning från slutpunkt till slutpunkt för ett affärsscenario som beräknar den punkt då det är troligt att ett fel uppstår. Du kan använda denna förkonfigurerade lösning proaktivt för aktiviteter, till exempel för att optimera underhåll. Lösningen kombinerar viktiga tjänster i Azure IoT Suite, till exempel IoT Hub, Stream analytics och en [Azure Machine Learning][lnk-machine-learning]-arbetsyta. Den här arbetsytan innehåller en modell, baserad på en offentlig provdatauppsättning, för att förutsäga återstående driftstid (RUL) för en flygplansmotor. Lösningen implementerar IoT-affärsscenariot som startpunkt när du planerar och implementerar en lösning som uppfyller dina specifika affärskrav.
+Den förkonfigurerade lösningen för förutsägande underhåll är en lösning från slutpunkt till slutpunkt för ett affärsscenario som beräknar den punkt då det är troligt att ett fel uppstår. Du kan använda denna förkonfigurerade lösning proaktivt för aktiviteter, till exempel för att optimera underhåll. Lösningen kombinerar viktiga tjänster i Azure IoT Suite, till exempel IoT Hub, Stream analytics och en [Azure Machine Learning][lnk-machine-learning]-arbetsyta. Den här arbetsytan innehåller en modell, baserad på en offentlig provdatauppsättning, för att förutsäga återstående driftstid (RUL) för en flygplansmotor. Lösningen implementerar IoT-affärsscenariot som startpunkt när du planerar och implementerar en lösning som uppfyller dina specifika affärskrav.
 
 ## <a name="logical-architecture"></a>Logisk arkitektur
 
@@ -34,7 +32,7 @@ Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade l
 
 ![][img-architecture]
 
-De blå objekten är Azure-tjänster som är etablerade i den region som du väljer när du etablerar den förkonfigurerade lösningen. På [etableringssidan][lnk-azureiotsuite] finns en lista över de regioner där du kan distribuera den förkonfigurerade lösningen.
+De blå objekten är Azure-tjänster som är etablerade i den region där du etablerade den förkonfigurerade lösningen. På [etableringssidan][lnk-azureiotsuite] finns en lista över de regioner där du kan distribuera den förkonfigurerade lösningen.
 
 Det gröna objektet är en simulerad enhet som representerar en flygplansmotor. Mer information om dessa simulerade enheter finns i följande avsnitt.
 
@@ -58,13 +56,17 @@ De simulerade enheterna kan hantera följande kommandon som skickas från IoT Hu
 IoT Hub bekräftar enhetskommandona.
 
 ## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics-jobb
-**Jobb: Telemetri** körs på den inkommande telemetriströmmen för enheten med hjälp av två uttryck. Det första uttrycket väljer all telemetri från enheterna och skickar dessa data till Blob Storage. Härifrån kan de sedan visualiseras i webbappen. Den andra instruktionen beräknar genomsnittliga sensorvärden under en glidande tvåminutersperiod och skickar dem via händelsehubben till en **händelseprocessor**.
+
+**Jobb: Telemetri** körs på den inkommande telemetriströmmen för enheten med hjälp av två uttryck:
+
+* Det första uttrycket väljer all telemetri från enheterna och skickar dessa data till Blob Storage. Härifrån kan de sedan visualiseras i webbappen.
+* Den andra instruktionen beräknar genomsnittliga sensorvärden under en glidande tvåminutersperiod och skickar dem via händelsehubben till en **händelseprocessor**.
 
 ## <a name="event-processor"></a>Händelseprocessor
 **Händelseprocessorvärden** körs i ett Azure-webbjobb. **Händelseprocessorn** tar de genomsnittliga sensorvärdena från en slutförd cykel. Den skickar dessa värden till en API som får den tränade modellen att beräkna RUL för en motor. API: et exponeras av en Machine Learning-arbetsyta som har etablerats som en del av lösningen.
 
 ## <a name="machine-learning"></a>Machine Learning
-Machine Learning-komponenten använder en modell som härletts från de data som samlats in från verkliga luftfartygsmotorer. Du kan navigera till Machine Learning-arbetsytan från ikonen på sidan [azureiotsuite.com][lnk-azureiotsuite] för din etablerade lösning när lösningen har statusen **Klar**.
+Machine Learning-komponenten använder en modell som härletts från de data som samlats in från verkliga luftfartygsmotorer. Du kan navigera till Machine Learning-arbetsytan från ikonen på sidan [azureiotsuite.com][lnk-azureiotsuite] för din etablerade lösning. Panelen är tillgänglig när lösningen har statusen **Redo**.
 
 
 ## <a name="next-steps"></a>Nästa steg

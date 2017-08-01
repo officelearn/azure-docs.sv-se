@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 93f80018d71368c800abd3dceb42b2ab51e60659
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
@@ -47,7 +46,7 @@ Följande allmänna arbetsflöde är typiskt i praktiskt taget alla program och 
 I följande avsnitt beskrivs dessa och andra resurser i Batch som lägger grunden till ditt distribuerade beräkningsscenario.
 
 > [!NOTE]
-> Du behöver ett [Batch-konto](#account) för att använda Batch-tjänsten. Dessutom använder nästan alla lösningar ett [Azure Storage][azure_storage]-konto för fillagring och filhämtning. Batch stöder för närvarande endast den **allmänna** lagringskontotypen, som beskrivs i steg 5 i [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
+> Du behöver ett [Batch-konto](#account) för att använda Batch-tjänsten. De flesta Batch-lösningar använder ett [Azure Storage][azure_storage]-konto för fillagring och filhämtning. Batch stöder för närvarande endast **allmänna** lagringskontotyper, enligt beskrivningen i steg 5 i [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om lagringskonton i Azure](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -74,35 +73,51 @@ Ett Batch-konto är en unikt identifierad entitet i Batch-tjänsten. All bearbet
 
 Du kan skapa ett Azure Batch-konto med [Azure Portal](batch-account-create-portal.md) eller programmässigt som med [Batch Management .NET-biblioteket](batch-management-dotnet.md). Du kan associera ett Azure Storage-konto när du skapar kontot.
 
-Batch stöder två kontokonfigurationer och du måste välja vilken konfiguration du vill ha när du skapar Batch-kontot. Skillnaden mellan de två kontokonfigurationerna ligger i hur Batch-[pooler](#pool) allokeras för kontot. Du kan antingen allokera pooler av beräkningsnoder i en prenumeration som hanteras av Azure Batch eller så kan du allokera dem i din egen prenumeration. Kontots egenskap för *poolallokeringsläge* bestämmer vilken konfiguration som används. 
+### <a name="pool-allocation-mode"></a>Poolallokeringsläge
 
-Välj den kontokonfiguration som passar bäst för ditt scenario:
+När du skapar ett Batch-konto kan du ange hur [pooler](#pool) med beräkningsnoder ska allokeras. Du kan välja att allokera pooler av beräkningsnoder i en prenumeration som hanteras av Azure Batch eller så kan du allokera dem i din egen prenumeration. Kontots egenskap för *poolallokeringsläge* bestämmer var poolerna allokeras. 
 
-* **Batch-tjänst**: Batch-tjänst är standardkontokonfigurationen. För konton som har skapats med den här konfigurationen allokeras Batch-pooler i bakgrunden i Azure-hanterade prenumerationer. Observera följande nyckelpunkter om kontokonfigurationen för Batch-tjänsten:
+Välj det poolallokeringsläge som passar bäst för ditt scenario:
 
-    - Kontokonfigurationen för Batch-tjänsten stöder både molntjänstpooler och virtuella datorpooler.
-    - Kontokonfigurationen för Batch-tjänsten stöder åtkomst till Batch-API:er med delad nyckelautentisering eller [Azure Active Directory-autentisering](batch-aad-auth.md). 
-    - Du kan använda antingen dedikerade eller lågprioriterade beräkningsnoder i pooler i kontokonfigurationen för Batch-tjänsten.
-    - Använd inte kontokonfigurationen för Batch-tjänsten om du tänker skapa virtuella Azure-datorpooler från anpassade avbildningar av virtuella datorer, eller om du tänker använda ett virtuellt nätverk. Skapa ditt konto med kontokonfigurationen för användarprenumerationen i stället.
-    - Virtuella datorpooler som etablerats i ett konto med kontokonfigurationen för Batch-tjänstprenumerationen måste skapas från [Azure Virtual Machines Marketplace][vm_marketplace]-avbildningar.
+* **Batch-tjänst**: Batch-tjänsten är i standardläget för poolallokering. Där allokeras pooler bakom kulisserna i Azure-hanterade prenumerationer. Observera följande nyckelpunkter om poolallokeringsläget för Batch-tjänsten:
 
-* **Användarprenumeration**: Med kontokonfigurationen för användarprenumeration allokeras Batch-poolerna i den Azure-prenumeration där kontot skapas. Observera dessa nyckelpunkter om kontokonfigurationen för användarprenumeration:
+    - Poolallokeringsläget för Batch-tjänsten stöder både molntjänstpooler och virtuella datorpooler.
+    - Batch-tjänstens poolallokeringsläge stöder både delad nyckelautentisering eller [Azure Active Directory-autentisering](batch-aad-auth.md) (Azure AD). 
+    - Du kan använda antingen dedikerade eller lågprioriterade beräkningsnoder i pooler som allokerats i poolallokeringsläget för Batch-tjänsten.
+    - Använd inte poolallokeringsläget för Batch-tjänsten om du tänker skapa virtuella Azure-datorpooler från anpassade avbildningar av virtuella datorer, eller om du tänker använda ett virtuellt nätverk. Skapa ditt konto med poolallokeringsläget för användarprenumerationen i stället.
+    - Virtuella datorpooler som etablerats i ett konto som skapats med Batch-tjänstens poolallokeringsläge måste skapas från [Azure Virtual Machines Marketplace][vm_marketplace]-avbildningar.
+
+* **Användarprenumeration**: Med poolallokeringsläget för användarprenumeration allokeras Batch-poolerna i den Azure-prenumeration där kontot skapas. Observera dessa nyckelpunkter om poolallokeringsläget för användarprenumeration:
      
-    - Kontokonfigurationen för användarprenumeration stöder bara virtuella datorpooler. Den stöder inte Cloud Services-pooler.
-    - Om du vill skapa virtuella datorpooler från anpassade avbildningar av virtuella datorer eller använda ett virtuellt nätverk med virtuella datorpooler måste du använda kontokonfigurationen för användarprenumeration.  
-    - Du måste autentisera begäranden till Batch-tjänsten med hjälp av [Azure Active Directory-autentisering](batch-aad-auth.md). 
-    - För kontokonfigurationen för användarprenumeration krävs att du konfigurerar ett Azure Key Vault för ditt Batch-konto. 
-    - Du kan bara använda dedikerade beräkningsnoder i pooler i ett konto som har skapats med kontokonfigurationen för användarprenumeration. Noder med låg prioritet stöds inte.
-    - Virtuella datorpooler som etablerats i ett konto med kontokonfigurationen för användarprenumeration kan skapas från [Azure Virtual Machines Marketplace][vm_marketplace]-avbildningar eller från dina egna anpassade avbildningar.
+    - Poolallokeringsläget för användarprenumeration stöder bara virtuella datorpooler. Den stöder inte Cloud Services-pooler.
+    - Om du vill skapa virtuella datorpooler från anpassade avbildningar av virtuella datorer eller använda ett virtuellt nätverk med virtuella datorpooler måste du använda poolallokeringsläget för användarprenumeration.  
+    - Du måste använda [Azure Active Directory-autentisering](batch-aad-auth.md) med pooler som är allokerade i användarprenumerationen. 
+    - Du måste ställa in ett Azure-nyckelvalv för ditt Batch-konto om poolallokeringsläget är inställt på Användarprenumeration. 
+    - Du kan bara använda dedikerade beräkningsnoder i pooler i ett konto som har skapats med poolallokeringsläget för användarprenumeration. Noder med låg prioritet stöds inte.
+    - Virtuella datorpooler som etablerats i ett konto med poolallokeringsläget för användarprenumeration kan skapas från [Azure Virtual Machines Marketplace][vm_marketplace]-avbildningar eller från dina egna anpassade avbildningar.
 
-> [!IMPORTANT]
-> Batch stöder för närvarande endast allmänna lagringskontotyper, enligt beskrivningen i steg 5 i [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om lagringskonton i Azure](../storage/storage-create-storage-account.md). Batch-aktiviteterna (inklusive standardaktiviteter, startaktiviteter, jobbförberedelse- och jobbpubliceringsaktiviteter) måste definiera resursfiler som finns i allmänna lagringskonton.
->
->
+I följande tabell jämförs Batch-tjänsten och användarprenumerationens poolallokeringslägen.
+
+| **Poolallokeringsläge:**                 | **Batch-tjänst**                                                                                       | **Användarprenumeration**                                                              |
+|-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| **Pooler allokeras i:**               | En Azure-hanterad prenumeration                                                                           | Användarprenumerationen i vilken Batch-kontot har skapats                        |
+| **Konfigurationer som stöds:**             | <ul><li>Konfiguration av molntjänst</li><li>Konfiguration av virtuell dator (Linux och Windows)</li></ul> | <ul><li>Konfiguration av virtuell dator (Linux och Windows)</li></ul>                |
+| **VM-avbildningar som stöds:**                  | <ul><li>Azure Marketplace-avbildningar</li></ul>                                                              | <ul><li>Azure Marketplace-avbildningar</li><li>Anpassade avbildningar</li></ul>                   |
+| **Beräkningsnodtyper som stöds:**         | <ul><li>Dedikerade noder</li><li>Lågprioriterade virtuella noder</li></ul>                                            | <ul><li>Dedikerade noder</li></ul>                                                  |
+| **Autentisering som stöds:**             | <ul><li>Delad nyckel</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Azure Key Vault krävs:**             | Nej                                                                                                      | Ja                                                                                |
+| **Kärnkvot:**                           | Bestäms av Batch-kärnkvoten                                                                          | Bestäms av prenumerationens kärnkvot                                              |
+| **Stöd för Azure Virtual Network (Vnet):** | Pooler som har skapats med molntjänstkonfigurationen                                                      | Pooler som har skapats med konfigurationen av virtuell dator                               |
+| **Vnet-distributionsmodell som stöds:**      | Vnet som skapats med klassisk distributionsmodell                                                             | Virtuella nätverk som skapas med antingen den klassiska distributionsmodellen eller Azure Resource Manager-distributionsmodellen stöds inte |
+## <a name="azure-storage-account"></a>Azure-lagringskonto
+
+De flesta Batch-lösningar använder Azure Storage för lagring av resursfiler och utdatafiler.  
+
+Batch stöder för närvarande endast allmänna lagringskontotyper, enligt beskrivningen i steg 5 i [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om lagringskonton i Azure](../storage/storage-create-storage-account.md). Batch-aktiviteterna (inklusive standardaktiviteter, startaktiviteter, jobbförberedelse- och jobbpubliceringsaktiviteter) måste definiera resursfiler som finns i allmänna lagringskonton.
 
 
 ## <a name="compute-node"></a>Beräkningsnod
-En beräkningsnod är en virtuell Azure-dator eller molntjänstdator som är dedikerad för bearbetning av en del av ditt programs arbetsbelastning. Storleken på en nod avgör antalet CPU-kärnor, minneskapaciteten och storleken på det lokala filsystemet som allokeras till noden. Du kan skapa pooler för Windows- eller Linux-noder med antingen Azure Cloud Services eller Marketplace-avbildningar för Virtual Machines. Mer information om dessa alternativ finns i följande [poolavsnitt](#pool).
+En beräkningsnod är en virtuell Azure-dator eller molntjänstdator som är dedikerad för bearbetning av en del av ditt programs arbetsbelastning. Storleken på en nod avgör antalet CPU-kärnor, minneskapaciteten och storleken på det lokala filsystemet som allokeras till noden. Du kan skapa pooler för Windows- eller Linux-noder med Azure Cloud Services eller Marketplace-avbildningar för [Azure Virtual Machines][vm_marketplace] eller anpassade avbildningar du förbereder. Mer information om dessa alternativ finns i följande [poolavsnitt](#pool).
 
 Noder kan köra alla körbara filer eller skript som stöds av nodens operativsystemmiljö, inklusive \*.exe-, \*.cmd-, \*.bat- och PowerShell-skript för Windows och binär-, shell- och Python-skript för Linux.
 
@@ -134,9 +149,11 @@ När du skapar en pool kan du ange nedanstående attribut. Vissa inställningar 
 Dessa inställningar beskrivs mer ingående i avsnitten nedan.
 
 > [!IMPORTANT]
-> Batch-konton som har skapats med Batch-tjänstkonfigurationen har en standardkvot som begränsar antalet kärnor i Batch-kontot. Antalet kärnor motsvarar antalet beräkningsnoder. Du hittar standardkvoterna och instruktioner om hur du [ökar en kvot](batch-quota-limit.md#increase-a-quota) i [Kvoter och gränser för Azure Batch-tjänsten](batch-quota-limit.md). Om din pool inte uppnår antalet målnoder kan det bero på kärnkvoten.
+> Batch-konton som har skapats med poolallokeringsläget för Batch-tjänsten har en standardkvot som begränsar antalet kärnor i Batch-kontot. Antalet kärnor motsvarar antalet beräkningsnoder. Du hittar standardkvoterna och instruktioner om hur du [ökar en kvot](batch-quota-limit.md#increase-a-quota) i [Kvoter och gränser för Azure Batch-tjänsten](batch-quota-limit.md). Om din pool inte uppnår antalet målnoder kan det bero på kärnkvoten.
 >
->Batch-konton som har skapats med konfigurationen för användarprenumeration tar inte Batch-tjänstkvoterna i beaktande. I stället delar de kärnkvoten för den angivna prenumerationen. Mer information finns i [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) (Gränser för virtuella datorer) i [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Prenumerations- och tjänstgränser, kvoter och begränsningar i Azure).
+>Batch-konton som har skapats med poolallokeringsläget för användarprenumeration tar inte Batch-tjänstkvoterna i beaktande. I stället delar de kärnkvoten för den angivna prenumerationen. Mer information finns i [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) (Gränser för virtuella datorer) i [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Prenumerations- och tjänstgränser, kvoter och begränsningar i Azure).
+>
+>
 
 ### <a name="compute-node-operating-system-and-version"></a>Beräkningsnodens operativsystem och version
 
@@ -158,7 +175,12 @@ I avsnittet [Konto](#account) finns information om hur du ställer in poolalloke
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Anpassade avbildningar för virtuell datorpooler
 
-Om du vill använda anpassade avbildningar för dina virtuella datorpooler skapar du Batch-kontot med kontokonfigurationen för användarprenumeration. Med den här konfigurationen allokeras Batch-pooler till den prenumeration där kontot finns. I avsnittet [Konto](#account) finns information om hur du ställer in poolallokeringsläget när du skapar ett Batch-konto.
+Om du vill använda anpassade avbildningar för att etablera virtuella datorpooler skapar du Batch-kontot med poolallokeringsläget för användarprenumerationen. Med det här läget allokeras Batch-pooler till den prenumeration där kontot finns. I avsnittet [Konto](#account) finns information om hur du ställer in poolallokeringsläget när du skapar ett Batch-konto.
+
+Om du vill använda en anpassad avbildning måste du förbereda avbildningen genom att generalisera den. Information om förberedelse av anpassade Linux-avbildningar från virtuella Azure-datorer finns i [Capture an Azure Linux VM to use as a template](../virtual-machines/linux/capture-image-nodejs.md) (Skapa en virtuell Azure Linux-dator att använda som mall). Information om förberedelser som anpassade Windows-avbildningar från virtuella Azure-datorer finns i [Create custom VM images with Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md) (Skapa anpassade avbildningar av en virtuell dator med Azure PowerShell). Tänk på följande när du förbereder avbildningen:
+
+- Se till att den grundläggande OS-avbildningen som du använder för att etablera Batch-pooler är har några förinstallerade Azure-tillägg, till exempel tillägget för anpassat skript. Om avbildningen innehåller ett förinstallerat tillägg kan Azure stöta på problem med att distribuera den virtuella datorn.
+- Kontrollera att den grundläggande OS-avbildningen som du anger använder den temporära standardenheten, eftersom Batch-nodagenten för närvarande förväntar sig den.
 
 Om du vill skapa en pool för konfiguration av virtuell dator med hjälp av en anpassad avbildning, behöver du ett eller flera Azure Storage-standardkonton för att lagra dina anpassade VHD-avbildningar. Anpassade avbildningar lagras som blobar. Om du vill referera till anpassade avbildningar när du skapar en pool, anger du URI:erna för blobarna för de anpassade VHD-avbildningarna i egenskapen [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) för egenskapen [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
 
@@ -166,7 +188,7 @@ Se till att dina lagringskonton uppfyller följande kriterier:
 
 - De lagringskonton som innehåller blobar för anpassade VHD-avbildningar måste vara i samma prenumeration som Batch-kontot (i användarprenumerationen).
 - De angivna lagringskontona måste vara i samma region som Batch-kontot.
-- Endast standardlagringskonton stöds för närvarande. Azure Premium-lagring kommer att stödjas i framtiden.
+- Endast allmänna standardlagringskonton stöds för närvarande. Azure Premium-lagring kommer att stödjas i framtiden.
 - Du kan ange ett lagringskonto med flera blobar för anpassade VHD-avbildningar eller flera lagringskonton som vart och ett har en enskild blob. Vi rekommenderar att du använder flera lagringskonton för att få bättre prestanda.
 - En unik blob för anpassad VHD-avbildning kan ha stöd för upp till 40 instanser av virtuella Linux-datorer eller 20 instanser av virtuella Windows-datorer. Du måste skapa kopior av VHD-bloben för att kunna skapa pooler med fler virtuella datorer. För en pool med 200 virtuella Windows-datorer måste till exempel 10 unika VHD-blobar anges för egenskapen **osDisk**.
 
@@ -418,26 +440,46 @@ Ett alternativ är att skapa en pool för varje jobb som du skickar och sedan ta
 
 En kombinerad metod, som normalt används för att hantera en varierande men kontinuerlig belastning. är att ha en pool som flera jobb skickas till, men skala upp eller ned antalet noder baserat på arbetsbelastningen (se [Skala beräkningsresurser](#scaling-compute-resources) i avsnittet nedan). Detta kan göras reaktivt baserat på den aktuella belastningen eller proaktivt om det går att förutse belastningen.
 
-## <a name="pool-network-configuration"></a>Nätverkskonfiguration för pooler
+## <a name="virtual-network-vnet-and-firewall-configuration"></a>Konfiguration av virtuella nätverk (VNet) och brandväggar 
 
-När du skapar en pool med beräkningsnoder i Azure Batch kan du ange undernäts-ID:t för ett [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) i Azure som poolens beräkningsnoder ska skapas i.
+När du etablerar en pool av beräkningsnoder i Azure Batch kan du associera poolen med ett undernät för ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Mer information om hur du skapar ett VNet med undernät finns i [Create an Azure virtual network with subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) (Skapa ett virtuellt Azure-nätverk med undernät). 
 
-* Det virtuella nätverket måste:
+ * Det virtuella nätverket som är associerat med en pool måste vara:
 
    * Finnas i samma Azure-**region** som Azure Batch-kontot.
    * Finnas i samma **prenumeration** som Azure Batch-kontot.
 
 * Vilken typ av virtuellt nätverk som stöds beror på hur poolerna allokeras från Batch-kontot:
-    - Om Batch-kontot har skapats med värdet BatchService för egenskapen **poolAllocationMode** måste det angivna virtuella nätverket vara ett klassiskt virtuellt nätverk.
-    - Om Batch-kontot har skapats med värdet UserSubscription för egenskapen **poolAllocationMode** måste det angivna virtuella nätverket vara ett klassiskt virtuellt nätverk eller ett virtuellt Azure Resource Manager-nätverk. För att kunna använda ett virtuellt nätverk måste poolerna skapas med en konfiguration av virtuell dator. Pooler som skapas med en molntjänstkonfiguration stöds inte.
 
-* Om Batch-kontot har skapats med värdet BatchService för egenskapen **poolAllocationMode** måste du ange behörigheter för att Batch-tjänstens huvudnamn ska kunna komma åt det virtuella nätverket. Batch-tjänstens huvudnamn (”Microsoft Azure Batch” eller ”MicrosoftAzureBatch”) måste ha [RBAC-rollen (rollbaserad åtkomstkontroll) Klassisk virtuell datordeltagare](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) för det angivna virtuella nätverket. Om den angivna RBAC-rollen inte har angetts returnerar Batch-tjänsten 400 (felaktig begäran).
+    - Om poolallkeringsläget för Batch-kontot är inställt på Batch-tjänst kan du tilldela ett VNet endast till pooler som skapats med **Cloud Services-konfiguration**. Det angivna virtuella nätverket måste dessutom skapas med den klassiska distributionsmodellen. Virtuella nätverk som skapas med Azure Resource Manager-distributionsmodellen stöds inte.
+ 
+    - Om poolallkeringsläget för Batch-kontot är inställt på Användarprenumeration kan du tilldela ett VNet endast till pooler som skapats med **Virtual Machine-konfiguration**. Pooler som skapas med en **molntjänstkonfiguration** stöds inte. Det associerade virtuella nätverket kan skapas med Azure Resource Manager-distributionsmodellen eller den klassiska distributionsmodellen.
+
+    En tabell som sammanställer VNet-stöd enligt poolallokeringsläget finns i avsnittet [Poolallokeringsläge](#pool-allocation-mode).
+
+* Om poolallokeringsläget för ditt Batch-konto är inställt på Batch-tjänst måste du ange behörigheter för att Batch-tjänstens huvudnamn ska kunna komma åt det virtuella nätverket. Det virtuella nätverket måste tilldela rollen [RBAC-rollen (rollbaserad åtkomstkontroll) Klassisk virtuell datordeltagare](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) till Batch-tjänstens huvudnamn. Om den angivna RBAC-rollen inte har angetts returnerar Batch-tjänsten 400 (felaktig begäran). Så här lägger du till rollen i Azure Portal:
+
+    1. Välj det **virtuella nätverket** och sedan **Åtkomstkontroll (IAM)** > **Roller** > **Virtuell datordeltagare** > **Lägg till**.
+    2. På bladet **Lägg till behörigheter** väljer du rollen **Virtuell datordeltagare**.
+    3. På bladet **Lägg till behörigheter** söker du efter Batch-API:t. Sök efter var och en av de här strängarna tills du hittar API:t:
+        1. **MicrosoftAzureBatch**.
+        2. **Microsoft Azure Batch**. Nyare Azure AD-klientorganisationer kan använda det här namnet.
+        3. **ddbf3205-c6bd-46ae-8127-60eb93363864** är id:t för API:t. 
+    3. Välj Batch-API-tjänstens huvudnamn. 
+    4. Klicka på **Spara**.
+
+        ![Tilldela VM-deltagarroll till Batch-tjänstens huvudnamn](./media/batch-api-basics/iam-add-role.png)
+
 
 * Det angivna undernätet måste ha tillräckligt med lediga **IP-adresser** för det totala antalet målnoder, d.v.s. summan av egenskaperna `targetDedicatedNodes` och `targetLowPriorityNodes` för poolen. Om undernätet inte har tillräckligt med lediga IP-adresser blir Batch-tjänstens allokering av beräkningsnoder i poolen inte fullständig och ett storleksändringsfel returneras.
 
 * Det angivna undernätet måste tillåta kommunikation från Batch-tjänsten för att kunna schemalägga aktiviteter på beräkningsnoderna. Om kommunikation till beräkningsnoderna nekas av en **nätverkssäkerhetsgrupp (NSG)** som är associerad med din VNet, ändrar Batch-tjänsten beräkningsnodernas status till **Oanvändbar**.
 
-* Om det angivna virtuella nätverket har associerade nätverkssäkerhetsgrupper (NSG) måste ett par reserverade systemportar vara aktiverade för inkommande kommunikation. För pooler som har skapats med en konfiguration av virtuell dator aktiverar du portarna 29876 och 29877, samt port 22 för Linux och port 3389 för Windows. För pooler som har skapats med en molntjänstkonfiguration aktiverar du portarna 10100, 20100 och 30100. Aktivera även port 443 för utgående anslutningar till Azure Storage.
+* Om det angivna virtuella nätverket har associerade **nätverkssäkerhetsgrupper (NSG)** och/eller en **brandvägg** måste ett par reserverade systemportar vara aktiverade för inkommande kommunikation:
+
+- För pooler som har skapats med en konfiguration av virtuell dator aktiverar du portarna 29876 och 29877, samt port 22 för Linux och port 3389 för Windows. 
+- För pooler som har skapats med en molntjänstkonfiguration aktiverar du portarna 10100, 20100 och 30100. 
+- Aktivera port 443 för utgående anslutningar till Azure Storage. Kontrollera också att din Azure Storage-slutpunkt kan matchas av eventuella anpassade DNS-servrar som betjänar ditt VNET. Mer specifikt ska en URL i formatet `<account>.table.core.windows.net` vara omvandlingsbar.
 
     I följande tabell beskrivs de inkommande portar som du måste aktivera för pooler som du har skapat med en konfiguration av virtuell dator:
 
@@ -451,29 +493,6 @@ När du skapar en pool med beräkningsnoder i Azure Batch kan du ange undernäts
     |    Utgående portar    |    Mål    |    Lägger Batch till nätverkssäkerhetsgrupper?    |    Krävs detta för att VM ska kunna användas?    |    Åtgärd från användaren    |
     |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
     |    443    |    Azure Storage    |    Nej    |    Ja    |    Om du lägger till en nätverkssäkerhetsgrupp måste du se till att den här porten är öppen för utgående trafik.    |
-
-
-Ytterligare inställningar för din VNet varierar beroende på Batch-kontots poolallokeringsläge.
-
-### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>VNet för pooler etablerade i Batch-tjänsten
-
-I allokeringsläget för Batch-tjänster kan bara **Cloud Services-konfigurationspooler** tilldelas en VNet. Dessutom måste angiven VNet vara en **klassisk** VNet. Virtuella nätverk som skapas med Azure Resource Manager-distributionsmodellen stöds inte.
-
-
-
-* *MicrosoftAzureBatch*-tjänstobjektet måste ha RBAC-rollen (rollbaserad åtkomstkontroll) [Klassisk virtuell datordeltagare](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) för det angivna virtuella nätverket. På Azure Portal:
-
-  * Välj det **virtuella nätverket** och sedan **Åtkomstkontroll (IAM)** > **Roller** > **Klassisk virtuell datordeltagare** > **Lägg till**
-  * Ange ”MicrosoftAzureBatch” i rutan **Sök**
-  * Markera kryssrutan **MicrosoftAzureBatch**
-  * Välj knappen **Välj**
-
-
-
-### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>VNet för pooler som tillhandahålls i en användarprenumeration
-
-I allokeringsläget för användarprenumeration stöds endast pooler för **konfiguration av virtuell dator** och bara dessa kan tilldelas en VNet. Dessutom måste angiven VNet vara en **Resource Manager**-baserad VNet. VNet som skapas med den klassiska distributionsmodellen stöds inte.
-
 
 
 ## <a name="scaling-compute-resources"></a>Skala beräkningsresurser

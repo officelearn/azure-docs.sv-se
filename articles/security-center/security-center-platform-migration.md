@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d49f7986e09a90c5c4c49c0d3963d0cd8514713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="azure-security-center-platform-migration"></a>Migrering av Azure Security Center-plattformen
@@ -78,5 +77,6 @@ Tillsammans med plattformsmigreringen lanserar vi några ytterligare mindre uppd
 - [Prissättningen](https://azure.microsoft.com/pricing/details/security-center/) kommer att räknas om per timme (tidigare var det per dag), vilket leder till kostnadsbesparingar för vissa kunder.
 - Insamling av data kommer att krävas och aktiveras automatiskt för kunder på prisnivån Standard.
 - Azure Security Center kommer att börja identifiera lösningar mot skadlig kod som inte har distribuerats via Azure-tillägg. Identifiering av Symantec Endpoint Protection och Defender för Windows 2016 blir tillgänglig först.
+- Förebyggandeprinciper och -meddelanden kan endast konfigureras på *prenumerationsnivå*, men priser kan fortfarande anges på *resursgruppsnivå*l
 
 

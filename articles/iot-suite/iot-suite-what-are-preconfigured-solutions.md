@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 29e8639a6f1f0c2733d24dda78975ea7cfb6107a
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: d66dece63d2ba944c8f3828ba68c6202485d47e0
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Vad är förkonfigurerade lösningar i Azure IoT Suite?
+
 De förkonfigurerade lösningarna i Azure IoT Suite är implementeringar av vanliga IoT-lösningsmönster som du kan distribuera till Azure via din prenumeration. Du kan använda de förkonfigurerade lösningarna:
 
 * Som en startpunkt för dina egna IoT-lösningar.
@@ -31,12 +31,10 @@ De förkonfigurerade lösningarna i Azure IoT Suite är implementeringar av vanl
 
 Varje förkonfigurerad lösning är en fullständig implementering från slutpunkt till slutpunkt som använder simulerade enheter för att generera telemetri.
 
-Förutom att distribuera och köra lösningarna i Azure kan du hämta den fullständiga källkoden och sedan anpassa och utöka lösningen efter dina specifika IoT-krav.
+Du kan ladda ned den fullständiga källkoden för att anpassa och utöka lösningen så att den uppfyller dina specifika IoT-krav.
 
 > [!NOTE]
 > Om du vill distribuera någon av de förkonfigurerade lösningarna besöker du [Microsoft Azure IoT Suite][lnk-azureiotsuite]. Artikeln [Komma igång med förkonfigurerade IoT-lösningar][lnk-getstarted-preconfigured] innehåller mer information om hur du distribuerar och kör lösningarna.
-> 
-> 
 
 Följande tabell visar hur lösningarna mappar till specifika IoT-funktioner:
 
@@ -54,6 +52,7 @@ Följande tabell visar hur lösningarna mappar till specifika IoT-funktioner:
 * *Förutsägelseanalys*: Lösningens backend-server analyserar data från enheten till molnet för att förutsäga när specifika åtgärder ska äga rum. Lösningen kan till exempel analysera telemetri från en flygplansmotor för att fastställa när motorunderhåll krävs.
 
 ## <a name="remote-monitoring-preconfigured-solution-overview"></a>Översikt över den förkonfigurerade lösningen för fjärrövervakning
+
 Vi har valt att diskutera den förkonfigurerade lösningen för fjärrövervakning i den här artikeln eftersom den illustrerar många vanliga designelement som finns i de andra lösningarna.
 
 Följande diagram illustrerar de viktigaste elementen i fjärrövervakningslösningen. Följande avsnitt innehåller mer information om dessa element.
@@ -61,7 +60,9 @@ Följande diagram illustrerar de viktigaste elementen i fjärrövervakningslösn
 ![Arkitekturen i den förkonfigurerade lösningen för fjärrövervakning][img-remote-monitoring-arch]
 
 ## <a name="devices"></a>Enheter
+
 När du distribuerar den förkonfigurerade fjärrövervakningslösningen har fyra simulerade enheter som simulerar en kylningsenhet redan konfigurerats i lösningen. Dessa simulerade enheter har en inbyggd temperatur- och fuktighetsmodell som genererar telemetri. Dessa simulerade enheter ingår:
+
 - Visa flödet av data slutpunkt till slutpunkt genom lösningen.
 - Ange en lämplig källa för telemetri.
 - Ange ett mål för metoderna eller kommandona om du är en backend-utvecklare som använder lösningen som en startpunkt för en anpassad implementering.
@@ -73,13 +74,13 @@ De simulerade enheterna i lösningen kan svara på följande kommunikation från
 
 En jämförelse av de olika metoderna finns i [Cloud-to-device communications guidance][lnk-c2d-guidance] (Vägledning för kommunikation från moln till enhet).
 
-Första gången en enhet ansluter till IoT Hub i den förkonfigurerade lösningen skickar den ett meddelande med enhetsinformation till hubben som innehåller alla metoder som enheten kan svara på. Simulerade enheter stöder följande metoder i den förkonfigurerade fjärrövervakningslösningen:
+Första gången en enhet ansluter till IoT Hub i den förkonfigurerade lösningen skickar den ett meddelande med enhetsinformation till hubben. Det här meddelandet räknar upp de metoder som enheten kan svara på. Simulerade enheter stöder följande metoder i den förkonfigurerade fjärrövervakningslösningen:
 
 * *Initiate Firmware Update* (Påbörja uppdatering av inbyggd programvara): den här metoden påbörjar en asynkron uppgift på enheten för att utföra en uppdatering av den inbyggda programvaran. De asynkrona åtgärderna använder rapporterade egenskaper för att leverera statusuppdateringar till lösningens instrumentpanel.
 * *Starta om*: den här metoden gör att den simulerade enheten startas om.
 * *FactoryReset*: den här metoden utlöser en fabriksåterställning på den simulerade enheten.
 
-Första gången en enhet ansluter till IoT Hub i den förkonfigurerade lösningen skickar den ett meddelande med enhetsinformation till hubben som innehåller alla kommandon som enheten kan svara på. Simulerade enheter stöder följande kommandon i den förkonfigurerade fjärrövervakningslösningen:
+Första gången en enhet ansluter till IoT Hub i den förkonfigurerade lösningen skickar den ett meddelande med enhetsinformation till hubben. Det här meddelandet räknar upp de kommandon som enheten kan svara på. Simulerade enheter stöder följande kommandon i den förkonfigurerade fjärrövervakningslösningen:
 
 * *Pinga enhet*: Enheten svarar på det här kommandot med en bekräftelse. Det här kommandot är användbart för att kontrollera att enheten fortfarande är aktiv och lyssnar.
 * *Starta telemetri*: Instruerar enheten att börja skicka telemetri.
@@ -93,6 +94,7 @@ Du kan lägga till fler simulerade enheter i lösningen som skickar samma teleme
 Utöver att svara på kommandon och metoder använder lösningen [enhetstvillingar][lnk-device-twin]. Enheterna använder enhetstvillingar för att rapportera egenskapsvärden till lösningens backend-server. Lösningens instrumentpanel använder enhetstvillingar för att ange nya önskade egenskapsvärden på enheter. Under uppdateringen av inbyggd programvara rapporterar till exempel den simulerade enheten uppdateringens status med hjälp av rapporterade egenskaper.
 
 ## <a name="iot-hub"></a>IoT Hub
+
 I den här förkonfigurerade lösningen motsvarar IoT Hub-instansen *moln-gatewayen* i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
 En IoT-hubb tar emot telemetri från enheterna på en enda slutpunkt. En IoT-hubb har också enhetsspecifika slutpunkter där varje enhet kan ta emot de kommandon som skickas till den.
@@ -106,15 +108,17 @@ Kapaciteten för enhetshantering av IoT Hub hjälper dig att hantera dina enhets
 - Uppdateringar av inbyggd programvara
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+
 Den förkonfigurerade lösningen använder tre [Azure Stream Analytics][lnk-asa]-jobb (ASA) för att filtrera telemetriströmmen från enheterna:
 
-* *Jobbet DeviceInfo* – matar ut data till en händelsehubb som dirigerar enhetsregistreringsspecifika meddelanden till lösningens enhetsregister (en Azure Cosmos DB-databas). Det här meddelandet skickas när en enhet ansluter första gången eller som svar på kommandot **Ändra enhetstillstånd**.
+* *DeviceInfo-jobbet* – Matar ut data till en händelsehubb som dirigerar enhetsregistreringsspecifika meddelanden till lösningens enhetsregister. Det här enhetsregistret är en Azure Cosmos DB-databas. Meddelandena skickas första gången en enhet ansluter eller som svar på kommandot **Ändra enhetstillstånd**.
 * Jobbet *Telemetri* – skickar alla råtelemetridata till Azure Blob Storage för kall lagring och beräknar telemetriaggregeringar som visas på instrumentpanelen för lösningen.
 * Jobbet *Regler* – filtrerar telemetriströmmen och hämtar värden som överskrider tröskelvärden för regler och matar sedan ut dessa data till en händelsehubb. När en regel utlöses visar instrumentpanelen på lösningsportalen den här händelsen som en ny rad i larmhistoriktabellen. Reglerna kan även utlösa en åtgärd baserad på inställningarna som definierats i vyerna **Regler** och **Åtgärder** på lösningsportalen.
 
 I den här förkonfigurerade lösningen är ASA-jobben en del av **IoT-lösningens serverdel** i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
 ## <a name="event-processor"></a>Händelseprocessor
+
 I den här förkonfigurerade lösningen är händelseprocessorn en del av **IoT-lösningens serverdel** i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
 ASA-jobben **DeviceInfo** och **Regler** skickar sina utdata till Event Hubs för leverans till andra backend-tjänster. Lösningen använder en [EventProcessorHost][lnk-event-processor]-instans som körs i ett [WebJob][lnk-web-job] för att läsa meddelanden från dessa händelsehubbar. **EventProcessorHost** använder:
@@ -122,6 +126,7 @@ ASA-jobben **DeviceInfo** och **Regler** skickar sina utdata till Event Hubs fö
 - **Regler**-data för att anropa logikappen och uppdatera aviseringarna som visas i lösningsportalen.
 
 ## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Enhetsidentitetsregistret, enhetstvillingar och Cosmos DB
+
 Varje IoT-hubb innehåller ett [enhetsidentitetsregister][lnk-identity-registry] som lagrar enhetsnycklar. IoT Hub använder den här informationen för att autentisera enheter – en enhet måste vara registrerad och ha en giltig nyckel innan den kan ansluta till hubben.
 
 En [enhetstvilling][lnk-device-twin] är ett JSON-dokument som hanteras av IoT Hub. En enhetstvilling för en enhet innehåller:
@@ -135,6 +140,7 @@ Den här lösningen använder enhetstvillingar för att hantera enhetsmetadata. 
 Lösningen måste också spara informationen i enhetsidentitetsregistret som synkroniseras med innehållet i Cosmos DB-databasen. **EventProcessorHost** använder data från Stream Analytics-jobbet **Enhetsinformation** för att hantera synkroniseringen.
 
 ## <a name="solution-portal"></a>Lösningsportal
+
 ![lösningsportal][img-dashboard]
 
 Lösningsportalen är ett webbaserat gränssnitt som distribueras till molnet som en del av den förkonfigurerade lösningen. Här kan du:
@@ -150,6 +156,7 @@ Lösningsportalen är ett webbaserat gränssnitt som distribueras till molnet so
 I den här förkonfigurerade lösningen är lösningsportalen en del av **IoT-lösningens serverdel** och en del av **bearbetnings- och affärsanslutningarna** i en typisk [IoT-lösningsarkitektur][lnk-what-is-azure-iot].
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information om IoT-lösningsarkitekturer finns i [Microsoft Azure IoT-tjänster: referensarkitektur][lnk-refarch].
 
 Nu vet du vad en förkonfigurerad lösning är och kan komma igång genom att distribuera den förkonfigurerade lösningen för *fjärrövervakning*: [Komma igång med förkonfigurerade lösningar][lnk-getstarted-preconfigured].

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 0e80e0a1c334bcca0bb15dd16c54306a60f2486e
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 7ef31d7d72844c0ed3be0701549e49e26aac9abf
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -35,9 +35,9 @@ Azure Automation är ett SaaS-program (programvara som en tjänst) som erbjuder 
 
 De runbooks som du kör i Azure körs i Automation-sandboxar på virtuella Azure PaaS-datorer (plattform som en tjänst).  Automation-sandboxar ger innehavare isolering för alla aspekter av runbook-körningen – moduler, lagring, minne, nätverkskommunikation, jobbströmmar m.m. Den här rollen hanteras av tjänsten och kan inte nås eller kontrolleras från ditt Azure- eller Azure Automation-konto.         
 
-Om du vill automatisera distributionen och hanteringen av resurser i ditt lokala datacenter eller andra molntjänster när du har skapat ett Automation-konto kan du utse en eller flera datorer som kör [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)-rollen.  Varje HRW behöver en Microsofts-hanteringsagent (MMA) med en anslutning till en Log Analytics-arbetsyta och ett Automation-konto.  Log Analytics används för att starta installationen, underhålla MMA-agenten och övervaka HRW-funktioner.  Azure Automation tar hand om leveransen av runbooks och instruktionen för att köra dem.
+Om du vill automatisera distributionen och hanteringen av resurser i ditt lokala datacenter eller andra molntjänster när du har skapat ett Automation-konto, kan du välja en eller flera datorer som kör [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)-rollen.  För varje Hybrid Runbook Worker (HRW) behövs en Microsofts-hanteringsagent (MMA) med anslutning till en Log Analytics-arbetsyta och ett Automation-konto.  Log Analytics används för att starta installationen, underhålla MMA-agenten och övervaka funktionerna i Hybrid Runbook Worker.  Azure Automation tar hand om leveransen av runbooks och instruktionen för att köra dem.
 
-Du kan distribuera flera HRW för att tillhandahålla hög tillgänglighet för dina runbooks, belastningsutjämna runbookjobb, och i vissa fall dedikera dem till specifika arbetsbelastningar eller miljöer.  HRW kommunicerar med Automation-tjänsten via den utgående porten 443 (TCP).  Om du har en runbook som körs på en HRW i ditt datacenter och vill att runbooken ska utföra hanteringsuppgifter mot andra datorer eller tjänster i datacentret kan runbooken behöva åtkomst till andra portar.  Om dina IT-säkerhetsprinciper inte tillåter att datorer i nätverket ansluter till Internet kan du läsa artikeln [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md), som agerar som proxy för HRW för insamling av jobbstatus och mottagning av konfigurationsinformation från ditt Automation-konto.
+Du kan distribuera flera HRW för att tillhandahålla hög tillgänglighet för dina runbooks, belastningsutjämna runbookjobb, och i vissa fall dedikera dem till specifika arbetsbelastningar eller miljöer.  Microsofts-hanteringsagent på Hybrid Runbook Worker startar kommunikationen med Automation-tjänsten via TCP-port 443, och det finns inga krav på brandvägg för inkommande trafik.  Om du har en runbook som körs på en Hybrid Runbook Worker i ditt datacenter och vill att runbooken ska utföra hanteringsuppgifter mot andra datorer eller tjänster i miljön, kan runbooken behöva åtkomst till andra portar.  Om dina IT-säkerhetsprinciper inte tillåter att datorer i nätverket ansluter till Internet kan du läsa artikeln [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md), som agerar som proxy för HRW för insamling av jobbstatus och mottagning av konfigurationsinformation från ditt Automation-konto.
 
 Runbooks som körs på en HRW körs i kontexten för det lokala systemkontot på datorn, vilket är den säkerhetskontext som rekommenderas när du utför administrativa åtgärder på den lokala Windows-datorn. Om du vill att en runbook ska köra aktiviteter mot resurser utanför den lokala datorn måste du definiera säkra inloggningstillgångar i Automation-kontot. Du kan komma åt dessa från runbooken och använda dem för autentisering med den externa resursen. Du kan använda tillgångar som [autentiseringsuppgifter](automation-credentials.md), [certifikat](automation-certificates.md) och [anslutning](automation-connections.md) i din runbook med cmdlets. På så sätt kan du ange autentiseringsuppgifter så att du kan autentisera dem.
 

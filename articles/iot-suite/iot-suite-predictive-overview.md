@@ -13,36 +13,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: e0e658fc392bf6a53f777f22a2e0b6e7bd742f97
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Översikt över förkonfigurerad lösning för förebyggande underhåll
 
 Den [förkonfigurerade lösningen][lnk_preconfigured_solutions] för *förebyggande underhåll* är en av de förkonfigurerade lösningarna i [Microsoft Azure IoT Suite][lnk_iot_suite]. Den här lösningen integrerar realtidsinsamling av enhetstelemetri med en förebyggande modell skapad med [Azure Machine Learning][lnk-machine-learning].
 
-Med Azure IoT Suite kan företag snabbt och enkelt ansluta till och övervaka tillgångar och analysera data i realtid. Den förkonfigurerade lösningen för förebyggande underhåll bearbetar dessa data och använder detaljerade instrumentpaneler och visualiseringar för att ge dig nya insikter som kan öka effektiviteten och förbättra intäkterna.
+Med Azure IoT Suite kan du snabbt och enkelt ansluta till och övervaka tillgångar och analysera telemetri i realtid på instrumentpaneler och i visualiseringar. I lösningen för förutsägande underhåll ger instrumentpanelerna och visualiseringarna nya insikter som kan öka effektiviteten och förbättra intäktsströmmarna.
 
 ## <a name="the-scenario"></a>Scenariot
-Fabrikam är ett regionalt flygbolag som fokuserar på bra kundupplevelser till konkurrenskraftiga priser. En orsak till flygförseningar är underhållsproblem, och flygplansmotorernas underhåll är särskilt krävande. Motorfel under flygning måste undvikas till varje pris. Därför inspekterar Fabrikam regelbundet sina motorer och följer en schemalagd underhållsplan. Flygplansmotorer slits dock inte alltid likadant. En del onödigt underhåll utförs på motorerna. Dessutom kan det uppstå problem som gör att planet blir stående tills underhåll har utförts. Dessa problem medför kostsamma fördröjningar, särskilt om ett flygplan finns på en plats där rätt tekniker eller reservdelar inte är tillgängliga.
 
-Motorerna i Fabrikams flygplan är utrustade med sensorer som övervakar motortillståndet under flygning. Fabrikam använder den förkonfigurerade lösningen för förväntat underhåll för att samla in de sensordata som samlats in under flygresan. Fabrikams dataspecialister har under flera år samlat in data om motorernas drift och eventuella fel och har tagit fram en modell som kan förutse flygplansmotorernas återstående livslängd. Vad man har identifierat är en korrelation mellan data från fyra av motorsensorerna med motorernas slitage som leder till eventuella problem. Fabrikam fortsätter att utföra regelbundna inspektioner för att säkerställa säkerheten, men nu kan man använda modeller för att beräkna varje motors återstående livslängd efter varje flygning. Modellen använder telemetrin som samlats in från motorerna under flygresan. Fabrikam kan nu förutsäga framtida tidpunkter för potentiella fel och planera för underhåll och reparation i förväg.
+Fabrikam är ett regionalt flygbolag som fokuserar på bra kundupplevelser till konkurrenskraftiga priser. En orsak till flygförseningar är underhållsproblem, och flygplansmotorernas underhåll är särskilt krävande. Fabrikam måste till vilket pris som helst förhindra motorfel under flygningar och inspekterar därför regelbundet sina motorer och schemalägger underhåll med utgångspunkt i en plan. Flygplansmotorer slits dock inte alltid likadant. En del onödigt underhåll utförs på motorerna. Dessutom kan det uppstå problem som gör att planet blir stående tills underhåll har utförts. Om ett flygplan finns på en plats där rätt tekniker eller reservdelar inte är tillgängliga kan dessa problem bli extra kostsamma.
+
+Motorerna i Fabrikams flygplan är utrustade med sensorer som övervakar motortillståndet under flygning. Fabrikam använder lösningen för förutsägande underhåll för att samla in de sensordata som inhämtats under flygresan. Fabrikams dataspecialister har under flera år samlat in data om motorernas drift och eventuella fel och har tagit fram en modell som kan förutse flygplansmotorernas återstående livslängd. Modellen använder en korrelation mellan data från fyra av motorsensorerna och motorförslitningar som med tiden leder till motorfel. Fabrikam fortsätter att utföra regelbundna inspektioner för att säkerställa säkerheten, men nu kan man använda modeller för att beräkna varje motors återstående livslängd efter varje flygning. Modellen använder telemetrin som samlats in från motorerna under flygresan. Fabrikam kan nu förutsäga framtida tidpunkter för potentiella fel och planera för underhåll och reparation i förväg.
 
 > [!NOTE]
 > Lösningsmodellen använder faktiska data om motorernas slitage.
 
-Genom att förutsäga när underhåll krävs kan Fabrikam optimera verksamheten och minska kostnaderna. Underhållskoordinatorer fungerar tillsammans med schemaläggare:
+Genom att förutsäga när underhåll krävs kan Fabrikam optimera verksamheten och minska kostnaderna.
 
-- För att planera att underhåll sammanträffar med att flygplanet stannar på en viss plats.
-- För att se till att det finns tillräckligt med tid för flygplanet att vara ur funktion utan att orsaka avbrott i schemat.
+Underhållskoordinatorer arbetar tillsammans med schemaläggare för att:
+
+- Planera underhållet så att det sammanträffar med tidpunkten då ett flygplan stannar på en viss plats.
+- Se till att det finns tillräckligt med tid för flygplanet att vara ur funktion utan att orsaka avbrott i schemat.
 - För att schemalägga tekniker så att flygplanen servas effektivt utan väntetid.
 
-Inventeringskontrollchefer får underhållsplaner så att de kan optimera beställningsprocessen och reservdelslagret. Detta gör att Fabrikam kan minimera flygplanens marktid och minska driftkostnaderna samtidigt som man säkerställer passagerarnas och flygplansbesättningens säkerhet.
+Inventeringskontrollchefer får underhållsplaner så att de kan optimera beställningsprocessen och reservdelslagret.
+
+Dessa aktiviteter gör att Fabrikam kan minimera flygplanens marktid och minska driftkostnaderna samtidigt som man säkerställer passagerarnas och flygplansbesättningens säkerhet.
 
 Mer information om hur [Azure IoT Suite][lnk_iot_suite] tillhandahåller de funktioner som kunder behöver för att förverkliga potentialen i förebyggande underhåll finns [här][lnk_infographic].
 
@@ -50,7 +55,7 @@ Mer information om hur [Azure IoT Suite][lnk_iot_suite] tillhandahåller de funk
 
 Lösningen utnyttjar en befintlig Azure Machine Learning-modell som är tillgänglig som en mall för att demonstrera hur dessa funktioner arbetar med enhetstelemetri som samlas in via IoT Suite-tjänster. Microsoft har byggt en [regressionsmodell][lnk_regression_model] av en flygplansmotor baserat på offentligt tillgängliga data<sup>\[1\]</sup> och stegvisa anvisningar för hur du använder modellen.
 
-Azure IoT:s förkonfigurerade lösning för förväntat underhåll använder regressionsmodellen som skapades från den här mallen. Modellen distribueras i din Azure-prenumeration och exponeras via en automatiskt genererad API. Lösningen innehåller en delmängd av testdata som representerar 4 (av totalt 100) motorer och 4 (av totalt 21) dataströmmar. Dessa data är tillräckliga för att tillhandahålla ett korrekt resultat från Trained Model.
+Azure IoT:s lösning för förutsägande underhåll använder regressionsmodellen som skapats från den här mallen. Modellen distribueras i din Azure-prenumeration och exponeras via en automatiskt genererad API. Lösningen innehåller en delmängd av testdata som representerar 4 (av totalt 100) motorer och 4 (av totalt 21) dataströmmar. Dessa data är tillräckliga för att tillhandahålla ett korrekt resultat från Trained Model.
 
 *\[1\] A. Saxena och K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
@@ -86,17 +91,19 @@ Finns det något som du förväntar dig att se men som inte visas för din lösn
 I det här avsnittet vägleds du genom lösningens användargränssnitt.
 
 ### <a name="predictive-maintenance-dashboard"></a>Instrumentpanel för förebyggande underhåll
+
 Den här sidan i webbappen använder PowerBI JavaScript-kontroller (finns i [PowerBI-visuals-databasen][lnk-powerbi]) för att visualisera:
 
 * Utdata från Stream Analytics-jobben i Blob Storage.
 * Den återstående användbara livslängden och antalet cykler per flygplansmotor.
 
 ### <a name="observing-the-behavior-of-the-cloud-solution"></a>Observera molnlösningens beteende
+
 I Azure Portal navigerar du till resursgruppen med det lösningsnamn som du har valt för att visa dina etablerade resurser.
 
 ![][img-resource-group]
 
-När du etablerar den förkonfigurerade lösningen kan du få ett e-postmeddelande med en länk till Machine Learning-arbetsytan. Du kan också navigera till Machine Learning-arbetsytan från ikonen på sidan [azureiotsuite.com][lnk-azureiotsuite] för din etablerade lösning när lösningen har statusen **Klar**.
+När du etablerar den förkonfigurerade lösningen kan du få ett e-postmeddelande med en länk till Machine Learning-arbetsytan. Du kan också navigera till Machine Learning-arbetsytan från sidan [azureiotsuite.com][lnk-azureiotsuite] för din etablerade lösning. En panel är tillgänglig på den här sidan när lösningen har statusen **Redo**.
 
 ![][img-machine-learning]
 
@@ -104,11 +111,11 @@ På lösningsportalen kan du se att exemplet etableras med fyra simulerade enhet
 
 ![][img-simulation-stopped]
 
-Klicka på **Starta simulering** för att starta simuleringen där du kan se hur sensorhistorik, RUL, cykler och RUL-historik fyller instrumentpanelen.
+Starta simuleringen genom att klicka på **Starta simulering**. Instrumentpanelen fylls med sensorhistorik, RUL-värden, cykler och RUL-historik.
 
 ![][img-simulation-running]
 
-Om RUL är mindre än 160 (ett godtyckligt tröskelvärde som valts i demonstrationssyfte) visas en varningssymbol bredvid RUL-skärmen på lösningsportalen och flygplansmotorn visas i gult. Lägg märke till att RUL-värdena har en nedåtgående trend generellt, men med många upp- och nedgångar. Detta mönster beror på de olika cykellängderna och modellens precision.
+Om RUL-värdet är mindre än 160 (ett godtyckligt tröskelvärde som valts som exempel) visas en varningssymbol på lösningsportalen bredvid RUL-värdet. Dessutom markeras flygplansmotorn i gult på lösningsportalen. Lägg märke till att RUL-värdena har en nedåtgående trend generellt, men med många upp- och nedgångar. Detta mönster beror på de olika cykellängderna och modellens precision.
 
 ![][img-simulation-warning]
 
@@ -122,7 +129,7 @@ Du kan stoppa simuleringen när du vill, men om du klickar på **Starta simuleri
 
 Mer information om hur Azure IoT möjliggör scenarier för förebyggande underhåll finns i artikeln [Få ut värde av Internet of Things][lnk_capture_value].
 
-Ta en [genomgång][lnk-predictive-walkthrough] av den förkonfigurerade lösningen för förebyggande underhåll.
+Gå en [genomgång][lnk-predictive-walkthrough] av lösningen för förutsägande underhåll.
 
 Du kan även utforska några andra funktioner och möjligheter i de förkonfigurerade lösningarna i IoT Suite:
 

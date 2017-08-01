@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
@@ -78,7 +77,7 @@ I den här artikeln beskrivs hur du loggar in på Azure interaktivt. Skriv [az l
 az login
 ```
 
-Kommandot `az login` returnerar en token som du använder för autentisering, vilket visas här. Följ anvisningarna för att öppna en webbsida och skicka denna token till Azure:
+Kommandot `az login` returnerar en token som du kan använda för autentisering, vilket visas här. Följ anvisningarna för att öppna en webbsida och skicka denna token till Azure:
 
 ![Logga in på Azure](./media/batch-cli-get-started/az-login.png)
 
@@ -119,6 +118,10 @@ Det finns två alternativ för att autentisera mot Batch-kontot:
     ```
 
 I exemplen i avsnittet [Exempel på kommandoskript](#sample-shell-scripts) visas hur du loggar in på ditt Batch-konto med Azure CLI, både med Azure AD och med delad nyckel.
+
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Använda Azure Batch CLI-mallar och filöverföring (förhandsversion)
+
+Du kan använda Azure CLI för att köra Batch-jobb från slutpunkt till slutpunkt utan att skriva kod. Batch-mallfiler har stöd för att skapa pooler, jobb och uppgifter med Azure CLI. Du kan också använda Azure CLI för att ladda upp jobbindatafiler till Azure Storage-kontot som är kopplat till Batch-kontot och ladda ned jobbutdatafiler därifrån. Mer information finns i [Använda Azure Batch CLI-mallar och filöverföring (förhandsversion)](batch-cli-templates.md).
 
 ## <a name="sample-shell-scripts"></a>Exempel på kommandoskript
 
@@ -187,7 +190,7 @@ Följande tips kan vara till hjälp när du felsöker problem med Azure CLI:
 
 * Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/overview).
 * Mer information om Batch-resurser finns i [Utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).
-* Se [distribuera program till compute-noder med batch-programpaket](batch-application-packages.md) för att läsa hur man använder den här funktionen för att hantera och distribuera de program du kör på Batch compute-noder.
+* Mer information om hur du använder Batch-mallar för att skapa pooler, jobb och uppgifter utan att skriva kod, finns i [Använda Azure Batch CLI-mallar och filöverföring (förhandsversion)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

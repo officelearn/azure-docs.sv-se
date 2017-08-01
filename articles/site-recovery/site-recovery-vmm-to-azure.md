@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med hjälp av Site Recovery i Azure Portal
@@ -164,6 +164,11 @@ Installera Azure Site Recovery-providern på VMM-servern och registrera servern 
 
      ![Internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Acceptera eller ändra platsen för ett SSL-certifikat som genereras automatiskt för datakryptering. Det här certifikatet används om du aktiverar datakryptering för ett moln som skyddas av Azure på Azure Site Recovery-portalen. Skydda det här certifikatet. När du kör en redundansväxling till Azure måste den dekrypteras om datakryptering är aktiverat.
+
+    > [!NOTE]
+    > Vi rekommenderar att du använder krypteringsfunktionen i Azure för att kryptera vilande data, i stället för att använda datakrypteringsalternativet i Azure Site Recovery. Krypteringsfunktionen i Azure kan aktiveras för ett lagringskonto och bidrar till bättre prestanda eftersom krypteringen/dekrypteringen hanteras av Azure Storage.
+    > [Lär dig mer om kryptering med Storage-tjänsten från Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 8. I **Servernamn** anger du ett eget namn som identifierar VMM-servern i valvet. I en klusterkonfiguration anger du namnet på VMM-klusterrollen.
 9. Aktivera **Synkronisera molnmetadata** om du vill synkronisera metadata för alla moln på VMM-servern med valvet. Den här åtgärden behöver bara göras en gång på varje server. Om du inte vill synkronisera alla moln kan du lämna den här inställningen avmarkerad och synkronisera varje moln individuellt i molnegenskaperna i VMM-konsolen. Slutför processen genom att klicka på **Registrera**.
 
@@ -425,6 +430,12 @@ Där:
 * **/Credentials**: Obligatorisk parameter som anger var registreringsnyckelfilen finns.  
 * **/FriendlyName**: Obligatorisk parameter för namnet på Hyper-V-värdservern som visas på Azure Site Recovery-portalen.
 * * **/EncryptionEnabled**: Valfri parameter när du replikerar virtuella Hyper-V-datorer i VMM-moln till Azure. Ange om du vill kryptera virtuella datorer i Azure (kryptering av vilande data). Kontrollera att namnet på filen har filnamnstillägget **.pfx**. Kryptering är inaktiverat som standard.
+
+    > [!NOTE]
+    > Vi rekommenderar att du använder krypteringsfunktionen i Azure för att kryptera vilande data, i stället för att använda krypteringsalternativet (alternativet Kryptering aktiverat) i Azure Site Recovery. Krypteringsfunktionen i Azure kan aktiveras för ett lagringskonto och bidrar till bättre prestanda eftersom krypteringen/dekrypteringen hanteras av Azure  
+    > Storage.
+    > [Lär dig mer om kryptering med Storage-tjänsten i Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 * **/proxyAddress**: Valfri parameter som anger adressen till proxyservern.
 * **/proxyport**: Valfri parameter som anger porten för proxyservern.
 * **/proxyUsername**: Valfri parameter som anger användarnamnet för proxyservern (om proxyservern kräver autentisering).

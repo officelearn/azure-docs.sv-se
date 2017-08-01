@@ -16,15 +16,15 @@ ms.date: 07/21/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 9a53216e326e63bd4fe36c0e5d5d5e85b2098d8c
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: 7667cf679821cc99d6e8b3ec4aa466067d8a6b32
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Skapa en PHP-webbapp i Azure
 
-Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera PHP-exempelkoden till webbappen.
+Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell och använder Git för att distribuera PHP-exempelkoden till webbappen.
 
 ![Sample app running in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -39,23 +39,12 @@ För att slutföra den här snabbstarten behöver du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="download-the-sample-locally"></a>Ladda ned exemplet lokalt
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
-## <a name="download-the-sample"></a>Hämta exemplet
-
-Kör följande kommando i ett terminalfönster för att klona databasen för exempelappen till den lokala datorn.
+Kör följande kommandon i ett terminalfönster. Exempelprogrammet klonas då till din lokala dator och du kommer till katalogen med exempelkoden.
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
-```
-
-Du använder det här terminalfönstret för att köra alla kommandon i den här snabbstarten.
-
-Ändra till den katalog som innehåller exempelkoden.
-
-```bash
 cd php-docs-hello-world
 ```
 
@@ -75,15 +64,15 @@ Du ser meddelandet **Hello World!** från exempelappen på sidan.
 
 Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
 
 ![Sida för tom webbapp](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
@@ -118,7 +107,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-## <a name="browse-to-the-app"></a>Bläddra till appen
+## <a name="browse-to-the-app-locally"></a>Bläddra till appen lokalt
 
 Bläddra till den distribuerade appen via webbläsaren.
 
@@ -132,7 +121,7 @@ PHP-exempelkoden körs i en Azure App Service-webbapp.
 
 **Grattis!** Du har distribuerat din första PHP-app till App Service.
 
-## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
+## <a name="update-locally-and-redeploy-the-code"></a>Uppdatera lokalt och distribuera om koden
 
 Öppna filen `index.php` i PHP-appen med ett lokalt textredigeringsprogram och gör små ändringar i texten i strängen bredvid `echo`:
 
@@ -159,7 +148,7 @@ Klicka på **Apptjänster** i menyn till vänster och sedan på namnet på din A
 
 ![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
+Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
 ![App Service-blad på Azure Portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 

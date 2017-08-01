@@ -12,10 +12,10 @@ ms.topic: hero-article
 ms.devlang: java
 ms.date: 06/20/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 0190fb5a88f766369e6462965e47686c5f289551
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6ffcf3b38a3d868dfa10ea2e2a9d097441387d4f
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 
 Du måste också:
 - Hämta JDBC-drivrutinen [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- Ta med JDBC jar-filen (till exempel mysql-connector-java-5.1.42-bin.jar) i klassökvägen i programmet.
+- Ta med JDBC jar-filen (till exempel mysql-connector-java-5.1.42-bin.jar) i klassökvägen i programmet. Om du har problem med detta kan du läsa dokumentationen för miljön för information om klassens sökväg, som [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) eller [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 - Se till att säkerhetsinställningarna för Azure Database för MySQL-anslutning konfigureras med brandväggen öppen och att SSL-inställningarna justeras så att programmet kan ansluta.
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation

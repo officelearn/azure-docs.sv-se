@@ -15,25 +15,21 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 233db1cb74a6c81cf044953ecdf6e9de6cc50ee8
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 754c381cb242e0bdf7c56bd2a763d46acc80fbda
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="create-a-python-web-app-in-azure" class="xliff"></a>
-
-# Skapa en Python-webbapp i Azure
+# <a name="create-a-python-web-app-in-azure"></a>Skapa en Python-webbapp i Azure
 
 Med [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du utvecklar en Python-app och distribuerar den till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera Python-exempelkoden till webbappen.
 
 ![Exempelapp som körs i Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. Det tar cirka fem minuter att slutföra självstudiekursen när de nödvändiga komponenterna har installerats.
-<a id="prerequisites" class="xliff"></a>
-
-## Krav
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -46,9 +42,7 @@ För att slutföra den här kursen behöver du:
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Hämta exemplet
+## <a name="download-the-sample"></a>Hämta exemplet
 
 Kör följande kommando i ett terminalfönster för att klona databasen för exempelappen till den lokala datorn.
 
@@ -56,7 +50,7 @@ Kör följande kommando i ett terminalfönster för att klona databasen för exe
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-Du använder det här terminalfönstret för att köra alla kommandon i denna snabbstart.
+Du använder det här terminalfönstret för att köra alla kommandon i den här snabbstarten.
 
 Ändra till den katalog som innehåller exempelkoden.
 
@@ -64,9 +58,13 @@ Du använder det här terminalfönstret för att köra alla kommandon i denna sn
 cd Python-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>Köra appen lokalt
 
-## Köra appen lokalt
+Installera de paket som behövs med hjälp av `pip`.
+
+```bash
+pip install -r requirements.txt
+```
 
 Kör programmet lokalt genom att öppna ett terminalfönster och använda kommandot `Python` för att starta den inbyggda Python-webbservern.
 
@@ -96,9 +94,7 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 Nu har du skapat en ny tom webbapp på Azure.
 
-<a id="configure-to-use-python" class="xliff"></a>
-
-## Konfiguration för användning av Python
+## <a name="configure-to-use-python"></a>Konfiguration för användning av Python
 
 Använd kommandot [az webapp config set](/cli/azure/webapp/config#set) och konfigurera webbappen för att använda Python version `3.4`.
 
@@ -155,9 +151,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Bläddra till appen
+## <a name="browse-to-the-app"></a>Bläddra till appen
 
 Bläddra till den distribuerade appen via webbläsaren.
 
@@ -171,9 +165,7 @@ Python-exempelkoden körs i en Azure App Service-webbapp.
 
 **Grattis!** Du har distribuerat din första Python-app till App Service.
 
-<a id="update-and-redeploy-the-code" class="xliff"></a>
-
-## Uppdatera och distribuera om koden
+## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
 
 Öppna filen `main.py` i Python-appen med ett lokalt textredigeringsprogram och gör små ändringar i texten i strängen bredvid `return`-instruktionen:
 
@@ -192,13 +184,11 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ![Uppdaterad exempelapp som körs i Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Hantera din nya Azure-webbapp
+## <a name="manage-your-new-azure-web-app"></a>Hantera din nya Azure-webbapp
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade.
 
-Klicka på **Apptjänster** på menyn till vänster och klicka sedan på namnet på din Azure-webbapp.
+Klicka på **Apptjänster** i menyn till vänster och sedan på namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
@@ -206,13 +196,11 @@ Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande ha
 
 ![App Service-blad på Azure Portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-Menyn till vänster har olika sidor för att konfigurera appen. 
+Menyn till vänster innehåller olika sidor för att konfigurera appen. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Python med PostgreSQL](app-service-web-tutorial-docker-python-postgresql-app.md)

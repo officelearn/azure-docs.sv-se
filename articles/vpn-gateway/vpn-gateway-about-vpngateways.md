@@ -15,23 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: c24f7770e4d0721f9c584b80df9eb857442dfa0b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6ab2b4c905d2095e8eec09ccebcb8ebdfa91bb3a
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# Om VPN Gateway
-<a id="about-vpn-gateway" class="xliff"></a>
+# <a name="about-vpn-gateway"></a>Om VPN Gateway
 
 En VPN-gateway är en typ av virtuell nätverksgateway som skickar krypterad trafik över en offentlig anslutning till en lokal plats. Du kan också använda VPN-gatewayer för att skicka krypterad trafik mellan virtuella Azure-nätverk över Microsoft-nätverket. Om du vill skicka krypterad nätverkstrafik mellan ett virtuellt Azure-nätverk och lokala platser måste du skapa en virtuell nätverksgateway för ditt VPN.
 
 Varje virtuellt nätverk kan ha endast en VPN-gateway, men du kan skapa flera anslutningar till samma VPN-gateway. Ett exempel på detta är en konfiguration med anslutning till flera platser. När du skapar flera anslutningar till samma VPN-gateway delar alla VPN-tunnlar, inklusive punkt-till-plats-VPN, den bandbredd som är tillgänglig för gatewayen.
 
-### Vad är en virtuell nätverksgateway?
-<a id="what-is-a-virtual-network-gateway" class="xliff"></a>
+### <a name="what-is-a-virtual-network-gateway"></a>Vad är en virtuell nätverksgateway?
 
 En virtuell nätverksgateway består av två eller flera virtuella datorer som distribueras till ett specifikt undernät med namnet GatewaySubnet. De virtuella datorerna som finns i GatewaySubnet skapas när du skapar den virtuella nätverksgatewayen. Virtuella datorer för virtuell nätverksgateway är konfigurerade för att innehålla routningstabeller och gateway-tjänster som är specifika för gatewayen. Du kan konfigurera de virtuella datorer som är en del av den virtuella nätverksgatewayen direkt och du bör aldrig distribuera ytterligare resurser till GatewaySubnet.
 
@@ -41,23 +38,19 @@ När du skapar en virtuell nätverksgateway med hjälp av gatewaytypen 'Vpn ”,
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## Konfigurera en VPN-gateway
-<a id="configuring-a-vpn-gateway" class="xliff"></a>
+## <a name="configuring-a-vpn-gateway"></a>Konfigurera en VPN-gateway
 
 En anslutning för VPN-gateway är beroende av flera resurser som är konfigurerade med specifika inställningar. De flesta resurserna kan konfigureras separat, även om de måste konfigureras i en viss ordning i vissa fall.
 
-### Inställningar
-<a id="settings" class="xliff"></a>
+### <a name="settings"></a>Inställningar
 
 De inställningar som du väljer för varje resurs är viktiga för att skapa en lyckad anslutning. Information om enskilda resurser och inställningar för VPN-gateway finns [Om inställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md). Här finns information om gatewaytyper, VPN-typer, anslutningstyper, gateway-undernät, lokala nätverksgatewayer och andra resursinställningar som du kan använda.
 
-### Distributionsverktyg
-<a id="deployment-tools" class="xliff"></a>
+### <a name="deployment-tools"></a>Distributionsverktyg
 
 Du kan börja skapa och konfigurera resurser med hjälp av ett konfigurationsverktyg, till exempel Azure Portal. Du kan senare bestämma dig för att växla till ett annat verktyg, som PowerShell, för att konfigurera ytterligare resurser eller ändra befintliga resurser i tillämpliga fall. För närvarande går det inte att konfigurera alla resurser och resursinställningar på Azure Portal. Anvisningarna i artiklarna för varje anslutningstopologi anger om ett specifikt konfigurationsverktyg behövs. 
 
-### Distributionsmodell
-<a id="deployment-model" class="xliff"></a>
+### <a name="deployment-model"></a>Distributionsmodell
 
 När du konfigurerar en VPN-gateway varierar instruktionerna som du följer beroende på vilken distributionsmodell du använde för att skapa det virtuella nätverket. Om du exempelvis har skapat ditt VNet med den klassiska distributionsmodellen, ska du använda riktlinjerna och instruktionerna för den modellen när du skapar och konfigurerar dina VPN Gateway-inställningar. Mer information om distributionsmodellerna finns i [Förstå Resource Manager- och klassiska distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -71,8 +64,7 @@ Det är viktigt att känna till att det finns olika konfigurationer för VPN-gat
 
 Använd diagrammen och beskrivningarna för att välja den anslutningstopologi som passar dina behov. Diagrammen visar de viktigaste grundläggande topologierna, men du kan skapa mer komplexa konfigurationer och använda diagrammen som utgångspunkt.
 
-## Plats-till-plats och flera platser (IPsec/IKE VPN-tunnel)
-<a id="site-to-site-and-multi-site-ipsecike-vpn-tunnel" class="xliff"></a>
+## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Plats-till-plats och flera platser (IPsec/IKE VPN-tunnel)
 
 ### <a name="S2S"></a>Plats-till-plats-anslutning
 
@@ -86,8 +78,7 @@ Den här typen av anslutning är en variant av plats-till-plats-anslutningen. Du
 
 ![Exempel på Azure VPN Gateway-anslutningar för flera platser](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
-### Distributionsmodeller och metoder för plats-till-plats och flera platser
-<a id="deployment-models-and-methods-for-site-to-site-and-multi-site" class="xliff"></a>
+### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Distributionsmodeller och metoder för plats-till-plats och flera platser
 
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
@@ -97,8 +88,7 @@ Med en VPN-gatewayanslutning med P2S-konfiguration (punkt-till-plats) kan du ska
 
 ![Exempel på Azure VPN-Gateway-anslutningar för punkt-till-plats](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 
-### Distributionsmodeller och metoder för punkt-till-plats
-<a id="deployment-models-and-methods-for-point-to-site" class="xliff"></a>
+### <a name="deployment-models-and-methods-for-point-to-site"></a>Distributionsmodeller och metoder för punkt-till-plats
 
 [!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
@@ -114,18 +104,15 @@ De virtuella nätverk som du ansluter kan finnas:
 
 ![Exempel på VNet-till-VNet-anslutningar med Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
-### Anslutningar mellan distributionsmodeller
-<a id="connections-between-deployment-models" class="xliff"></a>
+### <a name="connections-between-deployment-models"></a>Anslutningar mellan distributionsmodeller
 
 Azure har för närvarande två distributionsmodeller: klassisk och Resource Manager. Om du har använt Azure ett tag har du förmodligen virtuella Azure-datorer och instansroller som kör i ett klassiskt VNet. Dina nyare virtuella datorer och rollinstanser kanske körs i ett VNet som skapats i Resource Manager. Du kan skapa en anslutning mellan virtuella nätverk så att resurserna i ett VNet kan kommunicera direkt med resurserna i ett annat.
 
-### VNet-peering
-<a id="vnet-peering" class="xliff"></a>
+### <a name="vnet-peering"></a>VNet-peering
 
 Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt virtuella nätverk uppfyller vissa krav. Ingen VNet-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
 
-### Distributionsmodeller och metoder för VNet-till-VNet
-<a id="deployment-models-and-methods-for-vnet-to-vnet" class="xliff"></a>
+### <a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Distributionsmodeller och metoder för VNet-till-VNet
 
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -145,26 +132,23 @@ Du kan konfigurera ett VPN för plats-till-plats som en säker redundansväxling
 
 ![Exempel på samtidiga ExpressRoute- och VPN Gateway-anslutningar](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-### Distributionsmodeller och metoder för S2S och ExpressRoute
-<a id="deployment-models-and-methods-for-s2s-and-expressroute" class="xliff"></a>
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>Distributionsmodeller och metoder för S2S och ExpressRoute
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
-## Prissättning
-<a id="pricing" class="xliff"></a>
+## <a name="pricing"></a>Prissättning
 
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
 
 Se [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er för VPN-gateway.
 
-## VANLIGA FRÅGOR OCH SVAR
-<a id="faq" class="xliff"></a>
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 Vanliga frågor om VPN-gateway finns i [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md).
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 - Planera konfigurationen av din VPN-gateway. Se [Planering och design för VPN-gateway](vpn-gateway-plan-design.md).
 - Mer information finns i avsnittet [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md).
 - Läs [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md#networking-limits).
+- Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.

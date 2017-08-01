@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/14/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: d1e513933ea647a1afe9a4eb214bb9216d3bb20a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a998ec92ad58932c5f71e84fbffcd7783cbb459b
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="expressroute-overview"></a>Översikt över ExpressRoute
@@ -113,4 +113,5 @@ Vanliga frågor om ExpressRoute finns i [Vanliga frågor och svar om ExpressRout
   * [Skapa en ExpressRoute-krets](expressroute-howto-circuit-portal-resource-manager.md)
   * [Konfigurera peering för en ExpressRoute-krets](expressroute-howto-routing-portal-resource-manager.md)
   * [Koppla ett virtuellt nätverk till en ExpressRoute-krets](expressroute-howto-linkvnet-portal-resource-manager.md)
+* Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.
 

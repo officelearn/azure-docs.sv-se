@@ -15,33 +15,31 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: a6d3a6f6e3457c84c5a7dc7d3601ef9495c060fe
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e911e787cd1e29b2bbeaa648869c50245f2dd9ba
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montera en filresurs på Azure och få åtkomst till resursen i Windows
 [Azure File Storage](storage-dotnet-how-to-use-files.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows och Windows Server. Den här artikeln visar tre olika sätt att montera en Azure-filresurs på Windows: med användargränssnittet Utforskaren, via PowerShell eller via Kommandotolken. 
 
-Operativsystemet måste stödja SMB 3.x för att montera en Azure-filresurs utanför Azure-regionen den finns i, till exempel lokalt eller i en annan Azure-region. I följande tabell visas SMB-versionerna för de senaste Windows-versionerna:
+Operativsystemet måste stödja SMB 3.0 för att montera en Azure-filresurs utanför den Azure-region som den finns i, till exempel lokalt eller i en annan Azure-region. 
 
-| Windows-version | SMB-version | Har stöd för montering från Azure-VM | Har stöd för montering lokalt | Minsta rekommenderade uppdatering |
-|----|----|----|----|----|
-| Windows 10 version 1703 | SMB 3.1.1 | Ja | Ja | |
-| Windows Server 2016 | SMB 3.1.1 | Ja | Ja | [KB4015438](https://support.microsoft.com/help/4015438) |
-| Windows 10 version 1607 | SMB 3.1.1 | Ja | Ja | [KB4015438](https://support.microsoft.com/help/4015438) | 
-| Windows 10 version 1511 | SMB 3.1.1 | Ja | Ja | [KB4013198](https://support.microsoft.com/help/4013198) |
-| Windows 10 version 1507 | SMB 3.1.1 | Ja | Ja | [KB4012606](https://support.microsoft.com/help/4012606) | 
-| Windows 8.1 | SMB 3.0.2 | Ja | Ja | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 R2 | SMB 3.0.2 | Ja | Ja | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 | SMB 3.0 | Ja | Ja | [KB4012214](https://support.microsoft.com/help/4012214) |
-| Windows 7 | SMB 2.1 | Ja | Nej | [KB4012215](https://support.microsoft.com/help/4012215) |
-| Windows Server 2008 R2 | SMB 2.1 | Ja | Nej | [KB4012215](https://support.microsoft.com/help/4012215) |
+Azure File-resursen kan monteras på Windows-datorn antingen lokalt eller i Azure VM beroende på operativsystemversion. Tabellen nedan visar den 
+
+| Windows-version        | SMB-version |Monteras på Azure VM|Monteras lokalt|
+|------------------------|-------------|---------------------|---------------------|
+| Windows 7              | SMB 2.1     | Ja                 | Nej                  |
+| Windows Server 2008 R2 | SMB 2.1     | Ja                 | Nej                  |
+| Windows 8              | SMB 3.0     | Ja                 | Ja                 |
+| Windows Server 2012    | SMB 3.0     | Ja                 | Ja                 |
+| Windows Server 2012 R2 | SMB 3.0     | Ja                 | Ja                 |
+| Windows 10             | SMB 3.0     | Ja                 | Ja                 |
 
 > [!Note]  
-> Vi rekommenderar alltid den senaste uppdateringen för din version av Windows. Den minsta rekommenderade uppdateringen är avsedd att tillhandahålla det senaste uppdateringspaketet som har SMB-korrigeringar. Den här informationen är för IT-administratörer som ogillar att uppdatera.
+> Vi rekommenderar alltid den senaste uppdateringen för din version av Windows.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Förutsättningar för att montera Azure-filresurser med Windows 
 * **Lagringskontonamn**: Om du vill montera en Azure-filresurs behöver du namnet på lagringskontot.
@@ -144,3 +142,4 @@ Mer information om Azure File Storage finns på följande länkar.
 ### <a name="reference"></a>Referens
 * [Storage-klientbibliotek för .NET-referens](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [File Service REST API referens](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+

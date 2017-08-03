@@ -12,10 +12,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 3cd090b02887857a68271f021e3580e05660d1dc
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda Python för att ansluta och fråga efter data
@@ -50,7 +50,7 @@ Hämta den information som du behöver för att ansluta till Azure Database för
 
 ## <a name="how-to-run-python-code"></a>Så här kör du Python-kod
 - Skapa en ny fil med namnet postgres.py i valfri textredigerare och spara den till en projektmapp. Kopiera och klistra in ett kodexempel som visas nedan i textfilen och spara den. Se till att markera UTF-8-kodning när du sparar filen i Windows-operativsystemet. 
-- Om du vill köra koden startar du kommandotolken eller bash-gränssnittet. Ändra katalogen till din projektmapp, till exempel `cd postgresql`. Skriv därefter in python-kommandot följt av filnamnet, till exempel `python postgresql.py`.
+- Om du vill köra koden startar du kommandotolken eller bash-gränssnittet. Ändra katalogen till din projektmapp, till exempel `cd postgresql`. Skriv därefter in python-kommandot följt av filnamnet, till exempel `python postgres.py`.
 
 > [!NOTE]
 > Från och med Python version 3, kan du se felet `SyntaxError: Missing parentheses in call to 'print'` när du kör kodblocken nedan. Om detta händer, ersätter du varje anrop till kommandot `print "string"` med ett funktionsanrop med parenteser, till exempel `print("string")`.

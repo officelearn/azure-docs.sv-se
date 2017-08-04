@@ -32,7 +32,7 @@ Om du vill ändra antalet agentnoder kör du kommandot `az acs scale` och anger 
 Om du till exempel vill ändra antalet agenter i föregående kluster till 10 skriver du följande kommando:
 
 ```azurecli
-azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
 Azure CLI 2.0 returnerar en JSON-sträng som representerar den nya konfigurationen av behållartjänsten, inklusive det nya agentantalet.

@@ -12,14 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
 ms.contentlocale: sv-se
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Förstå Azure Active Directory-arkitekturen
@@ -31,10 +30,10 @@ Med Azure AD kan du skapa och hantera användare och grupper och aktivera behör
 Azure Active Directorys geografiskt distribuerade arkitektur kombinerar omfattande funktioner för övervakning, automatisk omdirigering, redundans och återställning som hjälper oss att leverera tillgänglighet och prestanda på företagsnivå till våra kunder.
 
 Följande arkitekturelement beskrivs i den här artikeln:
- *    Tjänstarkitekturens design
- *    Skalbarhet 
- *    Kontinuerlig tillgänglighet
- *    Datacenter
+ *  Tjänstarkitekturens design
+ *  Skalbarhet 
+ *  Kontinuerlig tillgänglighet
+ *  Datacenter
 
 ### <a name="service-architecture-design"></a>Tjänstarkitekturens design
 Det vanligaste sättet att bygga ett skalbart, högtillgängligt, dataintensivt system är genom oberoende byggblock eller skalningsenheter på Azure AD-datanivån. Skalningsenheterna kallas för *partitioner*. 
@@ -87,7 +86,7 @@ Azure AD körs i datacenter med följande funktioner:
 
  * Autentisering, Graph och andra AD-tjänster finns bakom gatewaytjänsten. Gatewaytjänsten hanterar belastningsutjämningen av dessa tjänster. Den växlar automatiskt över om servrar med feltillstånd identifieras under transaktionella hälsotillståndsavsökningar. Baserat på dessa hälsotillståndsavsökningar dirigerar gatewaytjänsten trafiken dynamiskt till felfria datacenter.
  * För *läsningar* har katalogen sekundära repliker och motsvarande frontend-tjänster i en ”aktiv-aktiv”-konfiguration i flera datacenter. Om ett helt datacenter får problem dirigeras trafiken automatiskt till ett annat datacenter.
- *    För *skrivningar* redundansväxlar katalogtjänsten den primära repliken (huvudrepliken) över datacenter genom planerade redundansväxlingar eller nödväxlingar (den nya primära repliken synkroniseras med den gamla primära repliken). Datahållbarheten uppnås genom skrivning till minst två datacenter.
+ *  För *skrivningar* redundansväxlar katalogtjänsten den primära repliken (huvudrepliken) över datacenter genom planerade redundansväxlingar eller nödväxlingar (den nya primära repliken synkroniseras med den gamla primära repliken). Datahållbarheten uppnås genom skrivning till minst två datacenter.
 
 **Datakonsekvens**
 

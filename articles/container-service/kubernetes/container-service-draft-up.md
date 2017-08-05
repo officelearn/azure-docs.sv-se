@@ -197,8 +197,8 @@ Utdata ser ut ungefär så här:
   - rotdistributionsdomänen som du har konfigurerat för att mappa till den externa Kubernetes ingress-IP-adressen (`squillace.io` i det här fallet)
 
   Anropa `draft init` så efterfrågas värdena ovan i konfigurationsprocessen. Processen ser ut ungefär så här första gången du kör den.
-    ```
-    draft init
+ ```bash
+    $ draft init
     Creating pack ruby...
     Creating pack node...
     Creating pack gradle...

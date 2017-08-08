@@ -1,30 +1,30 @@
-| Resource | Default Limit | Maximum Limit |
+| Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region |10,000 per Region |
-| VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
-| VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
-| [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited |Unlimited |
-| [Storage accounts](../articles/storage/storage-create-storage-account.md) per subscription |200 |200<sup>2</sup> |
-| [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |800 |800 |
-| [Availability Sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per Region |2,000 per Region |
-| Resource Manager API Reads |15,000 per hour |15,000 per hour |
-| Resource Manager API Writes |1,200 per hour |1,200 per hour |
-| Resource Manager API request size |4,194,304 bytes |4,194,304 bytes |
-| Tags per subscription<sup>3</sup> |unlimited |unlimited |
-| Unique tag calculations per subscription<sup>3</sup> | 10,000 | 10,000 |
-| [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |Not Applicable<sup>4</sup> |Not Applicable<sup>4</sup> |
-| [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |Not Applicable<sup>4</sup> |Not Applicable<sup>4</sup> |
+| Virtuella datorer per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |10 000 <sup>1</sup> per region |10 000 per region |
+| Totalt antal VM-kärnor per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region | Kontakta supporten |
+| VM-kärnor per serie (Dv2, F osv.) per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region | Kontakta supporten |
+| [Medadministratörer](../articles/billing-add-change-azure-subscription-administrator.md) per prenumeration |Obegränsat |Obegränsat |
+| [Storage-konton](../articles/storage/storage-create-storage-account.md) per prenumeration |200 |200<sup>2</sup> |
+| [Resursgrupper](../articles/azure-resource-manager/resource-group-overview.md) per prenumeration |800 |800 |
+| [Tillgänglighetsuppsättningar](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per prenumeration |2 000 per region |2 000 per region |
+| Läsningar med Resource Manager API |15 000 per timme |15 000 per timme |
+| Skrivningar med Resource Manager API |1 200 per timme |1 200 per timme |
+| Storleksförfrågningar med Resource Manager API |4 194 304 byte |4 194 304 byte |
+| Taggar per prenumeration<sup>3</sup> |obegränsat |obegränsat |
+| Unika taggberäkningar per prenumeration<sup>3</sup> | 10 000 | 10 000 |
+| [Molntjänster](../articles/cloud-services/cloud-services-choose-me.md) per prenumeration |Inte tillämpligt<sup>4</sup> |Inte tillämpligt<sup>4</sup> |
+| [Tillhörighetsgrupper](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per prenumeration |Inte tillämpligt<sup>4</sup> |Inte tillämpligt<sup>4</sup> |
 
-<sup>1</sup>Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and series, such as Dv2, F, G, etc.
+<sup>1</sup>Standardgränserna varierar beroende på erbjudandets kategorityp, t.ex. kostnadsfri utvärderingsversion, betala per användning och serie, t.ex. Dv2, F eller G.
 
-<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts.
+<sup>2</sup>Detta gäller både Standard- och Premium-lagringskonton. Om du behöver mer än 200 lagringskonton skickar du en begäran via [Azure-supporten](https://azure.microsoft.com/support/faq/). Azure Storage-teamet granskar ditt affärsfall och kan godkänna upp till 250 lagringskonton.
 
-<sup>3</sup>You can apply an unlimited number of tags per subscription. The number of tags per resource or resource group is limited to 15. Resource Manager only returns a [list of unique tag name and values](/rest/api/resources/tags#Tags_List) in the subscription when the number of tags is 10,000 or less. However, you can still find a resource by tag when the number exceeds 10,000.  
+<sup>3</sup>Du kan använda ett obegränsat antal taggar per prenumeration. Antalet taggar per resurs eller resursgrupp är begränsat till 15. Resource Manager returnerar endast en [lista med unika taggnamn och taggvärden](/rest/api/resources/tags#Tags_List) i prenumerationen om antalet taggar är 10 000 eller mindre. Dock kan du fortfarande söka efter en resurs baserat på taggar om antalet överstiger 10 000.  
 
-<sup>4</sup>These features are no longer required with Azure Resource Groups and the Azure Resource Manager.
+<sup>4</sup>Dessa funktioner krävs inte längre med Azure-resursgrupper och Azure Resource Manager.
 
 > [!NOTE]
-> It is important to emphasize that virtual machine cores have a regional total limit as well as a regional per size series (Dv2, F, etc.) limit that are separately enforced.  For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30.  This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores (for example, 10 A1 VMs and 20 D1 VMs).  
+> Det är viktigt att betona att virtuella datorkärnor har en regional total gräns och en regional gräns per storleksserie (Dv2, F osv.) som tillämpas separat.  Anta till exempel att en prenumeration i regionen Östra USA har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30.  Den här prenumerationen kan distribuera 30 virtuella datorer i A1-serien eller 30 virtuella datorer i D1-serien, eller en kombination av båda som inte överstiger sammanlagt 30 kärnor (t.ex. 10 virtuella datorer i A1-serien och 20 virtuella datorer i D1-serien).  
 > <!-- -->
 > 
 > 

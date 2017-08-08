@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/28/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 1794341ed0d4519eef7f065d04ccf86a7e48a4a4
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa en .NET-app med Graph API
@@ -54,7 +54,7 @@ Nu ska vi klona en Graph API-app från github, ange anslutningssträngen och kö
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
     ```
 
-3. Öppna därefter lösningsfilen i Visual Studio. 
+3. Öppna sedan Visual Studio och öppna lösningsfilen. 
 
 ## <a name="review-the-code"></a>Granska koden
 
@@ -103,23 +103,19 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna filen Program.cs 
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. I Azure Portal går du till ditt Azure Cosmos DB-konto. Klicka på **Översikt** i det vänstra navigeringsfönstret. Du kommer att kopiera värdet **Gremlin URI** i filen App.config i nästa steg. 
+1. Öppna filen App.config i Visual Studio 2017. 
 
-    ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-graph-dotnet/gremlin-uri.png)
-
-    Om värdet **Gremlin URI** är tomt kan du skapa värdet från sidan **Nycklar** i portalen med **URI**-värdet, utan https:// och genom att ändra dokument till diagram. 
-
-2. Öppna filen App.config i Visual Studio 2017. 
-
-3. Kopiera ditt **Gremlin URI**-värde från portalen och gör det till värdet för slutpunktsnyckeln i App.config. 
-
-    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
-
-4. Tillbaka i Azure-portalen klickar du på **Nycklar** på den vänstra navigeringsmenyn och kopierar ditt **PRIMÄRNYCKEL**-värde från portalen och använd värdet för AuthKey-nyckel i App.config. Spara sedan ändringarna. 
-
-    `<add key="AuthKey" value="FILLME" />`
+2. Klicka på **Nycklar** i ditt Azure Cosmos DB-konto i det vänstra navigeringsfönstret på Azure-portalen. 
 
     ![Visa och kopiera en primärnyckel i Azure-portalen på sidan nycklar](./media/create-graph-dotnet/keys.png)
+
+3. Kopiera ditt **URI**-värde från portalen och använd det som värdet för slutpunktsnyckeln i App.config. Du kan använda kopieringsknappen som du ser i föregående skärmbild för att kopiera värdet.
+
+    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+
+4. Kopiera värdet för din **PRIMÄRNYCKEL** från portalen och använd det som värdet för AuthKey-nyckeln i App.config. Avsluta med att spara dina ändringar. 
+
+    `<add key="AuthKey" value="FILLME" />`
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 
@@ -131,6 +127,8 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 3. Från resultatet installerar du **Microsoft.Azure.Graphs**-biblioteket. Detta installerar bibliotekspaketet för Azure Cosmos DB-graftillägget och alla beroenden.
 
+    Om du får ett meddelande om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
+
 4. Tryck på Ctrl + F5 för att köra programmet.
 
    Hörn och gränser som läggs till i tabellen visas i konsolfönstret. Stäng konsolfönstret genom att trycka två gånger på RETUR när skriptet har körts. 
@@ -139,9 +137,13 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 Nu kan du gå tillbaka till datautforskaren i Azure Portal och bläddra bland och ställa frågor mot dina nya grafdata.
 
-* Den nya databasen visas på panelen Samlingar i datautforskaren. Expandera **graphdb**, **graphcoll** och klicka på **Graph**.
+1. Den nya databasen visas i fönstret Graphs (Diagram) i Datautforskaren. Expandera **graphdb**, **graphcollz** och klicka på **Diagram**.
 
-    Data som genereras av den här exempelappen visas i fönstret Graphs (Grafer).
+2. Klicka på knappen **Använd filter** för att använda standardfrågan och visa alla hörn i diagrammet. Data som genereras av den här exempelappen visas i fönstret Graphs (Grafer).
+
+    Du kan zooma in och ut i diagrammet, du kan expandera diagrammets skärmutrymme, lägga till ytterligare hörn och flytta hörn på skärmytan.
+
+    ![Visa diagrammet i Datautforskaren på Azure-portalen](./media/create-graph-dotnet/graph-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 

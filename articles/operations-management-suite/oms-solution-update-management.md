@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/09/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="update-management-solution-in-oms"></a>Uppdateringshanteringslösning i OMS
@@ -65,10 +64,10 @@ Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatore
     > [!NOTE]
     > Windows-agenten kan inte hanteras samtidigt av System Center Configuration Manager.  
     >
-* CentOS 6 (x86/x64) och 7 (x64)
-* Red Hat Enterprise 6 (x86/x64) och 7 (x64)
-* SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)
-* Ubuntu 12.04 LTS och senare x86/x64  
+* CentOS 6 (x86/x64) och 7 (x64)  
+* Red Hat Enterprise 6 (x86/x64) och 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)  
+* Ubuntu 12.04 LTS och senare x86/x64   
     > [!NOTE]  
     > Konfigurera om Unattended Upgrade-paketet om du vill inaktivera automatiska uppdateringar för att undvika att uppdateringar tillämpas utanför en underhållsperiod på Ubuntu. Mer information om hur du konfigurerar detta finns i avsnittet [automatiska uppdateringar i handboken för Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
@@ -79,6 +78,9 @@ Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatore
     >
 
 Mer information om hur du installerar OMS-agenten för Linux och hämtar den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux).  Information om hur du installerar OMS-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agents.md).  
+
+### <a name="permissions"></a>Behörigheter
+För att skapa uppdateringsdistributioner måste du beviljas deltagarrollen både i ditt Automation-konto och på Log Analytics-arbetsytan.  
 
 ## <a name="solution-components"></a>Lösningskomponenter
 Lösningen består av följande resurser som läggs till i ditt Automation-konto och ansluter direkt agenter eller Operations Manager-anslutna hanteringsgrupper.
@@ -156,7 +158,7 @@ När du lägger till uppdateringshanteringslösningen i OMS-arbetsytan läggs pa
 ## <a name="viewing-update-assessments"></a>Visning av kontroll av uppdateringar
 Klicka på ikonen **Uppdateringshantering** för att öppna instrumentpanelen **Uppdateringshantering**.<br><br> ![Instrumentpanel för sammanfattning av uppdateringshantering](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
-Den här instrumentpanelen innehåller en detaljerad analys av uppdateringsstatus efter typ av operativsystem och uppdateringsklassificering – kritiskt, säkerhet med flera (till exempel definitionsuppdatering). När panelen **Distributioner av uppdateringar** är vald omdirigeras du till sidan Distributioner av uppdateringar där du kan visa scheman, distributioner som för närvarande körs, slutförda distributioner eller schemalägga en ny distribution.  
+Den här instrumentpanelen innehåller en detaljerad analys av uppdateringsstatus efter typ av operativsystem och uppdateringsklassificering – kritiskt, säkerhet med flera (till exempel definitionsuppdatering). Resultaten på varje panel på den här instrumentpanelen återspeglar endast uppdateringar som godkänts för distribution, vilket baseras på datorernas synkroniseringskälla.   När panelen **Distributioner av uppdateringar** är vald omdirigeras du till sidan Distributioner av uppdateringar där du kan visa scheman, distributioner som för närvarande körs, slutförda distributioner eller schemalägga en ny distribution.  
 
 Du kan köra en loggsökning som returnerar alla poster genom att klicka på den specifika panelen. Om du vill köra en fråga i en viss kategori och för fördefinierade villkor väljer du någon från tillgänglighetslistan under kolumnen **Vanliga frågor om uppdatering**.    
 
@@ -310,6 +312,17 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 ## <a name="troubleshooting"></a>Felsökning
 
 Det här avsnittet innehåller information för att hjälpa dig att felsöka fel med lösningen Hantering av uppdateringar.  
+
+### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Hur felsöker jag problem med integrationsprocessen?
+Om det uppstår problem när du försöker integrera lösningen eller en virtuell dator söker du i händelseloggen **Program- och tjänstloggar\Operations Manager** efter händelser med händelse-ID 4502 och händelsemeddelanden som innehåller **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  Följande tabell illustrerar specifika felmeddelanden och en möjlig lösning för vart och ett.  
+
+| Meddelande | Orsak | Lösning |   
+|----------|----------|----------|  
+| Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>System.InvalidOperationException: {"Meddelande":"Datorn har redan<br>registrerats för ett annat konto. "} | Datorn har redan integrerats på en annan arbetsyta för uppdateringshantering. | Rensa gamla artefakter genom att [ta bort hybridrunbookgruppen](../automation/automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
+| Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>System.Net.Http.HttpRequestException: Ett fel uppstod när begäran skickades. ---><br>System.Net.WebException: Den underliggande anslutningen<br>stängdes: Ett oväntat fel<br>uppstod vid mottagning. ---> System.ComponentModel.Win32Exception:<br>Klienten och servern kan inte kommunicera<br>eftersom de inte har en gemensam algoritm. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](../automation/automation-offering-get-started.md#network-planning)|  
+| Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>Newtonsoft.Json.JsonReaderException: Det gick inte att parsa positivt oändligt värde. | Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](../automation/automation-offering-get-started.md#network-planning)| 
+| Certifikatet som presenterades av tjänsten <wsid>.oms.opinsights.azure.com<br>utfärdades inte av en certifikatutfärdare<br>som används för Microsoft-tjänster. Kontakta<br>nätverksadministratören för att se om de kör en proxy som hindrar<br>TLS/SSL-kommunikation. |Proxy/Gateway/Firewall blockerar kommunikationen. | [Granska nätverkskraven](../automation/automation-offering-get-started.md#network-planning)|  
+| Det gick inte att registrera datorn för uppdateringshantering.<br>Registreringen misslyckades med undantaget<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Det gick inte att skapa ett självsignerat certifikat. ---><br>System.UnauthorizedAccessException: Åtkomst nekad. | Fel vid genereringen av ett självsignerat certifikat. | Kontrollera att systemkontot har<br>läsbehörighet till mappen:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>Hur felsöker jag distributioner av uppdateringar?
 Du kan visa resultatet för den runbook som ansvarar för att distribuera uppdateringarna som ingår i den schemalagda distributionen från bladet Jobb i ditt Automation-konto som är länkat till OMS-arbetsytan som stöder lösningen.  Runbooken **Patch-MicrosoftOMSComputer** är en underordnad runbook som har en specifik hanterad dator som mål. Om du granskar den utförliga strömmen visas detaljerad information för den distributionen.  Utdata visar vilka nödvändiga uppdateringar som är tillämpliga, hämtningsstatus, status för installationen och ytterligare information.<br><br> ![Jobbstatus för uppdateringsdistribution](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>

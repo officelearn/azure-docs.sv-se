@@ -10,87 +10,74 @@ tags:
 keywords: "azure-funktioner, funktioner, händelsebearbetning, Cosmos DB, dynamisk beräkning, serverlös arkitektur"
 ms.assetid: 
 ms.service: functions
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/08/2017
-ms.author: rachelap
+ms.date: 08/03/2017
+ms.author: rachelap, glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Lagra ostrukturerade data i Azure Cosmos-databasen med hjälp av funktioner
 
-Azure Cosmos-DB är ett bra sätt att lagra ostrukturerade och JSON-data. I kombination med Azure Functions, gör Cosmos DB lagring av data snabbt och enkelt med mycket mindre kod än vad som krävs för att lagra data i en relationsdatabas.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) är ett väldigt bra sätt att lagra ostrukturerade och JSON-data. I kombination med Azure Functions, gör Cosmos DB lagring av data snabbt och enkelt med mycket mindre kod än vad som krävs för att lagra data i en relationsdatabas.
 
-Den här kursen går igenom hur du använder Azure Portal för att skapa en Azure-funktion som lagrar ostrukturerade data i ett Cosmos-DB-dokument. 
+I Azure Functions kan du använda indata- och utdatabindningar för att ansluta till data i en extern tjänst från din funktion på ett deklarativt sätt. I det här avsnittet lär du dig hur du uppdaterar en befintlig C#-funktion för att lägga till en utdatabindning som lagrar ostrukturerade data i ett Cosmos DB-dokument. 
+
+![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## <a name="prerequisites"></a>Krav
 
+För att slutföra den här kursen behöver du:
+
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
-## <a name="create-a-function"></a>Skapa en funktion
-
-Skapa ett nytt C# allmänt WebHook med namnet `MyTaskList`.
-
-1. Expandera listan befintliga funktioner och klicka på plustecknet för att skapa en ny funktion
-1. Välj GenericWebHook CSharp och ge den namnet `MyTaskList`
-
-![Lägg till ny C# allmän WebHook-funktionsapp](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
 
 ## <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
-En Azure-funktion kan ha en utlösare och valfritt antal indata- eller utdatabindningar. I det här exemplet använder vi en HTTP-begäran-utlösare och Cosmos-DB-dokumentet som utdata-bindning.
+1. Expandera både din funktionsapp och din funktion.
 
-1. Klicka på funktionsfliken *Integrera* om du vill visa eller ändra funktionens utlösare och bindningar.
-1. Välj länken *Nya utdata* uppe till höger på sidan.
+1. Välj **Integrera** och **+ Nya utdata**, som du hittar längst upp till höger på sidan. Välj **Azure Cosmos DB** och klicka på **Välj**.
 
-Obs: HTTP-begäran-utlösaren har redan konfigurerats, dock måste du lägga till bindning för Cosmos-DB-dokument.
+    ![Lägg till en Cosmos DB-utdatabindning](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
 
-![Lägga till nya Cosmos-DB-utdatabindning](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+3. Använd inställningarna för **Azure Cosmos DB-utdata** på det sätt som beskrivs i tabellen: 
 
-1. Ange informationen som krävs för skapa bindningen. Använd tabellen nedan för att fastställa värden.
+    ![Konfigurera Cosmos-DB-utdatabindning](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
-![Konfigurera Cosmos-DB-utdatabindning](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
+    | Inställning      | Föreslaget värde  | Beskrivning                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **Dokumentparameternamn** | taskDocument | Namn som refererar till Cosmos DB-objektet i koden. |
+    | **Databasnamn** | taskDatabase | Namnet på databasen där dokumenten ska sparas. |
+    | **Samlingsnamn** | TaskCollection | Namnet på en Cosmos DB-databassamling. |
+    | **Om värdet är true skapas Cosmos DB-databasen och -samlingen** | Markerad | Samlingen finns inte redan, så du måste skapa den. |
 
-|  Fält | Värde  |
-|---|---|
-| Dokumentparameternamn | Namn som refererar till Cosmos-DB-objektet i koden |
-| Databasnamn | Namnet på databasen där dokumenten ska sparas |
-| Samlingsnamn | Namnet på grupperingen av Cosmos-DB-databaser |
-| Vill du att Cosmos-databasen och samlingen skapas automatiskt | Ja eller nej |
-| Cosmos DB kontoanslutning | Anslutningssträngen som pekar på Cosmos-DB-databasen |
+4. Välj **Nytt** bredvid etiketten **Cosmos DB document connection** (Cosmos DB-dokumentanslutning) och välj **+ Skapa nytt**. 
 
-Du måste också konfigurera anslutningen till Cosmos-DB-databasen.
+5. Använd inställningarna för **Nytt konto** på det sätt som beskrivs i tabellen: 
 
-1. Klicka på länken ”Nytt” bredvid etiketten * Cosmos-DB dokumentetanslutning ”.
-1. Fyll i fälten och välj sedan lämpliga inställningar som behövs för att skapa Cosmos-DB-dokumentet.
+    ![Konfigurera Cosmos-DB-anslutning](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
 
-![Konfigurera Cosmos-DB-anslutning](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
+    | Inställning      | Föreslaget värde  | Beskrivning                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **ID** | Namnet på databasen | Unikt ID för Cosmos-DB-databas  |
+    | **API** | SQL (DocumentDB) | Välj API:et för dokumentdatabasen.  |
+    | **Prenumeration** | Azure-prenumeration | Azure-prenumeration  |
+    | **Resursgrupp** | myResourceGroup |  Använd den befintliga resursgruppen som innehåller din funktionsapp. |
+    | **Plats**  | Västeuropa | Välj en plats nära funktionsappen eller nära andra appar som använder de lagrade dokumenten.  |
 
-|  Fält | Värde  |
-|---|---|
-| Id | Unikt ID för Cosmos-DB-databas  |
-| NoSQL API | Cosmos DB eller MongoDB  |
-| Prenumeration | MSDN-prenumeration  |
-| Resursgrupp  | Skapa en ny resursgrupp eller välj en befintlig.  |
-| Plats  | Västeuropa  |
-
-1. Klicka på knappen *OK*. Du kan behöva vänta några minuter medan Azure skapar resurserna.
-1. Klicka på knappen *Spara*.
+6. Skapa databasen genom att klicka på **OK**. Det kan ta några minuter att skapa databasen. När databasen har skapats lagras databasanslutningssträngen som en funktionsappsinställning. Namnet på den här appinställningen infogas i **Cosmos DB-kontoanslutningen**. 
+ 
+8. När du har angett anslutningssträngen väljer du **Spara** för att skapa bindningen.
 
 ## <a name="update-the-function-code"></a>Uppdatera funktionskoden
 
-Ersätt funktionens mallkod med följande:
-
-Observera att koden för det här exemplet bara använder C#.
+Ersätt den befintliga C#-funktionskoden med följande kod:
 
 ```csharp
 using System.Net;
@@ -124,38 +111,31 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 }
 
 ```
-
-Det här kodexemplet läser HTTP-frågesträngar och tilldelar dem som medlemmar i ett `taskDocument`-objekt. `taskDocument`-objektet sparar data automatiskt i databasen Cosmos DB och även skapar databasen på den första användningen.
+Det här kodexemplet läser frågesträngarna i HTTP-begäran och tilldelar dem till fält i `taskDocument`-objektet. `taskDocument`-bindningen skickar objektdata från den här bindningsparametern för lagring i den bundna dokumentdatabasen. Databasen skapas första gången funktionen körs.
 
 ## <a name="test-the-function-and-database"></a>Testa funktionen och databasen
 
-1. På fliken funktion, klicka på länken *Test* på höger sida av portalen och ange följande HTTP-frågesträngar:
+1. Expandera det högra fönstret och välj **Test**. Under **Fråga** klickar du på **+ Lägg till parameter** och lägger till följande parametrar i frågesträngen:
 
-| Frågesträng | Värde |
-|---|---|
-| namn | Chris P. Bacon |
-| aktivitet | Gör en smörgås |
-| duedate | 05/12/2017 |
+    + `name`
+    + `task`
+    + `duedate`
 
-1. Klicka på den *länken* kör .
-1. Kontrollera att funktionen returnerade svarskoden *HTTP 200 OK*.
+2. Klicka på **Kör** och kontrollera att statusen 200 returneras.
 
-![Konfigurera Cosmos-DB-utdatabindning](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
+    ![Konfigurera Cosmos-DB-utdatabindning](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
-Kontrollera att en post har skapats i Cosmos-DB-databasen.
+1. Expandera ikonfältet till vänster på Azure-portalen, skriv `cosmos` i sökfältet och välj **Azure Cosmos DB**.
 
-1. Hitta din databas i Azure-portalen och markera den.
-1. Välj alternativet *Data Explorer*.
-1. Expandera noderna tills du når dokumentets poster.
-1. Bekräfta databasposten. Det finns ytterligare metadata i databasen tillsammans med dina data.
+    ![Sök efter Cosmos DB-tjänsten](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-![Kontrollera Cosmos-DB-posten](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
+2. Välj den databas du skapade och välj sedan **Datautforskaren**. Expandera **Samlingar**-noderna, välj det nya dokumentet och kontrollera att dokumentet innehåller dina frågesträngsvärden, samt en del ytterligare metadata. 
 
-Om dina data finns i dokumentet har du skapat en Azure-funktion som lagrar ostrukturerade data i en Cosmos-DB-databas.
+    ![Kontrollera Cosmos-DB-posten](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-## <a name="clean-up-resources"></a>Rensa resurser
+Du har lagt till en bindning till din HTTP-utlösare som lagrar ostrukturerade data i en Cosmos DB-databas.
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

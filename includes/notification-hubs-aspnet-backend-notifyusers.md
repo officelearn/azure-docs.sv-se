@@ -1,62 +1,59 @@
-## <a name="create-the-webapi-project"></a>Create the WebAPI Project
-A new ASP.NET WebAPI backend will be created in the sections that follow and it will have three main purposes:
+## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
+I avsnitten som följer ska vi skapa en ny ASP.NET WebAPI-serverdel som kommer att ha tre huvudsyften:
 
-1. **Authenticating Clients**: A message handler will be added later to authenticate client requests and associate the user with the request.
-2. **Client Notification Registrations**: Later, you will add a controller to handle new registrations for a client device to receive notifications. The authenticated user name will automatically be added to the registration as a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Sending Notifications to Clients**: Later, you will also add a controller to provide a way for a user to trigger a secure push to devices and clients associated with the tag. 
+1. **Klientautentisering**: Senare ska vi lägga till en meddelandehanterare för att autentisera klientbegäranden och associera användaren med begäran.
+2. **Registreringar för klientmeddelanden**: Därefter ska vi lägga till en kontrollant som hanterar nya registreringar så att en klientenhet kan ta emot meddelanden. Det autentiserade användarnamnet läggs automatiskt till i registreringen som en [tagg](https://msdn.microsoft.com/library/azure/dn530749.aspx).
+3. **Skicka meddelanden till klienter**: Vi ska även lägga till en kontrollant som gör att en användare kan utlösa en säker push-överföring till enheter och klienter som är associerade med taggen. 
 
-The following steps show how to create the new ASP.NET WebAPI backend: 
+Följande steg beskriver hur du skapar den nya ASP.NET-WebAPI-serverdelen: 
 
 > [!NOTE]
-> **Important**: Before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager for Visual Studio 2013**, and make sure you have version 2.8.50313.46 or later. If not, please uninstall, then reinstall the NuGet Package Manager.
+> **Viktigt!** Om du använder Visual Studio 2015 eller tidigare kontrollerar du att du har installerat den senaste versionen av NuGet Package Manager innan du påbörjar den här självstudiekursen. Börja med att starta Visual Studio. Klicka på **Extensions and Updates** (Tillägg och uppdateringar) på **Verktyg**-menyn. Sök efter **NuGet Package Manager** för din version av Visual Studio och kontrollera att du har den senaste versionen. Om inte avinstallerar du och installerar om NuGet Package Manager.
 > 
 > ![][B4]
 > 
 > [!NOTE]
-> Make sure you have installed the Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) for website deployment.
+> Kontrollera att du har installerat [Azure SDK](https://azure.microsoft.com/downloads/) för Visual Studio för webbplatsdistribution.
 > 
 > 
 
-1. Start Visual Studio or Visual Studio Express. Click **Server Explorer** and sign in to your Azure account. Visual Studio will need you signed in to create the web site resources on your account.
-2. In Visual Studio, click **File**, then click **New**, then **Project**, expand **Templates**, **Visual C#**, then click **Web** and **ASP.NET Web Application**, type the name **AppBackend**, and then click **OK**. 
+1. Starta Visual Studio eller Visual Studio Express. Klicka på **Server Explorer** och logga in på ditt Azure-konto. Du måste vara inloggad för att Visual Studio ska kunna skapa webbplatsresurserna på ditt konto.
+2. Klicka på **Arkiv** i Visual Studio, klicka på **Nytt** och sedan på **Projekt**. Expandera **Mallar**, **Visual C#** och klicka sedan på **Webb** och **ASP.NET-webbprogram**. Skriv namnet **AppBackend** och klicka sedan på **OK**. 
    
     ![][B1]
-3. In the **New ASP.NET Project** dialog, click **Web API**, then click **OK**.
+3. Klicka på **Webb-API** i dialogrutan **Nytt ASP.NET-projekt** och klicka sedan på **OK**.
    
     ![][B2]
-4. In the **Configure Microsoft Azure Web App** dialog, choose a subscription, and an **App Service plan** you have already created. You can also choose **Create a new app service plan** and create one from the dialog. You do not need a database for this tutorial. Once you have selected your app service plan, click **OK** to create the project.
+4. I dialogrutan **Configure Microsoft Azure Web App** (Konfigurera Microsoft Azure-webbapp) väljer du en prenumeration och en **App Service-plan** som du redan har skapat. Du kan också välja **Create a new app service plan** (Skapa en ny apptjänstplan) och skapa en från dialogrutan. Du behöver ingen databas för den här självstudiekursen. När du har valt apptjänstplan klickar du på **OK** för att skapa projektet.
    
     ![][B5]
 
-## <a name="authenticating-clients-to-the-webapi-backend"></a>Authenticating Clients to the WebAPI Backend
-In this section, you will create a new message handler class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so it can process all requests coming into the backend. 
+## <a name="authenticating-clients-to-the-webapi-backend"></a>Autentisera klienter mot WebAPI-serverdelen
+I det här avsnittet ska du skapa en ny meddelandehanterarklass med namnet **AuthenticationTestHandler** för den nya serverdelen. Den här klassen härleds från [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) och läggs till som en meddelandehanterare så att den kan bearbeta alla begäranden som kommer till serverdelen. 
 
-1. In Solution Explorer, right-click the **AppBackend** project, click **Add**, then click **Class**. Name the new class **AuthenticationTestHandler.cs**, and click **Add** to generate the class. This class will be used to authenticate users using *Basic Authentication* for simplicity. Note that your app can use any authentication scheme.
-2. In AuthenticationTestHandler.cs, add the following `using` statements:
+1. Högerklicka på **AppBackend**-projektet i Solution Explorer, klicka på **Lägg till** och sedan på **Klass**. Ge den nya klassen namnet **AuthenticationTestHandler.cs** och klicka på **Lägg till**  för att generera klassen. För enkelhetens skull ska den här klassen användas för att autentisera användare med *grundläggande autentisering*. Observera att din app kan använda alla autentiseringsscheman.
+2. Lägg till följande `using`-instruktioner i AuthenticationTestHandler.cs:
    
         using System.Net.Http;
         using System.Threading;
         using System.Security.Principal;
         using System.Net;
-        using System.Web;
-3. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following code. 
+        using System.Text;
+        using System.Threading.Tasks;
+
+3. Ersätt `AuthenticationTestHandler`-klassdefinitionen i AuthenticationTestHandler.cs med följande kod. 
    
-    This handler will authorize the request when the following three conditions are all true:
+    Den här hanteraren auktoriserar begäran om följande tre villkor är uppfyllda:
    
-   * The request included an *Authorization* header. 
-   * The request uses *basic* authentication. 
-   * The user name string and the password string are the same string.
+   * Begäran innehåller ett *auktoriseringsrubrik*. 
+   * Begäran använder *grundläggande* autentisering. 
+   * Strängen för användarnamn och lösenordssträngen är samma sträng.
      
-     Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
+     Annars avvisas begäran. Det här är inte en riktig autentiserings- och auktoriseringsmetod. Det är bara ett väldigt enkelt exempel för den här självstudiekursen.
      
-     If the request message is authenticated and authorized by the `AuthenticationTestHandler`, then the basic authentication user will be attached to the current request on the [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in the HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
+     Om meddelandet med begäran autentiseras och auktoriseras av `AuthenticationTestHandler` kopplas användaren med den grundläggande autentiseringen till den aktuella begäran i [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Senare används användarinformationen i HttpContext av en annan kontrollant (RegisterController) för att lägga till en [tagg](https://msdn.microsoft.com/library/azure/dn530749.aspx) till meddelanderegistreringsbegäran.
      
-       public class AuthenticationTestHandler : DelegatingHandler   {
-     
-           protected override Task<HttpResponseMessage> SendAsync(
-           HttpRequestMessage request, CancellationToken cancellationToken)
-           {
-               var authorizationHeader = request.Headers.GetValues("Authorization").First();
+       public class AuthenticationTestHandler : DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
                if (authorizationHeader != null && authorizationHeader
                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
@@ -99,29 +96,29 @@ In this section, you will create a new message handler class named **Authenticat
        }
      
      > [!NOTE]
-     > **Security Note**: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.                
+     > **Säkerhetsmeddelande**: Klassen `AuthenticationTestHandler` tillhandahåller inte riktig autentisering. Den används endast för att efterlikna grundläggande autentisering och är inte säker. Du måste implementera en säker autentiseringsmekanism i dina tjänster och program i produktionsmiljön.                
      > 
      > 
-4. Add the following code at the end of the `Register` method in the **App_Start/WebApiConfig.cs** class to register the message handler:
+4. Registrera meddelandehanteraren genom att lägga till följande kod i slutet av `Register`-metoden i klassen **App_Start/WebApiConfig.cs**:
    
         config.MessageHandlers.Add(new AuthenticationTestHandler());
-5. Save your changes.
+5. Spara ändringarna.
 
-## <a name="registering-for-notifications-using-the-webapi-backend"></a>Registering for Notifications using the WebAPI Backend
-In this section, we will add a new controller to the WebAPI backend to handle requests to register a user and device for notifications using the client library for notification hubs. The controller will add a user tag for the user that was authenticated and attached to the HttpContext by the `AuthenticationTestHandler`. The tag will have the string format, `"username:<actual username>"`.
+## <a name="registering-for-notifications-using-the-webapi-backend"></a>Registrering för meddelanden med hjälp av WebAPI-serverdelen
+I det här avsnittet ska vi lägga till en ny kontrollant till WebAPI-serverdelen som ska hantera begäranden för att registrera en användare och enhet för meddelanden med hjälp av klientbiblioteket för meddelandehubbar. Kontrollanten lägger till en användartagg för den användare som autentiserades och kopplades till HttpContext av `AuthenticationTestHandler`. Taggen har strängformatet `"username:<actual username>"`.
 
-1. In Solution Explorer, right-click the **AppBackend** project and then click **Manage NuGet Packages**.
-2. On the left-hand side, click **Online**, and search for **Microsoft.Azure.NotificationHubs** in the **Search** box.
-3. In the results list, click **Microsoft Azure Notification Hubs**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
+1. Högerklicka på **AppBackend**-projektet i Solution Explorer och klicka sedan på **Hantera NuGet-paket**.
+2. Klicka på **Online** till vänster och sök efter **Microsoft.Azure.NotificationHubs** i rutan **Sök**.
+3. Klicka på **Microsoft Azure Notification Hubs** i resultatlistan och sedan på **Installera**. Slutför installationen och stäng fönstret för NuGet-pakethanteraren.
    
-    This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
-4. We will now create a new class file that represents the connection with notification hub used to send notifications. In the Solution Explorer, right-click the **Models** folder, click **Add**, then click **Class**. Name the new class **Notifications.cs**, then click **Add** to generate the class. 
+    Då läggs en referens till i Azure Notification Hubs SDK med hjälp av <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs-NuGet-paketet</a>.
+4. Nu ska vi skapa en ny klassfil som representerar anslutningen med meddelandehubben som används för att skicka meddelanden. Högerklicka på mappen **Modeller**, klicka på **Lägg till** och klicka sedan på **Klass**. Ge den nya klassen namnet **Notifications.cs** och generera sedan klassen genom att klicka på **Lägg till**. 
    
     ![][B6]
-5. In Notifications.cs, add the following `using` statement at the top of the file:
+5. Lägg till följande `using`-instruktion överst i Notifications.cs-filen:
    
         using Microsoft.Azure.NotificationHubs;
-6. Replace the `Notifications` class definition with the following and make sure to replace the two placeholders with the connection string (with full access) for your notification hub, and the hub name (available at [Azure Classic Portal](http://manage.windowsazure.com)):
+6. Ersätt `Notifications`-klassdefinitionen med följande och glöm inte att ersätta de två platshållarna med anslutningssträngen (med fullständig åtkomst) för din meddelandehubb samt hubbnamnet (tillgängligt på [den klassiska Azure-portalen](http://manage.windowsazure.com)):
    
         public class Notifications
         {
@@ -134,19 +131,19 @@ In this section, we will add a new controller to the WebAPI backend to handle re
                                                                              "<hub name>");
             }
         }
-7. Next we will create a new controller named **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
+7. Nu ska vi skapa en ny kontrollant med namnet **RegisterController**. Högerklicka på mappen **Kontrollanter** i Solution Explorer, klicka på **Lägg till** och sedan på **Kontrollant**. Klicka på objektet **Web API 2 Controller -- Empty** (Web API 2-kontrollant – tom) och klicka sedan på **Lägg till**. Ge den nya klassen namnet **RegisterController** och klicka sedan på **Lägg till** igen för att generera kontrollanten.
    
     ![][B7]
    
     ![][B8]
-8. In RegisterController.cs, add the following `using` statements:
+8. Lägg till följande `using`-instruktioner i RegisterController.cs:
    
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.NotificationHubs.Messaging;
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-9. Add the following code inside the `RegisterController` class definition. Note that in this code, we add a user tag for the user this is attached to the HttpContext. The user was authenticated and attached to the HttpContext by the message filter we added, `AuthenticationTestHandler`. You can also add optional checks to verify that the user has rights to register for the requested tags.
+9. Lägg till följande kod i `RegisterController`-klassdefinitionen. Observera att vi i den här koden lägger till en användartagg för den användare som är kopplad till HttpContext. Användaren autentiserades och kopplades till HttpContext med hjälp av meddelandefiltret som vi lade till, `AuthenticationTestHandler`. Du kan också lägga till valfria kontroller som kontrollerar att användaren har behörighet att registrera sig för de begärda taggarna.
    
         private NotificationHubClient hub;
    
@@ -251,22 +248,22 @@ In this section, we will add a new controller to the WebAPI backend to handle re
                     throw new HttpRequestException(HttpStatusCode.Gone.ToString());
             }
         }
-10. Save your changes.
+10. Spara ändringarna.
 
-## <a name="sending-notifications-from-the-webapi-backend"></a>Sending Notifications from the WebAPI Backend
-In this section you add a new controller that exposes a way for client devices to send a notification based on the username tag using Azure Notification Hubs Service Management Library in the ASP.NET WebAPI backend.
+## <a name="sending-notifications-from-the-webapi-backend"></a>Skicka meddelanden från WebAPI-serverdelen
+I det här avsnittet ska du lägga till en ny kontrollant som gör att klientenheter kan skicka ett meddelande baserat på username-taggen med hjälp av Azure Notification Hubs Service Management Library i ASP.NET WebAPI-serverdelen.
 
-1. Create another new controller named **NotificationsController**. Create it the same way you created the **RegisterController** in the previous section.
-2. In NotificationsController.cs, add the following `using` statements:
+1. Skapa en till kontrollant med namnet **NotificationsController**. Skapa den på samma sätt som du skapade **RegisterController** i det föregående avsnittet.
+2. Lägg till följande `using`-instruktioner i NotificationsController.cs:
    
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-3. Add the following method to the **NotificationsController** class.
+3. Lägg till följande metod i **NotificationsController**-klassen.
    
-    This code send a notification type based on the Platform Notification Service (PNS) `pns` parameter. The value of `to_tag` is used to set the *username* tag on the message. This tag must match a username tag of an active notification hub registration. The notification message is pulled from the body of the POST request and formatted for the target PNS. 
+    Den här koden skickar en meddelandetyp baserat på PNS-parametern (Platform Notification Service) `pns`. Värdet för `to_tag` används för att ställa in *usernamne*-taggen för meddelandet. Den här taggen måste matcha en username-tagg för en aktiv meddelandehubbsregistrering. Meddelandet hämtas från innehållsdelen i POST-begäran och formateras för PNS-måltjänsten. 
    
-    Depending on the Platform Notification Service (PNS) that your supported devices use to receive notifications, different notifications are supported using different formats. For example on Windows devices, you could use a [toast notification with WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) that isn't directly supported by another PNS. So your backend would need to format the notification into a supported notification for the PNS of devices you plan to support. Then use the appropriate send API on the [NotificationHubClient class](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
+    Beroende på vilken PNS (Platform Notification Service) som dina kompatibla enheter använder för att ta emot meddelanden, stöds olika meddelanden i olika format. På Windows-enheter kan du till exempel använda ett [popup-meddelande med WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) som inte stöds direkt av en annan PNS. Serverdelen måste alltså formatera meddelandet till ett meddelande som stöds för PNS-tjänsten för enheter som du vill ha stöd för. Därefter använder du lämpligt överförings-API i [NotificationHubClient-klassen](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
    
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -309,19 +306,20 @@ In this section you add a new controller that exposes a way for client devices t
    
             return Request.CreateResponse(ret);
         }
-4. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
+4. Tryck på **F5** för att köra programmet och för att kontrollera att allt fungerar som det ska hittills. Appen ska starta en webbläsare och visa ASP.NET-startsidan. 
 
-## <a name="publish-the-new-webapi-backend"></a>Publish the new WebAPI Backend
-1. Now we will deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
-2. Select **Microsoft Azure Web Apps** as your publish target.
-   
+## <a name="publish-the-new-webapi-backend"></a>Publicera den nya WebAPI-serverdelen
+1. Nu ska vi distribuera den här appen till en Azure-webbplats så att den kan nås från alla enheter. Högerklicka på **AppBackend**-projektet och välj **Publicera**.
+2. Välj **Microsoft Azure App Service** som publiceringsmål och klicka på **Publicera**. Dialogrutan Create App Service (Skapa apptjänst) öppnas, där du kan skapa alla Azure-resurser som du behöver för att köra ASP.NET-webbappen i Azure.
+
     ![][B15]
-3. Log in with your Azure account and select an existing or new Web App.
-   
-    ![][B16]
-4. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
-   
-    ![][B18]
+3. Välj ditt Azure-konto i dialogrutan **Create App Service** (Skapa apptjänst). Klicka på **Ändra typ** och välj **Webbapp**. Behåll **namnet på webbappen** som visas och välj **prenumeration**, **resursgrupp** och **apptjänstplan**.  Klicka på **Skapa**.
+
+4. Notera egenskapen **Plats-URL** i avsnittet **Sammanfattning**. Vi ska referera till den här URL:en som *serverdelens slutpunkt* senare i den här självstudiekursen. Klicka på **Publicera**.
+
+5. När guiden slutförs publiceras ASP.NET-webbappen till Azure och sedan öppnas appen i standardwebbläsaren.  Programmet kan visas i Azure App Service.
+
+URL:en använder webbappens namn som du angav tidigare, i formatet http://<appnamn>.azurewebsites.net.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
@@ -332,6 +330,6 @@ In this section you add a new controller that exposes a way for client devices t
 [B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
 [B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
-[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
+[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/publish-to-app-service.png
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG

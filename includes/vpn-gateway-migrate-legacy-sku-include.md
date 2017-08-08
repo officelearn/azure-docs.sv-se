@@ -1,8 +1,9 @@
 > [!NOTE]
-> Den offentliga IP-adressen för VPN-gatewayen ändras när du migrerar från en gammal SKU till en ny SKU.
+> * Den offentliga IP-adressen för VPN-gatewayen ändras när du migrerar från en gammal SKU till en ny SKU.
+> * Du kan inte migrera klassiska VPN-gatewayer till de nya SKU:erna. Klassiska VPN-gatewayer kan endast använda de äldre (gamla) SKU:erna.
 > 
 
-Du kan inte ändra storlek på Azure VPN-gatewayer direkt mellan gamla SKU: er och nya SKU-familjer. Om du har VPN-gatewayer i Resource Manager-distributionsmodellen som använder den äldre versionen av de SKU: er kan migrera du till nya SKU: er. För att migrera måste du ta bort den befintliga VPN-gatewayen för det virtuella nätverket och sedan skapa en ny.
+Du kan inte ändra storlek på Azure VPN-gatewayer mellan de gamla SKU:erna och de nya SKU-familjerna. Om du har VPN-gatewayer i Resource Manager-distributionsmodellen som använder den äldre versionen av de SKU: er kan migrera du till nya SKU: er. För att migrera måste du ta bort den befintliga VPN-gatewayen för det virtuella nätverket och sedan skapa en ny.
 
 Arbetsflöde för migrering:
 

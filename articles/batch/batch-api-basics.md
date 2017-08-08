@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
@@ -177,10 +177,14 @@ I avsnittet [Konto](#account) finns information om hur du ställer in poolalloke
 
 Om du vill använda anpassade avbildningar för att etablera virtuella datorpooler skapar du Batch-kontot med poolallokeringsläget för användarprenumerationen. Med det här läget allokeras Batch-pooler till den prenumeration där kontot finns. I avsnittet [Konto](#account) finns information om hur du ställer in poolallokeringsläget när du skapar ett Batch-konto.
 
-Om du vill använda en anpassad avbildning måste du förbereda avbildningen genom att generalisera den. Information om förberedelse av anpassade Linux-avbildningar från virtuella Azure-datorer finns i [Capture an Azure Linux VM to use as a template](../virtual-machines/linux/capture-image-nodejs.md) (Skapa en virtuell Azure Linux-dator att använda som mall). Information om förberedelser som anpassade Windows-avbildningar från virtuella Azure-datorer finns i [Create custom VM images with Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md) (Skapa anpassade avbildningar av en virtuell dator med Azure PowerShell). Tänk på följande när du förbereder avbildningen:
+Om du vill använda en anpassad avbildning måste du förbereda avbildningen genom att generalisera den. Information om förberedelse av anpassade Linux-avbildningar från virtuella Azure-datorer finns i [Capture an Azure Linux VM to use as a template](../virtual-machines/linux/capture-image-nodejs.md) (Skapa en virtuell Azure Linux-dator att använda som mall). Information om förberedelser som anpassade Windows-avbildningar från virtuella Azure-datorer finns i [Create custom VM images with Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md) (Skapa anpassade avbildningar av en virtuell dator med Azure PowerShell). 
 
-- Se till att den grundläggande OS-avbildningen som du använder för att etablera Batch-pooler är har några förinstallerade Azure-tillägg, till exempel tillägget för anpassat skript. Om avbildningen innehåller ett förinstallerat tillägg kan Azure stöta på problem med att distribuera den virtuella datorn.
-- Kontrollera att den grundläggande OS-avbildningen som du anger använder den temporära standardenheten, eftersom Batch-nodagenten för närvarande förväntar sig den.
+> [!IMPORTANT]
+> Tänk på följande när du förbereder den anpassade avbildningen:
+> - Se till att den grundläggande OS-avbildningen som du använder för att etablera Batch-pooler är har några förinstallerade Azure-tillägg, till exempel tillägget för anpassat skript. Om avbildningen innehåller ett förinstallerat tillägg kan Azure stöta på problem med att distribuera den virtuella datorn.
+> - Kontrollera att den grundläggande OS-avbildningen som du anger använder den temporära standardenheten, eftersom Batch-nodagenten för närvarande förväntar sig den.
+>
+>
 
 Om du vill skapa en pool för konfiguration av virtuell dator med hjälp av en anpassad avbildning, behöver du ett eller flera Azure Storage-standardkonton för att lagra dina anpassade VHD-avbildningar. Anpassade avbildningar lagras som blobar. Om du vill referera till anpassade avbildningar när du skapar en pool, anger du URI:erna för blobarna för de anpassade VHD-avbildningarna i egenskapen [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) för egenskapen [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
 

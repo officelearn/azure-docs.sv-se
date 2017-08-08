@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 07/26/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1cab34785d6e4f7751245ebf77b29fa8dc3c685b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 98670b60daca7091e09ce2ab03cf2eaff015070e
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduktion till Microsoft Azure Storage
@@ -110,13 +109,19 @@ När program utformas för skalning är programkomponenterna ofta fristående, s
 Ett lagringskonto kan innehålla valfritt antal köer. En kö kan innehålla valfritt antal meddelanden, upp till lagringskontots kapacitetsgräns. Enskilda meddelanden kan vara upp till 64 kB stora.
 
 ## <a name="file-storage"></a>File Storage
-Azure File Storage tillhandahåller molnbaserade SMB-filresurser så att du snabbt och utan kostsamma omskrivningar kan migrera äldre program som är beroende av filresurser till Azure. Med Azure File Storage kan program som körs på virtuella Azure-datorer eller molntjänster montera en filresurs i molnet, precis som ett skrivbordsprogram monterar en typisk SMB-resurs. Ett obegränsat antal programkomponenter kan sedan montera och komma åt fillagringsresursen samtidigt.
+Med tjänsten Azure Files kan du konfigurera nätverksfilresurser med hög tillgänglighet som kan nås via SMB-standardprotokollet (Server Message Block). Det innebär att flera virtuella datorer kan dela samma filer med både läs- och skrivbehörighet. Du kan också läsa filerna med hjälp av REST-gränssnittet eller klientbiblioteken för lagring.
 
-Eftersom en fillagringsresurs är en vanlig SMB-filresurs kan program som körs i Azure komma åt data i resursen via filsystemets I/O-API:er. Utvecklare kan därför utnyttja befintlig kod och erfarenhet för att migrera befintliga program. IT-proffs kan använda PowerShell-cmdlets för att skapa, montera och hantera fillagringsresurser som en del av administrationen av Azure-program.
+En sak som skiljer Azure File-lagring från filer på en företagsfilresurs är att du kan komma åt filerna var som helst i världen med en URL som pekar på filen och som innehåller en SAS-token (signatur för delad åtkomst). Du kan generera SAS-token, som ger specifik åtkomst till en privat resurs under en viss tidsperiod.
 
-Precis som de andra Azure-lagringstjänsterna exponerar File Storage ett REST-API för åtkomst till data i en resurs. Lokala program kan anropa REST-API:et för File Storage för att komma åt data i en filresurs. På så sätt kan ett företag välja att migrera vissa äldre program till Azure och fortsätta att köra andra inifrån den egna organisationen. Observera att det bara går att montera en filresurs för program som körs i Azure. Ett lokalt program kan bara komma åt filresursen via REST-API:et.
+Filresurser kan användas för många vanliga scenarier:
 
-Distribuerade program kan också använda File Storage för att lagra och dela användbara programdata och utvecklings- och testningsverktyg. Ett program kan till exempel lagra konfigurationsfiler och diagnostikdata som loggar, mätvärden och kraschdumpar på en File Storage-resurs så att de blir tillgängliga för flera virtuella datorer eller roller. Utvecklare och administratörer kan lagra verktyg som de behöver för att skapa och hantera ett program på en File Storage-resurs som är tillgänglig för alla komponenter i stället för att installera dem på varje virtuell dator eller rollinstans.
+* Många lokala program använder filresurser. Den här funktionen gör det enklare att migrera program som delar data till Azure. Om du monterar filresursen med samma enhetsbeteckning som det lokala programmet använder, bör den del av programmet som använder filresursen fungera med minimala, om några, ändringar.
+
+* Konfigurationsfiler kan lagras på en filresurs och nås från flera virtuella datorer. Verktyg och hjälpmedel som används av flera utvecklare i ett team kan lagras på en filresurs, så att alla enkelt kan hitta dem och för att säkerställa att alla använder samma version.
+
+* Diagnostikloggar, mätvärden och kraschdumpar är bara tre exempel på data som kan skrivas till en filresurs och bearbetas eller analyseras senare.
+
+För närvarande stöds inte Active Directory-baserad autentisering och åtkomstkontrollistor (ACL:er). Detta kommer dock att implementeras i en framtida utgåva. Autentiseringsuppgifterna för lagringskontot används för att tillhandahålla autentisering för åtkomst till filresursen. Det betyder att alla som har resursen monterad har fullständig skriv- och läsåtkomst till resursen.
 
 ## <a name="access-to-blob-table-queue-and-file-resources"></a>Åtkomst till blob-, tabell-, kö- och filresurser
 Som standard kan endast lagringskontoägaren komma åt resurser i lagringskontot. För att skydda dina data måste varje begäran som görs mot resurser på ditt konto autentiseras. Autentiseringen använder en modell med delade nycklar. Blobbar kan också konfigureras att stödja anonym autentisering.

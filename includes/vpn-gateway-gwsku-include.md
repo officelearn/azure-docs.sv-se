@@ -14,7 +14,7 @@ På grund av skillnader i serviceavtal och funktioner, rekommenderar vi följand
 | **Utv-test eller konceptbevis**   | Basic                  |
 |                                    |                        |
 
-Om du använder gamla SKU: er är rekommendationerna för produktion-SKU:er Standard och HighPerformance. Mer information om gamla SKU: er finns i [Gateway-SKU: er (gamla)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+Om du använder gamla SKU: er är rekommendationerna för produktion-SKU:er Standard och HighPerformance. Mer information om gamla SKU:er finns i [Gateway SKUs (legacy SKUs)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) (Gateway-SKU:er (äldre SKU:er)).
 
 ###  <a name="feature"></a>Funktionsuppsättningarna för gateway-SKU:er
 

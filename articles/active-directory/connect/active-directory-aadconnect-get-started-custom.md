@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
@@ -317,6 +317,15 @@ Mer information finns i [Mellanlagringsläge](active-directory-aadconnectsync-op
 
 ### <a name="verify-your-federation-configuration"></a>Verifiera federationkonfigurationen
 Azure AD Connect verifierar DNS-inställningarna åt dig när du klickar på knappen Kontrollera.
+
+**Anslutningskontroller för intranät**
+
+* Matcha federationstjänstens FQDN: Azure AD Connect kontrollerar om federationens fullständigt kvalificerade domännamn kan matchas av DNS för att säkerställa anslutningen. Om Azure AD Connect inte kan matcha det fullständigt kvalificerade domännamnet misslyckas verifieringen. Kontrollera att det finns en DNS-post för federationstjänstens fullständigt kvalificerade domännamn så att verifieringen lyckas.
+* DNS A-post: Azure AD Connect kontrollerar om det finns en A-post för federationstjänsten. Verifieringen misslyckas om det inte finns någon A-post. Skapa en A-post, inte en CNAME-post, för federationens fullständigt kvalificerade domännamn så att verifieringen lyckas.
+
+**Anslutningskontroller för extranät**
+
+* Matcha federationstjänstens FQDN: Azure AD Connect kontrollerar om federationens fullständigt kvalificerade domännamn kan matchas av DNS för att säkerställa anslutningen.
 
 ![Slutför](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

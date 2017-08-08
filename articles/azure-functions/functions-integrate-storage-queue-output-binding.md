@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
@@ -35,8 +35,6 @@ I Azure Functions kan du använda indata- och utdatabindningar för att ansluta 
 
 * Installera [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
-
 ## <a name="add-binding"></a>Lägga till en utdatabindning
  
 1. Expandera både din funktionsapp och din funktion.
@@ -45,7 +43,7 @@ I Azure Functions kan du använda indata- och utdatabindningar för att ansluta 
     
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Använd inställningarna som anges i tabellen och välj **Spara**: 
+3. Använd inställningarna på det sätt som beskrivs i tabellen: 
 
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -55,6 +53,8 @@ I Azure Functions kan du använda indata- och utdatabindningar för att ansluta 
     | **Lagringskontoanslutning** | AzureWebJobStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |
     | **Meddelandeparameternamn** | outQueueItem | Namnet på utdatabindningsparametern. | 
 
+4. Klicka på **Spara** för att lägga till bindningen.
+ 
 Nu när du har definierat en utdatabindning måste du uppdatera koden så att bindningen används när meddelanden läggs till i en kö.  
 
 ## <a name="update-the-function-code"></a>Uppdatera funktionskoden

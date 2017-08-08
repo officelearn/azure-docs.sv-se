@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -63,9 +63,9 @@ Azure AD-programproxyn hjälper dig att stödja fjärranvändare genom att publi
 6. Slutför guiden genom att klicka på bockmarkeringen längst ned på skärmen. Nu har programmet definierats i Azure AD.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>Tilldela användare och grupper till programmet
-För att dina användare ska få åtkomst till ditt publicerade program måste du tilldela dem antingen individuellt eller i grupper. (Kom ihåg att även tilldela dig själv åtkomst.) Detta kräver att varje användare har en licens för Azure Basic eller högre. Du kan tilldela licenser individuellt eller till grupper. Mer information finns i [Tilldela ett program användare](active-directory-applications-guiding-developers-assigning-users.md). 
+För att dina användare ska få åtkomst till ditt publicerade program måste du tilldela dem antingen individuellt eller i grupper. (Kom ihåg att även tilldela dig själv åtkomst.) Varje användare som du tilldelar behöver en licens för Azure Basic eller högre. Du kan tilldela licenser individuellt eller till grupper. Mer information finns i [Tilldela användare till ett program](active-directory-applications-guiding-developers-assigning-users.md). 
 
-För appar som kräver förautentisering ger detta behörighet att använda appen. För appar som inte kräver förautentisering kan användarna fortfarande vara tilldelade till appen så att den visas i deras programlista, t.ex. MyApps.
+För appar som kräver förautentisering ger användartilldelningen behörighet att använda programmet. För appar som inte kräver förautentisering innebär användartilldelningen att användaren kan komma åt programmet via åtkomstpanelen.
 
 1. När du har slutfört guiden Lägg till app visas sidan Snabbstart för ditt program. Du kan hantera vem som har tillgång till appen genom att välja **Användare och grupper**.
    
@@ -90,7 +90,7 @@ Du kan ändra publicerade appar eller konfigurera avancerade alternativ på sida
 
 När du har publicerat program med hjälp av Azure Active Directory Application Proxy visas de i programlistan i Azure AD och du kan hantera dem där.
 
-Om du inaktiverar programproxytjänsterna när du har publicerat program, så är de inte längre tillgängliga utanför ditt privata nätverk. Detta innebär inte att programmen tas bort.
+Om du inaktiverar programproxytjänsterna när du har publicerat program, så är programmen inte längre tillgängliga utanför ditt privata nätverk. Användarna kan fortfarande komma åt programmen lokalt precis som vanligt.
 
 Om du vill visa ett program och förvissa dig om att det är tillgängligt dubbelklickar du på programnamnet. Om Application Proxy-tjänsten är inaktiverad och programmet inte är tillgängligt visas ett varningsmeddelande längst upp på skärmen.
 

@@ -94,12 +94,10 @@
 #### [Skriva till Data Lake Store](hdinsight-storm-write-data-lake-store.md)
 #### [Utveckla Java-baserade topologier med Maven](hdinsight-storm-develop-java-topology.md)
 #### [Utveckla C#-topologier med Hadoop-verktyg](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-#### [Fastställa trender för Twitter-ämnen](hdinsight-storm-twitter-trending.md)
 #### [Bearbeta händelser med C#-topologier](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Bearbeta händelser med Java-topologier](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Använda Power BI med en topologi](hdinsight-storm-power-bi-topology.md)
 #### [Analysera sensordata i realtid](hdinsight-storm-sensor-data-analysis.md)
-#### [Bearbeta fordonssensordata](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Samordna händelser över tid](hdinsight-storm-correlation-topology.md)
 #### [Utveckla topologier med Python](hdinsight-storm-develop-python-topology.md)
 ## Använda domänansluten HDInsight (förhandsgranskning)
@@ -137,6 +135,7 @@
 ### [Analysera webbplatsloggar med Hive](hdinsight-hive-analyze-website-log.md)
 ### [Analysera loggar i Application Insights Telemetry](hdinsight-spark-analyze-application-insight-logs.md)
 ## Utöka kluster
+### [Använda ett säkert, aktiverat lagringskonto](hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)
 ### [Anpassa kluster med Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Anpassa kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Ansluta HDInsight till det lokala nätverket](connect-on-premises-network.md)
@@ -207,6 +206,7 @@
 #### [Optimera Hive-frågor](hdinsight-hadoop-optimize-hive-query.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight)
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
@@ -240,4 +240,5 @@
 ## [Få hjälp i forumet](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Microsoft Professional Program för stordata](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Windows-verktyg för HDInsight](hdinsight-hadoop-windows-tools.md)

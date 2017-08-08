@@ -37,3 +37,11 @@ sections:
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Paketera ett program i en behållaravbildning</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Skapa ett register med Azure Container Registry och ladda upp behållaravbildningen</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Distribuera behållaravbildningen till en Azure-behållarinstans</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Azure CLI
+            html: <p><a href="/cli/azure/container">Azure CLI 2.0</a></p>

@@ -8,6 +8,7 @@
 ## [Flera platser](application-gateway-multi-site-overview.md)
 ## [Slutpunkt till slutpunkt för SSL](application-gateway-backend-ssl.md)
 ## [Omdirigering](application-gateway-redirect-overview.md)
+## [Stöd för flera klienter](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Kom igång
@@ -16,7 +17,8 @@
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
+#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
+#### [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 #### [PowerShell (klassisk)](application-gateway-create-gateway.md)
 ### Intern
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -25,21 +27,27 @@
 ## Konfigurera brandväggen för webbprogram
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Azure CLI 2.0](application-gateway-web-application-firewall-cli.md)
 ## Anpassa regler för brandväggen för webbaserade program
 ### [Portal](application-gateway-customize-waf-rules-portal.md)
+### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 ## Konfigurera för SSL-avlastning
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (klassisk)](application-gateway-ssl.md)
+### [Azure CLI 2.0](application-gateway-ssl.md)
 ### [Princip och slutpunkt till slutpunkt](application-gateway-end-to-end-ssl-powershell.md)
 ## Konfigurera URL-baserad sökvägsroutning
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 ## Konfigurera värdtjänster för flera webbplatser
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Konfigurera omdirigering
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Konfigurera webbappar som medlemmar i serverdelspool
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurera hälsotillståndsavsökningar
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -70,6 +78,7 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=networking)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

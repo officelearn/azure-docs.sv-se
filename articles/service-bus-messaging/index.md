@@ -2,9 +2,11 @@
 layout: LandingPage
 title: Dokumentation om Service Bus-meddelanden
 description: "Lär dig hur du konfigurerar en meddelandetjänst som ansluter program och tjänster över lokala platser och molnmiljöer."
-translationtype: Human Translation
-ms.sourcegitcommit: 5b76339cc3ca28b523ecf825d7bccc18587aafc8
-ms.openlocfilehash: b990c273b6b76ef7277904f739aa81b8ab6a6ff6
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 559bbabe07ae50b2cc83fad5e867c23c9272d6ab
+ms.contentlocale: sv-se
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="service-bus-messaging-documentation"></a>Dokumentation om Service Bus-meddelanden
@@ -30,7 +32,7 @@ Meddelandetjänsten tillhandahåller pålitlig leverans av information som en as
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-messaging">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -76,9 +78,8 @@ Meddelandetjänsten tillhandahåller pålitlig leverans av information som en as
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.servicebus">Microsoft.Azure.Management.ServiceBus</a></p>
+                        <h3>Kommandorad</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -90,8 +91,9 @@ Meddelandetjänsten tillhandahåller pålitlig leverans av information som en as
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="service-bus-powershell-how-to-provision.md">PowerShell</a></p>
-                        <p><a href="/rest/api/servicebus">REST</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.servicebus">.NET-standard</a></p>
+                        <p><a href="/java/api/overview/azure/servicebus">Java</a></p>
                     </div>
                 </div>
             </div>
@@ -102,20 +104,12 @@ Meddelandetjänsten tillhandahåller pålitlig leverans av information som en as
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Annat</h3>
-                        <p><a href="service-bus-messaging-exceptions.md">Undantag</a></p>
-                        <p><a href="service-bus-quotas.md">Kvoter</a></p>
-                        <p><a href="service-bus-messaging-sql-filter.md">SQLFilter-syntax</a></p>
-                        <p><a href="service-bus-messaging-sql-rule-action.md">SQLRuleAction-syntax</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicebus/">REST API-referens</a></p>
                    </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

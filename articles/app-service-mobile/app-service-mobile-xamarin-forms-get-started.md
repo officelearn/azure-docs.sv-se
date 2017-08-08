@@ -75,7 +75,7 @@ Det här avsnittet handlar om att köra Xamarin iOS-projektet för iOS-enheter. 
 1. Högerklicka på iOS-projektet, och klicka sedan på **Set As Startup Project**.
 2. Gå till menyn **Run** och klicka på **Start Debugging** för att bygga projektet och starta appen i iPhone-emulatorn.
 
-#### <a name="in-visual-studio"></a>I Visual Studio&2013;
+#### <a name="in-visual-studio"></a>I Visual Studio 2013
 1. Högerklicka på iOS-projektet, och klicka sedan på **Set as StartUp Project**.
 2. Gå till menyn **Build** och klicka på **Configuration Manager**.
 3. I dialogrutan **Configuration Manager** markerar du kryssrutorna **Build** och **Deploy** för iOS-projektet.
@@ -104,7 +104,7 @@ Det här avsnittet handlar om att köra Xamarin droid-projektet för Android. Du
 1. Högerklicka på Androidprojektet, och klicka sedan på **Set As Startup Project**.
 2. Gå till menyn **Run** och klicka på **Start Debugging** för att bygga projektet och starta appen i en Androidemulator.
 
-#### <a name="in-visual-studio"></a>I Visual Studio&2013;
+#### <a name="in-visual-studio"></a>I Visual Studio 2013
 1. Högerklicka på Androidprojektet (Droid), och klicka sedan på **Set as StartUp Project**.
 2. Gå till menyn **Build** och klicka på **Configuration Manager**.
 3. I dialogrutan **Configuration Manager** markerar du kryssrutorna **Build** och **Deploy** för Androidprojektet.
@@ -129,7 +129,7 @@ En POST-begäran skickas till den nya mobilappserverdelen som finns på Azure. D
 ## <a name="optional-run-the-windows-project"></a>(Valfritt) Kör Windowsprojektet
 Det här avsnittet handlar om att köra Xamarin WinApp-projektet för Windowsenheter. Du kan hoppa över det här avsnittet om du inte arbetar med Windowsenheter.
 
-#### <a name="in-visual-studio"></a>I Visual Studio&2013;
+#### <a name="in-visual-studio"></a>I Visual Studio 2013
 1. Högerklicka på något av Windowsprojekten, och klicka sedan på **Set as StartUp Project**.
 2. Gå till menyn **Build** och klicka på **Configuration Manager**.
 3. I dialogrutan **Configuration Manager** markerar du kryssrutorna **Build** och **Deploy** för Windowsprojektet som du valde.

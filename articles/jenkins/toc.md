@@ -4,8 +4,9 @@
 # Självstudier
 ## [CI/CD med VSTS](https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins)
 ## [Integrera Jenkins och Kubernetes](/azure/container-service/container-service-kubernetes-jenkins)
-## [Distribuera till App Service](/azure/jenkins/execute-cli-jenkins-pipeline)
+## [Jenkins och Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
 ## [Docker, GitHub och Jenkins](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+## [Distribuera till App Service](/azure/jenkins/deploy-Jenkins-app-service-plugin)
 # Instruktionsguider
 ## [Säker Jenkins på Azure](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
 # Resurser

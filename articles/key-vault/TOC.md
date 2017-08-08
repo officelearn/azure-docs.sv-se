@@ -15,24 +15,27 @@
 ### [HSM-skyddade nycklar](key-vault-hsm-protected-keys.md)
 ### [Migrera till .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### Översikter
-#### [Översikt över säkerhetsvärldar](key-vault-ovw-security-worlds.md)
-#### [Översikt över mjuk borttagning](key-vault-ovw-soft-delete.md)
-#### [Översikt över nycklar för lagringskonton](key-vault-ovw-storage-keys.md)
-#### [Översikt över begränsning](key-vault-ovw-throttling.md)
+#### [Säkerhetsvärldar](key-vault-ovw-security-worlds.md)
+#### [Mjuk borttagning](key-vault-ovw-soft-delete.md)
+#### [Lagringskontonycklar](key-vault-ovw-storage-keys.md)
+#### [Begränsning](key-vault-ovw-throttling.md)
 
 ## Hantera
 ### [Azure Key Vault-loggning](key-vault-logging.md)
 ### [Åtkomst bakom brandväggar](key-vault-access-behind-firewall.md)
-### [Ändra klientorganisations-ID](key-vault-subscription-move-fix.md)
-### [Använd grupper för att bevilja åtkomst](key-vault-group-permissions-for-apps.md)
 ### [Tillgänglighet och redundans](key-vault-disaster-recovery-guidance.md)
+### [Ändra klientorganisations-ID](key-vault-subscription-move-fix.md)
+### [Skapa och hantera med CLI 2.0](key-vault-manage-with-cli2.md)
+### [Så här använder du Key Vault mjuk borttagning med CLI](key-vault-soft-delete-cli.md)
+### [Så här använder du Key Vault mjuk borttagning med PowerShell](key-vault-soft-delete-powershell.md)
+### [Använd grupper för att bevilja åtkomst](key-vault-group-permissions-for-apps.md)
 ### [Säkra ditt nyckelvalv](key-vault-secure-your-key-vault.md)
 
 ## Automatisera
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Skapa och hantera med CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -55,3 +58,4 @@
 ## [Kodexempel](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

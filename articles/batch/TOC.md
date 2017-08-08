@@ -8,6 +8,7 @@
 ## [Batch .NET-självstudier](batch-dotnet-get-started.md)
 ## [Batch Python-självstudier](batch-python-tutorial.md)
 ## [Batch Node.js-självstudier](batch-nodejs-get-started.md)
+## [Batch-tjänsten för återgivning](batch-rendering-service.md)
 # Gör så här för att
 ## Utveckla
 ### [Programpaket](batch-application-packages.md)
@@ -15,7 +16,9 @@
 ### Azure AD-autentisering
 #### [Azure AD med Batch-tjänsten](batch-aad-auth.md)
 #### [Azure AD med Batch Management](batch-aad-auth-management.md)
+### [Beräkningsintensiva virtuella datorer](batch-pool-compute-intensive-sizes.md)
 ### [Samtidiga nodaktiviteter](batch-parallel-node-tasks.md)
+### [Räkna aktiviteter efter tillstånd](batch-get-task-counts.md)
 ### [Effektiv lista: frågor](batch-efficient-list-queries.md)
 ### [Aktiviteter för jobbförberedelse och -slutförande](batch-job-prep-release.md)
 ### [Linux-beräkningsnoder](batch-linux-nodes.md)
@@ -36,8 +39,8 @@
 #### [Lägga till ett program](./scripts/batch-cli-sample-add-application.md)
 #### [Hantera pooler](./scripts/batch-cli-sample-manage-pool.md)
 #### [Köra ett jobb och aktiviteter](./scripts/batch-cli-sample-run-job.md)
-
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [NET](/dotnet/api/microsoft.azure.batch)
@@ -69,6 +72,7 @@
 ## [C#-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/batch/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Python-kodexempel](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)

@@ -11,7 +11,9 @@
 ## Planera och designa
 ### [Virtuella nätverk](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Trafikfiltrering](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Lokala anslutningsmöjligheter](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Anslutning på flera platser – VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Anslutning på flera platser – dedikerad privat](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ##  Koncept
 ### [Virtuella nätverk](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Utjämning av nätverksbelastning](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -35,21 +37,24 @@
 ### [Privata servrar för belastningsutjämning av program](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Anslut virtuella nätverk (samma plats)](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Anslut virtuella nätverk (olika platser)](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## Lokala anslutningsmöjligheter
-### [Anslut till ett lokalt nätverk (särskilt)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Anslut till ett lokalt nätverk (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## Anslutning på flera platser
+### [Skapa en S2S VPN-anslutning (IPsec/IKE)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Skapa en P2S VPN-anslutning (SSTP med certifikat)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Skapa en dedikerad privat anslutning (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ## Hantering
 ### [Visa nätverkstopologi](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Hantera paketinsamling](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Fastställ nästa routningshopp](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Kontrollera ip-flöden för en virtuell dator](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ## Exempelskript
 ### [Azure CLI](cli-samples.md)
 ### [PowerShell](powershell-samples.md)
+
 ## Självstudier
 ### [Belastningsutjämna virtuella datorer](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Anslut en dator till ett virtuellt nätverk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-
 
 # Referens
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
@@ -64,6 +69,7 @@
 ## [Community-mallar](https://azure.microsoft.com/resources/templates/)
 ## [Nätverksblogg](http://azure.microsoft.com/blog/topics/networking)
 ## [Prissättning](https://azure.microsoft.com/pricing)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional tillgänglighet](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)

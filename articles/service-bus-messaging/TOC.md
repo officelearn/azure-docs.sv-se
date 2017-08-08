@@ -56,8 +56,8 @@
 
 # Referens
 ## .NET
-### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
+### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
 ## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Undantag](service-bus-messaging-exceptions.md)
@@ -69,9 +69,11 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blogg](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Prisinformation](service-bus-pricing-billing.md)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
+## [Prisinformation](service-bus-pricing-billing.md)
 ## [Exempel](service-bus-samples.md)
+## [ServiceBus360](https://www.servicebus360.com/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)

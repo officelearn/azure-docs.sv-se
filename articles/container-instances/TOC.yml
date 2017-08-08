@@ -25,13 +25,23 @@
       href: container-instances-orchestrator-relationship.md
 - name: Instruktionsguider
   items:
-    - name: Grupper med flera behållare
+    - name: Distribuera grupper med flera behållare
       href: container-instances-multi-container-group.md
-    - name: Hanteringstillstånd med Azure-filresurser
+    - name: Hantera tillstånd med Azure-filresurser
       href: container-instances-mounting-azure-files-volume.md
+    - name: Distribuera från Azure Container Registry
+      href: container-instances-using-azure-container-registry.md
+    - name: Felsöka distributioner till Azure Container Instances
+      href: container-instances-troubleshooting.md
+- name: Referens
+  items:
+    - name: Azure CLI 2.0
+      href: /cli/azure/container
 - name: Resurser
   items:
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

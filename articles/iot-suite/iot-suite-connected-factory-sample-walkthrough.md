@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen Ansluten fabrik
@@ -47,6 +46,13 @@ Den här artikeln beskriver några av de viktigaste elementen i den anslutna fab
 Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade lösningen:
 
 ![Logisk arkitektur för ansluten fabrik][connected-factory-logical]
+
+## <a name="communication-patterns"></a>Kommunikationsmönster
+
+Lösningen använder [OPC UA Pub/Sub-specifikationen](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) för att skicka OPC UA-telemetridata till IoT Hub i JSON-format. Lösningen använder [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge-modulen för detta ändamål.
+
+Lösningen har också en OPC UA-klient som är integrerad i ett webbprogram som kan upprätta anslutningar med lokala OPC UA-servrar. Klienten använder en [omvänd proxy](https://wikipedia.org/wiki/Reverse_proxy) och får hjälp från IoT Hub med att upprätta anslutningen utan att kräva öppna portar i den lokala brandväggen. Det här kommunikationsmönstret kallas [tjänstassisterad kommunikation](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). Lösningen använder [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge-modulen för detta ändamål.
+
 
 ## <a name="simulation"></a>Simulering
 

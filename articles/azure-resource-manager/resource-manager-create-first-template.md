@@ -6,43 +6,38 @@ documentationcenter:
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/18/2017
+ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 80fd9d79652e4f0d9c4c524e3a762bcc3462bb53
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
-# <a name="create-your-first-azure-resource-manager-template"></a>Skapa din första Azure Resource Manager-mall
+# <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Skapa och distribuera din första Azure Resource Manager-mall
 Den här artikeln beskriver steg för steg hur du skapar din första Azure Resource Manager-mall. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](resource-group-overview.md). Om du har befintliga resurser och behöver en mall för dessa resurser kan du läsa [Exportera en Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
 
-Du behöver en JSON-redigerare för att skapa och ändra mallar. [Visual Studio Code](https://code.visualstudio.com/) är en enkel, plattformsoberoende kodredigerare med öppen källkod. Med den kan du skapa och redigera Resource Manager-mallar via ett tillägg. Den här artikeln förutsätter att du använder Virtual Studio Code, men om du har en annan JSON-redigerare kan du använda den.
+Du behöver en JSON-redigerare för att skapa och ändra mallar. [Visual Studio Code](https://code.visualstudio.com/) är en enkel, plattformsoberoende kodredigerare med öppen källkod. Vi rekommenderar starkt att du använder Visual Studio Code för att skapa Resource Manager-mallar. Den här artikeln förutsätter att du använder Virtual Studio Code, men om du har en annan JSON-redigerare kan du använda den.
 
-## <a name="get-vs-code-and-extension"></a>Hämta VS Code och tillägget
-1. Installera VS Code på [https://code.visualstudio.com/](https://code.visualstudio.com/) (om det behövs).
+## <a name="prerequisites"></a>Krav
 
-2. Installera tillägget [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) via snabböppning (Ctrl+P) och kör: 
+* Visual Studio Code. Om det behövs installerar du det från [https://code.visualstudio.com/](https://code.visualstudio.com/).
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-   ```
-   ext install msazurermtools.azurerm-vscode-tools
-   ```
+## <a name="create-template"></a>Skapa mallen
 
-3. Starta om VS Code när du uppmanas att aktivera tillägget.
+Vi ska börja med en enkel mall som distribuerar ett lagringskonto till din prenumeration.
 
-## <a name="create-blank-template"></a>Skapa en tom mall
+1. Välj **Arkiv** > **Ny fil**. 
 
-Låt oss börja med en tom mall som endast innehåller de grundläggande delarna i en mall.
-
-1. Skapa en fil. 
+   ![Ny fil](./media/resource-manager-create-first-template/new-file.png)
 
 2. Kopiera och klistra in följande JSON-syntax i filen:
 
@@ -50,248 +45,176 @@ Låt oss börja med en tom mall som endast innehåller de grundläggande delarna
    {
      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
      "contentVersion": "1.0.0.0",
-     "parameters": {  },
-     "variables": {  },
-     "resources": [  ],
-     "outputs": {  }
-   }
-   ```
-
-3. Spara filen som **azuredeploy.json**. 
-
-## <a name="add-storage-account"></a>Lägg till lagringskonto
-1. Om du vill definiera ett lagringskonto för distribution lägger du till lagringskontot i avsnittet **resurser** i mallen. Tillgängliga värden för lagringskontot finns i [mallreferensen för lagringskonton](/azure/templates/microsoft.storage/storageaccounts). Kopiera JSON som visas för lagringskontot. 
-
-3. Klistra in JSON i avsnittet **resurser** i din mall enligt följande exempel: 
-
-   ```json
-   {
-     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {  },
-     "variables": {  },
+     "parameters": {
+     },
+     "variables": {
+     },
      "resources": [
        {
-         "name": "string",
+         "name": "[concat('storage', uniqueString(resourceGroup().id))]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-12-01",
+         "apiVersion": "2016-01-01",
          "sku": {
-           "name": "string"
+           "name": "Standard_LRS"
          },
-         "kind": "string",
-         "location": "string",
+         "kind": "Storage",
+         "location": "South Central US",
          "tags": {},
-         "properties": {
-           "customDomain": {
-             "name": "string",
-             "useSubDomain": boolean
-           },
-           "encryption": {
-             "services": {
-               "blob": {
-                 "enabled": boolean
-               }
-             },
-             "keySource": "Microsoft.Storage"
-           },
-           "accessTier": "string"
-         }
+         "properties": {}
        }
      ],
      "outputs": {  }
    }
    ```
 
-  VS-kod kan indikera att 2016-12-01 inte är en giltig API-version. Om du använder ett versionsnummer från mallreferensen kan du ignorera den här varningen. Den här varningen visas när schemat inte har uppdaterats med den senaste versionsnumret från resursprovidern. 
-  
-  Föregående exempel innehåller många platshållarvärden och vissa egenskaper som kanske inte behövs i ditt lagringskonto.
+   Lagringskontonamn har flera begränsningar som gör att de är svåra att ange. Namnet måste vara mellan 3 och 24 tecken långt, endast bestå av siffror och gemener samt vara unikt. I den föregående mallen används funktionen [uniqueString](resource-group-template-functions-string.md#uniquestring) för att generera ett hash-värde. För att hash-värdet ska vara lättare att förstå har prefixet *storage* lagts till. 
 
-## <a name="set-values-for-storage-account"></a>Ange värden för lagringskontot
+3. Spara den här filen som **azuredeploy.json** i en lokal mapp.
 
-Nu är du redo att ange värden för ditt lagringskonto. 
+   ![Spara mallen](./media/resource-manager-create-first-template/save-template.png)
 
-1. Titta igen i [mallreferensen för lagringskonton](/azure/templates/microsoft.storage/storageaccounts) på den plats som du kopierade JSON till. Det finns flera tabeller som beskriver egenskaper och visar tillgängliga värden. 
+## <a name="deploy-template"></a>Distribuera mallen
 
-2. Observera att **customDomain**, **encryption** och **accessTier** i elementet **properties** visas som valfria värden. Dessa värden kan vara viktiga beroende på dina behov, men för enkelhetens skull tar vi bort dem i det här exemplet.
+Nu är det dags att distribuera den här mallen. Du använder PowerShell eller Azure CLI för att skapa en resursgrupp. Sedan distribuerar du ett lagringskonto till resursgruppen.
 
-   ```json
-   "resources": [
-     {
-       "name": "string",
-       "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-12-01",
-       "sku": {
-         "name": "string"
-       },
-       "kind": "string",
-       "location": "string",
-       "tags": {},
-       "properties": {
-       }
-     }
-   ],
+* Om du använder PowerShell använder du följande kommandon från mappen som innehåller mallen:
+
+   ```powershell
+   Login-AzureRmAccount
+   
+   New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+   New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
    ```
 
-3. Elementet **kind** har ett platshållarvärde ("string"). I VS Code finns flera funktioner som hjälper dig att förstå de värden som används i mallen. Observera att VS Code indikerar att det här värdet inte är giltigt. Om du hovrar över ”string” anger VS Code att giltiga värden för **kind** är `Storage` eller `BlobStorage`. 
+* Om du använder en lokal installation av Azure CLI använder du följande kommandon från mappen som innehåller mallen:
 
-   ![visa föreslagna värden i VS Code](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ```azurecli
+   az login
 
-   Om du vill se tillgängliga värden tar du bort tecknen innanför citattecknen och väljer **Ctrl+Blanksteg**. Välj **Storage** bland de tillgängliga alternativen.
-  
-   ![visa IntelliSense](./media/resource-manager-create-first-template/intellisense.png)
-
-   Om du inte använder VS Code kan du titta på mallreferenssidan för lagringskonton. Observera att beskrivningen innehåller samma giltiga värden. Ange **Storage** för elementet.
-
-   ```json
-   "kind": "Storage",
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
 
-Nu ser din mall ut så här:
+När distributionen är klar finns ditt lagringskonto i resursgruppen.
+
+## <a name="deploy-template-from-cloud-shell"></a>Distribuera mallen från Cloud Shell
+
+Du kan använda [Cloud Shell](../cloud-shell/overview.md) för att köra Azure CLI-kommandona och distribuera mallen. Först måste du dock läsa in mallen till filresursen för Cloud Shell. Om du inte har använt Cloud Shell tidigare läser du [Overview of Azure Cloud Shell](../cloud-shell/overview.md) (Översikt över Azure Cloud Shell), som innehåller information om hur du konfigurerar Cloud Shell.
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).   
+
+2. Välj din Cloud Shell-resursgrupp. Namnet har formatet `cloud-shell-storage-<region>`.
+
+   ![Välj resursgrupp](./media/resource-manager-create-first-template/select-cs-resource-group.png)
+
+3. Välj lagringskontot för Cloud Shell.
+
+   ![Välj lagringskonto](./media/resource-manager-create-first-template/select-storage.png)
+
+4. Välj **Filer**.
+
+   ![Välj filer](./media/resource-manager-create-first-template/select-files.png)
+
+5. Välj filresursen för Cloud Shell. Namnet har formatet `cs-<user>-<domain>-com-<uniqueGuid>`.
+
+   ![Välj filresurs](./media/resource-manager-create-first-template/select-file-share.png)
+
+6. Välj **Lägg till katalog**.
+
+   ![Lägg till katalog](./media/resource-manager-create-first-template/select-add-directory.png)
+
+7. Ge den namnet **templates** och välj **OK**.
+
+   ![Namnge katalogen](./media/resource-manager-create-first-template/name-templates.png)
+
+8. Välj den nya katalogen.
+
+   ![Välj katalog](./media/resource-manager-create-first-template/select-templates.png)
+
+9. Välj **Överför**.
+
+   ![Välj Överför](./media/resource-manager-create-first-template/select-upload.png)
+
+10. Leta upp och överför mallen.
+
+   ![Ladda upp filen](./media/resource-manager-create-first-template/upload-files.png)
+
+11. Öppna kommandotolken.
+
+   ![Öppna Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
+
+12. Ange följande kommandon i Cloud Shell:
+
+   ```azurecli
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+   ```
+
+När distributionen är klar finns ditt lagringskonto i resursgruppen.
+
+## <a name="customize-the-template"></a>Anpassa mallen
+
+Mallen fungerar bra, men den är inte flexibel. Den distribuerar alltid lokal redundant lagring till Södra centrala USA. Namnet är alltid *storage* följt av ett hash-värde. Lägg till parametrar till mallen om du vill använda den i andra scenarier.
+
+Följande exempel illustrerar parameters-avsnittet med två parametrar. Med den första parametern, `storageSKU`, kan du ange typen av redundans. Den begränsar de värden som du kan använda till värden som är giltiga för ett lagringskonto. Den definierar också ett standardvärde. Den andra parametern, `storageNamePrefix`, har konfigurerats att tillåta högst 11 tecken. Den definierar ett standardvärde.
 
 ```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {  },
-  "variables": {  },
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "Storage",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
+"parameters": {
+  "storageSKU": {
+    "type": "string",
+    "allowedValues": [
+      "Standard_LRS",
+      "Standard_ZRS",
+      "Standard_GRS",
+      "Standard_RAGRS",
+      "Premium_LRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+      "description": "The type of replication to use for the storage account."
     }
-  ],
-  "outputs": {  }
-}
-```
-
-## <a name="add-template-function"></a>Funktionen Lägg till mall
-
-Du använder funktioner i din mall för att förenkla syntaxen för mallen och för att hämta värden som endast är tillgängliga när mallen distribueras. En fullständig lista med mallfunktioner finns i [Azure Resource Manager-mallfunktioner](resource-group-template-functions.md).
-
-Om du vill att lagringskontot ska distribueras till samma plats som resursgruppen anger du följande värde för egenskapen **location**:
-
-```json
-"location": "[resourceGroup().location]",
-```
-
-Även här får du förslag på tillgängliga funktioner i VS Code. 
-
-![visa funktioner](./media/resource-manager-create-first-template/show-functions.png)
-
-Observera att funktionen omges av hakparenteser. Funktionen [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) returnerar ett objekt med egenskapen `location`. Resursgruppen innehåller alla relaterade resurser för din lösning. Du skulle kunna hårdkoda platsegenskapen (”location”) till ett värde som ”USA, centrala”, men i så fall skulle du behöva ändra mallen manuellt för att distribuera om den till en annan plats. Med funktionen `resourceGroup` är det enkelt att distribuera om mallen till en annan resursgrupp på en annan plats.
-
-Nu ser din mall ut så här:
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {  },
-  "variables": {  },
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
+  },
+  "storageNamePrefix": {
+    "type": "string",
+    "maxLength": 11,
+    "defaultValue": "storage",
+    "metadata": {
+      "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
     }
-  ],
-  "outputs": {  }
-}
+  }
+},
 ```
 
-## <a name="add-parameters-and-variables"></a>Lägga till parametrar och variabler
-Det finns bara två värden kvar att ange i din mall: **name** och **sku.name**. För dessa egenskaper lägger du till parametrar som gör att du kan ändra dessa värden under distributionen. 
+Lägg till en variabel med namnet `storageName` i variables-avsnittet. Den kombinerar prefixvärdet från parametrarna och ett hash-värde från funktionen [uniqueString](resource-group-template-functions-string.md#uniquestring). Den använder funktionen [toLower](resource-group-template-functions-string.md#tolower) för att konvertera alla tecken till gemener.
 
-Lagringskontonamn har flera begränsningar som gör att de är svåra att ange. Namnet måste vara mellan 3 och 24 tecken långt, endast bestå av siffror och gemener samt vara unikt. I stället för att försöka gissa ett värde som uppfyller kraven och som är unikt kan du generera ett hashvärde med funktionen [uniqueString](resource-group-template-functions-string.md#uniquestring). Du kan göra hashvärdet mer begripligt genom att lägga till ett prefix som hjälper dig att identifiera kontot som ett lagringskonto efter distributionen. 
+```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
+```
 
-1. Om du vill skicka ett prefix för namnet som matchar dina namngivningskonventioner går du till avsnittet för **parametrar** för din mall. Lägg till en parameter i mallen som godtar ett prefix i lagringskontonamnet:
+Ändra resursdefinitionen om du vill använda dessa nya värden för ditt lagringskonto:
 
-   ```json
-   "parameters": {
-     "storageNamePrefix": {
-       "type": "string",
-       "maxLength": 11,
-       "defaultValue": "storage",
-       "metadata": {
-         "description": "The value to use for starting the storage account name."
-       }
-     }
-   },
-   ```
+```json
+"resources": [
+  {
+    "name": "[variables('storageName')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "[parameters('storageSKU')]"
+    },
+    "kind": "Storage",
+    "location": "[resourceGroup().location]",
+    "tags": {},
+    "properties": {}
+  }
+],
+```
 
-  Prefixet får högst innehålla 11 tecken eftersom `uniqueString` returnerar 13 tecken (hela namnet får inte överskrida 24 tecken). Om du inte skickar något värde för parametern under distributionen används standardvärdet.
+Observera att namnet på lagringskontot använder variabeln som du lade till. SKU-namnet motsvarar värdet för parametern. Platsen är samma som för resursgruppen.
 
-2. Gå till avsnittet för **variabler** i mallen. Lägg till följande variabel för att bygga namnet med prefixet och den unika strängen:
-
-   ```json
-   "variables": {
-     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-   },
-   ```
-
-3. I avsnittet för **resurser** anger du lagringskontonamnet till den variabeln.
-
-   ```json
-   "name": "[variables('storageName')]",
-   ```
-
-3. Om du vill skicka andra SKU:er för lagringskontot går du till avsnittet för **parametrar**. Efter parametern för lagringsnamnsprefixet lägger du till en parameter som anger tillåtna SKU-värden och ett standardvärde. Tillåtna värden finns på mallreferenssidan eller i VS Code. I följande exempel tar du med alla giltiga värden för SKU. Du kan dock begränsa de tillåtna värdena till endast de typer av SKU:er som du vill distribuera via den här mallen.
-
-   ```json
-   "parameters": {
-     "storageNamePrefix": {
-       "type": "string",
-       "maxLength": 11,
-       "defaultValue": "storage",
-       "metadata": {
-         "description": "The value to use for starting the storage account name."
-       }
-     },
-     "storageSKU": {
-       "type": "string",
-       "allowedValues": [
-         "Standard_LRS",
-         "Standard_ZRS",
-         "Standard_GRS",
-         "Standard_RAGRS",
-         "Premium_LRS"
-       ],
-       "defaultValue": "Standard_LRS",
-       "metadata": {
-         "description": "The type of replication to use for the storage account."
-       }
-     }
-   },
-   ```
-
-3. Ändra SKU-egenskapen för att använda värdet från parametern:
-
-   ```json
-   "sku": {
-     "name": "[parameters('storageSKU')]"
-   },
-   ```    
-
-4. Spara filen.
-
-## <a name="final-template"></a>Slutgiltig mall
+Spara filen. 
 
 När du har slutfört stegen i den här artikeln ser din mall ut så här:
 
@@ -300,14 +223,6 @@ När du har slutfört stegen i den här artikeln ser din mall ut så här:
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
     "storageSKU": {
       "type": "string",
       "allowedValues": [
@@ -321,32 +236,77 @@ När du har slutfört stegen i den här artikeln ser din mall ut så här:
       "metadata": {
         "description": "The type of replication to use for the storage account."
       }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
     }
   },
   "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
+      "apiVersion": "2016-01-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },
       "kind": "Storage",
       "location": "[resourceGroup().location]",
       "tags": {},
-      "properties": {
-      }
+      "properties": {}
     }
   ],
   "outputs": {  }
 }
 ```
 
+## <a name="redeploy-template"></a>Distribuera om mallen
+
+Distribuera om mallen med andra värden.
+
+Om du använder PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix newstore -storageSKU Standard_RAGRS
+```
+
+Om du använder Azure CLI använder du:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
+```
+
+Om du använder Cloud Shell laddar du upp den ändrade mallen till filresursen. Skriv över den befintliga filen. Använd sedan följande kommando:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
+```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När de inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen.
+
+Om du använder PowerShell använder du:
+
+```powershell
+Remove-AzureRmResourceGroup -Name examplegroup
+```
+
+Om du använder Azure CLI använder du:
+
+```azurecli
+az group delete --name examplegroup
+```
+
 ## <a name="next-steps"></a>Nästa steg
-* Mallen har slutförts och du är redo att distribuera den till din prenumeration. Information om distribution finns i [Distribuera resurser till Azure](resource-manager-quickstart-deploy.md).
 * Mer information om strukturen i en mall finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
+* Mer information om egenskaperna för ett lagringskonto finns i [mallreferensen för lagringskonton](/azure/templates/microsoft.storage/storageaccounts).
 * Om du vill visa kompletta mallar för många olika typer av lösningar kan du se [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
 

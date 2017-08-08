@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Övervaka prestanda för Azure-webbappar
@@ -31,7 +30,7 @@ Du kan konfigurera övervakning genom att instrumentera appen på något av två
 * **Vid utveckling** – Du kan installera ett paket i din app i samband med utvecklingen. Det här alternativet är mer flexibelt. Förutom motsvarande standardpaket kan du skriva kod för att anpassa telemetrin eller skicka din egen telemetri. Du kan logga specifika aktiviteter eller registrera händelser baserat på semantiken för din appdomän. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentering i samband med körning med Application Insights
-Om du redan kör en webbapp i Azure har du redan tillgång till viss övervakning: begärande- och felfrekvens. Lägg till Application Insights om du vill få tillgång till mer, till exempel svarstider, övervakning av anrop till beroenden, smart identifiering och det kraftfulla Analytics-frågespråket. 
+Om du redan kör en webbapp i Azure har du redan tillgång till viss övervakning: begärande- och felfrekvens. Lägg till Application Insights om du vill få tillgång till mer, till exempel svarstider, övervakning av anrop till beroenden, smart identifiering och det kraftfulla Log Analytics-frågespråket. 
 
 1. **Välj Application Insights** på Azure-kontrollpanelen för din webbapp.
    
@@ -103,7 +102,7 @@ Application Insights kan tillhandahålla mer detaljerad telemetri genom installa
    
     Du kan [anpassa sökningar](app-insights-diagnostic-search.md).
 
-För mer kraftfulla sökningar över din telemetri kan du använda [Analytics-frågespråket](app-insights-analytics-tour.md).
+För mer kraftfulla sökningar över din telemetri kan du använda [Log Analytics-frågespråket](app-insights-analytics-tour.md).
 
 ## <a name="more-telemetry"></a>Mer telemetri
 

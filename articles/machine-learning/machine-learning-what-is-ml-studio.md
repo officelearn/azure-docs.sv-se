@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
-ms.lasthandoff: 12/14/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 70a1d0acb8ec9bbb591f696281ea5e975b443a15
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
@@ -78,7 +78,7 @@ Ett experiment består av datauppsättningar som förser de analytiska modulerna
 * Alla indataportar för moduler måste ha någon typ av koppling till dataflödet
 * Alla nödvändiga parametrar måste anges för varje modul
 
-Du kan skapa ett experiment från grunden eller så kan du använda ett befintligt exempelexperiment som mall. Mer information finns i [Använda exempelexperiment för att skapa nya experiment](machine-learning-sample-experiments.md).
+Du kan skapa ett experiment från grunden eller så kan du använda ett befintligt exempelexperiment som mall. Mer information finns i avsnittet [Kopiera exempelexperiment för att skapa nya maskininlärningsexperiment](machine-learning-sample-experiments.md).
 
 Om du vill se ett exempel på hur du kan skapa ett enkelt experiment kan du gå till [Skapa ett enkelt experiment i Azure Machine Learning Studio](machine-learning-create-experiment.md).
 
@@ -87,7 +87,7 @@ Om du vill få en fullständig genomgång av att skapa en prediktiv analyslösni
 ### <a name="datasets"></a>Datauppsättningar
 En datauppsättning är data som har överförts till Machine Learning Studio så att de kan användas i modelleringsprocessen. Ett antal provdatauppsättningar ingår i Machine Learning Studio för att du ska kunna experimentera med dem. Och du kan föra över fler datauppsättningar efter behov. Här följer några exempel på datauppsättningar som ingår:
 
-* **MPG-data för olika bilar** – MPG-värden (Miles Per Gallon, USA:s motsvarighet till liter per&100; km) för bilar beräknat utifrån antalet cylindrar, hästkrafter o.s.v.
+* **MPG-data för olika bilar** – MPG-värden (Miles Per Gallon, USA:s motsvarighet till liter per 100 km) för bilar beräknat utifrån antalet cylindrar, hästkrafter o.s.v.
 * **Bröstcancerdata** – Data för bröstcancerdiagnoser.
 * **Data om skogsbränder** – Storleken på skogsbränder i nordöstra Portugal.
 

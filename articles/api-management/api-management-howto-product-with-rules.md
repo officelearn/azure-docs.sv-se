@@ -3,7 +3,7 @@ title: Skydda ditt API med Azure API Management | Microsoft Docs
 description: "Lär dig hur du skyddar ditt API med kvoter och begränsningsprinciper (frekvensbegränsning)."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9dba928b78c11213d4b0098986561b09678444eb
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Skydda ditt API med frekvensbegränsningar med hjälp av Azure API Management
@@ -53,7 +54,7 @@ Klicka på **Lägg till produkt**. Dialogrutan **Lägg till ny produkt** öppnas
 
 I rutan **Rubrik** skriver du **Kostnadsfri utvärdering**.
 
-I rutan **Beskrivning** skriver du följande text:  **Prenumeranter kan köra 10 anrop per minut upp till högst 200 anrop per vecka, varefter åtkomsten nekas.**
+I rutan **Beskrivning** skriver du följande text: **Prenumeranter kan köra 10 anrop per minut upp till högst 200 anrop per vecka, varefter åtkomsten nekas.**
 
 Produkter i API Management kan skyddas eller vara öppna. Skyddade produkter kräver en prenumeration innan de kan användas. Öppna produkter kan användas utan en prenumeration. Se till att **Kräv prenumeration** har valts om du vill skapa en skyddad produkt som kräver en prenumeration. Det här är standardinställningen.
 
@@ -95,7 +96,9 @@ Välj **Echo API** och klicka på **Spara**.
 ![Lägg till Echo API][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Så här konfigurerar du principer för begränsning av anropsfrekvens och kvoter
-Frekvensbegränsningar och kvoter konfigureras i principredigeraren. Klicka på **Principer** under **API Management**-menyn till vänster. Klicka på **Kostnadsfri utvärdering** i listan **Produkt**.
+Frekvensbegränsningar och kvoter konfigureras i principredigeraren. De två principerna som vi ska lägga till i den här självstudien är [Begränsa anropsfrekvensen per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) och [Ange användningskvot per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Dessa principer måste tillämpas på produktomfattningsnivå.
+
+Klicka på **Principer** under **API Management**-menyn till vänster. Klicka på **Kostnadsfri utvärdering** i listan **Produkt**.
 
 ![Princip för produkt][api-management-product-policy]
 
@@ -103,11 +106,11 @@ Klicka på **Lägg till princip** för att importera principmallen och börja sk
 
 ![Lägg till princip][api-management-add-policy]
 
-Du lägger till principer genom att placera markören i avsnittet **inbound** eller **outbound** i principmallen. Eftersom principer för frekvensbegränsning och kvoter är inkommande principer placerar du markören i ”inbound”.
+Eftersom principer för frekvensbegränsning och kvoter är inkommande principer placerar du markören i ”inbound”.
 
 ![Principredigerare][api-management-policy-editor-inbound]
 
-De två principerna som vi lägger till i den här självstudien är [Begränsa anropsfrekvensen per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) och [Ange användningskvot per prenumeration](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota).
+Bläddra igenom listan med principer och leta upp principen **Begränsa anropsfrekvensen per prenumeration**.
 
 ![Principrapporter][api-management-limit-policies]
 
@@ -121,7 +124,7 @@ När du har placerat markören i principelementet **inbound** klickar du på pil
 </rate-limit>
 ```
 
-**Begränsa anropsfrekvens per prenumeration** kan användas på produktnivå och även på API-nivå och för enskilda åtgärdsnamn. Eftersom vi bara använder principer på produktnivå i den här självstudien tar du bort elementen **api** och **operation** från elementet **rate-limit**, så att bara det yttre **rate-limit**-elementet är kvar, som du ser i följande exempel.
+Som du ser i kodfragmentet kan du ange gränser för produktens API:er och åtgärder ï den här principen. Eftersom vi inte ska använda den funktionen i den här självstudiekursen kan du ta bort **api**- och **operation**-elementen från **rate-limit**-elementet så att endast det yttre **rate-limit**-elementet är kvar, som du ser i följande exempel.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
@@ -135,7 +138,7 @@ Eftersom den högsta tillåtna anropsfrekvensen i den kostnadsfria utvärderings
 </rate-limit>
 ```
 
-Du konfigurerar principen **Ange användningskvot per prenumeration** genom att placera markören direkt under det nyligen tillagda **rate-limit**-elementet i elementet **inbound** och klickar sedan på pilen till vänster om **Ange användningskvot per prenumeration**.
+Du konfigurerar principen **Ange användningskvot per prenumeration** genom att placera markören direkt under det nyligen tillagda **rate-limit**-elementet i elementet **inbound** och letar sedan upp och klickar på pilen till vänster om **Ange användningskvot per prenumeration**.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -145,7 +148,7 @@ Du konfigurerar principen **Ange användningskvot per prenumeration** genom att 
 </quota>
 ```
 
-Eftersom den här principen även är avsedd att användas på produktnivå tar du bor namnelementen **api** och **operation**, som du ser i följande exempel.
+Precis som med principen **Begränsa anropsfrekvensen per prenumeration** kan du ange gränser för produktens API:er och åtgärder i principen **Ange användningskvot per prenumeration**. Eftersom vi inte ska använda den här funktionen i den här självstudiekursen tar du bort **api**- och **operation**-elementen från elementet **quota**, som du ser i följande exempel.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -166,7 +169,7 @@ I produkten ”Kostnadsfri utvärdering” är kvoten 200 anrop per vecka. Ange
 </quota>
 ```
 
-> Principintervall anges i sekunder. Om du vill beräkna intervallet för en vecka kan du multiplicera antalet dagar (7) med antalet timmar under en dag (24) med antalet minuter på en timme (60) med antalet sekunder på en minut (60): 7 * 24 * 60 * 60 = 604800.
+> Principintervall anges i sekunder. Om du vill beräkna intervallet för en vecka kan du multiplicera antalet dagar (7) med antalet timmar under en dag (24) med antalet minuter på en timme (60) med antalet sekunder på en minut (60): 7 *24 * 60 * 60 = 604800.
 > 
 > 
 
@@ -323,9 +326,4 @@ När frekvensbegränsningsprincipen som begränsar antalet anrop till 10 per min
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

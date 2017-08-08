@@ -42,6 +42,7 @@
 ## Konfigurera
 ### Azure
 #### [Profiler](app-insights-profiler.md)
+#### [Aktivera profileraren](enable-profiler-cloud-services.md)
 #### [Diagnostik](app-insights-azure-diagnostics.md)
 #### [Förhandsversioner](app-insights-previews.md)
 
@@ -91,6 +92,7 @@
 
 ### Användning
 #### [Översikt](app-insights-usage-overview.md)
+#### [Skicka användarkontext](app-insights-usage-send-user-context.md)
 #### [Användare, sessioner, händelser](app-insights-usage-segmentation.md)
 #### [Trattar](usage-funnels.md)
 #### [Kvarhållning](app-insights-usage-retention.md)
@@ -140,7 +142,7 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Referens
-## [Analys](app-insights-analytics-reference.md)
+## [Analys](https://docs.loganalytics.io/)
 ## [NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -154,6 +156,7 @@
 ### [Mått](application-insights-data-model-metric-telemetry.md)
 ### [Kontext](application-insights-data-model-context.md)
 ## [Telemetrikorrelation](application-insights-correlation.md)
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
@@ -161,6 +164,7 @@
 ## [Språk och plattformar](app-insights-platforms.md)
 
 ## [Prissättning](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 
 ## Nyheter
 

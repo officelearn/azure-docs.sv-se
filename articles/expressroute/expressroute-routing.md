@@ -12,23 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/31/2017
 ms.author: osamam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 0bb4999aa511e002d6088d69400ba4eececd8cf1
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: e6e2009717430a692528cd3ec3a2c6e46a12fe03
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
-För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om de inte gör det så måste du följa följande krav. 
+För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
 
 Referera till artikeln [Kretsar och routningsdomäner](expressroute-circuit-peerings.md) för en beskrivning av de routningssessioner som behöver ställas in för att förenkla anslutningen.
 
 > [!NOTE]
-> Microsoft stöder inte några protokoll för router-redundans (t.ex., HSRP, VRRP) för konfigurationer med hög tillgänglighet. Vi förlitar oss på ett redundant par med BGP-sessioner per peering för hög tillgänglighet.
+> Microsoft stöder inte några protokoll för routerredundans (t.ex., HSRP, VRRP) för konfigurationer med hög tillgänglighet. Vi förlitar oss på ett redundant par med BGP-sessioner per peering för hög tillgänglighet.
 > 
 > 
 
@@ -42,12 +41,12 @@ Du kan antingen använda privata IP-adresser eller offentliga IP-adresser för a
 * Undernät som används för routning kan vara antingen privata IP-adresser eller offentliga IP-adresser.
 * Undernäten får inte stå i konflikt med det intervall som reserverats av kunden för användning i Microsoft-molnet.
 * Om ett /29-undernät används delas det upp i två /30-undernät. 
-  * Det första /30-undernätet används för den primära länken och det andra /30-undernätet används för den sekundära länken.
-  * För båda /30-undernäten gäller att du måste använda den första IP-adressen för /30-undernätet på routern. Microsoft använder den andra IP-adressen för /30-undernätet till att konfigurera en BGP-session.
+  * Det första /30-undernätet används för den primära länken och det andra/30-undernätet används för den sekundära länken.
+  * För båda /30-undernäten gäller att du måste använda den första IP-adressen för /30-undernätet på routern. Microsoft använder den andra IP-adressen för /30-undernätet för att konfigurera en BGP-session.
   * Du måste konfigurera båda BGP-sessionerna för att vårt [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltigt.  
 
 #### <a name="example-for-private-peering"></a>Exempel på privat peering
-Om du väljer att använda a.b.c.d/29 för att konfigurera peeringen delas den upp i två /30-undernät. I exemplet nedan beskrivs hur a.b.c.d/29-undernätet används. 
+Om du väljer att använda a.b.c.d/29 för att konfigurera peeringen delas den upp i två /30-undernät. Exemplet nedan beskriver hur a.b.c.d/29-undernätet används. 
 
 a.b.c.d/29 kommer att delas upp till a.b.c.d/30 och a.b.c.d+4/30 samt skickas till Microsoft via etablerings-API: er. Du kommer att använda a.b.c.d+1 som VRF IP för din primära PE och Microsoft kommer att använda a.b.c.d+2 som VRF IP för den primära MSEE:n. Du kommer att använda a.b.c.d+5 som VRF IP för din sekundära PE och Microsoft kommer att använda a.b.c.d+6 som VRF IP för den sekundära MSEE:n.
 
@@ -61,13 +60,15 @@ Du måste använda offentliga IP-adresser som du äger när du konfigurerar BGP-
 
 * Du måste använda ett unikt /29-undernät eller två /30-undernät till att konfigurera BGP-peeringen för varje peering per ExpressRoute-krets (om du har fler än en). 
 * Om ett /29-undernät används delas det upp i två /30-undernät. 
-  * Det första /30-undernätet används för den primära länken och det andra /30-undernätet används för den sekundära länken.
-  * För båda /30-undernäten gäller att du måste använda den första IP-adressen för /30-undernätet på routern. Microsoft använder den andra IP-adressen för /30-undernätet till att konfigurera en BGP-session.
+  * Det första /30-undernätet används för den primära länken och det andra/30-undernätet används för den sekundära länken.
+  * För båda /30-undernäten gäller att du måste använda den första IP-adressen för /30-undernätet på routern. Microsoft använder den andra IP-adressen för /30-undernätet för att konfigurera en BGP-session.
   * Du måste konfigurera båda BGP-sessionerna för att vårt [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltigt.
 
 ## <a name="public-ip-address-requirement"></a>Krav för offentliga IP-adress
+
 ### <a name="private-peering"></a>Privat peering
-Du kan välja att använda offentliga eller privata IPv4-adresser för privat peering. Vi erbjuder slutpunkt-till-slutpunkt isolering av din trafik så adressöverlappning med andra kunder är inte möjligt med privat peering. De här adresserna annonseras inte till Internet. 
+Du kan välja att använda offentliga eller privata IPv4-adresser för privat peering. Vi erbjuder isolering av din trafik från slutpunkt till slutpunkt, vilket innebär att adressöverlappning med andra kunder inte är möjligt med privat peering. De här adresserna annonseras inte till Internet. 
+
 
 ### <a name="public-peering"></a>Offentlig peering
 Med Azures offentliga peeringsökväg kan du ansluta till alla tjänster som finns i Azure med deras offentliga IP-adresser. Det inkluderar tjänster som finns i listan [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md) och tjänster med ISV:er i Microsoft Azure. Anslutningen till Microsoft Azure-tjänster vid offentlig peering initieras alltid från ditt nätverk till Microsoft-nätverket. Du måste använda offentliga IP-adresser för trafik till Microsoft-nätverk.
@@ -75,7 +76,7 @@ Med Azures offentliga peeringsökväg kan du ansluta till alla tjänster som fin
 ### <a name="microsoft-peering"></a>Microsoft-peering
 Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som inte stöds via Azures offentliga peeringsökväg. Listan med tjänster innefattar Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och Dynamics 365. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket.
 
-Kontrollera att din IP-adress och AS-nummer är registrerade till dig i något av registren nedan.
+Kontrollera att din IP-adress och ditt AS-nummer är registrerade på dig i något av följande register:
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -119,7 +120,7 @@ Standardvägar tillåts bara i Azures privata peeringsessioner. I dessa fall kom
 > 
 > 
 
-## <a name="support-for-bgp-communities"></a>Stöd för BGP-communities
+## <a name="bgp"></a>Stöd för BGP-communities
 Det här avsnittet innehåller en översikt över hur BGP-communities kommer att användas med ExpressRoute. Microsoft kommer att annonsera vägar i offentliga och Microsofts peeringsökvägar med vägar som är taggade med lämpliga community-värden. Anledningen till att man gör detta samt information om community-värden beskrivs nedan. Microsoft använder dock inte några community-värden som är taggade på vägar som annonserats till Microsoft.
 
 Om du ansluter till Microsoft via ExpressRoute på valfri peeringplats i en geopolitisk region, får du åtkomst till alla Microsoft-molntjänster i alla regioner inom den geopolitiska gränsen. 

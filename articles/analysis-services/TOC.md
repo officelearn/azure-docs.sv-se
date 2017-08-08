@@ -1,10 +1,10 @@
 # Översikt
 ## [Vad är Azure Analysis Services?](analysis-services-overview.md)
-## [Datakällor som stöds](analysis-services-datasource.md)
 
 # Snabbstarter
 ## [Skapa en server – portal](analysis-services-create-server.md)
-## [Distribuera en modell – SSDT](analysis-services-deploy.md)
+## [Skapa en server – PowerShell](analysis-services-create-powershell.md)
+## [Distribuera en modell – Visual Studio](analysis-services-deploy.md)
 
 # Självstudier
 ## Skapa och distribuera en modell
@@ -27,6 +27,7 @@
 ### [Kompletterande lektion – Ojämna hierarkier](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
 # Koncept
+## [Datakällor som stöds](analysis-services-datasource.md)
 ## [Autentisering och användarbehörigheter](analysis-services-manage-users.md)
 ## [Hög tillgänglighet](analysis-services-bcdr.md)
 
@@ -57,6 +58,7 @@
 ## [Azure-status](https://azure.microsoft.com/status/)
 ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [StackOverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

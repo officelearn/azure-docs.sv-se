@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 9353ad6df121ebd2e92a5d34214c32e852ed60a3
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 9b50f1cca81348b69f7ff2d702c6c72871afe0a0
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Komma igång med Notification Hubs för Windows Universal-plattformsappar
@@ -49,33 +48,30 @@ Du måste slutföra de här självstudierna innan du påbörjar någon annan kur
 Om du vill skicka push-meddelanden till UWP-appar, måste du associera din app med Windows Store. Sedan måste du konfigurera meddelandehubben för att integrera den med WNS.
 
 1. Om du inte redan har registrerat appen navigerar du till [Windows Dev Center](https://dev.windows.com/overview), loggar in med ditt Microsoft-konto och klickar sedan på **Skapa en ny app**.
-2. Ange ett namn för appen och klicka på **Reservera appnamn**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
-   
-   Detta skapar en ny Windows Store-registrering för din app.
-3. I Visual Studio skapar du ett nytt Visual C# Store Apps-projekt med hjälp av mallen **Tom app** och klicka på **OK**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
+
+2. Ange ett namn för appen och klicka på **Reservera appnamn**. Detta skapar en ny Windows Store-registrering för din app.
+
+3. Skapa ett nytt Visual C# Store Apps-projekt i Visual Studio med hjälp av Windows Universal-mallen **Tom app** och klicka sedan på **OK**.
+
 4. Acceptera standardinställningarna för mål- och minsta plattformsversioner.
-5. I Solution Explorer högerklickar du på approjektet för Windows Store och sedan klickar du på **Store**. Slutligen klickar du på **Associera app med Store...**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
 
-   Guiden **Associera din app med Windows Store** visas.
+5. I Solution Explorer högerklickar du på approjektet för Windows Store och sedan klickar du på **Store**. Slutligen klickar du på **Associera app med Store...**. Guiden **Associera din app med Windows Store** visas.
 
-1. I guiden klickar du på **Logga in** och sedan loggar du in med ditt Microsoft-konto.
-2. Klicka på den app som du registrerade i steg 2, sedan på **Nästa** och slutligen på **Associera**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
-   
-   Detta lägger till den registreringsinformation som krävs för Windows Store i programmanifestet.
-3. Gå tillbaka till sidan [Windows Dev Center](http://go.microsoft.com/fwlink/p/?LinkID=266582) för din nya app och klicka på **Tjänster**. Sedan klickar du på **Push-meddelanden** och **webbplatsen Live-tjänster** under **Windows Push Notification Services (WNS) och Microsoft Azure Mobile Apps**.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
-4. På registreringssidan för din app antecknar du lösenordet för **programhemlighet** och den **säkerhetsidentifierare (SID) för paket** som finns i **Windows Store**-plattformsinställningarna.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
+6. I guiden loggar du in med ditt Microsoft-konto.
+
+7. Klicka på den app som du registrerade i steg 2, sedan på **Nästa** och slutligen på **Associera**. Detta lägger till den registreringsinformation som krävs för Windows Store i programmanifestet.
+
+8. Tillbaka på sidan [Windows Dev Center](http://dev.windows.com/overview) för din nya app klickar du på **Tjänster**, klickar på **Push-meddelanden** och sedan på **WNS/MPNS**.
+
+9. Klicka på **Nytt meddelande**.
+
+10. Klicka på mallen **Blank (Toast)** (Tom (popup)) och klicka sedan på **OK**.
+
+11. Ange ett **meddelandenamn** och ett meddelande för **visuell kontext**. Klicka sedan på **Spara som utkast**.
+
+12. Gå till [programregistreringsportalen](http://apps.dev.microsoft.com) och logga in.
+
+13. Klicka på programnamnet. Skriv ner lösenordet för **apphemligheten** och **paketsäkerhets-ID:t (SID)** som du hittar i plattformsinställningarna för **Windows Store**.
 
      > [AZURE.WARNING]
     Programhemligheten och paket-SID:et är viktiga säkerhetsuppgifter. Lämna aldrig ut dessa uppgifter till någon och distribuera dem inte tillsammans med din app.
@@ -137,8 +133,6 @@ Din meddelandehubb har nu konfigurerats för att fungera med WNS och du har ansl
    
     Detta garanterar även att URI-kanalen registreras i meddelandehubben varje gång appen startas.
 6. Kör appen genom att trycka på tangenten **F5**. En dialogruta som innehåller registreringsnyckeln visas.
-   
-     ![][19]
 
 Appen är nu redo att ta emot popup-meddelanden.
 
@@ -162,9 +156,8 @@ Följ anvisningarna nedan om du vill skicka meddelanden med hjälp av ett .NET-k
 
 1. Högerklicka på lösningen, välj **Lägg till** och **Nytt projekt...** och klicka sedan på **Windows** och **Konsolprogram** under **Visual C#**. Slutligen klickar du på **OK**.
    
-     ![][13]
-   
     Detta lägger till ett nytt konsolprogram för Visual C# i lösningen. Du kan också göra detta i en separat lösning.
+
 2. I Visual Studio klickar du på **Verktyg**, **NuGet Package Manager** och sedan på **Package Manager-konsolen**.
    
     Då visas Package Manager-konsolen i Visual Studio.
@@ -199,8 +192,6 @@ Följ anvisningarna nedan om du vill skicka meddelanden med hjälp av ett .NET-k
          SendNotificationAsync();
          Console.ReadLine();
 7. Högerklicka på konsolprogramprojektet i Visual Studio och klicka på **Konfigurera som startprojekt** för att ställa in det som startprojekt. Tryck på tangenten **F5** för att köra appen.
-   
-     ![][14]
    
     Du får ett popup-meddelande på alla registrerade enheter. Appen läses in när du klickar eller knackar på popup-banderollen.
 

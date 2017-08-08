@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 748f1994d0ee5b6c6a988bca8e5b694b29c0b8c5
+ms.custom: Jenkins
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: f892ec7bd61124f7958a50ebdfb49c7310d4ee18
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -66,7 +66,7 @@ Gör så här på fliken **Konfigurera grundläggande inställningar**:
 * Autentiseringstyp: skapa en instans som skyddas med lösenord eller en [offentlig SSH-nyckel](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). Om du använder lösenord måste det innehålla minst 3 av följande: en gemen, en versal, en siffra och ett specialtecken.
 * Behåll Jenkins-versionstypen som **LTS**
 * Välj en prenumeration.
-* Skapa en resursgrupp eller välj en befintlig.
+* Skapa en resursgrupp eller använd en befintlig resursgrupp som är tom. 
 * Välj en plats.
 
 Gör så här på fliken **Konfigurera ytterligare alternativ**:

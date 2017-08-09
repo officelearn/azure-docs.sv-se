@@ -31,12 +31,22 @@
 #### [IIS-loggar](log-analytics-data-sources-iis-logs.md)
 #### [Anpassade loggar](log-analytics-data-sources-custom-logs.md)
 #### [Anpassade fält](log-analytics-custom-fields.md)
+
 ## Frågedata
 ### [Översikt över loggsökningar](log-analytics-log-searches.md)
 ### [Sökreferens](log-analytics-search-reference.md)
 #### [Reguljära uttryck](log-analytics-log-searches-regex.md)
 ### [Utför åtgärder från sökresultat](log-analytics-log-search-takeaction.md)
 ### [Datorgrupper](log-analytics-computer-groups.md)
+
+## Ny loggsökning
+### [Uppgradera din arbetsyta](log-analytics-log-search-upgrade.md)
+### [Vanliga frågor och svar](log-analytics-log-search-faq.md)
+### [Översikt över loggsökningar](log-analytics-log-search-new.md)
+### [Loggsökningsportaler](log-analytics-log-search-portals.md)
+#### [Använd loggsökningsportalen](log-analytics-log-search-log-search-portal.md)
+### [Övergång från äldre språk](log-analytics-log-search-transition.md)
+
 ## Analysera data
 ### [Instrumentpaneler](log-analytics-dashboards.md)
 ### [Vydesigner](log-analytics-view-designer.md)
@@ -74,6 +84,7 @@
 ### [Utvärdering av skadlig kod](log-analytics-malware.md)
 ### [Nätverksanalys](log-analytics-azure-networking-analytics.md)
 ### [Övervakning av nätverksprestanda](log-analytics-network-performance-monitor.md)
+### [Office 365](../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SCOM-utvärdering](log-analytics-scom-assessment.md)
 ### [Säkerhetsgranskning](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Service Fabric](log-analytics-service-fabric.md)
@@ -101,5 +112,6 @@
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

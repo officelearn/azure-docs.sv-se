@@ -28,10 +28,12 @@
 ### [Utforma mönster för flera innehavare](search-modeling-multitenant-saas-applications.md)
 
 ## Utveckla
+### [API-versioner](search-api-versions.md)
 ### [Uppgradera SDK](search-dotnet-sdk-migration.md)
 ### [Uppgradera REST API](search-api-migration.md)
 ### [Skapa modeller över komplexa datatyper](search-howto-complex-data-types.md)
 ### [Hantera samtidiga uppdateringar](search-howto-concurrency.md)
+### [Kodexempel](https://azure.microsoft.com/resources/samples/?service=search)
 
 ## Hantera
 ### Administrera Azure Search
@@ -73,24 +75,28 @@
 ## [Python (hantering)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (hantering)](/rest/api/searchmanagement)
+## [Tjänst-REST (förhandsversion)](search-api-2015-02-28-preview.md)
 
 # Resurser
-## [API-versioner](search-api-versions.md)
+
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Vanliga frågor och svar (FAQ)](search-faq-frequently-asked-questions.md)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/search/)
-## [Tjänst-REST (förhandsversion)](search-api-2015-02-28-preview.md)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=search)
 ## Kursprogramvara och självstudier
-## Demowebbplatser
-## Partner och forum
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
-### [Jobblisteapp](http://aka.ms/azjobsdemo)
-### [Live-demoappar](https://searchsamples.azurewebsites.net/)
-### [Modeller med relationsdata](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [Flernivåfasett](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Demo över sökanalysverktyg](http://alice.unearth.ai/)
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Videor och självstudier](search-video-demo-tutorial-list.md)
 ### [Virtual Academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
+## Demowebbplatser
+### [Demo över sökanalysverktyg](http://alice.unearth.ai/)
+### [Live-demoappar](https://searchsamples.azurewebsites.net/)
+### [Jobblisteapp](http://aka.ms/azjobsdemo)
+## Partner och forum
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
+### [blogg: Modeller med relationsdata](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
+### [[blogg: Flernivåfasettering](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+
+
+

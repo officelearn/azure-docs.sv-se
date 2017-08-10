@@ -19,6 +19,7 @@
 ### [Beräkningsintensiva virtuella datorer](batch-pool-compute-intensive-sizes.md)
 ### [Samtidiga nodaktiviteter](batch-parallel-node-tasks.md)
 ### [Räkna aktiviteter efter tillstånd](batch-get-task-counts.md)
+### [Skapa en pool med en anpassad bild](batch-custom-images.md)
 ### [Effektiv lista: frågor](batch-efficient-list-queries.md)
 ### [Aktiviteter för jobbförberedelse och -slutförande](batch-job-prep-release.md)
 ### [Linux-beräkningsnoder](batch-linux-nodes.md)

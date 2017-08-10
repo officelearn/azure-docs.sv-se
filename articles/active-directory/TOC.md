@@ -9,6 +9,7 @@
 ## [Hämta en Azure AD-klientorganisation](active-directory-howto-tenant.md)
 ## [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md)
 ## [Associera Azure-prenumerationer](active-directory-how-subscriptions-associated-directory.md)
+## [Snabbstart: Självbetjäning för återställning av lösenord](active-directory-passwords-getting-started.md)
 ## Hantera Azure AD-licensiering
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Klassisk portal](active-directory-licensing-what-is.md)
@@ -24,10 +25,6 @@
 # Gör så här för att
 ## Planera och designa
 ### [Förstå Azure AD-arkitektur](active-directory-architecture.md)
-### [Rekommenderade säkerhetsprinciper och konfigurationer](secure-email-introduction.md)
-#### [Rekommenderade principer för säker e-post](secure-email-recommended-policies.md)
-##### [Distribuera rekommenderade principer för säker e-post](secure-email-deploy-recommended-policies.md)
-#### [Översikt över EMS- och Office 365-tjänster](secure-email-ems-office365-service-descriptions.md)
 ### [Distribuera en hybrididentitetslösning](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Anspråksmappning i Azure Active Directory](active-directory-claims-mapping.md)
 #### Fastställa krav
@@ -82,6 +79,7 @@
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
 #### [PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
+### [Konfigurera förfallodatum för Office 365-grupper](active-directory-groups-lifecycle-azure-portal.md)
 ### [Visa alla grupper](active-directory-groups-view-azure-portal.md)
 ### [Aktivera dedikerade grupper](active-directory-accessmanagement-dedicated-groups.md)
 ### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
@@ -128,7 +126,6 @@
 #### [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
 #### [Metodtips för lösenord](active-directory-secure-passwords.md)
 #### [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
-### [Snabbstart: återställning av lösenord för självbetjäning](active-directory-passwords-getting-started.md)
 ### [Licensiera SSPR](active-directory-passwords-licensing.md)
 ### [Distribuera SSPR](active-directory-passwords-best-practices.md)
 ### IT-administratörer: Återställ lösenord
@@ -167,7 +164,6 @@
 ## Hantera appar
 ### [Översikt](active-directory-enable-sso-scenario.md)
 ### [Komma igång](active-directory-integrating-applications-getting-started.md)
-
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Uppdatera registerinställningar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Förstå säkerhet och sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -178,7 +174,7 @@
 ##### [Aktivera App Proxy](active-directory-application-proxy-enable.md)
 ##### [Publicera appar](application-proxy-publish-azure-portal.md)
 ##### [Anpassade domäner](active-directory-application-proxy-custom-domains.md)
-#### [Åtkomst med enkel inloggning](active-directory-appssoaccess-whatis.md)
+#### [Enkel inloggning](application-proxy-sso-overview.md)
 ##### [Enkel inloggning med KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Enkel inloggning med rubriker](application-proxy-ping-access.md)
 ##### [Enkel inloggning med lösenordsvalv](application-proxy-sso-azure-portal.md)
@@ -219,6 +215,7 @@
 
 ### [Hantera åtkomst till appar](active-directory-managing-access-to-apps.md)
 #### [Åtkomst med självbetjäning](active-directory-self-service-application-access.md)
+#### [Åtkomst med enkel inloggning](active-directory-appssoaccess-whatis.md)
 #### [Certifikat för enkel inloggning](active-directory-sso-certs.md)
 #### [Klientrestriktioner](active-directory-tenant-restrictions.md)
 #### [Använd SCIM-etablering av användare](active-directory-scim-provisioning.md)
@@ -370,6 +367,7 @@
 
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [PowerShell-cmdletar](/powershell/azure/overview)
 ## [Java API-referens](/java/api)
 ## [.NET-API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -387,6 +385,7 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

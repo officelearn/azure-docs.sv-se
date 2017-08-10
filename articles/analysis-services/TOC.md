@@ -1,13 +1,27 @@
 # Översikt
 ## [Vad är Azure Analysis Services?](analysis-services-overview.md)
+## [Datakällor som stöds](analysis-services-datasource.md)
+## [Autentisering och användarbehörigheter](analysis-services-manage-users.md)
+## [Efterlevnadsnivå](analysis-services-compat-level.md)
+## [Hög tillgänglighet](analysis-services-bcdr.md)
 
-# Snabbstarter
-## [Skapa en server – portal](analysis-services-create-server.md)
-## [Skapa en server – PowerShell](analysis-services-create-powershell.md)
-## [Distribuera en modell – Visual Studio](analysis-services-deploy.md)
+# Kom igång
+## [Skapa en server på Azure-portalen](analysis-services-create-server.md)
+## [Skapa en server med PowerShell](analysis-services-create-powershell.md)
+## [Distribuera en modell från Visual Studio](analysis-services-deploy.md)
+## [Skapa en modell i Azure Portal (förhandsgranskning)](analysis-services-create-model-portal.md)
 
-# Självstudier
-## Skapa och distribuera en modell
+# Så här gör du 
+## [Hantera en server](analysis-services-manage.md)
+## [Hantera databasanvändare](analysis-services-database-users.md)
+## [Hantera serveradministratörer](analysis-services-server-admins.md)
+## [Installera den lokala datagatewayen](analysis-services-gateway.md)
+## [Hämta klientbibliotek](analysis-services-data-providers.md)
+## [Säkerhetskopiering och återställning](analysis-services-backup.md)
+## [Anslut till Excel](analysis-services-connect-excel.md)
+## [Anslut med Power BI](analysis-services-connect-pbi.md)
+## [Skapa en ODC-fil](analysis-services-odc.md)
+## Självstudier
 ### [Självstudiekurs för Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Lektion 1: Skapa ett nytt projekt för tabellmodeller](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ### [Lektion 2: Hämta data](tutorials/aas-lesson-2-get-data.md)
@@ -24,24 +38,7 @@
 ### [Lektion 13: Distribuera](tutorials/aas-lesson-13-deploy.md)
 ### [Kompletterande lektion – Detaljrader](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [Kompletterande lektion – Dynamisk säkerhet](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Kompletterande lektion – Ojämna hierarkier](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
-
-# Koncept
-## [Datakällor som stöds](analysis-services-datasource.md)
-## [Autentisering och användarbehörigheter](analysis-services-manage-users.md)
-## [Hög tillgänglighet](analysis-services-bcdr.md)
-
-# Så här gör du 
-## [Skapa en modell i Azure Portal (förhandsgranskning)](analysis-services-create-model-portal.md)
-## [Hantera en server](analysis-services-manage.md)
-## [Hantera databasanvändare](analysis-services-database-users.md)
-## [Hantera serveradministratörer](analysis-services-server-admins.md)
-## [Installera den lokala datagatewayen](analysis-services-gateway.md)
-## [Anslut till Excel](analysis-services-connect-excel.md)
-## [Anslut med Power BI](analysis-services-connect-pbi.md)
-## [Hämta klientbibliotek](analysis-services-data-providers.md)
-## [Säkerhetskopiering och återställning](analysis-services-backup.md)
-## [Skapa en ODC-fil](analysis-services-odc.md)
+### [Kompletterande lektion – Ojämna hierarkier](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Referens
 ## [PowerShell](analysis-services-powershell.md)

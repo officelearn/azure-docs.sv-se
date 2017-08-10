@@ -23,6 +23,8 @@
   items:
     - name: Relation till dirigeringsverktyg
       href: container-instances-orchestrator-relationship.md
+    - name: Behållargrupper
+      href: container-instances-container-groups.md
 - name: Instruktionsguider
   items:
     - name: Distribuera grupper med flera behållare

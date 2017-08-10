@@ -71,6 +71,9 @@ ACU: 210–250
 <br>
 
 ## <a name="ds-series"></a>DS-serien
+
+ACU: 160
+
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |2/500 |
@@ -79,6 +82,7 @@ ACU: 210–250
 | Standard_DS4 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 256 |8/4 000 |
 
 <br>
+
 ## <a name="d-series"></a>D-serien 
 
 ACU: 160

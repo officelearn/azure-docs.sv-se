@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: syntaxc4
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 8dc965df2cd45366970effb29f246b0045a94717
 ms.contentlocale: sv-se
-ms.lasthandoff: 01/20/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="create-a-xamarinios-app"></a>Skapa en Xamarin.iOS-app
@@ -35,11 +35,6 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Visual Studio med Xamarin. Instruktioner finns i avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 * En Mac med Xcode v7.0 eller senare och Xamarin Studio Community installerat. Se avsnittet om [konfiguration och installation av Visual Studio och Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) och om [konfiguration, installation och verifieringar för Mac-användare](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
-
-> [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/mobile/). Där kan du direkt skapa en tillfällig startmobilapp i App Service. Det krävs inget kreditkort och du gör inga åtaganden.
->
->
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Skapa en mobilapp-serverdel i Azure
 Följ de här stegen för att skapa en mobilapp-serverdel.

@@ -1,8 +1,8 @@
 
-To deploy the resources to Azure, you must be logged in to your Azure account and you must use the Azure Resource Manager module. To learn about using Azure Resource Manager with either Azure PowerShell or Azure CLI, see:
+Om du vill distribuera resurserna till Azure måste du vara inloggad på ditt Azure-konto och använda Azure Resource Manager-modulen. Information om hur du använder Azure Resource Manager med Azure PowerShell eller Azure CLI hittar du här:
 
-* [Using Azure PowerShell with Azure Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
-* [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
+* [Använda Azure PowerShell med Azure Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
+* [Använda Azure CLI för Mac, Linux och Windows med Azure Resource Manager](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
 
-The following examples assume you already have a resource group in your account with the specified name. 
+Följande exempel förutsätter att du redan har en resursgrupp i ditt konto med det angivna namnet. 
 

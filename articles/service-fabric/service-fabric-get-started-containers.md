@@ -35,14 +35,14 @@ En utvecklingsdator som kör:
 * [Service Fabric SDK och verktyg](service-fabric-get-started.md).
 *  Docker för Windows.  [Hämta Docker CE för Windows (stabil)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta krävs för att köra Docker-avbildningar baserade på Windows.
 
-Ett Windows-kluster med tre eller fler noder som kör Windows Server 2016 med behållare – [Skapa ett kluster](service-fabric-cluster-creation-via-portal.md) eller [prova Service Fabric utan kostnad](https://aka.ms/tryservicefabric). 
+Ett Windows-kluster med tre eller fler noder som kör Windows Server 2016 med behållare – [Skapa ett kluster](service-fabric-cluster-creation-via-portal.md) eller [prova Service Fabric utan kostnad](https://aka.ms/tryservicefabric).
 
-Ett register i Azure Container Registry – [Skapa ett behållarregister](../container-registry/container-registry-get-started-portal.md) i din Azure-prenumeration. 
+Ett register i Azure Container Registry – [Skapa ett behållarregister](../container-registry/container-registry-get-started-portal.md) i din Azure-prenumeration.
 
 ## <a name="define-the-docker-container"></a>Definiera dockerbehållare
-Skapa en avbildning baserat på [Python-avbildningen](https://hub.docker.com/_/python/) på Docker Hub. 
+Skapa en avbildning baserat på [Python-avbildningen](https://hub.docker.com/_/python/) på Docker Hub.
 
-Definiera Docker-behållaren i en Dockerfile. Dockerfile innehåller instruktioner för att ställa in miljön i di behållare, läsa in programmet som du vill köra och mappa portar. Dockerfile är indata för kommandot `docker build` som skapar avbildningen. 
+Definiera Docker-behållaren i en Dockerfile. Dockerfile innehåller instruktioner för att ställa in miljön i di behållare, läsa in programmet som du vill köra och mappa portar. Dockerfile är indata för kommandot `docker build` som skapar avbildningen.
 
 Skapa en tom katalog och skapa filen *Dockerfile* (utan filtillägget). Lägg till följande i *Dockerfile* och spara dina ändringar:
 
@@ -86,13 +86,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
+<a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>Skapa avbildningen
 Kör kommandot `docker build` för att skapa avbildningen som kör ditt webbprogram. Öppna ett PowerShell-fönster och navigera till den katalog som innehåller din Dockerfile. Kör följande kommando:
 
@@ -106,7 +107,7 @@ När build-kommandot har slutförts kör du `docker images`-kommandot för att s
 
 ```
 $ docker images
-    
+
 REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
 helloworldapp                 latest              8ce25f5d6a79        2 minutes ago       10.4 GB
 ```
@@ -141,6 +142,7 @@ Ta bort behållaren från utvecklingsdatorn:
 docker rm my-web-site
 ```
 
+<a id="Push-Containers"></a>
 ## <a name="push-the-image-to-the-container-registry"></a>Överför avbildningen till behållarregistret
 När du har kontrollerat att behållaren körs på utvecklingsdatorn överför du avbildningen till registret i Azure Container Registry.
 
@@ -170,7 +172,7 @@ SDK:en och verktygen för Service Fabric innehåller en tjänstmall som hjälper
 1. Starta Visual Studio.  Välj **Arkiv** > **Nytt** > **Projekt**.
 2. Välj **Service Fabric-programmet**, ge det namnet "MyFirstContainer" och klicka på **OK**.
 3. Välj **Guest Container** (Gästbehållare) i listan med **tjänstmallar**.
-4. I **Avbildningsnamn** skriver du "myregistry.azurecr.io/samples/helloworldapp" (den avbildning som du skickade till lagringsplatsen för behållaren). 
+4. I **Avbildningsnamn** skriver du "myregistry.azurecr.io/samples/helloworldapp" (den avbildning som du skickade till lagringsplatsen för behållaren).
 5. Namnge tjänsten och klicka på **OK**.
 
 ## <a name="configure-communication"></a>Konfigurera kommunikation
@@ -183,8 +185,8 @@ Behållartjänsten behöver en slutpunkt för kommunikation. Lägg till ett `End
   </Endpoints>
 </Resources>
 ```
-    
-Genom att definiera en slutpunkt publicerar Service Fabric slutpunkten i namngivningstjänsten.  Andra tjänster som körs i klustret kan lösa den här behållaren.  Du kan också utföra kommunikation mellan behållare med hjälp av den [omvända proxyn](service-fabric-reverseproxy.md).  Du utför kommunikation genom att tillhandahålla HTTP-lyssningsporten för den omvända proxyn och namnet på de tjänster som du vill kommunicera med som miljövariabler. 
+
+Genom att definiera en slutpunkt publicerar Service Fabric slutpunkten i namngivningstjänsten.  Andra tjänster som körs i klustret kan lösa den här behållaren.  Du kan också utföra kommunikation mellan behållare med hjälp av den [omvända proxyn](service-fabric-reverseproxy.md).  Du utför kommunikation genom att tillhandahålla HTTP-lyssningsporten för den omvända proxyn och namnet på de tjänster som du vill kommunicera med som miljövariabler.
 
 ## <a name="configure-and-set-environment-variables"></a>Konfigurera och ange miljövariabler
 Miljövariabler kan anges för varje kodpaketet i tjänstmanifestet. Den här funktionen är tillgänglig för alla tjänster oavsett om de har distribueras som behållare eller processer, eller körbara gäster. Du kan åsidosätta värden för miljövariabler i applikationsmanifestet eller ange dem under distributionen som programparametrar.
@@ -211,7 +213,7 @@ Dessa miljövariabler kan åsidosättas i applikationsmanifestet:
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Konfigurera mappning mellan behållarport och värdport och identifiering mellan behållare
-Konfigurera en värdport som används för att kommunicera med behållaren. Portbindningen mappar porten där tjänsten lyssnar inuti behållaren till en port på värden. Lägg till ett `PortBinding`-element i `ContainerHostPolicies`-elementet i filen ApplicationManifest.xml.  I den här artikeln är `ContainerPort` 80 (behållaren exponerar port 80, som anges i Dockerfile) och `EndpointRef` är ”Guest1TypeEndpoint” (slutpunkten som tidigare definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 8081 mappas till port 80 på behållaren. 
+Konfigurera en värdport som används för att kommunicera med behållaren. Portbindningen mappar porten där tjänsten lyssnar inuti behållaren till en port på värden. Lägg till ett `PortBinding`-element i `ContainerHostPolicies`-elementet i filen ApplicationManifest.xml.  I den här artikeln är `ContainerPort` 80 (behållaren exponerar port 80, som anges i Dockerfile) och `EndpointRef` är ”Guest1TypeEndpoint” (slutpunkten som tidigare definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 8081 mappas till port 80 på behållaren.
 
 ```xml
 <Policies>
@@ -312,7 +314,7 @@ Spara alla dina ändringar och skapa programmet. Om du vill publicera appen hög
 
 I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret.  Till exempel "containercluster.westus2.cloudapp.azure.com:19000". Slutpunkten för klientanslutningen finns på översiktsbladet för ditt kluster i [Azure Portal](https://portal.azure.com).
 
-Klicka på **Publicera**. 
+Klicka på **Publicera**.
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett webbaserat verktyg för att granska och hantera appar och noder i ett Service Fabric-kluster. Öppna en webbläsare och gå till http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ och följ programdistributionen.  Appen distribueras men är i ett feltillstånd tills avbildningen har laddats ned på klusternoderna (vilket kan ta en stund beroende på avbildningens storlek): ![Fel][1]
 
@@ -360,17 +362,17 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här art
       <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
       <EnvironmentVariable Name="BackendServiceName" Value=""/>
     </EnvironmentVariables>
-    
+
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
+      <!-- This endpoint is used by the communication listener to obtain the port on which to
+           listen. Please note that if your service is partitioned, this port is shared with
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
     </Endpoints>
@@ -388,8 +390,8 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här art
   <Parameters>
     <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
   </Parameters>
-  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
-       should match the Name and Version attributes of the ServiceManifest element defined in the 
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
+       should match the Name and Version attributes of the ServiceManifest element defined in the
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
@@ -411,10 +413,10 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- The section below creates instances of service types, when an instance of this 
-         application type is created. You can also create one or more instances of service type using the 
+    <!-- The section below creates instances of service types, when an instance of this
+         application type is created. You can also create one or more instances of service type using the
          ServiceFabric PowerShell module.
-         
+
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Guest1">
       <StatelessService ServiceTypeName="Guest1Type" InstanceCount="[Guest1_InstanceCount]">

@@ -81,8 +81,6 @@
 ### [Skapa ett lagringskonto](../../storage/storage-create-storage-account.md#create-a-storage-account)
 ### [Använd Azure PowerShell med Azure Storage](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Använda Azure CLI med Azure Storage](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Riktlinjer för lagringsinfrastrukturen för Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Riktlinjer för lagringsinfrastrukturen för Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage-klientverktyg](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [REST API-referens för Azure Storage-tjänster](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
 ### [Använda signaturer för delad åtkomst](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -101,3 +99,4 @@
 ## [Nästa steg](azure-operations-guide.md#next-steps)
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

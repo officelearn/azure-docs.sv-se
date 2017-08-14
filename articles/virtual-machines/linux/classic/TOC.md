@@ -4,13 +4,13 @@
 ## [Tillgänglighet](configure-availability.md)
 ## [Vanliga frågor och svar](faq.md)
 
-# [Kom igång](../opensource-links.md)
+# Kom igång
 ## [Skapa en virtuell Linux-dator med portalen](createportal.md)
 ## [Installera Azure CLI](../../../cli-install-nodejs.md)
 ## [Skapa SSH-nycklar](../mac-create-ssh-keys.md)
 
 # Gör så här för att
-## [Compute](../intro-on-azure.md)
+## Compute
 ### [Skapa en anpassad virtuell dator](create-custom.md)
 ### [Avbilda en virtuell dator](capture-image.md)
 ### [Använda fjärrskrivbord med en virtuell Linux-dator](remote-desktop.md)
@@ -82,6 +82,7 @@
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional tillgänglighet](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

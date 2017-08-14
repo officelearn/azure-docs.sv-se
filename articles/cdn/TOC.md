@@ -10,6 +10,8 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing (CORS)](cdn-cors.md)
+### [Mappa en anpassad domän till CDN](cdn-map-content-to-custom-domain.md)
+### [Aktivera HTTPS på en anpassad domän](cdn-custom-ssl.md)
 ## Optimera innehåll
 ### [Optimeringsöversikt](cdn-optimization-overview.md)
 ####[Optimering av stora filer](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[Acceleration av dynamisk webbplats](cdn-dynamic-site-acceleration.md)
  
 ## Hantera
-### [Aktivera HTTPS på en anpassad domän](cdn-custom-ssl.md)
 ### [Hantera med PowerShell](cdn-manage-powershell.md)
 ### Konfigurera livslängd
 #### [Web Apps/Cloud Services, ASP.NET eller IIS-innehåll](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Storage Blob Service-innehåll](cdn-manage-expiration-of-blob-content.md)
-### [Mappa en anpassad domän till CDN](cdn-map-content-to-custom-domain.md)
 ### [Begränsa åtkomst per land](cdn-restrict-access-by-country.md)
 ### [Förbättra prestandan genom att komprimera filer](cdn-improve-performance.md)
 ### Cachelagra innehåll efter frågesträng
@@ -52,6 +52,7 @@
 ### [Filkomprimering](cdn-troubleshoot-compression.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
@@ -66,6 +67,7 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/cdn/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=cdn)

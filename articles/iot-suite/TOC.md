@@ -54,6 +54,7 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Vanliga frågor och svar](iot-suite-faq.md)
 ## [Utbildningsväg för IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 
 
 

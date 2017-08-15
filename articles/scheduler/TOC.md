@@ -28,6 +28,7 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)

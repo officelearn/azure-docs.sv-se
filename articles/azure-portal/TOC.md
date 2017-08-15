@@ -35,6 +35,7 @@
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 

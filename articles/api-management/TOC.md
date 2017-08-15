@@ -85,6 +85,7 @@
 ## [Använd SOAP WCF-tjänster via HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/api-management/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tillhandahåll RBAC-liknande åtkomst med REST-API:et](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=api-management)
 ## [Konfigurera PostMan att anropa API Management API:er](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)

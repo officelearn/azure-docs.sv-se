@@ -23,8 +23,12 @@
 ### [Kräv MFA](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ### [Använda granskningsloggen](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
+# Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Relaterat
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Rollbaserad åtkomstkontroll](../role-based-access-control-what-is.md)
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

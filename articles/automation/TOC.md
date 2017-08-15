@@ -28,7 +28,6 @@
 ## Automatisera
 ### [Starta en Runbook](automation-starting-a-runbook.md)
 ### [Starta ett runbook-flöde från en webhook](automation-webhooks.md)
-### [Kör runbook-flöden på Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 ### [Konfigurera indataparametrar för Runbook](automation-runbook-input-parameters.md)
 ### [Felhantering i grafiska runbook-flöden](automation-runbook-graphical-error-handling.md)
 ### [Spåra ett Runbook-jobb](automation-runbook-execution.md)
@@ -36,6 +35,9 @@
 ### [Hantera Azure Automation-data](automation-managing-data.md)
 ### [Anropa Azure Automation Runbook från en Log Analytics-avisering](automation-invoke-runbook-from-omsla-alert.md)
 ### [Skicka ett JSON-objekt till en Azure Automation-runbook](automation-pass-json-string.md)
+## Hybrid Runbook Worker
+### [Distribuera Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+### [Köra runbook-flöden i arbetsroll](automation-hrw-run-runbooks.md)
 ## Distribuera konfigurationshantering (DSC)
 ### [Översikt över önskad tillståndskonfiguration (DSC)](automation-dsc-overview.md)
 ### [Komma igång](automation-dsc-getting-started.md)
@@ -87,6 +89,7 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Prissättning](https://azure.microsoft.com/pricing/details/automation/)  
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Viktig information](https://azure.microsoft.com/updates/?product=automation)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)

@@ -38,6 +38,7 @@
 ##### [Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Aktuella begränsningar](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Hur fungerar det?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Uppgradera agenter i förhandsversion](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
 ##### [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Vanliga frågor och svar](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Felsöka](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
@@ -82,6 +83,7 @@
 ### [Så här återställer du från LocalDB med en gräns på 10 GB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Identitetssynkronisering och duplicerad attributåterhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Portar och protokoll som krävs för hybrididentitet](active-directory-aadconnect-ports.md)
 ## [Funktioner i förhandsgranskningen](active-directory-aadconnect-feature-preview.md)
@@ -109,3 +111,5 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Vanliga frågor och svar om Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[DirSync-utfasning](active-directory-aadconnect-dirsync-deprecated.md)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
+

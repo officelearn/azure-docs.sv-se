@@ -146,6 +146,9 @@
 ### [Strömningsloggar och konsolen](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Felsöka med hjälp av Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
+# Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
+
 # Resurser
 ## [App Service-referens](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -153,6 +156,7 @@
 ## [Bästa praxis](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Prissättning](https://azure.microsoft.com/pricing/details/app-service/)  
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=app-service) 
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 

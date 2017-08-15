@@ -32,6 +32,7 @@
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan användas samtidigt](expressroute-howto-coexist-resource-manager.md)
+## [Konfigurera routningsfilter för Microsoft-peering](how-to-routefilter-powershell.md)
 ## [Flytta en krets från klassisk till Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrera associerade virtuella nätverk från klassisk till Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurera en router för ExpressRoute
@@ -67,6 +68,7 @@
 ## [Fallstudier](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Nätverksblogg](https://azure.microsoft.com/blog/topics/networking/)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/expressroute/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)

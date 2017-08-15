@@ -44,3 +44,4 @@
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Kontakta supporten](../azure-supportability/how-to-create-azure-support-request.md)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

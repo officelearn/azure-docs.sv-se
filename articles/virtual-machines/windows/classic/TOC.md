@@ -98,6 +98,7 @@
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional tillgänglighet](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

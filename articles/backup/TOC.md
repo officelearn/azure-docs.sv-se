@@ -4,7 +4,7 @@
 
 # Kom igång
 ## [Säkerhetskopiera virtuella Azure-datorer](backup-azure-vms-first-look-arm.md)
-## [Säkerhetskopiera filer och mappar](backup-try-azure-backup-in-10-mins.md)
+## [Säkerhetskopiera Windows Server- eller Windows-datorer](backup-try-azure-backup-in-10-mins.md)
 ## [Säkerhetskopiera VMware-servrar](backup-azure-backup-server-vmware.md)
 
 # Gör så här för att
@@ -27,16 +27,19 @@
 #### [Återställa Resource Manager-distribuerade virtuella datorer i Azure Portal](backup-azure-arm-restore-vms.md)
 #### [Återställa krypterade virtuella datorer](backup-azure-vms-encryption.md)
 #### [Återställa virtuella datorer i Azure](backup-azure-restore-vms.md)
-#### [Återställa nyckel och hemlighet för Key Vault för krypterade virtuella datorer med Azure Backup](backup-azure-restore-key-secret.md)
+#### [Återställa nyckel och hemlighet för Key Vault för krypterade virtuella datorer](backup-azure-restore-key-secret.md)
 
 
-## Windows-filer och -mappar
-### [Windows Server med Resource Manager-distributionsmodellen](backup-configure-vault.md)
-### [Windows Server med den klassiska distributionsmodellen](backup-configure-vault-classic.md)
+## Windows Server
+### [Säkerhetskopiera Windows Server-filer och -mappar](backup-configure-vault.md)
+### [Säkerhetskopiera Windows Server System-tillstånd](backup-azure-system-state.md)
+### [Återställa filer från Azure till Windows Server](backup-azure-restore-windows-server.md)
+### [Återställa Windows Server System-tillstånd](backup-azure-restore-system-state.md)
 ### [Övervaka och hantera Recovery Services-valv](backup-azure-manage-windows-server.md)
-### [Hantera säkerhetskopieringsvalv och servrar med hjälp av den klassiska distributionsmodellen](backup-azure-manage-windows-server-classic.md)
-### [Återställ filer till en Windows S med hjälp av Resource Manager-distributionsmodellen](backup-azure-restore-windows-server.md)
-### [Återställ filer till en Windows-server med hjälp av den klassiska distributionsmodellen](backup-azure-restore-windows-server-classic.md)
+### Säkerhetskopiera och återställa med den klassiska portalen
+#### [Windows Server med den klassiska distributionsmodellen](backup-configure-vault-classic.md)
+#### [Hantera säkerhetskopieringsvalv och servrar med hjälp av den klassiska distributionsmodellen](backup-azure-manage-windows-server-classic.md)
+#### [Återställ filer till en Windows-server med hjälp av den klassiska distributionsmodellen](backup-azure-restore-windows-server-classic.md)
 
 ## Azure Backup Server
 ### [Skyddsöversikt för Azure Backup Server](backup-mabs-protection-matrix.md)
@@ -108,5 +111,6 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/backup/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=backup)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=backup)

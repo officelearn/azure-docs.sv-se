@@ -45,8 +45,11 @@
 ## Skala
 ###[Uppdatera till en annan storlek och nivå](cache-how-to-scale.md)
 ###[Använd Redis-kluster för att skala in och ut](cache-how-to-premium-clustering.md)
+## Integrera med Spring Boot
+###[Använd en Spring Boot-initieringsapp med Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Förhandsversion av Azure CLI 2.0](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)

@@ -40,11 +40,12 @@
 ## [Skydda DNS-zoner och -poster](dns-protect-zones-recordsets.md)
 ## [Automatisera DNS-åtgärder med DNS.NET SDK](dns-sdk.md)
 
-## [Integrera Azure DNS med Azure-resurser](dns-custom-domain.md)
+## [Anpassade domäner för Azure-resurser](dns-custom-domain.md)
 ## Felsöka
 ### [Felsökningsguide](dns-troubleshoot.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [NET](/dotnet/api/microsoft.azure.management.dns.models)
@@ -68,4 +69,5 @@
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Nätverksblogg](http://azure.microsoft.com/blog/topics/networking)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/dns/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=dns)

@@ -30,6 +30,7 @@
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=containers)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/container-registry/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional tillgänglighet](https://azure.microsoft.com/regions/services/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)

@@ -107,6 +107,7 @@
 #### [Vanliga frågor och svar om distribution](cloud-services-deployment-faq.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
@@ -116,5 +117,6 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

@@ -179,6 +179,7 @@
 #### [Säkerhetskopiera enhetsmanifest](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostik och felåterställning av Import/Export-jobb](storage-import-export-diagnostics-and-error-recovery.md)
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
@@ -210,6 +211,7 @@
 ## [Azure Storage-klientverktyg](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -218,6 +220,7 @@
 ### [Lagringsutforskaren (förhandsversion)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Hantera blobar med Lagringsutforskaren (förhandsversion)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Använd Storage Explorer (förhandsversion) med Azure File Storage](../vs-azure-tools-storage-explorer-files.md)
+### [Viktig information om Lagringsutforskaren (förhandsversion)](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## NuGet-paket
 ### [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

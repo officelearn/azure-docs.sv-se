@@ -7,10 +7,11 @@
 
 # Kom igång
 ## [Exportera mall](resource-manager-export-template.md)
-## [Skapa din första mall](resource-manager-create-first-template.md)
+## [Skapa och distribuera mall](resource-manager-create-first-template.md)
 ## [Visual Studio med Resurshanteraren](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Exempel
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Distribuera mall](resource-manager-samples-powershell-deploy.md)
 
@@ -102,6 +103,7 @@
 ### [Funktioner för matris och objekt](resource-group-template-functions-array.md)
 ### [Jämförelsefunktioner](resource-group-template-functions-comparison.md)
 ### [Distributionsfunktioner](resource-group-template-functions-deployment.md)
+### [Logiska funktioner](resource-group-template-functions-logical.md)
 ### [Numeriska funktioner](resource-group-template-functions-numeric.md)
 ### [Resursfunktioner](resource-group-template-functions-resource.md)
 ### [Strängfunktioner](resource-group-template-functions-string.md)
@@ -129,6 +131,7 @@
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Begränsningsbegäranden](resource-manager-request-limits.md)

@@ -30,3 +30,4 @@
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/time-series-insights/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

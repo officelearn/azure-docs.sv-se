@@ -71,5 +71,6 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=remoteapp)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

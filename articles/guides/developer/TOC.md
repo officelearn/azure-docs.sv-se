@@ -112,5 +112,6 @@
 # Resurser
 ## [Azure-regioner](https://azure.microsoft.com/regions/)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Exempel](https://azure.microsoft.com/resources/samples/)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/home/)

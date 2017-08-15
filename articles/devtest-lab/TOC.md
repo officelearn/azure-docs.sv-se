@@ -71,3 +71,4 @@
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

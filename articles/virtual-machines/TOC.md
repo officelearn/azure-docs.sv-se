@@ -5,3 +5,4 @@
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=compute)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

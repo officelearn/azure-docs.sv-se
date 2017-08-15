@@ -74,6 +74,7 @@
 ### [Viktig information](active-directory-b2c-developer-notes-custom.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Ordlista
 ### [Typer av program](active-directory-b2c-apps.md)
 ### [Autentiseringsprotokoll](active-directory-b2c-reference-protocols.md)
@@ -92,6 +93,7 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Vanliga frågor och svar](active-directory-b2c-faqs.md)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Support](active-directory-b2c-support.md)

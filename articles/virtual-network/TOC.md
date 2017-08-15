@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Mall](virtual-networks-create-vnet-arm-template-click.md)
-#### Klassisk
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Nätverkssäkerhetsgrupper
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -99,6 +95,12 @@
 ##### [DMZ med brandvägg, UDR och NSG:er](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Exempelprogram](virtual-networks-sample-app.md)
 
+### Klassisk
+#### [Virtuellt nätverk](create-virtual-network-classic.md)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+
 ## Konfigurera
 ### Virtuella datorer
 #### [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md)
@@ -140,6 +142,7 @@
 ### [Det går inte att ta bort virtuella nätverk](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [PowerShell (klassisk)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
@@ -162,4 +165,5 @@
 ## [Nätverksblogg](http://azure.microsoft.com/blog/topics/networking)
 ## [Nätverksforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

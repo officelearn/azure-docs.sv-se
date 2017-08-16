@@ -15,6 +15,11 @@ Ja, följande ASN:er är reserverade av Azure för både interna och externa pee
 
 Du kan inte ange dessa ASN:er för dina lokala VPN-enheter när du ansluter till Azure VPN-gatewayer.
 
+### <a name="are-there-any-other-asns-that-i-cant-use"></a>Finns det andra ASN-nummer som jag inte kan använda?
+Ja, följande ASN-nummer är [reserverade av IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) och kan inte ställas in på din Azure VPN-gateway:
+
+23456, 64496-64511, 65535-65551 och 429496729
+
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Kan jag använda samma ASN för både lokala VPN-nätverk och virtuella Azure-nätverk?
 Nej, måste du tilldela olika ASN:er mellan dina lokala nätverk och dina virtuella Azure-nätverk om du ska ansluta dem till varandra med BGP. Azure-VPN-gatewayer är tilldelade en standard-ASN som är 65515, oavsett om BGP är aktiverat eller inte för dina korsanslutningar. Du kan åsidosätta det här standardvärdet genom att tilldela en annan ASN när du skapar din VPN-gateway eller genom att ändra ASN efter att din gateway har skapats. Du måste tilldela dina lokala ASN:er till motsvarande Azure-lokala nätverksgatewayer.
 

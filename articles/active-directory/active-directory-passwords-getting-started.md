@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Azure AD SSPR | Microsoft-dokument'
+title: 'Snabbstart: Azure AD SSPR | Microsoft Docs'
 description: "Distribuera återställning av lösenord för självbetjäning i Azure AD snabbt"
 services: active-directory
 keywords: 
@@ -13,17 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 52f89520fef8fc9ddb6e8e10a59ec35600affb2a
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="quick-start-azure-ad-self-service-password-reset"></a>Snabbstart: återställning av lösenord för Azure AD-självbetjäning
+# <a name="quickstart-azure-ad-self-service-password-reset"></a>Snabbstart: återställning av lösenord för Azure AD-självbetjäning
+
+> [!IMPORTANT]
+> **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="rapidly-deploy-self-service-password-reset"></a>Distribuera återställning av lösenord för självbetjäning snabbt
 
@@ -77,6 +80,12 @@ För att aktivera lokal identitetssynkronisering till Azure AD måste du install
 Om du vill inaktivera självbetjäningsfunktionen för återställning av lösenord öppnar du Azure AD-klienten och går till **Återställning av lösenord > Egenskaper** > och väljer **Ingen** under **Återställning av lösenord via självbetjäning har aktiverats**
 
 ## <a name="next-steps"></a>Nästa steg
+
+I den här snabbstarten har du lärt dig hur du ställer in självbetjäning för återställning av lösenord för användarna. Följ länken nedan till Azure Portal om du vill fortsätta att följa de här anvisningarna.
+
+> [!div class="nextstepaction"]
+> [Aktivera lösenordsåterställning via självbetjäning](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 Följande länkar ger ytterligare information om lösenordsåterställning med Azure AD
 
 * [**Licensiering**](active-directory-passwords-licensing.md) – Konfigurera Azure AD-licensiering

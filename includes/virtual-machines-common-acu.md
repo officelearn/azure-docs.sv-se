@@ -11,7 +11,7 @@ Vi har skapat konceptet Azure-beräkningsenheter (ACU, Azure Compute Unit) för 
 
 <br>
 
-| SKU-familj | ACU |
+| SKU-familj | ACU\vCPU |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |

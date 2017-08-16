@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d17f90d5ed5440dc336d1e3ae890a13077e33c4d
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 9bb863261da64c97f99757d4a0cb3474a7755591
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: skapa en DocumentDB-API-webbapp med .NET och Azure-portalen
@@ -56,7 +55,7 @@ Du kan nu lägga till data till din nya samling med datautforskaren.
 
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Lägg nu till några dokument i samlingen med följande struktur, där du infogar unika värden för ID i varje dokument och ändrar de andra egenskaperna som du vill. Dina nya dokument kan ha vilken struktur du vill eftersom Azure Cosmos DB inte kräver något schema för dina data.
+2. Lägg nu till ett dokument i samlingen med följande struktur.
 
      ```json
      {
@@ -72,13 +71,15 @@ Du kan nu lägga till data till din nya samling med datautforskaren.
 
     ![Kopiera in json-data och klicka på Spara i Datautforskaren i Azure Portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
-     Du kan nu använda frågor i datautforskaren för att hämta dina data. Som standard använder datautforskaren `SELECT * FROM c` för att hämta alla dokument i samlingen, men du kan ändra det till `SELECT * FROM c ORDER BY c.name ASC`, för att returnera alla dokument i stigande bokstavsordning för namnegenskapen. 
+4.  Skapa och spara ännu ett dokument där du lägger till ett unikt värde för egenskapen `id` och ändrar de andra egenskaperna som passar. Dina nya dokument kan ha vilken struktur du vill eftersom Azure Cosmos DB inte kräver något schema för dina data.
+
+     Du kan nu använda frågor i datautforskaren för att hämta dina data. Som standard används `SELECT * FROM c` i datautforskaren för att hämta alla dokument i samlingen, men du kan ändra det till en annan [SQL-fråga](documentdb-sql-query.md), till exempel `SELECT * FROM c ORDER BY c._ts DESC`, för att returnera alla dokument i fallande tidsstämpelordning.
  
      Du kan även använda datautforskaren för att skapa lagrade procedurer, UDF:er och utlösare för att utföra affärslogik på serversidan såväl som att skala genomflödet. Datautforskaren visar all den inbyggda programmässiga dataåtkomsten som finns tillgänglig i API:erna, men ger enkel åtkomst till dina data i Azure-portalen.
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi klona en DocumentDB-API-app från github, ange anslutningssträngen och köra den. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
+Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en DocumentDB-API-app från GitHub, ange anslutningssträngen och köra den. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
 1. Öppna ett git-terminalfönster, till exempel git bash, och `CD` till en arbetskatalog.  
 

@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Komma igång med en arbetsyta för Log Analytics
@@ -59,7 +58,12 @@ Nästa steg är att skapa en arbetsyta.
 4. Välj en arbetsyta om du vill visa dess information i Azure Portal.       
     ![information om arbetsytan](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3 Lägg till lösningar och erbjudanden för lösningar
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3 Uppgradera arbetsytan till ny loggsökning
+Ett nytt Log Analytics-frågespråk har publicerats och för att kunna använda det måste du omvandla din arbetsyta.  Om den region där arbetsytan finns har uppgraderats, visas en lila banderoll längst upp i arbetsytan med en uppmaning om att omvandla ytan. Uppgraderingen är helt frivillig och påverkar inte funktionerna i Log Analytics eller eventuella lösningar som du lägger till.  
+
+Mer information om fördelarna och vad du ska tänka på vid uppgraderingen, finns i [Upgrading Azure Log Analytics to new log search](log-analytics-log-search-upgrade.md) (Uppgradera Azure Log Analytics till ny loggsökning).  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4 Lägg till lösningar och erbjudanden för lösningar
 
 Lägg sedan till hanteringslösningar och erbjudanden för lösningar. Hanteringslösningar är en samling logik, visualisering och datahämtningsregler som tillhandahåller mått som pivoteras runt ett särskilt problematisk område. Ett erbjudande för lösningar är ett paket med hanteringslösningar.
 
@@ -95,11 +99,11 @@ Härnäst skapar du en enkel virtuell dator i Azure. När du har skapat en virtu
 
 - Följ anvisningarna i [Connect Azure virtual machines to Log Analytics](log-analytics-azure-vm-extension.md) (Anslut virtuella Azure-datorer till Log Analytics) för att ansluta den virtuella datorn till Log Analytics i Azure Portal.
 
-## <a name="5-view-and-act-on-data"></a>5 Se och vidta åtgärder för data
+## <a name="6-view-and-act-on-data"></a>6 Se och vidta åtgärder för data
 
 Tidigare aktiverade du Activity Log Analytics-lösningen och tjänsterbjudandena för säkerhet och efterlevnad samt automatisering och kontroll. Härnäst börjar vi titta på de data som samlas in av lösningar och resultat i loggsökningar.
 
-Titta först på data som visas från lösningarna. Titta sedan på några loggsökningar som kan nås från loggsökningar. Loggsökningar låter dig kombinera och korrelera datordata från flera källor i din miljö. Mer information finns i [Loggsökningar i Log Analytics](log-analytics-log-searches.md). Till sist kan du vidta åtgärder för data som vi hittar med OMS-portalen, som är utanför Azure Portal.
+Titta först på data som visas från lösningarna. Titta sedan på några loggsökningar som kan nås från loggsökningar. Loggsökningar låter dig kombinera och korrelera datordata från flera källor i din miljö. Mer information finns i [Log searches in Log Analytics](log-analytics-log-searches.md) (Loggsökningar i Log Analytics) eller, om du har gjort om arbetsytan till det nya frågespråket: [understanding log searches in Log Analytics](log-analytics-log-search-new.md) (förstå loggsökningar i Log Analytics). 
 
 ### <a name="to-view-antimalware-data"></a>Visa data för program mot skadlig kod
 

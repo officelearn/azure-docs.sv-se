@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
@@ -127,11 +126,12 @@ Site Recovery skyddar Exchange på följande sätt:
 ## <a name="protect-sap"></a>Skydda SAP
 Använd Site Recovery för att skydda din SAP-distribution på följande sätt:
 
-* Aktivera skydd för hela SAP-distributionen genom att replikera olika distributionslager till Azure eller till en sekundär plats.
+* Aktivera skydd av SAP NetWeaver och icke-NetWeaver-produktionsprogram som körs lokalt genom att replikera komponenter till Azure.
+* Aktivera skydd av SAP NetWeaver och icke-NetWeaver-produktionsprogram som kör Azure, genom att replikera komponenter till ett annat Azure-datacenter.
 * Förenkla molnmigreringen genom att använda Site Recovery för att migrera din SAP-distribution till Azure.
-* Förenkla SAP-utveckling och -testning genom att skapa en produktionslik kopia på begäran för testning och felsökning av program.
+* Förenkla SAP-projektuppgradering, testning och prototyper genom att skapa en produktionsklon på begäran för att testa SAP-program.
 
-[Lär dig mer](http://aka.ms/asr-sap) om hur du kan skydda SAP.
+[Lär dig mer](site-recovery-sap.md) om hur du kan skydda SAP.
 
 ## <a name="protect-iis"></a>Skydda IIS
 Använd Site Recovery för att skydda din IIS-distribution på följande sätt:
@@ -152,11 +152,11 @@ Använd Site Recovery för att skydda dina Citrix XenApp- och XenDesktop-distrib
 * Aktivera skyddet av Citrix XenApp- och XenDesktop-distributionen genom att replikera olika distributionslager inklusive (AD, DNS-server, SQL-databasserver, Citrix Delivery Controller, StoreFront-server, XenApp Master (VDA), Citrix XenApp-licensservern) till Azure.
 * Förenkla molnmigreringen genom att använda Site Recovery för att migrera din Citrix XenApp och XenDesktop SAP-distribution till Azure.
 * Förenkla Citrix XenApp-/XenDesktop-testningen genom att skapa en produktionslik kopia på begäran för testning och felsökning.
-* Den här lösningen gäller endast för Windows Server-operativsystemens virtuella skrivbord och inte för virtuella klientskrivbord eftersom virtuella klientskrivbord fortfarande inte har stöd för licensiering i Azure. 
+* Den här lösningen gäller endast för Windows Server-operativsystemens virtuella skrivbord och inte för virtuella klientskrivbord eftersom virtuella klientskrivbord fortfarande inte har stöd för licensiering i Azure.
 [Lär dig mer](https://azure.microsoft.com/pricing/licensing-faq/) om licensiering för klient/server-datorer i Azure.
 
-[Lär dig mer](site-recovery-citrix-xenapp-and-xendesktop.md) om att skydda Citrix XenApp- och XenDesktop-distributioner. Alternativt kan du läsa ett [whitepaper från Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) med samma information. 
+[Lär dig mer](site-recovery-citrix-xenapp-and-xendesktop.md) om att skydda Citrix XenApp- och XenDesktop-distributioner. Alternativt kan du läsa ett [whitepaper från Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) med samma information.
 
 ## <a name="next-steps"></a>Nästa steg
-[Kontrollera krav](site-recovery-prereq.md) 
+[Kontrollera krav](site-recovery-prereq.md)
 

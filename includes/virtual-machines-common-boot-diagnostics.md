@@ -1,28 +1,43 @@
+Nu finns stöd för två felsökningsfunktioner i Azure: konsolutdata och skärmbild för Azure Virtual Machines Resource Manager-distributionsmodellen. 
 
-Support for two debugging features is now available in Azure: Console Output and Screenshot support for Azure Virtual Machines Resource Manager deployment model. 
+När du använder en egen avbildning i Azure eller till och med startar en av plattformsavbildningarna, kan det finnas många orsaker till att en virtuell dator övergår i tillståndet Ej startbar. Med de här funktionerna kan du enkelt diagnostisera och återställa virtuella datorer vid startfel.
 
-When bringing your own image to Azure or even booting one of the platform images, there can be many reasons why a Virtual Machine gets into a non-bootable state. These features enable you to easily diagnose and recover your Virtual Machines from boot failures.
+För virtuella Linux-datorer kan du lätt visa utdata från konsolloggen på portalen:
 
-For Linux Virtual Machines, you can easily view the output of your console log from the Portal:
-
-![Azure portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
+![Azure Portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
-However, for both Windows and Linux Virtual Machines, Azure also enables you to see a screenshot of the VM from the hypervisor:
+För både virtuella Windows- och Linux-datorer kan du dock även se en skärmbild av den virtuella datorn från hypervisor-program:
 
-![Error](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
+![Fel](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
-Both of these features are supported for Azure Virtual Machines in all regions. Note, screenshots, and output can take up to 10 minutes to appear in your storage account.
+De här båda funktionerna finns för Azure Virtual Machines i alla regioner. Tänk på att det kan ta upp till 10 minuter innan skärmbilder och utdata visas på lagringskontot.
 
-## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Enable diagnostics on a new virtual machine
-1. When creating a new Virtual Machine from the Preview Portal, select the **Azure Resource Manager** from the deployment model dropdown:
+## <a name="common-boot-errors"></a>Vanliga startfel
+
+- [0xC000000E](https://support.microsoft.com/help/4010129)
+- [0xC000000F](https://support.microsoft.com/help/4010130)
+- [0xC0000011](https://support.microsoft.com/help/4010134)
+- [0xC0000034](https://support.microsoft.com/help/4010140)
+- [0xC0000098](https://support.microsoft.com/help/4010137)
+- [0xC00000BA](https://support.microsoft.com/help/4010136)
+- [0xC000014C](https://support.microsoft.com/help/4010141)
+- [0xC0000221](https://support.microsoft.com/help/4010132)
+- [0xC0000225](https://support.microsoft.com/help/4010138)
+- [0xC0000359](https://support.microsoft.com/help/4010135)
+- [0xC0000605](https://support.microsoft.com/help/4010131)
+- [Inget operativsystem hittades](https://support.microsoft.com/help/4010142)
+- [Startfel eller INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
+
+## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Aktivera diagnostik på en ny virtuell dator
+1. När du skapar en ny virtuell dator från förhandsversionsportalen, väljer du **Azure Resource Manager** från listrutan med distributionsmodeller:
  
     ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
-2. Configure the Monitoring option to select the storage account where you would like to place these diagnostic files.
+2. Konfigurera övervakningsalternativet och välj det lagringskonto där du vill placera de här diagnostikfilerna.
  
-    ![Create VM](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
+    ![Skapa en virtuell dator](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
 
-3. If you are deploying from an Azure Resource Manager template, navigate to your Virtual Machine resource and append the diagnostics profile section. Remember to use the “2015-06-15” API version header.
+3. Om du distribuerar från en Azure Resource Manager-mall går du till den virtuella datorresursen och lägger till diagnostikprofilavsnittet. Kom ihåg att använda API-versionsrubriken 2015-06-15.
 
     ```json
     {
@@ -31,7 +46,7 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
           … 
     ```
 
-4. The diagnostics profile enables you to select the storage account where you want to put these logs.
+4. Via diagnostikprofilen kan du välja det lagringskonto där loggarna ska placeras.
 
     ```json
             "diagnosticsProfile": {
@@ -44,11 +59,11 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
         }
     ```
 
-To deploy a sample Virtual Machine with boot diagnostics enabled, check out our repo here.
+Om du vill distribuera en virtuell exempeldator med aktiverad startdiagnostik, kan du kolla in vår repo här.
 
-## <a name="update-an-existing-virtual-machine"></a>Update an existing virtual machine ##
+## <a name="update-an-existing-virtual-machine"></a>Uppdatera en befintlig virtuell dator ##
 
-To enable boot diagnostics through the Portal, you can also update an existing Virtual Machine through the Portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
+Du kan också uppdatera en befintlig virtuell dator via portalen om du vill aktivera startdiagnostik via portalen. Välj alternativet Startdiagnostik och Spara. Starta om den virtuella datorn så att ändringarna börjar gälla.
 
-![Update Existing VM](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
+![Uppdatera befintlig virtuell dator](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
 

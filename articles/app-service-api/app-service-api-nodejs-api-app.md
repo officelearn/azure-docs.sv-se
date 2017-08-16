@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 49f6a49f3f97841e896ff2d497555c42a1ec8e0d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 806585edd43b9d2d678bfa41523e4d9d40af8cba
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Skapa en Node.js RESTful-API och distribuera den till en API-app i Azure
@@ -64,12 +64,12 @@ Det här avsnittet av kursen visar ett arbetsflöde för API-utveckling där du 
 
 Gå till katalogen för mappen *Start* och kör `yo swaggerize`. Swaggerize skapar ett Node.js-projekt för ditt API från Swagger-definitionen i *api.json*.
 
-    ```bash
-    cd start
-    yo swaggerize --apiPath api.json --framework express
-    ```
+```bash
+cd start
+yo swaggerize --apiPath api.json --framework express
+```
 
-     When Swaggerize asks for a project name, use *ContactList*.
+Använd *ContactList* när du uppmanas ange projektnamn.
    
    ```bash
    Swaggerize Generator

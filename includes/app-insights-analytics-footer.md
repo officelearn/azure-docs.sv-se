@@ -1,17 +1,17 @@
 
-## <a name="analytics"></a>Analytics
-* [Overview](../articles/application-insights/app-insights-analytics.md)
-* [Tour of Analytics](../articles/application-insights/app-insights-analytics-tour.md)
-  * Start here. A tutorial covering the main features.
-* [Queries](../articles/application-insights/app-insights-analytics-reference.md#queries-and-operators)
-  * Use operators such as `where` and `count` to build queries.
-* [Aggregation](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
-  * Used to compute statistics over groups of records
-* [Scalars](../articles/application-insights/app-insights-analytics-reference.md#scalars)
-  * Numbers, strings, and other expressions used to form query parameters.
-* [Using Analytics](../articles/application-insights/app-insights-analytics-using.md)
-  * Using Analytics.
-* [Language Reference](../articles/application-insights/app-insights-analytics-reference.md)
-  * One-page reference.
-* [Troubleshooting](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+## <a name="analytics"></a>Analys
+* [Översikt](../articles/application-insights/app-insights-analytics.md)
+* [Guidad visning av Analytics](../articles/application-insights/app-insights-analytics-tour.md)
+  * Börja här. En självstudiekurs som täcker de viktigaste funktionerna.
+* [Frågor](../articles/application-insights/app-insights-analytics-reference.md)
+  * Använd operatorer som `where` och `count` för att skapa frågor.
+* [Aggregering](../articles/application-insights/app-insights-analytics-reference.md)
+  * Används för att beräkna statistik över grupper av poster
+* [Skalärer](../articles/application-insights/app-insights-analytics-reference.md)
+  * Tal, strängar och andra uttryck som används för att utforma frågeparametrar.
+* [Använda Analytics](../articles/application-insights/app-insights-analytics-using.md)
+  * Använda Analytics.
+* [Språkreferens](../articles/application-insights/app-insights-analytics-reference.md)
+  * Referens på en sida.
+* [Felsökning](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 

@@ -1,4 +1,4 @@
-Azure-molnlösningar bygger på virtuella datorer (emulering av fysisk datormaskinvara), vilket möjliggör flexibel förpackning av programvarudistributioner och bättre resurskonsolidering än med fysisk maskinvara. [Docker](https://www.docker.com)-behållare och docker-ekosystem har på ett dramatiskt sätt utvidgat möjligheterna att utveckla, leverera och hantera distribuerade program. Programkod i en behållare är isolerad från den virtuella värddatorn och andra behållare på samma virtuella dator. Denna isolering ger mer flexibilitet vid utveckling och distribution.
+Azure-molnlösningar bygger på virtuella datorer (emulering av fysisk datormaskinvara), vilket möjliggör flexibel förpackning av programvarudistributioner och bättre resurskonsolidering än med fysisk maskinvara. [Docker](https://www.docker.com)-behållare och docker-ekosystem har på ett dramatiskt sätt ökat möjligheterna att utveckla, leverera och hantera distribuerade program. Programkod i en behållare är isolerad från den virtuella värddatorn och andra behållare på samma virtuella dator. Denna isolering ger mer flexibilitet vid utveckling och distribution.
 
 Azure erbjuder följande Docker-värden:
 
@@ -100,13 +100,13 @@ Det finns flera populära system som kan distribuera hela grupper av virtuella d
 
 Docker har en egen uppsättning verktyg för att skapa virtuella datorer ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) och ett belastningsutjämnande, docker-behållare-klusterhanteringsverktyg ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Dessutom levereras [Azure Docker VM-tillägget](https://github.com/Azure/azure-docker-extension/blob/master/README.md) med standardstöd för [`docker-compose`](https://docs.docker.com/compose/), vilket gör att det blir möjligt att distribuera konfigurerade programbehållare över flera behållare.
 
-Dessutom kan du kan prova [Mesospheres DCOS (Data Center Operating System)](http://docs.mesosphere.com/install/azurecluster/). DCOS baseras på en distribuerad systemkernel, [mesos](http://mesos.apache.org/), med öppen källkod som gör att du kan hantera ditt datacenter som en adresserbar tjänst. DCOS har inbyggda paket för flera viktiga system som [Spark](http://spark.apache.org/) och [Kafka](http://kafka.apache.org/) (och andra) samt inbyggda tjänster, som [Marathon](https://mesosphere.github.io/marathon/) (ett system för behållarkontroll) och [Chronos](https://mesos.github.io/chronos/) (en distribuerad schemaläggare). Mesos har skapats utifrån erfarenheter från Twitter, AirBnb och andra företag med omfattande webbnärvaro. Du kan även använda **swarm** som dirigeringsmotor.
+Dessutom kan du kan prova [Mesospheres DCOS (Data Center Operating System)](http://docs.mesosphere.com). DCOS baseras på en distribuerad systemkernel, [mesos](http://mesos.apache.org/), med öppen källkod som gör att du kan hantera ditt datacenter som en adresserbar tjänst. DCOS har inbyggda paket för flera viktiga system som [Spark](http://spark.apache.org/) och [Kafka](http://kafka.apache.org/) (och andra) samt inbyggda tjänster, som [Marathon](https://mesosphere.github.io/marathon/) (ett system för behållarkontroll) och [Chronos](https://mesos.github.io/chronos/) (en distribuerad schemaläggare). Mesos har skapats utifrån erfarenheter från Twitter, AirBnb och andra företag med omfattande webbnärvaro. Du kan även använda **swarm** som dirigeringsmotor.
 
 [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) är ett system för hantering av virtuella datorer och behållargrupper med öppen källkod som bygger på erfarenheter på Google. Du kan även använda [kubernetes med väv för att tillhandahålla stöd för nätverk](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/) är en öppen PaaS-källkod (Platform-as-a-Service) som gör det enkelt att distribuera och hantera program på egna servrar. Deis bygger på Docker och CoreOS och tillhandahåller en enkel PaaS med ett Heroku-inspirerat arbetsflöde. Du kan enkelt[skapa en virtuell Azure-datorgrupp med tre noder och installera Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) på Azure och sedan [installera ett Hello World Go-program](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.com/) är en öppen PaaS-källkod (Platform-as-a-Service) som gör det enkelt att distribuera och hantera program på egna servrar. Deis bygger på Docker och CoreOS och tillhandahåller en enkel PaaS med ett Heroku-inspirerat arbetsflöde. Du kan enkelt[skapa en virtuell Azure-datorgrupp med tre noder och installera Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) på Azure och sedan [installera ett Hello World Go-program](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), en Linux-distribution med ett optimerat utrymmeskrav, stöd för Docker och ett eget behållarsystem som heter [rkt](https://github.com/coreos/rkt), har också ett hanteringsverktyg för behållargrupper som kallas för [fleet](https://coreos.com/using-coreos/clustering/).
+[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), en Linux-distribution med ett optimerat utrymmeskrav, stöd för Docker och ett eget behållarsystem som heter [rkt](https://github.com/coreos/rkt), har också ett hanteringsverktyg för behållargrupper som kallas för [fleet](https://coreos.com/fleet/docs/latest/).
 
 Ubuntu, en annan mycket populär Linux-distribution, ger bra stöd för Docker, men stöder dessutom [Linux-kluster (LXC-typ)](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -133,7 +133,7 @@ Windows-behållarlänkar:
 
 Visual Studio Docker-länkar:
 
-* [Visual Studio 2015 RC-verktyg för Docker – förhandsversion](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0)
+* [Visual Studio Tools for Docker](https://docs.microsoft.com/en-us/dotnet/core/docker/visual-studio-tools-for-docker)
 
 Docker-verktyg:
 
@@ -161,7 +161,7 @@ Linux-distributioner och Azure-exempel:
 
 Konfiguration, klusterhantering och behållardirigering:
 
-* [Flotta på CoreOS](https://coreos.com/using-coreos/clustering/)
+* [Flotta på CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
 
   * [Skapa en virtuell Azure-datorgrupp med tre noder, installera Deis och starta ett Hello World Go-program](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -171,10 +171,10 @@ Konfiguration, klusterhantering och behållardirigering:
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 * [Mesos](http://mesos.apache.org/)
 
-  * [Mesospheres DCOS (Data Center Operating System)](http://beta-docs.mesosphere.com/install/azurecluster/)
-* [Jenkins](https://jenkins-ci.org/) och [Hudson](http://hudson-ci.org/)
+  * [Mesospheres DCOS (Data Center Operating System)](https://docs.mesosphere.com/1.7/overview/design/azure-container-service/)
+* [Jenkins](https://jenkins.io/) och [Hudson](http://hudson-ci.org/)
 
-  * [Blogg: Det sekundära plugin-programmet Jenkins för Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+  * [Plugin-programmet Jenkins VM Agent för Azure](https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin)
   * [GitHub-repo: Lagringsplugin-programmet Jenkins för Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
   * [Tredje part: Det sekundära plugin-programmet Hudson för Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
   * [Tredje part: Plugin-programmet Hudson för lagring på Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)

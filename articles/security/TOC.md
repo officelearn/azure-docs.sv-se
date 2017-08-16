@@ -3,11 +3,13 @@
 ## [Databassäkerhet](azure-database-security-overview.md)
 ## [Lagringssäkerhet](security-storage-overview.md)
 ## [Compute-säkerhet](security-virtual-machines-overview.md)
+## [Driftsäkerhet](azure-operational-security-overview.md)
 ## [Säkerhetshantering och övervakning](security-management-and-monitoring-overview.md)
+## [Service Fabric-säkerhet](azure-service-fabric-security-overview.md)
 ## [Identitetshantering](security-identity-management-overview.md)
 ## [IoT-säkerhet](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Säkerhetsarkitektur](azure-security-architecture-overview.md)
-### [Driftsäkerhet](azure-operational-security.md)
+### [Aktivera driftsäkerhet](azure-operational-security.md)
 ### [Avancerad hotidentifiering](azure-threat-detection.md)
 ### [Loggning och granskning](azure-log-audit.md)
 ### [Isolering i det offentliga molnet](azure-isolation.md)
@@ -35,7 +37,12 @@
 ### [Metodtips för IaaS-arbetsbelastningar ](azure-security-iaas.md)
 ### [Microsoft-programvara mot skadlig kod](azure-security-antimalware.md)
 ### [Hårddiskkryptering för virtuella IaaS-datorer](azure-security-disk-encryption.md)
+#### [Vanliga frågor om diskkryptering](azure-security-disk-encryption-faq.md)
+#### [Felsökning för diskkryptering](azure-security-disk-encryption-tsg.md)
 ### [Kryptera en virtuell Azure-dator](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+
+## Driftsäkerhet
+### [Metodtips för driftsäkerhet](azure-operational-security-best-practices.md)
 
 ## Säkerhetshantering och övervakning
 ### [Säkerhetshantering](azure-security-management.md)
@@ -47,14 +54,20 @@
 #### [Integrera loggar från Key Vault med Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Vanliga frågor och svar](security-azure-log-integration-faq.md)
 
+## Service Fabric
+### [Metodtips för Service Fabric](azure-service-fabric-security-best-practices.md)
+### [Checklista för Service Fabric](azure-service-fabric-security-checklist.md)
+
 ## Identitetshantering
 ### [Metodtips för identitetshanteringssäkerhet](azure-security-identity-management-best-practices.md)
 
 ## PaaS-tjänster
 ### [Skydda PaaS-distributioner](security-paas-deployments.md)
 #### [Skydda PaaS-program (webb- och mobilprogram) med SQL](security-paas-applications-using-sql.md)
-#### [Metodtips för SQL Database](azure-database-security-best-practices.md)
+#### [Metodtips för SQL Database-säkerhet](azure-database-security-best-practices.md)
+#### [Checklista för SQL Database-säkerhet](azure-database-security-checklist.md)
 #### [Skydda PaaS-program (webb- och mobilprogram) med Apptjänster](security-paas-applications-using-app-services.md)
+####[Checklista för driftsäkerhet](azure-operational-security-checklist.md)
 
 ## Internet of Things
 ### [Skydda distributionen av IoT](../iot-suite/iot-suite-security-deployment.md)
@@ -79,6 +92,7 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure-säkerhet MVP-program](azure-security-mvp.md)
 ## [Cybersäkerhetsrådgivning](azure-security-cyber-services.md)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Säkerhet och efterlevnadsblogg](http://blogs.msdn.com/b/azuresecurity/)
 ## [Säkerhetskurser från Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Säkerhetsvideor på Channel 9](security-channel-nine.md)

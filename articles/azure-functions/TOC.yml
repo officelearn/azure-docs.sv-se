@@ -39,6 +39,8 @@
       href: functions-create-serverless-api.md
 - name: Exempel
   items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
     - name: Azure CLI
       href: functions-cli-samples.md
 - name: Koncept
@@ -107,6 +109,8 @@
           href: functions-bindings-event-hubs.md
         - name: Extern fil
           href: functions-bindings-external-file.md
+        - name: Extern tabell
+          href: functions-bindings-external-table.md
         - name: HTTP och webhooks
           href: functions-bindings-http-webhook.md
         - name: Mobile Apps
@@ -131,8 +135,10 @@
   items:
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/functions/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'
     - name: MSDN-forum

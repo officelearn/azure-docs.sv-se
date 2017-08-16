@@ -96,6 +96,7 @@
 #### [Användare, sessioner, händelser](app-insights-usage-segmentation.md)
 #### [Trattar](usage-funnels.md)
 #### [Kvarhållning](app-insights-usage-retention.md)
+#### [Flöden](app-insights-usage-flows.md)
 #### [Arbetsböcker](app-insights-usage-workbooks.md)
 
 ### Analys

@@ -29,6 +29,7 @@
 ### [Utvärdering av skadlig kod](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Systemuppdateringsbedömning](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Ansluta säkerhetsprodukter](oms-security-connect-products.md)
+### [Utvärdering av webbaslinje](oms-security-web-baseline-assessment.md)
 
 ## Använd lösningar
 ### [Lösningar för hantering](operations-management-suite-solutions.md)
@@ -48,6 +49,7 @@
 ##### [Genomgång](operations-management-suite-walkthrough-servicemap.md)
 ##### [Använd](operations-management-suite-service-map.md)
 ##### [Konfigurera](operations-management-suite-service-map-configure.md)
+##### [Integration med Operations Manager](operations-management-suite-service-map-scom.md)
 #### [SQL-bedömning](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Uppgraderingsanalys](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -77,3 +79,4 @@
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

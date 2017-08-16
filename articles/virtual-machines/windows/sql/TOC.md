@@ -4,7 +4,7 @@
 ## [Vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Kom igång
-## [Etablera en virtuell dator i Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
+## [Etablera en virtuell dator i Azure-portalen](virtual-machines-windows-portal-sql-server-provision.md)
 ## [Etablera en virtuell dator med Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
 ## [Anslut till en VM](virtual-machines-windows-sql-connect.md)
 ## [Migrera en SQL Server-databas](virtual-machines-windows-migrate-sql.md)
@@ -45,6 +45,7 @@
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=compute)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server-verktyg](https://msdn.microsoft.com/library/mt238365.aspx)

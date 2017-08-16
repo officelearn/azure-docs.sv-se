@@ -16,6 +16,7 @@
 ### [Lägga till switch-satser](logic-apps-switch-case.md)
 ### [Lägga till anpassad kod med Azure Functions](logic-apps-azure-functions.md)
 ### [Loopar, omfattningar och datadebatching](logic-apps-loops-and-scopes.md)
+### [Meddelanden om batchbearbetning](logic-apps-batch-process-send-receive-messages.md)
 ### [Skapa Logic App-definitioner](logic-apps-author-definitions.md)
 ### [Anropa, utlösa eller kapsla logikappar](logic-apps-http-endpoint.md)
 ### [Skapa anpassade API:er för logikappar](logic-apps-create-api-app.md)
@@ -64,6 +65,7 @@
 ### [Hantera Logic Apps i Visual Studio](logic-apps-manage-from-vs.md)
 ### [Hantera integrationskonton](logic-apps-enterprise-integration-accounts.md)
 ### [Övervaka status för logikapp](logic-apps-monitor-your-logic-apps.md)
+### [Övervaka logikappstatus i OMS med Log Analytics](logic-apps-monitor-your-logic-apps-oms.md)
 ### [Övervaka B2B-meddelanden](logic-apps-monitor-b2b-message.md)
 #### [Spåra B2B-meddelanden i OMS](logic-apps-track-b2b-messages-omsportal.md)
 #### [Fråga OMS om B2B-meddelanden](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
@@ -140,5 +142,6 @@
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)

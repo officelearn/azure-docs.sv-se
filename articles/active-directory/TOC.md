@@ -3,13 +3,13 @@
 ## [Om Azures identitetshantering](identity-fundamentals.md)
 ## [Förstå Azure-identitetslösningar](understand-azure-identity-solutions.md)
 ## [Välj en hybrididentitetslösning](choose-hybrid-identity-solution.md)
+## [Associera Azure-prenumerationer](active-directory-how-subscriptions-associated-directory.md)
 ## [Vanliga frågor och svar](active-directory-faq.md)
 
 # Kom igång
-## [Hämta en Azure AD-klientorganisation](active-directory-howto-tenant.md)
 ## [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md)
-## [Associera Azure-prenumerationer](active-directory-how-subscriptions-associated-directory.md)
-## [Snabbstart: Självbetjäning för återställning av lösenord](active-directory-passwords-getting-started.md)
+## [Lägga till ett anpassat domännamn](add-custom-domain.md)
+## [Konfigurera lösenordsåterställning via självbetjäning](active-directory-passwords-getting-started.md)
 ## Hantera Azure AD-licensiering
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Klassisk portal](active-directory-licensing-what-is.md)
@@ -19,8 +19,7 @@
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
 #### [PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
-## [Få support för Azure Active Directory](active-directory-troubleshooting-support-howto.md)
-## [Självstudier om SaaS-appintegration](active-directory-saas-tutorial-list.md)
+
 
 # Gör så här för att
 ## Planera och designa
@@ -55,7 +54,6 @@
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
 #### [PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
-
 ### [Lägg till användare från andra kataloger (klassiska portalen)](active-directory-create-users-external.md)
 ### [Ta bort användare](active-directory-users-delete-user-azure-portal.md)
 ### [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
@@ -164,6 +162,7 @@
 ## Hantera appar
 ### [Översikt](active-directory-enable-sso-scenario.md)
 ### [Komma igång](active-directory-integrating-applications-getting-started.md)
+### [Självstudier om SaaS-appintegration](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Uppdatera registerinställningar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Förstå säkerhet och sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -239,11 +238,6 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Egna domännamn
 #### [Översikt](active-directory-add-domain-concepts.md)
-#### Lägg till ditt domännamn
-##### [Azure-portal](active-directory-domains-add-azure-portal.md)
-##### [Klassisk portal](active-directory-add-domain.md)
-##### [Med AD FS](active-directory-add-domain-federated.md)
-#### [Tilldela användare](active-directory-add-domain-add-users.md)
 #### Hantera domännamn
 ##### [Azure-portal](active-directory-domains-manage-azure-portal.md)
 ##### [Klassisk portal](active-directory-add-manage-domain-names.md)
@@ -270,6 +264,7 @@
 #### [Exempel på registreringsportal för självbetjäning](active-directory-b2b-self-service-portal.md)
 #### [E-postinbjudan](active-directory-b2b-invitation-email.md)
 #### [Inlösning av inbjudan](active-directory-b2b-redemption-experience.md)
+#### [Lägga till B2B-användare utan inbjudan](active-directory-b2b-add-user-without-invite.md)
 #### [Villkorlig åtkomst för B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B-delningsprinciper](active-directory-b2b-delegate-invitations.md)
 #### [Lägg till en B2B-användare till en roll](active-directory-b2b-add-guest-to-role.md)
@@ -357,7 +352,8 @@
 ### [Hög tillgänglighet](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Ändra signaturens hashalgoritm](active-directory-federation-sha256-guidance.md)
 
-## [Felsöka](active-directory-troubleshooting.md)
+## [Felsöka](active-directory-troubleshooting-support-howto.md)
+### [Felsöka Active Directory-objekt som saknas eller inte är tillgängligt](active-directory-troubleshooting.md)
 
 ## Distribuera Azure AD PoC (Proof of Concept)
 ### [PoC-strategibok: Introduktion](active-directory-playbook-intro.md)

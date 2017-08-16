@@ -46,6 +46,7 @@
 ### [Loggsökningsportaler](log-analytics-log-search-portals.md)
 #### [Använd loggsökningsportalen](log-analytics-log-search-log-search-portal.md)
 ### [Övergång från äldre språk](log-analytics-log-search-transition.md)
+### [Flödesanslutning](log-analytics-flow-tutorial.md)
 
 ## Analysera data
 ### [Instrumentpaneler](log-analytics-dashboards.md)

@@ -5,7 +5,7 @@
 
 # [Kom igång](iot-hub-get-started.md)
 
-## Konfigurera din enhet
+## Konfigurera enheten
 ### [Simulera en enhet på datorn](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
@@ -17,6 +17,7 @@
 ### [Använda en fysisk enhet](iot-hub-get-started-physical.md)
 #### [Raspberry Pi med Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi med C](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### [Raspberry Pi med Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 
 #### [Intel Edison med Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison med C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -84,6 +85,7 @@
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-getstarted.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java-serverdel/Java-enhet](iot-hub-java-java-twin-getstarted.md)
 ### Använda direkta metoder
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-direct-methods.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-direct-methods.md)
@@ -103,6 +105,7 @@
 ### Schemalägga och sända jobb
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-schedule-jobs.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Hantera
 ### Skapa en IoT Hub 
 #### [Använda portalen](iot-hub-create-through-portal.md)
@@ -150,6 +153,7 @@
 #### [Ursprunglig modulvärd](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (tjänst)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (enheter)](/dotnet/api/microsoft.azure.devices.client)
@@ -180,6 +184,7 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Tekniska fallstudier](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

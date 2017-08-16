@@ -16,6 +16,7 @@
 ### [2- Distribuera ett .NET-program med Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Exempel
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Azure CLI](samples-cli.md)
 # Koncept
@@ -68,6 +69,7 @@
 ##### [DNS-tjänst](service-fabric-dnsservice.md)
 ##### [Omvänd proxy](service-fabric-reverseproxy.md)
 ##### [Konfigurera omvänd proxy för säker kommunikation](service-fabric-reverseproxy-configure-secure-communication.md)
+##### [Diagnostik för omvänd proxy](service-fabric-reverse-proxy-diagnostics.md)
 ### [Skalbarhet för program](service-fabric-concepts-scalability.md)
 ### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
@@ -131,11 +133,11 @@
 ### Skapa en behållartjänst
 #### [Skapa ett program för Windows-behållare](service-fabric-get-started-containers.md)
 #### [Skapa ett program för Linux-behållare](service-fabric-get-started-containers-linux.md)
-#### [Distribuera Windows-behållare](service-fabric-deploy-container.md)
 #### [Distribuera Linux-behållare](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (förhandsversion)](service-fabric-docker-compose.md)
 #### [Resursstyrning för behållare och tjänster](service-fabric-resource-governance.md)
 #### [Drivrutiner för volym och loggning](service-fabric-containers-volume-logging-drivers.md)
+#### [Tjänster i behållare](service-fabric-services-inside-containers.md)
 
 ### Skapa en Reliable Service-tjänst
 #### [Översikt](service-fabric-reliable-services-introduction.md)
@@ -173,10 +175,10 @@
 #### Kom igång
 ##### [C# i Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java i Linux](service-fabric-reliable-actors-get-started-java.md)
-#### [Skicka aviseringar](service-fabric-reliable-actors-events.md) 
+#### [Skicka aviseringar](service-fabric-reliable-actors-events.md)
 #### [Ställ in timrar och påminnelser](service-fabric-reliable-actors-timers-reminders.md)
 #### [Konfigurera KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [Konfigurera kommunikationsinställningar](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [Konfigurera kommunikationsinställningar](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Konfigurera ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ### [Konfigurera omvänd proxy för säker kommunikation](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -240,17 +242,17 @@
 
 ## Skapa och hantera kluster
 ### Kluster i Azure
-#### Skapa 
+#### Skapa
 ##### [Skapa ditt första kluster på Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-#### Skala 
+#### Skala
 ##### [Manuellt](service-fabric-cluster-scale-up-down.md)
 ##### [Programmässigt](service-fabric-cluster-programmatic-scaling.md)
 #### [Uppgradera](service-fabric-cluster-upgrade.md)
 #### [Ange åtkomstkontroll](service-fabric-cluster-security-roles.md)
 #### [Konfigurera](service-fabric-cluster-fabric-settings.md)
-#### [Hantera klustercertifikat](service-fabric-cluster-security-update-certs-azure.md) 
+#### [Hantera klustercertifikat](service-fabric-cluster-security-update-certs-azure.md)
 #### [Ta bort](service-fabric-cluster-delete.md)
 
 ### Fristående kluster
@@ -264,7 +266,7 @@
 #### [Skalning](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Ange åtkomstkontroll](service-fabric-cluster-security-roles.md)
 #### [Konfigurera](service-fabric-cluster-manifest.md)
-#### [Uppgradera](service-fabric-cluster-upgrade-windows-server.md) 
+#### [Uppgradera](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Visualisera ett kluster](service-fabric-visualizing-your-cluster.md)
 ### [Ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md)
@@ -328,8 +330,8 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Exempelkod](http://aka.ms/servicefabricsamples)
 ## [Supportalternativ](service-fabric-support.md)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-

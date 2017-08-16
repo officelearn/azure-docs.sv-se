@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Webbtabell](data-factory-web-table-connector.md)
-### [Gateway för datahantering](data-factory-data-management-gateway.md)
+### Gateway för datahantering
+#### [Översikt](data-factory-data-management-gateway.md)
+#### [Hög tillgänglighet och skalbarhet (förhandsversion)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [Genomgång: Flytta data från en lokal SQL Server till Azure Blob Storage](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Omvandla data](data-factory-data-transformation-activities.md)
@@ -93,6 +96,7 @@
 ### [Felsöka problem med gateway för datahantering](data-factory-troubleshoot-gateway-issues.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
 ## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
@@ -104,6 +108,7 @@
 ## [Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Viktig information för gateway för datahantering](data-factory-gateway-release-notes.md)
 ## [Begär en funktion](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=data-factory)

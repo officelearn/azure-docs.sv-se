@@ -39,6 +39,7 @@
 ### [Strömma aktivitetsloggen till Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Granska driften med Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Skapa aviseringar för aktivitetsloggen med Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+### [Migrera till aktivitetsloggsaviseringar](monitoring-migrate-management-alerts.md)
 ## Använda tjänstmeddelanden
 ### [Visa tjänstmeddelanden](monitoring-service-notifications.md)
 ### [Konfigurera aviseringar för tjänstmeddelanden](monitoring-activity-log-alerts-on-service-notifications.md)
@@ -59,6 +60,7 @@
 ### [Felsökning](azure-diagnostics-troubleshooting.md)
 
 # Referens
+## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [Källor för övervakningsdata](monitoring-data-sources.md)
 ## [Lista över mått som stöds](monitoring-supported-metrics.md)
 ## [Händelseschema för aktivitetslogg](monitoring-activity-log-schema.md)
@@ -74,5 +76,6 @@
 ## [Azure CLI 1.0-exempel](insights-cli-samples.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell-exempel](insights-powershell-samples.md)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Snabbstartsmallar](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

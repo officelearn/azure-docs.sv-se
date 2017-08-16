@@ -59,7 +59,7 @@
       href: sql-database-powershell-samples.md
 - name: Koncept
   items:
-    - name: Servrar och databaser
+    - name: Tjänstfunktioner
       items:
         - name: Översikt
           href: sql-database-servers-databases.md
@@ -69,6 +69,8 @@
           href: sql-database-elastic-pool.md
         - name: Anslutningsarkitektur
           href: sql-database-connectivity-architecture.md
+        - name: Brandväggsregler
+          href: sql-database-firewall-configure.md
         - name: 'DTU:er och eDTU:er'
           href: sql-database-what-is-a-dtu.md
         - name: DTU-benchmark
@@ -77,7 +79,25 @@
           href: sql-database-resource-limits.md
         - name: PaaS eller IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Funktioner
+        - name: Granskning
+          href: sql-database-auditing.md
+        - name: Hotidentifiering
+          href: sql-database-threat-detection.md
+        - name: Säkerhetskopior av databasen
+          href: sql-database-automated-backups.md
+        - name: Kvarhållning av säkerhetskopior
+          href: sql-database-long-term-retention.md
+        - name: Redundansgrupper
+          href: sql-database-geo-replication-overview.md
+        - name: Elastiskt klientbibliotek
+          href: sql-database-elastic-database-client-library.md
+        - name: Elastiska frågor
+          href: sql-database-elastic-query-overview.md
+        - name: Elastiska transaktioner
+          href: sql-database-elastic-transactions-overview.md
+        - name: Elastiska jobb
+          href: sql-database-elastic-jobs-overview.md
+        - name: Vanliga funktioner i SQL Server
           href: sql-database-features.md
     - name: Säkerhet
       items:
@@ -85,34 +105,22 @@
           href: sql-database-security-overview.md
         - name: Åtkomstkontroll
           href: sql-database-control-access.md
-        - name: Brandväggsregler
-          href: sql-database-firewall-configure.md
         - name: Azure AD
           href: sql-database-aad-authentication.md
         - name: Inloggningar och användare
           href: sql-database-manage-logins.md
         - name: Multifaktorautentisering
           href: sql-database-ssms-mfa-authentication.md
-        - name: Granskning
-          href: sql-database-auditing.md
         - name: Tabellgranskning och TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Hotidentifiering
-          href: sql-database-threat-detection.md
         - name: Datamaskning
           href: sql-database-dynamic-data-masking-get-started.md
     - name: Verksamhetskontinuitet
       items:
         - name: Översikt
           href: sql-database-business-continuity.md
-        - name: Säkerhetskopior av databasen
-          href: sql-database-automated-backups.md
-        - name: Kvarhållning av säkerhetskopior
-          href: sql-database-long-term-retention.md
         - name: Återställning av databaser
           href: sql-database-recovery-using-backups.md
-        - name: Redundansgrupper
-          href: sql-database-geo-replication-overview.md
         - name: Konfigurera säkerhet
           href: sql-database-geo-replication-security-config.md
         - name: Appdesign och återställning
@@ -159,16 +167,10 @@
           href: sql-database-compatibility-level-query-performance-130.md
         - name: Övervaka minnesintern
           href: sql-database-in-memory-oltp-monitoring.md
-    - name: Skala ut appar
+    - name: Skala ut
       items:
         - name: Översikt
           href: sql-database-elastic-scale-introduction.md
-        - name: SaaS-designmönster
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-        - name: Säkerhet för SaaS-app
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-        - name: Elastiskt klientbibliotek
-          href: sql-database-elastic-database-client-library.md
         - name: Shardkartor
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routning för frågor
@@ -185,16 +187,12 @@
           href: sql-database-elastic-scale-working-with-dapper.md
         - name: Vanliga frågor och svar om elastiska verktyg
           href: sql-database-elastic-scale-faq.md
-        - name: Elastiska frågor
-          href: sql-database-elastic-query-overview.md
-        - name: Vågräta data
-          href: sql-database-elastic-query-horizontal-partitioning.md
-        - name: Lodräta data
-          href: sql-database-elastic-query-vertical-partitioning.md
-        - name: Transaktioner
-          href: sql-database-elastic-transactions-overview.md
-        - name: Elastiska jobb
-          href: sql-database-elastic-jobs-overview.md
+    - name: SaaS med flera klientorganisationer
+      items:
+        - name: SaaS-designmönster
+          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+        - name: Säkerhet för SaaS-app
+          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: Utveckla databaser
       items:
         - name: JSON-data
@@ -225,6 +223,26 @@
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Instruktionsguider
   items:
+    - name: Tjänstfunktioner
+      items:
+        - name: Uppgradera klientbibliotek för elastiska databaser
+          href: sql-database-elastic-scale-upgrade-client-library.md
+        - name: Installera elastiska jobb
+          href: sql-database-elastic-jobs-service-installation.md
+        - name: Skapa jobb – Portal
+          href: sql-database-elastic-jobs-create-and-manage.md
+        - name: Skapa jobb – PowerShell
+          href: sql-database-elastic-jobs-powershell.md
+        - name: Skapa jobb – Exempelapp
+          href: sql-database-elastic-jobs-getting-started.md
+        - name: Avinstallera elastiskt jobb
+          href: sql-database-elastic-jobs-uninstall.md
+        - name: Fråga lodrätt partitionerade data
+          href: sql-database-elastic-query-getting-started-vertical.md
+        - name: Rapportera över utskalad datanivå
+          href: sql-database-elastic-query-horizontal-partitioning.md
+        - name: Fråga mellan tabeller med olika scheman
+          href: sql-database-elastic-query-vertical-partitioning.md
     - name: Säkerhet
       items:
         - name: Konfigurera Azure AD-autentisering
@@ -285,10 +303,12 @@
           href: sql-database-manage-automation.md
         - name: Azure RemoteApp
           href: sql-database-ssms-remoteapp.md
-    - name: Skala ut appar
+    - name: Skala ut
       items:
         - name: Skapa shardad app
           href: sql-database-elastic-scale-get-started.md
+        - name: Fråga vågrätt shardade data
+          href: sql-database-elastic-query-getting-started.md
         - name: Flytta shardade data
           href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
         - name: Säkerhetskonfiguration
@@ -303,24 +323,26 @@
           href: sql-database-elastic-database-perf-counters.md
         - name: Använda Entity Framework
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-        - name: Uppgradera klienter
-          href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Installera elastiska jobb
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Skapa jobb – Portal
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Skapa jobb – PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Skapa jobb – Exempelapp
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Avinstallera elastiskt jobb
-          href: sql-database-elastic-jobs-uninstall.md
-        - name: Fråga vågräta data
-          href: sql-database-elastic-query-getting-started.md
-        - name: Fråga lodräta data
-          href: sql-database-elastic-query-getting-started-vertical.md
-        - name: Självstudie för SaaS-app
+    - name: SaaS med flera klientorganisationer
+      items:
+        - name: Introduktion till självstudiekurs
           href: sql-database-wtp-overview.md
+        - name: Distribuera exempelapp
+          href: sql-database-saas-tutorial.md
+        - name: Etablera klienter
+          href: sql-database-saas-tutorial-provision-and-catalog.md
+        - name: Övervaka databasprestanda
+          href: sql-database-saas-tutorial-performance-monitoring.md
+        - name: Övervaka med logganalys
+          href: sql-database-saas-tutorial-log-analytics.md
+        - name: Återställa en enskild klientorganisation
+          href: sql-database-saas-tutorial-restore-single-tenant.md
+        - name: Hantera klientorganisationsschema
+          href: sql-database-saas-tutorial-schema-management.md
+        - name: Köra ad hoc-frågor
+          href: sql-database-saas-tutorial-adhoc-analytics.md
+        - name: ETL för analys
+          href: sql-database-saas-tutorial-tenant-analytics.md
     - name: Utveckla appar
       items:
         - name: C och C ++

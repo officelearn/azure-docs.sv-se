@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: dd405eefbd69e1ed2268152017bc1f9992619c5f
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="getting-started"> </a>Vad är Mobile Apps?
-Azure Apptjänst är en helt hanterad [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (Paas) för professionella utvecklare med ett stort utbud av funktioner för webb-, mobil- och integrationsscenarier. *Mobilappar* i *Azure Apptjänst* är en mycket skalbar, globalt tillgänglig plattform för mobilappsutveckling tänkt att användas av utvecklare av företagsprogram och systemintegrerare. Den ger mobilutvecklare tillgång till ett stort utbud av funktioner.
+Azure App Service är en fullständigt hanterad [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) för professionella utvecklare och innehåller ett stort utbud av funktioner för webb-, mobil- och integreringsscenarier. *Mobile Apps* i *Azure Apptjänst* är en mycket skalbar, globalt tillgänglig plattform för mobilappsutveckling tänkt att användas av utvecklare av företagsprogram och systemintegrerare. Den ger mobilutvecklare tillgång till ett stort utbud av funktioner.
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
@@ -37,10 +37,10 @@ Azure Apptjänst är en helt hanterad [plattform som en tjänst](https://azure.m
 ## <a name="mobile-app-features"></a>Funktioner i Mobilappar
 Följande funktioner är viktiga för molnkompatibel mobilutveckling:
 
-* **Autentisering och auktorisering** –  Du kan välja mellan ett ständigt växande antal identitetsleverantörer, inklusive Azure Active Directory för företagsautentisering, och även leverantörer via sociala nätverk såsom Facebook, Google, Twitter eller Microsoftkonto.  Med Azure Mobile Apps möjliggörs en OAuth 2.0-tjänst för varje leverantör.  Du kan även integrera SDK:n för identitetsleverantören för leverantörsspecifika funktioner.
+* **Autentisering och auktorisering** – Du kan välja mellan ett ständigt växande antal identitetsprovidrar, inklusive Azure Active Directory för företagsautentisering, och även leverantörer via sociala nätverk som Facebook, Google, Twitter eller Microsoftkonto.  Med Azure Mobile Apps möjliggörs en OAuth 2.0-tjänst för varje leverantör.  Du kan även integrera SDK:n för identitetsprovidern för leverantörsspecifika funktioner.
 
   Läs mer om våra [autentiseringsfunktioner].
-* **Dataåtkomst** – Azure Mobile Apps erbjuder en mobilvänlig OData v3-datakälla kopplad till SQL Azure eller en lokal SQL Server.  Den här tjänsten kan byggas på Entity Framework, så att du lätt kan integrera med andra NoSQL- och SQL-dataleverantörer, inklusive [Azure Table Storage], MongoDB, [DocumentDB] och SaaS-API-leverantörer såsom Office 365 och Salesforce.com.
+* **Dataåtkomst** – Azure Mobile Apps erbjuder en mobilvänlig OData v3-datakälla kopplad till SQL Azure eller en lokal SQL Server.  Den här tjänsten kan byggas på Entity Framework, så att du lätt kan integrera med andra NoSQL- och SQL-dataleverantörer, inklusive [Azure Table Storage], MongoDB, [DocumentDB] och SaaS-API-leverantörer som Office 365 och Salesforce.com.
 * **Synkronisering offline** – Med våra klient-SDK:er är det lätt att bygga robusta och snabba mobilappar som fungerar med offlinedata som kan synkroniseras med serverdata automatiskt, även med stöd för konfliktlösning.
 
   Läs mer om våra [datafunktioner].
@@ -50,7 +50,7 @@ Följande funktioner är viktiga för molnkompatibel mobilutveckling:
 * **Klient-SDK:er** – Vi erbjuder en komplett uppsättning klient-SDK:er för utveckling av plattformsspecifika appar ([iOS], [Android] och [Windows]), plattformsoberoende appar ([Xamarin för iOS och Android], [Xamarin Forms]) och hybridappar ([Apache Cordova]).  Alla klient-SDK:er fås med MIT-licens och har öppen källkod.
 
 ## <a name="azure-app-service-features"></a>Funktioner i Azure Apptjänst
-Följande plattformsfunktioner brukar vara användbara i produktionsmiljöer för mobilappar:
+Följande plattformsfunktioner är användbara i produktionsmiljöer för mobilappar.
 
 * **Automatisk skalning** – Med Apptjänst kan du snabbt skala upp eller ut för att hantera inkommande kundbelastning. Du kan manuellt välja antal och storleken på virtuella datorer eller ställa in automatisk skalning av mobilappsservern utifrån belastning eller schema.
 
@@ -73,11 +73,6 @@ Du kommer enkelt igång med Mobile Apps genom att gå igenom kursen [Kom igång]
 
 Mer information om Azure Mobile Apps finns i vår [utbildningsväg].
 Mer information om Azure Apptjänst-plattformen finns på [Azure Apptjänst].
-
-> [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/mobile/). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
->
->
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md

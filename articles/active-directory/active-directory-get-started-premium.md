@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med Azure Active Directory Premium"
-description: "Här förklaras hur du registrerar dig för Azure Active Directory Premium-versionen via webbplatsen för volymlicensiering."
+title: "Registrera dig för Azure Active Directory Premium"
+description: "Här förklaras hur du registrerar dig för Azure Active Directory Premium-versionen."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,44 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/24/2017
+ms.date: 08/09/2017
 ms.author: curtand
-ms.custom: oldportal;it-pro;
+ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/10/2017
 
 ---
-# <a name="getting-started-with-azure-active-directory-premium"></a>Komma igång med Azure Active Directory Premium
-Den här artikeln beskriver hur du kommer igång med Azure Active Directory Premium som du har köpt genom volymlicensieringsprogrammet. Om du inte känner till de olika versionerna av Azure Active Directory läser du avsnittet [Azure Active Directory-versioner](active-directory-editions.md).  
+# <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Snabbstart: Registrera dig för Azure Active Directory Premium
+Du kommer igång med Azure Active Directory (Azure AD) Premium genom att först köpa licenser och koppla dem till din Azure-prenumeration. Om du skapar en ny Azure-prenumeration måste du även aktivera din licensieringsplan och åtkomst till Azure AD-tjänsten enligt beskrivningen i följande avsnitt. 
 
-> [!IMPORTANT]
-> Microsoft rekommenderar att du hanterar Azure AD via [Azure AD administratörscenter](https://aad.portal.azure.com) på Azure Portal istället för via den klassiska Azure-portalen som nämns i den här artikeln. 
-
+## <a name="sign-up-for-active-directory-premium"></a>Registrera dig för Active Directory Premium
 Om du vill registrera dig för Active Directory Premium kan du välja mellan flera alternativ: 
 
-**Azure eller Office 365** – Som prenumerant på Azure eller Office 365 kan du köpa Active Directory Premium online. Detaljerade anvisningar finns i [Köpa Azure Active Directory Premium – befintliga kunder](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) eller [Köpa Azure Active Directory Premium – nya kunder](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
+### <a name="azure-or-office-365"></a>Azure eller Office 365 
+Som prenumerant på Azure eller Office 365 kan du köpa Azure Active Directory Premium online. 
 
-**Enterprise Mobility + Security** – Enterprise Mobility + Security (tidigare Enterprise Mobility Suite) är ett kostnadseffektivt sätt för organisationer att använda följande tjänster tillsammans i samma licensieringsplan: Active Directory Premium, Azure Rights Management och Microsoft Intune. Mer information finns på webbplatsen för [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Om du vill skaffa en kostnadsfri 30-dagars utvärderingsversion klickar du [här](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
+Detaljerade anvisningar finns i [Köpa Azure Active Directory Premium – befintliga kunder](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) eller [Köpa Azure Active Directory Premium – nya kunder](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
 
-**Microsoft Volymlicensiering** –Azure Active Directory Premium är tillgängligt genom ett [Microsoft Enterprise-avtal](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 eller fler licenser) eller genom [Open Volume-licensprogrammet](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenser).
+### <a name="enterprise-mobility--security"></a>Enterprise Mobility + Security
+Enterprise Mobility + Security (EMS) är ett kostnadseffektivt sätt för organisationer att använda följande tjänster tillsammans i samma licensieringsplan: Azure Active Directory Premium, Azure Information Protection och Microsoft Intune. Läs mer om EMS på webbplatsen för [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security) och mer om vilka EMS-licenstyper som finns att köpa på sidan [Priser på Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).  
+
+Kom igång med Azure AD via EMS-licenser med något av följande licensieringsalternativ:
+
+- Testa EMS med en kostnadsfri [Enterprise Mobility + Security E5-utvärderingsversion](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
+- Köp [Enterprise Mobility + Security E5-licenser](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
+- Köp [Enterprise Mobility + Security E3-licenser](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
+
+### <a name="microsoft-volume-licensing"></a>Microsoft-volymlicensiering
+Azure Active Directory Premium är tillgängligt genom ett [Microsoft Enterprise-avtal](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 eller fler licenser) eller genom [Open Volume-licensprogrammet](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenser).
+
+Läs mer om att alternativ för köp via volymlicensiering på sidan [How to purchase through Volume Licensing](https://www.microsoft.com/licensing/how-to-buy/how-to-buy.aspx) (Så här köper du via volymlicensieringsprogram).
 
 > [!NOTE]
 > Azure Active Directory Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure Active Directory Premium och Basic stöds inte för närvarande i Microsoft Azure-tjänsten som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
 > 
 > 
 
-## <a name="step-1-sign-up-for-active-directory-premium"></a>Steg 1: Registrera dig för Active Directory Premium
-Om du vill registrera dig läser du [Köpa genom volymlicensiering](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
+Om du tidigare har köpt och aktiverat Azure AD-licenser för samma Azure-prenumeration som du använde i föregående steg, aktiveras licenserna automatiskt i samma katalog. Och du behöver inte fortsätta med stegen som beskrivs i resten av den här artikeln.
 
-## <a name="step-2-activate-your-license-plan"></a>Steg 2: Aktivera din licensplan
-Är det här den första licensplanen som du köper genom volymlicensieringprogrammet från Microsoft?
-I så fall får du ett bekräftelsemeddelande via e-post när köpet är klart.
-Du behöver det här e-postmeddelandet för att kunna aktivera din första licensplan.
-
-Vid eventuella efterföljande köp för den här katalogen aktiveras licenserna automatiskt i samma katalog.
+## <a name="activate-your-license-plan"></a>Aktivera din licensplan
+Är det här den första Azure AD-licensplan som du köpt från Microsoft? I så fall skickas ett bekräftelsemejl till dig när köpet har slutförts. Du behöver det här e-postmeddelandet för att kunna aktivera din första licensplan.
 
 **Du aktiverar din licensplan genom att utföra något av följande steg:**
 
@@ -56,77 +62,42 @@ Vid eventuella efterföljande köp för den här katalogen aktiveras licenserna 
    
     ![Logga in][1]
 
-    - Om du har en befintlig klient klickar du på **Logga in** för att logga in med ditt befintliga administratörskonto. Du måste logga in med de globala autentiseringsuppgifterna från den katalog där licenserna ska aktiveras.
+    - Om du har en befintlig klient klickar du på **Logga in** för att logga in med ditt befintliga administratörskonto. Logga in med autentiseringsuppgifterna för global administratör från den katalog där licenserna ska aktiveras.
 
-    - Om du vill skapa en ny Azure Active Directory-klient och använda den med din licensieringsplan klickar du på **Registrera dig** för att öppna dialogrutan **Skapa kontoprofil**.
+    - Om du vill skapa en ny Azure AD-klientorganisation och använda den med licensplanen klickar du på **Registrera** så att dialogrutan **Skapa kontoprofil** öppnas.
 
         ![Skapa kontoprofil][2]
 
-När du är klar visas följande dialogruta som en bekräftelse på aktiveringen av licensplanen för din klient.
+När du är klar visas följande dialogruta som en bekräftelse på aktiveringen av licensplanen för klientorganisationen:
 
 ![Bekräftelse][3]
 
-## <a name="step-3-activate-your-azure-active-directory-access"></a>Steg 3: Aktivera din åtkomst till Azure Active Directory
-Om du har använt Microsoft Azure förut kan du gå vidare till [Steg 4](#step-4-assign-license-to-user-accounts). 
+## <a name="activate-your-azure-active-directory-access"></a>Aktivera din åtkomst till Azure Active Directory
+Om du lägger till nya Azure AD Premium-licenser i en befintlig prenumeration, är din Azure AD-åtkomst förmodligen redan aktiverad. Annars måste du aktivera Azure AD-åtkomst när du har fått **välkomstmeddelandet**.  
 
-När licenserna har etablerats i din katalog skickas ett **välkomstmeddelande** till din e-postadresss. E-postmeddelandet bekräftar att du kan börja hantera dina licenser och funktioner för Azure Active Directory Premium eller Enterprise Mobility Suite. 
+När de köpta licenserna har installerats i din katalog skickas ett **välkomstmejl** till dig. E-postmeddelandet bekräftar att du kan börja hantera dina licenser och funktioner för Azure Active Directory Premium eller Enterprise Mobility + Security. 
 
-Om du försöker aktivera din åtkomst till Azure Active Directory innan du får välkomstmeddelandet visas följande felmeddelande. 
+> [!TIP]
+> Du har inte åtkomst till Azure AD för den nya klientorganisationen förrän du har aktiverat Azure AD-katalogåtkomst via det välkomstmejl som skickas ut automatiskt när licensinstallationen är klar. 
 
-![Åtkomst är inte tillgängligt][9]
-
-Försök igen om några minuter när du har fått e-postmeddelandet.
-
-Nya administratörer i din prenumeration kan också aktivera sin åtkomst till den klassiska Azure-portalen via den här länken.
-
-**Utför följande steg för att aktivera din åtkomst till Azure Active Directory:**
+**Gör så här för aktivera åtkomst till Azure AD:**
 
 1. Klicka på **Logga In** i **välkomstmeddelandet**. 
    
     ![Välkomstmeddelande][4]
-2. När du har loggat in måste du utföra en tvåfaktorsautentisering i form av en mobil verifiering:
+2. Efter inloggningen måste du också göra en andra autentisering med hjälp av en mobil enhet:
    
     ![Mobil verifiering][5]
 
-Aktiveringen kan ta några minuter. När din åtkomst har aktiverats försvinner det bruna fältet och du kan klicka på **Portal**.
+Aktiveringen tar bara några minuter och ger dig åtkomst till att hantera Azure AD. 
 
-![Vänta medan vi konfigurerar inställningarna][6]
+## <a name="next-steps"></a>Nästa steg
+I den här snabbstarten har du lärt dig hur du registrerar dig för Azure AD Premium och aktiverar åtkomst till Azure Active Directory. 
 
-I detta fall är din Azure-åtkomst begränsad till Azure Active Directory.
+Om du redan har en Azure-prenumeration kan du använda följande länk för att starta en utvärderingsversion eller köpa Azure AD Premium-licenser från Azure Portal.
 
-![Azure-funktioner][7]
-
-Du kanske redan har haft tillgång till Azure från tidigare användning. Du kan också uppgradera din Azure Active Directory till fullständig Azure-åtkomst genom att aktivera ytterligare Azure-prenumerationer. I dessa fall har den klassiska Azure-portalen fler funktioner.
-
-![Azure-funktioner][8]
-
-## <a name="step-4-assign-license-to-user-accounts"></a>Steg 4: Tilldela användarkonton licenser
-Innan du kan börja använda planen som du har köpt måste du manuellt tilldela licenser till användarkonton i organisationen så att de kan använda de omfattande funktioner som tillhandahålls med Premium. Utför följande steg för att tilldela licenser till användare så att de kan använda Azure Active Directory Premium-funktioner.
-
-**Utför följande steg för att tilldela licenser till användare:**
-
-1. Logga in på den klassiska Azure-portalen som global administratör för den katalog som du vill anpassa.
-2. Klicka på **Active Directory** och välj sedan den katalog där du vill tilldela licenser.
-3. Välj fliken **Licenser**, välj **Active Directory Premium** eller **Enterprise Mobility Suite** och klicka sedan på **Tilldela**.
-   
-    ![Licensplaner][10]
-4. I dialogrutan väljer du de användare som du vill tilldela licenser till och klickar sedan på bockmarkeringen för att spara ändringarna.
-   
-    ![Tilldela licenser][11]
-
-### <a name="license-restrictions"></a>Licensbegränsningar
-Vissa licensplaner är underordnade eller överordnade uppsättningar av andra licensplaner. Normalt kan användare inte tilldelas en licensplan som de redan har tilldelats. Om du vill tilldela en överordnad licensplan måste du först ta bort den underordnade licensplanen.
-
-### <a name="license-requirements"></a>Licenskrav
-När du tilldelar en licens till en användare kan du ange en primär användningsplats i egenskaperna för användarens konto. Om ingen användningsplats anges tilldelas användaren automatiskt klientens plats.
-
-![Användarplats][12]
-
-Tillgängligheten av tjänster och funktioner för en Microsoft-molntjänst varierar beroende på land eller region. En tjänst, till exempel VoIP (Voice over Internet Protocol), kan vara tillgänglig i ett land eller en region men inte i en annan. Funktioner i en tjänst kan vara begränsade av juridiska skäl i vissa länder eller regioner. Leta upp ditt land eller din region på webbplatsen för licensbegränsningar för en tjänst om du vill veta om en tjänst är tillgänglig med eller utan begränsningar.
-
-## <a name="whats-next"></a>Nästa steg
-* [Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag](active-directory-add-company-branding.md)
-* [Visa åtkomst- och användningsrapporterna](active-directory-view-access-usage-reports.md)
+> [!div class="nextstepaction"]
+> [Aktivera Azure AD Premium-licenser](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/TryBuyProductBlade) 
 
 <!--Image references-->
 [1]: ./media/active-directory-get-started-premium/MOLSEmail.png
@@ -141,4 +112,3 @@ Tillgängligheten av tjänster och funktioner för en Microsoft-molntjänst vari
 [10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrera nätverkstrafik med nätverkssäkerhetsgrupper
@@ -50,7 +49,7 @@ NSG-regler har följande egenskaper:
 | --- | --- | --- | --- |
 | **Namn** |Regelns namn. |Måste vara unikt i regionen.<br/>Kan innehålla bokstäver, siffror, understreck, punkter och bindestreck.<br/>Måste börja med en bokstav eller en siffra.<br/>Måste sluta med en bokstav, en siffra eller understreck.<br/>Får inte vara längre än 80 tecken. |Eftersom du kan ha flera regler i en nätverkssäkerhetsgrupp är det bra om du följer en namngivningskonvention som gör det lätt att identifiera regelns funktion. |
 | **Protokoll** |Protokoll att matcha för regeln. |TCP, UDP eller * |Användningen av * som protokoll innefattar ICMP (enbart öst-väst-trafik), samt UDP och TCP, och kan minska antalet regler som du behöver.<br/>Användningen av * kan dock bli för bred, och därför rekommenderar vi endast att du använder * om det verkligen behövs. |
-| **Källportintervall** |Källportintervall att matcha för regeln. |Enskilda portnummer mellan 1 och 65535, portintervall (exempel: 1-65635) eller * (för alla portar). |Källportar kan vara tillfälliga. Såvida inte klientprogrammet använder en viss port bör du använda * i de flesta fall.<br/>Försök att använda portintervall i så stor utsträckning som möjligt för att undvika att använda flera regler.<br/>Flera portar eller portintervall kan inte grupperas med kommatecken. |
+| **Källportintervall** |Källportintervall att matcha för regeln. |Enskilda portnummer mellan 1 och 65535, portintervall (exempel: 1-65535) eller * (för alla portar). |Källportar kan vara tillfälliga. Såvida inte klientprogrammet använder en viss port bör du använda * i de flesta fall.<br/>Försök att använda portintervall i så stor utsträckning som möjligt för att undvika att använda flera regler.<br/>Flera portar eller portintervall kan inte grupperas med kommatecken. |
 | **Målportintervall** |Målportintervall att matcha för regeln. |Enskilda portnummer mellan 1 och 65535, portintervall (exempel: 1-65535) eller \* (för alla portar). |Försök att använda portintervall i så stor utsträckning som möjligt för att undvika att använda flera regler.<br/>Flera portar eller portintervall kan inte grupperas med kommatecken. |
 | **Källadress-prefix** |Källadressprefix eller tagg att matcha för regeln. |Enskild IP-adress (exempel: 10.10.10.10), IP-undernät (exempel: 192.168.1.0/24), [standardtagg](#default-tags) eller * (för alla adresser). |Överväg att använda intervall, standardtaggar och * för att minska antalet regler. |
 | **Måladress-prefix** |Måladressprefix eller tagg att matcha för regeln. | Enskild IP-adress (exempel: 10.10.10.10), IP-undernät (exempel: 192.168.1.0/24), [standardtagg](#default-tags) eller * (för alla adresser). |Överväg att använda intervall, standardtaggar och * för att minska antalet regler. |

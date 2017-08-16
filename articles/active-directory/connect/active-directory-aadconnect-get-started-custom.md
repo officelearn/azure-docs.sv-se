@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
@@ -278,6 +278,9 @@ AD FS-tjänsten kräver ett domäntjänstkonto för att autentisera användare o
 * **Domänanvändarkonto** – Den här typen av konto kräver att du anger ett lösenord och regelbundet uppdaterar lösenordet när lösenordet ändras eller upphör att gälla. Använd bara det här alternativet om du inte har Windows Server 2012-domänkontrollanter i den domän som AD FS-servrarna tillhör.
 
 Om du har valt Grupphanterat tjänstkonto och funktionen aldrig har använts i Active Directory uppmanas du att ange autentiseringsuppgifter som företagsadministratör. Dessa autentiseringsuppgifter används för att initiera nyckelarkivet och aktivera funktionen i Active Directory.
+
+> [!NOTE]
+> Azure AD Connect kontrollerar om AD FS-tjänsten redan har registrerats som ett SPN i domänen.  Det går inte att registrera dubbla SPN samtidigt i AD DS.  Om ett dubblett-SPN hittas kan du inte fortsätta förrän namnet har tagits bort.
 
 ![AD FS-tjänstkonto](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 

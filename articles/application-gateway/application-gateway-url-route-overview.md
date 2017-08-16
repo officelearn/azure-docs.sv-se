@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 4b649379ce41a4d6cea93b42fc492fdc0940e689
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
@@ -33,7 +32,10 @@ I följande exempel servar Application Gateway trafik åt contoso.com från tre 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
 Begäranden för http://contoso.com/video* dirigeras till VideoServerPool och http://contoso.com/images* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
-    
+
+> [!IMPORTANT]
+> Regler bearbetas i den ordning de visas i portalen. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.
+
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap-konfigurationselementet
 
 UrlPathMap-elementet används för att ange sökvägsmönster till mappningar för serverdelen och serverpoolen. Följande kodexempel är utdrag av urlPathMap-element från mallfilen.
@@ -68,7 +70,7 @@ UrlPathMap-elementet används för att ange sökvägsmönster till mappningar f�
 ```
 
 > [!NOTE]
-> PathPattern: Den här inställningen är en lista över sökvägsmönster att matcha. Varje måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som skickats till sökvägsmatcharen saknar text efter det första? eller # och de tecknen tillåts inte här.
+> PathPattern: Den här inställningen är en lista över sökvägsmönster att matcha. Vart och ett måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som skickats till sökvägsmatcharen saknar text efter det första? eller # och de tecknen tillåts inte här.
 
 Du kan kolla en [Resource Manager-mall med URL-baserad routning](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) för mer information.
 

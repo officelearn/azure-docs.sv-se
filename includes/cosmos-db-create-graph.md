@@ -1,9 +1,9 @@
-Du kan nu använda datautforskaren för att skapa en grafbehållare och lägga till data i databasen. 
+Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafdatabas. 
 
-1. Klicka på **Datautforskaren** på navigeringsmenyn i Azure Portal. 
-2. På bladet Datautforskaren klickar du på **Ny graf** och fyller sedan i sidan med följande information.
+1. Klicka på **Data Explorer (förhandsversion)** på den vänstra navigeringsmenyn i Azure Portal. 
+2. På bladet **Datautforskaren (förhandsversion)** klickar du på **New Graph** (Ny graf) och fyller sedan i sidan med följande information.
 
-    ![Datautforskaren i Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+    ![Datautforskaren i Azure-portalen](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
     Inställning|Föreslaget värde|Beskrivning
     ---|---|---

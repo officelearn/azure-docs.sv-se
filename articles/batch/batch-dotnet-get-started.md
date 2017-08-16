@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 1dc728cf6497d8ba0d35a7e41e51a52c5ca6d7df
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Börja utveckla lösningar med Batch-klientbibliotek för .NET
@@ -745,6 +745,7 @@ Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lös
 * Läs artikeln [Översikt över Azure Batch-funktioner](batch-api-basics.md), som vi rekommenderar om du inte har använt tjänsten.
 * Sätt igång med de andra Batch-utvecklingsartiklarna under **Utveckling på djupet** i [utbildningsvägen för Batch][batch_learning_path].
 * Ta en titt på en annan implementering av arbetsbelastningen ”översta N orden” med hjälp av Batch i [TopNWords][github_topnwords]-exemplet.
+* Läs igenom Batch .NET [Viktig information](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) om de senaste ändringarna i biblioteket.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/

@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: 
 author: parakhj
 manager: krassk
-editor: parakhj
+editor: PatAltimore
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -14,89 +14,68 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 3499ff57e650c70679dfa018eec5dbe1a6173a33
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 3d4fe2fa10d848c8b29e4d22d284c0d378f07ae0
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/04/2017
-
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Registrera ditt program
 
-> [!IMPORTANT]
-> Program som har skapats från Azure AD B2C-bladet i Azure Portal måste hanteras från samma plats. Om du redigerar B2C-program med hjälp av PowerShell eller en annan portal stöds de inte och kommer troligen inte att fungera med Azure AD B2C. Läs mer [nedan](#faulted-apps).
->
+Med hjälp av den här snabbstarten registrerar du ett program i en Microsoft Azure Active Directory (Azure AD) B2C-klientorganisation på några få minuter. När du är färdig är programmet klart att användas i Azure B2C-klientorganisationen.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisites"></a>Krav
 
-Om du vill skapa ett program som accepterar registrering och inloggning av konsumenter måste du först registrera programmet med en Azure Active Directory B2C-klient. Skaffa en egen klient genom att följa stegen i [Skapa en Azure AD B2C-klient](active-directory-b2c-get-started.md). När du har följt alla steg i artikeln är B2C-funktionsbladet fäst på startsidan.
+Om du vill skapa ett program som accepterar registrering och inloggning av konsumenter måste du först registrera programmet med en Azure Active Directory B2C-klient. Skaffa en egen klient genom att följa stegen i [Skapa en Azure AD B2C-klient](active-directory-b2c-get-started.md).
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+Program som har skapats från Azure AD B2C-bladet i Azure Portal måste hanteras från samma plats. Om du redigerar B2C-program med hjälp av PowerShell eller någon annan portal, stöds de inte och fungerar inte med Azure AD B2C. Mer information finns i avsnittet [felaktiga appar](#faulted-apps). 
 
-## <a name="navigate-to-the-b2c-features-blade"></a>Gå till B2C-funktionsbladet
+## <a name="navigate-to-b2c-settings"></a>Gå till B2C-inställningar
 
-Om B2C-funktionsbladet är fäst på startsidan visas bladet så fort du loggar in på [Azure-portalen](https://portal.azure.com/) som global administratör för B2C-klienten.
+Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för B2C-klientorganisationen. 
 
-Du kan också öppna bladet genom att klicka på **Fler tjänster** och sedan söka på **Azure AD B2C** i det vänstra navigeringsfönstret på [Azure Portal](https://portal.azure.com/).
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-> [!IMPORTANT]
-> Du måste vara global administratör för B2C-klienten för att kunna komma åt B2C-funktionsbladet. En global administratör från en annan klient eller en användare från en klient kan inte komma åt det.  Du kan växla till B2C-klienten med klientväxlaren i det övre högra hörnet i Azure Portal.
->
->
+[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-## <a name="register-a-web-application"></a>Registrera ett webbprogram
+Välj nästa steg baserat på vilken typ av program du registrerar:
 
-1. Klicka på **Program** på B2C-funktionsbladet på Azure-portalen.
-1. Klicka på **+Lägg till** överst på bladet.
-1. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso B2C-app”.
-1. Ändra **Include web app/web API** (Ta med webbapp/webb-API) till **Ja**.
-1. Ange ett [giltigt värde](#limitations) för **Svars-URL:erna**, som är slutpunkter där Azure AD B2C returnerar de tokens som ditt program begär. Ange till exempel `https://localhost:44316/`.
-1. Klicka på **Skapa** för att registrera ditt program.
-1. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
-1. Om ditt webbprogram också ska anropa ett webb-API som skyddas av Azure AD B2C måste du:
-    1. Skapa en **Programhemlighet** genom att gå till bladet **Nycklar** och klicka på knappen **Generera nyckel**.
-    1. Klicka på **API-åtkomst**, klicka på **Lägg till** och välj din webb-API och scope (behörigheter).
+* [Registrera ett webbprogram](#register-a-web-app)
+* [Registrera ett webb-API](#register-a-web-api)
+* [Registrera ett mobilt eller inbyggt program](#register-a-mobile-or-native-app)
+ 
+## <a name="register-a-web-app"></a>Registrera en webbapp
+
+[!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+
+Gör så här om webbprogrammet anropar ett webb-API som skyddas av Azure AD B2C:
+   1. Skapa en programhemlighet genom att gå till bladet **Nycklar** och klicka på **Generera nyckel**. Anteckna **appnyckel**-värdet. Du använder värdet som programhemlighet i programkoden.
+   2. Klicka på **API-åtkomst**, **Lägg till** och välj webb-API och områden (behörigheter).
 
 > [!NOTE]
 > En **programhemlighet** är en viktig autentiseringsuppgift och bör skyddas på lämpligt sätt.
->
+> 
 
-## <a name="register-a-web-api"></a>Registrera en webb-API
+[Gå vidare till **nästa steg**](#next-steps)
 
-1. Klicka på **Program** på B2C-funktionsbladet på Azure-portalen.
-1. Klicka på **+Lägg till** överst på bladet.
-1. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso B2C-api”.
-1. Ändra **Include web app/web API** (Ta med webbapp/webb-API) till **Ja**.
-1. Ange ett [giltigt värde](#choosing-a-web-app/api-reply-url) för **Svars-URL:erna**, som är slutpunkter där Azure AD B2C returnerar de tokens som ditt program begär. Ange till exempel `https://localhost:44316/`.
-1. Ange en **App-ID-URI**. Det här är identifieraren som används för ditt webb-API. Ange till exempel ”information”. Den genererar den fullständiga identifierar-URI:n nedanför.
-1. Klicka på **Skapa** för att registrera ditt program.
-1. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
-1. Klicka på alternativet för **publicerade omfång**. Här definierar du behörigheterna (omfång) som kan beviljas till andra program.
-1. Lägg till fler omfång efter behov. Som standard definieras omfånget ”user_impersonation”. Detta ger andra program möjlighet att komma åt det här API:et för den inloggade användarens räkning. Du kan ta bort det om du vill.
-1. Klicka på **Spara**.
+## <a name="register-a-web-api"></a>Registrera ett webb-API
 
-## <a name="register-a-mobilenative-application"></a>Registrera ett mobilt/internt program
+[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
-1. Klicka på **Program** på B2C-funktionsbladet på Azure-portalen.
-1. Klicka på **+Lägg till** överst på bladet.
-1. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso B2C-app”.
-1. Ändra **Include native client** (Ta med intern klient) till **Ja**.
-1. Ange en **Omdirigerings-URI** med ett eget schema. Till exempel com.onmicrosoft.contoso.appname://redirect/path. Se till att välja en [bra omdirigerings-URI](#choosing-a-native-application-redirect-uri) som inte innehåller specialtecken, till exempel understreck.
-1. Klicka på **Spara** för att registrera programmet.
-1. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
-1. Om ditt egna program också ska anropa ett webb-API som skyddas av Azure AD B2C måste du:
-    1. Skapa en **Programhemlighet** genom att gå till bladet **Nycklar** och klicka på knappen **Generera nyckel**.
-    1. Klicka på **API-åtkomst**, klicka på **Lägg till** och välj din webb-API och scope (behörigheter).
+Klicka på **Publicerade områden** om du behöver lägga till fler områden. Som standard definieras området ”user_impersonation”. Området user_impersonation ger andra program möjlighet att komma åt det här API:et för den inloggade användarens räkning. Om du vill kan området user_impersonation tas bort.
 
-> [!NOTE]
-> En **programhemlighet** är en viktig autentiseringsuppgift och bör skyddas på lämpligt sätt.
->
+[Gå vidare till **nästa steg**](#next-steps)
+
+## <a name="register-a-mobile-or-native-app"></a>Registrera en mobil eller inbyggd app
+
+[!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
+
+[Gå vidare till **nästa steg**](#next-steps)
 
 ## <a name="limitations"></a>Begränsningar
 
-### <a name="choosing-a-web-appapi-reply-url"></a>Om du väljer en webbapp/api svars-URL
+### <a name="choosing-a-web-app-or-api-reply-url"></a>Om du väljer en webbapp eller en api-svarswebbadress
 
 Appar som har registrerats med Azure AD B2C är för närvarande begränsade till en begränsad uppsättning svars-URL-värden. Svars-URL för webbprogram och tjänster måste börja med schemat `https` och alla svars-URL-värden måste dela en enda DNS-domän. Exempelvis kan du registrera ett webbprogram som har en av dessa svars-URL: er:
 
@@ -104,7 +83,7 @@ Appar som har registrerats med Azure AD B2C är för närvarande begränsade til
 
 `https://login-west.contoso.com`
 
-Registreringssystemet jämför hela DNS-namnet på den befintliga svars-URL:en med DNS-namnet på den svars-URL som du lägger till. Begäran om att lägga till DNS-namnet kommer att misslyckas om något av följande villkor föreligger:
+Registreringssystemet jämför hela DNS-namnet på den befintliga svars-URL:en med DNS-namnet på den svars-URL som du lägger till. Begäran om att lägga till DNS-namnet misslyckas om något av följande villkor föreligger:
 
 * Hela DNS-namnet på den nya svars-URL:en motsvarar inte DNS-namnet på den befintliga svars-URL:en.
 * Hela DNS-namnet på den nya svars-URL:en är inte en underdomän till den befintliga svars-URL:en.
@@ -131,11 +110,11 @@ I så fall måste du referera till DNS-underdomänen login.contoso.com. Om du vi
 
 Du kan lägga till två senare eftersom de är underdomäner i den första reply-URL:en, contoso.com.
 
-### <a name="choosing-a-native-application-redirect-uri"></a>Välja en programspecifik omdirigerings-URI
+### <a name="choosing-a-native-app-redirect-uri"></a>Om du väljer en omdirigerings-URI för en inbyggd app
 
 Det finns två viktiga överväganden när du väljer en omdirigerings-URI för mobila/interna program:
 
-* **Unik**: Schemat för omdirigerings-URI måste vara unikt för varje program. I vårt exempel (com.onmicrosoft.contoso.appname://redirect/path) använder vi com.onmicrosoft.contoso.appname som schema. Vi rekommenderar att detta mönster följs. Om två program delar samma schema visas en dialogruta för att "välja app". Inloggningen misslyckas om användaren gör ett felaktigt val.
+* **Unik**: Schemat för omdirigerings-URI måste vara unikt för varje program. I vårt exempel (com.onmicrosoft.contoso.appname://redirect/path) använder vi com.onmicrosoft.contoso.appname som schema. Vi rekommenderar att detta mönster följs. Om två program delar samma schema visas en dialogruta för att ”välja app”. Inloggningen misslyckas om användaren gör ett felaktigt val.
 * **Fullständig**: Omdirigerings-URI måste ha ett schema och en sökväg. Sökvägen måste innehålla minst ett snedstreck efter domänen (till exempel fungerar //contoso/ medan //contoso misslyckas).
 
 Se till att det inte finns några specialtecken som understreck i omdirigerings-uri.
@@ -147,7 +126,7 @@ B2C program bör INTE redigeras:
 * På andra programhanteringsportaler, som den [klassiska Azure-portalen](https://manage.windowsazure.com/) & den [Programregistreringsportalen](https://apps.dev.microsoft.com/).
 * Med Graph API eller PowerShell
 
-Om du redigerar B2C-programmet enligt ovan och försöker att redigera den i Azure AD B2C-funktionsbladet på Azure-portalen kommer den att bli en felaktig app och programmet kommer inte längre att kunna användas med Azure AD B2C. Du måste ta bort appen och skapa det igen.
+Om du redigerar B2C-programmet enligt ovan och försöker att redigera det på Azure AD B2C-funktionsbladet på Azure Portal, blir det en felaktig app och programmet kommer inte längre att kunna användas med Azure AD B2C. Du måste ta bort programmet och skapa det igen.
 
 Ta bort appen genom att gå till den [Appregistreringsportalen](https://apps.dev.microsoft.com/) och ta bort det appen. Du måste vara ägare till appen (och inte bara en administratör för klienten) för att appen ska vara synlig.
 
@@ -155,3 +134,5 @@ Ta bort appen genom att gå till den [Appregistreringsportalen](https://apps.dev
 
 Nu när du har registrerat ett program med Azure AD B2C kan du gå [en av våra snabbstartsguider](active-directory-b2c-overview.md#get-started) för att komma igång.
 
+> [!div class="nextstepaction"]
+> [Skapa en ASP.NET-webbapp med registrering, inloggning och lösenordsåterställning](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

@@ -10,18 +10,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: bfcaee441c54453677e7747b0bca55a8afc59391
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/04/2017
 
 ---
-# Säkerhetsrapporten Användare i farozonen i portalen Azure Active Directory
-<a id="users-at-risk-security-report-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Säkerhetsrapporten Användare i farozonen i portalen Azure Active Directory
 
 Med hjälp av säkerhetsrapporterna i Azure Active Directory (Azure AD) kan du bedöma risken för att användarkonton i din miljö har komprometterats. 
 
@@ -37,8 +36,22 @@ I Azure-portalen hittar du säkerhetsrapporter på bladet **Azure Active Directo
 
 ![Riskfyllda inloggningar](./media/active-directory-reporting-security-user-at-risk/10.png)
 
-## Azure Active Directory kostnadsfri och grundläggande utgåva
-<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
+
+
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Vilken Azure AD-licens behöver du för att komma åt en säkerhetsrapport?  
+
+Alla utgåvor av Azure Active Directory ger rapporter över användare som har flaggats för risk.  
+Nivån av rapportens detaljrikedom varierar dock mellan versionerna: 
+
+- I **versionerna Azure Active Directory Free och Basic** finns redan en lista över användare som har flaggats för risk. 
+
+- Utgåvan **Azure Active Directory Premium 1** har en utökad modell där du även kan utforska några av de underliggande riskhändelser som har identifierats för varje rapport. 
+
+- Utgåvan **Azure Active Directory Premium 2** ger den mest detaljerade informationen om de underliggande riskhändelser och du kan konfigurera säkerhetsprinciper som automatiskt svarar på konfigurerade risknivåer.
+
+
+
+## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory kostnadsfri och grundläggande utgåva
 
 Rapporten om användare i farozonen i den kostnadsfria och grundläggande versionen av Azure Active Directory tillhandahåller en lista över användarkonton som kan ha komprometterats. 
 
@@ -50,8 +63,7 @@ För användare i farozonen går du igenom användarens inloggningshistorik och 
 
 ![Riskfyllda inloggningar](./media/active-directory-reporting-security-user-at-risk/46.png)
 
-## Azure Active Directory Premium-versioner
-<a id="azure-active-directory-premium-editions" class="xliff"></a>
+## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory Premium-versioner
 
 Rapporten om användare i farozonen i Azure Active Directory Premium-versionerna innehåller följande:
 
@@ -88,8 +100,7 @@ Detta öppnar bladet **Information** för den här riskhändelsen. På bladet **
 
 
 
-## Nästa steg
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Nästa steg
 
 - Mer information om Azure Active Directory Identity Protection finns i [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 

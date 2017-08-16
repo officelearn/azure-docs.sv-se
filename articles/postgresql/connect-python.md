@@ -10,12 +10,12 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda Python för att ansluta och fråga efter data
@@ -49,7 +49,7 @@ Hämta den information som du behöver för att ansluta till Azure Database för
 5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
 
 ## <a name="how-to-run-python-code"></a>Så här kör du Python-kod
-- Skapa en ny fil med namnet postgres.py i valfri textredigerare och spara den till en projektmapp. Kopiera och klistra in ett kodexempel som visas nedan i textfilen och spara den. Se till att markera UTF-8-kodning när du sparar filen i Windows-operativsystemet. 
+- Skapa en ny fil med namnet postgres.py i valfri textredigerare och spara den till en projektmapp. Kopiera och klistra in ett kodexempel som visas nedan i textfilen. Ersätt parametrarna host, dbname,user och password med de värden som du angav när du skapade servern och databasen. Spara sedan filen. Se till att markera UTF-8-kodning när du sparar filen i Windows-operativsystemet. 
 - Om du vill köra koden startar du kommandotolken eller bash-gränssnittet. Ändra katalogen till din projektmapp, till exempel `cd postgresql`. Skriv därefter in python-kommandot följt av filnamnet, till exempel `python postgres.py`.
 
 > [!NOTE]

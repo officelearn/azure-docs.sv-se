@@ -15,20 +15,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/09/2017
+ms.date: 08/09/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 4a46c7d9a030adb9c0407fda622ccd787212b030
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: e01d12338ae7d80f734d855f9901339390ca0830
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/10/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
 För att analysera data i HDInsight-klustret kan du lagra data i antingen Azure Storage, Azure Data Lake Store eller bådadera. Båda lagringsalternativen låter dig ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
 
-Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange en blobbehållare i Azure Storage som standardfilsystemet när du skapar HDInsight-kluster. Med HDInsight 3.5 kan du välja antingen Azure Storage eller Azure Data Lake Store som standardfilsystem med ett fåtal undantag. Support för att använda Data Lake Store som både standardwebbplatsen och den länkade storage finns [tillgången för HDInsight-kluster](#availabilities-for-hdinsight-clusters]).
+Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange en blobbehållare i Azure Storage som standardfilsystemet när du skapar HDInsight-kluster. Med HDInsight 3.5 kan du välja antingen Azure Storage eller Azure Data Lake Store som standardfilsystem med ett fåtal undantag. Support för att använda Data Lake Store som både standardwebbplatsen och den länkade storage finns [tillgången för HDInsight-kluster](./hdinsight-hadoop-use-data-lake-store.md#availabilities-for-hdinsight-clusters).
 
 I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-kluster. Läs mer om hur Data Lake Store fungerar med HDInsight-kluster i [Använd Azure Data Lake Store med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-store.md). Mer information om hur du skapar ett HDInsight-kluster finns i [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Skapa Hadoop-kluster i HDInsight).
 
@@ -73,14 +73,14 @@ Här är några saker att tänka på när du använder Azure Storage-konton med 
   > 
 * **Privata behållare på lagringskonton som INTE är anslutna till något kluster:** Du kan inte komma åt blobarna i behållarna om du inte definierar lagringskontot när du skickar WebHCat-jobben. Detta beskrivs senare i artikeln.
 
-De lagringskonton som definieras under skapandeprocessen och deras nycklar lagras i %HADOOP_HOME%/conf/core-site.xml i klusternoderna. Standardbeteendet för HDInsight är att använda de lagringskonton som definieras i filen core-site.xml. Vi rekommenderar inte att du redigerar filen core-site.xml direkt eftersom klustrets huvudnod (master) kan bli föremål för en ny avbildning eller migreras när som helst, och då kommer alla ändringar i denna fil att gå förlorade.
+De lagringskonton som definieras under skapandeprocessen och deras nycklar lagras i %HADOOP_HOME%/conf/core-site.xml i klusternoderna. Standardbeteendet för HDInsight är att använda de lagringskonton som definieras i filen core-site.xml. Du kan ändra den här inställningen med [Ambari](./hdinsight-hadoop-manage-ambari.md)
 
-Flera WebHCat-jobb, inklusive Hive, MapReduce, Hadoop-strömning och Pig, kan ha med sig en beskrivning av lagringskonton och metadata. (För närvarande fungerar för Pig med lagringskonton, men inte för metadata.) I avsnittet [Komma åt blobar med hjälp av Azure PowerShell](#powershell) i den här artikeln finns det ett exempel på den här funktionen. Mer information finns i [Använda ett HDInsight-kluster med alternativa lagringskonton och metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Flera WebHCat-jobb, inklusive Hive, MapReduce, Hadoop-strömning och Pig, kan ha med sig en beskrivning av lagringskonton och metadata. (För närvarande fungerar för Pig med lagringskonton, men inte för metadata.) Mer information finns i [Använda ett HDInsight-kluster med alternativa lagringskonton och metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 Blobar kan användas för strukturerade och ostrukturerade data. I blob-behållare förvaras data som nyckel/värde-par och det finns ingen kataloghierarki. Däremot kan snedstreck (/) användas i nyckelnamnet så att det visas som om det vore en fil som lagrats i en katalogstruktur. Nyckeln för en blob kan till exempel vara *input/log1.txt*. Det finns ingen faktisk katalog för *indata*, men eftersom det finns ett snedstreck i nyckelnamnet ser namnet ut som en filsökväg.
 
 ## <a id="benefits"></a>Fördelar med Azure Storage
-Den implicerade prestandakostnaden för att inte samplacera beräkningsklustren och lagringsresurserna minskar på grund av sättet på vilket beräkningsklustren skapas nära lagringskontoresurserna i Azure-regionen där höghastighetsnätverket gör att beräkningsnoderna kan komma åt data i Azure Storage på ett mycket effektivt sätt.
+Den medförande prestandakostnaden för att inte samplacera beräkningskluster och lagringsresurser minskar, på grund av sättet på vilket beräkningsklustren skapas nära lagringskontoresurserna i Azure-regionen, där höghastighetsnätverket gör att beräkningsnoderna effektivt kan komma åt data i Azure Storage.
 
 Det finns flera fördelar med att lagra data i Azure Storage i stället för i HDFS:
 
@@ -150,7 +150,7 @@ Om du har [installerat och konfigurerat Azure CLI](../cli-install-nodejs.md) kan
     azure storage account create <storageaccountname> --type LRS
 
 > [!NOTE]
-> Parametern `--type` anger hur lagringskontot kommer att replikeras. Mer information finns i [Azure Storage-replikering](../storage/storage-redundancy.md). Använd inte ZRS eftersom ZRS inte stöder sidblobar, filer, tabeller eller köer.
+> Parametern `--type` anger hur lagringskontot kommer att replikeras. Mer information finns i [Azure Storage-replikering](../storage/storage-redundancy.md). Använd inte ZRS eftersom ZRS inte stöder sidblobbar, filer, tabeller eller köer.
 > 
 > 
 
@@ -295,7 +295,7 @@ Använd följande kommando för att visa en lista över blob-relaterade kommando
 
 ## <a name="use-additional-storage-accounts"></a>Använda ytterligare lagringskonton
 
-När du skapar ett HDInsight-kluster kan du ange ett Azure Storage-konto som du vill koppla till det. Förutom det här lagringskontot kan du lägga till ytterligare lagringskonton från samma Azure-prenumeration eller andra Azure-prenumerationer under skapandeprocessen eller efter att ett kluster har skapats. Mer information om hur du lägger till ytterligare lagringskonton finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
+När du skapar ett HDInsight-kluster kan du ange ett Azure Storage-konto som du vill koppla det till. Förutom det här lagringskontot kan du lägga till ytterligare lagringskonton från samma Azure-prenumeration eller andra Azure-prenumerationer under skapandeprocessen eller efter att ett kluster har skapats. Mer information om hur du lägger till ytterligare lagringskonton finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]
 > Du kan inte använda ett annat lagringskonto på en annan plats än HDInsight-klustret.

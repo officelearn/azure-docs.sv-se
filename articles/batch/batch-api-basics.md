@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
@@ -98,17 +98,18 @@ Välj det poolallokeringsläge som passar bäst för ditt scenario:
 
 I följande tabell jämförs Batch-tjänsten och användarprenumerationens poolallokeringslägen.
 
-| **Poolallokeringsläge:**                 | **Batch-tjänst**                                                                                       | **Användarprenumeration**                                                              |
+| **Poolallokeringsläge**                 | **Batch-tjänst**                                                                                       | **Användarprenumeration**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Pooler allokeras i:**               | En Azure-hanterad prenumeration                                                                           | Användarprenumerationen i vilken Batch-kontot har skapats                        |
-| **Konfigurationer som stöds:**             | <ul><li>Konfiguration av molntjänst</li><li>Konfiguration av virtuell dator (Linux och Windows)</li></ul> | <ul><li>Konfiguration av virtuell dator (Linux och Windows)</li></ul>                |
-| **VM-avbildningar som stöds:**                  | <ul><li>Azure Marketplace-avbildningar</li></ul>                                                              | <ul><li>Azure Marketplace-avbildningar</li><li>Anpassade avbildningar</li></ul>                   |
-| **Beräkningsnodtyper som stöds:**         | <ul><li>Dedikerade noder</li><li>Lågprioriterade virtuella noder</li></ul>                                            | <ul><li>Dedikerade noder</li></ul>                                                  |
-| **Autentisering som stöds:**             | <ul><li>Delad nyckel</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault krävs:**             | Nej                                                                                                      | Ja                                                                                |
-| **Kärnkvot:**                           | Bestäms av Batch-kärnkvoten                                                                          | Bestäms av prenumerationens kärnkvot                                              |
-| **Stöd för Azure Virtual Network (Vnet):** | Pooler som har skapats med molntjänstkonfigurationen                                                      | Pooler som har skapats med konfigurationen av virtuell dator                               |
-| **Vnet-distributionsmodell som stöds:**      | Vnet som skapats med klassisk distributionsmodell                                                             | Virtuella nätverk som skapas med antingen den klassiska distributionsmodellen eller Azure Resource Manager-distributionsmodellen stöds inte |
+| **Pooler allokeras i**               | En Azure-hanterad prenumeration                                                                           | Användarprenumerationen i vilken Batch-kontot har skapats                        |
+| **Konfigurationer som stöds**             | <ul><li>Konfiguration av molntjänst</li><li>Konfiguration av virtuell dator (Linux och Windows)</li></ul> | <ul><li>Konfiguration av virtuell dator (Linux och Windows)</li></ul>                |
+| **Virtuella datoravbildningar som stöds**                  | <ul><li>Azure Marketplace-avbildningar</li></ul>                                                              | <ul><li>Azure Marketplace-avbildningar</li><li>Anpassade avbildningar</li></ul>                   |
+| **Beräkningsnodtyper som stöds**         | <ul><li>Dedikerade noder</li><li>Lågprioriterade virtuella noder</li></ul>                                            | <ul><li>Dedikerade noder</li></ul>                                                  |
+| **Autentisering som stöds**             | <ul><li>Delad nyckel</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Azure Key Vault krävs**             | Nej                                                                                                      | Ja                                                                                |
+| **Kärnkvot**                           | Bestäms av Batch-kärnkvoten                                                                          | Bestäms av prenumerationens kärnkvot                                              |
+| **Stöd för Azure Virtual Network (Vnet)** | Pooler som har skapats med molntjänstkonfigurationen                                                      | Pooler som har skapats med konfigurationen av virtuell dator                               |
+| **Vnet-distributionsmodell som stöds**      | Vnet som skapats med klassisk distributionsmodell                                                             | Virtuella nätverk som skapas med antingen den klassiska distributionsmodellen eller Azure Resource Manager-distributionsmodellen stöds inte |
+
 ## <a name="azure-storage-account"></a>Azure-lagringskonto
 
 De flesta Batch-lösningar använder Azure Storage för lagring av resursfiler och utdatafiler.  
@@ -171,6 +172,8 @@ När du skapar en Batch-pool kan du ange en konfiguration för virtuella Azure-d
     * Precis som med arbetarroller i Cloud Services kan du ange en *operativsystemversion* (mer information om arbetarroller finns i avsnittet [Berätta mer om Cloud Services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) i [Översikt över Cloud Services](../cloud-services/cloud-services-choose-me.md)).
     * Som med arbetarroller rekommenderar vi att du anger `*` för *operativsystemversionen* så att noderna uppgraderas automatiskt och så att inget extra arbete krävs för att hantera nya versioner. Det huvudsakliga skälet till att välja en viss operativsystemversion är att säkerställa programkompatibiliteten, så att du kan testa bakåtkompatibiliteten innan versionen uppdateras. Efter valideringen kan *operativsystemversionen* för poolen uppdateras och den nya operativsystemavbildningen kan installeras – eventuella aktiviteter som körs avbryts och placeras i kö.
 
+När du skapar en pool måste du välja lämplig **nodeAgentSkuId**, beroende på vilket operativsystem din VHD-basavbildning har. Du kan hämta en mappning av tillgängliga nodagent-SKU-ID:n mot OS-avbildningsreferenserna genom att anropa [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) (Visa nodagent-SKU:er som stöds).
+
 I avsnittet [Konto](#account) finns information om hur du ställer in poolallokeringsläget när du skapar ett Batch-konto.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Anpassade avbildningar för virtuell datorpooler
@@ -195,8 +198,6 @@ Se till att dina lagringskonton uppfyller följande kriterier:
 - Endast allmänna standardlagringskonton stöds för närvarande. Azure Premium-lagring kommer att stödjas i framtiden.
 - Du kan ange ett lagringskonto med flera blobar för anpassade VHD-avbildningar eller flera lagringskonton som vart och ett har en enskild blob. Vi rekommenderar att du använder flera lagringskonton för att få bättre prestanda.
 - En unik blob för anpassad VHD-avbildning kan ha stöd för upp till 40 instanser av virtuella Linux-datorer eller 20 instanser av virtuella Windows-datorer. Du måste skapa kopior av VHD-bloben för att kunna skapa pooler med fler virtuella datorer. För en pool med 200 virtuella Windows-datorer måste till exempel 10 unika VHD-blobar anges för egenskapen **osDisk**.
-
-När du skapar en pool måste du välja lämplig **nodeAgentSkuId**, beroende på vilket operativsystem din VHD-basavbildning har. Du kan hämta en mappning av tillgängliga nodagent-SKU-ID:n mot OS-avbildningsreferenserna genom att anropa [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) (Visa nodagent-SKU:er som stöds).
 
 Så här skapar du en pool från en anpassad avbildning med Azure Portal:
 

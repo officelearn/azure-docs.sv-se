@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 171159fece2e3927458aff6e6185b96c792e17c8
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 28bc587204be30b1b29da7c2235e347d778b908e
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med certifikatautentisering: Azure-portalen
@@ -91,7 +91,7 @@ Skärmbilderna i det här avsnittet är avsedda som referensexempel. Se till att
 
 ## <a name="dns"></a>4 – Ange en DNS-server (valfritt)
 
-När du har skapat ditt virtuella nätverk kan du lägga till IP-adressen för en DNS-server för att hantera namnmatchning. Den angivna DNS-servern måste vara en DNS-server som kan matcha namn för de resurser som du ansluter till. Konfigurationspaketet för VPN-klienten som du genererar i ett senare skede innehåller IP-adresserna för DNS-servrarna som du anger i den här inställningen. Om du behöver uppdatera listan över DNS-servrar i framtiden kan du generera och installera nya konfigurationspaket för VPN-klienter som reflekterar den nya listan.
+När du har skapat ditt virtuella nätverk kan du lägga till IP-adressen för en DNS-server för att hantera namnmatchning. Den angivna DNS-servern måste vara en DNS-server som kan matcha namn för de resurser som du ansluter till.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -146,7 +146,7 @@ När gatewayen har skapats kan du överföra CER-filen (som innehåller informat
 
 ## <a name="clientconfig"></a>9 – Installera konfigurationpaketet för VPN-klienten
 
-För att ansluta till ett virtuellt nätverk med hjälp av ett VPN för punkt-till-plats måste varje klient installera ett paket för konfiguration av den interna Windows VPN-klienten. Konfigurationspaketet konfigurerar den inbyggda VPN-klienten för Windows med inställningarna som behövs för att ansluta till det virtuella nätverket, och om du har angett en DNS-server för ditt virtuella nätverk innehåller den DNS-serverns IP-adress som klienten använder för namnmatchning. Om du ändrar den angivna DNS-servern senare, efter att du har genererat konfigurationspaketet för klienten, bör du generera ett nytt konfigurationpaket för klienten som du kan använda för att installera på klientdatorerna.
+För att ansluta till ett virtuellt nätverk med hjälp av ett VPN för punkt-till-plats måste varje klient installera ett paket för konfiguration av den interna Windows VPN-klienten. Konfigurationspaketet ställer in den interna Windows VPN-klienten med de inställningar som krävs för att ansluta till det virtuella nätverket.
 
 Du kan använda samma VPN-klientkonfigurationspaket på varje klientdator, förutsatt att versionen matchar arkitekturen för klienten. En lista över klientoperativsystem som stöds finns i [Vanliga frågor och svar om punkt-till-plats](#faq) i slutet av den här artikeln.
 

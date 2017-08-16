@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/06/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
@@ -108,7 +107,60 @@ Följande aktiviteter kräver även Azure-behörigheter:
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Hantera åtkomst till Log Analytics med Azure-behörighet
 Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../active-directory/role-based-access-control-configure.md).
 
-Om du har minst Azure-läsbehörighet i Log Analytics-arbetsytan kan du öppna OMS-portalen genom att klicka på uppgiften **OMS-portal** när du visar Log Analytics-arbetsytan.
+Azure har två inbyggda användarroller för Log Analytics:
+- Log Analytics Reader
+- Log Analytics Contributor
+
+Medlemmar av *Log Analytics Reader*-rollen kan:
+- Visa och söka i alla övervakningsdata 
+- Visa övervakningsinställningar, även konfiguration av Azure-diagnostik för alla Azure-resurser.
+
+| Typ    | Behörighet | Beskrivning |
+| ------- | ---------- | ----------- |
+| Åtgärd | `*/read`   | Kan visa alla resurser och resurskonfigurationer. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure-diagnostik för resurser <br> Alla egenskaper och inställningar för alla resurser |
+| Åtgärd | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Kan utföra Log Search v2-sökfrågor |
+| Åtgärd | `Microsoft.OperationalInsights/workspaces/search/action` | Kan utföra Log Search v1-sökfrågor |
+| Åtgärd | `Microsoft.Support/*` | Kan öppna supportärenden |
+|Ingen åtgärd | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Förhindrar läsning av arbetsytenyckeln som krävs för att använda datasamlings-API:et och installera agenter |
+
+
+Medlemmar av *Log Analytics Contributor*-rollen kan:
+- Läsa alla övervakningsdata 
+- Skapa och konfigurera Automation -konton
+- Lägga till och ta bort hanteringslösningar
+- Läsa lagringskontonycklar 
+- Konfigurera loggsamlingar från Azure Storage
+- Redigera övervakningsinställningar för Azure-resurser, bland annat
+  - Lägga till tillägg för virtuell dator i virtuella datorer
+  - Konfigurera Azure-diagnostik på alla Azure-resurser
+
+> [!NOTE] 
+> Du kan använda möjligheten att lägga till ett virtuellt datortillägg i en virtuell dator för att få fullständig kontroll över datorn.
+
+| Behörighet | Beskrivning |
+| ---------- | ----------- |
+| `*/read`     | Kan visa alla resurser och resurskonfigurationer. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure-diagnostik för resurser <br> Alla egenskaper och inställningar för alla resurser |
+| `Microsoft.Automation/automationAccounts/*` | Kan skapa och konfigurera Azure Automation-konton, inklusive lägga till och redigera runbookflöden |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Lägga till, uppdatera och ta bort virtuella datortillägg, även Microsoft Monitoring Agent-tillägget och OMS Agent for Linux-tillägget |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Visa lagringskontonyckeln. Krävs för att ställa in Log Analytics för läsning av loggar från Azure-lagringskonton |
+| `Microsoft.Insights/alertRules/*` | Lägga till, uppdatera och ta bort aviseringsregler |
+| `Microsoft.Insights/diagnosticSettings/*` | Lägga till, uppdatera och ta bort diagnostikinställningar på Azure-resurser |
+| `Microsoft.OperationalInsights/*` | Lägga till, uppdatera och ta bort konfigurationer för Log Analytics-arbetsytor |
+| `Microsoft.OperationsManagement/*` | Lägga till och ta bort hanteringslösningar |
+| `Microsoft.Resources/deployments/*` | Skapa och ta bort distributioner. Krävs för att lägga till och ta bort lösningar, arbetsytor och Automation-konton |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Skapa och ta bort distributioner. Krävs för att lägga till och ta bort lösningar, arbetsytor och Automation-konton |
+
+För att kunna lägga till och ta bort användare i en användarroll måste du ha behörigheten `Microsoft.Authorization/*/Delete` och `Microsoft.Authorization/*/Write`.
+
+Använd de här rollerna för att ge användare åtkomst med olika omfång:
+- Prenumeration: åtkomst till alla arbetsytor i prenumerationen
+- Resursgrupp: åtkomst till alla arbetsytor i resursgruppen
+- Resurs: endast åtkomst till en angiven arbetsyta
+
+Använd [anpassade roller](../active-directory/role-based-access-control-custom-roles.md) för att skapa roller med specifik behörighet.
+
+### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure-användarroller och Log Analytics Portal-användarroller
+Om du har minst Azure-läsbehörighet i Log Analytics-arbetsytan kan du öppna Log Analytics-portalen genom att klicka på uppgiften **OMS-portal** när du visar Log Analytics-arbetsytan.
 
 När du öppnar Log Analytics-portalen växlar du till de äldre Log Analytics-användarrollerna. Om du inte har någon rolltilldelning i Log Analytics-portalen [kontrollerar tjänsten vilka Azure-behörigheter du har på arbetsytan](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 Din rolltilldelning i Log Analytics-portalen fastställs så här:
@@ -195,7 +247,7 @@ Följ stegen nedan om du vill ta bort en användare från en arbetsyta. Borttagn
 4. Markera gruppen i listresultaten och klicka sedan på **Lägg till**.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Länka en befintlig arbetsyta till en Azure-prenumeration
-Alla arbetsytor som skapats efter den 26 september 2016 måste kopplas till en Azure-prenumeration vid tidpunkten för skapandet. Arbetsytor som skapats innan detta datum måste kopplas till en arbetsyta nästa gång du loggar in. När du skapar arbetsytan från Azure Portal eller när du länkar arbetsytan till en Azure-prenumeration länkas din Azure Active Directory som ditt organisationskonto.
+Alla arbetsytor som skapats efter den 26 september 2016 måste kopplas till en Azure-prenumeration vid tidpunkten för skapandet. Arbetsytor som skapats innan det här datumet måste kopplas till en arbetsyta när du loggar in. När du skapar arbetsytan från Azure Portal eller när du länkar arbetsytan till en Azure-prenumeration länkas din Azure Active Directory som ditt organisationskonto.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Om du vill länka en arbetsyta till en Azure-prenumeration i OMS-portalen
 

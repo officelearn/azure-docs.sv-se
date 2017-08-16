@@ -16,18 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: a278f76fc0ac2aa42633ed0ce2ad4fbc4e7290da
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 7c96a5b9bc2cb6cea60b200c22e4e4e1d49d8d08
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Distribuera Kubernets-kluster för Linux-behållare
 
-I den här snabbstartsguiden ska vi distribuera ett Kubernetes-kluster med hjälp av Azure CLI. Därefter distribuerar vi och kör ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet.
+I den här snabbstartsguiden ska vi distribuera ett Kubernetes-kluster med hjälp av Azure CLI. Därefter distribuerar vi och kör ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet. 
+
+Exempelprogrammet som används i det här dokumentet är skrivet i Python. Begreppen och anvisningarna här kan användas för att distribuera valfri behållaravbildning till ett Kubernetes-kluster. Koden, Dockerfile, och befintliga Kubernetes-manifestfiler som hör till projektet, finns på [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -69,7 +71,7 @@ Resultat:
 Skapa ett Kubernetes-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#create). I följande exempel skapas ett kluster med namnet *myK8sCluster* med en Linux-huvudnod och tre Linux-agentnoder.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
 ```
 
 Efter en stund slutförs kommandot och returnerar json-formaterad information om klustret. 
@@ -80,7 +82,7 @@ Hantera Kubernetes-kluster med [kubectl](https://kubernetes.io/docs/user-guide/k
 
 Om du använder Azure CloudShell är kubectl redan installerat. Om du vill installera det lokalt, kan du använda kommandot [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
 
-Du konfigurerar kubectl att ansluta till ditt Kubernetes-kluster genom att köra kommandot [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). I det här steget hämtar vi autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
+Du konfigurerar kubectl att ansluta till ditt Kubernetes-kluster genom att köra kommandot [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). I det här steget laddar vi ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
@@ -104,9 +106,9 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 ## <a name="run-the-application"></a>Köra programmet
 
-En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, inklusive vilka behållaravbildningar som ska köras osv. I det här exemplet används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. 
+En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka behållaravbildningar som ska köras. I det här exemplet används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. 
 
-Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML till den.
+Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML till den. Om du arbetar i Azure Cloud Shell, kan du skapa filen med vi eller Nano som i ett virtuellt eller fysiskt system.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -226,3 +228,4 @@ Om du vill lära dig mer om Azure Container Service, och gå igenom ett exempel 
 
 > [!div class="nextstepaction"]
 > [Hantera ett ACS Kubernets-kluster](./container-service-tutorial-kubernetes-prepare-app.md)
+

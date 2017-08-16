@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 6735049b6068d9afe192b6ea4450e970fcf5f7d4
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 6b0faf24963c6055ce7c54b9d46b5aa0851f40b2
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med certifikatautentisering: den klassiska Azure-portalen
@@ -95,7 +95,7 @@ Om du inte redan har ett virtuellt nätverk, skapa ett. Skärmbilderna anges som
 
   ![Skapa en virtuell nätverksikon](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
 10. När du har skapat det virtuella nätverket visas **Skapad** under **Status** på nätverkssidan på den klassiska Azure-portalen.
-11. Lägg till en DNS-server (valfritt). När du har skapat ditt virtuella nätverk kan du lägga till IP-adressen för en DNS-server för namnmatchning. Den DNS-server som du anger måste vara en som kan matcha namn för resurserna i ditt virtuella nätverk.<br>Om du vill lägga till en DNS-server öppnar du inställningarna för det virtuella nätverket, klickar på DNS-servrar och lägger till IP-adressen för den DNS-server du vill använda. Klientkonfigurationspaketet som du genererar i ett senare steg innehåller IP-adresserna för DNS-servrarna som du anger i den här inställningen. Om du behöver uppdatera listan över DNS-servrar i framtiden kan du generera och installera nya konfigurationspaket för VPN-klienter som reflekterar den uppdaterade listan.
+11. Lägg till en DNS-server (valfritt). När du har skapat ditt virtuella nätverk kan du lägga till IP-adressen för en DNS-server för namnmatchning. Den ip-adress för DNS-server som du anger måste vara en adress till en DNS-server som kan matcha namn för resurserna i ditt virtuella nätverk.<br>Om du vill lägga till en DNS-server öppnar du inställningarna för det virtuella nätverket, klickar på DNS-servrar och lägger till IP-adressen för den DNS-server du vill använda.
 
 ### <a name="gateway"></a>Del 2: Skapa gateway-undernät och en dynamisk routningsgateway
 
@@ -161,7 +161,7 @@ När gatewayen har skapats kan du överföra CER-filen (som innehåller informat
 
 ## <a name="vpnclientconfig"></a>Avsnitt 4 – Konfigurera klienten
 
-För att ansluta till ett virtuellt nätverk med hjälp av ett VPN för punkt-till-plats måste varje klient installera ett paket för konfiguration av den interna Windows VPN-klienten. Konfigurationspaketet konfigurerar den inbyggda VPN-klienten för Windows med inställningarna som behövs för att ansluta till det virtuella nätverket, och om du har angett en DNS-server för ditt virtuella nätverk innehåller den DNS-serverns IP-adress som klienten använder för namnmatchning. Om du ändrar den angivna DNS-servern senare, efter att du har genererat konfigurationspaketet för klienten, bör du generera ett nytt konfigurationpaket för klienten som du kan använda för att installera på klientdatorerna.
+För att ansluta till ett virtuellt nätverk med hjälp av ett VPN för punkt-till-plats måste varje klient installera ett paket för konfiguration av den interna Windows VPN-klienten. Konfigurationspaketet ställer in den interna Windows VPN-klienten med de inställningar som krävs för att ansluta till det virtuella nätverket.
 
 Du kan använda samma VPN-klientkonfigurationspaket på varje klientdator, förutsatt att versionen matchar arkitekturen för klienten. En lista över klientoperativsystem som stöds finns i [Vanliga frågor och svar om punkt-till-plats](#faq) i slutet av den här artikeln.
 

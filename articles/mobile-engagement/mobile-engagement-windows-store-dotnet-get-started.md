@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 939d6adc548d5d6ef66909bcf52f11a4106c3be9
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
+ms.contentlocale: sv-se
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Kom igång med Azure Mobile Engagement för universella Windows-appar
@@ -27,13 +27,16 @@ ms.lasthandoff: 02/28/2017
 I den här artikeln beskrivs hur du använder Azure Mobile Engagement för att förstå appanvändningen, och hur du skickar push-meddelanden till segmenterade användare i ett universellt Windows-program.
 I den här kursen går vi igenom ett enkelt scenario för sändning med Mobile Engagement. Du skapar en tom universell Windows-app som samlar in grundläggande appanvändningsdata och tar emot push-meddelanden med Windows Notification Service (WNS).
 
+> [!NOTE]
+> Tjänsten Azure Mobile Engagement kommer att dras tillbaka i mars 2018 och är för närvarande endast tillgänglig för befintliga kunder. Mer information finns i [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+
 ## <a name="prerequisites"></a>Krav
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Konfigurera Mobile Engagement för din universella Windows-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
+## <a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 I den här kursen behandlas en ”grundläggande integration”, vilket är den minsta uppsättningen som krävs för att samla in data och skicka ett push-meddelande. Den fullständiga integrationsdokumentationen finns i [Mobile Engagement Windows Universal SDK integration](mobile-engagement-windows-store-sdk-overview.md).
 
 Du skapar en grundläggande app i Visual Studio för att demonstrera integrationen.
@@ -98,7 +101,7 @@ Du har nu skapat ett universellt Windows-app-projekt där du sedan integrerar Az
               //... rest of the code
             }
 
-## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>Aktivera realtidsövervakning
+## <a id="monitor"></a>Aktivera realtidsövervakning
 För att kunna börja skicka data och försäkra dig om att användarna är aktiva måste du skicka minst en skärm (aktivitet) till Mobile Engagement-serverdelen.
 
 1. Lägg till följande `using`-instruktion i **MainPage.xaml.cs**:
@@ -120,10 +123,10 @@ För att kunna börja skicka data och försäkra dig om att användarna är akti
 >
 > För **Windows 10 Universal-appar** använder du den metod som rekommenderas i avsnittet ”Recommended method: overload your Page classes” (Rekommenderad metod: överbelasta dina sidklasser) i [Advanced Reporting with the Windows Universal Apps Engagement SDK](mobile-engagement-windows-store-advanced-reporting.md) (Avancerad rapportering med Engagement-SDK för Windows Universal-appar) i stället för den som nämns ovan.
 
-## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
 I följande avsnitt konfigurerar du appen för att ta emot dem.
 
@@ -167,7 +170,7 @@ Du är redo att skicka ett popup-meddelande. Sedan kontrollerar vi att den grund
 
     ![][7]
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Skicka ett meddelande till din app
+## <a id="send"></a>Skicka ett meddelande till din app
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 Om appen körs visas en avisering via appen. Om appen är stängd visas istället ett popup-meddelande.

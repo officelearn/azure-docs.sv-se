@@ -57,9 +57,10 @@
 ## Identifiera och åtgärda
 ### [Identifieringskapacitet](security-center-detection-capabilities.md)
 ### [Hantera säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)
+### [Typer av säkerhetsaviseringar](security-center-alerts-type.md)
+### [Aviseringsvalidering](security-center-alert-validation.md)
 ### [Hantera säkerhetsincidenter](security-center-incident.md)
 ### [Azure-loggintegrering](security-center-integrating-alerts-with-log-integration.md)
-### [Typer av säkerhetsaviseringar](security-center-alerts-type.md)
 ### [Hotinformationsrapport](security-center-threat-report.md)
 
 ## Felsöka
@@ -75,6 +76,7 @@
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blogg om säkerhet, sekretess och efterlevnad i Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Prissättning](security-center-pricing.md)
+## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstöversikt](https://azure.microsoft.com/services/security-center/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=security-center)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=security-center)

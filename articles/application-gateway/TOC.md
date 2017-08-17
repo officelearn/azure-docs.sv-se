@@ -7,6 +7,7 @@
 ## [URL-routning](application-gateway-url-route-overview.md)
 ## [Flera platser](application-gateway-multi-site-overview.md)
 ## [Slutpunkt till slutpunkt för SSL](application-gateway-backend-ssl.md)
+## [SSL-princip](application-gateway-ssl-policy-overview.md)
 ## [Omdirigering](application-gateway-redirect-overview.md)
 ## [Stöd för flera klienter](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## Anpassa regler för brandväggen för webbaserade program
 ### [Portal](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
-## Konfigurera för SSL-avlastning
+## Konfigurera SSL
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (klassisk)](application-gateway-ssl.md)
 ### [Azure CLI 2.0](application-gateway-ssl.md)
-### [Princip och slutpunkt till slutpunkt](application-gateway-end-to-end-ssl-powershell.md)
+### [Slutpunkt till slutpunkt](application-gateway-end-to-end-ssl-powershell.md)
+### [SSL-princip](application-gateway-configure-ssl-policy-powershell.md)
 ## Konfigurera URL-baserad sökvägsroutning
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)

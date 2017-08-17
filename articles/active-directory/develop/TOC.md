@@ -33,6 +33,7 @@
 # Guider
 ## [Programregistrering](active-directory-integrating-applications.md)
 ## [Appar för flera klienter](active-directory-devhowto-multi-tenant-overview.md)
+## [Villkorlig åtkomst](active-directory-conditional-access-developer.md)
 ## OAuth och OpenID Connect
 ### [OpenID Connect-protokoll](active-directory-protocols-openid-connect-code.md)
 ### [Beviljande av OAuth 2.0-auktoriseringkod](active-directory-protocols-oauth-code.md)
@@ -50,7 +51,7 @@
 ## [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)
 ## [Användaretablering med SCIM](../active-directory-scim-provisioning.md)
 ## [Azure AD Graph API](active-directory-graph-api.md)
-### [Kom igång med AAD Graph](active-directory-graph-api-quickstart.md)
+### [Komma igång med AAD Graph](active-directory-graph-api-quickstart.md)
 ## [AppSource-certifiering](active-directory-devhowto-appsource-certified.md)
 ## [Azure AD-appgalleri](active-directory-app-gallery-listing.md)
 ## [Office 365-instrumentpanel för försäljning](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
@@ -97,12 +98,12 @@
 ### [Registrera en app](active-directory-v2-app-registration.md)
 ## Referens
 ### [Autentiseringsbibliotek](active-directory-v2-libraries.md)
-### [v2.0 Autentiseringsprotokoll](active-directory-v2-protocols.md)
+### [v2.0 autentiseringsprotokoll](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [Beviljande av OAuth 2.0-auktoriseringskod](active-directory-v2-protocols-oauth-code.md)
 #### [Implicit beviljande av OAuth 2.0](active-directory-v2-protocols-implicit.md)
 #### [Beviljande av autentiseringsuppgifter för OAuth 2.0-klient](active-directory-v2-protocols-oauth-client-creds.md)
-#### [On-Behalf-Of-flöde för OAuth 2.0-klient](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [On-Behalf-Of-flöde för OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Tokenreferens](active-directory-v2-tokens.md)
 #### [Autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md)
 ### [Scope](active-directory-v2-scopes.md)

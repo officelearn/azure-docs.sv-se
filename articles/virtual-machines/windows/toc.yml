@@ -55,8 +55,6 @@
       href: network-overview.md
     - name: Skalningsuppsättning för virtuella datorer
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Instans av metadatatjänst
-      href: ../virtual-machines-instancemetadataservice-overview.md
     - name: Behållare
       href: containers.md
     - name: Resource Manager
@@ -153,6 +151,10 @@
           href: download-template.md
         - name: Virtuell Azure-datoragent
           href: agent-user-guide.md
+        - name: Schemalagda händelser
+          href: scheduled-events.md
+        - name: Övervaka metadata
+          href: instance-metadata-service.md
     - name: Använda avbildningar
       items:
         - name: Hitta och använda avbildningar

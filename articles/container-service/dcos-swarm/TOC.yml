@@ -7,6 +7,8 @@
 - name: Snabbstarter
   expanded: true
   items:
+    - name: Docker Swarm Linux
+      href: container-service-swarm-walkthrough.md
     - name: DC/OS – Linux
       href: container-service-dcos-quickstart.md
 - name: Självstudier
@@ -29,7 +31,7 @@
       href: container-service-connect.md
     - name: Skala ett ACS-kluster
       href: container-service-scale.md
-    - name: Hantera med DC/OS
+    - name: DC/OS
       items:
         - name: Hantering av behållare – UI för DC/OS
           href: container-service-mesos-marathon-ui.md
@@ -55,8 +57,10 @@
               href: container-service-monitoring-sysdig.md
             - name: Övervaka med Dynatrace
               href: container-service-monitoring-dynatrace.md
-    - name: Hantera med Docker Swarm
+    - name: Docker Swarm
       items:
+        - name: Swarm-läge – snabbstart
+          href: container-service-swarm-mode-walkthrough.md
         - name: Docker och Docker Compose
           href: container-service-docker-swarm.md
         - name: Kontinuerlig integrering och kontinuerlig leverans (CI/CD) med Docker Swarm och VSTS

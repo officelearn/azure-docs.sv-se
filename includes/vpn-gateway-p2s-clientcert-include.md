@@ -7,7 +7,7 @@ Du kan generera klientcertifikat på följande sätt:
 - **Företagscertifikat:**
 
   - Om du använder en lösning för företagscertifikat genererar du ett klientcertifikat med det allmänna namnvärdesformatet name@yourdomain.com istället för formatet ”domännamn\användarnamn”.
-  - Se till att klientcertifikatet baseras på certifikatmallen ”Användare” där ”Klientautentisering” är den första posten i användningslistan, i stället för Logga in med smartkort osv. Du kan kontrollera certifikatet genom att dubbelklicka på klientcertifikatet och visa *Information > Förbättrad nyckelanvändning*.
+  - Se till att klientcertifikatet baseras på certifikatmallen ”Användare” där ”Klientautentisering” är den första posten i användningslistan, i stället för Logga in med smartkort osv. Du kan kontrollera certifikatet genom att dubbelklicka på klientcertifikatet och visa **Information > Förbättrad nyckelanvändning**.
 
 - **Självsignerat rotcertifikat:** Det är viktigt att du följer anvisningarna i någon av P2S-certifikatartiklarna nedan. I annat fall kommer inte det klientcertifikat du skapar att vara kompatibelt med P2S-anslutningar och klienterna får ett felmeddelande när de försöker ansluta. Med anvisningarna i någon av följande artiklar skapas ett kompatibelt klientcertifikat: 
 

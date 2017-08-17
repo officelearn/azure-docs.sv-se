@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 16fdd3aafef1a50554932a0e7843d347182c9b6a
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: bae2e9825bf158bb015ec0affa56f15ce5baa201
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
 # <a name="introduction-to-azure-file-storage"></a>Introduktion till Azure File Storage
-Azure File Storage erbjuder nätverksfilresurser i molnet med hjälp av [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) och [Samba/CIFS (Common Internet File System)](https://technet.microsoft.com/library/cc939973.aspx) som är branschstandard. Azure-filresurser kan monteras samtidigt av klienter som lokala distributioner av Windows, macOS, Linux eller av virtuella Azure-datorer. Ett allmänt lagringskonto ger dig åtkomst till Azure File Storage och andra tjänster som blobbar, virtuella Azure-datordiskar och köer, allt med ett enda konto.
+Azure File Storage erbjuder nätverksfilresurser i molnet med hjälp av [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) och [CIFS (Common Internet File System)](https://technet.microsoft.com/library/cc939973.aspx) som är branschstandard. Azure-filresurser kan monteras samtidigt av klienter som lokala distributioner av Windows, macOS, Linux eller av virtuella Azure-datorer. Ett allmänt lagringskonto ger dig åtkomst till Azure File Storage och andra tjänster som blobbar, virtuella Azure-datordiskar och köer, allt med ett enda konto.
 
 
 

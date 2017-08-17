@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 4d8e3f1252bc71cbf4bbbd30a16897bf4a0444d7
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Översikt över virtuella Windows-datorer i Azure
@@ -38,7 +38,7 @@ Virtuella datorer i Azure kan användas på olika sätt. Några exempel är:
 Antalet virtuella datorer som programmet använder kan skalas upp och ned beroende på vilka behov du har.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Vad behöver jag tänka på innan jag skapar en virtuell dator?
-Det finns alltid en rad [överväganden vid utformning](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) när du utökar en programinfrastruktur i Azure. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar:
+Det finns alltid en rad [överväganden vid utformning](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) när du utökar en programinfrastruktur i Azure. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar:
 
 * Programresursernas namn
 * Lagringsplatsen för resurserna
@@ -49,7 +49,7 @@ Det finns alltid en rad [överväganden vid utformning](infrastructure-virtual-m
 * Relaterade resurser som krävs för den virtuella datorn
 
 ### <a name="naming"></a>Namngivning
-En virtuell dator har ett tilldelat [namn](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och ett datornamn som konfigurerats som en del av operativsystemet. En virtuell dators namn kan bestå av upp till 15 tecken.
+En virtuell dator har ett tilldelat [namn](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och ett datornamn som konfigurerats som en del av operativsystemet. En virtuell dators namn kan bestå av upp till 15 tecken.
 
 Om du använder Azure för att skapa operativsystemsdisken är datornamnet och namnet på den virtuella datorn detsamma. Om du [laddar upp och använder en egen avbildning](upload-generalized-managed.md) som innehåller ett tidigare konfigurerat operativsystem, och du använder den för att skapa en virtuell dator, kan namnen bli olika. Vi rekommenderar att du ger datorn samma namn i operativsystemet som i den virtuella datorn när du laddar upp en egen avbildningsfil.
 
@@ -106,7 +106,7 @@ Resurserna i den här tabellen används av den virtuella datorn och måste finna
 | [Virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) |Ja |Den virtuella datorn måste ingå i ett virtuellt nätverk. |
 | [Offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nej |Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den. |
 | [Nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) |Ja |Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket. |
-| [Datadiskar](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nej |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
+| [Datadiskar](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nej |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Hur skapar jag min första virtuella dator?
 Du har flera valmöjligheter när du skapar en virtuell dator. Valen du gör beror på vilken miljö du använder. 
@@ -142,7 +142,7 @@ Du använder knappen Anslut på Azure Portal för att [starta en fjärrskrivbord
 ### <a name="manage-availability"></a>Hantera tillgänglighet
 Det är viktigt att förstå hur du [säkerställer hög tillgänglighet](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för ditt program. I den här konfigurationen skapar du flera virtuella datorer för att försäkra dig om att minst en körs.
 
-För att distributionen ska kunna omfattas av vårt 99,95 VM-serviceavtal behöver du distribuera två eller flera virtuella datorer som kör arbetsbelastningen i en [tillgänglighetsuppsättning](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Den här konfigurationen säkerställer att dina virtuella datorer distribueras via flera feldomäner och på värdar med olika underhållsfönster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) förklaras den garanterade tillgängligheten för Azure som helhet.
+För att distributionen ska kunna omfattas av vårt 99,95 VM-serviceavtal behöver du distribuera två eller flera virtuella datorer som kör arbetsbelastningen i en [tillgänglighetsuppsättning](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Den här konfigurationen säkerställer att dina virtuella datorer distribueras via flera feldomäner och på värdar med olika underhållsfönster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) förklaras den garanterade tillgängligheten för Azure som helhet.
 
 ### <a name="back-up-the-vm"></a>Säkerhetskopiera den virtuella datorn
 Ett [Recovery Services-valv](../../backup/backup-introduction-to-azure-backup.md) används för att skydda data och tillgångar i både Azure Backup- och Azure Site Recovery-tjänster. Du kan använda ett Recovery Services-valv till att [distribuera och hantera säkerhetskopior för Resource Manager-distribuerade virtuella datorer som använder PowerShell](../../backup/backup-azure-vms-automation.md). 
@@ -150,6 +150,3 @@ Ett [Recovery Services-valv](../../backup/backup-introduction-to-azure-backup.md
 ## <a name="next-steps"></a>Nästa steg
 * Om du har för avsikt att arbeta med virtuella datorer i Linux kan du läsa mer i [Azure och Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Ta reda på mer om riktlinjerna för konfiguration av infrastrukturen i [Genomgång av en exempelinfrastruktur i Azure](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Se till att du följer [Metodtips för att köra en virtuell Windows-dator på Azure](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

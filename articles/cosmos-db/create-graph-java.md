@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/07/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: afa4fe6cdef298e4504ddcf3e344ee6a5c181653
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en grafdatabas med Java och Azure Portal
@@ -61,7 +61,7 @@ Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafd
     Graf-id|sample-graph|ID för din nya graf. Samma teckenkrav gäller för grafnamn som databas-id.
     Lagringskapacitet| 10 GB|Låt standardvärdet vara kvar. Det här är databasens lagringskapacitet.
     Dataflöde|400 RU:er|Låt standardvärdet vara kvar. Du kan skala upp dataflödet senare om du vill minska svarstiden.
-    RU/m|Av|Låt standardvärdet vara kvar. Om du behöver hantera toppar i arbetsbelastningar senare kan du aktivera funktionen [RU/m](request-units-per-minute.md) då.
+    RU/m|Av|Låt standardvärdet vara kvar.
     Partitionsnyckeln|Lämna tomt|Lämna partitionsnyckelfältet tomt i den här snabbstarten.
 
 3. När formuläret är ifyllt klickar du på **OK**.

@@ -11,7 +11,7 @@ Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafd
     Graf-id|sample-graph|ID för din nya graf. Samma teckenkrav gäller för grafnamn som databas-id.
     Lagringskapacitet| 10 GB|Låt standardvärdet vara kvar. Det här är databasens lagringskapacitet.
     Dataflöde|400 RU:er|Låt standardvärdet vara kvar. Du kan skala upp dataflödet senare om du vill minska svarstiden.
-    RU/m|Av|Låt standardvärdet vara kvar. Om du behöver hantera toppar i arbetsbelastningar senare kan du aktivera funktionen [RU/m](../articles/cosmos-db/request-units-per-minute.md) då.
+    RU/m|Av|Låt standardvärdet vara kvar. 
     Partitionsnyckeln|/userid|En partitionsnyckel som ska distribuera data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel när man skapar en performant graf. Läs mer om det i [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Utforma för partitionering).
 
 3. När formuläret är ifyllt klickar du på **OK**.

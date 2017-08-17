@@ -1,5 +1,4 @@
-### Öppna TCP-portar i Windows-brandväggen för standardinstansen av databasmotorn
-<a id="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine" class="xliff"></a>
+### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Öppna TCP-portar i Windows-brandväggen för standardinstansen av databasmotorn
 1. Anslut till den virtuella datorn med Fjärrskrivbord. Detaljerade instruktioner om hur du ansluter till den virtuella datorn finns i [Öppna den virtuella SQL-datorn med Fjärrskrivbord](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
 2. När du är inloggad skriver du **WF.msc** på Startskärmen. Tryck sedan på RETUR.
    
@@ -28,24 +27,11 @@
 
 Öppna ytterligare portar för andra komponenter efter behov. Mer information finns i [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx) (Konfigurera Windows-brandväggen för att tillåta SQL Server-åtkomst).
 
-### Konfigurera SQL Server för att lyssna på TCP-protokollet
-<a id="configure-sql-server-to-listen-on-the-tcp-protocol" class="xliff"></a>
-1. När du är ansluten till den virtuella datorn skriver du **Konfigurationshanteraren för SQL Server**  på startsidan. Tryck sedan på RETUR.
-   
-    ![Öppna SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. Expandera **SQL Server-nätverkskonfiguration** i konsolfönstret i Konfigurationshanteraren för SQL Server.
-3. Klicka på **Protokoll för MSSQLSERVER** (standardinstansnamnet) i konsolfönstret. Högerklicka på **TCP** i informationsfönstret och klicka på **Aktivera** om det inte redan har aktiverats.
-   
-    ![Aktivera TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. Klicka på **SQL Server-tjänster** i konsolfönstret. Högerklicka på **SQL Server (*instansnamnet*)** (standardinstansen är **SQL Server (MSSQLSERVER)**) i informationsfönstret och klicka sedan på **Starta om** för att stoppa och starta om instansen av SQL Server.
-   
-    ![Starta om databasmotorn](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. Stäng Konfigurationshanteraren för SQL Server.
+### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Konfigurera SQL Server för att lyssna på TCP-protokollet
 
-Mer information om hur du aktiverar protokoll för SQL Server-databasmotorn finns i [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx) (Aktivera eller inaktivera ett servernätverksprotokoll).
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-### Konfigurera SQL Server för blandat läge-autentisering
-<a id="configure-sql-server-for-mixed-mode-authentication" class="xliff"></a>
+### <a name="configure-sql-server-for-mixed-mode-authentication"></a>Konfigurera SQL Server för blandat läge-autentisering
 SQL Server-databasmotorn kan inte använda Windows-autentisering utan domänmiljö. Om du vill ansluta till databasmotorn från en annan dator konfigurerar du SQL Server för blandat läge-autentisering. Med blandat läge-autentisering tillåts både SQL Server-autentisering och Windows-autentisering.
 
 > [!NOTE]
@@ -71,8 +57,7 @@ SQL Server-databasmotorn kan inte använda Windows-autentisering utan domänmilj
     ![Starta om](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. I dialogrutan SQL Server Management Studio klickar du på **Ja** för att bekräfta att du vill starta om SQL Server.
 
-### Skapa SQL Server-autentiseringsinloggningar
-<a id="create-sql-server-authentication-logins" class="xliff"></a>
+### <a name="create-sql-server-authentication-logins"></a>Skapa SQL Server-autentiseringsinloggningar
 För att kunna ansluta till databasmotorn från en annan dator måste du skapa minst en SQL Server-autentiseringsinloggning.
 
 1. I Object Explorer i SQL Server Management Studio expanderar du mappen för den serverinstans som du vill skapa den nya inloggningen i.

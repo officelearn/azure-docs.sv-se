@@ -92,8 +92,7 @@ Dessa funktioner migreras ofta sedan till verktyg som [Puppet](https://puppetlab
 Nyligen publicerade Azure [Azure Resource Management](../articles/resource-manager-deployment-model.md) REST API samt uppdaterade PowerShell- och Azure CLI-verktyg så att den går lätt att använda. Du kan distribuera, ändra eller distribuera om hela programtopologier med [Azure Resource Manager-mallar](../articles/resource-group-authoring-templates.md) med Azures resurshanterings-API med hjälp av:
 
 * tipset [Azure Portal med hjälp av mallar](https://github.com/Azure/azure-quickstart-templates)&mdash;, använd knappen "DeployToAzure"
-* [Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure PowerShell-modulerna](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Distribution och hantering av hela grupper av virtuella datorer i Azure och behållare
 Det finns flera populära system som kan distribuera hela grupper av virtuella datorer och installera Docker (eller andra Linux-behållarvärdsystem) på dem som en automatiserbar grupp. Direktlänkar finns i avsnittet [behållare och verktyg](#containers-and-vm-technologies) nedan. Det finns flera system som gör detta i större eller mindre omfattning, och den här listan är inte komplett. Beroende på dina kunskaper och scenarier kan de vara mer eller mindre användbara.
@@ -104,7 +103,7 @@ Dessutom kan du kan prova [Mesospheres DCOS (Data Center Operating System)](http
 
 [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) är ett system för hantering av virtuella datorer och behållargrupper med öppen källkod som bygger på erfarenheter på Google. Du kan även använda [kubernetes med väv för att tillhandahålla stöd för nätverk](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.com/) är en öppen PaaS-källkod (Platform-as-a-Service) som gör det enkelt att distribuera och hantera program på egna servrar. Deis bygger på Docker och CoreOS och tillhandahåller en enkel PaaS med ett Heroku-inspirerat arbetsflöde. Du kan enkelt[skapa en virtuell Azure-datorgrupp med tre noder och installera Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) på Azure och sedan [installera ett Hello World Go-program](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) är en öppen PaaS-källkod (Platform-as-a-Service) som gör det enkelt att distribuera och hantera program på egna servrar. Deis bygger på Docker och CoreOS och tillhandahåller en enkel PaaS med ett Heroku-inspirerat arbetsflöde.
 
 [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), en Linux-distribution med ett optimerat utrymmeskrav, stöd för Docker och ett eget behållarsystem som heter [rkt](https://github.com/coreos/rkt), har också ett hanteringsverktyg för behållargrupper som kallas för [fleet](https://coreos.com/fleet/docs/latest/).
 
@@ -163,9 +162,6 @@ Konfiguration, klusterhantering och behållardirigering:
 
 * [Flotta på CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
-
-  * [Skapa en virtuell Azure-datorgrupp med tre noder, installera Deis och starta ett Hello World Go-program](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Kubernetes
 
   * [Fullständig handbok för automatisk Kubernetes-klusterdistribution med CoreOS och Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: b382225b9e355148279181fbf6238eb1e08f382d
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
@@ -139,8 +139,6 @@ Om du tänker dig att dina nivåer har separata livscykler kan du distribuera di
 ![nivåmall](./media/resource-group-overview/tier-templates.png)
 
 Fler förslag på hur du kan utforma dina mallar finns i [Metodtips för att utforma Azure Resource Manager-mallar](best-practices-resource-manager-design-templates.md). Mer information om kapslade mallar finns i [Använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
-
-En serie i fyra delar om att automatisera distributionen finns i [Automatisera programdistributioner till virtuella datorer i Azure](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Den här serien täcker programarkitektur, åtkomst och säkerhet, tillgänglighet och skala samt programdistribution.
 
 Azure Resource Manager analyserar beroenden för att säkerställa att resurserna skapas i rätt ordning. Om en resurs bygger på ett värde från en annan resurs (till exempel en virtuell dator som behöver ett lagringskonto för diskar) anger du ett beroende. Mer information finns i [Definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md).
 

@@ -9,6 +9,7 @@
 # Kom igång
 ## [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md)
 ## [Lägga till ett anpassat domännamn](add-custom-domain.md)
+## [Konfigurera varumärkesexponering](customize-branding.md)
 ## [Konfigurera lösenordsåterställning via självbetjäning](active-directory-passwords-getting-started.md)
 ## Hantera Azure AD-licensiering
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## Hantera enheter
+### [Introduktion](device-management-introduction.md)
 ### [Registrera enheter](active-directory-device-registration-overview.md)
 #### [Installation](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
@@ -241,10 +243,6 @@
 #### Hantera domännamn
 ##### [Azure-portal](active-directory-domains-manage-azure-portal.md)
 ##### [Klassisk portal](active-directory-add-manage-domain-names.md)
-### Anpassa inloggningssidan
-#### [Azure-portal](active-directory-branding-custom-signon-azure-portal.md)
-#### [Språkspecifik](active-directory-branding-localize-azure-portal.md)
-#### [Klassisk portal](active-directory-add-company-branding.md)
 ### [Administrera din katalog](active-directory-administer.md)
 ### [Flera kataloger](active-directory-licensing-directory-independence.md)
 ### [O365-kataloger](active-directory-manage-o365-subscription.md)

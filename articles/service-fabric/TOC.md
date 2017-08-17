@@ -133,11 +133,12 @@
 ### Skapa en behållartjänst
 #### [Skapa ett program för Windows-behållare](service-fabric-get-started-containers.md)
 #### [Skapa ett program för Linux-behållare](service-fabric-get-started-containers-linux.md)
-#### [Distribuera Linux-behållare](service-fabric-deploy-container-linux.md)
+#### [Behållarsäkerhet](service-fabric-securing-containers.md)
 #### [Docker Compose (förhandsversion)](service-fabric-docker-compose.md)
 #### [Resursstyrning för behållare och tjänster](service-fabric-resource-governance.md)
 #### [Drivrutiner för volym och loggning](service-fabric-containers-volume-logging-drivers.md)
 #### [Tjänster i behållare](service-fabric-services-inside-containers.md)
+#### [Nätverkslägen för behållare](service-fabric-networking-modes.md)
 
 ### Skapa en Reliable Service-tjänst
 #### [Översikt](service-fabric-reliable-services-introduction.md)

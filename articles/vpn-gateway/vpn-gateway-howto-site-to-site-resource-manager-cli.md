@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: d97dfa3bc14c54e4c7097b5418c5b61e204e7676
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 019c5421dc470b18c9087417b93c241cc5730f77
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI
@@ -48,7 +48,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 * Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen. När du skapar den här konfigurationen måste du ange prefix för IP-adressintervall som Azure dirigerar till den lokala platsen. Inget av undernäten i ditt lokala nätverk kan överlappa de virtuella nätverksundernät du vill ansluta till.
 * Verifiera att du har installerat den senaste versionen av CLI-kommandona (2.0 eller senare). Information om att installera CLI-kommandona finns i [Installera Azure CLI 2.0](/cli/azure/install-azure-cli) och [Kom igång med Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
 
-### <a name="example-values"></a>Exempelvärden
+### <a name="example"></a>Exempelvärden
 
 Du kan använda följande värden till att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln.
 
@@ -77,7 +77,7 @@ ConnectionName          = VNet1toSite2
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="2-create-a-resource-group"></a>2. Skapa en resursgrupp
+## <a name="rg"></a>2. Skapa en resursgrupp
 
 I följande exempel skapas en resursgrupp med namnet ”TestRG1” på platsen ”eastus”. Om du redan har en resursgrupp i regionen där du vill skapa ditt virtuella nätverk kan du använda den i stället.
 
@@ -187,7 +187,7 @@ Om du vill använda en annan metod för att verifiera anslutningen kan du läsa 
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="common-tasks"></a>Vanliga åtgärder
+## <a name="tasks"></a>Vanliga åtgärder
 
 Det här avsnittet tar upp vanliga kommandon som är användbara när du arbetar med plats-till-plats-konfigurationer. En fullständig lista över CLI-nätverkskommandon finns i [Azure CLI - Networking](/cli/azure/network) (Azure CLI – nätverk).
 

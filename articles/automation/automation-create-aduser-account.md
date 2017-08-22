@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0092496ea13c862a1717f4fdcb882139cbd8a177
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
+ms.contentlocale: sv-se
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Autentisera runbooks med den klassiska Azure-distributionen och Resource Manager
@@ -68,7 +68,7 @@ I det här avsnittet utför du följande steg för att skapa ett Azure Automatio
 3. Klicka på **Lägg till** på bladet Automation-konton.<br><br>![Lägga till ett Automation-konto](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. På bladet **Lägg till Automation-konto** skriver du namnet på det nya Automation-kontot i rutan **Namn**.
 5. Om du har mer än en prenumeration anger du den som du vill använda för det nya kontot, samt en ny eller befintlig **resursgrupp** och en **plats** för Azure-datacentret.
-6. Välj värdet **Nej** för alternativet **Skapa Kör som-konto i Azure** och klicka på knappen **Skapa**.  
+6. Välj värdet **Ja** för alternativet **Skapa Kör som-konto i Azure** och klicka på knappen **Skapa**.  
    
     > [!NOTE]
     > Om du väljer att inte skapa ”Kör som”-kontot genom att välja alternativet **Nej** visas ett varningsmeddelande på bladet **Lägg till Automation-konto**.  När kontot skapas och tilldelas till rollen **Deltagare** i prenumerationen har den ingen tillhörande autentiseringsidentitet i din prenumerationskatalogtjänst och har därför ingen åtkomst till resurser i din prenumeration.  Det förhindrar att runbooks som refererar till det här kontot kan autentisera och utföra åtgärder mot Azure Resource Manager-resurser.

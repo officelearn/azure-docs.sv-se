@@ -10,16 +10,17 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/10/2017
+ms.date: 08/15/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 481e2552e2a2cd91d026774438788143109b28df
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/16/2017
 
 ---
+
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda Python för att ansluta och fråga efter data
-Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure Databas för PostgreSQL. Använd sedan SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen från Microsoft-, Mac OS- och Ubuntu Linux-plattformar. I den här artikeln förutsätter vi att du har kunskaper om Python och att du inte har arbetat med Azure Database för PostgreSQL tidigare.
+Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure Database för PostgreSQL. Den visar också hur SQL-instruktioner används för att fråga, infoga, uppdatera och ta bort data i databasen i macOS-, Ubuntu Linux- och Windows-plattformar. I den här artikeln förutsätter vi att du har kunskaper om Python och att du inte har arbetat med Azure Database för PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
@@ -28,32 +29,46 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 
 Du behöver också:
 - [Python](https://www.python.org/downloads/) installerad
-- installera [PIP](https://pip.pypa.io/en/stable/installing/)-paketet (pip har redan installerats om du använder Python 2 > = 2.7.9 eller Python 3 > = 3-4-binärfiler som hämtats från [python.org](https://python.org), men du måste uppgradera pip)
+- installera [PIP](https://pip.pypa.io/en/stable/installing/)-paketet (pip har redan installerats om du använder Python 2 > = 2.7.9 eller Python 3 > = 3-4-binärfiler som hämtats från [python.org](https://python.org)).
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>Installera Python-anslutningsbibliotek för PostgreSQL
-Installera paketet [psycopg2](http://initd.org/psycopg/docs/install.html) för att ansluta till och fråga databasen. psycopg2 är [på PyPI](https://pypi.python.org/pypi/psycopg2/) i form av [hjul](http://pythonwheels.com/)-paket för de vanligaste plattformarna (Linux, OS x, Windows), så att du kan använda pip-installationen för att få den binära versionen för modulen inklusive alla beroenden:
+Installera paketet [psycopg2](http://initd.org/psycopg/docs/install.html) för att ansluta till och fråga databasen. psycopg2 finns [i PyPI](https://pypi.python.org/pypi/psycopg2/) i form av [WHL](http://pythonwheels.com/)-paket för de flesta vanliga plattformar (Linux, OSX, Windows). Använd pip-installation för att få den binära versionen av modulen, inklusive alla beroenden.
 
-```cmd
-pip install psycopg2
-```
-Se till att använda en uppdaterad version av pip (du kan uppgradera den med något som `pip install -U pip`)
+1. Starta ett kommandoradsgränssnitt på din dator:
+    - I Linux, starta Bash-gränssnittet.
+    - I macOS, starta Terminal.
+    - I Windows, starta kommandotolken från Start-menyn.
+2. Se till att du använder den senaste versionen av pip genom att köra ett kommando som:
+    ```cmd
+    pip install -U pip
+    ```
+
+3. Kör följande kommando för att installera psycopg2-paketet:
+    ```cmd
+    pip install psycopg2
+    ```
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Hämta den information som du behöver för att ansluta till Azure Database för PostgreSQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. I den vänstra menyn i Azure-portalen, klickar du på **Alla resurser** och söker efter den server som du nyss skapade **mypgserver-20170401**.
+2. I den vänstra menyn i Azure Portal klickar du på **Alla resurser** och söker efter **mypgserver-20170401** (den server som du nyss skapade).
 3. Klicka på servernamnet **mypgserver-20170401**.
-4. Välj serverns **översikt**-sida. Anteckna **servernamn** och **inloggningsnamnet för serveradministratören**.
+4. Välj serverns sida **Översikt** och notera **Servernamn** och **Inloggningsnamn för serveradministratören**.
  ![Azure Database för PostgreSQL – inloggning för serveradministratör](./media/connect-python/1-connection-string.png)
 5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
 
 ## <a name="how-to-run-python-code"></a>Så här kör du Python-kod
-- Skapa en ny fil med namnet postgres.py i valfri textredigerare och spara den till en projektmapp. Kopiera och klistra in ett kodexempel som visas nedan i textfilen. Ersätt parametrarna host, dbname,user och password med de värden som du angav när du skapade servern och databasen. Spara sedan filen. Se till att markera UTF-8-kodning när du sparar filen i Windows-operativsystemet. 
-- Om du vill köra koden startar du kommandotolken eller bash-gränssnittet. Ändra katalogen till din projektmapp, till exempel `cd postgresql`. Skriv därefter in python-kommandot följt av filnamnet, till exempel `python postgres.py`.
+Det här ämnet innehåller totalt fyra kodexempel som vart och ett utför en viss funktion. Följande anvisningar beskriver hur du skapar en textfil, infogar ett kodblock och sedan sparar filen så att du kan köra den senare. Se till att du skapar fyra olika filer, en för varje kodblock.
+
+- Skapa en ny fil i valfri textredigerare.
+- Kopiera och klistra in ett av kodexemplen i följande avsnitt i textfilen. Ersätt parametrarna **host**, **dbname**, **user** och **password** med de värden som du angav när du skapade servern och databasen.
+- Spara filen med filnamnstillägget .py (till exempel postgres.py) i projektmappen. Om du kör Windows-operativsystemet ska du se till att välja UTF-8-kodning när du sparar filen. 
+- Starta kommandotolken eller Bash-gränssnittet och byt katalog till din projektmapp, till exempel `cd postgres`.
+-  Skriv Python-kommandot följt av filnamnet, till exempel `Python postgres.py`, för att köra koden.
 
 > [!NOTE]
-> Från och med Python version 3, kan du se felet `SyntaxError: Missing parentheses in call to 'print'` när du kör kodblocken nedan. Om detta händer, ersätter du varje anrop till kommandot `print "string"` med ett funktionsanrop med parenteser, till exempel `print("string")`.
+> Från och med Python version 3 kanske du ser felet `SyntaxError: Missing parentheses in call to 'print'` när du kör kodblocken nedan. Om detta händer, ersätter du varje anrop till kommandot `print "string"` med ett funktionsanrop med parenteser, till exempel `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
 Använd följande kod för att ansluta och läsa in data med hjälp av funktionen [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) med en **INSERT**-SQL-instruktion. Funktionen [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) används för att köra SQL-frågor mot en PostgreSQL-databas. Ersätt parametrarna host, dbname,user och password med de värden som du angav när du skapade servern och databasen.
@@ -94,6 +109,10 @@ conn.commit()
 cursor.close()
 conn.close()
 ```
+
+När koden har körts visas utdata på följande sätt:
+
+![Utdata i kommandorad](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Läsa data
 Använd följande kod för att läsa data som infogats med funktionen [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) med **SELECT** SQL-instruktionen. Den här funktionen accepterar en fråga och returnerar en resultatuppsättning som kan upprepas med hjälp av [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). Ersätt parametrarna host, dbname,user och password med de värden som du angav när du skapade servern och databasen.

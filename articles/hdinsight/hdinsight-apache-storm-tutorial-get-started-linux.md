@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 08/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5121861dc9fa11bbde32c12f3987bb60f2dda057
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Kom igång med Apache Storm på HDInsight med storm starter-exempel
@@ -65,7 +65,7 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
     * **Operativsystem**: Linux
 
-    * **Version**: Storm 1.0.1 (HDI 3.5)
+    * **Version**: Storm 1.1.0 (HDI 3.6)
 
     * **Klusternivå**: Standard
 
@@ -110,7 +110,7 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
     >
     > WordCount-exemplet, och andra storm-starterexempel ingår redan i ditt kluster på `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-Om du är intresserad av att se källan för storm-starterexempel kan du hämta koden på [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). Länken är till Storm 1.0.x, som medföljer HDInsight 3.5. Om du vill välja någon annan version av Storm väljer du version med knappen __Gren__ överst på sidan.
+Om du är intresserad av att se källan för storm-starterexempel kan du hämta koden på [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter). Länken är till Storm 1.1.x, som medföljer HDInsight 3.6. Om du vill välja någon annan version av Storm väljer du version med knappen __Gren__ överst på sidan.
 
 ## <a name="monitor-the-topology"></a>Övervaka topologin
 

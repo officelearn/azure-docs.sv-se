@@ -1,0 +1,40 @@
+- name: Event Grid
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Event Grid
+      href: overview.md
+- name: Snabbstarter
+  items:
+    - name: Skapa och dirigera anpassade händelser
+      href: custom-event-quickstart.md
+- name: Självstudier
+  items:
+    - name: Övervaka ändringar i virtuella datorer med logiska appar
+      href: monitor-virtual-machine-changes-event-grid-logic-app.md
+- name: Koncept
+  items:
+    - name: Event Grid-begrepp
+      href: concepts.md
+    - name: Säkerhet och autentisering
+      href: security-authentication.md
+    - name: Leverans och nytt försök
+      href: delivery-and-retry.md
+- name: Referens
+  items:
+    - name: REST
+      href: /rest/api/eventgrid
+    - name: Prenumerationsschema
+      href: subscription-creation-schema.md
+    - name: Händelseschema
+      href: event-schema.md
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/event-grid/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-event-grid'

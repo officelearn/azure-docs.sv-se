@@ -76,11 +76,6 @@
       href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Planerat underhåll
       href: planned-maintenance.md
-      items:
-        - name: Bevarande underhåll
-          href: maintenance-in-place.md
-        - name: Starta om underhåll
-          href: impactful-maintenance.md
     - name: VM-storlekar
       items:
         - name: Översikt över VM-storlekar

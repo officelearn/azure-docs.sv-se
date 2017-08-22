@@ -4,8 +4,6 @@
   items:
     - name: Om Azure Cosmos DB
       href: introduction.md
-    - name: Välkommen DocumentDB-kunder
-      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: Snabbstarter
   expanded: true
   items:

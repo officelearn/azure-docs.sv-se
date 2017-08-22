@@ -28,7 +28,6 @@
 ## [REST](/rest/api/datacatalog/)
 ## [Sök i syntaxreferens](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Utvecklarkoncept](data-catalog-developer-concepts.md)
-## [Utvecklarexempel](data-catalog-samples.md)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)

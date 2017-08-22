@@ -2,6 +2,7 @@
 ## [Vad är Azure Analysis Services?](analysis-services-overview.md)
 ## [Datakällor som stöds](analysis-services-datasource.md)
 ## [Autentisering och användarbehörigheter](analysis-services-manage-users.md)
+## [Ansluta till lokala datakällor](analysis-services-gateway.md)
 ## [Efterlevnadsnivå](analysis-services-compat-level.md)
 ## [Hög tillgänglighet](analysis-services-bcdr.md)
 
@@ -15,7 +16,7 @@
 ## [Hantera en server](analysis-services-manage.md)
 ## [Hantera databasanvändare](analysis-services-database-users.md)
 ## [Hantera serveradministratörer](analysis-services-server-admins.md)
-## [Installera den lokala datagatewayen](analysis-services-gateway.md)
+## [Installera och konfigurera lokal datagateway](analysis-services-gateway-install.md)
 ## [Hämta klientbibliotek](analysis-services-data-providers.md)
 ## [Säkerhetskopiering och återställning](analysis-services-backup.md)
 ## [Anslut till Excel](analysis-services-connect-excel.md)

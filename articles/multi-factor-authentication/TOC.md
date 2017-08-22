@@ -17,7 +17,7 @@
 ### [Använd befintliga servrar för nätverksprinciper](multi-factor-authentication-nps-extension.md)
 #### [Avancerad konfiguration för NPS-tillägg](nps-extension-advanced-configuration.md)
 ### [Skapa en autentiseringsleverantör](multi-factor-authentication-get-started-auth-provider.md)
-### Azure MFA lokalt
+### Distribuera MFA lokalt
 #### [Installera användarportalen](multi-factor-authentication-get-started-portal.md)
 #### [Avancerade VPN-konfigurationer](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Webbtjänsten för mobilappar](multi-factor-authentication-get-started-server-webservice.md)
@@ -31,16 +31,19 @@
 ### [Användarhandbok för MFA](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integrera
-### [Federation Services](multi-factor-authentication-get-started-adfs.md)
-#### [Använda AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
-#### [Använda AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-#### [Använda Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
-### Kataloger
-#### [LDAP-autentisering](multi-factor-authentication-get-started-server-ldap.md)
-#### [RADIUS-autentisering](multi-factor-authentication-get-started-server-radius.md)
-#### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
-### [IIS-webbappar](multi-factor-authentication-get-started-server-iis.md)
-### [Gateway för fjärrskrivbord](multi-factor-authentication-get-started-server-rdg.md)
+### [Gateway för fjärrskrivbord](nps-extension-remote-desktop-gateway.md)
+### [VPN](nps-extension-vpn.md)
+### Integrera MFA lokalt
+#### [Federation Services](multi-factor-authentication-get-started-adfs.md)
+##### [Använda AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [Använda AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
+##### [Använda Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
+#### Kataloger
+##### [LDAP-autentisering](multi-factor-authentication-get-started-server-ldap.md)
+##### [RADIUS-autentisering](multi-factor-authentication-get-started-server-radius.md)
+##### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
+#### [IIS-webbappar](multi-factor-authentication-get-started-server-iis.md)
+#### [Gateway för fjärrskrivbord](multi-factor-authentication-get-started-server-rdg.md)
 
 ## Utveckla
 ### [Bygga in i anpassade appar (SDK)](multi-factor-authentication-sdk.md)
@@ -49,6 +52,7 @@
 ### [Vanliga frågor och svar](multi-factor-authentication-faq.md)
 ### [Ställ en fråga](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Fel i NPS-tillägg](multi-factor-authentication-nps-errors.md)
+
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

@@ -144,8 +144,14 @@
 
 ## Hantera enheter
 ### [Introduktion](device-management-introduction.md)
-### [Registrera enheter](active-directory-device-registration-overview.md)
-#### [Installation](active-directory-conditional-access-automatic-device-registration-setup.md)
+### [Vanliga frågor och svar](device-management-faq.md)
+### Uppgifter
+#### [Konfigurera Azure AD-anslutna hybridenheter](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### Felsöka
+##### [Azure AD-anslutna Windows 10- och Windows Server 2016-hybridenheter](device-management-troubleshoot-hybrid-join-windows-current.md)
+##### [Tidigare Azure AD-anslutna Windows-hybridenheter ](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+
+### Registrera enheter
 #### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
 #### [Vanliga frågor och svar](active-directory-device-registration-faq.md)
 #### Felsöka

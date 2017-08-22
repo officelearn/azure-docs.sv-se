@@ -1,9 +1,9 @@
 
 
-## <a name="overview-of-azure-resource-manager-templates"></a>Overview of Azure Resource Manager templates
-Azure Resource Manager templates allows you to declaratively specify the Azure IaaS infrastructure in JSON language by defining the dependencies between resources.
+## <a name="overview-of-azure-resource-manager-templates"></a>Översikt över Azure Resource Manager-mallar
+Med Azure Resource Manager-mallar kan du ange Azure IaaS-infrastrukturen med deklarativt JSON-språk genom att definiera beroenden mellan resurser.
 
-See  [Authoring extension templates](../articles/virtual-machines/windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to learn more about authoring templates for using extensions.
+Mer information om mallar för redigeringstillägg finns i [Mallar för redigeringstillägg](../articles/virtual-machines/windows/template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-In this article we'll learn about troubleshooting some of the common VM extension failures.
+I den här artikeln ska vi lära oss om felsökning av vanliga problem med virtuella datortillägg.
 

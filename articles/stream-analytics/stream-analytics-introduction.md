@@ -4,7 +4,7 @@ description: "Lär dig mer om Stream Analytics, en hanterad tjänst som hjälper
 keywords: "analytics som en tjänst, hanterade tjänster, stream bearbetning, streaming analytics vad är stream analytics"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: jenniehubbard
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/16/2017
-ms.author: jeffstok
+ms.date: 08/08/2017
+ms.author: jhubbard
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 2fda07b8444b196d831e5e9fe7ade3e5017d36f9
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 07/19/2017
 
 Azure Stream Analytics är en helt hanterad händelsebearbetningsmotor som låter dig ställa in analytiska beräkningar i realtid på streamingdata. Data kan komma från enheter, sensorer, webbplatser, sociala medier, program, infrastruktursystem och mer. 
 
-## <a name="what-can-i-use-stream-analytics-for"></a>Vad kan jag använda Stream Analytics för?
+## <a name="what-can-i-do-with-stream-analytics"></a>Vad kan jag göra med Stream Analytics?
 
 Med Stream Analytics kan du undersöka stora mängder data som flödar från enheter eller processer, extrahera information från dataströmmar och leta efter mönster, trender och relationer. Baserat på vad som finns i datan kan du sedan utföra uppgifter för programmet. Du kan till exempel generera aviseringar, starta automatiseringsarbetsflöden, skicka information till ett verktyg, till exempel Power BI, eller lagra data för senare undersökning. 
 
-Exempel på scenarier i Stream Analytics:
+Exempel:
 
 * Anpassade börshandelanalys i realtid och aviseringar som erbjuds av företag för finansiella tjänster.
 * Upptäck bedrägerier i realtid baserat på transaktionsdata. 
@@ -42,7 +42,7 @@ Exempel på scenarier i Stream Analytics:
 
 ## <a name="how-does-stream-analytics-work"></a>Hur fungerar Stream Analytics?
 
-Följande diagram illustrerar arbetsflödet i Stream Analytics, det vill säga hur data inhämtas, analyseras och sedan skickas för presentation eller åtgärd. 
+Det här diagrammet illustrerar arbetsflödet i Stream Analytics, det vill säga hur data inhämtas, analyseras och sedan skickas för presentation eller åtgärd. 
 
 ![Arbetsflöde för Stream Analytics](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 
@@ -57,7 +57,7 @@ Slutligen anger jobbet en utdatafil som omvandlade data ska skickas till. På s�
 * Skicka data till en Power BI-instrumentpanel för rapportering.
 * Skicka data till lagring som Data Lake Store, SQL Server-databas eller Azure Blob eller Table storage.
 
-När ett jobb körs, kan du övervaka den och justera hur många händelser som bearbetas per sekund. Du kan också ha jobb som producerar diagnostiska loggar för felsökning.
+Du kan övervaka det hela och justera hur många händelser som bearbetas per sekund. Du kan också ha jobb som producerar diagnostiska loggar för felsökning.
 
 ## <a name="key-capabilities-and-benefits"></a>Viktiga funktioner och fördelar
 
@@ -69,7 +69,7 @@ Stream Analytics ansluter direkt till [Azure Event Hubs](https://azure.microsoft
 
 Jobbindata kan även inkludera referensdata (statiska eller långsamt föränderliga data). Du kan koppla strömmat data till dessa referensdata och utföra åtgärder för sökning på samma sätt som du skulle gjort med databasfrågor.
 
-Utdata för ett Stream Analytics-jobb kan vidarebefordras i många riktningar. Det går att skriva till lagring, till exempel Azure Storage-blobbar eller tabeller, Azure SQL DB, Azure Data Lake Stores eller Azure Cosmos DB. Därifrån kan data gå vidare för batchanalyser via Azure HDInsight. Du kan skicka utdata till en annan tjänst för användning av en annan process, till exempel händelsehubbar, Azure Service Bus-ämnen eller köer. Du kan skicka utdata till Power BI för visualisering.
+Dirigera Stream Analytics-jobbutdata i många riktningar. Du kan skriva till lagring, till exempel Azure Storage-blobbar eller tabeller, Azure SQL DB, Azure Data Lake Stores eller Azure Cosmos DB. Därifrån kan data gå vidare för batchanalyser via Azure HDInsight. Du kan skicka utdata till en annan tjänst för användning av en annan process, till exempel händelsehubbar, Azure Service Bus-ämnen eller köer. Du kan skicka utdata till Power BI för visualisering.
 
 ### <a name="ease-of-use"></a>Användbarhet
 
@@ -98,6 +98,6 @@ Som en hanterad tjänst i molnet, förhindrar Stream Analytics dataförlust och 
 * Lär dig mer om det SQL-liknande frågespråket för Stream Analytics och unika begrepp som [fönsterfunktioner](stream-analytics-window-functions.md).
 * Lär dig [skala Stream Analytics-jobb](stream-analytics-scale-jobs.md). 
 * Lär dig [integrera Stream Analytics och Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-* Få svar på dina frågor om Stream Analytics på [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+* Få svar på dina Stream Analytics-frågor på [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 

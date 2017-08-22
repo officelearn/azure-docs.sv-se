@@ -1,44 +1,44 @@
-Before you can use the Azure CLI with Resource Manager commands and templates to deploy Azure resources and workloads using resource groups, you will need an account with Azure. If you do not have an account, you can get a [free Azure trial here](https://azure.microsoft.com/pricing/free-trial/).
+Innan du kan använda Azure CLI med Resource Manager-kommandon och mallar för att distribuera Azure-resurser och arbetsbelastningar med resursgrupper, måste du ha ett konto hos Azure. Om du inte har något konto kan du skaffa ett [kostnadsfritt Azure-utvärderingskonto här](https://azure.microsoft.com/pricing/free-trial/).
 
-If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](../articles/cli-install-nodejs.md) set the mode to `arm` with `azure config mode arm`, and connect to Azure with the `azure login` command.
+Om du inte redan har installerat Azure CLI och anslutit till din prenumeration kan du läsa [Installera Azure CLI](../articles/cli-install-nodejs.md), ange läget till `arm` med `azure config mode arm` och anslut till Azure med kommandot `azure login`.
 
-## <a name="cli-versions-to-complete-the-task"></a>CLI versions to complete the task
-You can complete the task using one of the following CLI versions:
+## <a name="cli-versions-to-complete-the-task"></a>CLI-versioner för att slutföra uppgiften
+Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
-- Azure CLI 10 – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md) - our next generation CLI for the resource management deployment model
+- Azure CLI 10 – vårt CLI för den klassiska distributionsmodellen och Resource Manager-distributionsmodellen (den här artikeln)
+- [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md) – vår nästa generations CLI för distributionsmodellen resurshantering
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Basic Azure Resource Manager commands in Azure CLI
-This article covers basic commands you will want to use with Azure CLI to manage and interact with your resources (primarily VMs) in your Azure subscription.  For more detailed help with specific command line switches and options, you can use the online command help and options by typing `azure <command> <subcommand> --help` or `azure help <command> <subcommand>`.
+## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Grundläggande Azure Resource Manager-kommandon i Azure CLI
+Den här artikeln beskriver grundläggande kommandon för att använda Azure CLI för att hantera och interagera med resurser (främst virtuella datorer) i Azure-prenumerationen.  Om du behöver mer ingående hjälp med särskilda kommandoradsväxlingar och alternativ kan du använda hjälp och alternativ för onlinekommandon genom att skriva `azure <command> <subcommand> --help` eller `azure help <command> <subcommand>`.
 
 > [!NOTE]
-> These examples don't include template-based operations which are generally recommended for VM deployments in Resource Manager. For information, see [Use the Azure CLI with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) and [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> De här exemplen omfattar inte mallbaserade åtgärder som brukar rekommenderas för distribueringar av virtuella datorer i Resource Manager. Mer information finns i [Use the Azure CLI with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) (Använda Azure CLI med Azure Resource Manager) och [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Distribuera och hantera virtuella datorer med Azure Resource Manager-mallar och Azure CLI).
 > 
 > 
 
-| Task | Resource Manager |
+| Aktivitet | Resource Manager |
 | --- | --- | --- |
-| Create the most basic VM |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtain the `image-urn` from the `azure vm image list` command. See [this article](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for examples.) |
-| Create a Linux VM |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
-| Create a Windows VM |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
-| List VMs |`azure  vm list [options]` |
-| Get information about a VM |`azure  vm show [options] <resource_group> <name>` |
-| Start a VM |`azure vm start [options] <resource_group> <name>` |
-| Stop a VM |`azure vm stop [options] <resource_group> <name>` |
-| Deallocate a VM |`azure vm deallocate [options] <resource-group> <name>` |
-| Restart a VM |`azure vm restart [options] <resource_group> <name>` |
-| Delete a VM |`azure vm delete [options] <resource_group> <name>` |
-| Capture a VM |`azure vm capture [options] <resource_group> <name>` |
-| Create a VM from a user image |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Create a VM from a specialized disk |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
-| Add a data disk to a VM |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
-| Remove a data disk from a VM |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
-| Add a generic extension to a VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |
-| Add VM Access extension to a VM |`azure vm reset-access [options] <resource-group> <name>` |
-| Add Docker extension to a VM |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
-| Remove a VM extension |`azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>` |
-| Get usage of VM resources |`azure vm list-usage [options] <location>` |
-| Get all available VM sizes |`azure vm sizes [options]` |
+| Skapa en grundläggande virtuell dator |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Hämta `image-urn` från kommandot `azure vm image list`. Fler exempel finns i [den här artikeln ](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .) |
+| Skapa en virtuell Linux-dator |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
+| Skapa en virtuell Windows-dator |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
+| Lista över virtuella datorer |`azure  vm list [options]` |
+| Hämta information om en virtuell dator |`azure  vm show [options] <resource_group> <name>` |
+| Starta en virtuell dator |`azure vm start [options] <resource_group> <name>` |
+| Stoppa en virtuell dator |`azure vm stop [options] <resource_group> <name>` |
+| Frigöra en virtuell dator |`azure vm deallocate [options] <resource-group> <name>` |
+| Starta om en virtuell dator |`azure vm restart [options] <resource_group> <name>` |
+| Ta bort en virtuell dator |`azure vm delete [options] <resource_group> <name>` |
+| Avbilda en virtuell dator |`azure vm capture [options] <resource_group> <name>` |
+| Skapa en virtuell dator av en användaravbildning |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
+| Skapa en virtuell dator från en särskild disk |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Lägg till en datadisk i en virtuell dator |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
+| Ta bort en datadisk från en virtuell dator |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
+| Lägg till ett allmänt tillägg i en virtuell dator |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |
+| Lägg till ett åtkomsttillägg i en virtuell dator |`azure vm reset-access [options] <resource-group> <name>` |
+| Lägg till ett Docker-tillägg i en virtuell dator |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
+| Ta bort ett virtuellt datortillägg |`azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>` |
+| Få användning av virtuella datorresurser |`azure vm list-usage [options] <location>` |
+| Hämta alla tillgängliga storlekar för virtuella datorer |`azure vm sizes [options]` |
 
-## <a name="next-steps"></a>Next steps
-* For additional examples of the CLI commands going beyond basic VM management, see [Using the Azure CLI with Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
+## <a name="next-steps"></a>Nästa steg
+* Fler exempel på CLI-kommandon bortom grundläggande hantering av virtuella datorer finns i [Using the Azure CLI with Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md) (Använda Azure CLI med Azure Resource Manager).

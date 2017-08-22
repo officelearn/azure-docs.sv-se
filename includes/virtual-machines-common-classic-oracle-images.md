@@ -1,27 +1,27 @@
 
 
 
-To create virtual machines based on Oracle images, sign in to the [Azure portal](https://portal.azure.com/), click **Marketplace**, click **Compute**, and then type **Oracle** into the Search box. Select an image and follow the instructions to set up the image on Microsoft Azure. Note that Oracle images by Microsoft on the [Azure portal](https://portal.azure.com/) run on Windows, and Oracle images by Oracle run on Oracle Linux.
+Om du vill skapa virtuella datorer baserat på Oracle-avbildningar loggar du in på [Azure Portal](https://portal.azure.com/), klickar på **Marketplace**, klickar på **Compute** och skriver sedan **Oracle** i sökrutan. Välj en avbildning och följ anvisningarna för att installera den på Microsoft Azure. Tänk på att Oracle-avbildningar av Microsoft på [Azure Portal](https://portal.azure.com/) körs i Windows, medan Oracle-avbildningar av Oracle körs i Linux.
 
-## <a name="windows-based-virtual-machine-images"></a>Windows-based virtual machine images
-The following is a list of the available Oracle virtual machine images that run on Windows Server on Azure. These images are pay-as-you-go, meaning that Oracle license fees are included in the usage of these images. Microsoft no longer publishes Oracle Database or WebLogic images in Azure Marketplace.  You can still create your own custom image and use the Bring Your Own License model in order to run Oracle software on Microsoft Azure. 
+## <a name="windows-based-virtual-machine-images"></a>Avbildningar av Windows-baserade virtuella datorer
+Följande är en lista över tillgängliga avbildningar av virtuella Oracle-datorer som körs på Windows Server på Azure. Avbildningarna betalas per användning, vilket innebär att Oracle-licensavgifterna ingår i användningen av avbildningarna. Microsoft publicerar inte längre Oracle Database- eller WebLogic-avbildningar på Azure Marketplace.  Du kan fortfarande skapa en egen avbildning och använda BYOL-modellen (Bring Your Own License, använd egen licens) för att köra Oracle-programvara på Microsoft Azure. 
 
-### <a name="java-virtual-machine-images"></a>Java virtual machine images
-* JDK 8 on Windows Server 2012 R2
-* JDK 7 on Windows Server 2012
-* JDK 6 on Windows Server 2012
+### <a name="java-virtual-machine-images"></a>Avbildningar av virtuella Java-datorer
+* JDK 8 på Windows Server 2012 R2
+* JDK 7 på Windows Server 2012
+* JDK 6 på Windows Server 2012
 
-## <a name="oracle-linux-virtual-machine-images"></a>Oracle Linux virtual machine images
-The following is a list of the available preconfigured Oracle virtual machine images that run on Oracle Linux on Azure. You are expected to bring your own license for these images, as Oracle license fees are not included in the usage of these preconfigured virtual machine images. You can also bring your own license to install and run Oracle software on custom virtual machines on Windows or Linux. Here are complete details on [Oracle licensing on Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). And here are details on creating virtual machines using [your own images](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). To learn about this and other methods of migrating Oracle and other workloads to Azure, see [Different ways to create a Windows-based virtual machine](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="oracle-linux-virtual-machine-images"></a>Avbildningar av virtuella Oracle-datorer i Linux
+Följande är en lista över tillgängliga förinställda avbildningar av virtuella Oracle-datorer som körs på Oracle Linux på Azure. Du förväntas använda en egen licens för de här avbildningarna eftersom Oracle-licensavgifter inte ingår i användningen av förinställda avbildningar av virtuella datorer. Du kan också använda en egen licens för att installera och köra Oracle-programvara på egna virtuella datorer i Windows eller Linux. Här finns detaljerad information om [Oracle-licenser i Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). Och här finns information om hur du skapar virtuella datorer med hjälp av [egna avbildningar](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-* Oracle Database 12c Enterprise Edition on Oracle Linux
-* Oracle Database 12c Standard Edition on Oracle Linux
-* Oracle WebLogic Server 12c Enterprise Edition on Oracle Linux
+* Oracle Database 12c Enterprise Edition i Oracle Linux
+* Oracle Database 12c Standard Edition i Oracle Linux
+* Oracle WebLogic Server 12c Enterprise Edition i Oracle Linux
 * Oracle Linux 6.4.0.0.0
 * Oracle Linux 6.7.0.0.0
 * Oracle Linux 7.0.0.0.0
 * Oracle Linux 7.2.0.0.0
 
-## <a name="additional-resources"></a>Additional resources
-[Oracle virtual machine images - miscellaneous considerations](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
+## <a name="additional-resources"></a>Ytterligare resurser
+[Tänk på följande gällande Oracle-avbildningar av virtuella datorer](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 

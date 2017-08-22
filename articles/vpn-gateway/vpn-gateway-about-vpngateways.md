@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0f26a9b62a376daf2b1314ff5972293a2bc7f379
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: db280ff801c6e501e7ab7890f67d22ae16444491
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="about-vpn-gateway"></a>Om VPN Gateway
@@ -28,7 +28,7 @@ En VPN-gateway är en typ av virtuell nätverksgateway som skickar krypterad tra
 
 Varje virtuellt nätverk kan ha endast en VPN-gateway, men du kan skapa flera anslutningar till samma VPN-gateway. Ett exempel på detta är en konfiguration med anslutning till flera platser. När du skapar flera anslutningar till samma VPN-gateway delar alla VPN-tunnlar, inklusive punkt-till-plats-VPN, den bandbredd som är tillgänglig för gatewayen.
 
-### <a name="what-is-a-virtual-network-gateway"></a>Vad är en virtuell nätverksgateway?
+### <a name="whatis"></a>Vad är en virtuell nätverksgateway?
 
 En virtuell nätverksgateway består av två eller flera virtuella datorer som distribueras till ett specifikt undernät med namnet GatewaySubnet. De virtuella datorerna som finns i GatewaySubnet skapas när du skapar den virtuella nätverksgatewayen. Virtuella datorer för virtuell nätverksgateway är konfigurerade för att innehålla routningstabeller och gateway-tjänster som är specifika för gatewayen. Du kan konfigurera de virtuella datorer som är en del av den virtuella nätverksgatewayen direkt och du bör aldrig distribuera ytterligare resurser till GatewaySubnet.
 
@@ -38,7 +38,7 @@ När du skapar en virtuell nätverksgateway med hjälp av gatewaytypen 'Vpn ”,
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## <a name="configuring-a-vpn-gateway"></a>Konfigurera en VPN-gateway
+## <a name="configuring"></a>Konfigurera en VPN-gateway
 
 En anslutning för VPN-gateway är beroende av flera resurser som är konfigurerade med specifika inställningar. De flesta resurserna kan konfigureras separat, även om de måste konfigureras i en viss ordning i vissa fall.
 
@@ -46,11 +46,11 @@ En anslutning för VPN-gateway är beroende av flera resurser som är konfigurer
 
 De inställningar som du väljer för varje resurs är viktiga för att skapa en lyckad anslutning. Information om enskilda resurser och inställningar för VPN-gateway finns [Om inställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md). Den här artikeln innehåller information om gatewaytyper, VPN-typer, anslutningstyper, gatewayundernät, lokala nätverksgatewayer och andra resursinställningar som du kan använda.
 
-### <a name="deployment-tools"></a>Distributionsverktyg
+### <a name="tools"></a>Distributionsverktyg
 
 Du kan börja skapa och konfigurera resurser med hjälp av ett konfigurationsverktyg, till exempel Azure Portal. Du kan senare välja att byta till ett annat verktyg, som PowerShell, för att konfigurera ytterligare resurser eller ändra befintliga resurser om det behövs. För närvarande går det inte att konfigurera alla resurser och resursinställningar på Azure Portal. Anvisningarna i artiklarna för varje anslutningstopologi anger om ett specifikt konfigurationsverktyg behövs. 
 
-### <a name="deployment-model"></a>Distributionsmodell
+### <a name="models"></a>Distributionsmodell
 
 När du konfigurerar en VPN-gateway varierar instruktionerna som du följer beroende på vilken distributionsmodell du använde för att skapa det virtuella nätverket. Om du exempelvis har skapat ditt VNet med den klassiska distributionsmodellen, ska du använda riktlinjerna och instruktionerna för den modellen när du skapar och konfigurerar dina VPN Gateway-inställningar. Mer information om distributionsmodellerna finns i [Förstå Resource Manager- och klassiska distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -64,7 +64,7 @@ Det är viktigt att känna till att det finns olika konfigurationer för VPN-gat
 
 Använd diagrammen och beskrivningarna för att välja den anslutningstopologi som passar dina behov. Diagrammen visar de viktigaste grundläggande topologierna, men du kan skapa mer komplexa konfigurationer och använda diagrammen som utgångspunkt.
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Plats-till-plats och flera platser (IPsec/IKE VPN-tunnel)
+## <a name="s2smulti"></a>Plats-till-plats och flera platser (IPsec/IKE VPN-tunnel)
 
 ### <a name="S2S"></a>Plats-till-plats-anslutning
 
@@ -142,7 +142,7 @@ Du kan konfigurera ett VPN för plats-till-plats som en säker redundansväxling
 
 Se [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er för VPN-gateway.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor och svar
 
 Vanliga frågor om VPN-gateway finns i [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md).
 

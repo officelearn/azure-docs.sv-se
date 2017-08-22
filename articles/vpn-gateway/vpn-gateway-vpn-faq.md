@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3627b3dfa5067883625b9a714645164ec99c8a51
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27e5dbff8d4a9a2ed82ab6691aa82c2668fec958
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
@@ -58,7 +57,7 @@ Med **punkt-till-plats**-konfigurationer (VPN över SSTP) kan du ansluta från e
 
 Du kan konfigurera ditt virtuella nätverk till att använda både plats-till-plats och punkt-till-plats samtidigt, förutsatt att du skapar din plats-till-plats-anslutning med en routningsbaserad VPN-typ för din gateway. Routningsbaserade VPN-typer kallas för dynamiska gateways i den klassiska distributionsmodellen.
 
-## <a name="virtual-network-gateways"></a>Virtuella nätverksgatewayer
+## <a name="gateways"></a>Virtuella nätverksgatewayer
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>Är en VPN-gateway en virtuell nätverksgateway?
 
@@ -132,7 +131,7 @@ En VPN-gateway är i grunden en multihomed-enhet med ett nätverkskort för kund
 
 Mer information finns i [Om konfigurationsinställningar för VPN-gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>Plats-till-plats-anslutningar och VPN-enheter
+## <a name="s2s"></a>Plats-till-plats-anslutningar och VPN-enheter
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Vad bör jag tänka på när jag väljer en VPN-enhet?
 
@@ -196,7 +195,7 @@ Ja, VPN:er för punkt-till-plats (P2S) kan användas med VPN-gateways som anslut
 
 Ja, det stöds. Mer information finns i [Konfigurera ExpressRoute och VPN-anslutningar för plats till plats som kan samexistera](../expressroute/expressroute-howto-coexist-classic.md)
 
-## <a name="ipsecike-policy"></a>IPsec/IKE-princip
+## <a name="ipsecike"></a>IPsec/IKE-princip
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
@@ -205,7 +204,7 @@ Ja, det stöds. Mer information finns i [Konfigurera ExpressRoute och VPN-anslut
 
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>Anslutning på flera platser och virtuella datorer 
+## <a name="vms"></a>Anslutning på flera platser och virtuella datorer
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>Om min virtuella dator finns i ett virtuellt nätverk och jag har en anslutning mellan flera platser, hur ansluter jag då till den virtuella datorn?
 
@@ -222,7 +221,7 @@ Nej. Bara den trafik som har ett mål-IP som finns i det virtuella nätverkets l
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a>Vanliga frågor och svar om Virtual Network
+## <a name="faq"></a>Vanliga frågor och svar om Virtual Network
 
 Du kan se mer information om virtuella nätverk i [Vanliga frågor och svar om Virtual Network](../virtual-network/virtual-networks-faq.md).
 

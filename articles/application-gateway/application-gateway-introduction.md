@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 396d8b9532eb55341670ad61bd4c2a16882b35e4
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Översikt över Application Gateway
@@ -42,6 +42,7 @@ Application Gateway stöder för närvarande följande funktioner:
 * **[Routing till flera platser](application-gateway-multi-site-overview.md)** –Application gateway låter dig konsolidera upp till 20 webbplatser på en enda Application Gateway.
 * **[Websocket-stöd](application-gateway-websocket.md)** – En annan bra funktion i Application Gateway är inbyggt stöd för Websocket.
 * **[Övervakning av hälsotillstånd](application-gateway-probe-overview.md)** –Application gateway övervakar standard hälsotillstånd för serverdelsresurser och anpassade avsökningar för att övervaka mer specifika scenarier.
+* **[SSL-policy och chiffrering](application-gateway-ssl-policy-overview.md)** – Den här funktionen gör det möjligt att begränsa vilka SSL-protokollsversioner och chiffreringssviter som stöds samt i vilken ordning de bearbetas.
 * **[Begäran om omdirigering](application-gateway-redirect-overview.md)** -med den här funktionen kan du dirigera HTTP-anrop till en HTTPS-lyssnare.
 * **[Stöd för serverdelar för flera klientorganisationer](application-gateway-web-app-overview.md)** – Application Gateway stöder konfiguration av serverdelstjänster för flera klientorganisationer som Azure Web Apps och API Gateway som medlemmar i en serverdelspool. 
 * **[Avancerad diagnostik](application-gateway-diagnostics.md)** – Application gateway ger fullständig diagnostik och åtkomst till loggar. Brandväggsloggar är tillgängliga för Application Gateway-resurser som har WAF aktiverat.
@@ -105,5 +106,5 @@ När du läst om Application Gateway så kan du [skapa en application gateway](a
 
 För att läsa hur man skapar en Application Gateway med hjälp av URL-baserad innehållsroutning, kan du gå till [Skapa en Application Gateway med hjälp av URL-baserad routning](application-gateway-create-url-route-arm-ps.md).
 
-Information om några av de andra viktiga nätverksfunktionerna i Azure finns i [Azure Networking]((../networking/networking-overview.md).
+Du kan lära dig mer om andra viktiga nätverksfunktioner i Azure i avsnittet om [Azure-nätverk](../networking/networking-overview.md).
 

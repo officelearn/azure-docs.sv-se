@@ -7,8 +7,8 @@ I avsnitten som följer ska vi skapa en ny ASP.NET WebAPI-serverdel som kommer a
 
 Följande steg beskriver hur du skapar den nya ASP.NET-WebAPI-serverdelen: 
 
-> [!NOTE]
-> **Viktigt!** Om du använder Visual Studio 2015 eller tidigare kontrollerar du att du har installerat den senaste versionen av NuGet Package Manager innan du påbörjar den här självstudiekursen. Börja med att starta Visual Studio. Klicka på **Extensions and Updates** (Tillägg och uppdateringar) på **Verktyg**-menyn. Sök efter **NuGet Package Manager** för din version av Visual Studio och kontrollera att du har den senaste versionen. Om inte avinstallerar du och installerar om NuGet Package Manager.
+> [!IMPORTANT]
+> Om du använder Visual Studio 2015 eller tidigare ska du kontrollera att du har installerat den senaste versionen av NuGet Package Manager innan du påbörjar den här självstudiekursen. Börja med att starta Visual Studio. Klicka på **Extensions and Updates** (Tillägg och uppdateringar) på **Verktyg**-menyn. Sök efter **NuGet Package Manager** för din version av Visual Studio och kontrollera att du har den senaste versionen. Om inte avinstallerar du och installerar om NuGet Package Manager.
 > 
 > ![][B4]
 > 

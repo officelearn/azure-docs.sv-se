@@ -9,24 +9,23 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 08/04/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: e89058a500aeb542ae4c7dc6bb4a9b9ae54db7f2
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 8bba5a97fdc4bbc15fe996ee68daf5b796d1bfac
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
 # <a name="create-an-azure-database-for-postgresql-in-the-azure-portal"></a>Skapa en Azure Database för PostgreSQL i Azure-portalen
 
-Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Den här snabbstarten visar hur du skapar en Azure Database för PostgreSQL-server med Azure-portalen.
+Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Den här snabbstarten visar hur du skapar en Azure Database för PostgreSQL-server med Azure Portal på ungefär fem minuter.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
-
-Logga in på [Azure-portalen](https://portal.azure.com).
+Öppna webbläsaren och gå till [Microsoft Azure Portal](https://portal.azure.com/). Ange dina autentiseringsuppgifter och logga in på portalen. Standardvyn är instrumentpanelen.
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Skapa en Azure Database för PostgreSQL
 
@@ -44,7 +43,7 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
     servernamn |*mypgserver-20170401*|Välj ett unikt namn för Azure Database för PostgreSQL-server. Domännamnet *postgres.database.azure.com* läggs till i det servernamn du anger som program ska ansluta till. Ditt servernamn får bara innehålla gemener, siffror och bindestreck och måste innehålla mellan 3 och 63 tecken.
     Prenumeration|*Din prenumeration*|Den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer, väljer du lämplig prenumeration som resursen ska debiteras till.
     Resursgrupp|*myresourcegroup*| Du kan skapa ett nytt resursgruppnamn eller använda ett befintligt namn i prenumerationen.
-    inloggning för serveradministratör |*mylogin*| Skapa ett eget inloggningskonto som ska användas vid anslutning till servern. Inloggningsnamnet för administratören får inte vara azure_superuser, azure_pg_admin, admin, administrator, root, guest, eller public och får inte börja med pg_.
+    inloggning för serveradministratör |*mylogin*| Skapa ett eget inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara azure_superuser, azure_pg_admin, admin, administrator, root, guest, eller public och får inte börja med pg_.
     Lösenord |*Ditt val* | Skapa ett nytt lösenord för serverns administratörskonto. Måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Plats|*Regionen som ligger närmast dina användare*| Välj den plats som är närmast dina användare.
     PostgreSQL-version|*Välj den senaste versionen*| Välj den senaste versionen såvida du inte har särskilda krav.
@@ -67,9 +66,9 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
 
 Azure Database för PostgreSQL-tjänsten skapar en brandvägg på server-nivå. Brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern, om inte en brandväggsregel konfigureras som öppnar brandväggen för specifika IP-adresser. 
 
-1.  Leta upp servern när distributionen är klar. Om det behövs kan du söka efter den. Klicka exempelvis på **Alla resurser** på vänster meny och skriv in servernamnet (till exempel mypgserver-20170401) för att söka efter den nya servern. Klicka på servernamnet i sökresultatlistan. Sidan Översikt för servern öppnas, och där ser du alternativ för ytterligare konfiguration.
+1.  Leta upp servern när distributionen är klar. Om det behövs kan du söka efter den. Klicka exempelvis på **Alla resurser** på vänster meny och skriv in servernamnet (till exempel *mypgserver-20170401*) för att söka efter den nya servern. Klicka på servernamnet i sökresultatlistan. **Översikt**-sidan för din server öppnas och innehåller alternativ ytterligare konfiguration.
  
-    ![Azure Database för PostgreSQL – sök efter server ](./media/quickstart-create-database-portal/4-locate.png)
+    ![Azure Database för PostgreSQL – sök efter servernamn](./media/quickstart-create-database-portal/4-locate.png)
 
 2.  På serversidan väljer du **Anslutningssäkerhet**. 
     ![Azure Database för PostgreSQL – Skapa brandväggsregel](./media/quickstart-create-database-portal/5-firewall-2.png)
@@ -82,11 +81,11 @@ Azure Database för PostgreSQL-tjänsten skapar en brandvägg på server-nivå. 
     ---|---|---
     AllowAllIps |  0.0.0.0 | 255.255.255.255
 
-4. I det övre verktygsfältet på sidan Anslutningssäkerhet klickar du på **Spara**. Klicka sedan på **X**för att stänga sidan Anslutningssäkerhet.
+4. I det övre verktygsfältet på sidan Anslutningssäkerhet klickar du på **Spara**. Vänta en stund tills du ser meddelandet om att uppdateringen av anslutningssäkerhet har slutförts innan du fortsätter.
 
     > [!NOTE]
-    > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 5432.
-  >
+    > Anslutningar till din Azure Database för PostgreSQL-server kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din server om inte din IT-avdelning öppnar port 5432.
+    >
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen
 
@@ -124,9 +123,9 @@ Det finns ett antal program som du kan använda för att ansluta till Azure Data
 
     psql-parameter |Föreslaget värde|Beskrivning
     ---|---|---
-    --host | *servernamn* | Ange det värde för servernamn som användes när du tidigare skapade Azure Database för PostgreSQL. Exempelservern som visas är mypgserver-20170401.postgres.database.azure.com. Använd det fullständiga domännamnet (\*.postgres.database.azure.com) som i det här exemplet. Se föregående avsnitt med anslutningsinformation om du inte kommer ihåg namnet på servern. 
+    --host | *servernamn* | Ange det värde för servernamn som användes när du tidigare skapade Azure Database för PostgreSQL. Exempelservern som visas är mypgserver-20170401.postgres.database.azure.com. Använd det fullständiga domännamnet (\*.postgres.database.azure.com) som i det här exemplet. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg namnet på servern. 
     --port | **5432** | Använd alltid port 5432 när du ansluter till Azure Database för PostgreSQL. 
-    --username | *inloggning för serveradministratör* |Ange det användarnamn för serveradministratörsinloggning som användes när du tidigare skapade Azure Database för PostgreSQL. Se föregående avsnitt med anslutningsinformation om du inte kommer ihåg användarnamnet.  Formatet är *username@servername*.
+    --username | *inloggning för serveradministratör* |Ange det användarnamn för serveradministratörsinloggning som användes när du tidigare skapade Azure Database för PostgreSQL. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg användarnamnet.  Formatet är *username@servername*.
     --dbname | **postgres** | Använd det systemgenererade standarddatabasnamnet *postgres* för den första anslutningen. Senare kan du skapa en egen databas.
 
     När du har kört psql-kommandot med egna parametervärden uppmanas du att ange lösenordet för serveradministratören. Det här är det lösenord som du angav när du skapade servern. 
@@ -135,17 +134,38 @@ Det finns ett antal program som du kan använda för att ansluta till Azure Data
     ---|---|---
     lösenord | *ditt administratörslösenord* | Tänk på att det angivna lösenordet inte visas i bash-kommandotolken. Tryck på Retur när du har skrivit alla tecken för att autentisera och ansluta.
 
-4.  När du är ansluten till servern skapar du en tom databas i kommandotolken genom att skriva följande kommando:
+    När du är ansluten visas i psql-verktyget en postgres-kommandotolk där du skriver sql-kommandon. Vid den första anslutningen kanske en varning visas eftersom psql i Azure Cloud Shell kan vara en annan version än Azure Databas för PostgreSQL-serverversionen. 
+    
+    Exempel på psql-utdata:
+    ```bash
+    psql (9.5.7, server 9.6.2)
+    WARNING: psql major version 9.5, server major version 9.6.
+        Some psql features might not work.
+    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
+    Type "help" for help.
+   
+    postgres=> 
+    ```
+
+    > [!TIP]
+    > Om brandväggen inte är konfigurerad att tillåta IP-adressen för Azure Cloud Shell uppstår följande fel:
+    > 
+    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL:  SSL connection is required. Please specify SSL options and retry.
+    > 
+    > Lös felet genom att se till att serverkonfigurationen matchar stegen i avsnittet *Konfigurera en brandväggsregel på servernivå* i artikeln.
+
+4.  Skapa en tom databas i kommandotolken genom att skriva följande kommando:
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
+    Kommandot kan ta en stund att slutföra. 
 
 5.  I prompten kör du följande kommando för att växla anslutning till den nyligen skapade databasen **mypgsqldb**.
     ```bash
     \c mypgsqldb
     ```
 
-6.  Skriv \q och tryck sedan på RETUR för att avsluta psql. Nu kan du stänga Azure Cloud Shell.
+6.  Skriv \q och tryck sedan på RETUR för att avsluta psql. När du är klar kan du stänga Azure Cloud Shell.
 
 Nu har du anslutit till Azure Database för PostgreSQL och skapat en tom användardatabas. Fortsätt till nästa avsnitt för att ansluta med hjälp av ett annat vanligt verktyg pgAdmin.
 
@@ -153,45 +173,48 @@ Nu har du anslutit till Azure Database för PostgreSQL och skapat en tom använd
 
 Om du vill ansluta till Azure PostgreSQL-servern med GUI-verktyget _pgAdmin_
 1.  Starta _pgAdmin_-programmet på din klientdator. Du kan installera _pgAdmin_ från http://www.pgadmin.org/.
-2.  Välj **Lägg till ny Server** från menyn **snabblänkar**.
+2.  Klicka på ikonen **Lägg till ny server** från avsnittet **Snabblänkar** i mitten av instrumentpanelssidan.
 3.  I dialogrutan **skapa – server** i fliken **allmänt**, anger du ett unikt eget namn för servern, som **Azure PostgreSQL-server**.
 ![pgAdmin-verktyget – skapa – server](./media/quickstart-create-database-portal/9-pgadmin-create-server.png)
 4.  I dialogrutan **skapa – server** i fliken **anslutning**, använder du de angivna inställningarna och klickar på **spara**.
    ![pgAdmin – skapa – server](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
-    - **Värddatornamn/adress**: mypgserver-20170401.postgres.database.azure.com 
-        - Fullständigt kvalificerat servernamn.
-    - **Port:**  5432
-        - Portnummer som används av den här databasservern är 5432.
-    - **Underhållsdatabas**: postgres 
-        - Systemgenererat standardnamn för databasen.
-    - **Användarnamn:** mylogin@mypgserver-20170401 
-        - Inloggning för serveradministratören (user@mypgserver) står tidigare i den här snabbstarten.
-    - **Lösenord**: det lösenord du angav när du skapade servern tidigare i den här snabbstarten.
-    - **SSL-läge**: Kräv
-        - Som standard skapas alla Azure PostgreSQL-servrar med SSL tvingande aktiverat. Om du vill inaktivera SSL tvingande, se informationen i [tvingande SSL](./concepts-ssl-connection-security.md).
+
+    pgAdmin-parameter |Föreslaget värde|Beskrivning
+    ---|---|---
+    Värdnamn/-adress | *servernamn* | Ange det värde för servernamn som användes när du tidigare skapade Azure Database för PostgreSQL. Exempelservern som visas är mypgserver-20170401.postgres.database.azure.com. Använd det fullständiga domännamnet (\*.postgres.database.azure.com) som i det här exemplet. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg namnet på servern. 
+    Port | **5432** | Använd alltid port 5432 när du ansluter till Azure Database för PostgreSQL.  
+    Underhållsdatabas | **postgres** | Använd det systemgenererade standardnamnet för databasen, *postgres*.
+    Användarnamn | *inloggning för serveradministratör* | Ange det användarnamn för serveradministratörsinloggning som användes när du tidigare skapade Azure Database för PostgreSQL. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg användarnamnet. Formatet är *username@servername*.
+    Lösenord | *ditt administratörslösenord* |  Det lösenord du angav när du skapade servern tidigare i den här snabbstarten.
+    Roll | *lämna tomt* | Du behöver inte ange ett rollnamn nu. Lämna fältet tomt.
+    SSL-läge | Kräv | Som standard skapas alla Azure PostgreSQL-servrar med SSL tvingande aktiverat. Om du vill inaktivera SSL tvingande, se informationen i [tvingande SSL](./concepts-ssl-connection-security.md).
+    
 5.  Klicka på **Spara**.
-6.  I webbläsarens vänstra fönster, expanderar du **servergrupper**. Välj din server **Azure PostgreSQL-server**.
-7.  Välj den **server** du anslöt till och välj sedan **databaser** under den. 
-8.  Högerklicka på **databaser** för att skapa en databas.
-9.  Välj ett databasnamn **mypgsqldb** och ägaren för den som inloggning för serveradministratören **mylogin**.
-10. Klicka på **spara** för att skapa en tom databas.
-11. I **webbläsaren**, expanderar du **servrar**. Expandera servern som du skapade och se databasen **mypgsqldb** under den.
+6.  I webbläsarens vänstra fönster expanderar du noden **Servrar**. Välj din server, till exempel **Azure PostgreSQL Server**, och klicka för att ansluta till den.
+7. Expandera servernoden och expandera sedan **Databaser** under den. Listan ska innehålla din befintliga *postgres*-databas och alla eventuella nyligen skapade användardatabaser, som *mypgsqldb*, som vi skapade i föregående avsnitt. Observera att du kan skapa flera databaser per server med Azure Database för PostgreSQL.
+8. Högerklicka på **Databaser**, välj menyn **Skapa** och klicka på **Databas**.
+9.  Skriv valfritt databasnamn i fältet **Databas**, till exempel *mypgsqldb* som i exemplet. 
+10. Välj **Ägare** för databasen från den nedrullningsbara listan. Välj ditt inloggningsnamn som administratör för servern, som vårt exempel *mylogin*.
+10. Klicka på **Spara** för att skapa en tom databas.
+11. I rutan **Webbläsare** ser du den databas du skapade i listan Databaser under servernamnet.
  ![pgAdmin – skapa – databas](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Rensa upp alla resurser du skapade i snabbstarten genom att ta bort [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md).
+Rensa bland de resurser du skapade i snabbstarten, antingen genom att ta bort [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md), som innehåller alla resurser i resursgruppen, eller genom att ta bort serverresursen om du vill behålla de andra resurserna intakta.
 
 > [!TIP]
-> De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabbstarter, ska du inte rensa upp resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure-portalen.
+> De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabbstarter, ska du inte rensa upp resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure Portal.
 
-1.  I den vänstra menyn i Azure-portalen, klickar du på **Resursgrupper** och sedan på **myresourcegroup**.
-2.  På sidan med dina resursgrupper, klickar du på **ta bort**, skriver in **myresourcegroup** i textrutan och klickar sedan på ta bort.
+Så här tar du bort hela resursgruppen, inklusive den nya servern:
+1.  Leta reda på resursgruppen på Azure Portal. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på resursgruppen, som vårt exempel **myresourcegroup**.
+2.  Klicka på **Ta bort** på din resursgruppssida. Skriv sedan namnet på resursgruppen, som vårt exempel **myresourcegroup**, i textrutan för att bekräfta borttagning och klicka sedan på **Ta bort**.
 
-Om du bara vill ta bort den nyligen skapade servern:
-1.  I den vänstra menyn i Azure-portalen, klickar du på PostgreSQL-servrar och söker efter den server som du nyss skapade
-2.  I översiktssidan, klickar du på ta bort-knappen i övre panelen ![Azure Database för PostgreSQL – ta bort servern](./media/quickstart-create-database-portal/12-delete.png)
-3.  Kontrollera servernamnet som du vill ta bort och visa de databaser under den som påverkas. Skriv in **mypgserver-20170401** i textrutan och klicka sedan på ta bort.
+Eller gör så här om du vill ta bort den nyligen skapade servern:
+1.  Leta upp din server i Azure Portal om du inte har den öppen. Klicka på **Alla resurser** på den vänstra menyn i Azure Portal och leta upp den server som du nyss skapade.
+2.  Klicka på knappen **Ta bort** i den övre panelen på sidan **Översikt**.
+![Azure Database för PostgreSQL – Ta bort server](./media/quickstart-create-database-portal/12-delete.png)
+3.  Bekräfta servernamnet som du vill ta bort och visa de databaser under den som påverkas. Skriv namnet på servern i textrutan, som vårt exempel **mypgserver 20170401** och klicka sedan på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

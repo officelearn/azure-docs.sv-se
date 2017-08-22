@@ -6,6 +6,7 @@
 ### [Incidenthantering](security-center-incident-response.md)
 ### [Använd rekommendationer för att förbättra säkerheten](security-center-using-recommendations.md)
 ## [Plattformsmigrering](security-center-platform-migration.md)
+### [Vanliga frågor och svar om plattformsmigrering](security-center-platform-migration-faq.md)
 
 # Kom igång
 ## [Snabbstart](security-center-get-started.md)

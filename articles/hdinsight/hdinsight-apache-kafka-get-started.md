@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/23/2017
+ms.date: 08/14/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 80d4aced5e4f4b053b3b5f30a6fc383f1c4d6d27
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Kom igång med Apache Kafka (förhandsversion) i HDInsight
@@ -27,15 +27,9 @@ ms.lasthandoff: 07/04/2017
 Lär dig hur du skapar och använder ett [Apache Kafka](https://kafka.apache.org)-kluster i Azure HDInsight. Kafka är en distribuerad direktuppspelningsplattform med öppen källkod som är tillgänglig i HDInsight. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö.
 
 > [!NOTE]
-> Det finns för närvarande två versioner av Kafka med HDInsight; 0.9.0 (HDInsight 3.4) och 0.10.0 (HDInsight 3.5). Stegen i det här dokumentet förutsätter vi att du använder Kafka på HDInsight 3.5.
+> Det finns för närvarande två versioner av Kafka med HDInsight; 0.9.0 (HDInsight 3.4) och 0.10.0 (HDInsight 3.5 och 3.6). Stegen i det här dokumentet förutsätter att du använder Kafka på HDInsight 3.6.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
-## <a name="prerequisites"></a>Krav
-
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) eller motsvarande, till exempel OpenJDK.
-
-* [Apache Maven](http://maven.apache.org/) 
 
 ## <a name="create-a-kafka-cluster"></a>Skapa ett Kafka-kluster
 
@@ -45,7 +39,7 @@ Använd följande steg om du vill skapa en Kafka i HDInsight-klustret:
    
     ![Skapa ett HDInsight-kluster](./media/hdinsight-apache-kafka-get-started/create-hdinsight.png)
 
-2. Ange följande information i bladet **Grundläggande inställningar**:
+2. Från **Grundläggande**, ange följande information:
 
     * **Klusternamn**: Namnet på HDInsight-klustret.
     * **Prenumeration**: Välj den prenumeration som du vill använda.
@@ -54,29 +48,29 @@ Använd följande steg om du vill skapa en Kafka i HDInsight-klustret:
     * **Resursgrupp**: Resursgruppen som klustret ska skapas i.
     * **Plats**: Azure-region som klustret ska skapas i.
    
-    ![Välj en prenumeration](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
+ ![Välj en prenumeration](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. Välj **Klustertyp** och ange följande värden på bladet **Klusterkonfiguration**:
+3. Välj **Klustertyp** och ange följande värden från **Klusterkonfiguration**:
    
     * **Klustertyp**: Kafka
 
-    * **Version**: Kafka 0.10.0 (HDI 3.5)
+    * **Version**: Kafka 0.10.0 (HDI 3.6)
 
     * **Klusternivå**: Standard
      
-    Slutligen kan spara inställningarna med kommandot **Välj**.
+ Slutligen kan spara inställningarna med kommandot **Välj**.
      
-    ![Välj klustertyp](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
+ ![Välj klustertyp](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
 4. När du har valt klustertypen anger du klustertypen med hjälp av knappen __Välj__. Använd sedan knappen __Nästa__ och slutföra den grundläggande konfigurationen.
 
-5. Gå till bladet **Lagring** och välj eller skapa ett lagringskonto. Lämna övriga fält på det här bladet på standardvärden för stegen i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__.
+5. Från **Lagring** ska du välja eller skapa ett lagringskonto. Lämna övriga fält på standardvärden för stegen i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__.
 
     ![Ange inställningarna för lagringskontot för HDInsight](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. Från bladet __Program (valfritt)__ väljer du __Nästa__ för att fortsätta. Inga program krävs för det här exemplet.
+6. Från __Program (valfritt)__ väljer du __Nästa__ för att fortsätta. Inga program krävs för det här exemplet.
 
-7. Från bladet __Klusterstorlek__ väljer du __Nästa__ för att fortsätta.
+7. Från __Klusterstorlek__ väljer du __Nästa__ för att fortsätta.
 
     > [!WARNING]
     > Klustret måste innehålla minst tre arbetsnoder för att garantera tillgängligheten för Kafka i HDInsight.
@@ -84,11 +78,11 @@ Använd följande steg om du vill skapa en Kafka i HDInsight-klustret:
     ![Ange klusterstorlek för Kafka](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
     > [!NOTE]
-    > Antalet diskar per arbetsnod anger hur skalbart Kafka är i HDInsight. Mer information finns i [Configure storage and scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md) (Konfigurera lagring och skalbarhet för Kafka i HDInsight).
+    > Antalet **diskar per arbetsnod** anger hur skalbart Kafka är i HDInsight. Mer information finns i [Configure storage and scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md) (Konfigurera lagring och skalbarhet för Kafka i HDInsight).
 
-8. Från bladet __Avancerade inställningar__ väljer du __Nästa__ för att fortsätta.
+8. Från __Avancerade inställningar__ väljer du __Nästa__ för att fortsätta.
 
-9. Gå till bladet **Sammanfattning** och granska konfigurationen för klustret. Använd länkarna __Redigera__ om du behöver ändra eventuella inställningar som är felaktiga. Till sist skapar du klustret genom att klicka på Skapa.
+9. Från **Sammanfattning** kan du granska konfigurationen för klustret. Använd länkarna __Redigera__ om du behöver ändra eventuella inställningar som är felaktiga. Till sist skapar du klustret genom att klicka på Skapa.
    
     ![Sammanfattning av klusterkonfiguration](./media/hdinsight-apache-kafka-get-started/hdinsight-configuration-summary.png)
    
@@ -96,6 +90,9 @@ Använd följande steg om du vill skapa en Kafka i HDInsight-klustret:
     > Det kan ta upp till 20 minuter att skapa klustret.
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
+
+> [!IMPORTANT]
+> När du utför följande steg måste du använda en SSH-klient. Mer information finns i dokumentet [Använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Anslut till klustret via SSH från klienten:
 
@@ -119,24 +116,32 @@ Skapa miljövariabler som innehåller värdinformationen med hjälp av följande
     sudo apt -y install jq
     ```
 
-2. använd följande kommandon för att ställa in miljövariabler med information som hämtas från Ambari. Ersätt __CLUSTERNAME__ med namnet på Kafka-klustret. Ersätt __PASSWORD__ med inloggningslösenordet (för administratör) som du använde när klustret skapas.
+2. Ange miljövariabler med information som hämtas från Ambari med hjälp av följande kommandon:
 
     ```bash
-    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+    CLUSTERNAME='your cluster name'
+    PASSWORD='your cluster password'
+    export KAFKAZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
 
-    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
+    export KAFKABROKERS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
+    > [!IMPORTANT]
+    > Ange `CLUSTERNAME=` till namnet på Kafka-klustret. Ange `PASSWORD=` med inloggningslösenordet (för administratör) som du använde när klustret skapas.
+
     Följande text är ett exempel på innehållet i `$KAFKAZKHOSTS`:
    
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
    
     Följande text är ett exempel på innehållet i `$KAFKABROKERS`:
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
+
+    > [!NOTE]
+    > Kommandot `cut` används för att trimma listan över värdar till två värdposter. Du behöver inte ange den fullständiga listan över värdar när du skapar en Kafka-konsument eller -producent.
    
     > [!WARNING]
     > Förlita dig inte på att den information som returneras från den här sessionen alltid är korrekt. Om du skalar klustret läggs nya asynkrona meddelandeköer till respektive tas bort. Om ett fel uppstår och en nod ersätts kan värdnamnet för noden ändras.
@@ -185,7 +190,16 @@ Använd följande steg för att lagra poster i det testämne som du skapade tidi
 
 ## <a name="producer-and-consumer-api"></a>Producent- och konsument-API
 
-Du kan även programmässigt producera och använda poster med hjälp av [Kafka-API: er](http://kafka.apache.org/documentation#api). Använd följande steg för att hämta, skapa en Java-baserad producent och konsument:
+Du kan även programmässigt producera och använda poster med hjälp av [Kafka-API: er](http://kafka.apache.org/documentation#api). Använd följande steg från din utvecklingsmiljö för att skapa en Java-producent och -konsument.
+
+> [!IMPORTANT]
+> Du måste ha följande komponenter installerade i utvecklingsmiljön:
+>
+> * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) eller motsvarande, till exempel OpenJDK.
+>
+> * [Apache Maven](http://maven.apache.org/)
+>
+> * En SSH-klient och kommandot `scp` . Mer information finns i dokumentet [Använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Ladda ned exempel från [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started). Använd projektet i katalogen `Producer-Consumer` för exemplet med producent/konsument. Det här exemplet innehåller följande klasser:
    
@@ -195,7 +209,7 @@ Du kan även programmässigt producera och använda poster med hjälp av [Kafka-
 
     * **Konsument** – Läser poster från ämnet.
 
-2. Navigera till sökvägen för katalogen `Producer-Consumer` i exemplet och använd sedan följande kommando till att skapa ett jar-paket:
+2. Skapa ett jar-paket genom att navigera till sökvägen för katalogen `Producer-Consumer` och sedan använda följande kommando:
 
     ```
     mvn clean package
@@ -214,18 +228,13 @@ Du kan även programmässigt producera och använda poster med hjälp av [Kafka-
 4. När filen kopierats med kommandot `scp` ansluter du till klustret via SSH. Skriv posterna till testämnet med följande kommando:
 
     ```bash
-    ./kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
-
-    En räknare visas så att du kan se hur många poster som har skrivits.
-
-    > [!NOTE]
-    > Om du ser ett behörighet nekad-fel använder du följande kommando för att göra filen körbar: ```chmod +x kafka-producer-consumer.jar```
 
 5. När processen är klar kan du använda följande kommando för att läsa från ämnet:
    
     ```bash
-    ./kafka-producer-consumer.jar consumer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS
     ```
    
     De lästa posterna, tillsammans med antalet poster, visas. Du kan se några fler än 1 000 000 loggade om du har skickat flera poster till ämnet med hjälp av ett skript i ett tidigare steg.
@@ -234,13 +243,15 @@ Du kan även programmässigt producera och använda poster med hjälp av [Kafka-
 
 ### <a name="multiple-consumers"></a>Flera konsumenter
 
-Ett viktigt begrepp i Kafka är att konsumenterna använder en konsumentgrupp (definieras med ett grupp-id) när posterna läses. Att använda samma grupp med flera konsumenter resulterar i belastningsutjämnaravläsningar från ett ämne. Varje konsument i gruppen tar emot en del av posterna. Använd följande steg om du vill se hur det fungerar:
+Kafka-konsumenter använder en konsumentgrupp vid läsning av poster. Att använda samma grupp med flera konsumenter resulterar i belastningsutjämnaravläsningar från ett ämne. Varje konsument i gruppen tar emot en del av posterna. Använd följande steg om du vill se hur det fungerar:
 
 1. Öppna en ny SSH-session i klustret, så att du har två av dessa. Använd följande för att starta en konsument med samma konsumentgrupps-ID i varje session:
    
     ```bash
-    ./kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
+    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
     ```
+
+    Detta kommando startar en konsument med grupp-ID `mygroup`.
 
     > [!NOTE]
     > Använd kommandona i avsnittet [Hämta värdinformation för Zookeeper och Broker](#getkafkainfo) till att ange `$KAFKABROKERS` för den här SSH-sessionen.
@@ -250,7 +261,7 @@ Ett viktigt begrepp i Kafka är att konsumenterna använder en konsumentgrupp (d
 Förbrukning av klienter i samma grupp hanteras via partitionerna för ämnet. För det `test`-ämne som skapades tidigare har den åtta partitioner. Om du öppnar åtta SSH-sessioner och startar en konsument i alla sessioner, läser varje konsument poster från en partition i ämnet.
 
 > [!IMPORTANT]
-> Det får inte finnas flera instanser av konsumenten i en konsumentgrupp än partitioner. I det här exemplet kan en konsumentgrupp innehålla upp till 8 konsumenter, eftersom det är antalet partitioner i ämnet. Du kan även ha flera konsumentgrupper med högst 8 konsumenter vardera.
+> Det får inte finnas flera instanser av konsumenten i en konsumentgrupp än partitioner. I det här exemplet kan en konsumentgrupp innehålla upp till åtta konsumenter, eftersom det är antalet partitioner i ämnet. Du kan även ha flera konsumentgrupper med högst åtta konsumenter vardera.
 
 Poster som lagras i Kafka lagras i den ordning som de tas emot inom en partition. För att uppnå sorterad leverans av poster *inom en partition* skapar du en konsumentgrupp där antalet konsumentinstanser matchar antalet partitioner. För att uppnå sorterad leverans av poster *i ämnet* skapar du en konsumentgrupp med bara en konsumentinstans.
 
@@ -287,7 +298,7 @@ Strömmande API lades till Kafka i version 0.10.0; tidigare versioner är beroen
 5. Starta sedan den direktuppspelade processen med följande kommando:
    
     ```bash
-    ./kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
+    java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
     ```
    
     Detta kommando startar den direktuppspelade processen i bakgrunden.
@@ -295,13 +306,13 @@ Strömmande API lades till Kafka i version 0.10.0; tidigare versioner är beroen
 6. Använd följande kommando för att skicka meddelanden till ämnet `test`. Meddelandena behandlas med direktuppspelade exempel:
    
     ```bash
-    ./kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
     ```
 
 7. Använd följande kommando för att visa utdata som skrivs till ämnet `wordcounts` genom den direktuppspelade processen:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
     ```
    
     > [!NOTE]

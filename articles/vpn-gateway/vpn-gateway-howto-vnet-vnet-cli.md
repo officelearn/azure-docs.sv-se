@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 85d89568f5022dafd44ae7f8578e0bebb22d472d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
@@ -44,7 +44,7 @@ VNet-till-VNet-kommunikation kan kombineras med konfigurationer för flera plats
 
 ![Om anslutningar](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>Varför ska man ansluta virtuella nätverk?
+### <a name="why"></a>Varför ska man ansluta virtuella nätverk?
 
 Du kan vilja ansluta virtuella nätverk av följande skäl:
 
@@ -185,11 +185,11 @@ Vi använder följande värden i exemplen:
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-4---create-the-connections"></a>Steg 4 – Skapa anslutningarna
+### <a name="createconnect"></a>Steg 4 – Skapa anslutningarna
 
 Nu har du två VNets med VPN-gatewayer. Nästa steg är att skapa VPN-gateway-anslutningar mellan de virtuella nätverksgatewayerna. Om du har använt exemplen ovan är VNet-gatewayerna i olika resursgrupper. När gatewayer finns i olika resursgrupper, måste du identifiera och ange resurs-ID för varje gateway när en anslutning upprättas. Om dina Vnets är i samma resursgrupp kan du använda den [andra uppsättningen anvisningar](#samerg) eftersom du inte behöver ange resurs-ID.
 
-### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>För att ansluta Vnets som finns i olika resursgrupper
+### <a name="diffrg"></a>Ansluta VNets som finns i olika resursgrupper
 
 1. Hämta resurs-ID för VNet1GW från utdata från följande kommando:
 
@@ -322,7 +322,7 @@ Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den 
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-8---create-the-connections"></a>Steg 8 – Skapa anslutningarna
+### <a name="connections5"></a>Steg 8 – Skapa anslutningarna
 
 Vi har upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och **[Prenumeration 5]** eftersom gatewayerna finns i olika prenumerationer. För att växla mellan prenumerationer använder du ' az account list --all' för att visa en lista över prenumerationer som är tillgängliga för ditt konto. Använd sedan ' az account set--subscription <subscriptionID>' för att växla till den prenumeration som du vill använda.
 

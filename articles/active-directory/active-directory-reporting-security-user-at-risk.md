@@ -1,6 +1,6 @@
 ---
-title: "Säkerhetsrapporten Användare i farozonen i Azure Active Directory | Microsoft Docs"
-description: "Lär dig mer om rapporten om användare i farozonen i Azure Active Directory-portalen"
+title: "Användare som flaggats i säkerhetsrapporten i Azure Active Directory | Microsoft Docs"
+description: "Lär dig mer om användare som flaggats i säkerhetsrapporten i Azure Active Directory-portalen"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/01/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: bfcaee441c54453677e7747b0bca55a8afc59391
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 76413d6e9c619a66ae34f032eb0b8f9d42c27c9d
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Säkerhetsrapporten Användare i farozonen i portalen Azure Active Directory
+# <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Användare som flaggats i säkerhetsrapporten i Azure Active Directory-portalen
 
 Med hjälp av säkerhetsrapporterna i Azure Active Directory (Azure AD) kan du bedöma risken för att användarkonton i din miljö har komprometterats. 
 
@@ -47,13 +47,13 @@ Nivån av rapportens detaljrikedom varierar dock mellan versionerna:
 
 - Utgåvan **Azure Active Directory Premium 1** har en utökad modell där du även kan utforska några av de underliggande riskhändelser som har identifierats för varje rapport. 
 
-- Utgåvan **Azure Active Directory Premium 2** ger den mest detaljerade informationen om de underliggande riskhändelser och du kan konfigurera säkerhetsprinciper som automatiskt svarar på konfigurerade risknivåer.
+- Utgåvan **Azure Active Directory Premium 2** ger den mest detaljerade informationen om alla underliggande riskhändelser och du kan konfigurera säkerhetsprinciper som automatiskt svarar på konfigurerade risknivåer.
 
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory kostnadsfri och grundläggande utgåva
 
-Rapporten om användare i farozonen i den kostnadsfria och grundläggande versionen av Azure Active Directory tillhandahåller en lista över användarkonton som kan ha komprometterats. 
+Rapporten om användare som flaggats för risk i den kostnadsfria och grundläggande versionen av Azure Active Directory tillhandahåller en lista över användarkonton som kan ha komprometterats. 
 
 
 ![Riskfyllda inloggningar](./media/active-directory-reporting-security-user-at-risk/03.png)
@@ -65,7 +65,7 @@ För användare i farozonen går du igenom användarens inloggningshistorik och 
 
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory Premium-versioner
 
-Rapporten om användare i farozonen i Azure Active Directory Premium-versionerna innehåller följande:
+Rapporten om användare som flaggats för risk i Azure Active Directory Premium-versionerna innehåller följande:
 
 - En [lista över användarkonton](active-directory-identityprotection.md#users-flagged-for-risk) som kan ha drabbats 
 
@@ -92,8 +92,7 @@ När du väljer en användare får du en detaljerad rapportvy för den här anv�
 ![Riskfyllda inloggningar](./media/active-directory-reporting-security-user-at-risk/324.png)
 
 
-Välj en riskhändelse i listan om du vill undersöka den.  
-Detta öppnar bladet **Information** för den här riskhändelsen. På bladet **Information** har du möjlighet att antingen [stänga en riskhändelse manuellt](active-directory-identityprotection.md#closing-risk-events-manually) eller återaktivera en manuellt stängd riskhändelse. 
+Om du vill undersöka en riskhändelse, markerar du en på listan för att öppna bladet med **Information** om den riskhändelsen. På bladet **Information** har du möjlighet att antingen [stänga en riskhändelse manuellt](active-directory-identityprotection.md#closing-risk-events-manually) eller återaktivera en manuellt stängd riskhändelse. 
 
 
 ![Riskfyllda inloggningar](./media/active-directory-reporting-security-user-at-risk/325.png)

@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Event Grid-dokumentation
+metadata:
+  title: 'Azure Event Grid-dokumentation – självstudier, API-referens'
+  description: Använd Azure Event Grid för att agera på relevanta händelser i både Azure- och icke-Azure-tjänster i nära realtid.
+  services: event-grid
+  author: banisadr
+  manager: timlt
+  ms.service: event-grid
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/10/2017
+  ms.author: banisadr
+abstract:
+  description: 'Azure Event Grid är en fullständigt hanterad smart händelsedirigeringstjänst för enhetlig händelsebearbetning med en offentlig prenumerationsmodell. Använd Azure Event Grid för att agera på relevanta händelser i både Azure- och icke-Azure-tjänster i nära realtid. Lär dig hur du använder Azure Event Grid med våra snabbstarter, självstudier och exempel.'
+sections:
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: Lär dig hur du skapar och prenumererar på anpassade händelser.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/app-service-api/media/index/cli.svg
+            text: Azure CLI
+            href: /azure/event-grid/custom-event-quickstart
+  - title: Steg för steg-självstudier
+    items:
+      - type: paragraph
+        text: Lär dig hur du utvecklar program som reagerar på händelser.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Övervaka händelser i virtuella datorer med logiska appar</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 'REST API:er'
+            html: <p><a href="/rest/api/eventgrid">REST</a></p>
+          - title: Scheman
+            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Prenumerationsschema</a></p><p><a href="/azure/event-grid/event-schema">Händelseschema</a></p>

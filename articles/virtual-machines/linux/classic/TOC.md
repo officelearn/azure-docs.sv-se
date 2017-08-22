@@ -54,14 +54,12 @@
 ### [Webbapp med Visual Studio](web-app-visual-studio.md)
 ### [RDMA-kluster för att köra MPI-program](rdma-cluster.md)
 ### [Hur du använder Azures sekundära plugin-program med Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [Windows RDMA-kluster för att köra MPI-appar](hpcpack-cluster.md)
-### [Windows HPC-kluster med skriptet för HPC Pack IaaS-distribution](hpcpack-cluster-starccm.md)
-### [Hantera antalet och tillgängligheten för beräkningsnoder](hpcpack-cluster-powershell-script.md)
-### [Lägga till noder på begäran](hpcpack-cluster-openfoam.md)
-### [Skala resurser automatiskt](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Skapa ett kluster för Linux-arbetsbelastningar](hpcpack-cluster-powershell-script.md)
+#### [Hantera ett kluster med Linux-noder](hpcpack-cluster.md)
+#### [Kör STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Kör OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Kör NAMD](hpcpack-cluster-namd.md)
 
 ## Felsöka
 ### [VM-distributioner](troubleshoot-deployment-new-vm.md)

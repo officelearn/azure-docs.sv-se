@@ -83,6 +83,7 @@
 ## [Aktivera fakturering](active-directory-b2c-how-to-enable-billing.md)
 ## [Hothantering](active-directory-b2c-reference-threat-management.md)
 ## [Problem när du skapar en katalog](active-directory-b2c-support-create-directory.md)
+## [Tilläggsapp](active-directory-b2c-reference-extensions-app.md)
 
 # Relaterat
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

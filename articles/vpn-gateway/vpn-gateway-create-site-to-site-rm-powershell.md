@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 9edaa81111d9439bfbad4775e49c3e29454ad31f
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27f4a8fb9a83b98e99df635bf4c80f6048ce348c
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Skapa ett VNet med en VPN-anslutning för plats-till-plats med hjälp av PowerShell
@@ -40,7 +40,7 @@ En VPN-gatewayanslutning från plats till plats används för att ansluta ditt l
 
 ![Diagram över plats-till-plats-anslutning med VPN-gateway](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="before"></a>Innan du börjar
 
 Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
@@ -49,7 +49,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 * Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen. När du skapar den här konfigurationen måste du ange prefix för IP-adressintervall som Azure dirigerar till den lokala platsen. Inget av undernäten i ditt lokala nätverk kan överlappa de virtuella nätverksundernät du vill ansluta till.
 * Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar. PowerShell-cmdlets uppdateras ofta och vanligen måste du uppdatera dina PowerShell-cmdlets för att få den senaste funktionen. Om du inte uppdaterar din PowerShell-cmdlet misslyckas värdena som har angetts. Mer information om hur man hämtar oc installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
-### <a name="example-values"></a>Exempelvärden
+### <a name="example"></a>Exempelvärden
 
 Vi använder följande värden i exemplen. Du kan använda värdena till att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln.
 
@@ -88,7 +88,7 @@ Om du inte redan har ett virtuellt nätverk, skapa ett. När du skapar ett virtu
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>Så här skapar du ett virtuellt nätverk och ett gateway-undernät
+### <a name="vnet"></a>Så här skapar du ett virtuellt nätverk och ett gateway-undernät
 
 I det här exemplet skapas ett virtuellt nätverk och ett gateway-undernät. Om du redan har ett virtuellt nätverk som du behöver lägga till ett gateway-undernät för kan du läsa [Så här lägger du till ett gateway-undernät i ett virtuellt nätverk som du redan har skapat](#gatewaysubnet).
 

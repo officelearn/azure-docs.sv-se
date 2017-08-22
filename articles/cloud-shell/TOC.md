@@ -14,6 +14,7 @@
 
 # Referens
 ## [Azure CLI 2.0](/cli/azure) 
+
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

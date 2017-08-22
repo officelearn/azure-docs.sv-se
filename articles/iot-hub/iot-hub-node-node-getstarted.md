@@ -76,8 +76,9 @@ I det här avsnittet skapar du en Node.js-konsolapp som skapar en enhetsidentite
 6. Lägg till följande kod för att skapa en enhetsdefinition i identitetsregistret i din IoT Hub. Den här koden skapar en enhet om enhets-ID:t inte finns i identitetsregistret. Annars returneras nyckeln för den befintliga enheten:
    
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);

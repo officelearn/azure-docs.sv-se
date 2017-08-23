@@ -3,7 +3,7 @@ title: "Konfigurera ett fristående Azure Service Fabric-kluster | Microsoft Doc
 description: "Skapa ett fristående kluster för utveckling med tre noder som körs på samma dator. När du har slutfört den här konfigurationen kan du skapa ett kluster med flera datorer."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 
@@ -13,13 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/06/2017
-ms.author: ryanwi
+ms.author: dekapur
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
 ms.contentlocale: sv-se
 ms.lasthandoff: 04/27/2017
-
 
 ---
 

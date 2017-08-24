@@ -135,7 +135,8 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
                                System.out.println(resultSet.getString(1) + " "
                                    + resultSet.getString(2));
                            }
-                   }
+                    connection.close();
+                   }                   
            }
            catch (Exception e) {
                    e.printStackTrace();

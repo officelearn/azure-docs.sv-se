@@ -64,12 +64,12 @@
 ### [Virtuell Linux-dator från en mall](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Virtuell Windows-dator från en mall](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Lagra data
-### [Blobbar](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [Filresurser](../../storage/storage-dotnet-how-to-use-files.md)
-### [Nyckel/värde-par](../../storage/storage-dotnet-how-to-use-tables.md)
+### [Blobbar](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [Filresurser](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [Nyckel/värde-par](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [JSON-dokument](../../documentdb/documentdb-get-started.md)
 ### [Relationstabeller](../../sql-database/sql-database-get-started.md)
-### [Meddelandeköer](../../storage/storage-dotnet-how-to-use-queues.md)
+### [Meddelandeköer](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Skala
 ### [Webb- och mobilappar](../../app-service-web/web-sites-scale.md)

@@ -17,9 +17,9 @@
 ### [Bygg och distribuera ett Node.js-program](cloud-services-nodejs-develop-deploy-app.md)
 ### [Skapa en Node.js-webbapp med Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Storage och Visual Studio
-#### [Blob Storage och anslutna tjänster](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Queue Storage och anslutna tjänster](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Table Storage och anslutna tjänster](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Blob Storage och anslutna tjänster](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Queue Storage och anslutna tjänster](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Table Storage och anslutna tjänster](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Konfigurera paket för kontinuerligt skapande och distribution
 #### [TFS och Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Konfigurera trafikregler för en roll](cloud-services-enable-communication-role-instances.md)

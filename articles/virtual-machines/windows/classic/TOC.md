@@ -1,6 +1,6 @@
 # Översikt
 ## [Om virtuella datorer](../../virtual-machines-windows-about.md)
-## [Diskar och VHD:er](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Diskar och VHD:er](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [virtuella nätverk](../../../virtual-network/virtual-networks-overview.md)
 ## [Vanliga frågor och svar](faq.md)
 ## [Jämför virtuella datorer, webbplatser och molntjänster](../../../app-service-web/choose-web-site-cloud-service-vm.md)
